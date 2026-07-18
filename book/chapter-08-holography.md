@@ -335,8 +335,8 @@ Holography elegantly explains black hole thermodynamics.
 
 A CFT at finite temperature corresponds to a black hole in the bulk. The Hawking temperature of the black hole equals the CFT temperature.
 
-Finite temperature means the boundary theory is not in one sharp pure state but
-described statistically, like a many-body system in contact with a heat bath.
+Finite temperature means the boundary theory is described statistically rather
+than by one sharp pure state, like a many-body system in contact with a heat bath.
 In the dual bulk language, that same statistical state is represented by a
 black hole geometry.
 

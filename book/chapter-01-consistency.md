@@ -100,7 +100,7 @@ Simultaneity is relative. Two events that are simultaneous in my frame may not b
 
 **The lesson**: There is no absolute space and time. Different observers measure different times and distances. The intuitive picture of a universal stage with a universal clock is wrong.
 
-**The first-principles reframing**: Reality is not about a single objective description but about different observers' descriptions being *consistent* where they overlap. The laws of physics, including Lorentz invariance, are what make this agreement possible.
+**The first-principles reframing**: Reality is built from different observers' descriptions being *consistent* where they overlap. A single objective description is not the starting point. The laws of physics, including Lorentz invariance, are what make this agreement possible.
 
 ## 1.3 Hint #2: Measurement Affects Outcomes
 

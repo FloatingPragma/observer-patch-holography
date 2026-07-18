@@ -146,7 +146,7 @@ smooth limit. Spacelike correlations can exist without becoming controllable
 signals.
 
 Celestial sphere
-:   The observer sky $S^2$ is the angular screen used to
+:   The observer sky $S^2$ is the angular screen that
 organize directions, caps, and overlap checks. In the technical papers it is
 also the bridge to null-ray and Lorentz geometry.
 

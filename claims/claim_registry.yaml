@@ -130,7 +130,7 @@
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/appendix_B_bft_qecc_extensions.tex"
       ],
-      "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or is used to discharge a physical or scaling-limit hypothesis it only assumes.",
+      "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or discharges a physical or scaling-limit hypothesis it only assumes.",
       "scope_if_false": "The corresponding finite receipt is reopened; physical branch hypotheses and unrelated fixed-cutoff results must be assessed separately.",
       "status": "finite_audit_imported_with_physics_residues"
     },
@@ -386,7 +386,7 @@
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
-      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the free-fermion modular-clock instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on realized Gaussian MaxEnt boundary-collar states (profile residual 1.1e-4, wrong normalization separated, cross-ratios Cauchy to Moebius at 2.3e-3); the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression (chiral leakage asymmetry >= 9.6 with a null control), and percent-level modular Lie closure against the conformal structure constants (rate clause open); the realized-event instrumentation witnesses screen population, certified separation, the Moebius chart cocycle, and an intrinsic Lorentzian (1,2) ancestry cone on records from the actual repair dynamics, with the realized (1+2) screen-sheet dimension measured as such; the bulk-depth instrumentation then witnesses E3 rank four, bulk PCA dimension four, and a seed-stable intrinsic ancestry cone of Lorentzian signature (1,3) with the modular clock timelike on the corpus-consistent inverse-system dynamics (narrow-margin/window caveats explicit; the strong-coupling variant measures (2,2) and is retained as a countermodel); margin convergence, the Cyc limit, Lie-closure rate, second-quantized MI, cap-interior, and physical-identification families are pending, so the realized geometric branch is not certified nonempty and issue #503 is open on exactly this clause.",
+      "statement": "Bare finite consensus is not Einstein-complete. The semiclassical Einstein equation follows conditionally from one source-derived repaired quotient tower whose geometry, modular, event, stress, entropy, and scale readouts share a common domain and commute with refinement. The tower must carry the finite geometry, null-net, cap-interior, and event premises; one certified cofinal family for every o(ell^4) remainder; universal coupling; a source-derived vacuum reference; and two independent scale readouts with trivial positive-rescaling stabilizer. The finite artifacts verify algebraic identities, evaluator logic, manifests, deletion rules, and synthetic controls. They do not certify an inhabited tower. Full isolated countermodel towers are also required before the receipt list can be called semantically minimal. Source construction, asymptotic certification, physical identification, and the isolated countermodel matrix are work in progress.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
@@ -396,7 +396,7 @@
       "imported_results": [
         "composition_of_the_packet_theorems"
       ],
-      "oph_specific_delta": "The Einstein branch-entry umbrella is reduced to a single machine-checkable nonemptiness clause with a recorded negative evaluation on current realized artifacts, separating derivation completeness from realization.",
+      "oph_specific_delta": "The result separates a typed conditional composition theorem from the source-construction and certification problem that would establish an inhabited premise.",
       "novelty_type": "composed_branch_entry_theorem",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -413,7 +413,7 @@
         "code/geometry/bulk_depth_receipts.py",
         "code/geometry/runs/bulk_depth_receipt_report.json"
       ],
-      "falsifier": "An arrow of the composition fails on its stated inputs, a hidden geometric input is found in the input form, or the nonemptiness evaluation is misreported.",
+      "falsifier": "An arrow of the composition fails on its stated inputs, a target quantity enters the source graph, or a claimed tower fails a common-domain, tail, coupling, vacuum, or scale premise.",
       "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",
       "status": "conditional_composed_theorem_nonemptiness_open"
     },
@@ -443,6 +443,45 @@
       "falsifier": "After F and CP-1 to CP-3 close and the joint posterior is propagated, the readback map has no unique stable fixed point, has multiple admissible fixed points, or the observed branch violates the capacity relation.",
       "scope_if_false": "The cosmological-capacity closure falls; the local Einstein branch may survive with an undetermined cosmological term.",
       "status": "conditional_theorem_physical_capacity_open"
+    },
+    {
+      "claim_id": "OPH-COSMO-SCREEN-SPECTRUM",
+      "statement": "Conditional on one source DAG carrying the geometric screen scalar, primitive collar release law, conformal precision, infinitesimal edge-center reserve generator, source-stress, clock, freezeout, physical scale, and radial receipts, OPH gives an exact gamma-ratio screen covariance. The radial packet proves one-shell non-identifiability and gives physical source dilation and complete radial cross-covariance tomography as separate uniqueness routes.",
+      "owner_paper": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+      "tier": "phase_III_conditional_source_theorem",
+      "assumptions": [
+        "quotient_visible_uniform_density_volume_readout",
+        "primitive_collar_MaxEnt_release_law",
+        "positive_conformal_precision_and_refinement_limit",
+        "full_collar_reserve_generator_density_P_over_24",
+        "orientation_half_identity",
+        "source_stress_single_clock_and_freezeout",
+        "translation_rotation_covariance",
+        "physical_scale_and_mode_basis",
+        "scale_natural_source_embedding_and_physical_dilation_or_radial_tomography",
+        "radial_null_window_and_forward_residual_receipts"
+      ],
+      "imported_results": [
+        "strict_concavity_of_relative_entropy",
+        "continuous_Cauchy_semigroup_theorem",
+        "spherical_harmonic_functional_calculus",
+        "spherical_Bessel_integral",
+        "spherical_Hankel_inversion"
+      ],
+      "oph_specific_delta": "The amplitude is the expected quadratic release energy under a primitive source-only collar law. The tilt is the source-facing half of the infinitesimal protected reserve generator. A scale-natural embedding transports that cocycle to physical dilation and restricts the radial continuation to one dimension; complete radial cross-covariances provide the unrestricted tomography route.",
+      "novelty_type": "conditional_source_spectrum_composition",
+      "evidence": [
+        "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+        "paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex",
+        "paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex",
+        "code/cosmology/oph_radial_lift_330.py",
+        "code/cosmology/scr330_radial_receipt.schema.json",
+        "cosmology/oph_cosmology_finite_source_cmb_program.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
+      "falsifier": "A source DAG satisfying every premise fails the gamma-ratio covariance or thin-shell amplitude relation, the reserve generator does not give P over 48 on the source-facing half, the physical dilation or tomography receipt fails, or the promoted source has a measurement-aware ancestor.",
+      "scope_if_false": "The conditional inflation-free screen-spectrum branch falls; the recovered consensus, Einstein, and Standard Model branches are independent.",
+      "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress"
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",

@@ -157,7 +157,7 @@ If X and Y are independent, I(X:Y) = 0-knowing one tells you nothing about the o
 
 $H(X|Y)$ means the uncertainty left about $X$ after $Y$ is known. $H(X,Y)$ is
 the joint entropy of the pair. Mutual information is the amount of uncertainty
-that disappears when one variable is used to predict the other.
+that disappears when one variable predicts the other.
 
 ### CMI: The Recovery Metric
 

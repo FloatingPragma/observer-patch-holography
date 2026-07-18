@@ -9,11 +9,17 @@ The main OPH papers establish the structural observer, geometry, gravity, and ma
 | Paper | Main contribution |
 | --- | --- |
 | [Dark Gravity](oph_dark_matter_paper.pdf) ([source](oph_dark_matter_paper.tex)) | Repair-charge condensate action, dust-like normal phase, deep-galaxy radial-acceleration branch, and coherent-source coupling |
-| [Finite-Source CMB Program](oph_cosmology_finite_source_cmb_program.pdf) ([source](oph_cosmology_finite_source_cmb_program.tex), [Markdown](oph_cosmology_finite_source_cmb_program.md)) | Source-only inputs, scale bridge, transfer requirements, and CMB promotion path |
-| [Inflation Without an Inflaton](oph_inflation_without_inflaton_observer_screen_synchronization.pdf) ([source](oph_inflation_without_inflaton_observer_screen_synchronization.tex), [Markdown](oph_inflation_without_inflaton_observer_screen_synchronization.md)) | Observer-screen synchronization, flatness, horizon coherence, and geometric screen spectrum |
+| [Finite-Source CMB Program](oph_cosmology_finite_source_cmb_program.pdf) ([source](oph_cosmology_finite_source_cmb_program.tex), [Markdown](oph_cosmology_finite_source_cmb_program.md)) | Conditional source-screen spectrum, finite receipt contract, transfer requirements, and CMB promotion path |
+| [Inflation Without an Inflaton](oph_inflation_without_inflaton_observer_screen_synchronization.pdf) ([source](oph_inflation_without_inflaton_observer_screen_synchronization.tex), [Markdown](oph_inflation_without_inflaton_observer_screen_synchronization.md)) | Observer-screen synchronization, conditional edge-center tilt, one-shell radial obstruction, physical dilation and tomography routes, flatness, and horizon coherence |
 | [Cosmological Vacuum And Structure Formation](oph_cosmological_vacuum_and_structure_formation.pdf) ([source](oph_cosmological_vacuum_and_structure_formation.tex), [Markdown](oph_cosmological_vacuum_and_structure_formation.md)) | Vacuum boundary, fluctuation ensembles, proto-objects, worldlines, and structure seeds |
-| [Cosmology Data And Likelihood Contracts](oph_cosmology_data_likelihood_contracts.pdf) ([source](oph_cosmology_data_likelihood_contracts.tex), [Markdown](oph_cosmology_data_likelihood_contracts.md)) | Data provenance, transfer, nuisance treatment, pooled reducers, and official likelihood comparisons |
+| [Cosmology Data And Likelihood Contracts](oph_cosmology_data_likelihood_contracts.pdf) ([source](oph_cosmology_data_likelihood_contracts.tex), [Markdown](oph_cosmology_data_likelihood_contracts.md)) | Boundary between the conditional source theorem, finite source instantiation, transfer, nuisance treatment, and official likelihood comparison |
 | [Boltzmann Transport Derivation](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | Finite transport interface between OPH sources and observable distribution functions |
+
+The [radial-lift theorem note](RADIAL_LIFT_SOLUTION.md) gives the one-shell
+non-identifiability proof, the physical source-dilation theorem, radial
+cross-covariance tomography, the exact amplitude conversion, and finite-window
+bound. The [simulator contract](SIMULATOR_RADIAL_CONTRACT_330.md) specifies the
+fail-closed evidence split used by finite runs.
 
 The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the remaining source, lift, stress, abundance, transfer, and likelihood obligations in one place.
 

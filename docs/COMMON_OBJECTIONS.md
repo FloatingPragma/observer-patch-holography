@@ -29,7 +29,7 @@ binding statuses live in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and
 
 ### Short answer
 
-The theory layer takes zero quantitative inputs: `P` is defined as the solution of `P = phi + sqrt(pi)/A_T(P)`, and no measured number appears in the defining equation. While that closure stays open, the working `P` is located under SL-3 from measured `alpha`, and no OPH surface lists `alpha` as an output. Under principle SL-3 (constant identification, [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)), the fine-structure constant inside the world and the substrate pixel readout are one quantity, so the measured value is the instrument that locates the working `P`: substrate parameter location at the working layer, with the borrow counted in the closure ledger. The cost of the principle is strict and permanent: `alpha` (with `Lambda` and `G`) sits on the inputs list at every surface, and a quantity used to locate a working value is never booked as a prediction.
+The theory layer takes zero quantitative inputs: `P` is defined as the solution of `P = phi + sqrt(pi)/A_T(P)`, and no measured number appears in the defining equation. While that closure stays open, the working `P` is located under SL-3 from measured `alpha`, and no OPH surface lists `alpha` as an output. Under principle SL-3 (constant identification, [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)), the fine-structure constant inside the world and the substrate pixel readout are one quantity, so the measured value is the instrument that locates the working `P`: substrate parameter location at the working layer, with the borrow counted in the closure ledger. The cost of the principle is strict and permanent: `alpha` (with `Lambda` and `G`) sits on the inputs list at every surface, and a quantity that locates a working value is never booked as a prediction.
 
 The open test is the loop residual after the physical endpoint map is complete. The
 declared source map contracts to `alpha^-1 = 136.994835177413`, while the declared
@@ -96,7 +96,13 @@ activated and executed before this lane can test the "exactly our universe" clai
 
 ### Short answer
 
-The rebuttal is conditional, and the condition is open. **If the controlled Bisognano-Wichmann (BW) certificate holds** (cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization on the extracted prime geometric cap pair), **then** boosts act as automorphisms of the cap net, the entropy first law is covariant, and the derivation reaches the full tensor Einstein equation. Establishing that certificate in an explicit UV regulator with controlled errors is an open task of the program, not a finished theorem.
+The rebuttal is conditional. The compact paper proves two separate results.
+Bare finite consensus does not imply the Einstein equation. The tensor equation
+does follow from one source-derived common-domain tower carrying the controlled
+geometric modular certificate, null and event data, the exact entropy split,
+certified asymptotic tails, universal coupling, a source-derived vacuum
+reference, and independent physical scale readouts. Construction and
+certification of such a tower are work in progress.
 
 With the conditional stated, the criticism itself would be decisive against a theory that treated the UV cells as little rigid rods inside a pre-given spacetime. OPH has a different setup.
 
@@ -104,9 +110,9 @@ In OPH:
 
 - `a_cell` is a UV **area density** attached to cut elements of the screen net, not a preferred spatial ruler in emergent 3+1D spacetime.
 - The physical objects are patch algebras and their overlap maps, not coordinate cells in a background bulk.
-- Lorentz kinematics follow on the controlled BW branch under the certificate above: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
+- Lorentz kinematics follow on the controlled BW branch under the certificate above: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. In the special type-I representation this becomes `K_C = 2pi B_C + Z_C`, with a central boundary-sector term.
 - The entanglement first law is applied to these algebraic caps, and it is covariant under the induced Lorentz action.
-- If the certificate holds, the gravity derivation is upgraded from a scalar rest-frame statement to the **full tensor Einstein equation** by overlap consistency across all local timelike directions, `G_ab + Lambda g_ab = 8pi G <T_ab>`, so the framework does **not** stop at a Newtonian approximation on that branch. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
+- On the full typed branch, overlap consistency across all local timelike directions upgrades the scalar rest-frame relation to the **full tensor Einstein equation**, `G_ab + Lambda g_ab = 8pi G <T_ab>`. The Newtonian relation is its weak-field limit. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
 
 ---
 
@@ -143,7 +149,7 @@ This distinction matters:
 
 OPH is explicitly of the second kind. The published derivation formulates the relevant step through collar refinement, quasi-locality, and geometric modular action in the continuum/refinement limit. The observable symmetry is a symmetry of the **patch algebra net**, not of an imagined external crystal (*Observers Are All You Need*, Part I §2.3, §4.2-4.3).
 
-A Lorentz boost is therefore not a mechanical squeezing of substrate pixels but a relation between observer descriptions of the same correlation pattern, implemented at the level of the patch net and modular generators (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
+A Lorentz boost relates observer descriptions of the same correlation pattern at the level of the patch net and modular generators. It does not mechanically squeeze substrate pixels (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
 
 ---
 
@@ -395,14 +401,14 @@ So the criticism asks for too much in the wrong place. A full UV completion woul
 
 If one wants the reply in one compact chain, it is this:
 
-1. OPH does **not** identify physical entropy with a frame-dependent count of coordinate pixels.
+1. OPH identifies physical entropy with reduced states on cap algebras rather than a frame-dependent count of coordinate pixels.
 2. The physical objects are reduced states on cap algebras and their modular Hamiltonians.
-3. Under the controlled BW branch, cap modular flow is support-readable, geometric, and KMS-normalized: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`. The operator shorthand `K_C = 2pi B_C` is only the special type-I representation.
+3. Under the controlled BW branch, cap modular flow is support-readable, geometric, and KMS-normalized: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`. The special type-I representation is `K_C = 2pi B_C + Z_C`, with `Z_C` central.
 4. The cap-preserving geometric group is conformal on `S^2`, hence `Conf^+(S^2) ≅ SO^+(3,1)`.
 5. Therefore boosts act as automorphisms of the cap net: `rho_C -> U(Lambda) rho_C U(Lambda)^dagger` and `K_C -> U(Lambda) K_C U(Lambda)^dagger`.
 6. Von Neumann entropy and the first-law pairing are invariant under this conjugation: `S(U rho U^dagger) = S(rho)` and `delta <U K U^dagger>_(U rho U^dagger) = delta <K>_rho`.
 7. The null blow-up gives the local boost algebra and stress-energy generator: `[K,P] = i 2pi P` and `K = 2pi ∫ v T_kk dv + central`.
-8. Entanglement equilibrium then yields the Einstein equation, first in a rest frame and then, by overlap consistency across all timelike directions, in tensor form: `G_ab + Lambda g_ab = 8pi G <T_ab>`.
+8. Entanglement equilibrium yields the rest-frame relation. Common-domain coverage of all timelike directions, conservation, the vacuum reference, and independent scale identification yield the tensor form: `G_ab + Lambda g_ab = 8pi G <T_ab>`.
 
 That is why the criticism does not follow.
 
@@ -420,7 +426,7 @@ But that is **not** the same as saying:
 
 > "A boosted observer sees contracted pixels, so OPH violates Lorentz invariance and only gets Newtonian gravity."
 
-That second statement confuses the UV regulator with the emergent observable geometry. In OPH, Lorentz invariance is not the symmetry of a literal background lattice but the symmetry forced on observer comparisons by modular flow on the screen net. Once that step is granted, the entropy first law is covariant, the null modular bridge is Lorentzian, and the derivation reaches the full Einstein tensor equation.
+That second statement confuses the UV regulator with the emergent observable geometry. In OPH, Lorentz invariance acts on observer comparisons through modular flow on the screen net. A literal background lattice has no such claimed symmetry. Under the full typed branch premises, the entropy first law is covariant, the null modular bridge is Lorentzian, and the derivation reaches the full Einstein tensor equation.
 
 ---
 

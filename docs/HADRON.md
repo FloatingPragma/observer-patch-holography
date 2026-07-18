@@ -96,8 +96,8 @@ Delta_had(P)
   = mZ(P)^2/(3 pi) int ds rho_Q(s;P) / (s (s + mZ(P)^2)).
 ```
 
-The empirical spectral payload is not a source-only OPH theorem but the
-best data-driven completion of the low-energy hadronic transport term.
+The empirical spectral payload is the best data-driven completion of the
+low-energy hadronic transport term. It has no source-only OPH theorem status.
 
 ## Current Fine-Structure Values
 
@@ -251,8 +251,8 @@ The public claim is not:
 OPH derives the full hadronic spectral measure without QCD computation.
 ```
 
-The empirical closure can produce final display values. It cannot be used to
-claim an arbitrary-precision source-only derivation.
+The empirical closure can produce final display values. It does not establish
+an arbitrary-precision source-only derivation.
 
 ## Learning-Material Summary
 

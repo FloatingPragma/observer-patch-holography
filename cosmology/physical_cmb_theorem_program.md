@@ -11,7 +11,12 @@ OPH-FPE CMB curves are diagnostics. A physical CMB claim requires a bounded fini
 - **Transfer:** regular gauge-invariant initial modes, recombination and collision terms, numerical convergence, and recovery of declared limiting cases.
 - **Likelihood:** datasets, masks, covariance, nuisance parameters, priors, and combination rules.
 
-The source map, physical radial lift, relativistic repair stress, dark abundance, Boltzmann bridge, and joint likelihood are work in progress. No CMB output is a physical OPH prediction. Cosmology is outside the falsification program.
+The radial mathematics proves the one-shell obstruction and the conditional
+physical-dilation and cross-covariance tomography routes. A finite source map
+that passes either radial route is work in progress, together with the
+relativistic repair stress, dark abundance, Boltzmann bridge, and joint
+likelihood. CMB outputs have diagnostic status. Cosmology is outside the
+falsification program.
 
 The detailed interfaces live in:
 

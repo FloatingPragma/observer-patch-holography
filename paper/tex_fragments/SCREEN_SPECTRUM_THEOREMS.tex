@@ -130,16 +130,39 @@ controlled higher-order terms.
 \end{remark}
 
 \begin{definition}[source release energy]\label{def:oph-screen-release-energy}
-The amplitude source is an independently selected quotient ensemble \(\nu^{\rm src}_r\) on frozen
-or released collar normal forms:
+Let \(m_r^0\) be the tracially pointed base weight on the finite physical collar quotient.
+Let \(F_{r,a}\) be a finite ledger of primitive collar observables: scalar occupancy,
+protected-center presence, released volume, conserved source charges, and the release clock.
+The ledger excludes screen energy, sky spectra, CMB residuals, likelihoods, fitted amplitudes,
+and measurement-calibrated proxies.  For source-emitted constraint values
+\(c_{r,a}^{\rm col}\), the selected release law is
+\[
+  \nu^{\rm rel}_r(x)=\frac{m_r^0(x)
+  \exp[-\sum_a\lambda_{r,a}F_{r,a}(x)]}{Z_r},
+  \qquad
+  \mathbb E_{\nu_r^{\rm rel}}F_{r,a}=c_{r,a}^{\rm col}.
+\]
+Strict concavity of relative entropy gives uniqueness on full support.  A boundary optimum uses
+the same form on its certified support.  The constraint ledger, base weight, source DAG,
+multipliers, support, and refinement maps belong to the receipt.
+
+For this independently selected quotient ensemble on released collar normal forms, define
 \[
   E^{\rm src}_{q,r}
-  =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm src}_r(x).
+  =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm rel}_r(x).
 \]
-The receipt must expose \(\nu^{\rm src}_r\), the base measure, \(K_r\), \(d_r\),
+The receipt must expose \(\nu^{\rm rel}_r\), the base measure, \(K_r\), \(d_r\),
 \(E^{\rm src}_{q,r}\), \(A_{q,r}\), no-observation ancestry, and the same operator normalization
 used in the action.  MaxEnt alone does not determine amplitude.
 \end{definition}
+
+\begin{proposition}[microscopic-law necessity]\label{prop:oph-screen-amplitude-nogo}
+For fixed positive \(K_r\), the Gaussian family
+\(Z(A)^{-1}\exp[-\langle q,K_rq\rangle/(2A)]\) exists for every \(A>0\).
+The quadratic MaxEnt form therefore leaves one positive scale free.  The source release law in
+Definition~\ref{def:oph-screen-release-energy}, or an equivalent source-only vacuum law, supplies
+the energy that fixes \(A_{q,r}=2E^{\rm src}_{q,r}/d_r\).
+\end{proposition}
 
 \begin{theorem}[rotational screen spectrum]\label{thm:oph-screen-angular-spectrum}
 If the continuum precision \(K_\theta\) commutes with the \(SO(3)\) action on scalar functions,
@@ -156,6 +179,20 @@ Then \(\Lambda_\ell(0)=\ell(\ell+1)\), and the MaxEnt covariance gives
 \]
 Consequently \(\mathcal D_\ell^q=\ell(\ell+1)C_\ell^q/(2\pi)\sim(A_q/2\pi)\ell^{-\theta}\).
 \end{theorem}
+
+\begin{definition}[source-derived conformal precision]\label{def:oph-screen-conformal-precision}
+Let \(L_r\succeq0\) be the normalized detailed-balanced scalar collar Dirichlet operator on
+\(V_r\), with continuum limit \(-\Delta_{S^2}\).  Set
+\[
+  B_r=(L_r+\tfrac14I)^{1/2},\qquad
+  K_{\theta,r}=
+  \frac{\Gamma(B_r+\frac32+\frac\theta2)}
+       {\Gamma(B_r-\frac12-\frac\theta2)}.
+\]
+For \(-2<\theta<4\) on the retained \(\ell\ge2\) branch, this operator is positive.  The
+gamma recurrence gives \(K_{0,r}=L_r\) exactly.  The finite receipt carries detailed balance,
+positivity, the \(\ell(\ell+1)\) normalization, anisotropy splitting, and refinement residuals.
+\end{definition}
 
 \begin{theorem}[finite refinement error]\label{thm:oph-screen-refinement}
 Suppose that for \(2\le\ell\le L\)
@@ -200,13 +237,74 @@ Set \(g(t)=-\log\lambda(e^t)\).  The semigroup law gives \(g(t+s)=g(t)+g(s)\).  
 \(g(t)=\theta t\), hence the result.
 \end{proof}
 
-\begin{target}[edge-center \(P_\star/48\) tilt]\label{target:oph-p-over-48-tilt}
-The identity \(\theta=P_\star/48\) is a theorem-grade statement only after three lemmas pass:
-an oriented edge-center reserve \(\rho_{\rm full}=P_\star/24\), a scalar half-collar projector
-\(\rho_q=P_\star/48\), and a reserve-to-RG Ward identity equating this reserve with
-\(-d\log\mathcal D_\ell^q/d\log\ell\).  Until then \(P_\star/48\) and \(e(P_\star-\varphi)\) are
-distinct diagnostic hypotheses.
-\end{target}
+\begin{definition}[edge-center reserve generator receipt]\label{def:oph-screen-reserve-generator}
+Write \(s=\log b\) for logarithmic refinement thickness.  Let \(u_{\rm full}(s)\) be the
+scalar-conditioned covariance-survival cocycle across a full oriented collar, and let \(u_q(s)\)
+be its source-facing half-collar restriction.  The receipt requires
+\[
+u(s+t)=u(s)u(t),\qquad u(0)=1,
+\]
+strong continuity at zero, the source-derived full-collar density
+\[
+-u'_{\rm full}(0)=\frac{P_\star}{24},
+\]
+and the orientation-reversal coarea identity
+\[
+-u'_q(0)=\frac12[-u'_{\rm full}(0)]=\frac{P_\star}{48}.
+\]
+These are infinitesimal generator statements.  A one-step survival probability has exponent
+\(-\log u_q(\log b)/\log b\).
+\end{definition}
+
+\begin{theorem}[edge-center tilt and repair-clock reconciliation]
+\label{thm:oph-p-over-48-tilt}
+Under Definition~\ref{def:oph-screen-reserve-generator},
+\[
+u_q(s)=e^{-\theta s},\qquad
+\theta=\frac{P_\star}{48},\qquad
+n_s=1-\frac{P_\star}{48}.
+\]
+In the coordinate \(\theta=\kappa_{\rm rep}(P_\star-\varphi)\), the same branch has
+\[
+\kappa_{\rm rep}^{\rm edge}
+=\frac{P_\star}{48(P_\star-\varphi)}.
+\]
+The value \(e\) is a separate diagnostic hypothesis unless an additional identity equates it
+with this source-derived coordinate.
+\end{theorem}
+
+\begin{proof}
+For \(g(s)=-\log u_q(s)\), the cocycle law gives the continuous Cauchy equation.  Hence
+\(g(s)=\theta s\).  Differentiation at zero and the half-collar identity give
+\(\theta=P_\star/48\).  The formula for \(\kappa_{\rm rep}^{\rm edge}\) is algebraic.
+\end{proof}
+
+\begin{theorem}[homogeneous radial source family]\label{thm:oph-screen-radial-source-family}
+Assume source-stress closure, a single clock, freezeout, multicenter consistency, and
+translation/rotation covariance. Let \(C_\zeta=M_{\Delta_\zeta^2}\) on the common physical
+\(d\ln k\) mode basis. If a scale-natural source embedding transports refinement to physical
+dilation and its finite operator residual converges to
+\[
+D_s^{-1}C_\zeta D_s=e^{-\theta s}C_\zeta,
+\qquad (D_sf)(k,\hat k)=f(e^{-s}k,\hat k),
+\]
+then every positive measurable representative satisfies
+\[
+\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}
+\]
+almost everywhere. Continuity gives the pointwise identity. A single shell has an
+infinite-dimensional radial kernel, including positive ambiguities; complete radial
+cross-covariances give the independent spherical-Hankel tomography route.
+\end{theorem}
+
+\begin{proof}
+Conjugation of the multiplication operator gives
+\(\Delta_\zeta^2(e^sk)=e^{-\theta s}\Delta_\zeta^2(k)\) almost everywhere. In logarithmic
+coordinates, rational-translation invariance on a common full-measure set forces
+\(e^{\theta t}\Delta_\zeta^2(e^t)\) to be constant almost everywhere. The one-shell and
+tomography statements follow from the correlation-restriction and spherical-Hankel theorems in
+the primordial bridge packet.
+\end{proof}
 
 \begin{theorem}[thin-shell power-law lift]\label{thm:oph-thin-shell-powerlaw-lift}
 Assume \(q(\hat n)=Z_\star\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)\) and
@@ -255,13 +353,32 @@ Radial promotion therefore requires either a source theorem restricting \(p\), o
 with a published null basis, resolution kernels, positivity checks, and prior-sensitivity report.
 \end{proposition}
 
+\begin{theorem}[conditional source-spectrum promotion]\label{thm:oph-screen-spectrum-promotion}
+One hash-locked source DAG may emit
+\[
+(q_r,S_{{\rm scr},r},\theta,A_{q,r},C_{\ell,r}^q,A_{\zeta,r},
+\Delta_{\zeta,r}^2)
+\]
+as a conditional primordial packet only when the geometric-scalar, collar-law, release-energy,
+reserve-generator, conformal-precision, refinement, source-stress, single-clock, freezeout,
+adiabaticity, isocurvature, phase-coherence, thin-shell, radial-null, finite-window, and forward-
+residual receipts pass on that DAG.  Any measurement, likelihood, fitted parameter, or
+measurement-calibrated ancestor fails the source packet.  Physical temperature and polarization
+spectra require the independent Boltzmann, recombination, nuisance, covariance, and likelihood
+gates.
+\end{theorem}
+
 \begin{target}[screen-spectrum receipt set]\label{target:oph-screen-spectrum-receipts}
-The theorem-grade screen spectrum requires the following receipt families before any primordial or
-CMB promotion:
+A concrete source-derived spectrum requires the following receipt families before primordial
+promotion:
 \begin{enumerate}[leftmargin=2em]
 \item geometry, scalar quotient, low-mode projector, scalar precision, and operator normalization;
 \item quotient ensemble selection, scalar release energy, and MaxEnt screen covariance;
-\item scalar refinement tilt and angular screen spectrum with a finite error budget;
-\item radial window, radial null-space, forward residual, and transfer firewall.
+\item the infinitesimal reserve generator, scalar refinement tilt, and angular screen spectrum
+with a finite error budget;
+\item source-stress, clock, freezeout, radial-window, radial-null, forward-residual, and transfer
+firewall receipts.
 \end{enumerate}
+The theorem and algorithm packet is complete.  Construction of one finite source DAG that passes
+this receipt set is work in progress.
 \end{target}

@@ -179,7 +179,7 @@ This is a deep shift in perspective. Space is not a fixed container. Each observ
 
 ## 3.6 Why a Sphere?
 
-In the symmetric cases used to motivate this construction, the screen is naturally modeled as (approximately) spherical. This choice follows from causal light-cone geometry in those cases.
+In the symmetric cases motivating this construction, the screen is naturally modeled as (approximately) spherical. This choice follows from causal light-cone geometry in those cases.
 
 Light travels at the same speed in all directions. If you stand at a point and wait, the light that can reach you from a time $t$ ago forms a sphere of radius $ct$ around you.
 
@@ -388,7 +388,7 @@ correlations across the interfaces, and let nearby patches stay in sync.
 
 That picture turns the screen from a metaphor into a regulator chart over a
 finite patch machine. It can be rebuilt in miniature with ordinary qubits,
-then used to study finite-resolution measurement, durable records,
+and supports the study of finite-resolution measurement, durable records,
 restoration, and synchronization inside one bounded system.
 
 ## 3.10 Entanglement Creates Depth

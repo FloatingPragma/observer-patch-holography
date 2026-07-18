@@ -1,0 +1,685 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/scr330-radial-v2.schema.json",
+  "title": "OPH issue 330 radial lift receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt",
+    "passed",
+    "claim_tier",
+    "source_dag_hash",
+    "no_measurement_fit_likelihood_ancestor",
+    "physical_tt_te_ee_claim",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "scr330-radial-v2"
+    },
+    "receipt": {
+      "enum": [
+        "SCR330_SOURCE_SHELL_EMBEDDING_RECEIPT",
+        "SCR330_PHYSICAL_MODE_BASIS_RECEIPT",
+        "SCR330_RADIAL_DILATION_INTERTWINER_RECEIPT",
+        "SCR330_THIN_SHELL_MELLIN_LIFT_RECEIPT",
+        "SCR330_FINITE_WINDOW_KERNEL_RECEIPT",
+        "SCR330_RADIAL_NULL_REPORT",
+        "SCR330_RADIAL_FORWARD_RESIDUAL_RECEIPT",
+        "SCR330_RADIAL_TOMOGRAPHY_RECEIPT",
+        "SCR330_RADIAL_PROMOTION_RECEIPT",
+        "SCR330_TRANSFER_FIREWALL_RECEIPT"
+      ]
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "claim_tier": {
+      "enum": [
+        "E0",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ]
+    },
+    "source_dag_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "no_measurement_fit_likelihood_ancestor": {
+      "type": "boolean"
+    },
+    "physical_tt_te_ee_claim": {
+      "type": "boolean"
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "radial_branch": {
+          "enum": [
+            "SOURCE_DILATION",
+            "RADIAL_TOMOGRAPHY",
+            "PRIOR_CONTINUATION"
+          ]
+        },
+        "source_embedding_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "physical_mode_basis_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "background_curvature_status": {
+          "enum": [
+            "FlatExact",
+            "FlatAssumed",
+            "OpenCurved",
+            "ClosedCurved",
+            "Unresolved"
+          ]
+        },
+        "Z_q": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "theta": {
+          "type": "number",
+          "exclusiveMinimum": -2,
+          "exclusiveMaximum": 4
+        },
+        "A_q": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "A_zeta": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "k_pivot": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "R_star": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "window_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "safe_logk_band": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "dilation_intertwiner": {
+          "type": "object",
+          "required": [
+            "scale_ratios",
+            "source_embedding_commutator_norms",
+            "screen_covariance_naturality_residual_norms",
+            "physical_operator_residual_norms",
+            "strong_covariance_cauchy_residuals",
+            "strong_dilation_cauchy_residuals",
+            "uniform_covariance_norm_bound",
+            "finite_to_continuum_passed",
+            "max_absolute_log_residual",
+            "tolerance",
+            "passed"
+          ],
+          "properties": {
+            "scale_ratios": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minItems": 1
+            },
+            "max_absolute_log_residual": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rms_log_residual": {
+              "type": "number",
+              "minimum": 0
+            },
+            "tolerance": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "operator_residual_norms": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "off_band_leakage": {
+              "type": "number",
+              "minimum": 0
+            },
+            "source_embedding_commutator_norms": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "screen_covariance_naturality_residual_norms": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "physical_operator_residual_norms": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "strong_covariance_cauchy_residuals": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "strong_dilation_cauchy_residuals": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "uniform_covariance_norm_bound": {
+              "type": "number",
+              "minimum": 0
+            },
+            "finite_to_continuum_passed": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        },
+        "mellin_lift": {
+          "type": "object",
+          "properties": {
+            "ell_min": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "ell_max": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "convergence_strip": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "A_zeta_over_A_q": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "max_arithmetic_residual": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "finite_window": {
+          "type": "object",
+          "properties": {
+            "mean_radius": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "variance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "eta_by_ell": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "absolute_bound_by_ell": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "radial_svd": {
+          "type": "object",
+          "required": [
+            "shape",
+            "rank",
+            "nullity",
+            "singular_values",
+            "rank_threshold"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "rank": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "nullity": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "singular_values": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "rank_threshold": {
+              "type": "number",
+              "minimum": 0
+            },
+            "condition_number_nonzero": {
+              "type": "number",
+              "minimum": 1
+            },
+            "null_basis_hash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "forward_residual": {
+          "type": "object",
+          "required": [
+            "absolute_l2_residual",
+            "relative_l2_residual",
+            "tolerance",
+            "passed"
+          ],
+          "properties": {
+            "absolute_l2_residual": {
+              "type": "number",
+              "minimum": 0
+            },
+            "relative_l2_residual": {
+              "type": "number",
+              "minimum": 0
+            },
+            "tolerance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "held_out": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        },
+        "radial_tomography": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "cross_covariance_hash",
+            "hankel_unitarity_residual",
+            "off_diagonal_k_leakage",
+            "positive_multiplication_spectrum",
+            "refinement_converged",
+            "held_out_reconstruction_passed"
+          ],
+          "properties": {
+            "cross_covariance_hash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "hankel_unitarity_residual": {
+              "type": "number",
+              "minimum": 0
+            },
+            "off_diagonal_k_leakage": {
+              "type": "number",
+              "minimum": 0
+            },
+            "positive_multiplication_spectrum": {
+              "type": "boolean"
+            },
+            "refinement_converged": {
+              "type": "boolean"
+            },
+            "held_out_reconstruction_passed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "passed": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "no_measurement_fit_likelihood_ancestor": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "claim_tier": {
+            "enum": [
+              "E0",
+              "E1",
+              "E2",
+              "E3",
+              "E4"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "physical_tt_te_ee_claim": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "receipt": {
+            "const": "SCR330_RADIAL_PROMOTION_RECEIPT"
+          },
+          "passed": {
+            "const": true
+          }
+        },
+        "required": [
+          "receipt",
+          "passed"
+        ]
+      },
+      "then": {
+        "properties": {
+          "claim_tier": {
+            "const": "E4"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "receipt": {
+            "const": "SCR330_RADIAL_PROMOTION_RECEIPT"
+          },
+          "passed": {
+            "const": true
+          },
+          "payload": {
+            "properties": {
+              "radial_branch": {
+                "const": "SOURCE_DILATION"
+              }
+            },
+            "required": [
+              "radial_branch"
+            ]
+          }
+        },
+        "required": [
+          "receipt",
+          "passed",
+          "payload"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "required": [
+              "radial_branch",
+              "source_embedding_hash",
+              "physical_mode_basis_id",
+              "background_curvature_status",
+              "Z_q",
+              "theta",
+              "A_q",
+              "A_zeta",
+              "k_pivot",
+              "R_star",
+              "dilation_intertwiner",
+              "radial_svd",
+              "forward_residual"
+            ],
+            "properties": {
+              "background_curvature_status": {
+                "enum": [
+                  "FlatExact",
+                  "FlatAssumed",
+                  "OpenCurved",
+                  "ClosedCurved"
+                ]
+              },
+              "dilation_intertwiner": {
+                "properties": {
+                  "passed": {
+                    "const": true
+                  },
+                  "finite_to_continuum_passed": {
+                    "const": true
+                  }
+                }
+              },
+              "forward_residual": {
+                "properties": {
+                  "passed": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            "anyOf": [
+              {
+                "required": [
+                  "mellin_lift"
+                ]
+              },
+              {
+                "required": [
+                  "finite_window"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "receipt": {
+            "const": "SCR330_RADIAL_PROMOTION_RECEIPT"
+          },
+          "passed": {
+            "const": true
+          },
+          "payload": {
+            "properties": {
+              "radial_branch": {
+                "const": "RADIAL_TOMOGRAPHY"
+              }
+            },
+            "required": [
+              "radial_branch"
+            ]
+          }
+        },
+        "required": [
+          "receipt",
+          "passed",
+          "payload"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "required": [
+              "radial_branch",
+              "source_embedding_hash",
+              "physical_mode_basis_id",
+              "background_curvature_status",
+              "Z_q",
+              "theta",
+              "A_q",
+              "A_zeta",
+              "k_pivot",
+              "R_star",
+              "radial_tomography",
+              "radial_svd",
+              "forward_residual"
+            ],
+            "properties": {
+              "background_curvature_status": {
+                "enum": [
+                  "FlatExact",
+                  "FlatAssumed",
+                  "OpenCurved",
+                  "ClosedCurved"
+                ]
+              },
+              "radial_tomography": {
+                "properties": {
+                  "positive_multiplication_spectrum": {
+                    "const": true
+                  },
+                  "refinement_converged": {
+                    "const": true
+                  },
+                  "held_out_reconstruction_passed": {
+                    "const": true
+                  }
+                }
+              },
+              "forward_residual": {
+                "properties": {
+                  "passed": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "receipt": {
+            "const": "SCR330_RADIAL_PROMOTION_RECEIPT"
+          },
+          "payload": {
+            "properties": {
+              "radial_branch": {
+                "const": "PRIOR_CONTINUATION"
+              }
+            },
+            "required": [
+              "radial_branch"
+            ]
+          }
+        },
+        "required": [
+          "receipt",
+          "payload"
+        ]
+      },
+      "then": {
+        "properties": {
+          "passed": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -173,8 +173,8 @@ disciplined enough to preserve causal structure.
 The founders broke the old answer-sheet view. Quantum information theory
 then turned the break into a resource. Entanglement became something to test,
 distill, teleport, protect, and use for computation. OPH takes that modern
-view seriously. Quantum weirdness is not a fog around reality but part of
-the machinery that lets finite observers share a reality without reducing it
+view seriously. Quantum weirdness belongs to the machinery that lets finite
+observers share a reality without reducing it
 to prewritten classical facts.
 
 ## Interlude 4: Boundaries, Bulks, and Why Holography Was Hard to Believe
@@ -189,8 +189,8 @@ not the main storage device.
 Black holes forced the reversal. If a black hole's entropy scaled with
 volume, merging or lowering entropy-bearing systems into black holes would
 threaten thermodynamics. The Bekenstein-Hawking formula made area the count.
-For a horizon, the surface is not a passive shell but the bookkeeping
-surface through which external observers describe what can be known.
+For a horizon, the surface serves as the bookkeeping interface through which
+external observers describe what can be known, rather than as a passive shell.
 
 't Hooft and Susskind drew the general lesson: gravity appears to limit
 independent degrees of freedom by area. Maldacena then gave a controlled
@@ -218,8 +218,8 @@ from consistency across those overlapping screens.
 
 This is more modest in one way and more radical in another. It is more modest
 because it does not claim a known global de Sitter CFT. It is more radical
-because observer-dependence is not a problem to hide but the organizing
-principle. The boundary is where finite observers' records are compared.
+because observer-dependence is the organizing principle. The framework treats
+it directly. The boundary is where finite observers' records are compared.
 
 The reader should keep the hierarchy clear. Black-hole thermodynamics gives
 area scaling. AdS/CFT gives a controlled boundary-bulk duality. RT and
@@ -431,8 +431,9 @@ This is close to the actual practice of science. A single lab result is not
 enough. Instruments are calibrated. Blind analyses are used. Independent
 teams reproduce or fail to reproduce results. Systematic errors are hunted.
 Theoretical interpretations are tested against other domains. Public fact is
-not raw sensation but sensation, instrument output, memory, communication,
-and mathematical structure stabilized across many perspectives.
+the combination of sensation, instrument output, memory, communication, and
+mathematical structure stabilized across many perspectives. Raw sensation
+alone has insufficient public support.
 
 The philosophical payoff is that consciousness and objectivity do not have
 to be enemies. Experience is the inside of a bounded process. Objectivity is
@@ -443,8 +444,8 @@ feeds back into the inside process as learning, correction, and expectation.
 
 This is also where the epilogue's continuation question belongs. If an
 observer is a structured process with boundary interfaces and interior
-interface-relative state, then restoration is not a magical word but a question
-about which structures must be preserved for the next internal moment to be
+interface-relative state, then restoration becomes a question about which
+structures must be preserved for the next internal moment to be
 the continuation of the previous one. The answer is not known in any simple
 engineering sense. But OPH gives the right type of boundary: records,
 interfaces, given-data independence, and recoverability.

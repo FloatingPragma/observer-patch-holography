@@ -1,0 +1,26 @@
+{
+  "schema_version": "scr330-radial-v2",
+  "receipt": "SCR330_RADIAL_PROMOTION_RECEIPT",
+  "passed": false,
+  "claim_tier": "E4",
+  "source_dag_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "no_measurement_fit_likelihood_ancestor": true,
+  "physical_tt_te_ee_claim": false,
+  "blockers": [
+    "no_concrete_source_run_has_emitted_the_physical_dilation_intertwiner",
+    "no_concrete_source_run_has_emitted_A_q"
+  ],
+  "payload": {
+    "radial_branch": "SOURCE_DILATION",
+    "source_embedding_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "physical_mode_basis_id": "UNEMITTED",
+    "background_curvature_status": "Unresolved",
+    "Z_q": 1.0,
+    "theta": 0.03397850436258248,
+    "A_q": 1.0,
+    "A_zeta": 0.16080676040273598,
+    "k_pivot": 1.0,
+    "R_star": 1.0,
+    "safe_logk_band": [-10.0, 10.0]
+  }
+}

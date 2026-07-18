@@ -137,16 +137,31 @@ def convert_svg_assets(out_dir: Path) -> dict[str, Path]:
         original_ref = f"../{relative_path.as_posix()}"
         output_path = out_dir / relative_path.with_suffix(".pdf").relative_to("assets")
         output_path.parent.mkdir(parents=True, exist_ok=True)
+        raw_output_path = output_path.with_name(f"{output_path.stem}.raw.pdf")
         run(
             [
                 "rsvg-convert",
                 "-f",
                 "pdf",
                 "-o",
-                str(output_path),
+                str(raw_output_path),
                 str(source_path),
             ]
         )
+        run(
+            [
+                "gs",
+                "-q",
+                "-dSAFER",
+                "-dBATCH",
+                "-dNOPAUSE",
+                "-sDEVICE=pdfwrite",
+                "-dCompatibilityLevel=1.5",
+                f"-sOutputFile={output_path}",
+                str(raw_output_path),
+            ]
+        )
+        raw_output_path.unlink()
         converted[original_ref] = output_path.resolve()
     return converted
 
@@ -277,6 +292,7 @@ def build(output: Path) -> None:
     ensure_tool("pandoc")
     ensure_tool("tectonic")
     ensure_tool("rsvg-convert")
+    ensure_tool("gs")
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     asset_dir = BUILD_DIR / "assets"

@@ -219,7 +219,7 @@ hint: quantum correlation can carry geometric information.
 
 $$S_A = \frac{\text{Area}(\gamma_A)}{4G_N}$$
 
-Space is not the container but the visualization: the 3D picture our recovery map constructs from 2D boundary data.
+Space is the visualization constructed by the recovery map from two-dimensional boundary data. It is not a presupposed container.
 
 In this formula, $S_A$ is the entanglement entropy of boundary region $A$.
 $\gamma_A$ is the minimal bulk surface anchored to the boundary of $A$, and

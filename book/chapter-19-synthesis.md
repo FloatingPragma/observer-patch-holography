@@ -75,7 +75,11 @@ one time direction and three space directions, keeping hyperbolic three-space
 strictly as the space of rest frames rather than space itself. When the
 underlying construction supplies the geometry readout together with its
 supporting technical steps, the Einstein relation appears as the public
-large-scale grammar of the horizon-plus-bulk entropy equilibrium.
+large-scale grammar of the horizon-plus-bulk entropy equilibrium. The
+conditional theorem requires all of these readouts to come from one common
+source-derived family, with certified continuum bounds and independent
+physical scale readouts. Finite synthetic checks test the receipt machinery;
+they do not construct that family. Its construction is work in progress.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
@@ -117,7 +121,7 @@ those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. The gauge group is reconstructed from that persistent
 charge bookkeeping itself. This reconstruction classifies the compact group
 carried by the charges that can be transported across patches; it does not make
-the Standard Model choice by itself. MAR and the declared tensor/matter package
+the Standard Model choice by itself. Minimal Admissible Realization (MAR) and the declared tensor/matter package
 select the one-Higgs branch and its global form
 
 $$

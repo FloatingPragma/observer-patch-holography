@@ -274,7 +274,8 @@ For \(T_r=e^{-a_{t,r}(H_r^E-E_{0,r})}\), the Doob kernel is stochastic and detai
 equivalent reconstruction plus refinement compatibility of the transfer family.
 
 \paragraph{Primordial and cosmological prediction firewall.}
-A screen covariance is not automatically a primordial curvature spectrum.  The map
+A screen covariance contains incomplete radial information. The complete
+one-shell map
 \[
 C_\ell
 =
@@ -283,10 +284,13 @@ C_\ell
 \frac{dk}{k}
 \Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 \]
-has a null space unless a radial prior, finite parametric family, or source-stress bridge is
-declared.  OPH primordial promotion requires the source-only stress, single-clock, entropy-repair,
-curvature-evolution, adiabatic-mode, phase-coherence, screen-to-radial-lift, radial-null-space, and
-forward-projection receipts. Observable CMB comparison also requires declared source, solver,
+has an infinite-dimensional kernel that persists under positivity. OPH
+primordial promotion requires the source-only stress, single-clock,
+entropy-repair, curvature-evolution, adiabatic-mode, phase-coherence, physical
+mode, radial-null-space, and forward-projection receipts together with a
+scale-natural physical dilation intertwiner or complete radial cross-covariance
+tomography. A finite radial prior produces a conditional continuation.
+Observable CMB comparison also requires declared source, solver,
 dataset, covariance, nuisance, data-use, and pooled-reducer provenance.
 
 \paragraph{Claim tiers and required receipts.}

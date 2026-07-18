@@ -289,7 +289,7 @@ with $`J_r`$, $`V_r`$, and $`a_{t,r}`$ derived from OPH source structure rather 
 | Fluctuating screen field | E0 or E1 unless an E2 quotient ensemble receipt passes. |
 | OPH vacuum field | E3 only after source Euclidean slab, ground-state, Doob, reflection-positivity, and transfer-refinement receipts. |
 | Proto-object worldlines | Diagnostic until production matter/particle and observer-facing object population receipts pass. |
-| Growth seeds | E4 only after the primordial bridge, radial lift, null-space, positivity, and forward-projection receipts pass. |
+| Growth seeds | E4 only after the primordial bridge, physical mode basis, radial-null, positivity, forward-projection, and source-dilation or tomography receipts pass. |
 | LSS comparison | Diagnostic; source, transfer, and official likelihood/data contracts are work in progress. |
 
 # Simulator Contract

@@ -182,8 +182,10 @@ perspectives creates objectivity. The stable, shared, predictable structure
 that we call "the physical world" is the overlap-consistent backbone that all
 observers must agree on.
 
-The gravity branch reconstructs Einstein's equation under stated premises, and
-gauge consistency selects the minimally admissible matter branch. The
+The gravity branch reconstructs Einstein's equation under stated premises. A
+single source-derived family carrying the geometric, modular, stress, entropy,
+continuum, and physical-scale premises is work in progress. Gauge consistency
+selects the minimally admissible matter branch. The
 dark-sector lane proposes a repair-charge condensate action with a dust-like
 normal phase and a cubic deep-galaxy branch. Its OPH derivation and physical
 evidence are work in progress. Self-referential closure carries the existence

@@ -61,7 +61,7 @@ OPH uses one mathematical architecture across subjects that are normally introdu
 - finite consensus gives stable public records and quotient normal forms;
 - central record algebras give quantum event probabilities and conditional update;
 - the conformal geometry of an observer screen gives the connected Lorentz group and a three-dimensional observer-frame space;
-- modular flow, null transport, entropy stationarity, and small-ball geometry compose into the Einstein relation on the recovered branch;
+- modular flow, null transport, entropy stationarity, and small-ball geometry compose into the Einstein relation on a source-derived common-domain tower with certified tails and independent physical identifications; construction of such a tower is work in progress;
 - transportable charges and compact reconstruction give the Standard Model gauge structure;
 - a finite twelve-port $A_5$ construction produces the Lie algebra
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$;
@@ -127,10 +127,10 @@ The detailed hypotheses and receipt types are stated in the papers. The reposito
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Relativity | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Einstein dynamics | A typed chain from modular/null transport and entropy stationarity to $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Einstein dynamics | A conditional typed chain from modular/null transport and entropy stationarity to $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ on one source-derived common-domain tower; construction and certification of the tower are work in progress | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Finite $A_5$ gauge algebra | Exact twelve-port construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Standard Model global form | $S(U(3)\times U(2))$ and the shared-center $\mathbb Z_6$ quotient | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Matter structure | Hypercharge lattice, three colors, three generations, and one Higgs doublet on the realized MAR branch | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Matter structure | Hypercharge lattice, three colors, three generations, and one Higgs doublet on the realized Minimal Admissible Realization (MAR) branch | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Exact verification | Lean theorem subset, interval certificates, finite receipts, and reproducible simulations | [`Lean/`](Lean) and [`code/`](code) |
 
 ## Choose A Reading Path
@@ -167,6 +167,11 @@ OPH’s structural core supports several active continuations:
 - quantitative particle readout and flavor transport;
 - neutrino susceptibility and mixing geometry;
 - record-capacity cosmology;
+- a conditional source-screen spectrum with a source-functional amplitude and
+  edge-center tilt; the radial packet proves one-shell non-identifiability and
+  gives physical source dilation and cross-covariance tomography as separate
+  uniqueness routes. One finite source evidence bundle satisfying every receipt
+  is work in progress;
 - dark gravity as a repair-charge condensate with dust-like and deep-galaxy regimes;
 - finite Yang–Mills transfer and repair-gap constructions;
 - observer-like hardware and software systems with local state, boundaries, readback, records, and repair.

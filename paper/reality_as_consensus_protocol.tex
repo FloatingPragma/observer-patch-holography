@@ -38,9 +38,8 @@ validated repair, exact descent, schedule-independent normal forms under the
 declared hypotheses, loop obstructions, stable records, refinement control, and
 a fair-block theorem for noisy consensus.
 
-The paper's own no-go theorem
-(Theorem~\ref{thm:bare-consensus-not-einstein-complete}) sets the scope of the
-title: the bare consensus reduct does not determine a Lorentzian metric or the
+The paper's no-go result sets the scope of the title: the bare consensus
+reduct does not determine a Lorentzian metric or the
 Einstein equation, so ``implements physics'' names the substrate role of the
 fixed-point computation, and all geometric and dynamical content enters through
 the separately declared branch structure of the companion papers.
@@ -250,7 +249,7 @@ A bare finite consensus reduct at regulator \(r\) is
 \[
 \mathsf{Cons}_r
 =
-(\Sigma_r,\Gamma_r,Q_r,\Phi_r,\to_r,n_r,C_r),
+(\Sigma_r,\Gamma_r,Q_r,\Phi_r,\to_r,n_r,C_r,B_r),
 \]
 where \(\Sigma_r\) is the finite presentation space, \(\Gamma_r\) is the
 presentation-redundancy groupoid, \(Q_r=\Sigma_r/\Gamma_r\) is the physical
@@ -259,7 +258,8 @@ repair relation, \(n_r\) is the quotient normal-form map, and
 \[
 C_r=\Phi_r^{-1}(0)
 \]
-is the globally overlap-consistent set.
+is the globally overlap-consistent set, and \(B_r\) is its boundary-data
+readout.
 \end{definition}
 
 \begin{theorem}[Bare finite consensus is not Einstein-complete]
@@ -297,8 +297,8 @@ the Einstein equation is not entailed by the bare reduct.
 \mathsf{Cons}_r\Rightarrow\text{quotient normal forms only.}
 }
 \]
-The gravity theorem used elsewhere in OPH has a separate five-axiom
-recovered-core dependency spine:
+The gravity theorem used elsewhere in OPH has a separate typed dependency
+spine:
 \[
 \boxed{
 \begin{gathered}
@@ -309,15 +309,20 @@ recovered-core dependency spine:
 +\mathsf{FixedCapStat}
 +\mathsf{SmallBallArea}\\
 +\mathsf{RemainderControl}
-+\mathsf{TimelikeCoverage}
++\mathsf{TimelikeCoverage}\\
++\mathsf{CommonSource}
++\mathsf{PhysicalIDs}\\
 +\mathsf{TensorUpgrade}
 \Rightarrow
 \mathsf{Einstein}.
 \end{gathered}
 }
 \]
-That branch is carried by the compact SM/GR and microphysics papers, not by the
-bare constraint-code theorem above.
+The implication requires one source-derived common-domain tower, certified
+asymptotic tails, universal coupling, a source-derived vacuum reference, and
+independent physical scale readouts. Construction and certification of such a
+tower are work in progress. That branch is carried by the compact SM/GR and
+microphysics papers, not by the bare constraint-code theorem above.
 
 So $\Phi$ is the total disagreement energy of the universe. Consistent states have zero energy. Everything else is frustrated.
 
@@ -1975,8 +1980,8 @@ state, so \(\rho_{sr}(n_s(x))=n_r(\rho_{sr}(x))\).
 \begin{definition}[Holonomy cochain morphism]\label{def:holonomy-cochain-morphism}
 For obstruction maps \(h_s:Q_s\to\mathcal H_s\) and \(h_r:Q_r\to\mathcal H_r\), a map
 \(\chi_{sr}:\mathcal H_s\to\mathcal H_r\) is a \textbf{holonomy cochain morphism} when the
-edge, cycle, or crossed-module cochains used to compute \(h_s\) restrict to the cochains used to
-compute \(h_r\), modulo the declared quotient identifications. Equivalently,
+edge, cycle, or crossed-module cochains that compute \(h_s\) restrict to the cochains that compute
+\(h_r\), modulo the declared quotient identifications. Equivalently,
 \[
 \chi_{sr}\circ h_s=h_r\circ\rho_{sr}.
 \]
@@ -3215,7 +3220,7 @@ Hardware search work reduction & exact-verifier candidate-enrichment factor meas
 \appendix
 \section{Quantum/Algebraic Lift: Markov-Collar Splice Theorem}\label{app:splice}
 
-This appendix records the algebraic splice statement used to relate the finite patch-net model to
+This appendix records the algebraic splice statement relating the finite patch-net model to
 the OPH collar formalism.
 
 An observer is written as

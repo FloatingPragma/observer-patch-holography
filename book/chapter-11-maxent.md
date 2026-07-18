@@ -260,15 +260,19 @@ Einstein's field equations are the geometric form of that requirement:
 $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 
 This displayed version omits the cosmological-constant term. In OPH, the local
-Einstein branch leaves that metric-proportional term open; the global
-screen-capacity branch closes it later.
+Einstein branch leaves that metric-proportional term open. The global
+screen-capacity branch fixes it only under a constructed readback map and its
+connecting premises.
 
 OPH uses Jacobson's route only after the consensus layer has done its smaller
 job. Finite repair gives quotient normal forms. The gravity claim then needs
 the recovered-core bridge from the compact paper: geometric readout of caps and diamonds, the
-BW modular branch, the null-stress bridge, the bounded-interval kernel,
+geometric modular branch, the null-stress bridge, the bounded-interval kernel,
 fixed-cap stationarity, small-ball area identity, remainder control, and the
-tensor upgrade across local observer directions.
+tensor upgrade across local observer directions. These inputs must arise from
+one source-derived family of repaired records on a common domain. Its
+asymptotic bounds and physical scale identifications require separate
+certificates. Construction of that family is work in progress.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 

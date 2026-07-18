@@ -45,24 +45,12 @@ a Theorem-Conditional Reduction}
 \maketitle
 
 \begin{abstract}
-This note derives the general-relativistic photon--baryon Boltzmann transport
-used in CMB computations \emph{inside} the OPH branch, as a theorem-conditional
-reduction: given the Einstein-branch geometry theorem, the recovered
-$\mathrm U(1)$ electromagnetic sector, the independently assumed Maxwell action
-and positive-residue physical photon pole, and the reversible repair-register
-structure, the observer-facing photon record dynamics obeys the standard
-Liouville equation with the Thomson collision functional, and its linearization
-on the capacity-closure FRW background is exactly the standard multipole
-hierarchy. OPH does not modify radiative transfer at first order; it
-\emph{inherits} it. The value of the derivation is provenance: it identifies
-precisely (i) which OPH theorems supply each ingredient, (ii) the two places
-where OPH-specific kernels could enter (a number-changing repair-exchange
-channel $\Gamma_{\rm rec}$ and a collar-packet stress $B_A$), and (iii) the
-irreducible imports (absolute electron mass, recombination history) that any
-physical-CMB receipt must declare. One new finite-lattice receipt
-(\textsc{Boltz-R1}, refinement Liouville) is defined and is testable in the
-public simulator. This note does not close the physical CMB prediction gate;
-it reduces that gate to a finite, named list.
+This note shows that standard general-relativistic photon--baryon Boltzmann
+transport follows on the OPH branch when its geometry, electromagnetic action,
+physical photon, electron mass, and recombination history are supplied. It
+locates the repair-exchange and collar-stress interfaces where an OPH-specific
+effect could enter. A physical CMB prediction requires finite source receipts,
+transfer functions, and likelihood closure.
 \end{abstract}
 
 \section{Claim boundary}
@@ -127,9 +115,12 @@ under the anti-fitting rule, but it is an import, not a branch output.
 Initial curvature perturbations $\zeta(\mathbf k)$ are Gaussian with spectrum
 $\Delta^2_\zeta(k)=A_s\,(k/k_\ast)^{\,n_s-1}$. The Gaussian and
 statistically isotropic character is the MaxEnt screen-covariance theorem;
-the tilt certificate is issue \#522; the amplitude and the radial
-screen-to-$k$ lift are issue \#330. This note treats $A_s$, $n_s$ as gated
-inputs and derives nothing about them.
+the finite tilt certificate is issue \#522. The radial theorem packet in issue
+\#330 proves that one-shell inversion is nonunique and supplies physical
+source-dilation and cross-covariance tomography as conditional uniqueness
+routes. Finite source instantiation in issue \#579 is work in progress. This
+note consumes \(A_s\) and \(n_s\) as gated inputs and derives no initial
+spectrum.
 \end{assumption}
 
 \section{Theorem B1: reversible repair gives Liouville transport}
@@ -186,13 +177,12 @@ coarse-grained flow inherits unit Jacobian. The refinement limit of a
 sequence of unit-Jacobian flows converging to the geodesic flow preserves the
 Liouville measure.
 
-\emph{Open receipt.} The convergence step, that the finite patch flow's
-coarse-graining converges to the geodesic flow with vanishing dispersion,
-is exactly the kind of statement the abstract Lean layer proves in its
-setting (approximate schedule independence, refinement naturality) but has
-not been instantiated for the photon sector. We name it \textsc{Boltz-R1}
-and give a simulator test in \S\ref{s:receipts}. Until \textsc{Boltz-R1} is
-discharged, Theorem~\ref{t:liouville} is theorem-conditional.
+\emph{Receipt status.} Photon-sector convergence of the finite patch flow to
+geodesic flow with vanishing dispersion is work in progress. The abstract Lean
+layer proves the corresponding schedule-independence and refinement-naturality
+statement in its setting. The photon receipt is named \textsc{Boltz-R1}, and
+\S\ref{s:receipts} gives its simulator test. Theorem~\ref{t:liouville} is
+conditional on this receipt.
 \end{proof}
 
 \begin{remark}
@@ -249,10 +239,10 @@ The polarization hierarchy used below imports the standard polarized
 Thomson scattering matrix acting on Stokes brightness.  The scalar
 $1+\cos^2\theta$ kernel displayed in Theorem~\ref{t:collision} is its
 intensity projection, not a derivation of the $Q/U$ collision terms.  A
-source-level OPH derivation must construct the polarized commit kernel from
-the recovered vertex and discharge that extra bridge; until then the
-polarization sector and the associated $16/15$ diffusion factor are
-textbook imports rather than consequences of the displayed operator.
+source-level OPH derivation of the polarized commit kernel from the recovered
+vertex is work in progress. The polarization sector and the associated $16/15$
+diffusion factor are textbook imports rather than consequences of the displayed
+operator.
 \end{remark}
 
 \begin{remark}[Blackbody provenance]
@@ -327,8 +317,8 @@ k^2\phi+3\ah\!\left(\dot\phi+\ah\psi\right)=-4\pi G a^2\,\delta\rho_{\rm tot},
 k^2(\phi-\psi)=12\pi G a^2(\bar\rho+\bar p)\sigma_{\rm tot},
 \]
 where $\delta\rho_{\rm tot}$ and $\sigma_{\rm tot}$ include the gated
-$\rho_A,B_A$ contributions of Remark~\ref{r:channels} (zero until their
-receipts pass). With $\Gamma_{\rm rec}=B_A=0$ this is verbatim the standard
+$\rho_A,B_A$ contributions of Remark~\ref{r:channels}. These contributions are
+zero on the receipt-failing branch. With $\Gamma_{\rm rec}=B_A=0$ this is verbatim the standard
 Einstein--Boltzmann system.
 \end{theorem}
 
@@ -419,8 +409,8 @@ transport between commits converges to geodesic flow, schedule-independently,
 with vanishing measure defect under refinement. &
 open; simulator test below\\
 \textsc{Boltz-N1} &
-$\sigma_T$ normalization: absolute $m_e$ is a declared import until a
-charged-family absolute-scale theorem exists. &
+$\sigma_T$ normalization: absolute $m_e$ is a declared import; the
+charged-family absolute-scale theorem is work in progress. &
 declared import\\
 \textsc{Boltz-X1} &
 $x_e(\tau)$ recombination history from imported atomic data; contains no
@@ -435,13 +425,13 @@ Theorem-grade $n_s$ (clock normalization). &
 issue \#522\\
 Amplitude + lift &
 $A_s$ and radial screen-to-$k$ map. &
-issue \#330\\
+conditional radial mathematics \#330; finite source receipt \#579 is work in progress\\
 Kernels &
 $\Gamma_{\rm rec}$, $\rho_A$, $B_A$ physical receipts. &
 issue \#374\\
 Likelihood &
 Official likelihood, provenance, and data-use contract. &
-issue \#363\\
+issue \#580\\
 \bottomrule
 \end{longtable}
 

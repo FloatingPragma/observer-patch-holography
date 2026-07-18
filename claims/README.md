@@ -1,7 +1,7 @@
 # OPH Claim Registry
 
 The papers are the standalone source for every theorem, assumption, falsifier, and claim boundary.
-This directory is the development mirror used to keep those standalone statements synchronized
+This directory is the development mirror that keeps those standalone statements synchronized
 across the public stack.
 It is an internal release-audit surface, not public reading-path material. Do not link the registry
 from the top-level public README files; point readers to the papers, falsifiability map, and public

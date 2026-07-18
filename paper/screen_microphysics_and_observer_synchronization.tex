@@ -34,13 +34,14 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules.
-
-The construction gives a conditional twelve-port screen sieve, edge weights used by companion
+OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
 papers, central records with Born--L\"uders readout, Bell/CHSH records with the
 Tsirelson bound, and checkpoint restoration for observer continuation after
 repair. It also states the public evidence rule: hardware runs matter only when
 the device, calibration, circuit, data, and independent check are public.
+Its primitive collar release law supplies the source premises for a conditional
+angular spectrum and tilt theorem. One finite receipt-complete source is work in
+progress.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -146,7 +147,7 @@ visible interface and record process.
 
 \begin{definition}[Algebraic audit instrument]
 An algebraic audit instrument is an exact computable map on finite quotient-visible representation
-data. It is used to certify invariance, nonconjugacy, orbit structure, lattice preservation, or
+data. It certifies invariance, nonconjugacy, orbit structure, lattice preservation, or
 automorphism fusion inside a declared regulator chart. It is not a physical actuator unless a
 carrier implementation realizes the same visible map with a public evidence bundle.
 \end{definition}
@@ -311,8 +312,8 @@ On the exact analytic round-cap branch,
 n_{C,r}=(\cot\alpha_r,\csc\alpha_r\,\mathbf c_r).
 \]
 On a finite fitted branch the output is labeled
-\(\mathrm{APPROXIMATE\_ROUND\_CAP\_CHART}\) until a separate
-round-cap rigidity/convergence certificate supplies a global bound; if the fit is not round it
+\(\mathrm{APPROXIMATE\_ROUND\_CAP\_CHART}\). A global bound requires a separate
+round-cap rigidity/convergence certificate; if the fit is not round it
 emits \(\mathrm{CAP\_NOT\_ROUND}\). The normal \(n_{C,r}\) is support-chart data derived from the
 repaired quotient. It is not a microscopic carrier coordinate, hidden port label, or new local
 degree of freedom. A cap normal determines a geodesic plane and half-space in \(H^3\); selecting
@@ -1615,6 +1616,9 @@ quotient-visible maps
 \mathsf{ScalarPrecisionRead}_r,\quad
 \mathsf{QuotientMeasureRead}_r,\quad
 \mathsf{ScalarReleaseEnergyRead}_r,\\
+\mathsf{PrimitiveCollarLedgerRead}_r,\quad
+\mathsf{ReserveGeneratorRead}_r,\quad
+\mathsf{OrientationHalfRead}_r,\\
 \mathsf{DiamondRead}_r,\quad
 \mathsf{ProperScaleRead}_r,\quad
 \mathsf{ModularRemainderRead}_r,\quad
@@ -1665,8 +1669,16 @@ no-data-use manifest used by
 \texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
 The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
 screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
-freeze-out, geometric-screen-scalar, scalar-precision, source-release-energy, refinement-tilt,
-radial-prior, null-space, finite-window, and forward-residual receipts also pass.
+freeze-out, geometric-screen-scalar, scalar-precision, primitive-collar-law,
+source-release-energy, infinitesimal reserve-generator, orientation-half, refinement-tilt,
+radial-null, finite-window, and forward-residual receipts also pass. Radial uniqueness requires
+either a scale-labelled source-refinement orbit with a scale-natural physical embedding,
+source/physical covariance residual equality, strong finite-to-continuum convergence, and safe-band
+leakage control, or a cofinal radial cross-covariance family with spherical-Hankel convergence and
+held-out reconstruction. On the physical dilation branch the source-facing generator gives
+\(\theta=P_\star/48\) and the continuum intertwiner restricts the radial power to a
+one-dimensional family. A concrete finite carrier satisfying the full receipt set is work in
+progress.
 \end{definition}
 
 \begin{theorem}[Carrier invariance of the anomaly load readout]

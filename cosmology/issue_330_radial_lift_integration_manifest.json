@@ -1,0 +1,32 @@
+{
+  "artifact": "issue_330_radial_lift_integration",
+  "claim_status": {
+    "concrete_oph_source_instantiation": "WORK_IN_PROGRESS",
+    "one_shell_unrestricted_inverse": "PROVED_NONIDENTIFIABLE",
+    "physical_tt_te_ee": "E5_GATED",
+    "radial_mathematics": "PHASE_III_CONDITIONAL_THEOREM_PACKET_COMPLETE",
+    "uniqueness_routes": [
+      "SOURCE_DILATION",
+      "RADIAL_TOMOGRAPHY"
+    ]
+  },
+  "schema_version": "scr330-radial-v2",
+  "source_bundle_sha256": {
+    "integration_fragment": "1286bb93347d332b697ced2484ea8f354d571606bdb72fa1a4dc66259e90b75a",
+    "reference_implementation": "875781fc48b520e9bd401bbcf7951871f930a731d44f0af3c412743e31200d79",
+    "receipt_schema": "ac6af04fc633a0dd8fab82ebb72c03c40135ae6419cacd8be1550954bc527993",
+    "regression_tests": "ba12a1014ffa411f56173cd92104fe8cf500b622adfa1785df163c4d8c510556"
+  },
+  "targets": [
+    "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+    "paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex",
+    "paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex",
+    "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+    "cosmology/oph_cosmology_finite_source_cmb_program.tex",
+    "cosmology/oph_boltzmann_transport_derivation.tex",
+    "paper/screen_microphysics_and_observer_synchronization.tex",
+    "book/chapter-13-desitter.md",
+    "README.md",
+    "README_FR.md"
+  ]
+}

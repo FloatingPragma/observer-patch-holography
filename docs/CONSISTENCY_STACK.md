@@ -3,14 +3,14 @@
 How the strange-loop hypothesis generates a universe, and why it generates exactly
 one if its equations close. This file enumerates every consistency
 requirement the program invokes, the freedom each one removes, the mathematical
-carrier of each step, and the current status. It is the load-bearing spine of
+carrier of each step, and its epistemic status. It is the load-bearing spine of
 the argument: every paper cites the stack instead of re-deriving it, and every
 open item in it maps to a closure ledger row or a named gate in the gap register of
 [PROOF_SPINE.md](PROOF_SPINE.md). Companion to
 [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), [STRANGE_LOOP.md](STRANGE_LOOP.md),
 and [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md).
 
-The stack's strongest standing: lemma L1 is discharged, with interval and
+Lemma L1 is discharged, with interval and
 global-uniqueness certificates whose arithmetic a full adversarial
 third-party audit reproduced; lemma L2 is certified conditionally at relative
 width 1.6×10⁻²⁵; and the chain C1 to C10 runs end to end with every open item
@@ -37,8 +37,9 @@ forces the kinematics: Conf⁺(S²) ≅ SO⁺(3,1), spatial chart
 H³ = SO⁺(3,1)/SO(3), dimension 6 − 3 = 3. Removed freedom, conditional on the SL-1 chart: given S², signature, dimension, and
 local symmetry group follow; the chart itself is a declared principle and is counted
 where principles are counted. Carrier: compact
-paper, Lorentz branch; consensus paper, quotient normal forms. Status: theorem
-on the declared branch; realized-branch nonemptiness open.
+paper, Lorentz branch; consensus paper, quotient normal forms. Status:
+conditional theorem on a source-derived common-domain tower. Construction and
+certification of that tower are work in progress.
 
 **C3. Modular self-consistency.** A closed system with no external clock must
 generate its own dynamics from its state-algebra pair. Tomita-Takesaki modular
@@ -60,11 +61,14 @@ tensor-kernel premises. On that branch they select SU(3)×SU(2)×U(1)/Z₆, its 
 lattice, N_c = 3, and N_g = 3. Status: conditional theorem.
 
 **C5. Entropic-gravitational consistency.** Local horizon thermodynamics of
-the record surfaces, made consistent patch by patch, yields the Einstein branch
-(Jacobson's argument installed in the patch setting). The recovery leaves
-exactly one global ambiguity, +Λg_ab. Removed freedom: the form of the gravity
-law; remaining freedom: one global number. Carrier: compact paper, five-axiom
-recovered core. Status: theorem on the declared branch.
+the record surfaces yields the Einstein equation conditionally on one
+source-derived common-domain tower. The tower must carry the geometric,
+modular, event, stress, entropy, continuum-tail, coupling, vacuum, and scale
+premises. The local derivation leaves one metric-proportional term per connected
+component. Removed freedom on the declared branch: the tensor form of the
+gravity law. Carrier: compact paper, typed Einstein branch. Status: conditional
+composition theorem; construction and certification of an inhabited tower are
+work in progress.
 
 **C6. Record-existence (SL-2).** A screen at exact golden-ratio balance
 carries no events; records require detuning, and the declared detuning is the

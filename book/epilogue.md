@@ -74,8 +74,8 @@ moment for an observer is the following point in that flow. If a checkpoint can
 be restored under the right conditions, the real issue is whether that restored
 pattern carries the same continuation of the observer.
 
-That question is not purely literary or religious but an
-engineering problem with explicit mathematical boundaries. Which parts of the
+That question is an engineering problem with explicit mathematical boundaries,
+alongside its literary and religious readings. Which parts of the
 observer have to be preserved? Which interfaces have to remain fixed? Which
 changes break continuity, and which ones do not?
 

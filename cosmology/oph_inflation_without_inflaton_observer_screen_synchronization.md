@@ -1,3 +1,6 @@
+**Paper release:** `r1549`
+**Released:** July 18, 2026
+
 # Scope
 
 This is a technical companion outside the release bundle. It states the inflation-free branch against the compact, screen-microphysics, dark-sector, and finite-source CMB papers.
@@ -14,7 +17,7 @@ The quotient removes nonphysical presentation data: gauge representatives, port 
 ``` math
 N_r=n_r(Q_r).
 ```
-The map $`n_r`$ is a normal-form map, not a probability law.
+The map $`n_r`$ is a normal-form map, not a probability law. Any promoted physical branch inherits this firewall: it must declare the quotient-intrinsic source law or action before a normal form can be read as a selection or prediction claim.
 
 #### Observable algebras and reference states.
 
@@ -77,7 +80,7 @@ Equivalently, one may state an intrinsic projective prior $`\nu_r`$ on $`Q_r`$ a
 
 #### Normal-form projector non-selection.
 
-For any map $`N:Q\to Q_{\rm nf}`$, the induced map on laws
+For any retraction $`N:Q\to Q_{\rm nf}`$ onto a subset $`Q_{\rm nf}\subseteq Q`$, that is, any map whose restriction to $`Q_{\rm nf}`$ is the identity, the induced map on laws
 ``` math
 \mathcal C_Q(\mu)=N_\#\mu
 ```
@@ -85,7 +88,11 @@ is idempotent:
 ``` math
 \mathcal C_Q^2=\mathcal C_Q.
 ```
-Every law supported on $`Q_{\rm nf}`$ is fixed. Therefore settlement or canonicalization never selects a unique physical probability law by itself.
+Every law supported on $`Q_{\rm nf}`$ is fixed; both statements use the retraction property. Therefore settlement or canonicalization never selects a unique physical probability law by itself.
+
+#### Selection-gap corollary.
+
+Let $`X\subseteq Q_{\rm nf}`$ be a finite set of quotient-normal candidates distinguished by visible invariants. Normal-form data determine $`X`$ and its quotient-visible invariants, but they do not choose a member of $`X`$. If two laws $`\mu,\nu`$ are supported on $`X`$ and concentrate on different candidates, both are fixed by $`\mathcal C_Q`$. Unique sector selection therefore requires source data: an intrinsic action with a unique minimizer, a declared physical ensemble, or a refinement-stable gap certificate. A defect or holonomy classification can classify possible sectors without choosing the physical sector, and a contraction or repair generator can certify convergence toward a declared target without creating the target law.
 
 #### Finite MaxEnt quotient ensemble.
 
@@ -108,7 +115,7 @@ Boundary optima obey the same formula after restricting to their support. On a f
 \frac{\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}
 {\operatorname{Tr}\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}.
 ```
-The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no simulator or observational output entered the source definition.
+The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no run output or observational output entered the source definition.
 
 #### Refinement compatibility and RG closure.
 
@@ -159,7 +166,7 @@ then
 ```
 For tracially pointed quantum quotients the corresponding equivalence is a trace-preserving quotient equivalence. It is invariant under unitary intertwiners preserving the gauge action and sector, and under inert trivial ancillas $`A\mapsto A\otimes I_{\rm anc}`$. It is not invariant under arbitrary changes of gauge-representation multiplicities.
 
-If a simulator stores representatives, a representative-level law must be a conditional lift
+If an implementation stores representatives, a representative-level law must be a conditional lift
 ``` math
 \widetilde\mu_r(x)=\mu_r(\pi_r x)\kappa_r(x\mid \pi_r x),
 \qquad
@@ -206,7 +213,7 @@ L_{\rm rep}\ge \gamma_*\kappa_r(I-P_0).
 ```
 Finite repair completeness gives $`\kappa_r>0`$ at fixed regulator. A uniform refinement lower bound $`\inf_r\kappa_r>0`$ is a separate theorem or receipt.
 
-#### Simulator accuracy.
+#### Finite evidence accuracy.
 
 For bounded coarse observables $`O`$, if
 ``` math
@@ -252,7 +259,7 @@ C_\ell
 \frac{dk}{k}
 \Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 ```
-has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires source-only stress, a single clock, entropy repair, curvature evolution, an adiabatic mode, phase coherence, a screen-to-radial lift, null-space control, and a forward projection. Observable CMB comparison also requires declared source, solver, dataset, covariance, nuisance, and data-use provenance.
+has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires the source-only stress, single-clock, entropy-repair, curvature-evolution, adiabatic-mode, phase-coherence, screen-to-radial-lift, radial-null-space, and forward-projection receipts. Observable CMB comparison also requires declared source, solver, dataset, covariance, nuisance, data-use, and pooled-reducer provenance.
 
 #### Claim tiers and required receipts.
 
@@ -267,11 +274,11 @@ E4:&\text{OPH primordial field},\\
 E5:&\text{observable cosmological prediction}.
 \end{array}
 ```
-The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must retain raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, and smoothed spectra; it is not part of $`S_r`$ unless explicitly declared.
+The evidence bundle must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
 
 # Finite Screen Spectrum Theorem Package
 
-This fragment gives the screen-level spectrum theorem used by the conditional cosmology branch. TT, TE, EE, lensing, likelihoods, and physical CMB promotion belong to the downstream Boltzmann and data-contract gates.
+This fragment owns the screen-level spectrum theorem used by the staged cosmology branch. It does not own TT, TE, EE, lensing, likelihoods, or physical CMB promotion. Those remain downstream Boltzmann and data-contract gates.
 
 <div id="def:oph-screen-regulator" class="definition">
 
@@ -298,7 +305,7 @@ Patch count alone is therefore not an angular-resolution certificate.*
 ``` math
 J_{X,r}(x)=\lambda_r(x)\sqrt{\det\sigma_{AB,r}(x)}>0,
 ```
-and let $`\bar J_{X,r}`$ be emitted by an independently defined homogeneous or fixed-background branch, not by a CMB fit. Define
+and let $`\bar J_{X,r}`$ be emitted by an independently defined homogeneous or frozen-background branch, not by a CMB fit. Define
 ``` math
 q_{0,r}=\frac13\log\frac{J_{X,r}}{\bar J_{X,r}}.
 ```
@@ -403,18 +410,33 @@ A Gaussian statement on that branch requires a separate Laplace or central-limit
 
 <div id="def:oph-screen-release-energy" class="definition">
 
-**Definition 7** (source release energy). *The amplitude source is an independently selected quotient ensemble $`\nu^{\rm src}_r`$ on selected or released collar normal forms:
+**Definition 7** (source release energy). *Let $`m_r^0`$ be the tracially pointed base weight on the finite physical collar quotient. Let $`F_{r,a}`$ be a finite ledger of primitive collar observables: scalar occupancy, protected-center presence, released volume, conserved source charges, and the release clock. The ledger excludes screen energy, sky spectra, CMB residuals, likelihoods, fitted amplitudes, and measurement-calibrated proxies. For source-emitted constraint values $`c_{r,a}^{\rm col}`$, the selected release law is
+``` math
+\nu^{\rm rel}_r(x)=\frac{m_r^0(x)
+  \exp[-\sum_a\lambda_{r,a}F_{r,a}(x)]}{Z_r},
+  \qquad
+  \mathbb E_{\nu_r^{\rm rel}}F_{r,a}=c_{r,a}^{\rm col}.
+```
+Strict concavity of relative entropy gives uniqueness on full support. A boundary optimum uses the same form on its certified support. The constraint ledger, base weight, source DAG, multipliers, support, and refinement maps belong to the receipt.*
+
+*For this independently selected quotient ensemble on released collar normal forms, define
 ``` math
 E^{\rm src}_{q,r}
-  =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm src}_r(x).
+  =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm rel}_r(x).
 ```
-The receipt must expose $`\nu^{\rm src}_r`$, the base measure, $`K_r`$, $`d_r`$, $`E^{\rm src}_{q,r}`$, $`A_{q,r}`$, no-observation ancestry, and the same operator normalization used in the action. MaxEnt alone does not determine amplitude.*
+The receipt must expose $`\nu^{\rm rel}_r`$, the base measure, $`K_r`$, $`d_r`$, $`E^{\rm src}_{q,r}`$, $`A_{q,r}`$, no-observation ancestry, and the same operator normalization used in the action. MaxEnt alone does not determine amplitude.*
+
+</div>
+
+<div id="prop:oph-screen-amplitude-nogo" class="proposition">
+
+**Proposition 8** (microscopic-law necessity). *For fixed positive $`K_r`$, the Gaussian family $`Z(A)^{-1}\exp[-\langle q,K_rq\rangle/(2A)]`$ exists for every $`A>0`$. The quadratic MaxEnt form therefore leaves one positive scale free. The source release law in Definition <a href="#def:oph-screen-release-energy" data-reference-type="ref" data-reference="def:oph-screen-release-energy">7</a>, or an equivalent source-only vacuum law, supplies the energy that fixes $`A_{q,r}=2E^{\rm src}_{q,r}/d_r`$.*
 
 </div>
 
 <div id="thm:oph-screen-angular-spectrum" class="theorem">
 
-**Theorem 8** (rotational screen spectrum). *If the continuum precision $`K_\theta`$ commutes with the $`SO(3)`$ action on scalar functions, then by Schur’s lemma each $`\mathcal H_\ell`$ is an eigenspace. For the exact conformal-shell family,
+**Theorem 9** (rotational screen spectrum). *If the continuum precision $`K_\theta`$ commutes with the $`SO(3)`$ action on scalar functions, then by Schur’s lemma each $`\mathcal H_\ell`$ is an eigenspace. For the exact conformal-shell family,
 ``` math
 \Lambda_\ell(\theta)
   =\frac{\Gamma(\ell+2+\theta/2)}{\Gamma(\ell-\theta/2)},\qquad \ell\ge2.
@@ -428,9 +450,22 @@ Consequently $`\mathcal D_\ell^q=\ell(\ell+1)C_\ell^q/(2\pi)\sim(A_q/2\pi)\ell^{
 
 </div>
 
+<div id="def:oph-screen-conformal-precision" class="definition">
+
+**Definition 10** (source-derived conformal precision). *Let $`L_r\succeq0`$ be the normalized detailed-balanced scalar collar Dirichlet operator on $`V_r`$, with continuum limit $`-\Delta_{S^2}`$. Set
+``` math
+B_r=(L_r+\tfrac14I)^{1/2},\qquad
+  K_{\theta,r}=
+  \frac{\Gamma(B_r+\frac32+\frac\theta2)}
+       {\Gamma(B_r-\frac12-\frac\theta2)}.
+```
+For $`-2<\theta<4`$ on the retained $`\ell\ge2`$ branch, this operator is positive. The gamma recurrence gives $`K_{0,r}=L_r`$ exactly. The finite receipt carries detailed balance, positivity, the $`\ell(\ell+1)`$ normalization, anisotropy splitting, and refinement residuals.*
+
+</div>
+
 <div id="thm:oph-screen-refinement" class="theorem">
 
-**Theorem 9** (finite refinement error). *Suppose that for $`2\le\ell\le L`$
+**Theorem 11** (finite refinement error). *Suppose that for $`2\le\ell\le L`$
 ``` math
 \left|\frac{\lambda_{\ell m,r}}{\Lambda_\ell(\theta)}-1\right|\le\varepsilon_{K,r}(L),
   \qquad
@@ -460,7 +495,7 @@ and the displayed bound follows from $`|a_r|\le\varepsilon_A`$, $`|b_{\ell m,r}|
 
 <div id="thm:oph-screen-tilt" class="theorem">
 
-**Theorem 10** (refinement-semigroup tilt). *Let $`R_b`$ be the scalar refinement map for scale ratio $`b>1`$. If one isolated scalar covariance mode has positive eigenvalue $`\lambda(b)`$, $`\lambda(b_1b_2)=\lambda(b_1)\lambda(b_2)`$, and $`\lambda`$ is continuous, then there is a unique real $`\theta`$ with
+**Theorem 12** (refinement-semigroup tilt). *Let $`R_b`$ be the scalar refinement map for scale ratio $`b>1`$. If one isolated scalar covariance mode has positive eigenvalue $`\lambda(b)`$, $`\lambda(b_1b_2)=\lambda(b_1)\lambda(b_2)`$, and $`\lambda`$ is continuous, then there is a unique real $`\theta`$ with
 ``` math
 \lambda(b)=b^{-\theta},\qquad
   \theta=-\frac{\log\lambda(b)}{\log b}.
@@ -474,15 +509,71 @@ and the displayed bound follows from $`|a_r|\le\varepsilon_A`$, $`|b_{\ell m,r}|
 
 </div>
 
-<div id="target:oph-p-over-48-tilt" class="target">
+<div id="def:oph-screen-reserve-generator" class="definition">
 
-**Target 11** (edge-center $`P_\star/48`$ tilt). *The identity $`\theta=P_\star/48`$ is a theorem-grade statement only after three lemmas pass: an oriented edge-center reserve $`\rho_{\rm full}=P_\star/24`$, a scalar half-collar projector $`\rho_q=P_\star/48`$, and a reserve-to-RG Ward identity equating this reserve with $`-d\log\mathcal D_\ell^q/d\log\ell`$. Until then $`P_\star/48`$ and $`e(P_\star-\varphi)`$ are distinct diagnostic hypotheses.*
+**Definition 13** (edge-center reserve generator receipt). *Write $`s=\log b`$ for logarithmic refinement thickness. Let $`u_{\rm full}(s)`$ be the scalar-conditioned covariance-survival cocycle across a full oriented collar, and let $`u_q(s)`$ be its source-facing half-collar restriction. The receipt requires
+``` math
+u(s+t)=u(s)u(t),\qquad u(0)=1,
+```
+strong continuity at zero, the source-derived full-collar density
+``` math
+-u'_{\rm full}(0)=\frac{P_\star}{24},
+```
+and the orientation-reversal coarea identity
+``` math
+-u'_q(0)=\frac12[-u'_{\rm full}(0)]=\frac{P_\star}{48}.
+```
+These are infinitesimal generator statements. A one-step survival probability has exponent $`-\log u_q(\log b)/\log b`$.*
+
+</div>
+
+<div id="thm:oph-p-over-48-tilt" class="theorem">
+
+**Theorem 14** (edge-center tilt and repair-clock reconciliation). *Under Definition <a href="#def:oph-screen-reserve-generator" data-reference-type="ref" data-reference="def:oph-screen-reserve-generator">13</a>,
+``` math
+u_q(s)=e^{-\theta s},\qquad
+\theta=\frac{P_\star}{48},\qquad
+n_s=1-\frac{P_\star}{48}.
+```
+In the coordinate $`\theta=\kappa_{\rm rep}(P_\star-\varphi)`$, the same branch has
+``` math
+\kappa_{\rm rep}^{\rm edge}
+=\frac{P_\star}{48(P_\star-\varphi)}.
+```
+The value $`e`$ is a separate diagnostic hypothesis unless an additional identity equates it with this source-derived coordinate.*
+
+</div>
+
+<div class="proof">
+
+*Proof.* For $`g(s)=-\log u_q(s)`$, the cocycle law gives the continuous Cauchy equation. Hence $`g(s)=\theta s`$. Differentiation at zero and the half-collar identity give $`\theta=P_\star/48`$. The formula for $`\kappa_{\rm rep}^{\rm edge}`$ is algebraic. ◻
+
+</div>
+
+<div id="thm:oph-screen-radial-source-family" class="theorem">
+
+**Theorem 15** (homogeneous radial source family). *Assume source-stress closure, a single clock, freezeout, multicenter consistency, and translation/rotation covariance. Let $`C_\zeta=M_{\Delta_\zeta^2}`$ on the common physical $`d\ln k`$ mode basis. If a scale-natural source embedding transports refinement to physical dilation and its finite operator residual converges to
+``` math
+D_s^{-1}C_\zeta D_s=e^{-\theta s}C_\zeta,
+\qquad (D_sf)(k,\hat k)=f(e^{-s}k,\hat k),
+```
+then every positive measurable representative satisfies
+``` math
+\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}
+```
+almost everywhere. Continuity gives the pointwise identity. A single shell has an infinite-dimensional radial kernel, including positive ambiguities; complete radial cross-covariances give the independent spherical-Hankel tomography route.*
+
+</div>
+
+<div class="proof">
+
+*Proof.* Conjugation of the multiplication operator gives $`\Delta_\zeta^2(e^sk)=e^{-\theta s}\Delta_\zeta^2(k)`$ almost everywhere. In logarithmic coordinates, rational-translation invariance on a common full-measure set forces $`e^{\theta t}\Delta_\zeta^2(e^t)`$ to be constant almost everywhere. The one-shell and tomography statements follow from the correlation-restriction and spherical-Hankel theorems in the primordial bridge packet. ◻
 
 </div>
 
 <div id="thm:oph-thin-shell-powerlaw-lift" class="theorem">
 
-**Theorem 12** (thin-shell power-law lift). *Assume $`q(\hat n)=Z_\star\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)`$ and
+**Theorem 16** (thin-shell power-law lift). *Assume $`q(\hat n)=Z_\star\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)`$ and
 ``` math
 \Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}.
 ```
@@ -508,7 +599,7 @@ A_\zeta
 
 <div id="prop:oph-finite-window-bound" class="proposition">
 
-**Proposition 13** (finite-window bound). *Let $`\Psi_\ell(k)=\int dr\,W(r)j_\ell(kr)`$, $`W\ge0`$, $`\int Wdr=1`$, with mean $`R_\star`$ and variance $`\sigma_R^2`$. If
+**Proposition 17** (finite-window bound). *Let $`\Psi_\ell(k)=\int dr\,W(r)j_\ell(kr)`$, $`W\ge0`$, $`\int Wdr=1`$, with mean $`R_\star`$ and variance $`\sigma_R^2`$. If
 ``` math
 \delta_\ell(k)=\frac{k^2\sigma_R^2}{2}
   \sup_{r\in{\rm supp}\,W}|j_\ell''(kr)|,
@@ -525,21 +616,34 @@ then
 
 <div id="prop:oph-radial-null" class="proposition">
 
-**Proposition 14** (radial non-identifiability). *For a finite radial basis, $`C=Ap`$. If $`A\in\mathbb R^{N_\ell\times N_k}`$ has rank $`r`$, then $`\dim\ker A=N_k-r`$, and every $`p+v`$ with $`v\in\ker A`$ gives the same screen spectrum. Radial promotion therefore requires either a source theorem restricting $`p`$, or a declared prior with a published null basis, resolution kernels, positivity checks, and prior-sensitivity report.*
+**Proposition 18** (radial non-identifiability). *For a finite radial basis, $`C=Ap`$. If $`A\in\mathbb R^{N_\ell\times N_k}`$ has rank $`r`$, then $`\dim\ker A=N_k-r`$, and every $`p+v`$ with $`v\in\ker A`$ gives the same screen spectrum. Radial promotion therefore requires either a source theorem restricting $`p`$, or a declared prior with a published null basis, resolution kernels, positivity checks, and prior-sensitivity report.*
+
+</div>
+
+<div id="thm:oph-screen-spectrum-promotion" class="theorem">
+
+**Theorem 19** (conditional source-spectrum promotion). *One hash-locked source DAG may emit
+``` math
+(q_r,S_{{\rm scr},r},\theta,A_{q,r},C_{\ell,r}^q,A_{\zeta,r},
+\Delta_{\zeta,r}^2)
+```
+as a conditional primordial packet only when the geometric-scalar, collar-law, release-energy, reserve-generator, conformal-precision, refinement, source-stress, single-clock, freezeout, adiabaticity, isocurvature, phase-coherence, thin-shell, radial-null, finite-window, and forward- residual receipts pass on that DAG. Any measurement, likelihood, fitted parameter, or measurement-calibrated ancestor fails the source packet. Physical temperature and polarization spectra require the independent Boltzmann, recombination, nuisance, covariance, and likelihood gates.*
 
 </div>
 
 <div id="target:oph-screen-spectrum-receipts" class="target">
 
-**Target 15** (screen-spectrum receipt set). *The theorem-grade screen spectrum requires the following receipt families before any primordial or CMB promotion:*
+**Target 20** (screen-spectrum receipt set). *A concrete source-derived spectrum requires the following receipt families before primordial promotion:*
 
 1.  *geometry, scalar quotient, low-mode projector, scalar precision, and operator normalization;*
 
 2.  *quotient ensemble selection, scalar release energy, and MaxEnt screen covariance;*
 
-3.  *scalar refinement tilt and angular screen spectrum with a finite error budget;*
+3.  *the infinitesimal reserve generator, scalar refinement tilt, and angular screen spectrum with a finite error budget;*
 
-4.  *radial window, radial null-space, forward residual, and transfer firewall.*
+4.  *source-stress, clock, freezeout, radial-window, radial-null, forward-residual, and transfer firewall receipts.*
+
+*The theorem and algorithm packet is complete. Construction of one finite source DAG that passes this receipt set is work in progress.*
 
 </div>
 
@@ -549,26 +653,30 @@ The branch claim is:
 ``` math
 \boxed{
 \begin{gathered}
-\text{On a declared finite-source continuation branch, OPH may replace the logical jobs of}\\
+\text{On a finite-source branch, OPH may replace the logical jobs of}\\
 \text{inflation by direct/CMH spatial-holonomy selection, same-boundary or low-}k\text{ repair coherence,}\\
 \text{a geometric screen spectrum, MaxEnt release, and ordinary Boltzmann transfer.}
 \end{gathered}}
 ```
-This claim is not part of the recovered SM/GR core. It becomes predictive only when the source objects are fixed before observational comparison. Screen synchronization instantiates C3 of `../docs/CONSISTENCY_STACK.md` — modular self-consistency, with internal time generated by the state–algebra pair rather than by an external clock.
+This claim is not part of the recovered SM/GR core. It becomes predictive only when the source objects are fixed before observational comparison. Screen synchronization instantiates C3 of the project consistency stack: modular self-consistency, with internal time generated by the state–algebra pair rather than by an external clock.
 
 Coherent-matter same-channel forcing supplies a local scalar-channel identity for nondegenerate OPH-coherent material sources under Scalar Edge-Center Exhaustion. It does not supply the finite covariant dark-stress parent needed for cosmological $`w_A`$, $`c_{s,A}^2`$, $`\sigma_A`$, $`Q_A^\mu`$, recipient-stress, gauge-variable, CDM-limit, and refinement-convergence receipts.
 
-The anomaly abundance selector is owned by `cosmology/oph_dark_matter_paper.tex`. The finite-source branch may use a source-only $`\bar\rho_A(a)`$ only when `ANOMALY_ABUNDANCE_SOURCE_RECEIPT` passes. Otherwise the dark continuation is either `OFF` or `CONDITIONAL_SOURCE_STATE`.
+The anomaly abundance selector is owned by `cosmology/oph_dark_matter_paper.tex`. The finite-source branch may use a source-only $`\bar\rho_A(a)`$ only when
+``` math
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}
+```
+passes. Otherwise the dark continuation is either $`\texttt{OFF}`$ or $`\texttt{CONDITIONAL\_SOURCE\_STATE}`$.
 
 # Paper Targets
 
 | Target | Required theorem or receipt |
 |:---|:---|
 | Finite early state | Quotient normal-form branch with declared base measure and implementation invariance. |
-| Flatness | Zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$. Exact selection requires <span class="smallcaps">DirectTheorem</span>, <span class="smallcaps">ConditionalCMH</span>, or <span class="smallcaps">ExplicitAssumption</span>; damping is only an approximate $`|K|`$ or $`|\Omega_K|`$ bound. |
+| Flatness | Zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$. Exact selection requires <span class="smallcaps">DirectTheorem</span>, <span class="smallcaps">ConditionalCMH</span>, or <span class="smallcaps">ExplicitAssumption</span>; damping is only an approximate $`\vert{}K\vert{}`$ or $`\vert{}\Omega_K\vert{}`$ bound. |
 | Horizon coherence | Same-boundary unique-extension theorem or a uniform low-$`k`$ repair gap. |
-| Near scale invariance | Geometric screen scalar, normalized scalar precision, source release energy, refinement tilt, and angular screen-spectrum receipts. |
-| Amplitude | Source release-energy certificate for $`A_q`$, followed by a separate radial lift for $`A_\zeta`$; neither may be fitted from CMB data. |
+| Near scale invariance | Geometric screen scalar, normalized scalar precision, source release energy, infinitesimal reserve-generator tilt, and angular screen-spectrum receipts. |
+| Amplitude | The conditional theorem fixes $`A_q=2E_q^{\rm src}/d`$ and its source-family conversion to $`A_\zeta`$. A finite collar release law and energy receipt must supply their values without CMB data. |
 | Hot start | MaxEnt release into the realized radiation branch with a common release clock. |
 | Acoustic transfer | Declared source functions and Boltzmann transfer owned by the finite-source CMB and data-contract papers. |
 
@@ -588,24 +696,35 @@ C_\ell^q
   =
   A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
 ```
-This statement requires the geometric $`q_r`$ of Definition <a href="#def:oph-screen-scalar" data-reference-type="ref" data-reference="def:oph-screen-scalar">2</a>, a normalized positive precision operator $`K_r`$, a source-only release ensemble and $`E^{\rm src}_{q,r}`$, the MaxEnt covariance theorem, and a finite-to-continuum refinement error budget. The value $`\theta=P_\star/48`$ is theorem-grade only if the edge-center reserve, half-collar scalar projection, and reserve-to-RG Ward identity in Target <a href="#target:oph-p-over-48-tilt" data-reference-type="ref" data-reference="target:oph-p-over-48-tilt">11</a> pass. Otherwise $`P_\star/48`$ and $`e(P_\star-\varphi)`$ are distinct diagnostic hypotheses. Canonical status for the resulting tilt $`n_s=1-\theta`$: analytic candidate, not lattice-derived, $`\kappa_{\mathrm{rep}}`$ contraction certificate pending; two candidate formulas are on record and the selection between them is uncounted, so the $`0.27\sigma`$ Planck comparison of the $`P_\star/48`$ branch is a basin location, not a hit.
+This statement requires the geometric $`q_r`$ of Definition <a href="#def:oph-screen-scalar" data-reference-type="ref" data-reference="def:oph-screen-scalar">2</a>, a normalized conformal precision operator $`K_{\theta,r}`$, the primitive collar release law, $`E^{\rm src}_{q,r}`$, the MaxEnt covariance theorem, and a finite-to-continuum refinement error budget. The edge-center theorem gives
+``` math
+\theta=\frac{P_\star}{48},\qquad
+n_s=1-\frac{P_\star}{48},\qquad
+\kappa_{\rm rep}^{\rm edge}=\frac{P_\star}{48(P_\star-\varphi)}.
+```
+Its premise is a source-emitted full-collar generator density $`P_\star/24`$ with the orientation-half identity. A finite one-step survival probability is converted through $`-\log u/\log b`$. The $`e(P_\star-\varphi)`$ clock branch is a diagnostic alternative. The finite generator and clock receipt is work in progress.
 
-The primordial power law
+Under the declared source dilation cocycle, the primordial power law
 ``` math
 \Delta_\zeta^2(k)=A_\zeta\left(\frac{k}{k_\star}\right)^{-\theta}
 ```
-enters this paper only after the thin-shell or finite-window lift fixes $`R_\star`$, $`Z_\star`$, the radial window, the null-space report, the forward-projection residual, and the amplitude conversion from $`A_q`$ to $`A_\zeta`$. A screen theorem by itself does not prove TT, TE, EE, lensing, acoustic peaks, or an official likelihood result.
+is the unique member of the one-dimensional source family. The exact thin-shell identity fixes the amplitude conversion
+``` math
+A_\zeta=\frac{A_q}{\pi^{3/2}}
+\frac{\Gamma(3/2+\theta/2)}{\Gamma(1+\theta/2)}
+```
+at the source pivot. A finite run requires $`R_\star`$, the radial window, the unrestricted null-space report, the forward residual, and the physical scale. The screen theorem proves no TT, TE, EE, lensing, acoustic peak, or likelihood statement.
 
 # Unclosed Claim Boundaries
 
 1.  Prove the same-boundary or low-$`k`$ coherence branch in quotient language.
 
-2.  Replace diagnostic feature-weight scalar readouts with the geometric collar-volume $`q_r=\Pi_{\ge2,r}(1/3)\log(J_{X,r}/\bar J_{X,r})`$.
+2.  Emit the geometric collar-volume field $`q_r=\Pi_{\ge2,r}(1/3)\log(J_{X,r}/\bar J_{X,r})`$ from one finite source.
 
-3.  Specify the source-release-energy certificate for $`A_q`$ without CMB data use.
+3.  Emit the primitive collar release law and pooled release energy that fix $`A_q`$.
 
-4.  Prove or bound the refinement source of $`\theta`$, including the separate $`P_\star/48`$ edge-center reserve lemmas if that branch is retained.
+4.  Emit the full-collar infinitesimal reserve generator and orientation-half receipt that instantiate the conditional $`P_\star/48`$ theorem.
 
-5.  Connect the synchronized release state to the source-only primordial bridge.
+5.  Pass the source-stress, clock, freezeout, physical-scale, radial-window, null-space, and forward-residual receipts on the same DAG.
 
 6.  Hand the resulting source inputs to the CMB and likelihood-contract papers.

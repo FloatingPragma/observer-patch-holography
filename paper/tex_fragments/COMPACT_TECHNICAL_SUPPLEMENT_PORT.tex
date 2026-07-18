@@ -242,8 +242,8 @@ from D6; the anomalous record attachment and physical CP-odd source generator re
 \begin{theorem}[Conditional OPH screen-spectrum theorem]\label{thm:compact-conditional-screen-spectrum}
 Let \((\mathcal S_r)\) be a cofinal finite spherical OPH screen system with a
 schedule-independent quotient-normal-form scalar \(q_r\), removal of the background and dipole
-sector, and a target-free positive quadratic repair operator \(K_r\). If \(K_r\to K\), the finite
-scalar release energy satisfies \(E_r/d_r\to A_q\), and local MaxEnt is imposed at fixed expected
+sector, and a target-free positive quadratic repair operator \(K_r\). If \(K_r\to K\), the source-selected
+finite scalar release energy satisfies \(2E^{\rm src}_{q,r}/d_r\to A_q\), and local MaxEnt is imposed at fixed expected
 quadratic release energy, then \(q_r\) converges in finite harmonic distributions to the centered
 Gaussian screen field with covariance \(A_qK^{-1}\). Exact per-sample release energy would instead
 give a microcanonical ellipsoid. If the certified repair-scale measure is
@@ -270,19 +270,32 @@ A_\zeta=
 \frac{A_q^{\rm shell}\Gamma(3/2+\theta/2)}
 {\pi^{3/2}Z_\star^2(k_\star D_\star)^\theta\Gamma(1+\theta/2)}.
 \]
-The numerical value of \(\theta\), the expected quadratic release energy, and the lift normalization remain
-conditional on their finite certificates. A Fawzi--Renner/Markov-collar observable estimate gives an
+Suppose the same source construction emits a strongly continuous full-collar survival cocycle with
+generator density \(P_\star/24\), together with the orientation-reversal half-collar identity. Then
+\[
+\theta=\frac{P_\star}{48},\qquad
+n_s=1-\frac{P_\star}{48},\qquad
+\kappa_{\rm rep}^{\rm edge}=\frac{P_\star}{48(P_\star-\varphi)}.
+\]
+A finite one-step survival value determines \(\theta\) through
+\(-\log u_q(\log b)/\log b\); it does not supply the infinitesimal generator receipt. If a
+scale-natural source embedding transports this cocycle to the physical covariance through
+\(D_s^{-1}C_\zeta D_s=e^{-\theta s}C_\zeta\), the source family is
+\(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\). A single shell has an
+infinite-dimensional radial kernel, including positive ambiguities. Complete radial
+cross-covariances provide the independent tomography route. A Fawzi--Renner/Markov-collar observable estimate gives an
 upper bound on release observables, not an amplitude equality. No physical TT/TE/EE statement
 follows without independent Boltzmann transfer and likelihood closure.
 \end{theorem}
 
 \paragraph{Screen-spectrum boundary.}
-The theorem licenses a Phase III conditional continuation only. A derived screen spectrum requires
-the quotient-normal-form scalar field, positive repair operator, operator-tilt, and scalar-release
-energy receipts. A derived primordial curvature spectrum additionally requires the radial lift
-receipt: the heuristic \(\ell\simeq kD_\star\) assignment is only a scaffold, while the exact
-thin-shell power-law lift uses the gamma-ratio operator above and finite-width windows require their
-own Bessel-kernel error certificate.
+The conditional theorem fixes the exact angular family. Its radial theorem gives physical
+source-dilation and cross-covariance tomography as separate uniqueness routes. A finite OPH source
+DAG that emits the primitive collar ensemble, full-collar generator density, half-collar identity,
+conformal precision, and physical dilation-intertwiner or tomography receipt is work in progress.
+The thin-shell lift uses the gamma-ratio operator above;
+finite-width windows require a Bessel-kernel error certificate. Physical TT/TE/EE transfer and a
+frozen likelihood contract are separate continuation tasks.
 
 \paragraph{Separate pixel-side benchmarks.}
 The companion pixel numbers
@@ -1288,7 +1301,7 @@ positive variance in Assumption~\ref{ass:compact-gauge-os-noncollapse} says that
 centered cylinder does not enter the GNS null ideal in the limit, so it gives a nonzero vector
 orthogonal to the vacuum. The uniform form bound and lower-semicontinuity of the certified
 transfer-form limit give this vector finite continuum energy. Thus the support quotient has not
-erased the excitation used to prove nontriviality.
+erased the excitation that proves nontriviality.
 \end{proof}
 
 \begin{theorem}[Conditional positive compact-gauge Yang--Mills mass gap from OPH repair dynamics]

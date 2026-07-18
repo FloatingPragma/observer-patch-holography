@@ -189,7 +189,7 @@ abstracted as a mathematical object. It is two-dimensional because two
 coordinates, like latitude and longitude, label points on it. In OPH this
 sphere is a chart for observer-facing support data, not a literal ball that
 stores the universe on its surface. The standard round metric on $S^2$ is the
-symmetric starting geometry used to organize patches, caps, and overlaps, not
+symmetric starting geometry for organizing patches, caps, and overlaps, not
 the whole OPH theory.
 
 The chapter's screen diagram shows two observer patches and the
@@ -655,7 +655,7 @@ isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
 In OPH, transportable sectors reconstruct a compact group on the refinement
-branch. MAR and the matter package select the one-Higgs product Lie type. The
+branch. Minimal Admissible Realization (MAR) and the matter package select the one-Higgs product Lie type. The
 physical $\mathbb Z_6$ global form comes from the six transformations that act
 trivially on all realized matter. The icosahedral screen has a separate
 sixfold residue, and identifying the two requires a physical map.

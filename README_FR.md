@@ -21,7 +21,7 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
 - le consensus fini donne des registres publics stables et des formes normales quotientées ;
 - les algèbres centrales de registres donnent les probabilités d’événements quantiques et la mise à jour conditionnelle ;
 - la géométrie conforme d’un écran d’observateur donne le groupe de Lorentz connexe et un espace tridimensionnel de référentiels d’observateur ;
-- le flot modulaire, le transport nul, la stationnarité de l’entropie et la géométrie des petites boules se composent en relation d’Einstein sur la branche reconstruite ;
+- le flot modulaire, le transport nul, la stationnarité de l’entropie et la géométrie des petites boules se composent conditionnellement en relation d’Einstein sur une même tour issue de la source, avec domaine commun, limites asymptotiques certifiées et identifications physiques indépendantes ; la construction et la certification de cette tour sont en cours ;
 - les charges transportables et la reconstruction compacte donnent la structure de jauge du Modèle standard ;
 - une construction finie à douze ports fondée sur $A_5$ produit l’algèbre de Lie
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
@@ -87,10 +87,10 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface d’événements quantiques | Probabilités de Born, conditionnement de Lüders et borne de Tsirelson sur la surface finie des registres | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Relativité | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Dynamique d’Einstein | Chaîne typée du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Forme globale du Modèle standard | $S(U(3)\times U(2))$ et quotient par le centre commun $\mathbb Z_6$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Réseau d’hypercharges, trois couleurs, trois générations et un doublet de Higgs sur la branche MAR | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Structure de la matière | Réseau d’hypercharges, trois couleurs, trois générations et un doublet de Higgs sur la branche de réalisation admissible minimale (MAR) | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Vérification exacte | Sous-ensemble Lean, certificats d’intervalles, reçus finis et simulations reproductibles | [`Lean/`](Lean) et [`code/`](code) |
 
 ## Choisir un parcours de lecture
@@ -122,7 +122,7 @@ Le dépôt réunit plusieurs formes complémentaires de preuve :
 
 ## Frontière de recherche
 
-Le noyau structurel d’OPH soutient plusieurs prolongements actifs : lecture quantitative des particules, géométrie des neutrinos, cosmologie de capacité, gravité sombre comme condensat de charge de réparation, transfert de Yang–Mills et systèmes matériels ou logiciels auto-lecteurs.
+Le noyau structurel d’OPH soutient plusieurs prolongements actifs : lecture quantitative des particules, géométrie des neutrinos, cosmologie de capacité, spectre d’écran conditionnel avec amplitude issue de la source et pente de bord, gravité sombre comme condensat de charge de réparation, transfert de Yang–Mills et systèmes matériels ou logiciels auto-lecteurs. Le paquet radial démontre la non-identifiabilité à partir d’une seule coquille et donne deux voies d’unicité distinctes : la dilatation physique de la source et la tomographie par covariances radiales croisées. Un dossier fini provenant d’une seule source et satisfaisant tous les reçus du spectre est un travail en cours.
 
 Tous partagent la même règle de conception : tout système physique proposé doit être représenté comme une parcelle bornée avec état local, frontières, relecture, registres, réparation et dossier public de preuves.
 

@@ -63,12 +63,12 @@ that combination is claimed as proof anywhere in the corpus.
 | Step | Content | Status |
 |---|---|---|
 | B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems) |
-| B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | theorem on the declared branch; realized-branch nonemptiness open (GAP-B1) |
-| B3 | Gravity: Einstein equation from entropy stationarity, one global ambiguity +Λg | theorem on the declared five-axiom branch |
+| B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | conditional theorem on the typed geometric branch; source-derived common-domain tower unconstructed (GAP-B1) |
+| B3 | Gravity: Einstein equation from entropy stationarity, one metric-proportional term per connected component | conditional composition theorem; certified tails, universal coupling, vacuum reference, and independent scale identification belong to the branch premise (GAP-B1) |
 | B4 | Gauge structure and matter: conditional finite A5 module; exact coefficient bracket, trace-balanced integration, and six-axis lattice quotient; SM matter branch | physical current/global descent and one-Higgs MAR premises are conditional (GAP-B9) |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
-| B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen tilt | record rows conditional; promotion gates open (GAP-B7) |
+| B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen spectrum | exact conditional screen covariance, source-functional amplitude, edge-center tilt, one-shell radial non-identifiability, and conditional physical-dilation/tomography uniqueness; finite source instantiation and physical promotion are work in progress (GAP-B7) |
 | B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | open (GAP-B3, GAP-B5, GAP-B4) |
 | B9 | Machine formalization | 98 consensus plus 13 coupling theorems; screen files check only abstract matrix, lattice, and arithmetic statements (GAP-B8) |
 | B10 | Baryogenesis: finite anomaly/current theorem, source attachment, and physical CP-odd generator | anomaly/current theorem and direct gauge/deck no-go done; physical source branch open (GAP-B12) |
@@ -163,7 +163,11 @@ Part A gaps:
 
 Part B gaps:
 
-- **GAP-B1.** Realized-branch nonemptiness for the Lorentz and compact-gauge branches.
+- **GAP-B1.** Einstein-branch nonemptiness: construct one antecedent-only
+  common-domain tower whose geometry, modular, event, stress, entropy, and scale
+  readouts commute with refinement; certify every asymptotic tail; and supply
+  universal coupling, a source-derived vacuum reference, and independent scale
+  readouts. The compact-gauge matter-package nonemptiness problem is separate.
 - **GAP-B2.** Quantum pole receipts: the photon, gluon, and graviton zeros are classical
   action statements; the quantum pole constructions are open gates.
 - **GAP-B3.** The flavor-orbit selector: the proven two-modulus non-identifiability names
@@ -177,8 +181,11 @@ Part B gaps:
   conditional on the declared multiresolution, reflection-positivity,
   transfer/intertwiner, and nontriviality receipts.
 - **GAP-B7.** Cosmology promotion gates: the source-derived applicability rule the
-  Cassini exclusion demands, the S8 tension, physical CMB promotion, and the κ_rep
-  certificate for the tilt.
+  Cassini exclusion demands, the S8 tension, and physical CMB promotion. The
+  screen-spectrum theorem selects the conditional edge-center coordinate
+  κ_rep = P/[48(P-φ)]. A finite source must emit the infinitesimal reserve
+  generator, collar release law and energy, stress, clock, freezeout, physical
+  scale, radial-window, null-space, and forward-residual receipts on one DAG.
 - **GAP-B8.** Lean formalization of the physics branches. The 98 consensus and
   13 coupling theorems exclude the A5 selector, physical current map,
   trace-balanced group, tensor kernel, and axis-center descent.

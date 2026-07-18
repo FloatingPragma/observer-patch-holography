@@ -175,8 +175,8 @@ sector, or that the observed universe saturates the displayed CMB benchmark.
 \paragraph{\textbf{Theorem 6.4 (Conditional OPH screen spectrum).}}
 Let \((\mathcal S_r)\) be a cofinal finite spherical OPH screen system with a schedule-independent
 quotient-normal-form scalar \(q_r\), removal of the background and dipole sector, and a target-free
-positive quadratic repair operator \(K_r\). If \(K_r\to K\), the finite scalar release energy
-satisfies \(E_r/d_r\to A_q\), and local MaxEnt is imposed at fixed expected quadratic release
+positive quadratic repair operator \(K_r\). If \(K_r\to K\), the source-selected finite scalar release energy
+satisfies \(2E^{\rm src}_{q,r}/d_r\to A_q\), and local MaxEnt is imposed at fixed expected quadratic release
 energy, then \(q_r\) converges in finite harmonic distributions to the centered Gaussian screen
 field with covariance \(A_qK^{-1}\). Exact per-sample release energy would instead give a
 microcanonical ellipsoid. If the certified repair-scale measure is
@@ -199,15 +199,30 @@ C_\ell^q=A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
 If \(q\) is additionally certified as the thin-shell pullback of a homogeneous curvature field with
 \(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\), this same operator supplies the exact
 finite-\(\ell\) lift; the pure fractional Laplacian is only the asymptotic scaffold.
+Suppose the same source construction emits a strongly continuous full-collar survival cocycle with
+generator density \(P_\star/24\), together with the orientation-reversal half-collar identity. Then
+\[
+\theta=\frac{P_\star}{48},\qquad
+n_s=1-\frac{P_\star}{48},\qquad
+\kappa_{\rm rep}^{\rm edge}=\frac{P_\star}{48(P_\star-\varphi)}.
+\]
+A finite one-step survival value determines \(\theta\) through
+\(-\log u_q(\log b)/\log b\); it does not supply the infinitesimal generator receipt. If a
+scale-natural source embedding transports this cocycle to the physical covariance through
+\(D_s^{-1}C_\zeta D_s=e^{-\theta s}C_\zeta\), the source family is
+\(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\). A single shell has an
+infinite-dimensional radial kernel, including positive ambiguities. Complete radial
+cross-covariances provide the independent tomography route.
 
 \paragraph{\textbf{Receipt boundary.}}
-The screen theorem is a Phase III conditional continuation. It requires independent receipts for
-the quotient-normal-form scalar readout, the positive repair operator, the operator tilt, and the
-fixed expected quadratic scalar release energy. Fawzi--Renner/Markov-collar observable control supplies upper bounds on
-release observables; it is not an amplitude equality and does not by itself determine
-\(A_\zeta\). A primordial curvature spectrum additionally needs a screen-to-radial lift certificate
-with the exact Bessel kernel, radial prior/null-space report, and forward-projection residual. No
-physical TT/TE/EE claim follows without independent Boltzmann transfer and likelihood closure.
+The conditional theorem fixes the exact angular family. Its radial theorem gives physical
+source-dilation and cross-covariance tomography as separate uniqueness routes. A finite OPH source
+DAG that emits the primitive collar ensemble, full-collar generator density, half-collar identity,
+conformal precision, and physical dilation-intertwiner or tomography receipt is work in progress.
+Fawzi--Renner/Markov-collar observable control supplies
+upper bounds on release observables; it is not an amplitude equality. Finite-width windows require
+an exact Bessel-kernel error certificate. Physical TT/TE/EE transfer and a frozen likelihood
+contract are separate continuation tasks.
 
 \subsection{Cosmological-Constant / Screen-Capacity Closure}
 

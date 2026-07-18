@@ -346,6 +346,34 @@ release, and the acoustic peaks to ordinary Boltzmann evolution once finite
 source data are fixed. The CMB and growth curves are empirical tests of that
 source story.
 
+The screen part of this proposal has a precise conditional form. The scalar
+field is one third of the logarithmic volume change on a uniform-density
+release surface, with the average and dipole removed. A source-side maximum
+entropy law fixes its amplitude from the expected release energy. The screen
+precision then gives an exact angular spectrum through a ratio of gamma
+functions.
+
+The selected dimensionless pixel ratio is denoted by $P_*$. If a finite source
+supplies the required infinitesimal edge-center reserve density, the scalar
+tilt is
+
+$$n_s=1-\frac{P_*}{48}=0.9660214956\ldots$$
+
+One shell cannot determine an unrestricted three-dimensional spectrum, even if
+every angular multipole is known without noise. It determines the spatial
+correlation over chord lengths up to twice the shell radius and leaves an
+infinite family of positive spectra unresolved. OPH has two mathematical ways
+through this obstruction. A scale-natural source embedding can carry the screen
+scaling law into physical wavelength scaling, which restricts the curvature
+power to a one-parameter power law and fixes the amplitude conversion. A
+complete family of radial cross-covariances can instead recover the spectrum by
+spherical Hankel tomography. A finite source carrying the reserve density,
+release law, stress, clock, freezeout surface, physical scale, and one of these
+radial certificates is work in progress. Temperature and polarization spectra
+also require ordinary Boltzmann transfer and a complete likelihood. The decimal
+above is a conditional source value. It has no status as a fitted CMB result or
+physical prediction.
+
 ## 13.7 Scrambling and Chaos
 
 De Sitter space is a **fast scrambler**-perhaps the fastest possible.

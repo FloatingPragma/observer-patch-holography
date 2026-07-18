@@ -478,9 +478,10 @@ spacetime with one time direction and three of space, an arrow of time set by
 the repair process, and a separate internal space of possible rest frames
 sitting over each event. Drop those conditions and simple counterexamples show
 the reconstruction can collapse to the wrong dimension or fall apart entirely,
-even while the local Lorentz kinematics looks fine. A running simulation checks
-these conditions on its own output. Some of the checks pass in a genuine repair
-run, and the rest is work in progress.
+even while the local Lorentz kinematics looks fine. The finite simulations test
+algebra, evaluator behavior, file manifests, deletion rules, and synthetic
+controls. They do not establish that one physical construction supplies every
+geometric and modular premise on the same family of repaired records.
 
 ## 15.9 Recovering General Relativity
 
@@ -501,11 +502,12 @@ and frame information, and the scale. Agreement between observers alone does not
 hand you geometry, a clock, an energy readout, or the controls the derivation
 needs. The reconstructed geometric picture supplies those inputs.
 
-Recovering how two regions join across their shared boundary takes one more
+Recovering how two regions join across their shared boundary takes another
 technical input. The boundary has to lose its correlations fast enough as you
-move into the bulk, faster than ordinary clustering guarantees, and OPH states
-the precise rate this requires. Meeting that rate is what lets the finite
-picture pass smoothly to the continuum limit.
+move into the bulk, faster than ordinary clustering guarantees. One common
+family of refinements must satisfy that rate together with every small-region
+remainder bound. A fit across finitely many simulated sizes does not establish
+the full asymptotic tail.
 
 ### Jacobson's Insight (1995, 2016)
 
@@ -546,12 +548,20 @@ $S_{\text{bulk}}(C)$ is the entropy of the bulk quantum fields assigned to the
 cap. The symbol $\delta$ means a small allowed variation. The equality says
 that a small entropy change matches a small modular-energy change.
 
-Once the controlled BW construction has supplied the geometric modular
-automorphism, the special type-I realization may be written as
-$K_C = 2\pi B_C + \text{const}$. On that extra representation, the first law
-becomes:
+Once the controlled geometric construction has supplied the modular
+automorphism, a finite-dimensional realization may be written as
+$K_C = 2\pi B_C + Z_C$, where $Z_C$ records the boundary sectors. On that
+representation, the first law becomes:
 
-$$\delta S_C = 2\pi \delta \langle B_C \rangle$$
+$$\delta S_C = 2\pi \delta \langle B_C \rangle
++ \delta\langle Z_C\rangle$$
+
+For a direct sum of bulk states with maximally mixed boundary factors, the
+entropy splits exactly. The bulk part includes the Shannon entropy of the
+sector probabilities. The boundary part is the average logarithm of the sector
+dimensions. With that bookkeeping, the boundary variation equals
+$\delta\langle Z_C\rangle$, and the bulk variation equals
+$2\pi\delta\langle B_C\rangle$ even when the sector probabilities vary.
 
 ### The Stress Tensor Bridge
 
@@ -599,6 +609,10 @@ Einstein's equation.
 The equilibrium condition then compares that geometric response with the
 matter-energy response:
 
+$$\delta S_{\text{matter}}
+= \frac{8\pi^2\ell^4}{15}\,
+\delta\langle T_{ab}u^a u^b\rangle+o(\ell^4)$$
+
 $$\delta\!\left(G_{00} + \Lambda g_{00}\right) = 8\pi G\,\delta\langle T_{00} \rangle$$
 
 This holds in the rest frame of each small cap for admissible first variations.
@@ -618,21 +632,26 @@ one frame-independent tensor relation:
 
 $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle$$
 
-On the stated scaling branch, this is the semiclassical Einstein equation,
-obtained by combining the thermodynamic argument, geometry readout, the
+On the stated scaling branch, this is the semiclassical Einstein equation.
+The derivation combines the thermodynamic argument, geometry readout, the
 null-stress bridge, bounded-interval kernel, and the timelike
-scalar-to-tensor upgrade. The local argument leaves the metric term open; the
-proposed capacity branch would fix it only after its readback map and three
-connecting premises are derived.
+scalar-to-tensor upgrade. The local argument leaves the metric term open. The
+proposed capacity branch fixes it only under a constructed readback map and
+its three connecting premises.
 
 The word "branch" is important. Bare finite consensus by itself does not
 contain a metric, a stress tensor, an area law, or an Einstein equation. Those
-objects enter through the five-axiom recovered-core geometric-modular scaling
-branch listed in the compact paper. The algebraic
-upgrade after those inputs is tight: all timelike rest-frame relations give the
-full tensor equation, and the local metric-term residue becomes one constant
-Lambda only after the contracted Bianchi identity, local stress conservation,
-metric compatibility, and connectedness are in place.
+objects enter through a separate geometric and modular scaling branch. The
+conditional theorem requires one source-derived family of repaired records.
+Its geometry, modular flow, events, stress, entropy, and scale readouts must
+share a common domain and commute with refinement. The same family must carry
+certified asymptotic bounds, universal coupling, a source-derived vacuum
+reference, and two independent physical scale readouts. Under those premises,
+all timelike rest-frame relations give the full tensor equation. The local
+metric-term residue becomes one constant Lambda only after the contracted
+Bianchi identity, local stress conservation, metric compatibility, and
+connectedness are in place. Construction and certification of such a family
+are work in progress.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
