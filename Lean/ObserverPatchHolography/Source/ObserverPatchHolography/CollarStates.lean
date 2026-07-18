@@ -1,47 +1,47 @@
 import ObserverPatchHolography.CollarLayer
 
 /-!
-# #544 state-side layer: T0 — the identity-channel no-go with real states
+# #544 state-side layer: T0 : the identity-channel no-go with real states
 
 This file crosses the rail that `CollarLayer.lean` deliberately does not:
 it puts *states* (positive semidefinite, trace-one matrices), the matrix
 logarithm (continuous functional calculus), Umegaki relative entropy, and
 the closure defect of the paper's `def:closure-defect` on the ℂ-lift of
 the model collar layer.  The HARD RAIL of `CollarLayer.lean` ("no
-C*-analysis, no GNS/spectra/Hilbert spaces") remains true OF THAT FILE;
+C*-analysis, no GNS/spectra/Hilbert spaces") applies to that file;
 the analytic content lives here and only here.
 
 Scope (T0 only, per the scoping report `oph-544-state-side-scoping-report-
 2026-07-17.md` §1.1 and §4, bricks S1–S4):
 
-* **S1** — ℂ-lift of the model layer: `CollarC`, `uuC`/`XXC`/`pPlusC`,
+* **S1** : ℂ-lift of the model layer: `CollarC`, `uuC`/`XXC`/`pPlusC`,
   the lifted layer `modelLayerC`, and the cross-cut/flux/invariance facts,
   transferred from the kernel-`decide`d ℤ facts through the entrywise
   cast ring hom (no re-proving over ℂ).
-* **S2** — `DensityMatrix`, the spectral projections of the commuting
+* **S2** : `DensityMatrix`, the spectral projections of the commuting
   pair `{uuC, XXC}`, and the Gibbs states of the retained family via
   `NormedSpace.exp`.
-* **S3** — matrix log via the continuous functional calculus
+* **S3** : matrix log via the continuous functional calculus
   (`CFC.log = cfc Real.log`; Mathlib has no `Matrix.log`), Umegaki
   relative entropy, `relEntropy_self`, and the family Klein inequality
   (relative entropy is nonnegative *between Gibbs states of the retained
-  family*) — the commuting family reduces it to the classical
+  family*) : the commuting family reduces it to the classical
   finite-probability Gibbs inequality; no Kubo–Mori machinery.
-* **S4** — admissible channels (linear, positive, trace-preserving — the
+* **S4** : admissible channels (linear, positive, trace-preserving : the
   requirements named in `rem:msascope`, nothing more), the closure defect
   of `def:closure-defect`, and the T0 theorem
-  `stateSide_currentAxioms_cannot_force`.
+  `stateSide_axioms_do_not_force`.
 
-**Claim discipline (non-negotiable).**  T0 *sharpens* #544; it does NOT
-close it.  It shows the paper's current admissible-channel requirements
+**Claim discipline.** T0 contributes to the #544 independence resolution. It shows the paper's
+stated admissible-channel requirements
 cannot force the central-interface collar clause, because the identity
 channel is admissible and discharges refinement closure with closure
-defect exactly zero on a non-central family.  Forcing remains impossible
-until the admissible class is strengthened at the axiom level (T2 —
-explicitly out of scope here).
+defect exactly zero on a non-central family. A forcing theorem would
+require stronger axioms for the admissible class. T2 records the modular
+boundary of this argument.
 
 Anti-smuggling discipline (report §3): `AdmissibleChannel` is
-witness-free — its definition mentions positivity and trace preservation
+witness-free : its definition mentions positivity and trace preservation
 only, never `uuC`, `XXC`, the flux sector, or the clause.
 -/
 
@@ -49,7 +49,7 @@ namespace OPH
 
 open Kronecker Matrix
 
-/-! ## S1 — the ℂ-lift of the model layer
+/-! ## S1 : the ℂ-lift of the model layer
 
 Everything is transferred from the kernel-`decide`d ℤ-matrix facts of
 `CollarLayer.lean` through the entrywise cast ring hom `liftC`; nothing
@@ -71,9 +71,9 @@ noncomputable def uuC : CollarC := liftC uu
 /-- The invariant-but-non-central cross coupling `X ⊗ X` over ℂ. -/
 noncomputable def XXC : CollarC := liftC XX
 
-/-- The sector projector `(1 + u⊗u)/2` — the element whose image was
+/-- The sector projector `(1 + u⊗u)/2` : the element whose image was
     ℤ-impossible for any integral flux retraction
-    (`no_integral_flux_retraction`); over ℂ it is an honest projection. -/
+    (`no_integral_flux_retraction`); over ℂ it is a genuine projection. -/
 noncomputable def pPlusC : CollarC := (2 : ℂ)⁻¹ • (1 + uuC)
 
 /-! ### ℤ-side kernel-`decide` facts (new ones needed by the state layer) -/
@@ -126,7 +126,7 @@ theorem uuC_isHermitian : uuC.IsHermitian := liftC_isHermitian_of_symm uu_symm
 
 theorem XXC_isHermitian : XXC.IsHermitian := liftC_isHermitian_of_symm XX_symm
 
-/-- The sector projector is idempotent over ℂ — the direct witness that
+/-- The sector projector is idempotent over ℂ : the direct witness that
     the ℤ-integrality obstruction was a feature of the ring of scalars,
     not of the operator content. -/
 theorem pPlusC_idem : pPlusC * pPlusC = pPlusC := by
@@ -351,11 +351,11 @@ theorem XXC_notMem_fluxC : XXC ∉ FluxC := by
   rw [h1] at h0
   exact one_ne_zero h0
 
-/-! ## S2 — density matrices and the Gibbs states of the retained family
+/-! ## S2 : density matrices and the Gibbs states of the retained family
 
 The retained family `{uuC, XXC}` commutes (`uuC_comm_XXC`), so its joint
 spectral decomposition is carried by the four projections
-`specProjP (s,t) = ¼ (1 + ε_s uuC)(1 + ε_t XXC)` — pure algebra from
+`specProjP (s,t) = ¼ (1 + ε_s uuC)(1 + ε_t XXC)` : pure algebra from
 `uuC² = XXC² = 1`; no eigenbasis, no `√2`, no entry computations. -/
 
 open scoped ComplexOrder
@@ -826,10 +826,10 @@ noncomputable def gibbsDM (lam : Fin 2 → ℝ) : DensityMatrix where
 @[simp] theorem gibbsDM_rho (lam : Fin 2 → ℝ) :
     (gibbsDM lam).ρ = gibbsM SFam lam := rfl
 
-/-! ## S3 — matrix log, Umegaki relative entropy, and the family Klein
+/-! ## S3 : matrix log, Umegaki relative entropy, and the family Klein
 inequality
 
-The matrix logarithm is `CFC.log = cfc Real.log` — the continuous
+The matrix logarithm is `CFC.log = cfc Real.log` : the continuous
 functional calculus instance on matrices is norm-free (topological), and
 the `NormedRing` structure needed by the `CFC.log`/`NormedSpace.exp`
 interplay is supplied by file-local `l∞`-operator-norm instances (the
@@ -838,7 +838,7 @@ resulting values are norm-independent).
 The Klein inequality proved here is the *family* Klein inequality:
 relative entropy is nonnegative between Gibbs states of the retained
 family.  The commuting family reduces it to the classical
-finite-probability Gibbs inequality (`Real.log_le_sub_one_of_pos`) — no
+finite-probability Gibbs inequality (`Real.log_le_sub_one_of_pos`) : no
 Kubo–Mori/Duhamel machinery, exactly as the scoping report predicted.
 The fully general Klein inequality (arbitrary density-matrix pairs) is
 NOT needed for T0 and is not claimed. -/
@@ -862,7 +862,7 @@ noncomputable def relEntropyM (A B : CollarC) : ℝ :=
 noncomputable def relEntropy (ρ σ : DensityMatrix) : ℝ :=
   relEntropyM ρ.ρ σ.ρ
 
-/-- Relative entropy of any matrix with itself vanishes — the minimizer
+/-- Relative entropy of any matrix with itself vanishes : the minimizer
     witness for the identity-channel closure defect. -/
 theorem relEntropyM_self (A : CollarC) : relEntropyM A A = 0 := by
   rw [relEntropyM, sub_self, mul_zero, Matrix.trace_zero]
@@ -916,7 +916,7 @@ theorem gibbsM_eq_exp_gibbsExponent (lam : Fin 2 → ℝ) :
   rw [← Complex.ofReal_exp, gLog, Real.exp_sub,
     Real.exp_log (partitionZ_pos lam), Complex.ofReal_div, inv_mul_eq_div]
 
-/-- **Log of a Gibbs state**: `log ω(λ) = -λ·S - log Z • 1` — the
+/-- **Log of a Gibbs state**: `log ω(λ) = -λ·S - log Z • 1` : the
     manuscript's local-Gibbs form, on machine. -/
 theorem matLog_gibbsM (lam : Fin 2 → ℝ) :
     matLog (gibbsM SFam lam) = gibbsExponent lam := by
@@ -1039,11 +1039,11 @@ theorem relEntropyM_gibbs_nonneg (lam lam' : Fin 2 → ℝ) :
 
 end StateSide
 
-/-! ## S4 — admissible channels, the closure defect, and the T0 theorem
+/-! ## S4 : admissible channels, the closure defect, and the T0 theorem
 
 `AdmissibleChannel` is **witness-free** (anti-smuggling, report §3 trap
-i): linearity, positivity, trace preservation — the requirements
-`rem:msascope` names for the admissible coarse-graining class — and
+i): linearity, positivity, trace preservation : the requirements
+`rem:msascope` names for the admissible coarse-graining class. The
 nothing else.  It never mentions `uuC`, `XXC`, the flux sector, or the
 collar clause. -/
 
@@ -1066,8 +1066,8 @@ noncomputable def AdmissibleChannel.applyD (C : AdmissibleChannel)
   posSemidef := C.pos _ ρ.posSemidef
   trace_one := by rw [C.tracePreserving, ρ.trace_one]
 
-/-- The identity channel is admissible under the paper's current
-    requirements — this is the "choose any channels" free-choice
+/-- The identity channel is admissible under the paper's stated
+    requirements : this is the "choose any channels" free-choice
     stipulation of `ax:maxent`'s internal refinement notion, at the state
     level. -/
 noncomputable def idChannel : AdmissibleChannel where
@@ -1086,7 +1086,7 @@ noncomputable def closureDefect (S : Fin 2 → CollarC) (C : AdmissibleChannel)
 
 /-- The defect is bounded by the relative entropy to any family member
     (the I-projection is an infimum).  The boundedness hypothesis is the
-    honest guard against `Real.iInf` junk values; for the witness family
+    explicit guard against `Real.iInf` junk values; for the witness family
     it is discharged by the family Klein inequality. -/
 theorem closureDefect_le_relEntropy_apply {S : Fin 2 → CollarC}
     {C : AdmissibleChannel} {lam : Fin 2 → ℝ}
@@ -1099,7 +1099,7 @@ theorem closureDefect_le_relEntropy_apply {S : Fin 2 → CollarC}
 
 /-- **Identity-channel discharge**: on the non-central witness family,
     the closure defect of the identity channel vanishes identically along
-    the whole realized branch — with the genuine state-side objects, not
+    the whole realized branch : with the genuine state-side objects, not
     their algebraic shadows.  Lower bound: family Klein inequality; upper
     bound: `relEntropyM_self` at the minimizer `lam' = lam`. -/
 theorem identityChannel_closureDefect_eq_zero (lam : Fin 2 → ℝ) :
@@ -1118,21 +1118,21 @@ theorem identityChannel_closureDefect_eq_zero (lam : Fin 2 → ℝ) :
     simp only [idChannel_apply]
     exact relEntropyM_gibbs_nonneg lam lam'
 
-/-- **T0 — the state-side identity-channel no-go.**
+/-- **T0 : the state-side identity-channel no-go.**
 
-Under the paper's current admissible-channel requirements (positivity,
+Under the paper's stated admissible-channel requirements (positivity,
 trace preservation, free channel choice), there is a retained family of
 gauge-invariant densities containing a genuinely cross-cut, non-central
 coupling, together with an admissible channel under which the family's
 realized MaxEnt branch is refinement-stable with closure defect exactly
 zero at every point of the branch.
 
-So the current axioms cannot *force* the central-interface collar clause:
+These axioms cannot *force* the central-interface collar clause:
 the non-central family `{uuC, XXC}` admits a refinement-stable realized
-MaxEnt branch.  This sharpens #544 — forcing requires strengthening the
-admissible class at the axiom level (T2; out of scope here) — and it does
-NOT close it. -/
-theorem stateSide_currentAxioms_cannot_force :
+MaxEnt branch. This is the state-side identity-channel component of the
+#544 independence resolution. A forcing theorem requires stronger axioms
+for the admissible class. -/
+theorem stateSide_axioms_do_not_force :
     ∃ S : Fin 2 → CollarC,
       (∀ a, GaugeInvariantC (S a)) ∧
       (∃ a, CrossCutC (S a) ∧ S a ∉ FluxC) ∧
@@ -1166,6 +1166,6 @@ Quot.sound]`.  No `sorry`, no `native_decide`, no extra axioms. -/
 #print axioms finset_klDiv_nonneg
 #print axioms relEntropyM_gibbs_nonneg
 #print axioms identityChannel_closureDefect_eq_zero
-#print axioms stateSide_currentAxioms_cannot_force
+#print axioms stateSide_axioms_do_not_force
 
 end OPH

@@ -1,13 +1,13 @@
 import ObserverPatchHolography.CollarStates
 
 /-!
-# State-side collar states — T1: the reversal exhibit (#544)
+# State-side collar states : T1: the reversal exhibit (#544)
 
-T0 (`CollarStates.lean`) showed the paper's current admissible-channel
+T0 (`CollarStates.lean`) showed the paper's stated admissible-channel
 requirements cannot force the central-interface collar clause: the
 identity channel keeps the non-central family `{uuC, XXC}` at closure
 defect zero.  T1 sharpens the boundary from the other side: over ℂ the
-ℤ-obstruction of `no_integral_flux_retraction` *reverses* — the
+ℤ-obstruction of `no_integral_flux_retraction` *reverses* : the
 Hilbert–Schmidt-orthogonal conditional expectation
 
   `Eflux : m ↦ (tr m)/4 • 1 + (tr (uuC·m))/4 • uuC`
@@ -23,10 +23,11 @@ the transport identity
 
 (coordinate erasure of the coupling multiplier) exhibits the coarse-
 grained state as the central member at `lam' = ![lam 0, 0]`.  Possession
-of the excluding map still does not *force* the clause — it merely
+of the excluding map does not *force* the clause. It merely
 *deselects* the coupling on the coarse side.  This is the force-vs-select
-gap: T1 re-characterizes #544, it does not close it; strengthening the
-admissible class at the axiom level (T2) stays out of scope.
+gap. T1 supplies the conditional-expectation component of the #544
+independence resolution. Strengthening the admissible class at the axiom
+level is outside this theorem's scope.
 
 Everything here rides T0's banked spectral machinery (`specProjP`,
 `gibbsM_spectral`, the family Klein inequality); no new analytic
@@ -38,7 +39,7 @@ namespace OPH
 open Matrix
 open scoped ComplexOrder
 
-/-! ## T1-S1 — the flux conditional expectation and the transport identity -/
+/-! ## T1-S1 : the flux conditional expectation and the transport identity -/
 
 /-- The flux conditional expectation as a raw linear map: the
     Hilbert–Schmidt-orthogonal projection of the collar algebra onto the
@@ -70,7 +71,7 @@ theorem uuC_mul_specProjP_trace (p : Fin 2 × Fin 2) :
 
 /-- The action of the flux expectation on the joint spectral basis:
     each sector projection is sent to half the corresponding `uuC`
-    half-projection — the coupling direction is forgotten, the charge
+    half-projection : the coupling direction is forgotten, the charge
     direction is kept. -/
 theorem Eflux_specProjP (p : Fin 2 × Fin 2) :
     EfluxL (specProjP p) = (2 : ℂ)⁻¹ • quP p.1 := by
@@ -114,7 +115,7 @@ theorem partitionZ_factor (lam : Fin 2 → ℝ) :
   refine Finset.sum_congr rfl fun s _ => Finset.sum_congr rfl fun t _ => ?_
   rw [eigval, neg_add, Real.exp_add]
 
-/-- **The marginal identity** — the scalar heart of the transport: the
+/-- **The marginal identity** : the scalar heart of the transport: the
     halved coupling-fibre marginal of the joint Gibbs weights equals the
     erased-family Gibbs weight.  Pure `Real.exp` arithmetic on the
     factorized partition functions. -/
@@ -147,7 +148,7 @@ theorem gibbsProb_marginal (lam : Fin 2 → ℝ) (s : Fin 2) :
     Gibbs state of the non-central family by the flux expectation lands
     exactly on the family member with the coupling multiplier erased,
     `lam' = ![lam 0, 0]`.  The I-projection infimum is therefore hit at
-    an explicit central point — no optimization, no Kubo–Mori. -/
+    an explicit central point : no optimization, no Kubo–Mori. -/
 theorem Eflux_transport (lam : Fin 2 → ℝ) :
     EfluxL (gibbsM SFam lam) = gibbsM SFam ![lam 0, 0] := by
   rw [gibbsM_spectral lam, map_sum, gibbsM_spectral ![lam 0, 0],
@@ -183,7 +184,7 @@ theorem Eflux_transport (lam : Fin 2 → ℝ) :
       sum_specProjP_fibre]
   rw [hL, hR, gibbsProb_marginal]
 
-/-! ## T1-S2 — the action table of the flux expectation
+/-! ## T1-S2 : the action table of the flux expectation
 
 The five lemmas of the scoping report plus the sixth (the `uuC·XXC`
 cross-term, which the Gibbs exponential carries): the expectation is
@@ -204,25 +205,25 @@ theorem Eflux_kills_XX : EfluxL XXC = 0 := by
   norm_num
 
 /-- The sixth lemma (not in the report's five): the charge–coupling
-    cross-term is also annihilated — `uuC·(uuC·XXC) = XXC` is traceless,
+    cross-term is also annihilated : `uuC·(uuC·XXC) = XXC` is traceless,
     so the Gibbs exponential's cross-term cannot strand any payload. -/
 theorem Eflux_kills_uu_mul_XX : EfluxL (uuC * XXC) = 0 := by
   rw [EfluxL_apply, uuC_mul_XXC_trace, ← mul_assoc, uuC_sq, one_mul,
     XXC_trace]
   norm_num
 
-/-- The ℤ-impossible value, now legal: the flux expectation fixes the
-    sector projector — a linear consequence of unitality and charge
+/-- The ℤ-impossible value is available over ℂ: the flux expectation fixes the
+    sector projector : a linear consequence of unitality and charge
     fixing, not an entrywise computation. -/
 theorem Eflux_maps_pPlus : EfluxL pPlusC = pPlusC := by
   rw [pPlusC, map_smul, map_add, Eflux_unital, Eflux_fixes_uu]
 
-/-! ## T1-S3 — positivity, trace preservation, and the channel
+/-! ## T1-S3 : positivity, trace preservation, and the channel
 
 Positivity via the spectral form `E(m) = ∑ₛ (tr(quPₛ·m)/2) • quPₛ`:
 each coefficient is the trace of a projector-compression of `m`, hence
 nonnegative.  Positivity + trace preservation suffice for admissibility;
-complete positivity is true but not required (no Choi theatre). -/
+complete positivity lies outside the stated requirements (no Choi theatre). -/
 
 theorem quP_idem (s : Fin 2) : quP s * quP s = quP s := by
   rw [quP_mul, if_pos rfl]
@@ -285,7 +286,7 @@ theorem EfluxL_trace (m : CollarC) : (EfluxL m).trace = m.trace := by
     trace_one_collarC, uuC_trace, smul_eq_mul, smul_eq_mul]
   ring
 
-/-- **The flux expectation is an admissible channel** — linear, positive,
+/-- **The flux expectation is an admissible channel** : linear, positive,
     trace-preserving; exactly the paper's named requirements, nothing
     smuggled. -/
 noncomputable def EfluxChannel : AdmissibleChannel where
@@ -306,14 +307,14 @@ theorem XXC_ne_zero : XXC ≠ 0 := by
 
 /-- **Deselection, not exclusion** (false-receipt guard): the flux
     expectation genuinely kills the coupling that the identity channel
-    keeps fixed — the T1 payload below cannot be read as T0 in a wig. -/
+    keeps fixed : the T1 payload below cannot be read as T0 in a wig. -/
 theorem EfluxChannel_deselects_XXC :
     EfluxChannel.Φ XXC = 0 ∧ idChannel.Φ XXC = XXC ∧ XXC ≠ 0 :=
   ⟨Eflux_kills_XX, rfl, XXC_ne_zero⟩
 
-/-! ## T1-S4 — the reversal receipt and the payload -/
+/-! ## T1-S4 : the reversal receipt and the payload -/
 
-/-- The ℂ-span of `{1, uuC}` is a subring — `uuC² = 1` closes
+/-- The ℂ-span of `{1, uuC}` is a subring : `uuC² = 1` closes
     multiplication.  (Over ℤ this same closure was the wall the
     retraction could not cross; over ℂ it is the home of `Eflux`.) -/
 def fluxSpanC : Subring CollarC where
@@ -348,7 +349,7 @@ theorem EfluxL_fixes_fluxC : ∀ m ∈ FluxC, EfluxL m = m := by
   obtain ⟨a, b, rfl⟩ := hle hK
   rw [map_add, map_smul, map_smul, Eflux_unital, Eflux_fixes_uu]
 
-/-- **The reversal receipt**: over ℂ the excluding map exists — an
+/-- **The reversal receipt**: over ℂ the excluding map exists : an
     admissible channel that fixes the flux sector pointwise, is unital,
     and annihilates the coupling.  The witness is the concrete
     `EfluxChannel`, not an unrelated existential.  This is the ℂ-negation
@@ -358,16 +359,16 @@ theorem flux_expectation_exists_over_C :
       (∀ m ∈ FluxC, E.Φ m = m) ∧ E.Φ 1 = 1 ∧ E.Φ XXC = 0 :=
   ⟨EfluxChannel, EfluxL_fixes_fluxC, Eflux_unital, Eflux_kills_XX⟩
 
-/-- **T1 payload — possession of the excluding map still does not
+/-- **T1 payload : possession of the excluding map does not
     force.**  Coarse-graining the realized MaxEnt branch of the
     non-central family `{uuC, XXC}` by the genuine flux expectation
     leaves the closure defect exactly zero at every point of the branch:
     the coarse-grained state IS the central family member at
     `lam' = ![lam 0, 0]` (the transport identity), so the I-projection
     infimum is attained at zero.  Together with
-    `EfluxChannel_deselects_XXC` this is deselection, not exclusion —
-    the excluding map re-characterizes the boundary of #544; it does not
-    close it. -/
+    `EfluxChannel_deselects_XXC` this is deselection, not exclusion :
+    the excluding map identifies the conditional-expectation boundary used
+    in the #544 independence resolution. -/
 theorem Eflux_does_not_force (lam : Fin 2 → ℝ) :
     closureDefect ![uuC, XXC] EfluxChannel lam = 0 := by
   have hSF : (![uuC, XXC] : Fin 2 → CollarC) = SFam := rfl

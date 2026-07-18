@@ -15,7 +15,7 @@ receipts of that closure, so the recast is not re-proposed as live:
   a state is the commutant of its density.  For every realized-branch
   state `gibbsM SFam lam` of the non-central witness family
   `SFam = ![uuC, XXC]`, the genuinely non-central coupling `XXC` COMMUTES
-  with the state (`XXC_commute_gibbs`) — the family commutes, so
+  with the state (`XXC_commute_gibbs`) : the family commutes, so
   "retained ⊆ centralizer(ω)" is satisfied trivially by the very element
   the clause wants excluded.  A false receipt: compiles as a clause,
   excludes nothing.
@@ -24,7 +24,7 @@ receipts of that closure, so the recast is not re-proposed as live:
   push `XXC` out of the centralizer, the modular Hamiltonian must break
   the `uuC`-eigenspace degeneracy with one-sided boundary charges
   `uLC = u⊗1`, `uRC = 1⊗u`.  But then the witness `w = uLC + uRC` is
-  gauge-invariant, cross-cut, NOT flux — and still commutes with every
+  gauge-invariant, cross-cut, NOT flux, and commutes with every
   one-sided-charge Gibbs state
   (`centralizer_diagonal_strictly_contains_flux`).  The corrected recast
   forces at most "retained ⊆ diagonal algebra span{1, uLC, uRC, uuC}",
@@ -32,15 +32,15 @@ receipts of that closure, so the recast is not re-proposed as live:
   (cross-cut ⇒ flux).  The gap is one-sided-charge mixtures; closing it
   is a claim-weakening decision, not a derivation.
 
-These are receipts ABOUT the relocation, not escapes from it.  They do
-NOT close #544; "declare the clause" stays the honest floor (T2 fence).
+These receipts support the #544 independence resolution. They establish
+the modular boundary of the argument: the clause is a declared input.
 -/
 
 namespace OPH
 
 open Kronecker Matrix
 
-/-! ## Receipt 1 — the naive modular recast is vacuous
+/-! ## Receipt 1 : the naive modular recast is vacuous
 
 `XXC` commutes with every realized-branch Gibbs state of the retained
 family, via the banked joint spectral basis: `XXC` commutes with `uuC`
@@ -62,7 +62,7 @@ theorem XXC_comm_specProjP (p : Fin 2 × Fin 2) :
   (XXC_comm_quP p.1).mul_right (XXC_comm_qxP p.2)
 
 /-- The non-central coupling commutes with EVERY realized-branch state
-    of the retained family — it sits inside the modular centralizer of
+    of the retained family : it sits inside the modular centralizer of
     every `ω` the recast can name on that branch. -/
 theorem XXC_commute_gibbs (lam : Fin 2 → ℝ) :
     Commute XXC (gibbsM SFam lam) := by
@@ -70,9 +70,9 @@ theorem XXC_commute_gibbs (lam : Fin 2 → ℝ) :
   exact Commute.sum_right _ _ _ fun p _ =>
     (XXC_comm_specProjP p).smul_right _
 
-/-- **Receipt 1 — the naive recast is a false receipt.**  The witness
+/-- **Receipt 1 : the naive recast is a false receipt.**  The witness
     `XXC` carries every credential the collar clause cares about
-    (gauge-invariant, cross-cut, not flux) and still lies in the modular
+    (gauge-invariant, cross-cut, not flux) and lies in the modular
     centralizer of every realized-branch state: "retained ⊆
     centralizer(ω)" is trivially satisfied by the non-central family and
     excludes nothing. -/
@@ -81,7 +81,7 @@ theorem naive_modular_recast_does_not_exclude :
       ∀ lam : Fin 2 → ℝ, Commute XXC (gibbsM SFam lam) :=
   ⟨XXC_invariant, XXC_crossCut, XXC_notMem_fluxC, XXC_commute_gibbs⟩
 
-/-! ## Receipt 2 — the corrected recast buys only the diagonal clause
+/-! ## Receipt 2 : the corrected recast buys only the diagonal clause
 
 One-sided boundary charges, built exactly like `uuC = u⊗u`, `XXC = X⊗X`
 from the model's own half-collar embeddings. -/
@@ -217,7 +217,7 @@ theorem wMix_crossCut : CrossCutC wMix := by
   · exact wMix_notMem_MRC h
 
 /-- The ℂ-span of `{1, uuC}` is a subring (`uuC² = 1` closes
-    multiplication) — the flux hull used to bound `K = ⟨uuC⟩`. -/
+    multiplication) : the flux hull used to bound `K = ⟨uuC⟩`. -/
 def fluxSpanT2C : Subring CollarC where
   carrier := {m | ∃ a b : ℂ, m = a • 1 + b • uuC}
   zero_mem' := ⟨0, 0, by simp⟩
@@ -283,7 +283,7 @@ theorem wMix_comm_uRC : Commute wMix uRC :=
 
 open NormedSpace in
 /-- The mixture commutes with every Gibbs state of the one-sided-charge
-    family — the corrected modular Hamiltonian cannot push it out of the
+    family : the corrected modular Hamiltonian cannot push it out of the
     centralizer either. -/
 theorem wMix_commute_gibbs_oneSided (lam : Fin 2 → ℝ) :
     Commute wMix (gibbsM ![uLC, uRC] lam) := by
@@ -296,12 +296,12 @@ theorem wMix_commute_gibbs_oneSided (lam : Fin 2 → ℝ) :
   rw [gibbsM]
   exact harg.exp_right.smul_right _
 
-/-- **Receipt 2 — the corrected recast forces at most the DIAGONAL
+/-- **Receipt 2 : the corrected recast forces at most the DIAGONAL
     clause.**  Even when the modular Hamiltonian is rebuilt from the
     one-sided boundary charges (the only way to break the
-    `uuC`-eigenspace degeneracy), there is a witness — the mixture
-    `uLC + uRC` — that is gauge-invariant, cross-cut, NOT flux, and
-    still commutes with every such Gibbs state.  So the centralizer
+    `uuC`-eigenspace degeneracy), there is a witness : the mixture
+    `uLC + uRC` : that is gauge-invariant, cross-cut, NOT flux, and
+    commutes with every such Gibbs state. So the centralizer
     contains the full diagonal algebra `span{1, uLC, uRC, uuC}`, a
     STRICT superset of `FluxC`: the recast can force "retained ⊆
     diagonal", never the collar clause "cross-cut ⇒ flux".  The gap is

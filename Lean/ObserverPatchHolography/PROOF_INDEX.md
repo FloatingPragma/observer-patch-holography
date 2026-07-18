@@ -30,13 +30,13 @@ Mapping between Lean 4 theorems in this project and statements in
   sorry-free → 100% (the declared boundary map `B_OPH` defined concretely as
   the root-packet readback on the verified rooted-tree packet-net domain, its
   injectivity modulo gauge proved class-wide, and the endpoint payoff composed
-  through the neutral equivalence; the class restriction is the remaining
+  through the neutral equivalence; the class restriction is the named
   named premise for nets outside the declared domain. It does **not** bear on
   the Prop 4.2 / Def 4.1 counts)
 - Finite event algebras (`EventAlgebra` library, journal-neutral bundle):
   64 / 64 audited declarations, sorry-free → 100% (standard axioms only;
   `chsh_mul_self` needs only `propext` + `Quot.sound`). A self-contained
-  neutral-vocabulary development — it does **not** bear on the
+  neutral-vocabulary development : it does **not** bear on the
   Prop 4.2 / Def 4.1 counts. See "Finite event algebras" below.
 
 The headline number is **0% of Proposition 4.2** until the OPH-specific
@@ -44,8 +44,8 @@ structures are in place. The 100% skeleton number is preliminary
 infrastructure, not progress on Prop 4.2 itself. Counts revised per
 math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 
-> **Addendum (2026-07-11) — the three declared `Primitives.lean` admissions
-> are discharged.** `localRepair` is now a constructed single-site
+> **Addendum (2026-07-11) : the three declared `Primitives.lean` admissions
+> are discharged.** `localRepair` is a constructed single-site
 > transactional recovery move (fires iff an incident overlap is broken and
 > the site can satisfy all its overlaps at once, repaired state chosen from
 > declared overlap data), `Repair` is a choice-canonical asynchronous
@@ -56,25 +56,25 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 > discharged for the constructed operator (`lyapunovDescent_holds`,
 > `termination_holds`), with normal-form/reachability receipts
 > (`Repair_normalForm`, `Repair_reachable`). NOT discharged: OPH
-> `Confluence` (false in general — `demoCarrier_not_confluent`),
+> `Confluence` (false in general : `demoCarrier_not_confluent`),
 > `Completeness` for the constructed operator (holds exactly on
 > frustration-free dynamics via the conditional `H1`–`H3` layer), and the
 > `NF`/`World` quotient construction. The tables and counts below predate
 > this discharge and need a math-seat re-audit before renumbering; rows for
-> `OPH.Repair`/`OPH.localRepair`/`OPH.repair_respects_gauge` should now read
+> `OPH.Repair`/`OPH.localRepair`/`OPH.repair_respects_gauge` should read
 > as constructed/proven rather than ⬜-declared.
 
-> **Addendum (2026-07-18) — issue #544 collar chain (layer separation +
+> **Addendum (2026-07-18) : issue #544 collar chain (layer separation +
 > state-side no-gos), 41 / 41 audited declarations, sorry-free.**
 > `CollarClause.lean`/`CollarLayer.lean` prove the layer separation (the
 > overlap-consistency repair layer factors through the realized constraint
 > family; the collar clause is a declared input, not a theorem).
-> `CollarStates.lean` (T0) proves `stateSide_currentAxioms_cannot_force`:
+> `CollarStates.lean` (T0) proves `stateSide_axioms_do_not_force`:
 > the state-side axioms (density matrices, Gibbs states of the retained
 > family, Umegaki relative entropy, family Klein inequality) do not force
 > the clause. `CollarStatesT1.lean` (T1) proves `Eflux_does_not_force` and
 > `EfluxChannel_deselects_XXC`: the flux conditional expectation exists,
-> kills the cross-cut coupling, and still does not force the clause
+> kills the cross-cut coupling without forcing the clause
 > (deselection ≠ exclusion). `CollarModularT2.lean` (T2) proves
 > `naive_modular_recast_does_not_exclude` and
 > `centralizer_diagonal_strictly_contains_flux`: the naive modular recast
@@ -83,7 +83,7 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 > `EventAlgebra` library (`fluxPartition`,
 > `collarReindex_EfluxL_eq_compressed_pinching`,
 > `EfluxL_absorbs_pinching`): `EfluxL` is the blockwise normalised-trace
-> compression of `pinchingExpectation` — strictly finer than any pinching,
+> compression of `pinchingExpectation` : strictly finer than any pinching,
 > hence retained rather than replaced. All 41 audited declarations pin at
 > `[propext, Classical.choice, Quot.sound]`; none bear on the
 > Prop 4.2 / Def 4.1 counts.
@@ -91,9 +91,9 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 ## Status legend
 
 - ✅  proven, sorry-free, matches paper statement
-- 🟡  proven but generic (does not yet refer to OPH structure)
+- 🟡  generic proof without OPH-specific structure
 - 🔸  motivational only (no formal anchor in paper)
-- ⬜  declared as `sorry` or thin placeholder / not yet formalised
+- ⬜  declared as `sorry` or thin placeholder / unformalised
 - ❌  stated, contains unintended `sorry` or `admit`
 
 ## Definition 4.1: Public world
@@ -255,9 +255,9 @@ event algebras over `Matrix (Fin n) (Fin n) ℂ`, built for journal
 submission. **These modules are OPH-vocabulary-free by design**: namespace
 `EventAlgebra`, imports Mathlib only, no observer/patch/screen/record
 vocabulary anywhere, and no imports from the rest of this repository. Every
-lemma's doc comment carries a scope tag — **algebra-only** (pure
+lemma's doc comment carries a scope tag : **algebra-only** (pure
 `*`-algebra content) or **consumes a tracial state** (content passing
-through the trace pairing `(ρ, P) ↦ Tr(ρ P)`) — so the split between the
+through the trace pairing `(ρ, P) ↦ Tr(ρ P)`), so the split between the
 algebraic layer and the state layer is machine-visible. Modules live in
 `Source/EventAlgebra/` with umbrella `Source/EventAlgebra.lean`; Mathlib
 friction log in `Source/EventAlgebra/MATHLIB_NOTES.md`. All 64 audited
@@ -268,7 +268,7 @@ Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
 `bornWeight` (`Tr(ρ P)`), `luedersUpdate`, `certainStates`,
 `CenterPartition`, `centerExpectation`, `expectation`.
 
-`Basic.lean` — events and Born weights (25 lemmas):
+`Basic.lean` : events and Born weights (25 lemmas):
 
 | Lean name | One-line statement |
 |---|---|
@@ -298,7 +298,7 @@ Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
 | `bornWeight_mono` | `PQ = P → Tr(ρP) ≤ Tr(ρQ)` (monotone under subevents). |
 | `bornWeight_ne_zero_iff_re_pos` | Nonzero weight ↔ strictly positive real part. |
 
-`Lueders.lean` — Lüders conditioning (12 lemmas):
+`Lueders.lean` : Lüders conditioning (12 lemmas):
 
 | Lean name | One-line statement |
 |---|---|
@@ -315,7 +315,7 @@ Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
 | `luedersUpdate_eq_self_of_mem_certainStates` | States certain of `P` are fixed points of conditioning. |
 | `luedersUpdate_eq_self_iff` | Fixed points of conditioning = states certain of `P` (given nonzero weight). |
 
-`CenterExpectation.lean` — conditional expectation onto a commutative
+`CenterExpectation.lean` : conditional expectation onto a commutative
 center (16 lemmas). This is the quantum-native counterpart of the
 classical contractive conditional-resampling projector package in
 `Proofs/ObservableNormalForms/ObservableNormalForms/ConditionalResampling.lean`
@@ -343,7 +343,7 @@ neutral bundle stays self-contained with no imports from that package:
 | `bornWeight_centerExpectation` | Born weights of central events are `𝔼`-invariant. |
 | `centerExpectation_luedersUpdate` | For central `P`: `𝔼 ∘ L_P = L_P ∘ 𝔼` (classical conditioning). |
 
-`StateFromTrace.lean` — the expectation functional (5 lemmas):
+`StateFromTrace.lean` : the expectation functional (5 lemmas):
 
 | Lean name | One-line statement |
 |---|---|
@@ -353,7 +353,7 @@ neutral bundle stays self-contained with no imports from that package:
 | `expectation_one` | Normalisation: `Tr(ρ·1) = 1` for a state. |
 | `expectation_nonneg` | Positivity on all PSD observables (spectral-theorem proof). |
 
-`Tsirelson.lean` — the Tsirelson bound, norm form (6 lemmas; abstract
+`Tsirelson.lean` : the Tsirelson bound, norm form (6 lemmas; abstract
 C*-route shipped, matrix corollary included):
 
 | Lean name | One-line statement |

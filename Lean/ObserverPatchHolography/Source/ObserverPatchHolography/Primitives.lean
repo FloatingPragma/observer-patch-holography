@@ -2,7 +2,7 @@ import Mathlib
 import ObserverPatchHolography.AbstractRewriting
 
 /-!
-# OPH Primitives — concrete carrier model (admission-free)
+# OPH Primitives : concrete carrier model (admission-free)
 
 These are the primitives Proposition 4.2 depends on. Where the companion
 paper *Reality as a Consensus Protocol* (`OPHConsensus`) pins down concrete
@@ -11,72 +11,71 @@ type `Records`, the declared-overlap observation map, gauge equivalence as
 the kernel of that map, and the weighted mismatch potential `Φ`.
 
 The asynchronous-schedule / transactional machinery (`localRepair`,
-`Repair`, and the congruence `repair_respects_gauge`) — formerly the file's
-three declared `sorry`s — is now **constructed and discharged** (see
-"The async machinery, now constructed" below). The file, and with it the
+`Repair`, and the congruence `repair_respects_gauge`) is **constructed and
+discharged** (see "The constructed async machinery" below). The file, and with it the
 observer-reconstruction layer, is admission-free: no `sorry`, no `admit`,
 no `native_decide`, no new axiom; CI checks that `lake build` emits zero
 `sorry` warnings.
 
 ## Concrete content from the paper
 
-* `OPHCarrier` — *Reality* Def 1.1 (finite patch graph `G=(V,E)`; per-patch
+* `OPHCarrier` : *Reality* Def 1.1 (finite patch graph `G=(V,E)`; per-patch
   finite state spaces `S_i`; per-edge interface alphabet `I_e` and
   projections `π_{i,e}, π_{j,e}`) + Def 2 (edge weights `w_e > 0` and a
   per-edge distance `d_e` with `d_e(a,b)=0 ↔ a=b`).
-* `Records C := (i : C.Patch) → C.State i` — *Reality* Def 1.1 global state
+* `Records C := (i : C.Patch) → C.State i` : *Reality* Def 1.1 global state
   space `Σ := ∏_{i∈V} S_i`.
-* `Obs C` / `obsMap C` — *Paradise* line 311 declared observable overlap
+* `Obs C` / `obsMap C` : *Paradise* line 311 declared observable overlap
   data: the per-edge exposed projection pair `e ↦ (π_{i,e}(x_i), π_{j,e}(x_j))`.
-* `Φ C` — *Reality* Def 2 / *Paradise* line 300:
+* `Φ C` : *Reality* Def 2 / *Paradise* line 300:
   `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))`.
-* `gaugeEquiv C` — *Paradise* line 311: the kernel `Setoid.ker (obsMap C)`
+* `gaugeEquiv C` : *Paradise* line 311: the kernel `Setoid.ker (obsMap C)`
   (same declared observable overlap data).
-* `gaugeEquiv_equivalence` — `∼_gauge` is an equivalence relation (the kernel
+* `gaugeEquiv_equivalence` : `∼_gauge` is an equivalence relation (the kernel
   of any map is an equivalence); discharged by the from-first-principles term
   `⟨fun _ => rfl, Eq.symm, Eq.trans⟩` since `gaugeEquiv` unfolds to an `Eq`.
-* `consistent_iff_edgeConsistent` — *Reality* Prop 1: `C = Φ⁻¹(0)`, the
+* `consistent_iff_edgeConsistent` : *Reality* Prop 1: `C = Φ⁻¹(0)`, the
   faithfulness witness keeping the `Φ` model from vacuously falsifying
   `Completeness`.
-* `Site C` — *Reality* repair-site index (a local move fires at a patch).
-* `demoCarrier` / `obsMap_demoCarrier_nonconstant` — an explicit two-patch
+* `Site C` : *Reality* repair-site index (a local move fires at a patch).
+* `demoCarrier` / `obsMap_demoCarrier_nonconstant` : an explicit two-patch
   carrier and a proof that its `obsMap` separates two records. This makes the
   non-vacuity of `gaugeEquiv`/`consistent_iff_edgeConsistent` an in-file fact
   (gaugeEquiv is strictly finer than the total relation), not merely an
   argued universal claim. Adds no `sorry`.
 
-## The async machinery, now constructed
+## The constructed async machinery
 
-* `localRepair i` — the single-site transactional recovery move of *Reality*
+* `localRepair i` : the single-site transactional recovery move of *Reality*
   line 297 ("built from local recovery moves"): patch `i` fires exactly when
   (a) one of its declared overlaps is broken (`LocalTrigger`) and (b) it can
   transactionally re-satisfy *all* of its declared overlaps at once
-  (`LocallySolvable` — frustration-freeness at `(i, x)`), and it then
+  (`LocallySolvable` : frustration-freeness at `(i, x)`), and it then
   replaces its own state with a repaired one chosen (via `Classical.choice`)
   from the *declared overlap data alone*. That last point is the design
   load-bearer: because the trigger, the solvability predicate, and the chosen
   replacement are all functions of `obsMap x` (not of the gauge-hidden
   interior), every lemma needed for Prop 4.2 sentence 2 follows.
-* `Repair` — the asynchronous schedule composed to a normal form: repeatedly
+* `Repair` : the asynchronous schedule composed to a normal form: repeatedly
   fire a (choice-canonical) firing site until none fires. Well-founded by the
   broken-edge count `mismatchCount` (each accepted move strictly shrinks the
   broken-edge set). `Repair_reachable` and `Repair_normalForm` certify that
   the result is a genuine normal form of the accepted-step relation reached
   by accepted asynchronous steps.
-* `repair_respects_gauge` — Prop 4.2 sentence 2, now a theorem: the repair
+* `repair_respects_gauge` : a proof of Prop 4.2 sentence 2. The repair
   dynamics consume only declared overlap data, so `obsMap ∘ Repair` factors
   through `obsMap`.
 * **Non-degeneracy receipts** (the failure mode this file always warned
-  about — `Repair := id` closing the congruence "for the wrong reason" — is
+  about : `Repair := id` closing the congruence "for the wrong reason" : is
   ruled out by theorems): `lyapunovDescent_holds` and `termination_holds`
   discharge the file's own `LyapunovDescent` and `Termination` obligations
   for the constructed operator (both would be vacuous-false-or-empty under a
   degenerate repair with a nonempty step relation, and the step relation is
   provably nonempty: `acceptedStep_demoCarrier_nonempty`), and
-  `Repair_eq_self_of_consistent` shows repair does nothing on already
-  consistent records.
+  `Repair_eq_self_of_consistent` shows repair does nothing on consistent
+  records.
 
-## Honest scope (what "admission-free" does and does not close)
+## Scope of the admission-free result
 
 `sorry`-free is **not** "repair theory fully closed". Explicitly:
 
@@ -85,8 +84,8 @@ no `native_decide`, no new axiom; CI checks that `lake build` emits zero
   so on *frustrated* carriers (a broken incident edge but no single-site
   fix) a broken record can be a normal form. `Completeness` holds exactly on
   frustration-free dynamics; that is the content of the conditional `H1`–`H3`
-  development below, which remains the general statement.
-* `Confluence` is **not** claimed — and is false in general:
+  development below, which gives the general statement.
+* `Confluence` is **not** claimed. It is false in general:
   `demoCarrier_not_confluent` below exhibits a non-confluent instance. The
   constructed `Repair` is one canonical (choice-selected) schedule; its
   gauge-congruence is what Prop 4.2 sentence 2 requires, not schedule
@@ -113,7 +112,7 @@ structure OPHCarrier where
   /-- Patches have decidable equality (needed for, e.g., discrete metrics). -/
   [patchDecEq : DecidableEq Patch]
   /-- Per-patch local state space `S_i`. A genuine `Patch`-indexed family,
-      NOT one shared type — faithful to projections out of *different*
+      NOT one shared type : faithful to projections out of *different*
       state spaces. -/
   State : Patch → Type
   /-- Interface edges `E` of the finite graph. -/
@@ -143,11 +142,11 @@ attribute [instance] OPHCarrier.patchFintype OPHCarrier.patchDecEq OPHCarrier.ed
 
 variable (C : OPHCarrier)
 
-/-- *Reality* Def 1.1: the global state space `Σ := ∏_{i∈V} S_i` — an
+/-- *Reality* Def 1.1: the global state space `Σ := ∏_{i∈V} S_i` : an
     assignment of a local state to every patch. (`Paradise` macro `\Records`.) -/
 def Records : Type := (i : C.Patch) → C.State i
 
-/-- *Paradise* line 311: the type of declared observable overlap data — the
+/-- *Paradise* line 311: the type of declared observable overlap data : the
     per-edge exposed projection-pair family. (`Paradise` macro `\Obs`.) -/
 def Obs : Type := (e : C.Edge) → C.Iface e × C.Iface e
 
@@ -265,8 +264,8 @@ def SolvesAt (i : C.Patch) (x : Records C) (s : C.State i) : Prop :=
 
 /-- Local satisfiability (frustration-freeness at `(i, x)`): *some*
     replacement state for patch `i` satisfies all of `i`'s declared overlaps
-    at once. On frustrated instances this fails and the local move honestly
-    does not fire — no single-site move can repair an unsatisfiable
+    at once. On frustrated instances this fails and the local move explicitly
+    does not fire : no single-site move can repair an unsatisfiable
     neighbourhood. -/
 def LocallySolvable (i : C.Patch) (x : Records C) : Prop :=
   ∃ s : C.State i, SolvesAt i x s
@@ -312,7 +311,7 @@ open Classical in
     incident overlap is broken (`LocalTrigger`) *and* it can transactionally
     satisfy all of its declared overlaps at once (`LocallySolvable`); it then
     installs a repaired state chosen from the declared overlap data. On
-    frustrated or already-locally-consistent sites it is the identity. -/
+    frustrated or locally consistent sites it is the identity. -/
 noncomputable def localRepair : Site C → Records C → Records C := fun i x =>
   if h : LocalTrigger i x ∧ LocallySolvable i x then
     Function.update x i (Classical.choose h.2)
@@ -351,7 +350,7 @@ theorem localRepair_repairs (i : Site C) (x : Records C)
 /-- Exact firing characterisation: the move at `i` changes `x` iff an
     incident edge is broken *and* the site is locally solvable. (The `H2`
     trigger law holds in the forward direction unconditionally, and as an
-    iff exactly on frustration-free instances — see the honest-scope note in
+    iff exactly on frustration-free instances : see the scope note in
     the header.) -/
 theorem localRepair_ne_iff (i : Site C) (x : Records C) :
     localRepair C i x ≠ x ↔ (LocalTrigger i x ∧ LocallySolvable i x) := by
@@ -467,7 +466,7 @@ def Consistent (x : Records C) : Prop :=
 def EdgeConsistent (x : Records C) : Prop :=
   ∀ e : C.Edge, C.projSrc e (x (C.src e)) = C.projTgt e (x (C.tgt e))
 
-/-- *Reality* Prop 1: the model satisfies `C = Φ⁻¹(0)` — `Φ x = 0` holds iff
+/-- *Reality* Prop 1: the model satisfies `C = Φ⁻¹(0)` : `Φ x = 0` holds iff
     `x` is edge-consistent. This is the faithfulness witness for the `Φ`
     model (it is what stops `Φ` from vacuously falsifying `Completeness`);
     it uses both carrier hypotheses `weight_pos` and `dist_eq_zero`. -/
@@ -502,7 +501,7 @@ def Termination : Prop :=
 /-- *Paradise* line 311: two records are gauge-equivalent iff they expose the
     same declared observable overlap data. Idiomatically, this is the
     **kernel setoid** `Setoid.ker (obsMap C)`: `gaugeEquiv C x y` unfolds to
-    `obsMap C x = obsMap C y`. It is non-vacuous — strictly finer than the
+    `obsMap C x = obsMap C y`. It is non-vacuous : strictly finer than the
     total relation whenever `obsMap` is non-constant. -/
 def gaugeEquiv (x y : Records C) : Prop :=
   (Setoid.ker (obsMap C)).r x y
@@ -549,14 +548,14 @@ private theorem obsMap_Repair_congr_aux :
       rw [Repair_of_normal C x hx, Repair_of_normal C y hy]
       exact h
 
-/-- `∼_gauge` is a `Repair`-congruence — Prop 4.2 sentence 2 (independence
-    on the physical quotient), now a theorem.
+/-- `∼_gauge` is a `Repair`-congruence : Prop 4.2 sentence 2 (independence
+    on the physical quotient), proved here.
 
     The proof is exactly the sentence's content: the constructed async
-    `Repair` factors through `obsMap`. Every datum the dynamics consult —
+    `Repair` factors through `obsMap`. Every datum the dynamics consult :
     which edges are broken, whether a site can transactionally repair its
     neighbourhood, which repaired state is installed, which site fires
-    next — is a function of the declared overlap data, so gauge-equivalent
+    next : is a function of the declared overlap data, so gauge-equivalent
     records evolve through pointwise gauge-equivalent trajectories
     (`obsMap_Repair_congr_aux`). This is *not* closed "for the wrong
     reason": the operator genuinely fires (`acceptedStep_demoCarrier_nonempty`),
@@ -627,14 +626,14 @@ a degenerate `Repair` (`id` / a constant) closes `repair_respects_gauge`
 "for the wrong reason" while making the dynamical obligations vacuous. The
 theorems below rule that out for the constructed operator:
 
-* `Repair_normalForm` / `Repair_reachable` — `Repair` reaches a genuine
+* `Repair_normalForm` / `Repair_reachable` : `Repair` reaches a genuine
   normal form of `acceptedStep` by a genuine accepted asynchronous run.
-* `lyapunovDescent_holds` / `termination_holds` — the file's own
+* `lyapunovDescent_holds` / `termination_holds` : the file's own
   `LyapunovDescent` and `Termination` obligations, discharged.
-* `acceptedStep_demoCarrier_nonempty` — the accepted-step relation is
+* `acceptedStep_demoCarrier_nonempty` : the accepted-step relation is
   provably nonempty (the operator really fires), so none of the above is a
   statement about an empty relation.
-* `Repair_eq_self_of_consistent` — repair does nothing on consistent
+* `Repair_eq_self_of_consistent` : repair does nothing on consistent
   records. -/
 
 private theorem Repair_normalForm_aux :
@@ -653,7 +652,7 @@ private theorem Repair_normalForm_aux :
     obtain ⟨i, _, hfire⟩ := hstep
     exact hx ⟨i, hfire⟩
 
-/-- **Receipt — `Repair` reaches a genuine normal form.** No accepted repair
+/-- **Receipt : `Repair` reaches a genuine normal form.** No accepted repair
     step applies to `Repair C x`. -/
 theorem Repair_normalForm (x : Records C) : NormalForm C (Repair C x) :=
   Repair_normalForm_aux C (mismatchCount x) x rfl
@@ -674,16 +673,16 @@ private theorem Repair_reachable_aux :
         _ rfl)
   · rw [Repair_of_normal C x hx]
 
-/-- **Receipt — `Repair` is an accepted asynchronous run.** `Repair C x` is
+/-- **Receipt : `Repair` is an accepted asynchronous run.** `Repair C x` is
     reached from `x` by accepted repair steps, i.e. the operator is the
-    composition of local recovery moves under one asynchronous schedule —
+    composition of local recovery moves under one asynchronous schedule :
     the paper's construction, not an unrelated function that happens to
     satisfy the congruence. -/
 theorem Repair_reachable (x : Records C) :
     ReflTransGen (acceptedStep C) x (Repair C x) :=
   Repair_reachable_aux C (mismatchCount x) x rfl
 
-/-- **Receipt — repair fixes consistent records.** On `Φ = 0` records no
+/-- **Receipt : repair fixes consistent records.** On `Φ = 0` records no
     site fires and `Repair` is the identity. -/
 theorem Repair_eq_self_of_consistent (x : Records C) (hx : Consistent C x) :
     Repair C x = x := by
@@ -692,7 +691,7 @@ theorem Repair_eq_self_of_consistent (x : Records C) (hx : Consistent C x) :
   obtain ⟨e₀, _, hbrk₀⟩ := ((localRepair_ne_iff C i x).1 hfire).1
   exact hbrk₀ ((consistent_iff_edgeConsistent C x).1 hx e₀)
 
-/-- **Receipt — the file's `LyapunovDescent` obligation, discharged.** Every
+/-- **Receipt : the file's `LyapunovDescent` obligation, discharged.** Every
     accepted step strictly lowers `Φ`: the fired site's incident edges drop
     to zero mismatch (one of them was strictly positive by
     `weight_pos`/`dist_eq_zero`), all other edges are untouched. A degenerate
@@ -720,7 +719,7 @@ theorem lyapunovDescent_holds : LyapunovDescent C := by
       fun h0 => hbrk₀ ((edgeConsistentAt_iff_dist e₀ x).2 h0)
     exact mul_pos (C.weight_pos e₀) (pos_iff_ne_zero.mpr hd)
 
-/-- **Receipt — the file's `Termination` obligation, discharged.** The
+/-- **Receipt : the file's `Termination` obligation, discharged.** The
     accepted asynchronous-repair relation for the constructed `localRepair`
     is well-founded, via the `mismatchCount` measure. -/
 theorem termination_holds : Termination C :=
@@ -733,7 +732,7 @@ theorem termination_holds : Termination C :=
 /-- On `demoCarrier`, site `false` genuinely fires from the identity record:
     the single edge is broken and copying the neighbour's value (`true`)
     transactionally repairs it. Proved through the firing characterisation
-    `localRepair_ne_iff` — no need to compute the classical choice. -/
+    `localRepair_ne_iff` : no need to compute the classical choice. -/
 theorem localRepair_demoCarrier_fires :
     localRepair demoCarrier false (fun b => b) ≠ (fun b => b) := by
   rw [localRepair_ne_iff]
@@ -746,7 +745,7 @@ theorem localRepair_demoCarrier_fires :
       Function.update (fun b : Bool => b) false true true
     rw [Function.update_self, Function.update_of_ne (by decide : (true : Bool) ≠ false)]
 
-/-- **Receipt — the accepted-step relation is nonempty.** The constructed
+/-- **Receipt : the accepted-step relation is nonempty.** The constructed
     repair genuinely fires, so the dynamical receipts above are not
     statements about an empty relation. -/
 theorem acceptedStep_demoCarrier_nonempty :
@@ -754,11 +753,11 @@ theorem acceptedStep_demoCarrier_nonempty :
   ⟨fun b => b, localRepair demoCarrier false (fun b => b),
     false, rfl, localRepair_demoCarrier_fires⟩
 
-/-! ### Axiom audit — the constructed repair layer is admission-free.
+/-! ### Axiom audit : the constructed repair layer is admission-free.
 The `#print axioms` outputs below confirm that the constructed
 `localRepair`/`Repair`, the discharged `repair_respects_gauge`, and every
 non-degeneracy receipt depend only on the standard Lean/Mathlib axioms
-(`propext`, `Classical.choice`, `Quot.sound`) — no `sorryAx`, no
+(`propext`, `Classical.choice`, `Quot.sound`) : no `sorryAx`, no
 `native_decide`, no new axiom. -/
 #print axioms localRepair
 #print axioms Repair
@@ -776,19 +775,19 @@ end OPH
 /-! ## Global termination & completeness from LOCAL repair laws
 
 This section proves the mathematical content of two of OPH's open *dynamical*
-obligations — **Termination** and **Completeness** (cf. the `Termination`/
-`Completeness` `def`s above) — **conditionally, for any local repair move
+obligations : **Termination** and **Completeness** (cf. the `Termination`/
+`Completeness` `def`s above) : **conditionally, for any local repair move
 satisfying the local laws `H1`/`H2`/`H3` below**, derived from those explicit,
 faithful, single-site properties. It establishes the theorems for the abstract
 move `lr`, independently of the constructed `localRepair` above. (The file's
-own `Termination` `def` is now discharged outright for the constructed
-operator — `termination_holds` — while its `Completeness` `def` is *not*
+own `Termination` `def` is discharged outright for the constructed
+operator (`termination_holds`). Its `Completeness` `def` is *not*
 claimed there: the constructed move fires only on locally solvable sites, so
-full `Completeness` remains exactly the frustration-free conditional proved
+full `Completeness` is exactly the frustration-free conditional proved
 here.) The laws are
 satisfiable by a genuine repair (e.g. a two-`Bool`-patch carrier with one
 edge, each patch copying its neighbour to snap the edge consistent), so the
-result is conditional, not vacuous — and that satisfiability is itself
+result is conditional and non-vacuous. That satisfiability is
 machine-checked below as `demoCarrier_terminates` (a concrete `(carrier, repair)`
 instance discharging `H1`/`H2`/`H3` with a real, non-empty repair step).
 
@@ -799,7 +798,7 @@ with `#print axioms` reporting only `[propext, Classical.choice, Quot.sound]`
 (no `sorryAx`, no new `axiom`). The statements are phrased over the
 hypothesis-bearing move `lr` (`acceptedStepLR`, `NormalFormLR`) and are
 mathematically the same theorems for any concrete operator that satisfies
-`H1`/`H2`/`H3` — including the constructed `localRepair` on frustration-free
+`H1`/`H2`/`H3` : including the constructed `localRepair` on frustration-free
 carriers.
 
 ### Hypotheses are LOCAL; conclusions are GLOBAL (no assume-the-conclusion)
@@ -807,7 +806,7 @@ carriers.
 The hypotheses are genuine **single-site** statements:
 * `H1` (`lr` changes only site `i`): firing at `i` touches patch `i` only.
 * `H2` (`lr` fires iff a local edge is broken): the move at `i` changes `x`
-  *iff* some edge incident to `i` is locally inconsistent — a purely local
+  *iff* some edge incident to `i` is locally inconsistent : a purely local
   trigger.
 * `H3` (local satisfiability / frustration-freeness): when the move at `i`
   fires it makes *all* of `i`'s own incident edges consistent. This explicitly
@@ -833,12 +832,12 @@ Inter-Basin termination theorem. A `ℕ` surrogate is *needed* because the
 carrier potential `Φ : ℝ≥0` is **not** `<`-well-founded; `mismatchCount` is the
 well-founded shadow of `Φ` that makes asynchronous descent terminate.
 
-### What remains open (explicit scoping; no `sorry`)
+### Scope boundary (no `sorry`)
 
 `Confluence`/`LocallyConfluent` is **not** provided: asynchronous repairs at
 different sites need not commute (`lr i (lr j x)` and `lr j (lr i x)` can
 differ), so a frustration-free carrier may reach distinct normal forms
-under distinct schedules — schedule independence / unique normal forms is out
+under distinct schedules : schedule independence / unique normal forms is out
 of scope for these hypotheses. There is no `sorry`, `admit`, or new `axiom`
 anywhere in this section. -/
 
@@ -851,7 +850,7 @@ section LocalRepairDynamics
 variable {C : OPHCarrier}
 
 -- `edgeConsistentAt`, `brokenSet`, `mismatchCount` and their membership
--- lemmas now live in the RepairKernel section above (they are shared with
+-- lemmas live in the RepairKernel section above (they are shared with
 -- the constructed `localRepair`/`Repair`); this section keeps using them.
 
 -- The abstract local-repair move under study (a section variable):
@@ -861,7 +860,7 @@ variable (lr : C.Patch → Records C → Records C)
 /-- One accepted asynchronous repair step *for the abstract move `lr`*: some
     site's local move changes the record. Self-contained analogue of the file's
     `acceptedStep`, but over the hypothesis-bearing `lr`, so this section never
-    touches the `sorry`-defined `localRepair`. -/
+    touches the constructed `localRepair`. -/
 def acceptedStepLR (x y : Records C) : Prop :=
   ∃ i : C.Patch, y = lr i x ∧ lr i x ≠ x
 
@@ -900,7 +899,7 @@ theorem brokenSet_eq_of_not_incident
   have htgt : (lr i x) (C.tgt e) = x (C.tgt e) := H1 i x (C.tgt e) ht
   rw [mem_brokenSet, mem_brokenSet, hsrc, htgt]
 
-/-- **Key lemma — Lyapunov descent on the `ℕ` surrogate.** Every accepted step
+/-- **Key lemma : Lyapunov descent on the `ℕ` surrogate.** Every accepted step
     strictly lowers `mismatchCount`: the broken-edge set strictly shrinks. This
     is the Inter-Basin `basin_size`-strictly-decreases analogue. -/
 theorem mismatchCount_lt {x y : Records C}
@@ -929,7 +928,7 @@ theorem mismatchCount_lt {x y : Records C}
     (Finset.ssubset_iff_of_subset hsub).2 ⟨e₀, hmem_x, hnot_mem⟩
   exact Finset.card_lt_card hssub
 
-/-- **THEOREM — Termination (global).** The accepted asynchronous-repair
+/-- **THEOREM : Termination (global).** The accepted asynchronous-repair
     relation is well-founded. Derived purely from the local laws via the `ℕ`
     measure `mismatchCount`, as the inverse image of `<` on `ℕ` and a
     sub-relation thereof. -/
@@ -968,7 +967,7 @@ theorem normalForm_iff_all_quiescent (x : Records C) :
     obtain ⟨i, _, hfire⟩ := hstep
     exact hfire (hquiet i)
 
-/-- **THEOREM — Completeness (global).** A record is a normal form of the
+/-- **THEOREM : Completeness (global).** A record is a normal form of the
     accepted-step relation iff it is globally `Consistent` (`Φ = 0`). The
     bridge: no site fires ↔ every incident edge of every site is consistent ↔
     every edge is consistent (each edge is incident to its own `src`) ↔
@@ -1002,17 +1001,17 @@ theorem boundary_preserved_reduction {a b : Records C}
       rw [hc, HB]; exact ih
 
 include H1 H2 H3 HB Hfib in
-/-- **THEOREM — Boundary-fiber observer-uniqueness (issue #304, observer-facing half).**
+/-- **THEOREM : Boundary-fiber observer-uniqueness (issue #304, observer-facing half).**
     Any two records with the SAME boundary value settle to the same observer-facing
     normal form (`gaugeEquiv`). It needs only `completeness` (normal form ⟹ consistent)
     + boundary preservation (`HB`) + the singleton-consistent-fiber hypothesis (`Hfib`)
-    — confluence does NOT enter. Conditional on H1–H3 + HB + Hfib (exactly #304's stated
+    : confluence does NOT enter. Conditional on H1–H3 + HB + Hfib (exactly #304's stated
     hypotheses). A non-vacuous witness needs a boundary-PINNING (directional) repair:
     a single shared edge has two consistent states `(0,0)`/`(1,1)` and the symmetric
     copy-move reaches either, so the singleton fiber fails for it
     (cf. `demoCarrier_not_confluent`).
     SCOPE (explicit): `HB` and `Hfib` are jointly satisfiable in principle, but NO single carrier in this
-    file instantiates BOTH — `demoBoundary` has `HB` (`demoBoundary_HB`) but fails `Hfib`
+    file instantiates BOTH : `demoBoundary` has `HB` (`demoBoundary_HB`) but fails `Hfib`
     (`demoCarrier_Hfib_fails`); `obsMap`/`demoSeedBoundary` give `Hfib` but are not `demoLR`-preserved.
     The two premises are exhibited on separate carriers; a joint witness on a richer multi-edge carrier
     is open modeling task. So this is an explicitly-scoped conditional, not vacuous. -/
@@ -1033,7 +1032,7 @@ theorem boundary_fiber_observer_unique {x y nfx nfy : Records C}
 -- hypothesis: it demands even adjacent, edge-sharing sites commute, which the
 -- natural copy-repair does NOT satisfy (`demoCarrier_repairs_dont_commute`). So
 -- H4 is a SUFFICIENT extra law for global Confluence, not a necessary one, and it
--- has no non-trivial witness in this file — the only carrier, `demoCarrier`,
+-- has no non-trivial witness in this file : the only carrier, `demoCarrier`,
 -- violates it (and is in fact non-confluent, `demoCarrier_not_confluent`). The
 -- explicit weaker hypothesis would restrict commutation to NON-INCIDENT pairs
 -- (sites sharing no edge, expressible via the incidence predicate used in
@@ -1066,15 +1065,15 @@ theorem locallyConfluent_of_commute :
     · rw [h]
     · exact ReflTransGen.single ⟨i, rfl, h⟩
 
-/-- **THEOREM — Confluence (Church–Rosser) under commutation.** Termination
+/-- **THEOREM : Confluence (Church–Rosser) under commutation.** Termination
     (H1–H3, via `termination`) together with local confluence (H4, via
     `locallyConfluent_of_commute`) yields global confluence, through Newman's
     lemma. With `termination` this further gives UNIQUE normal forms (the repo's
-    `AbstractRewriting.newman_unique_nf`) — a schedule-independent "objective
-    public reality" — but only the join property `Confluent` is concluded here.
+    `AbstractRewriting.newman_unique_nf`) : a schedule-independent "objective
+    public reality". Only the join property `Confluent` is concluded here.
     CAVEAT (read with `demoCarrier_not_confluent`): this is the SUFFICIENT
     direction, conditional on the strong, GLOBAL law `H4`, which has no
-    non-trivial witness in this file — the only carrier, `demoCarrier`, provably
+    non-trivial witness in this file : the only carrier, `demoCarrier`, provably
     violates `H4` and is in fact non-confluent. So this theorem says precisely
     "IF every pair of repairs commutes, schedules agree"; the witnessed,
     load-bearing fact is the negative one. -/
@@ -1089,7 +1088,7 @@ end LocalRepairDynamics
 
 `demoCarrier` (two `Bool` patches, one edge) with the neighbour-copy repair
 `demoLR` satisfies `H1`/`H2`/`H3` and has a non-empty accepted-step relation, so
-`demoCarrier_terminates` is a genuine, non-vacuous instance of `termination` —
+`demoCarrier_terminates` is a genuine, non-vacuous instance of `termination` :
 not a claim about an unsatisfiable hypothesis set. -/
 
 /-- A genuine local repair on `demoCarrier`: patch `i` copies its neighbour `!i`,
@@ -1166,10 +1165,10 @@ theorem demoCarrier_terminates :
 /-- **H4 fails for the natural repair.** On `demoCarrier` the two patches share
     one edge, so their copy-moves can fail to commute. Concretely, from the
     identity record `id = (fun b => b)`, repairing `false` then `true` gives the
-    constant `true`, whereas `true` then `false` gives the constant `false` — a
+    constant `true`, whereas `true` then `false` gives the constant `false` : a
     single record witnessing `lr i (lr j ·) ≠ lr j (lr i ·)`. Hence `demoLR`
     violates `H4`, so `confluence_of_commute` does not apply to it. This is not
-    merely a failed sufficient condition — `demoLR` is in fact NON-CONFLUENT
+    merely a failed sufficient condition : `demoLR` is in fact NON-CONFLUENT
     (`demoCarrier_not_confluent` below): the two firing orders reach two distinct
     normal forms, so on this carrier there is genuinely no unique objective public
     reality. -/
@@ -1180,11 +1179,11 @@ theorem demoCarrier_repairs_dont_commute :
   have h2 : (true : Bool) = false := congrFun h false
   exact absurd h2 (by decide)
 
-/-- **THE WITNESSED PAYOFF — `demoLR` is genuinely NON-CONFLUENT.** From the
+/-- **THE WITNESSED PAYOFF : `demoLR` is genuinely NON-CONFLUENT.** From the
     identity record `id = (fun b => b)`, firing patch `false` reaches the constant
     `true` and firing patch `true` reaches the constant `false`; both are normal
     forms (no patch fires on a constant record) and they differ. So a single
-    record has two distinct normal forms — `¬ Confluent (acceptedStepLR demoLR)` —
+    record has two distinct normal forms : `¬ Confluent (acceptedStepLR demoLR)` :
     the concrete failure of a unique "objective public reality" that `H4` (and
     hence `confluence_of_commute`) rules out by hypothesis. Unlike
     `confluence_of_commute` (conditional on the witness-less global `H4`), THIS
@@ -1193,7 +1192,7 @@ theorem demoCarrier_repairs_dont_commute :
     `demoLR` is non-confluent (here); commutation `H4` is a SUFFICIENT condition for
     confluence (`confluence_of_commute`, abstract); and `demoLR` fails it
     (`demoCarrier_repairs_dont_commute`). No claim is made that *every* async repair
-    is non-confluent — only this one is exhibited.
+    is non-confluent : only this one is exhibited.
     Proof: `AbstractRewriting.unique_normal_form` forces any two normal forms
     reached from one record to coincide; the two we exhibit do not. -/
 theorem demoCarrier_not_confluent :
@@ -1216,27 +1215,27 @@ theorem demoCarrier_not_confluent :
   have hz : AbstractRewriting.ReducesToNF (acceptedStepLR demoLR)
       (fun b => b) (demoLR true (fun b => b)) :=
     ⟨ReflTransGen.single ⟨true, rfl, hfire_t⟩, hnf_z⟩
-  -- if confluent, the two normal forms would be equal — but const true ≠ const false
+  -- Confluence would make the two normal forms equal; const true ≠ const false.
   have heq := AbstractRewriting.unique_normal_form (acceptedStepLR demoLR) hc hy hz
   have h2 : (true : Bool) = false := congrFun heq false
   exact absurd h2 (by decide)
 
-/-! ### The SYMMETRIC half of the #304 dichotomy — `demoCarrier` witnesses `Hfib` failing
+/-! ### The SYMMETRIC half of the #304 dichotomy : `demoCarrier` witnesses `Hfib` failing
 
 `boundary_fiber_observer_unique` shows: IF the repair pins each boundary-fiber to a
-single gauge class (`Hfib`), the observer reconstructs a unique public branch — and it
+single gauge class (`Hfib`), the observer reconstructs a unique public branch. It
 does so WITHOUT confluence. The theorems below exhibit the complementary countermodel:
 the symmetric copy-repair `demoLR` makes `Hfib` FALSE, so the same inputs that
 `boundary_fiber_observer_unique` consumes hold while its conclusion fails. The witness is
 the SAME two normal forms `demoCarrier_not_confluent` exhibits: `(1,1)` and `(0,0)`.
 
 EXPLICIT SCOPE: this is the FORWARD direction (`Hfib` ⟹ unique; symmetric ⟹ countermodel),
-NOT a biconditional — observer-uniqueness is keyed to `Hfib` (a static fiber hypothesis),
+NOT a biconditional : observer-uniqueness is keyed to `Hfib` (a static fiber hypothesis),
 which is logically independent of confluence. And `demoBoundary` is the trivial boundary,
 legitimate as the COARSEST `B` (the fairest test of whether symmetric repair can pin its
 fiber) but carrying no interior/boundary split. -/
 
-/-- The trivial (constant) boundary on `demoCarrier` records — the concrete instance of the
+/-- The trivial (constant) boundary on `demoCarrier` records : the concrete instance of the
     abstract `B : Records C → β` from `boundary_fiber_observer_unique`. On a single-edge
     carrier the only repair-invariant boundary is the trivial one (the coarsest `B`). -/
 def demoBoundary : Records demoCarrier → Unit := fun _ => ()
@@ -1262,7 +1261,7 @@ theorem demoCarrier_consts_not_gaugeEquiv :
     congrFun h' ()
   exact absurd (congrArg Prod.fst hpt) (by decide)
 
-/-- **COMPLEMENT THEOREM — `demoCarrier` WITNESSES `Hfib` FAILING (static form).**
+/-- **COMPLEMENT THEOREM : `demoCarrier` WITNESSES `Hfib` FAILING (static form).**
     The literal negation, in #304's own vocabulary, of the singleton-consistent-fiber
     hypothesis `Hfib` of `boundary_fiber_observer_unique`, at `B := demoBoundary`:
     two `Consistent` records with equal boundary that are NOT `gaugeEquiv`. -/
@@ -1276,10 +1275,10 @@ theorem demoCarrier_Hfib_fails :
     (Hfib (fun _ => true) (fun _ => false) rfl
       (demoCarrier_const_consistent true) (demoCarrier_const_consistent false))
 
-/-- **COMPLEMENT THEOREM (reachability-explicit) — the SYMMETRIC half of the dichotomy.**
+/-- **COMPLEMENT THEOREM (reachability-explicit) : the SYMMETRIC half of the dichotomy.**
     From ONE start (`id`), `demoLR` reaches two normal forms with the SAME boundary that are
     NOT `gaugeEquiv`. The inputs match exactly what `boundary_fiber_observer_unique` consumes
-    (reductions + `NormalFormLR` + equal boundary), yet the conclusion `gaugeEquiv` is FALSE —
+    (reductions + `NormalFormLR` + equal boundary), while the conclusion `gaugeEquiv` is FALSE :
     because the symmetric repair makes the one premise it does not supply, `Hfib`, fail. -/
 theorem demoCarrier_boundary_fiber_not_unique :
     ∃ start nf₁ nf₂ : Records demoCarrier,
@@ -1310,21 +1309,21 @@ theorem demoCarrier_boundary_fiber_not_unique :
 /-! ### Two DIFFERENT uniqueness notions, two DIFFERENT levers (the corrected #304 cut)
 
 `demoCarrier_Hfib_fails` shows the symmetric repair + trivial boundary breaks OBSERVER-uniqueness
-("same boundary → same normal form"). Two levers act, on two DIFFERENT notions — do not conflate them:
-  ROUTE A — refine the BOUNDARY so the consistent fiber is a gauge-singleton (`Hfib` holds). This buys
+("same boundary → same normal form"). Two levers act, on two DIFFERENT notions : do not conflate them:
+  ROUTE A : refine the BOUNDARY so the consistent fiber is a gauge-singleton (`Hfib` holds). This buys
             OBSERVER-uniqueness directly; a property of B, repair-free (`demoCarrier_Hfib_holds_seed`).
-  ROUTE B — use a SELECTING (deterministic) repair: it is CONFLUENT — a unique normal form per INPUT,
+  ROUTE B : use a SELECTING (deterministic) repair: it is CONFLUENT : a unique normal form per INPUT,
             schedule-independent (Church-Rosser; last-writer-wins / strong-eventual-consistency). This
-            is per-INPUT uniqueness, a property of the repair dynamics — and it is NOT observer-
+            is per-INPUT uniqueness, a property of the repair dynamics. It is NOT observer-
             uniqueness: under a coarse boundary the SAME confluent repair fails it
             (`demoCarrier_dir_not_observer_unique`). Observer-uniqueness returns only once the boundary
-            is also refined (`demoCarrier_dir_observer_unique_under_seed`) — i.e. via Route A. -/
+            is also refined (`demoCarrier_dir_observer_unique_under_seed`) : i.e. via Route A. -/
 
-/-- **ROUTE A (DEFINITIONAL endpoint) — at the finest boundary `Hfib` holds verbatim.** With
+/-- **ROUTE A (DEFINITIONAL endpoint) : at the finest boundary `Hfib` holds verbatim.** With
     `B := obsMap`, `Hfib`'s conclusion `gaugeEquiv x y` IS its hypothesis `obsMap x = obsMap y`
     (`gaugeEquiv` unfolds definitionally to `obsMap`-equality), so the proof is `fun _ _ h _ _ => h`
     and discards BOTH `Consistent` premises. This endpoint therefore CANNOT fail and is NOT independent
-    evidence — it is the trivial top of the boundary lattice, recorded only for completeness. The
+    evidence : it is the trivial top of the boundary lattice, recorded only for completeness. The
     load-bearing positive result is `demoCarrier_Hfib_holds_seed` (a strictly coarser boundary that
     genuinely uses consistency). `Hfib` is a property of B, not of the repair (which is why "selecting
     repair proves Hfib" was a category error). -/
@@ -1333,21 +1332,21 @@ theorem demoCarrier_Hfib_holds_finerB :
       Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y :=
   fun _ _ h _ _ => h
 
-/-- The SEED boundary: read a SINGLE cell (patch `false`). A coarse boundary — strictly between
+/-- The SEED boundary: read a SINGLE cell (patch `false`). A coarse boundary : strictly between
     the trivial `demoBoundary` (reads nothing) and the full `obsMap` (reads the whole overlap). -/
 def demoSeedBoundary : Records demoCarrier → Bool := fun x => x false
 
 /-- **SEED base case (issue #304, Boundary-Fiber Confluence).** `Hfib` holds for the one-cell seed
     boundary: reading patch `false` PLUS the consistency premise pins the whole record, because
     edge-agreement (`consistent_iff_edgeConsistent`) forces the unread cell to follow the read one. So
-    `Hfib` does NOT require the full observable — a single seed cell suffices. The proof genuinely
+    `Hfib` does NOT require the full observable : a single seed cell suffices. The proof genuinely
     consumes both `Consistent` hypotheses (unlike `demoCarrier_Hfib_holds_finerB`, which is
     definitional), so this is real singleton-consistent-fiber content. SCOPE (explicit): on this 1-edge
     carrier every `Consistent` record is constant, so the "bulk" is just the one other cell, and on the
-    consistent fiber `demoSeedBoundary` has the SAME separating power as the full `obsMap` — genuine
+    consistent fiber `demoSeedBoundary` has the SAME separating power as the full `obsMap` : genuine
     seed-determines-record, but the multi-edge *propagation* the name evokes is open modeling task, not
     exhibited here. (`demoSeedBoundary` is the boundary-fineness criterion only; it is NOT preserved by
-    the symmetric `demoLR` — pairing it with a boundary-preserving repair, the `HB` premise, is a
+    the symmetric `demoLR` : pairing it with a boundary-preserving repair, the `HB` premise, is a
     separate modeling step. It IS preserved by the selecting `demoDirT`, which is how
     `demoCarrier_dir_observer_unique_under_seed` uses it.) -/
 theorem demoCarrier_Hfib_holds_seed :
@@ -1372,7 +1371,7 @@ theorem demoCarrier_Hfib_holds_seed :
 def demoDirT : Records demoCarrier → Records demoCarrier := fun x => fun _ => x false
 
 /-- Descent potential for `demoDirT`: 1 if the edge is broken (the two patches differ),
-    else 0. Phrased with `Bool.xor`/`toNat` to stay first-order — no `Decidable` synthesis
+    else 0. Phrased with `Bool.xor`/`toNat` to stay first-order : no `Decidable` synthesis
     through the dependent (semireducible) `Records demoCarrier` type. -/
 def demoDirΦ : Records demoCarrier → ℕ := fun x => (Bool.xor (x true) (x false)).toNat
 
@@ -1386,10 +1385,10 @@ theorem demoDirΦ_desc (x : Records demoCarrier) :
   rw [key]
   cases hxf : x false <;> decide
 
-/-- **ROUTE B — the SELECTING repair is CONFLUENT (positive twin of `demoCarrier_not_confluent`).**
+/-- **ROUTE B : the SELECTING repair is CONFLUENT (positive twin of `demoCarrier_not_confluent`).**
     `demoDirT` is deterministic, so its induced rewriting reaches a UNIQUE normal form per input,
-    schedule-independent (Newman's lemma via the `DeterministicRepair` route). This is CONFLUENCE —
-    the lever a directional/selecting repair actually buys — and a DIFFERENT theorem from the `Hfib`
+    schedule-independent (Newman's lemma via the `DeterministicRepair` route). This is CONFLUENCE :
+    the lever a directional/selecting repair actually buys. It is a DIFFERENT theorem from the `Hfib`
     boundary route above. The symmetric `demoLR` provably fails it (`demoCarrier_not_confluent`). -/
 theorem demoCarrier_dir_confluent :
     AbstractRewriting.Confluent (AbstractRewriting.stepRel demoDirT) :=
@@ -1397,17 +1396,17 @@ theorem demoCarrier_dir_confluent :
     (AbstractRewriting.descent_terminating demoDirT demoDirΦ demoDirΦ_desc)
     (AbstractRewriting.deterministic_locally_confluent demoDirT)
 
-/-- **THE CRUX — confluence ALONE is not observer-uniqueness.** `demoDirT` is confluent
+/-- **THE CRUX : confluence ALONE is not observer-uniqueness.** `demoDirT` is confluent
     (`demoCarrier_dir_confluent`: same input → one normal form). But that is a property of the REPAIR,
     not of the boundary. Here are TWO inputs with the SAME *trivial* boundary (`demoBoundary : … → Unit`,
     which reads nothing, so equality holds for ALL inputs by `rfl`) that reach DIFFERENT normal forms
-    `(1,1)` and `(0,0)` under that very confluent repair — so confluence ("same input → same NF") does
+    `(1,1)` and `(0,0)` under that very confluent repair. Confluence ("same input → same NF") does
     NOT by itself give observer-facing uniqueness ("same boundary → same NF"). This is a separation,
     exhibited against the COARSEST boundary; it does NOT claim the repair's directionality is irrelevant
     in general. The controlled converse is machine-checked next: hold THIS SAME confluent repair fixed
     and REFINE the boundary to the one-cell `demoSeedBoundary`, and observer-uniqueness is RESTORED
-    (`demoCarrier_dir_observer_unique_under_seed`). So the lever that flips reconstructability — with the
-    repair held constant — is the boundary's fineness. -/
+    (`demoCarrier_dir_observer_unique_under_seed`). So the lever that flips reconstructability : with the
+    repair held constant : is the boundary's fineness. -/
 theorem demoCarrier_dir_not_observer_unique :
     ∃ x y nfx nfy : Records demoCarrier,
       Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) x nfx ∧
@@ -1435,10 +1434,10 @@ theorem demoCarrier_dir_not_observer_unique :
     Relation.ReflTransGen.single hstepy, hnfF,
     rfl, demoCarrier_consts_not_gaugeEquiv⟩
 
-/-- **POSITIVE COMPANION TO THE CRUX — the boundary is the controlling lever, machine-checked.**
+/-- **POSITIVE COMPANION TO THE CRUX : the boundary is the controlling lever, machine-checked.**
     Hold the SAME confluent repair `demoDirT` fixed and REFINE the boundary from the trivial
     `demoBoundary` (under which `demoCarrier_dir_not_observer_unique` shows observer-uniqueness FAILS)
-    to the one-cell `demoSeedBoundary`: observer-uniqueness is RESTORED — any two inputs with equal
+    to the one-cell `demoSeedBoundary`: observer-uniqueness is RESTORED : any two inputs with equal
     seed-boundary reach `gaugeEquiv` normal forms under that very confluent repair. So with the repair
     held constant, varying ONLY the boundary flips reconstructability; the lever is the boundary's
     fineness, not the repair's directionality. Proof: `demoDirT` snaps every record to `(x false, x false)`,
@@ -1484,10 +1483,10 @@ theorem demoCarrier_dir_observer_unique_under_seed :
     rw [seed_inv x nfx hx, hseed, ← seed_inv y nfy hy]
   exact demoCarrier_Hfib_holds_seed nfx nfy hbb hcx hcy
 
-/-! ### Axiom audit — the reconstruction layer depends only on standard axioms.
+/-! ### Axiom audit : the reconstruction layer depends only on standard axioms.
 The `#print axioms` outputs below confirm that the boundary-fiber reconstruction theorem
 and all its concrete witnesses depend ONLY on the standard Lean/Mathlib axioms
-(`propext`, `Classical.choice`, `Quot.sound`) — the same footprint as the constructed
+(`propext`, `Classical.choice`, `Quot.sound`) : the same footprint as the constructed
 repair layer audited above; the file's formerly-declared `sorry`s are discharged, so the
 "machine-checked" claim for observer-reconstruction carries no admissions anywhere. -/
 #print axioms boundary_fiber_observer_unique

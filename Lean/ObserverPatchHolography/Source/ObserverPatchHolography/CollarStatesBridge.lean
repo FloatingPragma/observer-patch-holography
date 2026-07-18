@@ -32,8 +32,8 @@ is carried here as additive receipts:
 ## The receipts
 
 * `fluxPartition` (**R1**): the `uuC` half-projections `quP` genuinely
-  instantiate the library's `ProjectivePartition` after reindexing — the
-  fields are discharged by the already-frisked T0/T1 lemmas
+  instantiate the library's `ProjectivePartition` after reindexing : the
+  fields are discharged by the established T0/T1 lemmas
   (`quP_isHermitian`, `quP_idem`, `quP_mul`, `sum_quP`).
 * `collarReindex_EfluxL_eq_compressed_pinching` (**R2a**): transported
   along `collarReindex`, `EfluxL` *is* the blockwise normalised-trace
@@ -41,7 +41,7 @@ is carried here as additive receipts:
   are computed with the library's `pinchingExpectation_mul_proj` and
   `trace_sandwich`.
 * `EfluxL_absorbs_pinching` (**R2b**): `EfluxL` factors through the
-  library pinching — pinching first changes nothing. Proved with the
+  library pinching : pinching first changes nothing. Proved with the
   library's defining conditional-expectation property
   `trace_pinchingExpectation_mul_central`.
 
@@ -98,7 +98,7 @@ noncomputable def fluxPartition : EventAlgebra.ProjectivePartition (2 * 2) 2 whe
   rfl
 
 /-- The reindexed generator `uuC` is the signed sum of the partition
-members — hence central for the partition. -/
+members : hence central for the partition. -/
 theorem collarReindex_uuC_eq :
     collarReindex uuC = fluxPartition.proj 0 - fluxPartition.proj 1 := by
   rw [fluxPartition_proj, fluxPartition_proj, ← map_sub]
@@ -119,7 +119,7 @@ library pinching for `fluxPartition`: each block trace of the pinching
 (computed with the library's `pinchingExpectation_mul_proj` and
 `trace_sandwich`) is divided by the block rank `2` and spread back over
 the block projector. This is the precise sense in which `EfluxL` is one
-step finer than — not an instance of — `pinchingExpectation`. -/
+step finer than : not an instance of : `pinchingExpectation`. -/
 theorem collarReindex_EfluxL_eq_compressed_pinching (m : CollarC) :
     collarReindex (EfluxL m) =
       ∑ s : Fin 2,
@@ -144,7 +144,7 @@ theorem collarReindex_EfluxL_eq_compressed_pinching (m : CollarC) :
               * fluxPartition.proj s).trace / 2) • fluxPartition.proj s := by
         exact Finset.sum_congr rfl fun s _ => by rw [hblock, fluxPartition_proj]
 
-/-- The identity is central for any partition — trace compatibility
+/-- The identity is central for any partition : trace compatibility
 specialised to `C = 1`. -/
 private theorem pinching_trace_eq (X : Matrix (Fin (2 * 2)) (Fin (2 * 2)) ℂ) :
     (EventAlgebra.pinchingExpectation fluxPartition X).trace = X.trace := by
