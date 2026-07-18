@@ -44,6 +44,50 @@ structures are in place. The 100% skeleton number is preliminary
 infrastructure, not progress on Prop 4.2 itself. Counts revised per
 math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 
+> **Addendum (2026-07-11) — the three declared `Primitives.lean` admissions
+> are discharged.** `localRepair` is now a constructed single-site
+> transactional recovery move (fires iff an incident overlap is broken and
+> the site can satisfy all its overlaps at once, repaired state chosen from
+> declared overlap data), `Repair` is a choice-canonical asynchronous
+> schedule composed to a normal form (well-founded by broken-edge count),
+> and `repair_respects_gauge` (Prop 4.2 sentence 2 congruence) is a proven
+> theorem, all pinned at `[propext, Classical.choice, Quot.sound]`. The
+> file's own `LyapunovDescent` and `Termination` obligations are also
+> discharged for the constructed operator (`lyapunovDescent_holds`,
+> `termination_holds`), with normal-form/reachability receipts
+> (`Repair_normalForm`, `Repair_reachable`). NOT discharged: OPH
+> `Confluence` (false in general — `demoCarrier_not_confluent`),
+> `Completeness` for the constructed operator (holds exactly on
+> frustration-free dynamics via the conditional `H1`–`H3` layer), and the
+> `NF`/`World` quotient construction. The tables and counts below predate
+> this discharge and need a math-seat re-audit before renumbering; rows for
+> `OPH.Repair`/`OPH.localRepair`/`OPH.repair_respects_gauge` should now read
+> as constructed/proven rather than ⬜-declared.
+
+> **Addendum (2026-07-18) — issue #544 collar chain (layer separation +
+> state-side no-gos), 41 / 41 audited declarations, sorry-free.**
+> `CollarClause.lean`/`CollarLayer.lean` prove the layer separation (the
+> overlap-consistency repair layer factors through the realized constraint
+> family; the collar clause is a declared input, not a theorem).
+> `CollarStates.lean` (T0) proves `stateSide_currentAxioms_cannot_force`:
+> the state-side axioms (density matrices, Gibbs states of the retained
+> family, Umegaki relative entropy, family Klein inequality) do not force
+> the clause. `CollarStatesT1.lean` (T1) proves `Eflux_does_not_force` and
+> `EfluxChannel_deselects_XXC`: the flux conditional expectation exists,
+> kills the cross-cut coupling, and still does not force the clause
+> (deselection ≠ exclusion). `CollarModularT2.lean` (T2) proves
+> `naive_modular_recast_does_not_exclude` and
+> `centralizer_diagonal_strictly_contains_flux`: the naive modular recast
+> is vacuous and the corrected recast buys only the diagonal clause.
+> `CollarStatesBridge.lean` records the reuse receipts against the
+> `EventAlgebra` library (`fluxPartition`,
+> `collarReindex_EfluxL_eq_compressed_pinching`,
+> `EfluxL_absorbs_pinching`): `EfluxL` is the blockwise normalised-trace
+> compression of `pinchingExpectation` — strictly finer than any pinching,
+> hence retained rather than replaced. All 41 audited declarations pin at
+> `[propext, Classical.choice, Quot.sound]`; none bear on the
+> Prop 4.2 / Def 4.1 counts.
+
 ## Status legend
 
 - ✅  proven, sorry-free, matches paper statement

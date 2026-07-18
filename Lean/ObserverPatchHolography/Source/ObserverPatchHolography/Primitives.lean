@@ -2,7 +2,7 @@ import Mathlib
 import ObserverPatchHolography.AbstractRewriting
 
 /-!
-# OPH Primitives — concrete carrier model (partial discharge)
+# OPH Primitives — concrete carrier model (admission-free)
 
 These are the primitives Proposition 4.2 depends on. Where the companion
 paper *Reality as a Consensus Protocol* (`OPHConsensus`) pins down concrete
@@ -10,11 +10,13 @@ structural content, this file gives it: the patch-net carrier, the global state
 type `Records`, the declared-overlap observation map, gauge equivalence as
 the kernel of that map, and the weighted mismatch potential `Φ`.
 
-The genuinely paper-incomplete asynchronous-schedule / transactional
-machinery (`localRepair`, `Repair`, and the congruence
-`repair_respects_gauge` that depends on a fully constructed `Repair`)
-remains `sorry`-bearing **on purpose**: `lake build` warns on each, and CI
-checks that the count stays fixed until they are discharged.
+The asynchronous-schedule / transactional machinery (`localRepair`,
+`Repair`, and the congruence `repair_respects_gauge`) — formerly the file's
+three declared `sorry`s — is now **constructed and discharged** (see
+"The async machinery, now constructed" below). The file, and with it the
+observer-reconstruction layer, is admission-free: no `sorry`, no `admit`,
+no `native_decide`, no new axiom; CI checks that `lake build` emits zero
+`sorry` warnings.
 
 ## Concrete content from the paper
 
@@ -43,15 +45,52 @@ checks that the count stays fixed until they are discharged.
   (gaugeEquiv is strictly finer than the total relation), not merely an
   argued universal claim. Adds no `sorry`.
 
-## What stays `sorry` (paper-incomplete async machinery)
+## The async machinery, now constructed
 
-* `localRepair`, `Repair` — "built from local recovery moves" (line 297),
-  composed under asynchronous schedules in `OPHConsensus`; not pinned to a
-  constructive operator with a discharged Lyapunov+confluence proof.
-* `repair_respects_gauge` — Prop 4.2 sentence 2 congruence; explicitly
-  unprovable while `Repair` itself is undefined (faking `Repair := id`
-  would make `LyapunovDescent` vacuous and the congruence trivial for the
-  wrong reason).
+* `localRepair i` — the single-site transactional recovery move of *Reality*
+  line 297 ("built from local recovery moves"): patch `i` fires exactly when
+  (a) one of its declared overlaps is broken (`LocalTrigger`) and (b) it can
+  transactionally re-satisfy *all* of its declared overlaps at once
+  (`LocallySolvable` — frustration-freeness at `(i, x)`), and it then
+  replaces its own state with a repaired one chosen (via `Classical.choice`)
+  from the *declared overlap data alone*. That last point is the design
+  load-bearer: because the trigger, the solvability predicate, and the chosen
+  replacement are all functions of `obsMap x` (not of the gauge-hidden
+  interior), every lemma needed for Prop 4.2 sentence 2 follows.
+* `Repair` — the asynchronous schedule composed to a normal form: repeatedly
+  fire a (choice-canonical) firing site until none fires. Well-founded by the
+  broken-edge count `mismatchCount` (each accepted move strictly shrinks the
+  broken-edge set). `Repair_reachable` and `Repair_normalForm` certify that
+  the result is a genuine normal form of the accepted-step relation reached
+  by accepted asynchronous steps.
+* `repair_respects_gauge` — Prop 4.2 sentence 2, now a theorem: the repair
+  dynamics consume only declared overlap data, so `obsMap ∘ Repair` factors
+  through `obsMap`.
+* **Non-degeneracy receipts** (the failure mode this file always warned
+  about — `Repair := id` closing the congruence "for the wrong reason" — is
+  ruled out by theorems): `lyapunovDescent_holds` and `termination_holds`
+  discharge the file's own `LyapunovDescent` and `Termination` obligations
+  for the constructed operator (both would be vacuous-false-or-empty under a
+  degenerate repair with a nonempty step relation, and the step relation is
+  provably nonempty: `acceptedStep_demoCarrier_nonempty`), and
+  `Repair_eq_self_of_consistent` shows repair does nothing on already
+  consistent records.
+
+## Honest scope (what "admission-free" does and does not close)
+
+`sorry`-free is **not** "repair theory fully closed". Explicitly:
+
+* `Completeness` for the constructed operator is **not** claimed. The
+  operator fires only when a site can satisfy all of its overlaps at once,
+  so on *frustrated* carriers (a broken incident edge but no single-site
+  fix) a broken record can be a normal form. `Completeness` holds exactly on
+  frustration-free dynamics; that is the content of the conditional `H1`–`H3`
+  development below, which remains the general statement.
+* `Confluence` is **not** claimed — and is false in general:
+  `demoCarrier_not_confluent` below exhibits a non-confluent instance. The
+  constructed `Repair` is one canonical (choice-selected) schedule; its
+  gauge-congruence is what Prop 4.2 sentence 2 requires, not schedule
+  independence.
 -/
 
 namespace OPH
@@ -120,17 +159,287 @@ def obsMap (x : Records C) : Obs C :=
   fun e => (C.projSrc e (x (C.src e)), C.projTgt e (x (C.tgt e)))
 
 /-- *Reality* repair-site index: a local accepted repair step fires at a
-    patch. A faithful, non-vacuous index type (it does NOT trivialise
-    `localRepair`, which remains a genuine `sorry`). -/
+    patch. A faithful, non-vacuous index type. -/
 def Site : Type := C.Patch
 
-/-- One transactional/local recovery move at a repair site.
-    **Paper-incomplete async machinery — explicit `sorry`.** -/
-noncomputable def localRepair : Site C → Records C → Records C := sorry
+/-! ### The repair kernel
 
-/-- The composite confluent repair operator reaching a normal form.
-    **Paper-incomplete async machinery — explicit `sorry`.** -/
-noncomputable def Repair : Records C → Records C := sorry
+The single-site notions the constructed repair operator is built from: edge
+consistency, the broken-edge set and its `ℕ` count (the well-founded shadow
+of `Φ` used for termination), the local firing trigger, single-site
+transactional solvability, and the gauge-congruence lemmas showing all of
+them are functions of the declared overlap data `obsMap` alone. -/
+
+section RepairKernel
+
+variable {C : OPHCarrier}
+
+/-- An edge is consistent at `x` when its two interface projections agree.
+    A `Prop` (no `DecidableEq (Iface e)` needed). By `dist_eq_zero` this is
+    equivalent to the edge's per-edge distance vanishing
+    (`edgeConsistentAt_iff_dist`). Definitionally, `EdgeConsistent C x` is
+    `∀ e, edgeConsistentAt e x`. -/
+def edgeConsistentAt (e : C.Edge) (x : Records C) : Prop :=
+  C.projSrc e (x (C.src e)) = C.projTgt e (x (C.tgt e))
+
+/-- Bridge to the decidable surrogate used by `mismatchCount`: an edge is
+    consistent iff its per-edge distance is `0` (uses `dist_eq_zero`). -/
+theorem edgeConsistentAt_iff_dist (e : C.Edge) (x : Records C) :
+    edgeConsistentAt e x ↔
+      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) = 0 :=
+  (C.dist_eq_zero e _ _).symm
+
+/-- The set of broken edges of `x`: those whose per-edge distance is nonzero.
+    This is decidable *without* `DecidableEq (Iface e)`, because `ℝ≥0` has
+    `DecidableEq` (from its `LinearOrder`), so `(· ≠ 0)` is a `DecidablePred`. -/
+noncomputable def brokenSet (x : Records C) : Finset C.Edge :=
+  Finset.univ.filter
+    (fun e => C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0)
+
+/-- The well-founded `ℕ` surrogate for `Φ`: the number of broken edges.
+    (`Φ : ℝ≥0` is not `<`-well-founded; this `ℕ` shadow is.) -/
+noncomputable def mismatchCount (x : Records C) : Nat := (brokenSet x).card
+
+theorem mem_brokenSet {x : Records C} {e : C.Edge} :
+    e ∈ brokenSet x ↔
+      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0 := by
+  unfold brokenSet
+  rw [Finset.mem_filter]
+  exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ e, h⟩⟩
+
+/-- An edge is broken at `x` exactly when it is *not* consistent there.
+    (`mem_brokenSet` composed with the `dist`-bridge `edgeConsistentAt_iff_dist`,
+    using `Ne` `=` `¬ (· = ·)` definitionally.) -/
+theorem mem_brokenSet_iff_not_consistent {x : Records C} {e : C.Edge} :
+    e ∈ brokenSet x ↔ ¬ edgeConsistentAt e x :=
+  mem_brokenSet.trans (not_congr (edgeConsistentAt_iff_dist e x)).symm
+
+/-- Edge consistency is a property of the declared overlap data alone: it
+    reads exactly the two `obsMap` components of the edge. -/
+theorem edgeConsistentAt_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (e : C.Edge) :
+    edgeConsistentAt e x ↔ edgeConsistentAt e y := by
+  have hx := congrFun h e
+  have h1 : C.projSrc e (x (C.src e)) = C.projSrc e (y (C.src e)) :=
+    congrArg Prod.fst hx
+  have h2 : C.projTgt e (x (C.tgt e)) = C.projTgt e (y (C.tgt e)) :=
+    congrArg Prod.snd hx
+  unfold edgeConsistentAt
+  rw [h1, h2]
+
+/-- Updating gauge-equivalent records at the same patch with the same state
+    yields gauge-equivalent records: the declared overlap data of the update
+    depends only on the new state and the old overlap data. -/
+theorem obsMap_update_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : C.Patch) (s : C.State i) :
+    obsMap C (Function.update x i s) = obsMap C (Function.update y i s) := by
+  funext e
+  have hx := congrFun h e
+  have h1 : C.projSrc e (x (C.src e)) = C.projSrc e (y (C.src e)) :=
+    congrArg Prod.fst hx
+  have h2 : C.projTgt e (x (C.tgt e)) = C.projTgt e (y (C.tgt e)) :=
+    congrArg Prod.snd hx
+  unfold obsMap
+  congr 1
+  · rcases eq_or_ne (C.src e) i with hsrc | hsrc
+    · subst hsrc
+      simp only [Function.update_self]
+    · simp only [Function.update_of_ne hsrc]
+      exact h1
+  · rcases eq_or_ne (C.tgt e) i with htgt | htgt
+    · subst htgt
+      simp only [Function.update_self]
+    · simp only [Function.update_of_ne htgt]
+      exact h2
+
+/-- The local firing trigger at site `i`: some edge incident to `i` is
+    broken. (Same incidence spelling as the `H2`/`H3` laws below.) -/
+def LocalTrigger (i : C.Patch) (x : Records C) : Prop :=
+  ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x
+
+/-- `s` is a transactional repair for site `i` at `x`: installing it makes
+    every edge incident to `i` consistent at once. -/
+def SolvesAt (i : C.Patch) (x : Records C) (s : C.State i) : Prop :=
+  ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) →
+    edgeConsistentAt e (Function.update x i s)
+
+/-- Local satisfiability (frustration-freeness at `(i, x)`): *some*
+    replacement state for patch `i` satisfies all of `i`'s declared overlaps
+    at once. On frustrated instances this fails and the local move honestly
+    does not fire — no single-site move can repair an unsatisfiable
+    neighbourhood. -/
+def LocallySolvable (i : C.Patch) (x : Records C) : Prop :=
+  ∃ s : C.State i, SolvesAt i x s
+
+/-- The firing trigger is a function of the declared overlap data alone. -/
+theorem localTrigger_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : C.Patch) :
+    LocalTrigger i x ↔ LocalTrigger i y :=
+  exists_congr fun e => and_congr_right fun _ =>
+    not_congr (edgeConsistentAt_congr h e)
+
+/-- The transactional-repair predicate is a function of the declared overlap
+    data alone (pointwise in the candidate state `s`). -/
+theorem solvesAt_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : C.Patch) (s : C.State i) :
+    SolvesAt i x s ↔ SolvesAt i y s :=
+  forall_congr' fun e => imp_congr_right fun _ =>
+    edgeConsistentAt_congr (obsMap_update_congr h i s) e
+
+/-- Local satisfiability is a function of the declared overlap data alone. -/
+theorem locallySolvable_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : C.Patch) :
+    LocallySolvable i x ↔ LocallySolvable i y :=
+  exists_congr (solvesAt_congr h i)
+
+/-- `Classical.choose` picks the *same* witness from pointwise-equivalent
+    predicates. This is what turns the `_congr` lemmas above into on-the-nose
+    equalities of repaired states: gauge-equivalent records feed `choose`
+    literally equal predicates, so the chosen repair (and the chosen firing
+    site in `Repair`) coincide. -/
+private theorem choose_eq_of_pred_iff {α : Sort*} {p q : α → Prop}
+    (hpq : ∀ a, p a ↔ q a) (hp : ∃ a, p a) (hq : ∃ a, q a) :
+    Classical.choose hp = Classical.choose hq := by
+  have hpq' : p = q := funext fun a => propext (hpq a)
+  subst hpq'
+  rfl
+
+end RepairKernel
+
+open Classical in
+/-- One transactional/local recovery move at a repair site (*Reality* line
+    297, "built from local recovery moves"). Site `i` fires exactly when an
+    incident overlap is broken (`LocalTrigger`) *and* it can transactionally
+    satisfy all of its declared overlaps at once (`LocallySolvable`); it then
+    installs a repaired state chosen from the declared overlap data. On
+    frustrated or already-locally-consistent sites it is the identity. -/
+noncomputable def localRepair : Site C → Records C → Records C := fun i x =>
+  if h : LocalTrigger i x ∧ LocallySolvable i x then
+    Function.update x i (Classical.choose h.2)
+  else x
+
+theorem localRepair_of_fire (i : Site C) (x : Records C)
+    (h : LocalTrigger i x ∧ LocallySolvable i x) :
+    localRepair C i x = Function.update x i (Classical.choose h.2) :=
+  dif_pos h
+
+theorem localRepair_of_quiescent (i : Site C) (x : Records C)
+    (h : ¬ (LocalTrigger i x ∧ LocallySolvable i x)) :
+    localRepair C i x = x :=
+  dif_neg h
+
+/-- `H1` for the constructed move: firing at `i` changes patch `i` only. -/
+theorem localRepair_apply_of_ne (i : Site C) (x : Records C)
+    (j : C.Patch) (hj : j ≠ i) :
+    localRepair C i x j = x j := by
+  by_cases h : LocalTrigger i x ∧ LocallySolvable i x
+  · rw [localRepair_of_fire C i x h, Function.update_of_ne hj]
+  · rw [localRepair_of_quiescent C i x h]
+
+/-- `H3` for the constructed move: when the move at `i` fires, it makes all
+    of `i`'s incident edges consistent. -/
+theorem localRepair_repairs (i : Site C) (x : Records C)
+    (hfire : localRepair C i x ≠ x) :
+    ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) →
+      edgeConsistentAt e (localRepair C i x) := by
+  by_cases h : LocalTrigger i x ∧ LocallySolvable i x
+  · intro e hinc
+    rw [localRepair_of_fire C i x h]
+    exact Classical.choose_spec h.2 e hinc
+  · exact absurd (localRepair_of_quiescent C i x h) hfire
+
+/-- Exact firing characterisation: the move at `i` changes `x` iff an
+    incident edge is broken *and* the site is locally solvable. (The `H2`
+    trigger law holds in the forward direction unconditionally, and as an
+    iff exactly on frustration-free instances — see the honest-scope note in
+    the header.) -/
+theorem localRepair_ne_iff (i : Site C) (x : Records C) :
+    localRepair C i x ≠ x ↔ (LocalTrigger i x ∧ LocallySolvable i x) := by
+  constructor
+  · intro hne
+    by_contra hcond
+    exact hne (localRepair_of_quiescent C i x hcond)
+  · intro h heq
+    obtain ⟨e₀, hinc₀, hbrk₀⟩ := h.1
+    apply hbrk₀
+    have hcons := Classical.choose_spec h.2 e₀ hinc₀
+    rwa [← localRepair_of_fire C i x h, heq] at hcons
+
+/-- Whether site `i` fires is a function of the declared overlap data. -/
+theorem localRepair_fire_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : Site C) :
+    localRepair C i x ≠ x ↔ localRepair C i y ≠ y := by
+  rw [localRepair_ne_iff, localRepair_ne_iff]
+  exact and_congr (localTrigger_congr h i) (locallySolvable_congr h i)
+
+/-- The single-site move is a gauge congruence: on gauge-equivalent inputs it
+    installs the *same* chosen repair (the choice reads only overlap data),
+    so the outputs are gauge-equivalent. This is the single-step engine of
+    `repair_respects_gauge`. -/
+theorem obsMap_localRepair_congr {x y : Records C}
+    (h : obsMap C x = obsMap C y) (i : Site C) :
+    obsMap C (localRepair C i x) = obsMap C (localRepair C i y) := by
+  by_cases hx : LocalTrigger i x ∧ LocallySolvable i x
+  · have hy : LocalTrigger i y ∧ LocallySolvable i y :=
+      ⟨(localTrigger_congr h i).mp hx.1, (locallySolvable_congr h i).mp hx.2⟩
+    have hs : Classical.choose hx.2 = Classical.choose hy.2 :=
+      choose_eq_of_pred_iff (solvesAt_congr h i) hx.2 hy.2
+    rw [localRepair_of_fire C i x hx, localRepair_of_fire C i y hy, ← hs]
+    exact obsMap_update_congr h i (Classical.choose hx.2)
+  · have hy : ¬ (LocalTrigger i y ∧ LocallySolvable i y) := fun hy' =>
+      hx ⟨(localTrigger_congr h i).mpr hy'.1, (locallySolvable_congr h i).mpr hy'.2⟩
+    rw [localRepair_of_quiescent C i x hx, localRepair_of_quiescent C i y hy]
+    exact h
+
+/-- **Lyapunov descent on the `ℕ` surrogate.** Every genuine firing strictly
+    shrinks the broken-edge set: incident edges are repaired (`H3`),
+    non-incident edges are untouched (`H1`), and the trigger's broken edge
+    leaves the set. This is what makes `Repair`'s recursion well-founded. -/
+theorem mismatchCount_localRepair_lt (i : Site C) (x : Records C)
+    (hfire : localRepair C i x ≠ x) :
+    mismatchCount (localRepair C i x) < mismatchCount x := by
+  have hsub : brokenSet (localRepair C i x) ⊆ brokenSet x := by
+    intro e he
+    by_cases hinc : C.src e = i ∨ C.tgt e = i
+    · exact absurd (localRepair_repairs C i x hfire e hinc)
+        (mem_brokenSet_iff_not_consistent.1 he)
+    · have hs : C.src e ≠ i := fun hh => hinc (Or.inl hh)
+      have ht : C.tgt e ≠ i := fun hh => hinc (Or.inr hh)
+      rw [mem_brokenSet, localRepair_apply_of_ne C i x _ hs,
+        localRepair_apply_of_ne C i x _ ht] at he
+      exact mem_brokenSet.2 he
+  obtain ⟨e₀, hinc₀, hbrk₀⟩ := ((localRepair_ne_iff C i x).1 hfire).1
+  have hmem : e₀ ∈ brokenSet x := mem_brokenSet_iff_not_consistent.2 hbrk₀
+  have hnot : e₀ ∉ brokenSet (localRepair C i x) := fun hm =>
+    mem_brokenSet_iff_not_consistent.1 hm (localRepair_repairs C i x hfire e₀ hinc₀)
+  exact Finset.card_lt_card ((Finset.ssubset_iff_of_subset hsub).2 ⟨e₀, hmem, hnot⟩)
+
+open Classical in
+/-- The composite repair operator: fire a (choice-canonical) firing site,
+    repeat until no site fires. One concrete asynchronous schedule composed
+    to a normal form (*Reality* line 297 / `OPHConsensus`), well-founded by
+    `mismatchCount` descent. `Repair_reachable`/`Repair_normalForm` below
+    certify it reaches a genuine `acceptedStep`-normal form; it is *not*
+    claimed to be schedule-independent (`demoCarrier_not_confluent`). -/
+noncomputable def Repair (x : Records C) : Records C :=
+  if h : ∃ i : Site C, localRepair C i x ≠ x then
+    Repair (localRepair C (Classical.choose h) x)
+  else x
+termination_by mismatchCount x
+decreasing_by
+  exact mismatchCount_localRepair_lt C (Classical.choose h) x (Classical.choose_spec h)
+
+theorem Repair_of_fire (x : Records C)
+    (h : ∃ i : Site C, localRepair C i x ≠ x) :
+    Repair C x = Repair C (localRepair C (Classical.choose h) x) := by
+  conv_lhs => rw [Repair]
+  exact dif_pos h
+
+theorem Repair_of_normal (x : Records C)
+    (h : ¬ ∃ i : Site C, localRepair C i x ≠ x) :
+    Repair C x = x := by
+  conv_lhs => rw [Repair]
+  exact dif_neg h
 
 /-- One accepted asynchronous repair step: some site's local move changes
     the record. This is the relation the generic abstract-rewriting
@@ -209,19 +518,53 @@ def gaugeEquiv (x y : Records C) : Prop :=
 theorem gaugeEquiv_equivalence : Equivalence (gaugeEquiv C) :=
   ⟨fun _ => rfl, Eq.symm, Eq.trans⟩
 
-/-- `∼_gauge` is a `Repair`-congruence. Required by Prop 4.2 sentence 2
-    (independence on the physical quotient).
+/-- Engine of `repair_respects_gauge`, by strong induction on the
+    broken-edge count: on `obsMap`-equal inputs, either no site fires on
+    both (both `Repair`s are the identity), or the *same* site is chosen on
+    both (`choose_eq_of_pred_iff` over the fire predicate, which is a
+    function of overlap data by `localRepair_fire_congr`), the single steps
+    stay `obsMap`-equal (`obsMap_localRepair_congr`), and the count strictly
+    drops (`mismatchCount_localRepair_lt`). -/
+private theorem obsMap_Repair_congr_aux :
+    ∀ (n : ℕ) (x y : Records C), mismatchCount x = n →
+      obsMap C x = obsMap C y →
+        obsMap C (Repair C x) = obsMap C (Repair C y) := by
+  intro n
+  induction n using Nat.strong_induction_on with
+  | _ n ih =>
+    intro x y hn h
+    by_cases hx : ∃ i : Site C, localRepair C i x ≠ x
+    · have hy : ∃ i : Site C, localRepair C i y ≠ y :=
+        let ⟨i, hi⟩ := hx
+        ⟨i, (localRepair_fire_congr C h i).mp hi⟩
+      have hsite : Classical.choose hx = Classical.choose hy :=
+        choose_eq_of_pred_iff (fun i => localRepair_fire_congr C h i) hx hy
+      rw [Repair_of_fire C x hx, Repair_of_fire C y hy, ← hsite]
+      exact ih (mismatchCount (localRepair C (Classical.choose hx) x))
+        (hn ▸ mismatchCount_localRepair_lt C (Classical.choose hx) x
+          (Classical.choose_spec hx))
+        _ _ rfl (obsMap_localRepair_congr C h (Classical.choose hx))
+    · have hy : ¬ ∃ i : Site C, localRepair C i y ≠ y := fun hy' =>
+        hx (let ⟨i, hi⟩ := hy'; ⟨i, (localRepair_fire_congr C h i).mpr hi⟩)
+      rw [Repair_of_normal C x hx, Repair_of_normal C y hy]
+      exact h
 
-    **Declared `sorry`.** This cannot be soundly proved while `Repair` itself
-    is a `sorry`: the only `Repair` instances that close it for free are
-    degenerate (`Repair := id` / a constant), which would simultaneously
-    make `Termination`/`Confluence`/`Completeness`/`LyapunovDescent` vacuous
-    or false. The explicit content of Prop 4.2 sentence 2 is precisely that
-    the real (async) `Repair` factors through `obsMap`; that is discharged
-    only once `Repair` is the genuine consensus operator. -/
+/-- `∼_gauge` is a `Repair`-congruence — Prop 4.2 sentence 2 (independence
+    on the physical quotient), now a theorem.
+
+    The proof is exactly the sentence's content: the constructed async
+    `Repair` factors through `obsMap`. Every datum the dynamics consult —
+    which edges are broken, whether a site can transactionally repair its
+    neighbourhood, which repaired state is installed, which site fires
+    next — is a function of the declared overlap data, so gauge-equivalent
+    records evolve through pointwise gauge-equivalent trajectories
+    (`obsMap_Repair_congr_aux`). This is *not* closed "for the wrong
+    reason": the operator genuinely fires (`acceptedStep_demoCarrier_nonempty`),
+    strictly descends `Φ` (`lyapunovDescent_holds`), and reaches genuine
+    normal forms (`Repair_normalForm`). -/
 theorem repair_respects_gauge :
     ∀ x y : Records C, gaugeEquiv C x y → gaugeEquiv C (Repair C x) (Repair C y) :=
-  sorry
+  fun x y h => obsMap_Repair_congr_aux C (mismatchCount x) x y rfl h
 
 /-- OPH confluence condition for accepted asynchronous repair steps
     (Prop 4.2 hypothesis; defined per OPHConsensus). -/
@@ -277,6 +620,157 @@ theorem obsMap_demoCarrier_nonconstant :
     congrFun h ()
   exact absurd (congrArg Prod.snd hpt) (by decide)
 
+/-! ## Non-degeneracy receipts for the constructed repair
+
+The header of this file always named the failure mode of a fake discharge:
+a degenerate `Repair` (`id` / a constant) closes `repair_respects_gauge`
+"for the wrong reason" while making the dynamical obligations vacuous. The
+theorems below rule that out for the constructed operator:
+
+* `Repair_normalForm` / `Repair_reachable` — `Repair` reaches a genuine
+  normal form of `acceptedStep` by a genuine accepted asynchronous run.
+* `lyapunovDescent_holds` / `termination_holds` — the file's own
+  `LyapunovDescent` and `Termination` obligations, discharged.
+* `acceptedStep_demoCarrier_nonempty` — the accepted-step relation is
+  provably nonempty (the operator really fires), so none of the above is a
+  statement about an empty relation.
+* `Repair_eq_self_of_consistent` — repair does nothing on consistent
+  records. -/
+
+private theorem Repair_normalForm_aux :
+    ∀ (n : ℕ) (x : Records C), mismatchCount x = n → NormalForm C (Repair C x) := by
+  intro n
+  induction' n using Nat.strong_induction_on with n ih
+  intro x hn
+  by_cases hx : ∃ i : Site C, localRepair C i x ≠ x
+  · rw [Repair_of_fire C x hx]
+    exact ih (mismatchCount (localRepair C (Classical.choose hx) x))
+      (hn ▸ mismatchCount_localRepair_lt C (Classical.choose hx) x
+        (Classical.choose_spec hx))
+      _ rfl
+  · rw [Repair_of_normal C x hx]
+    intro y hstep
+    obtain ⟨i, _, hfire⟩ := hstep
+    exact hx ⟨i, hfire⟩
+
+/-- **Receipt — `Repair` reaches a genuine normal form.** No accepted repair
+    step applies to `Repair C x`. -/
+theorem Repair_normalForm (x : Records C) : NormalForm C (Repair C x) :=
+  Repair_normalForm_aux C (mismatchCount x) x rfl
+
+private theorem Repair_reachable_aux :
+    ∀ (n : ℕ) (x : Records C), mismatchCount x = n →
+      ReflTransGen (acceptedStep C) x (Repair C x) := by
+  intro n
+  induction' n using Nat.strong_induction_on with n ih
+  intro x hn
+  by_cases hx : ∃ i : Site C, localRepair C i x ≠ x
+  · rw [Repair_of_fire C x hx]
+    exact ReflTransGen.head
+      ⟨Classical.choose hx, rfl, Classical.choose_spec hx⟩
+      (ih (mismatchCount (localRepair C (Classical.choose hx) x))
+        (hn ▸ mismatchCount_localRepair_lt C (Classical.choose hx) x
+          (Classical.choose_spec hx))
+        _ rfl)
+  · rw [Repair_of_normal C x hx]
+
+/-- **Receipt — `Repair` is an accepted asynchronous run.** `Repair C x` is
+    reached from `x` by accepted repair steps, i.e. the operator is the
+    composition of local recovery moves under one asynchronous schedule —
+    the paper's construction, not an unrelated function that happens to
+    satisfy the congruence. -/
+theorem Repair_reachable (x : Records C) :
+    ReflTransGen (acceptedStep C) x (Repair C x) :=
+  Repair_reachable_aux C (mismatchCount x) x rfl
+
+/-- **Receipt — repair fixes consistent records.** On `Φ = 0` records no
+    site fires and `Repair` is the identity. -/
+theorem Repair_eq_self_of_consistent (x : Records C) (hx : Consistent C x) :
+    Repair C x = x := by
+  apply Repair_of_normal
+  rintro ⟨i, hfire⟩
+  obtain ⟨e₀, _, hbrk₀⟩ := ((localRepair_ne_iff C i x).1 hfire).1
+  exact hbrk₀ ((consistent_iff_edgeConsistent C x).1 hx e₀)
+
+/-- **Receipt — the file's `LyapunovDescent` obligation, discharged.** Every
+    accepted step strictly lowers `Φ`: the fired site's incident edges drop
+    to zero mismatch (one of them was strictly positive by
+    `weight_pos`/`dist_eq_zero`), all other edges are untouched. A degenerate
+    `Repair` was rejected in this file precisely because it would make this
+    obligation vacuous; for the constructed operator it is a theorem over a
+    provably nonempty step relation (`acceptedStep_demoCarrier_nonempty`). -/
+theorem lyapunovDescent_holds : LyapunovDescent C := by
+  intro x y hstep
+  obtain ⟨i, rfl, hfire⟩ := hstep
+  unfold Φ
+  apply Finset.sum_lt_sum
+  · intro e _
+    by_cases hinc : C.src e = i ∨ C.tgt e = i
+    · have hcons := localRepair_repairs C i x hfire e hinc
+      rw [(edgeConsistentAt_iff_dist e _).1 hcons, mul_zero]
+      exact zero_le _
+    · have hs : C.src e ≠ i := fun hh => hinc (Or.inl hh)
+      have ht : C.tgt e ≠ i := fun hh => hinc (Or.inr hh)
+      rw [localRepair_apply_of_ne C i x _ hs, localRepair_apply_of_ne C i x _ ht]
+  · obtain ⟨e₀, hinc₀, hbrk₀⟩ := ((localRepair_ne_iff C i x).1 hfire).1
+    refine ⟨e₀, Finset.mem_univ e₀, ?_⟩
+    have hcons := localRepair_repairs C i x hfire e₀ hinc₀
+    rw [(edgeConsistentAt_iff_dist e₀ _).1 hcons, mul_zero]
+    have hd : C.dist e₀ (C.projSrc e₀ (x (C.src e₀))) (C.projTgt e₀ (x (C.tgt e₀))) ≠ 0 :=
+      fun h0 => hbrk₀ ((edgeConsistentAt_iff_dist e₀ x).2 h0)
+    exact mul_pos (C.weight_pos e₀) (pos_iff_ne_zero.mpr hd)
+
+/-- **Receipt — the file's `Termination` obligation, discharged.** The
+    accepted asynchronous-repair relation for the constructed `localRepair`
+    is well-founded, via the `mismatchCount` measure. -/
+theorem termination_holds : Termination C :=
+  have H : Subrelation (fun y x : Records C => acceptedStep C x y)
+      (InvImage (· < ·) mismatchCount) := fun {y x} hxy => by
+    obtain ⟨i, rfl, hfire⟩ := hxy
+    exact mismatchCount_localRepair_lt C i x hfire
+  Subrelation.wf H (InvImage.wf _ wellFounded_lt)
+
+/-- On `demoCarrier`, site `false` genuinely fires from the identity record:
+    the single edge is broken and copying the neighbour's value (`true`)
+    transactionally repairs it. Proved through the firing characterisation
+    `localRepair_ne_iff` — no need to compute the classical choice. -/
+theorem localRepair_demoCarrier_fires :
+    localRepair demoCarrier false (fun b => b) ≠ (fun b => b) := by
+  rw [localRepair_ne_iff]
+  constructor
+  · refine ⟨(), Or.inl rfl, ?_⟩
+    show ¬ ((false : Bool) = (true : Bool))
+    decide
+  · refine ⟨true, fun e _ => ?_⟩
+    show Function.update (fun b : Bool => b) false true false =
+      Function.update (fun b : Bool => b) false true true
+    rw [Function.update_self, Function.update_of_ne (by decide : (true : Bool) ≠ false)]
+
+/-- **Receipt — the accepted-step relation is nonempty.** The constructed
+    repair genuinely fires, so the dynamical receipts above are not
+    statements about an empty relation. -/
+theorem acceptedStep_demoCarrier_nonempty :
+    ∃ x y : Records demoCarrier, acceptedStep demoCarrier x y :=
+  ⟨fun b => b, localRepair demoCarrier false (fun b => b),
+    false, rfl, localRepair_demoCarrier_fires⟩
+
+/-! ### Axiom audit — the constructed repair layer is admission-free.
+The `#print axioms` outputs below confirm that the constructed
+`localRepair`/`Repair`, the discharged `repair_respects_gauge`, and every
+non-degeneracy receipt depend only on the standard Lean/Mathlib axioms
+(`propext`, `Classical.choice`, `Quot.sound`) — no `sorryAx`, no
+`native_decide`, no new axiom. -/
+#print axioms localRepair
+#print axioms Repair
+#print axioms repair_respects_gauge
+#print axioms Repair_normalForm
+#print axioms Repair_reachable
+#print axioms Repair_eq_self_of_consistent
+#print axioms lyapunovDescent_holds
+#print axioms termination_holds
+#print axioms localRepair_demoCarrier_fires
+#print axioms acceptedStep_demoCarrier_nonempty
+
 end OPH
 
 /-! ## Global termination & completeness from LOCAL repair laws
@@ -285,10 +779,13 @@ This section proves the mathematical content of two of OPH's open *dynamical*
 obligations — **Termination** and **Completeness** (cf. the `Termination`/
 `Completeness` `def`s above) — **conditionally, for any local repair move
 satisfying the local laws `H1`/`H2`/`H3` below**, derived from those explicit,
-faithful, single-site properties. It does **not** close the file's own
-`Termination`/`Completeness` `def`s (those are stated over the placeholder
-`sorry`-defined `localRepair`, so cannot be discharged until `localRepair` is
-defined); it establishes the theorems for the abstract move `lr` instead. The laws are
+faithful, single-site properties. It establishes the theorems for the abstract
+move `lr`, independently of the constructed `localRepair` above. (The file's
+own `Termination` `def` is now discharged outright for the constructed
+operator — `termination_holds` — while its `Completeness` `def` is *not*
+claimed there: the constructed move fires only on locally solvable sites, so
+full `Completeness` remains exactly the frustration-free conditional proved
+here.) The laws are
 satisfiable by a genuine repair (e.g. a two-`Bool`-patch carrier with one
 edge, each patch copying its neighbour to snap the edge consistent), so the
 result is conditional, not vacuous — and that satisfiability is itself
@@ -296,15 +793,14 @@ machine-checked below as `demoCarrier_terminates` (a concrete `(carrier, repair)
 instance discharging `H1`/`H2`/`H3` with a real, non-empty repair step).
 
 It is deliberately **self-contained and axiom-clean**: it does *not* reference
-the `sorry`-defined `localRepair`/`Repair`. The repair move and its laws enter
+the constructed `localRepair`/`Repair`. The repair move and its laws enter
 as `section variable`s (`lr`, `H1`, `H2`, `H3`), so each theorem here closes
 with `#print axioms` reporting only `[propext, Classical.choice, Quot.sound]`
-(no `sorryAx`, no new `axiom`). Because the file's own `Termination`/
-`Completeness` are stated over the `sorry`-defined `acceptedStep`, they cannot
-be discharged without touching that `sorry`; the explicit, axiom-clean statements
-are therefore phrased over the hypothesis-bearing move `lr` (`acceptedStepLR`,
-`NormalFormLR`) and are mathematically the same theorems for the real operator
-once it satisfies `H1`/`H2`/`H3`.
+(no `sorryAx`, no new `axiom`). The statements are phrased over the
+hypothesis-bearing move `lr` (`acceptedStepLR`, `NormalFormLR`) and are
+mathematically the same theorems for any concrete operator that satisfies
+`H1`/`H2`/`H3` — including the constructed `localRepair` on frustration-free
+carriers.
 
 ### Hypotheses are LOCAL; conclusions are GLOBAL (no assume-the-conclusion)
 
@@ -354,45 +850,9 @@ section LocalRepairDynamics
 
 variable {C : OPHCarrier}
 
-/-- An edge is consistent at `x` when its two interface projections agree.
-    A `Prop` (no `DecidableEq (Iface e)` needed). By `dist_eq_zero` this is
-    equivalent to the edge's per-edge distance vanishing
-    (`edgeConsistentAt_iff_dist`). Definitionally, `EdgeConsistent C x` is
-    `∀ e, edgeConsistentAt e x`. -/
-def edgeConsistentAt (e : C.Edge) (x : Records C) : Prop :=
-  C.projSrc e (x (C.src e)) = C.projTgt e (x (C.tgt e))
-
-/-- Bridge to the decidable surrogate used by `mismatchCount`: an edge is
-    consistent iff its per-edge distance is `0` (uses `dist_eq_zero`). -/
-theorem edgeConsistentAt_iff_dist (e : C.Edge) (x : Records C) :
-    edgeConsistentAt e x ↔
-      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) = 0 :=
-  (C.dist_eq_zero e _ _).symm
-
-/-- The set of broken edges of `x`: those whose per-edge distance is nonzero.
-    This is decidable *without* `DecidableEq (Iface e)`, because `ℝ≥0` has
-    `DecidableEq` (from its `LinearOrder`), so `(· ≠ 0)` is a `DecidablePred`. -/
-noncomputable def brokenSet (x : Records C) : Finset C.Edge :=
-  Finset.univ.filter
-    (fun e => C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0)
-
-/-- The well-founded `ℕ` surrogate for `Φ`: the number of broken edges.
-    (`Φ : ℝ≥0` is not `<`-well-founded; this `ℕ` shadow is.) -/
-noncomputable def mismatchCount (x : Records C) : Nat := (brokenSet x).card
-
-theorem mem_brokenSet {x : Records C} {e : C.Edge} :
-    e ∈ brokenSet x ↔
-      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0 := by
-  unfold brokenSet
-  rw [Finset.mem_filter]
-  exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ e, h⟩⟩
-
-/-- An edge is broken at `x` exactly when it is *not* consistent there.
-    (`mem_brokenSet` composed with the `dist`-bridge `edgeConsistentAt_iff_dist`,
-    using `Ne` `=` `¬ (· = ·)` definitionally.) -/
-theorem mem_brokenSet_iff_not_consistent {x : Records C} {e : C.Edge} :
-    e ∈ brokenSet x ↔ ¬ edgeConsistentAt e x :=
-  mem_brokenSet.trans (not_congr (edgeConsistentAt_iff_dist e x)).symm
+-- `edgeConsistentAt`, `brokenSet`, `mismatchCount` and their membership
+-- lemmas now live in the RepairKernel section above (they are shared with
+-- the constructed `localRepair`/`Repair`); this section keeps using them.
 
 -- The abstract local-repair move under study (a section variable):
 -- `lr i x` applies the recovery move at site `i` to record `x`.
@@ -1027,9 +1487,9 @@ theorem demoCarrier_dir_observer_unique_under_seed :
 /-! ### Axiom audit — the reconstruction layer depends only on standard axioms.
 The `#print axioms` outputs below confirm that the boundary-fiber reconstruction theorem
 and all its concrete witnesses depend ONLY on the standard Lean/Mathlib axioms
-(`propext`, `Classical.choice`, `Quot.sound`) and NOT on any of the file's three explicit
-`sorry`s (`localRepair`, `Repair`, `repair_respects_gauge`) — i.e. the "machine-checked"
-claim for observer-reconstruction is sorry-free. -/
+(`propext`, `Classical.choice`, `Quot.sound`) — the same footprint as the constructed
+repair layer audited above; the file's formerly-declared `sorry`s are discharged, so the
+"machine-checked" claim for observer-reconstruction carries no admissions anywhere. -/
 #print axioms boundary_fiber_observer_unique
 #print axioms boundary_preserved_reduction
 #print axioms demoCarrier_Hfib_fails

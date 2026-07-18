@@ -45,7 +45,7 @@ jobs:
         working-directory: Lean
         run: lake exe cache get || true
 
-      - name: Build and check proof-debt allowlist
+      - name: Build and check zero proof debt
         working-directory: Lean
         run: |
           set -euo pipefail
@@ -62,16 +62,10 @@ jobs:
           )
 
           sorry_warnings="$(grep -F 'declaration uses `sorry`' lake-build.log || true)"
-          if [ -n "$sorry_warnings" ]; then
-            sorry_count="$(printf '%s\n' "$sorry_warnings" | grep -c .)"
-          else
-            sorry_count=0
-          fi
-          unexpected="$(printf '%s\n' "$sorry_warnings" | grep -Ev 'warning: (ObserverPatchHolography/Primitives\.lean|ObserverPatchHolography/Source/ObserverPatchHolography/Primitives\.lean):' || true)"
 
-          if [ "$sorry_count" -ne 3 ] || [ -n "$unexpected" ]; then
+          if [ -n "$sorry_warnings" ]; then
             echo "Unexpected Lean proof-debt state." >&2
-            echo "Expected exactly 3 sorry warnings, all in the concrete Primitives.lean module." >&2
+            echo "Expected zero sorry warnings (the Primitives.lean admissions were discharged)." >&2
             echo "Actual sorry warnings:" >&2
             printf '%s\n' "$sorry_warnings" >&2
             exit 1

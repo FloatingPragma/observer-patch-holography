@@ -5,6 +5,12 @@ import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.SeedPi
+import ObserverPatchHolography.CollarClause
+import ObserverPatchHolography.CollarLayer
+import ObserverPatchHolography.CollarStates
+import ObserverPatchHolography.CollarStatesT1
+import ObserverPatchHolography.CollarModularT2
+import ObserverPatchHolography.CollarStatesBridge
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 import EventAlgebra
@@ -18,10 +24,20 @@ between them.
 
 **Status: preliminary skeleton rather than theorem-grade formalisation of
 Proposition 4.2** from *Paradise as Fixed-Point Consensus*. The `Primitives`
-module declares sorry-bearing signatures for
-the OPH primitives (Records, Repair, Patch, Obs, Φ, gauge equivalence,
-OPH-Confluence, OPH-Completeness) — these structurally depend on the
-companion paper *Reality as a Consensus Protocol*.
+module formalises the OPH primitives (Records, Repair, Patch, Obs, Φ, gauge
+equivalence, OPH-Confluence, OPH-Completeness) admission-free — the three
+former admissions (Lyapunov descent, termination, single-site solvability)
+are discharged; these structurally depend on the companion paper *Reality
+as a Consensus Protocol*.
+
+The `CollarClause`/`CollarLayer` modules carry the issue #544 layer
+separation (the overlap-consistency layer factors through the realized
+constraint family; the collar clause is a declared input, not a theorem),
+and the `CollarStates`/`CollarStatesT1`/`CollarModularT2` modules carry the
+state-side no-gos: the current state-side axioms do not force the clause
+(T0), the flux conditional expectation exists and deselects — but does not
+exclude — the cross-cut coupling (T1), and the naive modular recast is
+vacuous while the corrected recast buys only the diagonal clause (T2).
 
 The `BridgeEquivalence`, `CapacityFixedPoint`, and `SeedPi` modules carry
 the Part-A coupling-algebra layer: the bridge count/tick equivalence, the
