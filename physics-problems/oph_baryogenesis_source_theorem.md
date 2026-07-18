@@ -83,7 +83,7 @@ Let \(m_R\) be the primitive period of the winding coordinate. Define
 \Theta_{R,r}(\gamma)=\theta_0 W_{R,r}(\gamma)\pmod{2\pi}.
 \]
 
-For the six-fold determinant/deck class, \(m_R=6\) and \(\theta_0=\pi/3\). An unwrapped cosmological history additionally requires the path-lift or lineage record \(W_{R,r}\), not merely its residue modulo six.
+For the six-fold determinant/deck class, \(m_R=6\) and \(\theta_0=\pi/3\). An unwrapped cosmological history additionally requires the path-lift or lineage record \(W_{R,r}\); its residue modulo six is insufficient.
 
 ---
 

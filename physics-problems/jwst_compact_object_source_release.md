@@ -45,7 +45,7 @@ They are not confirmation of OPH by themselves.
 
 ## What Is Standard, What Is Open, And What OPH Adds
 
-Standard astronomy already supplies photometric and spectroscopic inference,
+Standard astronomy supplies photometric and spectroscopic inference,
 SED and line-profile modeling, lensing, radiative transfer, population
 selection, PSF convolution, and catalog likelihoods. The unresolved OPH
 physics is a source-derived object population and emission history that makes a

@@ -217,7 +217,7 @@ reduced density matrices match, their descriptions agree on the shared region.
 
 ### The Mathematical Translation
 
-Let me unpack this equation for non-specialists.
+Here is the same equation in ordinary language.
 
 A density matrix is quantum mechanics' way of describing partial knowledge. If you know a system is definitely in state |psi>, you use a pure state. If you only know the system is in state |psi_1> with probability p_1 or state |psi_2> with probability p_2, you use a density matrix:
 

@@ -24,19 +24,20 @@ observer-consistency line inside that accumulated work.
 
 ## 19.2 The Self-Referential Turn
 
-This book takes the hint seriously. Reality is a self-referential structure that
-has to explain itself, and everything else follows from consistency. That
-structure forces finite observers with finite access, and it forces the demand
-that their overlapping descriptions agree. The agreement is what pins the world
-down.
+This book takes the hint seriously. Reality is treated as a self-referential
+structure that has to explain itself through finite observers with finite
+access. Their overlapping descriptions have to agree. The exact finite
+theorems show how this demand produces public normal forms; the physics
+chapters test how far the same architecture reaches into spacetime, gravity,
+gauge structure, and matter.
 
 That turn changes the tone of everything that came before. Objectivity ceases
 to be a mysterious substance sitting behind all perspectives. It becomes the
 shared account that survives comparison. A world becomes public when many local
 views can be woven into one durable account.
 
-The horizon matters. It is where comparison becomes physical. It is
-where records meet. It is where the bookkeeping has to close.
+The horizon is where comparison becomes physical, records meet, and the
+bookkeeping has to close.
 
 ## 19.3 The Screen and the Shared Record
 
@@ -48,13 +49,11 @@ match. The sphere is the chart for the gluing problem, not a literal ball
 outside the universe.
 
 The state on the screen is selected by maximum entropy subject to a stable
-local family of constraints. Generalized entropy gives each cap both a bulk
-piece and a boundary piece. The least elaborate low-energy matter sector that
-respects those constraints is the one the world settles into. Once those three
-moves are in place, the whole architecture becomes legible.
-
-This is the hidden spine of the book. Overlap gives the rule. Entropy gives the
-selection principle. Minimality gives the economy.
+local family of constraints. Generalized entropy gives each cap a bulk piece
+and a boundary piece, while minimal admissibility selects the least elaborate
+low-energy matter sector that satisfies the declared conditions. Their
+interaction is the spine that lets one construction address several parts of
+physics.
 
 ![The book's main ingredients form one spine from finite screens to shared public reality.](../assets/book_diagrams/synthesis-spine.svg){width=78%}
 
@@ -129,11 +128,11 @@ SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
 $$
 
 The $\mathbb Z_6$ is the six-element set of transformations that acts
-trivially on the realized matter package. On the separate UD12/RP-A5 screen
-branch, twelve icosahedral port readings split as
+trivially on the realized matter package. On a separate twelve-port
+icosahedral screen branch, the port readings split as
 $1+3+3+5$, matching the twelve gauge directions, and the oriented coefficient
 space carries the corresponding compact algebra. Turning that coefficient
-algebra into physical currents remains work in progress. The six antipodal
+algebra into physical currents is work in progress. The six antipodal
 screen axes also leave a sixfold residue, but that abstract residue becomes the
 physical $\mathbb Z_6$ only when a physical map connects screen loops to the
 matter action. Neither construction fixes a mass or coupling.
@@ -533,13 +532,14 @@ read again. Every world without record-keeping falls at the first step.
 
 No observer reads the whole world. Descriptions have to agree where views
 overlap, and the shared account that survives that comparison is the public
-world. On the symmetric screen chart, forcing that agreement also forces the
-geometry: the light-cone symmetries, the three spatial directions, the Lorentz
-rulebook. Signature and dimension stop being choices.
+world. On the certified spherical branch, cap geometry fixes the light-cone
+symmetries and the three-dimensional space of observer frames. Separate event
+receipts promote that kinematic chart to one time direction and three spatial
+directions.
 
 A closed world has no outside clock. Its time has to come from within, and the
-mathematics of restricted states supplies exactly one way to generate it.
-There is no external time parameter left to tune.
+modular flow of a restricted state supplies the internal clock used on the
+certified branch. Worker counters and repair iterations carry no such status.
 
 Charges that survive transport across patches form a menu, and the menu
 reconstructs a compact gauge group. On the branch with the smallest matter
@@ -565,26 +565,23 @@ and every borrow is counted.
 One clock, the cesium transition, ties substrate units to laboratory units,
 so no unit convention can carry physics.
 
-That is the ceiling of the book in one count: ten requirements, each removing
-a freedom; two constants remaining; two equations on those constants; a unique
-universe if the equations close. Neither equation is physically closed. The
-capacity comparison has a $6.6$ percent conditional central mismatch, with the
-readback map, three connecting premises, and cosmological posterior propagation
-open. The electromagnetic roots belong to incomplete maps rather than a defined
+The book's compression count has ten declared requirements and two surviving
+dimensionless coordinates. Two closure equations target those coordinates.
+Their physical maps and uniqueness proofs are work in progress. The capacity
+comparison has a $6.6$ percent conditional central mismatch, with the readback
+map, three connecting premises, and cosmological posterior propagation open.
+The electromagnetic roots belong to incomplete maps rather than a defined
 physical basin.
 
-What stands between here and a closed case is finite and named. The local closure
-needs a complete, scheme-consistent hadronic transport and an independent blind target
-whose coordinate and comparison pixel are fixed without target exposure. The
-global closure needs a constructed capacity readback map and all three premises
-that connect it to the displayed capacities. The W and Z chart needs a complete
-renormalized vacuum, tadpole, threshold, matching, and complex-pole prescription;
-the partial one-loop packet and hybrid two-loop packet do not exhaust the
-physical choices. The particle sector needs a rule that tells the quark
-generations apart after a first slate of twelve candidates was excluded. A
-fifth item, the matched printed pair, is closed: converged
-reruns carried the identity past thirty-five digits. None of the open items
-is a matter of interpretation; each is a computation or a construction.
+The local closure requires complete, scheme-consistent hadronic transport and
+an independent blind target whose coordinate and comparison pixel are fixed
+without target exposure. The global closure requires a constructed capacity
+readback map together with the premises that connect it to the displayed
+capacities. The W and Z chart requires a complete renormalized vacuum,
+threshold and matching calculation, tadpole prescription, and complex pole.
+The particle sector requires a source rule that distinguishes the quark
+generations. These are concrete calculations or constructions, with no
+interpretive shortcut around them.
 
 ## 19.12 Final Synthesis
 
@@ -608,7 +605,7 @@ information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
 The gauge quotient, the charge lattice, the generation-counting chain, the
-Yang-Mills mass gap, the classical carrier modes, the Lorentz geometry, the
+conditional Yang-Mills repair-gap route, the classical carrier modes, the Lorentz geometry, the
 conditional Einstein relation, the electroweak chart, the conditional quark and
 Higgs-top surfaces, and the quark falsification form one organized
 reconstruction. A theorem shows the quarks cannot be pinned down without more

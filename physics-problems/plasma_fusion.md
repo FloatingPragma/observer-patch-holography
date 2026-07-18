@@ -1193,7 +1193,7 @@ Y_n
 ```
 
 where $b_n$ is the neutron-branch fraction unless the tabulated reactivity is
-already branch-specific.
+branch-specific.
 
 The DD source gate requires source and detector receipts:
 

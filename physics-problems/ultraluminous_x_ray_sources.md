@@ -143,7 +143,7 @@ Its observer-like structure is operational and testable:
 | ports and boundaries | X-ray counts and backgrounds; event times, gaps, exposure, and dead time; distance and flux; counterparts and environment; orbital, dynamical, magnetic, wind, and nebular constraints; survey selection and non-detections |
 | readback | per-family likelihood and port residuals, posterior-predictive checks, viable-set size, missing-record mask, and classification status |
 | durable records | immutable observation identifiers and hashes, event selections, extraction regions, response matrices, background products, timing windows, distance posterior, model equations, priors, thresholds, and every candidate score |
-| repair moves | canonicalization, nuisance fitting inside frozen families, ingestion of a newly versioned port, and reconciliation of cross-epoch or cross-instrument mismatch |
+| repair moves | canonicalization, nuisance fitting inside frozen families, ingestion of a versioned port, and reconciliation of cross-epoch or cross-instrument mismatch |
 | checkpoints | preregistration; raw-data and calibration freeze; extraction freeze; fit and residual freeze; held-out epoch or instrument check; selection/censoring audit; public manifest |
 | evidence bundle | data locators, raw and reduced hashes, calibrated responses, code and dependency hashes, exact likelihood, all alternatives and upper limits, controls, held-out results, and a machine-readable source table |
 
@@ -671,7 +671,7 @@ The output has three mathematical cases:
 
 A highest posterior probability does not change the cardinality in (28).
 Within the frozen family list, a conditionally unique output requires
-preregistered adequacy, calibration, and separation, not merely a winner. Empty
+preregistered adequacy, calibration, and separation. A winning score is insufficient. Empty
 fibers are split by the missing-record mask: absent mandatory data yield
 `INSUFFICIENT_RECORD`; a record outside the declared validation or
 survey-support domain yields `OUT_OF_DISTRIBUTION`; complete in-domain data

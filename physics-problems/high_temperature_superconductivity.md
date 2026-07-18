@@ -36,7 +36,7 @@ stable under the stated pressure and processing history, and not a filamentary
 or contact artifact. Strong correlations, lattice structure, disorder,
 competing orders, phase fluctuations, and processing history can all matter.
 
-Standard theory already supplies BCS/Eliashberg treatments for conventional
+Standard theory supplies BCS/Eliashberg treatments for conventional
 pairing, material-specific Hubbard and $`t\text{-}J`$ models, spin-fluctuation and
 phonon models, density-functional and many-body pipelines, Ginzburg--Landau and
 XY descriptions of phase stiffness and vortices, and established transport,
@@ -367,7 +367,7 @@ decreases along $v_0$, and the assumed stabilizing higher-order terms set a
 nonzero ordered-state amplitude. This is a local-stability result, not an
 if-and-only-if criterion for all superconducting transitions: a first-order
 transition can develop a nonzero global minimum while the Hessian at zero is
-still positive, and a degenerate leading space requires the nonlinear terms to
+positive, and a degenerate leading space requires the nonlinear terms to
 select the final symmetry. $\square$
 
 ## Reduced-Model Lemma 2: A Repulsive Edge Favors a Sign Change
@@ -954,7 +954,7 @@ response under the declared sample geometry and contacts.
 
 ### Pressure-Quenched Multilayer Cuprates
 
-One recent empirical case study for the retention audit is pressure-quenched
+One empirical case study for the retention audit is pressure-quenched
 Hg-1223,
 
 ```math

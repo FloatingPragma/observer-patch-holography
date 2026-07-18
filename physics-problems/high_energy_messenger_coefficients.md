@@ -439,7 +439,7 @@ moment-polytope trap, refinement-stability report, and common-source lock.
 ## What OPH Answers
 
 OPH does not uniquely solve the ordinary astrophysical source-identification
-problem. Regular physics still has to determine source classes, acceleration,
+problem. Regular physics has to determine source classes, acceleration,
 composition, magnetic deflection, propagation losses, detector response, and
 likelihood support.
 

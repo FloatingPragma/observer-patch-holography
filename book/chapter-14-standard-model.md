@@ -613,7 +613,7 @@ physical current realization, and its refinement intertwiner are work in progres
 The six antipodal axes also produce a
 sixfold lattice residue. Its name, $\mathbb Z_6$, matches the physical quotient
 above, but matching names do not identify the objects. A physical map from
-screen loops to the action on matter is still required. The construction fixes
+screen loops to the action on matter is required. The construction fixes
 no mass or coupling.
 
 ## 14.10 Hypercharge from Gluing Consistency
@@ -1142,10 +1142,9 @@ electromagnetism at low energy, and Newton's constant into one common
 structure.
 
 The declared hierarchy map gives an exponentially small conditional ratio from
-the unified coupling. Its physical interpretation requires
-HIERARCHY-SCREEN-READOUT, which identifies the screen load with the electroweak
-transmutation exponent. The construction does not fix an absolute energy scale
-in GeV.
+the unified coupling. Its physical interpretation requires a map that
+identifies the screen load with the electroweak transmutation exponent. The
+construction fixes no absolute energy scale in GeV.
 
 The hierarchy count is independent of the screen selector:
 $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))

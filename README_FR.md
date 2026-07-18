@@ -14,7 +14,7 @@ $$
 
 L’univers est modélisé comme un point fixe de son propre processus de relecture et de réparation accessible aux observateurs.
 
-## Pourquoi OPH est intéressant
+## Ce qu’OPH dérive de la cohérence entre observateurs
 
 OPH utilise une seule architecture mathématique dans des domaines habituellement introduits séparément :
 
@@ -30,7 +30,7 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
 - la branche de réalisation admissible minimale sélectionne le réseau de charges du Modèle standard, trois couleurs, trois générations et un doublet de Higgs ;
 - Lean, les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
-L’importance vient de la convergence. OPH n’introduit pas un mécanisme distinct pour la mesure, l’espace-temps, la gravité et la structure de jauge. Il demande quelle part de ces quatre domaines découle d’une seule exigence : des observateurs finis doivent pouvoir former un monde public stable.
+La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.
 
 ## Le résultat fini le plus fort
 

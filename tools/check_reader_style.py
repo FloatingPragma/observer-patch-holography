@@ -41,6 +41,11 @@ PROGRESS_PATTERNS = [
     (re.compile(r"\bpreviously\b", re.IGNORECASE), "progress word: previously"),
     (re.compile(r"\bformerly\b", re.IGNORECASE), "progress word: formerly"),
     (re.compile(r"\bno longer\b", re.IGNORECASE), "progress phrase: no longer"),
+    (re.compile(r"\bstill\b", re.IGNORECASE), "progress word: still"),
+    (re.compile(r"\bso far\b", re.IGNORECASE), "progress phrase: so far"),
+    (re.compile(r"\bfuture work\b", re.IGNORECASE), "progress phrase: future work"),
+    (re.compile(r"\bnext step\b", re.IGNORECASE), "progress phrase: next step"),
+    (re.compile(r"\bcurrent state\b", re.IGNORECASE), "progress phrase: current state"),
     (re.compile(r"\bwhat changed\b", re.IGNORECASE), "progress phrase: what changed"),
     (re.compile(r"\bwhat did not change\b", re.IGNORECASE), "progress phrase: what did not change"),
 ]
@@ -57,6 +62,27 @@ AI_TELL_PATTERNS = [
     (re.compile(r"\bseamless(?:ly)?\b", re.IGNORECASE), "AI-tell word: seamless"),
     (re.compile(r"\bIt is important to note\b", re.IGNORECASE), "boilerplate intro"),
     (re.compile(r"\bAt its core\b", re.IGNORECASE), "boilerplate intro"),
+    (re.compile(r"\b(?:In essence|Simply put|Put simply)\b", re.IGNORECASE), "boilerplate intro"),
+    (re.compile(r"\bIt(?: is|'s) worth noting\b", re.IGNORECASE), "boilerplate intro"),
+    (
+        re.compile(
+            r"(?:^|[.!?]\s+)(?:Moreover|Furthermore|Crucially|Importantly|Notably|"
+            r"In conclusion|Ultimately|That said|With this in mind|Building on this idea),",
+            re.IGNORECASE | re.MULTILINE,
+        ),
+        "formulaic sentence opener",
+    ),
+    (re.compile(r"\bthis (?:paper|section|chapter) (?:aims|seeks) to\b", re.IGNORECASE), "anthropomorphized document"),
+    (re.compile(r"\bunpack\b", re.IGNORECASE), "AI-tell word: unpack"),
+]
+
+READER_IDENTIFIER_PATTERNS = [
+    (re.compile(r"\bD\d+[a-z]?\b"), "internal D-lane identifier in reader prose"),
+    (re.compile(r"\bUD\d+\b"), "internal UD identifier in reader prose"),
+    (re.compile(r"\bRP-A\d+\b"), "internal RP identifier in reader prose"),
+    (re.compile(r"\b(?:GAP|CL|DK)-[A-Z0-9-]+\b"), "internal tracker identifier in reader prose"),
+    (re.compile(r"\bCP-\d+\b"), "internal premise identifier in reader prose"),
+    (re.compile(r"\bHIERARCHY-SCREEN-READOUT\b"), "internal theorem label in reader prose"),
 ]
 
 ABSTRACT_IDENTIFIER_PATTERNS = [
@@ -112,6 +138,10 @@ def main() -> int:
         )
         add_matches(issues, path, text, PROGRESS_PATTERNS)
         add_matches(issues, path, text, AI_TELL_PATTERNS)
+
+    for path in iter_paths(READER_GLOBS):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        add_matches(issues, path, text, READER_IDENTIFIER_PATTERNS)
 
     for path in iter_paths(PAPER_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")

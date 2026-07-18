@@ -72,7 +72,7 @@ precision functor, not the whole backend.
 ## What Is Standard, What Is Open, And What OPH Adds
 
 Lattice QCD, dispersive methods, effective field theory, Ward identities,
-spectral representations, and experiment already provide the standard
+spectral representations, and experiment provide the standard
 framework. The hard unresolved OPH task is to derive the QCD parameters and
 physical source measure from upstream OPH data with controlled regulator,
 continuum, renormalization, and analytic-continuation errors.
@@ -391,8 +391,8 @@ The remainder is a mutually exclusive same-scheme ledger:
 ```
 
 All terms must be in the same electromagnetic convention as $A_Z(P)$ and
-$A_{\rm Th}(P)$. `QED` and `EW` here may contain only corrections not
-already included in $\Delta_{\rm lep}$, $\Delta_{\rm EW}$, the
+$A_{\rm Th}(P)$. `QED` and `EW` here may contain only corrections absent from
+$\Delta_{\rm lep}$, $\Delta_{\rm EW}$, the
 spectral kernel, or current renormalization; otherwise the endpoint is double
 counted. Each row needs an inclusion/exclusion definition and units.
 

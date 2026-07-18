@@ -44,7 +44,14 @@ The public universe is the part that remains stable after this process. OPH call
 
 The icosahedron supplies the first highly symmetric finite scaffold for this computation. It has twelve vertices, twenty triangular faces, and rotation group $A_5$. In the OPH screen model, the twelve locations become observer-facing ports, the faces organize local overlaps, and repeated refinement turns the finite scaffold into a progressively finer patch-net. The “echosahedral” language used throughout the project refers to this icosahedral observer-screen architecture.
 
-Spacetime then appears from the computation instead of being supplied beforehand. Stable relations among patches become public adjacency, angle, and distance. The order of records inside one patch becomes local time. Synchronizable record order becomes public time. The conformal symmetry of the shared spherical screen becomes Lorentz symmetry, and the corresponding space of observer frames has three spatial dimensions.
+On the certified spherical branch, spacetime kinematics comes out of the
+computation instead of being supplied beforehand. Stable relations among
+patches define public adjacency, angle, and distance. Record order supplies a
+local clock, compatible clocks supply public time, and the conformal symmetry
+of the shared spherical screen gives Lorentz symmetry with a
+three-dimensional space of observer frames. Populating that kinematic chart
+with a physical event manifold requires the separate receipts stated in the
+compact paper.
 
 Matter and forces are stable patterns inside the same network. A particle is a reproducible, transportable pattern in the public record structure. A gauge force describes how internal labels must transform when those patterns move between overlapping patches. Gravity describes the smooth large-scale geometry required by the shared information and entropy relations.
 
@@ -54,7 +61,7 @@ This is the **consciousness-first** or **observer-first** thesis in its simplest
 
 In simulation language, the universe is its own simulator. The patches, computation, records, and resulting world all belong to the same closed system. No external computer or programmer is required by the formal construction.
 
-## Why OPH Is Interesting
+## What OPH Derives From Observer Consistency
 
 OPH uses one mathematical architecture across subjects that are normally introduced separately:
 
@@ -70,7 +77,13 @@ OPH uses one mathematical architecture across subjects that are normally introdu
 - the Minimal Admissible Realization branch selects the Standard Model charge lattice, three colors, three generations, and one Higgs doublet;
 - public Lean, exact-arithmetic certificates, simulations, and executable receipts check the finite mathematical core.
 
-The significance is the convergence. OPH does not introduce a separate mechanism for measurement, spacetime, gravity, and gauge structure. It asks how much of all four follows from the same requirement: finite observers must be able to form one stable public world.
+Measurement, spacetime, gravity, and gauge structure are tested against the
+same mechanism: finite observers form public records by comparing overlaps and
+repairing disagreement. The finite theorems reach from quotient consensus to
+the Standard Model gauge algebra and global quotient. The continuum theorem
+stack reaches the Lorentz and Einstein branches under its stated geometric,
+modular, stress, entropy, and scale premises. This reuse of one mechanism is
+the programme's central result.
 
 ## The Strongest Finite Result
 

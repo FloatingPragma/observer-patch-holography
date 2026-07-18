@@ -38,7 +38,7 @@ excess-power claims.
 
 ## What Is Standard, What Is Open, And What OPH Adds
 
-Standard high-energy astrophysics already supplies photon-production channels,
+Standard high-energy astrophysics supplies photon-production channels,
 radiative transport, catalog and diffuse-source models, instrument response,
 Poisson likelihoods, and template/null-test methodology. The open physical
 question is whether OPH supplies a source law that fixes a nonzero morphology
@@ -97,8 +97,8 @@ I_{\rm OPH}^{\rm sky}(\hat n,E).
 ```
 
 Foreground-model discrepancy may be represented by separately declared
-nuisance fields or priors. It is not an additive random count after a Poisson
-count model has already been specified.
+nuisance fields or priors. It is not an additive random count after
+specification of a Poisson count model.
 
 The OPH component is allowed only when it is a forward projection of a frozen
 source artifact:
@@ -223,7 +223,7 @@ Standard Model electromagnetic, color, or weak current:
 q_z^{\rm EM}=q_z^{\rm color}=q_z^{\rm weak}=0.
 ```
 
-Neutral charge alone is insufficient: a neutral composite can still couple
+Neutral charge alone is insufficient: a neutral composite can couple
 electromagnetically through moments or polarizability. Therefore the following
 zero-current statement additionally requires a decoupling/current theorem:
 
@@ -538,7 +538,7 @@ The gamma branch fails closed if any of these occur:
 - a single diffuse model is treated as the only foreground alternative;
 - immutable data, mask, source, solver, nuisance, and likelihood hashes are
   missing;
-- cross-tracer validation fails but the report still emits
+- cross-tracer validation fails and the report emits
   `OPH_GAMMA_MORPHOLOGY_CANDIDATE`.
 
 ## Simulator Contract

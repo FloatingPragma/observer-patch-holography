@@ -57,7 +57,7 @@ prebiotically plausible, spatially resolved source-to-fixation receipt.
 **Established chemistry.** Frank-type nonlinear kinetics, asymmetric
 autocatalysis, mutual inhibition, crystallization/recycling, chiral surfaces,
 circularly polarized photochemistry, stochastic fixation, and reaction--
-diffusion models already supply standard mechanisms for enrichment and
+diffusion models supply standard mechanisms for enrichment and
 symmetry breaking. The cited experiments demonstrate particular seed or gain
 mechanisms under particular conditions.
 
@@ -253,7 +253,7 @@ Within this autonomous normal form, the linearization at $e=0$ is
 $\dot e\simeq(\kappa-2\mu)e$. Below the threshold the racemic fixed point is
 stable; above it the racemic fixed point is unstable and two stable chiral
 fixed points exist. At equality, $\dot e=-\kappa e^3$, so the racemic
-point is nonhyperbolic but still attracting in this one-dimensional model.
+point is nonhyperbolic and attracting in this one-dimensional model.
 This is a source-off pitchfork condition for the stated
 model, not a universal repair threshold. If $h\ne0$, $e=0$ is not a fixed
 point and the symmetric pitchfork is tilted. If $\kappa$, $h$, or $\mu$
@@ -286,7 +286,7 @@ result.
 The factor $1-e_i^2$ is an illustrative bounded, Wright--Fisher-like
 choice that makes the diffusion vanish at $e_i=\pm1$; the earlier additive
 noise form would leave the physical interval with nonzero probability. Equation
-(9) still assumes symmetric effective abundance noise for the two hands,
+(9) assumes symmetric effective abundance noise for the two hands,
 independent compartments, and sufficiently large $N_i$. If $L$ and $R$ have
 unequal copy/death noise, correlated feed fluctuations, or strongly varying
 total abundance, the diffusion and Itô drift must be derived from the underlying
@@ -347,7 +347,7 @@ a two-state equilibrium estimate gives
 The exact molecular value and even the preferred sign can depend on molecule,
 conformation, solvation, and calculation. Equation (10) is therefore a scale
 audit, not a universal sign prediction. Parity violation can at most be a tiny
-seed in this account; a high-gain nonequilibrium mechanism still has to pass
+seed in this account; a high-gain nonequilibrium mechanism has to pass
 the threshold in equation (8).
 
 ## 6. Replication architecture is an assumption, not a free theorem

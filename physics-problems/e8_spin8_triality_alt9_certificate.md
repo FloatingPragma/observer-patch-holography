@@ -14,7 +14,7 @@ public matrix certificate without being promoted into physical $E_8$
 speculation.
 
 **Status:** claim statement; exact verification pending. The
-repository currently contains only the claim statement under
+repository contains only the claim statement under
 `code/e8_triality_claim_statement/`, not the promised Sage programs, matrices, lattice
 bases, check output, or stable hash bundle. The statements below are therefore
 verification targets, not a proved OPH theorem.

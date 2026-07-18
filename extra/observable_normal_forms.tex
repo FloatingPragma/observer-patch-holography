@@ -162,7 +162,7 @@ A standard finite Markov drift lemma turns a row-wise kernel inequality into end
 
 \subsection{Novelty boundary and intended venue}
 
-The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants already address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
+The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
 
 Accordingly, the paper makes no claim that a triangle inequality, an error
 bound, inverse continuity, a section criterion, or boundary-indexed unique
@@ -225,7 +225,7 @@ systems.
 
 \subsection{Static reconstruction and functional observability}
 
-Control-theoretic observability reconstructs a state, or a prescribed function of state, from an output history.  Linear observability and functional observability supply rank and conditioning tests; recent nonlinear work characterizes when a nonlinear functional can be reconstructed from measurements and studies the quality of the inverse map \citep{Kailath1980,MontanariEtAl2023,Kravaris2024}.  This is the closest neighboring language for the map $B|_C$.  Our setting is nevertheless static at the theorem interface: $C$ is the already-settled consistent set, $B$ may be any protected quotient observation, and the new questions are how residual error and inverse conditioning control schedule disagreement and how these certificates propagate through refinement towers.
+Control-theoretic observability reconstructs a state, or a prescribed function of state, from an output history.  Linear observability and functional observability supply rank and conditioning tests; nonlinear work characterizes when a nonlinear functional can be reconstructed from measurements and studies the quality of the inverse map \citep{Kailath1980,MontanariEtAl2023,Kravaris2024}.  This is the closest neighboring language for the map $B|_C$.  Our setting is nevertheless static at the theorem interface: $C$ is the settled consistent set, $B$ may be any protected quotient observation, and the questions are how residual error and inverse conditioning control schedule disagreement and how these certificates propagate through refinement towers.
 
 \subsection{Constraints, databases, and global sections}
 
@@ -244,7 +244,7 @@ obstruction output are explicit.  They do not reprove those principles.
 \subsection{Formalized rewriting}
 
 Formalized rewriting has established libraries such as CoLoR in Coq
-\citep{BlanquiKoprowski2011}.  Recent developments include a constructive
+\citep{BlanquiKoprowski2011}.  Developments include a constructive
 Agda library for abstract rewriting \citep{ArklePolonsky2026}, a Lean~4
 framework for confluence and normalization of lambda calculi
 \citep{RamosEtAl2025}, and a Rocq library for adhesive-category graph
@@ -369,7 +369,7 @@ Same-source confluence compares arms of a peak from one state;
 \cref{thm:cross-source-modulo} compares endpoints from all sources in one
 observation fiber.  Weak normalization is a separate existence hypothesis
 ensuring that every source has at least one endpoint.  Strong normalization,
-fairness, or another liveness argument is still needed to conclude that every
+fairness, or another liveness argument is needed to conclude that every
 allowed schedule settles.  None of these three obligations may be substituted
 for either of the others.
 \end{remark}
@@ -404,8 +404,8 @@ $x\in Q$ reaches a unique terminal $t_x\in T$, and
  C_{B(x)}\ne\varnothing.
 \]
 Thus a realizable observation has a unique reachable terminal at its
-consistent extension, whereas an unrealizable observation can still have a
-unique reachable terminal, but only outside $C$.  The theorem does not assert
+consistent extension, whereas an unrealizable observation can have a
+unique reachable terminal only outside $C$.  The theorem does not assert
 strong normalization of every execution.
 \end{theorem}
 
@@ -585,7 +585,7 @@ Let $C=\{c\}$, let $B$ be constant, and set $\Phi(c)=0$, $\Phi(x)=\Phi(y)=1$.  T
 \end{proof}
 
 \begin{remark}
-The theorem does not assert that every term in \eqref{eq:master-bound} can be attained simultaneously in every structured class.  It states the correct universal boundary: the observation term is forced already on $C$, and the coefficient $2$ on two independent residual errors is globally sharp.
+The theorem does not assert that every term in \eqref{eq:master-bound} can be attained simultaneously in every structured class.  It states the correct universal boundary: the observation term is forced on $C$, and the coefficient $2$ on two independent residual errors is globally sharp.
 \end{remark}
 
 \subsection{Approximate schedule independence}
@@ -716,10 +716,10 @@ Let $Q$ be compact metric, let $C\subseteq Q$ be nonempty and closed, let $\Phi:
 \end{proposition}
 
 \begin{proof}
-If $\eta_\Phi(t)$ did not tend to zero, there would be $t_n\downarrow0$ and $x_n$ with $\Phi(x_n)\le t_n$ but $\dist(x_n,C)\ge a>0$.  A convergent subsequence has limit $x$ with $\Phi(x)=0$, hence $x\in C$, contradicting the distance bound.  The second statement follows because a continuous bijection from compact $C$ to the Hausdorff space $B(C)$ is a homeomorphism, whose inverse is uniformly continuous.
+If $\eta_\Phi(t)$ did not tend to zero, there would be $t_n\downarrow0$ and $x_n$ satisfying $\Phi(x_n)\le t_n$ and $\dist(x_n,C)\ge a>0$.  A convergent subsequence has limit $x$ with $\Phi(x)=0$, hence $x\in C$, contradicting the distance bound.  The second statement follows because a continuous bijection from compact $C$ to the Hausdorff space $B(C)$ is a homeomorphism, whose inverse is uniformly continuous.
 \end{proof}
 
-Now let $\{\mathfrak S_i\}_{i\in I}$ be a nonempty family of compact or finite metric systems with a common Lipschitz bound $L$ for the maps $B_i$.  Define
+Let $\{\mathfrak S_i\}_{i\in I}$ be a nonempty family of compact or finite metric systems with a common Lipschitz bound $L$ for the maps $B_i$.  Define
 \[
  H(t):=\sup_i\eta_i(t),\qquad
  \Omega(r):=\sup_i\omega_i(r).
@@ -1262,7 +1262,7 @@ restriction factors remain load-bearing.
 
 \subsection{Exact inverse limits}
 
-Assume now that all one-step defects vanish and that
+Assume that all one-step defects vanish and that
 $\rho_{n+1,n}(C_{n+1})\subseteq C_n$.  Let
 \[
  Q_\infty:=\varprojlim Q_n
@@ -1302,7 +1302,7 @@ Naturality makes $(N_nq_n)$ a compatible family.  Because each coordinate lies i
 \end{proof}
 
 \begin{remark}[What the theorem does not prove]
-The theorem supplies a normalizer on an already defined inverse system.  It
+The theorem supplies a normalizer on a declared inverse system.  It
 does not prove compactness, nonemptiness, a continuum dynamics, or adequacy of
 the chosen refinement maps.  Those are separate mathematical or
 model-specific obligations.
@@ -1328,7 +1328,7 @@ such that
 \item $\pi_D\mathsf R(x,d)=d$ for every $(x,d)$;
 \item $\mathsf R(r)=r$ for every $r\in R$.
 \end{enumerate}
-Thus every local state is repaired, the collar is preserved, and already consistent states are fixed.
+Thus every local state is repaired, the collar is preserved, and consistent states are fixed.
 \end{definition}
 
 \begin{theorem}[Collar-section criterion]\label{thm:collar-section}
@@ -1428,7 +1428,7 @@ and its fixed space is exactly
 \]
 the observation-measurable functions.
 
-Moreover, a Markov matrix $K$ on $Q$ equals the matrix of $P_B$ if and only
+A Markov matrix $K$ on $Q$ equals the matrix of $P_B$ if and only
 if the following finite receipt holds:
 \begin{align*}
  K(x,y)&=0 &&\text{when }B(x)\ne B(y),\tag{R1}\\
@@ -1495,7 +1495,7 @@ Lexicographic order, an energy, a prior, maximum entropy, or an external sector 
 
 \section{Ranked functional-audit systems}\label{sec:functional}
 
-We now give a broad constructive class in which the partial normalizer, asynchronous dynamics, and obstruction output are all explicit.
+We give a broad constructive class in which the partial normalizer, asynchronous dynamics, and obstruction output are all explicit.
 
 \begin{definition}[Ranked functional-audit system]
 Let
@@ -1596,7 +1596,7 @@ Induct on $k$.  Boundary values are fixed.  If all sites of rank at most
 $k-1$ are correct after round $k-1$, then every parent of a rank-$k$ site is
 correct, so its round-$k$ update evaluates the defining function at the same
 parent tuple as $E(Bx)$.  Sites of lower rank remain correct because their
-parents were already correct in the preceding round.
+parents were correct in the preceding round.
 \end{proof}
 
 \begin{corollary}[Acyclic Boolean circuit compiler]
@@ -1987,7 +1987,7 @@ In a refinement program, proving $B_r|_{C_r}$ injective for every $r$ does not p
 
 \subsection{Limitations}
 
-The theory assumes that a meaningful quotient, consistent set, residual, observation metric, and refinement map have already been declared.  It does not select those objects.  In particular:
+The theory assumes a declared meaningful quotient, consistent set, residual, observation metric, and refinement map.  It does not select those objects.  In particular:
 \begin{itemize}
 \item a normalizer is not a probability measure;
 \item an inverse-limit normalizer is not a continuum field theory;

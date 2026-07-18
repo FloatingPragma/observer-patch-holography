@@ -45,7 +45,7 @@ additional delayed formation routes. Standard repeater analyses use renewal,
 Poisson, Weibull, clustered, periodic, and state-space timing models with survey
 selection. Standard hierarchical black-hole models use cluster or AGN
 population dynamics, numerical-relativity remnant fits, detector selection,
-and genealogical mixture priors. General-relativistic ringdown is already a
+and genealogical mixture priors. General-relativistic ringdown is a
 sum of damped quasinormal modes.
 
 **Unresolved part.** The open work is to identify channel-specific source and
@@ -60,7 +60,7 @@ conditioned updates, propagation, exposure, detector response, censoring,
 controls, and promotion evidence are kept in one auditable chain. The Markov
 and point-process machinery is standard. OPH becomes physically distinctive
 only if its source/repair structure yields a frozen prediction that standard
-controls do not already contain.
+controls do not contain.
 
 ## Claim Boundary
 
@@ -512,7 +512,7 @@ selection function.
 **Proof.** If a nonzero vector annihilates the exposure-weighted feature vector
 almost everywhere, two coefficient vectors give the same source density. Full
 rank removes that linear degeneracy locally, but host-association uncertainty,
-missing hosts, tracer error, and a non-identifiable observation model can still
+missing hosts, tracer error, and a non-identifiable observation model can
 prevent global identification. $\square$
 
 ### Operational Genealogy 15: Record-Surface Recycling
@@ -549,7 +549,7 @@ prior, the residual remains held out. $\square$
 
 ### Undemonstrated Ansatz 17: Additional Linear Repair Tail
 
-General relativity already predicts a superposition of damped quasinormal modes
+General relativity predicts a superposition of damped quasinormal modes
 for a perturbed remnant. OPH has not derived an additional mode in this note.
 As a provisional ansatz only, suppose an extra repair perturbation obeys
 $\dot x=A_{\rm rep}x$, has an active eigenpair
@@ -606,7 +606,7 @@ declared errors, then
 **Proof.** Couple each stage. The final observer-record law differs only if at
 least one coupling fails. This bound requires uniform per-kernel total-
 variation errors, compatible state spaces, finite $\mathbb E[N]$, and all clock
-or canonicalization errors already converted to total variation. Until those
+or canonicalization errors converted to total variation. Until those
 conditions and errors are supplied, the equation is a target bound. $\square$
 
 ### Evidence Rule 21: Promotion

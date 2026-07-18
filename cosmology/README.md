@@ -27,7 +27,7 @@ The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the
 
 ## Dark-Gravity Structure
 
-The dark-sector action already yields a pressureless dilute background and, through its cubic condensed link energy, a spherical deep-acceleration law with baryonic Tully–Fisher scaling. The same action supplies a repair current, stress channel, and coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
+The dark-sector action yields a pressureless dilute background and, through its cubic condensed link energy, a spherical deep-acceleration law with baryonic Tully–Fisher scaling. The same action supplies a repair current, stress channel, and coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
 
 Physical promotion requires the canonical repair pair, a relativistic constitutive completion, abundance and lensing maps, CMB and cluster transfer, Solar-System response, and calibrated laboratory receipts to close on the same branch. Existing analytic and numerical comparisons are evidence for developing those maps; the papers state their precise status.
 

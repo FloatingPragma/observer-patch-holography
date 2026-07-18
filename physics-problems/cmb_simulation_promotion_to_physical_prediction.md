@@ -193,8 +193,8 @@ and
 The geometry route is a typed alternative: the conditional route requires an
 imported-FLRW receipt, while the native route requires `CosmoGeomRead_r`; a run
 does not need to satisfy both mutually exclusive origins. An
-`OPH_NATIVE_PHYSICAL` label specifically requires $R_{\rm CosmoGeomRead}$,
-not merely the disjunction.
+`OPH_NATIVE_PHYSICAL` label specifically requires $R_{\rm CosmoGeomRead}$;
+the disjunction is insufficient.
 
 The definition of $R_{\rm dark}$ makes the optionality explicit: parent and
 kernel receipts are bypassed only when the declared run has
@@ -203,8 +203,8 @@ both become mandatory.
 
 The important semantic split is:
 
-- `CONDITIONAL_PHYSICAL` may use an imported, frozen FLRW geometry packet while
-  still testing OPH-native source artifacts through physical scale, clock,
+- `CONDITIONAL_PHYSICAL` may use an imported, frozen FLRW geometry packet and
+  test OPH-native source artifacts through physical scale, clock,
   freezeout, and transfer gates.
 - `OPH_NATIVE_PHYSICAL` additionally requires quotient-derived
   `CosmoGeomRead_r`, source embedding, and geometry-origin receipts.
@@ -281,5 +281,5 @@ visual resemblance supports that branch empirically. The OPH implementation
 requires every CMB-facing output to retain its source, geometry, scale,
 freezeout, transfer, no-data-use, and likelihood status. Until those receipts
 pass in one hash-linked bundle and the frozen prediction is compared with
-standard baselines, the correct label remains visual, spectrum-diagnostic, or
-externally conditioned—not an OPH-native physical CMB prediction.
+standard baselines, the correct label is visual, spectrum-diagnostic, or
+externally conditioned; it is no OPH-native physical CMB prediction.

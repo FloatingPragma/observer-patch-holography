@@ -6,14 +6,14 @@
 > There are only local, subjective perspectives, and physics is the rulebook that keeps them consistent where they overlap.
 > If you are not a physicist, you are in the right place; this book is written as a reverse-engineering book, not a math-first textbook.
 
-OPH rests on a single assumption: reality is a self-referential mathematical
-structure that explains itself. Everything else follows from consistency. Once
-you demand that such a structure hold together, it forces a stubbornly practical
-object into existence: a bounded patch with local state, ports or boundaries,
-readback, records, feedback, and repair moves. Call that patch an observer if
-you like, but do not picture a little person sitting inside it; it is closer to
-a debugging probe with memory, except the probe is part of the program being
-debugged.
+OPH begins with a severe wager: reality is a self-referential mathematical
+structure that explains itself. Making that wager operational produces a
+stubbornly practical object, a bounded patch with local state, ports or
+boundaries, readback, records, feedback, and repair moves. Call that patch an
+observer if you like, but do not picture a little person sitting inside it; it
+is closer to a debugging probe with memory, except the probe is part of the
+program being debugged. The question running through this book is how much
+physics follows when many such probes have to agree about one public world.
 
 Those patches can see only local records. Where their boundaries overlap they
 can compare notes, find checkable disagreement, and repair what can be
@@ -32,10 +32,11 @@ the world that gets simulated are one closed system, and what we call physical
 law is the condition for that system to stay consistent as it reads itself all
 the way around. Later chapters call this the strange loop, and it is the
 organizing claim of the book. The physics is built to sit inside it. Two
-dimensionless numbers run the loop: the local grain of the screen and the total
-record capacity. Each is fixed by an equation the universe has to satisfy to
-read itself, and nobody gets to choose them. The book earns that picture
-slowly, one hint at a time, and states it plainly here at the start.
+dimensionless coordinates organize the quantitative loop: the local grain of
+the screen and the total record capacity. Each is defined by a closure equation
+that the universe must satisfy to read itself. The physical electromagnetic
+transport for the local equation and the global capacity readback map are work
+in progress. The book earns this picture one argument at a time.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -80,9 +81,9 @@ Thousands of the smartest humans who ever lived have contributed to this
 project: Newton, Maxwell, Einstein, Bohr, Heisenberg, Feynman, Hawking. Each
 generation inherited the partial models of the previous one, refined them,
 found the gaps, and pushed deeper. Quantum field theory plus general
-relativity predicts behavior with stunning accuracy across its domains. Its
-open seams point directly toward the observer-consistency architecture OPH
-closes.
+relativity predicts behavior with stunning accuracy across its domains. Their
+open seams define the problems attacked by the observer-consistency
+architecture.
 
 ## The Weirdest Program Ever Written
 
@@ -191,10 +192,12 @@ normal phase and a cubic deep-galaxy branch. Its OPH derivation and physical
 evidence are work in progress. Self-referential closure carries the existence
 question.
 
-Once you make this shift, strange features of reality start making sense.
-The "weird" behaviors of physics, the ones that seem bizarre or paradoxical
-from the objective-reality viewpoint, start looking natural. Expected, even.
-They read as structural necessities of a universe built on observer consistency.
+Once you make this shift, the strange features of reality become consistency
+problems. The absence of a preferred frame concerns agreement between local
+clocks. Measurement concerns the creation of shared records. Entanglement
+concerns correlations that no local hidden account can reproduce. OPH has to
+recover each constraint from the same patch architecture or fail at the point
+where the reconstruction breaks.
 
 Why is there no preferred reference frame? Because there's no privileged
 observer to define one. Why does measurement affect outcomes? Because
@@ -205,12 +208,12 @@ condition between them. Why can't you explain consciousness from physics?
 Because the inside cannot be derived from an outside that the theory itself
 does not contain.
 
-Long-standing philosophical puzzles dissolve too. The hard problem of
-consciousness, the measurement problem in quantum mechanics, the nature of
-time, the question of free will: these stop being mysteries and start looking
-like artifacts of asking the wrong question. We were trying to explain how
-observers emerge from an objective world. Without an objective world
-independent of observers, the question was malformed from the start.
+Long-standing philosophical puzzles change form as well. The hard problem of
+consciousness, the measurement problem, the nature of time, and free will are
+usually posed against a world described from outside. OPH rejects that outside
+view as a physical starting point and asks what an internal observer can read,
+record, compare, and repair. This move is an ontological proposal. The finite
+consensus and reconstruction theorems test its mathematical consequences.
 
 The math we've developed over centuries stays in place. Quantum mechanics
 works. Relativity works. OPH reads them as consistency conditions that
@@ -220,20 +223,20 @@ observers must satisfy to share a reality.
 
 This book reverse engineers reality from observer consistency.
 
-We start with a single assumption: reality is a self-referential mathematical
-structure that explains itself. Everything else follows from consistency. The
-architecture, the settings, the observers, and the emergent universe they see
-are forced by consistency conditions. The decisive demand is that observers must
-agree on the reality that emerges, and that requirement of mutual agreement pins
-down our exact universe.
+We start from a self-referential mathematical structure that must explain
+itself through finite internal observers. Overlap consistency then produces
+exact finite normal forms, a certified spherical branch produces Lorentz
+kinematics, compact charge transport reconstructs a gauge group, and the
+minimal realized matter branch gives the Standard Model quotient and charge
+structure. The Einstein relation belongs to a conditional continuum chain
+whose common source construction is work in progress. The book keeps these
+logical levels separate while showing how far one architecture reaches.
 
-Only a small amount of outside numerical help is allowed, and none of it
-enters the theory's defining equations. Both settings of the screen are
-defined by closure equations. While those closures stay open, two measured
-constants locate their working values: the measured fine-structure constant
-locates the local grain of the picture, and the measured cosmological
-constant, through a scale bridge, locates the overall screen size. Both
-working values are inputs, and each one is counted. The program's claim
+At the quantitative comparison layer, two measured constants locate working
+branch values. The measured fine-structure constant locates the local grain of
+the picture, and the measured cosmological constant, through a scale bridge,
+locates the overall screen size. Both values are inputs, and each one is
+counted. The physical closure maps are work in progress. The program's claim
 is compression: how much gravity,
 compact-gauge structure, and the minimally admissible particle world those two
 working values, together with the declared architecture, organize. The audit
@@ -284,13 +287,14 @@ the mass-gap discussion belongs with compact gauge repair, the cosmological
 capacity argument belongs with de Sitter structure, and the particle numbers
 belong with the Standard Model and matter chapters.
 
-The program recovers the structure of known physics, gravity and the minimally
-admissible Standard Model branch included, conditional on this starting point.
-The theory carries zero dials and takes zero quantitative inputs at the theory
-layer; the two settings borrow working values located from measurement while
-their closure equations stay open, and every borrow is counted. The
-evidence standard is the closure ledger, never
-any single recovered number.
+The program reconstructs a broad structural slice of known physics, including
+Lorentz kinematics, the conditional Einstein branch, and the minimally
+admissible Standard Model branch. The theory layer contains no fitted
+continuous parameters; every branch axiom, discrete selection, and measured
+comparison value is explicit. The two quantitative coordinates borrow working
+values from measurement because their physical closure maps are work in
+progress. The closure ledger, rather than any single recovered number, sets the
+evidence standard.
 
 The apparent mysteries of physics change shape once the conceptual starting
 point changes from "objective reality exists" to "reality is a self-referential
