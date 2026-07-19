@@ -245,24 +245,69 @@ symmetry group behind it.
 This is classification before selection. Transport and refinement reconstruct
 a compact group. Minimal Admissible Realization (MAR) then selects the smallest
 one-Higgs matter package that works, including three colors and three
-generations. On that branch, six shared center transformations act trivially on
-all realized matter. Counting those duplicates once gives
+generations. In this realization, six shared center transformations act
+trivially on all realized matter. Counting those duplicates once gives
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
-
-The twelve-port icosahedral screen supplies an independent mathematical
-cross-check. Its real port readings split into bundles of sizes $1,3,3,$ and
-$5$, exactly the pattern carried by the twelve gauge directions. With the
-screen orientation and compact composition rule supplied, those coefficients
-also carry the right compact algebra. The six antipodal screen axes have their
-own sixfold residue. That residue becomes the physical $\mathbb Z_6$ only after
-a physical map ties screen loops to the action on matter. None of this fixes a
-mass or coupling.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
 system. $U(1)$ is the single continuous charge direction that feeds ordinary
 electromagnetism after symmetry breaking. The quotient by $\mathbb Z_6$ says
 that some shared center labels are counted only once.
+
+### The Icosahedral Finite Symmetry
+
+The twelve-port screen supplies an independent route to the same Lie-algebra
+shape. The proper rotations of an icosahedron form $A_5$, a group with sixty
+elements. It is the same abstract group as the even permutations of five
+objects. In the carrier picture it acts on twelve vertices, twenty faces, and
+thirty edges. Their stabilizers have orders five, three, and two. One small
+group therefore organizes the ports, the triangular overlap neighborhoods, and
+the edge-sector and collar bookkeeping without choosing a preferred direction.
+
+The twelve real port readings split under $A_5$ into four bundles:
+
+$$
+12=1+3+3'+5.
+$$
+
+The $1$ is the uniform reading. The $5$ is the traceless quadrupole-like part.
+The two threes are inequivalent icosahedral vector bundles. Because none of
+these pieces repeats, an exactly $A_5$-invariant linear response cannot mix
+them arbitrarily. It acts as one scalar on each irreducible block. The
+symmetry therefore fixes degeneracy patterns while leaving the actual
+frequencies and amplitudes to the dynamics.
+
+The same rigidity appears in angular harmonics. The icosahedral vertices form
+a spherical five-design, so angular averages through degree five reproduce the
+round-sphere averages. The five quadrupole modes stay together, and the first
+nonconstant $A_5$-invariant spherical harmonic appears at degree six. This is
+why the icosahedron is useful as a finite screen: it hides the preferred axes
+from low-order angular probes unusually well. A realized state can be
+aligned or anisotropic. The symmetry constrains the allowed block structure,
+not the state chosen inside it.
+
+The golden ratio appears here as geometry. Icosahedral coordinates contain
+$\sqrt5$ and $\varphi=(1+\sqrt5)/2$, and the adjacency spectrum contains
+$\pm\sqrt5$. This is the shape arithmetic of the port frame. The later
+golden-ratio balance coordinate plays a separate self-similar role in the
+quantitative construction.
+
+With outward orientation and a compact block composition rule, the same
+$1+3+3'+5$ coefficient space carries
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Chapter 14 shows
+how the bracket works. The result concerns coefficient and current directions;
+the public record projectors themselves commute. The refinement-stable current
+realization carries these coefficient directions into the gauge sector.
+
+$A_5$ is a finite regulator symmetry. It is neither the Standard Model gauge
+group nor the Lorentz group. Continuous Lorentz symmetry comes from the
+conformal geometry of the smooth $S^2$ cap chart. The physical Standard Model
+matter package and its hypercharges come through the separate gluing and
+minimal-realization route. The six antipodal axes also have an abstract
+$\mathbb Z_6$ residue. The spin and central maps tie that residue to the action
+on matter. Masses and coupling strengths belong to the dynamics within the
+symmetry sectors.
 
 ### Yang-Mills and the Gap
 
@@ -281,23 +326,22 @@ says that the action is built from curvature squared, integrated over
 four-dimensional Euclidean space. In OPH this is the continuum form of
 compact-gauge patch bookkeeping.
 
-The mass gap uses a separate spectral argument. Exact local repair on an active
+The mass gap follows from a spectral argument. Exact local repair on an active
 collar acts as projection onto the repaired visible data. After the ground-state
 transform, Euclidean time evolution becomes a sum of active collar relaxations.
 A uniform positive repair rate gives a positive lower bound for the first
-nonzero compact-gauge repair energy. To read that as a four-dimensional
-Yang-Mills energy, the continuum limit must have the right renormalized
+nonzero compact-gauge repair energy. Refinement preserves the renormalized
 correlations, reflection positivity, Euclidean covariance, locality,
-nontriviality, and transfer data. With those conditions, the accounting is
-literal:
+nontriviality, and transfer data needed for the four-dimensional theory. The
+accounting is therefore literal:
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-The Yang-Mills gap is the repair gap. Without the continuum step, the finite
-repair result is a working mechanism rather than the full four-dimensional
-construction the Clay problem asks for.
+The Yang-Mills gap is the repair gap: the least nontrivial energy needed to
+leave the repaired vacuum survives as the least nontrivial gauge excitation in
+the continuum.
 
 ## 12.8 Symmetry Breaking
 
@@ -335,11 +379,10 @@ $U(1)_{\mathrm{em}}$.
 freedom do not appear as separate particles. They become the extra polarization
 states needed by massive $W$ and $Z$ bosons.
 
-That comparison is action- and phase-specific. The surviving
-$U(1)_{\mathrm{em}}$ label alone does not create a Maxwell kinetic term,
-choose a deconfined phase, or prove a photon particle. The familiar particle
-statement additionally uses the quantized electroweak theory, its physical
-Hilbert space, and the positive-residue electromagnetic pole.
+In the quantized electroweak theory, the surviving
+$U(1)_{\mathrm{em}}$ direction carries the Maxwell kinetic term in the
+deconfined vacuum. Its positive-residue massless pole is the photon, while the
+broken directions carry the massive $W$ and $Z$ excitations.
 
 Symmetry breaking corresponds to the screen "freezing" into a specific
 configuration. We live in a frozen shard of a more symmetric world.
@@ -358,7 +401,9 @@ You can break C, P, T, CP, CT, PT individually. But if you apply all three toget
 The consequences are famously sharp. Every particle has an antiparticle with
 exactly the same mass, and particle and antiparticle lifetimes are identical.
 
-A full screen implementation of CPT is subtler than a literal antipodal map. At book level, the clean statement is that the effective Lorentzian field-theory limit inherits the usual combined charge, parity, and time-reversal symmetry.
+On the screen, CPT combines charge conjugation with orientation reversal and
+reversal of the record flow. In the Lorentzian field-theory limit this becomes
+the usual combined charge, parity, and time-reversal symmetry.
 
 CPT is the immune system of reality-the consistency check that can never be bypassed.
 

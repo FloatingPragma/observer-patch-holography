@@ -1,0 +1,148 @@
+{
+  "schema": "OPH conditional exterior Standard-Model completion certificate v1",
+  "carrier": {
+    "C": {
+      "dimension": 3,
+      "su3": "3",
+      "su2": "1",
+      "hypercharge": "-1/3"
+    },
+    "W": {
+      "dimension": 2,
+      "su3": "1",
+      "su2": "2",
+      "hypercharge": "1/2"
+    }
+  },
+  "matter_package": {
+    "definition": "M1 = Lambda^2(C+W) + Lambda^4(C+W)",
+    "complex_dimension": 15,
+    "fields": {
+      "Q": {
+        "origin": "C tensor W",
+        "su3": "3",
+        "su2": "2",
+        "Y": "1/6",
+        "dimension": 6
+      },
+      "u_c": {
+        "origin": "Lambda^2 C",
+        "su3": "3bar",
+        "su2": "1",
+        "Y": "-2/3",
+        "dimension": 3
+      },
+      "e_c": {
+        "origin": "Lambda^2 W",
+        "su3": "1",
+        "su2": "1",
+        "Y": "1",
+        "dimension": 1
+      },
+      "d_c": {
+        "origin": "Lambda^2 C tensor Lambda^2 W",
+        "su3": "3bar",
+        "su2": "1",
+        "Y": "1/3",
+        "dimension": 3
+      },
+      "L": {
+        "origin": "Lambda^3 C tensor W",
+        "su3": "1",
+        "su2": "2",
+        "Y": "-1/2",
+        "dimension": 2
+      }
+    },
+    "chirality": "M1* = Lambda^3 V + Lambda^1 V has no irreducible summand in common with M1",
+    "global_descent": "automatic once V is an honest representation of S(U(3)xU(2))"
+  },
+  "yukawa_channels": {
+    "Q_H_u_c": {
+      "hypercharge_sum": "0",
+      "su3_singlet_multiplicity": 1,
+      "su2_singlet_multiplicity": 1,
+      "invariant_multiplicity_before_families": 1
+    },
+    "Q_Hdag_d_c": {
+      "hypercharge_sum": "0",
+      "su3_singlet_multiplicity": 1,
+      "su2_singlet_multiplicity": 1,
+      "invariant_multiplicity_before_families": 1
+    },
+    "L_Hdag_e_c": {
+      "hypercharge_sum": "0",
+      "su3_singlet_multiplicity": 1,
+      "su2_singlet_multiplicity": 1,
+      "invariant_multiplicity_before_families": 1
+    }
+  },
+  "anomalies": {
+    "scope": "listed four-dimensional perturbative anomalies",
+    "coefficients": {
+      "SU3_cubed": "0",
+      "SU3_squared_U1": "0",
+      "SU2_squared_U1": "0",
+      "gravity_squared_U1": "0",
+      "U1_cubed": "0"
+    },
+    "su2_witten_parity": "PASS: SU(2) Witten parity is even, with four left-handed weak doublets modulo color multiplicity"
+  },
+  "weak_load": {
+    "doublet_multiplicity_per_generation": 4,
+    "decomposition": "(C tensor W) + (Lambda^3 C tensor W) = (C + complex line) tensor W",
+    "beta_EW_if_defined_as_per_generation_doublet_multiplicity": 4,
+    "three_generation_doublets": 12,
+    "reversibly_oriented_three_generation_count": 24,
+    "physical_gate": "PORT-LOAD-TRACE and family normalization"
+  },
+  "face_phase": {
+    "induced_module": "Ind_C3^A5(omega)",
+    "decomposition": {
+      "3": 1,
+      "3prime": 1,
+      "4": 1,
+      "5": 2
+    },
+    "minimal_irreps": [
+      "3",
+      "3prime"
+    ],
+    "physical_gate": "A5-FAMILY-ATTACHMENT",
+    "yukawa_boundary": "An exact unbroken A5 action on the family multiplicity space restricts Yukawa tensors to A5-invariant pairings. General family matrices require a source-derived breaking, hiding, or forgetting mechanism."
+  },
+  "abstract_deck_control": {
+    "premise": "a declared free Z6 action on 24 slots",
+    "orbit_count": 4,
+    "invariant_function_dimension": 4,
+    "physical_gates": [
+      "physical free deck action",
+      "PORT-WEAK-INTERTWINER"
+    ]
+  },
+  "conditional_closure": {
+    "proved_mathematics": [
+      "one-generation exterior decomposition and exact hypercharges",
+      "chirality at representation level",
+      "three one-Higgs Yukawa invariant lines",
+      "listed perturbative anomaly cancellation and the SU(2) Witten parity condition",
+      "four weak-doublet copies per generation",
+      "minimal three-dimensional face-phase extension",
+      "four invariant orbits for any declared free Z6 action on 24 slots"
+    ],
+    "remaining_producers": [
+      "UD12 and RP-A5 from prior OPH primitives",
+      "PORT-CURRENT-INNER",
+      "BLOCK-DETERMINANT-BALANCE and PORT-SPIN-LIFT",
+      "AXIS-CENTER-DESCENT and the physical line spectrum",
+      "selection of the non-vacuum even exterior package",
+      "selection of H=W as the physical scalar doublet",
+      "A5-FAMILY-ATTACHMENT",
+      "A5 family-symmetry breaking, hiding, or forgetting before general Yukawa matrices",
+      "PORT-WEAK-INTERTWINER and PORT-LOAD-TRACE",
+      "continuum spin/QFT realization"
+    ],
+    "no_extra_sector_boundary": "M1 is the non-vacuum even exterior package, not the full even Clifford module. The full even exterior module also contains Lambda^0 V, and M1 alone is not Clifford-stable. Removing that singlet and excluding other anomaly-free light sectors requires MGFC/MAR or an observer-visible discriminator.",
+    "physical_status": "conditional structural theorem; no mass, coupling, pole, or unconditional screen-forcing claim"
+  }
+}

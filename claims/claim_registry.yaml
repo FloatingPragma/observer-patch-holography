@@ -419,30 +419,96 @@
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",
-      "statement": "Conditional on a constructed readback map F, premises CP-1 to CP-3, and the observed-branch capacity identification, the local Einstein branch gives the dimensionless cosmological relation at the record-capacity fixed point.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "conditional_global_fixed_point_closure",
+      "statement": "At frozen carrier dimension D, record-atom interface maps define compatible public sections, endogenous histories define the reachable set, and a frozen publicness policy plus source-supplied global joint checkpoint kernels define a compound confusability graph G_q with exact correctable capacity M_0(q)=alpha(G_q). The complete terminal fiber gives the set-valued readback F_set,r,epsilon(D). Under the stated receipts M_epsilon(q)<=D, zero-error saturation is a complete rank-one code, finite support semigroups close, approximate capacity is TV-robust, no-new-confusability injections preserve codes, and fixed-D refinement eventually stabilizes. A monotone deflationary scalar map has a greatest fixed point, but uniqueness requires an exact finite-size slack selector.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_direct_public_record_capacity_theorem",
+      "assumptions": [
+        "reachable_terminal_capacity_fiber",
+        "whole_fiber_readback_scalarization",
+        "record_atom_public_section_receipt",
+        "endogenous_public_record_reachability",
+        "frozen_publicness_policy",
+        "global_public_checkpoint_coupling",
+        "correctable_public_record_code_receipt",
+        "capacity_no_new_confusability",
+        "capacity_constructor_target_exclusion"
+      ],
+      "imported_results": [
+        "finite_dimensional_commutative_C_star_algebras",
+        "finite_zero_error_channel_coding",
+        "finite_rank_additivity",
+        "finite_monotone_iteration"
+      ],
+      "oph_specific_delta": "The map is computed from correctability under globally coupled public checkpoints, not from checkpoint invariants, local marginals, geometry, or the EW target. Terminal-fiber scalarization, the unique finite-size slack zero, the D6 area bridge, and the EW/Higgs bridge remain separate typed obligations.",
+      "novelty_type": "conditional_direct_capacity_theorem_package",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "extra/compact_proof_of_oph.tex",
+        "code/capacity_readback/F_READBACK_SPEC.md",
+        "code/capacity_readback/correctable_public_record_capacity.py",
+        "code/capacity_readback/test_correctable_public_record_capacity.py"
+      ],
+      "falsifier": "A finite packet satisfying the stated receipts violates M_0=alpha(G_q), admits a correctable code larger than D, saturates without a complete rank-one carrier code, violates TV robustness, loses a code under a no-new-confusability injection, or a monotone deflationary finite map fails to reach its greatest fixed point from the top.",
+      "scope_if_false": "The corresponding finite direct-capacity implication reopens. Independent consensus, gravity, exterior matter, and geometric-estimator statements survive unless they import that step.",
+      "status": "conditional_finite_theorems_closed_physical_direct_map_and_receipts_open"
+    },
+    {
+      "claim_id": "OPH-GR-D6-READBACK-NOGO",
+      "statement": "A terminal quotient normal form and local checkpoint marginals do not determine public-record capacity because different global joint couplings can have different correctable capacities. Checkpoint-fixed projectors can undercount a reversible cyclic channel. A positive deflationary active-capacity map cannot attract a fixed point from below, while identity and erasure families show that monotonicity and deflation do not imply uniqueness. Separately, deriving rho from M_0 or using the electroweak bridge as the capacity producer is circular.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "direct_capacity_and_estimator_no_go_package",
+      "assumptions": [
+        "same_terminal_normal_form_with_distinct_checkpoint_channels",
+        "global_public_checkpoint_coupling",
+        "deflationary_active_capacity_map",
+        "threshold_defined_scale_readback_family",
+        "constructor_access_to_capacity_or_bridge_target"
+      ],
+      "imported_results": [
+        "finite_commutative_record_algebras",
+        "finite_zero_error_channel_coding",
+        "order_preserving_iteration",
+        "smooth_monotone_threshold_functions",
+        "elementary_function_composition"
+      ],
+      "oph_specific_delta": "The no-gos force global joint checkpoint kernels into the producer receipt, replace fixed-projector counting by decoder capacity, separate greatest-fixed-point order theory from singleton uniqueness, and demote geometric resolution to an independent commuting-square test.",
+      "novelty_type": "no_go_and_negative_control",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/capacity_readback/F_READBACK_SPEC.md",
+        "code/capacity_readback/test_correctable_public_record_capacity.py",
+        "code/capacity_readback/test_operational_readback_contract.py"
+      ],
+      "falsifier": "The parity and independent joint channels with identical local marginals have the same capacity, a reversible cyclic channel has only its fixed-projector capacity, a deflationary map reaches a larger positive fixed point from below, identity and erasure fail as countermodels, or a target-derived estimator fails to return its inserted target.",
+      "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map still requires the complete public checkpoint and code receipt.",
+      "status": "proved_no_go"
+    },
+    {
+      "claim_id": "OPH-GR-D6-HORIZON-RECORD",
+      "statement": "Conditional on robust direct public-record closure F_set,r,0(D_star)={D_star}, N_star=log D_star, and HORIZON-RECORD-SATURATION on the same refinement family, the de Sitter branch implies Lambda times ell_star squared equals 3 pi divided by N_star.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_horizon_record_identification",
       "assumptions": [
         "Einstein_branch_D5",
-        "cosmic_record_capacity_map",
-        "unique_stable_capacity_fixed_point",
-        "selected_scale_certificate_for_SI_display",
-        "capacity_coupling_premises_CP1_to_CP3",
-        "joint_cosmological_posterior_propagation_for_comparison"
+        "HORIZON_RECORD_SATURATION",
+        "direct_public_record_fixed_point"
       ],
       "imported_results": [
         "Gibbons_Hawking_de_Sitter_entropy",
         "standard_static_patch_relations"
       ],
-      "oph_specific_delta": "The conditional capacity candidate is selected by the declared readback closure rather than by a local vacuum-energy estimate.",
-      "novelty_type": "conditional_quantitative_closure",
+      "oph_specific_delta": "The cosmological bridge equates the independently computed correctable public-record capacity with the gravitational area law through an explicit refinement receipt, rather than defining the record map from geometric resolution.",
+      "novelty_type": "conditional_physical_commuting_square",
       "evidence": [
+        "paper/observers_are_all_you_need.tex",
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-        "extra/compact_proof_of_oph.tex"
+        "code/capacity_readback/F_READBACK_SPEC.md"
       ],
-      "falsifier": "After F and CP-1 to CP-3 close and the joint posterior is propagated, the readback map has no unique stable fixed point, has multiple admissible fixed points, or the observed branch violates the capacity relation.",
-      "scope_if_false": "The cosmological-capacity closure falls; the local Einstein branch may survive with an undetermined cosmological term.",
-      "status": "conditional_theorem_physical_capacity_open"
+      "falsifier": "A branch satisfying direct record closure and the stated horizon-record saturation receipt violates the displayed de Sitter capacity relation, or the record and area limits fail to commute on the declared refinement family.",
+      "scope_if_false": "The D6 cosmological identification falls; the direct finite public-record map and local Einstein branch remain separate.",
+      "status": "conditional_theorem_horizon_record_saturation_open"
     },
     {
       "claim_id": "OPH-COSMO-SCREEN-SPECTRUM",
@@ -485,16 +551,21 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a cofinal tail carrying the compact-gauge refinement receipt, the combined-zero-obstruction bosonic sector category and MAR realized branch recover the Standard Model quotient, exact hypercharge, three colors, and three generations on the declared one-Higgs matter package.",
+      "statement": "On a cofinal tail carrying the compact-gauge refinement receipt and every physical screen-current, determinant/spin/deck, exterior/Higgs, MAR/MGFC, family, and load-intertwiner gate, the twelve-port branch realizes the Standard Model quotient and the selected one-Higgs, three-family matter package. The finite exterior representation witness is exact, while production of this physical branch from the screen remains open.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "realized_branch_theorem",
+      "tier": "conditional_physical_screen_forcing_theorem",
       "assumptions": [
         "zero_obstruction_bosonic_branch",
         "transportable_sector_category",
         "compact_gauge_refinement_receipt",
         "finite_tensor_realization_receipt",
-        "MAR_admissible_class",
-        "realized_one_generation_chiral_matter_plus_one_Higgs_package"
+        "UD12_integer_port_domain",
+        "RP_A5_source_selector",
+        "PORT_CURRENT_INNER",
+        "determinant_spin_deck_descent",
+        "exterior_Higgs_MAR_MGFC_selection",
+        "A5_family_attachment_and_descent",
+        "COMMON_EW_LOAD_CARRIER"
       ],
       "imported_results": [
         "Doplicher_Roberts_reconstruction",
@@ -502,64 +573,124 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "OPH supplies the fixed-stage tensor category and MAR selection. The separate A5 coefficient bracket is physical only under UD12, RP-A5, and PORT-CURRENT-INNER; trace-balanced integration reaches the physical Z6 only with determinant/spin/descent and realized tensor-action gates. Neither fixes masses or couplings.",
-      "novelty_type": "construction_and_selection",
+      "oph_specific_delta": "The exact A5 coefficient bracket and exterior Standard Model representation witness reduce physical screen forcing to named source, current, global-form, sector-selection, family, and load intertwiners. Equal dimensions, slot counts, and abstract deck orbits do not discharge those maps.",
+      "novelty_type": "conditional_construction_and_selection",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/a5_closure/README.md",
+        "code/a5_closure/exterior_sm_completion.py"
       ],
-      "falsifier": "The compact-gauge refinement receipt fails, every allowed strict representative of a retained sector has nontrivial represented loop holonomy after its central or higher-associator defect strictifies, a lower-complexity admissible competitor exists, the realized package is not admissible, or observations require a different realized gauge quotient or charge lattice.",
+      "falsifier": "A carrier satisfying every named gate fails to realize the stated quotient and matter package, or one of the required physical maps cannot be constructed without importing the Standard Model target.",
       "scope_if_false": "The realized Standard Model branch falls; Lorentz and consensus branches must be assessed independently.",
-      "status": "proved_on_branch"
+      "status": "conditional_theorem_representation_witness_closed_physical_producers_open"
+    },
+    {
+      "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
+      "statement": "For a declared trace-balanced carrier V=C plus W with dimensions three and two and hypercharges -1/3 and 1/2, the selected non-vacuum even package Lambda^2 V plus Lambda^4 V branches to exactly one 15-state chiral Standard Model generation. It has three one-Higgs invariant lines, cancels the listed perturbative anomalies and the SU(2) global parity obstruction, and contains four weak-doublet copies per generation.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_exact_representation_witness",
+      "assumptions": [
+        "trace_balanced_C3_W2_carrier",
+        "selected_nonvacuum_even_exterior_package",
+        "selected_H_equals_W_scalar_doublet"
+      ],
+      "imported_results": [
+        "finite_dimensional_exterior_algebra",
+        "compact_Lie_representation_theory",
+        "four_dimensional_gauge_anomaly_algebra"
+      ],
+      "oph_specific_delta": "The witness packages the exact one-generation branching, Yukawa invariant multiplicities, anomaly audit, and weak multiplicity into the same five-dimensional trace-balanced carrier used by the conditional icosahedral closure program.",
+      "novelty_type": "conditional_exact_representation_certificate",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/a5_closure/exterior_sm_completion.py",
+        "code/a5_closure/exterior_sm_completion.json",
+        "code/a5_closure/test_audit.py"
+      ],
+      "falsifier": "The exterior decomposition, any displayed hypercharge sum, any listed anomaly coefficient, any one-Higgs singlet multiplicity, or the weak-doublet count differs from the certificate under the stated carrier assumptions.",
+      "scope_if_false": "The exterior representation route falls. The abstract A5 coefficient bracket and unrelated consensus or gravity branches survive.",
+      "status": "proved_conditional_representation_witness"
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface declares two dimensionless closure coordinates. Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map; N_CRC is conditional on F and CP-1 to CP-3.",
-      "owner_paper": "extra/compact_proof_of_oph.tex",
+      "statement": "The quantitative surface declares local P closure and direct public-record N closure. Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff robust N closure is F_set,r,0(D_star)={D_star}; the exact finite capacity is M_0(q)=alpha(G_q). The physical packet and the exact regulator-stable slack law s(D_star)=0<s(D) elsewhere remain open. Greatest-fixed-point order theory does not supply singleton uniqueness.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_quantitative_closure_program",
       "assumptions": [
         "declared_pixel_map",
         "declared_capacity_map",
         "uniqueness_certificate",
-        "selected_no_G_scale_certificate"
+        "selected_no_G_scale_certificate",
+        "capacity_constructor_target_exclusion",
+        "whole_fiber_readback_scalarization",
+        "exact_finite_size_slack_selector"
       ],
       "imported_results": [
-        "fixed_point_analysis",
+        "finite_fixed_point_order_theory",
         "standard_display_units"
       ],
-      "oph_specific_delta": "Measured values may locate the basin, while the published coordinates must be closure endpoints with explicit uniqueness proof.",
+      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints come from the physical Thomson map and the direct correctable public-record packet. Electroweak/Higgs, geometric-resolution, and count-density expressions are downstream comparison or audit surfaces.",
       "novelty_type": "quantitative_prediction_protocol",
       "evidence": [
+        "paper/observers_are_all_you_need.tex",
         "extra/compact_proof_of_oph.tex",
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
       ],
-      "falsifier": "The fixed-point maps are nonunique, target-leaking, branch-switching after result exposure, or incompatible with held-out measurements.",
+      "falsifier": "A completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
       "status": "declared_maps_with_physical_closure_open"
     },
     {
       "claim_id": "OPH-HIER-EW",
-      "statement": "On the selected electroweak bridge branch and conditional on CP-1 to CP-3, the internal local/global capacity identity emits a hierarchy coordinate and gives Higgs naturality defect zero; it does not establish the physical cosmic capacity.",
+      "statement": "The exterior Standard Model representation witness has exactly four weak-doublet copies per generation and hence additive weak load 4P under the normalized load law. Conditional on an independently obtained direct public-record fixed point, the screen-sieve relation, the D10 source relation, and COMMON-EW-LOAD-CARRIER, this implies N_CRC=pi exp(6 pi/(P alpha_U(P))). It does not construct the direct cosmic capacity map.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "conditional_quantitative_branch_theorem",
       "assumptions": [
         "selected_public_endpoint_branch",
-        "R_EW_capacity_certificate",
-        "product_adjoint_doubling_and_screen_alignment_receipts",
+        "screen_sieve_readout_receipt",
+        "D10_source_transmutation_relation",
+        "COMMON_EW_LOAD_CARRIER",
+        "exterior_Higgs_MAR_MGFC_selection",
         "source_endpoint_separation",
-        "capacity_coupling_premises_CP1_to_CP3"
+        "family_load_normalization",
+        "direct_public_record_fixed_point"
       ],
       "imported_results": [
         "standard_electroweak_display_conventions"
       ],
-      "oph_specific_delta": "The hierarchy uses m_rep=2(8+3+1)=24 from reversible product-adjoint doubling. The screen's twelve ports and 24 oriented slots are separate; equal counts require an alignment receipt and fix no mass or coupling.",
-      "novelty_type": "quantitative_derivation",
+      "oph_specific_delta": "The exact factor four is the representation multiplicity three colored weak doublets plus one lepton doublet. A refinement-natural positive unital isomorphism between the screen and weak order-unit lines supplies the only admitted physical bridge. The unsupported ratio 24/6 supplies none.",
+      "novelty_type": "conditional_quantitative_comparison",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "code/particles/hierarchy/manifest.json"
       ],
-      "falsifier": "The capacity bridge residual, product-adjoint doubling, or screen-alignment receipt fails, or a hidden target enters upstream.",
-      "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch are separate unless they import the failed bridge.",
-      "status": "conditional_on_capacity_coupling_premises"
+      "falsifier": "The weak-doublet multiplicity certificate fails, a branch satisfying direct record closure and every common-load premise violates the displayed bridge, or the load carrier imports the electroweak or cosmic target.",
+      "scope_if_false": "The electroweak hierarchy comparison falls; the exterior field branching and cosmological capacity branch are separate unless they import the failed step.",
+      "status": "weak_multiplicity_closed_common_load_and_direct_capacity_open"
+    },
+    {
+      "claim_id": "OPH-SCREEN-24-CLOCK-DETERMINANT",
+      "statement": "A 24-stage register does not determine a physical frequency, spectral gap, or mass scale because uniform Hamiltonian rescaling preserves the register and changes every energy scale. Conditional on a source-derived operational clock line L_24 with calibrated gap Delta_24 and a natural norm-preserving map from its tensor cube to det M_e, the charged-lepton determinant scale satisfies (det M_e)^(1/3)=Delta_24 up to a separately derived normalization factor.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "rate_no_go_plus_conditional_scale_implication",
+      "assumptions": [
+        "source_derived_24_clock_line",
+        "charged_determinant_clock_attachment"
+      ],
+      "imported_results": [
+        "Hamiltonian_rescaling",
+        "determinant_line_algebra",
+        "geometric_mean_identity"
+      ],
+      "oph_specific_delta": "The result separates the screen register's finite combinatorics from a physical clock and then types the only admitted common charged-lepton scale through a determinant-line attachment.",
+      "novelty_type": "no_go_and_conditional_attachment_theorem",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/a5_closure/README.md"
+      ],
+      "falsifier": "A Hamiltonian rescaling changes the 24-stage register structure, or the stated norm-preserving determinant-line map exists while the induced determinant scale differs from the calibrated clock gap after the declared normalization is applied.",
+      "scope_if_false": "The register-rate no-go or conditional charged determinant attachment reopens. The exterior Standard Model representation witness and charged-lepton shape relations remain separate.",
+      "status": "rate_no_go_proved_physical_clock_attachment_open"
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",

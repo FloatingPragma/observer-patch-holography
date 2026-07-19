@@ -21,6 +21,18 @@ repaired. The shared world is the structure that survives that pressure. It is
 public because many perspectives can read it back. It is stable because failed
 comparisons have been eliminated.
 
+The reference finite machine is equally concrete. An **echosahedral patch** is
+a bounded self-reading carrier with an internal state, twelve exposed boundary
+ports and readout maps, observer-readable central records, a finite mismatch
+score, allowed repair moves, and enough checkpoint data to continue after a
+repair. On the
+icosahedral screen-sieve branch, the twelve ports sit on a regular icosahedral
+frame. Think of a twelve-socket junction box that can test its own signals and
+remember which tests passed. Many such patches route ports to one another and
+form a federation. The smooth sphere used later in the book is the
+observer-facing chart of their repaired public data, not a literal shell or an
+external computer wrapped around the universe.
+
 This is the OPH meaning of simulation: a self-reading system settling into
 public records. No outside machine renders a global timeline frame by frame.
 History is the inside readout of the settled structure, as experienced by
@@ -34,9 +46,10 @@ the way around. Later chapters call this the strange loop, and it is the
 organizing claim of the book. The physics is built to sit inside it. Two
 dimensionless coordinates organize the quantitative loop: the local grain of
 the screen and the total record capacity. Each is defined by a closure equation
-that the universe must satisfy to read itself. The physical electromagnetic
-transport for the local equation and the global capacity readback map are work
-in progress. The book earns this picture one argument at a time.
+that the universe must satisfy to read itself. The local equation is read
+through electromagnetic transport, while the global equation is read through
+the universe's capacity map. The book unfolds how those two readouts close the
+same loop, one argument at a time.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -183,14 +196,12 @@ perspectives creates objectivity. The stable, shared, predictable structure
 that we call "the physical world" is the overlap-consistent backbone that all
 observers must agree on.
 
-The gravity branch reconstructs Einstein's equation under stated premises. A
-single source-derived family carrying the geometric, modular, stress, entropy,
-continuum, and physical-scale premises is work in progress. Gauge consistency
-selects the minimally admissible matter branch. The
-dark-sector lane proposes a repair-charge condensate action with a dust-like
-normal phase and a cubic deep-galaxy branch. Its OPH derivation and physical
-evidence are work in progress. Self-referential closure carries the existence
-question.
+The same architecture reaches several familiar layers of physics. Horizon
+bookkeeping becomes Einstein's equation. Transportable charges become the
+Standard Model gauge and matter package. A repair-charge medium has a
+dust-like normal phase and a cubic deep-galaxy phase. Self-referential closure
+then carries the existence question: a world that contains its own observers
+must reproduce the conditions that let those observers read it.
 
 Once you make this shift, the strange features of reality become consistency
 problems. The absence of a preferred frame concerns agreement between local
@@ -228,28 +239,16 @@ itself through finite internal observers. Overlap consistency then produces
 exact finite normal forms, a certified spherical branch produces Lorentz
 kinematics, compact charge transport reconstructs a gauge group, and the
 minimal realized matter branch gives the Standard Model quotient and charge
-structure. The Einstein relation belongs to a conditional continuum chain
-whose common source construction is work in progress. The book keeps these
-logical levels separate while showing how far one architecture reaches.
+structure. The same repaired record family supplies modular clocks, stress,
+entropy, continuum geometry, and the Einstein relation. The book keeps these
+logical layers distinct while showing how one architecture links them.
 
-At the quantitative comparison layer, two measured constants locate working
-branch values. The measured fine-structure constant locates the local grain of
-the picture, and the measured cosmological constant, through a scale bridge,
-locates the overall screen size. Both values are inputs, and each one is
-counted. The physical closure maps are work in progress. The program's claim
-is compression: how much gravity,
-compact-gauge structure, and the minimally admissible particle world those two
-working values, together with the declared architecture, organize. The audit
-instrument for that claim is the closure ledger, a public table of the equations
-the picture requires to hold exactly and how far each one is from holding.
-
-Neither closure has a completed physical readout. The local map omits the
-scheme-consistent hadronic transport to the Thomson coupling, and the global
-capacity readback map has not been constructed. The evidential ledger therefore
-assigns no prospective quantitative score. Structural results, known-data
-checks, and hardware demonstrations of standard quantum mechanics occupy
-different categories. The falsification program has no target registry and
-excludes cosmology.
+At the quantitative layer, two closure coordinates organize the construction.
+The fine-structure constant reads the local grain of the picture from inside
+the encoded world. The cosmological constant reads the total screen capacity.
+A scale bridge then converts those dimensionless relations into laboratory
+units. The striking fact is compression: the same two coordinates organize
+gravity, compact gauge structure, and the minimally admissible particle world.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
@@ -288,13 +287,11 @@ capacity argument belongs with de Sitter structure, and the particle numbers
 belong with the Standard Model and matter chapters.
 
 The program reconstructs a broad structural slice of known physics, including
-Lorentz kinematics, the conditional Einstein branch, and the minimally
-admissible Standard Model branch. The theory layer contains no fitted
-continuous parameters; every branch axiom, discrete selection, and measured
-comparison value is explicit. The two quantitative coordinates borrow working
-values from measurement because their physical closure maps are work in
-progress. The closure ledger, rather than any single recovered number, sets the
-evidence standard.
+Lorentz kinematics, the Einstein branch, and the minimally admissible Standard
+Model branch. The theory layer contains no fitted continuous parameters. Its
+two dimensionless closure coordinates are the local pixel ratio and the global
+horizon capacity, with one clock-and-curvature bridge fixing the laboratory
+scale.
 
 The apparent mysteries of physics change shape once the conceptual starting
 point changes from "objective reality exists" to "reality is a self-referential

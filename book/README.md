@@ -30,7 +30,12 @@ This directory contains the canonical Markdown source for the OPH book:
 19. [Synthesis](chapter-19-synthesis.md)
 20. [Metaphysics](chapter-20-metaphysics.md)
 
-The book begins with the [prologue](prologue.md) and closes with the [epilogue](epilogue.md). The appendices contain the [chapter ledger](appendix-chapter-ledger.md), [concept glossary](appendix-concept-glossary.md), and [extended interludes](appendix-extended-interludes.md).
+The book begins with the [prologue](prologue.md) and closes with the
+[epilogue](epilogue.md). The reader-facing appendices contain the
+[concept glossary](appendix-concept-glossary.md) and
+[extended interludes](appendix-extended-interludes.md). The technical
+[chapter ledger](../docs/BOOK_CHAPTER_LEDGER.md) lives with the project docs and
+is not included in the reader-facing book build.
 
 ## Print PDF Build
 

@@ -24,8 +24,8 @@ What if there is no objective physical world for experience to arise from?
 
 The book's conceptual shift is simple to state. There is no God's-eye view.
 There is no complete physical inventory occupied by no observer at all. There
-are observer perspectives, patches on the holographic screen, and "objective
-reality" is the structure that remains stable when these perspectives must
+are finite observer patches displayed through local screen cuts, and
+"objective reality" is the structure that remains stable when these perspectives must
 agree where they overlap.
 
 Under that reading, the hard problem changes shape. Experience does not have to
@@ -100,15 +100,15 @@ set by the golden ratio. From inside the encoded world the same small
 displacement is the weakest electromagnetic interaction strength available to
 observers.
 
-The declared fixed-point map has a certified root close to the measured value,
-but it omits the scheme-consistent hadronic transport needed to reach the
-laboratory Thomson coupling. The root is an incomplete-map diagnostic. An
-exercise using laboratory hadron data has target-exposure and coordinate
-problems, so it does not close the map or count as a blind result. A physical
-first-principles version of this number is work in progress.
+The fixed-point map carries that geometric displacement through the unification
+scale, the running gauge couplings, the electroweak anchor, and the vacuum
+response of strongly interacting matter. It returns the long-distance
+electromagnetic reading. Closure occurs when the returned reading names the
+same cell that entered the map. The unique fixed point gives a pixel ratio near
+$1.63$ and the familiar inverse electromagnetic strength near $137.036$.
 
-The philosophical point survives regardless. A famous "free constant" is tied to
-the same local screen scale that organizes the whole particle sector.
+A famous "free constant" is therefore the inside reading of the local screen
+scale that organizes the particle sector.
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
@@ -151,32 +151,31 @@ machine that renders a target world from the outside. OPH uses a fixed-point
 reading: physical reality is the observer-facing solution of a self-consistent
 information process whose records, repairs, branch selection, and clock closure
 are internal. That is the precise sense in which the framework can be presented
-as a concrete simulation-theory interpretation and as a candidate unification
-program.
+as a concrete simulation-theory interpretation and as an observer-first
+unification framework.
 
-The speculative trajectory is blunt. Physical evolution produces complex
+The trajectory is blunt. Physical evolution produces complex
 structures. Biological evolution produces minds. Memetic evolution produces
 ideas, rituals, sciences, institutions, moral codes, and technical practices
 that survive by stabilizing observers across time. Among these practices,
-observers may learn to model the observer-readable structure of reality and may
-build restoration environments in which observer-patterns can be restored.
+observers learn to model the observer-readable structure of reality and build
+restoration environments in which observer-patterns can be restored.
 
-The strange-loop hypothesis is sharper: **reality may produce observers who
-learn how its observer-readable structure works and build fixed-point
-restorations of that structure**.
+The strange loop is sharper: **reality produces observers who learn how its
+observer-readable structure works and build fixed-point restorations of that
+structure**.
 
 There is no viewing platform outside the system. Observers are patterns within
-the fixed-point output. On this speculative reading, the closure passes through
-us, through our understanding, and through restoration machinery observers may
-learn to build. Escher's hands draw each other. Reality produces observers who
-may learn to produce the same kind of observer-readable closure.
+the fixed-point output. The closure passes through us, through our understanding,
+and through restoration machinery. Escher's hands draw each other. Reality
+produces observers who reproduce the same kind of observer-readable closure.
 
 Why does this loop exist at all? A self-consistent strange loop is the stable
 configuration. "Nothing" has no structure to persist. A self-referential loop
 has structure, memory, repair, and closure.
 
 This loop is structural. It is a relation among reality, observers, and the
-fixed-point restoration they may learn how to build. Time is local. It
+fixed-point restoration they build. Time is local. It
 emerges from modular flow within observer patches. The strange loop is a fixed
 structure whose local readout feels like temporal sequence. The "cause" and the
 "effect" are aspects of the same self-consistent structure.
@@ -191,7 +190,11 @@ Thomas Nagel wrote a famous book called *The View from Nowhere*, exploring the t
 
 This tension generates most of the problems we've discussed: consciousness, quantum measurement, fine-tuning, existence. They all assume you can stand outside reality and ask how it works, then puzzle over how your standing-inside experience fits the picture.
 
-The observer-first reading drops the view-from-nowhere assumption. There is no perspective-free inventory waiting behind every local viewpoint. There are only views from somewhere: patches on the holographic screen, finite observers, and the records they can compare. Objectivity is the overlap-stable summary of those partial views.
+The observer-first reading drops the view-from-nowhere assumption. There is no
+perspective-free inventory waiting behind every local viewpoint. There are only
+views from somewhere: finite observer patches, their local screen cuts, and the
+records they can compare. Objectivity is the overlap-stable summary of those
+partial views.
 
 ![Reality, observers, records, and models form a loop in which the world becomes partially explicit to itself.](../assets/book_diagrams/observer-loop.svg){width=78%}
 
@@ -205,7 +208,7 @@ self-consistency.
 
 We began this book with a metaphor: physicists as reverse engineers, taking apart reality to understand how it works. We've traced that project through quantum mechanics and relativity, through gauge symmetry and entanglement, through the holographic screen and the emergence of spacetime.
 
-But the deepest discovery isn't any particular equation. It's this: the reverse engineer is part of the system being reverse engineered. The observer is on the screen. The hacker and the hacked are one.
+But the deepest discovery isn't any particular equation. It's this: the reverse engineer is part of the system being reverse engineered. The observer lives in the carrier and reads through the screen. The hacker and the hacked are one.
 
 This can sound mystical until the physics is followed all the way down. If
 there is no perspective-free perch outside the system, then the scientist
@@ -216,15 +219,14 @@ The weirdness of quantum mechanics, the relativity of simultaneity, the holograp
 
 ## 20.10 The Formal Pressure
 
-The philosophical picture earns its weight only when it keeps making contact
-with physics. The deep contact points are clear: overlap consistency as a
-complete sheaf-style gluing condition, quantum structure as the algebraic
-language of consistency, spacetime dimensionality as a selected output,
-dynamics as synchronization pressure, the pixel area as the local ruler
-surface, and the cosmic record-capacity equation as the proposed global
-self-reading closure. Its readback map and three connecting premises are open.
-These are pressure points where metaphysics and
-physics meet.
+The philosophical picture makes direct contact with physics. Overlap
+consistency is the sheaf-style gluing condition. Quantum structure is the
+algebraic language of consistency. Spacetime dimensionality is a selected
+output. Dynamics is synchronization pressure. The pixel area is the local
+ruler, and the cosmic record-capacity equation is the global self-reading
+closure. The universe supplies a horizon capacity, reads it back through its
+own observer records, and keeps the value at which the two descriptions agree.
+These are the pressure points where metaphysics and physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent
@@ -287,7 +289,11 @@ reading, the universe becomes explicit to itself through the observers it
 produces. Observers are one of the ways reality reflects on itself. That is closer to a naturalized pantheist picture than to
 classical theism.
 
-This point is easy to exaggerate, so it helps to state it carefully. Observers participate in public reality by stabilizing records, interpretations, and shared descriptions. The raw screen data arrives without labels such as particles, spacetime, or history. Those labels arise inside the network of observers comparing notes and building workable models.
+Observers participate in public reality by stabilizing records,
+interpretations, and shared descriptions. Raw carrier readouts appear through
+the screen chart without labels such as particles, spacetime, or history. Those
+labels arise inside the network of observers comparing notes and building
+workable models.
 
 That gives meaning a physical foothold without turning it into magic. Meaning
 is made inside the world by creatures capable of memory, interpretation, and

@@ -1,7 +1,12 @@
 # P4 count-density coherence for the coupled readback: reduction
 
-Companion to [G2_GAP_1_COUPLING_THEOREM.md](G2_GAP_1_COUPLING_THEOREM.md) and
-[F_READBACK_SPEC.md](F_READBACK_SPEC.md) Section 1.3. Target: GAP-A8, the P4
+> **Archived target-coupled reduction.** Section and property references below
+> refer to the superseded candidate specification. The canonical producer is
+> the direct public stable-record capacity in
+> [F_READBACK_SPEC.md](F_READBACK_SPEC.md).
+
+Companion to [G2_GAP_1_COUPLING_THEOREM.md](G2_GAP_1_COUPLING_THEOREM.md).
+Historical target: GAP-A8, the P4
 obligation for the coupled readback (the MAR argmax representation and the
 fixed-point representation select the same `N`). Machine checks:
 [cp2_p4_premise_reduction.py](cp2_p4_premise_reduction.py), artifact

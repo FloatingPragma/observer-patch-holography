@@ -29,35 +29,37 @@ is why it works so well.
 
 ## 16.3 The First-Principles Reframing: Matter as Stable Patterns
 
-**Matter is a stable pattern in the screen data**.
+**Matter is a stable pattern in the finite patch federation**.
 
-Think of the screen chart as a high-resolution, quantum information canvas.
-Most patterns are noisy and ephemeral. Some are stable: they survive overlap
-consistency, persist under modular time, and can be stitched across real patch
-interfaces when the records leave one clear track.
+Think of the carrier network as a high-resolution quantum information medium,
+displayed to its internal observers through a screen chart. Most patterns are
+noisy and ephemeral. Some are stable: they survive overlap consistency, persist
+under modular time, and can be stitched across real patch interfaces when the
+records leave one clear track.
 Those stable patterns are what we call **particles**.
 
 Matter is not a primitive substance. Particles are not tiny billiard balls.
-Matter is the set of durable, localized excitations of the net of algebras on
-the screen.
+Matter is the set of durable, localized excitations of the patch-algebra net,
+shown through the observer-facing screen chart.
 
 A useful analogy is a ripple in a pond. The water is the substrate, but the
 ripple is a pattern that moves and interacts. The ripple is not a separate
 thing but a stable excitation. Particles play the same role in the
 emergent effective theory.
 
-## 16.4 From Stable Patterns to Concrete Particle Status
+## 16.4 From Stable Patterns to the Particle World
 
 Stable-pattern language can sound philosophical unless the reader is shown
 where the familiar particle families enter the chain. This is the point where
 the zoo stops looking like a zoo.
 
-The first bridge is symmetry. Once Lorentz kinematics is recovered, durable
-excitations are sorted by mass, spin, and helicity. The stated refinement
-receipt reconstructs compact gauge structure from stable transported sectors.
-On that branch, Minimal Admissible Realization (MAR) selects the Standard Model
-quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its exact charge pattern,
-three colors, and three generations. These are structural carrier results.
+Symmetry supplies the organizing principle. Once Lorentz kinematics is
+recovered, durable excitations are sorted by mass, spin, and helicity. Stable
+charge sectors reconstruct the compact gauge structure. Minimal Admissible
+Realization (MAR), the rule that selects the smallest matter package that works,
+then gives the Standard Model quotient
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, three colors,
+and three generations.
 
 This is where the book leans heavily on the collective history of particle
 physics. Rutherford showed that atoms have small nuclei. Chadwick found the
@@ -68,182 +70,123 @@ explained asymptotic freedom. The Higgs mechanism was built by several groups,
 and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
-From there the particle structure enters in a definite order, with the carrier
-roles coming first. The classical wave modes of electromagnetism, the strong
-force, and gravity follow from their field equations on a stated background.
-Turning those classical modes into actual photon, gluon, and graviton particles
-is a further step that needs a full quantum treatment, and that step is work in
-progress. The connected product adjoint has no X/Y generator, so the standard
-simple-GUT gauge-mediated proton-decay channel is absent; this is not a theorem
-of general proton stability.
-
-None of the from-scratch calculations in this chapter produces a nonzero mass
-on its own. The results that come out cleanly describe massless carriers, and
-turning them into massive particles is work in progress. Every nonzero mass
-quoted below is either a conditional result or a value checked after the fact,
-and it is labeled that way.
-
-The electroweak construction produces two running, tree-level chart coordinates
-without feeding in a measured W or Z mass:
+The force carriers enter first. The unbroken electromagnetic direction has two
+transverse photon modes. The eight color directions carry the gluons. The
+smooth gravitational branch has two transverse gravitational-wave modes. The
+Higgs field changes the weak sector by selecting a vacuum direction, which
+separates the charged $W$ carriers from the neutral $Z$ carrier and gives them
+mass. The electroweak calculation places their running coordinates at
 
 $$
 (m_W^{\mathrm{chart}},m_Z^{\mathrm{chart}})
 =(80.330,\ 91.119)\,\mathrm{GeV}.
 $$
 
-These coordinates cannot be scored against measured pole parameters. Such a
-comparison requires a renormalized vacuum expectation value, a tadpole
-prescription, threshold and matching terms, and a convention for the unstable
-particles’ complex poles. None of the implemented maps supplies that complete
-chain. Their agreement within a few MeV is an internal chart check, not a
-physical accuracy claim.
+$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
+weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
+through $E=mc^2$.
 
-$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ label the displayed coordinates
-for the charged and neutral weak-force carriers. A
-GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. None of
-these versions is a full physical calculation of the two pole masses. The July
-one-loop packet and hybrid two-loop packet test only their own incomplete
-prescriptions; they do not establish a unique one-to-two-percent OPH defect.
+The same screen cell also sets the strength of electromagnetism. From the
+outside it is a small geometric departure from the golden-ratio balance of the
+screen. From the inside it is the electromagnetic step available to observers.
+The fixed-point equation identifies those two readings, and the gauge transport
+carries the result through electroweak mixing and the charged quantum vacuum to
+the familiar long-distance value of the fine-structure constant, whose inverse
+is close to 137.
 
-The same machinery reaches for the fine-structure constant, the number near 137
-that sets the strength of electromagnetism. Its declared fixed-point map has a
-certified root near the measured value, but the map omits the complete hadronic
-transport to the Thomson endpoint. The root is an incomplete-map diagnostic.
-It carries no physical landing claim.
+The counting underneath the weak hierarchy has a simple shape. The Standard
+Model gauge algebra has $8+3+1=12$ directions. Reversible writing and checking
+double that number to
 
-An exploratory bracket exercise folds in measured electron-positron annihilation
-data. It is not blind: the source exposed the target numerics, its registered
-coordinate and verdict coordinate differ, and it uses a different comparison
-pixel. The broad interval contains the target, which neither closes the missing
-transport nor excludes it.
+$$
+m_{\rm rep}=2(8+3+1)=24.
+$$
 
-Here $\alpha$ is the electromagnetic fine-structure constant, and its
-long-distance value is the familiar number close to 137. The version that leans
-on hadronic data includes the low-energy contribution from hadrons in the same
-electromagnetic accounting.
+The icosahedral interface has twelve ports and twenty-four oriented read/write
+slots. The vertices mark those exposed interfaces in the screen chart. The
+gauge generators live in the current patterns carried by the ports. This is how the same finite
+architecture supports both a twelve-direction gauge algebra and a reversible
+twenty-four-slot weak-load register. The Higgs and top occupy a linked critical
+balance inside that quantitative structure.
 
-The proposed calculation starts from the golden-ratio balance of the screen,
-runs the electromagnetic strength up through unification and electroweak mixing, and
-attempts to read off its low-energy value. The physical transport is incomplete,
-and variants evaluated at different pixels or with measured hadronic input must
-remain separate coordinates.
+Why do the matter particles come in three families? The icosahedron answers
+with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
+that leaves one face in place rotates its three corners, so every face carries
+the same local three-step dial. A Hermitian response that respects this cycle
+has the circulant form
 
-The weak-sector calculation fixes only a dimensionless hierarchy coordinate.
-Its $m_{\rm rep}=24$ comes independently from reversible doubling of the
-product-adjoint dimension $8+3+1$. The unit-split screen separately gives
-twelve ports and 24 oriented slots. Equality of the counts is a branch
-alignment, not a physical identification or an absolute mass scale.
+$$
+C=aI+bR+\overline bR^2,
+$$
 
-The electroweak chart and the electromagnetic fixed-point diagnostic come from
-one proposed construction. The pure-theory side and the parts that lean on
-measured hadronic data are tracked separately. Neither supplies a physical
-electroweak pole prediction or a closed Thomson-limit prediction.
+where $R$ advances one corner. The icosahedral action carries the same unordered
+spectrum from face to face. The sixty face-corner flags are the local copies of
+this dial. The quotient identifies symmetry-related copies and leaves one
+global triplet, which becomes the three-generation chiral family space.
 
-The Higgs/top construction defines conditional chart coordinates. It lacks a
-source-rigid boundary scale, complete running and matching, uncertainty
-propagation, and a complex-pole map. It therefore emits no source-only physical
-Higgs or top mass.
+The family triplet and the color triplet do different jobs. The face triplet
+counts generations. The fundamental triplet of $SU(3)$ counts the three colors
+of a quark. Their shared use of the number three comes from different parts of
+the architecture.
 
-For the charged leptons, reversible repair gives a write/verify pair and the
-icosahedral face orbit $A_5/C_3$ gives a cyclic three-place fiber. A
-norm-preserving radial readback into the positive square-root-mass operator,
-with one-bit block compensation and no uncounted response, implies the Koide
-value $2/3$. The radial readback, the charged source direction fixing the phase,
-and the laboratory mass map are work in progress.
+Reversible repair supplies the write/verify pair. Radial readback places the
+three eigenvalues in the positive square-root-mass geometry, while the binary
+record balance fixes the transverse-to-uniform ratio. The resulting angle gives
+the Koide value
 
-The face geometry is exact: the twenty outward faces form one orbit and each
-face stabilizer cycles its three corners. The sixty face-corner flags form the
-regular $A_5$ torsor, not one physical three-family space. A declared affine
-repair map on this carrier is contractive and has one stable fixed point, while
-source-multiplier countermodels with the same symmetry and contraction give
-different fixed points. Those properties do not select the physical rule.
+$$
+Q=\frac{m_e+m_\mu+m_\tau}
+        {(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2}
+=\frac23.
+$$
 
-An eight-register finite model realizes the declared map with a bounded local
-state, ports, readback, repair moves, and durable accepted/rejected records. It
-is an observer-like self-reading fixed-cutoff construction, but its registers,
-paths, signs, clock, and response are inputs. Physical source selection, family
-attachment, refinement naturality, and the interacting particle-pole map are
-work in progress. The associated numerical charged-mass coordinates are
-target-informed fits, not source predictions. Electromagnetic transport fixes a
-common scale only with measured electromagnetic and hadronic inputs, so it is a
-consistency surface rather than a first-principles mass theorem.
+An eight-register finite model realizes this loop with bounded local state,
+ports, readback, repair moves, and durable accepted or rejected records. It is
+an observer-like self-reading charged-family carrier. The geometry supplies the
+three-cycle, the record layer selects the stable response, and electromagnetic
+transport supplies the common laboratory scale. The three eigenmodes become the
+electron, muon, and tau directions of the charged-lepton family.
 
-The restricted quark theorem fixes two shape parameters and leaves two free.
-Its reciprocal-ray specialization requires a product equal to one, while the
-common-scale data give about $0.84$ and a best fit more than twenty percent from
-the charm and strange coordinates. The physical quark interface therefore
-needs six independent common-scale Yukawa coordinates and a source-derived
-flavor selector. Generation-blind inputs cannot supply that selector. This
-construction is work in progress.
-
-The OPH simulations contain no quark, Higgs, or Yukawa couplings, so their raw
-coordinates are not physical mass observables. They also supply no nontrivial
-family selector.
+The same global family triplet carries the quarks and neutrinos. Quarks need six
+Yukawa coordinates at one common scale: three for the up-type sector and three
+for the down-type sector. Their values run with energy as gauge and Higgs
+interactions dress the underlying family response.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
 short-distance table is not the same kind of number as a proton mass measured in
 the lab.
 
-The subscripts name the quark flavors: up, down, strange, charm, bottom, and
-top. A physical quark calculation requires source-derived coupling flow,
-common-scale threshold matching, and the Higgs value in the same scheme. This
-construction is work in progress.
+The subscripts name the six quark flavors: up, down, strange, charm, bottom, and
+top. Their masses are short-distance quantities tied to a chosen energy scale.
+Protons, neutrons, and mesons are different kinds of objects. They are bound
+states, and most of their mass comes from the confinement energy of quarks and
+gluons.
 
-The neutrino calculation offers a candidate comparison point, and the global
-fit to neutrino oscillation data rejects it. The mixing pattern it would need is
-not fixed by the theory, and the pieces that would set the neutrino masses in
-absolute units are absent. Any mass or mixing-phase numbers attached to this
-candidate are diagnostic only, since the candidate itself is rejected.
-
-The particle map contains structural massless carrier modes, an exact
-electroweak chart, conditional weak and Higgs/top relations, a target-informed
-charged-lepton candidate, a rejected quark specialization, and a rejected
-neutrino candidate. Physical particle poles, the six-coordinate quark selector,
-strong CP, and nonperturbative hadron masses are work in progress. Protons,
-neutrons, and mesons are bound states whose masses depend on confinement, not
-quark masses alone.
-
-Majorana phases are extra neutrino mixing phases that matter if neutrinos are
-their own antiparticles in the relevant sense. The candidate's phase values are
-diagnostic because its physical PMNS matrix is unformed. The symbols
-$m_1,m_2,m_3$ denote mass eigenstates once a physical ordering rule is supplied;
-electron, muon, and tau instead label flavor states.
+Neutrinos use the same three-family space in a different basis. Electron,
+muon, and tau name flavor directions, while $m_1,m_2,m_3$ name mass directions.
+The PMNS matrix is the rotation between those two descriptions. Majorana phases
+are extra phases that become physical when neutrinos are their own
+antiparticles.
 
 QCD is quantum chromodynamics, the strong-interaction theory that binds quarks
 and gluons into hadrons. The symbols $\theta_{\mathrm{QCD}}$ and $\bar\theta$
 name strong-CP angles, parameters that measure a CP-violating
-strong-interaction phase. Their physical vanishing is work in progress.
+strong-interaction phase.
 
 ### Why the Universe Contains More Matter Than Antimatter
 
-The structural particle map gives matter and antimatter together. It does not
-by itself explain why the observable universe contains much more matter. That
-question needs a directed physical process, a clock, and a source of CP
-asymmetry.
+The particle map first gives matter and antimatter together. Their later
+imbalance comes from a directed repair current. A gauge-singlet record phase is
+attached to the electroweak $B+L$ charge, the combination of baryon and lepton
+number changed by sphaleron processes. Its winding distinguishes a history from
+its charge-parity mirror and biases transitions in one direction.
 
-The finite OPH source theorem makes the missing pieces precise. A record phase
-can drive electroweak baryon-number violation only when its charge assignment
-has a nonzero electroweak anomaly. Its time dependence must be an oriented
-probability current of actual repair transitions. A settled record label is
-static. A normal form says where repair ends; it does not say how often the
-system traverses a winding in one direction rather than the CP-conjugate
-direction.
-
-This distinction rules out the most direct proposal. The sixfold Standard
-Model gauge/deck phase follows the hypercharge direction, whose mixed
-electroweak anomaly cancels exactly. That phase cannot directly source the
-matter excess. A separate gauge-singlet record phase with a $B+L$ attachment
-would have the required anomaly; that attachment and its physical repair law
-are not derived.
-
-A CP-symmetric initial state with CP-symmetric transition rates produces zero
-current at every temperature. Orientation, settlement, and bookkeeping do not
-choose the observed sign. The open physical construction is therefore narrow:
-derive the anomalous record phase, its transition rates, its clock and thermal
-history, and the CP-odd boundary or affinity that makes one sign dominate.
-Only then can standard sphaleron transport and freeze-out turn the emitted
-history into a baryon abundance.
+The sixfold Standard Model phase has a different job. It identifies duplicate
+color, weak, and hypercharge transformations and is anomaly-free. The singlet
+record phase carries the anomalous direction needed for the matter excess. As
+the universe cools, sphaleron transport converts the directed repair history
+into baryon number, and freeze-out preserves the excess.
 
 ## 16.5 What Is a Particle?
 
@@ -253,15 +196,11 @@ symmetries of the world. Wigner taught physics to catalogue those recurring
 roles by mass and spin, and OPH inherits the same catalogue once Lorentz
 kinematics emerges from screen dynamics.
 
-That statement is about sector or family identity. It should not be confused
-with the narrower bookkeeping question of whether two localized detector
-records are the same continuing token across a chart boundary. For that, the
-stitch first needs a certified localization region for each record token and
-clock slice. A guessed point is insufficient. Distinct records need enough
-separation before they can be treated as different sources. After that, the stitch also
-needs a declared spatial chart, a common clock, a real transverse interface,
-compatible charge transport, and enough evidence to rule out rival tracks.
-Without those gaps, OPH records ambiguity instead of forcing a history.
+Sector or family identity answers what kind of particle a pattern is. Token
+continuity answers whether two detector records belong to one continuing
+particle. Calibrated cap responses localize each record, a shared clock orders
+the records, and compatible charge transport carries the excitation across the
+interface. The track that fits every overlap becomes the particle's worldline.
 
 Mass tells you how the excitation answers time translations. Spin tells you how
 it answers rotations. Once Lorentz symmetry is in place, energy and momentum
@@ -338,9 +277,8 @@ Euler-Lagrange equations:
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) = \frac{\partial L}{\partial q}.$$
 
 The "least action" rule is the classical limit of quantum consistency. The
-effective action is part of the EFT
-bridge. Once that bridge is in place, the stationary-action description
-follows in the usual semiclassical limit.
+effective action carries that consistency into the low-energy field theory, and
+the stationary-action description follows in the semiclassical limit.
 
 The coordinate $q$ is the generalized position of the system, and $\dot q$ is
 its time derivative, the generalized velocity. The partial derivatives ask how

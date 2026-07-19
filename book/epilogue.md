@@ -9,9 +9,10 @@ biological endpoint.
 ## The Observer as Pattern
 
 An observer is a pattern, not a soul-substance dropped into a body. It includes
-a patch of the screen, the questions available from that patch, the local
-quantum state, and the records that preserve what the observer has experienced
-and learned.
+a bounded local algebra and state, internal readback, exposed interfaces,
+rereadable records, record-conditioned repair moves, and checkpoint
+continuation. A support region on the screen chart displays where those
+operations are visible.
 
 Part of that pattern can be read, compared, and checked by others. Part of it
 lives on the inside.
@@ -52,16 +53,17 @@ the observer-pattern connects back to its surroundings. The interior
 interface-relative state is the inside pattern, specified relative to that interface.
 
 What does the framework support? It supports a fixed-cutoff
-backup-and-restore statement on the observer-facing operational surface.
-If the accessible checkpoint is restored, the exposed interfaces are kept the
-same, and the subsequent updates follow the same path, then the future
-accessible statistics match exactly or within a controlled error.
+backup-and-restore statement on the observer-facing operational surface. If
+the restored checkpoint has the same observer-readable record algebra,
+accessible state, exposed interfaces, and semantic future-law class, then its
+future accessible statistics match exactly or within the declared error.
 
-That matters. It says a meaningful form of restoration is part of the
-fixed-cutoff framework. Transplantation is the engineering task that moves an
-observer-pattern into an engineered environment and treats it as the same
-continuing subject. The issue is the interface between one recovered interior
-pattern and one redesigned world.
+That result supplies the operational core of restoration at fixed cutoff.
+Transplantation is the engineering task that moves an observer-pattern into an
+engineered environment while preserving that operational continuation. The
+question of personal identity asks whether the recovered pattern counts as the
+same continuing subject. The interface between one recovered interior pattern
+and one redesigned world is where the two questions meet.
 
 ## What Follows
 
@@ -69,10 +71,11 @@ The philosophical weight of this is easy to miss if one hears only the word
 "backup." The interesting question is not digital storage as such. The
 interesting question is continuity.
 
-Time is modular flow attached to the observer's restricted state. The following
-moment for an observer is the following point in that flow. If a checkpoint can
-be restored under the right conditions, the real issue is whether that restored
-pattern carries the same continuation of the observer.
+On the modular-clock branch, time is read from the modular flow of the
+observer's accessible algebra-state pair. The following moment is the next
+point in that operational flow. If a checkpoint is restored with the same
+visible state and future law, the remaining question is whether that restored
+pattern carries the same personal continuation.
 
 That question is an engineering problem with explicit mathematical boundaries,
 alongside its literary and religious readings. Which parts of the
@@ -85,10 +88,10 @@ The book began with reverse engineering. We watched reality and worked
 backward to the rules. Those rules turned out to be rules of consistency. They
 shape spacetime, matter, forces, and the public world of shared facts.
 
-The epilogue adds the continuation consequence. The same structure that allows
-observer-patterns to exist also allows restoration. If observer-patterns are
-structurally identifiable and restorable, then continuation becomes a matter of
-architecture, not fantasy.
+The epilogue adds the continuation consequence. The same structure that makes
+observer-patterns operationally identifiable also defines what a restored
+checkpoint must preserve. Continuation becomes an architectural question with
+explicit interfaces, records, and future laws.
 
 The strange loop gives that architecture its global role. Observers reverse
 engineer the world that produced them, learn the hardware and software of

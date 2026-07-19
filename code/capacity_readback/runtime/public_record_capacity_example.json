@@ -1,0 +1,611 @@
+{
+  "artifact": "public_stable_record_capacity_example_v1",
+  "status": "SCHEMA_ONLY",
+  "physical_content": false,
+  "moves_cl7": false,
+  "cl7_status": "open",
+  "canonical_F_producer": "stable public record code size",
+  "supplied_dimension": 4,
+  "supplied_dimension_factorization": [
+    2,
+    2
+  ],
+  "boundary_coordinate": "D = dim(H_boundary)",
+  "entropy_coordinate": "F_r(log D) = log(M_pub(D))",
+  "identity_boundary_basis_control": {
+    "status": "PASS",
+    "boundary_dimension": 4,
+    "terminal_fiber_size": 2,
+    "terminal_fiber_complete": true,
+    "terminal_results": [
+      {
+        "status": "PASS",
+        "terminal_id": "identity-a",
+        "normal_form_hash": "same-terminal-normal-form",
+        "public_equalizer_atom_count": 4,
+        "public_equalizer_atoms": {
+          "p0": {
+            "members": [
+              "alice:b0",
+              "bob:b0"
+            ],
+            "boundary_support": [
+              0
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p1": {
+            "members": [
+              "alice:b1",
+              "bob:b1"
+            ],
+            "boundary_support": [
+              1
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p1"
+          },
+          "p2": {
+            "members": [
+              "alice:b2",
+              "bob:b2"
+            ],
+            "boundary_support": [
+              2
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p2"
+          },
+          "p3": {
+            "members": [
+              "alice:b3",
+              "bob:b3"
+            ],
+            "boundary_support": [
+              3
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p3"
+          }
+        },
+        "checkpoint_descent_passed": true,
+        "stable_public_code": [
+          {
+            "projection_atoms": [
+              "p0"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p1"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p2"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p3"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          }
+        ],
+        "stable_public_code_size": 4,
+        "stable_public_log_capacity": "log(4)",
+        "capacity_slack": "0",
+        "record_capacity_le_boundary_capacity_passed": true,
+        "saturated": true,
+        "saturation_rank_one_complete_code": true,
+        "nontrivial_record_capacity": true
+      },
+      {
+        "status": "PASS",
+        "terminal_id": "identity-b",
+        "normal_form_hash": "same-terminal-normal-form",
+        "public_equalizer_atom_count": 4,
+        "public_equalizer_atoms": {
+          "p0": {
+            "members": [
+              "alice:b0",
+              "bob:b0"
+            ],
+            "boundary_support": [
+              0
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p1": {
+            "members": [
+              "alice:b1",
+              "bob:b1"
+            ],
+            "boundary_support": [
+              1
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p1"
+          },
+          "p2": {
+            "members": [
+              "alice:b2",
+              "bob:b2"
+            ],
+            "boundary_support": [
+              2
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p2"
+          },
+          "p3": {
+            "members": [
+              "alice:b3",
+              "bob:b3"
+            ],
+            "boundary_support": [
+              3
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p3"
+          }
+        },
+        "checkpoint_descent_passed": true,
+        "stable_public_code": [
+          {
+            "projection_atoms": [
+              "p0"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p1"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p2"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p3"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          }
+        ],
+        "stable_public_code_size": 4,
+        "stable_public_log_capacity": "log(4)",
+        "capacity_slack": "0",
+        "record_capacity_le_boundary_capacity_passed": true,
+        "saturated": true,
+        "saturation_rank_one_complete_code": true,
+        "nontrivial_record_capacity": true
+      }
+    ],
+    "set_valued_readback": [
+      4
+    ],
+    "count_kernel_row": {
+      "4": 2
+    },
+    "terminal_fiber_capacity_diameter": 0,
+    "existential_self_read_closure": true,
+    "scalar_readback_dimension": 4,
+    "scalar_readback_entropy": "log(4)",
+    "deterministic_self_read_closure": true,
+    "nontriviality_status": "NONTRIVIAL_CAPACITY_WITNESSED"
+  },
+  "same_normal_form_erasure_control": {
+    "status": "PASS",
+    "terminal_id": "erasure",
+    "normal_form_hash": "same-terminal-normal-form",
+    "public_equalizer_atom_count": 4,
+    "public_equalizer_atoms": {
+      "p0": {
+        "members": [
+          "alice:b0",
+          "bob:b0"
+        ],
+        "boundary_support": [
+          0
+        ],
+        "boundary_rank": 1,
+        "reachable": true,
+        "checkpoint_next": "p0"
+      },
+      "p1": {
+        "members": [
+          "alice:b1",
+          "bob:b1"
+        ],
+        "boundary_support": [
+          1
+        ],
+        "boundary_rank": 1,
+        "reachable": true,
+        "checkpoint_next": "p0"
+      },
+      "p2": {
+        "members": [
+          "alice:b2",
+          "bob:b2"
+        ],
+        "boundary_support": [
+          2
+        ],
+        "boundary_rank": 1,
+        "reachable": true,
+        "checkpoint_next": "p0"
+      },
+      "p3": {
+        "members": [
+          "alice:b3",
+          "bob:b3"
+        ],
+        "boundary_support": [
+          3
+        ],
+        "boundary_rank": 1,
+        "reachable": true,
+        "checkpoint_next": "p0"
+      }
+    },
+    "checkpoint_descent_passed": true,
+    "stable_public_code": [
+      {
+        "projection_atoms": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "boundary_rank": 4,
+        "checkpoint_fixed": true,
+        "reachable": true
+      }
+    ],
+    "stable_public_code_size": 1,
+    "stable_public_log_capacity": "log(1)",
+    "capacity_slack": "log(4/1)",
+    "record_capacity_le_boundary_capacity_passed": true,
+    "saturated": false,
+    "saturation_rank_one_complete_code": false,
+    "nontrivial_record_capacity": false
+  },
+  "ambiguous_terminal_fiber_control": {
+    "status": "AMBIGUOUS_CAPACITY_READBACK",
+    "boundary_dimension": 4,
+    "terminal_fiber_size": 2,
+    "terminal_fiber_complete": true,
+    "terminal_results": [
+      {
+        "status": "PASS",
+        "terminal_id": "identity-a",
+        "normal_form_hash": "same-terminal-normal-form",
+        "public_equalizer_atom_count": 4,
+        "public_equalizer_atoms": {
+          "p0": {
+            "members": [
+              "alice:b0",
+              "bob:b0"
+            ],
+            "boundary_support": [
+              0
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p1": {
+            "members": [
+              "alice:b1",
+              "bob:b1"
+            ],
+            "boundary_support": [
+              1
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p1"
+          },
+          "p2": {
+            "members": [
+              "alice:b2",
+              "bob:b2"
+            ],
+            "boundary_support": [
+              2
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p2"
+          },
+          "p3": {
+            "members": [
+              "alice:b3",
+              "bob:b3"
+            ],
+            "boundary_support": [
+              3
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p3"
+          }
+        },
+        "checkpoint_descent_passed": true,
+        "stable_public_code": [
+          {
+            "projection_atoms": [
+              "p0"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p1"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p2"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          },
+          {
+            "projection_atoms": [
+              "p3"
+            ],
+            "boundary_rank": 1,
+            "checkpoint_fixed": true,
+            "reachable": true
+          }
+        ],
+        "stable_public_code_size": 4,
+        "stable_public_log_capacity": "log(4)",
+        "capacity_slack": "0",
+        "record_capacity_le_boundary_capacity_passed": true,
+        "saturated": true,
+        "saturation_rank_one_complete_code": true,
+        "nontrivial_record_capacity": true
+      },
+      {
+        "status": "PASS",
+        "terminal_id": "erasure",
+        "normal_form_hash": "same-terminal-normal-form",
+        "public_equalizer_atom_count": 4,
+        "public_equalizer_atoms": {
+          "p0": {
+            "members": [
+              "alice:b0",
+              "bob:b0"
+            ],
+            "boundary_support": [
+              0
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p1": {
+            "members": [
+              "alice:b1",
+              "bob:b1"
+            ],
+            "boundary_support": [
+              1
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p2": {
+            "members": [
+              "alice:b2",
+              "bob:b2"
+            ],
+            "boundary_support": [
+              2
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          },
+          "p3": {
+            "members": [
+              "alice:b3",
+              "bob:b3"
+            ],
+            "boundary_support": [
+              3
+            ],
+            "boundary_rank": 1,
+            "reachable": true,
+            "checkpoint_next": "p0"
+          }
+        },
+        "checkpoint_descent_passed": true,
+        "stable_public_code": [
+          {
+            "projection_atoms": [
+              "p0",
+              "p1",
+              "p2",
+              "p3"
+            ],
+            "boundary_rank": 4,
+            "checkpoint_fixed": true,
+            "reachable": true
+          }
+        ],
+        "stable_public_code_size": 1,
+        "stable_public_log_capacity": "log(1)",
+        "capacity_slack": "log(4/1)",
+        "record_capacity_le_boundary_capacity_passed": true,
+        "saturated": false,
+        "saturation_rank_one_complete_code": false,
+        "nontrivial_record_capacity": false
+      }
+    ],
+    "set_valued_readback": [
+      1,
+      4
+    ],
+    "count_kernel_row": {
+      "1": 1,
+      "4": 1
+    },
+    "terminal_fiber_capacity_diameter": 3,
+    "existential_self_read_closure": true
+  },
+  "incomplete_terminal_fiber_control": {
+    "status": "INCOMPLETE_TERMINAL_FIBER"
+  },
+  "identity_map_greatest_fixed_point_control": {
+    "status": "PASS",
+    "monotone": true,
+    "deflationary": true,
+    "iteration_from_top": [
+      4
+    ],
+    "fixed_points": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "greatest_fixed_point": 4,
+    "fixed_point_unique": false,
+    "positive_nontrivial_fixed_point": true,
+    "selection_rule": "greatest self-sustaining public-record capacity"
+  },
+  "constant_one_greatest_fixed_point_control": {
+    "status": "PASS",
+    "monotone": true,
+    "deflationary": true,
+    "iteration_from_top": [
+      4,
+      1
+    ],
+    "fixed_points": [
+      0,
+      1
+    ],
+    "greatest_fixed_point": 1,
+    "fixed_point_unique": false,
+    "positive_nontrivial_fixed_point": false,
+    "selection_rule": "greatest self-sustaining public-record capacity"
+  },
+  "capacity_extension_naturality_control": {
+    "status": "PASS",
+    "adjacent_embeddings_complete": true,
+    "capacity_monotone": true,
+    "certified_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  "refinement_stabilization_control": {
+    "status": "PASS",
+    "embedding_naturality_passed": true,
+    "monotone_nondecreasing": true,
+    "bounded_by_boundary_dimension": true,
+    "eventual_stabilization_theorem_applies": true,
+    "strict_increases_remaining_upper_bound": 0,
+    "observed_constant_suffix_length": 1,
+    "permanent_stabilization_certified": true,
+    "permanent_stabilization_reason": "capacity bound saturated"
+  },
+  "rho_op_role": "independent estimator only; never an input to F",
+  "self_read_predicate_injected": false,
+  "supplied_capacity_metadata_read_by_producer": false,
+  "measured_lambda_used": false,
+  "ew_bridge_target_used": false,
+  "rho_used_as_capacity_producer": false,
+  "fail_states": [
+    "AMBIGUOUS_CAPACITY_READBACK",
+    "CAPACITY_EXTENSION_NATURALITY_FAILED",
+    "CIRCULAR_CAPACITY_DEFINITION",
+    "EW_BRIDGE_USED_AS_CAPACITY_PRODUCER",
+    "INCOMPLETE_INTERFACE_MANIFEST",
+    "INCOMPLETE_OBSERVER_REGISTRY",
+    "INCOMPLETE_TERMINAL_FIBER",
+    "NON_NATURAL_REFINEMENT",
+    "NOT_DEFLATIONARY",
+    "NOT_MONOTONE",
+    "NO_BOUNDARY_REPRESENTATION",
+    "NO_PUBLIC_REACHABILITY_DESCENT",
+    "NO_PUBLIC_RECORD_CHANNEL",
+    "NO_PUBLIC_RECORD_DESCENT",
+    "NO_REACHABLE_PUBLIC_RECORD",
+    "NO_STABLE_OBSERVER_SECTOR",
+    "NO_TERMINAL_NORMAL_FORM",
+    "NO_TRIAL_REACHABILITY",
+    "RHO_USED_AS_CAPACITY_PRODUCER",
+    "TARGET_TAINTED"
+  ],
+  "open_direct_capacity_gates": [
+    "source-derived complete trial-universe and terminal-fiber family",
+    "complete public observer, overlap, reachability, and checkpoint receipts",
+    "capacity-extension embeddings and naturality",
+    "refinement record embeddings",
+    "nontrivial fixed-point or greatest-capacity selection receipt",
+    "large-screen capacity-density control"
+  ],
+  "postconstruction_physical_gates": [
+    "HORIZON-RECORD-SATURATION",
+    "COMMON-EW-LOAD-CARRIER",
+    "independent operational rho_op experiment"
+  ]
+}

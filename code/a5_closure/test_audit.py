@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import math
 import pathlib
 import sys
@@ -70,6 +71,32 @@ class AuditTests(unittest.TestCase):
         self.assertIn("coefficient", state["exact_here"])
         self.assertTrue(any("PORT-CURRENT-INNER" in x for x in state["physical_gates"]))
         self.assertTrue(any("MAR" in x for x in state["physical_gates"]))
+
+    def test_exterior_sm_completion(self):
+        m = load("exterior_sm_completion")
+        p = m.payload
+        self.assertEqual(p["matter_package"]["complex_dimension"], 15)
+        self.assertEqual(set(p["anomalies"]["coefficients"].values()), {"0"})
+        self.assertIn("Witten", p["anomalies"]["su2_witten_parity"])
+        self.assertTrue(all(
+            row["su3_singlet_multiplicity"] == 1
+            and row["su2_singlet_multiplicity"] == 1
+            for row in p["yukawa_channels"].values()
+        ))
+        self.assertEqual(p["weak_load"]["doublet_multiplicity_per_generation"], 4)
+        self.assertEqual(p["face_phase"]["minimal_irreps"], ["3", "3prime"])
+        self.assertIn("General family matrices", p["face_phase"]["yukawa_boundary"])
+        self.assertEqual(p["abstract_deck_control"]["orbit_count"], 4)
+        self.assertIn(
+            "not the full even Clifford module",
+            p["conditional_closure"]["no_extra_sector_boundary"],
+        )
+        self.assertIn(
+            "not Clifford-stable",
+            p["conditional_closure"]["no_extra_sector_boundary"],
+        )
+        runtime = json.loads((ROOT / "exterior_sm_completion.json").read_text())
+        self.assertEqual(runtime, p)
 
     def test_log_coefficients(self):
         m = load("bh_log_correction")

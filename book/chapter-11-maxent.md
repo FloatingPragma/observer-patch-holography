@@ -195,8 +195,8 @@ normalizes all probabilities so they add to 1.
 
 ## 11.6 Time on the Holographic Screen
 
-Each observer has a patch $P$ on the holographic screen. The global state
-restricts to a density matrix:
+In the simplest finite type-I illustration, a support region $P$ on the screen
+chart is cut from a global pure state. The restriction gives a density matrix:
 
 $$\rho_P = \text{Tr}_{\bar{P}} |\Psi\rangle \langle \Psi|$$
 
@@ -204,42 +204,47 @@ This density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
 
-which generates modular time $t_P$ for that observer.
+which generates the finite modular flow labeled by $t_P$. That flow supplies
+the observer's internal time.
 
-$\bar P$ means the complement of patch $P$, everything outside the patch. The
-trace over $\bar P$ discards inaccessible degrees of freedom and leaves the
-state available to the observer. The logarithm then turns that restricted
-state into the modular generator for the patch.
+$\bar P$ means the complement of support region $P$, everything outside the
+region in this finite illustration. The trace over $\bar P$ discards
+inaccessible degrees of freedom and leaves the state available to the observer.
+The logarithm then turns that restricted state into the modular generator.
 
-**Each observer patch carries its own emergent modular clock.**
+This density-matrix formula is the finite illustration. The general observer
+patch is described by its accessible algebra-state pair. That pair carries a
+modular automorphism group, which supplies the internal clock even when no
+density matrix lives inside the continuum algebra.
 
 ### Consistency of Clocks
 
-If two observers' patches overlap, their modular times have to agree on the
-shared operational content. On the controlled BW/geometric branch, that
-compatibility is what later supports a shared causal structure.
+For a shared clock, two overlapping observers have compatible modular actions
+on their shared operational content. That compatibility supports a common
+causal structure.
 
 ### Cosmic Time
 
 Why do we all agree on a "cosmic time"?
 
-If many local modular flows synchronize across accessible records, a shared
-coarse-grained cosmic time can emerge as an effective collective clock rather
-than a second fundamental time parameter. It is a clock inside the reconstructed
-branch, not a God's-eye age of spacetime.
+As local modular flows synchronize across accessible records, a shared
+coarse-grained cosmic time emerges as their collective clock rather than a
+second fundamental time parameter. It is the time read by the reconstructed
+world from within.
 
 ### From Modular Time to Gravity
 
 The chain is clean once the pieces are visible. Recovery structure from Chapter
-7 makes the time generator local near patch boundaries. A key theorem then
-identifies that local flow with a standard geometric motion on the sphere once
-the finite cap data carry the right order, orientation, modular
-convergence, and thermal normalization evidence. Geometric time flow gives
-Lorentz kinematics on the screen. With the fixed-cap variation class, local
-energy bridge, small-ball area identity, and scalar-to-tensor upgrade added,
-entanglement equilibrium yields Einstein's equation on the stated branch.
+7 makes the time generator local near patch boundaries. The order and
+orientation of the finite caps, their modular convergence, and their thermal
+normalization turn that local flow into a standard geometric motion on the
+sphere. Geometric time flow gives Lorentz kinematics on the screen. Fixed-cap
+variation, local energy, the small-ball area identity, and the
+scalar-to-tensor upgrade then turn entanglement equilibrium into Einstein's
+equation.
 
-The time ingredient feeds into gravity through those compatibility conditions.
+The internal clock feeds into gravity through this chain of compatible
+readouts.
 
 ## 11.7 Jacobson's Derivation
 
@@ -260,19 +265,15 @@ Einstein's field equations are the geometric form of that requirement:
 $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 
 This displayed version omits the cosmological-constant term. In OPH, the local
-Einstein branch leaves that metric-proportional term open. The global
-screen-capacity branch fixes it only under a constructed readback map and its
-connecting premises.
+Einstein relation fixes the curvature response to stress, while global screen
+capacity supplies the metric-proportional cosmological term.
 
-OPH uses Jacobson's route only after the consensus layer has done its smaller
-job. Finite repair gives quotient normal forms. The gravity claim then needs
-the recovered-core bridge from the compact paper: geometric readout of caps and diamonds, the
-geometric modular branch, the null-stress bridge, the bounded-interval kernel,
-fixed-cap stationarity, small-ball area identity, remainder control, and the
-tensor upgrade across local observer directions. These inputs must arise from
-one source-derived family of repaired records on a common domain. Its
-asymptotic bounds and physical scale identifications require separate
-certificates. Construction of that family is work in progress.
+Finite repair first gives quotient normal forms. One common family of repaired
+records then supplies the geometric readout of caps and diamonds, modular flow,
+null stress, bounded-interval response, fixed-cap stationarity, small-ball area
+variation, continuum control, and the tensor upgrade across local observer
+directions. These linked steps turn local thermodynamic agreement into
+spacetime dynamics.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 
@@ -331,11 +332,10 @@ $$H_{mod} = 2\pi K$$
 In this wedge case, **the modular automorphism group is the Lorentz boost
 flow**.
 
-The claim is about this clean wedge example, not about every clock in the
-universe being an accelerating rocket clock. The abstract modular flow attached
-to a restricted quantum state becomes a familiar geometric transformation from
-relativity. The theorem gives a bridge between operator algebra and spacetime
-motion.
+The wedge example shows how an abstract modular flow becomes a familiar
+geometric transformation from relativity. Ordinary local clocks arise by
+synchronizing this algebraic ordering across overlapping observer regions; the
+theorem supplies the bridge between operator algebra and spacetime motion.
 
 $$\Delta^{it} = e^{-2\pi i K t}$$
 
@@ -352,20 +352,17 @@ Start with thermal structure. Ask: what is the natural notion of time evolution?
 
 This reverses the usual logic in QFT. We do not postulate Lorentz symmetry and then discover thermal horizons; the Bisognano-Wichmann theorem shows the boost structure is encoded in modular flow.
 
-That modular-boost link is the route by which the controlled geometric
-branch recovers Lorentz kinematics and a universal causal speed on the screen.
+That modular-boost link recovers Lorentz kinematics and a universal causal
+speed on the screen.
 
 ### Connection to OPH
 
-Each observer's patch has a boundary, that boundary carries a horizon
-temperature, and the modular flow of the horizon state generates the
-observer's time evolution. Finite screen cells serve as regulators in OPH.
-The controlled BW construction extracts the prime geometric cap pair, carries
-modular data by regularized transport, reads the modular flow as a cap-local
-support map, and checks that the cap flow has the right support behavior and
-thermal normalization. On that construction the cap modular automorphism
-becomes geometric on the sphere. That geometric action gives the Lorentz
-symmetry.
+A support cap carries the relevant thermal modular data. Finite screen cells
+regulate that chart, while the finite patch federation remains the carrier.
+The construction extracts the geometric cap pair, transports its modular data,
+and preserves the support behavior and thermal normalization. The cap modular
+automorphism becomes geometric on the sphere, and that geometric action gives
+the Lorentz symmetry.
 
 ### The Speed of Light
 
@@ -373,7 +370,12 @@ Why is there a maximum speed, and why is it the same for everyone?
 
 The Unruh formula T = ℏa/(2πck_B) contains c. For the thermal-to-boost correspondence to work, there must be a universal velocity relating acceleration to temperature.
 
-From the boundary perspective: information propagates on the S² screen at a maximum rate determined by the entanglement structure. This rate, translated to the bulk, becomes c. The no-signaling theorem of quantum mechanics (entanglement can't transmit information) becomes, in the bulk, the statement that nothing travels faster than light.
+The conformal geometry of $S^2$ supplies the Lorentz group, whose invariant
+speed is $c$ once physical units and the clock calibration are chosen. The
+numerical value of $c$ is the conversion between those units; its universality
+comes from the shared causal structure. Quantum no-signaling fits that
+structure because entanglement alone cannot transmit a controllable message
+outside the light cone.
 
 ### The Causal Structure
 
@@ -382,31 +384,31 @@ influence which, emerges from entanglement. Spacelike-separated regions can be
 correlated without signaling. Timelike-separated events can have causal
 influence. Null separation marks the dividing line between those two regimes.
 
-The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. These ingredients reproduce the Minkowski-style causal structure targeted by the program.
+The modular flow provides the time direction. Entanglement provides
+correlations. No-signaling prevents faster-than-light communication. Together
+they reproduce Minkowski causal structure.
 
 ### Why This Matters
 
 Einstein discovered special relativity in 1905 by thinking about light and
 motion. QFT gives the same structure another reading: Lorentz boosts are tied
-to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the same
-pattern appears on the controlled BW construction, where the Lorentz group
-shows up as the geometry of modular automorphisms on extracted caps.
+to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the
+Lorentz group appears as the geometry of modular automorphisms on extracted
+caps.
 
 The laws of physics look the same to all inertial observers because thermal
-states on wedge-shaped regions naturally evolve via boosts. In the OPH program,
-the universal speed emerges on the controlled geometric branch when that
-modular-boost structure is carried over to the screen and then read back into
-bulk kinematics.
+states on wedge-shaped regions naturally evolve via boosts. Carrying that
+modular-boost structure over to the screen and reading it back into bulk
+kinematics gives the universal speed.
 
 ## 11.10 What Time Predicts
 
-The thermal-time picture does not float free of physics. Tomita-Takesaki says
-an algebra-state pair carries its own flow. The KMS condition gives that flow
-the structure of thermal equilibrium. Bisognano-Wichmann shows that modular
-time becomes an actual Lorentz boost in the wedge setting, and OPH uses the
-corresponding cap statement only when the controlled BW construction is in
-place. Boltzmann explains why irreversible records emerge out of reversible
-microscopic laws.
+The thermal-time picture is anchored in physics. Tomita-Takesaki says an
+algebra-state pair carries its own flow. The KMS condition gives that flow the
+structure of thermal equilibrium. Bisognano-Wichmann turns modular time into a
+Lorentz boost, and the corresponding cap flow gives the screen its geometric
+Lorentz action. Boltzmann explains why irreversible records emerge out of
+reversible microscopic laws.
 
 The physical world fits this picture with surprising loyalty. Accelerating
 observers inherit Unruh temperature from the same horizon logic that produces
@@ -435,8 +437,8 @@ OPH reads time from the inside, through the modular flow attached to a
 restricted state. The arrow points in the direction records can be made and
 kept. Boltzmann explains why entropy rises. Jaynes explains why ignorance has
 structure. Tomita-Takesaki supplies the clock. Bisognano-Wichmann ties that
-clock to relativity. Jacobson shows how the same thermodynamic language leans
-toward gravity.
+clock to relativity. Jacobson turns the same thermodynamic language into
+gravity.
 
 ---
 

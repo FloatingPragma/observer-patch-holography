@@ -12,6 +12,7 @@ closure certificate in `paper/observers_are_all_you_need.tex` and
 
 ```bash
 python3 a5_screen_sm_closure.py          # module identity, trichotomy, face phases, kinetic relation
+python3 exterior_sm_completion.py        # exterior matter, anomalies, weak load, deck control
 python3 a5_selection_certificate.py      # sharpness data for Cohn-Kumar universal optimality
 python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
@@ -38,6 +39,9 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Rank-five corollary | `W_5` noncentral ⇒ `su(3) + su(2) + u(1)` uniquely |
 | Face-phase multiplicities | `m_w = (dim V - chi_V(3A))/3 = (0,1,1,1,2)` on `(1,3,3',4,5)`; minimal nontrivial extension has dimension 3 |
 | Missing-four/Higgs no-go | **Rejected.** `End_{A5}(4) = R`, so no `A5`-invariant complex structure exists for a commuting hypercharge `U(1)`. The identity `1+3+3+4+5=16` is dimensional only. |
+| Exterior matter witness | On a declared trace-balanced carrier `V=C+W`, the selected non-vacuum even package `Lambda^2 V + Lambda^4 V` is one 15-state chiral Standard Model generation. Its hypercharges, three one-Higgs invariant lines, perturbative anomalies, and weak-doublet parity check exactly. |
+| Weak multiplicity | The exterior package contains three colored weak-doublet copies and one lepton doublet, so the per-generation multiplicity is exactly `4`. Its identification with a physical port load requires `PORT-LOAD-TRACE`. |
+| Free-deck control | Any declared free `Z6` action on 24 slots has four orbits and a four-dimensional invariant-function space. A physical result requires the deck action and `PORT-WEAK-INTERTWINER`. |
 
 ## Why the trichotomy holds (proof sketch)
 
@@ -62,6 +66,17 @@ receipt **PORT-CURRENT-INNER**,
 **PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel premises.
 The coefficient construction supplies no observational discriminator.
 
+The exterior calculation supplies a second conditional matter route. It does
+not turn coefficient directions into physical currents or select the global
+form. It is also not the full even Clifford module: that module contains
+`Lambda^0 V` as well as `Lambda^2 V + Lambda^4 V`. Removing the singlet and
+excluding other anomaly-free light sectors requires the explicit MGFC/MAR
+premise or a source-derived observer-visible discriminator. Selecting `H=W`
+as the physical scalar is a separate gate. If the face-phase `A5` action remains
+exact on the family multiplicity space, it restricts Yukawa tensors to
+`A5`-invariant pairings; general family matrices require a source-derived
+breaking, hiding, or forgetting mechanism.
+
 ### Open receipts
 
 - **UD12**: emit a feasible integer charge domain and additive strict
@@ -81,6 +96,14 @@ The coefficient construction supplies no observational discriminator.
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
   presentation.
+- **A5-FAMILY-DESCENT**: derive how the selection symmetry is broken, hidden,
+  or forgotten before general family Yukawa matrices are admitted.
+- **EXTERIOR-PACKAGE-SELECTION**: select the non-vacuum even exterior package
+  and `H=W`, then exclude the vacuum singlet and other anomaly-free light
+  generators.
+- **PORT-WEAK-INTERTWINER** and **PORT-LOAD-TRACE**: identify a physical
+  four-dimensional screen invariant with the four weak-doublet copies and
+  prove that its normalized additive load is the physical `4P` readout.
 
 ## Conditional coupling relation
 

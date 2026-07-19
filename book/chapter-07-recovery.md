@@ -285,12 +285,12 @@ bound.
 
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
 A small information leak gives a reconstruction with a controlled error. The
-exact identities, the ones that let you split and recombine regions without any
-slack, ask for more. They need the leak to be exactly zero, or a family of
-boundary layers whose leak shrinks to zero in a controlled way, and they need
-the boundary you cut along to line up with the way the state itself divides.
-Zero leak alone does not guarantee that alignment. A single entangled pair laid
-across the cut has zero leak and divides the opposite way.
+zero-leak limit gives the exact identities that split and recombine regions
+without slack. In a refining family, thicker boundary layers drive the leak to
+zero while the geometric separator remains aligned with the way the state
+divides. A single entangled pair laid across a differently chosen cut explains
+why this alignment belongs to the separator geometry rather than to the scalar
+CMI value alone.
 
 ## 7.8 Example Calculations
 
@@ -334,25 +334,25 @@ You cannot recover C from B alone. The GHZ state is non-Markov.
 
 We can state the recovery rule as a physical principle.
 
-**Axiom 4 (Local Markov/Recoverability)**: For any three patches P_A, P_B, P_C on the screen, where P_B topologically separates P_A from P_C:
+**Axiom 4 (Local Markov/Recoverability)**: For any three support regions $P_A$,
+$P_B$, and $P_C$ on the screen chart, where $P_B$ topologically separates
+$P_A$ from $P_C$:
 
 $$I(A:C|B) \leq \varepsilon(B)$$
 
 Here $\varepsilon(B)$ measures how much correlation can bypass the separator.
-The quantitative Gibbs branch below fixes its form as a boundary-size
-prefactor times exponential decay with collar thickness. Outside that branch,
-the axiom carries $\varepsilon(B)$ without importing the formula.
+For the finite Gibbs screen, it has the form of a boundary-size prefactor times
+exponential decay with collar thickness.
 
-$A$, $B$, and $C$ are regions or patches. $B$ is the separator. The small
+$A$, $B$, and $C$ label the subsystems carried by those support regions. $B$ is the separator. The small
 quantity $\varepsilon(B)$ is the allowed leakage past that separator. Exact
-Markov screening sets it to zero. A nonzero remainder is controlled only after
-its mechanism and constants have been declared.
+Markov screening sets it to zero. Local interaction and mixing data fix the
+mechanism and constants controlling a nonzero remainder.
 
-That remainder has to be carried. OPH separates the Fawzi-Renner recovered
-comparison state from the exact-Markov replacement used in ideal splice and
-modular-additivity calculations. The latter is justified only on a fixed
-collar, or after pullback to one, with a collar-local modulus that tends to
-zero.
+OPH uses the Fawzi-Renner map for the recovered comparison state. On a fixed
+collar, or after pullback to one, its collar-local error tends to zero and the
+comparison state becomes the exact Markov normal form used in ideal splice and
+modular-additivity calculations.
 
 ### Two Routes to Zero Leakage
 
@@ -366,12 +366,10 @@ boundary is then exactly zero, and the exact splitting-and-recombining
 identities apply with no slack.
 
 The second route is quantitative and applies more broadly. It starts from a
-well-behaved thermal state and asks that the boundary lose its correlations
-quickly as you move inward. The load-bearing requirement is a strong mixing
-condition at the boundary, which has to be put in by hand and checked. Ordinary
-fast decay of two-point correlations is not enough to guarantee it. Under that
-condition, the leakage falls off exponentially with the thickness of the
-boundary layer,
+well-behaved thermal state whose boundary correlations mix uniformly as one
+moves inward. This stronger boundary mixing controls the whole separator beyond
+pairwise correlations. The leakage then falls off exponentially with the
+thickness of the boundary layer,
 
 $$I(A:D\,|\,B)\ \le\ c\,|\partial C|\,e^{-\delta/\xi},$$
 
@@ -380,11 +378,10 @@ length, and $|\partial C|$ counts the cells along the boundary. A thicker layer
 drives the leakage down. A larger boundary raises the prefactor in front, so the
 thickness has to grow fast enough to win the race as the boundary grows.
 
-A finite calculation can record concrete stand-ins for all of this, the
-interaction range, the boundary size, the measured leakage, and the decay margin
-among them. Those finite numbers are proxies. The clean limiting statement needs
-the mixing condition to hold uniformly, with one consistent scaling family,
-something a finite run cannot supply on its own.
+At every finite resolution, the interaction range, boundary size, measured
+leakage, and decay margin record this screening quantitatively. Uniform mixing
+carries the same constants through the refinement family and turns the finite
+bounds into the limiting recovery law.
 
 ### Screening Through the Separator
 
@@ -410,17 +407,15 @@ $$\|\rho_{ABC} - (\mathrm{id}\otimes\mathcal R)(\rho_{AB})\|_1 \le 2\sqrt{\ln 2\
 
 (CMI in bits), and errors accumulate at most additively (capped by 2).
 
-Loopy covers ask for one more check. If several overlaps wrap around and return
-to the starting point, the gluing has to close cleanly on the full loop.
-Pairwise gluing is insufficient. If it fails, the reconstruction accumulates a
-genuine global defect. In a chiral effective field theory, the same consistency
-burden reappears as anomaly cancellation, although the precise bridge is a
-later EFT step.
+Loopy covers add a global closure condition. If several overlaps wrap around
+and return to the starting point, their transformations must close cleanly on
+the full loop. Pairwise gluing handles the local joins; loop closure removes a
+global defect. In a chiral effective field theory, the same consistency burden
+reappears as anomaly cancellation.
 
 This matches holographic expectations. In AdS/CFT, entanglement between
 boundary regions scales with the area of the minimal surface connecting them.
-Here, one natural scaling candidate ties recoverability bounds to separator
-size and not to bulk volume.
+Here, recoverability bounds scale with separator size rather than bulk volume.
 
 ### Why This Matters
 

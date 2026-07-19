@@ -12,9 +12,10 @@ and [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md).
 
 Lemma L1 is discharged, with interval and
 global-uniqueness certificates whose arithmetic a full adversarial
-third-party audit reproduced; lemma L2 is certified conditionally at relative
-width 1.6×10⁻²⁵; and the chain C1 to C10 runs end to end with every open item
-named and mapped to a generator.
+third-party audit reproduced. Lemma L2 closes the order-theoretic implication
+from a scalar direct public-record map with capacity-extension naturality to
+its greatest fixed point; construction of that physical map is open. The chain C1 to C10
+runs end to end with every open item named and mapped to a generator.
 
 ## The selection chain
 
@@ -54,11 +55,18 @@ coherently across overlaps. The category of transportable charges, under the
 compact-gauge receipt, reconstructs a compact group (Tannaka-Krein). A
 conditional finite `A5` module admits an exact compact coefficient bracket;
 trace-balanced block integration and the six-axis lattice quotient are exact
-mathematical companions. Physical currents and the global gauge form require
-the full-rank compact skew-adjoint receipt PORT-CURRENT-INNER,
-PORT-SPIN-LIFT, block/axis descent, and the one-Higgs MAR
-tensor-kernel premises. On that branch they select SU(3)×SU(2)×U(1)/Z₆, its hypercharge
-lattice, N_c = 3, and N_g = 3. Status: conditional theorem.
+mathematical companions. Independently, the exterior package
+$\Lambda^2(C\oplus W)\oplus\Lambda^4(C\oplus W)$ gives the exact chiral
+Standard Model branching, one-Higgs invariant lines, anomaly cancellations,
+and four weak-doublet copies per generation under its declared carrier. This
+is a closed conditional representation witness. Physical forcing from the
+twelve-port screen still requires UD12, RP-A5, PORT-CURRENT-INNER,
+PORT-SPIN-LIFT, determinant and deck descent, exterior/Higgs and MAR/MGFC
+selection, family attachment and descent, and the load/intertwiner receipts.
+The four weak copies come from exterior multiplicity. No free
+$\mathbb Z_6$ action on the oriented 24-slot bookkeeping register is
+constructed, so the ratio $24/6$ is excluded from the proof.
+Status: conditional mathematical theorem; physical branch construction open.
 
 **C5. Entropic-gravitational consistency.** Local horizon thermodynamics of
 the record surfaces yields the Einstein equation conditionally on one
@@ -88,20 +96,26 @@ STRANGE_LOOP_PRINCIPLES.md, three-layer statement. Status: principle; this is
 the step that turns a completed common-observable residual into a measurement
 of the hypothesis. Incomplete maps and mismatched observables do not qualify.
 
-**C8. Capacity self-reading.** The universe must read back its own boundary
-capacity without deficit or slack: N = F(N), with F the readback map
-Cap∘Obs∘nf. Carrier: compact paper D6; flagship synthesis sections. Status:
-open, reduced. The coupling theorem G2-GAP-1 conditionally constructs F: modulo
-CP-1 (balance), CP-2 (inversion form), CP-3 (averaging carrier), the readback
-fixed point is the bridge capacity, certified at 3.5321315434×10¹²². The
-nominal 6.6% difference between that conditional bridge value and the
-Λ-located value (about 2.5 one-dimensional Planck standard deviations) is not
-an unconditional capacity test. F and CP-1 to CP-3
-are open. The joint Planck posterior propagated through the Λ-to-N map places
-the offset at 2.4 to 2.5 one-dimensional sigma under the consumed likelihood
-combination and 3.8 to 3.9 under Planck+BAO
-(`../code/capacity_readback/planck_posterior/`); CL-3 becomes evaluable only
-under a completed physical readback and likelihood map.
+**C8. Capacity self-reading.** At finite cutoff freeze one carrier dimension
+$D$. Record-atom restrictions define compatible public sections, endogenous
+histories define $X_{\rm reach}$, and a frozen publicness family plus complete
+global joint checkpoint kernels define a compound confusability graph $G_q$.
+The exact correctable capacity is $M_0(q)=\alpha(G_q)$. Across the complete
+terminal fiber the primary readback is
+$\mathfrak F_{r,0}(D)=\{M_0(q)\}$ and scalarizes only under singleton agreement.
+The carrier bound $M_\varepsilon\le D$, rank-one saturation rigidity, finite
+support-semigroup closure, TV robustness, greatest-fixed-point order theorem,
+and fixed-$D$ refinement stabilization are closed under their premises.
+Checkpoint invariance is not capacity, local marginals do not determine joint
+capacity, and identity/erasure families defeat uniqueness from monotonicity and
+deflation alone. The physical PUBLIC-CHECKPOINT-PACKET and the exact
+finite-size law $s(D_\star)=0<s(D)$ elsewhere remain open.
+HORIZON-RECORD-SATURATION and COMMON-EW-LOAD-CARRIER are independent downstream
+identifications. The operational resolution $\rho_{\rm op}$, CP-3 averaging,
+and diagonal counts are outside the direct producer lane.
+Carrier: the capacity sections of the observers synthesis paper, with the
+compact and particle papers serving as boundary summaries and downstream
+bridge references.
 
 **C9. Loop closure.** The detuning law, run through the full forward chain
 A_T(P), must return the pixel it started from: P = φ + √π/A_T(P), exactly.
@@ -122,19 +136,22 @@ of it. Removed freedom: unit conventions cannot carry physics. Carrier:
 STRANGE_LOOP_PRINCIPLES.md; scale-bridge sections. Status: declared bridge; G rides it as an
 input.
 
-**Endpoint.** C1-C6 remove every structural freedom except a two-real-parameter
-family (P, N) together with the declared discrete selections counted alongside
-them. C7 identifies the two parameters with measured readouts. C8-C9 are two
-equations on the two-parameter family. If both equations hold and their fixed
-points are unique, the stack admits exactly one universe. Whether that universe
-is ours is decided by one reading: the closure ledger at zero. "Consistency alone generates exactly our universe" is a
-theorem-shaped claim whose proof obligation is an experiment. Its target is
-frozen, but no qualifying target-blind payload has been executed.
+**Endpoint.** On branches carrying the explicitly declared discrete
+selections, C1-C6 reduce the remaining quantitative freedom to the two
+coordinates $(P,N)$. C7 supplies their physical-readout requirement. C8-C9 are
+two equations only after their source-only maps are constructed. Unique fixed
+points would then give at most one coordinate pair on that branch. The
+twelve-port-to-Standard-Model selections and physical readback producer remain
+separate branch-nonemptiness obligations. Whether a completed branch describes
+our universe is decided by the closure ledger at zero. "Consistency alone
+generates exactly our universe" remains a theorem-shaped claim whose physical
+and experimental obligations are open.
 
 ## Uniqueness lemmas
 
-The selection chain needs "the fixed points are unique" stated as mathematics.
-Three lemmas carry it.
+The selection chain needs either fixed-point uniqueness or an explicit
+greatest-fixed-point selection rule stated as mathematics. Three lemmas carry
+the distinction.
 
 **L1 (one P).** On any interval I where the interval-arithmetic
 evaluation of the closure map g(P) = φ + √π/A_T(P) certifies g(I) ⊆ I and a
@@ -170,37 +187,45 @@ each declared readout map has exactly one fixed point on its maximal
 analytic domain, with an empty exclusion list
 (`code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json`).
 
-**L2 (one N).** Under CP-1 to CP-3 the coupled readback map is affine in the load
-coordinate with contraction 1/2, and its unique fixed point is the bridge
-capacity (G2-GAP-1, certified enclosure at relative width 1.6×10⁻²⁵). The lemma
-is conditional on the three premises; discharging CP-1, the counting theorem, is
-the highest-value open mathematics in the program.
+**L2 (selected N).** Let
+$f:\{0,\ldots,D_{\max}\}\to\{0,\ldots,D_{\max}\}$ be the scalar direct
+public-record map. If capacity-extension naturality makes $f$ monotone and the
+finite rank bound makes it deflationary, iteration from $D_{\max}$ stabilizes
+at the greatest fixed point. This theorem is exact and needs no interpolation
+or derivative. Calling that greatest self-sustaining capacity $D_{\rm CRC}$ is
+an explicit order-theoretic selection principle. A claim of a singleton
+fixed-point set requires an additional uniqueness receipt. Producing the
+physical finite map and its extension receipts is G2.
 
-**L3 (no-landscape corollary).** Under L1 for a completed registered P map and
-L2 after CP-1 to CP-3 are discharged, the SLH principle set admits at most one
-(P, N). A target-blind completion landing outside its registered basin then
-falsifies that formulation (STRANGE_LOOP_PRINCIPLES.md rules 2 and 7). The
-present certificates do not discharge this corollary: L1 applies to two
-incomplete P maps, and L2 is conditional. The no-landscape conclusion is a
-proof obligation, not an evidential result.
+**L3 (no-landscape corollary).** Under L1 for a completed registered $P$ map
+and L2 for a physically produced direct public-record map, a separately proved
+singleton fixed-point receipt admits at most one $(P,N)$. Alternatively, the
+greatest-fixed-point rule selects one coordinate while allowing smaller fixed
+points. A target-blind completion landing outside its registered basin then falsifies that formulation
+(STRANGE_LOOP_PRINCIPLES.md rules 2 and 7). The present artifacts do not
+discharge this corollary: L1 applies to two incomplete $P$ maps, while L2 has
+no physical readback producer. The no-landscape conclusion is a proof
+obligation; the greatest-selection and singleton claims must not be conflated.
 
 ## Dependency structure of the closure ledger
 
-The ledger rows are not independent. They reduce to four generating objects:
+The ledger rows are not independent. They reduce to six generating objects:
 
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
 | G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached successor whose full method-selection chronology is blind or clean-room audited. The required 4×10⁻⁹ relative payload precision exceeds every method on Earth ("Why The Hadronic Test Is Hard", [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The V1 grid is exploratory and non-blind; its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 with no promotion weight, and its full defect inventory and the correct total/residual endpoint diagnostics are recorded in the reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and ../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md. No promotion follows | CL-1, CL-2 |
-| G2 | The capacity readback map F and its contraction certificate. G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 is open. The joint-posterior propagation through the Λ readout is diagnostic (../code/capacity_readback/planck_posterior/) and carries no cosmological verdict | CL-3, CL-4, CL-7 |
+| G2 | Produce robust direct public-record closure $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$. Construct unclosed trial universes without answer records; emit total record-atom readouts, endogenous reachability, frozen publicness, complete global joint checkpoint kernels, compound-graph/MIS witnesses, and carrier projections over the complete terminal fiber. Certify no-new-confusability extension/refinement and derive an exact transfer, fiber-product, or sharp seam law proving the unique regulator-stable slack zero $s(D_\star)=0<s(D)$ elsewhere. The finite gluing, correctable-capacity, bound, saturation, support-semigroup, TV-robustness, order, refinement, and countermodel results are closed. $\rho_{\rm op}$, measured $\Lambda$, and the EW/Higgs bridge are downstream tests | CL-3, CL-4, CL-7 |
 | G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed (converged precision-100 reruns; identity to 35+ digits; CI test) |
+| G5 | Promote the closed exterior Standard Model representation witness to a screen-forced physical branch by discharging UD12, RP-A5, the physical current, determinant/spin/deck descent, exterior/Higgs and MAR/MGFC selections, family attachment/descent, and load/intertwiner receipts | CL-9 |
+| G6 | Promote the closed 24-register rate no-go and conditional determinant-clock implication by constructing a source-derived operational clock line and calibrated gap, then proving the natural norm-preserving map to the charged-lepton determinant and its normalization | CL-10 |
 
-Beyond the ledger, the mass sector waits on one further object: a
-source-derived flavor-orbit selector (the proven two-modulus
-non-identifiability of the light-quark equations names exactly what is
-missing). The program is therefore finite and enumerated: four generators and
-one selector stand between the current standing and full closure. Every one of
-them is a computation or a construction; reinterpretation closes nothing.
+Beyond these rows, the mass-shape sector waits on a source-derived flavor-orbit
+selector; the proven two-modulus non-identifiability of the light-quark
+equations names that missing object. The program is finite and enumerated: six
+generators and the remaining flavor selector stand between the recorded
+conditional results and full closure. Each requires a computation or a
+construction.
 
 ## Reading rules
 

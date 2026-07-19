@@ -2223,6 +2223,45 @@ approximate case, contractivity of trace distance under completely positive trac
 gives the stated total-variation bound.
 \end{proof}
 
+\begin{definition}[Public checkpoint capacity interface]
+\label{def:public-checkpoint-capacity-interface}
+For a finite federated checkpoint family, the capacity-facing export is the
+packet
+\[
+\mathsf{PubChk}_{r,D}=
+\bigl(
+\{X_O\},\{X_e\},\{r_{Oe}\},
+\mathsf{Reach},\mathfrak P,\mathfrak K,
+\mathcal H_{{\rm cap},r,D},\{P_x\},
+\mathsf{Ext},\mathsf{Ref}
+\bigr).
+\]
+Here \(X_O=\operatorname{At}\mathcal R_O\) is the local central-record atom
+set, \(X_e\) is the interface-record atom set, and
+\(r_{Oe}:X_O\to X_e\) is the completed-instrument atom readout. The semantic
+event DAG \(\mathsf{Reach}\) witnesses endogenous public-record reachability;
+\(\mathfrak P\) freezes the authorized collective, universal-local, or quorum
+publicness policy; and \(\mathfrak K\) contains the source-derived joint
+checkpoint kernels with the required local marginals. The declared capacity
+carrier has \(\dim\mathcal H_{{\rm cap},r,D}=D\), and \(P_x\) is the nonzero
+record projection for reachable public class \(x\). The final two entries are
+capacity-extension and fixed-capacity refinement packets, kept as different
+types.
+\end{definition}
+
+The packet fields are an interface contract, not automatic outputs of a local
+checkpoint. In particular, the generic visible algebra maps
+\(\pi_{i,e}:\mathcal A_i\to\mathcal I_e\) do not automatically supply the
+record-atom maps \(r_{Oe}\), and observer-by-observer future-law marginals do
+not determine the joint kernels \(\mathfrak K\). The new source receipts are
+\textsc{RECORD-ATOM-RESTRICTION},
+\textsc{PUBLIC-RECORD-REACHABILITY}, the frozen publicness policy,
+\textsc{GLOBAL-PUBLIC-CHECKPOINT-COUPLING}, and
+\textsc{PUBLIC-RECORD-BOUNDARY-REPRESENTATION}. The fixed-cutoff checkpoint
+and central-record theorems are their immediate parents. The correctable-code
+capacity and finite-size closure theorems are carried by
+Ref.~\cite{ophsynthesis}.
+
 \section{Central Records and Measurement}
 
 The measurement package is a finite central-record package. Records are exposed by

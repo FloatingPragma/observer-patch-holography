@@ -341,7 +341,10 @@ From these hints, OPH distills **five core axioms** that guide the rest of this
 book:
 
 **Axiom 1: Screen Net / Finite Access**
-Every observer is finite. You only access a patch of a common horizon screen, never the whole structure at once, and each patch comes with its own algebra of accessible observables.
+Every observer is finite. Its operational patch has a bounded algebra and
+state, records, exposed interfaces, and allowed updates. On the geometric
+branch, that patch is displayed as a local cut of the shared screen net. No
+observer accesses the whole structure at once.
 
 **Axiom 2: Overlap Consistency**
 If you look at a star and I look at the same star, we have to agree on what we can jointly check. Where patches overlap, their descriptions must match on the shared observables. That single constraint shapes almost everything.
@@ -376,21 +379,25 @@ the realized low-energy package to the Standard Model branch.
 
 These five axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
 
-The observer-facing screen can be modeled by a finite quantum system. In one
-regulator chart, qudits sit on the edges of a triangulated screen and local
-constraints act at vertices. In the microphysics picture, that chart is not the
-literal computer on which the universe runs. The fixed-cutoff carrier is a
-federation of finite patches whose exposed overlaps, records, and repair moves
-are read through observer-facing screen charts. Maximum entropy selects the
-realized state subject to a stable family of local constraints, and
-the low-energy sector is narrowed further by the minimal realization rule used
-later in the program.
+The observer-facing screen can be represented by a finite quantum regulator.
+In one chart, qudits sit on the edges of a triangulated screen and local
+constraints act at vertices. The chart is not the literal computer on which
+the universe runs. The fixed-cutoff carrier is a federation of finite patches
+whose exposed overlaps, records, and repair moves are read through
+observer-facing screen charts. Maximum entropy selects the realized state
+subject to a stable family of local constraints, and the low-energy sector is
+narrowed further by the minimal realization rule used later in the program.
 
 A qudit is the multi-level cousin of a qubit. A triangulated screen is a finite
 network approximation to an observer-facing cut, not a declaration that the
 substrate itself is a smooth sphere.
 
-What is the output? Everything. Spacetime geometry emerges from entanglement patterns. Particles emerge as excitations. Observers emerge as self-modeling patterns that process information and maintain records. The laws of physics emerge as the rules that permit consistent information flow between patches.
+What is the output? Everything. Spacetime geometry emerges from entanglement
+patterns. Particles emerge as excitations on the realized field-theory branch.
+Observers emerge as bounded self-reading patterns that maintain records,
+compare interfaces, and condition later behavior on what they read. The laws
+of physics emerge as the rules that permit consistent information flow between
+patches.
 
 An ordinary simulation has an easy answer to the question of time: the counter
 outside the program says step one, step two, step three. Physics cannot use

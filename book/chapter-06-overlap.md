@@ -243,6 +243,17 @@ The overlap becomes useful only when they agree on the translation between their
 
 Physics uses standardized units, coordinate systems, and calibration procedures because they are the protocols that make overlap possible.
 
+The finite patch architecture turns that dictionary into a port protocol. A
+patch does not hand its entire private state to its neighbor. It exposes one
+boundary packet, receives the packet routed to the same interface, and compares
+the two after the declared translation. A checkable mismatch selects an
+allowed local repair. The patch then writes the result into a rereadable record
+and exposes the boundary again. On the icosahedral screen-sieve branch, twelve
+ports cover the icosahedral directions and $A_5$ symmetry keeps any one port
+from being privileged by its label. The same protocol can be realized by
+another carrier when its visible readout, repair, and checkpoint behavior
+agrees.
+
 ### Overlap Has a Cost
 
 Sharing observations isn't free. You need energy to send signals and memory to store them. Every message takes time. That means overlap is always limited. You only share a slice of your full experience.

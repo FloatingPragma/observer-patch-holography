@@ -9,13 +9,14 @@ table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residual
 
 ## Where the spine is strong
 
-Four load-bearing assets anchor the spine. First, interval certificates: each
-declared P map has exactly one fixed point on its stated domain, and the
-conditional capacity fixed point is certified to relative width 1.6×10⁻²⁵; a
+Five load-bearing assets anchor the spine. First, interval certificates: each
+declared P map has exactly one fixed point on its stated domain, and the older
+conditional electroweak comparison map has an interval-certified fixed point; a
 hostile third-party audit reproduced this arithmetic and found
 no false theorem in the recovered mathematical core across its 42 findings.
 Second, machine checking: 111 sorry-free Lean theorems cover the consensus
-core and the capacity-coupling algebra. Third, fail-closed execution: the
+core and the older capacity-coupling algebra. The direct public-record capacity
+theorems are clean formalization targets and are not yet in that count. Third, fail-closed execution: the
 hadronic coordinate algebra and finite-clock eligibility predicate have
 fail-closed gates and adversarial regressions. Fourth, the falsification
 program is restricted to mature non-cosmological claims and contains no
@@ -23,40 +24,54 @@ target registry or forward scorecard. Fifth, proximity: the gauge-width map land
 2.5×10⁻⁶ relative from the measured α⁻¹ with the transport term open; the
 chart W coordinate sits 0.5 propagated experimental standard deviations from
 the PDG 2026 complex pole as a convention diagnostic, with the readout
-contract open; and the conditional capacity bridge sits about 2.5
-one-dimensional Planck standard deviations from the Λ-located capacity,
-conditional on the named premises. The statuses below are binding and move
+contract open; and the conditional electroweak comparison coordinate sits
+about 2.5 one-dimensional Planck standard deviations from the Λ-located
+coordinate. Neither constructs the operational readback map. The statuses below are binding and move
 only by dated artifact.
 
 ## The claim, in two parts
 
 **Part A (the loop-closure program).** The two declared pixel maps each have one
 arithmetic fixed point on their stated domain. Their physical Thomson map is incomplete.
-The record-capacity value is a conditional theorem modulo F and premises CP-1 to CP-3,
-not an unconditional fixed point of the physical readback.
+The direct finite readback is the stable public-record code size of the
+descended semantic checkpoint system. Public descent, the dimension bound,
+saturation rigidity, greatest-fixed-point selection, refinement stabilization,
+and capacity-density implications are closed under their stated premises. No
+physical producer and receipt bundle for that map has landed.
 
-**Part B (the forced constants produce our universe).** Given (P, N) and the strange-loop
-principles, the observed universe follows: its kinematics, its gauge structure, its
-particle content, its gravity, its cosmology.
+**Part B (the conditional structure program).** Given $(P,N)$, the
+strange-loop principles, and the named branch receipts, the declared recovered
+structures follow. The exterior-algebra Standard Model witness is closed under
+its carrier assumptions; forcing that package from the physical twelve-port
+screen remains open.
 
-Part A closed by landed identification, plus Part B closed by discharged gates, is the
-formal proof that our universe is the strange loop's unique solution. Nothing short of
-that combination is claimed as proof anywhere in the corpus.
+Part A closed by landed identification and a singleton fixed-point receipt,
+plus Part B closed by discharged gates, is the formal proof that our universe
+is the strange loop's unique solution. A greatest-fixed-point convention alone
+selects one self-sustaining capacity and does not prove that smaller fixed
+points are absent. Nothing short of the full combination is claimed as proof.
 
 ## Part A, step by step
+
+The observers synthesis paper owns the canonical $P/N$ closure construction.
+The compact paper records the typed theorem boundary, and the particle paper
+owns downstream electroweak and mass bridges.
 
 | Step | Content | Status |
 |---|---|---|
 | A1 | Principles SL-0 to SL-5 stated once, with claim rules and the three-layer separation (theory, test, working) | done: STRANGE_LOOP_PRINCIPLES.md |
-| A2 | The two closure equations defined: P = φ + √π/A_T(P); N = F(N) | formal equations stated; the physical A_T transport and F are incomplete |
+| A2 | The two closure equations defined: $P=\varphi+\sqrt\pi/A_T(P)$ and $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ with $N_\star=\log D_\star$ | formal equations stated; the physical $A_T$ transport, capacity packet, and finite-size selector remain incomplete |
 | A3 | Uniqueness of P | PROVEN only for each declared incomplete arithmetic map on its stated domain; this does not certify the missing physical Thomson map |
-| A4 | Readback seed N₀ = π | PROVEN: D6 radius identity plus the CAP-P certificate |
-| A5 | Tick-projection identity I1: Π_EW = 24π/(α_U·X) | PROVEN: discharged from the D10 transmutation step, the repair-tick theorem, and m_rep = 24 (G2-GAP-1 step S6) |
-| A6 | Balance condition I2: Π_EW = β_EW·P | OPEN: premise CP-1, the one genuinely physical gap in Part A's mathematics (GAP-A2) |
-| A7 | Readback form and dynamics | OPEN: premises CP-2 (inversion form; GAP-A3) and CP-3 (averaging carrier, dispensable for the fixed-point location; GAP-A4) |
-| A8 | Conditional capacity theorem: under CP-1 to CP-3, N is forced to π·exp(6π/(P·α_U)), certified 3.5321315434×10¹²² at relative width 1.6×10⁻²⁵ | done as conditional theorem: G2-GAP-1, with its algebraic layer machine-checked in Lean |
-| A9 | Identification with the measured α: source transport and endpoint map | OPEN: the V1 grid was exploratory and not target-blind; it used inconsistent P coordinates, mislabeled the required payload coordinate, and supplied no certified interval (GAP-A1) |
-| A10 | Identification with the measured Λ: the capacity comparison | CONDITIONAL 6.6% CENTRAL-VALUE MISMATCH: propagated joint posterior places it at 2.4 to 2.5 one-dimensional sigma under the consumed likelihood combination (code/capacity_readback/planck_posterior/); not a contradiction or significance test before F and CP-1 to CP-3 close and the combination is frozen (GAP-A5) |
+| A4 | Public record gluing | PROVEN: total atom readout maps define finite compatible global sections and their commutative function algebra. Endogenous reachability, frozen publicness, and the physical packet remain receipts (GAP-A3) |
+| A5 | Correctable public record capacity | DEFINED exactly by the compound graph of source-supplied global joint checkpoint kernels: $M_0(q)=\alpha(G_q)$. PROVEN: support criterion, finite semigroup closure, reversible fast branch, TV robustness, $M_\varepsilon\le D$, and complete rank-one saturation. Cyclic permutation and local-marginal countermodels exclude fixed-projector and marginal-only substitutes |
+| A6 | Terminal-fiber readback | PROVEN set-valued construction $\mathfrak F_{r,\varepsilon}(D)=\{M_\varepsilon(q)\}$; a scalar map exists only on a complete nonempty fiber with singleton support. Robust closure is $\mathfrak F_{r,0}(D)=\{D\}$ (GAP-A3) |
+| A7 | Finite order theorem and uniqueness boundary | PROVEN implication: a total monotone deflationary scalar map reaches its greatest fixed point from the top. Identity and erasure families prove this is not singleton uniqueness or cutoff independence. The required selector is the exact slack law $s(D_\star)=0<s(D)$ elsewhere (GAP-A3) |
+| A8 | Extension, refinement, and sewing | PROVEN implications: no-new-confusability injections preserve independent codes; fixed-$D$ refinement eventually stabilizes; exact seam gluing is a fiber product. Unit asymptotic density is insufficient. The physical embeddings and sharp finite-size seam or transfer theorem are open (GAP-A3) |
+| A9 | Independent geometric estimator | The $\rho_{\rm op}$ discrimination experiment is a commuting-square test of $M_0$ and cannot define it. Protocol non-identifiability and capacity-derived $\rho$ tautology are closed controls |
+| A10 | Electroweak/Higgs bridge | Direct record closure plus the screen-load law, exact weak multiplicity four, D10 source relation, and COMMON-EW-LOAD-CARRIER imply $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P=0$ and $N_{\rm bridge}=\pi\exp(6\pi/(P\alpha_U))$. This is downstream of $N$ and does not construct it; the common carrier is open (GAP-A2) |
+| A11 | D6 cosmological bridge | Direct record closure plus HORIZON-RECORD-SATURATION implies $\Lambda\ell_\star^2=3\pi/N_{\rm CRC}$. The saturation identification is open (GAP-A5) |
+| A12 | Identification with the measured α: source transport and endpoint map | OPEN: the V1 grid was exploratory and not target-blind; it used inconsistent P coordinates, mislabeled the required payload coordinate, and supplied no certified interval (GAP-A1) |
+| A13 | Identification with the measured Λ and EW coordinate | CONDITIONAL 6.6% CENTRAL-VALUE MISMATCH: the propagated posterior is diagnostic until direct public-record closure, both physical commuting squares, and the frozen likelihood/convention map land (GAP-A5) |
 
 ## Part B, step by step
 
@@ -65,11 +80,11 @@ that combination is claimed as proof anywhere in the corpus.
 | B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems) |
 | B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | conditional theorem on the typed geometric branch; source-derived common-domain tower unconstructed (GAP-B1) |
 | B3 | Gravity: Einstein equation from entropy stationarity, one metric-proportional term per connected component | conditional composition theorem; certified tails, universal coupling, vacuum reference, and independent scale identification belong to the branch premise (GAP-B1) |
-| B4 | Gauge structure and matter: conditional finite A5 module; exact coefficient bracket, trace-balanced integration, and six-axis lattice quotient; SM matter branch | physical current/global descent and one-Higgs MAR premises are conditional (GAP-B9) |
+| B4 | Gauge structure and matter: conditional finite A5 module; exact coefficient bracket and six-axis quotient; exact exterior Standard Model representation witness | exterior branching, three one-Higgs invariant lines, anomaly cancellation, and weak multiplicity four are closed under the carrier/package premises; physical screen forcing remains open through the gates in GAP-B9 |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen spectrum | exact conditional screen covariance, source-functional amplitude, edge-center tilt, one-shell radial non-identifiability, and conditional physical-dilation/tomography uniqueness; finite source instantiation and physical promotion are work in progress (GAP-B7) |
-| B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | open (GAP-B3, GAP-B5, GAP-B4) |
+| B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | the 24-register rate no-go and conditional charged determinant-clock implication are closed; the physical clock/determinant attachment, flavor shapes, and neutrino sector are open (GAP-B3, GAP-B5, GAP-B4) |
 | B9 | Machine formalization | 98 consensus plus 13 coupling theorems; screen files check only abstract matrix, lattice, and arithmetic statements (GAP-B8) |
 | B10 | Baryogenesis: finite anomaly/current theorem, source attachment, and physical CP-odd generator | anomaly/current theorem and direct gauge/deck no-go done; physical source branch open (GAP-B12) |
 
@@ -97,33 +112,45 @@ Part A gaps:
   emit the source function over the same P coordinate; certify quadrature,
   theory error, and interval bounds; freeze a three-way decision policy; then
   score once.
-- **GAP-A2 (CP-1).** The balance condition Π_EW = β_EW·P. Counting-theorem shape: one
-  global repair tick per electroweak channel per pixel-area unit. Discharged by: a
-  geometric counting theorem from declared screen structure. This is the highest-value
-  open mathematics in the program.
-- **GAP-A3 (CP-2).** Uniqueness of the port-load inversion form of Cap_read among
-  readback families. Reduction record
-  (`code/capacity_readback/CP2_INVERSION_FORM_REDUCTION_2026-07-17.md`, machine checks
-  in `runtime/cp2_p4_premise_reduction_check.json`): CP-2 decomposes into load
-  mediation (LM) plus read consistency (RC); the surviving freedom without RC is
-  exactly a strictly increasing load gauge φ pinned at the seed, with certified live
-  witnesses; under P4 coherence plus premise CP-4 the fixed-point location is forced
-  to the bridge capacity across the whole gauge freedom, so a P4-coherence argument
-  alone pins one point of the gauge and cannot discharge the form. Discharged by:
-  a derivation of RC from declared structure, or a constructed coupled count proving
-  CP-4 (which closes the value content and leaves RC as calibration only).
-- **GAP-A4 (CP-3).** The averaging re-emission carrier. Dispensable for the fixed-point
-  location; load-bearing only for the constructive contraction rate. Discharged by: a
-  one-page lemma from the write/check orientation split, or any declared contraction
-  toward balance.
-- **GAP-A5 (CL-3/CL-4).** The 6.6% central-value mismatch between the conditional
-  bridge capacity and the Λ-located value. The joint cosmological posterior propagated
-  through the map places it at 2.4 to 2.5 one-dimensional sigma under the consumed
-  likelihood combination and 3.8 to 3.9 under Planck+BAO
-  (`code/capacity_readback/planck_posterior/`). It becomes evaluable only after F and
-  CP-1 to CP-3 close and the likelihood combination is frozen; the corrected-balance
-  candidate set for the residual is
-  `code/capacity_readback/CP1_CORRECTED_BALANCE_CANDIDATES_2026-07-17.md`.
+- **GAP-A2 (electroweak load identification).** The exterior representation
+  witness proves four weak-doublet copies per generation. Promoting that
+  multiplicity to the physical screen/EW identity requires
+  COMMON-EW-LOAD-CARRIER: construct the $A_5$-invariant public screen-load line,
+  the scalar order-unit line of the four-copy weak multiplicity algebra, and a
+  refinement-natural positive unital isomorphism intertwining the screen and
+  D10 readouts. One-dimensional positivity and unitality then remove the
+  continuous normalization freedom. Equal integer counts do not construct the
+  common source-normalized line.
+- **GAP-A3 (CL-7 direct public-record producer and selector).** The canonical
+  capacity surface is owned by the observers synthesis paper. Construct
+  unclosed trial universes $\mathfrak U_{r,D}$ without an observer-visible
+  answer record. Emit a complete PUBLIC-CHECKPOINT-PACKET: frozen carrier type,
+  terminal-fiber manifest, local and interface atom sets, total atom readouts,
+  endogenous reachability witnesses, frozen publicness family, complete global
+  joint checkpoint kernels with marginal checks, carrier projections, and
+  compound-graph/MIS or approximate decoder certificates. Prove whole-fiber
+  singleton support, no-new-confusability capacity-extension and refinement
+  embeddings, and source invariance controls. Then derive an exact transfer or
+  fiber-product recurrence, or a sharp seam theorem with its subleading term,
+  proving the regulator-stable selector
+  $s(D_\star)=0<s(D)$ for every other admissible $D$. Unit asymptotic density
+  and greatest-fixed-point selection do not discharge uniqueness. The compact
+  and particle papers summarize boundaries and downstream bridges; they do not
+  own the physical packet.
+- **GAP-A4 (former CP-3).** Closed as a critical-path verdict 2026-07-19.
+  Averaging re-emission belongs to fluctuation or dynamics claims. It is neither
+  necessary for the direct fixed-point location nor a producer of
+  $F_{\rm act}$.
+- **GAP-A5 (CL-3/CL-4).** The nominal 6.6% central-value difference between the
+  independent electroweak and $\Lambda$-located comparison coordinates is not
+  evaluable as a common-observable residual. Evaluation requires closure of
+  GAP-A3, COMMON-EW-LOAD-CARRIER from GAP-A2, and
+  HORIZON-RECORD-SATURATION:
+  $\log M_{0,r}(D_\star)$ must converge to
+  $A_r/(4\ell_{\star,r}^2)$ on the same refinement family. It also requires a
+  frozen likelihood and convention map. The independent $\rho_{\rm op}$ test
+  compares $\log M_0$ with $\pi/\rho_{\rm op}^2$ and cannot define
+  either side. Existing posterior propagation remains diagnostic.
 - **GAP-A6 (CL-5, generator G3).** Define the physical W/Z readout and complete its
   renormalized-vev, tadpole, threshold, running-input, finite-order, complex-pole, and
   uncertainty map. The 96-entry menu scanned chart prescriptions against stale
@@ -148,18 +175,15 @@ Part A gaps:
   certificates, each declared map has exactly one fixed point on its maximal analytic
   domain. Public claims stay tied to the declared physical interval; the certified
   fixed point is unchanged.
-- **GAP-A8.** P4 count-density coherence for the coupled readback (the argmax
-  representation must agree with the fixed point). Recorded as an open obligation in
-  G2-GAP-1. Reduction record
-  (`code/capacity_readback/P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md`): under the
-  aggregate reading of membership clause 4 the support of the count collapses to the
-  fixed point and coherence holds degenerately, with the count representation demoted
-  to a display; under the per-configuration reading, coherence is equivalent to the
-  single count-side premise CP-4 (count density stationary exactly at load balance,
-  derivative-sign carrier), with certified negative controls showing both clauses of
-  CP-4 are load-bearing. Discharged by: adopting the aggregate reading as declared
-  clause-4 semantics (a recorded declaration, not a theorem), or constructing the
-  coupled count and proving CP-4.
+- **GAP-A8 (former count-density route).** Closed as a critical-path verdict
+  2026-07-19. A count over states whose membership requires reading the
+  supplied capacity is diagonal and circular. After the direct correctable-code
+  map exists, the noncircular kernel
+  $K_r(D,m)=|\{q:M_0(q)=m\}|$ records the full terminal fiber.
+  $K_r(D,D)>0$ proves existence of a self-read terminal branch. A scalar
+  deterministic map requires singleton support for every nonempty row. A
+  diagonal count-density argmax may rank closed branches and is not a
+  producer of CL-7.
 
 Part B gaps:
 
@@ -175,8 +199,16 @@ Part B gaps:
   evaluated and excluded.
 - **GAP-B4.** The neutrino sector: no mixing matrix or absolute mass row is emitted; the
   weighted-cycle candidate is rejected by NuFIT 6.1 (permanent verdict).
-- **GAP-B5.** Charged-lepton source completion: the MCPR triple is declared architecture;
-  the A5/W5 orbit program is the open source-side derivation.
+- **GAP-B5.** Charged-lepton source completion. A 24-stage register fixes no
+  physical rate, gap, or mass because Hamiltonian rescaling preserves the
+  register structure. The common determinant-scale implication is closed only
+  conditionally: a source-derived operational clock line $L_{24}$ with
+  calibrated gap $\Delta_{24}$ and a natural norm-preserving map
+  $L_{24}^{\otimes3}\to\det M_e$ gives
+  $(\det M_e)^{1/3}=\Delta_{24}$, up to a separately derived normalization.
+  Constructing that clock and attachment is open. The MCPR triple and A5/W5
+  program remain candidate shape/orbit architecture and cannot supply the
+  common scale by register count alone.
 - **GAP-B6.** The Yang-Mills continuum certificate: the repair-gap identity is
   conditional on the declared multiresolution, reflection-positivity,
   transfer/intertwiner, and nontriviality receipts.
@@ -189,9 +221,19 @@ Part B gaps:
 - **GAP-B8.** Lean formalization of the physics branches. The 98 consensus and
   13 coupling theorems exclude the A5 selector, physical current map,
   trace-balanced group, tensor kernel, and axis-center descent.
-- **GAP-B9.** PORT-CURRENT-INNER, PORT-SPIN-LIFT, physical block/axis descent,
-  the compact-gauge receipt, and the MAR matter premises behind the SM quotient
-  are declared inputs or work in progress.
+- **GAP-B9.** Physical screen-to-Standard-Model forcing. The exterior witness
+  closes the one-generation branching, hypercharges, three one-Higgs invariant
+  lines, listed anomalies, and weak multiplicity four. The remaining producer
+  gates are UD12 and RP-A5; PORT-CURRENT-INNER; block determinant balance and
+  PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
+  non-vacuum exterior package and $H=W$; MAR/MGFC exclusion of the vacuum
+  singlet and other anomaly-free light sectors; A5 family attachment plus a
+  breaking, hiding, or forgetting descent compatible with general Yukawa
+  matrices; COMMON-EW-LOAD-CARRIER; compact-gauge refinement; and continuum
+  spin/QFT realization. The required global-form deck descent is distinct from
+  a free deck action on the 24 oriented slots. No such free action is
+  constructed, so neither $24/6=4$ nor equal dimensions supply a missing
+  intertwiner.
 - **GAP-B10.** Independent reproduction: named external parties re-running the mechanical
   claims from a fresh clone (pillar 5).
 - **GAP-B11.** Bare patch-net interface projections do not derive invertible
@@ -223,9 +265,11 @@ Part B gaps:
 
 Cross-cutting:
 
-- **GAP-X1.** Discrete structural selections without a consistency-forcing derivation (each
-  is listed with its menu size; the SM coefficient triple and β_EW = 4 are
-  graduated to forced; the remainder stand as counted selections).
+- **GAP-X1.** Discrete structural selections without a consistency-forcing
+  derivation. The conditional SM coefficient bracket and exterior weak-doublet
+  multiplicity four are closed mathematical results. Their physical current
+  and load identifications remain selections until GAP-B9 and GAP-A2 close;
+  the other declared choices remain counted selections.
 - **GAP-X2.** CI regeneration of the ledger from the claim registry
   (SLP-02, SLP-05), and builder-script patches so generated surfaces keep their
   supersession notes.

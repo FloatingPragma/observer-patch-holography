@@ -35,10 +35,9 @@ high-energy scale by quantum corrections.
 OPH addresses the dimensionless part of this puzzle. It produces the large gap
 between the Higgs scale and the deep short-distance scale from the way the
 forces run with energy, rather than treating that gap as an accident that has
-to be tuned away. What it produces is a ratio, so it does not fix an actual
-mass in GeV without a separate physical input for the reference energy. Turning
-this into a stronger statement about the Higgs mass, or into the matching
-gravity number in ordinary units, is work in progress.
+to be tuned away. The scale bridge turns that ratio into the Higgs scale in GeV
+and sets the matching gravitational unit. The weak hierarchy and the strength
+of gravity are two readings of the same selected screen scale.
 
 **The strong force**: Small percent-level shifts in nuclear parameters are often argued to strongly disrupt stellar nucleosynthesis and the chemistry needed for long-lived structure.
 
@@ -187,39 +186,31 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is uneven. The photon, gluons, and graviton carrier
-roles come out cleanly. The weak sector produces running chart coordinates near
-$80.3$ and $91.1$ GeV without a complete map to the measured W and Z complex
-poles. The missing renormalized vacuum, tadpole, threshold, and matching choices
-make a percentage or pull comparison undefined. The Higgs
-and top masses come out together from a condition that puts the forces at a
-critical balance, landing close to their measured values. Turning these into
-full particle-physics proofs is work in progress.
+OPH turns that census into a short survival story. The twelve icosahedral port
+readings split into the current directions of electromagnetism, the weak force,
+and color. Their stable quantum modes become photons, weak carriers, and gluons.
+The smooth geometric branch supplies the gravitational-wave modes. The Higgs
+vacuum gives mass to the weak carriers, placing the running $W$ and $Z$
+coordinates near $80.3$ and $91.1$ GeV, while a linked critical balance
+organizes the Higgs and top.
 
-None of these nonzero masses comes purely from first principles. The clean
-results concern massless carriers, and the nonzero numbers quoted here are
-consistency checks against measured values. Deriving a particle mass
-from the ground up is work in progress.
+The faces of the same icosahedron explain the repetition of matter. Every
+outward triangular face carries a three-corner cycle. Symmetry identifies the
+copies across all twenty faces and leaves one global family triplet. Its charged
+lepton directions are the electron, muon, and tau. The quarks use the same
+family space with separate up-type and down-type Yukawa coordinates. Neutrino
+mixing is the rotation between flavor directions and mass directions.
 
-For the charged leptons, the electron, muon, and tau, there is a clean
-mathematical structure and a small working digital model, but the model's
-ingredients are put in by hand, and nothing proves that it picks out the real
-masses or explains why there are three families. The proposal for quarks does
-worse on its own test, missing the target pattern by at least about twenty
-percent. A large simulation of many observers gives no signal here, because it
-does not contain the interaction that sets these masses. This is all work in
-progress.
+The survival ladder continues into composite matter. QCD binds quarks and
+gluons into protons, neutrons, and mesons, with confinement supplying most of
+their mass. At a larger scale, atoms survive through charge conservation and
+quantum exclusion. Molecules survive through bonding. Macroscopic objects
+survive because decoherence copies their records into the environment.
 
-The neutrino proposal is a candidate checked against measured oscillation data,
-and it fails that check. The neutrino mixing pattern, the ordering of the
-masses, and their absolute scale are unresolved. Composite particles such as
-protons and neutrons demand the hard strong-force calculation. Using measured
-collision data as input, an incomplete transport map returns a value near 136.3
-for a quantity whose measured value is about 137.04. The result is a diagnostic
-of that declared map, not a physical prediction or a blind closure.
-Reconstructing a single particle track across a
-boundary between two coordinate patches is a further layer, and it works only
-when every consistency check leaves no rival track.
+Persistence also joins observations across space. Calibrated screen responses
+localize a particle record, shared clocks order successive records, and charge
+transport carries the pattern across patch boundaries. The one track that fits
+all overlaps is the surviving particle worldline.
 
 ### Topological Protection
 

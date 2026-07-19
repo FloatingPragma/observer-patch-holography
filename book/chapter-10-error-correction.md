@@ -80,11 +80,9 @@ is exactly what error-correcting codes provide.
 durable encoding of shared information.
 
 For OPH, the first object is a finite constraint code. Its valid codewords are
-the globally consistent patch assignments. To become a quantum error-correcting
-code in the usual technical sense, the story has to name the protected
-subspace, the logical operators, the error model, and the recovery map. The
-overlap network supplies the discipline; the quantum-code structure supplies
-the machinery.
+the globally consistent patch assignments. Its protected subspace, logical
+operators, error family, and recovery map turn that overlap discipline into a
+quantum error-correcting code.
 
 ### Holographic Error Correction
 
@@ -194,13 +192,12 @@ Don Page argued that if evaporation is unitary, radiation entropy should rise un
 
 In 2019, the "island formula" showed how to derive this in specific semiclassical holographic models. After Page time, an **island** appears inside the black hole that is encoded in the radiation. Including the island contribution, radiation entropy follows the expected Page-curve turn and decreases as unitarity requires in those models.
 
-This is a vivid example of error correction in holography. In OPH it functions
-as external support for encoded interior data. A finite reconstruction
-threshold in an OPH archive is not, by itself, a Page curve. A finite
-conditional-information gain is not, by itself, a geometric island. Physical
-evaporation needs an exterior time, a radiation algebra, an energy-flux channel,
-and a no-leakage bridge from the finite record system to the black-hole
-spacetime being claimed.
+This is a vivid example of error correction in holography. OPH describes the
+same physical process with an exterior clock, a radiation algebra, an
+energy-flux channel, and a recovery map from finite records into the
+black-hole spacetime. The changing reconstruction threshold then traces the
+Page curve, while the interior region reconstructed from the radiation is the
+island.
 
 ## 10.7 Observer Consistency as Error Correction
 
@@ -227,12 +224,11 @@ score. When the repair law respects the overlap contract, every accepted move
 lowers that score, and compatible repair orders from the same fixed quotient
 problem converge to the same public description.
 
-The distinction matters whenever the starting interior is hidden. Confluence
-compares repair paths from one source. Agreement between different sources with
-the same boundary requires that the boundary identify the consistent quotient,
-and liveness requires a separate normalization or fairness argument. The OPH
-paper stack proves the exact generic criterion; applying it to a physical
-boundary map requires the corresponding injectivity certificate.
+When the starting interior is hidden, the boundary identifies all sources that
+represent the same physical quotient. Confluence makes every repair path from
+each source settle to that quotient, while normalization and fair scheduling
+keep the repair cycle live. The result depends on the shared boundary data
+rather than on a hidden presentation.
 
 That public description is the fixed point: a shared state produced by the
 allowed observer-network repairs, with no vote and no view from nowhere. The
@@ -242,6 +238,22 @@ accessible record structure. The Bell analysis stays within the standard
 quantum limits as well.
 Stable public facts appear when many local correction steps settle on one
 common answer.
+
+### Checkpoints and Continuation
+
+A self-reading patch also needs a reproducible snapshot that can be reread. At
+a checkpoint it preserves the observer-readable record algebra, the accessible
+state, the packets exposed at its external ports, and the semantic class of the
+future update law. It can also keep enough provenance to reproduce the check at
+the declared accuracy. A checkpoint is therefore more than a backup file. It
+says which visible state was preserved and what future experiment that state
+is prepared to continue.
+
+If two exact fixed-cutoff checkpoints agree on the record algebra, accessible
+state, external interfaces, and semantic future-law class, they give the same
+future observer-accessible probability law. This operational continuation is
+the physical content of identity available to the patch microarchitecture:
+future visible statistics agree under the same interface conditions.
 
 Error correction is a physical principle as well as a tool for engineers. It is the way the universe builds stable facts.
 
@@ -272,10 +284,10 @@ condition is correspondingly approximate, with corrections often organized in
 powers of $1/N$. That is enough to make classical spacetime look stable in
 the controlled large-$N$ settings where the code picture applies.
 
-OPH uses this theorem only when the code data are actually present. One needs a
-protected subspace, an error family, and a recovery operation. Bare overlap
-redundancy is a finite consistency code; quantum error-correction resilience is
-a stronger claim.
+In OPH, the protected subspace stores the public record, the error family
+describes local damage, and the recovery operation restores the record.
+Overlap redundancy supplies the finite consistency code; these three pieces
+supply its quantum error-correction resilience.
 
 ## 10.9 The Threshold Theorem
 

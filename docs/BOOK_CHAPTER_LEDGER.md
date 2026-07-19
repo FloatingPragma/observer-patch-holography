@@ -1,4 +1,4 @@
-# Appendix: Chapter-by-Chapter Field Notes and Symbol Guide
+# Book Chapter Ledger: Field Notes and Symbol Guide
 
 This appendix is a companion trail through the book. It has one purpose: make
 the technical vocabulary and the human lineage harder to miss. The main

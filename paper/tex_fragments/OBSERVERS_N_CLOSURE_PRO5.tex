@@ -1,0 +1,324 @@
+\paragraph{Direct public-record closure for total capacity.}\label{sec:n-closure}
+The global counterpart of the local \(P\)-closure begins with a supplied
+positive integer capacity-carrier dimension
+\[
+D=\dim\mathcal H_{{\rm cap},r,D},
+\qquad N=\log D.
+\]
+The carrier type is frozen in the branch contract. Boundary, total,
+edge-center, and other Hilbert spaces are not interchangeable. Let
+\(\widetilde\Omega_{r,D}\) be the terminal physical quotient fiber reached
+from the source-derived trial universe \(\mathfrak U_{r,D}\). Its members are
+repair-normal and pass the declared local, obstruction, and provenance gates.
+Membership contains no capacity-equals-\(D\) predicate.
+
+For \(q\in\widetilde\Omega_{r,D}\), observer \(O\) has a finite commutative
+record algebra \(\mathcal R_O(q)\) with atom set
+\(X_O(q)=\operatorname{At}\mathcal R_O(q)\). Each shared interface \(e\)
+has an atom set \(X_e(q)\) and a source-derived record-atom readout
+\[
+r_{Oe}:X_O(q)\longrightarrow X_e(q).
+\]
+This atom-level construction is used because the generic visible maps on full
+observer algebras need not be unital \(^*\)-homomorphisms in the direction
+required by an algebra equalizer. The compatible public global sections are
+\[
+X_{\rm pub}(q)=
+\left\{(x_O)_O:
+r_{Oe}(x_O)=r_{O'e}(x_{O'})
+\text{ on every shared interface}\right\},
+\qquad
+\mathcal R_{\rm pub}(q)=C(X_{\rm pub}(q)).
+\]
+
+\begin{theorem}[Public global sections]\label{thm:public-global-sections}
+For every finite observer record diagram, \(X_{\rm pub}(q)\) is finite and
+\(C(X_{\rm pub}(q))\) is a finite commutative unital \(C^*\)-algebra. Every
+isomorphism of observer record diagrams induces a bijection of public global
+sections and a \(^*\)-isomorphism of their function algebras.
+\end{theorem}
+
+\begin{proof}
+The public sections form the subset of the finite product
+\(\prod_OX_O(q)\) satisfying finitely many equalities. A diagram isomorphism
+transports the atom sets and interface maps, hence compatible tuples
+bijectively; pullback transports their function algebras.
+\end{proof}
+
+Only endogenously writable records count. Define
+\[
+X_{\rm reach}(q)=
+\{x\in X_{\rm pub}(q):x\text{ terminates an admissible endogenous semantic history}\}.
+\]
+The history may use declared source data, accepted repair, semantic
+continuation, and quotient-visible writes. It may not use a target record,
+supplied-capacity metadata, measured \(\Lambda\), or the electroweak bridge.
+The publicness policy is a frozen nonempty family
+\[
+\mathfrak P(q)\subseteq2^{\mathcal O(q)}\setminus\{\varnothing\}
+\]
+of authorized observer subsets. Collective, universal-local, and quorum
+publicness are distinct theorem branches.
+
+For every \(x\in X_{\rm reach}(q)\), authorized set
+\(A\in\mathfrak P(q)\), and allowed same-interface semantic continuation
+\(\kappa\), the source construction must emit a joint stochastic kernel
+\[
+K_{A,\kappa}(y\mid x),
+\qquad y\in Y_{A,\kappa},
+\]
+whose observer marginals agree with the local checkpoint packets. The joint
+kernel is an independent receipt. It cannot be manufactured from local
+marginals.
+
+\begin{theorem}[Local marginals do not determine public capacity]
+\label{thm:local-marginal-capacity-nogo}
+There are two binary-input joint checkpoint channels with identical
+observer-by-observer marginals and different public capacities.
+\end{theorem}
+
+\begin{proof}
+Let \(U\) be uniform. The channel
+\((Y_1,Y_2)=(U,U\oplus x)\) has uniform input-independent marginals, while
+the joint parity recovers \(x\). Independent uniform outputs have the same
+marginals and carry no information about \(x\). Thus the joint capacities are
+two and one, respectively.
+\end{proof}
+
+For a channel \(K\), write
+\(S_K(x)=\{y:K(y\mid x)>0\}\). A code
+\(C\subseteq X_{\rm reach}(q)\) is zero-error correctable for \(K\) when a
+decoder \(d_K\) satisfies
+\[
+K(d_K^{-1}(x)\mid x)=1
+\qquad(x\in C).
+\]
+
+\begin{theorem}[Support criterion and compound zero-error capacity]
+\label{thm:compound-public-capacity}
+A code is zero-error correctable for \(K\) exactly when the supports
+\(S_K(x)\), \(x\in C\), are pairwise disjoint. Let \(\mathfrak K(q)\)
+contain every authorized checkpoint channel and every declared finite
+composition. Define the compound confusability graph \(G_q\) on
+\(X_{\rm reach}(q)\) by joining \(x\ne x'\) whenever their output supports
+overlap for at least one \(K\in\mathfrak K(q)\). Then the exact public-record
+capacity is
+\[
+\boxed{M_0(q)=\alpha(G_q)},
+\]
+where \(\alpha\) is the graph independence number.
+\end{theorem}
+
+\begin{proof}
+A successful decoder cannot assign one output to two inputs, which proves the
+support criterion in one direction. Pairwise disjoint supports admit the
+decoder that returns the unique supporting input. A code valid for every
+declared channel is therefore exactly an independent set in the union of the
+channel confusability graphs.
+\end{proof}
+
+For exact indefinite continuation, replace each kernel by its support relation
+\(R_K=\{(x,y):K(y\mid x)>0\}\). Boolean relation composition generates at
+most \(2^{|X_{\rm reach}|^2}\) relations, so the support semigroup and its
+compound confusability graph close after finitely many steps.
+
+\begin{theorem}[Reversible fast branch]\label{cor:reversible-public-capacity}
+If every authorized continuation is a known injective deterministic map on
+\(X_{\rm reach}(q)\), then
+\[
+M_0(q)=|X_{\rm reach}(q)|.
+\]
+\end{theorem}
+
+\begin{proof}
+Injectivity keeps every pair of inputs distinguishable for every
+continuation, so \(G_q\) has no edges.
+\end{proof}
+
+Checkpoint invariance is not the capacity definition. A cyclic permutation
+of \(m\) labels has a one-dimensional fixed function algebra, while its
+inverse decodes all \(m\) labels. Thus a fixed-projector count can undercount
+the correctable capacity arbitrarily.
+
+For a frozen finite channel family or continuation horizon and tolerance
+\(\varepsilon\), let \(M_\varepsilon(q)\) be the largest code for which every
+declared channel has a decoder with worst-input error at most
+\(\varepsilon\).
+
+\begin{theorem}[Approximate-capacity robustness and zero-error discontinuity]
+\label{thm:capacity-robustness}
+If corresponding channel rows obey
+\[
+\sup_{K,x}d_{\rm TV}(K(\cdot\mid x),\widehat K(\cdot\mid x))\le\delta,
+\]
+then
+\[
+M_{\varepsilon+\delta}(\widehat{\mathfrak K})
+\ge M_\varepsilon(\mathfrak K).
+\]
+Zero-error capacity is discontinuous at every identity channel on more than
+one symbol: adding arbitrarily small full-support noise collapses \(M_0\) to
+one.
+\end{theorem}
+
+\begin{proof}
+Total-variation control changes the probability of each correct-decoding
+event by at most \(\delta\). For the second statement,
+\((1-\delta)I+\delta U\), with \(U\) full support, makes every pair of inputs
+confusable for every \(\delta>0\).
+\end{proof}
+
+The capacity carrier is an exact finite Hilbert space
+\(\mathcal H_{{\rm cap},r,D}\) of dimension \(D\). Each reachable public
+record class has a nonzero projection \(P_x\) on this carrier, and distinct
+records have orthogonal projections.
+
+\begin{theorem}[Carrier bound and saturation rigidity]
+\label{thm:public-capacity-carrier-bound}
+Every correctable public code \(C\) satisfies
+\[
+|C|\le D,
+\qquad
+\log M_\varepsilon(q)\le\log D=N.
+\]
+If \(M_0(q)=D\), the code projections are rank one and sum to the identity.
+\end{theorem}
+
+\begin{proof}
+The ranks of nonzero orthogonal projections add and their sum has rank at
+most \(D\). Equality with \(D\) codewords forces every rank to be one and
+the sum to have full rank.
+\end{proof}
+
+The primary finite readback remains set-valued:
+\[
+\boxed{
+\mathfrak F_{r,\varepsilon}(D)=
+\{M_\varepsilon(q):q\in\widetilde\Omega_{r,D}\}.
+}
+\]
+A scalar \(\widehat F_{r,\varepsilon}(D)\) exists exactly when the nonempty
+terminal fiber has one common defined value. The evaluator must distinguish
+an empty readback, an ambiguous readback, and a singleton scalar readback.
+Existential closure means \(D\in\mathfrak F_{r,0}(D)\); selector-free robust
+closure means
+\[
+\boxed{\mathfrak F_{r,0}(D)=\{D\}.}
+\]
+Equivalently, the unclosed kernel
+\[
+K_r(D,m)=
+|\{q\in\widetilde\Omega_{r,D}:M_0(q)=m\}|
+\]
+has support only at \(m=D\). One saturated branch is insufficient when the
+terminal fiber is ambiguous.
+
+The full capacity packet consists of observer lineage, record atoms,
+interface maps, reachable public sections, publicness policy, global kernels,
+and carrier projections. An isomorphism preserving that packet transports
+every exact confusability edge, approximate decoder error, and projection
+rank. Hence \(M_\varepsilon\) is implementation invariant under packet
+isomorphism.
+
+Once scalarized, the active map
+\(f(D)=\widehat F_{r,0}(D)\) is deflationary. It cannot attract a positive
+fixed point from below. If \(f\) is total on a declared finite admissible
+chain, monotone, and deflationary, iteration from its top element stabilizes
+at the greatest fixed point. This is a conditional order theorem, not a
+uniqueness or cutoff-independence theorem. The identity family
+\(f(D)=D\) fixes every dimension; an erasure family \(f(D)=1\) fixes only the
+bottom. Both satisfy monotonicity and deflation. A physical principle must
+therefore select a nontrivial cutoff-independent zero of the capacity slack.
+
+Capacity extension and regulator refinement are distinct. For
+\(D\le D'\), an injection of reachable records that reflects confusability,
+\[
+e_{DD'}(x)\sim_{G_{D'}}e_{DD'}(x')
+\Longrightarrow x\sim_{G_D}x',
+\]
+maps every coarse independent set to a fine independent set and gives
+\(M_0(D)\le M_0(D')\). At fixed \(D\), refinement injections with the same
+property make \(M_{0,r}(D)\) a nondecreasing integer bounded by \(D\), hence
+eventually constant along each cofinal sequence.
+
+For regions \(A,B\) sewn along public seam \(S\), exact public records form
+the fiber product
+\[
+X_{A\cup B}=X_A\times_{X_S}X_B,
+\qquad
+|X_{A\cup B}|=
+\sum_{z\in X_S}|r_A^{-1}(z)|\,|r_B^{-1}(z)|.
+\]
+This gives an exact CSP, tensor-network, or model-counting route on the
+reversible branch. A cosmological conclusion additionally requires an exact
+transfer recurrence, exact fiber-product recursion, or a seam theorem with a
+certified subleading term.
+
+Define the finite-size slack
+\[
+\boxed{s_r(D)=\log D-\log M_{0,r}(D).}
+\]
+If \(\limsup_{D\to\infty}\log M_0(D)/\log D<1\), closure is excluded at all
+sufficiently large dimensions. Unit asymptotic density is still insufficient:
+\(M(D)=D\) and \(M(D)=D-1\) have the same limiting density but opposite
+fixed-point behavior. Full physical \(N\)-closure requires a source-derived
+finite-size law proving
+\[
+s(D_\star)=0,
+\qquad s(D)>0\quad(D\ne D_\star)
+\]
+on the declared physical domain, or an equally explicit physical selector.
+
+Two independent physical identifications follow only after robust direct
+closure. The receipt \textsc{HORIZON-RECORD-SATURATION} identifies the same
+capacity carrier with the de Sitter horizon record:
+\[
+N_\star=\log D_\star=\frac{A_{\rm dS}}{4\ell_\star^2},
+\qquad
+A_{\rm dS}=\frac{12\pi}{\Lambda}
+\quad\Longrightarrow\quad
+\boxed{\Lambda\ell_\star^2=\frac{3\pi}{N_\star}}.
+\]
+Separately, \textsc{COMMON-EW-LOAD-CARRIER} is a positive, unital,
+refinement-natural identification
+\[
+\Xi_r:\mathcal L_{{\rm screen},r}\longrightarrow
+\mathcal L_{{\rm EW},r}.
+\]
+Given the independent screen-sieve and D10 source laws,
+\[
+\Gamma_{\rm scr}=\frac{P}{12}\log\frac{N_\star}{\pi},
+\qquad
+\log\frac{E_{\rm cell}}v=\frac{\pi}{2\alpha_U(P)},
+\qquad
+\Xi_r(\Gamma_{\rm scr})=\log\frac{E_{\rm cell}}v,
+\]
+it gives the conditional Higgs/electroweak residual and coordinate
+\[
+\boxed{
+R_{\rm EW}=
+\alpha_U(P)\log\frac{N_\star}{\pi}-\frac{6\pi}{P}=0,
+\qquad
+N_{\rm bridge}=
+\pi\exp\!\left[\frac{6\pi}{P\alpha_U(P)}\right].
+}
+\]
+Neither physical identification constructs the public-record map. The
+independently frozen operational-resolution residual
+\[
+R_\rho=\log M_0-\frac{\pi}{\rho_{\rm op}^2}
+\]
+is likewise a downstream test and never a producer definition.
+
+The current theorem status is therefore precise. The finite global-section,
+correctable-code, compound-capacity, approximate-robustness, carrier-bound,
+scalarization, order, extension, refinement, and sewing implications are
+closed. The missing physical objects are
+\textsc{RECORD-ATOM-RESTRICTION},
+\textsc{PUBLIC-RECORD-REACHABILITY}, the frozen publicness policy,
+\textsc{GLOBAL-PUBLIC-CHECKPOINT-COUPLING},
+\textsc{PUBLIC-RECORD-BOUNDARY-REPRESENTATION}, a whole-fiber scalar producer,
+\textsc{NO-NEW-CONFUSABILITY} extension/refinement packets, the finite-size
+slack law with one physical zero, \textsc{HORIZON-RECORD-SATURATION}, and
+\textsc{COMMON-EW-LOAD-CARRIER}. No QCD or hadronic backend is a dependency of
+this program.

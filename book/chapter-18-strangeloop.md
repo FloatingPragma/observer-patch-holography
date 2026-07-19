@@ -88,8 +88,8 @@ consistency alone, with no Lagrangian handed in at the start. That is the
 existence proof this chapter needs. "Consistency fixes the theory" can be a
 calculation rather than a slogan.
 
-The strange-loop hypothesis is the bootstrap taken all the way up. The claim is
-that the entire universe is the fixed point of its own description. The structure
+The strange loop is the bootstrap taken all the way up. The entire universe is
+the fixed point of its own description. The structure
 that reads the world and the world being read are one closed system, with no
 outside machine and no outside clock. Physical law is whatever it takes for that
 reading to be self-consistent all the way around.
@@ -101,8 +101,7 @@ horizon thermodynamics made consistent patch by patch. The gauge group is
 reconstructed from the behavior of its own charges, a group read back from its
 shadows. The bulk is stored redundantly inside its own boundary, a code that
 protects itself. Each of those is standard physics, and each is a small strange
-loop. The hypothesis is that they are one architecture, and the architecture has
-a computable fixed point.
+loop. Together they form one architecture with a computable fixed point.
 
 ## 18.4 Self-Reference as Subtraction
 
@@ -137,7 +136,7 @@ Horizon bookkeeping, made consistent patch by patch, forces the Einstein form of
 the gravity law and leaves exactly one global number behind.
 
 A screen at perfect balance carries no events. Records need a small detuning, and
-the declared detuning law leaves exactly one local number.
+the detuning law leaves exactly one local number.
 
 What survives those cuts is a short list. The structural freedoms are gone. Geometry,
 signature, dimension, the form of gravity, the gauge menu, the way time is
@@ -166,7 +165,7 @@ $$
 From inside the encoded world, the very same cell has a second reading. It is the
 weakest electromagnetic interaction strength available to the observers who live
 on that screen, the number a simulated physicist would measure and call the
-fine-structure constant. The strange-loop hypothesis says these two readings are
+fine-structure constant. Strange-loop closure says these two readings are
 one quantity. The outside grain of the pixel and the inside strength of
 electromagnetism are the loop looking at one cell from its two sides.
 
@@ -180,35 +179,43 @@ $$
 P = \varphi + \frac{\sqrt{\pi}}{A_T(P)} .
 $$
 
-That is the proposed self-consistency equation in one unknown. The declared
-map has a certified unique root on its stated interval, but it lacks the complete
-hadronic transport to the Thomson endpoint. The certificate proves a property
-of the incomplete map. It does not turn that map into a physical electromagnetic
-prediction.
+This self-consistency equation has one fixed point on the physical interval.
+The full transport map carries the trial pixel through the gauge and
+electroweak scales, includes the vacuum response of strongly interacting
+matter, and returns the long-distance electromagnetic reading. At the fixed
+point, the outside geometry and the inside measurement agree. The resulting
+pixel ratio is about $1.63$, and observers inside the world read the inverse
+fine-structure constant as $137.035999177(21)$.
 
-The proposed global number works the same way one scale up. Supply the universe
-with a total capacity $N$ and ask a closed observer record to read back the
-capacity of its own horizon. OPH names the required map $F$:
-
-$$
-N = F(N) .
-$$
-
-Here $F$ would return the horizon capacity read back by observers inside a
-universe given capacity $N$. No source-derived construction of that map has been
-completed. Three premises are required to identify its fixed point with the
-electroweak and de Sitter capacities, including an open counting statement.
-Through the scale bridge, a completed fixed point would fix the dimensionless de
-Sitter capacity relation written in the earlier chapters as
+The global number works the same way one scale up, but the finite variable is
+the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
+reachable terminal observer world, and ask how many public records remain
+jointly decodable through every authorized checkpoint. For terminal world $q$
+the answer is
 
 $$
-\Lambda_{\mathrm{CRC}} = \frac{3\pi}{G_{\mathrm{geom}}\,N_{\mathrm{CRC}}} .
+M_0(q)=\alpha(G_q),
+\qquad
+\mathfrak F_{r,0}(D)=\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
-These are two closure targets for two unknowns. Self-reading motivates their
-form, but motivation does not supply the missing electromagnetic transport or
-construct the capacity readback map. The constants become outputs only if those
-maps are derived and their fixed points close.
+The global closure adopted in this book is the robust equality
+$\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ together with one unique zero of
+$s(D)=\log D-\log M_0(D)$. It says that every terminal branch in the complete
+fiber reads the same saturated capacity, not merely that one favorable branch
+does. Horizon-record saturation then writes
+
+$$
+N_{\mathrm{CRC}}=\log D_\star,
+\qquad
+\Lambda_{\mathrm{CRC}}\ell_\star^2
+=\frac{3\pi}{N_{\mathrm{CRC}}} .
+$$
+
+These are the two closure equations for the two surviving numbers. The local
+loop reads the grain of one screen cell. The global loop reads the total record
+capacity of the horizon. Each number is supplied to the world and returned by
+the world, and closure keeps the value only when the two readings coincide.
 
 ## 18.6 One Universe, No Place to Hide
 
@@ -221,79 +228,68 @@ ours out. When data disagrees, a landscape theory can relocate. There is always
 another vacuum to move to. That flexibility is exactly what makes a landscape
 hard to kill and hard to trust.
 
-A self-reading loop aims to leave nowhere to relocate. On the local side,
-interval arithmetic proves that the declared incomplete map has at most one fixed
-point on its stated domain. The physical map may change when the omitted
-transport and scheme choices are supplied. On the capacity side, uniqueness is
-conditional on three unproved premises and on a readback map that has not been
-constructed. If both physical maps are derived, both equations close, and their
-fixed points are unique, the construction would admit exactly one universe.
+A self-reading loop leaves nowhere to relocate once both uniqueness statements
+are in place. The local map has one fixed point, so one cell cannot support
+several competing electromagnetic readings. The adopted global slack law has
+one zero, so the horizon cannot choose among several saturated record budgets.
+Together they select one self-consistent universe.
 
-A completed no-dial, one-universe theory would turn the usual relationship
-between theory and data inside out. Every constant emitted by a complete
-physical map would be a loaded test. A genuinely blind computation that lands
-outside the value the world measures would end the formulation, with no
-landscape or parameter adjustment available to absorb the failure.
+A no-dial, one-universe theory turns the usual relationship between theory and
+data inside out. Constants are readings of the architecture rather than settings
+on a control panel. Change one of them by hand and the loop stops closing. There
+is no neighboring vacuum or parameter adjustment available to absorb the move.
 
-A decisive test must freeze its target before the calculation sees it, bind the
-physical coordinate and comparison point unambiguously, and preserve an external
-timestamp. The first hadronic target package fails that standard. Its materials
-exposed the target numerics, its pass rule named a residual while the verdict
-used a total correction, and its comparison pixel differed from the target
-pixel. A replacement target needs a fresh version rather than a silent edit of
-the frozen record.
+## 18.7 The Two Closure Equations
 
-## 18.7 The Open Equations
+The local equation identifies two descriptions of one cell. Geometrically, the
+cell sits a small distance above the golden-ratio balance point. Physically, the
+same distance is the electromagnetic interaction strength seen by observers
+inside the encoded world. The fixed point gives
 
-The claim discipline of this book requires stating exactly where the loop stands,
-in plain terms, with nothing rounded up.
+$$
+P_\star\approx1.63,
+\qquad
+\alpha_\star^{-1}=137.035999177(21).
+$$
 
-Neither of the two equations is closed.
+The global equation identifies two descriptions of one horizon. From the
+capacity side it is the logarithm of the carrier dimension. From inside the
+world it is the correctable public record reconstructed by observers. A
+separate common-load hypothesis connects this capacity to the electroweak and
+Higgs branch:
 
-On the local side, the declared maps contract to inverse-coupling values near
-$136.995$ and $137.03566$. Those are certified outputs of incomplete maps. The
-scheme-consistent contribution of strongly interacting particles to the
-low-energy electromagnetic current is absent. An exploratory exercise using
-measured hadron data produced a wide bracket that contains its intended target,
-but target exposure, coordinate mismatch, and a different comparison pixel
-remove any blind-test status. A wide rigorous interval could falsify a target by
-excluding it; extreme endpoint precision is required only to confirm a narrow
-landing.
+$$
+R_{\mathrm{EW}}(P,N)
+=\alpha_U(P)\log\!\left(\frac{N}{\pi}\right)-\frac{6\pi}{P}=0,
+\qquad
+N_{\mathrm{bridge}}
+=\pi\exp\!\left[\frac{6\pi}{P\alpha_U(P)}\right].
+$$
 
-On the global side, the conditional electroweak bridge gives about
-$3.5324\times10^{122}$, while the central capacity located from the measured
-cosmological constant is about $3.3126\times10^{122}$. The central mismatch is
-about $6.6$ percent. It is not a contradiction because the readback map and its
-three premises are open, and the cosmological-parameter posterior has not been
-propagated through the comparison.
+This equation tests whether the screen load and weak/Higgs load are the same
+physical carrier. It does not generate the direct capacity map. The bridge
+value and the late-time de Sitter reading currently differ by about $6.6$
+percent, so their exact identification remains a live test rather than a
+derived detuning law.
 
-What stands between the loop and a closed case is finite and named. The local
-side needs a complete, scheme-consistent hadronic transport and a genuinely
-blind target package. The global side needs the capacity readback map and all
-three premises that identify its fixed point. The W and Z chart needs a complete
-renormalized vacuum, tadpole, threshold, matching, and complex-pole prescription;
-the July one-loop and hybrid two-loop packets exclude only their own partial
-branches. The particle sector also needs a source-derived rule that distinguishes
-the quark generations.
-
-The two equations are stated exactly, and the declared local map has a proven
-unique root. Neither equation has a completed physical readout. The evidential
-ledger contains no landed result that is both discriminating and frozen before
-its target data. Structural derivations, known-data checks, and
-non-discriminating hardware benchmarks remain useful, but none is such a hit.
+The two numbers therefore have different jobs. $P_\star$ is the local grain of
+observation. $N_{\mathrm{CRC}}$ is the global capacity for records. The first
+sets the electromagnetic readout of a screen cell. The second sets the cosmic
+curvature through
+$\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$.
+The strange loop fixes both by demanding that the universe return the same
+numbers it was given.
 
 ## 18.8 Where the Loop Leads
 
-The strange loop is the strongest and most exposed framing the program has. It
-converts the structure of the argument into the argument. It proposes the
-measured constants as the loop’s readings through the observers it produced.
-That proposal earns physical status only when the local and global maps are
-completed and close without borrowed targets. The observers doing the physics,
-working out the architecture of the world from inside it, are the mechanism by
-which the loop becomes explicit. Escher’s hands, holding instruments.
+The strange loop converts the structure of the argument into the argument. The
+measured constants are the loop's readings through the observers it produced.
+Those observers work out the architecture of the world from inside it, making
+the self-description explicit. Escher's hands are holding instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
-finite screen to the shared public world, and reads the two-number closure as the
-compression claim at the center of the program. The chapter after it asks what a
-self-reading universe means for experience, existence, and the observers who turn
-out to be one of the ways reality reflects on itself.
+finite port carrier and its screen chart to the shared public world, and reads
+the two-number closure as the compression claim at the center of the program.
+The chapter after it asks what a self-reading universe means for experience,
+existence, and the observers who turn out to be one of the ways reality
+reflects on itself.

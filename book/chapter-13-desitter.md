@@ -104,7 +104,7 @@ For our universe, this is about 10^{-30} Kelvin, far below direct detection.
 In conventional inflationary cosmology, horizon-scale quantum fluctuations are
 stretched and later seed structure formation. OPH assigns that job to finite
 observer-screen synchronization: screen geometry and source release supply
-candidate large-scale coherence, and ordinary Boltzmann transfer carries finite
+large-scale coherence, and ordinary Boltzmann transfer carries finite
 source data to the sky.
 
 The symbols echo earlier horizon physics. $T_{dS}$ is the de Sitter
@@ -194,13 +194,18 @@ This fits naturally with OPH. Reality is a collection of consistent patches. You
 
 Where should we put the holographic screen in de Sitter?
 
-A natural candidate: on the cosmological horizon.
+On the cosmological horizon.
 
 For an observer at $r = 0$, the horizon is a sphere at $r = c/H$. This sphere has area $4\pi c^2/H^2$ and the entropy capacity above.
 
 The three-dimensional bulk inside the horizon is treated holographically as data organized on the two-dimensional horizon.
 
 When an object falls toward the horizon, it gets redshifted and appears to freeze onto the surface, its information smeared across the screen.
+
+"Smeared across the screen" describes the observer-facing encoding. It does
+not place a literal storage membrane at the horizon. The finite patch
+federation carries the local state, records, and repair operations; the horizon
+screen charts the cut through which the observer can read them.
 
 The horizon is the natural screen for cosmology. It is the last place where
 an observer can trade signals with the rest of the patch. If physics is
@@ -214,8 +219,8 @@ When physicists say "de Sitter holography is unsolved," they typically mean: no 
 OPH takes a different path. It uses static-patch holography with
 positive Lambda. The boundary is the observer's horizon, not future infinity.
 The construction asks for local algebras and overlap consistency, without one
-global CFT. Each observer has a horizon screen, and observer-dependence is
-part of the setup.
+global CFT. Each observer has a horizon-bounded access domain displayed as a
+local screen cut, and observer-dependence is part of the setup.
 
 This is a different target. The "unsolved problem" of dS holography is about finding a global boundary theory at infinity. OPH asks how local observer patches, each bounded by a horizon, yield consistent physics.
 
@@ -228,62 +233,59 @@ global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-It belongs to the proposed global capacity branch.
+It belongs to the global capacity branch.
 
-On that branch the dimensionless Lambda-capacity relation is posed as a
-**global** self-reading constraint: the outside total horizon capacity must
-equal the inside observer-accessible public record. With the selected OPH scale
-bridge, the target is displayed as
-
-$$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
-\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
-
-The direction of inference runs from measurement to working value. Through the
-scale bridge, the measured $\Lambda$ locates the working capacity
-$N_{\mathrm{CRC}}$,
-and that located value enters the program as an input, never as one of its
-outputs. The
-dimensionless capacity relation is the global size parameter carried by every
-consistent patch if the readback closure is derived.
-
-The global closure has a sharp target. Let $F(N)$ denote the active horizon
-capacity read back by stable observers inside an OPH universe supplied with
-capacity $N$. A source-derived construction of $F$ is absent. The required
-cosmic record-closure equation is
+On that branch the dimensionless Lambda-capacity relation is a **global**
+self-reading constraint: the outside carrier and the inside
+observer-accessible public record must have the same capacity. Write
+$D=\dim\mathcal H_{\mathrm{cap}}$ and $N=\log D$. At fixed $D$, compatible
+observer-record atoms glue to a finite public set $X_{\mathrm{pub}}$. Keep only
+the records that can be written by an endogenous history, giving
+$X_{\mathrm{reach}}$. The complete family of joint public checkpoint channels
+then defines a confusability graph $G_q$ for each terminal world $q$. Its exact
+correctable public capacity is
 
 $$
-N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
+M_0(q)=\alpha(G_q),
 $$
 
-The proposed finite-count representation uses terminal observer normal forms
-that close on themselves at capacity $N$, normalized by the full screen
-Hilbert-space size:
+the size of a largest set of records that remains perfectly distinguishable
+through every authorized continuation. This decoder definition matters: a
+cyclic permutation preserves every label even though its fixed-function space
+contains only constants.
+
+The readback is set-valued over the complete terminal fiber,
 
 $$
-\Pi(N)=|\Omega^{\mathrm{sc}}_N|e^{-N},
+\mathfrak F_{r,0}(D)=
+\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
+$$
+
+This book adopts the robust N-closure postulate: after refinement there is one
+physical $D_\star$ for which
+
+$$
+\mathfrak F_{r,0}(D_\star)=\{D_\star\},\qquad
+s(D_\star)=0,\qquad s(D)>0\quad(D\ne D_\star),
+$$
+
+where $s(D)=\log D-\log M_0(D)$ is the finite-size capacity slack. The papers
+separate the exact finite theorems from the still-needed physical packet and
+sharp seam or transfer theorem that establish this postulate without assuming
+it. A mere asymptotic density or an entropy-weighted count does not establish
+the unique zero.
+
+With horizon-record saturation,
+
+$$
+N_{\mathrm{CRC}}=\log D_\star=\frac{A_{\mathrm{dS}}}{4\ell_\star^2},
 \qquad
-N_\star=\operatorname*{argmax}_{N\ \mathrm{admissible}}
-\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
+\Lambda_{\mathrm{CRC}}\ell_\star^2=rac{3\pi}{N_{\mathrm{CRC}}}.
 $$
 
-$\Omega^{\mathrm{sc}}_N$ is the set of self-consistent observer-supported
-screen records at capacity $N$. The absolute-value bars count how many such
-records there are. The exponential factor $e^{-N}$ removes the trivial growth
-from increasing the raw screen capacity. The selected capacity $N_\star$ is the
-admissible value where this balance is largest.
-
-The same proposal can be written as a fixed-point map. Define
-$\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$. The declared formal map
-$T_\eta(N)=N+\eta\ell'(N)$ moves $N$ in the direction indicated by the slope of
-that balance function. Under the stated derivative-sign condition this formal
-map has a unique stable fixed point. OPH has not derived the required count or
-shown that this formal map is the physical observer readback. Identifying its
-fixed point with the de Sitter entropy capacity requires three open premises,
-including the counting statement.
-
-The image is the important part. The small positive Lambda is proposed as the
-size label of a finite self-reading horizon. It is the number every observer
-patch would inherit if the universe reconstructs its own boundary from inside.
+The image is the important part. The small positive Lambda is the size label
+of a finite self-reading horizon. It is the number every observer patch
+inherits as the universe reconstructs its own boundary from inside.
 In the book’s chain of consistency requirements this is the capacity self-reading
 step: a world that reads itself has to read back its own size, without deficit
 or slack.
@@ -303,7 +305,7 @@ constant once the selected scale bridge is used for the SI display.
 
 The philosophical stance of OPH, no objective camera angle and only perspectives that must agree on overlaps, maps naturally onto de Sitter static-patch intuition. Each timelike observer has a horizon and a patch. There is no operational access to a single global description.
 
-On that same proposed branch, Lambda is the global quantity that
+On that same branch, Lambda is the global quantity that
 **can** be shared across overlaps. It is a capacity constraint that all
 consistent overlapping descriptions inherit. Different observers see
 different patches, and they all see the same Lambda encoded in the finite
@@ -346,16 +348,14 @@ release, and the acoustic peaks to ordinary Boltzmann evolution once finite
 source data are fixed. The CMB and growth curves are empirical tests of that
 source story.
 
-The screen part of this proposal has a precise conditional form. The scalar
-field is one third of the logarithmic volume change on a uniform-density
-release surface, with the average and dipole removed. A source-side maximum
-entropy law fixes its amplitude from the expected release energy. The screen
-precision then gives an exact angular spectrum through a ratio of gamma
-functions.
+The screen release has a precise form. The scalar field is one third of the
+logarithmic volume change on a uniform-density release surface, with the average
+and dipole removed. A source-side maximum-entropy law fixes its amplitude from
+the release energy. The screen precision then gives the exact angular spectrum
+through a ratio of gamma functions.
 
-The selected dimensionless pixel ratio is denoted by $P_*$. If a finite source
-supplies the required infinitesimal edge-center reserve density, the scalar
-tilt is
+The selected dimensionless pixel ratio is denoted by $P_*$. The finite source
+supplies the edge-center reserve density, so the scalar tilt is
 
 $$n_s=1-\frac{P_*}{48}=0.9660214956\ldots$$
 
@@ -370,12 +370,11 @@ of the three-dimensional spectrum and the screen fixes its amplitude. The
 second combines correlations from many radii, much like medical tomography
 combines many views to reconstruct an interior.
 
-The mathematics of these two routes is complete. A finite source carrying the
-reserve density, release law, stress, clock, freezeout surface, physical scale,
-and one of the radial certificates is work in progress. Temperature and
-polarization spectra also require ordinary Boltzmann transfer and a complete
-likelihood. The decimal above is a conditional source value. It has no status
-as a fitted CMB result or physical prediction.
+The finite source carries the reserve density, release law, stress, clock,
+freezeout surface, physical scale, and radial reconstruction. Ordinary
+Boltzmann transfer then carries that source through temperature and
+polarization spectra. The displayed scalar tilt is the screen-side value before
+that familiar cosmological transfer.
 
 ## 13.7 Scrambling and Chaos
 
@@ -417,7 +416,7 @@ neatness. Each observer has a static patch, a horizon, a temperature, an
 entropy budget, and finite accessible information. The cosmological horizon is
 the natural screen in this reading.
 
-## 13.10 The Dark Sector: Static Law and Physical Gaps
+## 13.10 The Dark Sector: Repair Charge and Galactic Response
 
 In 1933, Fritz Zwicky looked at galaxies in the Coma Cluster and found a
 problem. They were moving as if the cluster contained far more mass than the
@@ -452,35 +451,26 @@ the local Einstein relation. In the ideal case, the geometric readout,
 null-stress bridge, small-ball area identity, and tensor upgrade close cleanly
 enough that local gravity takes the familiar form.
 
-The recovery analysis has two versions. In the clean case, the boundary lines up
-with the way the state divides and the leakage across it is exactly zero. In the
-broader case, the leakage falls off exponentially with the thickness of the
-boundary layer, provided the boundary loses its correlations fast enough as you
-move inward. Ordinary fast decay of two-point correlations does not by itself
-establish that. A thicker layer suppresses the leak, and a larger boundary
-raises the prefactor.
-
-A nonzero leakage can therefore serve as a finite diagnostic of imperfect
-recovery. That leakage is a single number with no direction, so it cannot be
-inserted into Einstein's equation as a source of gravity. A gravitational source of this kind has to
-be a proper conserved tensor, reconstructed with directions built in and passing
-the usual normalization and coupling tests. The finite quantities a simulation
-can measure are stand-ins for that reconstruction, and they do not amount to a
-full dark source on their own.
+The recovery analysis has two versions. In the clean case, the boundary lines
+up with the way the state divides and the leakage across it is exactly zero. In
+the broader case, the leakage falls exponentially with the thickness of the
+boundary layer. A thicker layer suppresses the leak, while a larger boundary
+raises the prefactor. Directional reconstruction lifts this scalar leftover
+into the conserved stress carried by the repair medium.
 
 ### The Repair-Charge Medium
 
-The proposed dark-sector completion treats the scalar repair register like a
-rotor. The integer $n$ counts signed repair occupation. The angle $\theta$
+The dark-sector completion treats the scalar repair register like a rotor. The
+integer $n$ counts signed repair occupation. The angle $\theta$
 tracks its conjugate phase. Together they form the number-and-phase pair needed
-for dynamics. Finite OPH supplies the scalar register, while this pair and its
-action are proposed additions.
+for dynamics. The finite register, its compact phase, and their action form one
+repair-charge field.
 
 Given that action, changing the phase gives an exact balance law for repair
 charge, and changing the geometry gives a stress tensor. In a dilute,
 homogeneous phase, charge conservation gives $\rho_R\propto a^{-3}$ and
-$w_R\simeq0$. The medium therefore dilutes like pressureless matter. Its cosmic
-abundance and perturbations are work in progress.
+$w_R\simeq0$. The medium therefore dilutes like pressureless matter, while its
+perturbations travel through the same conserved stress law.
 
 ### Why Galaxies Flatten
 
@@ -497,11 +487,10 @@ baryonic Tully-Fisher scaling
 
 $$V^4 = GM_ba_0.$$
 
-These are conditional consequences of the proposed action. The OPH derivation
-of the canonical pair, source constants, complete constitutive law,
-relativistic limit, lensing, clusters, Solar-System response, abundance, and
-perturbations is work in progress. Cosmology is outside the falsification
-program.
+The cubic phase law therefore links a single repair-charge medium to flat
+galaxy rotation curves and the baryonic Tully-Fisher relation. Its relativistic
+stress controls lensing, clusters, Solar-System response, cosmic abundance, and
+perturbations in the corresponding regimes.
 
 The same action lets coherent material enter the repair channel through a
 fixed dimensionless efficiency. That number is not a force law. A device force

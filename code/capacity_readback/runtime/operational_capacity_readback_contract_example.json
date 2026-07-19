@@ -1,0 +1,65 @@
+{
+  "artifact": "independent_operational_rho_estimator_example_v2",
+  "status": "SCHEMA_ONLY",
+  "physical_content": false,
+  "defines_F": false,
+  "moves_cl7": false,
+  "cl7_status": "open",
+  "capacity_input_accessed_by_estimator": false,
+  "source_ancestry": [
+    "declared synthetic record distributions"
+  ],
+  "epsilon_read": "1/10",
+  "scale_errors": {
+    "1/10": "1/2",
+    "1/5": "1/50",
+    "2/5": "0"
+  },
+  "rho_fiber_result": {
+    "status": "PASS",
+    "rho_op": "1/5",
+    "rho_fiber_diameter": "0",
+    "defines_F": false
+  },
+  "ambiguous_rho_control": {
+    "status": "AMBIGUOUS_RHO_ESTIMATE",
+    "rho_fiber_diameter": "1/5",
+    "rho_values": [
+      "1/5",
+      "2/5"
+    ]
+  },
+  "incomplete_fiber_control": {
+    "status": "INCOMPLETE_TERMINAL_FIBER"
+  },
+  "independent_capacity_comparison": {
+    "status": "PASS",
+    "defines_F": false,
+    "code_capacity_expression": "log(4)",
+    "rho_capacity_expression": "25*pi",
+    "area_record_residual_expression": "log(4) - 25*pi",
+    "area_record_residual_approximate": -77.15352197862494
+  },
+  "rho_from_capacity_negative_control": {
+    "status": "RHO_DERIVED_FROM_CAPACITY"
+  },
+  "fail_states": [
+    "AMBIGUOUS_RHO_ESTIMATE",
+    "CAPACITY_USED_TO_SELECT_RHO_PROTOCOL",
+    "INCOMPLETE_TERMINAL_FIBER",
+    "NON_CANONICAL_READBACK_PROTOCOL",
+    "NO_OPERATIONAL_RHO_ESTIMATE",
+    "NO_SCALE_CALIBRATION",
+    "NO_STABLE_OBSERVER_SECTOR",
+    "RHO_DERIVED_FROM_CAPACITY",
+    "TARGET_TAINTED"
+  ],
+  "open_estimator_gates": [
+    "quotient-derived scale tests reachable from the committed trial family",
+    "complete terminal-fiber and stable-observer registries",
+    "canonical protocol uniqueness or equivalence theorem",
+    "constructor independence from capacity and target labels",
+    "physical area-law scale calibration",
+    "scale-covariant refinement"
+  ]
+}

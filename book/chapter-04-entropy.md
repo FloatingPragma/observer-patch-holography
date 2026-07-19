@@ -324,7 +324,9 @@ allowed to live.
 
 The OPH connection is direct.
 
-Each observer has a finite patch on the holographic screen. In this screen-language summary, the entropy budget is tied to the patch area:
+Each observer has finite access displayed by a support patch on the holographic
+screen. In this screen-language summary, the entropy budget is tied to the
+support area:
 
 $$S(P) \leq \frac{\text{Area}(P)}{4\ell_P^2}$$
 

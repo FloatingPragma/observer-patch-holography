@@ -263,7 +263,9 @@ Particles are field excitations, ripples in an underlying substrate. An electron
 
 From the information-theoretic view, we see the ultimate revenge of Aristotle. The universe is best read as structured information-relations, distinctions, and quantum degrees of freedom, not as little hard atoms alone.
 
-What we call "particles" are patterns of information on the holographic screen. The pattern is real; the "stuff" is emergent.
+What we call "particles" are stable patterns in the finite patch federation,
+displayed through the holographic screen chart. The pattern is real; the
+classical idea of solid "stuff" is emergent.
 
 ## 2.8 Pragmatism: The Survival Hint
 
@@ -405,12 +407,14 @@ OPH supports a different perspective. Computation becomes a serious candidate
 organizing picture for reality. A conventional simulation evolves a surrogate
 history. OPH points to a constrained fixed-point computation: observer patches,
 records, overlaps, repair rules, branch elimination, and clock closure settle
-into a settled form whose internal readout is history. The screen is a quantum
-system processing information according to gauge constraints. Observers are
-patterns within that computation. The laws of physics are the rules that allow
-consistent information processing across patches.
+into a settled form whose internal readout is history. At fixed cutoff, the
+finite patch federation is the self-reading quantum system. The screen is the
+observer-facing chart of its repaired visible data. Observers are operational
+patterns with local state, readback, records, boundary behavior, repair moves,
+and checkpoint continuation inside that computation. The laws of physics are
+the rules that allow consistent information processing across patches.
 
-Computation is used here as the proposed organizing picture for reality, not
+Computation is used here as the organizing picture for reality, not
 as a loose metaphor.
 
 ### The Loop That Closes Through Observers
@@ -444,9 +448,13 @@ the same kind of observer-readable closure.
 One concrete regulator chart uses quantum link models. Imagine a triangulated
 screen where each edge carries a small quantum system. Rules at each vertex
 constrain which configurations are allowed, and maximum entropy selects the
-state. The implementation surface is a federation of finite patches, with the screen
-acting as an observer-facing geometry chart. In that regulated model,
-spacetime, particles, and observers all emerge as outputs.
+state. The implementation surface is a federation of finite patches, with the
+screen acting as an observer-facing geometry chart. At fixed cutoff, the
+construction gives exact finite bookkeeping. Refinement turns the same read,
+compare, repair, and record structure into the smooth description used at
+larger scales. Spacetime, particles, and observers therefore appear as outputs
+of the shared visible quotient rather than contents stored on a literal
+spherical shell.
 
 The simulation principle asked the right question in the wrong frame. OPH gives
 the sharper version a physical direction: what fixed-point computation has this

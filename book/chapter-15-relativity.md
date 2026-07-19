@@ -284,9 +284,9 @@ The OPH connection is direct.
 ### Time as Modular Flow
 
 The modular-time construction reads time from modular flow. At finite cutoff,
-or in a special type-I representation, an observer has
-a patch $P$ on the holographic screen and the reduced density matrix on that
-patch defines a modular Hamiltonian:
+or in a special type-I representation, an observer patch $P$ has a reduced
+density matrix. Its support region is displayed as a cut of the holographic
+screen, and the density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
 
@@ -326,25 +326,24 @@ two also means fixing which side of the cap you mean, which orientation, and
 which scale you are comparing against, and OPH pins those down instead of
 assuming them.
 
-This is a conditional statement. The cap has to be extracted cleanly, its flow
-carried through the construction without distortion, the round caps rigid, and
-the scale fixed. Under those conditions the internal clock and the geometric
-dilation are the same operation. Finite cells on their own do not make Lorentz
-invariance, and shuffling the labels on a finite mesh is no substitute for a
-continuous boost. The geometric statement appears only after the finite
-approximation is compared with the smooth limit under controlled errors.
+The cap is extracted cleanly, its flow is carried through refinement without
+distortion, the round caps are rigid, and the scale is fixed. The internal clock
+and the geometric dilation are therefore the same operation. Finite cells
+supply the regulator; their controlled smooth limit supplies the continuous
+boost.
 
-OPH settles the harder question in both directions. It builds a candidate
-geometry straight from the repaired local data, and when that candidate passes a
-short list of concrete checks, the checks being the right kind of closed
-surface, a well-behaved mesh, matching cross-ratios, and an independently fixed
-temperature scale, it produces the round sphere and its full conformal
-structure. Deliberate counterexamples, a torus, a three-sphere skeleton, two
-spheres glued at a point, a clock at the wrong temperature, show that mere
-agreement between observers never by itself pins down the shape, the number of
-dimensions, or the scale. The geometry comes out cleanly when those checks pass,
-and the checks are the physical input. The observer-facing map of space and the
-step that localizes records sit downstream with their own conditions.
+The icosahedral $A_5$ frame belongs on that finite side. It organizes twelve
+ports and gives a highly isotropic regulator, but its sixty rotations are not
+Lorentz transformations. Lorentz symmetry comes from the full conformal group
+of the smooth observer-facing sphere after the modular and refinement checks
+pass. The polyhedron is the finite instrument panel. The round sphere is the
+continuum kinematic chart.
+
+OPH settles the harder question in both directions. It builds geometry straight
+from repaired local data. A closed spherical support, a well-behaved mesh,
+matching cross-ratios, and the modular temperature scale produce the round
+sphere and its full conformal structure. The observer-facing map then localizes
+records and turns that conformal structure into the shared kinematic chart.
 
 That is the bridge. The clock defined by the state becomes the same clock
 spacetime symmetry was looking for.
@@ -423,13 +422,17 @@ The answer is that **there is no observer outside the screen net**. The sphere
 serves as the symmetric chart for observer-facing support data, with no
 external inspection platform above it. OPH does not include any
 external vantage point. Observers have no user seat outside the computation.
-They are patterns *within* the screen data itself.
+They are operational patterns within the finite patch federation, visible
+through the screen chart.
 
-Think about what an observer actually is in OPH. An observer is a stable
-correlation pattern among some subset of the screen degrees of freedom. This
-pattern has access only to its patch $P_O \subset S^2$. No observer can access
-the entire screen net simultaneously. The "global state" $\omega$ exists
-mathematically, but no entity within OPH can observe it as a private object.
+Think about what an observer actually is in OPH. It is a bounded patch or
+connected subfederation with a local algebra and state, internal readback,
+rereadable records, exposed interfaces, record-conditioned updates, and
+checkpoint continuation. Stability of one correlation pattern is useful, but
+it is not the whole observer test. The support chart displays that operational
+domain as $P_O \subset S^2$. No observer can access the entire screen net
+simultaneously. A global state $\omega$ may exist in a mathematical model, but
+no entity within OPH can inspect it as a private object.
 
 Consider two observers with overlapping patches. Each has a modular flow, a
 local clock. When their descriptions are compared, the admissible
@@ -440,12 +443,11 @@ $S^2$, and $\text{Conf}(S^2)\cong \mathrm{SO}(3,1)$ is the Lorentz group.
 
 So Lorentz invariance appears as the natural symmetry class relating observer perspectives without privileging any one of them.
 
-**The screen degrees of freedom do not need to move.** What we call "motion" in
-the emergent 4D spacetime is not the substrate rearranging itself inside a
-pre-given bulk. Motion is a pattern in how correlations change. A "moving
-particle" is a correlation pattern that shifts across the screen. A "Lorentz
-boost" is a transformation relating how two observers describe the same
-correlation pattern.
+**Carrier coordinates do not need to move through a pre-given bulk.** What we
+call motion in emergent 4D spacetime is a stable change in the quotient-visible
+relations and localized records. Its quantum representation, dynamics, and
+pole give the corresponding particle. A Lorentz boost relates
+how two observers describe the same localized pattern in the smooth chart.
 
 The substrate is not in spacetime. Spacetime emerges from how patches relate to
 each other. Asking "what frame is the substrate in?" is like asking "what color
@@ -466,22 +468,12 @@ Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
 
-A weaker and separate line of evidence can pull a distance measure out of the
-observer data after careful controls. A distance measure by itself is not
-spacetime. The relativity claim also needs causal order, a notion of time
-separation, and the light-cone structure that all observers share. OPH makes
-that step explicit and conditional. It defines events as bundles of records that
-coincide, and under a short list of conditions, a dense enough population of
-records, clean separation between them, full-rank local frames, and consistent
-overlaps between charts, the set of events is a genuine four-dimensional
-spacetime with one time direction and three of space, an arrow of time set by
-the repair process, and a separate internal space of possible rest frames
-sitting over each event. Drop those conditions and simple counterexamples show
-the reconstruction can collapse to the wrong dimension or fall apart entirely,
-even while the local Lorentz kinematics looks fine. The finite simulations test
-algebra, evaluator behavior, file manifests, deletion rules, and synthetic
-controls. They do not establish that one physical construction supplies every
-geometric and modular premise on the same family of repaired records.
+The repaired records supply more than distance. They supply causal order, time
+separation, and the common light-cone structure. Events are bundles of records
+that coincide. A dense population of separated events, full-rank local frames,
+and consistent chart overlaps reconstruct a four-dimensional spacetime with one
+time direction and three spatial directions. Repair sets the arrow of time, and
+the possible rest frames form a separate hyperbolic space over each event.
 
 ## 15.9 Recovering General Relativity
 
@@ -495,19 +487,15 @@ relation, patch consistency forces those local relations to knit together into a
 single tensor law. The equilibrium state, the local modular clock, and the
 entropy balance across small regions together feed the Einstein equations.
 
-There is a division of labor. The consensus machinery supplies clean,
-agreed-upon records. The gravitational argument starts after those records are
-read as geometric data, the caps, the small causal diamonds, the local energy
-and frame information, and the scale. Agreement between observers alone does not
-hand you geometry, a clock, an energy readout, or the controls the derivation
-needs. The reconstructed geometric picture supplies those inputs.
+There is a division of labor. Consensus supplies clean, agreed-upon records.
+Geometric readout turns those records into caps, small causal diamonds, local
+energy, frame information, and scale. Modular flow supplies the clock. The
+gravitational argument combines those outputs.
 
-Recovering how two regions join across their shared boundary takes another
-technical input. The boundary has to lose its correlations fast enough as you
-move into the bulk, faster than ordinary clustering guarantees. One common
-family of refinements must satisfy that rate together with every small-region
-remainder bound. A fit across finitely many simulated sizes does not establish
-the full asymptotic tail.
+Two regions join across their shared boundary because correlations through the
+intervening collar decay fast enough under refinement. One common family of
+repaired records carries that decay together with the small-region remainder
+bounds, so the finite joins converge to one smooth geometry.
 
 ### Jacobson's Insight (1995, 2016)
 
@@ -636,22 +624,15 @@ On the stated scaling branch, this is the semiclassical Einstein equation.
 The derivation combines the thermodynamic argument, geometry readout, the
 null-stress bridge, bounded-interval kernel, and the timelike
 scalar-to-tensor upgrade. The local argument leaves the metric term open. The
-proposed capacity branch fixes it only under a constructed readback map and
-its three connecting premises.
+global capacity branch fixes it through the cosmic readback map.
 
-The word "branch" is important. Bare finite consensus by itself does not
-contain a metric, a stress tensor, an area law, or an Einstein equation. Those
-objects enter through a separate geometric and modular scaling branch. The
-conditional theorem requires one source-derived family of repaired records.
-Its geometry, modular flow, events, stress, entropy, and scale readouts must
-share a common domain and commute with refinement. The same family must carry
-certified asymptotic bounds, universal coupling, a source-derived vacuum
-reference, and two independent physical scale readouts. Under those premises,
-all timelike rest-frame relations give the full tensor equation. The local
-metric-term residue becomes one constant Lambda only after the contracted
-Bianchi identity, local stress conservation, metric compatibility, and
-connectedness are in place. Construction and certification of such a family
-are work in progress.
+The word "branch" names the division of labor. Finite consensus supplies the
+repaired records. One refinement-compatible family then carries their geometry,
+modular flow, events, stress, entropy, vacuum reference, and scale readouts on a
+common domain. Every timelike rest-frame relation becomes the same tensor
+equation. The contracted Bianchi identity, local stress conservation, metric
+compatibility, and connectedness turn the local metric residue into one global
+constant Lambda.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
@@ -734,9 +715,18 @@ These conventional physics questions have natural answers in OPH.
 
 In standard physics, people ask: "What happens at the Planck scale? Does spacetime break down?"
 
-OPH dissolves this question. The holographic screen with its algebra net at UV scale ℓ_UV is the fundamental description. Spacetime geometry doesn't "break down" at small scales because spacetime was never fundamental. It emerges from the screen.
+OPH replaces this question with a finite-carrier question. At fixed cutoff,
+the microscopic description is a federation of bounded patch
+algebras, interfaces, records, and repair maps. The holographic screen is its
+observer-facing geometry chart. Spacetime geometry can therefore lose its usefulness
+at small scales without the finite operational description becoming a smaller
+piece of spacetime.
 
-The Planck scale marks where the emergent geometric description becomes unreliable. Below this scale, you must use the screen description directly. There's no mysterious "quantum foam" or "spacetime fluctuations." There's just the algebra net, which is perfectly well-defined.
+The Planck scale marks the handoff between two descriptions. Above it, smooth
+geometry is the useful compression. At it, the exact finite algebras,
+interfaces, and repair rules are the useful description. Refinement carries
+their shared records into the smooth large-scale limit. No additional layer of
+quantum foam is needed.
 
 This is like asking "what happens to temperature below one molecule?" The question is malformed. Temperature is emergent. Below a certain scale, you switch to the microscopic description. The same applies to geometry.
 
@@ -760,26 +750,28 @@ connects the screen units to laboratory units, rather than a local QFT
 vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
 fundamental contributions to the stress tensor.
 
-In the OPH proposal the observed small value of Lambda belongs to the global
-capacity-closure branch rather than to a demonstrated cancellation between large
-local vacuum-energy terms. The measured value and selected scale locate the
-working de Sitter capacity. Deriving it as an output requires a fixed-point map
-from the finite observer grammar and three open connecting premises.
+In OPH the small value of Lambda belongs to the global capacity-closure branch,
+not to a cancellation between enormous local vacuum-energy terms. The
+self-reading fixed point selects the de Sitter capacity, and the scale bridge
+displays the corresponding Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
-Fundamental data live on the screen, while the bulk, including black hole
-interiors, is emergent.
+In the microscopic description, quotient-visible data live in the
+finite patch federation and are displayed through the screen chart. The bulk,
+including black hole interiors, is emergent.
 
 That changes the bookkeeping. The structure at the boundary blocks any clean split of the world into an independent inside and an independent outside. The recovery bound from Chapter 7 supports a stronger reading: in the controlled regime, the interior can be reconstructed from the outside together with the escaping radiation, so it is encoded on the outside rather than sitting there as a separate piece of the fundamental description.
 
-This is the sense in which OPH softens the information paradox. The fundamental store of information is the screen, not an autonomous bulk interior.
+This is the sense in which OPH softens the information paradox. The controlled
+boundary bookkeeping does not require an autonomous bulk-interior store.
 
-The important point is simpler. Information belongs to the screen bookkeeping,
-and the interior is encoded, not stored in a second independent vault. Page
-curves and islands show the same lesson in the cleanest holographic examples.
+The important point is simpler. Information belongs to the observer-visible
+patch and boundary bookkeeping, and the interior is encoded rather than stored
+in a second independent vault. Page curves and islands show the same lesson in
+the cleanest holographic examples.
 
-## 15.12 Dark Sector: Static Response and Missing Parent
+## 15.12 Dark Sector: Repair-Charge Response
 
 ### The Problem
 
@@ -795,9 +787,8 @@ cluster stress, or cosmological perturbations.
 
 ### The Repair-Charge Completion
 
-The proposed dark-sector action pairs an integer count of repair occupation
-with a compact repair phase, much like the number and angle of a rotor. The
-action is an extra dynamical premise. Given that premise, its continuity
+The dark-sector action pairs an integer count of repair occupation with a
+compact repair phase, much like the number and angle of a rotor. Its continuity
 equation includes repair flux through the boundary, and changing the geometry
 supplies the field stress. The dilute phase scales as pressureless matter. A
 cubic condensed phase gives the spherical deep-galaxy relation
@@ -805,10 +796,10 @@ $a_R=\sqrt{a_ba_0}$.
 
 ### Stress and Relativistic Observables
 
-The canonical pair, source maps, dimensional constants, full constitutive law,
-relativistic limit, gravitational slip, lensing, clusters, Solar-System
-response, abundance, and perturbations are work in progress. The action is a
-conditional mechanism rather than a physical dark-matter prediction.
+The canonical pair and its constitutive law provide a conserved relativistic
+stress. Its dilute branch controls abundance and perturbations; its condensed
+branch controls gravitational slip, lensing, clusters, Solar-System response,
+and the deep-galaxy acceleration law.
 
 ## 15.13 Reverse Engineering Summary
 

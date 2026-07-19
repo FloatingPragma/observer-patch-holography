@@ -1,5 +1,10 @@
 # CP-2 inversion-form reduction
 
+> **Archived target-coupled reduction.** The canonical capacity producer is
+> `F_hat_r(D)=M_pub(D)` in [F_READBACK_SPEC.md](F_READBACK_SPEC.md). Neither
+> port-load inversion nor `pi/rho_op^2` defines `F`. This record is retained as
+> a negative-control and electroweak comparison analysis only.
+
 Companion to [G2_GAP_1_COUPLING_THEOREM.md](G2_GAP_1_COUPLING_THEOREM.md) and
 [F_READBACK_SPEC.md](F_READBACK_SPEC.md). Target: GAP-A3, the discharge
 obligation of premise CP-2 (the port-load inversion form of `Cap_read` on the
@@ -138,9 +143,10 @@ Routes attempted for a full discharge, with outcomes:
    unconstructed this is at most the two points of CP2-C. No declared theorem
    extends the pinning to the read range.
 3. **RC from declared structure.** No declared theorem asserts that the
-   sector's reconstruction inverts the certified chart; IH-4 carries the
-   counting model `F(N) = pi/rho_read^2` as declared, not derived. RC stands
-   as the exact residual obligation of CP-2 under LM.
+   sector's reconstruction inverts the certified chart. The former IH-4 model
+   `pi/rho_read^2` is superseded as a producer and survives only as an
+   independent geometric estimator. RC therefore has no role in constructing
+   the direct public-record map.
 
 ## 7. Discharge obligations
 

@@ -1,5 +1,10 @@
 # Construction Attempt for the Capacity Readback Map F (2026-07-14)
 
+> **Archived excluded-candidate run.** Section references to the readback spec
+> below use its former layout. The canonical producer is
+> `F_hat_r(D)=M_pub(D)` in [F_READBACK_SPEC.md](F_READBACK_SPEC.md); none of the
+> candidate families in this record defines `F`.
+
 Candidate construction run for generator G2 against
 [F_READBACK_SPEC.md](F_READBACK_SPEC.md). Target: a concrete candidate for the
 self-consistent screen-configuration count `|Omega^sc_N|` derived from the declared

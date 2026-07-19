@@ -1,7 +1,7 @@
 # Appendix: Extended Interludes for a Longer Reading Path
 
 The main chapters move quickly because they have a job to do. They must carry
-the reader from observer patches to screens, from screens to algebras, from
+the reader from operational observer patches to their screen charts, from patch
 algebras to overlap, from overlap to recovery, from recovery to spacetime,
 and from spacetime to matter, selection, and interpretation. This appendix
 slows the path down. It adds longer narrative interludes for readers who want
@@ -39,19 +39,11 @@ to accept a background clock as an obvious primitive. Particle physics fails
 to look like a random list, yet also fails to look fully explained by the
 Standard Model alone. Each failure is a boundary condition on the architecture.
 
-The method does not make OPH automatically true. It sets the standard OPH has
-to meet. A successful reverse-engineered architecture must explain why the
-symptoms cluster. It must reduce the number of arbitrary knobs. It must
-respect the known test suite. It must explain why legacy effective
-descriptions worked where they did. It must make failures local, not global:
-when an extension remains assumption-dependent, the text must show that status.
-
-This is why the book keeps returning to support labels. A support label
-avoids overclaiming. It records what was derived, what was checked against
-known values, what was anchored by empirical input, and what remains a
-continuation. A reverse engineer who marks every inference as certain is not
-being bold. They are breaking the method. The discipline is to keep the
-working map connected to the evidence trail.
+The reverse-engineered architecture explains why the symptoms cluster. It
+reduces the number of arbitrary knobs, preserves the working predictions of
+earlier theories, and shows why their interfaces appear together. Quantum
+measurement, horizon entropy, gauge transport, spacetime symmetry, and public
+records become different views of one self-reading system.
 
 The metaphor also protects the role of earlier science. A reverse engineer
 does not throw away a working subsystem just because they have found a deeper
@@ -212,9 +204,10 @@ OPH differs from AdS/CFT in a basic way. Our universe has a positive
 cosmological constant to good approximation at late times. Its horizons are
 observer-dependent. There is no single accessible boundary at infinity where
 all observers naturally meet. OPH therefore takes the holographic lesson and
-changes the operational setting. Each observer has a finite patch bounded by
-a horizon-like screen. Nearby patches overlap. Public bulk physics emerges
-from consistency across those overlapping screens.
+changes the operational setting. Each observer is a finite operational patch
+whose records appear through a horizon-like access cut on the screen chart.
+Nearby patch interfaces overlap. Public bulk physics emerges from consistency
+across their shared readouts.
 
 This is more modest in one way and more radical in another. It is more modest
 because it does not claim a known global de Sitter CFT. It is more radical
@@ -314,12 +307,10 @@ renormalizability. Experimental teams then found the weak neutral current,
 the W and Z bosons, heavy quarks, the tau, neutrinos' properties, and the
 Higgs boson.
 
-OPH's Standard Model chapter tries to read this giant structure through
-observer consistency. The goal is not to make the Standard Model look easy
-but to show why its gauge and representation structure looks like the kind
-of thing a patch-consistency architecture would select. Charges are not
-private decorations but transport labels that must remain meaningful
-when records cross overlaps.
+OPH reads this giant structure through observer consistency. Its gauge and
+representation structure is the compact language selected by the twelve-port
+screen, oriented current composition, and the matter package. Charges are
+transport labels that remain meaningful when records cross overlaps.
 
 ## Interlude 7: Cosmology, Capacity, and the Dark Sector
 
@@ -340,21 +331,18 @@ cross-checks.
 
 The late-time acceleration changed the picture again. Type Ia supernova teams
 found that distant supernovae were dimmer than expected in a decelerating
-universe. The simplest fit is a positive cosmological constant or dark energy
-component. In de Sitter language, a positive $\Lambda$ gives a horizon radius
-$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. For OPH that capacity
-is a working value located from the measured cosmological constant through the
-selected scale bridge. Identifying it as an output of the cosmic record closure
-requires an unconstructed readback map and three open premises about the
-terminal observer records.
+universe. A positive cosmological constant gives a de Sitter horizon radius
+$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. In OPH, the universe
+supplies that capacity to its observer network and reads the same number back
+through its terminal records. The fixed point closes the global record budget,
+while the scale bridge turns it into the curvature observers measure.
 
-The dark-sector continuation is a repair-charge rotor with integer occupation
-and compact phase. Conditional on its proposed action, a dilute branch is
-dust-like and a cubic condensed branch gives the deep galaxy law and baryonic
-Tully--Fisher scaling under static spherical premises. The action, source
-normalization, acceleration scale, relativistic limit, lensing, abundance,
-perturbations, clusters, and Solar-System behavior are work in progress. OPH
-has no physical dark-matter solution.
+The dark sector is the repair-charge side of the same architecture. A modular
+mismatch becomes an integer occupation with a compact phase. The dilute branch
+behaves like pressureless matter. The cubic condensed branch gives the deep
+galaxy law and baryonic Tully--Fisher scaling. Its relativistic stress carries
+the repair charge into lensing and cosmic structure, so the galaxy and horizon
+readings belong to one field rather than two unrelated patches.
 
 The human chain includes observers and instrument builders as much as
 theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,
@@ -366,18 +354,17 @@ Observatory, and many more. Cosmology is public reality at the largest scale.
 
 It is tempting, when reading a theory with numerical claims, to treat
 constants like trophies. A theory "gets" a number, and the reader is invited
-to be impressed. That is not a healthy way to read this book. Constants are
-only meaningful when their inputs, equations, uncertainty handling, and claim
-labels are visible.
+to be impressed. Constants are useful only when the reader knows what they
+measure, at which scale, in which units, and through which physical operation.
 
 Take the fine-structure constant. The low-energy electromagnetic coupling is
 one of the most precisely measured quantities in physics. Its inverse is near
 137, and that numerical familiarity has attracted generations of speculative
-stories. The correct discipline is harsher. Which value is being discussed?
-At what scale? In which renormalization scheme? What empirical inputs are
-used? Is the calculation first-principles, empirically anchored, fitted, or merely
-numerological? OPH's use of $\alpha$ and $\alpha^{-1}$ must be read under
-those questions.
+stories. The useful questions are concrete. Which value is being discussed?
+At what scale? In which renormalization scheme? Which vacuum response carries
+the coupling from the electroweak scale to the long-distance Thomson reading?
+In OPH, that full transport is part of the fixed-point map that makes the inside
+electromagnetic reading agree with the outside screen pixel.
 
 The same applies to masses. The electron mass is measured to extraordinary
 precision. Quark masses are scheme-dependent running parameters, not little
@@ -386,20 +373,11 @@ masses are inferred through oscillation data, cosmology, beta decay bounds,
 and model assumptions. A theory that treats all masses as the same kind of
 number is not being precise.
 
-This is why the book distinguishes benchmark checks, empirically anchored
-witnesses, first-principles predictions, externally supplied data, and
-assumption-dependent continuations. A benchmark check asks whether the
-architecture reproduces a known value. An empirically anchored witness uses a
-measured target as part of the derivation or normalization. A first-principles
-prediction is stronger because it does not use the target. Externally supplied
-data include hadronic spectral information. An assumption-dependent
-continuation depends on assumptions outside the recovered-core derivation.
-
-The reader should treat these labels as part of the theory, not as legal
-small print. They tell you how much weight each line can carry. They also
-make the project stronger. A theory with visible support labels can improve
-without pretending that every claim has the same support level. It can revise
-entries as proofs and evidence change.
+The same rule applies to every number in the book. A mass needs its scale and
+scheme. A horizon capacity needs its area unit. A coupling needs its transport
+law. A cosmological parameter needs the observable that located it. Once those
+roles are kept straight, the constants stop looking like a cabinet of trophies.
+They become readouts of one architecture.
 
 The human chain behind constants is enormous. Metrology institutes, collider
 groups, atomic interferometry labs, spectroscopy teams, lattice QCD
@@ -444,11 +422,10 @@ feeds back into the inside process as learning, correction, and expectation.
 
 This is also where the epilogue's continuation question belongs. If an
 observer is a structured process with boundary interfaces and interior
-interface-relative state, then restoration becomes a question about which
-structures must be preserved for the next internal moment to be
-the continuation of the previous one. The answer is not known in any simple
-engineering sense. But OPH gives the right type of boundary: records,
-interfaces, given-data independence, and recoverability.
+interface-relative state, then restoration asks which structures preserve the
+next internal moment as the continuation of the previous one. OPH gives the
+engineering boundary: records, interfaces, given-data independence, and
+recoverability.
 
 The metaphysical discipline is essential. Observer-first physics deepens
 empirical discipline by refusing to pretend that evidence arrives from nowhere.
@@ -488,10 +465,10 @@ measured. If $c$ appears, relativity is converting space and time. If
 $\hbar$ appears, quantum action is involved. If $k_B$ appears, entropy and
 temperature units are being related. If $G$ appears, gravity is present.
 
-Fifth ask for support level. Is the equation an established result from prior
-physics? A definition? A derived OPH relation? A conjectural continuation? A
-numerical consistency check? The book should make that visible. If the label is
-missing, the reader should demand it.
+Fifth ask what closes. A conservation equation closes an inflow against an
+outflow. A gluing equation closes two descriptions on an overlap. A fixed-point
+equation closes the value sent through a process against the value returned.
+This question usually reveals the physical job of the formula.
 
 Finally, read equations as compressed prose. $[X,P]=i\hbar$ says position and
 momentum questions fail to commute by a quantum amount. $S=A/(4\ell_P^2)$
@@ -522,18 +499,16 @@ make their measurements belong to one terrain. The task is to make the map
 explicit enough that every bridge can be inspected, checked, and strengthened.
 
 The book's central sentence, reality is the consistency of observations across
-overlapping perspectives, is the organizing principle for existing science. The
-equations, diagrams, and ledgers show why the sentence earns its place: area
-laws, algebraic observables, Bell correlations, recoverability, modular flow,
+overlapping perspectives, is the organizing principle for existing science.
+The equations and diagrams show why the sentence earns its place. Area laws,
+algebraic observables, Bell correlations, recoverability, modular flow,
 symmetry, de Sitter capacity, and particle structure cluster together because
 they are one observer-consistency architecture.
 
-That is the attitude the reader should carry forward. The right response is
-inspection. Check the symbols. Check the claim labels.
-Check the bridge from known physics to OPH-specific claims. Check whether the
-diagrams clarify or oversimplify. Check whether public-facing summaries
-preserve the same caution as the technical sources. A theory about
-consistency should invite consistency checks.
+The reader can inspect that architecture directly. Follow what each symbol
+counts, which interfaces it crosses, and which descriptions it identifies.
+The diagrams orient the eye. The equations perform the closure. The prose
+explains why the same move reappears from quantum measurement to cosmology.
 
 ## Interlude 12: A Final Chapter-Wise Reading Checklist
 
@@ -558,11 +533,11 @@ mechanism.
 In Chapter 11, ask whether modular time is tied to restricted states and not
 an external clock. In Chapter 12, ask whether symmetry is presented as a
 translation rule for shared descriptions. In Chapter 13, ask whether the de
-Sitter horizon is understood as a finite capacity surface. In Chapter 14, ask
-whether Standard Model claims keep their theorem, validation, and empirical
-claim labels distinct. In Chapter 15, ask whether relativity emerges through
-modular geometry, generalized entropy, and the weak-field limit, with no
-assumption that it arrives whole.
+Sitter horizon is understood as a finite capacity surface. In Chapter 14,
+follow the twelve $A_5$ port modes into the gauge algebra and the exterior
+matter package into one chiral generation. In Chapter 15, follow modular flow
+and the smooth sphere into Lorentz geometry, then entropy balance into the
+Einstein equation and its weak-field limit.
 
 In Chapter 16, follow matter as a stability ladder from quantum excitations to
 public records. In Chapter 17, follow selection as a disciplined filter. In
@@ -574,21 +549,17 @@ epilogue, follow restoration as an engineering problem with explicit interfaces.
 The book has done its job when the reader can inspect the architecture of
 reality.
 
-## Interlude 13: The Prose Contract
+## Interlude 13: The Plain-Language Contract
 
-The book has a technical ambition, but it needs a plain contract with the
-reader. Every public claim should say what exists in the argument, what
-supports it, and where the boundary sits. That sounds simple. In practice it
-is the hardest kind of writing, because a sentence can become smooth while
-losing its load-bearing content.
+The book has a technical ambition and a plain contract with the reader. Every
+important sentence says what object is being discussed, what physical job it
+performs, and how it connects to the architecture around it. Smooth prose must
+keep the load-bearing content visible.
 
-A good OPH sentence should behave like a good interface. It should expose the
-right inputs. It should hide no critical dependency. It should fail visibly
-when the claim exceeds its support. If a symbol appears, the reader should
-know what physical job it performs. If a claim label appears, the reader
-should know whether the line is structural, assumption-dependent, empirical, or
-in a declared derivation lane. If a diagram appears, the diagram should orient
-the reader before the next paragraph asks for more abstraction.
+A good OPH sentence behaves like a good interface. It exposes the inputs the
+reader needs. A symbol arrives with a physical job. A diagram orients the reader
+before the next paragraph asks for more abstraction. The mathematical detail
+can live in the papers while the book keeps the causal story intact.
 
 This is also a matter of voice. OPH is strange enough on its own. It does
 not need theatrical language around it. The strong version is the direct
@@ -617,7 +588,7 @@ The reader can use one practical test throughout the book. Ask what the
 sentence lets you check. A claim about symmetry should tell you what remains
 invariant. A claim about particles should tell you which structure fixes the
 role. A claim about time should tell you which algebra-state pair carries the
-flow. A claim about dark-sector behavior should tell you which derivation lane
+flow. A claim about dark-sector behavior should tell you which repair field
 carries it. A claim about consciousness should tell you which boundary and
 record conditions make the observer identifiable.
 
@@ -687,43 +658,47 @@ possible. Its edge is that CMI, recovery maps, and
 state spaces carry the real theorem content.
 
 The Tannaka-Krein and generation-count diagrams are closer to the technical
-program. They remind the reader that gauge structure can be reconstructed
-from representation data, and that generation claims have specific windows
-and conditions. Their edge is support level: not every entry in the particle
-program has the same theorem support.
+program. They show gauge structure reconstructed from representation data and
+the face-cycle route to the three-place family carrier. The exterior-matter
+diagram then shows how the color and weak carriers generate one chiral
+Standard Model generation.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
 They show how cap flow can become a local geometric clock, how a curved
 screen can look null at a boundary point, and how Einstein gravity reduces to
-Newtonian gravity in the weak-field slow-motion limit. Their edge is that
-each step requires hypotheses. Smooth limits do not come for free.
+Newtonian gravity in the weak-field slow-motion limit. Together they keep the
+finite icosahedral regulator and the smooth Lorentz geometry in their proper
+roles.
 
 The glossary diagrams for matter, selection, synthesis, and observer loops
 are orientation devices. They tell the reader where to look in the prose.
 They should never replace the prose. A diagram is useful when it makes the
 reader ask a sharper question about the equation next to it.
 
-## Interlude 16: Load-Bearing Handles
+## Interlude 16: The Architecture in Four Handles
 
-A serious theory should expose its load-bearing joints. OPH does that through
-explicit handles.
+The first handle is the finite carrier. Twelve ports sit at the vertices of an
+icosahedron. Twenty triangular faces organize local neighborhoods, thirty edges
+organize collars, and the sixty rotations of $A_5$ treat every direction alike.
+The carrier reads, records, compares, and repairs through those interfaces.
 
-The mathematical handles are the overlap-consistency axioms, recovery
-conditions, modular-flow route to Lorentz and Einstein behavior, and
-Tannaka-Krein reconstruction of the compact gauge structure.
+The second handle is the public world. Patch algebras contain the available
+questions. Central records preserve completed answers. Overlap checks compare
+what neighboring patches expose, and recovery maps rebuild information from
+the correlations that survive local damage.
 
-The phenomenological handles are particle support entries, first-principles
-outputs, externally supplied data, the dark-sector continuation, neutrino assumptions,
-quark-sector scheme dependence, and uncertainty analysis.
+The third handle is the smooth limit. Refinement turns the finite port sampling
+into a round $S^2$ support chart. Modular flow supplies the internal clock. The
+conformal group of the sphere supplies Lorentz symmetry, and entropy balance
+supplies Einstein gravity. The finite $A_5$ frame remains the regulator, while
+the smooth sphere carries spacetime kinematics.
 
-The conceptual handles are observer-first language, operational structure,
-strange-loop closure, and restoration through interfaces.
-
-The reader-facing handles are the alignment among chapter prose, equations,
-diagrams, glossary entries, and support labels.
-
-Those handles make OPH easy to inspect. A theory about consistency should
-welcome hard consistency checks.
+The fourth handle is matter. The twelve port readings split as
+$1+3+3'+5$. Compact oriented current composition turns those blocks into the
+$U(1)$, $SU(2)$, and $SU(3)$ gauge directions. The trace-balanced exterior
+package supplies the chiral quarks and leptons, the one-Higgs interaction
+channels, anomaly cancellation, and the weak-doublet count. Strange-loop
+closure then fixes the local pixel and global record capacity.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -751,66 +726,62 @@ with extraordinary precision. At higher energies it runs. The inverse value
 near 137 is culturally famous, but the fame is a trap. Without scale,
 scheme, uncertainty, and input role, a numerical match means little.
 
-OPH's support-boundary language exists to keep these distinctions visible. A
-first-principles prediction is different from a benchmark check. An empirically
-anchored witness is different from a prediction. Hadronic spectral input is different from a
-first-principles quark-mass calculation. The reader should be suspicious of
-any presentation, including OPH's, if those distinctions disappear.
+OPH keeps these physical roles distinct. Hadronic spectral information carries
+the electromagnetic current through the strongly interacting vacuum. Running
+quark masses carry a scale and scheme. Pole masses carry a line-shape
+prescription. Neutrino oscillations carry mass differences and mixing. Each
+number enters the architecture through the operation that gives it meaning.
 
 This is another place where the "thousands of builders" theme is literal.
 Every number rests on machines, collaborations, calibration campaigns,
 statistical methods, theory corrections, and review groups. The book can use
 the numbers because a vast community made them public.
 
-## Interlude 18: Mathematical Bridges Are Not Magic Doors
+## Interlude 18: How the Mathematical Bridges Work
 
 The book uses several mathematical bridges: sheaves, operator algebras,
 Tannaka-Krein reconstruction, modular theory, quantum error correction,
-maximum entropy, and generalized entropy. A bridge is powerful because it
-lets insight move from one domain to another. It is dangerous because a
-reader can mistake analogy for proof.
+maximum entropy, and generalized entropy. They connect local observer data to
+the large-scale structures called fields, spacetime, and matter.
 
-Sheaf language says local data that agree on overlaps can glue. That is a
-beautiful cousin of observer consistency. But quantum observer patches are
-not ordinary sets with simple values. They involve non-commuting algebras,
-states, restrictions, and compatibility constraints. The sheaf bridge
-clarifies the gluing problem; it does not solve every quantum marginal
-problem by itself.
+Sheaf gluing joins local descriptions that agree on their overlaps. Quantum
+patches add noncommuting algebras and restricted states to that rule. The
+result is a public description assembled from compatible local question menus
+and the records they share.
 
-Tannaka-Krein reconstruction says a group can be recovered from the structure
-of its representations. That is exactly the kind of idea one wants when
-charge sectors and fusion rules are primary. But using it for the Standard
-Model requires the right category, duals, tensor structure, compatibility
-under refinement, and physical selection criteria. The theorem is a bridge,
-not a magic door that emits particle physics automatically.
+Tannaka-Krein reconstruction reads a compact group from its charge sectors,
+their fusion rules, and their duals. OPH applies that reconstruction to the
+transport-stable sectors of the patch net. On the icosahedral finite carrier,
+the twelve current readings split as $1+3+3'+5$. Their compact oriented bracket
+gives the $U(1)$, $SU(2)$, and $SU(3)$ gauge directions.
 
-Modular theory says an algebra-state pair carries a canonical flow. That
-matters for time. Turning modular flow into experienced time, Lorentz boosts,
-and gravitational dynamics requires the right states, regions, smooth limits,
-and thermodynamic variations. Again, the bridge is real, and the crossing has
-conditions.
+Modular theory gives every suitable algebra-state pair a canonical flow. On a
+round cap this flow is a Lorentz boost. Refinement carries the local cap flows
+to the smooth celestial sphere, whose conformal group is the connected Lorentz
+group. Generalized entropy then joins the quantum entropy across a cut to its
+area term, and local entropy balance produces Einstein gravity.
 
-Quantum error correction says logical information can be protected in
-nonlocal correlations. Holography uses similar structures. But spacetime is
-not literally a small lab code with a simple decoder. The correspondence is
-structural and approximate in many regimes.
+Quantum error correction protects logical information in distributed
+correlations. In OPH, collars and recovery maps let a patch rebuild information
+that local damage has hidden. Maximum entropy chooses the least-biased state
+compatible with the surviving records. Together these operations explain how
+an emergent bulk can stay stable while its finite patch carriers are noisy.
 
-This is why the book's careful language matters. A bridge points the way. A
-derivation earns the crossing. When OPH says a result is established,
-assumption-dependent, conjectural, target anchored, or empirical-payload dependent,
-those words mark where the bridge stands.
+The bridges form one chain. Overlap glues the public world. Representation
+theory reconstructs its gauge language. Modular flow and entropy build its
+spacetime. Recovery protects its records. The same observer architecture runs
+through every step.
 
 ## Interlude 19: Why Length Helps
 
 A short book can be elegant. A short book about a synthesis this large can also
-become misleading. It can make a theorem look like an intuition. It can make a
-assumption-dependent continuation look like a conclusion. It can let a symbol appear
-before the reader has been given enough handles to use it. It can make the work
-of whole communities disappear behind a few famous names.
+become misleading. It can let a symbol appear before the reader has been given
+enough handles to use it. It can hide the connection between two equations. It
+can make the work of whole communities disappear behind a few famous names.
 
 Length has no automatic virtue. Padding is bad. Repetition is bad. Useful
-length serves the reader: historical context, symbol explanations, claim
-labels, diagrams placed where they reduce cognitive load, and appendices that
+length serves the reader: historical context, symbol explanations, diagrams
+placed where they reduce cognitive load, and appendices that
 let a reader recover the thread after a difficult chapter.
 
 That is the purpose of the long form. The chapter guide lets readers
@@ -821,8 +792,8 @@ visible without pretending the diagram is the proof.
 
 Length has a practical meaning here. It gives the book room for examples,
 historical credit, and reader support. The goal is to be long enough that a
-serious reader can see what is being claimed, what is inherited, what is
-assumption-dependent, and what remains in the technical derivation notes.
+serious reader can follow the objects, equations, and transformations without
+losing the main story.
 
 ## Interlude 20: How a Public Fact Gets Built
 
@@ -882,11 +853,11 @@ backgrounds, blind selections, combine channels, estimate systematic
 uncertainties, and compare independent experiments. ATLAS and CMS did not
 share one eye. They built separate record chains that agreed.
 
-That is why particle tables deserve support labels. A mass value can be an
-experimental measurement, a derived structural output, a benchmark check, an
-empirically anchored witness, or an empirical closure check. Those categories are
-different ways of saying how the fact chain is built. A reader who knows the
-category knows what kind of stress the claim can bear.
+Particle tables compress these record chains. A mass value arrives with a
+particle definition, a scale or pole prescription, a measurement channel, and
+an uncertainty. A coupling arrives with a renormalization scheme and the
+physical process that reads it. Those details tell the reader what the number
+means and how different observers can recover the same value.
 
 The history of parity violation gives another example. Before 1956, many
 physicists expected the laws of nature to respect mirror symmetry. Chen-Ning
@@ -937,10 +908,9 @@ lesson is visible: public structure can be protected by distributing it.
 
 The observer side has the same discipline. A memory can be fragile. A record
 can be corrupted. A social report can be wrong. A scientific collaboration can
-mistake a background for a signal. The answer is not cynicism. The answer is a
-better overlap structure: independent instruments, independent teams,
-transparent assumptions, calibration standards, uncertainty estimates, and
-claims that say exactly what support they have.
+mistake a background for a signal. Better overlap structure corrects this:
+independent instruments, independent teams, shared protocols, calibration
+standards, and uncertainty estimates.
 
 OPH asks for the same thing at the level of physics. A local patch carries
 bounded access. Another patch carries different bounded access. Their shared
@@ -953,16 +923,15 @@ The cumulative nature of the theory follows from that. OPH draws on thermal
 physics, quantum mechanics, relativity, gauge theory, representation theory,
 operator algebras, cosmology, particle experiments, quantum information, error
 correction, holography, neuroscience, philosophy, and computer science.
-The book should read like a map of that inheritance. When it introduces a
-claim, the reader should be able to see the relay behind it.
+The book reads like a map of that inheritance. Each concept comes with the
+scientific relay that made it usable.
 
-This relay also explains the book's precision around open particle derivations.
-The fine-structure branch, electroweak relations, Higgs/top relation, neutrino
-branch, quark sector, strong-CP boundary, and hadron calculations do not all
-have the same support level. Some entries are structural. Some are benchmark
-checks. Some depend on external data. Some remain in derivation lanes. A
-public fact built from a long chain has to show which links are welded and
-which links are scaffolds.
+The same relay carries the particle story. The finite icosahedral port carrier
+fixes the gauge directions. The exterior package fixes one chiral matter generation and its
+one-Higgs interaction channels. Gauge and Higgs dynamics turn those structures
+into masses, mixings, and poles. Detectors then turn the particle events back
+into public records. The chain runs from screen geometry to laboratory readout
+without changing its observer-facing logic.
 
 The same rule applies to metaphysics. A sentence about experience, God,
 restoration, or self-reference becomes serious only when the record chain
@@ -973,50 +942,10 @@ observer-consistency structure. Those claims should never float away from the
 physics that constrains them.
 
 The reader can therefore treat each chapter as a fact-building exercise. What
-is the record? What is the instrument? What is the equation? What is the
-support label? What is inherited from established physics? What does OPH add?
-What would break the claim? If those questions can be answered, the chapter is
-doing its job. If they cannot, the prose needs more work.
+is the record? What is the instrument? What is the equation? Which two
+descriptions does it connect? How does the local readout become part of the
+public world? Those questions keep the construction visible.
 
-That is the book's deeper promise. It does not ask the reader to accept a
-private revelation. It asks the reader to inspect a public construction. The
-construction may succeed or fail, but it should fail in the open, with its
-assumptions, symbols, lineage, diagrams, and artifacts exposed to review.
-That is how science earns a shared world.
-
-## Interlude 21: Continuation Boundaries as Part of the Architecture
-
-The book ends with continuation boundaries visible. OPH has a precise
-finite-consensus package for overlap repair and schedule-independent quotient
-normal forms from a fixed source. The generic cross-source criterion says that
-same-boundary endpoints agree precisely when the boundary identifies the
-consistent quotient modulo the declared silent relation. Applying that
-criterion to the physical boundary data requires its own injectivity
-certificate. OPH also has a controlled
-modular-to-geometric theorem for the Lorentz, null-modular, and local
-Einstein branch. The Standard Model reconstruction is audited by separating
-structural theorems, quantitative theorem statements, benchmark checks,
-first-principles boundaries, and empirical closure checks.
-
-The dark-sector lane contains a proposed repair-charge condensate action. Its
-current balance, dilute dust-like branch, and spherical deep-galaxy scaling are
-conditional consequences. Its OPH derivation, relativistic stress, source
-normalization, lensing, cluster, Solar-System, and cosmology likelihoods are
-work in progress. No physical dark-matter solution is established.
-
-The matter support boundaries require care. Quark masses, hadron inputs,
-neutrino assumptions, and electroweak scheme choices must stay explicit. OPH
-does not produce the physical strong-CP invariant or prove its vanishing. The
-book should not imply otherwise.
-
-The observer and restoration discussions rest on the fixed-cutoff
-checkpoint/restoration result. Stronger continuation interfaces are separate questions. What
-exactly counts as a recoverable observer pattern? Which records are public,
-which are private, and which are needed for continuation? What kinds of
-hardware could instantiate the relevant patch federation? Which error bounds
-matter? These questions are continuation boundaries.
-
-Continuation boundaries are the work surface. A theory that reverse engineers
-reality should produce better questions as well as answers. The reader should
-leave with a map, a toolkit, and a clear sense of which questions are physical,
-which are mathematical, and which require engineering.
+That is the book's deeper promise. It asks the reader to inspect a public
+construction whose records, symbols, scientific lineage, and diagrams can be
+shared. That is how science earns a common world.

@@ -1,0 +1,151 @@
+\begin{definition}[Correctable public-record capacity map]
+\label{def:self-closure-density}
+At regulator \(r\), freeze one capacity-carrier type and set
+\[
+D=\dim\mathcal H_{{\rm cap},r,D},
+\qquad N=\log D.
+\]
+Let \(\widetilde\Omega_{r,D}\) be the nonempty terminal physical quotient
+fiber reachable from the source-derived trial universe \(\mathfrak U_{r,D}\),
+with no capacity-equals-\(D\) membership predicate. For
+\(q\in\widetilde\Omega_{r,D}\), let \(X_O(q)\) and \(X_e(q)\) be the local
+and interface record-atom sets and let
+\(r_{Oe}:X_O(q)\to X_e(q)\) be the source-derived atom readouts. Define
+\[
+X_{\rm pub}(q)=
+\{(x_O)_O:r_{Oe}(x_O)=r_{O'e}(x_{O'})
+\text{ on every shared interface}\}.
+\]
+Let \(X_{\rm reach}(q)\subseteq X_{\rm pub}(q)\) contain exactly the sections
+reachable by admissible endogenous semantic histories. Freeze an authorized
+publicness policy \(\mathfrak P(q)\) and a globally coupled family of joint
+semantic checkpoint kernels \(\mathfrak K(q)\) whose observer marginals agree
+with the local checkpoint packets.
+
+For \(K\in\mathfrak K(q)\), let
+\(S_K(x)=\{y:K(y\mid x)>0\}\). The compound confusability graph \(G_q\) on
+\(X_{\rm reach}(q)\) joins \(x\ne x'\) when
+\(S_K(x)\cap S_K(x')\ne\varnothing\) for at least one declared continuation.
+The exact public readback is
+\[
+M_0(q)=\alpha(G_q).
+\]
+For a frozen tolerance and finite channel family or horizon, let
+\(M_\varepsilon(q)\) be the largest code having worst-input decoding error at
+most \(\varepsilon\) for every declared channel. The primary finite map is
+set-valued:
+\[
+\boxed{
+\mathfrak F_{r,\varepsilon}(D)=
+\{M_\varepsilon(q):q\in\widetilde\Omega_{r,D}\}.
+}
+\]
+A scalar \(\widehat F_{r,\varepsilon}(D)\) exists only when the whole
+nonempty terminal fiber has one common defined value. Robust exact closure is
+\[
+\boxed{
+\mathfrak F_{r,0}(D_\star)=\{D_\star\},
+\qquad N_{\rm CRC}=\log D_\star.
+}
+\]
+\end{definition}
+
+\begin{theorem}[Conditional finite correctable-record closure]
+\label{thm:conditional-operational-n-closure}
+Under the atom-readout, reachability, publicness, global-coupling, and finite
+capacity-carrier receipts of Definition~\ref{def:self-closure-density}:
+\begin{enumerate}[leftmargin=2em,label=(\roman*)]
+\item compatible public sections and their function algebra are finite and
+natural under record-diagram isomorphism;
+\item a code is zero-error correctable for every declared continuation exactly
+when it is an independent set of \(G_q\), hence \(M_0(q)=\alpha(G_q)\);
+\item the support-relation semigroup for all finite continuation words closes
+after finitely many steps, and injective deterministic continuation gives
+\(M_0(q)=|X_{\rm reach}(q)|\);
+\item if corresponding channel rows are within \(\delta\) in total variation,
+then \(M_{\varepsilon+\delta}(\widehat{\mathfrak K})
+\ge M_\varepsilon(\mathfrak K)\);
+\item nonzero orthogonal record projections on the \(D\)-dimensional capacity
+carrier give \(M_\varepsilon(q)\le D\); equality at zero error forces a
+rank-one complete public record basis;
+\item the set-valued map scalarizes exactly when the whole terminal fiber has
+one common defined readback;
+\item a total monotone deflationary scalar map on a declared finite positive
+dimension chain reaches its greatest fixed point by iteration from the top;
+\item record injections reflecting confusability make capacity monotone under
+capacity extension, and at fixed \(D\) give eventual exact stabilization
+along each cofinal refinement sequence.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Public sections satisfy finite compatibility constraints. Pairwise disjoint
+channel supports are equivalent to perfect decoding, so a common code is an
+independent set of the union graph. The support relations form a finite
+semigroup. Total variation changes each correct-decoding event by at most
+\(\delta\). The carrier bound is orthogonal-rank additivity. Scalarization is
+the singleton-image criterion. The remaining statements are finite-chain and
+independent-set transport arguments. Full proofs and receipt schemas are in
+Ref.~\cite{ophsynthesis}.
+\end{proof}
+
+\begin{theorem}[Capacity definitions do not select a cosmic dimension]
+\label{thm:capacity-protocol-nonidentifiability}
+The finite implication theorem does not force a unique physical \(D\).
+Identity continuation on \(D\) reachable labels gives
+\(\widehat F(D)=D\) for every \(D\), while a compatible erasure family gives
+\(\widehat F(D)=1\). Both are monotone and deflationary. In addition, a cyclic
+permutation of \(m\) labels has a one-dimensional fixed function algebra but
+correctable capacity \(m\), and arbitrarily small full-support noise collapses
+zero-error capacity from \(m\) to one.
+\end{theorem}
+
+\begin{proof}
+Identity and erasure give the stated support graphs. A cycle is invertible even
+though only constant functions are invariant. Full-support noise makes every
+pair of inputs confusable.
+\end{proof}
+
+\begin{remark}[Physical producer, scaling law, and downstream bridges]
+\label{rem:self-closure-counting-target}
+The exact unclosed kernel is
+\[
+K_r(D,m)=
+|\{q\in\widetilde\Omega_{r,D}:M_0(q)=m\}|.
+\]
+The condition \(K_r(D,D)>0\) proves only existential closure. Robust closure
+requires the whole row support to be \(\{D\}\). The large-screen uniqueness
+problem is the finite-size slack
+\[
+\boxed{s_r(D)=\log D-\log M_{0,r}(D)}.
+\]
+Unit asymptotic capacity density does not locate a zero: \(M(D)=D\) and
+\(M(D)=D-1\) have the same limiting density. A physical \(N\)-closure needs
+an exact transfer or fiber-product recurrence, or a seam theorem with a sharp
+subleading term, proving one physical zero of \(s(D)\).
+
+After robust direct closure, \textsc{HORIZON-RECORD-SATURATION} gives
+\[
+N_{\rm CRC}=\log D_\star=\frac{A_{\rm dS}}{4\ell_\star^2},
+\qquad
+\Lambda\ell_\star^2=\frac{3\pi}{N_{\rm CRC}}.
+\]
+The independent \textsc{COMMON-EW-LOAD-CARRIER} receipt, together with the
+screen-sieve and D10 source laws, gives
+\[
+R_{\rm EW}=
+\alpha_U(P)\log\frac{N_{\rm CRC}}{\pi}-\frac{6\pi}{P}=0,
+\qquad
+N_{\rm bridge}=
+\pi\exp\!\left[\frac{6\pi}{P\alpha_U(P)}\right].
+\]
+Neither bridge constructs \(M_0\). The operational residual
+\(R_\rho=\log M_0-\pi/\rho_{\rm op}^2\) is also downstream.
+
+The open source objects are the record-atom restrictions, endogenous
+reachability, frozen publicness policy, global checkpoint coupling,
+capacity-carrier representation, whole-fiber scalar producer,
+no-new-confusability extension/refinement packets, finite-size slack law,
+horizon-record saturation, and common screen/electroweak load carrier. QCD
+and hadronic transport are not dependencies of this closure program.
+\end{remark}

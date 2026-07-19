@@ -164,9 +164,10 @@ The word "screen" needs care. OPH does not mean that every observer owns a
 separate physical sphere, and it does not require a literal ball with data
 painted on its surface. In the idealized description there is a shared
 observer-facing screen net, often drawn with the symmetric chart $S^2$. A finite
-observer has access only to a bounded local cut of that net. The observer's
-operational screen is that accessible cut, and a patch is the part of the cut
-that supports records, comparisons, and repair.
+observer has access only to a bounded local cut of that net. That cut is the
+patch's support chart. The observer patch itself is the operational package
+carried there: its accessible algebra and state, interfaces, readable records,
+mismatch comparisons, repair moves, and checkpoint data.
 
 For an observer in our universe, the accessible boundary can take several
 forms. There is an observer-dependent cosmological horizon scale. Near a black
@@ -234,31 +235,88 @@ reconstruction.
 
 ### Finite Resolution
 
-If one adopts a smallest screen length scale as a finite-cutoff modeling assumption, then there is a maximum $\ell$:
+At finite screen resolution, the smallest cell length sets a maximum angular
+mode $\ell$:
 
 $$\ell_{max} \sim \frac{R}{\ell_P}$$
 
 The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$-proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
 
-In such a finite-resolution screen model, our experience of a continuous world is an approximation and the screen description becomes effectively discretized.
+Our experience of a continuous world is the large-scale limit of this finite
+screen description.
+
+### The Finite Machine Under the Chart
+
+Three objects are easy to confuse. The **abstract observer patch** is the
+operational package: what it can read, which state it carries, which records it
+can consult, which boundary data it exposes, and which repairs it can perform.
+The **support patch** is the cap, collar, or other geometric region used to
+display those operations on a sphere. The **carrier patch** is the physical or
+digital machine that realizes them. The observer is identified with this
+visible operational package. A different hidden circuit, material, or port
+labeling is physically silent when it preserves the same readouts, records,
+repairs, and checkpoint continuation.
+
+The reference carrier is called **echosahedral**. It has a finite internal
+algebra and state, twelve overlap ports, a readout at each port, an
+observer-readable central record register, a finite mismatch score, a finite
+menu of update and repair moves, and checkpoint data. In the icosahedral
+screen sieve, the ports sit at the vertices of a regular icosahedron and
+opposite ports form six axes. The twenty
+triangular faces and thirty edges organize incidence, edge-sector, and collar
+bookkeeping. Recurrent loops inside a patch or a small group of ports can
+supply local memory and winding-sensitive behavior. They are local subchannels,
+not a claim that the whole universe is a torus.
+
+The choice of twelve follows in two steps. For a triangular cellulation of a
+sphere, Euler's relation fixes the total coordination defect to twelve. The
+screen's strict spreading cost resolves that total into twelve equal unit
+defects, and its isotropic tomography rule places the resulting six antipodal
+axes in the unique regular icosahedral arrangement. Its proper rotation group
+is the sixty-element group $A_5$.
+
+At one interface, the machine performs a short cycle:
+
+```text
+read local state
+      ↓
+expose a boundary packet
+      ↓
+compare it with the neighboring packet
+      ↓
+repair a checkable mismatch
+      ↓
+write the accepted result
+      ↓
+checkpoint and read again
+```
+
+A federation routes many such ports into shared interfaces. Accepted repairs
+lower a declared mismatch score, and compatible repair orders reach the same
+public normal form.
+Nested icosahedral subdivisions provide one convenient finite regulator for the
+spherical chart. This does not say that smooth spacetime is a pile of tiny
+icosahedra. The polyhedral carrier sits at finite cutoff. The smooth sphere is
+the observer-facing limit of its repaired quotient data.
 
 ## 3.8 Patches and Overlaps
 
 You cannot see the whole screen net. Some parts are hidden by your horizon or by
 instrumental limits, and some parts are simply not in your operational domain.
-You only access a **patch**, a connected region $P_O\subset S^2$ in the
-symmetric chart.
+The support chart displays that access domain as a connected region
+$P_O\subset S^2$.
 
 Another observer, at a different location or with different instruments,
-accesses a different patch. Where patches overlap, observers can compare notes.
+has a different support region. Where support regions overlap, observers can
+compare notes.
 
-If the screen net is charted by $S^2$ and observer $i$ has access patch $P_i$,
+If the screen net is charted by $S^2$ and observer $i$ has support region $P_i$,
 then two observers can compare data on the overlap $P_i \cap P_j$. That overlap
 is the seed of consistency. Observer $i$ sees the local algebra, state, and
-records supported on $P_i$. What $i$ and $j$ can make public is the part of
+records displayed on $P_i$. What $i$ and $j$ can make public is the part of
 those descriptions that agrees on $P_i \cap P_j$.
 
-![Two observer patches on the S^2 screen share a lens-shaped overlap where their descriptions can be compared.](../assets/book_diagrams/s2-screen.svg){width=74%}
+![Two observer support regions on the S^2 chart share a lens-shaped overlap where their descriptions can be compared.](../assets/book_diagrams/s2-screen.svg){width=74%}
 
 ### A Concrete Example
 
@@ -290,24 +348,35 @@ In classical physics, observers are implicitly outside the system-disembodied me
 
 ### Observers as Patterns in the Data
 
-An observer is a special pattern in the horizon data. It has bounded access to
-a finite patch of the screen. It carries stable records, internal
-correlations that persist as memory. It also builds compressed models of its
-environment, not raw data dumps.
+An observer is an operational pattern in a patch or a connected patch
+federation. It has bounded access to a local algebra, stable records it can
+reread, an internal readback or state estimate, and future behavior that
+depends on those records. It exposes predictions at its boundary and carries
+enough checkpoint information to continue after a controlled repair. A human
+observer can instantiate this role, as can a detector or a software process.
+The definition names a self-reading structure rather than a species.
 
 ### The Vortex Analogy
 
 Think of observers as stable vortices in a fluid.
 
-The fluid is the quantum state on the horizon: constantly evolving, highly correlated. A vortex is a pattern within the fluid. It persists over time. It has a definite location. It interacts with other patterns.
+The fluid is the finite carrier state exposed through the horizon chart:
+constantly changing and highly correlated. A vortex is a pattern within the
+fluid. It persists over time. It has a definite location. It interacts with
+other patterns.
 
-An observer is like that: a stable, self-reinforcing pattern within the data on the screen. The pattern has access to a local region (its patch), maintains internal structure (its records), and can interact with nearby patterns (other observers, measured systems).
+An observer is like that: a stable, self-reinforcing pattern within the
+observer-visible data. The pattern has bounded access, maintains internal
+structure and records, and can interact with nearby patterns through exposed
+interfaces.
 
 ### Movement and Time
 
 Do observers "move around" on the sphere?
 
-Not in a simple sense. Different patches represent different observers, or the same observer at different moments. "Movement" is actually a sequence of overlapping patches with consistent marginals.
+Not in a simple sense. The support region can change from one record slice to
+the next. Records, external interfaces, and checkpoint continuation carry the
+operational identity while the spherical chart displays that change as motion.
 
 What creates the sense of time? The internal structure of the quantum state provides a natural flow: the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution, and the thermal time principle provides an important interpretive-organizational guide.
 
@@ -324,17 +393,17 @@ This definition of observers resolves several puzzles:
 
 **Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data and stable records are created. That record formation captures the main physical content behind textbook collapse language.
 
-**Consistency follows from structure**: In the constructive screen picture, if
-two observers are modeled as patterns in the same underlying state, their
-reduced descriptions must agree on overlaps. The more general gluing problem is
-subtler and is developed later.
+**Consistency follows from structure**: Two observers may be restrictions of
+one underlying state or begin from independently presented local data. In both
+cases, translation, comparison, and repair make their shared descriptions agree
+on overlaps.
 
 ### Reality from Computation
 
 A concrete screen picture looks like this.
 
-Imagine the screen chart as a **gauge-invariant quantum system** on the
-2-sphere, something like a quantum cellular automaton but with important
+Represent the screen chart by a **gauge-invariant quantum system** on the
+2-sphere, something like a quantum cellular automaton with additional
 structure. This is a regulator picture for the observer-facing data, not a
 claim that the world is built as one smooth spherical shell. Triangulate the
 chart into tiny cells. At each edge of the triangulation sits a
@@ -348,11 +417,28 @@ is a local accounting rule: many internal descriptions may be allowed, but only
 the combinations that leave the shared physical quantities unchanged count as
 physical.
 
-**Observer patches** are subsystems defined by boundary-gauge-invariant algebras. Each patch is like a computational thread, a connected region where an observer can ask questions and get answers. The algebra $\mathcal{A}(R)$ defines what that observer can measure: the operators that commute with the boundary gauge transformations.
+**In this quantum-link regulator**, an abstract observer patch is
+represented by a subsystem with a boundary-gauge-invariant algebra. Its support
+region is like a computational thread through the chart, a connected place
+where an observer can ask questions and get answers. The algebra
+$\mathcal{A}(R)$ defines what that observer can measure: the operators that
+commute with the boundary gauge transformations.
 
-**Overlap consistency** is built into this constructive picture. Where two patches intersect, they access the same gauge-invariant observables. Both observers are reading the same underlying data, just from different angles. The gauge redundancy at boundaries is what makes gluing non-trivial and gives rise to the "edge modes" that carry geometric information.
+**Overlap consistency** becomes a physical interface test. Two patches expose
+their gauge-invariant boundary packets, translate them into a common frame, and
+compare the shared observables. A mismatch triggers one of the allowed local
+repair moves and writes the accepted result to the record layer. A model in
+which both patches are restrictions of one global state is one easy special
+case. The general architecture earns a public state by making independently
+presented local data agree. Gauge
+redundancy at the boundary makes that gluing non-trivial and gives rise to the
+edge modes that carry geometric information.
 
-**The dynamics** comes from MaxEnt: among all states consistent with the constraints, nature selects the maximum entropy state. At fixed cutoff this is modeled by a Gibbs-like state $\rho \propto e^{-H}$, where $H$ is a sum of local terms. The macroscopic physics then emerges from that constrained equilibrium picture.
+**State selection and repair play different roles.** Maximum entropy selects
+the realized state within a declared constraint family. At fixed cutoff this is
+modeled by a Gibbs-like state $\rho \propto e^{-H}$, where $H$ is a sum of local
+terms. The patch update and repair instruments perform the synchronization
+work when exposed records disagree. Refinement keeps both structures aligned.
 
 **The 4D bulk isn't on the sphere.** It emerges from the entanglement structure between patches. When you look around and see three-dimensional space, you're experiencing a compressed encoding of how your patch is entangled with others. In the constructions emphasized later, bulk distance is read from boundary entanglement structure.
 
@@ -374,22 +460,23 @@ This chart does real work. Caps and collars on the sphere identify the local
 questions an observer can ask. Overlaps between caps identify the data two
 observers can compare. The conformal symmetries of the same sphere become the
 Lorentz symmetries of the shared spacetime description in the smooth regime.
-On that branch the same chart also carries Lorentz meaning: sky directions and
-cap sides transform together. A cap has Lorentzian meaning as well as its
-screen-picture meaning.
+The same chart therefore carries Lorentz meaning: sky directions and cap sides
+transform together. A cap has Lorentzian meaning as well as its screen-picture
+meaning.
 The finite patch federation supplies the machine underneath that chart.
 
-### A Plausible Hardware Sketch
+### A Physical or Digital Realization
 
-The hardware itself does not need center stage. The useful picture is the
-architecture: a federation of finite patches with exposed overlap ports. Short
-local links connect neighbors. Local rules keep records stable, move
-correlations across the interfaces, and let nearby patches stay in sync.
+The carrier can be built from quantum registers, optical channels, software
+state machines, or another bounded substrate. The echosahedral body is the
+reference interface rather than one mandatory material or wiring diagram. A
+realization exposes the same local state, twelve-port readback, records, repair
+behavior, and checkpoint continuation within its operating tolerance. More
+general observer patches can have other bounded interface counts.
 
-That picture turns the screen from a metaphor into a regulator chart over a
-finite patch machine. It can be rebuilt in miniature with ordinary qubits,
-and supports the study of finite-resolution measurement, durable records,
-restoration, and synchronization inside one bounded system.
+A bench device makes the self-reading loop visible through its wiring,
+calibration, raw readouts, controls, repair log, and repeatable checks. Those
+records connect the physical carrier to the abstract observer-patch protocol.
 
 ## 3.10 Entanglement Creates Depth
 
@@ -411,32 +498,34 @@ The screen notation can be read as a small ladder of logical roles.
 $S^0$ is the first distinction, the seed of a readout. Something can be marked
 as this, with silence as the alternative. $S^1$ is recurrence: a loop in which a record can
 return to itself and be checked again. $S^2$ is the screen, the public archive
-where finite observers expose overlap data. The final rung names the
-three-dimensional observer-facing bulk role. On the controlled Lorentz branch,
-its canonical kinematic chart is $H^3$, not a proved global $S^3$ topology.
+where finite observers expose overlap data. The final rung is the
+three-dimensional observer-frame space, whose canonical kinematic chart is
+hyperbolic space $H^3$. The ladder names operational roles rather than a global
+$S^3$ topology.
 
 This ladder is a teaching map, with the full particle taxonomy carried by the
-later chapters. The photon belongs to the recovered electromagnetic branch, gluons to color gauge
+later chapters. The photon belongs to the unbroken electromagnetic sector, gluons to color gauge
 transport, the graviton to emergent geometry and diffeomorphism structure,
 $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
 composites. The ladder explains how OPH moves from seed, to loop, to screen,
-to bulk. The particle labels are fixed later by Lorentz symmetry, gauge
-structure, and the branch equations.
+to bulk. Lorentz symmetry, gauge structure, and the field equations fix the
+particle labels.
 
 ## 3.12 The Reverse Engineering
 
 The reverse-engineering trail is short. The intuitive picture says
 information scales with volume and space is the container. The hint is that
 black-hole entropy scales with area, with gravitational entropy bounds pushing
-toward boundary-limited information. The lesson is that a boundary-first
-description becomes the strongest candidate. In the symmetric constructions
-used here, each observer has an effective horizon naturally charted by a
+toward boundary-limited information. The lesson is a boundary-first
+description. In the symmetric construction used here, each observer has an
+effective horizon naturally charted by a
 spherical screen. The finite patch data exposed through that chart is limited
 by $S\leq A/(4\ell_P^2)$. Its entanglement patterns create the geometry of the
 emergent three-dimensional bulk, and overlap consistency makes that bulk shared
 and stable across observers.
 
-The holographic principle enters as the strongest explanatory reading of the hints reviewed above, not as a philosophical preference.
+The holographic principle is the explanatory reading of these converging
+thermodynamic and geometric facts.
 
 ## 3.13 Pixel Limits
 
@@ -444,7 +533,13 @@ The numbers are small enough to state directly.
 
 The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The de Sitter horizon**: After the selected OPH scale bridge is expressed in SI units, the radius is $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$.
+**The de Sitter horizon**: The OPH scale conversion gives the radius
+$R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is
+$N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding
+Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx
+3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits.
+Other cosmological horizon conventions stay in the band from $10^{122}$ to
+$10^{123}$.
 
 This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
 
@@ -452,7 +547,10 @@ This is a truly enormous number-but it is finite. The observable universe contai
 
 This is huge, but much smaller than the observable universe. Yet it's far more than the entropy of the Sun as a normal star (about $10^{58}$). Collapse increases entropy because the horizon has vastly more microstates than ordinary matter.
 
-In the finite-resolution screen picture used here, continuous space is an effective approximation. The screen description is the fundamental descriptive layer.
+In the finite-resolution picture used here, continuous space is an effective
+approximation. The microscopic descriptive layer is the observer-visible
+quotient of patch states, interfaces, and records. The spherical screen is the
+chart in which that repaired data is displayed.
 
 ## 3.14 Where We Go Next
 
@@ -464,7 +562,8 @@ of causality. The amount of information is finite and bounded by area.
 Entanglement patterns on the screen create the emergent three-dimensional
 geometry.
 
-The screen described here is static. It encodes information. What makes things happen? What creates the arrow of time?
+This chapter has separated the screen geometry from the synchronization cycle.
+What gives the surviving records a direction? What creates the arrow of time?
 
 The answer involves entropy again, this time in dynamics. The Second Law says entropy increases. But why? And what does this have to do with the screen?
 

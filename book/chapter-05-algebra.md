@@ -253,9 +253,9 @@ $$\langle A \rangle = \text{Tr}(\rho A)$$
 
 OPH uses the same conditioning idea for record-localization probes. First
 condition on a stable record token. Then ask where that conditioned record fits
-in the observer-facing spatial chart. The answer is conditional: a good run can
-localize the record, while an underdetermined run must say that the location is
-ambiguous.
+in the observer-facing spatial chart. The result either localizes the record or
+marks its position as operationally ambiguous. Both are definite public
+readouts of the same localization procedure.
 
 ## 5.6 Algebras of Observables
 
@@ -311,8 +311,31 @@ can compare notes.
 
 ## 5.8 Patch Algebras on the Screen
 
-The screen version says the same thing in simpler geometry. Each observer owns a
-patch of the sphere and the questions available on that patch.
+The screen version says the same thing in simpler geometry. Each observer
+accesses a finite part of the shared screen net, displayed as a patch in the
+$S^2$ chart, together with the questions available there. The observer does
+not own a private physical sphere.
+
+### Private Operations and Public Records
+
+The full patch algebra can be noncommutative. Internal questions and update
+operations can depend on order. The rereadable public record layer is smaller.
+In the finite carrier it sits in the center of the patch algebra, which means
+that consulting a finished record is compatible with every other allowed
+operation. Physical implementations approach this central record layer within
+their operating tolerance.
+
+This separation is the algebraic version of a familiar laboratory fact. A
+detector can contain complicated quantum electronics while exposing one stable
+line in a data file. Neighboring patches receive the boundary packet and the
+record, not a copy of the whole private interior. They compare the shared
+interface algebra, repair a mismatch if the protocol allows it, and preserve
+the result for another read.
+
+It also prevents a later confusion. The noncommuting current algebra built on
+the oriented icosahedral coefficient space is carried by fluctuations and
+transformations. The accepted public record projectors remain commuting
+records.
 
 ### Net Axioms (Algebraic)
 
@@ -391,20 +414,19 @@ story speak the same language.
 
 The implication is strong: once you specify an algebra-state pair, modular theory gives a natural flow. Time evolution is not imposed from outside in this construction. It emerges from that algebraic structure together with the chosen state.
 
-This connects to the **thermal time principle** of Connes and Rovelli: modular flow provides an important candidate for organizing experienced time. Given the quantum state of our patch, the algebra provides a natural clock.
+This connects to the **thermal time principle** of Connes and Rovelli: modular
+flow organizes experienced time. Given the quantum state of our patch, the
+algebra provides a natural clock.
 
-OPH keeps this last sentence bounded. Modular flow gives a canonical parameter
-for the declared algebra-state pair; a repair-cycle counter, a worker
-timestamp, or a laboratory clock readout requires extra structure. Turning the
-modular parameter into an operational observer clock requires a clock
-instrument, a calibration map, and a residual bound showing that corresponding
-observers read the same clock up to the declared affine reparameterization.
+The modular parameter supplies the intrinsic ordering. A clock instrument and
+its calibration turn that ordering into an operational readout, and overlapping
+observers compare their clocks through the shared affine conversion between
+their modular parameters.
 
-The same caution applies to finite regulators. A finite matrix calculation can
-approximate a modular branch only after a declared multiresolution tower
-supplies compatible embeddings, conditional expectations, transported local
-state errors, and a cutoff schedule. Geometric modular flow is a theorem of the
-controlled BW construction; arbitrary finite matrices do not get it for free.
+Across finite resolutions, compatible embeddings, conditional expectations,
+transported local states, and the cutoff schedule carry this clock coherently.
+Their smooth limit is the geometric modular flow that becomes a Lorentz boost
+on the observer-facing cap.
 
 ## 5.11 Commutation and Causality
 
@@ -445,7 +467,10 @@ Neumann algebras carry modular flow, and causality requires commutation for
 spacelike-separated regions. Non-commutativity is the feature that makes the
 quantum consistency problem genuinely hard.
 
-The algebraic structure is forced by the hints from quantum mechanics. OPH then explores a stronger interpretation: non-commutativity is deeply tied to the difficulty of global consistency, not an arbitrary extra feature. The "strangeness" of quantum mechanics is thereby read as part of the price of a structured reality, not as a standalone theorem from consistency alone.
+The algebraic structure is forced by the hints from quantum mechanics. OPH
+identifies non-commutativity with the difficulty of maintaining global
+consistency among finite perspectives. The "strangeness" of quantum mechanics
+is part of the price of a structured, self-consistent reality.
 
 ### The People Behind the Algebra
 
@@ -475,16 +500,17 @@ of momentum outcomes in that same state. A state that makes the position questio
 answerable cannot also make the momentum question sharply answerable. The
 restriction belongs to the algebra of questions.
 
-That is why OPH puts algebras on patches. A patch is a region with a menu of possible
-questions, and the menu has structure. Some questions can be asked together.
-Some cannot. Some are related by transformation. Some commute with questions
-in a distant patch and therefore respect causal independence. The overlap
-problem is then the problem of making these local menus agree where they
-refer to the same shared records.
+That is why OPH puts algebras on patches. A support patch is the chart region
+carrying the local menu of possible questions; the abstract observer patch also
+includes its state, interfaces, records, repairs, and checkpoint. The menu has
+structure. Some questions can be asked together. Some cannot. Some are related
+by transformation. Some commute with questions in a distant patch and
+therefore respect causal independence. The overlap problem is then the problem
+of making these local menus agree where they refer to the same shared records.
 
 The chapter also introduces modular flow because the algebra-state pair is
 richer than a static database. A state tells the algebra how
-expectation values are assigned. In favorable cases the pair carries a
+expectation values are assigned. The pair carries a
 natural internal flow, written
 $\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. Here $A$ is an observable, $t$ is the
 flow parameter, and $\Delta$ is the modular operator built from the algebra

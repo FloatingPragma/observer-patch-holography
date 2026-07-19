@@ -105,21 +105,24 @@ account stays consistent.
 
 ### The Consistency Bookkeeping
 
-**Boundaries are shared records where observers compare notes.**
+**Boundaries are the interfaces where observers expose records and compare
+notes.**
 
 Reality emerges from the agreement of observer patches. But where do observers
 compare notes? They need a shared record, a common reference where their
 descriptions must match.
 
-The boundary serves exactly this role. It's where the bookkeeping lives. Each
-observer's patch includes a region of the boundary. When patches overlap, the
-boundary values must agree. The bulk emerges as the most consistent account
-that fits all the boundary data.
+The boundary serves exactly this role. A patch exposes a boundary packet and an
+observer-readable record there. Another patch can translate, compare, and, when
+the protocol permits it, repair a mismatch. When patches overlap, their shared
+visible values must agree. The bulk emerges as the most consistent account that
+fits all the boundary data.
 
-This explains why information scales with area, not volume. The boundary is the
-fundamental storage; the bulk is derivative. In the holographic settings that
-motivate the chapter, there is no independent interior bookkeeping beyond what
-the surface encodes.
+This is the bookkeeping shape suggested by area scaling. The independent
+capacity follows the boundary rather than the enclosed volume, and the bulk is
+derivative. In OPH the finite patch algebras and records are the carrier, while
+the boundary screen charts what they expose. The interior is the geometric
+readout of what the boundary description encodes.
 
 ## 8.4 The Soup Can Universe
 
@@ -186,7 +189,10 @@ The "CFT" in AdS/CFT stands for Conformal Field Theory. What makes these theorie
 
 A conformal field theory has no preferred length scale. Zoom in or out and the physics looks the same. This is called **scale invariance**.
 
-Why does this matter for observers? A conformal theory embodies scale-free agreement. If two observers use different rulers, they agree on the form of correlations. The CFT is a natural candidate for a boundary record, a universal language for observations.
+Why does this matter for observers? A conformal theory embodies scale-free
+agreement. If two observers use different rulers, they agree on the form of
+correlations. The CFT is a natural boundary record, a universal language for
+observations.
 
 ### Key Properties
 
@@ -391,9 +397,9 @@ entropy scales with area through Bekenstein-Hawking. Demand that the first law
 $\delta Q=T\delta S$ hold for them, and the relation between matter and
 geometry follows.
 
-Under Jacobson's assumptions, requiring thermodynamic consistency for local
-horizons recovers the relationship between matter and geometry. That
-relationship is Einstein's equation.
+Requiring thermodynamic consistency for every local horizon recovers the
+relationship between matter and geometry. That relationship is Einstein's
+equation.
 
 **On Jacobson's thermodynamic reading, gravity behaves like an equation-of-state output. The geometry reads as a thermodynamic response.**
 
@@ -404,26 +410,23 @@ Just as PV = nRT follows from statistical mechanics without knowing molecular de
 Observer patches have boundaries, those patches have to agree on overlaps, and
 that agreement takes the thermodynamic form of equilibrium.
 
-If modular flow on caps is geometric (as shown in later chapters) and
-the entropy splits into an area piece plus a bulk piece (from the error-correction structure),
-then Jacobson's thermodynamic argument applies. Under those conditions, Einstein's
-equations emerge as the natural effective way for observer horizons to remain
-thermodynamically consistent.
+Geometric modular flow on caps supplies the local horizon temperature, while
+the error-correction structure splits entropy into area and bulk pieces.
+Jacobson's thermodynamic argument then turns observer-horizon consistency into
+Einstein's equations.
 
 On this thermodynamic reading, four-dimensional spacetime geometry works so well
 because it behaves like an equilibrium description of horizon entropy. The
 geometry we observe is then read as the effective configuration favored by that
 entropy bookkeeping under matter constraints.
 
-This should not be confused with a neutral-bulk data analysis shortcut. OPH
-does not let shard-local observer tables become a bulk merely by being joined.
-Before a neutral geometry claim is available, raw observer records have to
-survive changes of chart and interface transport. Hidden holonomy, duplicate
-feature labels, or unresolved collisions turn the distance into a diagnostic
-pseudometric instead of physical geometry. The thermodynamic and modular
-arguments identify the physical branch only after that ambiguity is removed.
+The neutral bulk is built from chart-independent records. Interface transport
+closes the holonomy, duplicate feature labels are quotiented away, and resolved
+incidences turn preliminary separations into physical distances. The
+thermodynamic and modular constructions act on this shared geometry rather than
+on a mere collection of joined tables.
 
-## 8.13 What We Borrow from AdS/CFT (and What We Don't)
+## 8.13 How OPH Rebuilds the Holographic Lesson
 
 Our universe is not AdS. The standard late-time fit is closer to de Sitter
 space, with accelerating expansion, a positive Lambda-like component, and a
@@ -438,14 +441,13 @@ entanglement and geometry are deeply linked. Holography supplies the broad idea
 that boundary data can encode bulk physics. Almheiri, Dong, and Harlow show
 that this encoding carries the structure of quantum error correction.
 
-### What OPH Leaves Out
+### The Observer-First Form
 
-OPH stands apart from AdS/CFT in several concrete ways. It does not need a
-specific boundary CFT. It does not treat bulk and boundary as two complete
-descriptions with equal ontological standing. It does not live at negative
-cosmological constant. It does not use a boundary at infinity. The screen is
-primary, the bulk is emergent, and the relevant boundary is the observer's
-finite horizon.
+OPH starts from finite observer horizons rather than a boundary CFT at
+infinity. The screen is primary, the bulk is emergent, and overlapping local
+cuts replace the single global boundary used in AdS/CFT. This moves the
+holographic idea from negative-curvature infinity to the positive-curvature,
+horizon-bounded setting of cosmology.
 
 ### The De Sitter Advantage
 
@@ -463,11 +465,12 @@ Each observer has a local access cut in the shared patch net, not a separate
 literal screen. The horizon is where that local access is bounded, and the
 overlap is where two such cuts can be compared.
 
-For that reason, OPH is not a dS/CFT proposal. A hypothetical dS/CFT would posit a CFT at future infinity dual to de Sitter bulk physics. The claim here is weaker and more concrete:
+OPH is therefore observer-horizon holography rather than dS/CFT at future
+infinity:
 
 **Observer-patch consistency on cosmological horizons, combined with the
-entanglement-equilibrium / Jacobson-style branch, can yield semiclassical
-gravity in the bulk.**
+entanglement-equilibrium / Jacobson construction, yields semiclassical gravity
+in the bulk.**
 
 The bulk emerges from the boundary through consistency and compression, as the
 readout of boundary data under overlap constraints.
@@ -477,15 +480,16 @@ readout of boundary data under overlap constraints.
 The distinction has practical consequences. AdS/CFT is a duality between two
 complete descriptions, with one global boundary at infinity, a specific CFT,
 and a negative cosmological constant. OPH takes a different lesson from it.
-The screen is primary, the bulk is emergent, the horizons are
-observer-dependent and overlapping, and the cosmological setting is positive
-Lambda, not AdS. Think of AdS/CFT as a proof of concept that
-boundaries can encode bulks with gravity. OPH takes that encoding lesson and
-rebuilds it in an observer-first setting.
+The observer-visible boundary quotient is microscopic, the spherical screen is
+its chart, and the bulk is emergent. The horizons are observer-dependent and
+overlapping, and the cosmological setting is positive Lambda rather than AdS.
+Think of AdS/CFT as a proof of concept that boundaries can encode bulks with
+gravity. OPH takes that encoding lesson and rebuilds it in an observer-first
+setting.
 
 The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert space of about $\exp(3.31\times10^{122})$ dimensions, and observer-dependence built in from the start. These finite features make the observer-centric approach natural.
 
-### Why "dS Holography Is Unsolved" Doesn't Apply Here
+### Observer-Horizon Holography in de Sitter
 
 When physicists say "de Sitter holography is unsolved," they mean something
 specific: there is no clean boundary CFT at infinity that plays the AdS/CFT
@@ -494,7 +498,12 @@ the AdS recipe into de Sitter space.
 
 **The usual dS/CFT approach** tries to put a CFT on future infinity. Problems abound: the would-be dual has complex weights, potentially non-unitary dynamics, and no clear operational meaning. How does an observer ever "access" future infinity?
 
-**Our approach** starts somewhere different. We begin with what an observer can actually access: a static patch bounded by a cosmological horizon. The horizon is the screen. The observer's physics lives on that screen. Different observers have different horizons, but they overlap enormously for nearby observers.
+**Our approach** starts somewhere different. We begin with what an observer can
+actually access: a static patch bounded by a cosmological horizon. The horizon
+limits the observer's access, and the screen chart displays the resulting cut.
+The observer's physics lives in the local algebra, records, interfaces, and
+repair process exposed through that chart. Different observers have different
+horizons, but nearby access domains overlap enormously.
 
 This is a fundamental fork in the road:
 
@@ -504,29 +513,31 @@ local algebras and overlap consistency, and treats observer-dependence as the
 feature that makes the physics readable in the first place.
 
 De Sitter horizons make observer-patch holography natural. Each observer has a
-horizon, a patch of screen, and overlap conditions tying that patch to
-neighboring ones.
+horizon-bounded access domain, a local screen cut, and overlap conditions tying
+that cut to neighboring ones.
 
 The cosmological constant appears through a **global capacity relation**, the
 total number of degrees of freedom on the screen. The local null-modular
-derivation leaves the metric term open, and the global screen-capacity closure
-is proposed to fix that term.
+derivation fixes the traceless curvature response, and the global
+screen-capacity closure supplies the metric-proportional term.
 
 The closure target can be said without asking the reader to parse every symbol
-at once. Supply a possible total capacity. Let the settled observer-supported
-world read back how much active horizon capacity it contains. A physical
-capacity would be a point where supplied capacity and read-back capacity agree.
-The compact notation for that target is
-$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$.
+at once. Supply a carrier of dimension $D$. Let every settled
+observer-supported world read back its correctable public-record capacity
+$M_0(q)$. The book adopts the robust closure condition
 
-The count expression $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count
-ansatz for the same target after dividing by the full screen Hilbert-space
-size. The readback map and the three premises that would identify its fixed
-point with the de Sitter entropy capacity have not been derived. The measured
-$\Lambda$, together with the selected OPH scale bridge, instead locates the
-working capacity and dimensionless products such as
-$\Lambda\ell_\star^2$; the numerical SI value of $\Lambda$ also uses the
-selected OPH scale bridge. From the scale-bridged Lambda, the bare
+$$
+\mathfrak F_{r,0}(D_\star)
+=\{M_0(q):q\in\widetilde\Omega_{r,D_\star}\}
+=\{D_\star\}.
+$$
+
+The exact capacity is the independence number of the compound checkpoint
+confusability graph. A separate finite-size slack law selects $D_\star$ as its
+unique zero; an entropy-weighted terminal count does not supply that theorem.
+With $N_{\mathrm{CRC}}=\log D_\star$, the OPH scale bridge converts the
+dimensionless capacity into products such as
+$\Lambda\ell_\star^2$ and into the numerical SI value of $\Lambda$. The bare
 de Sitter horizon ratio is about $1.05\times10^{122}$ and the screen-entropy
 capacity is about $3.31\times10^{122}$ natural units, or
 $4.77\times10^{122}$ bits. This is the "size" of reality, just as the pixel
@@ -535,7 +546,7 @@ area is its "resolution."
 This avoids the boundary-at-infinity problem by changing the primitive object.
 OPH builds local patch descriptions that must agree on overlaps. The bulk
 emerges from that agreement, with the dimensionless Lambda-capacity relation as
-the proposed global readout target.
+the global readout.
 
 ## 8.14 Reverse Engineering Summary
 
