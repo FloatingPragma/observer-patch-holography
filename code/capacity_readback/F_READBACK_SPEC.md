@@ -7,15 +7,16 @@ source-derived packet and a finite-size selector receipt satisfy the contract.
 Neither the operational resolution, the measured cosmological constant, nor
 the electroweak/Higgs bridge belongs to the producer cone.
 
-The official universe-level equation is
+The official universe-level equation, after whole-fiber scalarization, is
 
 ```text
-N = M_0(U_N).
+N = log M_0(U_N).
 ```
 
-The finite evaluator keeps the types explicit: `M_0(q)=alpha(G_q)` is a
-multiplicative code size, while after whole-fiber scalarization
-`M_0(U_N)=log(F_hat_r,0(exp(N)))` is the logarithmic universe readback.
+The finite evaluator keeps the types explicit. `M_0(q)=alpha(G_q)` is a
+multiplicative code size. After whole-fiber scalarization,
+`M_0(U_N)=F_hat_r,0(exp(N))` is the multiplicative universe readback, and its
+logarithm is compared with `N`.
 
 ## 1. Frozen capacity coordinate
 
@@ -196,7 +197,8 @@ change the exact zero set.
 
 ## 9. Independent downstream bridges
 
-After robust direct closure, `HORIZON-RECORD-SATURATION`
+After robust direct closure, identifying the correctable record carrier with
+the de Sitter horizon record,
 
 ```text
 N_star = log D_star = A_dS/(4 ell_star^2)
@@ -208,8 +210,8 @@ implies on the de Sitter branch
 Lambda ell_star^2 = 3*pi/N_star.
 ```
 
-The independent `COMMON-EW-LOAD-CARRIER` identification combines the screen
-load law and D10 to test
+An independent positive refinement-natural identification of the screen and
+electroweak load carriers combines the two source laws to test
 
 ```text
 R_EW(P,N) = alpha_U(P) log(N/pi) - 6*pi/P = 0,
@@ -222,7 +224,7 @@ bridge, not the direct capacity evaluator. `rho_op` is also downstream.
 ## 10. Required packet
 
 ```text
-PUBLIC_CHECKPOINT_PACKET
+public_checkpoint_packet
   regulator_id
   carrier_type_id
   capacity_dimension

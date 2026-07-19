@@ -1,6 +1,17 @@
 # OPH Executable Evidence
 
-This directory contains the certificates, simulations, exact finite calculations, public receipts, and experimental adapters behind the OPH paper stack. The papers state the claims; this directory makes their finite and numerical parts inspectable.
+This directory contains the certificates, simulations, exact finite
+calculations, public receipts, and experimental adapters behind the OPH paper
+stack. The papers state the claims. These artifacts let a reader recompute the
+finite and numerical parts, inspect their inputs, and see which physical bridge
+each result requires.
+
+The strongest artifacts are small and exact: finite repair checks, the
+twelve-port coefficient algebra, exterior Standard Model branching, anomaly
+arithmetic, and interval uniqueness certificates. Larger simulations test
+whether the same architecture survives scale, noise, refinement, and physical
+readout. A simulation is evidence for its declared branch. It does not replace
+the theorem or physical carrier named by that branch.
 
 ## Main Routes
 
@@ -28,6 +39,10 @@ This directory contains the certificates, simulations, exact finite calculations
 | [`precision_ledgers/`](precision_ledgers/) | Machine-readable numerical provenance ledgers |
 
 ## Quick Reproduction
+
+The repository-level [reproduction guide](../REPRODUCE.md) gives the clean-clone
+environment and mandatory checks. The commands below are short entry points
+into the main evidence families.
 
 Run the finite consensus benchmark from the repository root:
 

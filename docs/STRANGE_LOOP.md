@@ -90,20 +90,20 @@ architecture has a computable fixed point.
    measurement precision, the loop predicts the next generation of metrology (protocol
    stage 4). The theory that consumed α can end up predicting α's next digits.
 
-## The five pillars (status)
+## The five pillars
 
 | Pillar | Content | Status |
 |---|---|---|
-| 1. Principles stated once | SL-0…SL-5 with claim rules | done: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) |
-| 2. Closure ledger at zero | CL-1…CL-7 closed by blind computations | open: decisive rows: CL-1/CL-2 (hadronic), CL-3 (one N), CL-5 (forward electroweak) |
-| 3. Compression | two located coordinates (P, N) and five axioms reproduce the measured constants of physics | 3+1 spacetime, Einstein-like gravity, quantum probability, Standard Model gauge structure, the fine-structure constant, and Λ_QCD follow from that compressed input |
-| 4. Uniqueness certificates | interval-grade contraction and finite-capacity proofs behind "the only P, the only N" | P: exactly one fixed point per declared map on its domain (stage-2 plus global certificates); N: public-section and correctable-capacity implications proved, with the source packet and unique finite-size slack zero remaining; the independent EW/Higgs bridge gives the certified comparison coordinate $3.5321315434\times10^{122}$ once its common-carrier receipt is supplied |
-| 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
+| 1. Principles stated once | Six strange-loop principles with one claim discipline | [Strange-loop principles](STRANGE_LOOP_PRINCIPLES.md) |
+| 2. Local closure | The declared arithmetic pixel maps each have one certified fixed point | The physical Thomson transport and source-only endpoint are work in progress |
+| 3. Global closure | Public sections, correctable capacity, reversible counting, robustness, bounds, and order theory | The physical checkpoint packet and unique finite-size slack zero are work in progress |
+| 4. Structural compression | One finite observer contract reaches quantum records, Lorentz kinematics, conditional Einstein dynamics, and the selected Standard Model branch | The exact and conditional boundaries are stated in the compact paper |
+| 5. Independent reproduction | Lean, exact arithmetic, interval certificates, finite receipts, and clean-clone commands | Independent reruns can test every mechanical claim against the published artifacts |
 
-The mission statement, in one sentence: drive the ledger to zero and the certificates to
-stage 4, under a corrected target-blind dependency contract. A strange loop that closes under
-those conditions is a measurement, and a strange loop that fails them was never the loop
-our universe runs.
+The empirical decision rule is simple. Source-only closures with unique roots
+must land on the values measured inside our universe. A strange loop that closes
+under those conditions measures the architecture that produced it. A loop that
+misses belongs to another possible world.
 
 ## Why the loop leads the presentation
 

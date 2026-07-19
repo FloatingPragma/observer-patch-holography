@@ -844,10 +844,11 @@ The symbols to keep steady are the two closure equations. The local one is
 $P = \varphi + \sqrt\pi/A_T(P)$: the pixel ratio $P$ must return itself after
 a full pass through the forward map $A_T$, with $\varphi$ the golden-ratio
 balance and $\sqrt\pi$ the boundary width. The declared map is incomplete. The
-global target is $N = F(N)$: the record capacity $N$ must equal the capacity the
-inside observers read back through $F$, whose source-derived construction is
-absent. Self-reading motivates both targets. It does not supply either missing
-physical map. Chapter 18 tells that subtraction as a story, and Chapter 19
+global target is $N=\log M_0(\mathfrak U_N)$: the logarithmic record capacity
+$N$ must equal the logarithm of the correctable public-record code size read
+from within the trial universe. The source-derived physical packet and its
+unique finite-size selector are absent. Self-reading motivates both targets. It
+does not supply either missing physical construction. Chapter 18 tells that subtraction as a story, and Chapter 19
 folds the same chain into the synthesis.
 
 The chapter is careful about status. The uniqueness of $P$ on the declared

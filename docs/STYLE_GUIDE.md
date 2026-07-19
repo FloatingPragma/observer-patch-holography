@@ -40,10 +40,10 @@ Remove or refactor on sight:
 - Bullet lists where prose carries the argument better. Bullets are for
   genuinely enumerable items.
 
-## Banned words
+## Banned wording
 
-- "honest" in any form ("honest surface", "honest accounting"). Honesty is
-  the default assumption; naming it implies its absence elsewhere.
+- moral-character adjectives used to advertise a surface or an accounting
+  convention. Good faith is the default assumption and needs no label.
 
 ## Abstracts and informal surfaces
 

@@ -1,11 +1,13 @@
 # Artifact Status Ledger
 
-Status correction: "exact" and "closed" below describe internal
-identities on the selected bridge packet. They do not close the physical cosmic
-capacity. That promotion remains conditional on a constructed readback map F,
-CP-1 to CP-3, and joint-posterior propagation for the Lambda comparison. The
-displayed 6.6 percent central-value mismatch is therefore not a contradiction or
-a significance test.
+"Exact" and "closed" below describe internal identities on the selected bridge
+packet. Physical cosmic capacity is governed by
+`N=log M_0(U_N)`, with `M_0` the multiplicative correctable public-record code
+size. Its finite robust form is `F_set,r,0(D_star)={D_star}`. Promotion of a
+bridge identity to physical closure requires the source-derived checkpoint
+packet, whole-fiber scalarization, the exact finite-size selector, and the
+independent carrier identification. The displayed 6.6 percent central-value
+mismatch has no significance model attached.
 
 | Artifact | Status | Meaning |
 |---|---|---|
@@ -22,10 +24,10 @@ a significance test.
 | `RG_Higgs_naturality_defect_certificate.json` | closed exact selected branch | Defines `epsilon_H` and points to the issue-332 certificate, which supplies `epsilon_H=0` and `epsilon_H in [0,0]` on the selected exact source-to-Higgs branch. |
 | `R_WZ_boundary_certificate.json` | compare-only | Prevents accidental promotion of `W/Z`. |
 | `R_gamma_noG_DAG_certificate.json` | skeleton only | No-G rule and missing components are explicit. |
-| `R_N_global_repair_tick_certificate.json` | closed theorem with derived round count | Derives the closure transport from the corpus readback map under the area-law counting model (`F(N)=pi/rho_read^2`, so `N=F(N)` is equivalent to `G_N(1)=rho_star`), hence the full-cycle multiplier `(N_CRC/pi)^(-1/2)`. The issue-#343 certificate supplies `m_rep=24`, giving `|g_*'|=(N_CRC/pi)^(-1/48)` without EW inputs. |
+| `R_N_global_repair_tick_certificate.json` | conditional area-law bridge identity | Under the declared area-law coordinate, derives the full-cycle multiplier `(N_CRC/pi)^(-1/2)`. This coordinate does not construct `M_0(U_N)` or prove `N=log M_0(U_N)`. The separate round-count certificate supplies `m_rep=24`, giving `|g_*'|=(N_CRC/pi)^(-1/48)` without electroweak inputs. |
 | `R_EW_tick_projection_certificate.json` | exact projection-map reduction | Defines `Pi_EW(P,N)=24*pi/(alpha_U(P)*log(N/pi))` and proves `Pi_EW=4P` iff `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`. The physical equality is the separate `HIERARCHY-SCREEN-READOUT` premise. |
 | `R_EW_global_capacity_certificate.json` | exact bridge-defined fixed-point identity | The declared map has `N_CRC^EW(P_star)=pi*exp[6*pi/(P_star*alpha_U(P_star))]` and therefore `B_EW=0`. This is not an independently emitted cosmic capacity and does not prove `HIERARCHY-SCREEN-READOUT`. The source-audit endpoint map is work in progress. |
-| `R_readback_resolution_certificate.json` | closed finite readback resolution | Defines `F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N})))` and `rho_read(r,N)=sqrt(pi/F_r(N))` and emits an eight-step machine-readable derivation chain composing the corpus OPH foundational axioms (finite repair Lyapunov+diamond+completeness confluence; stable self-reading observer sector; central record algebra) with the D6 dimensionless area law and the EW-refined exact-capacity Banach contraction (loaded as a dependency from `R_EW_global_capacity_certificate.json`). The selected finite branch has one positive central capacity atom equal to `N_CRC^EW(P_*)`, zero variance, one delivery resolution, and the positive-root refinement-limit closure forces `rho_read -> rho_star=(N_CRC^EW/pi)^(-1/2)` at the `lambda=1/2` Banach rate. The rounded `3.31e122` cosmological capacity display is recorded in `obstruction_record` and rejected as a bridge witness. |
+| `R_readback_resolution_certificate.json` | archived inferred-capacity bridge | Evaluates the earlier smooth inferred-capacity coordinate and its Banach contraction. It does not evaluate the canonical correctable-record code `M_0(q)=alpha(G_q)`, cannot produce `M_0(U_N)`, and supplies no evidence for the direct N closure. The rounded cosmological display remains excluded as a bridge witness. |
 | `R_m_rep_24_certificate.json` | closed conditional representation round count | If the active current support is `su(3)+su(2)+u(1)`, its adjoint dimension is `8+3+1=12`; reversible orientation doubling and the cyclic scheduler give `m_rep=24`. The screen/A5 selector, global quotient, and MAR matter branch are not premises. Physical-current identification is upstream. Composition with the parametric tick law gives `|g_*'|=(N_CRC/pi)^(-1/48)` and `G_N=g_N^24`. |
 | `R_PN_joint_fixed_point_certificate_report.json` | closed product-branch theorem with coupled boundary | Defines the joint space `I_P x log I_N` and the source map `J(P,x)=(Gamma(P),C_hat(x))`; component contractions imply a unique stable joint fixed point. A genuinely coupled source map requires derivative bounds with `max(a+b/r,d+r*c)<1`, otherwise the coupled branch remains residual freedom. |
 | `issue_332_rg_naturality_certificate.json` | exact conditional selected branch | Verifies `epsilon_n=epsilon_h=epsilon_H=0` on the selected comparison-map branch. Its hierarchy interpretation requires `HIERARCHY-SCREEN-READOUT`; measured weak/Higgs/W/Z/gravity/cosmology inputs are excluded. |

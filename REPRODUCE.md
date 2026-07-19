@@ -1,8 +1,9 @@
 # Reproducing the mandatory scientific suite
 
-This is the clean-clone path for the mandatory OPH scientific receipt suite.
-It makes the machine receipts runnable and auditable from a fresh checkout.
-The gate checks reproducibility infrastructure and carries no physics claim.
+This is the clean-clone path into the OPH scientific receipt suite. The first
+commands verify that the claim registry is internally connected and that the
+public test collection imports without error. Individual evidence families
+then have their own theorem, certificate, or experimental acceptance rule.
 
 ## Environment
 
@@ -34,7 +35,7 @@ mandatory collection unless explicitly enabled:
   `OPH_RUN_IBM=1 python -m pytest code/ibm_quantum_cloud`.
 - CAMB / Boltzmann cosmology:
   `pip install -r code/dark_matter/requirements-boltzmann.txt`.
-- Legacy arXiv D10 helpers: set `OPH_RUN_LEGACY_D10=1` and
+- Legacy particle helpers: set `OPH_RUN_LEGACY_D10=1` and
   `OPH_LEGACY_PARTICLE_DIR` (see `code/particles/conftest.py`).
 
 ## Scope
@@ -56,3 +57,32 @@ from the public checkout alone. In particular:
   endings and to `numpy`/`scipy` versions.
 
 Run the full suite for scientific auditing, not as a clean-clone pass/fail gate.
+
+## Finite Core Checks
+
+The compact exact evidence route is:
+
+```bash
+python3 -m pytest -q \
+  code/a5_closure/test_audit.py \
+  code/capacity_readback/test_correctable_public_record_capacity.py \
+  code/capacity_readback/test_reversible_public_checkpoint_packet.py \
+  code/consensus/test_reference_architecture_benchmark_suite.py \
+  code/consensus/test_verified_tree_packet_net.py
+```
+
+These checks cover the twelve-port algebra audit, exact public-record capacity,
+the reversible reference packet, and the finite consensus packets. They do not
+claim the missing physical $N$ packet or the continuum Einstein tower.
+
+## Paper Build
+
+With [Tectonic](https://tectonic-typesetting.github.io/) installed, rebuild the
+complete paper stack from the repository root:
+
+```bash
+python3 tools/build_tex_papers.py
+```
+
+Every generated paper displays the shared release identifier from
+`paper/release_info.tex`. The manifest records the corresponding PDF hashes.

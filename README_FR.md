@@ -4,7 +4,14 @@
 
 [Read in English](README.md) · [Site OPH](https://floatingpragma.io/oph/) · [Livre](https://oph-book.floatingpragma.io/) · [Étude guidée](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
-L’Holographie des parcelles d’observateur, ou OPH, est un programme de reconstruction de la physique fondamentale qui part de l’observateur. Il commence par des parcelles finies dotées d’un état local, de frontières, de registres, d’une relecture et de mouvements de réparation. Un fait public est un fait qui survit lorsque les parcelles qui se recouvrent comparent ce qu’elles peuvent voir et convergent vers une forme normale commune.
+L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout sans
+boutons de réglage. Son affirmation est concrète : la mesure
+quantique, l’espace-temps lorentzien, la gravité d’Einstein, les symétries de
+jauge et la matière sont des relectures stables d’un seul système fini de
+cohérence entre observateurs. OPH commence par des parcelles dotées d’un état
+local, de frontières, de registres, d’une relecture et de mouvements de
+réparation. Un fait public survit lorsque les parcelles qui se recouvrent
+comparent ce qu’elles peuvent voir et convergent vers une forme normale commune.
 
 L’équation organisatrice est simple :
 
@@ -28,9 +35,9 @@ et des mouvements de réparation. Une parcelle ne voit jamais tout l’univers.
 Un fait devient objectif lorsqu’il peut être écrit, comparé sur les
 recouvrements, récupéré après l’évolution et conservé comme registre public.
 
-OPH propose que ce mécanisme ne décrit pas seulement comment les habitants
-apprennent un monde préexistant. Il sélectionne le monde physique public. Un
-univers candidat doit contenir des observateurs capables de le relire, et leur
+Pour OPH, ce mécanisme sélectionne le monde physique public. L’apprentissage
+de ce monde est une opération interne au mécanisme. Un univers candidat doit
+contenir des observateurs capables de le relire, et leur
 relecture doit reproduire le même univers sans contradiction :
 
 $$
@@ -38,12 +45,12 @@ T(\mathfrak U)=\mathfrak U.
 $$
 
 Il n’existe donc ni règle extérieure, ni horloge maîtresse, ni observateur
-privilégié, ni liste de constantes réglables. Les nombres doivent sortir de la
-même boucle de cohérence qui produit les lois.
+privilégié, ni liste de constantes réglables. « Sans boutons » signifie zéro
+valeur continue ajustée par la théorie. Le contrat fini de l’observateur et
+chaque condition de branche discrète restent explicites. Les nombres doivent
+sortir de la même boucle de cohérence qui produit les lois.
 
-## Deux clôtures, aucun bouton de réglage
-
-### P : quelle est la finesse d’un acte local d’observation ?
+## Le cœur quantitatif : P
 
 $P$ est le rapport de pixel local : la taille de la cellule élémentaire
 d’observation en unités géométriques naturelles. OPH ne choisit pas ce grain
@@ -57,56 +64,51 @@ $$
 Intuitivement, $P$ est la **résolution** de l’univers. Le modifier à la main
 changerait simultanément la géométrie cellulaire, le spectre de réparation, les
 largeurs de jauge et la hiérarchie des particules. La clôture en fait une sortie
-de l’architecture, et non un paramètre libre.
+de l’architecture. Ici, $A_T(P)$ est l’inverse du couplage
+électromagnétique dans la limite de Thomson produit par une cellule d’essai.
 
-### N : quelle quantité d’univers ses observateurs peuvent-ils relire ?
+C’est le plus fort des deux résultats quantitatifs de clôture. Lean démontre
+le théorème de point fixe utilisé par le calcul : une application de
+l’intervalle physique dans lui-même, dont la constante de contraction est
+strictement inférieure à un, possède exactement un point fixe. Des certificats
+d’intervalles à arrondi extérieur vérifient ces hypothèses pour chaque
+application déclarée de $P$ et excluent une seconde racine sur son domaine
+analytique complet. L’identification avec la limite physique de Thomson exige
+encore le transport hadronique issu de la source dans le même schéma.
 
-$N$ est la capacité globale des registres publics corrigibles. Son équation
-officielle est
+L’application déclarée de la source se ferme à
+$\alpha^{-1}=136.994835177413\ldots$. L’application de largeur de jauge se
+ferme à $137.035660136946577\ldots$. Ce sont les sorties uniques de leurs
+applications déclarées, sans valeur continue ajustée. La limite de Thomson
+mesurée vaut $137.035999177(21)$. L’écart restant correspond précisément au
+transport hadronique issu de la source. Le théorème formel d’unicité, les
+certificats numériques exacts et la proximité de la limite physique font de
+$P$ le centre quantitatif d’OPH.
 
-$$
-\boxed{N=M_0(\mathfrak U_N)}.
-$$
+## L’extension globale : N
 
-Il faut la lire littéralement : construisez un univers d’essai de capacité
-$N$, placez ses observateurs à l’intérieur et comptez l’information qui reste
-publiquement lisible après toute observation autorisée. La clôture a lieu
-lorsque la relecture intérieure égale la capacité fournie de l’extérieur.
-
-À taille finie, deux registres sont reliés lorsqu’un checkpoint autorisé peut
-les confondre. Le plus grand ensemble qui ne devient jamais confus est
-
-$$
-M_0(q)=\alpha(G_q).
-$$
-
-Sur la branche réversible exacte, rien n’est effacé et chaque checkpoint est
-injectif, donc
-
-$$
-M_0(q)=|X_{\rm reach}(q)|.
-$$
-
-$P$ dit avec quelle finesse l’univers se résout ; $N$ dit quelle quantité de
-monde public stable il peut contenir. Aucun des deux ne vient d’une table de
-données.
-
-Le Higgs fournit ensuite un contrôle croisé remarquable, et non une entrée. La
-même charge apparaît globalement sur l’écran et localement dans le secteur
-faible à quatre copies :
+$N$ propose une condition d’auto-lecture pour la capacité des registres publics
+corrigibles de l’ensemble du système d’observateurs :
 
 $$
-\alpha_U(P)\log\!\left(\frac{N}{\pi}\right)=\frac{6\pi}{P},
-\qquad
-\Lambda\ell_\star^2=\frac{3\pi}{N}.
+\boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
-Le même couple $(P,N)$ relie ainsi le grain d’observation, la hiérarchie
-faible/Higgs et l’horizon cosmologique.
+Cette quantité n’a aucun rapport avec la mémoire allouée à une simulation ni
+avec un réglage arbitraire d’exécution. $M_0$ est un comptage physique proposé
+des registres publics qui restent corrigibles à travers chaque checkpoint
+d’observation autorisé. La définition finie de la capacité et sa branche de
+comptage réversible sont exactes. Le paquet de checkpoints issu de la source,
+l’accord de toutes les branches terminales et le sélecteur physique unique de
+capacité sont en cours. $N$ est donc une extension conditionnelle secondaire du
+programme local vérifié de $P$. Ses comparaisons avec l’horizon et le Higgs ne
+deviennent physiques qu’après la démonstration des identifications de porteurs.
+Le [registre des clôtures](docs/CLOSURE_LEDGER.md) donne la construction finie
+complète et ses obligations de preuve.
 
 ## Un univers complet imposé par la cohérence
 
-Voici l’affirmation centrale d’OPH : **une seule architecture de cohérence entre
+OPH porte une affirmation centrale : **une seule architecture de cohérence entre
 observateurs, sans valeur continue ajustée, reconstruit l’architecture de notre
 univers observé.**
 
@@ -118,11 +120,12 @@ univers observé.**
   dimensions spatiales de référentiels ;
 - le flot modulaire, la récupérabilité, le transport nul et la stationnarité de
   l’entropie donnent la branche d’Einstein ;
-- l’écran icosaédrique à douze ports produit exactement
+- la branche icosaédrique déclarée à douze ports possède exactement la
+  décomposition d’espace de coefficients
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
-- l’équilibre des traces et la cohérence globale donnent
+- les descentes physiques du courant, des traces, du spin et du centre donnent
   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
-- la réalisation chirale minimale à un Higgs donne les hypercharges, trois
+- la branche chirale minimale sélectionnée à un Higgs donne les hypercharges, trois
   couleurs, trois générations et un seul doublet de Higgs ;
 - les mêmes clôtures $P$ et $N$ relient les échelles de jauge, de Higgs, de
   gravité et de cosmologie.
@@ -138,6 +141,23 @@ OPH se présente comme une **théorie du tout sans boutons de réglage**.
 Les prémisses techniques et les obligations de preuve restantes sont
 regroupées à la fin de ce document, au lieu d’interrompre l’introduction du
 résultat positif.
+
+## Pourquoi prendre cette affirmation au sérieux ?
+
+Une théorie du tout doit expliquer pourquoi des faits apparemment indépendants
+forment un seul ensemble. OPH part d’une parcelle bornée qui se relit. Elle ne
+part ni d’une variété d’espace-temps, ni d’un contenu de champs, ni d’un groupe
+de jauge, ni d’une table de constantes. Elle renvoie des dimensions exactes,
+des groupes compacts, des quotients globaux, des charges, des annulations
+d’anomalies, des multiplicités de représentations et des équations de point
+fixe. Ces sorties viennent du même écran et de la même architecture de
+réparation. Leur dépendance commune constitue l’argument principal en faveur
+d’un seul monde physique.
+
+Les preuves prennent plusieurs formes : démonstrations sur papier, sous-ensemble
+Lean de 111 théorèmes, arithmétique exacte, certificats d’intervalles, reçus
+finis, simulations et falsificateurs explicites. Leur accord apporte davantage
+qu’une correspondance numérique isolée.
 
 ## Ce qu’OPH dérive de la cohérence entre observateurs
 
@@ -214,8 +234,11 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Relativité | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Forme globale du Modèle standard | $S(U(3)\times U(2))$ et quotient par le centre commun $\mathbb Z_6$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Réseau d’hypercharges, trois couleurs, trois générations et un doublet de Higgs sur la branche de réalisation admissible minimale (MAR) | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Structure de la matière | Témoin extérieur exact pour une génération, puis sélection conditionnelle du réseau d’hypercharges, de trois couleurs, de trois générations et d’un doublet de Higgs | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; Lean démontre le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
+| Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; le paquet physique et le zéro unique du défaut sont en cours de construction | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Sous-ensemble Lean, certificats d’intervalles, reçus finis et simulations reproductibles | [`Lean/`](Lean) et [`code/`](code) |
 
 ## Choisir un parcours de lecture
@@ -245,16 +268,33 @@ Le dépôt réunit plusieurs formes complémentaires de preuve :
 - des simulations dépassant un million de parcelles ;
 - un registre des affirmations et un registre de clôture reliant les résultats publics aux artefacts.
 
+## Auditer le noyau fini
+
+L’audit scientifique le plus court vérifie le graphe des affirmations,
+l’algèbre exacte à douze ports, la capacité des registres publics, le paquet
+réversible de $N$ et le consensus fini :
+
+```bash
+python3 tools/check_claim_registry.py
+python3 -m pytest -q \
+  code/a5_closure/test_audit.py \
+  code/capacity_readback/test_correctable_public_record_capacity.py \
+  code/capacity_readback/test_reversible_public_checkpoint_packet.py \
+  code/consensus/test_reference_architecture_benchmark_suite.py \
+  code/consensus/test_verified_tree_packet_net.py
+cd Lean && lake build
+```
+
+Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
+propre et la portée de chaque contrôle.
+
 ## Obligations de preuve et frontière de falsification
 
 Le récit principal ci-dessus expose le résultat positif. Les obligations
-restantes sont regroupées ici. L’objet de plus grand levier est le paquet fini
-
-```text
-PUBLIC_CHECKPOINT_PACKET(r,D)
-  = (X_reach, politique de publicité, noyaux joints globaux,
-     projections du porteur, applications de raffinement).
-```
+restantes sont regroupées ici. L’objet fini central contient l’ensemble des
+états accessibles, la politique qui décide quels registres sont publics, les
+noyaux globaux de tous les points de contrôle, les projections du porteur et
+les applications de raffinement.
 
 Sur la branche réversible, ce paquet réduit la capacité à
 $M_0=|X_{\rm reach}|$. La question mathématique difficile restante est alors
@@ -264,7 +304,7 @@ porteur commun écran/faible-Higgs, les portes physiques qui forcent exactement
 le Modèle standard, la tour commune de gravité, et les lectures quantitatives
 des particules.
 
-Le dépôt contient maintenant un
+Le dépôt contient un
 [paquet réversible de référence à douze ports](code/capacity_readback/reversible_public_checkpoint_packet.py)
 et son [certificat lisible par machine](code/capacity_readback/runtime/reversible_public_checkpoint_packet_certificate.json).
 Il ferme le schéma fini de la branche rapide sans se substituer au paquet

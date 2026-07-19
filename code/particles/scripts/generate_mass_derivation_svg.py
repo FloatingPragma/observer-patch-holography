@@ -246,7 +246,7 @@ LANES: List[Dict[str, Any]] = [
             "nature/pole transport lemma assumes the physical Yukawa response and singularity readout it transports; its "
             "zero-self-energy kernel is a free witness rather than the interacting charged kernel."
         ),
-        "frontier_text": "Physical promotion requires source-derived dynamical selection, honest target-free ancestry, identification with the charged-generation space, a global response channel, an interacting infrared-complete kernel, determinant and pole attachment, and cofinal physical refinement.",
+        "frontier_text": "Physical promotion requires source-derived dynamical selection, documented target-free ancestry, identification with the charged-generation space, a global response channel, an interacting infrared-complete kernel, determinant and pole attachment, and cofinal physical refinement.",
         "prediction_surface": "No nonzero source-only charged-lepton mass is emitted. The finite digital schema witness and central-record construction remain separate from target-informed mass diagnostics.",
         "particles": ["electron", "muon", "tau"],
     },

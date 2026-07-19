@@ -71,7 +71,7 @@ gives `3.5323546226...e122`, the value recorded by
 
 | object | source |
 |---|---|
-| direct public-record map `F`, closure `N = F(N)`, count kernel | [F_READBACK_SPEC.md](F_READBACK_SPEC.md); `public_record_capacity.py` |
+| direct public-record map, closure `N = log M_0(U_N)`, count kernel | [F_READBACK_SPEC.md](F_READBACK_SPEC.md); `correctable_public_record_capacity.py` |
 | twelve-port sieve, load `X = log(N/pi)` read as `X/12` | `paper/screen_microphysics_and_observer_synchronization.tex`, `thm:icosahedral-screen-sieve`; oriented register `def:oriented-24-slot-register` |
 | D6 radius identity `r_CRC/ell_star = (N/pi)^(1/2)` | `code/particles/hierarchy/certificates/R_N_global_repair_tick_certificate.json`, `proved_by_certificate` |
 | D10 pixel closure, `alpha_U(P)`, `t_tr = 2*pi/(beta_EW*alpha_U)`, `beta_EW = N_c+1 = 4` | `code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json`; `code/P_derivation/paper_math.py` (pixel residual, line 588); `code/P_derivation/FULL_DERIVATION.md`; `extra/compact_proof_of_oph.tex` |

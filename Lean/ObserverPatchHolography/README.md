@@ -76,7 +76,7 @@ surface for the OPH consensus layer. Contents:
   expectation functional, and the Tsirelson bound `‖S‖ ≤ 2√2` in
   abstract unital C*-rings with a matrix instantiation. **This bundle is
   OPH-vocabulary-free by design** (namespace `EventAlgebra`, Mathlib-only
-  imports, no repository vocabulary) — it is the journal-neutral surface
+  imports, no repository vocabulary); it is the journal-neutral surface
   for submission; every lemma is tagged **algebra-only** or **consumes a
   tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
   ("Finite event algebras"); Mathlib friction log in

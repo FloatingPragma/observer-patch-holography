@@ -75,9 +75,18 @@
 \end{center}
 
 \begin{abstract}
-Confluence compares reductions from a single source.  Many reasoning, reconstruction, and distributed-inference tasks instead ask when states or executions that expose the same observable boundary must settle to the same output, once representation changes declared silent are quotiented away.  We answer this question with a refinement-stable certificate calculus, and we give its principal results a machine-checked Lean~4 core.
-
-The calculus rests on two moduli: an error bound from constraint residual to distance from the consistent set, and an inverse modulus from observation discrepancy to state discrepancy.  Their composition bounds disagreement between schedule endpoints from settling receipts alone, with the inverse term exact at zero residual and the residual coefficient globally sharp.  The central contribution carries these certificates through refinement: one-step normalizer defects telescope across arbitrary depth, and an anchor-optimized cross-level theorem bounds independently computed outputs at different refinement levels by their receipt errors, the intervening defect segment, and a protected-observation mismatch at a freely chosen anchor.  Compatible inputs then induce one projective limit independent of the solver family, and exact compatibility recovers the inverse-limit normalizer.  We further supply repair and equivariant-selection obstructions, a conditional-expectation resampling projector with a checkable matrix receipt, ranked functional-audit and linear certificate classes, and coNP- and $\Pi_2^P$-completeness classifications for succinct boundary determination and strong local repair.  The accompanying Lean~4 development machine-checks the finite core with an audited axiom list, and the paper states precisely which results remain paper proofs.
+Confluence asks whether reductions from one source rejoin. Many reconstruction
+problems ask a different question: whether states with the same observable
+boundary settle to the same public output. This paper gives certificates for
+that stronger comparison after silent representation changes are quotiented
+away. Two moduli turn residual and observation errors into an endpoint bound.
+The bound survives arbitrary refinement depth, and compatible finite levels
+define a solver-independent projective limit. The paper also proves repair and
+symmetry obstructions, gives a checkable conditional-expectation resampling
+projector, and classifies two succinct decision problems as coNP- and
+\(\Pi_2^P\)-complete. A Lean~4 development checks the finite core and audits its
+axioms. These results supply the observable-normal-form machinery used by the
+OPH consensus and Yang--Mills papers.
 \end{abstract}
 
 \medskip

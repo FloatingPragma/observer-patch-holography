@@ -4,7 +4,7 @@ Exact finite contracts, controls, and archived candidate audits for the OPH
 capacity map. The canonical Pro5 producer is
 
 ```text
-N = M_0(U_N),
+N = log M_0(U_N),
 F_set,r,epsilon(D) = {M_epsilon(q): q in Omega_tilde(r,D)},
 M_0(q) = alpha(G_q).
 ```
@@ -24,7 +24,7 @@ define the direct map. The physical N closure remains open.
   approximate correctable capacity, carrier saturation, scalarization,
   refinement, finite-size slack, receipts, and controls.
 - [`correctable_public_record_capacity.py`](correctable_public_record_capacity.py)
-  evaluates finite `PUBLIC_CHECKPOINT_PACKET` receipts. It computes global
+  evaluates finite public checkpoint packets. It computes global
   sections, exact maximum independent sets, receipt-scale worst-input
   approximate capacities, support semigroups, carrier bounds, terminal-fiber
   scalarization, no-new-confusability, greatest fixed points, and unique
@@ -73,9 +73,10 @@ invalidates the comparison.
 
 After robust direct closure:
 
-- `HORIZON-RECORD-SATURATION` may identify `log D_star` with
+- identifying the correctable record carrier with the de Sitter horizon may
+  identify `log D_star` with
   `A/(4 ell_star^2)` and yield `Lambda ell_star^2=3*pi/N_star`;
-- `COMMON-EW-LOAD-CARRIER` may identify the source-normalized screen load with
+- a positive refinement-natural carrier map may identify the source-normalized screen load with
   the four-copy weak load and test
   `N_bridge=pi*exp(6*pi/(P*alpha_U(P)))`.
 

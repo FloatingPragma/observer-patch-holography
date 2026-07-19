@@ -29,7 +29,14 @@ binding statuses live in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and
 
 ### Short answer
 
-The theory layer takes zero quantitative inputs: `P` is defined as the solution of `P = phi + sqrt(pi)/A_T(P)`, and no measured number appears in the defining equation. While that closure stays open, the working `P` is located under SL-3 from measured `alpha`, and no OPH surface lists `alpha` as an output. Under principle SL-3 (constant identification, [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)), the fine-structure constant inside the world and the substrate pixel readout are one quantity, so the measured value is the instrument that locates the working `P`: substrate parameter location at the working layer, with the borrow counted in the closure ledger. The cost of the principle is strict and permanent: `alpha` (with `Lambda` and `G`) sits on the inputs list at every surface, and a quantity that locates a working value is never booked as a prediction.
+The defining equation `P = phi + sqrt(pi)/A_T(P)` contains no measured number.
+Its physical Thomson transport `A_T` is incomplete. Measured `alpha` therefore
+locates the working coordinate and remains an input on every dependency path
+that uses that coordinate; OPH does not book it as a prediction. The constant-
+identification principle says that the electromagnetic coupling measured inside
+the world and the substrate pixel readout denote one quantity. This leaves a
+sharp test: complete the source-only transport, solve its fixed point, and
+compare that output with the measured coupling.
 
 The open test is the loop residual after the physical endpoint map is complete. The
 declared source map contracts to `alpha^-1 = 136.994835177413`, while the declared
@@ -37,14 +44,24 @@ gauge-width map contracts to `alpha^-1 = 137.035660136947`. Their numerical offs
 from CODATA are `3.0e-4` and `2.5e-6` in relative units. The familiar `2e6` and
 `1.6e4` figures divide by experimental uncertainty only; they are diagnostics, not
 physical pulls, because the same-scheme hadronic and finite remainder plus a theory
-uncertainty model are missing. Rows CL-1 and CL-2 of
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) are therefore incomplete-map rows. The missing
+uncertainty model are missing. The corresponding source-chain and gauge-width
+rows in the [closure ledger](CLOSURE_LEDGER.md) are therefore incomplete-map
+rows. The missing
 hadronic term is a frontier for every method on Earth: the payload asks for 4×10⁻⁹
 relative precision on the hadronic moment (see "Why The Hadronic Test Is Hard" in
-[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). A future
-target-blind completion under a corrected contract is the decisive endpoint test.
+[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). A target-blind
+completion under the stated contract is the decisive endpoint test.
 
-The stage-2 certificate narrows the open surface. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval (`g(I) ⊆ I` together with a derivative bound below one) gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The global certificate at `code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json` similarly proves one fixed point for each declared arithmetic map on the stated domain. These certificates do not certify the unimplemented physical Thomson transport. The open work is therefore both map completion and the landing test for that completed map.
+Interval evaluation of the closure map
+`g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval, together with a
+derivative bound below one, proves existence and uniqueness there by the Banach
+theorem. The certificate is recorded at
+`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`.
+The global certificate at
+`code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`
+proves one fixed point for each declared arithmetic map on its stated domain.
+These certificates establish arithmetic uniqueness. The physical Thomson
+transport and its landing test are separate requirements.
 
 So the answer to "is `P` circular?" is: the working value is a declared located input,
 and the declaration becomes testable only when a complete target-blind source map is

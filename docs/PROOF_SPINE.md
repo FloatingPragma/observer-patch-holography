@@ -63,7 +63,7 @@ owns downstream electroweak and mass bridges.
 | A2 | The two closure equations defined: $P=\varphi+\sqrt\pi/A_T(P)$ and $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ with $N_\star=\log D_\star$ | formal equations stated; the physical $A_T$ transport, capacity packet, and finite-size selector remain incomplete |
 | A3 | Uniqueness of P | PROVEN only for each declared incomplete arithmetic map on its stated domain; this does not certify the missing physical Thomson map |
 | A4 | Public record gluing | PROVEN: total atom readout maps define finite compatible global sections and their commutative function algebra. Endogenous reachability, frozen publicness, and the physical packet remain receipts (GAP-A3) |
-| A5 | Correctable public record capacity | Official universe equation: $N=M_0(\mathfrak U_N)$. DEFINED finitely by the compound graph of source-supplied global joint checkpoint kernels: $M_0(q)=\alpha(G_q)$. PROVEN: support criterion, finite semigroup closure, reversible fast branch, TV robustness, $M_\varepsilon\le D$, and complete rank-one saturation. Cyclic permutation and local-marginal countermodels exclude fixed-projector and marginal-only substitutes |
+| A5 | Correctable public record capacity | Official universe equation: $N=\log M_0(\mathfrak U_N)$. Here $M_0$ is always a multiplicative code size. The finite definition uses the compound graph of source-supplied global joint checkpoint kernels: $M_0(q)=\alpha(G_q)$. Proven implications include the support criterion, finite semigroup closure, reversible fast branch, total-variation robustness, $M_\varepsilon\le D$, and complete rank-one saturation. Cyclic permutation and local-marginal countermodels exclude fixed-projector and marginal-only substitutes |
 | A6 | Terminal-fiber readback | PROVEN set-valued construction $\mathfrak F_{r,\varepsilon}(D)=\{M_\varepsilon(q)\}$; a scalar map exists only on a complete nonempty fiber with singleton support. Robust closure is $\mathfrak F_{r,0}(D)=\{D\}$ (GAP-A3) |
 | A7 | Finite order theorem and uniqueness boundary | PROVEN implication: a total monotone deflationary scalar map reaches its greatest fixed point from the top. Identity and erasure families prove this is not singleton uniqueness or cutoff independence. The required selector is the exact slack law $s(D_\star)=0<s(D)$ elsewhere (GAP-A3) |
 | A8 | Extension, refinement, and sewing | PROVEN implications: no-new-confusability injections preserve independent codes; fixed-$D$ refinement eventually stabilizes; exact seam gluing is a fiber product. Unit asymptotic density is insufficient. The physical embeddings and sharp finite-size seam or transfer theorem are open (GAP-A3) |
@@ -115,16 +115,16 @@ Part A gaps:
 - **GAP-A2 (electroweak load identification).** The exterior representation
   witness proves four weak-doublet copies per generation. Promoting that
   multiplicity to the physical screen/EW identity requires
-  COMMON-EW-LOAD-CARRIER: construct the $A_5$-invariant public screen-load line,
+  a common electroweak load carrier: construct the $A_5$-invariant public screen-load line,
   the scalar order-unit line of the four-copy weak multiplicity algebra, and a
   refinement-natural positive unital isomorphism intertwining the screen and
-  D10 readouts. One-dimensional positivity and unitality then remove the
+  electroweak readouts. One-dimensional positivity and unitality then remove the
   continuous normalization freedom. Equal integer counts do not construct the
   common source-normalized line.
 - **GAP-A3 (CL-7 direct public-record producer and selector).** The canonical
   capacity surface is owned by the observers synthesis paper. Construct
   unclosed trial universes $\mathfrak U_{r,D}$ without an observer-visible
-  answer record. Emit a complete PUBLIC-CHECKPOINT-PACKET: frozen carrier type,
+  answer record. Emit a complete public-checkpoint packet: frozen carrier type,
   terminal-fiber manifest, local and interface atom sets, total atom readouts,
   endogenous reachability witnesses, frozen publicness family, complete global
   joint checkpoint kernels with marginal checks, carrier projections, and
@@ -144,8 +144,8 @@ Part A gaps:
 - **GAP-A5 (CL-3/CL-4).** The nominal 6.6% central-value difference between the
   independent electroweak and $\Lambda$-located comparison coordinates is not
   evaluable as a common-observable residual. Evaluation requires closure of
-  GAP-A3, COMMON-EW-LOAD-CARRIER from GAP-A2, and
-  HORIZON-RECORD-SATURATION:
+  GAP-A3, the common electroweak load carrier from GAP-A2, and the
+  horizon/record saturation identification:
   $\log M_{0,r}(D_\star)$ must converge to
   $A_r/(4\ell_{\star,r}^2)$ on the same refinement family. It also requires a
   frozen likelihood and convention map. The independent $\rho_{\rm op}$ test
@@ -226,10 +226,10 @@ Part B gaps:
   lines, listed anomalies, and weak multiplicity four. The remaining producer
   gates are UD12 and RP-A5; PORT-CURRENT-INNER; block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
-  non-vacuum exterior package and $H=W$; MAR/MGFC exclusion of the vacuum
+  non-vacuum exterior package and $H=W$; exclusion of the vacuum
   singlet and other anomaly-free light sectors; A5 family attachment plus a
   breaking, hiding, or forgetting descent compatible with general Yukawa
-  matrices; COMMON-EW-LOAD-CARRIER; compact-gauge refinement; and continuum
+  matrices; the common screen/electroweak load carrier; compact-gauge refinement; and continuum
   spin/QFT realization. The required global-form deck descent is distinct from
   a free deck action on the 24 oriented slots. No such free action is
   constructed, so neither $24/6=4$ nor equal dimensions supply a missing

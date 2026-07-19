@@ -4,7 +4,7 @@ The main reading route lives in [`paper/`](../paper/). This directory contains t
 
 ## Start Here
 
-- [A Compact Case for OPH](compact_proof_of_oph.pdf) ([source](compact_proof_of_oph.tex)) is the five-page, reader-friendly summary of the theory’s strongest converging results.
+- [A Compact Case for OPH](compact_proof_of_oph.pdf) ([source](compact_proof_of_oph.tex)) is the seven-page, reader-friendly summary of the theory’s strongest converging results.
 
 ## Mathematical Foundations
 

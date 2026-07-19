@@ -38,7 +38,8 @@ principle set through the closure ledger, never through restatement.
   faces.
 - **SL-4 (Capacity identity).** The total record capacity N is one number shared by
   substrate and world. The theory computes N from the self-representation closure
-  N = F(N); the Λ readout is the test that computed value faces.
+  $N=\log M_0(\mathfrak U_N)$, where $M_0$ is the multiplicative size of the
+  largest correctable public-record code. The Λ readout tests that computed value.
 - **SL-5 (SI bridge).** One clock anchor (the cesium transition) connects substrate units
   to laboratory units.
 

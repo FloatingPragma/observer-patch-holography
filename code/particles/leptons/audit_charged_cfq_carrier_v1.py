@@ -419,7 +419,7 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
         },
         "still_open": [
             "derive or uniquely select the CFQ carrier from OPH dynamics before charged comparison",
-            "establish honest historical no-target ancestry for any future carrier law",
+            "establish documented historical no-target ancestry for any carrier law",
             "identify the physical charged-generation space with the face-corner bundle",
             "attach digital trace weights to deterministic charged Yukawa response powers",
             "derive rather than define the sqrt(2), 2/9, and 6^-14 baselines",

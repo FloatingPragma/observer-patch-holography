@@ -176,7 +176,7 @@ payload = {
             for name, row in fields.items()
         },
         "chirality": "M1* = Lambda^3 V + Lambda^1 V has no irreducible summand in common with M1",
-        "global_descent": "automatic once V is an honest representation of S(U(3)xU(2))",
+        "global_descent": "automatic once V is a genuine representation of S(U(3)xU(2))",
     },
     "yukawa_channels": {
         name: {
