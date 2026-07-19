@@ -619,11 +619,12 @@ $10^{122}$ to $10^{123}$ depending on convention. In the cosmic record proposal,
 OPH reads dimensionless cosmological-constant products as global
 capacity data. The measured cosmological constant and selected scale bridge
 locate the working screen capacity, while the SI curvature scale also uses the
-selected OPH scale certificate. The input-free global closure target is
-$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, with
-$\log|\Omega^{\mathrm{sc}}_N|-N$ as its proposed finite-count representation.
-The readback map and three premises needed to identify its fixed point with the
-de Sitter capacity are open.
+selected OPH scale certificate. The input-free global closure target is robust
+whole-fiber saturation
+$\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
+$N_{\mathrm{CRC}}=\log D_\star$ and finite-size slack
+$s_r(D)=\log D-\log M_{0,r}(D)$. The public checkpoint packet, unique physical
+zero of the slack, and horizon-record saturation are the remaining physical receipts.
 
 The section records a proposed repair-charge condensate action. Its current
 balance, dilute dust-like branch, and spherical deep-galaxy scaling are
@@ -997,9 +998,10 @@ gravity and appears in Einstein's equation and gravitational entropy.
 
 **$\Lambda$** is the cosmological constant. In the de Sitter chapters it sets
 the horizon radius and locates a working global screen capacity through the
-selected scale bridge. The cosmic record equation
-$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$ is the open closure target for deriving
-that capacity rather than borrowing it from measurement.
+selected scale bridge. The robust cosmic record equation
+$\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
+$N_{\mathrm{CRC}}=\log D_\star$, is the closure target for deriving that capacity
+rather than borrowing it from measurement.
 
 **$P$** is the OPH local pixel ratio. It is a dimensionless root of the declared
 fixed-point map linking the local screen grain to the electromagnetic readout

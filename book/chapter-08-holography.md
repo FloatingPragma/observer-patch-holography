@@ -524,7 +524,14 @@ screen-capacity closure supplies the metric-proportional term.
 The closure target can be said without asking the reader to parse every symbol
 at once. Supply a carrier of dimension $D$. Let every settled
 observer-supported world read back its correctable public-record capacity
-$M_0(q)$. The book adopts the robust closure condition
+$M_0(q)$. The official universe-level equation is
+
+$$
+\boxed{N=M_0(\mathfrak U_N)}.
+$$
+
+It says that the capacity supplied to a trial universe is the capacity its
+observers read back internally. The book adopts the rigorous finite form
 
 $$
 \mathfrak F_{r,0}(D_\star)

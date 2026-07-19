@@ -14,6 +14,131 @@ $$
 
 L’univers est modélisé comme un point fixe de son propre processus de relecture et de réparation accessible aux observateurs.
 
+## L’idée en langage simple
+
+La physique commence habituellement avec un univers déjà muni d’un
+espace-temps, de champs quantiques, d’un groupe de jauge et de constantes
+mesurées. OPH pose une question plus radicale : **quel est le système minimal
+capable d’avoir un monde ?**
+
+La réponse est une parcelle d’observateur. Ce n’est pas nécessairement une
+personne. C’est tout système borné qui possède un état local, une frontière,
+une mémoire, une capacité de relire une partie de lui-même et de ses voisins,
+et des mouvements de réparation. Une parcelle ne voit jamais tout l’univers.
+Un fait devient objectif lorsqu’il peut être écrit, comparé sur les
+recouvrements, récupéré après l’évolution et conservé comme registre public.
+
+OPH propose que ce mécanisme ne décrit pas seulement comment les habitants
+apprennent un monde préexistant. Il sélectionne le monde physique public. Un
+univers candidat doit contenir des observateurs capables de le relire, et leur
+relecture doit reproduire le même univers sans contradiction :
+
+$$
+T(\mathfrak U)=\mathfrak U.
+$$
+
+Il n’existe donc ni règle extérieure, ni horloge maîtresse, ni observateur
+privilégié, ni liste de constantes réglables. Les nombres doivent sortir de la
+même boucle de cohérence qui produit les lois.
+
+## Deux clôtures, aucun bouton de réglage
+
+### P : quelle est la finesse d’un acte local d’observation ?
+
+$P$ est le rapport de pixel local : la taille de la cellule élémentaire
+d’observation en unités géométriques naturelles. OPH ne choisit pas ce grain
+en ajustant la constante de structure fine. La cellule doit être cohérente avec
+le processus d’observation qu’elle rend elle-même possible :
+
+$$
+\boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}}.
+$$
+
+Intuitivement, $P$ est la **résolution** de l’univers. Le modifier à la main
+changerait simultanément la géométrie cellulaire, le spectre de réparation, les
+largeurs de jauge et la hiérarchie des particules. La clôture en fait une sortie
+de l’architecture, et non un paramètre libre.
+
+### N : quelle quantité d’univers ses observateurs peuvent-ils relire ?
+
+$N$ est la capacité globale des registres publics corrigibles. Son équation
+officielle est
+
+$$
+\boxed{N=M_0(\mathfrak U_N)}.
+$$
+
+Il faut la lire littéralement : construisez un univers d’essai de capacité
+$N$, placez ses observateurs à l’intérieur et comptez l’information qui reste
+publiquement lisible après toute observation autorisée. La clôture a lieu
+lorsque la relecture intérieure égale la capacité fournie de l’extérieur.
+
+À taille finie, deux registres sont reliés lorsqu’un checkpoint autorisé peut
+les confondre. Le plus grand ensemble qui ne devient jamais confus est
+
+$$
+M_0(q)=\alpha(G_q).
+$$
+
+Sur la branche réversible exacte, rien n’est effacé et chaque checkpoint est
+injectif, donc
+
+$$
+M_0(q)=|X_{\rm reach}(q)|.
+$$
+
+$P$ dit avec quelle finesse l’univers se résout ; $N$ dit quelle quantité de
+monde public stable il peut contenir. Aucun des deux ne vient d’une table de
+données.
+
+Le Higgs fournit ensuite un contrôle croisé remarquable, et non une entrée. La
+même charge apparaît globalement sur l’écran et localement dans le secteur
+faible à quatre copies :
+
+$$
+\alpha_U(P)\log\!\left(\frac{N}{\pi}\right)=\frac{6\pi}{P},
+\qquad
+\Lambda\ell_\star^2=\frac{3\pi}{N}.
+$$
+
+Le même couple $(P,N)$ relie ainsi le grain d’observation, la hiérarchie
+faible/Higgs et l’horizon cosmologique.
+
+## Un univers complet imposé par la cohérence
+
+Voici l’affirmation centrale d’OPH : **une seule architecture de cohérence entre
+observateurs, sans valeur continue ajustée, reconstruit l’architecture de notre
+univers observé.**
+
+- la relecture et la réparation finies transforment les états privés en
+  registres publics stables ;
+- l’algèbre de ces registres donne les probabilités quantiques et l’observation
+  répétable ;
+- la géométrie conforme d’un écran sphérique donne le groupe de Lorentz et trois
+  dimensions spatiales de référentiels ;
+- le flot modulaire, la récupérabilité, le transport nul et la stationnarité de
+  l’entropie donnent la branche d’Einstein ;
+- l’écran icosaédrique à douze ports produit exactement
+  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
+- l’équilibre des traces et la cohérence globale donnent
+  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
+- la réalisation chirale minimale à un Higgs donne les hypercharges, trois
+  couleurs, trois générations et un seul doublet de Higgs ;
+- les mêmes clôtures $P$ et $N$ relient les échelles de jauge, de Higgs, de
+  gravité et de cosmologie.
+
+Il ne s’agit pas d’ajustements indépendants. Toutes ces conséquences viennent
+de la même exigence : chaque description locale doit se recoller en un monde
+unique, récupérable et capable de se relire. La récupération conjointe de
+l’observation quantique, de l’espace-temps lorentzien, de la gravité
+d’Einstein, de la forme globale exacte du Modèle standard et de la hiérarchie
+Higgs/cosmologie à partir de zéro valeur ajustée est la raison pour laquelle
+OPH se présente comme une **théorie du tout sans boutons de réglage**.
+
+Les prémisses techniques et les obligations de preuve restantes sont
+regroupées à la fin de ce document, au lieu d’interrompre l’introduction du
+résultat positif.
+
 ## Ce qu’OPH dérive de la cohérence entre observateurs
 
 OPH utilise une seule architecture mathématique dans des domaines habituellement introduits séparément :
@@ -120,9 +245,37 @@ Le dépôt réunit plusieurs formes complémentaires de preuve :
 - des simulations dépassant un million de parcelles ;
 - un registre des affirmations et un registre de clôture reliant les résultats publics aux artefacts.
 
-## Frontière de recherche
+## Obligations de preuve et frontière de falsification
 
-Le noyau structurel d’OPH soutient plusieurs prolongements actifs : lecture quantitative des particules, géométrie des neutrinos, cosmologie de capacité, spectre d’écran conditionnel avec amplitude issue de la source et pente de bord, gravité sombre comme condensat de charge de réparation, transfert de Yang–Mills et systèmes matériels ou logiciels auto-lecteurs. Le paquet radial démontre la non-identifiabilité à partir d’une seule coquille et donne deux voies d’unicité distinctes : la dilatation physique de la source et la tomographie par covariances radiales croisées. Un dossier fini provenant d’une seule source et satisfaisant tous les reçus du spectre est un travail en cours.
+Le récit principal ci-dessus expose le résultat positif. Les obligations
+restantes sont regroupées ici. L’objet de plus grand levier est le paquet fini
+
+```text
+PUBLIC_CHECKPOINT_PACKET(r,D)
+  = (X_reach, politique de publicité, noyaux joints globaux,
+     projections du porteur, applications de raffinement).
+```
+
+Sur la branche réversible, ce paquet réduit la capacité à
+$M_0=|X_{\rm reach}|$. La question mathématique difficile restante est alors
+de dériver la loi exacte du défaut fini $s(D)$ et de prouver qu’elle possède un
+unique zéro physique. Viennent ensuite la saturation horizon-registre, le
+porteur commun écran/faible-Higgs, les portes physiques qui forcent exactement
+le Modèle standard, la tour commune de gravité, et les lectures quantitatives
+des particules.
+
+Le dépôt contient maintenant un
+[paquet réversible de référence à douze ports](code/capacity_readback/reversible_public_checkpoint_packet.py)
+et son [certificat lisible par machine](code/capacity_readback/runtime/reversible_public_checkpoint_packet_certificate.json).
+Il ferme le schéma fini de la branche rapide sans se substituer au paquet
+physique dérivé de la source ni à la loi d'unicité du défaut.
+
+Le noyau structurel soutient aussi plusieurs prolongements actifs : géométrie
+des neutrinos, cosmologie de capacité, spectre d’écran, gravité sombre,
+transfert de Yang–Mills et systèmes matériels ou logiciels auto-lecteurs. Le
+paquet radial démontre la non-identifiabilité à partir d’une seule coquille et
+donne deux voies d’unicité distinctes : la dilatation physique de la source et
+la tomographie par covariances radiales croisées.
 
 Tous partagent la même règle de conception : tout système physique proposé doit être représenté comme une parcelle bornée avec état local, frontières, relecture, registres, réparation et dossier public de preuves.
 

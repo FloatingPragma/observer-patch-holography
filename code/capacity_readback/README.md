@@ -4,9 +4,13 @@ Exact finite contracts, controls, and archived candidate audits for the OPH
 capacity map. The canonical Pro5 producer is
 
 ```text
+N = M_0(U_N),
 F_set,r,epsilon(D) = {M_epsilon(q): q in Omega_tilde(r,D)},
 M_0(q) = alpha(G_q).
 ```
+
+The first line is the official universe-level closure equation; the next two
+lines are its typed finite implementation.
 
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
@@ -29,6 +33,14 @@ define the direct map. The physical N closure remains open.
   covers saturation, cyclic permutation, joint-coupling nonidentifiability,
   approximate capacity, ambiguous fibers, order countermodels, target taint,
   and carrier failures.
+- [`reversible_public_checkpoint_packet.py`](reversible_public_checkpoint_packet.py)
+  supplies the finite twelve-port icosahedral reference packet requested by
+  the proof program. It verifies every checkpoint generator is a permutation,
+  certifies `M_0(q)=|X_reach(q)|`, and emits the exact rank-one saturation
+  receipt. It is a schema/control, not the missing physical source packet.
+- [`test_reversible_public_checkpoint_packet.py`](test_reversible_public_checkpoint_packet.py)
+  checks the 12 vertices, 30 interfaces, exact reversible capacity identity,
+  noninjective failure, and target-taint failure.
 - [`public_record_capacity.py`](public_record_capacity.py) and its tests retain
   the superseded Pro4 checkpoint-fixed projection branch as a control. A cyclic
   permutation proves that it is not the canonical capacity definition.
@@ -92,6 +104,7 @@ finite-size selector.
 
 ```bash
 python3 -m pytest test_correctable_public_record_capacity.py -q
+python3 -m pytest test_reversible_public_checkpoint_packet.py -q
 python3 -m pytest test_operational_readback_contract.py -q
 python3 -m pytest test_public_record_capacity.py -q
 ```

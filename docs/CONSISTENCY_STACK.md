@@ -96,7 +96,8 @@ STRANGE_LOOP_PRINCIPLES.md, three-layer statement. Status: principle; this is
 the step that turns a completed common-observable residual into a measurement
 of the hypothesis. Incomplete maps and mismatched observables do not qualify.
 
-**C8. Capacity self-reading.** At finite cutoff freeze one carrier dimension
+**C8. Capacity self-reading.** The official equation is
+$N=M_0(\mathfrak U_N)$. At finite cutoff freeze one carrier dimension
 $D$. Record-atom restrictions define compatible public sections, endogenous
 histories define $X_{\rm reach}$, and a frozen publicness family plus complete
 global joint checkpoint kernels define a compound confusability graph $G_q$.
@@ -111,7 +112,7 @@ capacity, and identity/erasure families defeat uniqueness from monotonicity and
 deflation alone. The physical PUBLIC-CHECKPOINT-PACKET and the exact
 finite-size law $s(D_\star)=0<s(D)$ elsewhere remain open.
 HORIZON-RECORD-SATURATION and COMMON-EW-LOAD-CARRIER are independent downstream
-identifications. The operational resolution $\rho_{\rm op}$, CP-3 averaging,
+identifications. The operational resolution $\rho_{\rm op}$, continuum averaging,
 and diagonal counts are outside the direct producer lane.
 Carrier: the capacity sections of the observers synthesis paper, with the
 compact and particle papers serving as boundary summaries and downstream

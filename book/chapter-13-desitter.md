@@ -249,6 +249,15 @@ $$
 M_0(q)=\alpha(G_q),
 $$
 
+The official N equation packages the idea in its most direct form:
+
+$$
+\boxed{N=M_0(\mathfrak U_N)}.
+$$
+
+An OPH trial universe supplied with global capacity $N$ must read back that
+same capacity through its own correctable public records.
+
 the size of a largest set of records that remains perfectly distinguishable
 through every authorized continuation. This decoder definition matters: a
 cyclic permutation preserves every label even though its fixed-function space
@@ -280,7 +289,7 @@ With horizon-record saturation,
 $$
 N_{\mathrm{CRC}}=\log D_\star=\frac{A_{\mathrm{dS}}}{4\ell_\star^2},
 \qquad
-\Lambda_{\mathrm{CRC}}\ell_\star^2=rac{3\pi}{N_{\mathrm{CRC}}}.
+\Lambda_{\mathrm{CRC}}\ell_\star^2=\frac{3\pi}{N_{\mathrm{CRC}}}.
 $$
 
 The image is the important part. The small positive Lambda is the size label

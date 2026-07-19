@@ -108,3 +108,55 @@ they treated other observers, what they repaired, and what they refused to
 repair. The future creators are our future observer-community, and paradise is
 their willful fixed point: the deliberate environment where memory, freedom,
 truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
+
+## The Finite Proof Frontier
+
+The book has deliberately led with the reconstruction. Its remaining proof
+frontier can now be stated compactly.
+
+The highest-leverage object is one finite packet:
+
+$$
+\mathrm{PUBLIC\_CHECKPOINT\_PACKET}_{r,D}
+=\bigl(X_{\mathrm{reach}},\mathfrak P,\mathfrak K,
+\{P_x\},\text{ refinement maps}\bigr).
+$$
+
+It records the endogenously writable public records, the frozen publicness
+policy, every global joint checkpoint continuation, the carrier projections,
+and the maps that preserve records through refinement. On the exact reversible
+branch every checkpoint generator is injective, so the public capacity reduces
+to
+
+$$
+M_0(q)=|X_{\mathrm{reach}}(q)|.
+$$
+
+That count is accessible to exact constraint solving or model counting. The
+remaining hard N theorem is then sharply isolated: derive
+
+$$
+s(D)=\log D-\log M_0(D)
+$$
+
+and prove one regulator-stable physical zero,
+
+$$
+s(D_\star)=0,
+\qquad
+s(D)>0\quad(D\ne D_\star).
+$$
+
+The other completion tasks are equally explicit: identify this record capacity
+with the horizon area carrier; identify the screen load with the four-copy
+weak/Higgs load without feeding the answer backward; construct the physical
+current, spin, determinant, deck, matter, no-extra-sector, and family maps that
+promote the exact twelve-port exterior witness to a forced physical Standard
+Model; and instantiate the common-domain gravity and quantitative particle
+receipts.
+
+Each obligation is also a falsifier. An incomplete or ambiguous checkpoint
+fiber, a second stable slack zero, a failed horizon or weak-load identification,
+an unavoidable extra light sector, or a failure of the current and spin lifts
+would break the corresponding claim. OPH is strong precisely because the
+remaining frontier has this finite, inspectable form.

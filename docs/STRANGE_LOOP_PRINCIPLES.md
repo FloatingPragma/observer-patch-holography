@@ -47,8 +47,10 @@ principle set through the closure ledger, never through restatement.
 - **Theory layer.** The pure self-simulation consistency theory. Zero quantitative
   inputs are intended in a completed source map. Each declared incomplete P map has one
   certified arithmetic fixed point on its stated domain; the physical Thomson map is
-  not complete. N solves N = F(N) only conditionally: G2-GAP-1 supplies a candidate
-  fixed point modulo premises CP-1 to CP-3, with F an open physical construction.
+  not complete. N closes when the source-derived correctable public-record readback
+  saturates the whole terminal fiber at one carrier dimension,
+  $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$. The finite implication theorem is closed;
+  the physical checkpoint packet, unique slack zero, and two downstream bridge receipts remain.
   Discrete structural selections are
   declared separately with their menu sizes; none is a continuous quantity.
 - **Test layer.** Measured values live here only, as comparisons that complete source

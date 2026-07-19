@@ -75,8 +75,9 @@ architecture has a computable fixed point.
    tunable family. For P, each declared incomplete arithmetic map has exactly one fixed
    point on its stated domain
    (`../code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`). The
-   completed physical endpoint map is open. For N, the fixed-point value is a
-   conditional theorem modulo F and CP-1 to CP-3. A corrected target-blind closure test
+   completed physical endpoint map is open. For N, the correctable-record construction
+   is a conditional finite theorem, while the physical checkpoint packet and unique slack zero
+   complete the selector. A corrected target-blind closure test
    landing outside its registered basin would falsify the tested formulation.
 2. **The inputs are the method.** Reverse engineering reads the loop from measurements:
    basins first, contraction second. The theory never apologizes for reading data; it is
@@ -96,7 +97,7 @@ architecture has a computable fixed point.
 | 1. Principles stated once | SL-0…SL-5 with claim rules | done: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) |
 | 2. Closure ledger at zero | CL-1…CL-7 closed by blind computations | open: decisive rows: CL-1/CL-2 (hadronic), CL-3 (one N), CL-5 (forward electroweak) |
 | 3. Compression | two located coordinates (P, N) and five axioms reproduce the measured constants of physics | 3+1 spacetime, Einstein-like gravity, quantum probability, Standard Model gauge structure, the fine-structure constant, and Λ_QCD follow from that compressed input |
-| 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P: exactly one fixed point per map on the declared domain (stage-2 plus global certificates); N conditionally constructed (G2-GAP-1 proven modulo CP-1 to CP-3; certified conditional fixed point 3.5321315434×10¹²²; the balance counting theorem CP-1 is the open core) |
+| 4. Uniqueness certificates | interval-grade contraction and finite-capacity proofs behind "the only P, the only N" | P: exactly one fixed point per declared map on its domain (stage-2 plus global certificates); N: public-section and correctable-capacity implications proved, with the source packet and unique finite-size slack zero remaining; the independent EW/Higgs bridge gives the certified comparison coordinate $3.5321315434\times10^{122}$ once its common-carrier receipt is supplied |
 | 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
 
 The mission statement, in one sentence: drive the ledger to zero and the certificates to

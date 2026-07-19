@@ -1,0 +1,32 @@
+{
+  "artifact": "PUBLIC_CHECKPOINT_PACKET/v1-reversible",
+  "capacity_dimension": 4,
+  "checkpoint_generators": [
+    {
+      "continuation_id": "identity",
+      "deterministic": true,
+      "injective": true
+    },
+    {
+      "continuation_id": "cyclic_relabel",
+      "deterministic": true,
+      "injective": true
+    },
+    {
+      "continuation_id": "orientation_reflection",
+      "deterministic": true,
+      "injective": true
+    }
+  ],
+  "exact_zero_error_capacity": 4,
+  "fast_branch_identity": "M_0(q)=|X_reach(q)|",
+  "icosahedral_interface_count": 30,
+  "icosahedral_port_count": 12,
+  "packet_status": "REFERENCE_CONTROL_NOT_PHYSICAL_RECEIPT",
+  "rank_one_complete": true,
+  "reachable_public_record_count": 4,
+  "regulator_id": "icosahedral-12-port-reference-r0",
+  "remaining_physical_obligation": "derive the source packet family and unique finite-size slack zero",
+  "robust_terminal_saturation": true,
+  "status": "PASS"
+}

@@ -237,6 +237,16 @@ M_0(q)=\alpha(G_q),
 =\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
+The official universe-level equation is
+
+$$
+\boxed{N=M_0(\mathfrak U_N)}.
+$$
+
+It is the compact statement of self-readback: supply the trial universe with
+capacity coordinate $N$ and ask what capacity its own observer system can
+correct and read publicly.
+
 The book adopts robust closure and the unique finite-size selector,
 
 $$

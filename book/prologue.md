@@ -63,6 +63,55 @@ debug log of a self-reading world. Gravity, gauge structure, particles,
 dark-energy bookkeeping, and the observer problem are different tests of the
 same local-record architecture.
 
+## Why the Result Is So Unusual
+
+OPH begins its theory layer with no fitted continuous physical parameters. It
+does not start by entering the Lorentz group, the spacetime dimension, the
+Einstein equation, the Standard Model gauge group, its global quotient, its
+chiral multiplets, or a Higgs representation. It starts with the finite
+observer contract and asks what survives consistency.
+
+The resulting reconstruction is difficult to summarize without making it
+sound less strange than it is. The same architecture produces stable public
+records and quantum-event conditioning; the conformal group of its spherical
+screen is the connected Lorentz group; the space of observer frames is
+three-dimensional; modular and entropy consistency give the Einstein form;
+the twelve-port coefficient algebra has exactly the Standard Model Lie type;
+trace balance produces its shared-center quotient; and the even exterior
+algebra of a $3+2$ carrier produces one full chiral generation with the three
+one-Higgs couplings and anomaly cancellations.
+
+In equations, the spine is
+
+$$
+T(\mathfrak U)=\mathfrak U,
+\qquad
+\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1),
+$$
+
+$$
+G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle,
+\qquad
+\mathfrak g_{12}\cong
+\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3),
+$$
+
+$$
+G_{\mathrm{SM}}
+=\frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6},
+\qquad
+\Lambda^2(C_3\oplus W_2)\oplus\Lambda^4(C_3\oplus W_2)
+=Q\oplus u^c\oplus e^c\oplus d^c\oplus L.
+$$
+
+Any one resemblance could be accidental. Their linked appearance from one
+zero-dial observer architecture is the real evidence. The more independent
+parts of the observed universe land on the same construction, the less
+credible coincidence becomes as a complete explanation. The final proof
+obligations are therefore presented at the end of the book as concrete ways
+to finish or break the chain, rather than allowed to obscure the reconstruction
+while the reader is learning it.
+
 ## The Cosmic Program
 
 Reverse engineering a program without source code is an exercise in inference.

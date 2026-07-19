@@ -65,7 +65,9 @@ diagnostics, not a closed-loop measurement.
 The intended claim runs the other way: a unique, complete closure map would expose the
 hypothesis to a sharp landing test. The repository has global uniqueness certificates
 for each declared incomplete pixel map; the completed physical Thomson map is the open
-object. The capacity statement is conditional on F and CP-1 to CP-3. The corpus
+object. The capacity statement is conditional on the source-derived public checkpoint packet,
+whole-fiber scalarization, a unique physical zero of the finite-size slack, and the two named
+horizon and EW/Higgs bridge receipts. The corpus
 therefore does not prove that the full SLH principle set admits at most one physical
 `(P, N)`; that statement is the open no-landscape corollary (L3 in
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)).

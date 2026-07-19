@@ -7,6 +7,16 @@ source-derived packet and a finite-size selector receipt satisfy the contract.
 Neither the operational resolution, the measured cosmological constant, nor
 the electroweak/Higgs bridge belongs to the producer cone.
 
+The official universe-level equation is
+
+```text
+N = M_0(U_N).
+```
+
+The finite evaluator keeps the types explicit: `M_0(q)=alpha(G_q)` is a
+multiplicative code size, while after whole-fiber scalarization
+`M_0(U_N)=log(F_hat_r,0(exp(N)))` is the logarithmic universe readback.
+
 ## 1. Frozen capacity coordinate
 
 At regulator `r`, freeze one carrier type and supply

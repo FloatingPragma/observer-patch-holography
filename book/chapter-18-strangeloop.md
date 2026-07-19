@@ -199,6 +199,12 @@ M_0(q)=\alpha(G_q),
 \mathfrak F_{r,0}(D)=\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
+At universe level the official closure equation is simply
+
+$$
+\boxed{N=M_0(\mathfrak U_N)}.
+$$
+
 The global closure adopted in this book is the robust equality
 $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ together with one unique zero of
 $s(D)=\log D-\log M_0(D)$. It says that every terminal branch in the complete
