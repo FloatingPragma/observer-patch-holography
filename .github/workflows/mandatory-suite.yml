@@ -1,0 +1,47 @@
+name: Mandatory Suite
+
+# Closes the last open acceptance item of #507: "CI runs the same command from a
+# clean checkout." This workflow runs the documented mandatory command from
+# REPRODUCE.md on a fresh runner (setup-python provides the clean isolated
+# environment the guide gets from a venv), so the reproducibility infrastructure
+# from #555 / #581 / #584 is regression-guarded on every push and PR.
+#
+# Scope: this gate checks reproducibility infrastructure only and carries no
+# physics claim. It runs `--collect-only`, the documented green mandatory command;
+# a clean collection also proves the optional hardware/cloud lanes (IBM/Qiskit,
+# CAMB, legacy D10) stay opt-in and fail closed without their credentials, since
+# an accidentally-collected optional test would break the import and fail this job.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  mandatory:
+    name: mandatory collection (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate claim registry
+        run: python tools/check_claim_registry.py
+
+      - name: Collect the mandatory scientific suite
+        run: python -m pytest --collect-only code
