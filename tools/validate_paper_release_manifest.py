@@ -23,6 +23,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -47,6 +48,14 @@ def expected_sections() -> dict[str, set[str]]:
     }
 
 
+def _sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def check_section(name: str, expected: set[str], section: dict, problems: list[str]) -> None:
     got = set(section)
     for missing in sorted(expected - got):
@@ -58,8 +67,37 @@ def check_section(name: str, expected: set[str], section: dict, problems: list[s
         if not pdf_rel:
             problems.append(f"{name}: '{paper_id}' has no pdf_path in the manifest")
             continue
-        if not (REPO_ROOT / pdf_rel).exists():
+        pdf_abs = REPO_ROOT / pdf_rel
+        if not pdf_abs.exists():
             problems.append(f"{name}: artifact for '{paper_id}' is missing on disk: {pdf_rel}")
+            continue
+        # Content integrity: a listed artifact must match its declared sha256 + size_bytes,
+        # so a silently-rebuilt / swapped / truncated PDF is rejected, not just an absent one.
+        declared_sha = (payload or {}).get("sha256")
+        if not declared_sha:
+            problems.append(f"{name}: '{paper_id}' has no sha256 in the manifest")
+        else:
+            actual_sha = _sha256(pdf_abs)
+            if actual_sha != declared_sha:
+                problems.append(
+                    f"{name}: '{paper_id}' sha256 mismatch for {pdf_rel}: "
+                    f"manifest {declared_sha}, disk {actual_sha}"
+                )
+        declared_size = (payload or {}).get("size_bytes")
+        if declared_size is None:
+            problems.append(f"{name}: '{paper_id}' has no size_bytes in the manifest")
+        else:
+            actual_size = pdf_abs.stat().st_size
+            try:
+                declared_size_int = int(str(declared_size))
+            except (TypeError, ValueError):
+                problems.append(f"{name}: '{paper_id}' size_bytes is not an integer: {declared_size!r}")
+            else:
+                if declared_size_int != actual_size:
+                    problems.append(
+                        f"{name}: '{paper_id}' size_bytes mismatch for {pdf_rel}: "
+                        f"manifest {declared_size_int}, disk {actual_size}"
+                    )
 
 
 def validate(manifest_path: Path) -> list[str]:

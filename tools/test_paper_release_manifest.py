@@ -59,3 +59,22 @@ def test_rejects_absent_artifact(tmp_path: Path) -> None:
     manifest["papers"][paper_id] = {"pdf_path": "paper/DOES_NOT_EXIST.pdf", "sha256": "x", "size_bytes": 1}
     problems = validator.validate(_write(tmp_path, manifest))
     assert any("missing on disk" in p for p in problems)
+
+
+def test_rejects_sha256_mismatch(tmp_path: Path) -> None:
+    # A listed PDF whose content no longer matches its declared digest (silent rebuild /
+    # swap / tamper) must be rejected, not silently accepted because the path still exists.
+    manifest = _base()
+    paper_id = next(iter(manifest["papers"]))
+    manifest["papers"][paper_id]["sha256"] = "0" * 64
+    problems = validator.validate(_write(tmp_path, manifest))
+    assert any("sha256 mismatch" in p and paper_id in p for p in problems)
+
+
+def test_rejects_size_mismatch(tmp_path: Path) -> None:
+    # A truncated / regrown artifact whose byte count no longer matches the manifest is rejected.
+    manifest = _base()
+    paper_id = next(iter(manifest["papers"]))
+    manifest["papers"][paper_id]["size_bytes"] = "1"
+    problems = validator.validate(_write(tmp_path, manifest))
+    assert any("size_bytes mismatch" in p and paper_id in p for p in problems)
