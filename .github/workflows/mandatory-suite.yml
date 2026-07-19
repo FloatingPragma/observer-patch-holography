@@ -43,5 +43,16 @@ jobs:
       - name: Validate claim registry
         run: python tools/check_claim_registry.py
 
+      # #514: release-manifest membership is derived from the source set, and every
+      # listed PDF must match its recorded sha256 + size_bytes. Runs unconditionally
+      # here (every push/PR) so a manifest drift, a swapped/truncated artifact, or an
+      # added/removed paper is rejected — a superset of manifest/validator/source-set/
+      # PDF path triggers, so the check can never be bypassed by a path-filter miss.
+      - name: Validate paper release manifest
+        run: python tools/validate_paper_release_manifest.py
+
+      - name: Regression-test the manifest validator
+        run: python -m pytest -q tools/test_paper_release_manifest.py
+
       - name: Collect the mandatory scientific suite
         run: python -m pytest --collect-only code
