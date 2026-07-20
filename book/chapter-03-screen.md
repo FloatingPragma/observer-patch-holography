@@ -4,7 +4,7 @@
 
 The ordinary intuition says more space should hold more data.
 
-A bigger hard drive stores more files. A bigger warehouse holds more boxes. A bigger brain should hold more memories. The amount of stuff you can fit into a container should scale with its volume.
+A bigger hard drive stores more files, a bigger warehouse holds more boxes, and a bigger brain, presumably, holds more memories. The amount of stuff you can fit into a container should scale with its volume.
 
 This is the **intuitive picture**: information content scales with volume.
 
@@ -26,7 +26,7 @@ black holes.
 
 ## 3.2 The Teacup Problem: The Hint
 
-In 1972, a graduate student named Jacob Bekenstein walked into John Wheeler's office at Princeton with a simple thought experiment.
+In 1972, John Wheeler put a simple thought experiment to his Princeton graduate student Jacob Bekenstein.
 
 Imagine a cup of hot tea. The tea has entropy: it is hot and messy, with many
 microscopic arrangements of molecules that produce the same macroscopic state.
@@ -35,7 +35,7 @@ Lower the cup into a black hole.
 
 The tea crosses the event horizon and vanishes. No one outside can ever see it again. If the tea is gone, so is its entropy. The total entropy of the observable universe has decreased.
 
-But wait. The Second Law of Thermodynamics says total entropy never decreases. The Second Law is the rule that makes time flow in a direction. It tells you why broken glasses don't unbreak, why scrambled eggs don't unscramble, why we remember the past but not the future.
+But wait. The Second Law of Thermodynamics says total entropy never decreases. The Second Law is the rule that gives time its direction.
 
 If a black hole can erase entropy, the Second Law is wrong.
 
@@ -256,7 +256,7 @@ mode $\ell$:
 
 $$\ell_{max} \sim \frac{R}{\ell_P}$$
 
-The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$-proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
+The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$, proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
 
 Our experience of a continuous world is the large-scale limit of this finite
 screen description.
@@ -378,11 +378,11 @@ Physics is the art of finding descriptions that work in many charts and have con
 
 ## 3.9 What Is an Observer?
 
-We've talked about "observers" and their "patches." But what exactly IS an observer in this model?
+We've talked about "observers" and their "patches." But what exactly *is* an observer in this model?
 
 ### Not External Watchers
 
-In classical physics, observers are implicitly outside the system-disembodied measurers who don't affect what they measure. This won't work here. Observers must be part of the system they observe.
+In classical physics, observers are implicitly outside the system: disembodied measurers who don't affect what they measure. This won't work here. Observers must be part of the system they observe.
 
 ### Observers as Patterns in the Data
 
@@ -580,7 +580,7 @@ thermodynamic and geometric facts.
 
 The numbers are small enough to state directly.
 
-The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
+The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters, about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
 **The de Sitter horizon**: The OPH scale conversion gives the radius
 $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is
@@ -590,7 +590,7 @@ Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx
 Other cosmological horizon conventions stay in the band from $10^{122}$ to
 $10^{123}$.
 
-This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
+The number is enormous, and it is finite. The observable universe contains a finite amount of information.
 
 **A solar-mass black hole**: Schwarzschild radius $R_s \approx 3$ km. Number of bits: $N \approx 10^{77}$.
 

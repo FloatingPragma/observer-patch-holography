@@ -19,15 +19,19 @@ Black holes broke that picture.
 
 ### The Black Hole Entropy Puzzle
 
-The first hint came from black holes.
+In 1971, John Wheeler put a mischievous question to his Princeton graduate
+student Jacob Bekenstein. Set a cup of hot tea beside a black hole, Wheeler
+suggested, and pour it in. The tea's entropy vanishes behind the horizon, and
+the universe's ledger of disorder looks lighter than it did a moment before.
+Have we committed the perfect crime against the second law? Bekenstein came
+back months later with an answer Wheeler had not expected: the black hole
+itself must carry entropy, proportional to the area of its horizon. Hawking's
+1974 analysis of black-hole radiation fixed the coefficient. A black hole with
+twice the horizon area has twice the entropy, hence twice the information
+capacity. This was strange. Normal systems scale with volume; a box twice as
+big holds twice as much stuff.
 
-In the 1970s, Bekenstein and Hawking showed that black hole entropy is
-proportional to surface area. A black hole with twice the horizon area has
-twice the entropy, hence twice the information capacity. This was strange.
-Normal systems usually scale with volume. A box twice as big can hold twice as
-much stuff.
-
-But black holes are different. Their information lives on the surface:
+Black holes are different. Their information lives on the surface:
 
 $$S_{BH} = \frac{k_B c^3}{4 G \hbar} A = \frac{A}{4 \ell_P^2}$$
 
@@ -40,13 +44,13 @@ scale, so the second expression reads as area counted in Planck units.
 
 ### The Bekenstein Bound
 
-Bekenstein realized this wasn't just about black holes. It was a universal limit.
+Bekenstein pushed the lesson past black holes to a universal limit.
 
 Lower a box of entropy toward a black hole on a rope. As it approaches the
 horizon, energy is redshifted. When the box crosses the horizon, the universe
 seems to lose the entropy that was in the box.
 
-This would violate the second law of thermodynamics-unless the black hole gains enough entropy to compensate. But how much entropy can the box hold?
+This would violate the second law of thermodynamics, unless the black hole gains enough entropy to compensate. But how much entropy can the box hold?
 
 If you try to pack too much entropy into a small region, the energy required creates a black hole. The black-hole saturation scaling is:
 
@@ -126,7 +130,7 @@ readout of what the boundary description encodes.
 
 ## 8.4 The Soup Can Universe
 
-Imagine you live inside a soup can. This one is infinitely tall and wide, yet a beam of light can reach the wall in finite time. The geometry is warped. As you walk toward the wall, your ruler shrinks, so the wall keeps retreating. March for a billion years and you'll never touch it, yet a flashlight can hit the wall and bounce back before your coffee gets cold.
+You live inside a soup can. This one is infinitely tall and wide, yet a beam of light can reach the wall in finite time. The geometry is warped. As you walk toward the wall, your ruler shrinks, so the wall keeps retreating. March for a billion years and you'll never touch it, yet a flashlight can hit the wall and bounce back before your coffee gets cold.
 
 This is **anti-de Sitter space**, or AdS. It's a spacetime with constant negative curvature. If flat space is a sheet of paper, AdS is a saddle that keeps curving in every direction. Light rays curve back toward the center. Nothing drifts away forever.
 
@@ -135,7 +139,7 @@ simplest fit uses a positive dark-energy component. AdS is the clean
 laboratory. It has a clear boundary, clean symmetry, and a setting where
 gravity and quantum physics meet in calculable ways.
 
-Imagine the label on the can as a living quantum field theory with particles, forces, and fluctuations. It has no gravity of its own. It just lives on the surface.
+Take the label on the can to be a living quantum field theory with particles, forces, and fluctuations. It has no gravity of its own. It just lives on the surface.
 
 The bold claim is exact in that duality: **everything happening inside the can
 is exactly the same as what happens on the label**. A falling particle in the
@@ -161,15 +165,15 @@ In 1996, Andrew Strominger and Cumrun Vafa counted the microscopic quantum state
 
 **They matched in that controlled setting.**
 
-The area law wasn't just dimensional analysis. In that supersymmetric class of black holes, it was counting real quantum states. The information of a black hole really is encoded on a surface.
+In that supersymmetric class of black holes, the area law was counting real quantum states, one by one. The information of a black hole really is encoded on a surface.
 
 ### Maldacena's Breakthrough
 
-In December 1997, Juan Maldacena put all the pieces together.
+In November 1997, Juan Maldacena put all the pieces together.
 
 He studied a stack of branes. There are two ways to describe what happens at low energies:
 
-**Description 1 (Open strings)**: The open strings on the branes form a gauge theory-specifically, N=4 super Yang-Mills theory in 4 dimensions. This is a conformal field theory (CFT).
+**Description 1 (Open strings)**: The open strings on the branes form a gauge theory, specifically N=4 super Yang-Mills theory in 4 dimensions. This is a conformal field theory (CFT).
 
 **Description 2 (Closed strings)**: The geometry around the branes curves. Near the branes, spacetime looks like AdS_5 times S^5.
 
@@ -181,7 +185,7 @@ Maldacena proposed: **these two descriptions are the same theory**.
 
 The gauge theory on the boundary is equivalent to string theory (including gravity) in the bulk. This was the **AdS/CFT correspondence**.
 
-The physics community was stunned. Within months, Edward Witten worked out how to compute correlation functions. Tests piled up. AdS/CFT became one of the most heavily checked ideas in theoretical physics.
+Within months, Edward Witten had worked out how to compute correlation functions, and at the Strings '98 conference in Santa Barbara a ballroom of theoretical physicists danced to "The Maldacena," new lyrics set to the tune of the Macarena. Tests piled up. AdS/CFT became one of the most heavily checked ideas in theoretical physics.
 
 ## 8.6 Conformal Field Theory: The Universal Record Book
 
@@ -311,7 +315,7 @@ to collapse.
 
 Can we rebuild bulk fields from boundary data?
 
-Yes-through **HKLL reconstruction** (Hamilton, Kabat, Lifschytz, Lowe).
+Yes, through **HKLL reconstruction** (Hamilton, Kabat, Lifschytz, Lowe).
 
 A local bulk field can be written as a "smeared" integral over boundary operators:
 
@@ -369,7 +373,7 @@ entanglement structure on the boundary.
 
 Read the RT formula backwards: **area is determined by entanglement**. More entanglement between region A and its complement means a larger minimal surface connecting them. The geometry of the bulk is literally woven from quantum correlations on the boundary.
 
-Mark Van Raamsdonk made this vivid with a thought experiment. Take two entangled CFTs-two copies of the boundary theory in an entangled state. Together they describe a connected bulk spacetime: a wormhole connecting two regions.
+Mark Van Raamsdonk made this vivid with a thought experiment. Take two entangled CFTs, two copies of the boundary theory in an entangled state. Together they describe a connected bulk spacetime: a wormhole connecting two regions.
 
 Reduce the entanglement. As you dial down the correlations between the two CFTs, what happens to the wormhole? It stretches and thins. When entanglement reaches zero, the wormhole pinches off entirely. Two disconnected spacetimes.
 
@@ -457,7 +461,7 @@ horizon-bounded setting of cosmology.
 
 ### The De Sitter Advantage
 
-De Sitter space is, in one important respect, **well suited** to this approach.
+De Sitter space is, in one important respect, well suited to this approach.
 
 In AdS/CFT, there's one global boundary that all observers share. A global CFT lives on it. The bulk and boundary are two complete, equivalent descriptions.
 

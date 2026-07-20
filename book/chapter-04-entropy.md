@@ -11,7 +11,7 @@ future should be symmetric.
 
 Ordinary life says otherwise.
 
-Glasses break but don't unbreak. Eggs scramble but don't unscramble. Coffee and milk mix but don't unmix. Ice cubes melt in warm rooms; warm rooms don't freeze into ice cubes. We remember yesterday but not tomorrow.
+Glasses break and stay broken. Eggs scramble but never unscramble, coffee and milk mix and refuse to unmix, and a warm room will melt an ice cube without ever once freezing one back. We remember yesterday but not tomorrow.
 
 This everyday difference between past and future is the **arrow of time**. Its
 origin is the puzzle.
@@ -45,13 +45,13 @@ Clausius's entropy was phenomenological. It described what happens without expla
 
 ### Boltzmann's Counting
 
-Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt.
+Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt, and the counting formula he fought for is carved above his grave in Vienna's Zentralfriedhof.
 
 Boltzmann looked at heat and saw a counting problem.
 
 A gas consists of about $10^{23}$ molecules. Each molecule has a position and velocity. If you could list every molecule's state, you would have the **microstate**.
 
-But we never know the microstate. We measure temperature, pressure, volume-coarse properties that don't distinguish between countless microstates. This coarse description is the **macrostate**.
+But we never know the microstate. We measure temperature, pressure, volume: coarse properties that don't distinguish between countless microstates. This coarse description is the **macrostate**.
 
 Boltzmann saw the central fact clearly: many different microstates correspond
 to the same macrostate.
@@ -78,9 +78,9 @@ The Second Law becomes almost obvious.
 
 Consider a box with gas in the left half. Remove the partition. What happens?
 
-The "all molecules on the left" macrostate has relatively few microstates-each molecule must be in the left half. The "molecules spread throughout" macrostate has vastly more microstates-each molecule can be anywhere.
+The "all molecules on the left" macrostate has relatively few microstates, because each molecule must be in the left half. The "molecules spread throughout" macrostate has vastly more, because each molecule can be anywhere.
 
-As the gas evolves randomly, it wanders through microstates. It spends almost all its time in high-entropy macrostates simply because there are more of them. The probability of all molecules spontaneously returning to the left half is about $2^{-10^{23}}$-so small it will never happen.
+As the gas evolves randomly, it wanders through microstates. It spends almost all its time in high-entropy macrostates simply because there are more of them. The probability of all molecules spontaneously returning to the left half is about $2^{-10^{23}}$, so small it will never happen.
 
 **The hint**: The Second Law is statistics. Entropy increases because high-entropy states are overwhelmingly more probable.
 
@@ -137,14 +137,14 @@ A solar-mass black hole has about $10^{77}$ bits of entropy. The supermassive bl
 
 For comparison, the entropy of all ordinary matter in the observable universe is only about $10^{80}$ bits. Black holes dominate.
 
-The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute, thermal equilibrium. Maximum entropy. No memory. No observers.
+The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute thermal equilibrium at maximum entropy, with nothing left to remember and no one left to notice.
 
 We exist in a brief window when entropy is high enough for complexity but low enough for structure.
 
 ### The First-Principles Reframing
 
-Time is a fundamental dimension. The arrow of time should come from fundamental
-laws.
+The intuitive picture says time is a fundamental dimension whose arrow is
+built into the fundamental laws.
 
 **The hint**: The microscopic laws are time-symmetric. Irreversibility is
 statistical, not fundamental. The arrow traces to the low-entropy side of the
@@ -200,7 +200,7 @@ thermodynamic objects with energy costs.
 
 ### Maxwell's Demon
 
-In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work-seemingly violating the Second Law.
+In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work, seemingly violating the Second Law.
 
 The modern resolution is subtler than one sentence, but Landauer-style memory erasure is a central part of it: the demon must observe and remember each molecule's velocity, and resetting that memory carries a thermodynamic cost that preserves the Second Law.
 
@@ -231,7 +231,7 @@ Consider two qubits in a **Bell state**:
 
 $$|\Psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$
 
-The total state is pure-perfectly known, zero entropy. But look at either qubit alone, and it appears maximally mixed-completely random, maximum entropy.
+The total state is pure: perfectly known, zero entropy. But look at either qubit alone, and it appears maximally mixed: completely random, maximum entropy.
 
 How can the whole be more ordered than the parts?
 
@@ -271,7 +271,7 @@ $$S_A \propto \text{Area}(\partial A)$$
 
 Picture the quantum field on a lattice, a grid of points with quantum degrees of freedom. Neighboring points are entangled.
 
-When you draw a boundary around region A, you cut through entanglement links. The entanglement comes from the links you cut-proportional to boundary area.
+When you draw a boundary around region A, you cut through entanglement links. The entanglement comes from the links you cut, proportional to boundary area.
 
 Points deep inside A are entangled with other inside points, not the outside. The interior doesn't contribute to boundary entanglement.
 
@@ -374,9 +374,9 @@ The consistency process has thermodynamic costs. Sending, receiving, and process
 
 ## 4.9 What Entropy Tells Us
 
-Entropy is not a loose metaphor. It rests on hard thermodynamic and quantum
-structure. Boltzmann gives the counting picture. Landauer ties information to
-energy cost. Strong subadditivity fixes the basic logic of quantum entropy.
+Entropy rests on hard thermodynamic and quantum structure. Boltzmann gives
+the counting picture. Landauer ties information to energy cost. Strong
+subadditivity fixes the basic logic of quantum entropy.
 
 The physical world keeps pushing in the same direction. The Second Law holds
 with overwhelming reliability in isolated systems. Black-hole entropy follows
@@ -389,11 +389,10 @@ which information has a budget, storage has a geometry, and memory has a cost.
 ### A Short History of the Arrow
 
 The arrow of time is a collective discovery because every generation found a
-different face of the same constraint. Carnot was not trying to solve the
-philosophy of time. He was trying to understand engines. Clausius did not
-begin with black holes. He named entropy because heat engines forced him to
-distinguish usable energy from unavailable energy. Boltzmann did not have
-quantum information theory. He had atoms, probabilities, and the courage to
+different face of the same constraint. Carnot was trying to understand
+engines, and the philosophy of time came along uninvited. Clausius named
+entropy because heat engines forced him to distinguish usable energy from
+unavailable energy. Boltzmann had atoms, probabilities, and the courage to
 say that thermodynamics was counting. Gibbs turned that counting into a
 general statistical language.
 
@@ -414,16 +413,14 @@ microscopic distinctions behind a finite area. A public record exists because
 some physical system has been driven into a durable low-entropy correlation
 with what happened.
 
-The reader should also notice how modest the formulas are. Carnot's
-$\eta_{max}=1-T_{cold}/T_{hot}$ does not say how to build a particular engine.
-It says what no engine can beat. Boltzmann's $S=k_B\ln W$ does not list every
-molecule. It says what matters after coarse-graining: how many microscopic
-possibilities fit the same macroscopic description. Shannon's
-$H=-\sum_i p_i\log_2 p_i$ does not care whether the messages are poems,
-voltages, or detector clicks. It measures uncertainty in a probability
-distribution. The horizon bound $S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ does
-not tell us the detailed microstates of quantum gravity. It says the storage
-budget scales like area.
+The formulas are modest. Carnot's $\eta_{max}=1-T_{cold}/T_{hot}$ says what
+no engine can beat, without saying how to build one. Boltzmann's $S=k_B\ln W$
+says what matters after coarse-graining: how many microscopic possibilities
+fit the same macroscopic description. Shannon's $H=-\sum_i p_i\log_2 p_i$
+measures uncertainty in a probability distribution, indifferent to whether
+the messages are poems, voltages, or detector clicks. The horizon bound
+$S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ is silent on the detailed microstates
+of quantum gravity and says only that the storage budget scales like area.
 
 Together those equations explain why observers cannot be free-floating
 witnesses. To observe, an observer must couple to something. To remember, the

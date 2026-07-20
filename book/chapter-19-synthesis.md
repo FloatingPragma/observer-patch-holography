@@ -491,12 +491,12 @@ The measurement problem softens because there is no wavefunction of the
 universe being watched from outside. Measurement is one patch entering a new
 record relation with another.
 
-The problem of time softens because modular flow furnishes an intrinsic
+The problem of time eases because modular flow furnishes an intrinsic
 one-parameter ordering on the certified algebra-state branch. An operational
 clock and its calibration are required before that parameter is called a
 physical duration.
 
-The black-hole information problem softens because the screen blocks any naive
+The black-hole information problem shrinks because the screen blocks any naive
 splitting of the world into one autonomous inside and one autonomous outside.
 Interior data is encoded in the screen. There is no second hidden vault.
 
@@ -545,9 +545,10 @@ looking decorative. They start looking inevitable.
 
 ## 19.11 Ten Requirements, Two Dials
 
-The whole argument can be retold as one story of subtraction. Start with every
-world that reads itself, and watch each consistency requirement strike out the
-worlds that fail it.
+Chapter 18 retold the whole argument as one long subtraction. Here is the
+same ledger with every entry in place: start with every world that reads
+itself, and watch each consistency requirement strike out the worlds that
+fail it.
 
 A world that reads itself needs records. Reading without a trace is not
 reading; something has to hold what was read, and hold it well enough to be

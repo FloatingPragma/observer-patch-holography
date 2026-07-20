@@ -9,7 +9,7 @@ tide erases it. Carve it in stone and it lasts for millennia. Information
 exists in specific physical arrangements. Disturb those arrangements and the
 information is gone.
 
-This is the commonsense view of data. A hard drive crash destroys your files. A brain injury erases memories. Noise corrupts signals. The only way to protect information is to shield it from disturbance or make multiple copies that can substitute for each other.
+This is the commonsense view of data. A hard drive crash destroys your files, and noise chews at every signal ever sent through a real channel. The only way to protect information is to shield it from disturbance or make multiple copies that can substitute for each other.
 
 Classical physics supports this intuition. Information lives in definite states. Errors flip states to wrong values. Protection requires either isolation (keep the noise away) or redundancy (make backup copies).
 
@@ -27,11 +27,11 @@ Translating classical error correction to quantum computing seemed impossible du
 
 **Continuous Errors**: Classical noise flips bits discretely. Quantum noise rotates states continuously on the Bloch sphere. How can you correct a continuum of errors?
 
-For a while, these obstacles seemed insurmountable.
+For a while, these obstacles seemed insurmountable. Rolf Landauer of IBM, the field's designated skeptic, liked to suggest that every quantum-computing proposal should carry a disclaimer admitting that it relied on speculative technology and probably would not work.
 
 ### Shor's Miracle
 
-In 1995, Peter Shor published a nine-qubit code that proved quantum error correction was possible. **You don't copy the data. You spread it across entangled correlations.**
+In 1995, Peter Shor published a nine-qubit code that proved quantum error correction was possible. **The trick is to spread the data across entangled correlations, so that no copying is ever needed.**
 
 The three-qubit bit-flip code encodes:
 $$|\psi_L\rangle = \alpha|000\rangle + \beta|111\rangle$$
@@ -113,7 +113,11 @@ bulk information.
 
 ## 10.4 Classical Error Correction: Shannon's Foundation
 
-The thread begins with Claude Shannon's 1948 paper "A Mathematical Theory of Communication."
+The thread begins at Bell Telephone Laboratories in 1948, with a thin,
+playful Michigan engineer named Claude Shannon, later famous for riding a
+unicycle down the Labs' corridors while juggling. That year he published "A
+Mathematical Theory of Communication" and put the bit into print for the
+first time, crediting the coinage to his colleague John Tukey.
 
 Shannon asked: Suppose you want to send a message through a noisy channel that randomly flips bits. How much of the original message can survive?
 
@@ -134,9 +138,9 @@ Shannon's theorem says: **arbitrarily reliable communication is possible even in
 
 ### The Hamming Code
 
-Richard Hamming provided the first practical construction. The Hamming [7,4] code takes four data bits and expands them to seven. The extra three bits are parity checks.
+Richard Hamming provided the first practical construction. Hamming shared Bell Labs with Shannon, and he had a grievance: the relay computers he fed on Fridays kept hitting errors over the weekend and dumping his jobs unfinished. His question, as he later told it, was "Damn it, if the machine can detect an error, why can't it locate the position of the error and correct it?" The Hamming [7,4] code is the answer. It takes four data bits and expands them to seven. The extra three bits are parity checks.
 
-The key innovation: the code has **distance** d = 3-any two valid codewords differ in at least three positions. A code of distance three can correct one error.
+The key innovation: the code has **distance** d = 3, meaning any two valid codewords differ in at least three positions. A code of distance three can correct one error.
 
 The valid codewords form a 4-dimensional subspace of the 7-dimensional bit vector space. Error correction is projection back onto that subspace.
 
@@ -209,7 +213,7 @@ The OPH connection is direct.
 
 Reality is the process of making observations consistent between observers. That process has the same mathematical structure as error correction.
 
-Think of two spacecraft mapping a planet. Each sees only part of the surface. Each has noisy instruments. They exchange data. The shared map is the codeword. The noise is the channel. The protocol keeping the map consistent is error correction.
+Two spacecraft are mapping a planet. Each sees only part of the surface. Each has noisy instruments. They exchange data. The shared map is the codeword. The noise is the channel. The protocol keeping the map consistent is error correction.
 
 ### Quantum Darwinism
 

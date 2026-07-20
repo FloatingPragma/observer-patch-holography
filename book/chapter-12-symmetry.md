@@ -19,24 +19,25 @@ In 1918, Emmy Noether proved one of the most important theorems in physics.
 
 ### Noether's Revolution
 
-Noether was working at Gottingen, helping Hilbert and Klein understand energy conservation in General Relativity. What she discovered was far more general.
+Noether had come to Göttingen in 1915 at the invitation of Hilbert and Klein, to help them understand energy conservation in general relativity. What she discovered was far more general.
 
 Her position in that story matters. Noether was one of the strongest
-algebraists in Europe, but she worked for years without the ordinary academic
-security granted to men around her. Hilbert famously defended her right to
-lecture by asking whether the faculty senate was a bathhouse. The theorem that
+algebraists in Europe, yet for years her Göttingen courses had to be
+advertised under Hilbert's name, because the university would not appoint a
+woman. When the faculty resisted her habilitation, Hilbert lost patience: "We
+are a university," he told them, "not a bathhouse." The theorem that
 came out of that period became one of the load-bearing beams of modern
 physics. It is a reminder that the edifice was built by many hands, including
 people whose institutions did not always know how to recognize them.
 
 **Noether's Theorem**: Every continuous symmetry of the action corresponds to a conserved quantity.
 
-The correspondences are breathtaking. Time-translation symmetry gives
+Time-translation symmetry gives
 conservation of energy. Space-translation symmetry gives conservation of
 momentum. Rotation symmetry gives conservation of angular momentum. Gauge
 symmetry gives conservation of charge.
 
-Conservation laws aren't arbitrary rules. They're geometric consequences of symmetry.
+Conservation laws are geometric consequences of symmetry, with nothing arbitrary about them.
 
 This is where physics stops looking like a cabinet full of separate rules. Energy conservation, momentum conservation, and charge conservation are the quantities that remain fixed when the same action can be read from shifted, rotated, or phase-twisted points of view.
 
@@ -107,8 +108,7 @@ Objects transforming under SU(2) are called **spinors**. They have half-integer 
 
 ### The Dirac Belt Trick
 
-An ordinary arm twist is the wrong model here. Human shoulders are the wrong
-prop for the lesson.
+Human shoulders are the wrong prop for this lesson.
 
 Use a belt, a ribbon, or a plate attached to ribbons. Hold one end fixed and
 rotate the other end by 360 degrees. The belt carries a twist that cannot be
@@ -122,7 +122,7 @@ returns to the starting lift.
 
 ### Why Half-Integers Exist
 
-Quantum mechanics allows **projective representations**. Physical states are rays in Hilbert space-vectors defined only up to an overall phase. This phase freedom permits the double cover SU(2).
+Quantum mechanics allows **projective representations**. Physical states are rays in Hilbert space, vectors defined only up to an overall phase. This phase freedom permits the double cover SU(2).
 
 A ray is a direction, not one particular arrow. Multiplying a quantum
 state by an overall phase changes the vector but not the physical state. That
@@ -518,20 +518,17 @@ coherent.
 
 ### Noether's Human Lesson
 
-Emmy Noether arrived at her theorem through a problem that looked technical:
-how to understand conservation laws in general relativity. Hilbert and Klein
-recognized her power, but the university system around her did not. She
-lectured for years without the recognition her work deserved. The theorem bearing
-her name is one of the central pillars of theoretical physics.
+Noether arrived at her theorem through a problem that looked technical, the
+status of conservation laws in general relativity, and left physics holding
+one of its central pillars.
 
 The theorem's lesson is simple enough to say without the machinery: if a
 physical description can be changed in a certain way without changing the
-action, then something must be conserved. Time-translation symmetry gives
-energy conservation. Space-translation symmetry gives momentum conservation.
-Rotation symmetry gives angular momentum conservation. Gauge symmetry gives
-charge conservation. Each conserved quantity is a public invariant, something
-different observers can carry through their calculations without losing
-agreement.
+action, then something must be conserved. The pairings listed at the start of
+this chapter (time and energy, space and momentum, rotation and angular
+momentum, gauge and charge) all instantiate the one rule. Each conserved
+quantity is a public invariant, something different observers can carry
+through their calculations without losing agreement.
 
 This turns symmetry from beauty into bookkeeping. A symmetry is a rule for
 translating descriptions while preserving what can be checked. In OPH language,
@@ -540,14 +537,12 @@ for patches. Two observers may use different coordinates, phases, frames, or
 local bases. If their translation rule is a true symmetry, they agree
 on the shared content.
 
-The Standard Model gauge group
-$SU(3)\times SU(2)\times U(1)$ is therefore not a string of intimidating
-letters. $SU(3)$ organizes color charge in the strong interaction. $SU(2)$
-organizes weak isospin. $U(1)$ organizes hypercharge before electroweak
-symmetry breaking leaves ordinary electromagnetism. The product symbol says
-these symmetry factors are combined. Later the quotient by a shared center
-will matter because some transformations that look separate are actually
-identified on all physical states.
+Section 12.7 unpacked the Standard Model gauge group
+$SU(3)\times SU(2)\times U(1)$ factor by factor. Read through Noether's
+theorem, each factor is a translation rule with a conserved charge attached,
+and the quotient by a shared center, which returns in Chapter 14, records
+which transformations that look separate are actually identified on all
+physical states.
 
 For a reader tracking symbols, the action $S=\int d^4x\,\mathcal L$ is the
 global score assigned to a field history. The Lagrangian density

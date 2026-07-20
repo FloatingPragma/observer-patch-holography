@@ -9,7 +9,7 @@ letter, you can make as many copies as you like. When you burn a book, the
 information is gone forever. These are two distinct fates: duplication or
 annihilation.
 
-This is the commonsense view embedded in our everyday experience. You can photocopy a document infinitely. You can record a conversation and play it back endlessly. Information is cheap to replicate. Conversely, when the Library of Alexandria burned, when a hard drive crashes, when memories fade with age, the information vanishes into the void. Destruction is final.
+This is the commonsense view embedded in our everyday experience. You can photocopy a document infinitely. You can record a conversation and play it back endlessly. Information is cheap to replicate. When the Library of Alexandria burned, the information vanished into the void; a crashed hard drive and a fading memory go the same way. Destruction is final.
 
 Classical physics supported this intuition. The state of a system is a point in phase space. You can, in principle, measure it exactly and write down as many copies as you wish. And entropy increases, meaning organized information degrades into random noise. The past becomes inaccessible as the universe forgets.
 
@@ -40,14 +40,14 @@ radiation** has a precise temperature:
 
 $$T = \frac{\hbar c^3}{8\pi G M k_B}$$
 
-For a solar-mass black hole, this is about 60 nanokelvin-undetectably cold. But for small black holes, the temperature can be significant. The radiation carries energy away. Black holes evaporate.
+For a solar-mass black hole, this is about 60 nanokelvin, undetectably cold. But for small black holes, the temperature can be significant. The radiation carries energy away. Black holes evaporate.
 
 $T$ is the Hawking temperature. $M$ is the black-hole mass. The constants
 $\hbar$, $c$, $G$, and $k_B$ are Planck's constant divided by $2\pi$, the
 speed of light, Newton's gravitational constant, and Boltzmann's constant.
 Because $M$ is in the denominator, smaller black holes are hotter.
 
-The problem was severe. Hawking's calculation showed the radiation is thermal-random, uncorrelated noise carrying no information about what fell in. If you throw a book into a black hole and wait for evaporation, all you get out is random static.
+The problem was severe. Hawking's calculation showed the radiation is thermal: random, uncorrelated noise carrying no information about what fell in. If you throw a book into a black hole and wait for evaporation, all you get out is random static.
 
 If this is true, information is destroyed. A pure quantum state (the book) becomes a mixed thermal state (the radiation). This violates **unitarity**, the foundational principle that quantum evolution preserves information.
 
@@ -71,9 +71,8 @@ information.
 In 48 BC, Julius Caesar's troops set fire to the Egyptian fleet in Alexandria's
 harbor. The flames spread to warehouses, then to buildings, and according to
 legend consumed the Great Library, the ancient world's greatest repository of
-knowledge. Hundreds of thousands of scrolls burned, including Sophocles' lost
-plays, Aristotle's missing books, and Euclid's unfinished theorems. Ash drifted
-over the Mediterranean.
+knowledge. Hundreds of thousands of scrolls burned, and ash
+drifted over the Mediterranean.
 
 We intuitively understand this loss is permanent. Once a book is burned, the information is destroyed. Entropy increases, smoke disperses, and time ensures we cannot run the movie backward.
 
@@ -104,9 +103,9 @@ But how can information be preserved if it cannot be copied? The answer: you don
 
 ## 7.4 Claude Shannon's Discovery
 
-The recovery thread begins in 1948, in a cramped office at Bell Telephone Laboratories in Murray Hill, New Jersey.
+The recovery thread begins in 1948, in an office at Bell Telephone Laboratories, at the desk of Claude Shannon.
 
-Claude Shannon was not like other engineers. While his colleagues worried about practical problems-how to reduce static on phone lines, how to compress calls onto cables-Shannon was thinking about something deeper. What *is* information? Can it be measured? How do you send a message reliably when the channel tries to destroy it?
+His colleagues worried about static on phone lines and how to squeeze more calls onto a cable. Shannon was asking what information *is*: whether it can be measured, and how a message can survive a channel that tries to destroy it.
 
 Shannon had spent World War II working on cryptography, trying to make messages secure from eavesdroppers. He then attacked the opposite problem: how to make messages survive noise that corrupts them randomly.
 
@@ -134,7 +133,7 @@ The trick is clever encoding. Spread information across many symbols in subtle p
 
 ### The Cost of Reliability
 
-Redundancy isn't free. Extra symbols mean slower transmission. Extra bits mean more storage. And there's a fundamental cost: Landauer's principle says erasing a bit requires at least kT ln 2 of energy-about 3 times 10 to the negative 21 joules at room temperature.
+Redundancy isn't free. Extra symbols mean slower transmission. Extra bits mean more storage. And there's a fundamental cost: Landauer's principle says erasing a bit requires at least kT ln 2 of energy, about 3 times 10 to the negative 21 joules at room temperature.
 
 The universe has finite resources. Recovery must be efficient, local, bounded. You can't store infinite backups of infinite data.
 
@@ -154,7 +153,7 @@ Shannon defined the information content of a random variable X with outcomes {x}
 
 $$H(X) = -\sum_x p(x) \log p(x)$$
 
-This measures uncertainty-how many yes/no questions you'd need to ask, on average, to learn the outcome.
+This measures uncertainty: how many yes/no questions you'd need to ask, on average, to learn the outcome.
 
 $X$ is the random variable, $x$ labels one possible outcome, and $p(x)$ is the
 probability of that outcome. The sum adds the uncertainty contribution from
@@ -170,7 +169,7 @@ The mutual information between X and Y measures how much knowing one tells you a
 
 $$I(X:Y) = H(X) - H(X|Y) = H(X) + H(Y) - H(X,Y)$$
 
-If X and Y are independent, I(X:Y) = 0-knowing one tells you nothing about the other. If they're perfectly correlated, mutual information equals entropy-knowing one determines the other.
+If X and Y are independent, I(X:Y) = 0: knowing one tells you nothing about the other. If they're perfectly correlated, mutual information equals entropy: knowing one determines the other.
 
 $H(X|Y)$ means the uncertainty left about $X$ after $Y$ is known. $H(X,Y)$ is
 the joint entropy of the pair. Mutual information is the amount of uncertainty
@@ -254,13 +253,13 @@ In 1973, Elliott Lieb and Mary Beth Ruskai proved one of the most important theo
 
 CMI is never negative.
 
-This sounds obvious but it's not. The proof took years and required sophisticated functional analysis. And it's the foundation of quantum recovery.
+The statement sounds obvious. The proof took years of hard functional analysis, and it is the foundation of quantum recovery.
 
-Strong subadditivity says B can only help, never hurt. If you want to learn about correlations between A and C, knowing B cannot make things worse. In the worst case, B is useless. B never creates confusion that was absent before.
+Strong subadditivity says B can only help, never hurt: at worst it is useless, and it never creates confusion that was absent before.
 
 ### The Petz Map: Physical Recovery
 
-In 1986, Hungarian mathematician Denes Petz asked a natural question: if I(A:C|B) = 0 exactly, can we physically reconstruct the state?
+In 1986, the Hungarian mathematician Dénes Petz asked a natural question: if I(A:C|B) = 0 exactly, can we physically reconstruct the state?
 
 Petz constructed an explicit procedure, later called the **Petz recovery map**:
 
@@ -286,7 +285,7 @@ Think of it like calibrating a distorted photograph. The original image (BC) got
 
 Perfect recovery requires I(A:C|B) = 0 exactly. But in physics, nothing is exact. What if CMI is merely small?
 
-In 2015, Omar Fawzi and Renato Renner proved a powerhouse theorem:
+In 2015, Omar Fawzi and Renato Renner proved the theorem that turns recovery into a working tool:
 
 **Theorem**: For any state rho_ABC with I(A:C|B) less than or equal to epsilon, there exists a recovery map R such that:
 
@@ -574,7 +573,7 @@ picture, the past is carried forward in increasingly scrambled form.
 
 ### The Structural Constraint
 
-Of course, practical recovery is impossible. The computation required to
+Practical recovery is impossible. The computation required to
 recover the Library of Alexandria would exceed any conceivable technology.
 Chaos amplifies tiny errors. A single misplaced bit in trillions grows into
 garbage.
@@ -587,13 +586,13 @@ time. The past is encrypted with a key we will never find.
 
 Information can remain recoverable without being freely copied. No-cloning
 blocks duplication. Recovery survives because the information is encoded across
-extended correlations. That is how a noisy world can
-carry history. It is why observers can agree on a past they never saw. It is
-why black holes do not behave like cosmic shredders. And it is why spacetime
-starts to look like a code, a structure whose geometry and stability are tied
-to the same redundancy that protects information.
+extended correlations. That is how a noisy world carries history, how
+observers can agree on a past they never saw, and why black holes do not
+behave like cosmic shredders. It is also why spacetime starts to look like a
+code: a structure whose geometry and stability are tied to the same redundancy
+that protects information.
 
-Shannon started with a practical problem-sending messages over noisy phone
+Shannon started with a practical problem, sending messages over noisy phone
 lines. His solution, redundancy, reappears as one of the strongest organizing
 analogies for spacetime and holographic encoding.
 

@@ -23,7 +23,7 @@ General relativity and quantum theory broke that picture.
 
 Physics has a scandal.
 
-Almost all our fundamental laws are time-reversible. Newton's F = ma works the same forward and backward. Maxwell's equations are reversible. Schrödinger's equation is reversible. Einstein's General Relativity is reversible.
+Almost all our fundamental laws are time-reversible. Newton's F = ma works the same forward and backward, Maxwell's equations run happily in either direction, and so do Schrödinger's equation and Einstein's general relativity.
 
 Film a planet orbiting a star and play it backward; it looks perfectly physical. Film an egg breaking and play it backward, and the result is absurd.
 
@@ -57,7 +57,7 @@ description has no preferred clock.
 
 ### The Thermal Time principle
 
-In the 1990s, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
+In 1994, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
 read from incomplete knowledge. Start with the observer's limited state
 $\rho$. At finite cutoff, or in a special type-I representation, one writes a
 modular Hamiltonian $K=-\ln\rho$. In the general operator-algebraic setting the
@@ -166,7 +166,7 @@ matter spread almost uniformly. That uniformity is low gravitational entropy.
 Why is that side low entropy? Standard physics treats this as an unexplained
 boundary condition. OPH gives the condition a role in record formation.
 
-**The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients; writing information pushes entropy elsewhere. A universe in thermal equilibrium contains no observers, no records, no consistency-checking.
+**The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients; writing information pushes entropy elsewhere. A universe in thermal equilibrium contains no observers and no records for them to compare.
 
 The MaxEnt principle says: assign the maximum-entropy state consistent with your constraints. But one constraint is that someone must exist to apply MaxEnt. This rules out equilibrium. The very existence of observers selecting MaxEnt states presupposes a universe far from equilibrium.
 
@@ -179,7 +179,7 @@ allows records to be made.
 
 Edwin Jaynes rewrote statistical mechanics in information-theoretic terms.
 
-**Entropy is not a property of the gas. Entropy is a property of our knowledge about the gas.**
+**Entropy measures our knowledge about the gas. The gas itself carries no such number.**
 
 ### The Maximum Entropy Principle
 
@@ -263,7 +263,7 @@ compatible geometric, event, stress, and entropy readouts.
 
 ## 11.7 Jacobson's Derivation
 
-In 1995, Ted Jacobson performed one of the most beautiful derivations in theoretical physics.
+In 1995, Ted Jacobson published a short paper whose title gives the game away: "Thermodynamics of Spacetime: The Einstein Equation of State." It contains one of the most beautiful derivations in theoretical physics.
 
 He started with the first law of thermodynamics:
 
@@ -313,7 +313,7 @@ What dual quantity is growing?
 
 Leonard Susskind proposed: **computational complexity**.
 
-Entropy measures how many states are consistent with observations. Complexity measures how hard it is to prepare a state-how many quantum gates you need.
+Entropy measures how many states are consistent with observations. Complexity measures how hard it is to prepare a state: how many quantum gates you need.
 
 Complexity keeps growing long after entropy saturates. This gives the interior-growth story a computational reading: the hidden work of preparing the state can keep increasing even when coarse entropy has stopped changing.
 
@@ -366,9 +366,7 @@ $$\Delta^{it} = e^{-2\pi i K t}$$
 The natural modular evolution of the wedge state is exactly a Lorentz
 transformation.
 
-That means the same structure that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together. Thermal language and relativistic geometry are two descriptions of one modular fact.
-
-One structure is doing two jobs at once. Read algebraically, it is the modular evolution of a restricted state. Read geometrically, it is the boost symmetry of the wedge. The two readings agree because the observer's horizon cuts the vacuum in exactly the right way.
+One structure is doing two jobs at once. Read algebraically, it is the modular evolution of a restricted state; read geometrically, it is the boost symmetry of the wedge. The same fact that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together, because the horizon cuts the vacuum in exactly the right way.
 
 ### Boosts from Thermal Structure
 

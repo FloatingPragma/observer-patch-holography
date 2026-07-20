@@ -26,9 +26,9 @@ Bell's theorem broke that picture.
 
 To understand why quantum consistency is hard, we need to visit 1935.
 
-Albert Einstein was sixty-two years old and deeply troubled. He had helped create quantum mechanics-his 1905 paper on the photoelectric effect was one of the founding documents-but he never accepted its implications. "God does not play dice," he famously declared.
+Albert Einstein was fifty-six years old and deeply troubled. He had helped create quantum mechanics (his 1905 paper on the photoelectric effect was one of the founding documents), but he never accepted its implications. "God does not play dice," he famously declared.
 
-In May 1935, Einstein, Boris Podolsky, and Nathan Rosen published what became known as the EPR paper. Its title was dry: "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?" Its content was explosive.
+In May 1935, Einstein, Boris Podolsky, and Nathan Rosen published what became known as the EPR paper. Its title was dry: "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?" The New York Times was less restrained, announcing the work under the headline "Einstein Attacks Quantum Theory."
 
 EPR constructed a thought experiment. Take two particles created together and let them fly apart. Quantum mechanics says they can be *entangled*, with correlations that have no classical analog. Measure a property of one particle, and you instantly know the corresponding property of the other, even if they're light-years apart.
 
@@ -42,7 +42,7 @@ For nearly thirty years, everyone assumed it couldn't be settled by experiment. 
 
 ### Bell's Breakthrough
 
-John Stewart Bell was an Irish physicist working at CERN in the 1960s. He was quiet, precise, and deeply troubled by the foundations of quantum mechanics. In his spare time, between designing particle accelerators, he worked on a problem everyone else had abandoned.
+John Stewart Bell was an Irish physicist working at CERN in the 1960s. He was quiet, precise, and privately dissatisfied with the foundations of quantum mechanics. In his spare time, between designing particle accelerators, he worked on a problem everyone else had abandoned.
 
 In 1964, Bell published a short paper that changed everything. He proved that
 the question was empirical and designed an experiment that could distinguish
@@ -58,7 +58,7 @@ Quantum mechanics predicts something stronger:
 
 $$S = 2\sqrt{2} \approx 2.83$$
 
-That's a 41% violation. Not subtle. Testable.
+That's a 41% violation, large enough to test.
 
 This $S$ is the Bell-CHSH correlation score, not entropy. The vertical bars
 mean absolute value. A local hidden-variable model can arrange many patterns,
@@ -67,21 +67,21 @@ $2\sqrt{2}$ for the right entangled state and measurement angles.
 
 ### What Makes This So Strange
 
-Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart-on different continents, different planets, it doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
+Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart: different continents, different planets, it doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
 
 In the hidden variable picture, each particle carries a tiny instruction manual: "If measured at angle A1, give result +1. If measured at B2, give result -1." And so on. The instruction manual was written when the particles were created. The particles are like correlated coins-maybe both were programmed to give the same answers.
 
-Bell's genius was realizing you could test this. Run the experiment thousands of times. Calculate the correlations. If the world is described by a local hidden-variable model of this Bell type, S <= 2. Period.
+Bell's genius was realizing you could test this. Run the experiment thousands of times. Calculate the correlations. If the world is described by a local hidden-variable model of this Bell type, S <= 2, however the instruction manuals were written.
 
-But quantum mechanics can. When Alice and Bob choose the right measurement angles, quantum entanglement produces correlations of 2 times the square root of 2.
+Quantum mechanics can beat that ceiling. When Alice and Bob choose the right measurement angles, entanglement produces correlations of 2 times the square root of 2.
 
 ### The Experiments
 
 For two decades after Bell's paper, experimentalists raced to test it. The challenges were enormous. You needed to create entangled pairs reliably, separate them, measure them independently, and collect enough data to beat statistical noise.
 
-Alain Aspect in Paris performed the definitive early tests in 1981-82. His team used pairs of entangled photons created by exciting calcium atoms. They measured polarizations and found S approximately equal to 2.70, well above 2 and consistent with quantum predictions.
+Alain Aspect performed the definitive early tests at Orsay, outside Paris, in 1981-82. His team used pairs of entangled photons created by exciting calcium atoms. They measured polarizations and found S approximately equal to 2.70, well above 2 and consistent with quantum predictions.
 
-But there were loopholes. What if the particles somehow communicated with each other? (Communication loophole.) What if only certain particles got detected? (Detection loophole.) What if the measurement choices weren't truly random? (Freedom-of-choice loophole.)
+But there were loopholes. What if the particles somehow communicated with each other? (The locality loophole.) What if only certain particles got detected? (Detection loophole.) What if the measurement choices weren't truly random? (Freedom-of-choice loophole.)
 
 Over the following decades, experimenters closed the major loopholes one by one. The 2015 "loophole-free" Bell tests by teams in Delft, Vienna, and Colorado closed the locality and detection loopholes simultaneously, while using fast random setting choices that strongly constrained freedom-of-choice concerns. The particles were separated by large distances, the measurements were completed before any signal could travel between them, and the detection efficiency was high enough to rule out selection effects.
 
@@ -277,7 +277,7 @@ Sharing observations isn't free. You need energy to send signals and memory to s
 
 An observer has finite capacity. If you want to make your patch more consistent with others, you spend resources exchanging data. Agreement is work.
 
-This cost will become important later when we discuss how classical reality emerges. The facts that get widely shared are the ones that can be copied cheaply-and quantum mechanics places fundamental limits on what can be copied.
+This cost will become important later when we discuss how classical reality emerges. The facts that get widely shared are the ones that can be copied cheaply, and quantum mechanics places fundamental limits on what can be copied.
 
 ## 6.5 The Quantum Marginal Problem Is QMA-Complete
 
@@ -297,7 +297,7 @@ handle.
 In classical physics, local data often determine global data on simple overlap structures, and compatibility checking is much easier than in the quantum case.
 
 In quantum physics, local data constrain but don't determine global data. In
-the worst case, checking consistency is computationally hard-there is no known
+the worst case, checking consistency is computationally hard: there is no known
 efficient general algorithm to decide whether quantum marginals are compatible.
 
 This shows that quantum mechanics hides global structure in a deeply complex
@@ -332,7 +332,7 @@ So S(rho_BC) = 1 bit.
 
 But if BC is maximally entangled, then rho_BC is pure, so S(rho_BC) = 0.
 
-**Contradiction!** The marginals are individually valid but globally incompatible. Monogamy strikes again.
+Contradiction. The marginals are individually valid but globally incompatible. Monogamy strikes again.
 
 ### GHZ and W: Two Ways to Share
 
@@ -442,7 +442,7 @@ At that moment, their descriptions must agree. The consistency condition forces 
 This is observer-relativity with constraints. The "facts" depend on who's
 asking, and the overlap conditions determine which facts can coexist.
 
-No-go arguments and related experimental discussions show that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
+Frauchiger and Renner's 2018 no-go theorem, and the Wigner's-friend experiments that followed it, show that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
 
 ## 6.9 Quantum Darwinism: How Overlaps Build Objectivity
 
@@ -594,8 +594,6 @@ But what if the web gets torn? What if I measure something here, and you measure
 That tension is sharper here. Overlap is contextual, entanglement is limited,
 and global compatibility can be brutally hard to check. A world built from such
 ingredients should feel fragile. The next chapter explains why it does not.
-
-That is where the next chapter picks up. If overlap is contextual, limited, and sometimes globally hard, why does the world feel stable at all? Why do broken traces, partial records, and scrambled signals so often lead back to one shared history?
 
 The recovery chapter examines mechanisms that reconstruct missing information
 and preserve the web of consistency when individual links appear broken.

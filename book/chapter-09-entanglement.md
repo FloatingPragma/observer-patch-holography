@@ -10,7 +10,7 @@ stage, a fixed backdrop that exists independently of what occupies it.
 
 This is Newton's absolute space. It's the intuition behind graph paper, GPS coordinates, and every map ever drawn. Space is geometry waiting to be filled. It exists whether or not anything is in it. Two points are close or far based on how the stage is built, not on any relationship between the things at those points.
 
-The vacuum-empty space-is simply... empty. Nothing there. A container with nothing inside.
+The vacuum is what its name promises: empty. Nothing there. A container with nothing inside.
 
 Quantum field theory broke that picture.
 
@@ -18,7 +18,7 @@ Quantum field theory broke that picture.
 
 ### The Scissors of the Vacuum
 
-Imagine you have a pair of quantum scissors and decide to cut the vacuum itself. You draw a boundary around a spherical region-nothing inside, just empty space-and snip.
+Imagine you have a pair of quantum scissors and decide to cut the vacuum itself. You draw a boundary around a spherical region (nothing inside, just empty space) and snip.
 
 In classical physics, this is boring. Space is just coordinates. You label one side A and the other side B. Nothing changes.
 
@@ -29,9 +29,9 @@ separates the regions by severing a web of correlations between them.
 
 ### Experimental Evidence
 
-You can see hints of this in the **Casimir effect**. Place two metal plates close together-just a fraction of a micron apart-and they feel a tiny force pushing them together. This force comes from the vacuum modes restricted between the plates. The plates change which vacuum fluctuations can exist, and that changes the energy. The vacuum has structure, and that structure depends on boundaries.
+You can see hints of this in the **Casimir effect**. Place two metal plates a fraction of a micron apart and they feel a tiny force pushing them together. This force comes from the vacuum modes restricted between the plates. The plates change which vacuum fluctuations can exist, and that changes the energy. The vacuum has structure, and that structure depends on boundaries.
 
-Another hint is the **Unruh effect**. An accelerated observer sees the vacuum as a warm bath of particles. An inertial observer sees nothing. How can they disagree about whether particles exist? Because acceleration limits the accelerated observer's access to spacetime. There are regions they can't see-events behind their acceleration horizon. The loss of that information makes the vacuum look thermal.
+Another hint is the **Unruh effect**. An accelerated observer sees the vacuum as a warm bath of particles. An inertial observer sees nothing. How can they disagree about whether particles exist? Because acceleration limits the accelerated observer's access to spacetime. There are regions they can't see: events behind their acceleration horizon. The loss of that information makes the vacuum look thermal.
 
 ### The Area Law
 
@@ -67,13 +67,13 @@ Recall our core thesis: reality is the process of making observations between ob
 
 If there were no correlations across your cut, the vacuum wouldn't glue itself together. You couldn't walk from A to B without noticing a seam where observations fail to match.
 
-**Space is not a stage that matter lives on. Space is the pattern of correlations that enables observer agreement.**
+**Space is the pattern of correlations that enables observer agreement.** The stage picture had the dependence backwards: the correlations come first, and the arena is what they add up to.
 
 Two regions are "close" when they share many quantum correlations, so
 observations in one constrain observations in the other. They are "far" when
 they share few correlations and are nearly independent.
 
-Distance is not a primitive. It emerges from the entanglement structure of the vacuum state.
+Distance emerges from the entanglement structure of the vacuum state; nothing about it is primitive.
 
 ### The Ryu-Takayanagi Formula
 
@@ -119,7 +119,7 @@ calculation and a geometric calculation give the same answer.
 
 ## 9.4 Bell's Theorem: The Reality of Entanglement
 
-Entanglement is not a decorative idea. Bell experiments force it on us.
+Bell experiments force entanglement on us.
 
 For suitable two-wing experiments, any local hidden-variable account obeys
 
@@ -135,9 +135,12 @@ mean absolute value. Classical local hidden-variable models keep
 that number at or below 2. Quantum mechanics permits a larger value, but not an
 arbitrary one. The ceiling $2\sqrt{2}$ is the quantum limit.
 
-That stronger pattern has been observed. The 2015 loophole-free Bell tests
-closed the major loopholes at the same time and ruled out the simple local
-hidden-variable models Einstein hoped would survive.
+That stronger pattern has been observed. In 2015, Ronald Hanson's group in
+Delft ran the first loophole-free test, with entangled electron spins held in
+two diamonds 1.3 kilometers apart on opposite sides of the campus; experiments
+in Vienna and at NIST followed within weeks. Together they closed the major
+loopholes at the same time and ruled out the simple local hidden-variable
+models Einstein hoped would survive.
 
 The Bell pair makes the structure vivid:
 
@@ -160,11 +163,11 @@ Chapter 6 gives the overlap-consistency reading of Bell correlations. The lesson
 
 ## 9.5 ER = EPR: Wormholes Are Entanglement
 
-Einstein and Rosen wrote about wormholes in 1935. Einstein, Podolsky, and Rosen wrote about entanglement the same year. For eighty years, no one connected them.
+Chapter 8 flagged the coincidence: wormholes and entanglement entered physics in the same year, 1935, in two papers that both carry Einstein's name, and for eighty years nobody connected them.
 
 In 2013, Juan Maldacena and Leonard Susskind made a bold proposal: **ER = EPR**.
 
-The proposal is that Einstein-Rosen bridges (wormholes) and Einstein-Podolsky-Rosen correlations (entanglement) are deeply linked-two languages for the same underlying connectivity in the right regimes.
+The proposal is that Einstein-Rosen bridges (wormholes) and Einstein-Podolsky-Rosen correlations (entanglement) are deeply linked: two languages for the same underlying connectivity in the right regimes.
 
 ### The Thermofield Double
 
@@ -292,7 +295,7 @@ If everything is entangled, why does the world look classical?
 
 The answer involves **decoherence** and **quantum Darwinism**.
 
-When a quantum system interacts with its environment, certain "pointer states" become stable-states that can be copied into the environment without being destroyed. The environment measures them repeatedly, storing redundant records.
+When a quantum system interacts with its environment, certain "pointer states" become stable: states that can be copied into the environment without being destroyed. The environment measures them repeatedly, storing redundant records.
 
 Classical facts are quantum information that got copied everywhere. You look at a chair. I look at the same chair. We agree because we're both sampling redundant records in the environment.
 
@@ -319,8 +322,9 @@ under control.
 Entanglement has one of the strangest histories in physics because it began
 as a complaint. Einstein, Podolsky, and Rosen used it in 1935 to argue that
 quantum mechanics could not be complete. Schrödinger answered by naming the
-phenomenon and emphasizing that entanglement was not a small detail. It was
-the distinctive feature of quantum theory. For decades the issue looked
+phenomenon and rating it, in his 1935 reply, as "the characteristic trait of
+quantum mechanics, the one that enforces its entire departure from classical
+lines of thought." For decades the issue looked
 philosophical. Then John Bell found the inequality that moved the argument
 from taste to experiment. Clauser, Freedman, Aspect, Zeilinger, and many
 others turned the test into a laboratory program. Modern loophole-free Bell

@@ -40,6 +40,17 @@ Mapping between Lean 4 theorems in this project and statements in
   completions from their stated forgetful reducts, plus the settlement and
   pairing controls. They do not prove nonexistence of a selector from a richer
   operational source packet and do not instantiate any physical producer.
+- Icosahedral port-frame Gram identity (`Screen/PortFrameGram.lean`, #568):
+  12 / 12 declarations, sorry-free, kernel `decide` only, standard axioms
+  (`propext`, `Classical.choice`, `Quot.sound`). Proves on the explicit
+  twelve-port icosahedral incidence: 5-regularity, symmetric irreflexive
+  adjacency, fixed-point-free antipodal involution, the distance profile
+  witnesses (common neighbor for every distance-two pair, no common neighbor
+  across an antipodal pair), and the exact Gram identities `G² = 4·G` and
+  `tr G = 12` in the integer-scaled `ℤ(√5)` normalization `5·G`. The
+  rank-three conclusion (idempotent `G/4` with trace 3) is the one on-paper
+  step. It does **not** derive the icosahedral carrier from OPH axioms,
+  construct the `A5` action, or bear on the Prop 4.2 / Def 4.1 counts.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear

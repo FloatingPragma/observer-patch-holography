@@ -79,9 +79,10 @@ mechanics had trained physicists to expect reversible laws. If molecules obey
 reversible equations, why does a room not spontaneously unmix smoke, rebuild
 glass fragments, and restore every spent gradient?
 
-Boltzmann changed the question. Entropy was not a mysterious fluid. It was
-counting. A macrostate is what coarse observers can describe: pressure,
-volume, temperature, visible arrangement. A microstate is the detailed
+Boltzmann changed the question. Entropy, in his hands, stopped being a
+mysterious fluid and became counting. A macrostate is what coarse
+observers can describe: pressure, volume, temperature,
+visible arrangement. A microstate is the detailed
 configuration underneath. There are vastly more microstates corresponding to
 equilibrated macrostates than to special organized ones. A system wanders
 through microscopic possibilities and spends almost all its time in the
@@ -134,7 +135,7 @@ elsewhere.
 
 Heisenberg's move was radical because it gave up on unobserved orbits. He
 kept transitions, frequencies, and intensities, the things experiments
-actually reported. Born recognized the matrix structure. Schrodinger found a
+actually reported. Born recognized the matrix structure. Schrödinger found a
 wave equation that looked very different but produced the same physics.
 Dirac unified the languages. Born gave the probability interpretation.
 Bohr emphasized complementarity. Pauli discovered exclusion. Von Neumann
@@ -188,9 +189,9 @@ external observers describe what can be known, rather than as a passive shell.
 independent degrees of freedom by area. Maldacena then gave a controlled
 example in AdS/CFT. A gravitational theory in an anti-de Sitter bulk is
 equivalent, in that setting, to a conformal field theory on the boundary.
-That duality did not solve all quantum gravity. It did something equally
-important: it proved that boundary encoding of bulk gravity is not a poetic
-analogy. It can be exact in a carefully defined class of systems.
+The duality solved a problem narrower than all of quantum gravity and more
+consequential: it proved that boundary encoding of bulk gravity can be exact
+in a carefully defined class of systems, rather than a poetic analogy.
 
 Ryu and Takayanagi added the entanglement bridge. Boundary entanglement
 entropy equals a bulk area in the appropriate units. This made geometry look
@@ -280,9 +281,8 @@ content. That makes it a language rule for observers.
 Noether's theorem is the key. If the action is unchanged under a continuous
 transformation, a conserved current follows. Time translations give energy.
 Space translations give momentum. Rotations give angular momentum. Gauge
-symmetries give charges. Conservation laws are not arbitrary accounting
-rules. They are the public invariants left by transformations that do not
-change the underlying physics.
+symmetries give charges. Conservation laws are the public
+invariants left by transformations that do not change the underlying physics.
 
 This is why symmetry fits OPH so naturally. Different observer patches need
 not use the same coordinates, phases, gauges, or local frames. If their
@@ -293,8 +293,8 @@ from becoming public contradiction.
 Gauge symmetry is the deepest version of this lesson. The electromagnetic
 potential has redundancy: different potentials can describe the same electric
 and magnetic fields. Yang-Mills theory generalized that redundancy to
-non-abelian groups. The Standard Model's $SU(3)\times SU(2)\times U(1)$ is
-not a decorative label. It tells us how charge sectors transform, how
+non-abelian groups. The Standard Model's
+$SU(3)\times SU(2)\times U(1)$ tells us how charge sectors transform, how
 carriers couple, and which interactions are allowed.
 
 The historical path is again collective. Weyl's first gauge construction
@@ -322,7 +322,7 @@ large-scale story. That makes cosmology naturally observer-aware.
 
 The discovery of expansion changed the meaning of the universe.
 Slipher's redshifts, Leavitt's distance ladder, Hubble's relation, Friedmann's
-solutions, and Lemaitre's interpretation turned the cosmos from a static
+solutions, and Lemaître's interpretation turned the cosmos from a static
 stage into an evolving system. The cosmic microwave background then made the
 hot dense side of the standard reconstruction visible. Nucleosynthesis, galaxy
 surveys, lensing,
@@ -345,7 +345,7 @@ the repair charge into lensing and cosmic structure, so the galaxy and horizon
 readings belong to one field rather than two unrelated patches.
 
 The human chain includes observers and instrument builders as much as
-theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,
+theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaître, Zwicky, Rubin,
 Ford, Penzias, Wilson, Peebles, Guth, Starobinsky, Linde, Perlmutter, Riess,
 Schmidt, Planck and WMAP teams, DES, KiDS, ACT, SPT, Euclid, Rubin
 Observatory, and many more. Cosmology is public reality at the largest scale.
@@ -399,8 +399,8 @@ Solipsism says only my mind is sure. OPH says finite observer patches are forced
 into being by a self-consistent reality, and public reality is what survives
 overlap consistency among many of them. That is almost the opposite of
 solipsism. The
-individual observer is not sovereign. The individual observer is constrained
-by every interface where records can be compared. A hallucination, a detector
+individual observer is sovereign nowhere and constrained at every interface
+where records can be compared. A hallucination, a detector
 fault, and a genuine event can all be experiences inside some patch. They do
 not have the same public support because they do not survive the same
 cross-checks.
@@ -518,7 +518,7 @@ In the prologue, ask whether the reverse-engineering metaphor is clear and
 whether the reader understands observer patches before any heavy physics
 appears. In Chapter 1, ask whether consistency is being treated as a repair
 condition, not a social vote. In Chapter 2, ask whether the philosophy
-is presented as historical resonance, not as retroactive physics. In Chapter
+is presented as historical echo, not as retroactive physics. In Chapter
 3, ask whether area scaling has replaced volume intuition. In Chapter 4, ask
 whether records are visibly thermodynamic objects.
 
@@ -569,8 +569,8 @@ can ask; recovery explains how damaged or hidden information can stay
 available under controlled conditions. Each claim can be tested by asking
 what changes if the condition fails.
 
-The same rule applies to historical material. The names in the chapters are
-not decorations. They mark real handoffs in a long chain: Carnot to Clausius
+The same rule applies to historical material. The names in the chapters
+mark real handoffs in a long chain: Carnot to Clausius
 to Boltzmann to Shannon; Maxwell to Lorentz to Einstein; Noether to Wigner;
 Bekenstein to Hawking to holography; Shannon to quantum codes to
 entanglement wedges. OPH belongs inside that chain. The book should give the
@@ -619,7 +619,7 @@ The Large Hadron Collider is a good example. When the Higgs boson was
 announced, no one had seen a little object called the Higgs with unaided
 senses. ATLAS and CMS observed decay products, reconstructed invariant masses,
 compared channels, controlled backgrounds, and accumulated statistical
-significance. The public fact was not one raw sensation. It was a structured
+significance. The public fact was a structured
 agreement across detector subsystems, analysis groups, simulations,
 calibrations, and independent experiments.
 
@@ -634,7 +634,7 @@ record-making systems embedded in physical
 interfaces. Human consciousness matters in later interpretive chapters, but
 the scientific role of the observer is broader: bounded access, memory,
 comparison, and update. Instruments enlarge patches and make records more
-shareable. They do not remove the observer problem. They make it precise.
+shareable; they make the observer problem precise rather than removing it.
 
 ## Interlude 15: Diagrams Are Arguments With Edges
 
@@ -644,7 +644,7 @@ where the simplified picture stops being the theory.
 
 The cave diagram shows source, projection, and reconstruction. Its edge is
 that Plato's story is not holography. The diagram captures a structural
-resonance, not a derivation. The entropy-arrow diagram shows low-entropy
+rhyme, not a derivation. The entropy-arrow diagram shows low-entropy
 resources becoming records and waste heat. Its edge is that real
 thermodynamic processes can be enormously more complex than the arrow. The
 algebra-order diagram shows that question order matters. Its edge is that an
@@ -841,14 +841,14 @@ Einstein did something different with that public fact. He treated the
 stubborn invariance as a structural clue. Time, length, simultaneity, and
 energy had to be rewritten so that the shared speed of light survived every
 allowed change of frame. Special relativity was born from that discipline.
-The lesson for OPH is direct: agreement between observers is not a decorative
-theme. It can force the shape of spacetime.
+The lesson for OPH is direct: agreement between observers can force the shape
+of spacetime.
 
 Consider the cosmic distance ladder. Henrietta Swan Leavitt studied Cepheid
 variables in the Magellanic Clouds and found that their brightness period
 carried distance information. Her work gave astronomers a rung on the ladder.
 Vesto Slipher measured redshifts. Edwin Hubble combined distances and
-redshifts into an expansion relation. Georges Lemaitre gave the relation a
+redshifts into an expansion relation. Georges Lemaître gave the relation a
 relativistic reading. The expanding universe became a public fact through a
 chain of plates, stars, spectra, statistics, theory, and contested
 interpretation.
@@ -899,7 +899,7 @@ curved spacetime and found radiation. Gibbons and Hawking extended the
 thermodynamic lesson to cosmological horizons. Holography, AdS/CFT,
 entanglement wedges, and island formulas turned that thermodynamic clue into
 a deep statement about encoding. Each step changed the record chain. A black
-hole was no mere sink. It became a surface with countable capacity.
+hole stopped being a mere sink and became a surface with countable capacity.
 
 OPH leans heavily on the idea that records live on accessible boundaries. That
 statement inherits the labor of black-hole thermodynamics, quantum field

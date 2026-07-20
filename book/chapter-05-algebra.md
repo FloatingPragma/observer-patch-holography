@@ -71,7 +71,7 @@ At three in the morning, exhausted but excited, Heisenberg climbed a rock overlo
 
 ### The Matrix Connection
 
-Heisenberg sent his results to Max Born in Göttingen. Born immediately recognized the strange multiplication rule. "This is matrix multiplication!" he exclaimed.
+Heisenberg sent his results to Max Born in Göttingen. Born stared at the strange multiplication rule until he recognized it: matrix multiplication, half-remembered from his student days.
 
 A matrix is a rectangular array of numbers. Matrix multiplication has a specific rule: the order matters. Matrices are "non-commutative."
 
@@ -102,7 +102,7 @@ is not automatic on arbitrary overlap graphs.
 
 The Quantum Marginal Problem shows that the difficulty survives in a sharper form. Pairwise-compatible reduced states can fail to come from one global state. Non-commutativity intensifies the quantum consistency problem, but it is not the only obstruction to gluing.
 
-**Non-commutativity makes the quantum consistency problem especially hard.** If measurements all commuted, the overlap conditions would be much closer to the classical case. Physics could have rich laws and dynamics, while missing the specifically quantum constraint structure highlighted here.
+**Non-commutativity makes the quantum consistency problem especially hard.** A fully commuting physics could have rich laws and dynamics; it would miss the specifically quantum constraint structure highlighted here.
 
 Non-commutativity creates a tension between local freedom and global consistency. Specific patterns of entanglement can help resolve that tension and are part of what we read as physical law. On this view, quantum non-commutativity is deeply connected to the difficulty of global consistency, not an arbitrary extra feature.
 
@@ -113,17 +113,17 @@ Non-commutativity creates a tension between local freedom and global consistency
 In 1922, Otto Stern and Walther Gerlach sent a beam of silver atoms through a
 non-uniform magnetic field. Classical physics predicted the beam would spread
 out in a continuous smear. Instead, it split into exactly two beams: spin up
-and spin down.
+and spin down. By Stern's later account, the silver trace was invisible until
+he leaned over the plate: the sulfur in his cheap cigar smoke blackened the
+faint deposit into view.
 
 This was shocking. Atomic magnetic moments are quantized. They take only
 discrete values.
 
 The real surprise comes when you chain measurements. Measure spin along the
-$z$-axis and keep only the up atoms. Then measure along $x$, which gives a
-50/50 split. Measure along $z$ again and the final result is not fixed.
-
-The final z-measurement becomes random, 50% up and 50% down. If you skip the
-x-measurement, the atoms stay "up" with certainty.
+$z$-axis and keep only the up atoms. Measure along $x$, which gives a 50/50
+split. Measure along $z$ again and the answer has become random, 50% up and
+50% down. Skip the $x$-measurement and the atoms stay "up" with certainty.
 
 The x-measurement has disturbed the z-state. The order of questions changes the answers.
 
@@ -148,7 +148,7 @@ For a baseball, the uncertainty is negligible, about 10⁻³⁴ meters. For an e
 
 ### Compatible Questions
 
-Not every pair of questions interferes. If two observables commute-[A, B] = 0-they share eigenstates and can be measured simultaneously. In hydrogen, the Hamiltonian commutes with $L^2$ and with a chosen component such as $L_z$, which is the standard example.
+Not every pair of questions interferes. If two observables commute ([A, B] = 0), they share eigenstates and can be measured simultaneously. In hydrogen, the Hamiltonian commutes with $L^2$ and with a chosen component such as $L_z$, which is the standard example.
 
 Two observers asking compatible questions can both get definite answers without disturbing each other's results. This is when classical intuition works.
 
@@ -265,14 +265,10 @@ world, and those questions can be combined in orderly ways. They can be added,
 rescaled, and composed. In quantum physics, the order of composition matters,
 and that is where much of the strangeness enters.
 
-### What Is an Algebra?
-
 A state tells the observer what answers to expect from those questions. If two
 observers know different things, they can carry different states. The
 consistency rule is simple: wherever the questions genuinely overlap, the
 expected answers have to agree.
-
-### States on Algebras
 
 This language earns its keep because wave functions stop being comfortable once
 locality and multiple observers matter. A single global wave function can be
@@ -280,8 +276,6 @@ useful when one pretends to look at the whole system at once. Relativistic
 physics is less generous. Different regions come with different accessible
 questions, and there is no single privileged way to cut the world into
 subsystems. Local algebras travel through that terrain much more cleanly.
-
-### Why Algebras?
 
 They also fit the book's perspective. Each observer carries a finite patch, a
 finite menu of questions, and a state tied to that menu. The algebraic language
@@ -368,7 +362,7 @@ density matrices stop being the right local object.
 
 **Type II**: No atoms, but a finite "trace" that assigns size to projections.
 
-**Type III**: No trace and no atoms. These are the "wild" algebras. Type III is actually generic in quantum field theory: the algebra of any bounded spacetime region is typically Type III, and local states do not admit the ordinary finite-trace density-matrix picture familiar from finite systems.
+**Type III**: No trace and no atoms. These are the "wild" algebras, and in quantum field theory they are the generic case.
 
 ### Why Type III Matters
 
@@ -502,16 +496,16 @@ to account for hydrogen spectra, even though the picture was internally
 strained. Sommerfeld, Wilson, and others refined the old quantum theory until
 its failures became too precise to ignore. Heisenberg then threw away
 unobservable electron orbits. Born saw matrices. Jordan helped formalize the
-rules. Schrodinger found wave mechanics. Dirac showed that the matrix and wave
+rules. Schrödinger found wave mechanics. Dirac showed that the matrix and wave
 pictures belonged to one transformation theory. Von Neumann put the Hilbert
 space structure on a rigorous footing.
 
-The historical point is not ornamental. It tells us why the algebra should be
-taken seriously. The non-commuting product was not invented because anyone
-wanted nature to be strange. It was forced by spectral lines, scattering,
-atomic stability, and the failure of the old orbit picture. The notation
-$XP\neq PX$ is therefore a compressed record of a long experimental and
-mathematical reconstruction, not a philosophical slogan.
+The history explains why the algebra should be taken seriously. The
+non-commuting product was forced on physics by spectral lines, scattering,
+atomic stability, and the failure of the old orbit picture; nobody wanted
+nature to be strange. The notation $XP\neq PX$ is therefore a compressed
+record of a long experimental and mathematical reconstruction, not a
+philosophical slogan.
 
 The same is true for the uncertainty relation. When the book writes
 $\Delta X\,\Delta P\geq \hbar/2$, the symbol $\Delta X$ means the spread of

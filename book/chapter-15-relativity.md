@@ -6,7 +6,7 @@ The intuitive picture is the Newtonian one. Time is universal and flows the
 same everywhere. Space is a three-dimensional stage. Gravity is a force acting
 at a distance.
 
-This picture is simple and matches everyday experience. When you and your friend synchronize watches, they stay synchronized. When you walk across a room, the room doesn't change shape. When an apple falls, it's being pulled by the Earth.
+This picture is simple and matches everyday experience. Synchronize watches with a friend and they stay synchronized. A room does not change shape as you walk across it. A falling apple is being pulled by the Earth.
 
 Newton made this precise. In his *Principia* of 1687, he wrote: "Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external."
 
@@ -33,7 +33,7 @@ electric and magnetic constants and matched the measured speed of light.
 
 But there was a puzzle. Speed relative to what?
 
-### The Aether principle
+### The Aether Hypothesis
 
 Physicists assumed light must propagate through a medium, just as sound propagates through air. They called this medium the "luminiferous aether." It filled all space and provided the reference frame in which Maxwell's equations held.
 
@@ -41,19 +41,19 @@ If the aether exists, the Earth should be moving through it. As the Earth orbits
 
 ### The Michelson-Morley Experiment
 
-In 1887, Albert Michelson and Edward Morley built the most sensitive optical instrument of its time. They split a light beam in two, sent the halves in perpendicular directions, reflected them back, and recombined them.
+In 1887, Albert Michelson and Edward Morley built the most sensitive optical instrument of its time; chapter 1 described the sandstone slab floating in mercury in their Cleveland basement. They split a light beam in two, sent the halves in perpendicular directions, reflected them back, and recombined them.
 
 If the aether existed, light traveling parallel to Earth's motion would take a different time than light traveling perpendicular. The recombined beams would be out of phase. Interference fringes would shift as the apparatus rotated.
 
-They found nothing. No shift. No aether wind.
+They found nothing: no shift, no aether wind.
 
 The experiment was repeated with increasing precision for decades. The result never changed. The speed of light is the same in all directions. There is no aether.
 
 ### The Crisis
 
-This was deeply problematic. Maxwell's equations predicted a specific speed for light. But speed relative to what, if not the aether?
+Maxwell's equations predicted one definite speed for light, and nothing was left for that speed to be relative to.
 
-Lorentz and FitzGerald proposed that objects physically contract in the direction of motion, exactly canceling the expected time difference. This "length contraction" principle saved the appearances but seemed ad hoc.
+Lorentz and FitzGerald proposed that objects physically contract in the direction of motion, exactly canceling the expected time difference. This "length contraction" hypothesis saved the appearances but seemed ad hoc.
 
 The crisis demanded resolution. It came from a patent clerk in Bern.
 
@@ -61,14 +61,18 @@ The crisis demanded resolution. It came from a patent clerk in Bern.
 
 ### The Two Postulates
 
-In 1905, Albert Einstein published "On the Electrodynamics of Moving Bodies."
-He cut through the confusion with two simple demands. The laws of physics had
-to be the same in all inertial frames, and light had to travel at the same
-speed in vacuum regardless of the motion of source or observer.
+In 1905 the clerk was twenty-six, a technical expert third class who spent his
+days at the patent office in Bern judging other people's inventions, among
+them schemes for synchronizing distant clocks by electric signal. In June of
+that year Albert Einstein sent Annalen der Physik a paper titled "On the
+Electrodynamics of Moving Bodies." It cut through the confusion with two
+simple demands. The laws of physics had to be the same in all inertial
+frames, and light had to travel at the same speed in vacuum regardless of the
+motion of source or observer.
 
 The second postulate sounds impossible. If you're on a train moving at 100 km/h and throw a ball forward at 50 km/h, a stationary observer sees the ball moving at 150 km/h. Velocities add.
 
-But light doesn't work that way. If you're on the train and shine a flashlight forward, both you and the stationary observer measure the light traveling at exactly c. Not c + 100 km/h. Just c.
+But light doesn't work that way. If you're on the train and shine a flashlight forward, both you and the stationary observer measure the light traveling at exactly c, not at c + 100 km/h.
 
 ### Time Must Give Way
 
@@ -84,7 +88,7 @@ Moving clocks run slow.
 
 ### The Lorentz Factor
 
-The mathematics falls out elegantly. Define:
+The arithmetic runs through one factor. Define:
 
 $$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$
 
@@ -158,7 +162,7 @@ when simultaneity is not.
 
 ## 15.5 Evidence for Special Relativity
 
-Special relativity is firmly established. It's one of the most precisely tested theories in physics.
+Special relativity is one of the most precisely tested theories in physics, and the tests come from unrelated directions: cosmic rays, particle accelerators, navigation satellites.
 
 ### Muon Decay
 
@@ -200,19 +204,19 @@ Einstein called this "the happiest thought of my life."
 
 ### The Elevator Thought Experiment
 
-Imagine you're in a windowless elevator. It is sitting on Earth, or it is accelerating upward in empty space. How would you tell the difference?
+You are in a windowless elevator. Either it is sitting on Earth or it is accelerating upward through empty space. How would you tell the difference?
 
 You drop a ball. It falls. Is it being pulled by gravity, or is the floor accelerating up to meet it?
 
 You can't tell. The two situations are physically equivalent.
 
-Imagine a beam of light crossing the elevator horizontally. If the elevator is accelerating upward, the light's path curves downward relative to the floor. The light "falls."
+Send a beam of light across the elevator horizontally. If the elevator is accelerating upward, the light's path curves downward relative to the floor. The light "falls."
 
 By the equivalence principle, light must also bend in a gravitational field. Gravity affects light.
 
 ### Curved Spacetime
 
-But wait. Light travels in straight lines. If light bends near massive objects, maybe "straight" isn't what we think.
+Light, though, is supposed to travel in straight lines. If it bends near massive objects, maybe "straight" isn't what we think.
 
 Einstein's radical proposal: massive objects curve spacetime itself. Light travels along the straightest possible paths. But in curved spacetime, the straightest paths are curves.
 
@@ -258,9 +262,9 @@ Einstein's equations predicted exactly this amount. It was the first confirmatio
 
 ### Light Bending
 
-Einstein predicted that starlight passing near the Sun would be deflected by 1.75 arcseconds. In 1919, Arthur Eddington photographed stars during a solar eclipse. The stars near the Sun appeared displaced.
+Einstein predicted that starlight passing near the Sun would be deflected by 1.75 arcseconds. In May 1919, Arthur Eddington sailed to Príncipe, an island off the west coast of Africa, and photographed the Hyades through a gap in the clouds during a total eclipse. The stars near the Sun appeared displaced.
 
-The 1919 result was historically decisive, and later measurements confirmed the effect far more precisely. Headlines proclaimed: "Revolution in Science. New Theory of the Universe. Newton's Ideas Overthrown."
+The 1919 result was historically decisive, and later measurements confirmed the effect far more precisely. The Times of London announced: "Revolution in Science. New Theory of the Universe. Newtonian Ideas Overthrown."
 
 ### Gravitational Waves
 
@@ -429,7 +433,7 @@ boundary of that cone; it does not determine the cone by itself.
 
 ### Why There Is No Privileged Reference Frame
 
-This deserves careful explanation, because it addresses a natural worry about OPH.
+A natural worry about OPH lands here.
 
 If reality is encoded with a screen chart carrying finite local degrees of
 freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
@@ -865,14 +869,14 @@ Einstein branch, Einstein's equation is
 the public face of entanglement equilibrium written in the language of
 curvature.
 
-Newton's absolute time and space were beautiful ideas that served humanity
-well for two centuries. They were approximations. The deeper truth is that
-time and space emerge from the physics itself.
+Newton's absolute time and space were beautiful ideas, and they served for
+two centuries. They turned out to be approximations, the large-scale reading
+of something deeper.
 
 This yields emergent spacetime with Lorentz kinematics and
-the Einstein relation on the stated scaling branch. We have seen how both
-spacetime and particles emerge from the screen. Chapter 16 turns to matter
-inside that picture, and to the way classical notions of particle, energy, and
-motion grow out of the deeper quantum structure.
+the Einstein relation on the stated scaling branch. Spacetime and particles
+both emerge from the screen. What is matter inside that picture, and how do
+classical notions of particle, energy, and motion grow out of the deeper
+quantum structure?
 
 That's the question of **Chapter 16: Matter, Motion, and Classical Physics**.

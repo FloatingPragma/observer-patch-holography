@@ -1,7 +1,5 @@
 # Chapter 20: Metaphysics and Qualia
 
----
-
 ## 20.1 The Zombie That Couldn't Exist
 
 In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. The lights are on, with no one watching.
@@ -16,7 +14,7 @@ side removed, then treats the result as the same physical situation.
 
 ## 20.2 The Ether Move, One Last Time
 
-Remember the luminiferous ether? Nineteenth-century physicists couldn't imagine light waves without a medium to wave *in*. They built elaborate theories about this cosmic jelly, measured its properties, debated its nature. Then Einstein showed that light doesn't need a medium. The ether wasn't invisible; it was *unnecessary*. The question "what are the properties of the ether?" had no answer because it was asking about something that didn't exist.
+Remember the luminiferous ether? Nineteenth-century physicists couldn't imagine light waves without a medium to wave *in*. They built elaborate theories about this cosmic jelly, measured its properties, debated its nature. Then Einstein showed that light doesn't need a medium. The ether turned out to be *unnecessary*, which is worse than invisible. The question "what are the properties of the ether?" had no answer because it was asking about something that didn't exist.
 
 The hard problem has the same structure. It asks: "How does subjective experience arise from an objective physical world?"
 
@@ -85,7 +83,7 @@ synchronize through shared records.
 
 ## 20.6 Why These Laws? Why This Universe?
 
-One question keeps physicists and philosophers up at night: Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
+Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
 
 The standard framing assumes laws are eternal Platonic truths, mathematical
 structures that exist independently of physical reality and somehow "govern"
@@ -109,7 +107,7 @@ constructions are work in progress.
 Under that physical identification, the familiar electromagnetic constant is
 the inside reading of the local screen scale that organizes the particle sector.
 
-Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
+The anthropic principle answers that the constants must be compatible with observers existing, or no one would be here to ask. As an explanation, it stops exactly where the question starts.
 
 OPH gives a different picture. Laws are the stable output of a consistency
 filter. The constraints that must hold for observer patches to glue together
@@ -129,7 +127,7 @@ This is the oldest question in philosophy. Leibniz asked it. Heidegger called it
 
 Notice the hidden assumption: that "nothing" is the default state, and existence requires justification. OPH inverts this.
 
-Consider: what would "nothing" actually look like? Empty space is something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
+What would "nothing" actually look like? Empty space is something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
 
 The process described by OPH, observer patches enforcing consistency and
 carving stable structures from the space of possibilities, is precisely how
@@ -138,9 +136,9 @@ first moment of meaning arrives when one piece of data becomes causally
 connected to another, when a distinction makes a difference. Before that mutual
 information exists, there is no "there" there.
 
-Some philosophers have called this "selector theory": non-existence isn't the natural default that existence must overcome. Rather, undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
+Derek Parfit, asking "Why anything? Why this?" in a pair of 1998 essays, imagined what he called Selectors: features that pick out which possibilities get to be actual. OPH offers a concrete candidate. Undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
 
-Others have spoken of "strange loops," reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives this intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together.
+Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together.
 
 The same idea has a deeper form in strange-loop closure.
 
@@ -186,7 +184,7 @@ structure has no external temporal "before." The loop contains time.
 
 ## 20.8 The View from Nowhere
 
-Thomas Nagel wrote a famous book called *The View from Nowhere*, exploring the tension between objective and subjective perspectives. Science seems to demand a God's-eye view, a description from no particular vantage point. Yet we can never actually achieve such a view. We're always somewhere, looking at things from a particular angle.
+In 1986 Thomas Nagel published *The View from Nowhere*, a book about the tension between objective and subjective perspectives. Science seems to demand a God's-eye view, a description from no particular vantage point. Yet we can never actually achieve such a view. We're always somewhere, looking at things from a particular angle.
 
 This tension generates most of the problems we've discussed: consciousness, quantum measurement, fine-tuning, existence. They all assume you can stand outside reality and ask how it works, then puzzle over how your standing-inside experience fits the picture.
 
@@ -266,7 +264,7 @@ agreement is a diagnostic.
 
 The strange-loop language also needs discipline. Douglas Hofstadter used
 strange loops to describe systems that climb levels and return to themselves.
-Godel's theorem is one mathematical inspiration, Escher's drawings are a
+Gödel's theorem is one mathematical inspiration, Escher's drawings are a
 visual one, and self-reference in computation is another. OPH's loop is a
 structural claim about a world producing observers who model that world and
 make those models part of what they describe. It does not posit ordinary

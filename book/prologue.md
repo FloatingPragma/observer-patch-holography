@@ -150,8 +150,8 @@ behavior, API calls, network traffic, memory access patterns, timing. You poke
 it, stress it, run it in different environments. Gradually, from thousands of
 observations, you build a mental model of what it's doing and why.
 
-You never see the code. You only see behavior. Your job is to work backward
-from effects to causes, from outputs to algorithms, from symptoms to structure.
+You never see the code. You only see behavior. Your job is to work backward,
+from symptoms to structure.
 
 Physics is the same discipline, applied to reality itself.
 
@@ -186,10 +186,10 @@ task.
 train or a stationary platform; the laws work identically. There's no "true"
 rest frame hidden somewhere. Every observer's perspective is equally valid.
 
-**Time dilates.** Clocks in motion run slow relative to stationary ones. Not
-because they are broken. Motion changes the clock comparison itself. Your five
-minutes and my five minutes aren't the same five minutes if we're moving
-differently.
+**Time dilates.** Clocks in motion run slow relative to stationary ones, and
+the clocks are working perfectly; motion changes the clock comparison itself.
+Your five minutes and my five minutes aren't the same five minutes if we're
+moving differently.
 
 **Measurement affects outcomes.** Try to precisely determine a particle's
 position and momentum simultaneously, and the experiment refuses the request.
@@ -220,11 +220,11 @@ mathematical models to predict them. Quantum mechanics works. Relativity
 works. The standard model works. The predictions match observations to
 absurd precision.
 
-But there's a question we rarely stop to ask:
+One question gets skipped:
 
 **Why do we assume an objective reality exists at all?**
 
-Think about it. What do we actually have access to? Subjective experiences.
+What do we actually have access to? Subjective experiences.
 Sensations, perceptions, measurements, memories. We see, hear, feel, detect.
 We compare notes with other observers and find that we generally
 agree. The apple is red. The electron went left. The clock shows 3 PM.
@@ -264,15 +264,15 @@ correlations. The shared spacetime of physics is what appears when those local
 descriptions can be made compatible. It is real as a public structure, but it
 is not the starting point.
 
-Some would call this an illusion. The metaphor is useful if it means that the
+Illusion is the tempting word. It earns its keep if it means that the
 container we seem to inhabit is an appearance produced by a deeper agreement
-process. It becomes misleading if it suggests that ordinary spacetime is
-arbitrary or unreal.
+process, and it misleads if it suggests that ordinary spacetime is arbitrary
+or unreal.
 
-This has nothing to do with solipsism or wishful thinking. Consistency across
-perspectives creates objectivity. The stable, shared, predictable structure
-that we call "the physical world" is the overlap-consistent backbone that all
-observers must agree on.
+Consistency across perspectives creates objectivity, which is the opposite of
+solipsism. The stable, shared, predictable structure that we call "the
+physical world" is the overlap-consistent backbone that all observers must
+agree on.
 
 The same architecture reaches several familiar layers of physics. On the
 shared-domain gravity branch, the entropy argument yields Einstein's equation

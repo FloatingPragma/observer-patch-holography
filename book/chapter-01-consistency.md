@@ -38,7 +38,7 @@ We take a narrower, operational step: **treat reality as a structure that has to
 
 Why abandon the intuitive picture at all? Because the universe gave us hints, strange, persistent, reproducible hints, that it cannot be correct.
 
-Imagine a cosmic record that contains **all** facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
+Imagine a cosmic record that contains *all* facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
 
 The intuitive picture fails where physics became interesting. It gives the
 right engineering answers at ordinary scales, then misdescribes the nature of
@@ -52,7 +52,7 @@ The first major hint came from an experiment designed to confirm the intuitive p
 
 ### The Aether That Wasn't There
 
-By the 1880s, physics had achieved a spectacular triumph. James Clerk Maxwell had unified electricity and magnetism into a single theory that predicted electromagnetic waves traveling at a specific speed-about 300,000 kilometers per second. This matched the measured speed of light. Light was an electromagnetic wave.
+By the 1880s, physics had achieved a spectacular triumph. James Clerk Maxwell had unified electricity and magnetism into a single theory that predicted electromagnetic waves traveling at a specific speed, about 300,000 kilometers per second. This matched the measured speed of light. Light was an electromagnetic wave.
 
 But waves need a medium. Sound travels through air. Water waves travel through water. What did light travel through?
 
@@ -60,11 +60,11 @@ Physicists invented the "luminiferous aether," a hypothetical substance filling 
 
 If the aether existed, it should have measurable effects. Earth moves through its orbit at about 30 km/s. If we're plowing through an aether that fills space, we should detect an "aether wind." Light traveling with the wind should move faster than light traveling against it.
 
-In 1887, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their paths.
+In the summer of 1887, in a basement laboratory in Cleveland, Ohio, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their paths.
 
-They floated their apparatus on a pool of mercury to eliminate vibrations. They measured at different times of day as Earth rotated. They measured at different times of year as Earth's orbital velocity changed direction.
+They mounted the optics on a massive sandstone slab and floated the slab in a trough of liquid mercury, so the whole apparatus could turn smoothly without vibration. They measured at different times of day as Earth rotated. They measured at different times of year as Earth's orbital velocity changed direction.
 
-**They found nothing.**
+They found nothing.
 
 The interference pattern didn't shift within the sensitivity of the experiment. No directional difference in the speed of light was detected as Earth moved.
 
@@ -78,7 +78,7 @@ The Michelson-Morley result meant the speed of light was the same for everyone. 
 
 Einstein realized something had to give. If the speed of light is truly constant for all observers, then our intuitions about space and time must be wrong.
 
-He traced the logic ruthlessly. What if different observers disagree about simultaneity? What if time itself runs at different rates for observers in relative motion? What if lengths contract?
+He traced the logic ruthlessly. What if different observers disagree about simultaneity? What if time runs at different rates for observers in relative motion, and lengths contract?
 
 The result was special relativity. It was a revolution disguised as bookkeeping.
 
@@ -90,7 +90,7 @@ time differently, while agreeing on the laws and on the speed of light.
 
 Einstein's discovery was sharp: **to keep the speed of light consistent across all observers, space and time themselves must be observer-dependent.**
 
-Time dilates. A moving clock ticks slower. In 1971, physicists Hafele and Keating flew atomic clocks around the Earth on commercial jets. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, and they were consistent with relativity's predictions within experimental uncertainty.
+Time dilates. A moving clock ticks slower. In 1971, Joseph Hafele and Richard Keating flew cesium atomic clocks around the Earth on commercial jets, the clocks strapped into their own purchased seats. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, and they were consistent with relativity's predictions within experimental uncertainty.
 
 Lengths contract. A moving ruler is shorter. If a spaceship flies past me at 90% of the speed of light, I measure it as less than half its rest length.
 
@@ -119,7 +119,7 @@ with themselves.
 
 But wait. Put a detector at one of the slits to see which way the electron went. What happens then?
 
-**The interference pattern disappears.** The electrons behave like particles again, piling up in two bands.
+The interference pattern disappears. The electrons behave like particles again, piling up in two bands.
 
 The mere act of observation changes the outcome.
 
@@ -222,14 +222,14 @@ The easy-to-miss hint is that agreement between observers is hard to construct.
 Look at the constants of nature: the strength of gravity, the masses of
 elementary particles, the charge of the electron, the cosmological constant.
 
-Change almost any of these by a small amount, and the universe becomes incapable of supporting complex structures. Make gravity slightly stronger, and stars burn out too fast for planets to form. Make the strong nuclear force slightly weaker, and nuclei fall apart. Make the cosmological constant larger, and space expands too fast for galaxies to condense.
+Change almost any of these by a small amount, and the universe becomes incapable of supporting complex structures. Make gravity slightly stronger and stars burn out too fast for planets to form. Weaken the strong nuclear force and nuclei fall apart; raise the cosmological constant and space expands too fast for galaxies to condense.
 
 We exist in a tiny island of consistency in a vast sea of possible physics.
 Most possible universes are sterile: no stars, no chemistry, no observers.
 
 ### Why Is Physics Uniform?
 
-The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted, but it's worth asking: what enforces this uniformity? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is a consistency requirement.
+The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted. What enforces it? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is a consistency requirement.
 
 ## 1.6 Symmetry as Consistency
 

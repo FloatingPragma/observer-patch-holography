@@ -9,7 +9,7 @@ outside cosmic history. They will exist after the heat death. Newton's laws,
 Maxwell's equations, and Einstein's field equations are discovered, not
 invented. They describe timeless constraints on reality.
 
-This is the Platonic view of physics. The universe obeys laws because those laws are somehow part of mathematics itself. The laws aren't explained by anything deeper; they simply *are*.
+The universe, on this view, obeys laws because those laws are somehow part of mathematics itself. The laws aren't explained by anything deeper; they simply *are*.
 
 In this picture, asking "why these laws?" is meaningless. Laws are brute facts. They could have been different, but they happen to be what they are.
 
@@ -45,10 +45,10 @@ The list goes on. The more we look, the more fine-tuning we find.
 
 ### Three Responses
 
-Three broad responses present themselves. One says the parameters were set by
-design. One says we won a cosmic lottery. One says there is selection across a
-space of possible laws, so observers inevitably see the conditions that permit
-observers. That third route is the anthropic principle in its bare form.
+Three broad responses circulate. The parameters were set by design; we won a
+cosmic lottery; or a larger space of possible laws is filtered by selection,
+so observers inevitably see the conditions that permit observers. The third
+route is the anthropic principle in its bare form.
 
 Fine-tuning at least suggests that the realized laws are not the only
 conceivable ones, and that what we observe is filtered by the fact that we are
@@ -70,7 +70,7 @@ alternative.
 
 ### Lee Smolin's Cosmological Natural Selection
 
-In 1992, Lee Smolin proposed a radical idea: **Cosmological Natural Selection (CNS)**.
+In 1992, Lee Smolin proposed **Cosmological Natural Selection (CNS)**.
 
 Smolin noticed something curious. The parameters of our universe are often
 argued to be tuned for life and black-hole production. If
@@ -238,8 +238,8 @@ longer, and replicate more faithfully than others.
 ### Memetic Selection
 
 Memes evolve by the same Darwinian logic as genes. They vary as they pass from
-mind to mind, successful versions get copied, and the ideas that resonate or
-predict better spread further. The history of science is memetic evolution.
+mind to mind, successful versions get copied, and the ideas that copy well or
+predict well spread further. The history of science is memetic evolution.
 Phlogiston lost to oxygen. Steady-state cosmology lost to hot expanding
 cosmology. Memes that fit the data survive the selection pressure of empirical
 testing.
@@ -283,9 +283,9 @@ of the framework.
 
 ## 17.8 The Observer as Selector
 
-In biological evolution, "nature" is the selector. In quantum Darwinism, "the environment" is the selector. In memetic evolution, "minds" are the selector.
+Biological evolution has nature for its selector, quantum Darwinism the environment, memetic evolution minds.
 
-**The requirement of consistency between observers** is the selector.
+In OPH, the selector is **the requirement of consistency between observers**.
 
 The screen has finite capacity. Only patterns that fit survive. When two observers compare notes, incompatible descriptions get rejected. Compatible descriptions persist.
 
@@ -325,7 +325,7 @@ existence of observers who can verify them.
 
 Physical laws are **coordination protocols**, like TCP/IP for the internet.
 
-TCP/IP is not a law of nature. It emerged because it works. Computers that follow the protocol can exchange data. Computers that do not follow it are isolated.
+TCP/IP emerged because it works. Computers that follow the protocol can exchange data; computers that do not are isolated.
 
 Similarly, physical laws are conventions that enable consistent communication between observer patches. The laws we observe are the protocols that survived. They work. They enable agreement. They persist.
 
@@ -335,9 +335,12 @@ Darwin did not discover evolution by imagining change in the abstract. He
 spent years gathering small stubborn facts: island species, barnacles, fossils,
 domesticated breeding records, geographical ranges, and the selective power of breeders.
 Alfred Russel Wallace independently found the same principle through field
-experience in the Amazon and Malay Archipelago. Natural selection became
-persuasive because it organized a huge mess of observations with one filter:
-variants that reproduce better become more common.
+experience in the Amazon and Malay Archipelago, and when his essay reached
+Down House in June 1858, the two accounts were read jointly at the Linnean
+Society within weeks: Darwin at home mourning a dead child, Wallace on the
+far side of the world, unaware the meeting was taking place. Natural
+selection became persuasive because it organized a huge mess of observations
+with one filter: variants that reproduce better become more common.
 
 The analogy needs the same discipline. OPH
 does not say that equations literally have children, or that constants wander
@@ -379,8 +382,8 @@ points to a space of possible laws, and OPH reads the realized laws through
 consistency filters. At the quantum level, that looks like pointer states
 surviving environmental scrutiny. At the informational level, it looks like
 compression schemes that actually fit the data. Cosmic natural selection
-is a separate analogy in the absence of a concrete cosmological mechanism
-specified. Stable particles survive because they carry the right protections.
+is a separate analogy, with no concrete cosmological mechanism specified.
+Stable particles survive because they carry the right protections.
 Ideas survive because they spread, predict, and organize thought. The
 fixed-point computation meme matters because it is one way reality may become
 explicit to itself through the observers it produces.

@@ -105,7 +105,7 @@ keep their source gates visible.
 
 ## 18.4 Self-Reference as Subtraction
 
-The surprising part is that demanding a world read itself is a hard requirement
+The surprising part is that demanding a world read itself is a requirement
 with teeth. It is a filter, and it throws most candidate worlds away.
 The whole argument of this book can be retold as one long subtraction, where each
 consistency demand strikes out the worlds that fail it, and what survives at the
@@ -253,7 +253,7 @@ data inside out. Constants are readings of the architecture rather than settings
 on a control panel. Change one of them by hand and the loop stops closing. There
 is no neighboring vacuum or parameter adjustment available to absorb the move.
 
-## 18.7 The Two Closure Equations
+## 18.7 Two Numbers, Two Jobs
 
 The local equation identifies two descriptions of one cell. Geometrically, the
 cell sits a small distance above the golden-ratio balance point. Physically, the

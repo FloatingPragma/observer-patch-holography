@@ -8,7 +8,7 @@ The universe is either static, with things staying roughly as they are, or
 decelerating, with gravity pulling everything together and slowing expansion.
 This is the natural expectation from Newton through Einstein.
 
-Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant, calling it his "greatest blunder."
+Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant; George Gamow later reported him calling it his "greatest blunder."
 
 Even after accepting expansion, the expectation was deceleration. Gravity
 attracts. The mutual pull of all the matter in the universe should slow the
@@ -30,9 +30,10 @@ Type Ia supernovae, the "standard candles" of cosmology.
 Everyone expected to find that expansion is slowing. The data showed the opposite.
 
 Distant supernovae were fainter than expected, farther away than a decelerating
-universe would predict. The universe is **speeding up**.
+universe would predict. The universe is **speeding up**. Schmidt later
+described his own reaction as somewhere between amazement and horror.
 
-Something is pushing the cosmos apart. Something is fighting gravity and winning. The teams called it "dark energy."
+Something is pushing the cosmos apart. Something is fighting gravity and winning. The cosmologist Michael Turner gave it the name "dark energy."
 
 The supernova result also rested on historical work. Henrietta Leavitt's study of
 Cepheid variable stars gave astronomy a way to climb the cosmic distance
@@ -251,6 +252,11 @@ $$
 M_0(q)=\alpha(G_q),
 $$
 
+the size of a largest set of records that remains perfectly distinguishable
+through every authorized continuation. This decoder definition matters: a
+cyclic permutation preserves every label even though its fixed-function space
+contains only constants.
+
 The official N equation packages the idea in its most direct form:
 
 $$
@@ -259,11 +265,6 @@ $$
 
 An OPH trial universe supplied with global capacity $N$ must read back that
 same capacity through its own correctable public records.
-
-the size of a largest set of records that remains perfectly distinguishable
-through every authorized continuation. This decoder definition matters: a
-cyclic permutation preserves every label even though its fixed-function space
-contains only constants.
 
 The readback is set-valued over the complete terminal fiber,
 
@@ -446,7 +447,8 @@ the natural screen in this reading.
 
 In 1933, Fritz Zwicky looked at galaxies in the Coma Cluster and found a
 problem. They were moving as if the cluster contained far more mass than the
-telescopes could see. Four decades later, Vera Rubin and Kent Ford found the
+telescopes could see, and he gave the missing component its lasting name:
+dunkle Materie, dark matter. Four decades later, Vera Rubin and Kent Ford found the
 same kind of problem inside spiral galaxies. The outer stars were orbiting too
 fast. If the visible stars and gas were all the mass there was, those outskirts
 should have behaved differently.

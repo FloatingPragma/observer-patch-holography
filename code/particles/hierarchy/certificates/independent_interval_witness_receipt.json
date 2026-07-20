@@ -1,0 +1,22 @@
+{
+  "witness": "independent_hierarchy_interval_witness",
+  "issue": 518,
+  "arithmetic": "mpmath.iv outward-rounded intervals, dps=60, forward-mode dual derivative",
+  "interval_I_U": [
+    "0.041123336195630494",
+    "0.041125336195630496"
+  ],
+  "phi_at_lower": "[0.00001099074869767028047446138, 0.00001099074869767028047446138]",
+  "phi_at_upper": "[-0.00001099030068019057433594422, -0.00001099030068019057433594422]",
+  "bracket_sign_change": true,
+  "derivative_enclosure_pieces": 8,
+  "derivative_enclosure_union": "[-10.9960972006, -10.98495339]",
+  "derivative_strictly_negative": true,
+  "unique_root_certified": true,
+  "perturbation_controls": {
+    "beta2_perturbed_bracket_broken": true,
+    "weak_mult_perturbed_bracket_broken": true,
+    "pixel_perturbed_bracket_broken": true
+  },
+  "controls_all_fail_closed": true
+}

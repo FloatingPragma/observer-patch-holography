@@ -38,10 +38,10 @@ our best theory of matter.
 ## 14.2 The Surprising Hint: The Standard Model Is Not Fundamental
 
 The Standard Model is extremely successful, and it carries deep warnings. Its
-vacuum energy and loop integrals blow up in the ultraviolet. Its couplings run
-with scale. Its anomaly cancellations are delicate. Its chirality is startling.
-These clues point to an emergent effective description. The Standard Model is
-not the foundation.
+vacuum energy and loop integrals blow up in the ultraviolet, its couplings run
+with scale, its anomaly cancellations are delicate, and its chirality is
+startling. These clues point to an emergent effective description rather than
+a foundation.
 
 ## 14.3 The Quantum Revolution
 
@@ -82,7 +82,7 @@ Einstein's explanation: light really does come in packets. A photon of
 frequency $f$ carries energy $hf$. One photon kicks out one electron. The
 photon's frequency determines the electron's energy.
 
-This was radical. For two centuries, physicists had proven that light was a wave. Young's double-slit experiment showed interference patterns. Maxwell's equations described electromagnetic waves. Einstein was saying light was particles?
+This was radical. For a century, physicists had piled up proof that light was a wave. Young's double-slit experiment showed interference patterns. Maxwell's equations described electromagnetic waves. Einstein was saying light was particles?
 
 Both were true. Light is neither purely wave nor purely particle. It's something new that exhibits both behaviors depending on how you probe it.
 
@@ -173,7 +173,7 @@ You cannot simultaneously know both position and momentum with arbitrary precisi
 
 ### The Copenhagen Interpretation
 
-Bohr and Heisenberg developed what became the "Copenhagen interpretation." The wave function doesn't describe objective reality. It describes our knowledge. When we measure, the wave function "collapses" to a definite value.
+Bohr and Heisenberg developed what became the "Copenhagen interpretation." In this reading, the wave function describes our knowledge rather than objective reality. When we measure, the wave function "collapses" to a definite value.
 
 This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." The mathematics works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
 
@@ -276,7 +276,11 @@ The Standard Model organizes all known particles into a coherent model.
 Matter is made of fermions: particles with spin 1/2. They obey the Pauli exclusion principle. No two identical fermions can occupy the same quantum state. This gives atoms structure, gives us the periodic table, and keeps you from falling through the floor.
 
 **Quarks** come in six flavors. Up, charm, and top carry charge $+2/3$. Down,
-strange, and bottom carry charge $-1/3$.
+strange, and bottom carry charge $-1/3$. The name is a joke that stuck: Murray
+Gell-Mann, proposing fractionally charged constituents in 1964, lifted it from
+a line in *Finnegans Wake*, "Three quarks for Muster Mark." George Zweig,
+working out the same idea independently at CERN, called them aces; his paper
+never got past the referees into a journal, and Gell-Mann's word won.
 
 Quarks are never found alone. They're always bound into hadrons by the strong force. Protons are (uud), neutrons are (udd).
 
@@ -370,7 +374,7 @@ The charged weak interaction carried by the $W$ boson couples only to
 left-handed fermions. A right-handed electron sits out those charged-current
 processes.
 
-This was discovered through parity violation experiments in 1956-1957. Chien-Shiung Wu studied the beta decay of cobalt-60. If parity were conserved, electrons should emerge equally in both directions along the spin axis. They didn't. More electrons came out opposite to the spin.
+This was discovered through parity violation experiments in 1956-1957. Chien-Shiung Wu gave up a long-planned steamship passage to Asia, her first return since leaving China, and spent the end of 1956 at the National Bureau of Standards in Washington, watching cobalt-60 decay at a fraction of a degree above absolute zero. If parity were conserved, electrons should emerge equally in both directions along the spin axis. They didn't. More electrons came out opposite to the spin.
 
 Lee and Yang had predicted this. Wu proved it. Parity violation earned Lee and Yang the Nobel Prize. Wu, who did the experiment, was not included.
 
@@ -787,7 +791,7 @@ color, weak, gravitational, and cubic hypercharge anomalies all cancel.
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
-the conditional economy minimum of three families would therefore carry twelve
+conditional economy minimum of three families would therefore carry twelve
 weak doublets after physical attachment. Pairing
 each slot with an orientation label gives twenty-four oriented weak slots, the
 same finite count as twelve ports with two orientations. This equality is a
@@ -1043,7 +1047,7 @@ Before discussing which particles the model predicts, we need to be clear about 
 In the conventional view, particles are fundamental objects, tiny balls of
 stuff that move through space. Fields fill the gaps, and particles are what
 detectors click on. This picture is useful for calculations, but it gets the
-ontology backwards. Particles are patterns first. They are not primitives.
+ontology backwards. Particles are patterns.
 
 Think about what an observer actually sees. Each observer is realized by a
 finite operational patch, displayed as a local cut of the holographic screen,
@@ -1186,7 +1190,7 @@ particles as stable representations with definite poles and energies.
 
 ## 14.18 Why Composite Masses Are Different
 
-Consider the proton. Its mass is 938.272 MeV, measured to extraordinary
+The proton's mass is 938.272 MeV, measured to extraordinary
 precision. Can OPH compute it from the same quadratic carrier analysis?
 
 Not from the quadratic carrier analysis alone. The proton is a bound-state
@@ -1213,8 +1217,7 @@ The same golden-ratio motif returns on the fixed-point side. Perfect
 self-similar balance would sit exactly at $\phi$. A lived universe with durable
 records sits nearby, carrying the slight detuning that makes structure and
 history possible. Reliable extraction of gauge couplings from entanglement
-therefore sharpens the quantitative picture without breaking the narrative
-spine of the chapter.
+therefore sharpens the quantitative picture.
 
 ## 14.19 Gauge Unification and the Proton
 

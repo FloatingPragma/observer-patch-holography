@@ -2,14 +2,14 @@
 
 ## 2.1 Hints Before the Hints
 
-Before physicists discovered that reality behaves strangely, philosophers had raised questions that resonate with later problems in fundamental physics.
+Before physicists discovered that reality behaves strangely, philosophers had found the pressure points that later physics would probe with instruments.
 
 The resemblance has teeth. The ancients did not have particle
 accelerators or interferometers. They had something close in spirit: pure
 logical reasoning applied to careful observation. They asked what *must* be
 true if experience is to make any sense at all.
 
-And they found problems. Paradoxes. Contradictions. They discovered that the intuitive picture of an objective reality independent of observers leads to logical difficulties.
+And they found problems: paradoxes and contradictions showing that the intuitive picture of an objective reality independent of observers leads to logical difficulties.
 
 These philosophical puzzles are the original hints. They're the first cracks in the naive picture. When modern physics confirmed that reality is stranger than it appears, it was validating insights that thinkers had glimpsed millennia ago.
 
@@ -27,7 +27,7 @@ Imagine prisoners chained in a cave since childhood, facing a blank wall. They c
 
 The prisoners have never seen anything else. To them, the shadows *are* reality. They give the shadows names. They develop theories about shadow behavior. Some prisoners are better at predicting which shadow will come next; they are honored as wise.
 
-Imagine one prisoner is freed. He turns around and sees the fire. He stumbles up the passage and emerges into sunlight. At first, he is blinded. Gradually, he sees real objects-and finally the sun itself.
+Imagine one prisoner is freed. He turns around and sees the fire. He stumbles up the passage and emerges into sunlight. At first, he is blinded. Gradually, he sees real objects, and finally the sun itself.
 
 ### The Intuitive Picture
 
@@ -53,8 +53,8 @@ the information that generates that appearance may be organized on a 2D surface.
 
 $$S_{max} = \frac{A}{4\ell_P^2}$$
 
-This is no literal one-to-one dimensional match to Plato's Cave. The resonance
-lies in the structural idea that the world we perceive can be an appearance
+This is no literal one-to-one dimensional match to Plato's Cave. The shared
+structural idea is that the world we perceive can be an appearance
 reconstructed from a deeper bookkeeping layer.
 
 Here $S_{max}$ is the maximum entropy, or information capacity, associated
@@ -86,7 +86,7 @@ Consider an arrow in flight. At each instant, the arrow occupies a single positi
 
 ### The Intuitive Picture
 
-The intuitive picture assumes space and time are continuous-infinitely divisible. Between any two points, there are infinitely many other points. Between any two moments, there are infinitely many other moments.
+The intuitive picture assumes space and time are continuous, infinitely divisible. Between any two points, there are infinitely many other points. Between any two moments, there are infinitely many other moments.
 
 ### The Hint
 
@@ -144,7 +144,7 @@ Different measurement contexts reveal different aspects of the system. Niels Boh
 The Skeptics' "compared to what?" turns out to be essential physics. Properties are relational, not intrinsic. The honey is sweet-relative-to-healthy-observers, just as the electron has position-relative-to-position-measurements.
 
 The Skeptics were not doing quantum contextuality in the modern technical
-sense. Their context-dependence arguments resonate with later
+sense. Their context-dependence arguments anticipate later
 measurement-theoretic lessons.
 
 ## 2.5 Descartes: The Observer-First Hint
@@ -171,7 +171,7 @@ The intuitive picture starts with the world and adds observers as passive witnes
 
 Descartes' hint: **the observer is the one fixed point**.
 
-You cannot start with the world because you may be wrong about the world. You can only start with your own experience-your "patch" of data. Everything else must be inferred from there.
+You cannot start with the world because you may be wrong about the world. You can only start with your own experience, your "patch" of data. Everything else must be inferred from there.
 
 ### The Physics
 
@@ -207,7 +207,7 @@ We don't perceive space directly. Our minds construct spatial experience from mo
 
 ### The Physics
 
-The holographic principle and emergent geometry resonate with this picture.
+The holographic principle and emergent geometry push in the same direction.
 
 The observer-facing data can be charted on a 2D holographic screen. Before it
 becomes the familiar 3D bulk geometry, it is quantum information organized on a
@@ -238,7 +238,7 @@ Two Greeks had a fight that defines physics to this day.
 
 ### Democritus: Atoms
 
-Democritus (c. 460-370 BCE) proposed that everything is made of atoms-tiny, indivisible particles moving through empty space. "In reality, there are atoms and the void."
+Democritus (c. 460-370 BCE) proposed that everything is made of atoms: tiny, indivisible particles moving through empty space. "In reality, there are atoms and the void."
 
 This is the particle-first view. The universe is like a Lego set. Complex things are built from simple, hard nuggets of matter.
 
@@ -296,16 +296,15 @@ The pragmatists' hint: **truth is what survives testing**.
 
 Truth is the stable result a community of inquirers would reach under enough investigation. It functions as a convergence condition for collective inquiry.
 
-An idea is true if it works-if it guides you safely through the world, if it lets you predict and control, if other people using it get the same results.
+An idea is true if it works: if it guides you safely through the world, lets you predict and control, and gives other people using it the same results.
 
 ### The Physics
 
 This is exactly our thesis about laws.
 
-Why are the laws of physics true? Not because they were written outside
-cosmic history. They are true because they *work*: they survive the overlap
-test, they enable agreement between observers, they keep generating correct
-predictions.
+Why are the laws of physics true? Because they *work*: they survive the
+overlap test, enable agreement between observers, and keep generating correct
+predictions. No inscription outside cosmic history is needed.
 
 Laws become patterns stable enough to survive the consistency filter, the configurations that keep working when observers compare notes.
 
@@ -400,7 +399,7 @@ becomes consistency-based law selection.
 
 The philosophers were reverse-engineering reality with logic. Physics gave us the math to make their insights precise.
 
-## 2.11 The Simulation principle: Taking Computation Seriously
+## 2.11 The Simulation Principle: Taking Computation Seriously
 
 In 2003, philosopher Nick Bostrom posed a disturbing question: are we living in a computer simulation?
 
@@ -483,7 +482,7 @@ In 1791, the French Academy of Sciences decided the meter would be one ten-milli
 
 When they finished, they built a platinum bar and declared it the meter. This bar was kept in a vault in Paris. If you wanted to calibrate your meter stick, you had to compare it to this bar.
 
-But the bar could expand with temperature. It is damaged. And if you were in Japan, getting access wasn't easy.
+But the bar could expand with temperature, it could be scratched or damaged, and if you were in Japan, getting access wasn't easy.
 
 In 1983, the definition changed: the meter is the distance light travels in vacuum in 1/299,792,458 of a second.
 
@@ -491,7 +490,7 @@ This is beautiful because it ties length to the speed of light, a quantity that
 is the same for all observers. Any lab anywhere in the universe can recreate
 the meter by measuring light.
 
-The second is tied to cesium atoms-specifically, 9,192,631,770 oscillations of cesium-133 radiation. Any lab with a cesium clock can reproduce the standard.
+The second is tied to cesium atoms: 9,192,631,770 oscillations of cesium-133 radiation. Any lab with a cesium clock can reproduce the standard.
 
 These definitions are peace treaties. They ensure that when a physicist in Tokyo and a physicist in Geneva compare measurements, they are speaking the same language.
 
@@ -506,7 +505,7 @@ inside naive continuity and therefore toward a cutoff. The skeptics point
 toward contextuality and quantum measurement. Descartes points toward the
 observer as the right place to begin. Kant points toward space as a
 reconstruction, not a stage. Aristotle points toward form as more basic than
-stuff. The pragmatists point toward truth as what survives. Godel and
+stuff. The pragmatists point toward truth as what survives. Gödel and
 Hofstadter point toward self-reference and strange loops.
 
 Each philosopher identified a crack in the intuitive picture. Each crack pointed toward a feature of physics that later became clear.
@@ -528,7 +527,7 @@ The Skeptics are powerful because they refuse to detach a property from the
 conditions under which it is encountered. Descartes is powerful because he
 notices that the observer cannot be erased from the act of knowing. Kant is
 powerful because he asks whether space is the stage of experience or part of
-the form by which experience is organized. Aristotle, Peirce, James, Godel,
+the form by which experience is organized. Aristotle, Peirce, James, Gödel,
 and Hofstadter add more pieces: form, practice, proof, self-reference,
 and strange loops.
 
@@ -545,8 +544,8 @@ the work of one person, even when a single name becomes attached to a result.
 Plato inherits from earlier Greek argument. Zeno inherits from Parmenides.
 Kant writes after Newton and Hume. Boltzmann struggles inside a nineteenth
 century community arguing about atoms. Einstein builds on Maxwell, Lorentz,
-Poincare, Riemann, Mach, and many others. Quantum mechanics emerges from
-Planck, Einstein, Bohr, Heisenberg, Born, Jordan, Dirac, Pauli, Schrodinger,
+Poincaré, Riemann, Mach, and many others. Quantum mechanics emerges from
+Planck, Einstein, Bohr, Heisenberg, Born, Jordan, Dirac, Pauli, Schrödinger,
 de Broglie, and whole experimental traditions. Holography grows from black
 hole thermodynamics, quantum field theory, string theory, information theory,
 and decades of mathematical physics.

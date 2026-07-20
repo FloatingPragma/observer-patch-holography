@@ -21,8 +21,8 @@ In this view, the world is a stage (space), time ticks forward, and matter is
 the cast. Classical physics is the script: Newton's laws, conservation of
 energy, and the principle of least action.
 
-This picture works spectacularly well at everyday scales. So why not take it
-as fundamental?
+The picture passes every test daily life can devise. So why not take it as
+fundamental?
 
 ## 16.2 The Surprising Hint: The Classical World Is Not Fundamental
 
@@ -46,20 +46,21 @@ and can be stitched across real patch interfaces when the records leave one
 clear track. A positive-energy quantum construction and a detector-coupled
 pole decide which candidates propagate as physical particles.
 
-Matter is not a primitive substance. Particles are not tiny billiard balls.
-Matter is the set of durable, localized excitations of the patch-algebra net,
-shown through the observer-facing screen chart.
+Matter, in this reading, is the set of durable, localized excitations of the
+patch-algebra net, shown through the observer-facing screen chart. Nothing in
+that sentence is a primitive substance, and nothing in it is a tiny billiard
+ball.
 
-A useful analogy is a ripple in a pond. The water is the substrate, while the
-ripple is a moving, interacting pattern. Its identity is the stable excitation
-itself. Particles play the same role in the
+A ripple crossing a pond is the right picture. The water is the substrate;
+the ripple is a pattern that moves, interacts, and keeps its identity without
+owning any fixed set of water molecules. Particles play the same role in the
 emergent effective theory.
 
 ## 16.4 From Stable Patterns to the Particle World
 
-Stable-pattern language can sound philosophical unless the reader is shown
-where the familiar particle families enter the chain. This is the point where
-the zoo stops looking like a zoo.
+Stable-pattern language earns its keep only where the familiar particle
+families enter the chain. This is the point where the zoo stops looking like
+a zoo.
 
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. Stable
@@ -69,8 +70,11 @@ $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
 carrier, and the conditional minimum $N_g=3$. The physical family attachment
 is open.
 
-This chain inherits the collective history of particle physics. Rutherford
-showed that atoms have small nuclei. Chadwick found the
+This chain inherits the collective history of particle physics. When alpha
+particles bounced backward off gold foil in Manchester in 1909, Rutherford
+called the result as incredible "as if you fired a 15-inch shell at a piece
+of tissue paper and it came back and hit you"; the tiny nucleus was the only
+architecture that survived the recoil. Chadwick found the
 neutron. Anderson saw the positron. Yukawa predicted a meson-like carrier of
 the nuclear force. Gell-Mann and Zweig organized hadrons into quarks. Glashow,
 Weinberg, and Salam gave the electroweak theory. Gross, Wilczek, and Politzer
@@ -211,9 +215,8 @@ into baryon number, and freeze-out preserves the excess.
 
 ## 16.5 What Is a Particle?
 
-At the matter layer, the old billiard-ball picture falls away. A particle is
-the stable way an excitation shows up under the
-symmetries of the world. Wigner taught physics to catalogue those recurring
+A particle, at this layer, is the stable way an excitation shows up under
+the symmetries of the world. Wigner taught physics to catalogue those recurring
 roles by mass and spin, and OPH inherits the same catalogue once Lorentz
 kinematics emerges from screen dynamics.
 
@@ -230,7 +233,7 @@ familiar relation
 
 $$E^2 = p^2 + m^2$$
 
-feels so deep. It is symmetry speaking. Particles are universal because those
+is symmetry speaking. Particles are universal because those
 symmetry roles are universal.
 
 This formula uses natural units with $c=1$. $E$ is energy, $p$ is momentum,
@@ -366,13 +369,12 @@ decoherence leaves classical correlations behind.
 
 ## 16.10 Reverse Engineering Summary
 
-Classical physics is not the starting point. It appears when quantum
+Classical physics appears late in this construction: quantum
 information in the finite federation organizes into stable patterns, modular ordering
 acquires a calibrated geometric clock interpretation, and overlap consistency
 enforces locality. Matter is a family of stable excitation patterns rather
-than primitive stuff. The particle catalogue is
-not arbitrary. It comes with a constrained pattern of charges, carriers,
-couplings, and masses. Energy is the charge of time
+than primitive stuff. The particle catalogue comes with a constrained pattern
+of charges, carriers, couplings, and masses. Energy is the charge of time
 translations. Stationary action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
@@ -427,6 +429,6 @@ classical, and observer overlap tells us what can become a shared fact.
 
 Spacetime, particles, and classical physics emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
 
-The next chapter explores a radical idea: physical laws themselves are evolutionary survivors. Just as life evolves through natural selection, laws evolve through cosmic selection.
+The next chapter asks whether the laws themselves are survivors: patterns that persist because they pass a selection filter that most candidates fail.
 
 This is **Chapter 17: Darwin's Laws**.
