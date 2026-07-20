@@ -326,22 +326,31 @@ says that the action is built from curvature squared, integrated over
 four-dimensional Euclidean space. In OPH this is the continuum form of
 compact-gauge patch bookkeeping.
 
-The mass gap follows from a spectral argument. Exact local repair on an active
-collar acts as projection onto the repaired visible data. After the ground-state
-transform, Euclidean time evolution becomes a sum of active collar relaxations.
-A uniform positive repair rate gives a positive lower bound for the first
-nonzero compact-gauge repair energy. Refinement preserves the renormalized
-correlations, reflection positivity, Euclidean covariance, locality,
-nontriviality, and transfer data needed for the four-dimensional theory. The
-accounting is therefore literal:
+The mass-gap argument is conditional. At finite resolution, local repair
+removes inconsistencies from the gauge data and returns the system toward its
+repaired vacuum. For that process to enforce a common energy floor, every
+allowed kind of local repair must retain some minimum strength, and neighboring
+repairs must not frustrate one another more and more as the screen grows or its
+boundary changes. Those two facts still need to be established from the actual
+finite Yang-Mills construction. If they hold throughout refinement, and the
+finite dynamics survives as a nontrivial four-dimensional quantum theory, the
+accounting is literal:
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-The Yang-Mills gap is the repair gap: the least nontrivial energy needed to
-leave the repaired vacuum survives as the least nontrivial gauge excitation in
-the continuum.
+The Yang-Mills gap is then the repair gap: the least nontrivial energy needed
+to leave the repaired vacuum survives as the least nontrivial gauge excitation
+in the continuum. Locality and fading long-range correlations help, but do not
+by themselves prove that a uniform energy floor survives refinement.
+
+The repository now includes a 244-type finite Ising calibration of the
+collar-gap certificate. It checks the exact rational bookkeeping that turns a
+uniform influence bound into a finite transfer floor of at least one half. It
+does not stand in for the compact-simple-gauge source family: that physical
+receipt still needs its own collar kernels, refinement data, zero-mode handling,
+and continuum transfer checks.
 
 ## 12.8 Symmetry Breaking
 

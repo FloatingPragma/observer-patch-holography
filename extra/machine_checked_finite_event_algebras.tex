@@ -15,7 +15,7 @@
 \input{../paper/release_info}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
-  pdftitle={Machine-Checked Finite Quantum Event Algebras: Born Weights, Lueders Conditioning, Partition Pinching, and the Tsirelson Bound in Lean 4},
+  pdftitle={Finite Quantum Event Algebras: Born Weights, Lueders Conditioning, Partition Pinching, and the Tsirelson Bound},
   pdfauthor={Bernhard Mueller}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.55em}
@@ -42,9 +42,9 @@
 \newcommand{\lued}{\mathcal L}
 \newcommand{\ip}[2]{\langle #1,\,#2\rangle}
 
-\title{\textbf{Machine-Checked Finite Quantum Event Algebras:\\
+\title{\textbf{Finite Quantum Event Algebras:\\
 Born Weights, L\"uders Conditioning, Partition Pinching,\\
-and the Tsirelson Bound in Lean~4}}
+and the Tsirelson Bound}}
 \author{Bernhard Mueller\thanks{Corresponding author:
 \href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}}\\
 Pragma Research Inc., Washington, United States\\
@@ -56,18 +56,16 @@ Pragma Research Inc., Washington, United States\\
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Finite quantum events can be checked completely inside matrix algebra. This
-Lean~4 development formalizes events, density-matrix states, Born weights,
-L\"uders conditioning and its fixed points, projective-partition pinching, and
-the CHSH Tsirelson bound. It contains 64 lemmas and 8 definitions with no proof
-placeholders. Each result is marked as algebraic or trace-dependent, and the
-build records its axiom dependencies. The operator-norm Tsirelson argument is
-proved in an abstract unital C*-setting and then specialized to finite complex
-matrices. This supplies a machine-checked finite event-algebra core for the OPH
-screen paper while remaining a self-contained mathematical result.
+Finite quantum events admit a self-contained treatment inside matrix algebra.
+This paper develops events, density-matrix states, Born weights, L\"uders
+conditioning and its fixed points, projective-partition pinching, and the CHSH
+Tsirelson bound. The operator-norm Tsirelson argument is proved in an abstract
+unital C*-setting and then specialized to finite complex matrices. The result
+supplies a finite event-algebra core for the OPH screen paper while remaining a
+self-contained mathematical contribution.
 \end{abstract}
 
-\noindent\textbf{Keywords:} quantum probability, event algebras, Born rule, L\"uders conditioning, conditional expectation, Tsirelson bound, formalized mathematics, Lean~4, Mathlib
+\noindent\textbf{Keywords:} quantum probability, event algebras, Born rule, L\"uders conditioning, conditional expectation, Tsirelson bound
 
 \medskip
 \noindent\textbf{Mathematics Subject Classification (2020):} Primary 81P15, 68V20; Secondary 81P40, 46L53, 81P10.
@@ -77,40 +75,37 @@ screen paper while remaining a self-contained mathematical result.
 
 Finite-dimensional event algebras support a complete and elementary account of quantum probability. Over the matrix algebra $\Mn$, events are orthogonal projections, states are density matrices, the Born weight of an event under a state is a trace pairing, conditioning is the L\"uders update \cite{lueders1950,buschlahti2009}, classicality is captured by commutative subalgebras and coarse-graining onto a measurement context by a trace-preserving pinching, and the characteristic nonclassical phenomenon, the violation of the CHSH inequality up to Tsirelson's bound \cite{bell1964,chsh1969,tsirelson1980}, is visible for $4 \times 4$ matrices. Every object in this list is finite-dimensional linear algebra; no unbounded operators, no measure theory, and no functional-analytic subtleties intervene. This elementary core also carries active foundational questions: the status and derivation of the Born rule \cite{reddigerpoirier2025,aharonovshushi2024}, the relation between quantum phenomena and Kolmogorov probability \cite{reddiger2026}, and the derivability of the von Neumann--L\"uders measurement postulate \cite{goldstein2026}.
 
-Published treatments of this core, from von Neumann \cite{vonneumann1932} onward, leave the bookkeeping informal. Which statements require positivity of the state, which require only hermiticity, and which are identities of the trace calculus valid for arbitrary matrices? What exactly happens when one conditions on an event of weight zero? Is orthogonality of projections a symmetric hypothesis or a symmetric conclusion? Where, precisely, does the trace enter, and where does pure $*$-algebra suffice? In informal mathematics these questions are resolved silently, case by case, by the reader. A proof assistant forces every such choice into the open and then certifies the result.
+Published treatments of this core, from von Neumann \cite{vonneumann1932} onward, often leave the bookkeeping implicit. Which statements require positivity of the state, which require only hermiticity, and which are identities of the trace calculus valid for arbitrary matrices? What exactly happens when one conditions on an event of weight zero? Is orthogonality of projections a symmetric hypothesis or a symmetric conclusion? Where, precisely, does the trace enter, and where does pure $*$-algebra suffice? This paper makes those choices explicit.
 
-A literature search through July~2026 found no other Lean~4 development packaging this specific combination: finite projective-event closure lemmas, a L\"uders fixed-point / one-step-retraction characterization, the partition-pinching expectation with its Hilbert--Schmidt characterization, and a norm-form CHSH/Tsirelson bound, under a per-declaration axiom audit. Concretely, the development delivers:
+A literature search through July~2026 found no other paper packaging this specific combination: finite projective-event closure lemmas, a L\"uders fixed-point / one-step-retraction characterization, the partition-pinching expectation with its Hilbert--Schmidt characterization, and a norm-form CHSH/Tsirelson bound. Concretely, the paper delivers:
 \begin{enumerate}[(a)]
-\item 64 lemmas and 8 definitions, in Lean~4 \cite{lean4} over Mathlib \cite{mathlib2020}, with no \texttt{sorry} placeholders and no axioms beyond Lean's standard classical base;
-\item an axiom audit embedded in the source: every lemma is followed by a \texttt{\#print axioms} command, so a complete per-declaration audit re-executes on every build; no theorem depends on axioms outside Lean and Mathlib's standard classical base \texttt{[propext, Classical.choice, Quot.sound]}, and individual dependency sets are subsets of this base (for example, the CHSH ring identity \texttt{chsh\_mul\_self} is choice-free, reporting \texttt{[propext, Quot.sound]});
 \item a tagging discipline under which every lemma is classified in its documentation string as \emph{algebra-only} (content provable in the $*$-algebra, with norm structure where relevant) or \emph{trace-dependent} (content passing through the trace pairing $(\rho,P) \mapsto \Tr(\rho P)$); trace-dependent statements divide further according to whether they additionally require positivity or state-normalization, which is visible in each statement's hypotheses;
 \item the L\"uders update packaged with repeatability, idempotence, composition on commuting events, the classical restriction, and a fixed-point characterization identifying the fixed states of conditioning with the states certain of the event;
 \item the trace-preserving pinching onto the block-diagonal commutant $N$ of a projective partition of unity, with a Hilbert--Schmidt characterization: projector, state-preserving, trace-selfadjoint, Pythagorean, contractive, trace-compatible, unique among commutant-valued trace-compatible maps, and compatible with L\"uders conditioning on commutant events;
-\item the Tsirelson bound in operator-norm form, proved in an abstract unital C*-setting that assumes neither completeness nor any order structure, with the exact ring identity underlying it isolated as a standalone lemma, an instantiation to finite matrix algebras, and an interface lemma reusing Mathlib's existing CHSH hypothesis bundle.
+\item the Tsirelson bound in operator-norm form, proved in an abstract unital C*-setting that assumes neither completeness nor any order structure, with the exact ring identity underlying it isolated as a standalone lemma and an instantiation to finite matrix algebras.
 \end{enumerate}
-The development builds with the toolchain \texttt{leanprover/lean4:v4.29.1} and the Mathlib version pinned to match; it imports Mathlib and nothing else.
 
-Three scope limitations should be stated at the outset. First, the novelty claim above is deliberately narrow and organizational. Formalizations of projective measurement, the Born rule for projective effects, and the CHSH/Tsirelson inequality exist, in the Isabelle/HOL ecosystem (in particular the work of Echenim and Mhalla \cite{echenim2021afp,echenimmhalla2023afp,echenimmhalla2024}) and in the Lean ecosystem (Mathlib's order-form CHSH bound and the Physlib/QuantumInfo project \cite{physlib}); we make no claim of first formalization for any of those individual results. The contribution here is the organization of the finite core around a projective partition with its trace-preserving pinching onto the block-diagonal commutant, the lemma-by-lemma separation of algebra-only from trace-dependent content, the abstract C*-setting of the norm-form bound, and the prover ecosystem. Second, no attainment or tightness statement for the Tsirelson bound is formalized: the development ships the inequality only. Third, everything is finite-dimensional; extensions toward infinite dimensions are discussed as outlook in Section~\ref{sec:conclusion}.
+Three scope limitations should be stated at the outset. First, the novelty claim above is deliberately narrow and organizational; we make no claim of priority for any individual result. The contribution is the organization of the finite core around a projective partition with its trace-preserving pinching onto the block-diagonal commutant, the separation of algebra-only from trace-dependent content, and the abstract C*-setting of the norm-form bound. Second, no attainment or tightness statement for the Tsirelson bound is claimed: the paper establishes the inequality only. Third, everything is finite-dimensional; extensions toward infinite dimensions are discussed as outlook in Section~\ref{sec:conclusion}.
 
-Finite event algebras arise, for example, as the measurement cores of finite models of quantum theory. Beyond that single remark, this paper is self-contained: Section~\ref{sec:setting} fixes the mathematical setting, Section~\ref{sec:arch} describes the architecture and conventions of the formalization, Sections~\ref{sec:basic} through \ref{sec:tsirelson} walk through the five modules with the main statements as numbered propositions carrying their Lean names, Section~\ref{sec:gaps} documents Mathlib gaps and proof engineering, Section~\ref{sec:related} discusses related work, and Section~\ref{sec:conclusion} concludes.
+Finite event algebras arise, for example, as the measurement cores of finite models of quantum theory. Beyond that single remark, this paper is self-contained: Section~\ref{sec:setting} fixes the mathematical setting, Sections~\ref{sec:basic} through \ref{sec:tsirelson} develop the principal results, Section~\ref{sec:related} discusses related work, and Section~\ref{sec:conclusion} concludes.
 
 \section{Mathematical setting}
 \label{sec:setting}
 
-Throughout, $n$ and $k$ denote natural numbers and $\Mn$ denotes the $*$-algebra of $n \times n$ complex matrices, with conjugate transpose $X \mapsto X^{*}$, trace $\Tr$, identity $\one$, and zero $0$. All statements below are formalized for every $n$, including the degenerate case $n = 0$; only the matrix instantiation of the Tsirelson bound (Proposition~\ref{prop:tsirelson-instances}) assumes $n \neq 0$.
+Throughout, $n$ and $k$ denote natural numbers and $\Mn$ denotes the $*$-algebra of $n \times n$ complex matrices, with conjugate transpose $X \mapsto X^{*}$, trace $\Tr$, identity $\one$, and zero $0$. All statements below hold for every $n$, including the degenerate case $n = 0$; only the matrix instantiation of the Tsirelson bound (Proposition~\ref{prop:tsirelson-instances}) assumes $n \neq 0$.
 
 The partial order on $\C$ is the one in which $z \le w$ exactly when $\operatorname{Re} z \le \operatorname{Re} w$ and $\operatorname{Im} z = \operatorname{Im} w$; in particular $0 \le z$ asserts that $z$ is real and nonnegative. Nonnegativity and boundedness of Born weights are proved below in this partial order, which is strictly stronger than the corresponding assertions about real parts; real-part corollaries are provided alongside each such statement.
 
 \begin{definition}[Event]
 \label{def:event}
-An \emph{event} of $\Mn$ is a Hermitian idempotent: a matrix $P \in \Mn$ with $P^{*} = P$ and $P^2 = P$. Lean name: \texttt{IsEvent}.
+An \emph{event} of $\Mn$ is a Hermitian idempotent: a matrix $P \in \Mn$ with $P^{*} = P$ and $P^2 = P$.
 \end{definition}
 
 Events are exactly the orthogonal projections, the sharp yes/no tests of the finite quantum formalism \cite{vonneumann1932}. The \emph{subevent} relation is witnessed algebraically: $P$ is a subevent of $Q$ when $PQ = P$.
 
 \begin{definition}[State]
 \label{def:state}
-A \emph{state} on $\Mn$ is a density matrix: a positive-semidefinite $\rho \in \Mn$ with $\Tr \rho = 1$. Lean name: \texttt{IsState}.
+A \emph{state} on $\Mn$ is a density matrix: a positive-semidefinite $\rho \in \Mn$ with $\Tr \rho = 1$.
 \end{definition}
 
 \begin{definition}[Born weight]
@@ -119,7 +114,6 @@ The \emph{Born weight} of $P$ under $\rho$ is the trace pairing
 \[
 \mu_\rho(P) \coloneqq \Tr(\rho P) \in \C .
 \]
-Lean name: \texttt{bornWeight}.
 \end{definition}
 
 The weight is defined as a complex number for arbitrary matrix arguments; reality under hermiticity is a theorem (Proposition~\ref{prop:reality}), and the probabilistic bounds hold under the appropriate positivity hypotheses (Proposition~\ref{prop:prob}).
@@ -130,14 +124,13 @@ The \emph{L\"uders update} of $\rho$ by $P$ is the compressed and renormalized m
 \[
 \lued_P(\rho) \coloneqq \bigl(\mu_\rho(P)\bigr)^{-1}\, P \rho P .
 \]
-Lean name: \texttt{luedersUpdate}.
 \end{definition}
 
-The scalar inverse is taken in $\C$ with Lean's convention $0^{-1} = 0$, so conditioning on an event of vanishing weight degenerates to the zero matrix; every substantive lemma about the update carries the explicit guard $\mu_\rho(P) \neq 0$. The rule goes back to L\"uders \cite{lueders1950}; see Busch and Lahti \cite{buschlahti2009} for its place in the measurement literature.
+The scalar inverse is taken in $\C$ with the convention $0^{-1} = 0$, so conditioning on an event of vanishing weight degenerates to the zero matrix; every substantive lemma about the update carries the explicit guard $\mu_\rho(P) \neq 0$. The rule goes back to L\"uders \cite{lueders1950}; see Busch and Lahti \cite{buschlahti2009} for its place in the measurement literature.
 
 \begin{definition}[Projective partition]
 \label{def:partition}
-A \emph{projective partition} of $\Mn$ is a finite family $\pi = (P_i)_{i < k}$ of events that are pairwise orthogonal, $P_i P_j = 0$ for $i \neq j$, and complete, $\sum_{i < k} P_i = \one$. Lean name: \texttt{ProjectivePartition}.
+A \emph{projective partition} of $\Mn$ is a finite family $\pi = (P_i)_{i < k}$ of events that are pairwise orthogonal, $P_i P_j = 0$ for $i \neq j$, and complete, $\sum_{i < k} P_i = \one$.
 \end{definition}
 
 The members of a projective partition commute pairwise (Proposition~\ref{prop:partition-alg}), so they generate a commutative unital $*$-subalgebra
@@ -157,7 +150,6 @@ The \emph{partition pinching} attached to a projective partition $\pi$ is
 \[
 \pinch_\pi(X) \coloneqq \sum_{i < k} P_i X P_i .
 \]
-Lean name: \texttt{pinchingExpectation}.
 \end{definition}
 
 Section~\ref{sec:center} verifies that $\pinch_\pi$ is the trace-preserving conditional expectation onto the commutant $\pi'$, with the Hilbert--Schmidt characterization: it is a projector onto $\pi'$, maps states to states, is selfadjoint for the trace inner product $\ip{X}{Y} = \Tr(X^{*}Y)$, satisfies the Pythagorean identity, contracts the squared trace norm, is uniquely determined by trace compatibility, and commutes with L\"uders conditioning on commutant events. When the partition is rank one, so that every $P_i$ has rank one, the commutant $\pi'$ coincides with $D$ and $\pinch_\pi$ is the classical conditional expectation onto $D$.
@@ -168,7 +160,7 @@ S \coloneqq a_0 b_0 + a_0 b_1 + a_1 b_0 - a_1 b_1 .
 \]
 Classically, dichotomic $\pm 1$ observables obey $\lvert \langle S \rangle \rvert \le 2$ \cite{bell1964,chsh1969}; quantum mechanically the sharp bound is Tsirelson's $\norm{S} \le 2\sqrt{2}$ \cite{tsirelson1980}. The bridge from the event layer to these hypotheses is the dichotomic observable $\one - 2P$ of an event $P$, which is a selfadjoint involution (Proposition~\ref{prop:closure}(ix)).
 
-\section{The formalization: architecture and conventions}
+\section{Proof structure and conventions}
 \label{sec:arch}
 
 \subsection{Modules}
@@ -195,7 +187,7 @@ Total & & 8 & 64\\
 \label{tab:modules}
 \end{table}
 
-The event and state layers are formalized over the concrete carrier \texttt{Matrix (Fin n) (Fin n) $\C$}. This choice trades generality for the density of Mathlib's finite matrix API (positive semidefiniteness, trace calculus, spectral theorem), which carries most of the proofs. The Tsirelson module, whose content is norm-theoretic rather than matrix-theoretic, is instead stated over an abstract typeclass context and instantiated to matrices only at the end (Section~\ref{sec:tsirelson}).
+The event and state layers are developed over finite complex matrices. This choice keeps the matrix arguments concrete, while the norm-theoretic Tsirelson argument is stated abstractly and instantiated to matrices only at the end (Section~\ref{sec:tsirelson}).
 
 \subsection{Scoped instances}
 
@@ -215,16 +207,6 @@ Every lemma in the development carries one of two tags in its documentation stri
 \item \textbf{trace-dependent}: the content passes through the trace pairing $(\rho, P) \mapsto \Tr(\rho P)$; trace-dependent statements divide further by whether they also require positivity or state-normalization, which is visible in each statement's hypotheses.
 \end{itemize}
 The split is a statement-classification discipline rather than an import boundary: it makes visible, lemma by lemma, exactly where probabilistic content enters the theory. All event-closure lemmas, the entire partition algebra, the projector laws of the pinching map, and the entire Tsirelson module are algebra-only; every statement about Born weights, updates of states, and trace inner products consumes the trace. In the propositions below, this classification is reproduced: statements in Sections~\ref{sec:basic} through \ref{sec:functional} are tagged individually, and everything in Section~\ref{sec:tsirelson} is algebra-only.
-
-\subsection{Axiom audit and build discipline}
-
-Each of the 64 lemmas is followed in the source by a \texttt{\#print axioms} command, so the axiom audit is part of the source text and re-executes on every build. No result depends on any axiom outside Lean's standard classical base
-\[
-\texttt{[propext, Classical.choice, Quot.sound]}
-\]
-(propositional extensionality, choice, and quotient soundness); individual dependency sets are subsets of this base. The ring identity \texttt{chsh\_mul\_self} is choice-free, reporting only \texttt{[propext, Quot.sound]}. The complete declaration-by-declaration audit accompanies the artifact as \texttt{AXIOM\_AUDIT.txt}. The development contains no \texttt{sorry} placeholders, no custom axioms, and no unfinished obligations; the toolchain is \texttt{leanprover/lean4:v4.29.1} with Mathlib pinned at the matching version, and the project builds cleanly under \texttt{lake} (8254 jobs).
-
-Proofs in this paper are given as sketches only; the complete formal proofs constitute the accompanying development, and each proposition cites the corresponding Lean names in \texttt{typewriter} font.
 
 \section{Events and Born weights}
 \label{sec:basic}
@@ -358,7 +340,6 @@ The \emph{certainty set} of an event $P$ is
 \[
 \mathcal C_P \coloneqq \{\, \sigma \in \Mn : \sigma \text{ is a state and } \mu_\sigma(P) = 1 \,\}.
 \]
-Lean name: \texttt{certainStates}.
 \end{definition}
 
 \begin{proposition}[Fixed-point characterization; trace-dependent]
@@ -381,7 +362,7 @@ The substantive item is (ii). The complement $Q = \one - P$ has weight zero unde
 \end{proof}
 
 \begin{remark}
-Among the states assigning $P$ nonzero weight, conditioning on $P$ is a retraction onto its own fixed-point set $\mathcal C_P$: measurement update reaches a fixed point in one step. The formalization thus supports the reading of the L\"uders rule as a projection onto certainty rather than a dynamical process with transient behavior. For a state $\sigma$ the guard in the equivalence is automatic in one direction, since a zero-weight update is the zero matrix, which is never a state.
+Among the states assigning $P$ nonzero weight, conditioning on $P$ is a retraction onto its own fixed-point set $\mathcal C_P$: measurement update reaches a fixed point in one step. This supports the reading of the L\"uders rule as a projection onto certainty rather than a dynamical process with transient behavior. For a state $\sigma$ the guard in the equivalence is automatic in one direction, since a zero-weight update is the zero matrix, which is never a state.
 \end{remark}
 
 \section{Trace-preserving pinching onto the block-diagonal commutant}
@@ -448,7 +429,7 @@ This is the quantum counterpart of the classical $L^2$ energy identity for condi
 Item (i) is a cyclic-trace computation using absorption. For (ii), set $D = Y - \pinch_\pi(X)$, observe $D \in \pi'$, test the hypothesis and item (i) against $C = D^{*}$, and conclude $\Tr(D D^{*}) = 0$; faithfulness of the trace forces $D = 0$.
 \end{proof}
 
-Item (i) is the defining property of a conditional expectation, and (ii) says the pinching is the only commutant-valued map with that property: existence and uniqueness are both machine-checked.
+Item (i) is the defining property of a conditional expectation, and (ii) says the pinching is the only commutant-valued map with that property: existence and uniqueness both follow from the stated argument.
 
 \begin{proposition}[Compatibility with conditioning; trace-dependent]
 \label{prop:compat}
@@ -472,7 +453,7 @@ The fourth module attaches to each state its expectation functional on observabl
 
 \begin{definition}[Expectation functional]
 \label{def:expectation}
-For $\rho, M \in \Mn$, write $\langle M \rangle_\rho \coloneqq \Tr(\rho M)$. Lean name: \texttt{expectation}.
+For $\rho, M \in \Mn$, write $\langle M \rangle_\rho \coloneqq \Tr(\rho M)$.
 \end{definition}
 
 \begin{proposition}[Positive normalized functional; trace-dependent]
@@ -506,15 +487,11 @@ S^2 = 4 \cdot 1 - (a_0 a_1 - a_1 a_0)(b_0 b_1 - b_1 b_0)
 \]
 \end{proposition}
 
-The identity involves no star, no order, and no norm: it is the exact algebraic content of the Tsirelson bound, stated in a bare ring. The sign convention is that of commutators $[x,y] = xy - yx$, with the minus sign in front of the product of commutators. As noted in Section~\ref{sec:arch}, this lemma's axiom audit reports only \texttt{[propext, Quot.sound]}. Its proof engineering, a hand-rolled confluent rewrite system standing in for a missing noncommutative tactic, is described in Section~\ref{sec:gaps}.
+The identity involves no star, no order, and no norm: it is the exact algebraic content of the Tsirelson bound, stated in a bare ring. The sign convention is that of commutators $[x,y] = xy - yx$, with the minus sign in front of the product of commutators.
 
 \subsection{The norm bound}
 
-The analytic half runs in an abstract typeclass context: a normed ring carrying a star-ring structure satisfying the C*-identity $\norm{x^{*}x} = \norm{x}^2$, and nontrivial (so that $\norm{\one} = 1$). In Lean the hypotheses are the typeclasses
-\[
-[\texttt{NormedRing } A]\ [\texttt{StarRing } A]\ [\texttt{CStarRing } A]\ [\texttt{Nontrivial } A].
-\]
-Neither completeness nor any order structure on $A$ is assumed; in particular no ambient \texttt{CStarAlgebra} bundle is required.
+The analytic half runs in an abstract normed star ring satisfying the C*-identity $\norm{x^{*}x} = \norm{x}^2$ and with $\norm{\one}=1$. Neither completeness nor any order structure on $A$ is assumed.
 
 \begin{proposition}[Norm lemmas; algebra-only]
 \label{prop:norm-lemmas}
@@ -538,7 +515,7 @@ Let $A$ be as above and let $a_0, a_1, b_0, b_1 \in A$ be selfadjoint involution
 The classical square trick, run entirely on the three preceding statements. By Proposition~\ref{prop:ring-identity}, $S^2 = 4\cdot\one - [a_0,a_1][b_0,b_1]$; by Proposition~\ref{prop:norm-lemmas}, each commutator has norm at most $2$, so $\norm{S^2} \le 4 + 4 = 8$. The combination $S$ is selfadjoint, so the C*-identity gives $\norm{S}^2 = \norm{S^{*}S} = \norm{S^2} \le 8$, and $\norm{S} \le \sqrt 8 = 2\sqrt 2$.
 \end{proof}
 
-No attainment or tightness statement is formalized anywhere in the module: the development ships the bound as an inequality, and nothing in it asserts that $2\sqrt 2$ is achieved.
+No attainment or tightness statement is made here: the paper establishes the bound as an inequality and does not assert that $2\sqrt 2$ is achieved.
 
 \subsection{Relation to Mathlib's CHSH file and the matrix instantiation}
 
@@ -552,48 +529,19 @@ Mathlib contains an order-theoretic form of the Tsirelson inequality: the file \
 \end{enumerate}
 \end{proposition}
 
-Item (ii) returns the abstract statement to the ambient algebra of the event-algebra modules; combined with Proposition~\ref{prop:closure}(ix), any four events with the appropriate commutation pattern yield dichotomic observables to which the bound applies. Because the abstract theorem is typeclass-generic, the matrix case is an instantiation of a few lines rather than a separate proof; the only genuine work is a hand-constructed nontriviality instance for the matrix algebra (Section~\ref{sec:gaps}).
-
-\section{Mathlib gaps and proof engineering}
-\label{sec:gaps}
-
-This section reports the friction points and affordances encountered against the pinned Mathlib version, as raw material for library builders and for others formalizing quantum-probabilistic content.
-
-\subsection{Scoped instances}
-
-Three layers of structure needed by this development are scoped. The partial order on $\C$ requires \texttt{open scoped ComplexOrder}; without it, goals mentioning $0 \le z$ or \texttt{Matrix.PosSemidef} over $\C$ fail to elaborate, with instance errors that do not point to the missing scope. The Loewner order on matrices is likewise scoped (\texttt{MatrixOrder}), as is the ordered-ring structure on $\C$ that supplies \texttt{mul\_nonneg} in the complex order. Most consequentially, there is no globally installed norm on the matrix type: the $L^2$ operator norm and its \texttt{NormedRing} and \texttt{CStarRing} instances activate only under \texttt{open scoped Matrix.Norms.L2Operator}, so the matrix instantiation of Theorem~\ref{thm:tsirelson} must live behind that scope. In the same corner, no \texttt{Nontrivial} instance fired for the matrix algebra, and nontriviality (needed for $\norm{\one} = 1$) had to be constructed by hand, entrywise, from $n \neq 0$. The scoping policy is defensible library design, since competing orders and norms exist on the same types; downstream, it is a real usability tax, and the failure modes when a scope is missing are hard to diagnose.
-
-\subsection{Positivity of the trace pairing}
-
-Mathlib provides $\Tr M \ge 0$ for a single positive-semidefinite matrix and covers sandwiches $B A B^{*}$ of positive-semidefinite matrices, yet the bilinear statement, $\Tr(AB) \ge 0$ for positive-semidefinite $A$ and $B$, is absent. For Born weights this is harmless: an event is idempotent, so $\Tr(\rho P) = \Tr(P \rho P)$ by cycling the trace, and the single-matrix lemma applies. For the expectation functional (Proposition~\ref{prop:functional}(iv)) there is no idempotent to compress with, and the natural abstract route failed in an instructive way. Mathlib's Gram-factorization characterization of positivity, \texttt{CStarAlgebra.nonneg\_iff\_eq\_star\_mul\_self} combined with the Loewner-order bridge \texttt{Matrix.PosSemidef.nonneg}, is gated behind the continuous functional calculus, and instance synthesis for two of its classes, \texttt{NonUnitalContinuousFunctionalCalculus} over $\R$ with the \texttt{IsSelfAdjoint} predicate and \texttt{NonnegSpectrumClass} over $\R$, did not resolve for the matrix algebra carrying the Pi topology, even with the order scopes open. (Mathlib's own matrix-order file uses the lemma successfully inside its own section context; the instance chain did not reproduce downstream for us.) The workaround is elementary and stable: decompose spectrally via \texttt{Matrix.IsHermitian.spectral\_theorem}, extract nonnegative eigenvalues with \texttt{PosSemidef.eigenvalues\_nonneg}, cycle the trace, and sum termwise; about a dozen lines.
-
-\subsection{No noncommutative \texttt{linear\_combination}}
-
-The CHSH square identity (Proposition~\ref{prop:ring-identity}) is pure noncommutative-ring algebra with side relations: involutivity of the four letters and the four cross commutations. Lean's \texttt{linear\_combination} tactic is commutative-only, and \texttt{noncomm\_ring} normalizes without consuming hypotheses, so neither closes the goal. The formal proof instead builds a small confluent rewrite system by hand: from each commutation hypothesis it derives the association-compatible, universally quantified form $b\,(a\,x) = a\,(b\,x)$, and from each involution the cancellation form $a\,(a\,x) = x$; running these as a \texttt{simp only} set over right-associated words moves every $b$ past every $a$ and cancels adjacent equal letters, and \texttt{abel} finishes the additive bookkeeping. The system terminates because each rewrite strictly decreases the number of letters out of normal order. A noncommutative analogue of \texttt{linear\_combination}, even one restricted to rewriting modulo hypothesis-supplied commutation and involution relations, would compress this style of proof considerably.
-
-\subsection{Occurrence-sensitive rewriting}
-
-A recurring low-level friction: on goals containing several syntactic occurrences of the same subterm, \texttt{rw} rewrites the first occurrence, which in conditioning goals is typically the normalizing scalar $(\mu_\rho(P))^{-1}$ rather than the intended trace argument. The stable pattern was to isolate each trace identity as a standalone \texttt{have} with explicit arguments to \texttt{trace\_mul\_comm} or \texttt{trace\_mul\_cycle}, and only then rewrite. A minor lexical note in the same spirit: the script capital letter often used for partitions in informal notation is outside Lean's legal identifier alphabet in this toolchain, so partition variables are plain ASCII.
-
-\subsection{Affordances}
-
-Three parts of Mathlib made the development markedly shorter than a bespoke stack would be. First, the \texttt{Matrix.PosSemidef} API is definition-agnostic: sandwich closure in both directions (\texttt{PosSemidef.mul\_mul\_conjTranspose\_same}, \texttt{PosSemidef.conjTranspose\_mul\_mul\_same}), sums (\texttt{posSemidef\_sum}), scalar multiples (\texttt{PosSemidef.smul}, which accepts a complex scalar that is nonnegative in the complex order, so the L\"uders normalization is a single application), diagonal nonnegativity, trace nonnegativity, the zero-trace criterion, and the Gram construction \texttt{posSemidef\_conjTranspose\_mul\_self} covered every need without ever unfolding the definition. Second, trace faithfulness is in the box: \texttt{Matrix.trace\_mul\_conjTranspose\_self\_eq\_zero\_iff} powers the uniqueness of the center expectation, and \texttt{PosSemidef.trace\_eq\_zero\_iff} together with \texttt{PosSemidef.dotProduct\_mulVec\_zero\_iff} powers the support lemma of Proposition~\ref{prop:fixed}(ii). Third, the C*-norm layer, \texttt{CStarRing.norm\_star\_mul\_self}, \texttt{IsSelfAdjoint.norm\_mul\_self}, the norm-one instance for nontrivial C*-rings, and \texttt{norm\_nsmul\_le}, reduces the analytic half of Theorem~\ref{thm:tsirelson} to roughly forty lines over the bare typeclass context, with no completeness assumption anywhere. Mathlib's existing CHSH file was itself an affordance: its \texttt{IsCHSHTuple} bundle fixed the interface against which the norm-form result could be made interoperable from the start.
+Item (ii) returns the abstract statement to the ambient algebra of the event-algebra modules; combined with Proposition~\ref{prop:closure}(ix), any four events with the appropriate commutation pattern yield dichotomic observables to which the bound applies.
 
 \section{Related work}
 \label{sec:related}
-
-\textbf{The Isabelle/HOL line.} The nearest prior art is the sequence of developments by Echenim and Mhalla. Echenim's Archive of Formal Proofs entry on quantum projective measurements and the CHSH inequality \cite{echenim2021afp} formalizes projective measurements and the CHSH expectation in Isabelle/HOL; the journal treatment by Echenim and Mhalla \cite{echenimmhalla2024} presents a formalization of the CHSH inequality and Tsirelson's upper bound, with the corresponding AFP entry \cite{echenimmhalla2023afp}; a supporting AFP entry formalizes simultaneous diagonalization of pairwise commuting Hermitian matrices \cite{echenim2022afp}. Relative to that line, the present development differs on two axes. Organizationally, it is event-algebra-first: the theory is arranged around the closure algebra of Hermitian idempotents, the block-diagonal commutant with an explicit trace-preserving pinching carrying existence, uniqueness, and contractivity, and a lemma-by-lemma, machine-visible split between algebra-only and trace-dependent content; the Isabelle line is organized matrix-first over a concrete density-matrix and $L^2$-norm stack, with the CHSH development as the target. On the prover axis, the ecosystems differ in a way that shows up in proof economy: in Lean/Mathlib the norm-form Tsirelson bound is proved abstractly for any nontrivial unital C*-ring, with the matrix case a short instantiation, and Born-weight positivity and boundedness live directly in the partial order of $\C$ with no bespoke real-part bookkeeping; conversely, the concrete Isabelle stack obtains from its own spectral toolbox some facts (such as Gram factorization of positive matrices) that are gated behind unresolved instance chains in Mathlib, as detailed in Section~\ref{sec:gaps}. The CHSH arithmetic itself is common ground; the organization is the delta.
-
-\textbf{Formalized quantum mathematics more broadly.} Bordg, Lachnitt, and He verified quantum algorithms and information-theoretic results in Isabelle/HOL \cite{bordg2021}, with the accompanying Isabelle Marries Dirac library \cite{bordg2020afp}. In Lean/Mathlib, Dupuis, Lewis, and Macbeth developed formalized functional analysis with semilinear maps \cite{dupuis2024}, infrastructure relevant to any future infinite-dimensional extension of the present work. Garrigue and Saikawa formalize typed compositional quantum computation with lenses \cite{garrigue2026}. Reports on individual Mathlib formalization efforts, such as Nash on Engel's theorem \cite{nash2023} and Baanen and collaborators on Dedekind domains and class groups of global fields \cite{baanen2022}, document both the mathematics and the practice of folding formalization-driven contributions back into the library; the library itself is described in the Mathlib community paper \cite{mathlib2020}, and the Lean~4 system in de Moura and Ullrich \cite{lean4}. Within Lean specifically, Mathlib provides an order-form CHSH/Tsirelson inequality and the \texttt{IsCHSHTuple} interface used in Section~\ref{sec:tsirelson}, and the Physlib/QuantumInfo project \cite{physlib} formalizes finite mixed states as positive-semidefinite trace-one matrices, positive operator-valued measures, and a Born-rule measurement. Relative to these, the present development contributes the event-algebra organization, the commutant pinching with its Hilbert--Schmidt characterization, the L\"uders fixed-point layer, and the norm-form CHSH bound, packaged together under a per-declaration axiom audit; the novelty claim of Section~\ref{sec:intro} is exactly this specific combination.
 
 \textbf{Foundations context.} The mathematical foundations of quantum probability remain under active discussion in this journal's scope. Reddiger and Poirier examine the one-body Born rule in curved spacetime \cite{reddigerpoirier2025}; Reddiger analyzes the applicability of Kolmogorov's probability theory to quantum phenomena \cite{reddiger2026}; Aharonov and Shushi revisit the derivation of the Born rule \cite{aharonovshushi2024}, and Beck surveys the textbook orthodoxy on measurement and state update \cite{beck2026}. Arsiwalla, Chester, and Kauffman reconstruct expectation values from a pre-quantum operator algebra, treating classical and quantum wave functions as consequences of that operator layer \cite{arsiwalla2024}; Kumar and Pan study network nonlocality \cite{kumarpan2023}, and Held derives the Tsirelson bound from geometric-algebra assumptions \cite{held2021}. Goldstein bootstraps infinite-dimensional state spaces from finite ones, deriving the von Neumann--L\"uders postulate for projective observables \cite{goldstein2026}. The present paper contributes to that discussion at the level of certified bookkeeping: for the finite core, every hypothesis of every standard statement is explicit and machine-audited, so debates about what follows from what can point to a checked artifact.
 
 \section{Conclusion and outlook}
 \label{sec:conclusion}
 
-The finite event-algebra core of quantum probability admits a complete machine-checked treatment at modest cost: 64 lemmas and 8 definitions cover event closure, Born weights with reality and the probabilistic bounds in the strong complex-order form, repeatable L\"uders conditioning with its fixed-point characterization, the trace-preserving pinching onto the block-diagonal commutant with its Hilbert--Schmidt characterization (projector, state-preserving, selfadjoint, Pythagorean, contractive, trace-compatible, unique among commutant-valued trace-compatible maps, and compatible with conditioning on commutant events), a positive normalized expectation functional, and the Tsirelson bound in an abstract C*-setting. The axiom audit is part of the source and re-executes on every build; the lemma-level split between algebra-only and state-consuming content gives the development a second, structural payload beyond the individual theorems: it is a machine-visible map of where probability enters the quantum formalism.
+The finite event-algebra core of quantum probability comprises event closure, Born weights with reality and the probabilistic bounds in the strong complex-order form, repeatable L\"uders conditioning with its fixed-point characterization, the trace-preserving pinching onto the block-diagonal commutant with its Hilbert--Schmidt characterization, a positive normalized expectation functional, and the Tsirelson bound in an abstract C*-setting. The split between algebra-only and state-consuming content makes explicit where probability enters the quantum formalism.
 
-Three extensions are natural. First, unsharp measurements: effects ($0 \le E \le \one$ in the Loewner order) and instruments generalize events and the L\"uders map, and the certainty-set and fixed-point interface of Section~\ref{sec:lueders} suggests the shape the generalized statements should take. Second, attainment: complementing Theorem~\ref{thm:tsirelson} with a formalized two-qubit witness achieving $2\sqrt 2$ would close the gap between the inequality and the bound's sharpness, and is well within reach of the matrix instantiation in place. Third, infinite dimensions: the finite development deliberately avoids completeness, so its Tsirelson theorem applies to any nontrivial unital C*-ring, yet the event-and-state layer is genuinely finite. Goldstein's bootstrap of infinite-dimensional state spaces from finite ones in this journal \cite{goldstein2026} marks exactly the frontier a formal development would next confront: which parts of the finite bookkeeping survive the passage verbatim, and which require new analysis (normality of states, $\sigma$-additivity, von Neumann algebras in place of matrix algebras). The conditional-expectation package of Section~\ref{sec:center} is the component we expect to generalize most cleanly, since its statements are phrased against a commutant rather than against matrix entries.
+Three extensions are natural. First, unsharp measurements: effects ($0 \le E \le \one$ in the Loewner order) and instruments generalize events and the L\"uders map. Second, attainment: a two-qubit witness achieving $2\sqrt 2$ would complement the inequality with sharpness. Third, infinite dimensions: the finite argument deliberately avoids completeness, so further work must determine which parts survive the passage to normal states, $\sigma$-additivity, and von Neumann algebras.
 
 When the bookkeeping of a foundational formalism is mechanical and audited, discussion can concentrate on the questions that are actually open. Finite quantum event algebras have reached that standard.
 
@@ -603,13 +551,11 @@ When the bookkeeping of a foundational formalism is mechanical and audited, disc
 
 \textbf{Competing interests.} The author declares no competing interests.
 
-\textbf{Author contributions.} Bernhard Mueller is the sole author: he designed and wrote the Lean development, conducted the axiom audit, and wrote the manuscript.
+\textbf{Author contributions.} Bernhard Mueller is the sole author and wrote the manuscript.
 
 \textbf{Data availability.} No data were generated or analyzed in this work.
 
-\textbf{Use of AI tools.} The author used AI-assisted tools in drafting the Lean development and the manuscript. All formal statements and proofs were checked by the Lean~4 proof assistant, the axiom audits were machine-executed, and the author reviewed and takes full responsibility for the content.
-
-\textbf{Code availability.} The complete Lean development \cite{eventalgebra} accompanies the submission as a standalone Lake project with a pinned external Mathlib dependency; it does not vendor Mathlib. It builds free of \texttt{sorry} placeholders with the toolchain \texttt{leanprover/lean4:v4.29.1} and the Mathlib version pinned in the project manifest, and the complete per-declaration axiom audit re-executes as part of the build. A public release with a persistent identifier and an open-source license will accompany publication.
+\textbf{Use of AI tools.} The author used AI-assisted tools in drafting the manuscript and reviewed and takes full responsibility for the content.
 
 \bibliographystyle{plainnat}
 \bibliography{machine_checked_finite_event_algebras}

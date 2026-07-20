@@ -86,13 +86,12 @@ The bound survives arbitrary refinement depth, and compatible finite levels
 define a solver-independent projective limit. The paper also proves repair and
 symmetry obstructions, gives a checkable conditional-expectation resampling
 projector, and classifies two succinct decision problems as coNP- and
-\(\Pi_2^P\)-complete. A Lean~4 development checks the finite core and audits its
-axioms. These results supply the observable-normal-form machinery used by the
+\(\Pi_2^P\)-complete. These results supply the observable-normal-form machinery used by the
 OPH consensus and Yang--Mills papers.
 \end{abstract}
 
 \medskip
-\noindent\textbf{Keywords:} abstract rewriting, observation-determined normal forms, observational confluence, error bounds, metric subregularity, boundary reconstruction, refinement towers, local repair, formalized mathematics, interactive theorem proving, Lean~4, Mathlib.
+\noindent\textbf{Keywords:} abstract rewriting, observation-determined normal forms, observational confluence, error bounds, metric subregularity, boundary reconstruction, refinement towers, local repair.
 
 \noindent\textbf{Mathematics Subject Classification (2020):} Primary 68Q42; Secondary 49J53, 68Q25, 68Q85, 94B05.
 
@@ -167,8 +166,8 @@ A total exact local repair preserving an exterior collar exists if and only if t
 \item \textbf{Constructive and linear classes.}
 Ranked functional-audit systems have singleton-or-empty fibers, terminate under every effective asynchronous schedule with an explicit update bound, and settle synchronously in dependency depth; acyclic Boolean circuits compile directly into this class.  Linear quotient systems admit rank tests and singular-value bounds that instantiate \eqref{eq:intro-master}; finite linear dynamics yield the usual observability matrix as a special case.
 
-\item \textbf{Receipts, complexity, and a machine-checked development.}
-A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.  The finite exact, stability, refinement, repair, resampling, ranked, and stochastic cores are formalized in a standalone Lean~4 development that pins Lean and Mathlib, contains no \texttt{sorry} or \texttt{admit}, and carries a per-theorem \texttt{\#print axioms} audit reporting only standard Mathlib axioms.  We state exactly which results are machine checked and which remain paper proofs.
+\item \textbf{Receipts and complexity.}
+A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.
 \end{enumerate}
 
 \subsection{Novelty boundary and intended venue}
@@ -185,13 +184,9 @@ telescope are classical.  Approximate inverse-system theory is important neighbo
 art, and the displayed estimate itself is elementary; we therefore claim an
 organizing synthesis, not priority for approximate commutativity or inverse
 limits.  External specialist review remains necessary.
-The intended contribution belongs to automated reasoning and the formalization
-of mathematics, with the rewriting, semantics, and interactive-theorem-proving
-communities as the primary audience.  The machine-checked development is
-advanced as a first-class part of the contribution: the exact interface, the
-two-modulus stability estimate, and the refinement cores are available as
-audited Lean~4 theorems, so that a reader can rerun the axiom audit and rebuild
-the checked subset from a pinned toolchain.
+The intended contribution belongs to automated reasoning, rewriting, and
+semantics, with the corresponding mathematical communities as the primary
+audience.
 
 \section{Relation to existing theories}\label{sec:related}
 
@@ -251,18 +246,6 @@ hypotheses \citep{Kahn1974,Abramsky2011}.  Ranked functional systems below
 are a finite terminating special case with residual audits.  Their purpose is
 to give a class in which the exact boundary hypotheses, update bound, and
 obstruction output are explicit.  They do not reprove those principles.
-
-\subsection{Formalized rewriting}
-
-Formalized rewriting has established libraries such as CoLoR in Coq
-\citep{BlanquiKoprowski2011}.  Developments include a constructive
-Agda library for abstract rewriting \citep{ArklePolonsky2026}, a Lean~4
-framework for confluence and normalization of lambda calculi
-\citep{RamosEtAl2025}, and a Rocq library for adhesive-category graph
-rewriting \citep{ArsacHarmerPous2025}.  The
-accompanying standalone Lean artifact formalizes selected exact, stability,
-refinement, repair, ranked, and stochastic results from this paper; its
-coverage boundary is stated in \cref{sec:lean}.
 
 \section{Exact observable fibers}\label{sec:exact}
 
@@ -1907,77 +1890,8 @@ The coordinate observation $B_{01}(u,v,w)=(u,v)$ is injective on $\im F$, while 
 The kernel and image follow immediately from the formula for $F$.  On the image, the first two coordinates determine $(u,v,u)$, whereas the first and third coordinates repeat the same bit.  A reverse repair preserving every target would require $F$ to be surjective by \cref{thm:collar-section}; for example $(0,0,1)$ is not in the image.
 \end{proof}
 
-The accompanying standalone Lean artifact proves these exact width-three statements and includes theorem-level axiom-audit commands.  Rule 90 is a regression test, not a rule selected by the theory or a load-bearing assumption.
-
-\section{Formal artifact and coverage}\label{sec:lean}
-
-The accompanying \texttt{ObservableNormalForms} directory is a standalone
-Lean~4 project.  It pins Lean and Mathlib at version~4.29.1, includes a
-pinned, checksummed Lake manifest, and builds both on its own and as a library of the
-parent formalization repository.  Its theorem-bearing files contain no
-\texttt{sorry} or \texttt{admit}.  The recorded \texttt{\#print axioms}
-reports contain only standard Mathlib axioms (\texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound} where required) and no
-\texttt{sorryAx}.
-
-\begin{center}
-\small
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.67\textwidth}}
-\toprule
-\textbf{Module} & \textbf{Machine-checked coverage}\\
-\midrule
-\texttt{Exact}
-& Proof-carrying partial normalizers, the (a)$\Leftrightarrow$(b)
-partial-normalizer equivalence, reachable
-observable fibers, the empty/singleton alternatives, audited terminals, and
-the observation-leak counterexample.\\
-\texttt{ObserverConfluence}
-& The equivalence in \cref{thm:cross-source-modulo}, weak-normalization
-endpoint existence, the matching two-bit positive system, and a coarse-sensor
-counterexample separating same-source confluence from cross-source endpoint
-uniqueness.\\
-\texttt{Stability}
-& The heterogeneous and symmetric output estimates, approximate schedule
-independence, and a sensor-enrichment certificate.\\
-\texttt{Refinement}
-& One-step and exact naturality, arbitrary-depth metric telescoping,
-same-level agreement without a tower term, fine-to-coarse comparison, and the
-anchored and nested metric cores.\\
-\texttt{Repair}
-& The collar-section criterion, no-repair and stable-margin certificates, and
-counterexamples showing why the nonempty-domain hypotheses are necessary.\\
-\texttt{ConditionalResampling}
-& The finite algebraic characterization of the weighted fiber kernel in
-\cref{thm:fiber-conditional-expectation}, observation-measurable fixed space,
-idempotence, weighted self-adjointness, a Pythagorean identity, and weighted
-$L^2$ contraction, together with the exact R1--R3 matrix-recognition
-equivalence.\\
-\texttt{Functional}
-& Synchronous settling through dependency rank, fixed-point behavior, and
-generated-extension uniqueness.\\
-\texttt{Stochastic}
-& Finite Markov affine-drift iteration and the corresponding one-time
-finite-state tail estimate.\\
-\texttt{Examples/Rule90}
-& Exact width-three kernel, image, information-boundary, deficient-boundary,
-and reverse-repair obstruction results.\\
-\bottomrule
-\end{tabular}
-\normalsize
-\end{center}
-
-The artifact's proof index gives theorem-level names and labels; its build
-receipt records the parent and standalone commands, tool versions, and axiom
-audit.  This is substantial coverage of the finite core, but it is not a
-complete mechanization of the manuscript.  In
-particular, the intrinsic-modulus minimality and sharpness results, compact
-and uniform extensions, probability-event and occupation wrappers, the
-Hausdorff perturbation wrapper, dependent cofinal and inverse-limit
-constructions, equivariant sections, the circuit-specialization wrapper,
-asynchronous path-gain estimate, linear-algebraic certificates, and
-complexity classifications remain paper proofs.  The status distinction is
-deliberate: only declarations listed in the proof index are claimed as
-machine checked.
+The width-three example is a regression test, not a rule selected by the
+theory or a load-bearing assumption.
 
 \section{Application: set-valued public-capacity readback}
 \label{sec:public-capacity-application}
@@ -2064,14 +1978,10 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
 \end{itemize}
 These exclusions are necessary for both mathematical correctness and journal review.
 
-\section{Artifact and data availability}\label{sec:availability}
-The repository artifact contains the PDF, LaTeX source, bibliography, and the
-standalone \texttt{ObservableNormalForms} Lean project.  The formal directory
-includes a pinned toolchain and dependency manifest, theorem-to-source index,
-axiom audit, reproducible build receipt, archive manifest, and SHA-256
-checksums.  The mathematical proofs in this manuscript are self-contained;
-the Lean artifact checks the subset stated in \cref{sec:lean}.  No empirical
-dataset is used.
+\section{Data availability}\label{sec:availability}
+The repository contains the PDF, LaTeX source, bibliography, reproducible build
+receipt, archive manifest, and SHA-256 checksums. The mathematical proofs in
+this manuscript are self-contained. No empirical dataset is used.
 
 \section{Conclusion}
 
@@ -2104,22 +2014,16 @@ correspondence declaration.
 
 \noindent\textbf{Author Contribution declaration:} Bernhard Mueller developed the
 observation-determined normal-form framework, the stability, refinement, repair, and complexity
-results, the manuscript text, and the accompanying Lean artifact. David Matscheko and Jonathan Hill
-contributed proof review, checking of the exact and stability results, and consistency review of
-the formal artifact and manuscript. All authors reviewed and approved the manuscript.
+results and the manuscript text. David Matscheko and Jonathan Hill contributed
+proof review, checking of the exact and stability results, and consistency
+review of the manuscript. All authors reviewed and approved the manuscript.
 
 \noindent\textbf{Correspondence declaration:} Correspondence should be addressed to Bernhard
 Mueller, \href{mailto:bernhard@floatingpragma.ai}{\nolinkurl{bernhard@floatingpragma.ai}}.
 
 \noindent\textbf{Data Availability declaration:} No empirical dataset is used in this work. The
-LaTeX source, bibliography, and the standalone \texttt{ObservableNormalForms} Lean~4 project, with
-a pinned toolchain and dependency manifest, a theorem-to-source index, an axiom audit, a
-reproducible build receipt, and SHA-256 checksums, are available through the project repository.
-
-\noindent\textbf{Code Availability declaration:} The standalone \texttt{ObservableNormalForms}
-Lean~4 project and its build sources are maintained in the project repository, together with a
-source bundle so that the manuscript and the formal artifact can be rebuilt without relying on
-private local paths.
+LaTeX source, bibliography, reproducible build receipt, and SHA-256 checksums
+are available through the project repository.
 
 \noindent\textbf{Ethics declaration:} not applicable.
 

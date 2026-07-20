@@ -1032,7 +1032,7 @@ generator. Positivity and self-adjointness give the transfer-semigroup identity.
 \begin{definition}[Source-defined admissible atomic collar tower]
 \label{def:admissible-atomic-collar-tower}
 For every regulator and allowed boundary condition \(b\), suppose the finite source presentation
-gives an atomic register set \(V_r\), a finite-range Gibbs law \(\pi_{r,b}\), and, for each
+gives an atomic register set \(V_r\) with finite local alphabets, a finite-range Gibbs law \(\pi_{r,b}\), and, for each
 \(v\in V_r\), a rooted active collar \(C(v)\) and the heat-bath projection
 \[
 P_{v,r,b}f:=\mathbb E_{\pi_{r,b}}[f\mid x_{V_r\setminus\{v\}}].
@@ -1049,16 +1049,20 @@ location, size, allowed boundary condition, and stage of the selected cofinal re
 \(E_{C(v)}=P_{v,r,b}\); type-equivalent collars have the same exact heat-bath kernel and rate,
 every atomic register has one active rooted collar, and
 \(c_{v,r,b}=c_{\tau(v)}\ge c_*>0\);
-\item the exact \(L^2\) approximate-tensorization receipt
+\item for the one-site conditional kernels, let \(a_{vu}^{r,b}\) be the supremum total-variation
+change at root \(v\) when two exterior configurations differ only at \(u\).  Outward-rounded
+rational interval bounds printed in the finite type table prove
+\[
+\sup_{r,b,v}\sum_{u\ne v}a_{vu}^{r,b}\le\eta_*<1.
+\tag{INF}
+\]
+The Dobrushin Poincar\'e comparison then derives, rather than assumes,
 \[
 \operatorname{Var}_{\pi_{r,b}}(f)
-\le A_*\sum_{v\in V_r}\|(I-P_{v,r,b})f\|_{2,\pi_{r,b}}^2,
-\qquad A_*<\infty,
+\le\frac{1}{1-\eta_*}\sum_{v\in V_r}\|(I-P_{v,r,b})f\|_{2,\pi_{r,b}}^2
 \tag{AT}
 \]
-holds with the same \(A_*\) for all \((r,b)\).  An admissible analytic certificate may take
-\(A_*=(1-\eta_*)^{-1}\) after a Dobrushin/\(L^2\)-influence comparison proves a rational or
-outward-rounded interval bound \(\eta_*<1\) uniformly over the finite type table;
+uniformly over the family \cite{wuDobrushin06};
 \item coarse shadow sends each rooted fine collar to a rooted collar of the same declared type or
 to an explicitly listed type transition, preserves the conditional kernels on pulled-back coarse
 functions, and introduces no type outside \(\mathfrak T_{\rm act}\).
@@ -1096,9 +1100,7 @@ L_{r,b}^{\rm col}:=\sum_{v\in V_r}c_{v,r,b}(I-P_{v,r,b}),
 \]
 Then, with the single explicit modulus
 \[
-\delta_*:=\frac{c_*}{A_*}>0,
-\qquad\text{and in the influence-certified case}\qquad
-\delta_*=c_*(1-\eta_*),
+\delta_*:=c_*(1-\eta_*)>0,
 \tag{GAP}
 \]
 one has, simultaneously for all locations, allowed boundary conditions, system sizes, and stages
@@ -1118,11 +1120,11 @@ Conditional expectation is an orthogonal projection, hence
 \langle f,(I-P_{v,r,b})f\rangle
 =\|(I-P_{v,r,b})f\|_2^2.
 \]
-For \(f\perp\mathbf1\), items \textup{(G2)} and \textup{(G3)} give
+For \(f\perp\mathbf1\), item \textup{(G3)} gives (AT), and item \textup{(G2)} gives
 \[
 \langle f,L_{r,b}^{\rm col}f\rangle
 \ge c_*\sum_v\|(I-P_{v,r,b})f\|_2^2
-\ge \frac{c_*}{A_*}\|f\|_2^2.
+\ge c_*(1-\eta_*)\|f\|_2^2.
 \]
 This is the operator inequality.  The spectral theorem gives the semigroup estimate.  All
 constants are source-type constants and item \textup{(G4)} carries the same table and receipt up
@@ -1133,10 +1135,16 @@ the cofinal tower, so none depends on \(r,b,|V_r|\), or the collar location.
 \label{prop:repair-gap-countermodels}
 Neither locality nor mixing may be deleted from the preceding theorem.
 \begin{enumerate}[label=(\roman*)]
-\item Without mixing, take the nearest-neighbour two-site law
-\(\pi(00)=\pi(11)=1/2\).  Each one-site heat-bath projection conditioned on the other site is the
-identity, so the local collar generator is zero on the nonconstant function
-\(f(00)=1,f(11)=-1\).
+\item Without uniform mixing, take the faithful two-site law
+\[
+\pi_\varepsilon(00)=\pi_\varepsilon(11)=\frac{1-\varepsilon}{2},
+\qquad
+\pi_\varepsilon(01)=\pi_\varepsilon(10)=\frac{\varepsilon}{2}.
+\]
+The exact spectrum of the two single-site heat-bath generator is
+\(\{0,2\varepsilon,2(1-\varepsilon),2\}\), so its gap is
+\(2\varepsilon\to0\).  The limiting zero-gap example is therefore not doing
+any work hidden by a loss of faithfulness.
 \item Without source locality, put the product fair-bit law on \(\{0,1\}^m\), list its
 \(N=2^m\) states in cyclic Gray-code order, and let \(E_0,E_1\) average over the two alternating
 perfect matchings of that cycle.  The law has exact product mixing and zero separated CMI, but
@@ -1156,6 +1164,37 @@ kernel/rate signatures, and do not bound the Friedrichs angles between collar pr
 Accordingly they do not imply a uniform repair gap.  A numerical receipt is admissible only when
 outward-rounded intervals certify \(c_*^{\rm lo}>0\) and \(\eta_*^{\rm hi}<1\), in which case
 \(\delta_*^{\rm lo}=c_*^{\rm lo}(1-\eta_*^{\rm hi})\); a point estimate is not a certificate.
+\end{remark}
+
+\begin{proposition}[Executable finite calibration, not a physical receipt]
+\label{prop:collar-gap-calibration}
+The exact-rational calibration table at
+\texttt{code/yang\_mills\_gap/manifests/atomic\_4d\_ising\_calibration.json}
+has \(244\) active collar types on the declared four-dimensional cofinal family
+\(N_r=3\cdot2^r\), for periodic, free, fixed-plus, and fixed-minus boundary
+conditions.  Its complete deterministic table has
+\[
+c_*=1,\qquad \eta_*\le\frac12,\qquad A_*\le2,
+\qquad \delta_*\ge\frac12.
+\]
+Thus its declared finite generator obeys
+\[
+L_{r,b}\ge\frac12(I-P_{0,r,b}),\qquad
+\|e^{-tL_{r,b}}-P_{0,r,b}\|_{2\to2}\le e^{-t/2}.
+\]
+The bundled verifier recomputes every rational conditional-row variation and
+the receipt hash, and rejects binary floating-point inputs, nonpositive rate
+floors, and noncontractive influence rows.
+\end{proposition}
+
+\begin{remark}[Non-promotion boundary]
+Proposition~\ref{prop:collar-gap-calibration} validates the finite data model and
+the stated implication for a declared calibration family.  It does not identify
+that Ising family with the compact-simple-gauge OPH tower.  The intentionally
+uninstantiated physical manifest fails closed until quotient-first gauge collar
+types, source conditional kernels, rate floors, refinement closure, gauge and
+topological zero-mode handling, an independent ground-state-transform receipt,
+and the separate continuum/transfer/OS-noncollapse receipts are supplied.
 \end{remark}
 
 \begin{assumption}[Finite transfer and vacuum compatibility receipt]

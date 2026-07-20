@@ -66,8 +66,8 @@ would cease to describe the same observer system. The closure equation makes
 $P$ an output of the architecture. Here $A_T(P)$ is the Thomson-limit
 inverse electromagnetic coupling emitted by a trial cell.
 
-This is the stronger of the two quantitative closure results. Lean proves the
-fixed-point theorem used by the calculation: a self-map of the physical
+This is the stronger of the two quantitative closure results. The fixed-point
+theorem used by the calculation states that a self-map of the physical
 interval with contraction constant below one has exactly one fixed point.
 Outward-rounded interval certificates verify those hypotheses for each
 declared $P$ map and exclude a second root across its full analytic domain.
@@ -151,8 +151,8 @@ fixed-point equations. These outputs come from the same screen and repair
 architecture. Their shared dependence is the main case that OPH describes one
 physical world rather than a collection of coincidences.
 
-The evidence also comes in different forms: paper proofs, a sorry-free Lean
-subset, exact arithmetic, interval certificates, finite receipts, simulations,
+The evidence also comes in different forms: paper proofs, exact arithmetic,
+interval certificates, finite receipts, simulations,
 and explicit falsifiers. Agreement among those forms is more informative than
 another numerical match produced by another adjustable model.
 
@@ -252,10 +252,10 @@ the exact Standard Model matter package uses the receipts listed below.
 | Finite $A_5$ gauge algebra | Exact twelve-port coefficient-space construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ on the declared icosahedral branch | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Standard Model global form | Exact $S(U(3)\times U(2))$ and shared-center $\mathbb Z_6$ calculation, with physical current and descent receipts stated separately | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Matter structure | Exact one-generation exterior witness and conditional selection of the hypercharge lattice, three colors, three generations, and one Higgs doublet | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; Lean proves the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
+| Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Conditional global $N$ extension | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=|X_{\rm reach}|$ on the reversible branch; the physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | $N$–Higgs bridge | Conditional relation $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ from the common screen/weak load carrier | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Exact verification | Lean theorem subset, interval certificates, finite receipts, and reproducible simulations | [`Lean/`](Lean) and [`code/`](code) |
+| Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Choose A Reading Path
 
@@ -267,7 +267,7 @@ the exact Standard Model matter package uses the receipts listed below.
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | The twelve-port screen architecture | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Machine-checkable evidence | [`Lean/`](Lean), [`code/`](code), and the [closure ledger](docs/CLOSURE_LEDGER.md) |
+| Supporting evidence | [`code/`](code) and the [closure ledger](docs/CLOSURE_LEDGER.md) |
 | Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
 The [paper index](paper/) and [supplement index](extra/) give the complete curated publication map.
@@ -277,7 +277,6 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 The repository contains several complementary forms of evidence:
 
 - hand proofs in the TeX papers;
-- a sorry-free Lean subset covering finite observer consensus and related algebraic results;
 - interval and uniqueness certificates for declared numerical maps;
 - finite carrier and hierarchy receipts;
 - particle, geometry, dark-sector, and quantum-hardware code;
@@ -298,7 +297,6 @@ python3 -m pytest -q \
   code/capacity_readback/test_reversible_public_checkpoint_packet.py \
   code/consensus/test_reference_architecture_benchmark_suite.py \
   code/consensus/test_verified_tree_packet_net.py
-cd Lean && lake build
 ```
 
 The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and scope of
@@ -334,7 +332,8 @@ The other named obligations are:
   uniqueness routes. One finite source evidence bundle satisfying every receipt
   is work in progress;
 - derive dark gravity as a repair-charge condensate with dust-like and deep-galaxy regimes;
-- complete finite Yang–Mills transfer and repair-gap constructions;
+- complete the physical Yang–Mills transfer and repair-gap receipts; the repository includes a
+  244-type finite collar-gap calibration, but it is not a physical compact-gauge source receipt;
 - test observer-like hardware and software with local state, boundaries,
   readback, records, repair, and public evidence bundles.
 
@@ -356,7 +355,6 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 
 - [`paper/`](paper): core papers, TeX sources, PDFs, and release metadata.
 - [`extra/`](extra): compact proof and focused mathematical supplements.
-- [`Lean/`](Lean): machine-checked theorem development.
 - [`code/`](code): certificates, simulations, particle calculations, and experiments.
 - [`book/`](book): the book source and downloadable PDF.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.

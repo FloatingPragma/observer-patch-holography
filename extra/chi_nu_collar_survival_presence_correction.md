@@ -1,8 +1,7 @@
 # The collar survival coefficient under the presence reading: λ = 1 − P/24
 
-**Status:** theorem-grade correction to the L5 occupancy clause. Machine-checked in
-`chi_nu_test/proof_chain/formal/OPHProofChain/CollarGatePresence.lean`
-(6 theorems, 0 sorry, standard axioms only, built against the v10 tree).
+**Status:** theorem-grade correction to the L5 occupancy clause.
+(six theorem statements, built against the v10 tree).
 
 **Date:** 2026-07-14.
 
@@ -29,7 +28,7 @@ is 1 − ε(y) for **every** occupancy law. No distribution placed between the
 presence event and its complement can change the identity
 Pr[absent] = 1 − Pr[present].
 
-## Consequences (all machine-checked)
+## Consequences
 
 **1. `presence_gate`.** Under the presence reading, the scalar-weighted mean
 receipt Σ w(y)ε(y) = P/24 alone forces

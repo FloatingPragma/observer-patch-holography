@@ -6,8 +6,8 @@
       "sha256": "f0675be1502d1ef394505f02fa15240bbddc5722b8d8d0a91cb049f2f6c9df50"
     },
     "moduli_locking_certificate.json": {
-      "byte_count": 1130,
-      "sha256": "3d81eac276c91eade4c5802adbc86e26cbb16f0d8321165ff80dfed75d3bca17"
+      "byte_count": 8605,
+      "sha256": "0e8c7f6bfc560ac81d0084b63aec71229d2bf2c67394e987cd1567ab505820a3"
     },
     "proxy_targets.json": {
       "byte_count": 10511,
@@ -18,8 +18,8 @@
       "sha256": "577349aaeb53ceddeac4cca50006dc0c59008002758cc06b273302fdcf8226d0"
     },
     "source_dag.json": {
-      "byte_count": 7009,
-      "sha256": "1ef4b67c249c8b2e961e73256b18d415250e3d72a40383b415dad48e9d141c17"
+      "byte_count": 7049,
+      "sha256": "0a64c94d6474fe0299afcb852b22fd71f512978a7560bba75bfd599db8aecf20"
     },
     "threshold_spectrum_certificate.json": {
       "byte_count": 1927,
@@ -28,13 +28,17 @@
   },
   "generator": {
     "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
-    "sha256": "bd5db1789d813f55cea4c2ddc1775969dd3c1a78f4448408fb607a2bcee1a3c6"
+    "sha256": "55ef54bac02268bc9243c35d0c7864c2b67ec837206e9243f88b249aab473a42"
   },
   "input_packet": {
     "path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-    "sha256": "a7a6c247b23dba12232f22e3eea2d89afb1b02043c150f8acda6b2c72d3f00a3"
+    "sha256": "913ce3751f1b4495890978fdc9539010b3d30353ee52ef52044cf69d9a7ef2b2"
   },
   "issue": 368,
+  "issues": [
+    368,
+    369
+  ],
   "numeric_backend": "python_decimal_base10",
   "precision_digits": 80,
   "reproduction_command": "python3 code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py --check",

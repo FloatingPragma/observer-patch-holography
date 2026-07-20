@@ -492,7 +492,7 @@ generator gives (2).
 \begin{definition}[Source-defined admissible atomic collar tower]
 \label{def:admissible-collar-tower}
 For every regulator and allowed boundary condition \(b\), let the source give an atomic register
-set \(V_r\), a finite-range Gibbs law \(\pi_{r,b}\), and one rooted active collar \(C(v)\) per
+set \(V_r\) with finite local alphabets, a finite-range Gibbs law \(\pi_{r,b}\), and one rooted active collar \(C(v)\) per
 \(v\in V_r\), with
 \[
 P_{v,r,b}f:=\mathbb E_{\pi_{r,b}}[f\mid x_{V_r\setminus\{v\}}].
@@ -505,15 +505,15 @@ conditional kernel, and normalized rate.  The tower is admissible when:
 stage belong to one printed finite set \(\mathfrak T_{\rm act}\);
 \item \(\mathcal C_r=\{C(v):v\in V_r\}\), \(E_{C(v)}=P_{v,r,b}\), and type-equivalent collars
 have the same rate \(c_{v,r,b}=c_{\tau(v)}\ge c_*>0\);
-\item one exact approximate-tensorization receipt holds uniformly:
+\item if \(a_{vu}^{r,b}\) is the supremum total-variation change of the root-\(v\) conditional
+kernel when exterior configurations differ only at \(u\), outward-rounded rational bounds from
+the finite type table prove
 \[
-\operatorname{Var}_{\pi_{r,b}}(f)
-\le A_*\sum_{v\in V_r}\|(I-P_{v,r,b})f\|_2^2,
-\qquad A_*<\infty;
+\sup_{r,b,v}\sum_{u\ne v}a_{vu}^{r,b}\le\eta_*<1.
 \tag{3}
 \]
-an analytic influence certificate may set \(A_*=(1-\eta_*)^{-1}\) after proving a rational or
-outward-rounded interval upper bound \(\eta_*<1\);
+The Dobrushin Poincar\'e comparison then derives the uniform approximate-tensorization bound
+with \(A_*=(1-\eta_*)^{-1}\) \cite{wu06};
 \item coarse shadow preserves the listed type transitions and conditional kernels and creates no
 unlisted type.
 \end{enumerate}
@@ -544,9 +544,7 @@ prevents refinement from producing a new or rate-degenerate type.
 \label{prop:finite-gap}
 For an admissible collar tower satisfying the finite ground-state-transform receipt, set
 \[
-\delta_*:=\frac{c_*}{A_*}>0,
-\qquad\text{or}\qquad
-\delta_*=c_*(1-\eta_*)
+\delta_*:=c_*(1-\eta_*)=\frac{c_*}{A_*}>0
 \tag{5}
 \]
 in the influence-certified case.  Uniformly across the complete family,
@@ -559,7 +557,8 @@ L_{r,b}^{\Rep}\ge\delta_*(I-P_{0,r,b}),
 \end{theorem}
 
 \begin{proof}
-Every \(P_{v,r,b}\) is an orthogonal conditional expectation, so for \(f\perp\mathbf1\),
+Every \(P_{v,r,b}\) is an orthogonal conditional expectation.  The Dobrushin comparison applied
+to item \textup{(G3)} gives (AT), so for \(f\perp\mathbf1\),
 \[
 \langle f,L_{r,b}^{\Rep}f\rangle
 =\sum_vc_{v,r,b}\|(I-P_{v,r,b})f\|_2^2
@@ -572,9 +571,14 @@ approximate-tensorization modulus on the entire cofinal tower.
 
 \begin{proposition}[Finite countermodels for the two hypotheses]
 \label{prop:gap-countermodels}
-If mixing is removed, the nearest-neighbour two-site law
-\(\pi(00)=\pi(11)=1/2\) has local one-site heat-bath projections equal to the identity; its
-generator annihilates the nonconstant sign function and has gap zero.  If locality is removed,
+If uniform mixing is removed, the faithful two-site family
+\[
+\pi_\varepsilon(00)=\pi_\varepsilon(11)=\frac{1-\varepsilon}{2},
+\qquad
+\pi_\varepsilon(01)=\pi_\varepsilon(10)=\frac{\varepsilon}{2}
+\]
+has exact heat-bath spectrum \(\{0,2\varepsilon,2(1-\varepsilon),2\}\), hence gap
+\(2\varepsilon\to0\).  If locality is removed,
 put the product fair-bit law on \(\{0,1\}^m\), list its \(2^m\) states in cyclic Gray-code order,
 and average over the two alternating perfect matchings, with projections \(E_0,E_1\).  Product
 mixing is exact and separated CMI is zero, but deciding which bit to change reads the whole
@@ -592,6 +596,16 @@ Finite-range Gibbs form and collar-CMI decay do not imply (3) and do not control
 angles.  A numerical receipt must certify outward-rounded bounds \(c_*^{\rm lo}>0\) and
 \(\eta_*^{\rm hi}<1\), yielding the explicit certified floor
 \(\delta_*^{\rm lo}=c_*^{\rm lo}(1-\eta_*^{\rm hi})\).  Point estimates do not qualify.
+\end{remark}
+
+\begin{remark}[Executable calibration boundary]
+The exact-rational \(244\)-type four-dimensional Ising calibration in
+\texttt{code/yang\_mills\_gap/} has \(c_*=1\), \(\eta_*\le1/2\), and hence
+\(\delta_*\ge1/2\) for its declared finite family.  Its receipt is an executable
+test of the collar-type data model, not a physical compact-simple-gauge source
+receipt.  The physical manifest is intentionally uninstantiated and fails
+closed pending source collar kernels, refinement closure, gauge/zero-mode data,
+and the independent continuum and transfer receipts.
 \end{remark}
 
 \section{Continuum Extraction}
@@ -1119,7 +1133,7 @@ active collar must relax it. Because active collar rates have a uniform positive
 source law has one uniform approximate-tensorization constant, every non-vacuum finite-regulator
 state pays a positive Euclidean repair cost. The finite-stage statements are exact theorems on the
 declared cylinder system, with every assumption named and the load-bearing unverified receipt
-isolated in one place; the mechanism inherits the wider program's discipline of machine-checked
+isolated in one place; the mechanism inherits the wider program's discipline of finite
 core theorems and zero continuous dials.
 
 The Clay-facing conclusion is conditional. If the regulator family also satisfies the
@@ -1215,6 +1229,12 @@ D.~J.~Gross and W.~Taylor,
 ``Two-dimensional QCD is a string theory,''
 \emph{Nucl.\ Phys.\ B} \textbf{400} (1993), 181--208,
 arXiv:hep-th/9301068.
+
+\bibitem{wu06}
+L.~Wu,
+``Poincar\'e and transportation inequalities for Gibbs measures under the Dobrushin uniqueness condition,''
+\emph{Annals of Probability} \textbf{34} (2006), 1960--1989,
+arXiv:math/0611635.
 
 \end{thebibliography}
 

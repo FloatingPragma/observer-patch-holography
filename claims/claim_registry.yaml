@@ -768,18 +768,22 @@
         "support_visible_compact_gauge_extraction",
         "reflection_positive_vacuum",
         "exact_local_repair",
-        "uniform_repair_gap"
+        "finite_source_defined_atomic_collar_types",
+        "uniform_local_repair_rate_floor",
+        "uniform_L2_approximate_tensorization",
+        "transfer_vacuum_OS_noncollapse_receipts"
       ],
       "imported_results": [
         "compact_Yang_Mills_target",
         "Osterwalder_Schrader_reconstruction",
         "standard_compact_gauge_language"
       ],
-      "oph_specific_delta": "Exact repair collars supply a positive Euclidean relaxation generator whose gap transfers to the compact-gauge Hamiltonian.",
+      "oph_specific_delta": "Exact atomic heat-bath collars supply a positive Euclidean relaxation generator. A finite source-type table and uniform L2 approximate-tensorization receipt give the explicit floor delta_*=c_*/A_*, which transfers to the compact-gauge Hamiltonian only through the separate continuum receipts.",
       "novelty_type": "problem_solution_on_declared_branch",
       "evidence": [
         "extra/yang_mills_gap_clay_problem.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/yang_mills/verify_collar_gap_certificate.py"
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
@@ -809,9 +813,9 @@
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
-      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology candidate against OPH gates.",
+      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology row against OPH gates; the issue-369 rank obstruction retracts that row from selected or passing string status.",
       "owner_paper": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
-      "tier": "conditional_selector_continuation",
+      "tier": "fail_closed_selector_continuation",
       "assumptions": [
         "OPH_recovered_core_target_vector",
         "heterotic_critical_edge_certificate",
@@ -824,16 +828,17 @@
         "heterotic_standard_model_candidate_literature",
         "string_compactification_language"
       ],
-      "oph_specific_delta": "OPH supplies the target vector and gates that a known string representative must satisfy without retuning.",
+      "oph_specific_delta": "OPH supplies the comparison registry and gates that a known string representative must satisfy without retuning; the audit separates the 142-real-dimensional published pre-completion slice from the unprovided completed physical slice, proves proxy rank zero on the former, and emits a fail-closed rank/isolation certificate.",
       "novelty_type": "selector_continuation",
       "evidence": [
         "extra/observer_patch_holography_as_string_vacuum_selector.tex",
         "code/particles/runs/uv/oph_bd_threshold_spectrum/manifest.json",
+        "code/particles/runs/uv/oph_bd_threshold_spectrum/moduli_locking_certificate.json",
         "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"
       ],
-      "falsifier": "The candidate cannot realize the critical edge, OPH target vector, safety layer, thresholds, decoupling, or moduli locking on the same branch.",
-      "scope_if_false": "Failure blocks OPH-correct promotion of the named BD candidate; the OPH recovered core and other string candidates are separate.",
-      "status": "work_in_progress"
+      "falsifier": "The BD row cannot realize the critical edge, OPH comparison registry, safety layer, thresholds, decoupling, or a certified full-column-rank moduli lock on the same physical branch. Its five-row proxy has rank zero on the published pre-completion slice, while the completed slice, selected point, and physical Jacobian are absent.",
+      "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
+      "status": "rank_gate_failed_structural_benchmark_only"
     },
     {
       "claim_id": "OPH-POW-PHOTONIC",

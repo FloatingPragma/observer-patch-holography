@@ -7,9 +7,11 @@
   "required": [
     "$schema",
     "artifact",
+    "continuation_issues",
     "schema_version",
     "issue",
     "bd_branch",
+    "comparison_registry",
     "external_sources",
     "literature_inventory",
     "target_coordinates",
@@ -26,8 +28,11 @@
     "artifact": {
       "const": "oph_bd_threshold_spectrum_source_packet"
     },
+    "continuation_issues": {
+      "const": [369]
+    },
     "schema_version": {
-      "const": 1
+      "const": 2
     },
     "issue": {
       "const": 368
@@ -48,6 +53,20 @@
         "selected_moduli_point": {"type": ["string", "null"]}
       }
     },
+    "comparison_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "common_threshold_scheme_fixed",
+        "complete_oph_target",
+        "status"
+      ],
+      "properties": {
+        "common_threshold_scheme_fixed": {"const": false},
+        "complete_oph_target": {"const": false},
+        "status": {"const": "five_coordinate_mixed_status_comparison_contract"}
+      }
+    },
     "external_sources": {
       "type": "array",
       "minItems": 1,
@@ -63,18 +82,69 @@
           "additionalProperties": false,
           "required": [
             "bundle_moduli_count",
+            "bundle_moduli_count_scope",
             "complex_structure_moduli_count",
             "hidden_completion_original",
             "kahler_moduli_count",
+            "moduli_count_field",
+            "one_higgs_determinantal_data",
             "one_higgs_locus",
+            "one_higgs_locus_codimension_complex",
             "visible_massless_spectrum"
           ],
           "properties": {
             "bundle_moduli_count": {"type": "integer", "minimum": 0},
+            "bundle_moduli_count_scope": {"type": "string", "minLength": 1},
             "complex_structure_moduli_count": {"type": "integer", "minimum": 0},
             "hidden_completion_original": {"type": "string", "minLength": 1},
             "kahler_moduli_count": {"type": "integer", "minimum": 0},
+            "moduli_count_field": {"const": "complex"},
+            "one_higgs_determinantal_data": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "constituent_bundle_deformations_complex",
+                "extension_tangent_dimension_complex",
+                "map_codomain_dimension_complex",
+                "map_domain_dimension_complex",
+                "map_rank_on_one_higgs_locus",
+                "source_ids"
+              ],
+              "properties": {
+                "constituent_bundle_deformations_complex": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {"type": "integer", "minimum": 0}
+                },
+                "extension_tangent_dimension_complex": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "map_codomain_dimension_complex": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "map_domain_dimension_complex": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "map_rank_on_one_higgs_locus": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "source_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {"type": "string", "minLength": 1}
+                }
+              }
+            },
             "one_higgs_locus": {"type": "string", "minLength": 1},
+            "one_higgs_locus_codimension_complex": {
+              "type": "integer",
+              "minimum": 0
+            },
             "visible_massless_spectrum": {"type": "string", "minLength": 1}
           }
         },

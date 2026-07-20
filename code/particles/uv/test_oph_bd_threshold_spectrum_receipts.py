@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for the issue-368 fail-closed receipt bundle."""
+"""Regression tests for the issue-368/369 fail-closed receipt bundle."""
 
 from __future__ import annotations
 
@@ -30,6 +30,8 @@ from build_oph_bd_threshold_spectrum_receipts import (  # noqa: E402
     DEFAULT_PACKET,
     PacketError,
     _canonical_bytes,
+    _derive_one_higgs_geometry,
+    _moduli_receipt_presence,
     _resolve_repo_path,
     _validate_uv_receipts,
     build_manifest,
@@ -75,6 +77,7 @@ def test_committed_bundle_matches_in_memory_rebuild() -> None:
 
 def test_source_packet_defines_every_required_uv_input_and_leaves_it_missing() -> None:
     packet = json.loads(DEFAULT_PACKET.read_text(encoding="utf-8"))
+    assert packet["schema_version"] == 2
     required = {
         "bundle_moduli_point_and_mass_matrix",
         "bulk_five_brane_sector_and_moduli_or_absence",
@@ -98,6 +101,65 @@ def test_source_packet_defines_every_required_uv_input_and_leaves_it_missing() -
     assert packet["literature_inventory"]["available"]["kahler_moduli_count"] == 11
     assert packet["literature_inventory"]["available"]["complex_structure_moduli_count"] == 11
     assert packet["literature_inventory"]["available"]["bundle_moduli_count"] == 51
+    assert packet["continuation_issues"] == [369]
+    assert packet["comparison_registry"] == {
+        "common_threshold_scheme_fixed": False,
+        "complete_oph_target": False,
+        "status": "five_coordinate_mixed_status_comparison_contract",
+    }
+    assert (
+        packet["literature_inventory"]["available"][
+            "one_higgs_locus_codimension_complex"
+        ]
+        == 2
+    )
+
+
+def test_one_higgs_geometry_is_derived_and_cross_checked() -> None:
+    packet = json.loads(DEFAULT_PACKET.read_text(encoding="utf-8"))
+    geometry = _derive_one_higgs_geometry(packet)
+    assert geometry == {
+        "bundle_tangent_complex": 49,
+        "cokernel_complex": 2,
+        "constituent_tangent_complex": 7,
+        "domain_complex": 8,
+        "codomain_complex": 9,
+        "extension_tangent_complex": 42,
+        "kernel_complex": 1,
+        "normal_complex": 2,
+        "rank": 7,
+    }
+
+    wrong_codimension = copy.deepcopy(packet)
+    wrong_codimension["literature_inventory"]["available"][
+        "one_higgs_locus_codimension_complex"
+    ] = 3
+    with pytest.raises(PacketError, match="determinantal normal dimension"):
+        _derive_one_higgs_geometry(wrong_codimension)
+
+    wrong_decomposition = copy.deepcopy(packet)
+    wrong_decomposition["literature_inventory"]["available"][
+        "one_higgs_determinantal_data"
+    ]["extension_tangent_dimension_complex"] = 41
+    with pytest.raises(PacketError, match="tangent decomposition"):
+        _derive_one_higgs_geometry(wrong_decomposition)
+
+
+def test_moduli_receipt_presence_is_derived_from_packet_slots() -> None:
+    packet = json.loads(DEFAULT_PACKET.read_text(encoding="utf-8"))
+    assert _moduli_receipt_presence(packet) == {
+        "all_completion_receipt_slots_populated": False,
+        "physical_jacobian_receipt_slot_populated": False,
+        "selected_moduli_point_declared": False,
+    }
+    populated = copy.deepcopy(packet)
+    populated["bd_branch"]["selected_moduli_point"] = "declared-point"
+    populated["bd_uv_inputs"]["physical_moduli_jacobian"] = {
+        "test_only": "populated"
+    }
+    presence = _moduli_receipt_presence(populated)
+    assert presence["selected_moduli_point_declared"] is True
+    assert presence["physical_jacobian_receipt_slot_populated"] is True
 
 
 def test_source_packet_schema_types_the_full_frozen_surface() -> None:
@@ -182,7 +244,13 @@ def test_proxy_reproduces_low_energy_arithmetic_without_using_bd_values() -> Non
     assert Decimal(low["Delta_lambda_large_tan_beta_coordinate"]).quantize(
         Decimal("1e-12")
     ) == Decimal("0.059732877792")
+    assert Decimal(low["m_h_tree_ceiling_GeV"]).quantize(
+        Decimal("1e-9")
+    ) == Decimal("91.652460286")
     assert len(proxy["stop_threshold_proxy"]) == 8
+    assert Decimal(proxy["stop_threshold_proxy"][0]["required_M_S_GeV"]).quantize(
+        Decimal("1e-3")
+    ) == Decimal("3046.266")
     assert all(
         row["proxy_validity_warning"]
         == "no_BD_soft_terms_and_no_controlled_running_scheme"
@@ -239,10 +307,52 @@ def test_threshold_and_moduli_certificates_fail_closed() -> None:
         "threshold_compatibility_backed_by_reproducible_calculation": False,
         "threshold_gate_remains_explicitly_open": True,
     }
-    assert moduli["status"] == "OPEN_NO_STABILIZED_POINT_OR_PHYSICAL_JACOBIAN"
+    assert moduli["status"] == "FAILED_NO_COMPLETED_RANK_ISOLATION_CERTIFICATE"
+    assert moduli["certificate_issue"] == 369
+    assert moduli["source_packet_issue"] == 368
     assert moduli["full_transverse_rank_verified"] is False
+    assert moduli["isolation_verified"] is False
     assert moduli["bd_moduli_locking_certificate_receipt"] is False
+    assert moduli["rank_obstruction_certificate_receipt"] is True
     assert moduli["promotion_allowed"] is False
+    assert (
+        moduli["physical_source_slice"]["all_completion_receipt_slots_populated"]
+        is False
+    )
+    assert (
+        moduli["physical_source_slice"]["completed_constraint_locus_verified"]
+        is False
+    )
+    assert moduli["physical_source_slice"]["completed_dimension_certified"] is False
+    assert moduli["physical_source_slice"]["completed_dimension_real"] is None
+    published = moduli["physical_source_slice"]["published_precompletion_slice"]
+    assert published["dimension_complex"] == 71
+    assert published["dimension_real"] == 142
+    assert moduli["one_higgs_stratum_certificate"]["transverse_rank_complex"] == 2
+    assert moduli["rank_test"]["emitted_proxy_jacobian_rank"] == 0
+    assert (
+        moduli["rank_test"]["physical_jacobian_receipt_slot_populated"]
+        is False
+    )
+    assert moduli["rank_test"]["selected_moduli_point_declared"] is False
+    assert (
+        moduli["rank_test"]["published_slice_five_coordinate_rank_upper_bound"]
+        == 5
+    )
+    assert (
+        moduli["rank_test"][
+            "published_slice_five_coordinate_infinitesimal_nullity_lower_bound"
+        ]
+        == 137
+    )
+    assert (
+        moduli["verdict"]["operator_safe_selected_candidate"]
+        == "RETRACTED_BY_MODULI_LOCKING_GATE"
+    )
+    assert moduli["verdict"]["recovered_oph_core"] == "UNAFFECTED"
+    assert moduli["target_map"]["common_threshold_scheme_fixed"] is False
+    assert moduli["target_map"]["complete_oph_target"] is False
+    assert moduli["target_map"]["promoted_coordinate_count"] == 3
 
 
 def test_manifest_hashes_every_receipt_and_dependency() -> None:
@@ -381,9 +491,11 @@ def test_non_null_uv_receipts_are_bound_to_issue_branch_and_slot(
 
 def test_paper_tracks_the_frozen_proxy_and_open_gate() -> None:
     paper = PAPER_PATH.read_text(encoding="utf-8")
-    assert r"\mathcal C_3^{\rm proxy}=-0.493123930167" in paper
+    assert r"\mathcal C_3^{\rm proxy}=-0.493124115142" in paper
     assert r"\alpha_s(m_Z)=0.1180\pm0.0009" in paper
     assert r"\Delta\lambda_{\rm proxy}=0.059732877792" in paper
+    assert r"m_{h,\rm tree}^{\rm max}=91.652460286" in paper
+    assert r"3046.266\,\mathrm{GeV}" in paper
     assert "The OPH low-energy target used here has no supersymmetric partner sector." in paper
     assert "The threshold/spectrum certificate is not emitted here" in paper
     assert "0.521754255407" not in paper

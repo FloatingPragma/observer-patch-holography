@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build the fail-closed threshold/spectrum receipts for OPH issue #368.
+"""Build fail-closed BD receipts for OPH issues #368 and #369.
 
 The BD literature fixes a visible massless-cohomology branch.  It does not
 provide the nonzero-mode spectrum, stabilized moduli, or the route-specific
-data needed for a threshold calculation and low-energy decoupling map.  This builder therefore
-reproduces target-side proxies and emits an explicitly unevaluated certificate.
+data needed for a threshold calculation and low-energy decoupling map.  This
+builder therefore reproduces target-side proxies, emits the issue-368 open
+threshold certificate, and emits the issue-369 transverse-rank obstruction.
 It never fills missing BD data with benchmark MSSM defaults, and it cannot
 promote even a fully populated packet; that requires a separate evaluator.
 """
@@ -124,6 +125,66 @@ def _fraction(raw: str) -> Decimal:
     return Decimal(numerator) / Decimal(denominator)
 
 
+def _derive_one_higgs_geometry(packet: dict[str, Any]) -> dict[str, int]:
+    """Derive and cross-check the literature-backed determinantal counts."""
+
+    inventory = packet["literature_inventory"]["available"]
+    data = inventory["one_higgs_determinantal_data"]
+    domain = int(data["map_domain_dimension_complex"])
+    codomain = int(data["map_codomain_dimension_complex"])
+    rank = int(data["map_rank_on_one_higgs_locus"])
+    if rank > min(domain, codomain):
+        raise PacketError("one-Higgs matrix rank exceeds its dimensions")
+    kernel = domain - rank
+    cokernel = codomain - rank
+    normal = kernel * cokernel
+    codimension = int(inventory["one_higgs_locus_codimension_complex"])
+    if normal != codimension:
+        raise PacketError(
+            "one-Higgs codimension does not equal the determinantal normal dimension"
+        )
+    bundle_tangent = int(inventory["bundle_moduli_count"]) - codimension
+    extension_tangent = int(data["extension_tangent_dimension_complex"])
+    constituent_tangent = sum(
+        int(value) for value in data["constituent_bundle_deformations_complex"]
+    )
+    if extension_tangent + constituent_tangent != bundle_tangent:
+        raise PacketError(
+            "one-Higgs tangent decomposition does not match the bundle-moduli count"
+        )
+    external_source_ids = {source["id"] for source in packet["external_sources"]}
+    if not set(data["source_ids"]) <= external_source_ids:
+        raise PacketError("one-Higgs determinantal data name an unknown source")
+    return {
+        "bundle_tangent_complex": bundle_tangent,
+        "cokernel_complex": cokernel,
+        "constituent_tangent_complex": constituent_tangent,
+        "domain_complex": domain,
+        "codomain_complex": codomain,
+        "extension_tangent_complex": extension_tangent,
+        "kernel_complex": kernel,
+        "normal_complex": normal,
+        "rank": rank,
+    }
+
+
+def _moduli_receipt_presence(packet: dict[str, Any]) -> dict[str, bool]:
+    """Report packet-slot population without treating it as scientific verification."""
+
+    uv_inputs = packet["bd_uv_inputs"]
+    return {
+        "all_completion_receipt_slots_populated": all(
+            receipt is not None for receipt in uv_inputs.values()
+        ),
+        "physical_jacobian_receipt_slot_populated": (
+            uv_inputs["physical_moduli_jacobian"] is not None
+        ),
+        "selected_moduli_point_declared": (
+            packet["bd_branch"]["selected_moduli_point"] is not None
+        ),
+    }
+
+
 def _load_packet(packet_path: Path) -> dict[str, Any]:
     packet = json.loads(packet_path.read_text(encoding="utf-8"))
     schema_reference = packet.get("$schema")
@@ -155,9 +216,11 @@ def _load_packet(packet_path: Path) -> dict[str, Any]:
         )
     required = {
         "artifact",
+        "continuation_issues",
         "schema_version",
         "issue",
         "bd_branch",
+        "comparison_registry",
         "external_sources",
         "literature_inventory",
         "target_coordinates",
@@ -171,10 +234,16 @@ def _load_packet(packet_path: Path) -> dict[str, Any]:
         raise PacketError(f"source packet is missing top-level keys: {missing}")
     if packet["artifact"] != "oph_bd_threshold_spectrum_source_packet":
         raise PacketError("unexpected source-packet artifact identifier")
-    if packet["schema_version"] != 1:
+    if packet["schema_version"] != 2:
         raise PacketError("unsupported source-packet schema version")
     if packet["issue"] != 368:
         raise PacketError("source packet is not for issue 368")
+    if packet["continuation_issues"] != [369]:
+        raise PacketError("source packet must bind the issue-369 continuation")
+    inventory = packet["literature_inventory"]["available"]
+    if inventory["moduli_count_field"] != "complex":
+        raise PacketError("BD moduli counts must be typed over the complex numbers")
+    _derive_one_higgs_geometry(packet)
     external_source_ids = [source["id"] for source in packet["external_sources"]]
     if len(external_source_ids) != len(set(external_source_ids)):
         raise PacketError("external source identifiers must be unique")
@@ -679,6 +748,7 @@ def build_receipts(
         "forbidden_edge": (
             "proxy_targets -> BD_threshold_compatibility_or_full_witness_promotion"
         ),
+        "continuation_issues": packet["continuation_issues"],
         "issue": 368,
         "local_dependencies": local_ledger + uv_receipt_ledger,
         "numeric_selectors": selectors,
@@ -815,11 +885,116 @@ def build_receipts(
         "target_surface_blockers": target_status_blockers,
     }
 
+    inventory = packet["literature_inventory"]["available"]
+    one_higgs_geometry = _derive_one_higgs_geometry(packet)
+    receipt_presence = _moduli_receipt_presence(packet)
+    bundle_tangent_complex = one_higgs_geometry["bundle_tangent_complex"]
+    published_slice_complex = (
+        inventory["kahler_moduli_count"]
+        + inventory["complex_structure_moduli_count"]
+        + bundle_tangent_complex
+    )
+    published_slice_real = 2 * published_slice_complex
+    target_coordinate_order = [
+        "alpha2_mz",
+        "alphaY_mz",
+        "v_gev",
+        "mH_gev",
+        "mt_gev",
+    ]
+    if set(target_coordinate_order) != set(packet["target_coordinates"]):
+        raise PacketError("issue-369 target-coordinate registry drifted")
+    target_dimension_real = len(target_coordinate_order)
+    promoted_coordinate_count = sum(
+        "not_promoted" not in packet["target_coordinates"][name]["claim_status"]
+        and "candidate_only"
+        not in packet["target_coordinates"][name]["claim_status"]
+        for name in target_coordinate_order
+    )
+
     moduli_certificate = {
         "artifact": "oph_bd_moduli_locking_certificate",
         "bd_moduli_locking_certificate_receipt": False,
+        "certificate_issue": 369,
         "compatibility_evaluated": False,
+        "flat_direction_classification": {
+            "families": [
+                {
+                    "classification": "OPH-visible published modulus",
+                    "complex_dimension": inventory["kahler_moduli_count"],
+                    "family": "complexified_Kahler",
+                    "physical_meaning": (
+                        "volumes and B-field axions; they enter G4, gauge "
+                        "kinetics, KK/winding scales, and thresholds"
+                    ),
+                    "status": "published_proxy_flat_completion_survival_unresolved",
+                },
+                {
+                    "classification": "OPH-visible published modulus",
+                    "complex_dimension": inventory[
+                        "complex_structure_moduli_count"
+                    ],
+                    "family": "complex_structure",
+                    "physical_meaning": (
+                        "periods, spectra, normalized Yukawas, and thresholds"
+                    ),
+                    "status": "published_proxy_flat_completion_survival_unresolved",
+                },
+                {
+                    "classification": "OPH-visible published modulus",
+                    "complex_dimension": bundle_tangent_complex,
+                    "decomposition_complex": {
+                        "constituent_bundle_deformations": one_higgs_geometry[
+                            "constituent_tangent_complex"
+                        ],
+                        "one_Higgs_extension_tangents": one_higgs_geometry[
+                            "extension_tangent_complex"
+                        ],
+                    },
+                    "family": "bundle_tangent_to_one_Higgs_locus",
+                    "physical_meaning": (
+                        "bundle cohomology, Yukawas, singlet couplings, "
+                        "operator rules, and heavy/vectorlike masses"
+                    ),
+                    "status": "published_proxy_flat_completion_survival_unresolved",
+                },
+                {
+                    "classification": "OPH-visible branch-exit",
+                    "complex_dimension": inventory[
+                        "one_higgs_locus_codimension_complex"
+                    ],
+                    "family": "bundle_normal_to_one_Higgs_locus",
+                    "physical_meaning": (
+                        "changes the Higgs/lepton mass pairing and leaves the "
+                        "one-massless-Higgs-pair stratum"
+                    ),
+                    "status": "not_a_flat_direction_inside_the_n_equals_1_slice",
+                },
+            ],
+            "missing_uncounted_visible_families": [
+                "dilaton_axion",
+                "hidden_bundle_or_bulk_M5_moduli",
+                "physical_SUSY_breaking_or_non_SUSY_decoupling_data",
+                "heavy_spectrum_and_matching_scales",
+            ],
+            "completion_dimension_policy": (
+                "Missing completion variables can add ambient coordinates, "
+                "while stabilization and vacuum constraints can remove "
+                "directions; their net effect is not certified."
+            ),
+            "oph_invisible_and_quotiented": [
+                "diffeomorphism_and_bundle_or_B_field_gauge_orbits",
+                "bundle_isomorphisms_and_extension_rescaling_already_removed_by_the_cohomological_moduli_count",
+                "exact_field_basis_and_local_representative_changes",
+                "exact_scheme_scale_or_duality_presentation_changes_with_identical_complete_OPH_readout",
+            ],
+            "policy": (
+                "A direction is not declared OPH-invisible merely because the "
+                "five-coordinate comparison map does not read it."
+            ),
+        },
         "full_transverse_rank_verified": False,
+        "isolation_verified": False,
         "missing_source_objects": [
             name
             for name in missing_uv_inputs
@@ -831,11 +1006,144 @@ def build_receipts(
                 "string_compactification_and_matching_scales",
             }
         ],
+        "one_higgs_stratum_certificate": {
+            "cokernel_dimension_complex": one_higgs_geometry[
+                "cokernel_complex"
+            ],
+            "kernel_dimension_complex": one_higgs_geometry["kernel_complex"],
+            "map": (
+                "M_minus:C^"
+                f"{one_higgs_geometry['domain_complex']}"
+                "->C^"
+                f"{one_higgs_geometry['codomain_complex']}"
+            ),
+            "normal_dimension_complex": one_higgs_geometry["normal_complex"],
+            "normal_space": "Hom(ker(M_minus),coker(M_minus))",
+            "rank_on_n_equals_1": one_higgs_geometry["rank"],
+            "source_ids": inventory["one_higgs_determinantal_data"][
+                "source_ids"
+            ],
+            "scope": (
+                "At a smooth point of the cited codimension-two pullback "
+                "locus, the induced normal map has exact complex rank two. "
+                "This certifies only the Higgs-multiplicity stratum, not "
+                "full OPH moduli locking."
+            ),
+            "transverse_rank_complex": one_higgs_geometry["normal_complex"],
+        },
+        "physical_source_slice": {
+            "all_completion_receipt_slots_populated": receipt_presence[
+                "all_completion_receipt_slots_populated"
+            ],
+            "completed_constraint_locus_verified": False,
+            "completed_dimension_certified": False,
+            "completed_dimension_real": None,
+            "definition": (
+                "The zero locus of the hidden/anomaly, safety-realization, "
+                "spectrum, threshold, vacuum, stabilization, and decoupling "
+                "equations inside the published one-Higgs moduli space times "
+                "completion data, quotiented only by independently verified "
+                "presentation redundancies. Threshold data are derived on "
+                "that locus, not benchmark tuning knobs."
+            ),
+            "published_precompletion_slice": {
+                "bundle_tangent_dimension_complex": bundle_tangent_complex,
+                "dimension_complex": published_slice_complex,
+                "dimension_real": published_slice_real,
+                "scope": (
+                    "smooth published visible-sector one-Higgs solution "
+                    "deformations after gauge and presentation quotients, "
+                    "before unprovided completion constraints"
+                ),
+            },
+        },
         "promotion_allowed": False,
         "published_parameter_counts": packet["literature_inventory"][
             "available"
         ],
-        "status": "OPEN_NO_STABILIZED_POINT_OR_PHYSICAL_JACOBIAN",
+        "rank_obstruction_certificate_receipt": True,
+        "rank_test": {
+            "physical_jacobian_receipt_slot_populated": receipt_presence[
+                "physical_jacobian_receipt_slot_populated"
+            ],
+            "physical_jacobian_verified": False,
+            "completed_slice_dimension_real": None,
+            "emitted_proxy_jacobian_rank": 0,
+            "emitted_proxy_jacobian_shape": [
+                target_dimension_real,
+                published_slice_real,
+            ],
+            "full_column_rank_required_dimension_real": None,
+            "published_precompletion_proxy_flat_dimension_real": (
+                published_slice_real
+            ),
+            "published_slice_five_coordinate_infinitesimal_nullity_lower_bound": (
+                published_slice_real - target_dimension_real
+            ),
+            "published_slice_five_coordinate_rank_upper_bound": (
+                target_dimension_real
+            ),
+            "rank_deficiency_caveat": (
+                "The 137-dimensional bound applies only to maps on the full "
+                "published pre-completion slice. Unknown stabilization and "
+                "vacuum constraints can reduce the completed slice. For a "
+                "nonconstant map, kernel vectors are only infinitesimal "
+                "target-null directions unless constant rank or explicit "
+                "target-preserving curves are certified. The emitted proxy "
+                "is constant, so all 142 published directions are actual "
+                "proxy-flat directions."
+            ),
+            "selected_moduli_point_declared": receipt_presence[
+                "selected_moduli_point_declared"
+            ],
+            "selected_moduli_point_verified": False,
+        },
+        "source_packet_issue": 368,
+        "status": "FAILED_NO_COMPLETED_RANK_ISOLATION_CERTIFICATE",
+        "target_map": {
+            "common_threshold_scheme_fixed": packet["comparison_registry"][
+                "common_threshold_scheme_fixed"
+            ],
+            "complete_oph_target": packet["comparison_registry"][
+                "complete_oph_target"
+            ],
+            "comparison_values": {
+                name: packet["target_coordinates"][name]["value"]
+                for name in target_coordinate_order
+            },
+            "continuous_coordinate_order": target_coordinate_order,
+            "coordinate_roles": {
+                name: packet["target_coordinates"][name]["claim_status"]
+                for name in target_coordinate_order
+            },
+            "definition": (
+                "F_BD,n=1 maps a constrained physical BD point and its "
+                "derived threshold receipt to the ordered five-coordinate "
+                "comparison registry. The first three coordinates have "
+                "declared OPH-surface status; mH and mt are candidate-only. "
+                "Discrete group, generation, Higgs-count, exotic, and safety "
+                "gates define the stratum and do not add Jacobian rows."
+            ),
+            "emitted_proxy_depends_on_bd_branch_values": False,
+            "emitted_proxy_is_physical_map": False,
+            "physical_forward_map_evaluable": False,
+            "promoted_coordinate_count": promoted_coordinate_count,
+            "target_dimension_real": target_dimension_real,
+            "threshold_data_policy": (
+                "physical heavy thresholds and decoupling data are derived "
+                "from a fixed UV completion; convention-only scheme changes "
+                "are quotiented, while genuine boundary parameters are "
+                "visible source coordinates"
+            ),
+        },
+        "verdict": {
+            "operator_safe_selected_candidate": (
+                "RETRACTED_BY_MODULI_LOCKING_GATE"
+            ),
+            "passing_oph_string_witness": False,
+            "recovered_oph_core": "UNAFFECTED",
+            "structural_bd_zero_mode_audit": "RETAINED_AS_BENCHMARK",
+        },
     }
 
     return {
@@ -872,6 +1180,7 @@ def build_manifest(
             "sha256": _sha256_file(packet_path.resolve()),
         },
         "issue": 368,
+        "issues": [368, 369],
         "numeric_backend": "python_decimal_base10",
         "precision_digits": int(
             packet["numerical_policy"]["decimal_precision_digits"]

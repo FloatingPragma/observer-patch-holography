@@ -161,12 +161,15 @@ give four weak doublets per family. Three face-selected families give twelve,
 and reversible orientation doubles that to the same twenty-four slots carried
 by the screen.
 
-The same construction also carries the four-dimensional Yang-Mills form
-and the mass gap for compact simple gauge groups. The Euclidean action comes
-from the way compact gauge data curves around loops in the four-dimensional
-scaling limit. Leaving the repaired vacuum sector costs a positive amount of
-relaxation energy, and refinement carries that repair gap into the first
-nonzero Yang-Mills energy.
+The same construction gives a conditional route to the four-dimensional
+Yang-Mills form and mass gap for compact simple gauge groups. The Euclidean
+action comes from the way compact gauge data curves around loops in the
+four-dimensional scaling limit. The gap would come from the cost of leaving
+the repaired vacuum. But that cost must remain positive everywhere, even as
+the construction grows and is refined. Local repairs must stay strong enough,
+and their interactions must not conspire to create an ever-slower collective
+mode. Establishing those facts for the actual finite construction is still
+part of the unfinished Yang-Mills program.
 
 In this reading, Yang-Mills theory is the smooth field-theory language for
 compact gauge bookkeeping. Holonomy records how gauge data changes around a

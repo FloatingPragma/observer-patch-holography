@@ -67,8 +67,8 @@ largeurs de jauge et la hiérarchie des particules. La clôture en fait une sort
 de l’architecture. Ici, $A_T(P)$ est l’inverse du couplage
 électromagnétique dans la limite de Thomson produit par une cellule d’essai.
 
-C’est le plus fort des deux résultats quantitatifs de clôture. Lean démontre
-le théorème de point fixe utilisé par le calcul : une application de
+C’est le plus fort des deux résultats quantitatifs de clôture. Le théorème de
+point fixe utilisé par le calcul établit qu’une application de
 l’intervalle physique dans lui-même, dont la constante de contraction est
 strictement inférieure à un, possède exactement un point fixe. Des certificats
 d’intervalles à arrondi extérieur vérifient ces hypothèses pour chaque
@@ -157,7 +157,7 @@ réparation. Leur dépendance commune constitue l’argument principal en faveur
 d’un seul monde physique.
 
 Les preuves prennent plusieurs formes : démonstrations sur papier, sous-ensemble
-Lean sans `sorry`, arithmétique exacte, certificats d’intervalles, reçus
+arithmétique exacte, certificats d’intervalles, reçus
 finis, simulations et falsificateurs explicites. Leur accord apporte davantage
 qu’une correspondance numérique isolée.
 
@@ -175,7 +175,7 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
 - l’équilibre des traces intègre cette algèbre en
   $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
 - la branche de réalisation admissible minimale sélectionne le réseau de charges du Modèle standard, trois couleurs, trois générations et un doublet de Higgs ;
-- Lean, les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
+- Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
 La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.
 
@@ -238,10 +238,10 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Structure de la matière | Témoin extérieur exact pour une génération, puis sélection conditionnelle du réseau d’hypercharges, de trois couleurs, de trois générations et d’un doublet de Higgs | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; Lean démontre le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
+| Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
 | Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; le paquet physique et le zéro unique du défaut sont en cours de construction | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Vérification exacte | Sous-ensemble Lean, certificats d’intervalles, reçus finis et simulations reproductibles | [`Lean/`](Lean) et [`code/`](code) |
+| Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 
 ## Choisir un parcours de lecture
 
@@ -253,7 +253,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | La construction des particules | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | L’architecture de l’écran à douze ports | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Les preuves exécutables | [`Lean/`](Lean), [`code/`](code) et le [registre de clôture](docs/CLOSURE_LEDGER.md) |
+| Les preuves exécutables | [`code/`](code) et le [registre de clôture](docs/CLOSURE_LEDGER.md) |
 | L’interprétation et la continuation des observateurs | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
 L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent la carte complète des publications.
@@ -263,7 +263,6 @@ L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent
 Le dépôt réunit plusieurs formes complémentaires de preuve :
 
 - des démonstrations manuscrites dans les articles TeX ;
-- un sous-ensemble Lean sans `sorry` ;
 - des certificats d’intervalles et d’unicité pour les applications numériques déclarées ;
 - des reçus finis pour les porteurs, la hiérarchie et les particules ;
 - du code pour la géométrie, les particules, le secteur sombre et le matériel quantique ;
@@ -284,7 +283,6 @@ python3 -m pytest -q \
   code/capacity_readback/test_reversible_public_checkpoint_packet.py \
   code/consensus/test_reference_architecture_benchmark_suite.py \
   code/consensus/test_verified_tree_packet_net.py
-cd Lean && lake build
 ```
 
 Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
@@ -319,6 +317,10 @@ paquet radial démontre la non-identifiabilité à partir d’une seule coquille
 donne deux voies d’unicité distinctes : la dilatation physique de la source et
 la tomographie par covariances radiales croisées.
 
+Le dépôt contient aussi une calibration finie à 244 types du certificat de
+colliers pour l’écart de Yang--Mills. Elle vérifie le modèle de données exact,
+mais ne remplace pas un reçu physique compact-jauge dérivé de la source.
+
 Tous partagent la même règle de conception : tout système physique proposé doit être représenté comme une parcelle bornée avec état local, frontières, relecture, registres, réparation et dossier public de preuves.
 
 Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) est volontairement limité aux affirmations mathématiques et aux branches réalisées suffisamment mûres. Il sert d’index de vérification, pas de récit principal du dépôt.
@@ -327,7 +329,6 @@ Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) est volon
 
 - [`paper/`](paper) : articles principaux, sources TeX, PDF et métadonnées de version.
 - [`extra/`](extra) : preuve compacte et suppléments mathématiques ciblés.
-- [`Lean/`](Lean) : développement de théorèmes vérifiés par machine.
 - [`code/`](code) : certificats, simulations, calculs de particules et expériences.
 - [`book/`](book) : source du livre et PDF téléchargeable.
 - [`cosmology/`](cosmology) : recherche sur le secteur sombre et la cosmologie.

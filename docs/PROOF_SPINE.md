@@ -209,8 +209,12 @@ Part B gaps:
   program remain candidate shape/orbit architecture and cannot supply the
   common scale by register count alone.
 - **GAP-B6.** The Yang-Mills continuum certificate: the repair-gap identity is
-  conditional on the declared multiresolution, reflection-positivity,
-  transfer/intertwiner, and nontriviality receipts.
+  conditional on a source-defined finite atomic collar table, one uniform
+  $L^2$ approximate-tensorization bound, and the declared multiresolution,
+  reflection-positivity, transfer/intertwiner, and nontriviality receipts.
+  Finite-range mixing and collar-CMI decay alone do not supply the projection
+  gap. The bundled exact-rational certificate is a theorem-contract witness,
+  not the still-missing physical compact-gauge transfer receipt.
 - **GAP-B7.** Cosmology promotion gates: the source-derived applicability rule the
   Cassini exclusion demands, the S8 tension, and physical CMB promotion. The
   screen-spectrum theorem selects the conditional edge-center coordinate
