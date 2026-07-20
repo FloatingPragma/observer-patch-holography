@@ -570,7 +570,7 @@
     },
     {
       "claim_id": "OPH-WZ-STRICT-1L-POLE-MAP",
-      "statement": "Given a complete declared renormalized one-doublet electroweak packet at strict one loop, with frozen sign, sheet, contribution mask, counterterms and tadpoles, the charged and neutral complex-pole coefficients are sW=w+DeltaWW(w) and sZ=z+DeltaZZ(z). The one-loop ZA/AZ product is order two, strict mass/width coefficients are distinct from the exact square-root coordinates of the truncated pole, and untrusted evidence booleans cannot promote the receipt. The evaluated SMDR fixture is post-exposure regression evidence and is not an OPH-native physical prediction.",
+      "statement": "At SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER, a complete declared renormalized one-doublet electroweak packet with frozen sign, sheet, scheme, contribution mask, counterterms and tadpoles fixes the strict charged and neutral complex-pole coefficients through the retained order. The one-loop ZA/AZ product is excluded at strict one loop and required at strict two loops, strict mass/width coefficients are distinct from exact square-root coordinates, and untrusted evidence booleans cannot promote the receipt. The evaluated SMDR fixture is post-exposure regression evidence and is not an OPH-native physical prediction.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "proved_conditional_algebraic_kernel",
       "assumptions": [
@@ -591,11 +591,97 @@
         "code/particles/calibration/strict_one_loop_pole_map/src/wz_pole_map.py",
         "code/particles/calibration/strict_one_loop_pole_map/checker/check_receipt.py",
         "code/particles/calibration/strict_one_loop_pole_map/tests/test_wz_pole_map.py",
-        "code/particles/calibration/strict_one_loop_pole_map/outputs/conditional_strict_1l_pole_map_receipt.json"
+        "code/particles/calibration/strict_one_loop_pole_map/outputs/conditional_strict_1l_pole_map_receipt.json",
+        "code/particles/calibration/q1_q4_wz_theorem_oracle/verify_symbolic_q1_q4_wz.py",
+        "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"
       ],
       "falsifier": "Under the stated complete strict-one-loop input contract, the charged or neutral coefficient differs from the displayed root expansion, neutral one-loop-squared mixing contributes at order one, the lower-sheet mass/width formulas fail, or the independent checker accepts a subject-unbound or self-promoted receipt.",
       "scope_if_false": "The strict-one-loop pole-map kernel or its receipt implementation falls. The finite A5 recognition result, the open OPH-native source problem, and unrelated consensus or gravity branches are assessed independently.",
-      "status": "CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL"
+      "status": "SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER__CONDITIONAL_ALGEBRA_NOT_OPH_NATIVE_PHYSICAL"
+    },
+    {
+      "claim_id": "OPH-SM-Q1-LOCAL-G6",
+      "statement": "On a declared finite oriented spin four-complex, a bounded-support action assembled from G6 class-function plaquettes, gauge-covariant differences, invariant Higgs terms, and invariant Yukawa contractions is local and exactly gauge invariant. The standard electroweak tree kernel follows only after a canonical continuum normalization bridge is separately supplied.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_classical_qft_implication",
+      "assumptions": ["declared_finite_local_G6_action_packet"],
+      "imported_results": ["finite_lattice_gauge_covariance", "invariant_tensor_contraction"],
+      "oph_specific_delta": "The theorem fixes the exact QFT-Q1 contract and keeps source selection, coefficients, regulator, normalization, and ancestry outside the implication.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/verify_symbolic_q1_q4_wz.py"],
+      "falsifier": "A term satisfying every declared covariance and invariant-contraction premise changes under a finite G6 gauge transformation, or has support outside its bounded cell neighborhood.",
+      "scope_if_false": "The QFT-Q1 implication falls; the finite Q0 representation witness and other QFT criteria remain separate.",
+      "status": "conditional_implication_defined__oph_source_action_open"
+    },
+    {
+      "claim_id": "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
+      "statement": "At fixed finite stage, a basis-independent gauge-invariant chiral measure exists exactly when the determinant line of the declared local Ginsparg-Wilson family admits a nowhere-zero gauge-equivariant section in the required locality and smoothness class, including stabilizer actions and global loop integrability.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_exact_finite_quantum_criterion",
+      "assumptions": ["qft_q2e_determinant_line_packet"],
+      "imported_results": ["determinant_line_geometry", "Ginsparg_Wilson_chiral_projectors"],
+      "oph_specific_delta": "The criterion prevents anomaly arithmetic or local curvature cancellation from being promoted to a constructed full-G6 chiral measure.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"],
+      "falsifier": "A measure satisfying the stated basis-independent equivariance exists without the section, or the section exists with all stated regularity and equivariance but no such measure can be defined.",
+      "scope_if_false": "The QFT-Q2-E equivalence falls; QFT-Q2-H and perturbative QFT-Q3 remain separate.",
+      "status": "conditional_criterion_defined__full_G6_measure_construction_open"
+    },
+    {
+      "claim_id": "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
+      "statement": "A finite constrained Hamiltonian packet with a nontrivial physical projector, unique gapped physical ground state, and positive variance of a gauge-invariant observable contains a positive-energy nonvacuum physical excitation; its chiral, mirror-gap, primitive-completeness, and refinement conclusions require the corresponding explicit receipts.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_exact_finite_quantum_soundness_theorem",
+      "assumptions": ["qft_q2h_noncollapsing_hamiltonian_packet"],
+      "imported_results": ["finite_dimensional_spectral_theory", "constraint_projector_functional_calculus"],
+      "oph_specific_delta": "The noncollapse tests reject identity-projector and vacuum-only constructions and keep chirality and refinement as separately evidenced clauses.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"],
+      "falsifier": "All stated projector, commutation, gap, and positive-variance premises hold but the constructed orthogonal physical excitation is zero or has no positive excitation energy.",
+      "scope_if_false": "The QFT-Q2-H soundness route falls; QFT-Q2-E and QFT-Q3 remain separate.",
+      "status": "conditional_soundness_defined__full_G6_hamiltonian_construction_open"
+    },
+    {
+      "claim_id": "OPH-SM-Q3-BV-RESTORATION",
+      "statement": "For a complete canonically normalized Standard-Model BV action in a regulator satisfying the quantum action principle, stability, locality, power counting, complete counterterm-basis, normalization, and anomaly-clearance premises imply formal order-by-order restoration of the Slavnov-Taylor identity.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_formal_perturbative_theorem",
+      "assumptions": ["qft_q3_bv_stability_and_anomaly_clearance"],
+      "imported_results": ["quantum_action_principle", "algebraic_renormalization_cohomology"],
+      "oph_specific_delta": "The theorem is explicitly a formal QFT-Q3 implication parallel to QFT-Q2, with the restoration transcript, FJ matching, independent identity engines, currents, and numerical freeze left as producers.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/verify_symbolic_q1_q4_wz.py"],
+      "falsifier": "The declared local cohomology and anomaly-clearance premises hold at every order but an uncancellable Slavnov-Taylor breaking remains.",
+      "scope_if_false": "The formal QFT-Q3 restoration theorem falls; no conclusion follows for QFT-Q2 or QFT-Q4.",
+      "status": "conditional_formal_theorem_defined__oph_restoration_and_validation_open"
+    },
+    {
+      "claim_id": "OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
+      "statement": "A compatible nonperturbative Euclidean tower of gauge-invariant observables satisfying reflection positivity, Euclidean covariance, symmetry, regularity, clustering, noncollapse, and continuum tightness reconstructs a positive-energy Hilbert-space observable sector by the Osterwalder-Schrader theorem.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_nonperturbative_reconstruction_theorem",
+      "assumptions": ["qft_q4_os_observable_tower"],
+      "imported_results": ["Osterwalder_Schrader_reconstruction"],
+      "oph_specific_delta": "The full chiral G6 QFT-Q4 input is separated from the earlier bosonic compact-gauge OS branch and from perturbative QFT-Q3 pole algebra.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "paper/tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"],
+      "falsifier": "A tower satisfying the complete stated OS hypotheses fails to reconstruct the declared positive-energy observable sector.",
+      "scope_if_false": "The QFT-Q4 OS implication falls; the bosonic compact-gauge theorem and QFT-Q3 remain separately scoped.",
+      "status": "conditional_implication_defined__nonperturbative_G6_tower_open"
+    },
+    {
+      "claim_id": "OPH-SM-Q4-RESONANCE-CONTINUATION",
+      "statement": "Given the QFT-Q4 observable sector plus a declared analytic continuation domain and sheet on which a physical gauge-invariant amplitude has a holomorphic numerator and denominator, a simple denominator zero with nonzero numerator gives a stable resonance pole with nonzero Laurent coupling; the continuation packet is independent of OS reconstruction itself.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_resonance_continuation_theorem",
+      "assumptions": ["qft_q4_resonance_sheet_packet"],
+      "imported_results": ["holomorphic_implicit_function_theorem", "Laurent_expansion"],
+      "oph_specific_delta": "The theorem blocks determinant-zero-only promotion and makes the physical-current Laurent coupling and sheet data explicit after, not inside, OS reconstruction.",
+      "novelty_type": "typed_qft_landing_contract",
+      "evidence": ["paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex", "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json", "code/particles/calibration/q1_q4_wz_theorem_oracle/theorem_status.json"],
+      "falsifier": "All declared holomorphy, simple-zero, nonzero-numerator, and sheet premises hold but the amplitude lacks the stated stable Laurent pole.",
+      "scope_if_false": "The QFT-Q4 resonance implication falls; OS reconstruction and the strict QFT-Q3 coefficient algebra remain separate.",
+      "status": "conditional_implication_defined__analytic_sheet_and_current_amplitude_open"
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -628,7 +714,7 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On the declared echosahedral carrier lineage, the finite source packet now derives the twelve unit ports, inverse pairing, A5 action, and rank-three frame. The remaining Q0 package conditionally recognizes the Standard Model quotient, a one-generation rank-15 exterior witness, and a canonical rank-three candidate family band. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admissible multiplicity is N_g=3. A physical three-family conclusion still requires a rank-45 attachment and every screen-current, determinant/spin/deck, exterior/Higgs, matter-selection, family-descent, locality, residue, and refinement gate; those producer receipts and Q1--Q4 remain open.",
+      "statement": "On the declared echosahedral carrier lineage, the finite source packet now derives the twelve unit ports, inverse pairing, A5 action, and rank-three frame. The remaining Q0 package conditionally recognizes the Standard Model quotient, a one-generation rank-15 exterior witness, and a canonical rank-three candidate family band. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admissible multiplicity is N_g=3. A physical three-family conclusion still requires a rank-45 attachment and every screen-current, determinant/spin/deck, exterior/Higgs, matter-selection, family-descent, locality, current-amplitude, and refinement gate. The QFT-Q1--QFT-Q4 implications are typed separately; their OPH-native action, quantum-object, restoration, observable-tower, and resonance producers remain open.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_physical_screen_forcing_theorem",
       "assumptions": [
@@ -664,7 +750,7 @@
       ],
       "falsifier": "The exact Q0 identities fail under their premises, the MAR window or economy minimum is inconsistent, a carrier satisfying every named physical gate fails to realize the stated quotient and matter package, or a required physical map cannot be constructed without importing the Standard Model target.",
       "scope_if_false": "The failing Q0, economy, or physical-forcing layer falls. Lorentz and consensus branches must be assessed independently.",
-      "status": "conditional_q0_recognition_and_mar_economy__rank45_physical_attachment_and_q1_to_q4_open"
+      "status": "conditional_q0_recognition_and_mar_economy__rank45_attachment_and_qft_producers_open"
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
