@@ -170,7 +170,7 @@ The particle world follows the same logic from another angle. Once the charge
 sectors on a screen can combine, break apart, and carry their opposites, the way
 those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. The gauge group is reconstructed from that
-persistent charge bookkeeping itself. Minimal Admissible Realization (MAR) and
+persistent charge bookkeeping itself. The economy rule and
 the declared matter packet select the smallest admitted compact choice inside
 that economy class, the conditional one-Higgs Standard Model and its global form
 
@@ -205,7 +205,7 @@ the fifteen left-handed states $Q,u^c,d^c,L,e^c$. It also produces the three
 one-Higgs Yukawa channels and cancels the color, weak, gravitational, and cubic
 hypercharge anomalies. Three colored quark doublets plus one lepton doublet
 give four weak doublets per family. If the open family attachment realizes the
-conditional MAR minimum, three families give twelve, and reversible orientation
+conditional economy minimum, three families give twelve, and reversible orientation
 doubles that to the same twenty-four slots carried by the screen. The numerical
 match is a load check, not the missing physical intertwiner.
 
@@ -227,7 +227,7 @@ Refinement is what lets the finite screen construction become that smooth field
 theory.
 
 The color triplet is structural on the conditional matter packet. The
-three-generation value is the least member of the declared MAR economy window,
+three-generation value is the least member of the declared economy window,
 while the icosahedral faces supply a canonical rank-three candidate band. The
 physical family attachment and its field-theory evidence are open. Gauge
 factors organize candidate force directions; independently produced field

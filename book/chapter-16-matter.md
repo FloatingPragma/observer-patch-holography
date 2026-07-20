@@ -63,8 +63,7 @@ the zoo stops looking like a zoo.
 
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. Stable
-charge sectors reconstruct the compact gauge structure. Minimal Admissible
-Realization (MAR), the economy rule that selects the smallest admitted packet,
+charge sectors reconstruct the compact gauge structure. The economy rule, which selects the smallest admitted packet,
 then gives a conditional Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
 carrier, and the conditional minimum $N_g=3$. The physical family attachment

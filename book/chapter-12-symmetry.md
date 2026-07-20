@@ -244,8 +244,8 @@ reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
 This is classification before selection. Transport and refinement reconstruct
-a compact group under their stated hypotheses. Minimal Admissible Realization
-(MAR) then selects the smallest one-Higgs matter package in its declared
+a compact group under their stated hypotheses. The economy rule
+then selects the smallest one-Higgs matter package in its declared
 economy class, including three colors and a conditional minimum of three
 families. Attaching that family count to physical chiral matter is a separate
 construction. On the selected matter package, six shared center

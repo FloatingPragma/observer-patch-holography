@@ -288,7 +288,7 @@ The fermions come in a strange pattern: three copies. The up and down quarks, pl
 
 The Standard Model by itself does not explain why there are three generations.
 On the declared OPH one-Higgs economy class, the admitted window is three to
-five and Minimal Admissible Realization (MAR) selects its least value. This is
+five and the economy rule selects its least value. This is
 a model-selection statement. The
 physical attachment of the canonical rank-three screen band to matter is
 open. The charged members of the second and third observed generations are
@@ -576,9 +576,9 @@ on a wiring diagram name the same actual connection. The Standard Model quotient
 removes that duplicate counting across color, weak isospin, and hypercharge.
 
 From the transportable charge sectors, reconstruction gives a compact gauge
-group. MAR then selects the Standard Model:
+group. The economy rule then selects the Standard Model:
 among consistent one-Higgs sector packages, it keeps the smallest. Classification
-keeps gluing patterns that fit around every loop; MAR selects the minimal
+keeps gluing patterns that fit around every loop; the economy rule selects the minimal
 realized matter package.
 
 The consistency test underneath that first stage is technical, and its point is
@@ -586,7 +586,7 @@ simple. Some ways of gluing patches around a loop leave a leftover twist, and
 the theory keeps only the gluing choices where a compatible twist-free option
 exists. Everything downstream builds on the choices that survive.
 
-On this MAR branch, the smallest matter sector contains a color triplet, a
+On this economy branch, the smallest matter sector contains a color triplet, a
 weak doublet, and one abelian charge direction, giving the product Lie type
 $SU(3)\times SU(2)\times U(1)$. The realized matter package also tells us
 which apparently different transformations act identically on every state.
@@ -606,7 +606,7 @@ a genuinely different one.
 The minimal coupled carrier makes the quark doublet a color triplet and fixes
 $N_c=3$ inside the declared packet. On the same one-Higgs class, intrinsic CKM
 CP capability requires at least three generations and weak-sector ultraviolet
-consistency permits at most five. MAR chooses $N_g=3$ because generation count
+consistency permits at most five. The economy rule chooses $N_g=3$ because generation count
 is one of its economy coordinates. The graph and anomaly equations do not make
 that choice. The Witten anomaly is a consistency check on the resulting
 triplet-doublet structure.
@@ -784,7 +784,7 @@ color, weak, gravitational, and cubic hypercharge anomalies all cancel.
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
-the conditional MAR minimum of three families would therefore carry twelve
+the conditional economy minimum of three families would therefore carry twelve
 weak doublets after physical attachment. Pairing
 each slot with an orientation label gives twenty-four oriented weak slots, the
 same finite count as twelve ports with two orientations. This equality is a
@@ -957,7 +957,7 @@ that satisfies the listed consistency tests:
 
 $$\boxed{N_g = 3}$$
 
-This boxed value is conditional MAR selection. It is not forced by anomaly
+This boxed value is a conditional economy selection. It is not forced by anomaly
 cancellation, the $A_5$ graph, or the target-free source reduct.
 
 The one-Higgs slot also has a clean local geometric carrier. On the selected
@@ -994,9 +994,9 @@ branch.
 
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
-The MAR economy axiom disfavors extra unfixed Yukawa structure inside its
+The economy axiom disfavors extra unfixed Yukawa structure inside its
 declared admissible class. Among the allowed options, its smallest viable one
-wins. With $N_c=3$ and the conditional MAR value $N_g=3$, each generation
+wins. With $N_c=3$ and the conditional economy value $N_g=3$, each generation
 carries four left-handed weak doublets, an even number, so the Witten anomaly
 is satisfied generation by generation. This check does not construct the
 physical family attachment.
@@ -1274,10 +1274,10 @@ connected X/Y gauge direction.
 
 The framework accounts for several concrete facts.
 
-**The integers.** In the one-Higgs chiral MAR class, anomaly cancellation and
+**The integers.** In the one-Higgs chiral economy class, anomaly cancellation and
 Yukawa invariance fix the hypercharge lattice, and the minimal coupled carrier
 fixes the color triplet. CKM CP capability and weak-sector ultraviolet
-consistency give $3\le N_g\le5$. MAR selects the least value. Physical
+consistency give $3\le N_g\le5$. The economy rule selects the least value. Physical
 three-family attachment is a separate construction.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two transverse
@@ -1325,7 +1325,7 @@ cosmic-capacity selector and calibrated clock/curvature map needed for global
 capacity and laboratory scale are also open.
 
 **Charge quantization and line operators.** On the realized matter package,
-color singlets have integer electric charge. On the physical MAR/tensor
+color singlets have integer electric charge. On the physical economy/tensor
 $\mathbb Z_6$ branch, the minimum magnetic line is one electron-Dirac unit with
 the required color-magnetic charge, and the electromagnetic theta period is
 $2\pi$. These are consequences of the global gauge form.
@@ -1352,10 +1352,10 @@ The Einstein action around flat space leaves two tensor polarizations. Their
 positive-energy quantum state spaces turn those recurring carrier patterns into
 stable, detectable particles.
 
-Within the one-Higgs chiral MAR class, the smallest admissible
+Within the one-Higgs chiral economy class, the smallest admissible
 gauge-and-matter packet fixes the displayed quark and lepton charges
 conditionally. The color carrier gives three colors. CP capability and the
-weak-sector clause give a three-to-five window, and MAR selects three. The
+weak-sector clause give a three-to-five window, and the economy rule selects three. The
 physical attachment of three generations is an open, separate construction.
 
 The result is an organized conditional particle packet: a specific gauge
