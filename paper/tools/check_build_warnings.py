@@ -185,6 +185,8 @@ def match_allowlist(warnings: list[BoxWarning], allowlist: list[dict], log_name:
                 continue
             if entry.get("source_file") and entry["source_file"] != w.source_file:
                 continue
+            if entry.get("lines") and entry["lines"] != w.lines:
+                continue
             if entry.get("excerpt_contains") and entry["excerpt_contains"] not in w.excerpt:
                 continue
             if entry.get("badness_min") and (w.badness or 0) < entry["badness_min"]:
