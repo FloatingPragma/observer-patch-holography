@@ -51,6 +51,16 @@ Mapping between Lean 4 theorems in this project and statements in
   rank-three conclusion (idempotent `G/4` with trace 3) is the one on-paper
   step. It does **not** derive the icosahedral carrier from OPH axioms,
   construct the `A5` action, or bear on the Prop 4.2 / Def 4.1 counts.
+- Icosahedral port action (`Screen/A5PortAction.lean`, #568): 9 / 9
+  declarations, sorry-free, kernel `decide`, axioms `propext`/`Quot.sound`
+  only. Exhibits the sixty proper icosahedral rotations as explicit port
+  permutations and proves the listed set is a group of order sixty (closed,
+  identity, two-sided inverses in the list, pairwise distinct, each row a
+  genuine permutation), that every element preserves the port incidence and
+  commutes with the antipode, and that the action is transitive on ports.
+  The identification of this order-sixty incidence-automorphism group with
+  the abstract `A5` (simplicity or classification) stays on paper; no
+  physical current or descent content.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
