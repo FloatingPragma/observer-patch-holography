@@ -42,13 +42,23 @@ paper, Lorentz branch; consensus paper, quotient normal forms. Status:
 conditional theorem on a source-derived common-domain tower. Construction and
 certification of that tower are work in progress.
 
-**C3. Modular self-consistency.** A closed system with no external clock must
-generate its own dynamics from its state-algebra pair. Tomita-Takesaki modular
-theory supplies exactly this: the restricted state carries the flow, thermality
-is the KMS consistency condition, and time is internal readout. Removed
-freedom: no external time parameter exists to tune. Carrier: compact paper,
-modular-flow sections. Status: established mathematics installed on the
-declared branch.
+**C3. Modular self-consistency.** A closed system with no external clock needs
+an intrinsic dynamical parameter and an internal way to read it.
+Tomita-Takesaki modular theory supplies the automorphism flow of a suitable
+noncommutative algebra-state pair, while KMS supplies its equilibrium
+condition. A separate observer clock instrument and affine calibration turn
+that dimensionless parameter into an operational time. At finite cutoff,
+accepted strict-descent repair, reversible equilibration, and modular flow are
+three different operators. Source-derived rate ratios can reconstruct a
+classical Gibbs potential when cycle affinities vanish, but the commutative
+modular automorphism is trivial; the oriented 24-channel register carries a
+nontrivial commutator grading only after its source-derived channel embedding
+passes the closure receipt. Removed freedom: the modular flow is fixed by the
+declared algebra-state pair up to its standard central ambiguity; physical
+clock scale is not fixed until calibration. Carrier: compact and screen
+microphysics papers, modular-flow and finite modular-gearing sections. Status:
+finite algebraic theorems established; physical cap-state identification,
+clock calibration, and BW promotion remain receipt-conditional.
 
 **C4. Transportable-charge consistency.** Internal labels must transport
 coherently across overlaps. The category of transportable charges, under the
@@ -59,9 +69,11 @@ mathematical companions. Independently, the exterior package
 $\Lambda^2(C\oplus W)\oplus\Lambda^4(C\oplus W)$ gives the exact chiral
 Standard Model branching, one-Higgs invariant lines, anomaly cancellations,
 and four weak-doublet copies per generation under its declared carrier. This
-is a closed conditional representation witness. Physical forcing from the
-twelve-port screen still requires the unit-port and icosahedral source
-selectors, a physical inner-current action, spin, determinant and deck descent,
+is a closed conditional representation witness. On the declared echosahedral
+carrier lineage, the primitive-port readback and oriented-incidence theorem
+closes the unit-port and icosahedral source selectors, including refinement and
+relabeling naturality. Physical forcing from that screen still requires a
+physical inner-current action, spin, determinant and deck descent,
 exterior/Higgs and no-extra-sector selection, family attachment, and the
 load/intertwiner receipts.
 The four weak copies come from exterior multiplicity. No free
@@ -217,9 +229,9 @@ The ledger rows are not independent. They reduce to six generating objects:
 |---|---|---|
 | G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached successor whose full method-selection chronology is blind or clean-room audited. The required 4×10⁻⁹ relative payload precision exceeds every method on Earth ("Why The Hadronic Test Is Hard", [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The V1 grid is exploratory and non-blind; its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 with no promotion weight, and its full defect inventory and the correct total/residual endpoint diagnostics are recorded in the reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and ../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md. No promotion follows | CL-1, CL-2 |
 | G2 | Produce robust direct public-record closure $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$. Construct unclosed trial universes without answer records; emit total record-atom readouts, endogenous reachability, frozen publicness, complete global joint checkpoint kernels, compound-graph/MIS witnesses, and carrier projections over the complete terminal fiber. Certify no-new-confusability extension/refinement and derive an exact transfer, fiber-product, or sharp seam law proving the unique regulator-stable slack zero $s(D_\star)=0<s(D)$ elsewhere. The finite gluing, correctable-capacity, bound, saturation, support-semigroup, TV-robustness, order, refinement, and countermodel results are closed. $\rho_{\rm op}$, measured $\Lambda$, and the EW/Higgs bridge are downstream tests | CL-3, CL-4, CL-7 |
-| G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
+| G3 | The strict-one-loop theory pole-map kernel is proved and fail-closed: it freezes `Delta=-Pi`, the lower-half-plane sheet, the strict order mask, exclusion of one-loop-squared neutral mixing from the one-loop root, and separation of strict coefficients from exact square-root display coordinates. Its SMDR fixture is a post-exposure regression, not an independent self-energy producer. Complete the OPH-to-FJ identity and tadpole conversion, target-clean EFT matching, source law/covariance, independent general-gauge self-energies and finite-order BRST/ST/Ward/Nielsen receipts, pole isolation/current amplitudes, and source clock before any physical comparison. No raw W/Z pull from the fixture is evidence | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed (converged precision-100 reruns; identity to 35+ digits; CI test) |
-| G5 | Promote the closed exterior Standard Model representation witness to a screen-forced physical branch by discharging the unit-port and icosahedral source selectors, physical current, determinant/spin/deck descent, exterior/Higgs and no-extra-sector selections, family attachment/descent, and load/intertwiner receipts | CL-9 |
+| G5 | Promote the closed exterior Standard Model representation witness to a screen-forced physical branch. The unit-port and icosahedral selectors are discharged on the declared echosahedral lineage; construct the physical current, determinant/spin/deck descent, exterior/Higgs and no-extra-sector selections, family attachment/descent, and load/intertwiner receipts | CL-9 |
 | G6 | Promote the closed 24-register rate no-go and conditional determinant-clock implication by constructing a source-derived operational clock line and calibrated gap, then proving the natural norm-preserving map to the charged-lepton determinant and its normalization | CL-10 |
 
 Beyond these rows, the mass-shape sector waits on a source-derived flavor-orbit

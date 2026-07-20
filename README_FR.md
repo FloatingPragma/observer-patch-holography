@@ -125,8 +125,11 @@ distingués ci-dessous.
   l’entropie donnent la relation de première variation tensorielle ; l’équation
   absolue d’Einstein exige une même tour issue de la source et de domaine
   commun, dont la construction et la certification sont en cours ;
-- la branche icosaédrique déclarée à douze ports possède exactement la
-  décomposition d’espace de coefficients
+- sur la lignée échosaédrique déclarée et visible au quotient, les atomes de
+  ports primitifs, leur relecture et l’incidence orientée dérivent la
+  séparation en douze unités, l’appariement inverse, l’action propre de $A_5$
+  et le repère icosaédrique de rang trois, naturellement sous raffinement et
+  réétiquetage ; cette branche possède exactement la décomposition d’espace de coefficients
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
 - les descentes physiques du courant, des traces, du spin et du centre donnent
   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ lorsqu’elles satisfont leurs
@@ -149,13 +152,18 @@ récupérable et capable de se relire. La récupération conjointe de
 l’observation quantique, de l’espace-temps lorentzien, de la gravité
 conditionnelle d’Einstein, du paquet fini de reconnaissance du Modèle standard
 et des tests de clôture quantitative motive le programme OPH. Les reçus
-physiques de source, de Spin, de familles, de scalaire, de Q1--Q4 et de pôles
-restent des conditions explicites.
+physiques de source, de Spin, de familles et de scalaire restent des conditions
+explicites. L'atterrissage en théorie quantique des champs est désormais un
+DAG typé : QFT-Q2 et QFT-Q3 descendent en parallèle de QFT-Q1, l'algèbre
+stricte des pôles W/Z appartient à QFT-Q3, et QFT-Q4 exige séparément une tour
+non perturbative d'observables et une continuation analytique. Les implications
+conditionnelles sont explicites ; leurs producteurs natifs OPH restent ouverts.
 
 État lisible par machine :
 
-    CONDITIONAL_A5_TO_SM_RECOGNITION_AND_FORCING_CRITERION__Q0_FINITE_CORE_PASS__PHYSICAL_RECEIPTS_AND_Q1_TO_Q4_OPEN
+    CONDITIONAL_QFT_TIER_DAG_AND_STRICT_WZ_POLE_ALGEBRA_DEFINED__Q1_SOURCE_CONSTRUCTION_Q2_Q4_OBJECTS_Q3_VALIDATION_AND_OPH_PRODUCERS_OPEN
     DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
+    CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL
 
 Les prémisses techniques et les obligations de preuve restantes sont
 regroupées à la fin de ce document, au lieu d’interrompre l’introduction du
@@ -254,8 +262,9 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection MAR conditionnelle $N_g=3$ ; l’attachement physique des familles et Q1--Q4 restent ouverts | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Pôles physiques W/Z | Une pile conditionnelle SM-EFT/FJ/pôle complexe à ordre fini est définie ; l’appariement à la source, la vérification jauge/BRST indépendante, la loi d’incertitude, les amplitudes de courant physique et l’horloge restent ouverts, donc aucun pôle W/Z natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection MAR conditionnelle $N_g=3$ ; l’attachement physique des familles reste ouvert, tandis que les implications QFT et leurs producteurs OPH encore ouverts sont séparés explicitement | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Atterrissage QFT | Invariance de l’action finie QFT-Q1 ; critères de ligne déterminante et hamiltonien QFT-Q2 ; restauration formelle BV/ST et algèbre W/Z stricte QFT-Q3 ; implications OS et résonance QFT-Q4 séparées. QFT-Q2 et QFT-Q3 sont parallèles et toutes les constructions natives de la source restent des portes de promotion | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique actuel reste une régression de backend post-exposition ; l’appariement OPH/FJ, un moteur jauge/BRST indépendant, la covariance, les amplitudes de courant physique et l’horloge restent ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
 | Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet physique à coupure fixe $D=24$ est certifié, tandis que la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -270,7 +279,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | La synthèse complète | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | La construction des particules | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| L’architecture de l’écran à douze ports | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
+| L’architecture de l’écran à douze ports et le théorème fini d’engrenage modulaire | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Les preuves exécutables | [`code/`](code) et le [registre de clôture](docs/CLOSURE_LEDGER.md) |
 | L’interprétation et la continuation des observateurs | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 

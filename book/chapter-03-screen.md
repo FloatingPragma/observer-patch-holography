@@ -268,12 +268,22 @@ bookkeeping. Recurrent loops inside a patch or a small group of ports can
 supply local memory and winding-sensitive behavior. They are local subchannels,
 not a claim that the whole universe is a torus.
 
-The choice of twelve follows in two steps. For a triangular cellulation of a
-sphere, Euler's relation fixes the total coordination defect to twelve. The
-screen's strict spreading cost resolves that total into twelve equal unit
-defects, and its isotropic tomography rule places the resulting six antipodal
-axes in the unique regular icosahedral arrangement. Its proper rotation group
-is the sixty-element group $A_5$.
+On the declared echosahedral carrier lineage, the choice is more than a drawn
+template. Twelve equal-trace primitive central port atoms define an integer
+defect readback with total charge twelve and cost
+$H(q)=\sum_pq_p^2$. Since
+$H(q)=12+\sum_p(q_p-1)^2$, the unique minimum assigns one unit to every port,
+and the next cost is higher by two. Oriented incidence has twelve vertices,
+thirty edges, twenty triangular faces, and distance profile $(1,5,5,1)$.
+The unique distance-three vertex therefore supplies each port's inverse and
+the six antipodal axes. The orientation-preserving incidence automorphisms form
+the sixty-element group $A_5$, while an exact rank-three Gram matrix recovers
+the regular icosahedral frame. All of these outputs commute with the declared
+refinement maps and consistent relabeling.
+
+This is a theorem about that quotient-visible carrier type. It does not prove
+that every observer patch must be echosahedral, and it does not yet turn the
+port coefficients into physical gauge currents.
 
 At one interface, the machine performs a short cycle:
 

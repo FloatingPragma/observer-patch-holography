@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.example/schemas/physical_wz_strict_1l_pole_map_receipt.schema.json",
+  "title": "Physical W/Z strict-one-loop pole-map receipt",
+  "type": "object",
+  "required": [
+    "schema",
+    "receipt_id",
+    "claim_class",
+    "status",
+    "map_evaluated",
+    "physical_promotion_allowed",
+    "inverse_propagator_convention",
+    "self_energy_sign_translation",
+    "pole_convention",
+    "perturbative_order",
+    "source",
+    "renormalized_parameters",
+    "contribution_mask",
+    "tree",
+    "one_loop_coefficients",
+    "complex_poles",
+    "neutral_matrix",
+    "source_covariance",
+    "evidence_gates",
+    "unverified_evidence_claims",
+    "promotion_required_gates",
+    "blockers",
+    "promotion_policy",
+    "tolerances"
+  ],
+  "properties": {
+    "schema": {"const": "physical_wz_strict_1l_pole_map_receipt_v1"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "claim_class": {"type": "string", "minLength": 1},
+    "status": {"const": "CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL"},
+    "map_evaluated": {"const": true},
+    "physical_promotion_allowed": {"const": false},
+    "inverse_propagator_convention": {"const": "Gamma=s-m2-Delta; s_pole=m2+Delta_at_tree"},
+    "self_energy_sign_translation": {"const": "Delta=-Pi; Gamma=s-m2+Pi=s-m2-Delta"},
+    "pole_convention": {
+      "const": "s_V=(M_V-i*Gamma_V/2)^2; Re(sqrt(s_V))>0; Im(sqrt(s_V))<=0"
+    },
+    "perturbative_order": {"const": "strict_one_loop"},
+    "source": {"type": "object"},
+    "renormalized_parameters": {
+      "type": "object",
+      "required": ["Q_GeV", "scheme", "g", "gp", "v_F_GeV"],
+      "properties": {
+        "Q_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "scheme": {"type": "string"},
+        "g": {"type": "number", "exclusiveMinimum": 0},
+        "gp": {"type": "number", "exclusiveMinimum": 0},
+        "v_F_GeV": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "contribution_mask": {"type": "object"},
+    "tree": {
+      "type": "object",
+      "required": ["w_GeV2", "z_GeV2", "mW0_GeV", "mZ0_GeV"],
+      "properties": {
+        "w_GeV2": {"type": "number", "exclusiveMinimum": 0},
+        "z_GeV2": {"type": "number", "exclusiveMinimum": 0},
+        "mW0_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "mZ0_GeV": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "one_loop_coefficients": {
+      "type": "object",
+      "required": ["Delta_WW_at_w_GeV2", "Delta_ZZ_at_z_GeV2", "strict_W", "strict_Z"],
+      "properties": {
+        "Delta_WW_at_w_GeV2": {"$ref": "#/$defs/complexPair"},
+        "Delta_ZZ_at_z_GeV2": {"$ref": "#/$defs/complexPair"},
+        "strict_W": {"$ref": "#/$defs/strictReadout"},
+        "strict_Z": {"$ref": "#/$defs/strictReadout"}
+      },
+      "additionalProperties": false
+    },
+    "complex_poles": {
+      "type": "object",
+      "required": ["W", "Z"],
+      "properties": {
+        "W": {"$ref": "#/$defs/pole"},
+        "Z": {"$ref": "#/$defs/pole"}
+      },
+      "additionalProperties": false
+    },
+    "neutral_matrix": {
+      "type": "object",
+      "required": ["status", "diagnostics", "strict_1L_root_rule"],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete_at_declared_evaluation_point",
+            "missing_AA_AZ_ZA_coefficients"
+          ]
+        },
+        "diagnostics": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/neutralDiagnostics"}
+          ]
+        },
+        "strict_1L_root_rule": {
+          "const": "s_Z=z+Delta_ZZ^(1)(z); off-diagonal product excluded as O(h^2)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_covariance": {"type": "object"},
+    "evidence_gates": {"$ref": "#/$defs/evidenceGates"},
+    "unverified_evidence_claims": {"$ref": "#/$defs/unverifiedEvidenceClaims"},
+    "promotion_required_gates": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "blockers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "promotion_policy": {
+      "const": "v1 is an algebraic diagnostic and cannot self-promote; a separate aggregate checker must verify hash-bound evidence artifacts and subject binding"
+    },
+    "tolerances": {
+      "type": "object",
+      "required": ["absolute_GeV2", "absolute_GeV", "relative", "basis"],
+      "properties": {
+        "absolute_GeV2": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-6},
+        "absolute_GeV": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-8},
+        "relative": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-10},
+        "basis": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "evidenceGates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strict_one_loop_pole_equation_implemented",
+        "strict_coefficients_and_sqrt_readout_separated",
+        "neutral_matrix_point_diagnostic_supplied",
+        "full_neutral_matrix_supplied",
+        "renormalized_FJ_vev_selected",
+        "complete_FJ_tadpole_conversion_checked",
+        "target_clean_source_matching",
+        "source_law_or_deterministic_exactness_receipt",
+        "independent_self_energy_engine",
+        "finite_order_BRST_ST_Ward_Nielsen_receipt",
+        "physical_clock_closed",
+        "no_target_ancestry"
+      ],
+      "properties": {
+        "strict_one_loop_pole_equation_implemented": {"const": true},
+        "strict_coefficients_and_sqrt_readout_separated": {"const": true},
+        "neutral_matrix_point_diagnostic_supplied": {"type": "boolean"},
+        "full_neutral_matrix_supplied": {"const": false},
+        "renormalized_FJ_vev_selected": {"const": false},
+        "complete_FJ_tadpole_conversion_checked": {"const": false},
+        "target_clean_source_matching": {"const": false},
+        "source_law_or_deterministic_exactness_receipt": {"const": false},
+        "independent_self_energy_engine": {"const": false},
+        "finite_order_BRST_ST_Ward_Nielsen_receipt": {"const": false},
+        "physical_clock_closed": {"const": false},
+        "no_target_ancestry": {"const": false}
+      }
+    },
+    "unverifiedEvidenceClaims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "renormalized_FJ_vev_selected",
+        "complete_FJ_tadpole_conversion_checked",
+        "target_clean_source_matching",
+        "source_law_or_deterministic_exactness_receipt",
+        "independent_self_energy_engine",
+        "finite_order_BRST_ST_Ward_Nielsen_receipt",
+        "physical_clock_closed",
+        "no_target_ancestry"
+      ],
+      "properties": {
+        "renormalized_FJ_vev_selected": {"type": "boolean"},
+        "complete_FJ_tadpole_conversion_checked": {"type": "boolean"},
+        "target_clean_source_matching": {"type": "boolean"},
+        "source_law_or_deterministic_exactness_receipt": {"type": "boolean"},
+        "independent_self_energy_engine": {"type": "boolean"},
+        "finite_order_BRST_ST_Ward_Nielsen_receipt": {"type": "boolean"},
+        "physical_clock_closed": {"type": "boolean"},
+        "no_target_ancestry": {"type": "boolean"}
+      }
+    },
+    "complexPair": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "strictReadout": {
+      "type": "object",
+      "required": ["M0_GeV", "delta_M_1L_GeV", "M_strict_1L_GeV", "Gamma_strict_1L_GeV"],
+      "properties": {
+        "M0_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "delta_M_1L_GeV": {"type": "number"},
+        "M_strict_1L_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "Gamma_strict_1L_GeV": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "pole": {
+      "type": "object",
+      "required": ["s_pole_truncated_1L_GeV2", "energy_pole_readout"],
+      "properties": {
+        "s_pole_truncated_1L_GeV2": {"$ref": "#/$defs/complexPair"},
+        "energy_pole_readout": {
+          "type": "object",
+          "required": ["M_GeV", "Gamma_GeV", "sqrt_s_GeV", "s_reconstructed_GeV2", "coordinate_transform_note"],
+          "properties": {
+            "M_GeV": {"type": "number", "exclusiveMinimum": 0},
+            "Gamma_GeV": {"type": "number", "minimum": 0},
+            "sqrt_s_GeV": {"$ref": "#/$defs/complexPair"},
+            "s_reconstructed_GeV2": {"$ref": "#/$defs/complexPair"},
+            "coordinate_transform_note": {
+              "const": "Exact square root of the one-loop-truncated s pole; the nonlinear coordinate readout contains kinematic terms beyond strict one loop."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "complexMatrix2": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "array",
+          "prefixItems": [
+            {"$ref": "#/$defs/complexPair"},
+            {"$ref": "#/$defs/complexPair"}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {"$ref": "#/$defs/complexPair"},
+            {"$ref": "#/$defs/complexPair"}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "neutralDiagnostics": {
+      "type": "object",
+      "required": [
+        "evaluation_s_GeV2",
+        "Gamma_N_at_z_GeV2",
+        "det_Gamma_N_at_z_GeV4",
+        "Delta_ZA_times_Delta_AZ_GeV4",
+        "mixing_loop_power",
+        "mixing_used_in_strict_1L_root",
+        "two_loop_effective_inverse_term"
+      ],
+      "properties": {
+        "evaluation_s_GeV2": {"$ref": "#/$defs/complexPair"},
+        "Gamma_N_at_z_GeV2": {"$ref": "#/$defs/complexMatrix2"},
+        "det_Gamma_N_at_z_GeV4": {"$ref": "#/$defs/complexPair"},
+        "Delta_ZA_times_Delta_AZ_GeV4": {"$ref": "#/$defs/complexPair"},
+        "mixing_loop_power": {"const": 2},
+        "mixing_used_in_strict_1L_root": {"const": false},
+        "two_loop_effective_inverse_term": {
+          "const": "-Delta_ZA^(1)(s)*Delta_AZ^(1)(s)/s"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

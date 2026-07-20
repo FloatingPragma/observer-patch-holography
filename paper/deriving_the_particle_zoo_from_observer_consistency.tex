@@ -53,6 +53,11 @@ defect in its declared chart, and conditional Higgs/top coordinates. Its
 weak-boson numbers are running-chart coordinates, without a completed map to
 Breit--Wigner or complex-pole masses. No nonzero pole mass is claimed as a
 source-only prediction.
+The paper-side quantum hierarchy is a DAG: QFT-Q2 exact finite quantization
+and QFT-Q3 formal perturbative/BV quantization are parallel descendants of
+QFT-Q1. The strict finite-order \(W/Z\) theorem lands at QFT-Q3; QFT-Q4 is
+reserved for a separately constructed nonperturbative continuum and resonance
+limit.
 
 The flavor calculations also expose sharp boundaries. A connected
 six-dimensional charged-lepton response register derives the Koide balance
@@ -565,7 +570,7 @@ Chain & OPH output & Role \\
 \midrule
 \(P\)-closure and fine structure & certified incomplete-map root \(136.994835177413\ldots\) (certified source-root row); mixed diagnostic \(137.0359595136\ldots\); certified gauge-width fixed point \(137.035660136946577\ldots\); empirical endpoint \(136.2636589431\in[136.1583832834,136.3690975240]\); measured \(137.035999177(21)\) & distinct support classes: incomplete declared-map output, mixed diagnostic excluded from physical output, empirical hadron closure with anchor gap \([0.6485541111,0.8547920666]\), and measurement \\
 Classical carrier modes & two transverse Maxwell modes; \(2\dim G\) perturbative pure-Yang--Mills modes; two pure-Einstein TT modes & conditional quadratic-action results; quantum particle gates open \\
-Electroweak \(W/Z\) & source-audit running/chart coordinates \((80.330,\,91.119)\)~GeV (source-audit row); candidate value-law coordinates \((80.3770000154,\,91.1879780779)\)~GeV; no source-only physical mass emitted & these coordinates are not commensurate with the PDG mass-dependent-width Breit--Wigner masses or with complex-pole masses; the stated complex-pole conversion diagnostic places the \(W\) chart \(0.5\) propagated experimental standard deviations from the converted PDG 2026 pole \(80.3340\)~GeV and the \(Z\) chart about \(17\) from its converted pole, with no theory covariance. QT1--QT5, the finite-carrier certificate, source-law selection, matching prescription, and physical pole readout are open; no numerical proximity is counted as mass evidence \\
+Electroweak \(W/Z\) & source-audit running/chart coordinates \((80.330,\,91.119)\)~GeV (source-audit row); candidate value-law coordinates \((80.3770000154,\,91.1879780779)\)~GeV; no source-only physical mass emitted & these coordinates are not commensurate with the PDG mass-dependent-width Breit--Wigner masses or with complex-pole masses. The exact convention map gives energy-pole masses \(M_W=80.3411410\)~GeV and \(M_Z=91.1623040\)~GeV; the distinct legacy coordinates \(\sqrt{\operatorname{Re}s}\) are \(80.3340218\)~GeV and \(91.1537725\)~GeV. QT1--QT5, the finite-carrier certificate, source-law selection, matching prescription, theory covariance, and physical pole readout are open; no chart-to-pole pull or numerical proximity is counted as mass evidence \\
 Electroweak hierarchy/naturality & \(\begin{gathered}v/E_\star\ \text{on each named pixel branch}\\N_{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected dimensionless bridge; identifying \(N_{\mathrm{EW}}\) with direct cosmic capacity requires construction of the public-record producer and the common screen/electroweak load-carrier map. The Planck-\(\Lambda\) central capacity is \(N_\Lambda\simeq3.313\times10^{122}\), a \(6.6\)-percent mismatch; the horizon--record identification and \(E_\star\) are separate gates \\
 Higgs/top relation & double-criticality branch \((m_H,m_t)=(125.77,\,172.63)\)~GeV at the frozen boundary-scale candidate \(E_\star e^{-\pi}P^{-1/6}\) (two loops), with \(m_H=125.72\)~GeV on the fit-free curve at the measured top; target-anchored declared-surface fit \((125.1995304097,\,172.3523553288)\)~GeV kept separate; no source-only physical mass emitted & the criticality family has zero continuous parameters over the boundary scale; the boundary-scale selection is a theorem modulo two finite carrier facts CF1/CF2 (the variational midpoint principle is proved and its quadratic-cost and placement premises reduce to the axioms; CF1/CF2 are the D11 carrier census the \(W/Z\) law also needs); the declared-surface fit is target-anchored and never predicts; the source-root, scale, rigidity, provenance, uncertainty, and complex-pole gates are open \\
 Charged leptons & target-anchored witness values withheld; finite eight-path digital carrier and empirical transport intervals retained as diagnostics & the model proves schema satisfiability and a central record dilation, not physical source selection; the intervals use target-anchored ratios, measured \(\alpha\), and empirical transport \\
@@ -1452,11 +1457,12 @@ The displayed electroweak lane is the forward running/chart solve,
 \((80.330,\,91.119)\)~GeV (source-audit row). The PDG comparison values are
 mass-dependent-width Breit--Wigner parameters, while complex-pole masses define another
 convention. As a stated convention diagnostic under the complex-pole conversion of the
-PDG 2026 reference values, the chart \(W\) coordinate sits \(0.5\) propagated experimental
-standard deviations from the converted pole \(80.3340\)~GeV, and the chart \(Z\)
-coordinate about \(17\) from its converted pole; both figures carry no OPH theory
-covariance, and the physical readout contract is open. No physical pull or
-near-hit is assigned to these coordinates.
+PDG 2026 reference values, the energy-pole coordinates are
+\((M_W,M_Z)=(80.3411410,91.1623040)\)~GeV, whereas the older
+\(\sqrt{\operatorname{Re}s}\) coordinates are
+\((80.3340218,91.1537725)\)~GeV. These two definitions must not be mixed.
+The running/chart coordinates carry no OPH theory covariance, the physical
+readout contract is open, and no physical pull or near-hit is assigned.
 The candidate forward value law has a stronger conditional theorem: it follows
 uniquely from a finite quotient-path certificate.  The certificate is not
 emitted by the five axioms or by the existing carrier artifacts.
@@ -2067,16 +2073,14 @@ Equating the screen and D10 load expressions gives
 \end{proof}
 
 \begin{theorem}[Icosahedral screen sieve and gated capacity composition]\label{thm:screen-sieve-capacity-projection}
-On the locally six-valent triangulated \(S^2\) branch, assume integer charges,
-a feasible twelve-unit configuration, and an additive cost satisfying
-\[
- h(0)=0,\quad h(1)>0,\quad h(k)\ge h(1)|k|,
-\]
-strictly for \(|k|\ge2\). Assume edge-center collar readout, inverse-port
-antipodal pairing, and the D-optimal vector/quadrupole selector of
-Ref.~\cite{ophmicrophysics}. Then the screen has twelve unit curvature ports on
-the regular icosahedral orbit, and an equal-weight invariant load \(X\) is read
-locally as \(X/12\). For
+On the certified echosahedral carrier lineage of
+Ref.~\cite{ophmicrophysics}, assume twelve primitive equal-trace port-center
+atoms, the integer total-twelve central readback cost, oriented
+\((12,30,20)\) incidence, and refinement-cocycle data. Then the source-selector
+theorem derives twelve unit curvature ports, their fixed-point-free inverse
+pairing, the proper \(A_5\) action, and the regular rank-three icosahedral
+frame, naturally under refinement and relabeling. An equal-weight invariant
+load \(X\) is therefore read locally as \(X/12\). For
 \(X=\log(N/\pi)\), local cell entropy \(P/4\), and electroweak multiplicity
 \(\beta_{\mathrm{EW}}=4\), define the screen composition coordinate
 \[
@@ -2100,27 +2104,26 @@ which is equivalent to the electroweak bridge residual
 \end{theorem}
 
 \begin{proof}
-Euler and triangular incidence give
+The source readback identity
 \[
-\sum_v q_v=6V-2E=12.
+H(q)=12+\sum_p(q_p-1)^2
 \]
-The cost inequality gives
-\(\sum_vh(q_v)\ge h(1)\sum_v|q_v|\ge12h(1)\), with equality only for twelve
-positive unit charges. The D-optimal equality conditions are
-\(F_1=2I_3\) and \(F_2=(4/5)I_5\). They make the six antipodal axes the unique
-real equiangular tight frame in three dimensions, hence the regular
-icosahedral axes. Edge-center collars expose the twelve vertices as central
-ports. Equal-weight additivity gives \(X/12\). Multiplying by \(P/4\) and
+gives the unique all-one allocation with exact gap two.  The oriented
+incidence has distance profile \((1,5,5,1)\), positive automorphism group
+\(A_5\), and exact Gram matrix \(G^2=4G\) of rank three, as proved and checked
+in Ref.~\cite{ophmicrophysics}. Edge-center collars expose the twelve primitive
+atoms as central ports. Equal-weight additivity gives \(X/12\). Multiplying by \(P/4\) and
 \(\beta_{\mathrm{EW}}=4\) gives
 \(\Gamma_{\mathrm{scr}}=(P/12)\log(N/\pi)\). The additional identification
 receipt and the source transmutation equation give the remaining displays.
 \end{proof}
 
-The unit-splitting cost, D-optimal selector, port/weak-carrier intertwiner,
-normalized port-load trace equality, and common screen/electroweak
-load-carrier map are physical branch premises. Their source
-production is work in progress. The exact exterior multiplicity alone does
-not discharge the physical load identity.
+The unit-splitting and proper-\(A_5\) source receipts are now closed on the
+declared echosahedral carrier lineage. The port/weak-carrier intertwiner,
+normalized port-load trace equality, and common screen/electroweak load-carrier
+map remain physical branch premises whose source production is work in
+progress. The exact exterior multiplicity alone does not discharge the
+physical load identity.
 
 \begin{theorem}[EW bridge-map fixed point]\label{thm:ew-exact-capacity}
 Define the log-capacity map
@@ -2458,12 +2461,17 @@ s_B=\left(M_B-\frac{i}{2}\Gamma_B\right)^2,
 \]
 it determines one mass and width.  If a Nielsen identity has the form
 \(\partial_\xi D_B=C_B^{(\xi)}D_B\), the simple pole is gauge-parameter independent.
+For \(W\) and \(Z\), promotion to a physical resonance additionally requires
+a dressed BRST-invariant current amplitude whose Laurent coefficient at that
+pole is nonzero; for \(H\), the analogous scalar-amplitude coupling is a
+separate condition. A simple zero of the inverse-propagator determinant alone
+does not establish either coupling.
 \end{theorem}
 
 \begin{proof}
 Rouch\'e's theorem preserves the number of enclosed zeros under the certified
 perturbation.  Simplicity gives the implicit-function stability bound and a
-nonzero residue.  Differentiating \(D_B(s_B(\xi),\xi)=0\) and using the Nielsen
+locally simple determinant zero. Differentiating \(D_B(s_B(\xi),\xi)=0\) and using the Nielsen
 identity gives \(ds_B/d\xi=0\).  An invertible analytic field redefinition
 multiplies \(D_B\) by a nonzero analytic factor and therefore preserves the
 pole set.
@@ -2474,6 +2482,10 @@ contour enclosures, widths, residues, or pole-convention uncertainty map are
 present on the displayed mass-chart surface. Schema fields named
 \texttt{MW\_pole}, \texttt{MZ\_pole}, or \texttt{mt\_pole} are labels only and do not
 supply this theorem.
+
+\input{tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex}
+
+\input{tex_fragments/STRICT_ONE_LOOP_WZ_POLE_MAP_PORT.tex}
 
 \begin{theorem}[Rigidity, dependency, and W/Z/H composition criterion]
 Let \(\mathcal F_{\mathrm{EW}}\) be the fully enumerated class of source maps
@@ -2659,10 +2671,11 @@ with unclosed-clock displays \((80.3301,\,91.1191)\) and
 \(M_W\) and \(5.1\)~MeV on \(M_Z\)
 (\texttt{wzh\_residual\_elimination\_boundary.json}). These are running/chart
 coordinates. The PDG mass targets use a mass-dependent-width Breit--Wigner convention, and
-complex-pole masses use another convention. The coordinates therefore have no valid physical
-pull or near-hit interpretation; the complex-pole convention diagnostic (\(W\) at \(0.5\)
-propagated experimental standard deviations from the converted pole, \(Z\) at about \(17\))
-carries no theory covariance. Numerical \(W/Z\) proximity cannot decide between the laws;
+complex-pole masses use another convention. The exact convention map distinguishes
+\(M=\operatorname{Re}\sqrt{s}\) from the legacy \(\sqrt{\operatorname{Re}s}\)
+coordinate. The running/chart coordinates therefore have no valid physical
+pull or near-hit interpretation and carry no theory covariance. Numerical \(W/Z\)
+proximity cannot decide between the laws;
 the decision object is a source-law
 selection principle, and the quantitative mechanism of the source-action
 rigidity theorem applies once the electroweak feature basis and moment vector

@@ -1,0 +1,120 @@
+\subsubsection*{Strict-one-loop W/Z pole-map kernel}
+
+The finite-order theory map is now explicit and machine checked.  Let the
+renormalized one-doublet electroweak input at scale \(Q\) be
+\(\theta(Q)=(g,g',v_F,\ldots)\), with canonical Higgs kinetic term and
+\(v_F>0\), and set
+\[
+w=\frac{g^2v_F^2}{4},\qquad
+z=\frac{(g^2+g'^2)v_F^2}{4}.
+\]
+Use the inverse-propagator convention
+\[
+\Gamma^T(s)=s-m_0^2-\Delta^T(s)
+=s-m_0^2+\Pi^T(s),\qquad \Delta^T=-\Pi^T,
+\]
+where each \(\Delta^{(1)}\) already contains its one-loop factor,
+counterterms, tadpoles, and the complete declared strict-one-loop mask.
+Relative to the coefficient convention of
+Theorem~\ref{thm:qft-q3-strict-wz-coefficients},
+\[
+\Delta_{ij}^{(1)}(s)=-\kappa\Pi_{ij}^{(1)}(s),
+\qquad \kappa=(16\pi^2)^{-1}.
+\]
+The two notations are translations of one pole equation, not independent
+results.
+
+\begin{proposition}[Strict-one-loop charged and neutral pole map]
+\label{prop:strict-one-loop-wz-map}
+Assume the tree roots \(w,z>0\) are simple and the declared one-loop entries
+are holomorphic near them on the frozen analytic sheet.  Then
+\[
+s_W^{[1]}=w+\Delta_{WW}^{(1)}(w),\qquad
+s_Z^{[1]}=z+\Delta_{ZZ}^{(1)}(z).
+\]
+In the neutral tree-level photon--\(Z\) basis,
+\[
+\Gamma_N^T(s)=
+\begin{pmatrix}
+s-\Delta_{AA}^{(1)}(s)&-\Delta_{AZ}^{(1)}(s)\\
+-\Delta_{ZA}^{(1)}(s)&s-z-\Delta_{ZZ}^{(1)}(s)
+\end{pmatrix}+O(\epsilon^2).
+\]
+The product
+\(\Delta_{ZA}^{(1)}\Delta_{AZ}^{(1)}\) has loop power two and is excluded
+from a strict-one-loop root.  Its leading Schur-complement contribution is
+\[
+-\frac{\Delta_{ZA}^{(1)}(s)\Delta_{AZ}^{(1)}(s)}{s},
+\]
+which belongs only in a separately complete two-loop map together with the
+genuine two-loop entries and pole-iteration derivatives.
+\end{proposition}
+
+\begin{proof}
+Write \(s_W=w+\epsilon\sigma_W+O(\epsilon^2)\) in the charged inverse
+entry.  Its order-\(\epsilon\) coefficient is
+\(\sigma_W-\delta_{WW}^{(1)}(w)\).  For the neutral determinant, write
+\(s=z+\epsilon\sigma_Z+O(\epsilon^2)\).  The order-\(\epsilon\) coefficient
+is \(z[\sigma_Z-\delta_{ZZ}^{(1)}(z)]\); both off-diagonal entries start at
+order \(\epsilon\), so their product starts at order \(\epsilon^2\).
+\end{proof}
+
+For \(s_V=m_{V,0}^2+\Delta_V^{(1)}\), the strict energy-pole coefficients are
+\[
+\delta M_V^{(1)}=\frac{\operatorname{Re}\Delta_V^{(1)}}{2m_{V,0}},
+\qquad
+\Gamma_V^{(1)}=-\frac{\operatorname{Im}\Delta_V^{(1)}}{m_{V,0}}.
+\]
+They are distinct from the exact coordinate transform of the truncated
+complex number.  On the lower-half-plane branch,
+\[
+M_V=\sqrt{\frac{|s_V|+\operatorname{Re}s_V}{2}},\qquad
+\Gamma_V=\sqrt{2\bigl(|s_V|-\operatorname{Re}s_V\bigr)},
+\qquad s_V=(M_V-i\Gamma_V/2)^2.
+\]
+Applying this nonlinear square root exactly resums kinematic powers of the
+one-loop coefficient.  It is a useful display coordinate, not a strict
+two-loop calculation and not the object to compare in a finite-order Nielsen
+test.
+
+\begin{proposition}[Evidence cannot self-attest]
+\label{prop:wz-evidence-nonself-attestation}
+An untrusted input boolean asserting an external FJ, matching, source-law,
+gauge/BRST, clock, or ancestry property cannot certify that property.  A
+promotion verifier must resolve an independent hash-bound witness, validate
+it, and bind it to the exact numerical subject, order, mask, scheme, and
+analytic sheet.
+\end{proposition}
+
+\begin{proof}
+Choose a subject for which the external property is false and set the
+untrusted boolean to true while preserving every relation recomputed by the
+verifier.  If the verifier resolves no independent witness, it follows the
+same accepting path.  Hence acceptance would admit a false instance.
+\end{proof}
+
+The released fail-closed receipt implements these rules and rejects
+self-promotion, unrelated-but-self-consistent poles, substituted empty
+fixtures, inflated tolerances, corrupted redundant fields, and altered
+neutral diagnostics.  Its archived SMDR order-one fixture at \(Q=160\) GeV
+evaluates to
+\[
+\begin{aligned}
+s_W^{[1]}&=(6459.842027569383-160.532752773045i)\;\mathrm{GeV}^2,\\
+s_Z^{[1]}&=(8222.835212344102-218.292761806439i)\;\mathrm{GeV}^2.
+\end{aligned}
+\]
+The corresponding strict readouts are
+\((M_W,\Gamma_W)=(80.374161202712,2.007425074735)\) GeV and
+\((M_Z,\Gamma_Z)=(90.680036075608,2.402420059845)\) GeV.  These numbers
+reconstruct an archived backend row; they are not an independent self-energy
+evaluation and have target ancestry, no OPH-selected FJ \(v_F\), no complete
+neutral matrix, no source covariance, no independent gauge/BRST receipt, and
+no source clock.  The exact classification is therefore
+\[
+\texttt{CONDITIONAL\_STRICT\_1L\_POLE\_MAP\_NOT\_OPH\_NATIVE\_PHYSICAL},
+\]
+with \(\texttt{physical\_promotion\_allowed=false}\).  What is proved is the
+implication from a complete declared renormalized strict-one-loop packet to
+the separated pole and mass/width readouts; OPH has not yet produced that
+antecedent.

@@ -30,6 +30,17 @@ density. Noether's theorem uses the action because symmetries that leave it
 unchanged generate conserved currents. OPH uses the action language mainly
 where established field theory and relativity enter the reconstruction.
 
+QFT-Q1 through QFT-Q4
+:   These labels name a dependency graph, not four rungs that automatically
+follow one another. QFT-Q1 is the finite local classical-action implication.
+QFT-Q2-E and QFT-Q2-H are alternative exact finite quantum-object criteria,
+using an equivariant chiral determinant line or a noncollapsing constrained
+Hamiltonian. QFT-Q3 is formal BV/Slavnov--Taylor restoration and includes the
+strict fixed-parameter W/Z pole algebra. QFT-Q4 begins from a separately
+supplied reflection-positive nonperturbative observable tower; its resonance
+continuation is a further analytic theorem. In the present OPH status, these
+implications are explicit while their source-native producers remain open.
+
 AdS/CFT correspondence
 :   AdS/CFT is a duality in which a gravitational theory
 in an anti-de Sitter bulk is encoded by a conformal field theory living on its
@@ -773,10 +784,12 @@ packets and records exposed at their local interfaces.
 
 Screen-sieve
 :   A screen-sieve is a finite port sampling rule on the spherical support
-chart. The total coordination defect splits into
-twelve equal units and an isotropic selector places them at the vertices of a
-regular icosahedron. Edge-center collars expose them as central ports. This
-picture gives the twelve-way local readout and the $A_5$ port symmetry.
+chart. On the declared echosahedral lineage, equal-trace primitive central
+port atoms and integer readback uniquely select twelve unit ports with gap two;
+oriented incidence derives their antipodes, proper $A_5$ action, and rank-three
+icosahedral frame. The result is natural under the declared refinement maps.
+Alternative D-optimal or pair-kernel sieves remain sufficient premises on
+other branches. This does not force every observer patch to use this carrier.
 
 Selection filter
 :   A selection filter is a constraint that candidate

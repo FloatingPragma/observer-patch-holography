@@ -2,8 +2,16 @@
 
 The synthesis keeps theorem status visible. The finite A5/Standard-Model
 package is a conditional Q0 recognition result. Physical source selection,
-Spin/statistics, family attachment, scalar phase, interactions, Q1--Q4, and
-OPH-native W/Z poles remain open.
+Spin/statistics, family attachment, scalar phase, and the OPH-native producers
+for quantum fields and W/Z resonances remain open. The field-theory side is
+now a typed DAG rather than one opaque ``Q1--Q4'' gate: QFT-Q1 supplies the
+finite classical action implication; QFT-Q2 and QFT-Q3 are parallel quantum
+and perturbative descendants; strict W/Z pole algebra lives in QFT-Q3; and
+QFT-Q4 separately covers OS reconstruction and analytic resonance
+continuation. The implications are proved under their stated inputs. The
+source action and normalization, finite quantum construction, restoration
+transcript, current amplitudes, numerical freeze, observable tower, and sheet
+data are not yet produced by OPH.
 
 ## 19.1 The Picture That Gives Way
 
@@ -64,9 +72,10 @@ physics.
 
 ## 19.4 How Spacetime Appears
 
-The internal flow of a restricted region becomes geometric under refinement,
-so time stops looking imported from outside. It is the modular flow carried by
-the restricted state. When neighboring flows fit together across the smooth
+On the certified geometric branch, the internal flow of a restricted region
+becomes geometric under refinement. It is the modular flow carried by the
+restricted algebra-state pair. An independent observer clock calibrates its
+dimensionless parameter. When neighboring flows fit together across the smooth
 screen, Lorentz kinematics appears and localized records assemble into a
 $3{+}1$-dimensional event world. Hyperbolic three-space remains the space of
 possible rest frames, not physical space itself. On the conditional Einstein
@@ -76,8 +85,9 @@ domain, so horizon-plus-bulk entropy equilibrium becomes Einstein's equation.
 Construction and certification of an inhabited family with all these readouts
 are work in progress.
 
-Read that sentence as a compressed recap. Modular flow is the clock a restricted
-state carries. Lorentz kinematics is the rulebook for relating moving
+Read that sentence as a compressed recap. Modular flow supplies the intrinsic
+parameter a restricted state carries; a clock instrument supplies the physical
+readout. Lorentz kinematics is the rulebook for relating moving
 observers. Generalized entropy is the horizon-plus-bulk entropy accounting that
 gravity has to respect.
 
@@ -122,6 +132,17 @@ The operational loop is simple enough to say without notation: read, expose,
 compare, repair, record, checkpoint, and read again. The spherical screen is
 what the repaired quotient data looks like to an observer. The patch
 federation does the microscopic work.
+
+On the declared quotient-visible echosahedral lineage, this twelve-port
+geometry is now a source-derived finite theorem rather than a geometric label
+inserted after the fact. Equal-trace primitive port atoms and their central
+integer readback select one unit at each port with exact gap two. Oriented
+incidence derives the unique inverse pairing, the proper $A_5$ action, and a
+rank-three regular-icosahedral Gram frame; refinement maps and consistent port
+relabelings preserve the entire selector packet. This closes the finite
+twelve-unit and $A_5$ selector receipts on that branch. It does not derive that
+carrier type for every OPH implementation or supply the later physical-current,
+spin/deck, matter-selection, or family-attachment maps.
 
 ## 19.5 How the Particle World Appears
 
@@ -439,8 +460,10 @@ The measurement problem softens because there is no wavefunction of the
 universe being watched from outside. Measurement is one patch entering a new
 record relation with another.
 
-The problem of time softens because modular flow furnishes an internal
-before and after. Time is local, real, and emergent in the same breath.
+The problem of time softens because modular flow furnishes an intrinsic
+one-parameter ordering on the certified algebra-state branch. An operational
+clock and its calibration are still needed before that parameter is called a
+physical duration.
 
 The black-hole information problem softens because the screen blocks any naive
 splitting of the world into one autonomous inside and one autonomous outside.
@@ -479,8 +502,8 @@ By this point the central sentence of the book can be spoken plainly:
 **Reality is the consistency of observations across overlapping perspectives.**
 
 Everything else unfolds from that pressure. Spatial geometry is organized by
-entanglement structure. Time is modular flow read from inside restricted
-states. Matter is the family of stable excitations that can survive transport
+entanglement structure. Time is read by calibrated clocks from the geometric
+modular flow of restricted states. Matter is the family of stable excitations that can survive transport
 across patches.
 Laws are the public regularities that endure repeated comparison. Objectivity
 is the residue left behind after many partial viewpoints are made to agree.
@@ -507,9 +530,12 @@ symmetries and the three-dimensional space of observer frames. Localized event
 records turn that kinematic chart into one time direction and three spatial
 directions.
 
-A closed world has no outside clock. Its time has to come from within, and the
-modular flow of a restricted state supplies the internal clock. Repair
-iterations are then ordered by that physical clock.
+A closed world has no outside clock. On the certified branch, the modular flow
+of a restricted state supplies an intrinsic parameter and an observer
+instrument calibrates it. Accepted repair iterations are irreversible
+normalization steps; a separate reversible equilibrium process can carry the
+state whose modular flow is tested. Neither a repair count nor the number of
+register channels fixes the clock rate.
 
 Charges that survive transport across patches form a menu, and the menu
 reconstructs a compact gauge group. On the branch with the smallest matter
@@ -569,13 +595,22 @@ The local ruler carries the conditional comparison surface into numbers. The
 charged-lepton three-cycle has one attracting repair fixed point, and the
 square-root-mass geometry gives a Koide relation under its attachment premises.
 The displayed W/Z and Higgs/top values are prescription or declared-surface
-checks, not OPH-native complex-pole predictions. Six family-sensitive Yukawa
+checks, not OPH-native complex-pole predictions. The strict finite-order W/Z
+pole-map kernel is nevertheless closed as a conditional QFT-Q3 algebraic
+theorem: complete declared renormalized inputs determine the charged and
+neutral coefficients, including the neutral mixing product at strict two
+loops. A Nielsen identity controls the simple determinant zero through the
+retained order. Physical promotion additionally requires a nonzero Laurent
+coupling in a dressed gauge-invariant current amplitude; untrusted evidence
+flags cannot supply it.
+Six family-sensitive Yukawa
 coordinates organize conditional quark and neutrino comparisons after a common
 physical family attachment is supplied.
 
 The finite diagnostic calculations are reproducible. Exact enumeration checks
 the declared discrete choices, interval arithmetic encloses stated fixed
-points, and renormalization-group and pole equations validate specified
+points, and renormalization-group equations plus the fail-closed
+strict-one-loop pole receipt validate specified
 transport conventions. They do not promote stable particle coordinates until
 the source, EFT, gauge/BRST, uncertainty, current-amplitude, and clock receipts
 are complete. Every observer-like carrier exposes

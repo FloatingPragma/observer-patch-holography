@@ -220,9 +220,14 @@ In computer science, networks agree on shared states through consensus protocols
 OPH sharpens this into an observer-based fixed-point consensus protocol. A
 finite network of patches carries local state data. Neighboring patches compare
 the data on their overlaps. Local repair moves try to reduce a shared mismatch
-score. When the repair law respects the overlap contract, every accepted move
-lowers that score, and compatible repair orders from the same fixed quotient
-problem converge to the same public description.
+score. Each proposed commit must read every boundary, score, enablement,
+history, parent, and checkpoint dependency that its write can change.
+Proposals that conflict are replaced by one canonical union-collar
+transaction. Proposals in different conflict components commute only after
+those complete read/write checks pass. With that local-diamond receipt, strict
+descent, and repair completeness, compatible repair orders from the same fixed
+quotient problem converge to the same public description. Atomic updates or
+pairwise agreement alone do not prove this.
 
 When the starting interior is hidden, the boundary identifies all sources that
 represent the same physical quotient. Confluence makes every repair path from
@@ -238,6 +243,13 @@ accessible record structure. The Bell analysis stays within the standard
 quantum limits as well.
 Stable public facts appear when many local correction steps settle on one
 common answer.
+
+This settling map is not an equilibrium process. Accepted repairs descend
+toward a normal form and need not have accepted reverse moves. A separate
+bidirectional proposal or equilibrium layer can carry rates and a stationary
+state; a third layer carries modular flow on the associated noncommutative
+algebra. Keeping the layers separate prevents a repair counter from being
+mistaken for a physical clock.
 
 ### Checkpoints and Continuation
 

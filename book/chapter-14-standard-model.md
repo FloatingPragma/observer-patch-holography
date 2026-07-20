@@ -7,7 +7,21 @@ and three invariant cubic slots under the declared packet. It does not attach
 that band to three physical chiral families. The count $N_g=3$ is the least
 value in the declared Minimal Admissible Realization economy class. Physical
 Spin, family, scalar, interaction, positivity, refinement, and W/Z pole
-receipts remain open.
+producers remain open. What is no longer left implicit is the field-theory
+logic after those inputs are supplied. A finite local $G_6$ action is exactly
+gauge invariant; an equivariant determinant-line section or a noncollapsing
+constrained Hamiltonian gives two distinct finite quantum criteria; anomaly
+clearance and stability give formal order-by-order BV/Slavnov--Taylor
+restoration; and a separately supplied reflection-positive observable tower
+admits OS reconstruction. These are conditional implications, not claims that
+OPH has already built their inputs.
+
+The dependency map is not a single Q1--Q4 ladder. QFT-Q2 and QFT-Q3 are
+parallel descendants of the classical QFT-Q1 action. Strict finite-order W/Z
+pole algebra belongs to QFT-Q3. QFT-Q4 instead starts from a nonperturbative
+observable tower, and resonance continuation is a further analytic step.
+Neither QFT-Q2 nor the strict W/Z calculation silently promotes the other
+branches.
 
 There is also an exact negative result: the exposed target-free
 source reduct is not completion-unique. Distinct current and matter
@@ -609,11 +623,16 @@ triplet-doublet structure.
 
 The finite screen reaches the same algebra from a second direction. This route
 starts with the reference microarchitecture from Chapter 3, not with quarks,
-weak doublets, or measured particle data. A triangular sphere has total
-coordination defect twelve. The screen-sieve uses a strict cost to
-resolves that total into twelve equal units and an isotropic tomography rule
-places them at the vertices of a regular icosahedron. The proper rotations of
-that frame form $A_5$.
+weak doublets, or measured particle data. On the declared echosahedral carrier
+lineage, twelve equal-trace primitive central atoms and their integer readback
+give $H(q)=\sum_pq_p^2$ on the total-charge-twelve fiber. The identity
+$H(q)=12+\sum_p(q_p-1)^2$ uniquely selects one unit at every port with gap two.
+Oriented incidence then supplies the unique distance-three inverse pairing,
+the proper automorphism group $A_5$, and an exact rank-three regular-
+icosahedral Gram frame. These outputs commute with refinement and consistent
+relabeling. The theorem is scoped to this declared carrier type; it does not
+derive that every OPH carrier is echosahedral or import quarks, weak doublets,
+or measured particle data.
 
 The twelve real port readings form the permutation space
 
@@ -1266,7 +1285,22 @@ quantization turns these into the photon and graviton sectors.
 geometry and a canonical rank-three candidate family band. The conditional
 matter packet supplies hypercharge, color fundamentals, weak doublets, and one
 scalar-doublet channel. Source-derived chirality, physical family attachment,
-genuine 1PI vertices, and W/Z poles remain open.
+and genuine 1PI vertices remain open. The strict-one-loop algebra from a
+complete renormalized electroweak packet to charged and neutral complex poles
+is now proved and machine checked, but the current numerical fixture is a
+post-exposure backend regression. OPH has not yet supplied the FJ parameter
+identity, matching chain, independent gauge/BRST engine, source covariance,
+physical-current amplitudes, or clock needed for physical W/Z poles.
+
+The enlarged theorem package fixes the algebraic boundary more sharply. On a
+frozen scheme, contribution mask, and resonance sheet, the charged and neutral
+complex-pole coefficients through strict two-loop order follow by expanding
+the inverse propagator; neutral one-loop mixing first enters through its
+one-loop-squared product at strict two loops. A matrix Nielsen identity fixes
+a simple determinant zero through the retained order. Calling that zero a
+physical W or Z resonance additionally requires a nonzero Laurent coupling in
+a dressed gauge-invariant current amplitude. The present fixture verifies
+post-exposure algebra and conventions; it is not the missing OPH producer.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the

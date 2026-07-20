@@ -265,6 +265,17 @@ thirty edges. Their stabilizers have orders five, three, and two. One small
 group therefore organizes the ports, the triangular overlap neighborhoods, and
 the edge-sector and collar bookkeeping without choosing a preferred direction.
 
+For the declared echosahedral lineage, neither the inverse pairing nor $A_5$
+is inserted as a target label. Equal-trace primitive port atoms and the source
+cost $H(q)=\sum_pq_p^2$ uniquely select one defect unit per port with gap two.
+The oriented incidence graph has one and only one vertex at distance three
+from each port, deriving the six antipodal pairs. Its positive automorphism
+group is then $A_5$, and the distance Gram matrix satisfies $G^2=4G$ with
+rank three, recovering the regular icosahedral frame up to oriented rotation.
+These statements are natural under the declared refinement lineage. They are
+scoped to that carrier architecture, not a proof that arbitrary OPH data must
+choose it.
+
 The twelve real port readings split under $A_5$ into four bundles:
 
 $$
@@ -364,7 +375,11 @@ The finite OPH icosahedral calculation conditionally recognizes the relevant
 compact algebra and a one-Higgs representation packet; it does not yet produce
 the physical scalar, family attachment, graded-local field algebra, or W/Z
 complex poles. Those require observer-like source patches with operational
-ports, readback, repair records, and the open Q1--Q4 evidence receipts.
+ports, readback, repair records, and typed QFT receipts. The finite-action,
+quantum-object, BV/Slavnov--Taylor, strict W/Z pole-algebra, OS, and resonance
+implications are now stated separately. Their OPH-native action, measure or
+Hamiltonian, renormalization, current-amplitude, observable-tower, and
+analytic-sheet producers remain open.
 
 The universe has beautiful symmetries. But the symmetries are also hidden.
 

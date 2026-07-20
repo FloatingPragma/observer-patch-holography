@@ -14,6 +14,8 @@ closure certificate in `paper/observers_are_all_you_need.tex` and
 python3 a5_screen_sm_closure.py          # module identity, trichotomy, face phases, kinetic relation
 python3 exterior_sm_completion.py        # exterior matter, anomalies, weak load, deck control
 python3 a5_selection_certificate.py      # sharpness data for Cohn-Kumar universal optimality
+python3 echosahedral_selector_certificate.py all  # issue #565 source selector, receipt, controls
+python3 -m unittest discover -s tests -v    # issue #565 regression and adversarial suite
 python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
 python3 bh_log_correction.py             # conditional horizon log-coefficient decision tree
@@ -28,11 +30,12 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 
 | Object | Statement |
 |---|---|
+| **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
 | Icosahedral selection | 3 distinct inner products `{-1, ±1/sqrt5}`, spherical 5-design ⇒ **sharp** (`m=3`, strength `2m-1=5`). By Cohn–Kumar (JAMS 20, 2007) it uniquely minimizes every strictly completely monotonic pair cost of squared distance, up to `O(3)`. |
-| D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. The objective remains a source-side branch premise. |
+| D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. This remains an independent optimality cross-check; it is no longer needed as the source selector on the certified echosahedral-federation branch. |
 | Compact-Lie trichotomy | Exactly three algebras: `u(1)^12`, `su(2)^2 + u(1)^6`, `su(3) + su(2) + u(1)` |
 | **Inner-action closure** | If the `A5` action is **inner**: `dim Z(g) <= 1` (inner autos fix the center pointwise); `Z(g)=0` forces `su(2)^4` whose fixed-space dimension is a multiple of 3, contradicting `dim g^{A5}=1`; hence `dim Z(g)=1`, semisimple dim 11, and `11=8+3` uniquely ⇒ `su(3)+su(2)+u(1)`. **Needs no `W5-NONCENTRAL` receipt.** |
 | Angular multiplets | `l=2: 5` (irreducible); `l=3: 3'+4`; `l=4: 4+5`; `l=5: 3+3'+5`; `l=6: 1+3+4+5`. First nonconstant invariant at `l=6`. |
@@ -96,12 +99,25 @@ exact on the family multiplicity space, it restricts Yukawa tensors to
 `A5`-invariant pairings; general family matrices require a source-derived
 breaking, hiding, or forgetting mechanism.
 
+### Receipts closed on the echosahedral-federation branch
+
+- **UD12** is closed by `echosahedral_selector_certificate.py`: the source
+  domain is the integer total-12 fiber, the equal-trace central readback norm
+  is `H(q)=sum q_i^2`, and `H=12+sum(q_i-1)^2` gives the unique all-one
+  minimizer with exact next floor `14`.
+- **RP-A5** is closed without a downstream representation or measured datum:
+  the source-oriented incidence produces the unique distance-three antipode,
+  the positive automorphism group is explicitly `A5`, and the distance Gram
+  matrix satisfies `G^2=4G`, giving the regular six-axis frame. The theorem,
+  data model, equivalence, refinement proof, and countermodels are in
+  `physics-problems/issue_565_echosahedral_selector.md`.
+
+These closures use the declared simulator assumption that every local carrier
+lineage is a quotient-visible twelve-port echosahedral packet. They do not
+prove that arbitrary OPH carriers must have this type.
+
 ### Open receipts
 
-- **UD12**: emit a feasible integer charge domain and additive strict
-  unit-splitting cost.
-- **RP-A5**: emit either the D-optimal tomography objective or a strictly
-  completely monotonic pair kernel without an icosahedral template.
 - **PORT-CURRENT-INNER**: construct a full-rank `A5`-equivariant map onto a
   twelve-dimensional compact commutator-closed current algebra, prove that the
   induced action lies in `Int(g)`, and intertwine refinement.
@@ -147,10 +163,13 @@ not a forward test.
 noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
 `S2DesignSignature.lean` formalizes the `11/25` arithmetic, and
 `UnitSplit12.lean` proves only that twelve positive integer weights summing to
-twelve are all one. The slot count, Euler/cost law, source selector,
-icosahedral frame, `Phi`, face orientation, `Theta`, `A5` equivariance,
-compact-Lie trichotomy, trace-balanced group, and physical descent are paper
-proofs or open receipts.
+twelve are all one. The issue-#565 artifact supplies an exact executable finite
+proof of the source integer domain, strict readback cost, antipode, `A5`
+action, frame, refinement, relabelling, and countermodels. A Lean port of that
+complete finite packet remains available work; the Python receipt is not being
+relabelled as a Lean theorem. `Phi`, `Theta`, the compact-Lie trichotomy,
+trace-balanced group, physical currents, and physical descent retain their
+separate support boundaries.
 
 ## Novelty boundary
 

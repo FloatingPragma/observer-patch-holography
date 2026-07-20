@@ -1,0 +1,177 @@
+{
+  "blockers": [
+    "full_neutral_matrix_supplied",
+    "renormalized_FJ_vev_selected",
+    "complete_FJ_tadpole_conversion_checked",
+    "target_clean_source_matching",
+    "source_law_or_deterministic_exactness_receipt",
+    "independent_self_energy_engine",
+    "finite_order_BRST_ST_Ward_Nielsen_receipt",
+    "physical_clock_closed",
+    "no_target_ancestry"
+  ],
+  "claim_class": "CONDITIONAL_POST_EXPOSURE_DIAGNOSTIC",
+  "complex_poles": {
+    "W": {
+      "energy_pole_readout": {
+        "Gamma_GeV": 1.9971890954296638,
+        "M_GeV": 80.37934572164735,
+        "coordinate_transform_note": "Exact square root of the one-loop-truncated s pole; the nonlinear coordinate readout contains kinematic terms beyond strict one loop.",
+        "s_reconstructed_GeV2": [
+          6459.842027569383,
+          -160.5327527730451
+        ],
+        "sqrt_s_GeV": [
+          80.37934572164735,
+          -0.9985945477148319
+        ]
+      },
+      "s_pole_truncated_1L_GeV2": [
+        6459.842027569383,
+        -160.5327527730451
+      ]
+    },
+    "Z": {
+      "energy_pole_readout": {
+        "Gamma_GeV": 2.407078720027981,
+        "M_GeV": 90.68783666697097,
+        "coordinate_transform_note": "Exact square root of the one-loop-truncated s pole; the nonlinear coordinate readout contains kinematic terms beyond strict one loop.",
+        "s_reconstructed_GeV2": [
+          8222.8352123441,
+          -218.29276180643907
+        ],
+        "sqrt_s_GeV": [
+          90.68783666697097,
+          -1.2035393600139905
+        ]
+      },
+      "s_pole_truncated_1L_GeV2": [
+        8222.835212344102,
+        -218.29276180643907
+      ]
+    }
+  },
+  "contribution_mask": {
+    "backend_mask": "SMDR_v1.3_order_1",
+    "coupling_monomials": "opaque_backend_mask_not_independently_recomputed",
+    "forbidden_in_strict_1L_root": [
+      "Delta_ZA_1L*Delta_AZ_1L/s",
+      "pole-iteration derivative terms",
+      "order_1.5_QCD",
+      "order_2",
+      "order_2.5"
+    ],
+    "loop_factor_convention": "included in each Delta coefficient",
+    "maximum_loop_power": 1,
+    "one_loop_complete_for_declared_backend": true
+  },
+  "evidence_gates": {
+    "complete_FJ_tadpole_conversion_checked": false,
+    "finite_order_BRST_ST_Ward_Nielsen_receipt": false,
+    "full_neutral_matrix_supplied": false,
+    "independent_self_energy_engine": false,
+    "neutral_matrix_point_diagnostic_supplied": false,
+    "no_target_ancestry": false,
+    "physical_clock_closed": false,
+    "renormalized_FJ_vev_selected": false,
+    "source_law_or_deterministic_exactness_receipt": false,
+    "strict_coefficients_and_sqrt_readout_separated": true,
+    "strict_one_loop_pole_equation_implemented": true,
+    "target_clean_source_matching": false
+  },
+  "inverse_propagator_convention": "Gamma=s-m2-Delta; s_pole=m2+Delta_at_tree",
+  "map_evaluated": true,
+  "neutral_matrix": {
+    "diagnostics": null,
+    "status": "missing_AA_AZ_ZA_coefficients",
+    "strict_1L_root_rule": "s_Z=z+Delta_ZZ^(1)(z); off-diagonal product excluded as O(h^2)"
+  },
+  "one_loop_coefficients": {
+    "Delta_WW_at_w_GeV2": [
+      64.72322786968198,
+      -160.5327527730451
+    ],
+    "Delta_ZZ_at_z_GeV2": [
+      -33.37572257933425,
+      -218.29276180643907
+    ],
+    "strict_W": {
+      "Gamma_strict_1L_GeV": 2.0074250747346536,
+      "M0_GeV": 79.96948667898089,
+      "M_strict_1L_GeV": 80.37416120271203,
+      "delta_M_1L_GeV": 0.4046745237311482
+    },
+    "strict_Z": {
+      "Gamma_strict_1L_GeV": 2.4024200598448084,
+      "M0_GeV": 90.8636942619187,
+      "M_strict_1L_GeV": 90.68003607560763,
+      "delta_M_1L_GeV": -0.18365818631106515
+    }
+  },
+  "perturbative_order": "strict_one_loop",
+  "physical_promotion_allowed": false,
+  "pole_convention": "s_V=(M_V-i*Gamma_V/2)^2; Re(sqrt(s_V))>0; Im(sqrt(s_V))<=0",
+  "promotion_policy": "v1 is an algebraic diagnostic and cannot self-promote; a separate aggregate checker must verify hash-bound evidence artifacts and subject binding",
+  "promotion_required_gates": [
+    "full_neutral_matrix_supplied",
+    "renormalized_FJ_vev_selected",
+    "complete_FJ_tadpole_conversion_checked",
+    "target_clean_source_matching",
+    "source_law_or_deterministic_exactness_receipt",
+    "independent_self_energy_engine",
+    "finite_order_BRST_ST_Ward_Nielsen_receipt",
+    "physical_clock_closed",
+    "no_target_ancestry"
+  ],
+  "receipt_id": "conditional-smdr-v1.3-order1-archived-zero-selector-Q160",
+  "renormalized_parameters": {
+    "Q_GeV": 160.0,
+    "g": 0.6485582500629765,
+    "g3": 1.175588085188019,
+    "gp": 0.34987154016670396,
+    "lambda": 0.1287588577994706,
+    "scheme": "SMDR_v1.3_tadpole_free_pure_MSbar_with_Landau_effective_potential_vev",
+    "v_F_GeV": 246.60695217805235,
+    "v_F_field_semantics": "placeholder_name_only; actual fixture value is the SMDR Landau effective-potential vev, not an FJ-selected OPH vev",
+    "yt": 0.9319797600497048
+  },
+  "schema": "physical_wz_strict_1l_pole_map_receipt_v1",
+  "self_energy_sign_translation": "Delta=-Pi; Gamma=s-m2+Pi=s-m2-Delta",
+  "source": {
+    "fixture_path": "conditional_smdr_order1_fixture.json",
+    "fixture_sha256": "d17be283996d4dbd9923f5849f2b88b339e709ff474dcbf6492a2c850aecae47",
+    "target_ancestry_result": "FAIL: D11 lambda/yt values are target-ancestral and the physical GeV clock is open",
+    "upstream_archive": "physical_wz_promotion_pro_handover_2026-07-20.zip",
+    "upstream_file": "survival-proof-3/outputs/scale_order_grid_archived_zero_selector.json",
+    "upstream_file_sha256": "fe472c145df94f80b0e9c61fb9c9b9e9a2c36b060742df4c133f5497ec7ad54e",
+    "upstream_row": "evaluation_Q_GeV=160, orders 0 and 1"
+  },
+  "source_covariance": {
+    "C_z": null,
+    "reason": "D10/D11 source exactness and target-free uniqueness are not established; intervals are not converted into a probability law.",
+    "status": "not_licensed"
+  },
+  "status": "CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL",
+  "tolerances": {
+    "absolute_GeV": 5e-12,
+    "absolute_GeV2": 5e-10,
+    "basis": "The checker recomputes only elementary double-precision algebra; these bounds are far looser than roundoff and far tighter than any physics uncertainty.",
+    "relative": 5e-14
+  },
+  "tree": {
+    "mW0_GeV": 79.96948667898089,
+    "mZ0_GeV": 90.8636942619187,
+    "w_GeV2": 6395.118799699701,
+    "z_GeV2": 8256.210934923436
+  },
+  "unverified_evidence_claims": {
+    "complete_FJ_tadpole_conversion_checked": false,
+    "finite_order_BRST_ST_Ward_Nielsen_receipt": false,
+    "independent_self_energy_engine": false,
+    "no_target_ancestry": false,
+    "physical_clock_closed": false,
+    "renormalized_FJ_vev_selected": false,
+    "source_law_or_deterministic_exactness_receipt": false,
+    "target_clean_source_matching": false
+  }
+}

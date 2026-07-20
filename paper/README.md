@@ -11,11 +11,11 @@ repair theorem, numerical continuations, and physical carrier architecture.
 
 | Paper | Role |
 | --- | --- |
-| [Recovering Relativity and the Standard Model](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) ([source](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)) | Technical center: exact finite core, conditional Einstein composition, and selected Standard Model branch |
+| [Recovering Relativity and the Standard Model](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) ([source](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)) | Technical center: exact finite core, source-derived echosahedral selector on its declared carrier lineage, conditional Einstein composition, and selected Standard Model branch |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Observer-first synthesis and main account of the local $P$ and global $N$ closures |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Finite repair, protected records, and quotient normal forms |
 | [Deriving the Particle Zoo](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Particle carriers, hierarchy coordinates, flavor tests, rejected candidates, and executable pipeline |
-| [Federated Echosahedral Screen Microphysics](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Twelve-port screen, central records, and observer synchronization |
+| [Federated Echosahedral Screen Microphysics](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Twelve-port source selector, central records, and observer synchronization |
 | [Paradise as Fixed-Point Consensus](paradise_as_fixed_point_consensus.pdf) ([source](paradise_as_fixed_point_consensus.tex)) | Observer continuation and interpretation |
 
 The shortest informal introduction is [A Compact Case for OPH](../extra/compact_proof_of_oph.pdf). Focused papers are listed in the [supplement index](../extra/).

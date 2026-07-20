@@ -1,0 +1,26 @@
+{
+  "experimental_target": {
+    "release": "PDG-2026-2026-06-01",
+    "input_convention": "mass-dependent-width Breit-Wigner",
+    "input_order": [
+      "W_mass_running_width",
+      "W_width_running_width",
+      "Z_mass_running_width",
+      "Z_width_running_width"
+    ],
+    "central_GeV": [80.3625, 2.14, 91.1879, 2.4955],
+    "covariance_GeV2": [
+      [5.929e-05, 0.0, 0.0, 0.0],
+      [0.0, 0.0025, 0.0, 0.0],
+      [0.0, 0.0, 4e-06, 0.0],
+      [0.0, 0.0, 0.0, 5.29e-06]
+    ],
+    "covariance_status": "Frozen block-diagonal approximation. PDG publishes marginal world-average errors but no joint W-mass/W-width/Z-mass/Z-width covariance for this mixed combination. Zero off-diagonals are assumptions, not measured facts.",
+    "joint_chi2_licensed": false,
+    "sources": [
+      "https://pdg.lbl.gov/2026/reviews/rpp2026-rev-w-mass.pdf",
+      "https://pdg.lbl.gov/encoder_listings/s043.pdf",
+      "https://pdg.lbl.gov/encoder_listings/s044.pdf"
+    ]
+  }
+}

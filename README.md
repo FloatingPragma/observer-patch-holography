@@ -121,8 +121,11 @@ results and the open physical producers are separated below:
   the tensor first-variation relation; the absolute Einstein equation requires
   one source-derived common-domain tower, whose construction and certification
   are work in progress;
-- the declared twelve-port icosahedral branch has the exact coefficient-space
-  decomposition needed for
+- on the declared quotient-visible echosahedral lineage, primitive port
+  readback and oriented incidence derive the twelve-unit split, inverse
+  pairing, proper $A_5$ action, and rank-three icosahedral frame with
+  refinement and relabeling naturality; that branch has the exact
+  coefficient-space decomposition needed for
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$;
 - physical current, trace, spin, and center descent produce
   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ on their stated receipts;
@@ -141,13 +144,18 @@ can contain observers capable of reading it back. Any individual match could
 be accidental. The joint recovery of quantum observation, Lorentzian
 spacetime, conditional Einstein gravity, the finite Standard Model recognition
 package, and quantitative closure tests motivates the full OPH program. The
-physical source, Spin, family, scalar, Q1--Q4, and pole receipts remain explicit
-conditions rather than completed outputs.
+physical source, Spin, family, and scalar receipts remain explicit conditions
+rather than completed outputs. The field-theory landing is now a typed DAG:
+QFT-Q2 and QFT-Q3 are parallel descendants of QFT-Q1, strict W/Z pole algebra
+belongs to QFT-Q3, and QFT-Q4 independently requires a nonperturbative
+observable tower and analytic continuation. The conditional implications are
+stated and machine checked; their OPH-native producers remain open.
 
 Machine-readable lane status:
 
-    CONDITIONAL_A5_TO_SM_RECOGNITION_AND_FORCING_CRITERION__Q0_FINITE_CORE_PASS__PHYSICAL_RECEIPTS_AND_Q1_TO_Q4_OPEN
+    CONDITIONAL_QFT_TIER_DAG_AND_STRICT_WZ_POLE_ALGEBRA_DEFINED__Q1_SOURCE_CONSTRUCTION_Q2_Q4_OBJECTS_Q3_VALIDATION_AND_OPH_PRODUCERS_OPEN
     DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
+    CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL
 
 The detailed papers state every theorem-local premise. The finite objects needed
 to remove the remaining conditions are collected near the end of this README.
@@ -261,10 +269,11 @@ the exact Standard Model matter package uses the receipts listed below.
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Relativity | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Finite $A_5$ gauge algebra | Exact twelve-port coefficient-space construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ on the declared icosahedral branch | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Echosahedral selector and finite $A_5$ gauge algebra | Source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Standard Model global form | Exact $S(U(3)\times U(2))$ and shared-center $\mathbb Z_6$ calculation, with physical current and descent receipts stated separately | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional MAR selection $N_g=3$; physical family attachment and Q1--Q4 remain open | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Physical W/Z poles | A strict finite-order SM-EFT/FJ/complex-pole sufficiency stack is defined; source matching, independent gauge/BRST receipts, uncertainty law, physical-current amplitudes, and clock remain open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional MAR selection $N_g=3$; physical family attachment remains open, while the QFT implications and their still-open OPH producers are separated explicitly | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| QFT landing | QFT-Q1 finite-action invariance; QFT-Q2 determinant-line and Hamiltonian criteria; formal QFT-Q3 BV/ST restoration and strict finite-order W/Z algebra; separate QFT-Q4 OS and resonance implications. QFT-Q2 and QFT-Q3 are parallel, and all source-native constructions remain explicit promotion gates | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules frozen. Its current fixture is a post-exposure backend regression; OPH/FJ source matching, an independent gauge/BRST engine, covariance, physical-current amplitudes, and the clock remain open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Conditional global $N$ extension | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=|X_{\rm reach}|$ on the reversible branch; the physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | $N$–Higgs bridge | Conditional relation $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ from the common screen/weak load carrier | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -279,7 +288,7 @@ the exact Standard Model matter package uses the receipts listed below.
 | The full observer-first synthesis | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| The twelve-port screen architecture | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
+| The twelve-port screen architecture and finite modular-gearing theorem | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Supporting evidence | [`code/`](code) and the [closure ledger](docs/CLOSURE_LEDGER.md) |
 | Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 

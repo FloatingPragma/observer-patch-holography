@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.example/schemas/physical_wz_strict_1l_input_fixture.schema.json",
+  "title": "Strict-one-loop W/Z pole-map input fixture",
+  "type": "object",
+  "required": [
+    "schema",
+    "receipt_id",
+    "claim_class",
+    "perturbative_order",
+    "inverse_propagator_convention",
+    "loop_factor_included_in_delta",
+    "renormalized_parameters",
+    "renormalized_one_loop_self_energy",
+    "contribution_mask",
+    "source_covariance",
+    "evidence_gates",
+    "source",
+    "tolerances"
+  ],
+  "properties": {
+    "schema": {"const": "physical_wz_strict_1l_input_fixture_v1"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "claim_class": {
+      "enum": [
+        "EXTERNAL_SM_EFT_VALIDATION",
+        "OPH_NATIVE_PHYSICAL",
+        "CONDITIONAL_POST_EXPOSURE_DIAGNOSTIC",
+        "TARGET_COMPARISON_ONLY"
+      ]
+    },
+    "perturbative_order": {"const": "strict_one_loop"},
+    "inverse_propagator_convention": {
+      "const": "Gamma=s-m2-Delta; s_pole=m2+Delta_at_tree"
+    },
+    "loop_factor_included_in_delta": {"const": true},
+    "renormalized_parameters": {
+      "type": "object",
+      "required": ["Q_GeV", "scheme", "g", "gp", "v_F_GeV", "v_F_field_semantics"],
+      "properties": {
+        "Q_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "scheme": {"type": "string", "minLength": 1},
+        "g": {"type": "number", "exclusiveMinimum": 0},
+        "gp": {"type": "number", "exclusiveMinimum": 0},
+        "g3": {"type": "number", "exclusiveMinimum": 0},
+        "lambda": {"type": "number"},
+        "v_F_GeV": {"type": "number", "exclusiveMinimum": 0},
+        "v_F_field_semantics": {"type": "string", "minLength": 1},
+        "yt": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "renormalized_one_loop_self_energy": {
+      "type": "object",
+      "required": [
+        "producer",
+        "independent_of_primary_backend",
+        "Delta_WW_at_w_GeV2",
+        "Delta_ZZ_at_z_GeV2",
+        "Delta_AA_at_z_GeV2",
+        "Delta_AZ_at_z_GeV2",
+        "Delta_ZA_at_z_GeV2",
+        "note"
+      ],
+      "properties": {
+        "producer": {"type": "string", "minLength": 1},
+        "independent_of_primary_backend": {"type": "boolean"},
+        "Delta_WW_at_w_GeV2": {"$ref": "#/$defs/complexPair"},
+        "Delta_ZZ_at_z_GeV2": {"$ref": "#/$defs/complexPair"},
+        "Delta_AA_at_z_GeV2": {"$ref": "#/$defs/nullableComplexPair"},
+        "Delta_AZ_at_z_GeV2": {"$ref": "#/$defs/nullableComplexPair"},
+        "Delta_ZA_at_z_GeV2": {"$ref": "#/$defs/nullableComplexPair"},
+        "note": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "contribution_mask": {
+      "type": "object",
+      "required": [
+        "maximum_loop_power",
+        "loop_factor_convention",
+        "one_loop_complete_for_declared_backend",
+        "backend_mask",
+        "coupling_monomials",
+        "forbidden_in_strict_1L_root"
+      ],
+      "properties": {
+        "maximum_loop_power": {"const": 1},
+        "loop_factor_convention": {"const": "included in each Delta coefficient"},
+        "one_loop_complete_for_declared_backend": {"const": true},
+        "backend_mask": {"type": "string", "minLength": 1},
+        "coupling_monomials": {
+          "oneOf": [
+            {"type": "string", "minLength": 1},
+            {"type": "array", "items": {"type": "string"}}
+          ]
+        },
+        "forbidden_in_strict_1L_root": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_covariance": {
+      "type": "object",
+      "required": ["status", "C_z"],
+      "properties": {
+        "status": {"type": "string", "minLength": 1},
+        "C_z": {}
+      },
+      "additionalProperties": true
+    },
+    "evidence_gates": {"$ref": "#/$defs/inputEvidenceClaims"},
+    "source": {"type": "object"},
+    "tolerances": {
+      "type": "object",
+      "required": ["absolute_GeV2", "absolute_GeV", "relative", "basis"],
+      "properties": {
+        "absolute_GeV2": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-6},
+        "absolute_GeV": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-8},
+        "relative": {"type": "number", "exclusiveMinimum": 0, "maximum": 1e-10},
+        "basis": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "complexPair": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "nullableComplexPair": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/complexPair"}
+      ]
+    },
+    "inputEvidenceClaims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "renormalized_FJ_vev_selected",
+        "complete_FJ_tadpole_conversion_checked",
+        "target_clean_source_matching",
+        "source_law_or_deterministic_exactness_receipt",
+        "independent_self_energy_engine",
+        "finite_order_BRST_ST_Ward_Nielsen_receipt",
+        "physical_clock_closed",
+        "no_target_ancestry"
+      ],
+      "properties": {
+        "renormalized_FJ_vev_selected": {"type": "boolean"},
+        "complete_FJ_tadpole_conversion_checked": {"type": "boolean"},
+        "target_clean_source_matching": {"type": "boolean"},
+        "source_law_or_deterministic_exactness_receipt": {"type": "boolean"},
+        "independent_self_energy_engine": {"type": "boolean"},
+        "finite_order_BRST_ST_Ward_Nielsen_receipt": {"type": "boolean"},
+        "physical_clock_closed": {"type": "boolean"},
+        "no_target_ancestry": {"type": "boolean"}
+      }
+    }
+  },
+  "additionalProperties": false
+}

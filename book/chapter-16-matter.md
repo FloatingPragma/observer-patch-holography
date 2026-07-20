@@ -3,7 +3,12 @@
 The finite matter result is a rank-15 internal representation witness under a
 declared packet. It does not supply the physical spacetime Spin lift, graded
 exchange, nonzero matter residues, three-family attachment, or constructive
-QFT. These remain named receipts.
+QFT. These remain named receipts. The book now records the implications that
+would apply once those receipts exist: exact finite-action gauge invariance,
+two alternative finite quantum-object criteria, formal order-by-order
+BV/Slavnov--Taylor restoration, strict fixed-parameter W/Z pole algebra, and
+separate OS and resonance theorems. QFT-Q2 and QFT-Q3 are parallel branches;
+QFT-Q4 is not a consequence of a perturbative pole calculation.
 
 ## 16.1 The Intuitive Picture: Matter Is Stuff, Motion Is Force
 

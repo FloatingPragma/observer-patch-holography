@@ -17,21 +17,40 @@ the code and separates it from the mixed run/pole reporting
 surface. If pole/effective reporting is required, the remaining exact missing
 object is then one common `EWTransportKernel_D10`, not more digits of `P`.
 
-Two compact boundary modules accompany that larger lane:
+Three compact boundary modules accompany that larger lane:
 
 - `wz_strict_series.py` implements only the strict finite-order algebra for
   `Gamma(s) = s - m0^2 + kappa Pi(s)`. It keeps the one-loop coefficient,
   two-loop derivative and neutral-mixing terms, and square-root display
   coordinates separate.
+- `strict_one_loop_pole_map/` is the subject-bound, fail-closed receipt
+  package. It implements the equivalent convention `Gamma=s-m2-Delta` with
+  `Delta=-Pi`, validates input and output schemas, reconstructs the declared
+  charged and neutral one-loop poles, and independently rejects self-attested
+  evidence, unrelated receipts, tolerance inflation, order leakage, and
+  corrupted redundant fields. Its archived SMDR fixture is regression-only
+  and can never self-promote.
 - `source_completion_no_go.py` gives an exact two-completion witness for the
   current Higgs/top reduct. The same source coordinate admits distinct
   downstream Higgs and top values, so that reduct cannot support a unique
   source-only pole claim.
 
-Both modules are controls, not OPH-native mass predictions. They do not supply
+These modules are controls, not OPH-native mass predictions. They do not supply
 the source-selected observer-like carrier, EFT matching and field census,
 gauge/BRST identity checks, analytic continuation, uncertainty transport,
 physical-current amplitudes, or operational clock required for promotion.
+
+The complete strict-one-loop package is also a control under this boundary;
+it closes the map implication after a complete renormalized input packet is
+given, not the missing OPH-native antecedent.
+
+The comparison-only convention layer is the
+wz_experimental_convention.py module. It maps published
+mass-dependent-width Breit--Wigner parameters exactly to the
+s_pole=(M-i*Gamma/2)^2 convention, carries an analytic Jacobian, and
+propagates a validated covariance. The frozen PDG-2026 fixture explicitly uses
+a block-diagonal covariance assumption and disables a joint chi-square because
+the mixed W/Z world-average object has no published joint covariance.
 
 ## Active Calibration Files
 

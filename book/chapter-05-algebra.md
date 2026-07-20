@@ -412,16 +412,35 @@ story speak the same language.
 
 ### Time from Algebra
 
-The implication is strong: once you specify an algebra-state pair, modular theory gives a natural flow. Time evolution is not imposed from outside in this construction. It emerges from that algebraic structure together with the chosen state.
+The implication is strong but specific: once you specify a suitable
+noncommutative algebra-state pair, modular theory gives a natural flow. That
+flow is intrinsic to the pair. Turning its dimensionless parameter into the
+time shown by a physical clock still requires a clock instrument and a
+calibration.
 
 This connects to the **thermal time principle** of Connes and Rovelli: modular
 flow organizes experienced time. Given the quantum state of our patch, the
 algebra provides a natural clock.
 
-The modular parameter supplies the intrinsic ordering. A clock instrument and
-its calibration turn that ordering into an operational readout, and overlapping
-observers compare their clocks through the shared affine conversion between
-their modular parameters.
+The distinction matters already at finite cutoff. A repair normalizer drives a
+damaged presentation toward an accepted normal form. A reversible equilibrium
+generator describes relaxation rates. Modular flow is an automorphism of the
+algebra-state pair. These three maps can use information from the same local
+channels without being the same dynamics.
+
+Rate ratios on a reversible transition graph can reconstruct a classical Gibbs
+potential when every cycle affinity vanishes. On the commutative algebra of
+classical states, however, modular automorphisms are trivial. A nontrivial
+modular flow needs a noncommutative operator algebra and transition operators
+that identify its generator, at best up to the operators that commute with all
+of them.
+
+The modular parameter supplies an intrinsic ordering only on that declared
+algebra-state branch. A clock instrument and its calibration turn the parameter
+into an operational readout, and overlapping observers compare their clocks
+through the shared affine conversion between their modular parameters. A count
+of channels---twenty-four or otherwise---does not fix a frequency or a unit of
+time.
 
 Across finite resolutions, compatible embeddings, conditional expectations,
 transported local states, and the cutoff schedule carry this clock coherently.

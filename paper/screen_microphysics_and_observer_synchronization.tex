@@ -40,7 +40,16 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
 papers, central records with Born--L\"uders readout, Bell/CHSH records with the
 Tsirelson bound, and checkpoint restoration for observer continuation after
-repair. It also states the public evidence rule: hardware runs matter only when
+repair. On a separate reversible proposal layer, source-derived rate ratios
+reconstruct a finite Gibbs potential exactly when cycle affinities vanish; a
+source-derived \(24\)-channel embedding then has an exact modular-compression
+test and, under \(A_5\) and reversal covariance, a paired
+\(1,3,3,5\) degeneracy theorem. These results do not turn accepted repair or
+the register count into a physical clock. On the declared echosahedral carrier
+lineage, primitive port atoms, central readback, oriented incidence, and
+refinement maps now derive the twelve unit lines, inverse pairing, proper
+\(A_5\) action, and rank-three six-axis frame with executable countermodels.
+It also states the public evidence rule: hardware runs matter only when
 the device, calibration, circuit, data, and independent check are public.
 Its primitive collar release law supplies the source premises for a conditional
 angular spectrum and tilt theorem. Construction of one finite source carrying
@@ -59,7 +68,13 @@ The concrete contribution is the regulated screen architecture. Echosahedral car
 twelve-port reference interface, edge sectors supply the heat-kernel/Casimir weights used by the
 quantitative branch, central records give the Born--L\"uders event surface, Bell/CHSH records give
 the Tsirelson bound, and checkpoint restoration states what it means for an observer to continue
-after repair. Hardware claims are kept behind a public evidence rule: manifests, hashes,
+after repair. The finite modular-gearing package keeps strict-descent normalization separate from
+reversible proposal rates, tests whether the oriented \(24\)-slot register is an invariant channel
+space, and fixes only symmetry-protected degeneracies rather than numerical gaps or clock units.
+The finite echosahedral selector separately closes the unit-splitting and
+proper-\(A_5\) source receipts on the declared carrier lineage, without using
+downstream particle or gauge targets.
+Hardware claims are kept behind a public evidence rule: manifests, hashes,
 calibration records, raw or reduced traces, and exact verifier receipts carry the weight.
 
 \tableofcontents
@@ -577,9 +592,128 @@ because \(N_{A_5}(C_5)\cong D_{10}\).  Every equivariant permutation therefore h
 two, whereas a 24-cycle has order 24.
 \end{proof}
 
+\begin{definition}[Source-derived oriented-channel realization]
+\label{def:source-derived-channel-realization}
+Let \(E^{\rm or}\) be the oriented transitions of the reversible quotient-state
+layer and set
+\[
+ \mathcal H_E=\ell^2(E^{\rm or}),
+ \qquad F_E|e\rangle=a_e|e\rangle,
+ \qquad a_e=\log\frac{q_{\bar e}^{\rm eq}}{q_e^{\rm eq}}.
+\]
+A source-derived \(24\)-channel realization is a full-rank map
+\[
+ C:\mathcal H_{24}:=
+ \mathbb C[\mathsf P_{12}]\otimes\mathbb C^2_{\rm or}
+ \longrightarrow\mathcal H_E
+\]
+whose coefficients, aggregation rule, and provenance are emitted by the
+physical proposal ledger.  After replacing \(C\) by
+\(C(C^*C)^{-1/2}\), assume \(C^*C=\mathbf1\).  Edge reversal is denoted
+\(R_E|e\rangle=|\bar e\rangle\), and register reversal by \(R_{24}\).
+The state set \(X\), transition set \(E^{\rm or}\), and label map into the
+\(24\) channel types remain distinct objects.
+\end{definition}
+
+\begin{theorem}[Oriented-register modular compression]
+\label{thm:oriented-register-modular-compression}
+For a source-derived realization \(C\), the register is invariant under the
+edge modular grading exactly when
+\[
+ \epsilon_{\rm ch}
+ :=\bigl\|(\mathbf1-CC^*)F_EC\bigr\|_{\rm HS}=0.
+\]
+Equivalently, there is a unique operator \(\Omega_{24}\) with
+\[
+ F_EC=C\Omega_{24},
+ \qquad
+ \Omega_{24}=C^*F_EC.
+\]
+Suppose in addition that the edge rates are \(A_5\)-equivariant, \(C\)
+intertwines the edge and register actions of \(A_5\) and reversal, and hence
+\(R_EF_ER_E=-F_E\).  Then
+\[
+ \Omega_{24}
+ \cong
+ \bigoplus_{\lambda\in\{1,3,3',5\}}
+ \mathbf1_{V_\lambda}\otimes M_\lambda,
+ \qquad
+ \operatorname{spec}(M_\lambda)=\{-\omega_\lambda,+\omega_\lambda\},
+\]
+for four nonnegative source-derived values \(\omega_1,\omega_3,\omega_{3'},
+\omega_5\).  Thus the paired frequencies have degeneracies \(1,3,3,5\).
+The symmetry fixes this block pattern and these degeneracies, but not the four
+numerical values.
+\end{theorem}
+
+\begin{proof}
+The residual vanishes precisely when \(F_E\operatorname{im}C\subseteq
+\operatorname{im}C\).  Since \(C\) is isometric, restriction to this invariant
+subspace gives the unique compression \(\Omega_{24}=C^*F_EC\).
+\(A_5\)-equivariance and Schur's lemma give one Hermitian \(2\times2\)
+orientation matrix \(M_\lambda\) on each of the multiplicity-free summands
+\(1,3,3',5\).  Reversal covariance gives
+\(R_{24}\Omega_{24}R_{24}=-\Omega_{24}\), so each orientation block is
+traceless and has eigenvalues \(\pm\omega_\lambda\).  Tensoring with
+\(V_\lambda\) gives the displayed degeneracies.
+\end{proof}
+
+\begin{corollary}[Raw labels are modular eigenchannels only at equal affinity]
+\label{cor:raw-label-modular-eigenchannel}
+If each raw register slot is realized as a normalized sum of transitions with
+that label and distinct labels have disjoint edge support, exact channel
+closure requires
+\[
+ a_e=a_{e'}
+ \quad\text{whenever \(e\) and \(e'\) carry the same raw label.}
+\]
+Otherwise the raw slot basis is not a modular eigenbasis; any invariant
+\(24\)-channel space must instead use source-derived linear combinations.
+\end{corollary}
+
+\begin{proposition}[Operator-frame identification boundary]
+\label{prop:operator-frame-identification}
+Let \(V_a\in\mathcal A\subseteq B(\mathcal H)\) be realized transition
+operators and let \(\omega_a\) be source-derived frequencies.  If self-adjoint
+\(K\) and \(K'\) both solve
+\[
+ [K,V_a]=\omega_aV_a,
+ \qquad
+ [K',V_a]=\omega_aV_a
+ \quad\text{for every \(a\)},
+\]
+then \(K-K'\) lies in the commutant of the algebra generated by the \(V_a\).
+Hence the channel frame identifies a noncommutative modular Hamiltonian only
+modulo that commutant, and modulo the center when the operators generate the
+declared finite algebra.
+\end{proposition}
+
+\begin{proof}
+Subtracting the two commutator equations gives
+\([K-K',V_a]=0\) for every \(a\); the generated-algebra statement follows.
+\end{proof}
+
+\begin{remark}[Rate scale, clock scale, and BW promotion]
+Multiplying every equilibrium rate by one constant leaves every affinity,
+the reconstructed stationary law, \(K\), and \(\Omega_{24}\) unchanged, while
+rescaling the relaxation generator.  Rate ratios therefore determine a
+dimensionless potential; rate magnitudes determine kinetics.  Neither fixes a
+frequency in hertz.  Operational time requires the independent clock
+instrument and affine calibration used later in this paper.  Physical BW
+promotion further requires a refinement-natural comparison showing that the
+gear-derived state is the same support-visible cap state used by the geometric
+modular theorem, with its regularized cutoff schedule and independent
+\(2\pi\)-normalization receipt.
+\end{remark}
+
 The register receipt reports the character-projector multiplicities, equivariance residual,
 within-irrep spectral spread, orientation-parity leakage, adjacency-polynomial residual, and the
-equivariant-permutation order.  Exact data give Theorem~\ref{thm:a5-register-commutant} and
+equivariant-permutation order.  The modular-gearing receipt additionally reports the oriented
+rate ledger, quotient lumpability defect, fundamental-cycle affinities, stationary-law and
+detailed-balance residuals, \(C^*C\), \(\epsilon_{\rm ch}\), the four paired gaps, and the
+commutant dimension of any operator-valued lift.  Exact data give
+Theorems~\ref{thm:a5-register-commutant} and
+\ref{thm:oriented-register-modular-compression} and
 Proposition~\ref{prop:no-equivariant-24-cycle}; approximate data remain diagnostics with declared
 tolerances.
 
@@ -2147,7 +2281,87 @@ the port arrangement.
 \end{enumerate}
 \end{definition}
 
-\begin{theorem}[Icosahedral screen-sieve theorem]\label{thm:icosahedral-screen-sieve}
+\begin{definition}[Certified echosahedral carrier lineage]
+\label{def:certified-echosahedral-lineage}
+A certified local lineage augments the quotient-visible echosahedral patch by:
+\begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
+\item twelve primitive orthogonal port-center atoms \(e_{r,p}\), each of
+normalized trace \(1/12\);
+\item the oriented \(12\)-vertex, \(30\)-edge, \(20\)-face triangular
+incidence packet, with degree-five vertices and five-cycle links;
+\item the integer total-charge fiber
+\(\mathcal Q_r=\{q\in\mathbb Z^{12}:\sum_pq_p=12\}\) and the central
+readback cost \(H_r(q)=\sum_pq_p^2\);
+\item orientation-preserving incidence isomorphisms along refinement that
+preserve the port-center/readback packet and obey the refinement cocycle; and
+\item a source manifest that rejects Standard Model, product-adjoint, gauge,
+coupling, particle, measured-target, and fitted-coordinate fields.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Echosahedral source-selector theorem]
+\label{thm:echosahedral-source-selector-microphysics}
+On every lineage of
+Definition~\ref{def:certified-echosahedral-lineage}, the source packet
+canonically determines:
+\begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
+\item the twelve coefficient lines \(\mathbb R e_{r,p}\) and the unique
+all-one defect allocation, with \(H_{\min}=12\), next floor \(14\), and exact
+gap \(2\);
+\item the unique fixed-point-free inverse pairing by graph distance three and
+the resulting six axes;
+\item the full incidence group \(A_5\times C_2\) and its
+orientation-preserving subgroup \(A_5\);
+\item the exact incidence Gram matrix
+\[
+G_{pq}\in\{1,1/\sqrt5,-1/\sqrt5,-1\}
+\quad\text{at distances }0,1,2,3,
+\]
+with
+\[
+G^2=4G,\qquad \operatorname{tr}G=12,\qquad \operatorname{rank}G=3,
+\]
+whose oriented factorization is the regular six-axis icosahedral frame up to
+\(SO(3)\); and
+\item refinement naturality and arbitrary simultaneous port-relabeling
+equivariance of all these objects.
+\end{enumerate}
+Thus the finite \(\mathrm{UD12}\) and \(\mathrm{RP\text{-}A5}\) source
+receipts are closed on this carrier branch.
+\end{theorem}
+
+\begin{proof}
+Primitive central atoms give the intrinsic line family.  On the total-charge
+fiber,
+\[
+H(q)=12+\sum_p(q_p-1)^2,
+\]
+so the all-one allocation is unique and the least nonzero integral zero-sum
+deviation has squared norm two.  The exact incidence distance profile is
+\((1,5,5,1)\), giving a unique distance-three involution.  Enumeration gives
+\(120\) incidence automorphisms and \(60\) orientation-preserving ones;
+conjugation on the five Klein-four subgroups identifies the latter faithfully
+with all even permutations of five objects, hence with \(A_5\).  Exact
+multiplication in \(\mathbb Q(\sqrt5)\) gives \(G^2=4G\), and the trace fixes
+rank three.  Every declared refinement or complete relabeling preserves the
+source formulas.  The exact implementation and countermodels are
+\texttt{code/a5\_closure/echosahedral\_selector\_certificate.py} and
+\texttt{physics-problems/issue\_565\_echosahedral\_selector.md}.
+\end{proof}
+
+\begin{remark}[Load-bearing hypotheses]
+Without primitive atoms the line split is continuous; without equal trace or
+total charge twelve the all-unit minimizer is not unique; a linear cost has
+\(\binom{23}{11}\) minimizers; twelve labels without incidence have
+\(10{,}395\) fixed-point-free pairings; without orientation the selected group
+is \(A_5\times C_2\); and non-incidence or noncocyclic refinement maps fail
+naturality.  The theorem derives the selector from the declared
+echosahedral-carrier packet.  It does not prove that bare Euler incidence or
+every possible OPH carrier selects that packet, and it does not construct a
+physical gauge-current algebra.
+\end{remark}
+
+\begin{theorem}[Alternative variational icosahedral screen sieve]\label{thm:icosahedral-screen-sieve}
 Assume the fixed-cutoff OPH screen branch is represented by a quantum-link
 triangulation of \(S^2\), with finite Hilbert spaces on links, Gauss constraints
 at vertices, boundary-gauge-invariant physical algebras, and a refinement-stable
@@ -2211,11 +2425,13 @@ twelve ports.
 \end{remark}
 
 \begin{remark}[Source-selector boundary]
-The D-optimal vector/quadrupole functional is a branch premise. Its production
-from finite mismatch, readback, and repair is work in progress. A
-source-derived strictly completely monotonic pair cost is an alternative
-selector by universal optimality. Only the twelve-port load normalization
-follows from unit splitting and placement. The cell value
+For Theorem~\ref{thm:icosahedral-screen-sieve}, the D-optimal
+vector/quadrupole functional remains a branch premise, and a source-derived
+strictly completely monotonic pair cost is another sufficient selector by
+universal optimality.  Neither is needed on the certified lineage of
+Theorem~\ref{thm:echosahedral-source-selector-microphysics}, where oriented
+incidence and central readback supply the selector directly. Only the
+twelve-port load normalization follows from unit splitting and placement. The cell value
 \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution of
 Theorem~\ref{thm:z6-reserve-trace} have separate premises; the port and slot
 counts do not imply either statement.
@@ -2305,8 +2521,11 @@ readout. It therefore adds a precise downstream
 certificate format without deriving either attachment from this screen model.
 \end{remark}
 
-On its declared cost and selector branch, the screen-sieve theorem fixes the
-twelve-port carrier. It gives the reference patch enough boundary structure to support nontrivial overlap
+On the certified echosahedral lineage, the source-selector theorem derives the
+unit lines, inverse pairs, proper \(A_5\) action, and rank-three frame. On
+other declared cost/selector branches, the variational screen-sieve theorem
+provides a sufficient alternative. These results give the reference patch
+enough boundary structure to support nontrivial overlap
 comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
 while remaining small enough for explicit evidence records.
 The theorem selects the exposed interface architecture. The dimension of the observer's internal

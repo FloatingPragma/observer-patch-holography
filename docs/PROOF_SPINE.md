@@ -21,9 +21,10 @@ fail-closed gates and adversarial regressions. Fourth, the falsification
 program is restricted to mature non-cosmological claims and contains no
 target registry or forward scorecard. Fifth, proximity: the gauge-width map lands
 2.5×10⁻⁶ relative from the measured α⁻¹ with the transport term open; the
-chart W coordinate sits 0.5 propagated experimental standard deviations from
-the PDG 2026 complex pole as a convention diagnostic, with the readout
-contract open; and the conditional electroweak comparison coordinate sits
+exact convention map distinguishes the PDG 2026 energy-pole mass
+\(M=\operatorname{Re}\sqrt{s}\) from the legacy
+\(\sqrt{\operatorname{Re}s}\) coordinate, while the OPH chart-to-pole readout
+contract and theory covariance remain open; and the conditional electroweak comparison coordinate sits
 about 2.5 one-dimensional Planck standard deviations from the Λ-located
 coordinate. Neither constructs the operational readback map. The statuses below are binding and move
 only by dated artifact.
@@ -83,7 +84,7 @@ owns downstream electroweak and mass bridges.
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen spectrum | exact conditional screen covariance, source-functional amplitude, edge-center tilt, one-shell radial non-identifiability, and conditional physical-dilation/tomography uniqueness; finite source instantiation and physical promotion are work in progress (GAP-B7) |
-| B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | the 24-register rate no-go and conditional charged determinant-clock implication are closed; the physical clock/determinant attachment, flavor shapes, and neutrino sector are open (GAP-B3, GAP-B5, GAP-B4) |
+| B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | the 24-register clock no-go, finite modular-gearing compression theorem, and conditional charged determinant-clock implication are closed; the source-derived rate/channel realization, physical clock/determinant attachment, flavor shapes, and neutrino sector are open (GAP-B3, GAP-B5, GAP-B4) |
 | B9 | Machine formalization | 98 consensus plus 13 coupling theorems; screen files check only abstract matrix, lattice, and arithmetic statements (GAP-B8) |
 | B10 | Baryogenesis: finite anomaly/current theorem, source attachment, and physical CP-odd generator | anomaly/current theorem and direct gauge/deck no-go done; physical source branch open (GAP-B12) |
 
@@ -150,15 +151,17 @@ Part A gaps:
   frozen likelihood and convention map. The independent $\rho_{\rm op}$ test
   compares $\log M_0$ with $\pi/\rho_{\rm op}^2$ and cannot define
   either side. Existing posterior propagation remains diagnostic.
-- **GAP-A6 (CL-5, generator G3).** Define the physical W/Z readout and complete its
-  renormalized-vev, tadpole, threshold, running-input, finite-order, complex-pole, and
-  uncertainty map. The 96-entry menu scanned chart prescriptions against stale
-  mass-dependent-width Breit--Wigner coordinates and exhausted only that menu. The
-  two-loop packet was an MSSM-one-loop plus SM-two-loop hybrid. Neither packet yields a
-  physical pull or an exhaustive exclusion. Under the complex-pole convention with
-  PDG 2026 masses and widths, the chart W coordinate sits 0.5 propagated
-  experimental standard deviations from the converted pole as a convention
-  diagnostic carrying no pull.
+- **GAP-A6 (CL-5, generator G3).** The strict-one-loop algebraic kernel is closed:
+  a complete declared renormalized packet determines the charged and neutral
+  complex-pole coefficients, the neutral one-loop-squared mixing term is excluded
+  at this order, and strict coefficients are separated from nonlinear square-root
+  coordinates. The fail-closed checker binds the exact subject and rejects
+  self-attested evidence. Physical closure still requires the OPH-to-FJ parameter
+  identity and complete tadpole conversion, target-clean EFT matching, a licensed
+  source law/covariance, an independent general-gauge self-energy engine with
+  finite-order BRST/ST/Ward/Nielsen receipts, pole isolation and amplitudes, and a
+  source clock. The evaluated SMDR fixture is post-exposure regression evidence and
+  carries no physical pull.
 - **GAP-A7.** Closed 2026-07-17. Uniqueness beyond the declared domain (α⁻¹ outside
   [100, 200]) is discharged by the maximal-domain extension certificate
   (`code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json`).
@@ -199,8 +202,12 @@ Part B gaps:
 - **GAP-B4.** The neutrino sector: no mixing matrix or absolute mass row is emitted; the
   weighted-cycle candidate is rejected by NuFIT 6.1 (permanent verdict).
 - **GAP-B5.** Charged-lepton source completion. A 24-stage register fixes no
-  physical rate, gap, or mass because Hamiltonian rescaling preserves the
-  register structure. The common determinant-scale implication is closed only
+  physical frequency, clock scale, or mass because Hamiltonian rescaling
+  preserves the register structure. Source-derived reversible rate ratios can
+  conditionally reconstruct dimensionless modular gaps, and the oriented
+  register can carry them only when its channel-compression residual vanishes;
+  the rates, channel realization, cap-state match, and clock calibration remain
+  open source receipts. The common determinant-scale implication is closed only
   conditionally: a source-derived operational clock line $L_{24}$ with
   calibrated gap $\Delta_{24}$ and a natural norm-preserving map
   $L_{24}^{\otimes3}\to\det M_e$ gives
@@ -226,8 +233,11 @@ Part B gaps:
   trace-balanced group, tensor kernel, and axis-center descent.
 - **GAP-B9.** Physical screen-to-Standard-Model forcing. The exterior witness
   closes the one-generation branching, hypercharges, three one-Higgs invariant
-  lines, listed anomalies, and weak multiplicity four. The remaining producer
-  gates are UD12 and RP-A5; PORT-CURRENT-INNER; block determinant balance and
+  lines, listed anomalies, and weak multiplicity four. The echosahedral source
+  selector closes UD12 and RP-A5 on the declared quotient-visible carrier
+  lineage, deriving the unit split, inverse pairing, proper A5 action, exact
+  frame, and refinement/relabeling naturality. The remaining producer gates are
+  PORT-CURRENT-INNER; block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
   non-vacuum exterior package and $H=W$; exclusion of the vacuum
   singlet and other anomaly-free light sectors; A5 family attachment plus a

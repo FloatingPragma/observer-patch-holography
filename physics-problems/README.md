@@ -37,6 +37,13 @@ Use the following evidence vocabulary consistently:
 
 ## Writeups
 
+- [Issue #565: Source-Derived Twelve-Unit, Antipode, and Icosahedral Selector Theorem](issue_565_echosahedral_selector.md):
+  exact finite theorem and executable receipt for the declared quotient-visible
+  echosahedral carrier lineage. Primitive central atoms, oriented incidence,
+  integer readback, and refinement cocycles derive the unit split and gap,
+  inverse pairing, proper $A_5$ action, and rank-three frame without importing
+  downstream gauge or measured targets. The result does not force every OPH
+  carrier to be echosahedral or provide the physical current lift.
 - [Finite-Quotient OPH Baryogenesis Source Theorem](oph_baryogenesis_source_theorem.md):
   exact anomaly/current theorem and source no-go for the matter-antimatter
   problem. It identifies \(k_R\) with the mixed electroweak anomaly index,
