@@ -61,15 +61,18 @@
     "proxy_target_coordinates -> proxy_targets_only",
     "BD_UV_inputs -> threshold_and_low_energy_forward_map",
     "threshold_and_low_energy_forward_map -> OPH_target_comparison",
-    "physical_moduli_jacobian -> moduli_locking_rank_test"
+    "physical_quotient_and_completion_constraints -> augmented_selector_map",
+    "physical_moduli_jacobian -> augmented_selector_map",
+    "augmented_selector_map -> interval_existence_and_isolation_test",
+    "branch_coverage_and_candidate_catalogue -> comparative_uniqueness_test"
   ],
   "forbidden_edge": "proxy_targets -> BD_threshold_compatibility_or_full_witness_promotion",
   "issue": 368,
   "local_dependencies": [
     {
-      "byte_count": 8580,
+      "byte_count": 9299,
       "path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-      "sha256": "913ce3751f1b4495890978fdc9539010b3d30353ee52ef52044cf69d9a7ef2b2"
+      "sha256": "1ef33af8daace68df0a66e636db8fcfd4c7ac0d1c89f8aeeaf20990f661d9806"
     },
     {
       "byte_count": 19731,
@@ -87,14 +90,14 @@
       "sha256": "16ecfaf128c164c92fd7454efef42162f4b2e9748728784bda89874d3e701958"
     },
     {
-      "byte_count": 51344,
+      "byte_count": 52881,
       "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
-      "sha256": "55ef54bac02268bc9243c35d0c7864c2b67ec837206e9243f88b249aab473a42"
+      "sha256": "6cc5c4f2453d8dfbd474d31e1add21891d8046b84986ded454b3bc03055aae98"
     },
     {
-      "byte_count": 13837,
+      "byte_count": 14769,
       "path": "code/particles/uv/oph_bd_threshold_spectrum_inputs.schema.json",
-      "sha256": "a16c487ae1e7a1c20dbb36dc988c3ded2e4502e5f16d36f86ed146d0dca79d85"
+      "sha256": "69cf41d1168ee9246412201381ab63618170189d1987a561035ebc6f6e0474d9"
     }
   ],
   "numeric_selectors": [

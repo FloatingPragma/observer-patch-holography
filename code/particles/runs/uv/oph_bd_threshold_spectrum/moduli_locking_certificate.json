@@ -3,6 +3,8 @@
   "bd_moduli_locking_certificate_receipt": false,
   "certificate_issue": 369,
   "compatibility_evaluated": false,
+  "constraint_augmented_rank_verified": false,
+  "dynamical_stability_verified": false,
   "flat_direction_classification": {
     "completion_dimension_policy": "Missing completion variables can add ambient coordinates, while stabilization and vacuum constraints can remove directions; their net effect is not certified.",
     "families": [
@@ -32,11 +34,11 @@
         "status": "published_proxy_flat_completion_survival_unresolved"
       },
       {
-        "classification": "OPH-visible branch-exit",
+        "classification": "OPH-visible branch-exit candidate",
         "complex_dimension": 2,
         "family": "bundle_normal_to_one_Higgs_locus",
         "physical_meaning": "changes the Higgs/lepton mass pairing and leaves the one-massless-Higgs-pair stratum",
-        "status": "not_a_flat_direction_inside_the_n_equals_1_slice"
+        "status": "ambient_normal_dimension_verified_but_pullback_transversality_unverified"
       }
     ],
     "missing_uncounted_visible_families": [
@@ -54,29 +56,49 @@
     "policy": "A direction is not declared OPH-invisible merely because the five-coordinate comparison map does not read it."
   },
   "full_transverse_rank_verified": false,
+  "interval_existence_isolation_verified": false,
   "isolation_verified": false,
   "missing_source_objects": [
+    "augmented_interval_isolation_receipt",
+    "branch_global_coverage_receipt",
     "bulk_five_brane_sector_and_moduli_or_absence",
     "bundle_moduli_point_and_mass_matrix",
+    "comparative_catalogue_coverage_receipt",
+    "completed_constraint_system_and_stability_receipt",
     "complex_structure_moduli_point_and_mass_matrix",
     "dilaton_point_and_mass",
+    "heavy_nonzero_mode_spectrum",
+    "hidden_sector_completion_and_spectrum",
     "kahler_moduli_point_metric_and_mass_matrix",
+    "low_energy_spectrum_solver_receipt",
+    "normalized_yukawa_boundary_data",
     "physical_moduli_jacobian",
-    "string_compactification_and_matching_scales"
+    "physical_quotient_descent_receipt",
+    "string_compactification_and_matching_scales",
+    "supersymmetric_sector_decoupling_map",
+    "target_registry_precommitment_receipt",
+    "threshold_matching_receipt"
   ],
   "one_higgs_stratum_certificate": {
+    "ambient_normal_dimension_complex": 2,
     "cokernel_dimension_complex": 2,
     "kernel_dimension_complex": 1,
     "map": "M_minus:C^8->C^9",
-    "normal_dimension_complex": 2,
     "normal_space": "Hom(ker(M_minus),coker(M_minus))",
+    "pullback_transverse_rank_complex": null,
+    "pullback_transverse_rank_verified": false,
     "rank_on_n_equals_1": 7,
-    "scope": "At a smooth point of the cited codimension-two pullback locus, the induced normal map has exact complex rank two. This certifies only the Higgs-multiplicity stratum, not full OPH moduli locking.",
+    "required_pullback_receipt": [
+      "local_extension_coordinate_registry",
+      "local_M_minus_entries",
+      "two_local_defining_equations",
+      "nonzero_exact_or_interval_certified_2x2_Jacobian_minor"
+    ],
+    "scope": "The ambient rank-seven determinantal normal space has complex dimension two. Equal pullback codimension does not by itself certify differential transversality or exclude a nonreduced pullback. The local Jacobian receipt is absent.",
     "source_ids": [
       "bd2005",
       "bcd2006"
-    ],
-    "transverse_rank_complex": 2
+    ]
   },
   "physical_source_slice": {
     "all_completion_receipt_slots_populated": false,
@@ -119,6 +141,7 @@
   },
   "rank_obstruction_certificate_receipt": true,
   "rank_test": {
+    "augmented_constraint_map_evaluable": false,
     "completed_slice_dimension_real": null,
     "emitted_proxy_jacobian_rank": 0,
     "emitted_proxy_jacobian_shape": [
@@ -126,6 +149,8 @@
       142
     ],
     "full_column_rank_required_dimension_real": null,
+    "necessary_net_real_completion_cuts_for_five_legitimate_rows": 137,
+    "necessary_net_real_completion_cuts_for_promoted_rows": 139,
     "physical_jacobian_receipt_slot_populated": false,
     "physical_jacobian_verified": false,
     "published_precompletion_proxy_flat_dimension_real": 142,
@@ -164,6 +189,7 @@
     "definition": "F_BD,n=1 maps a constrained physical BD point and its derived threshold receipt to the ordered five-coordinate comparison registry. The first three coordinates have declared OPH-surface status; mH and mt are candidate-only. Discrete group, generation, Higgs-count, exotic, and safety gates define the stratum and do not add Jacobian rows.",
     "emitted_proxy_depends_on_bd_branch_values": false,
     "emitted_proxy_is_physical_map": false,
+    "no_self_targeting_policy": "A rank row must be observer-visible and frozen with units, scheme, scale, target, and claim status before candidate evaluation. Candidate-only mH and mt rows do not contribute to the OPH target-rank certificate.",
     "physical_forward_map_evaluable": false,
     "promoted_coordinate_count": 3,
     "target_dimension_real": 5,

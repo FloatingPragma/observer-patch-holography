@@ -822,13 +822,15 @@
         "one_Higgs_Bouchard_Donagi_massless_cohomology_candidate",
         "operator_safety_realization_gate",
         "threshold_spectrum_and_decoupling_gate",
-        "moduli_locking_gate"
+        "completed_vacuum_stability_gate",
+        "constraint_augmented_moduli_locking_gate",
+        "branch_and_catalogue_coverage_gate"
       ],
       "imported_results": [
         "heterotic_standard_model_candidate_literature",
         "string_compactification_language"
       ],
-      "oph_specific_delta": "OPH supplies the comparison registry and gates that a known string representative must satisfy without retuning; the audit separates the 142-real-dimensional published pre-completion slice from the unprovided completed physical slice, proves proxy rank zero on the former, and emits a fail-closed rank/isolation certificate.",
+      "oph_specific_delta": "OPH supplies a precommitted comparison registry and gates that a known string representative must satisfy without retuning. The audit separates dynamical stabilization from target identifiability, defines the constraint-augmented locking map, proves exact and interval local-isolation criteria, requires branch and catalogue coverage for uniqueness, separates the 142-real-dimensional published pre-completion slice from the unprovided completed physical slice, and proves proxy rank zero on the former.",
       "novelty_type": "selector_continuation",
       "evidence": [
         "extra/observer_patch_holography_as_string_vacuum_selector.tex",
@@ -836,7 +838,7 @@
         "code/particles/runs/uv/oph_bd_threshold_spectrum/moduli_locking_certificate.json",
         "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"
       ],
-      "falsifier": "The BD row cannot realize the critical edge, OPH comparison registry, safety layer, thresholds, decoupling, or a certified full-column-rank moduli lock on the same physical branch. Its five-row proxy has rank zero on the published pre-completion slice, while the completed slice, selected point, and physical Jacobian are absent.",
+      "falsifier": "Failure of the critical edge, OPH comparison registry, safety layer, stable completion, thresholds, decoupling, augmented isolation, or branch coverage retracts the BD witness. Its five-row proxy has rank zero on the published pre-completion slice, while the completed constraints, stable point, physical forward map, augmented Jacobian, and interval box are absent.",
       "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
       "status": "rank_gate_failed_structural_benchmark_only"
     },

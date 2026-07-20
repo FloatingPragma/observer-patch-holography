@@ -450,8 +450,9 @@ Those conditions are exactly the OPH-correctness gates for the named witness. Qu
 
 \begin{corollary}[BD selection status]\label{cor:bd-selection-status}
 The antecedent of the conditional witness theorem is false for the committed source packet. In
-particular, no selected moduli point or physical Jacobian is supplied, and the full-column-rank gate
-is obstructed by Theorem~\ref{thm:bd-rank-obstruction}. Hence
+particular, no completed constraint system, dynamically stable point, physical readout, or
+constraint-augmented Jacobian is supplied. The locking and isolation gate is obstructed by
+Theorem~\ref{thm:bd-rank-obstruction}. Hence
 \[
 BD_{n=1,+}^{\OPH}
 \quad\text{is not a selected or passing OPH-string witness.}
@@ -2453,7 +2454,7 @@ A locking certificate using \(k\) legitimate readout rows requires
 \[
 r+g-a\ge 142-k.
 \]
-Thus five legitimate rows require at least \(137\) net real cuts, while the three currently
+Thus five legitimate rows require at least \(137\) net real cuts, while the three
 promoted OPH rows require at least \(139\). These bounds are necessary and not sufficient. If
 \(d=0\), the completion equations isolate the vacuum and no readout derivative is needed.
 \end{corollary}
@@ -2478,7 +2479,7 @@ in canonically normalized physical coordinates for a certified \(\mu^2>0\), afte
 and Goldstone directions. An anti-de Sitter branch instead requires the corresponding
 Breitenlohner--Freedman spectral bound. Full rank of an observer readout proves local
 identifiability; it does not give a scalar a mass. Both stabilization and target-locking receipts
-are required unless the declared completion equations already include a separately certified
+are required unless the declared completion equations themselves include a separately certified
 stability theorem.
 \end{theorem}
 
@@ -3347,7 +3348,8 @@ for the BD row. The displayed five-coordinate contract is
 \calF_{BD,n=1,+}(m_\star)=\calO_{\OPH,\mathrm{cmp}}^{(5)},
 \]
 but no \(m_\star\) or physical forward map is supplied, and Theorem~\ref{thm:bd-rank-obstruction}
-proves that this five-row contract cannot meet the full-column-rank gate on the documented slice.
+proves that this five-row contract cannot meet the constraint-augmented locking gate on the
+documented slice without additional certified completion constraints.
 
 \section{Claim Gates}\label{sec:claim-gates}
 
@@ -3417,7 +3419,7 @@ BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as named geometr
 an operator-safe proposal. \\
 Dangerous operators survive without suppression & Severe pressure on the effective theory. \\
 No moduli point matches \(\calO_{\OPH}\) & Retracts the operator-safe selected candidate. \\
-Full-column-rank certificate fails or physical directions remain unclassified & Retracts the
+Constraint-augmented locking certificate fails or physical directions remain unclassified & Retracts the
 operator-safe selected candidate; the structural BD row and recovered OPH core remain separate. \\
 Central-charge or supercurrent gate fails & Retracts the heterotic critical-worldsheet
 identification of the sewn edge branch. \\
@@ -3536,6 +3538,13 @@ stabilized heavy spectrum or a map from the supersymmetric compactification to t
 non-supersymmetric OPH low-energy branch. Therefore \(BD_{n=1,+}^{\OPH}\) is not a
 selected/passing string witness and is retained only as a structural audit benchmark. The recovered
 OPH core is a separate claim tier.
+
+This status does not prove that the BD compactification is physically inconsistent. It proves that
+the available data do not select it. No alternative string vacuum passes the certificate stack in
+this paper. The strongest justified result is therefore an empty selected set for the emitted
+catalogue receipts, with BD retained as a structural candidate. Any positive result is local until
+the branch-cover theorem closes, and catalogue-relative until the candidate-universe coverage
+theorem closes.
 
 \begin{thebibliography}{99}
 

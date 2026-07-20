@@ -16,9 +16,13 @@
     "status": "five_coordinate_mixed_status_comparison_contract"
   },
   "bd_uv_inputs": {
+    "augmented_interval_isolation_receipt": null,
+    "branch_global_coverage_receipt": null,
     "bundle_moduli_point_and_mass_matrix": null,
     "bulk_five_brane_sector_and_moduli_or_absence": null,
     "complex_structure_moduli_point_and_mass_matrix": null,
+    "comparative_catalogue_coverage_receipt": null,
+    "completed_constraint_system_and_stability_receipt": null,
     "conventional_soft_terms_boundary_conditions": null,
     "conventional_susy_breaking_and_mediation_data": null,
     "heavy_nonzero_mode_spectrum": null,
@@ -28,9 +32,11 @@
     "low_energy_spectrum_solver_receipt": null,
     "bd_equivalent_non_susy_uv_deformation_receipt": null,
     "physical_moduli_jacobian": null,
+    "physical_quotient_descent_receipt": null,
     "normalized_yukawa_boundary_data": null,
     "string_compactification_and_matching_scales": null,
     "supersymmetric_sector_decoupling_map": null,
+    "target_registry_precommitment_receipt": null,
     "threshold_matching_receipt": null
   },
   "external_sources": [
@@ -107,7 +113,11 @@
       "canonically normalized numerical Yukawa matrices",
       "a low-energy spectrum-generator input/output pair",
       "one-loop string or heavy-field threshold determinants",
-      "the physical moduli-to-observable Jacobian"
+      "the physical quotient-descent proof and complete coordinate registry",
+      "the completed constraint system, stationary effective potential, and physical Hessian stability bound",
+      "the physical moduli-to-observable and completion-constraint Jacobians",
+      "an outward-rounded interval existence-and-isolation certificate for the augmented system",
+      "branch-global parameter-domain coverage and a duality-deduplicated comparative catalogue"
     ]
   },
   "numerical_policy": {
@@ -163,7 +173,7 @@
       "value": "91.1879"
     }
   },
-  "schema_version": 2,
+  "schema_version": 3,
   "target_coordinates": {
     "alpha2_mz": {
       "claim_status": "declared_D10_surface_coordinate",

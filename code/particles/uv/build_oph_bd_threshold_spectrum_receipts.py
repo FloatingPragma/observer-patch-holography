@@ -29,9 +29,13 @@ DEFAULT_PACKET = REPO_ROOT / "code/particles/data/oph_bd_threshold_spectrum_inpu
 DEFAULT_OUT_DIR = REPO_ROOT / "code/particles/runs/uv/oph_bd_threshold_spectrum"
 SCHEMA_PATH = REPO_ROOT / "code/particles/uv/oph_bd_threshold_spectrum_inputs.schema.json"
 BASE_REQUIRED_UV_INPUTS = {
+    "augmented_interval_isolation_receipt",
+    "branch_global_coverage_receipt",
     "bundle_moduli_point_and_mass_matrix",
     "bulk_five_brane_sector_and_moduli_or_absence",
     "complex_structure_moduli_point_and_mass_matrix",
+    "comparative_catalogue_coverage_receipt",
+    "completed_constraint_system_and_stability_receipt",
     "dilaton_point_and_mass",
     "heavy_nonzero_mode_spectrum",
     "hidden_sector_completion_and_spectrum",
@@ -39,9 +43,11 @@ BASE_REQUIRED_UV_INPUTS = {
     "low_energy_spectrum_solver_receipt",
     "normalized_yukawa_boundary_data",
     "physical_moduli_jacobian",
+    "physical_quotient_descent_receipt",
     "string_compactification_and_matching_scales",
     "supersymmetric_sector_decoupling_map",
     "threshold_matching_receipt",
+    "target_registry_precommitment_receipt",
 }
 ROUTE_CONDITIONAL_UV_INPUTS = {
     "conventional_soft_terms_boundary_conditions",
@@ -173,9 +179,7 @@ def _moduli_receipt_presence(packet: dict[str, Any]) -> dict[str, bool]:
 
     uv_inputs = packet["bd_uv_inputs"]
     return {
-        "all_completion_receipt_slots_populated": all(
-            receipt is not None for receipt in uv_inputs.values()
-        ),
+        "all_completion_receipt_slots_populated": not _missing_uv_inputs(packet),
         "physical_jacobian_receipt_slot_populated": (
             uv_inputs["physical_moduli_jacobian"] is not None
         ),
@@ -234,7 +238,7 @@ def _load_packet(packet_path: Path) -> dict[str, Any]:
         raise PacketError(f"source packet is missing top-level keys: {missing}")
     if packet["artifact"] != "oph_bd_threshold_spectrum_source_packet":
         raise PacketError("unexpected source-packet artifact identifier")
-    if packet["schema_version"] != 2:
+    if packet["schema_version"] != 3:
         raise PacketError("unsupported source-packet schema version")
     if packet["issue"] != 368:
         raise PacketError("source packet is not for issue 368")
@@ -743,7 +747,10 @@ def build_receipts(
             "proxy_target_coordinates -> proxy_targets_only",
             "BD_UV_inputs -> threshold_and_low_energy_forward_map",
             "threshold_and_low_energy_forward_map -> OPH_target_comparison",
-            "physical_moduli_jacobian -> moduli_locking_rank_test",
+            "physical_quotient_and_completion_constraints -> augmented_selector_map",
+            "physical_moduli_jacobian -> augmented_selector_map",
+            "augmented_selector_map -> interval_existence_and_isolation_test",
+            "branch_coverage_and_candidate_catalogue -> comparative_uniqueness_test",
         ],
         "forbidden_edge": (
             "proxy_targets -> BD_threshold_compatibility_or_full_witness_promotion"
@@ -959,7 +966,7 @@ def build_receipts(
                     "status": "published_proxy_flat_completion_survival_unresolved",
                 },
                 {
-                    "classification": "OPH-visible branch-exit",
+                    "classification": "OPH-visible branch-exit candidate",
                     "complex_dimension": inventory[
                         "one_higgs_locus_codimension_complex"
                     ],
@@ -968,7 +975,10 @@ def build_receipts(
                         "changes the Higgs/lepton mass pairing and leaves the "
                         "one-massless-Higgs-pair stratum"
                     ),
-                    "status": "not_a_flat_direction_inside_the_n_equals_1_slice",
+                    "status": (
+                        "ambient_normal_dimension_verified_but_pullback_"
+                        "transversality_unverified"
+                    ),
                 },
             ],
             "missing_uncounted_visible_families": [
@@ -993,19 +1003,12 @@ def build_receipts(
                 "five-coordinate comparison map does not read it."
             ),
         },
+        "dynamical_stability_verified": False,
         "full_transverse_rank_verified": False,
+        "constraint_augmented_rank_verified": False,
+        "interval_existence_isolation_verified": False,
         "isolation_verified": False,
-        "missing_source_objects": [
-            name
-            for name in missing_uv_inputs
-            if "moduli" in name
-            or name
-            in {
-                "dilaton_point_and_mass",
-                "physical_moduli_jacobian",
-                "string_compactification_and_matching_scales",
-            }
-        ],
+        "missing_source_objects": missing_uv_inputs,
         "one_higgs_stratum_certificate": {
             "cokernel_dimension_complex": one_higgs_geometry[
                 "cokernel_complex"
@@ -1017,19 +1020,28 @@ def build_receipts(
                 "->C^"
                 f"{one_higgs_geometry['codomain_complex']}"
             ),
-            "normal_dimension_complex": one_higgs_geometry["normal_complex"],
+            "ambient_normal_dimension_complex": one_higgs_geometry[
+                "normal_complex"
+            ],
             "normal_space": "Hom(ker(M_minus),coker(M_minus))",
+            "pullback_transverse_rank_complex": None,
+            "pullback_transverse_rank_verified": False,
             "rank_on_n_equals_1": one_higgs_geometry["rank"],
+            "required_pullback_receipt": [
+                "local_extension_coordinate_registry",
+                "local_M_minus_entries",
+                "two_local_defining_equations",
+                "nonzero_exact_or_interval_certified_2x2_Jacobian_minor",
+            ],
             "source_ids": inventory["one_higgs_determinantal_data"][
                 "source_ids"
             ],
             "scope": (
-                "At a smooth point of the cited codimension-two pullback "
-                "locus, the induced normal map has exact complex rank two. "
-                "This certifies only the Higgs-multiplicity stratum, not "
-                "full OPH moduli locking."
+                "The ambient rank-seven determinantal normal space has "
+                "complex dimension two. Equal pullback codimension does not "
+                "by itself certify differential transversality or exclude a "
+                "nonreduced pullback. The local Jacobian receipt is absent."
             ),
-            "transverse_rank_complex": one_higgs_geometry["normal_complex"],
         },
         "physical_source_slice": {
             "all_completion_receipt_slots_populated": receipt_presence[
@@ -1063,6 +1075,7 @@ def build_receipts(
         ],
         "rank_obstruction_certificate_receipt": True,
         "rank_test": {
+            "augmented_constraint_map_evaluable": False,
             "physical_jacobian_receipt_slot_populated": receipt_presence[
                 "physical_jacobian_receipt_slot_populated"
             ],
@@ -1082,6 +1095,12 @@ def build_receipts(
             ),
             "published_slice_five_coordinate_rank_upper_bound": (
                 target_dimension_real
+            ),
+            "necessary_net_real_completion_cuts_for_five_legitimate_rows": (
+                published_slice_real - target_dimension_real
+            ),
+            "necessary_net_real_completion_cuts_for_promoted_rows": (
+                published_slice_real - promoted_coordinate_count
             ),
             "rank_deficiency_caveat": (
                 "The 137-dimensional bound applies only to maps on the full "
@@ -1123,6 +1142,12 @@ def build_receipts(
                 "declared OPH-surface status; mH and mt are candidate-only. "
                 "Discrete group, generation, Higgs-count, exotic, and safety "
                 "gates define the stratum and do not add Jacobian rows."
+            ),
+            "no_self_targeting_policy": (
+                "A rank row must be observer-visible and frozen with units, "
+                "scheme, scale, target, and claim status before candidate "
+                "evaluation. Candidate-only mH and mt rows do not contribute "
+                "to the OPH target-rank certificate."
             ),
             "emitted_proxy_depends_on_bd_branch_values": False,
             "emitted_proxy_is_physical_map": False,

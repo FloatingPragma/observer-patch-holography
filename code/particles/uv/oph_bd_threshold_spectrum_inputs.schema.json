@@ -32,7 +32,7 @@
       "const": [369]
     },
     "schema_version": {
-      "const": 2
+      "const": 3
     },
     "issue": {
       "const": 368
@@ -241,10 +241,14 @@
     "bd_uv_inputs": {
       "type": "object",
       "required": [
+        "augmented_interval_isolation_receipt",
+        "branch_global_coverage_receipt",
         "heavy_nonzero_mode_spectrum",
         "kahler_moduli_point_metric_and_mass_matrix",
         "complex_structure_moduli_point_and_mass_matrix",
         "bundle_moduli_point_and_mass_matrix",
+        "comparative_catalogue_coverage_receipt",
+        "completed_constraint_system_and_stability_receipt",
         "dilaton_point_and_mass",
         "bulk_five_brane_sector_and_moduli_or_absence",
         "string_compactification_and_matching_scales",
@@ -256,10 +260,18 @@
         "bd_equivalent_non_susy_uv_deformation_receipt",
         "low_energy_spectrum_solver_receipt",
         "threshold_matching_receipt",
-        "physical_moduli_jacobian"
+        "physical_moduli_jacobian",
+        "physical_quotient_descent_receipt",
+        "target_registry_precommitment_receipt"
       ],
       "additionalProperties": false,
       "properties": {
+        "augmented_interval_isolation_receipt": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
+        "branch_global_coverage_receipt": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
         "heavy_nonzero_mode_spectrum": {
           "$ref": "#/$defs/nullableReceipt"
         },
@@ -270,6 +282,12 @@
           "$ref": "#/$defs/nullableReceipt"
         },
         "bundle_moduli_point_and_mass_matrix": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
+        "comparative_catalogue_coverage_receipt": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
+        "completed_constraint_system_and_stability_receipt": {
           "$ref": "#/$defs/nullableReceipt"
         },
         "dilaton_point_and_mass": {
@@ -339,6 +357,12 @@
           "$ref": "#/$defs/nullableReceipt"
         },
         "physical_moduli_jacobian": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
+        "physical_quotient_descent_receipt": {
+          "$ref": "#/$defs/nullableReceipt"
+        },
+        "target_registry_precommitment_receipt": {
           "$ref": "#/$defs/nullableReceipt"
         }
       }

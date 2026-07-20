@@ -54,11 +54,15 @@ This bundle is deliberately an open-evidence generator, not a compatibility
 evaluator: both promotion flags remain false even if all receipt slots are
 filled. An evaluator may consume a complete, hash/envelope-bound packet only after
 it also performs a real forward spectrum run, threshold matching in one
-declared scheme, and the physical-moduli rank test. Target-side proxy agreement
+declared scheme, a vacuum-stability test, and the constraint-augmented
+rank/isolation test. Target-side proxy agreement
 alone can never alter either promotion flag.
 
-The issue-369 certificate also records the exact rank-two normal certificate
-at a smooth point of the published codimension-two one-Higgs pullback locus.
+The issue-369 certificate records the two-complex-dimensional ambient
+determinantal normal space for the codimension-two one-Higgs pullback locus.
+The source packet does not contain the local matrix entries and Jacobian minor
+needed to certify pullback transversality, so the corresponding rank-two
+pullback statement is conditional.
 After known presentation redundancies are removed, the documented
 pre-completion one-Higgs source has
 
@@ -76,3 +80,10 @@ locus nor a selected point or physical Jacobian. The moduli-locking gate
 therefore fails. This retracts the operator-safe selected BD candidate status
 while retaining the structural BD audit row and leaving the recovered OPH core
 unchanged.
+
+The companion simulator contract in
+`oph-physics-sim/docs/STRING_VACUUM_SELECTION_RECEIPT_CONTRACT.md` defines the
+required quotient, stability, spectrum, threshold, augmented-Jacobian,
+interval-isolation, branch-coverage, and catalogue receipts. Its verifier
+recomputes interval contraction algebra and refuses producer promotion flags;
+string-specific semantic verifiers remain open.

@@ -77,11 +77,15 @@ def test_committed_bundle_matches_in_memory_rebuild() -> None:
 
 def test_source_packet_defines_every_required_uv_input_and_leaves_it_missing() -> None:
     packet = json.loads(DEFAULT_PACKET.read_text(encoding="utf-8"))
-    assert packet["schema_version"] == 2
+    assert packet["schema_version"] == 3
     required = {
+        "augmented_interval_isolation_receipt",
+        "branch_global_coverage_receipt",
         "bundle_moduli_point_and_mass_matrix",
         "bulk_five_brane_sector_and_moduli_or_absence",
         "complex_structure_moduli_point_and_mass_matrix",
+        "comparative_catalogue_coverage_receipt",
+        "completed_constraint_system_and_stability_receipt",
         "conventional_soft_terms_boundary_conditions",
         "conventional_susy_breaking_and_mediation_data",
         "dilaton_point_and_mass",
@@ -92,8 +96,10 @@ def test_source_packet_defines_every_required_uv_input_and_leaves_it_missing() -
         "normalized_yukawa_boundary_data",
         "bd_equivalent_non_susy_uv_deformation_receipt",
         "physical_moduli_jacobian",
+        "physical_quotient_descent_receipt",
         "string_compactification_and_matching_scales",
         "supersymmetric_sector_decoupling_map",
+        "target_registry_precommitment_receipt",
         "threshold_matching_receipt",
     }
     assert set(packet["bd_uv_inputs"]) == required
@@ -160,6 +166,22 @@ def test_moduli_receipt_presence_is_derived_from_packet_slots() -> None:
     presence = _moduli_receipt_presence(populated)
     assert presence["selected_moduli_point_declared"] is True
     assert presence["physical_jacobian_receipt_slot_populated"] is True
+
+    route_complete = copy.deepcopy(packet)
+    for name in receipt_builder.BASE_REQUIRED_UV_INPUTS:
+        route_complete["bd_uv_inputs"][name] = {"test_only": "populated"}
+    route_complete["bd_uv_inputs"]["supersymmetric_sector_decoupling_map"] = {
+        "route": "conventional_susy_breaking"
+    }
+    route_complete["bd_uv_inputs"]["conventional_susy_breaking_and_mediation_data"] = {
+        "test_only": "populated"
+    }
+    route_complete["bd_uv_inputs"]["conventional_soft_terms_boundary_conditions"] = {
+        "test_only": "populated"
+    }
+    assert _moduli_receipt_presence(route_complete)[
+        "all_completion_receipt_slots_populated"
+    ] is True
 
 
 def test_source_packet_schema_types_the_full_frozen_surface() -> None:
@@ -310,11 +332,23 @@ def test_threshold_and_moduli_certificates_fail_closed() -> None:
     assert moduli["status"] == "FAILED_NO_COMPLETED_RANK_ISOLATION_CERTIFICATE"
     assert moduli["certificate_issue"] == 369
     assert moduli["source_packet_issue"] == 368
+    assert moduli["dynamical_stability_verified"] is False
     assert moduli["full_transverse_rank_verified"] is False
+    assert moduli["constraint_augmented_rank_verified"] is False
+    assert moduli["interval_existence_isolation_verified"] is False
     assert moduli["isolation_verified"] is False
     assert moduli["bd_moduli_locking_certificate_receipt"] is False
     assert moduli["rank_obstruction_certificate_receipt"] is True
     assert moduli["promotion_allowed"] is False
+    for required_missing_object in (
+        "augmented_interval_isolation_receipt",
+        "branch_global_coverage_receipt",
+        "comparative_catalogue_coverage_receipt",
+        "completed_constraint_system_and_stability_receipt",
+        "physical_quotient_descent_receipt",
+        "target_registry_precommitment_receipt",
+    ):
+        assert required_missing_object in moduli["missing_source_objects"]
     assert (
         moduli["physical_source_slice"]["all_completion_receipt_slots_populated"]
         is False
@@ -328,12 +362,16 @@ def test_threshold_and_moduli_certificates_fail_closed() -> None:
     published = moduli["physical_source_slice"]["published_precompletion_slice"]
     assert published["dimension_complex"] == 71
     assert published["dimension_real"] == 142
-    assert moduli["one_higgs_stratum_certificate"]["transverse_rank_complex"] == 2
+    one_higgs = moduli["one_higgs_stratum_certificate"]
+    assert one_higgs["ambient_normal_dimension_complex"] == 2
+    assert one_higgs["pullback_transverse_rank_complex"] is None
+    assert one_higgs["pullback_transverse_rank_verified"] is False
     assert moduli["rank_test"]["emitted_proxy_jacobian_rank"] == 0
     assert (
         moduli["rank_test"]["physical_jacobian_receipt_slot_populated"]
         is False
     )
+    assert moduli["rank_test"]["augmented_constraint_map_evaluable"] is False
     assert moduli["rank_test"]["selected_moduli_point_declared"] is False
     assert (
         moduli["rank_test"]["published_slice_five_coordinate_rank_upper_bound"]
@@ -344,6 +382,12 @@ def test_threshold_and_moduli_certificates_fail_closed() -> None:
             "published_slice_five_coordinate_infinitesimal_nullity_lower_bound"
         ]
         == 137
+    )
+    assert (
+        moduli["rank_test"][
+            "necessary_net_real_completion_cuts_for_promoted_rows"
+        ]
+        == 139
     )
     assert (
         moduli["verdict"]["operator_safe_selected_candidate"]
