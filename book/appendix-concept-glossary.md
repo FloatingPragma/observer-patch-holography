@@ -336,8 +336,8 @@ channels $QHu^c$, $QH^\dagger d^c$, and $LH^\dagger e^c$, and cancellation of
 the color, weak, gravitational, and cubic hypercharge anomalies. The quark
 doublet occurs in three color copies and the lepton doublet once, giving four
 weak doublets per generation. Three face-selected families give twelve, and
-the two reversible orientations give the screen's twenty-four oriented weak
-slots.
+pairing each slot with an orientation label gives twenty-four oriented weak
+slots. The count alone supplies no inverse dynamics or physical current map.
 
 Fawzi-Renner theorem
 :   The Fawzi-Renner theorem shows that small conditional
@@ -542,8 +542,9 @@ the refined round screen.
 
 Observer-frame chart
 :   The Lorentz reconstruction gives a
-three-dimensional chart for future observer frames. The book uses it as the
-observer-facing spatial chart; the technical construction lives in the papers.
+three-dimensional hyperboloid of future observer frames. It is a fiber over
+spacetime events, not a chart of event positions. The event base needs its own
+affine chart, coincidence, cone, and causal-reachability receipts.
 
 Modular flow
 :   Modular flow is the natural flow associated with an
@@ -604,7 +605,9 @@ allowed schedules from the same initial quotient state stop at the same
 observer-facing quotient result. Same-boundary uniqueness additionally needs
 that boundary or sector to have a unique consistent extension. OPH accepts
 overlapping repairs only when they preserve the
-shared boundary data and descend to the same observer-facing result. A digital
+shared boundary data and pass an independent local-diamond check on the physical
+quotient. Atomic commits implement the accepted repair steps; they do not prove
+that different one-step branches can be joined. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
 between two physically distinct consistent endpoints. The OPH paper stack gives
 the exact cross-source criterion and its quantitative stability version.
@@ -796,7 +799,7 @@ an observer-frame chart. Global spatial topology is a separate object, and
 particle identities come from Lorentz and gauge structure.
 
 Support patch
-:   A support patch is the geometric region used to display an observer patch
+:   A support patch is the geometric region that displays an observer patch
 after geometry has been reconstructed. It can be a cap, collar, causal diamond,
 or another observer-facing cut. It carries chart information for overlap,
 entropy, and modular-flow arguments. It is the map location of the operational

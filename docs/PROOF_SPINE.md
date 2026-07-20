@@ -14,9 +14,8 @@ declared P map has exactly one fixed point on its stated domain, and the older
 conditional electroweak comparison map has an interval-certified fixed point; a
 hostile third-party audit reproduced this arithmetic and found
 no false theorem in the recovered mathematical core across its 42 findings.
-Second, machine checking: 111 sorry-free Lean theorems cover the consensus
-core and the older capacity-coupling algebra. The direct public-record capacity
-theorems are clean formalization targets and are not yet in that count. Third, fail-closed execution: the
+Second, machine checking: a sorry-free Lean theorem subset covers the consensus
+core and the older capacity-coupling algebra. Third, fail-closed execution: the
 hadronic coordinate algebra and finite-clock eligibility predicate have
 fail-closed gates and adversarial regressions. Fourth, the falsification
 program is restricted to mature non-cosmological claims and contains no

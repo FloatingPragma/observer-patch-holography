@@ -413,7 +413,11 @@ that agreement takes the thermodynamic form of equilibrium.
 Geometric modular flow on caps supplies the local horizon temperature, while
 the error-correction structure splits entropy into area and bulk pieces.
 Jacobson's thermodynamic argument then turns observer-horizon consistency into
-Einstein's equations.
+Einstein's equations on the typed common-domain branch. That OPH composition
+also requires uniform continuum control, universal coupling, a vacuum
+reference, and independent scale readouts. Construction and certification of
+one inhabited source-derived tower with all these premises are work in
+progress.
 
 On this thermodynamic reading, four-dimensional spacetime geometry works so well
 because it behaves like an equilibrium description of horizon entropy. The

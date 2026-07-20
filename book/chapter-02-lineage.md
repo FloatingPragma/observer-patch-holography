@@ -302,7 +302,7 @@ In 1931, Kurt Gödel proved something that shook mathematics to its core: any su
 
 ### Gödel's Incompleteness
 
-Gödel constructed a mathematical statement that essentially says "This statement cannot be proven within this system." If the statement is false, then it *can* be proven, and the system proves something false, which makes it inconsistent. If the statement is true, then it *cannot* be proven, which makes the system incomplete.
+Gödel constructed a mathematical statement that says, in effect, "This statement cannot be proven within this system." If the statement is false, then it *can* be proven, and the system proves something false, which makes it inconsistent. If the statement is true, then it *cannot* be proven, which makes the system incomplete.
 
 The trick was self-reference. Gödel found a way for mathematics to talk about itself.
 

@@ -6,9 +6,9 @@
 
 L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout sans
 boutons de réglage. Son affirmation est concrète : la mesure
-quantique, l’espace-temps lorentzien, la gravité d’Einstein, les symétries de
-jauge et la matière sont des relectures stables d’un seul système fini de
-cohérence entre observateurs. OPH commence par des parcelles dotées d’un état
+quantique, l’espace-temps lorentzien, la branche conditionnelle d’Einstein,
+les symétries de jauge et la matière sont des relectures d’un seul système
+fini de cohérence entre observateurs, sous leurs prémisses déclarées. OPH commence par des parcelles dotées d’un état
 local, de frontières, de registres, d’une relecture et de mouvements de
 réparation. Un fait public survit lorsque les parcelles qui se recouvrent
 comparent ce qu’elles peuvent voir et convergent vers une forme normale commune.
@@ -119,7 +119,9 @@ univers observé.**
 - la géométrie conforme d’un écran sphérique donne le groupe de Lorentz et trois
   dimensions spatiales de référentiels ;
 - le flot modulaire, la récupérabilité, le transport nul et la stationnarité de
-  l’entropie donnent la branche d’Einstein ;
+  l’entropie donnent la relation de première variation tensorielle ; l’équation
+  absolue d’Einstein exige une même tour issue de la source et de domaine
+  commun, dont la construction et la certification sont en cours ;
 - la branche icosaédrique déclarée à douze ports possède exactement la
   décomposition d’espace de coefficients
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
@@ -133,7 +135,7 @@ univers observé.**
 Il ne s’agit pas d’ajustements indépendants. Toutes ces conséquences viennent
 de la même exigence : chaque description locale doit se recoller en un monde
 unique, récupérable et capable de se relire. La récupération conjointe de
-l’observation quantique, de l’espace-temps lorentzien, de la gravité
+l’observation quantique, de l’espace-temps lorentzien, de la gravité conditionnelle
 d’Einstein, de la forme globale exacte du Modèle standard et de la hiérarchie
 Higgs/cosmologie à partir de zéro valeur ajustée est la raison pour laquelle
 OPH se présente comme une **théorie du tout sans boutons de réglage**.
@@ -155,7 +157,7 @@ réparation. Leur dépendance commune constitue l’argument principal en faveur
 d’un seul monde physique.
 
 Les preuves prennent plusieurs formes : démonstrations sur papier, sous-ensemble
-Lean de 111 théorèmes, arithmétique exacte, certificats d’intervalles, reçus
+Lean sans `sorry`, arithmétique exacte, certificats d’intervalles, reçus
 finis, simulations et falsificateurs explicites. Leur accord apporte davantage
 qu’une correspondance numérique isolée.
 
@@ -261,7 +263,7 @@ L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent
 Le dépôt réunit plusieurs formes complémentaires de preuve :
 
 - des démonstrations manuscrites dans les articles TeX ;
-- un sous-ensemble Lean sans `sorry` de 111 théorèmes ;
+- un sous-ensemble Lean sans `sorry` ;
 - des certificats d’intervalles et d’unicité pour les applications numériques déclarées ;
 - des reçus finis pour les porteurs, la hiérarchie et les particules ;
 - du code pour la géométrie, les particules, le secteur sombre et le matériel quantique ;

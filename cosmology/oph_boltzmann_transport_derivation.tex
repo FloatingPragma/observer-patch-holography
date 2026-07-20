@@ -123,7 +123,7 @@ note consumes \(A_s\) and \(n_s\) as gated inputs and derives no initial
 spectrum.
 \end{assumption}
 
-\section{Theorem B1: reversible repair gives Liouville transport}
+\section{Theorem B1: conditional refinement Liouville transport}
 
 \begin{definition}[One-photon record density]
 Conditional on the physical pole in Assumption~\ref{a:qed}, let
@@ -138,11 +138,11 @@ direction.
 \begin{theorem}[Refinement Liouville]\label{t:liouville}
 On a branch passing the simulation test, with (i) the Maxwell action,
 quantum photon-pole receipt, and overlap Lorentz kinematics (A-QED, A-GEOM),
-and (ii) repair
-moves organized in reversible write/check pairs (the orientation doubling in
-$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak
-u(1))=24$), the between-commit record flow satisfies, in the refinement
-limit,
+(ii) a source-derived between-commit dynamics whose finite-resolution maps
+preserve the corresponding phase-space measures, and (iii) receipt
+\textsc{Boltz-R1}, which certifies convergence of its characteristics to the
+null geodesic flow with vanishing dispersion and measure defect, the
+between-commit record flow satisfies, in the refinement limit,
 \[
 \frac{Df}{\Dd\tau}\;\equiv\;
 \frac{\partial f}{\partial\tau}
@@ -157,25 +157,25 @@ preserves the Liouville measure.
 \end{theorem}
 
 \begin{proof}[Proof sketch, with the open receipt named]
-\emph{Characteristics.} A single-excitation record continued across an
-overlap must agree with both patches' readouts; by overlap Lorentz kinematics
-the unique continuation consistent with all overlapping patches is parallel
-transport along the branch metric's null geodesic. Any other continuation
-produces a nonzero overlap mismatch, which the repair fixed point sets to
-zero; schedule independence (confluence) makes the continuation unique and
-schedule-free. Hence $\Dd x/\Dd\tau$, $\Dd q/\Dd\tau$, $\Dd\hat n/\Dd\tau$
-are the geodesic-flow coefficients; on the background of
-Assumption~\ref{a:bg}, $\Dd q/\Dd\tau=q[\dot\phi-\ldots]$ takes the standard
-form used in \S\ref{s:hierarchy}.
+\emph{Characteristics.} The Maxwell and overlap-geometry inputs identify the
+local positive-energy mass shell and its null directions. Receipt
+\textsc{Boltz-R1} supplies the missing dynamical statement: coarse-grained
+record continuations converge to the branch metric's null-geodesic
+characteristics, independently of the accepted repair schedule. Thus
+$\Dd x/\Dd\tau$, $\Dd q/\Dd\tau$, and $\Dd\hat n/\Dd\tau$ are the
+geodesic-flow coefficients. On the background of Assumption~\ref{a:bg},
+$\Dd q/\Dd\tau=q[\dot\phi-\ldots]$ has the form used in
+\S\ref{s:hierarchy}.
 
-\emph{Measure preservation.} Each repair move is a write/check pair: a
-bijection on the finite record configuration space with an explicit inverse
-(this is what the orientation doubling tracks). A finite composition of
-bijections has unit Jacobian on the induced finite phase space, for every
-schedule; confluence makes the endpoint schedule-independent, so the
-coarse-grained flow inherits unit Jacobian. The refinement limit of a
-sequence of unit-Jacobian flows converging to the geodesic flow preserves the
-Liouville measure.
+\emph{Measure preservation.} Let $T_h$ denote the finite-resolution
+between-commit map and $\mu_h$ its phase-space measure. Assumption (ii) gives
+$(T_h)_\ast\mu_h=\mu_h$. The measure-defect and convergence clauses in
+\textsc{Boltz-R1} pass this identity to the limiting characteristic flow,
+which therefore preserves the Liouville measure. Accepted repair confluence
+only removes schedule dependence of committed endpoints. It supplies neither
+an inverse between-commit dynamics nor a phase-space Jacobian. The
+orientation doubling of a finite label register is bookkeeping and does not
+produce either property.
 
 \emph{Receipt status.} Photon-sector convergence of the finite patch flow to
 geodesic flow with vanishing dispersion is work in progress. The abstract Lean
@@ -186,11 +186,11 @@ conditional on this receipt.
 \end{proof}
 
 \begin{remark}
-The physical content is that \emph{irreversibility enters only at commits}.
-Free streaming is unitary bookkeeping; entropy production is localized in the
-record-commit events that the collision functional counts. This is the
-transport-level face of the general OPH position that measurement-like
-irreversibility lives at the record interface.
+The transport model places the collision functional at record commits and
+uses the independently certified measure-preserving flow between them. Claims
+about entropy production therefore refer to the commit terms counted by
+$C[f]$. The accepted repair relation and the reversible equilibrium or
+between-commit dynamics remain separate structures.
 \end{remark}
 
 \section{Theorem B2: record commits give the Thomson collision functional}
@@ -208,9 +208,11 @@ C[f](q,\hat n)\;=\;a\,n_e\sigma_T\left[
 \qquad
 \sigma_T=\frac{8\pi}{3}\frac{\alpha^2}{m_e^2},
 \]
-boosted to the frame where baryons move with velocity $v_b$. Moreover the
-write/check reversibility of commits implies detailed balance of the angular
-commit kernel. For every fixed photon energy $q$, isotropic angular
+boosted to the frame where baryons move with velocity $v_b$. The
+source-derived reversible proposal kernel is assumed to obey detailed balance
+on the angular state space. Write/check orientation labels alone do not imply
+that property, and the accepted strict-descent repair relation is not the
+equilibrium kernel. For every fixed photon energy $q$, isotropic angular
 distributions are stationary under this Thomson operator. This displayed
 scalar-intensity kernel does not by itself derive the Stokes-space Thomson
 matrix needed for polarization.
@@ -222,9 +224,9 @@ occupancies with kernel given by the squared vertex; the soft
 (photon energy $\ll m_e$) limit of the recovered $\mathrm U(1)$ vertex is
 classical Thomson scattering with the stated total cross-section and
 $1+\cos^2$ angular kernel; this step is standard QED evaluated on the branch
-couplings and is not repeated here. Detailed balance: a write/check pair and
-its orientation reverse implement the commit and its inverse with equal
-kernel weight; a symmetric kernel damps angular anisotropy at each fixed
+couplings and is not repeated here. The detailed-balance receipt equates the
+stationary weights of each reversible proposal pair. The resulting symmetric
+rest-frame kernel damps angular anisotropy at each fixed
 $q$. It does not mix frequencies, so its stationary kernel contains every
 isotropic spectrum $f(q)$ rather than a unique Bose or Planck occupancy.
 Momentum conservation per commit, summed over
@@ -406,7 +408,8 @@ CAMB at the sub-percent level is receipt \textsc{Boltz-V1}.
 \textsc{Boltz-R1} &
 Finite-lattice refinement Liouville: coarse-grained photon-class record
 transport between commits converges to geodesic flow, schedule-independently,
-with vanishing measure defect under refinement. &
+with vanishing measure defect under refinement. This receipt is independent
+of repair confluence and of the orientation-doubled label count. &
 open; simulator test below\\
 \textsc{Boltz-N1} &
 $\sigma_T$ normalization: absolute $m_e$ is a declared import; the

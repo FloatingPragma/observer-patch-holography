@@ -28,7 +28,7 @@ every precision. Each row of the closure ledger is a loaded gun pointed at it.
 
 The program that carries the hypothesis has zero continuous dials,
 machine-certified interval and global-uniqueness fixed points for each
-declared map, 111 sorry-free Lean theorems across the consensus core and the
+declared map, a sorry-free Lean subset across the consensus core and the
 capacity-coupling algebra, and a full adversarial third-party audit that
 reproduced the certificate arithmetic and identified no false theorem in the
 recovered mathematical core.

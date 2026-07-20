@@ -88,7 +88,7 @@ The mathematics falls out elegantly. Define:
 
 $$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$
 
-This is the Lorentz factor. For everyday speeds, gamma is essentially 1. For v = 0.9c, gamma = 2.3. As v approaches c, gamma goes to infinity.
+This is the Lorentz factor. For everyday speeds, gamma is indistinguishable from 1 at ordinary precision. For v = 0.9c, gamma = 2.3. As v approaches c, gamma goes to infinity.
 
 Here $v$ is the relative speed between inertial observers. The ratio $v/c$
 measures that speed as a fraction of light speed. The square root in the
@@ -389,26 +389,28 @@ controlled geometric scaling branch, the cap modular automorphism acts as
 a real geometric motion, and the rigidity hypotheses identify that motion with
 the conformal action.
 
-The same step fixes the number of spatial directions in the observer-facing
-chart. A rest observer is represented by a future timelike direction. The
+The same step fixes the dimension of the observer-frame space. A rest observer
+is represented by a future timelike direction. The
 Lorentz group can move that direction, while ordinary rotations leave it
-fixed. The spatial chart is therefore the quotient
+fixed. The frame space is therefore the quotient
 
 $$H^3 = SO^+(3,1)/SO(3)$$
 
 The Lorentz group has six generators. Rotations use three of them. The quotient
-leaves three boost directions, so the spatial chart has dimension $6-3=3$.
-This is why the recovered observer-facing bulk chart is three-dimensional.
+leaves three boost directions, so the frame space has dimension $6-3=3$.
+Its points are future unit timelike frames. They are not positions in space.
 
 A cap is not an observer point. Observer data, such as a clock, a tetrad, or a
-stable record frame, select where an observer sits in the chart. The chart's
-overall physical scale is a separate gravity-branch question.
+stable record frame, select a frame value in this fiber. The fiber's overall
+physical scale is a separate gravity-branch question.
 
-Record-populated space is also a separate step. A record token enters the
-observer-facing chart only when its calibrated cap responses behave like one
-source and the error budget is complete. With finite noisy data, OPH may return
-a certified region or an ambiguity report. This is record localization, not a
-derivation of particle species, stress energy, or neutral third-person bulk.
+Record-conditioned frame estimation is a separate step. A record token selects
+a frame value only when its calibrated cap responses pass the frame model and
+the error budget is complete. Finite noisy data produce a certified frame ball
+or an ambiguity report. A spacetime event needs another construction: affine
+event coordinates, coincidence, causal ancestry, a quadratic cone with one
+timelike direction, and compatible charts. The celestial sphere checks the
+boundary of that cone; it does not determine the cone by itself.
 
 ### Why There Is No Privileged Reference Frame
 
@@ -485,7 +487,9 @@ Patch consistency does two jobs here. First, it forbids any preferred observer
 or preferred frame. Second, once every observer shares the same local rest-frame
 relation, patch consistency forces those local relations to knit together into a
 single tensor law. The equilibrium state, the local modular clock, and the
-entropy balance across small regions together feed the Einstein equations.
+entropy balance across small regions together feed the tensor first-variation
+relation. The common-domain, vacuum-reference, coupling, and scale premises
+described below supply the absolute equation.
 
 There is a division of labor. Consensus supplies clean, agreed-upon records.
 Geometric readout turns those records into caps, small causal diamonds, local
@@ -614,17 +618,24 @@ Here the distinctive OPH move enters. Different observers through the same
 bulk point carry different rest frames. The equilibrium argument gives the
 first-variation relation in each of those frames. The branch must cover all
 local timelike directions and reference states. Under that condition, the
-scalar relations fit one common tensor law. If observer A and observer B agree
-on the overlap physics, their frame-dependent equations have to be shadows of
-one frame-independent tensor relation:
+scalar relations fit one common tensor first-variation law. If observer A and
+observer B agree on the overlap physics, their frame-dependent equations have
+to be shadows of
 
-$$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle$$
+$$\delta\!\left(G_{ab} + \Lambda g_{ab}
+- 8\pi G \langle T_{ab} \rangle\right)=0$$
 
-On the stated scaling branch, this is the semiclassical Einstein equation.
-The derivation combines the thermodynamic argument, geometry readout, the
-null-stress bridge, bounded-interval kernel, and the timelike
-scalar-to-tensor upgrade. The local argument leaves the metric term open. The
-global capacity branch fixes it through the cosmic readback map.
+This equation fixes the tensor relative to a reference value. It does not set
+the integration tensor to zero. On a source-derived common-domain tower, the
+Ward identity, contracted Bianchi identity, metric compatibility, and
+connectedness reduce the remaining local freedom to one constant metric term
+per component. A declared vacuum reference evaluates that term. The absolute
+semiclassical equation is then
+
+$$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle.$$
+
+The global capacity branch is a separate proposal for the numerical value of
+\(\Lambda\); it does not replace the vacuum-reference premise.
 
 The word "branch" names the division of labor. Finite consensus supplies the
 repaired records. One refinement-compatible family then carries their geometry,
@@ -633,6 +644,10 @@ common domain. Every timelike rest-frame relation becomes the same tensor
 equation. The contracted Bianchi identity, local stress conservation, metric
 compatibility, and connectedness turn the local metric residue into one global
 constant Lambda.
+
+This is a conditional composition theorem. Finite consensus does not supply
+the tower, and construction and certification of one inhabited common-domain
+tower are work in progress.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so

@@ -257,6 +257,34 @@ Each patch has:
 \item a checkpoint interface that exposes enough observer-accessible data to define continuation.
 \end{enumerate}
 
+The abstract observer patch and its carrier realization are separate typed objects. Write
+\[
+\mathsf O_i=
+\left(
+\mathcal A_i,\rho_i,\mathcal R_i,
+\{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
+\mathcal U_i,\mathsf{Chk}_i
+\right),
+\qquad
+\operatorname{Realize}_{\varepsilon}(H_i)\longrightarrow\mathsf O_i.
+\]
+The elementary carrier \(H_i\) may be an Echosahedron on the homogeneous reference branch. Its
+port names, body coordinates, and hardware details are absent from the abstract observer whenever
+they disappear under the physical quotient. A fixed-cutoff simulator is therefore typed as
+\[
+\mathsf{Sim}_r=
+\bigl(
+G_r,\{\mathsf O_{i,r}\},\Sigma_r,\Gamma_r,Q_r,
+\mathsf{Prop}_r,\to_r^{\rm acc},\operatorname{Rep}_r,
+\pi_r^{\rm eq},L_r^{\rm eq},\mathsf{Chk}_r,c_{sr}
+\bigr).
+\]
+Here \(\mathsf{Prop}_r\) is a reversible proposal menu,
+\(\to_r^{\rm acc}\) is the strict-descent accepted-repair relation,
+\(\operatorname{Rep}_r\) is its normalizer, and
+\((\pi_r^{\rm eq},L_r^{\rm eq})\) is a separate equilibrium law and reversible or Euclidean
+generator. The refinement maps are \(c_{sr}\).
+
 \begin{definition}[Sphere fold]\label{def:sphere-fold}
 Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
 federation, let \(\Gamma_r\) be the presentation-redundancy groupoid, and let
@@ -316,6 +344,56 @@ The fold adds no independent dynamics. Repair is the finite patch operation that
 overlaps, updates records, and reaches the accepted normal form. Folding names the spherical
 chart presentation of that repaired quotient state. In plain language, sphere folding is what
 overlap repair looks like on the observer-facing screen.
+
+Strict descent prevents the accepted relation from serving as a reversible equilibrium law. If
+\(x\to_r^{\rm acc}y\) lowers the well-founded repair measure, the reverse move cannot be another
+accepted descending step. The simulator consequently keeps three operators distinct:
+\[
+\operatorname{Rep}_r,
+\qquad
+e^{-tL_r^{\rm eq}},
+\qquad
+\sigma_t^{\rho}.
+\]
+They are, respectively, the irreversible normal-form map, an equilibrium or Euclidean relaxation,
+and the reversible modular automorphism group. A common local proposal menu may contribute data to
+all three constructions. This shared input does not identify the operators.
+
+\begin{theorem}[Finite rate reconstruction on the reversible layer]
+Let \(G=(X,E)\) be a connected finite state graph with positive rates
+\(q_{u\to v}^{\rm eq}\) in both directions of every edge. Define
+\[
+a_{u\to v}:=\log\frac{q_{v\to u}^{\rm eq}}{q_{u\to v}^{\rm eq}}.
+\]
+The following conditions are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item every oriented cycle has zero affinity;
+\item there is a potential \(K:X\to\mathbb R\), unique up to an additive constant, with
+\(a_{u\to v}=K_v-K_u\);
+\item \(\pi_x\propto e^{-K_x}\) satisfies detailed balance
+\(\pi_uq_{u\to v}^{\rm eq}=\pi_vq_{v\to u}^{\rm eq}\).
+\end{enumerate}
+The rates belong to the reversible equilibrium layer. They are not rates of the accepted
+strict-descent relation.
+\end{theorem}
+
+\begin{proof}
+Condition \textup{(ii)} telescopes around every cycle. Under \textup{(i)}, fix a root and define
+\(K_x\) by summing \(a\) along any path from the root to \(x\); zero cycle affinity gives path
+independence. Exponentiating \(K_v-K_u=a_{u\to v}\) gives detailed balance, and taking logarithms
+of detailed balance gives \textup{(ii)}.
+\end{proof}
+
+On the literal transitive twelve-port set \(\mathsf P_{12}=A_5/C_5\), an irreducible
+\(A_5\)-equivariant rate law has a unique invariant equilibrium distribution, hence
+\(\pi_p=1/12\) and constant \(K_p\). On
+\(\mathsf P_{12}\times\{+,-\}\), with \(A_5\) acting on the port coordinate, an invariant
+potential has at most two values \(K_+\) and \(K_-\). The geometry can therefore carry one
+orientation gap \(\Delta K=K_--K_+\). It cannot supply twenty-four independent energy levels.
+The state set \(X\), oriented transition set \(E^{\rm or}\), and channel label map
+\(\lambda:E^{\rm or}\to\mathsf R_{24}\) are separate objects; \(\lambda\) need not be a
+bijection. In particular, twenty-four oriented edge instances contain only twelve unoriented
+edges and cannot connect a graph on twenty-four states.
 
 The finite carrier vocabulary is compatible with the layered functional carrier of the consensus
 paper: the carrier is a quotient-visible finite implementation surface, and hidden port labels or
@@ -974,6 +1052,21 @@ The corresponding oriented slot algebra is
 The oriented register is a bookkeeping refinement of the same quotient-edge cut
 surface. It does not create an independent scalar carrier.
 \end{definition}
+
+\begin{proposition}[The oriented register carries no modular clock]
+Every faithful state on
+\(\mathcal R^{\rm or}_{24,r,C}=\ell^\infty(\mathsf R_{24,r,C})\) is tracial, so its modular
+automorphism group is trivial. The twenty-four slots can carry channel names, orientations,
+central event projectors, and orbit counts. They do not determine a modular Hamiltonian, a set of
+clock ticks, or a frequency. A nontrivial modular lift requires a noncommutative transition
+algebra, for example \(B(\ell^2X)\) with operators
+\(V_{u\to v}=|v\rangle\langle u|\), together with a faithful physical state on that algebra.
+\end{proposition}
+
+\begin{proof}
+The algebra is finite and commutative. Its density operator is central in every faithful
+representation, hence \(\rho^{it}a\rho^{-it}=a\) for all \(a\) and \(t\).
+\end{proof}
 
 The shared-edge protected-reserve branch carries two named branch inputs: the shared cut entropy
 density \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution stated in
@@ -2079,8 +2172,9 @@ Suppose a finite patch federation has a declared mismatch functional \(\Phi\), a
 menu, and an accepted-repair rule such that every accepted repair lowers \(\Phi\) unless the
 touched visible datum is locally repaired. Then every repair sequence terminates at a visible
 local normal form. If the union-collar gluing and repair-completeness hypotheses of the OPH
-consensus theorem hold on the quotient-local carrier, the terminal physical observable state is
-schedule-independent on that carrier. The carrier is thereby a finite constraint-code
+consensus theorem hold together with protected-support-complete transactions,
+protected-conflict-complete dependencies, and an independently checked quotient local diamond,
+the terminal physical observable state is schedule-independent on that carrier. The carrier is thereby a finite constraint-code
 implementation surface; no QECC distance, min-cut formula, spectral mixing rate, or wall-clock
 liveness bound follows unless the corresponding extra certificate is supplied.
 \end{proposition}
@@ -2088,9 +2182,9 @@ liveness bound follows unless the corresponding extra certificate is supplied.
 \begin{proof}
 The first sentence is the finite Lyapunov argument: \(\Phi\) takes values in a finite ordered set
 of declared mismatch scores and strictly decreases on nontrivial accepted repairs. The second
-sentence is not reproved here; it is exactly the quotient-local confluence package supplied by the
-OPH consensus theorem. This paper supplies the federated carrier and visible interface on which
-that theorem is read.
+sentence consumes the quotient-local confluence package of the OPH consensus theorem. Atomic
+commits alone do not supply its protected-support, coherent-payload, or local-diamond receipts.
+This paper supplies the federated carrier and visible interface on which that theorem is read.
 \end{proof}
 
 The schedule-independent conclusion above is a same-source statement.  Equality of endpoints

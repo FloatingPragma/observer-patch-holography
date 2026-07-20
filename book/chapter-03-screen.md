@@ -250,8 +250,8 @@ screen description.
 Three objects are easy to confuse. The **abstract observer patch** is the
 operational package: what it can read, which state it carries, which records it
 can consult, which boundary data it exposes, and which repairs it can perform.
-The **support patch** is the cap, collar, or other geometric region used to
-display those operations on a sphere. The **carrier patch** is the physical or
+The **support patch** is the cap, collar, or other geometric region that
+displays those operations on a sphere. The **carrier patch** is the physical or
 digital machine that realizes them. The observer is identified with this
 visible operational package. A different hidden circuit, material, or port
 labeling is physically silent when it preserves the same readouts, records,

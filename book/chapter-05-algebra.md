@@ -252,10 +252,10 @@ $$\langle A \rangle = \text{Tr}(\rho A)$$
 **Two observers using the same information set should agree on the relevant reduced state.** This is how consistency appears in the formalism.
 
 OPH uses the same conditioning idea for record-localization probes. First
-condition on a stable record token. Then ask where that conditioned record fits
-in the observer-facing spatial chart. The result either localizes the record or
-marks its position as operationally ambiguous. Both are definite public
-readouts of the same localization procedure.
+condition on a stable record token. Then ask which observer-frame value fits its
+cap responses. The result is a frame estimate or an ambiguity report. It says
+nothing about the record's event position. Event location comes from the affine
+translation and ancestry data of the spacetime branch.
 
 ## 5.6 Algebras of Observables
 
@@ -364,7 +364,7 @@ or countable matrices, the kind of quantum system one can write on a blackboard.
 Type III behaves like local quantum field theory near horizons, where ordinary
 density matrices stop being the right local object.
 
-**Type I**: The simplest. These are essentially matrices on a Hilbert space. They have minimal projections-"atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
+**Type I**: The simplest. These are matrix algebras on a Hilbert space. They have minimal projections-"atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
 
 **Type II**: No atoms, but a finite "trace"-a way to assign size to projections.
 

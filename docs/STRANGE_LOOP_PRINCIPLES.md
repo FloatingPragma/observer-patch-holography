@@ -8,7 +8,7 @@ chain from the principles to a unique universe is stated in
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); the end-to-end proof strategy and its
 gap register live in [PROOF_SPINE.md](PROOF_SPINE.md). The principle set governs a
 program with zero continuous dials, machine-certified interval and global-uniqueness
-fixed points per declared map, and 111 sorry-free Lean theorems.
+fixed points per declared map, and a sorry-free Lean theorem subset.
 
 ## The principles
 

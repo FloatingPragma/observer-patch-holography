@@ -20,9 +20,17 @@ surface for the OPH consensus layer. Contents:
   including boundary-fiber observer uniqueness, commutation-based confluence,
   concrete countermodels separating confluence from observer-facing uniqueness,
   and axiom audits for the discharged reconstruction statements.
-- Declared `sorry`-bearing signatures for the paper-incomplete
-  asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
-  `repair_respects_gauge`.
+- A sorry-free bridge-boundary module
+  `Source/ObserverPatchHolography/BridgeBoundaries.lean`: disjoint writes that
+  separately preserve a nonlinear protected observable can fail under
+  composition, and the even/odd three-bit laws are distinct despite identical
+  one- and two-bit marginals. These theorems keep the local-diamond and
+  union-collar coherence receipts explicit in the papers. See
+  `BRIDGE_BOUNDARY_INDEX.md`.
+- Constructed, admission-free asynchronous repair machinery:
+  `localRepair`, `Repair`, and `repair_respects_gauge`, with descent,
+  termination, reachability, and normal-form receipts. Confluence and
+  completeness remain explicit carrier properties and are not universal.
 - A sorry-free **#304 boundary-fiber carrier witness** in
   `Source/ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
@@ -40,6 +48,14 @@ surface for the OPH consensus layer. Contents:
   outside the formalised set. Numeric interval enclosures stay in the Python
   certificates (`code/capacity_readback/`, `code/P_derivation/`); no
   floating-point numerics enter Lean. See `PROOF_INDEX.md`.
+- A sorry-free **#578 corrected Einstein-branch kernel** under
+  `Source/ObserverPatchHolography/EinsteinBranch/`: bare finite-tower
+  non-entailment, typed common-domain and boundary-fibre composition,
+  explicit nine-direction null tomography, finite bulk/edge entropy and
+  MaxEnt algebra, exact small-ball coefficient arithmetic, timelike/null
+  tensor upgrades, Ward/Bianchi constancy, and strict manifest deletion
+  logic. Continuum, asymptotic, UC, VR, scale, and tower-nonemptiness inputs
+  stay explicit in the main theorem type. See `EINSTEIN_BRANCH_INDEX.md`.
 - A standalone, application-neutral proof package in
   `Proofs/ObservableNormalForms/`.  Its generic endpoint theorem is connected
   to the concrete local-repair interface by
@@ -126,17 +142,17 @@ tracker.
 
     cd Lean
     lake exe cache get        # fetch pre-built Mathlib oleans
-    lake build                # build all three proof libraries
+    lake build                # build the proof libraries and Screen modules
                               # (ObservableNormalForms, ObserverPatchHolography,
-                              #  EventAlgebra)
+                              #  EventAlgebra, OPHScreen)
 
 The `Main` console entry point is optional and not part of the proof receipt;
 build it separately with `lake build oph:exe` if needed.
 
-Lean CI is manual. Use GitHub Actions, `Lean CI`, `Run workflow` when the
-Lean formalisation changes need a hosted check. The workflow allows exactly
-the 3 intentional `sorry` warnings in `Primitives.lean` and fails if new proof
-debt appears elsewhere or the count changes.
+Lean CI runs on pull requests and pushes that touch `Lean/**`, and can also be
+started manually. It builds from a cleaned project target, rejects admissions,
+global axioms, and `native_decide` in the Einstein-branch sources, and checks
+the per-theorem axiom audit.
 
 ## Provenance
 

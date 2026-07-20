@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for the Einstein branch closure receipts (GitHub #526-#528, #503)."""
+"""Tests for the Einstein branch closure receipts (GitHub #526-#528, #503, #578)."""
 
 from __future__ import annotations
 
@@ -14,8 +14,13 @@ sys.path.insert(0, str(HERE))
 from einstein_closure_receipts import (  # noqa: E402
     ETA,
     baseline_countermodel_receipt,
+    blockwise_state,
+    bulk_entropy,
     charges_of,
+    central_z,
     design_matrix,
+    edge_entropy,
+    entropy,
     eta_project_out,
     first_law_receipt,
     generic_null_directions,
@@ -69,22 +74,51 @@ def test_eta_ambiguity_is_exactly_the_reconstruction_freedom():
 # first law with edge term (thm:bulk-edge-central-first-law)
 # ---------------------------------------------------------------------------
 
+def test_direct_sum_state_and_entropy_convention_are_explicit():
+    ps = [0.25, 0.75]
+    bulk_states = [np.diag([0.8, 0.2]), np.array([[1.0]])]
+    edge_dims = [2, 3]
+    rho = blockwise_state(ps, bulk_states, edge_dims)
+
+    expected = np.zeros((7, 7))
+    expected[:4, :4] = ps[0] * np.kron(bulk_states[0], np.eye(2) / 2)
+    expected[4:, 4:] = ps[1] * np.kron(bulk_states[1], np.eye(3) / 3)
+    assert np.allclose(rho, expected)
+    assert abs(np.trace(rho) - 1.0) < 1e-12
+    assert abs(edge_entropy(ps, edge_dims)
+               - (0.25 * np.log(2) + 0.75 * np.log(3))) < 1e-12
+    assert abs(bulk_entropy(ps, bulk_states)
+               - (-0.25 * np.log(0.25) - 0.75 * np.log(0.75)
+                  + 0.25 * entropy(bulk_states[0]))) < 1e-12
+    assert abs(entropy(rho) - bulk_entropy(ps, bulk_states)
+               - edge_entropy(ps, edge_dims)) < 1e-12
+
+
+def test_central_generator_contains_only_log_edge_dimensions():
+    z = central_z([2, 1], [2, 3], [np.log(2), np.log(3)])
+    expected = np.diag([np.log(2)] * 4 + [np.log(3)] * 3)
+    assert np.allclose(z, expected)
+
+
 def test_first_law_and_boxed_split_exact_on_declared_normalization():
     r = first_law_receipt()
+    assert r["base_entropy_split_defect"] < 1e-12
+    assert r["varied_entropy_split_defect"] < 1e-12
     assert r["first_law_defect"] < 1e-3            # O(eps) second-order remainder
     assert r["edge_identification_defect"] < 1e-3  # delta<Z> = delta S_edge
     assert r["split_identity_defect"] < 1e-3       # delta S = 2pi d<B> + dS_edge
+    assert r["bulk_identity_defect"] < 1e-3        # dS_bulk = 2pi d<B>
 
 
-def test_naive_step_defect_is_exactly_the_central_flux():
-    # moving sector weights: delta S_bulk - 2pi delta<B> = sum z_a dp_a != 0
+def test_bulk_identity_includes_moving_sector_weights():
+    # H(p) is in S_bulk and -log p_a is in B, so moving weights are covered.
     r = first_law_receipt(move_weights=True)
-    assert r["predicted_naive_defect"] > 0.1       # |log 2 - log 3| approx 0.405
-    assert abs(r["naive_step_defect"] - r["predicted_naive_defect"]) < 1e-2
-    # fixed sector weights: the naive step is exact
+    assert r["bulk_identity_defect"] < 1e-3
+    assert r["predicted_bulk_defect"] < 1e-12
+    # Fixed sector weights remain covered too.
     r0 = first_law_receipt(move_weights=False)
-    assert r0["naive_step_defect"] < 1e-3
-    assert r0["predicted_naive_defect"] < 1e-12
+    assert r0["bulk_identity_defect"] < 1e-3
+    assert r0["predicted_bulk_defect"] < 1e-12
 
 
 def test_mismatched_edge_normalization_breaks_edge_identification():
@@ -95,8 +129,8 @@ def test_mismatched_edge_normalization_breaks_edge_identification():
     # ...but the edge identification fails by exactly the predicted defect
     assert r["predicted_edge_defect"] > 0.1
     assert abs(r["edge_identification_defect"] - r["predicted_edge_defect"]) < 1e-2
-    # and with z == 0 the central flux vanishes, so the naive step holds
-    assert r["naive_step_defect"] < 1e-3
+    # The same mismatch makes B differ from the declared bulk generator.
+    assert abs(r["bulk_identity_defect"] - r["predicted_bulk_defect"]) < 1e-2
 
 
 # ---------------------------------------------------------------------------

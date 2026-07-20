@@ -270,7 +270,7 @@ $$
 \{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
-This book adopts the robust N-closure postulate: after refinement there is one
+This book adopts the stable N-closure postulate: after refinement there is one
 physical $D_\star$ for which
 
 $$

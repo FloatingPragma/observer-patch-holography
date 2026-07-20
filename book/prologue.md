@@ -75,7 +75,9 @@ The resulting reconstruction is difficult to summarize without making it
 sound less strange than it is. The same architecture produces stable public
 records and quantum-event conditioning; the conformal group of its spherical
 screen is the connected Lorentz group; the space of observer frames is
-three-dimensional; modular and entropy consistency give the Einstein form;
+three-dimensional; modular and entropy consistency give the Einstein form on
+a source-derived common-domain tower carrying the stated continuum,
+vacuum-reference, coupling, and scale premises;
 the twelve-port coefficient algebra has exactly the Standard Model Lie type;
 trace balance produces its shared-center quotient; and the even exterior
 algebra of a $3+2$ carrier produces one full chiral generation with the three
@@ -245,8 +247,9 @@ perspectives creates objectivity. The stable, shared, predictable structure
 that we call "the physical world" is the overlap-consistent backbone that all
 observers must agree on.
 
-The same architecture reaches several familiar layers of physics. Horizon
-bookkeeping becomes Einstein's equation. Transportable charges become the
+The same architecture reaches several familiar layers of physics. On the
+typed common-domain branch, horizon bookkeeping becomes Einstein's equation.
+Transportable charges become the
 Standard Model gauge and matter package. A repair-charge medium has a
 dust-like normal phase and a cubic deep-galaxy phase. Self-referential closure
 then carries the existence question: a world that contains its own observers
@@ -288,9 +291,12 @@ itself through finite internal observers. Overlap consistency then produces
 exact finite normal forms, a certified spherical branch produces Lorentz
 kinematics, compact charge transport reconstructs a gauge group, and the
 minimal realized matter branch gives the Standard Model quotient and charge
-structure. The same repaired record family supplies modular clocks, stress,
-entropy, continuum geometry, and the Einstein relation. The book keeps these
-logical layers distinct while showing how one architecture links them.
+structure. On the conditional Einstein branch, one repaired record family
+supplies modular clocks, stress, entropy, continuum geometry, a vacuum
+reference, and independent scale readouts on a common domain. Construction
+and certification of an inhabited family with all these readouts are work in
+progress. The book keeps the logical layers distinct while showing how one
+architecture links them.
 
 At the quantitative layer, two closure coordinates organize the construction.
 The fine-structure constant reads the local grain of the picture from inside
@@ -336,8 +342,8 @@ capacity argument belongs with de Sitter structure, and the particle numbers
 belong with the Standard Model and matter chapters.
 
 The program reconstructs a broad structural slice of known physics, including
-Lorentz kinematics, the Einstein branch, and the minimally admissible Standard
-Model branch. The theory layer contains no fitted continuous parameters. Its
+Lorentz kinematics, the conditional Einstein branch, and the minimally
+admissible Standard Model branch. The theory layer contains no fitted continuous parameters. Its
 two dimensionless closure coordinates are the local pixel ratio and the global
 horizon capacity, with one clock-and-curvature bridge fixing the laboratory
 scale.

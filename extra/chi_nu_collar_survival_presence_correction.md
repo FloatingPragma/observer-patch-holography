@@ -21,9 +21,9 @@ substitution between two different quantities that share the symbol ε(y):
    same number as the **mean of an ℕ-valued occupancy count**.
 
 These readings are mutually exclusive at the stated precision. If the
-reserve-presence event is Z₆ — which *No separate scalar carrier*
+reserve-presence event is Z₆. The *No separate scalar carrier*
 (lines 742–789) forces, since an occupancy variable not reducible to the
-edge-center sectors would be a second scalar carrier — then survival of a
+edge-center sectors would be a second scalar carrier. In that case survival of a
 scalar opportunity is the complement event, and the per-slice survival factor
 is 1 − ε(y) for **every** occupancy law. No distribution placed between the
 presence event and its complement can change the identity
@@ -39,7 +39,7 @@ receipt Σ w(y)ε(y) = P/24 alone forces
 exactly, by linearity of the trace. The uniformity clause (L7, slice-wise
 scalar-reserve unbiasedness) is not consumed: linear functions have no Jensen
 gap. The corrected exact value therefore needs strictly fewer gate clauses
-than `UNIFORM_PRODUCT_THICKENING_EXACT` — L5 and L7 both drop out.
+than `UNIFORM_PRODUCT_THICKENING_EXACT`; L5 and L7 both drop out.
 
 **2. `presence_below_poisson_floor`.** 1 − P/24 < e^(−P/24). The claimed
 theorem-level band [e^(−P/24), 1] **excludes** the value implied by the
@@ -52,8 +52,8 @@ alone gives the assumption-minimal band
 
     1 − P/24 ≤ λ_collar ≤ 1
 
-for any ℕ-valued occupancy. The qualitative Tier-C claim — χ_ν^can is order
-one and bounded away from zero — survives with strictly weaker hypotheses
+for any ℕ-valued occupancy. The qualitative Tier-C claim states that χ_ν^can is order
+one and bounded away from zero. It survives with strictly weaker hypotheses
 than L5. Only the 16-digit exact value is occupancy-law-dependent.
 
 **4. `finite_refinement_below_poisson`.** Every finite m-fold sub-slot
@@ -66,7 +66,7 @@ declared finite framework.
 **5. MaxEnt does not rescue L5.** The L5 clause names "a finite
 MaxEnt/occupancy theorem" as the missing derivation. MaxEnt on ℕ with a mean
 constraint and counting base measure yields the geometric law, with survival
-1/(1+ε) = 0.9363672805… — a third value, not e^(−ε). Poisson is MaxEnt only
+1/(1+ε) = 0.9363672805…, a third value distinct from e^(−ε). Poisson is MaxEnt only
 under the 1/k! base measure, which encodes the independent-rare-placements
 structure it was supposed to derive. The three candidate laws give three
 distinct coefficients:

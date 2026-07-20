@@ -5,9 +5,9 @@
 [Read in French](README_FR.md) · [OPH website](https://floatingpragma.io/oph/) · [Book](https://oph-book.floatingpragma.io/) · [Guided study](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
 Observer Patch Holography (OPH) is a zero-dial theory of everything.
-Its claim is concrete: quantum measurement, Lorentzian spacetime, Einstein
-gravity, gauge symmetry, and matter are stable readouts of one finite
-observer-consistency system. OPH begins with patches carrying local state,
+Its claim is concrete: quantum measurement, Lorentzian spacetime, the
+conditional Einstein branch, gauge symmetry, and matter are readouts of one
+finite observer-consistency system on their stated premises. OPH begins with patches carrying local state,
 boundaries, records, readback, and repair moves. A public fact is one that
 survives when overlapping patches compare what they can see and settle into a
 common normal form.
@@ -116,7 +116,9 @@ universe.** The logic is cumulative and overdetermined:
 - the conformal geometry of a shared spherical screen gives the connected
   Lorentz group and three observer-frame spatial dimensions;
 - modular flow, recoverability, null transport, and entropy stationarity give
-  the Einstein branch;
+  the tensor first-variation relation; the absolute Einstein equation requires
+  one source-derived common-domain tower, whose construction and certification
+  are work in progress;
 - the declared twelve-port icosahedral branch has the exact coefficient-space
   decomposition needed for
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$;
@@ -131,7 +133,7 @@ universe.** The logic is cumulative and overdetermined:
 Their force comes from a common demand: every local description must glue into one recoverable world that
 can contain observers capable of reading it back. Any individual match could
 be accidental. The joint recovery of quantum observation, Lorentzian
-spacetime, Einstein gravity, the exact Standard Model global form and matter
+spacetime, conditional Einstein gravity, the exact Standard Model global form and matter
 counts, and the Higgs/cosmological hierarchy from zero fitted theory values is
 why OPH presents itself as a full **theory of everything with no dials**.
 
@@ -149,7 +151,7 @@ fixed-point equations. These outputs come from the same screen and repair
 architecture. Their shared dependence is the main case that OPH describes one
 physical world rather than a collection of coincidences.
 
-The evidence also comes in different forms: paper proofs, a 111-theorem Lean
+The evidence also comes in different forms: paper proofs, a sorry-free Lean
 subset, exact arithmetic, interval certificates, finite receipts, simulations,
 and explicit falsifiers. Agreement among those forms is more informative than
 another numerical match produced by another adjustable model.
@@ -275,7 +277,7 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 The repository contains several complementary forms of evidence:
 
 - hand proofs in the TeX papers;
-- a sorry-free 111-theorem Lean subset covering finite observer consensus and related algebraic results;
+- a sorry-free Lean subset covering finite observer consensus and related algebraic results;
 - interval and uniqueness certificates for declared numerical maps;
 - finite carrier and hierarchy receipts;
 - particle, geometry, dark-sector, and quantum-hardware code;

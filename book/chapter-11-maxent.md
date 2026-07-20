@@ -240,8 +240,9 @@ orientation of the finite caps, their modular convergence, and their thermal
 normalization turn that local flow into a standard geometric motion on the
 sphere. Geometric time flow gives Lorentz kinematics on the screen. Fixed-cap
 variation, local energy, the small-ball area identity, and the
-scalar-to-tensor upgrade then turn entanglement equilibrium into Einstein's
-equation.
+scalar-to-tensor upgrade then give the tensor first-variation form of the
+Einstein relation. A vacuum reference on the same common-domain
+tower evaluates the integration tensor and gives the absolute equation.
 
 The internal clock feeds into gravity through this chain of compatible
 readouts.
@@ -265,15 +266,19 @@ Einstein's field equations are the geometric form of that requirement:
 $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 
 This displayed version omits the cosmological-constant term. In OPH, the local
-Einstein relation fixes the curvature response to stress, while global screen
-capacity supplies the metric-proportional cosmological term.
+first-variation relation fixes the curvature response to stress. A vacuum
+reference evaluates the metric residue, and global screen capacity separately
+proposes a numerical value for the resulting cosmological term.
 
 Finite repair first gives quotient normal forms. One common family of repaired
 records then supplies the geometric readout of caps and diamonds, modular flow,
 null stress, bounded-interval response, fixed-cap stationarity, small-ball area
 variation, continuum control, and the tensor upgrade across local observer
 directions. These linked steps turn local thermodynamic agreement into
-spacetime dynamics.
+spacetime dynamics when that common family also carries universal coupling, a
+vacuum reference, and independent scale readouts. Construction and
+certification of one inhabited family with all these readouts are work in
+progress.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 

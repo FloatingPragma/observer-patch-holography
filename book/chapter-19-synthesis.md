@@ -64,9 +64,12 @@ so time stops looking imported from outside. It is the modular flow carried by
 the restricted state. When neighboring flows fit together across the smooth
 screen, Lorentz kinematics appears and localized records assemble into a
 $3{+}1$-dimensional event world. Hyperbolic three-space remains the space of
-possible rest frames, not physical space itself. The same family of repaired
-records carries geometry, stress, entropy, scale, and continuum behavior, so
-horizon-plus-bulk entropy equilibrium becomes Einstein's equation.
+possible rest frames, not physical space itself. On the conditional Einstein
+branch, one source-derived family of repaired records carries geometry,
+stress, entropy, a vacuum reference, scale, and continuum behavior on a common
+domain, so horizon-plus-bulk entropy equilibrium becomes Einstein's equation.
+Construction and certification of an inhabited family with all these readouts
+are work in progress.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
@@ -247,7 +250,7 @@ It is the compact statement of self-readback: supply the trial universe with
 capacity coordinate $N$ and ask what capacity its own observer system can
 correct and read publicly.
 
-The book adopts robust closure and the unique finite-size selector,
+The book adopts stable closure and the unique finite-size selector,
 
 $$
 \mathfrak F_{r,0}(D_\star)=\{D_\star\},
@@ -313,10 +316,14 @@ gravity in ordinary units.
 
 The hierarchy normalization is
 $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
-=2(8+3+1)=24$, derived independently by reversible doubling of the product
-adjoint. The unit-split icosahedral screen separately has twelve ports and 24
-oriented slots. The equality identifies one reversible write/check slot for
-each doubled gauge-current direction.
+=2(8+3+1)=24$, obtained by attaching two orientation labels to each product
+adjoint direction. The unit-split icosahedral screen separately has twelve
+ports and 24 oriented slots. This equality compares finite counts. It does not
+identify ports with gauge-current directions or turn the orientation labels
+into inverse dynamics. The physical bridge requires a full-rank current map,
+compact commutator closure, a common inner icosahedral action, and refinement
+naturality. The transitive port action supplies no invariant literal
+$8+3+1$ partition.
 
 The compact bridge gives an electroweak capacity near
 $3.53\times10^{122}$ on the public endpoint branch, while the capacity

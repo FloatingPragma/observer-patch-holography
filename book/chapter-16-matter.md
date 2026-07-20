@@ -95,19 +95,19 @@ the familiar long-distance value of the fine-structure constant, whose inverse
 is close to 137.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
-Model gauge algebra has $8+3+1=12$ directions. Reversible writing and checking
-double that number to
+Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction
+with an orientation label gives the register count
 
 $$
 m_{\rm rep}=2(8+3+1)=24.
 $$
 
-The icosahedral interface has twelve ports and twenty-four oriented read/write
-slots. The vertices mark those exposed interfaces in the screen chart. The
-gauge generators live in the current patterns carried by the ports. This is how the same finite
-architecture supports both a twelve-direction gauge algebra and a reversible
-twenty-four-slot weak-load register. The Higgs and top occupy a linked critical
-balance inside that quantitative structure.
+The icosahedral interface has twelve ports and twenty-four oriented slots. The
+vertices mark those exposed interfaces in the screen chart. The numerical
+match does not place gauge generators on the ports, define inverse updates, or
+produce an invariant literal $8+3+1$ partition. A physical identification
+requires the separately checked current map and closure receipts. The Higgs
+and top occupy a linked critical balance inside that quantitative structure.
 
 Why do the matter particles come in three families? The icosahedron answers
 with its faces. Its twenty outward faces form one symmetric orbit. The subgroup

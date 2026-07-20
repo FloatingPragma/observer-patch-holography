@@ -102,8 +102,8 @@ cd <repository>/Lean
 LC_ALL=C LANG=C lake build
 ```
 
-The build passes with exactly the three intentional `Primitives.lean`
-admissions (`localRepair`, `Repair`, `repair_respects_gauge`);
-`BoundaryFiber.lean` adds none. The in-file `#print axioms` block reports
+The build passes with zero admissions; the former `Primitives.lean`
+admissions (`localRepair`, `Repair`, `repair_respects_gauge`) are discharged,
+and `BoundaryFiber.lean` adds none. The in-file `#print axioms` block reports
 only `[propext, Classical.choice, Quot.sound]` for all eight audited
 declarations; no `sorryAx`.

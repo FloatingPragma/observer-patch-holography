@@ -473,7 +473,7 @@ The system is \emph{stably observable-determined} if $\omega_B(r)\to0$ as $r\dow
 \end{definition}
 
 \begin{proposition}[Minimality of the intrinsic moduli]\label{prop:minimal-moduli}
-The functions $\eta_\Phi$ and $\omega_B$ are nondecreasing.  Moreover:
+The functions $\eta_\Phi$ and $\omega_B$ are nondecreasing. The following also hold:
 \begin{enumerate}[label=(\roman*)]
 \item $\eta_\Phi(0)=0$;
 \item $\eta_\Phi$ is the least nondecreasing error-bound modulus on the attained residual values;
@@ -1374,7 +1374,7 @@ $d\notin\pi_D(R)$ certifies that no total exact repair preserving that collar
 exists.
 \end{corollary}
 
-\begin{proposition}[Robust no-repair margin]\label{prop:robust-no-repair}
+\begin{proposition}[Stable no-repair margin]\label{prop:stable-no-repair}
 Suppose $X_W$ and $X_D$ are metric spaces, $\varnothing\ne R\subseteq X_W\times X_D$, and the product metric dominates collar distance:
 \[
  d_{X_W\times X_D}((w,d),(w',d'))\ge d_{X_D}(d,d').
@@ -1944,7 +1944,7 @@ independence, and a sensor-enrichment certificate.\\
 same-level agreement without a tower term, fine-to-coarse comparison, and the
 anchored and nested metric cores.\\
 \texttt{Repair}
-& The collar-section criterion, no-repair and robust-margin certificates, and
+& The collar-section criterion, no-repair and stable-margin certificates, and
 counterexamples showing why the nonempty-domain hypotheses are necessary.\\
 \texttt{ConditionalResampling}
 & The finite algebraic characterization of the weighted fiber kernel in
@@ -2007,7 +2007,7 @@ Define the capacity readback fiber
 The readback is unavailable when the functional is undefined on any required
 terminal class or the terminal fiber is empty, scalar when
 \(\mathfrak F_{r,\varepsilon}(D)=\{m\}\), and ambiguous when
-\(|\mathfrak F_{r,\varepsilon}(D)|>1\). Robust exact closure at \(D\) is the
+\(|\mathfrak F_{r,\varepsilon}(D)|>1\). Stable exact closure at \(D\) is the
 singleton condition
 \[
 \mathfrak F_{r,0}(D)=\{D\}.
@@ -2018,7 +2018,7 @@ singleton condition.
 
 \begin{proof}
 The first three statements are the image-set alternatives for the declared
-functional. Robust closure requires every admissible terminal source class to
+functional. Stable closure requires every admissible terminal source class to
 have full readback \(D\). Confluence identifies repair schedules from one
 initial class; it does not identify distinct source classes in the unclosed
 fiber.
@@ -2075,9 +2075,9 @@ dataset is used.
 
 \section{Conclusion}
 
-Confluence is about paths from one state.  Observable normalization is about what partial data determine after consistency is enforced.  Their exact intersection is classical unique-normal-form theory: under observation preservation and $\NF(\to)=C$, identification modulo any silent equivalence is equivalent to agreement of normal endpoints across all sources with the same observation.  This does not by itself provide normalization or all-schedule settlement.  Their robust intersection is governed by two analytic objects: an error bound to the consistent set and an inverse modulus for the observation map on that set.
+Confluence is about paths from one state.  Observable normalization is about what partial data determine after consistency is enforced.  Their exact intersection is classical unique-normal-form theory: under observation preservation and $\NF(\to)=C$, identification modulo any silent equivalence is equivalent to agreement of normal endpoints across all sources with the same observation.  This does not by itself provide normalization or all-schedule settlement.  Their stable intersection is governed by two analytic objects: an error bound to the consistent set and an inverse modulus for the observation map on that set.
 
-The resulting estimate is universal and sharp in its two unavoidable components.  More importantly, it survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies a precise answer to three different questions:
+The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies a precise answer to three different questions:
 \[
 \boxed{
 \begin{array}{c}

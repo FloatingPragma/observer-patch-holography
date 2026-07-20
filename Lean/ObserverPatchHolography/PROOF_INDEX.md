@@ -1,5 +1,17 @@
 # Proof-to-Paper Index
 
+For the corrected typed Einstein composition theorem (GitHub #578), see the
+current statement-by-statement and premise audit in
+[`EINSTEIN_BRANCH_INDEX.md`](EINSTEIN_BRANCH_INDEX.md). That development is
+sorry-free and formalizes the algebraic/compositional implication while
+leaving continuum, asymptotic, physical-identification, and tower-nonemptiness
+premises explicit.
+
+The cross-paper confluence, collar, icosahedral, and event-geometry boundaries
+are mapped in [`BRIDGE_BOUNDARY_INDEX.md`](BRIDGE_BOUNDARY_INDEX.md). The
+finite counterexamples are imported by the umbrella source library, and the
+Screen algebra modules are part of the default Lake build.
+
 Mapping between Lean 4 theorems in this project and statements in
 *Paradise as Fixed-Point Consensus* (B. Müller, 2026; source in
 `paper/paradise_as_fixed_point_consensus.tex`).

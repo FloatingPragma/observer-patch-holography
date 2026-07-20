@@ -2,6 +2,14 @@ name: Lean CI
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "Lean/**"
+      - ".github/workflows/lean-ci.yml"
+  pull_request:
+    paths:
+      - "Lean/**"
+      - ".github/workflows/lean-ci.yml"
 
 jobs:
   build:
@@ -28,28 +36,45 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            Lean/.lake
-            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
+            Lean/.lake/packages
+            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake/packages
           key: lake-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
           restore-keys: |
             lake-${{ runner.os }}-
 
-      - name: Resolve deps if manifest missing
+      - name: Verify pinned dependency inputs
         working-directory: Lean
         run: |
-          if [ ! -f lake-manifest.json ]; then
-            lake update
-          fi
+          set -euo pipefail
+          test -f lake-manifest.json
+          grep -Fx 'leanprover/lean4:v4.29.1' lean-toolchain
+          grep -F '"mathlib"' lake-manifest.json
+          grep -F 'v4.29.1' lakefile.lean
 
-      - name: Fetch Mathlib cache
+      - name: Clean and fetch Mathlib cache
         working-directory: Lean
-        run: lake exe cache get || true
+        run: |
+          lake clean
+          lake exe cache get || true
 
       - name: Build and check zero proof debt
         working-directory: Lean
         run: |
           set -euo pipefail
           lake build 2>&1 | tee lake-build.log
+
+          if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
+              . --glob '*.lean' --glob '!**/.lake/**'; then
+            echo "Unexpected Lean admission in the umbrella project." >&2
+            exit 1
+          fi
+
+          if rg -n '^\s*axiom\b|\bby\s+native_decide\b' \
+              ObserverPatchHolography/Source/ObserverPatchHolography/EinsteinBranch \
+              --glob '*.lean'; then
+            echo "Unexpected global axiom or native_decide in the Einstein branch." >&2
+            exit 1
+          fi
 
           (
             cd ObserverPatchHolography/Proofs/ObservableNormalForms
@@ -70,3 +95,8 @@ jobs:
             printf '%s\n' "$sorry_warnings" >&2
             exit 1
           fi
+
+          grep -F "bare_consensus_not_einstein_complete' depends on axioms" lake-build.log
+          grep -F "composedEinsteinBranch' depends on axioms" lake-build.log
+
+          git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json

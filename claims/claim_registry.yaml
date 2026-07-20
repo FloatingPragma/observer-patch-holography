@@ -287,7 +287,7 @@
         "point_local_cap_response_factorization",
         "quantitative_cap_observability",
         "positive_localization_gap_for_unique_finite_output",
-        "event_manifold_receipts_E1_E4",
+        "event_manifold_receipts_E1_E6",
         "modular_intersection_receipt",
         "record_cauchy_and_stable_causality"
       ],
@@ -314,7 +314,7 @@
       "tier": "conditional_construction_theorem",
       "assumptions": [
         "modular_intersection_receipt",
-        "event_manifold_receipts_E1_E4",
+        "event_manifold_receipts_E1_E6",
         "kernel_residual_scaling_receipt",
         "universal_coupling_receipt"
       ],
@@ -335,7 +335,7 @@
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
-      "statement": "Exact finite first law delta S = 2pi delta<B> + delta<Z>; edge identification delta<Z> = delta S_edge on z_alpha = log d_alpha; corrected split delta S = 2pi delta<B> + delta S_edge with no dropped term; the naive step delta S_bulk = 2pi delta<B> holds exactly on the fixed-edge-sector class and otherwise carries the central flux sum z_alpha dp_alpha; the changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms.",
+      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
@@ -353,7 +353,7 @@
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/geometry/einstein_closure_receipts.py"
       ],
-      "falsifier": "A blockwise state violates the exact split, the multiplier identity fails along a MaxEnt family, or a corpus surface uses the naive step off the fixed-weight class without the central flux term.",
+      "falsifier": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family.",
       "scope_if_false": "The entropy bridge reopens; Axiom-4 status is unchanged.",
       "status": "proved_finite_plus_receipt_branch"
     },
@@ -363,12 +363,20 @@
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
+        "einstein_typed_common_domain_tower",
+        "smooth_lorentzian_small_ball_regime",
+        "continuum_diamond_kernel_identity",
         "uniform_collar_decay_constants",
         "sharp_collar_rate_receipt",
         "kernel_residual_scaling_receipt",
-        "event_manifold_receipts_E1_E4",
+        "uniform_small_ball_asymptotic_family",
+        "event_manifold_receipts_E1_E6",
+        "timelike_variation_coverage",
+        "weak_ward_conservation",
+        "contracted_bianchi_and_metric_compatibility",
         "universal_coupling_receipt",
-        "vacuum_reference_receipt"
+        "vacuum_reference_receipt",
+        "independent_physical_scale_receipt"
       ],
       "imported_results": [
         "fixed_volume_small_ball_area_identity",
@@ -391,6 +399,17 @@
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
         "all_receipt_families_of_D3h_D4_D4b_D4c_D4d_D5a",
+        "einstein_typed_common_domain_tower",
+        "smooth_lorentzian_small_ball_regime",
+        "continuum_diamond_kernel_identity",
+        "fixed_volume_small_ball_area_identity",
+        "uniform_small_ball_asymptotic_family",
+        "timelike_variation_coverage",
+        "weak_ward_conservation",
+        "contracted_bianchi_and_metric_compatibility",
+        "universal_coupling_receipt",
+        "vacuum_reference_receipt",
+        "independent_physical_scale_receipt",
         "realized_branch_nonemptiness"
       ],
       "imported_results": [

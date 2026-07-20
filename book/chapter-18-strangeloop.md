@@ -205,7 +205,7 @@ $$
 \boxed{N=M_0(\mathfrak U_N)}.
 $$
 
-The global closure adopted in this book is the robust equality
+The global closure adopted in this book is the stable equality
 $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ together with one unique zero of
 $s(D)=\log D-\log M_0(D)$. It says that every terminal branch in the complete
 fiber reads the same saturated capacity, not merely that one favorable branch
@@ -274,7 +274,7 @@ $$
 
 This equation tests whether the screen load and weak/Higgs load are the same
 physical carrier. It does not generate the direct capacity map. The bridge
-value and the late-time de Sitter reading currently differ by about $6.6$
+value and the late-time de Sitter reading differ by about $6.6$
 percent, so their exact identification remains a live test rather than a
 derived detuning law.
 

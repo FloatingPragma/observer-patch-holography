@@ -724,10 +724,10 @@ color, weak, gravitational, and cubic hypercharge anomalies all cancel.
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
-three face-selected families therefore carry twelve weak doublets. Counting
-the two reversible orientations gives twenty-four oriented weak slots, the
-same twenty-four-slot register supplied by twelve ports with write/check
-orientation.
+three face-selected families therefore carry twelve weak doublets. Pairing
+each slot with an orientation label gives twenty-four oriented weak slots, the
+same finite count as twelve ports with two orientations. This equality is a
+register identity. It supplies no inverse update rule or physical current map.
 
 ## 14.10 Hypercharge from Gluing Consistency
 
@@ -1229,8 +1229,11 @@ and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
 The hierarchy count is independent of the screen selector:
 $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
 =2(8+3+1)=24$. The unit-split screen separately has twelve ports and 24
-oriented slots. The equality identifies one reversible write/check slot for
-each doubled gauge-current direction. The family count comes from the oriented
+oriented slots. The equality compares dimensions and does not identify a port
+with a gauge-current direction. Such an identification requires a full-rank
+physical current map, compact commutator closure, a common inner icosahedral
+action, and refinement naturality. The transitive port action also supplies no
+invariant literal $8+3+1$ partition. The family count comes from the oriented
 faces, while the cosmic capacity and clock map supply the global size and
 laboratory scale.
 

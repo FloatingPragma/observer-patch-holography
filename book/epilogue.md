@@ -112,7 +112,7 @@ truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
 ## The Finite Proof Frontier
 
 The book has deliberately led with the reconstruction. Its remaining proof
-frontier can now be stated compactly.
+frontier has the following compact form.
 
 The highest-leverage object is one finite packet:
 
