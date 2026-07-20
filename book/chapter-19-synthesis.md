@@ -1,5 +1,10 @@
 # Chapter 19: Synthesis
 
+The synthesis keeps theorem status visible. The finite A5/Standard-Model
+package is a conditional Q0 recognition result. Physical source selection,
+Spin/statistics, family attachment, scalar phase, interactions, Q1--Q4, and
+OPH-native W/Z poles remain open.
+
 ## 19.1 The Picture That Gives Way
 
 For a long time physics assumed a finished stage. Space was the
@@ -125,8 +130,8 @@ sectors on a screen can combine, break apart, and carry their opposites, the way
 those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. The gauge group is reconstructed from that
 persistent charge bookkeeping itself. Minimal Admissible Realization (MAR) and
-the matter package select the smallest compact choice, the one-Higgs Standard
-Model and its global form
+the declared matter packet select the smallest admitted compact choice inside
+that economy class, the conditional one-Higgs Standard Model and its global form
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
@@ -140,16 +145,16 @@ outward face orientation supplies the handedness needed for the second
 triplet. Pulling a compact block commutator back to those coefficients gives
 the exact Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
-The refinement-stable current realization carries that coefficient algebra
-into the physical gauge sector.
+A physical current realization would carry that coefficient algebra into the
+gauge sector. Its source-derived response and refinement receipts remain open.
 
-The six antipodal axes also leave a sixfold lattice residue. The spin and
-central maps connect it to the $\mathbb Z_6$ action on matter. The three-corner
-face symmetry supplies the minimal three-dimensional chiral family carrier.
-The icosahedral construction therefore unifies the gauge and generation counts
-with the screen architecture. Hypercharge comes from the matter consistency
-equations, while masses, mixing angles, and coupling strengths come from the
-dynamics inside those sectors.
+The six antipodal axes also leave a sixfold lattice residue. Conditional spin
+and central maps connect it to the $\mathbb Z_6$ action on matter. The
+three-corner face symmetry supplies a canonical three-dimensional candidate
+family carrier. Physical family attachment remains a separate rank-45
+response problem. Hypercharge follows from the declared matter consistency
+equations, while masses, mixing angles, and coupling strengths require the
+interacting dynamics and pole receipts.
 
 Trace balance packages one generation into a five-component carrier
 $V=C\oplus W$, with a three-place color part and a two-place weak part. The
@@ -157,9 +162,10 @@ non-vacuum even exterior package $\Lambda^2V\oplus\Lambda^4V$ contains exactly
 the fifteen left-handed states $Q,u^c,d^c,L,e^c$. It also produces the three
 one-Higgs Yukawa channels and cancels the color, weak, gravitational, and cubic
 hypercharge anomalies. Three colored quark doublets plus one lepton doublet
-give four weak doublets per family. Three face-selected families give twelve,
-and reversible orientation doubles that to the same twenty-four slots carried
-by the screen.
+give four weak doublets per family. If the open rank-45 attachment realizes the
+conditional MAR minimum, three families give twelve, and reversible orientation
+doubles that to the same twenty-four slots carried by the screen. The numerical
+match is a load check, not the missing physical intertwiner.
 
 The same construction gives a conditional route to the four-dimensional
 Yang-Mills form and mass gap for compact simple gauge groups. The Euclidean
@@ -178,12 +184,12 @@ first genuine excitation above the vacuum costs a positive amount of energy.
 Refinement is what lets the finite screen construction become that smooth field
 theory.
 
-The color triplet and three-generation count are structural results of the
-minimal matter branch. The icosahedral faces organize the family triplet, the
-gauge factors organize the force directions, and the field dynamics supplies
-the particle masses and mixing data. This separation keeps the architecture
-easy to read: symmetry decides which roles exist, while dynamics decides where
-the realized particles sit within those roles.
+The color triplet is structural on the conditional matter packet. The
+three-generation value is the least member of the declared MAR economy window,
+while the icosahedral faces supply a canonical rank-three candidate band. The
+rank-45 family attachment and its field-theory receipts remain open. Gauge
+factors organize candidate force directions; independently produced field
+dynamics would supply physical masses and mixing data.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -550,26 +556,29 @@ mathematician sees an obstruction. A cosmologist sees a horizon. A quantum
 information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
-The gauge quotient, charge lattice, three-generation carrier, conditional
-Yang-Mills gap, photon and graviton modes, Lorentz geometry, Einstein relation,
-electroweak scale, Higgs-top balance, and flavor operators form one organized
-reconstruction. Some links are theorems under stated source receipts, while
+The conditional gauge quotient, charge lattice, rank-three candidate family
+band, conditional Yang-Mills gap, classical photon and graviton mode counts,
+Lorentz geometry, Einstein relation, electroweak comparison surface,
+Higgs-top conditional balance, and flavor operators form one organized
+dependency map. Some links are theorems under stated source receipts, while
 the physical source objects for several links remain work in progress.
 Symmetry determines the available roles. The dynamics within those roles
 determines masses, mixing, binding, and decay.
 
-The local ruler carries this reconstruction into numbers. The charged-lepton
-three-cycle has one attracting repair fixed point and the square-root-mass
-geometry gives the Koide relation. Electroweak closure places the running W and
-Z coordinates near $80.3$ and $91.1$ GeV. Force criticality places the Higgs
-and top together near $125.8$ and $172.6$ GeV. Six family-sensitive Yukawa
-coordinates organize the quarks, the same three-family space organizes
-neutrino mixing, and nonperturbative color dynamics builds hadrons.
+The local ruler carries the conditional comparison surface into numbers. The
+charged-lepton three-cycle has one attracting repair fixed point, and the
+square-root-mass geometry gives a Koide relation under its attachment premises.
+The displayed W/Z and Higgs/top values are prescription or declared-surface
+checks, not OPH-native complex-pole predictions. Six family-sensitive Yukawa
+coordinates organize conditional quark and neutrino comparisons after a common
+physical family attachment is supplied.
 
-The calculation remains finite and reproducible all the way down. Exact
-enumeration fixes the discrete choices. Interval arithmetic encloses the fixed
-points. Renormalization-group flow transports the couplings. Pole equations
-locate the stable particle coordinates. Every observer-like carrier exposes
+The finite diagnostic calculations are reproducible. Exact enumeration checks
+the declared discrete choices, interval arithmetic encloses stated fixed
+points, and renormalization-group and pole equations validate specified
+transport conventions. They do not promote stable particle coordinates until
+the source, EFT, gauge/BRST, uncertainty, current-amplitude, and clock receipts
+are complete. Every observer-like carrier exposes
 the same bounded state, interfaces, readback, repair moves, accepted records,
 and checkpoint data, so the mathematical construction and its physical or
 digital realization share one operational architecture.

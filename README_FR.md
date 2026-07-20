@@ -110,9 +110,10 @@ complète et ses obligations de preuve.
 
 ## Un univers complet imposé par la cohérence
 
-OPH porte une affirmation centrale : **une seule architecture de cohérence entre
-observateurs, sans valeur continue ajustée, reconstruit l’architecture de notre
-univers observé.**
+OPH teste une proposition centrale : **une seule architecture de cohérence
+entre observateurs peut reconstruire l’architecture de notre univers observé.**
+Les résultats finis exacts et les producteurs physiques encore ouverts sont
+distingués ci-dessous.
 
 - la relecture et la réparation finies transforment les états privés en
   registres publics stables ;
@@ -128,19 +129,33 @@ univers observé.**
   décomposition d’espace de coefficients
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
 - les descentes physiques du courant, des traces, du spin et du centre donnent
-  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
-- la branche chirale minimale sélectionnée à un Higgs donne les hypercharges, trois
-  couleurs, trois générations et un seul doublet de Higgs ;
+  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ lorsqu’elles satisfont leurs
+  reçus explicites ;
+- le paquet de matière fini déclaré donne un témoin extérieur exact pour une
+  génération, les calculs d’hypercharge et d’anomalies, et un porteur à trois
+  couleurs ;
+- des contre-modèles finis exacts et un théorème Lean sans admission montrent
+  que le réducteur exposé sans cible ne détermine pas une complétion unique ;
+- la bande canonique de rang trois est une candidate pour l’espace des
+  familles ; son attachement physique de rang 45 reste ouvert, et $N_g=3$ est
+  le minimum de la classe économique MAR déclarée plutôt qu’un théorème issu
+  de la source ;
 - les mêmes clôtures $P$ et $N$ relient les échelles de jauge, de Higgs, de
   gravité et de cosmologie.
 
-Il ne s’agit pas d’ajustements indépendants. Toutes ces conséquences viennent
-de la même exigence : chaque description locale doit se recoller en un monde
-unique, récupérable et capable de se relire. La récupération conjointe de
-l’observation quantique, de l’espace-temps lorentzien, de la gravité conditionnelle
-d’Einstein, de la forme globale exacte du Modèle standard et de la hiérarchie
-Higgs/cosmologie à partir de zéro valeur ajustée est la raison pour laquelle
-OPH se présente comme une **théorie du tout sans boutons de réglage**.
+Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
+même exigence : chaque description locale doit se recoller en un monde
+récupérable et capable de se relire. La récupération conjointe de
+l’observation quantique, de l’espace-temps lorentzien, de la gravité
+conditionnelle d’Einstein, du paquet fini de reconnaissance du Modèle standard
+et des tests de clôture quantitative motive le programme OPH. Les reçus
+physiques de source, de Spin, de familles, de scalaire, de Q1--Q4 et de pôles
+restent des conditions explicites.
+
+État lisible par machine :
+
+    CONDITIONAL_A5_TO_SM_RECOGNITION_AND_FORCING_CRITERION__Q0_FINITE_CORE_PASS__PHYSICAL_RECEIPTS_AND_Q1_TO_Q4_OPEN
+    DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
 
 Les prémisses techniques et les obligations de preuve restantes sont
 regroupées à la fin de ce document, au lieu d’interrompre l’introduction du
@@ -239,7 +254,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Témoin extérieur exact pour une génération, puis sélection conditionnelle du réseau d’hypercharges, de trois couleurs, de trois générations et d’un doublet de Higgs | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection MAR conditionnelle $N_g=3$ ; l’attachement physique des familles et Q1--Q4 restent ouverts | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Pôles physiques W/Z | Une pile conditionnelle SM-EFT/FJ/pôle complexe à ordre fini est définie ; l’appariement à la source, la vérification jauge/BRST indépendante, la loi d’incertitude, les amplitudes de courant physique et l’horloge restent ouverts, donc aucun pôle W/Z natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
 | Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet physique à coupure fixe $D=24$ est certifié, tandis que la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

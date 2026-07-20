@@ -17,6 +17,22 @@ the code and separates it from the mixed run/pole reporting
 surface. If pole/effective reporting is required, the remaining exact missing
 object is then one common `EWTransportKernel_D10`, not more digits of `P`.
 
+Two compact boundary modules accompany that larger lane:
+
+- `wz_strict_series.py` implements only the strict finite-order algebra for
+  `Gamma(s) = s - m0^2 + kappa Pi(s)`. It keeps the one-loop coefficient,
+  two-loop derivative and neutral-mixing terms, and square-root display
+  coordinates separate.
+- `source_completion_no_go.py` gives an exact two-completion witness for the
+  current Higgs/top reduct. The same source coordinate admits distinct
+  downstream Higgs and top values, so that reduct cannot support a unique
+  source-only pole claim.
+
+Both modules are controls, not OPH-native mass predictions. They do not supply
+the source-selected observer-like carrier, EFT matching and field census,
+gauge/BRST identity checks, analytic continuation, uncertainty transport,
+physical-current amplitudes, or operational clock required for promotion.
+
 ## Active Calibration Files
 
 The active calibration scripts open with the same short derivation header:
@@ -139,6 +155,7 @@ python3 particles/calibration/test_d10_ew_transport_kernel_artifact.py
 python3 particles/calibration/derive_d10_ew_quotient_transport_receipt.py
 python3 particles/calibration/derive_boson_source_prediction_closure_audit.py
 python3 -m pytest -q particles/calibration/test_ew_physical_readout_gate.py
+python3 -m pytest -q particles/calibration/test_wz_survival_boundaries.py
 ```
 
 That guard checks the solver mechanics and the presence of the current D10

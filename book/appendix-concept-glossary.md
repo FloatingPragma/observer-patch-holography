@@ -189,8 +189,10 @@ observer-accessible statistics under the same interface conditions.
 CKM matrix
 :   The Cabibbo-Kobayashi-Maskawa matrix describes how quark flavors
 mix under the weak interaction, and its complex phase is the Standard Model's
-source of charge-parity violation. Counting its physical phases is part of why
-three generations matter. The book uses it in the generation-counting argument.
+source of charge-parity violation. Counting its physical phases gives the lower
+bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
+consistency gives $N_g\le5$, and MAR selects the least admitted value. This is
+an economy-class selection, not a physical family-attachment theorem.
 
 Classical limit
 :   The classical limit is the regime where quantum
@@ -335,9 +337,10 @@ $Q,u^c,d^c,L,e^c$. It gives their exact hypercharges, the three one-Higgs
 channels $QHu^c$, $QH^\dagger d^c$, and $LH^\dagger e^c$, and cancellation of
 the color, weak, gravitational, and cubic hypercharge anomalies. The quark
 doublet occurs in three color copies and the lepton doublet once, giving four
-weak doublets per generation. Three face-selected families give twelve, and
-pairing each slot with an orientation label gives twenty-four oriented weak
-slots. The count alone supplies no inverse dynamics or physical current map.
+weak doublets per generation. The conditional MAR minimum gives twelve only
+after the open rank-45 family attachment is supplied, and pairing each slot
+with an orientation label then gives twenty-four oriented weak slots. The
+count alone supplies no inverse dynamics or physical current map.
 
 Fawzi-Renner theorem
 :   The Fawzi-Renner theorem shows that small conditional

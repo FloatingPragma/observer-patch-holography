@@ -26,7 +26,7 @@ lean_lib «EventAlgebra» where
 lean_lib «OPHScreen» where
   srcDir := "ObserverPatchHolography/Screen"
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,
-    `TopThreeKernelFix, `UnitSplit12, `Z6Exact]
+    `TopThreeKernelFix, `UnitSplit12, `Z6Exact, `PhysicalA5ForcingNoGo]
 
 lean_exe «oph» where
   root := `Main

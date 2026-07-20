@@ -55,7 +55,7 @@
     {"from": "OPH-GR-D5", "to": "OPH-COSMO-SCREEN-SPECTRUM", "role": "supplies the conditional local geometry and source-stress interface consumed by the source-screen branch"},
     {"from": "OPH-Q-PN-CLOSURE", "to": "OPH-COSMO-SCREEN-SPECTRUM", "role": "supplies the selected dimensionless pixel coordinate entering the conditional edge-center generator density"},
     {"from": "OPH-CONS-D1", "to": "OPH-GAUGE-D7-D9", "role": "supplies transportable visible sector setting"},
-    {"from": "OPH-GAUGE-EXTERIOR-SM-WITNESS", "to": "OPH-GAUGE-D7-D9", "role": "supplies exact conditional one-generation branching, Yukawa lines, anomalies, and weak multiplicity; physical screen-current and selection gates remain explicit"},
+    {"from": "OPH-GAUGE-EXTERIOR-SM-WITNESS", "to": "OPH-GAUGE-D7-D9", "role": "supplies the exact conditional rank-15 one-generation branching, Yukawa lines, anomalies, and weak multiplicity; the rank-three screen band and MAR minimum remain candidate/economy results until rank-45 physical attachment, locality, residue, and refinement gates are discharged"},
     {"from": "OPH-Q-PN-CLOSURE", "to": "OPH-HIER-EW", "role": "supplies P and N only after their respective physical closure receipts; the EW/Higgs relation is a downstream comparison"},
     {"from": "OPH-GR-D6-CAPACITY", "to": "OPH-Q-PN-CLOSURE", "role": "supplies the conditional correctable-capacity construction; the physical packet and unique finite-size selector remain open"},
     {"from": "OPH-GR-D6-CAPACITY", "to": "OPH-HIER-EW", "role": "supplies N only after robust direct closure independently of the electroweak bridge"},

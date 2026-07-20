@@ -1,5 +1,10 @@
 # Chapter 16: Matter, Motion, and Classical Physics
 
+The finite matter result is a rank-15 internal representation witness under a
+declared packet. It does not supply the physical spacetime Spin lift, graded
+exchange, nonzero matter residues, three-family attachment, or constructive
+QFT. These remain named receipts.
+
 ## 16.1 The Intuitive Picture: Matter Is Stuff, Motion Is Force
 
 ![Matter becomes public through a ladder of stability: screen excitations, protected particles, atoms, and classical records.](../assets/book_diagrams/matter-stability-ladder.svg){width=78%}
@@ -56,10 +61,11 @@ the zoo stops looking like a zoo.
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. Stable
 charge sectors reconstruct the compact gauge structure. Minimal Admissible
-Realization (MAR), the rule that selects the smallest matter package that works,
-then gives the Standard Model quotient
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, three colors,
-and three generations.
+Realization (MAR), the economy rule that selects the smallest admitted packet,
+then gives a conditional Standard Model quotient
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
+carrier, and the conditional minimum $N_g=3$. The physical family attachment
+remains open.
 
 This is where the book leans heavily on the collective history of particle
 physics. Rutherford showed that atoms have small nuclei. Chadwick found the
@@ -109,8 +115,8 @@ produce an invariant literal $8+3+1$ partition. A physical identification
 requires the separately checked current map and closure receipts. The Higgs
 and top occupy a linked critical balance inside that quantitative structure.
 
-Why do the matter particles come in three families? The icosahedron answers
-with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
+Where can a three-place family candidate come from? The icosahedron supplies
+one with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
 that leaves one face in place rotates its three corners, so every face carries
 the same local three-step dial. A Hermitian response that respects this cycle
 has the circulant form
@@ -121,13 +127,16 @@ $$
 
 where $R$ advances one corner. The icosahedral action carries the same unordered
 spectrum from face to face. The sixty face-corner flags are the local copies of
-this dial. The quotient identifies symmetry-related copies and leaves one
-global triplet, which becomes the three-generation chiral family space.
+this dial. After a declared quotient and economy selection, this geometry
+leaves a canonical rank-three candidate band. It becomes a three-generation
+chiral family space only if the open rank-45 physical attachment, family
+descent, locality, residue, and refinement receipts are supplied.
 
-The family triplet and the color triplet do different jobs. The face triplet
-counts generations. The fundamental triplet of $SU(3)$ counts the three colors
-of a quark. Their shared use of the number three comes from different parts of
-the architecture.
+The candidate family triplet and the color triplet do different jobs. The face
+triplet supplies a possible family multiplicity carrier; the fundamental
+triplet of $SU(3)$ counts the three colors of a quark on the conditional matter
+packet. Their shared use of the number three comes from different parts of the
+architecture and is not itself a physical attachment theorem.
 
 Reversible repair supplies the write/verify pair. Radial readback places the
 three eigenvalues in the positive square-root-mass geometry, while the binary
@@ -142,12 +151,13 @@ $$
 
 An eight-register finite model realizes this loop with bounded local state,
 ports, readback, repair moves, and durable accepted or rejected records. It is
-an observer-like self-reading charged-family carrier. The geometry supplies the
-three-cycle, the record layer selects the stable response, and electromagnetic
-transport supplies the common laboratory scale. The three eigenmodes become the
-electron, muon, and tau directions of the charged-lepton family.
+an observer-like self-reading charged-family control. The geometry supplies the
+three-cycle and the record layer selects a stable response. Identifying its
+three eigenmodes with the electron, muon, and tau directions additionally
+requires the open nature, electromagnetic-transport, and pole attachments.
 
-The same global family triplet carries the quarks and neutrinos. Quarks need six
+If the physical attachment receipts select the same global family triplet, it
+carries the quarks and neutrinos. Quarks need six
 Yukawa coordinates at one common scale: three for the up-type sector and three
 for the down-type sector. Their values run with energy as gauge and Higgs
 interactions dress the underlying family response.
@@ -163,7 +173,7 @@ Protons, neutrons, and mesons are different kinds of objects. They are bound
 states, and most of their mass comes from the confinement energy of quarks and
 gluons.
 
-Neutrinos use the same three-family space in a different basis. Electron,
+On that conditional attachment, neutrinos use the same three-family space in a different basis. Electron,
 muon, and tau name flavor directions, while $m_1,m_2,m_3$ name mass directions.
 The PMNS matrix is the rotation between those two descriptions. Majorana phases
 are extra phases that become physical when neutrinos are their own

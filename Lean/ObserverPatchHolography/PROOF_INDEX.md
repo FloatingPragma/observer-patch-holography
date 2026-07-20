@@ -34,6 +34,12 @@ Mapping between Lean 4 theorems in this project and statements in
   (algebraic layer of the coupling theorem only; no physical-derivation
   content, the physical identities I1/I2 are outside the formalised set;
   does **not** bear on the Prop 4.2 / Def 4.1 counts)
+- Physical A5-to-SM reduct boundary
+  (`Screen/PhysicalA5ForcingNoGo.lean`): 6 / 6 declarations, sorry-free.
+  The finite theorems prove non-reconstruction of defect, current, and matter
+  completions from their stated forgetful reducts, plus the settlement and
+  pairing controls. They do not prove nonexistence of a selector from a richer
+  operational source packet and do not instantiate any physical producer.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear

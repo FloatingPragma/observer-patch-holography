@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_id": "r1556",
+  "release_id": "r1557",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -570,7 +570,7 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a cofinal tail carrying the compact-gauge refinement receipt and every physical screen-current, determinant/spin/deck, exterior/Higgs, matter-selection, family, and load-intertwiner gate, the twelve-port branch realizes the Standard Model quotient and the selected one-Higgs, three-family matter package. The finite exterior representation witness is exact, while production of this physical branch from the screen remains open.",
+      "statement": "The finite Q0 icosahedral package conditionally recognizes the Standard Model quotient, a one-generation rank-15 exterior witness, and a canonical rank-three candidate family band. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admissible multiplicity is N_g=3. A physical three-family conclusion requires a rank-45 attachment and every screen-current, determinant/spin/deck, exterior/Higgs, matter-selection, family-descent, locality, residue, and refinement gate; those producer receipts and Q1--Q4 remain open.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_physical_screen_forcing_theorem",
       "assumptions": [
@@ -597,11 +597,15 @@
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/a5_closure/README.md",
-        "code/a5_closure/exterior_sm_completion.py"
+        "code/a5_closure/exterior_sm_completion.py",
+        "code/a5_closure/survival_boundary_certificates.py",
+        "Lean/ObserverPatchHolography/Screen/PhysicalA5ForcingNoGo.lean",
+        "code/particles/calibration/source_completion_no_go.py",
+        "code/particles/calibration/wz_strict_series.py"
       ],
-      "falsifier": "A carrier satisfying every named gate fails to realize the stated quotient and matter package, or one of the required physical maps cannot be constructed without importing the Standard Model target.",
-      "scope_if_false": "The realized Standard Model branch falls; Lorentz and consensus branches must be assessed independently.",
-      "status": "conditional_theorem_representation_witness_closed_physical_producers_open"
+      "falsifier": "The exact Q0 identities fail under their premises, the MAR window or economy minimum is inconsistent, a carrier satisfying every named physical gate fails to realize the stated quotient and matter package, or a required physical map cannot be constructed without importing the Standard Model target.",
+      "scope_if_false": "The failing Q0, economy, or physical-forcing layer falls. Lorentz and consensus branches must be assessed independently.",
+      "status": "conditional_q0_recognition_and_mar_economy__rank45_physical_attachment_and_q1_to_q4_open"
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",

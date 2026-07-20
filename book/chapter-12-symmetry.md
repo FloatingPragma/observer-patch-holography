@@ -358,6 +358,14 @@ and continuum transfer checks.
 
 ## 12.8 Symmetry Breaking
 
+The discussion in this section describes the ordinary electroweak field-theory
+mechanism after its gauge, scalar, source, and quantum premises are supplied.
+The finite OPH icosahedral calculation conditionally recognizes the relevant
+compact algebra and a one-Higgs representation packet; it does not yet produce
+the physical scalar, family attachment, graded-local field algebra, or W/Z
+complex poles. Those require observer-like source patches with operational
+ports, readback, repair records, and the open Q1--Q4 evidence receipts.
+
 The universe has beautiful symmetries. But the symmetries are also hidden.
 
 In the minimal electroweak action and its ordinary vacuum, the electromagnetic

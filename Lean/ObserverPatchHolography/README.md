@@ -79,6 +79,13 @@ surface for the OPH consensus layer. Contents:
   boundary identifiability stays a named per-net premise (countermodels:
   `demoCarrier_Hfib_fails`, `rule90_Hfib_bad_fails`). See
   `BOUNDARY_FIBER_APPLICATION.md` for the hypothesis-by-hypothesis bridge.
+- A sorry-free finite **Physical A5-to-SM non-identifiability boundary** in
+  `Screen/PhysicalA5ForcingNoGo.lean`: Euler total charge does not reconstruct
+  a unique defect profile, the twelve-port source reduct does not reconstruct
+  a unique current completion, and the compact-current reduct does not exclude
+  a sterile matter completion. These are finite no-go theorems about the
+  exposed reduct, not a claim that a richer operational producer packet cannot
+  select the physical completion.
 - A sorry-free **finite event algebras** library (`Source/EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

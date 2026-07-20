@@ -18,6 +18,7 @@ python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
 python3 bh_log_correction.py             # conditional horizon log-coefficient decision tree
 python3 independent_trichotomy_check.py  # independent re-derivation, trusts nothing above
+python3 survival_boundary_certificates.py # exact Q0 fixtures and physical-boundary controls
 python3 test_audit.py                    # regression suite
 ```
 
@@ -65,6 +66,24 @@ gauge currents and global form require the full-rank compact skew-adjoint
 receipt **PORT-CURRENT-INNER**,
 **PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel premises.
 The coefficient construction supplies no observational discriminator.
+
+`survival_boundary_certificates.py` records five exact-small controls at this
+boundary: completion non-identifiability from the current source reduct, the
+ten-Majorana rank-15 projector, the distinction between a composite response
+cubic and a fundamental 1PI cubic, complement-complete refinement with a
+hidden-zero-mode counterexample, and a finite exhaustive settlement fixture.
+The matching sorry-free logical no-go is
+`../../Lean/ObserverPatchHolography/Screen/PhysicalA5ForcingNoGo.lean`.
+These are diagnostic Q0 certificates. They do not emit a
+physical screen current, a Spin/locality lift, three chiral families, a scalar
+field, or a refinement-stable quantum theory.
+
+The family result is therefore split explicitly. The finite screen algebra
+supplies a canonical rank-three candidate band, and the declared MAR economy
+criterion selects the least admissible multiplicity inside the window
+`3 <= N_g <= 5`. A physical `N_g = 3` statement additionally requires the
+rank-45 attachment map and the family descent, exchange, residue, and
+refinement receipts listed below.
 
 The exterior calculation supplies a second conditional matter route. It does
 not turn coefficient directions into physical currents or select the global

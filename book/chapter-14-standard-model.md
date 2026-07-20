@@ -1,5 +1,20 @@
 # Chapter 14: The Standard Model from Consistency
 
+The exact result in this chapter is a conditional finite recognition package.
+The icosahedral arithmetic gives a three-color carrier, one-generation
+rank-15 representation witness, canonical rank-three candidate screen band,
+and three invariant cubic slots under the declared packet. It does not attach
+that band to three physical chiral families. The count $N_g=3$ is the least
+value in the declared Minimal Admissible Realization economy class. Physical
+Spin, family, scalar, interaction, positivity, refinement, and W/Z pole
+receipts remain open.
+
+There is also an exact negative result: the exposed target-free
+source reduct is not completion-unique. Distinct current and matter
+completions have the same reduct, so no function of that reduct alone can
+reconstruct every completion. This does not prevent a richer observer-like
+packet with operational readback and producer receipts from selecting one.
+
 ## 14.1 The Intuitive Picture: Particles and Forces Are Fundamental
 
 The intuitive picture is straightforward. The universe is made of particles.
@@ -232,11 +247,13 @@ Electroweak running and the vacuum response of quarks and hadrons then carry
 that high-energy screen value to the long-distance Thomson coupling measured
 in the laboratory.
 
-That low-energy number lives in the same family as the W and Z bosons. Once the
-electroweak structure is fixed, electromagnetism is the unbroken piece left
-after the weak and hypercharge parts mix together. OPH’s running coordinates
-near $80.3$ and $91.1$ GeV pass through the renormalized vacuum, thresholds,
-matching terms, and complex-pole map to become the physical W and Z masses.
+That low-energy number lives in the same electroweak theory as the W and Z
+bosons. Once the electroweak structure is fixed, electromagnetism is the
+unbroken piece left after the weak and hypercharge parts mix together. The OPH
+code includes running-coordinate and finite-order pole prescription checks,
+but the source matching, independent gauge/BRST verification, uncertainty law,
+physical-current amplitudes, and clock remain open. No OPH-native physical W
+or Z pole is promoted.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -264,7 +281,13 @@ The electron is stable. The muon and tau decay quickly.
 
 The fermions come in a strange pattern: three copies. The up and down quarks, plus the electron and its neutrino, form the first generation. The charm and strange quarks, plus the muon and its neutrino, form the second. The top and bottom, plus the tau and its neutrino, form the third.
 
-The Standard Model by itself does not explain why there are three generations. On the OPH one-Higgs matter branch, the minimal viable count is three. The charged members of the second and third generations are heavier copies of the first, while the neutrino sector has its own mixing pattern. Almost all ordinary matter uses only first-generation particles.
+The Standard Model by itself does not explain why there are three generations.
+On the declared OPH one-Higgs economy class, the admitted window is three to
+five and MAR selects its least value. This is a model-selection statement. The
+physical attachment of the canonical rank-three screen band to matter remains
+open. The charged members of the second and third observed generations are
+heavier copies of the first, while the neutrino sector has its own mixing
+pattern. Almost all ordinary matter uses only first-generation particles.
 
 ### Bosons: The Force Carriers
 
@@ -574,7 +597,13 @@ three-entry object rotated by the color symmetry. "Pseudoreal" and "complex"
 distinguish whether the mirror representation is effectively the same object or
 a genuinely different one.
 
-The same low-energy sector also fixes the counting. The minimal coupled carrier makes the quark doublet a color triplet and therefore fixes $N_c=3$. On the same one-Higgs quark branch, intrinsic CKM CP capability requires at least three generations, weak-sector ultraviolet consistency keeps the count finite, and the smallest viable answer is $N_g=3$. The Witten anomaly then remains as a consistency check on the resulting triplet-doublet structure. This anomaly is a global $SU(2)$ obstruction: the theory is consistent only when the number of left-handed weak doublets is even.
+The minimal coupled carrier makes the quark doublet a color triplet and fixes
+$N_c=3$ inside the declared packet. On the same one-Higgs class, intrinsic CKM
+CP capability requires at least three generations and weak-sector ultraviolet
+consistency permits at most five. MAR chooses $N_g=3$ because generation count
+is one of its economy coordinates. The graph and anomaly equations do not make
+that choice. The Witten anomaly is a consistency check on the resulting
+triplet-doublet structure.
 
 ### The Icosahedral Closure Route
 
@@ -674,9 +703,12 @@ The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold stabilizer of a face cycles its corners. The only
 one-dimensional representation of $A_5$ is trivial, and $A_5$ has no
 two-dimensional irreducible representation. The smallest global irreducible
-carrier of a nontrivial face phase therefore has dimension three. The chiral
-family construction uses that triplet, giving three generations and one CKM
-phase degree of freedom. The dynamics determines the value of that phase.
+carrier of a nontrivial face phase therefore has dimension three. This is a
+canonical candidate family fiber. Calling it three physical generations
+requires a complex rank-45 attachment to the complete rank-15 matter residue,
+excluded-band controls, and refinement naturality. Those receipts are open. A
+physical CKM phase also requires family breaking or descent and a genuine 1PI
+interaction packet.
 
 The division of labor is clean. The oriented icosahedral screen supplies the
 gauge-adjoint geometry and its global sixfold structure. The matter and
@@ -727,7 +759,8 @@ color, weak, gravitational, and cubic hypercharge anomalies all cancel.
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
-three face-selected families therefore carry twelve weak doublets. Pairing
+the conditional MAR minimum of three families would therefore carry twelve
+weak doublets after physical attachment. Pairing
 each slot with an orientation label gives twenty-four oriented weak slots, the
 same finite count as twelve ports with two orientations. This equality is a
 register identity. It supplies no inverse update rule or physical current map.
@@ -860,7 +893,7 @@ For $N_g=1$ or $N_g=2$, the formula gives zero phases. For $N_g=3$, it gives
 one phase. The third generation is the first case with intrinsic CKM CP
 capability.
 
-So the realized quark branch requires at least three generations:
+So the declared CP-capable quark class requires at least three generations:
 
 $$N_g \ge 3$$
 
@@ -895,11 +928,14 @@ Here UV completability means that the theory can keep making sense at shorter
 distances and higher energies, with no immediate breakdown when the resolution
 is increased.
 
-A minimal admissible realization principle then picks the smallest viable
-realization. "Minimal admissible" means the smallest option that satisfies the
-listed consistency tests:
+A minimal admissible realization principle then picks the smallest option in
+the declared economy class. "Minimal admissible" means the smallest option
+that satisfies the listed consistency tests:
 
 $$\boxed{N_g = 3}$$
+
+This boxed value is conditional MAR selection. It is not forced by anomaly
+cancellation, the $A_5$ graph, or the target-free source reduct.
 
 The one-Higgs slot also has a clean local geometric carrier. On the selected
 electroweak branch, the weak screen chart can be modeled locally as
@@ -935,7 +971,12 @@ branch.
 
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
-Refinement stability explains why extra unfixed Yukawa structure is disfavored. Among the allowed options, the smallest viable one wins. With $N_c=3$ and $N_g=3$, each generation carries four left-handed weak doublets, an even number, so the Witten anomaly is automatically satisfied on the realized branch.
+The MAR economy axiom disfavors extra unfixed Yukawa structure inside its
+declared admissible class. Among the allowed options, its smallest viable one
+wins. With $N_c=3$ and the conditional MAR value $N_g=3$, each generation
+carries four left-handed weak doublets, an even number, so the Witten anomaly
+is satisfied generation by generation. This check does not construct the
+physical family attachment.
 
 ## 14.13 Why Chirality?
 
@@ -953,6 +994,15 @@ If both chiralities exist in conjugate representations, this term is allowed. Un
 
 Relevant operators that aren't forbidden by symmetry or constraints get turned
 on under refinement. They can't be kept at zero without fine tuning.
+
+This state-side renormalization statement is not a spectral completeness
+theorem. Preserving an old sector and remaining a positive distance from a
+contour boundary do not exclude a new fine-scale eigenvalue inside the
+contour. Physical persistence additionally requires the actual complementary
+Hamiltonian block, exclusion of its spectrum from the selected interior,
+off-diagonal bounds, and equality of the full selected rank. The mutation
+$H_s=H_r\oplus0$ is the exact warning: it preserves the old block while adding
+a hidden selected mode.
 
 If a mass term is allowed, it will generically appear. The fermion will become massive. At low energies, it will decouple.
 
@@ -1000,9 +1050,10 @@ which of those roles propagate as particles.
 ### The Particle Structure In One Picture
 
 The particle picture can be told as one continuous line. The framework first
-rebuilds the gauge structure from charge sectors that fit together around every
-loop. A smallest-that-works rule then picks the realized Standard Model group,
-its charge lattice, and the color and generation counts. The same structure
+rebuilds a conditional gauge structure from charge sectors that fit together
+around every loop. A smallest-that-works rule then picks a declared Standard
+Model packet, its charge lattice, the color carrier, and an economy-class
+generation count. Physical attachment of that count is a separate receipt. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
 positive-energy quantum sectors give the corresponding particles.
@@ -1201,9 +1252,10 @@ connected X/Y gauge direction.
 The framework accounts for several concrete facts.
 
 **The integers.** In the one-Higgs chiral MAR class, anomaly cancellation and
-Yukawa invariance fix the hypercharge lattice, the minimal coupled carrier fixes
-the color triplet, and CKM CP capability together with weak-sector ultraviolet
-consistency fixes three generations.
+Yukawa invariance fix the hypercharge lattice, and the minimal coupled carrier
+fixes the color triplet. CKM CP capability and weak-sector ultraviolet
+consistency give $3\le N_g\le5$. MAR selects the least value. Physical
+three-family attachment remains separate.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two transverse
 massless modes. The Einstein action around flat space gives gravity two
@@ -1211,10 +1263,10 @@ transverse-traceless modes, the plus and cross polarizations. Positive-energy
 quantization turns these into the photon and graviton sectors.
 
 **The particle structure.** The $A_5$ screen fixes the gauge-adjoint coefficient
-geometry. Its oriented faces carry the three-place family fiber. MAR and the
-matter attachment supply hypercharge, chirality, color fundamentals, weak
-doublets, and the Higgs. Repair dynamics then fixes the W/Z, Higgs/top, lepton,
-quark, and neutrino coordinates within those sectors.
+geometry and a canonical rank-three candidate family band. The conditional
+matter packet supplies hypercharge, color fundamentals, weak doublets, and one
+scalar-doublet channel. Source-derived chirality, physical family attachment,
+genuine 1PI vertices, and W/Z poles remain open.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
@@ -1269,17 +1321,21 @@ positive-energy quantum state spaces turn those recurring carrier patterns into
 stable, detectable particles.
 
 Within the one-Higgs chiral MAR class, the smallest admissible
-gauge-and-matter package fixes the quark and lepton charges. Three colors and
-three generations follow from anomaly cancellation, chirality, the minimal color
-carrier, CP capability, and the weak-sector clause on that class.
+gauge-and-matter packet fixes the displayed quark and lepton charges
+conditionally. The color carrier gives three colors. CP capability and the
+weak-sector clause give a three-to-five window, and MAR selects three. This
+does not replace the physical family-attachment receipt.
 
-The result is one organized particle world: a specific gauge group, charge
-pattern, color count, generation count, carrier inventory, electroweak scale,
-Higgs/top relation, and flavor geometry. Charged leptons live on the
-three-corner face carrier. Quarks and neutrinos inherit the corresponding
-family structure through their Yukawa and mixing operators. Hadrons then add
-the strong-binding layer on top.
+The result is an organized conditional particle packet: a specific gauge
+group, charge pattern, color carrier, economy-class generation count, carrier
+inventory, and quantitative comparison surfaces. Charged leptons, quarks,
+and neutrinos acquire one common three-family interpretation only after the
+physical family attachment and interacting Yukawa receipts pass. Hadrons then
+require the strong-binding layer.
 
-Particles emerge from the screen as stable patterns that transform under emergent symmetries. The natural sequel is spacetime itself. If the particle inventory is fixed by consistency, can geometry be fixed the same way?
+The screen supplies candidate stable patterns organized by its emergent
+symmetries. Physical particles require the open source and spectral bridges.
+The natural sequel is spacetime itself: can geometry satisfy the analogous
+consistency test?
 
 That's the question of **Chapter 15: Relativity from Modular Time**.
