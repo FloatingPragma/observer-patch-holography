@@ -1,8 +1,11 @@
-\subsubsection*{QFT-Q1--QFT-Q4 implications and the W/Z landing}
+\subsubsection*{Quantization steps and the \(W/Z\) landing}
 
-The Standard-Model field-theory tiers used here are namespaced to avoid
-collision with the separate particle-receipt clauses \((Q1)\)--\((Q3)\).
-Their dependency structure is a directed acyclic graph, not an ordinal ladder:
+The table below names the Standard-Model field-theory steps used in this
+section, together with what each one implies, what its construction requires,
+and its present status. The labels \(\mathrm{QFT}\text{-}\mathrm{Q0}\) through
+\(\mathrm{QFT}\text{-}\mathrm{Q4}\) are local to this section and stay distinct
+from the particle-receipt clauses \((Q1)\)--\((Q3)\). Their dependency
+structure is a graph rather than a single ordered ladder:
 \[
 \begin{array}{rcl}
 \mathsf{declared\ finite\ action}&\longrightarrow&\mathsf{QFT\!-\!Q1}
@@ -53,7 +56,7 @@ positive cell weights, declared boundary conditions, paired edge orientations,
 and declared spin transports. Put \(U_e\in
 G_6=S(U(3)\times U(2))\) on oriented edges and the declared Higgs and
 left-handed matter variables on vertices. Require every matter action to
-descend to an honest representation of \(G_6\), every plaquette term to be a
+descend to a well-defined representation of \(G_6\), every plaquette term to be a
 declared class function of its \(G_6\) holonomy, and every finite difference
 to be gauge covariant with defined endpoint data. Then a finite sum of these
 plaquette, Higgs, fermion, and invariant Yukawa terms is local and exactly
@@ -184,7 +187,7 @@ remaining invariant freedom, so induction proves the formal statement.
 \begin{remark}[QFT-Q3 boundary]
 This is a formal power-series theorem, not a convergence theorem, QFT-Q2
 construction, or QFT-Q4 Wightman construction. A numerical implementation
-must still produce its regulator-specific restoration transcript and verify
+must produce its regulator-specific restoration transcript and verify
 the Ward, Slavnov--Taylor, and Nielsen identities.
 \end{remark}
 

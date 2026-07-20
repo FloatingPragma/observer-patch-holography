@@ -17,7 +17,7 @@ whether these apparently separate tensions share one missing source object: a
 same-scheme hadronic precision backend.
 
 **Status:** conditional backend specification. It identifies the QCD objects
-and receipts that a source-derived calculation would need, but OPH does not yet
+and receipts that a source-derived calculation would need. OPH does not
 derive the QCD parameter map, physical measure, continuum/confined theory, or
 precision observables. Existing finite outputs are prototypes or conventional
 QCD comparisons, not source-only hadronic predictions.

@@ -16,8 +16,8 @@ survives repair; selection, yield, power, or material performance requires a
 branch-specific source law, action, repair ledger, or receipt bundle.
 
 Each note must also separate three questions: what established theory
-explains, what physical target remains open, and what OPH adds. In the current
-set, OPH's clearest differentiator is the instantiated observer-like
+explains, which physical target is open, and what OPH adds. In this collection,
+OPH's clearest differentiator is the instantiated observer-like
 self-reading patch and its evidence/promotion discipline. That does not by
 itself make a standard dynamical equation, optimizer, classifier, or likelihood
 uniquely OPH.

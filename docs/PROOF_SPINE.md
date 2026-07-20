@@ -5,17 +5,56 @@ complete register of open gaps. This is the master document of the docs/ set; th
 companions carry the detail: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)
 (principles and claim rules), [STRANGE_LOOP.md](STRANGE_LOOP.md) (thesis and lineage),
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (forcing chain C1 to C10, lemmas, generator
-table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals).
+table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals),
+and [UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md](UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md)
+(the three-screen and cross-paper composition audit).
+
+## The carrier doctrine that binds the stack
+
+OPH is presentation-invariant, not carrier-architecture-neutral. Relabeling a
+port, changing hidden coordinates, or replacing one implementation by another
+is physically silent only when the full observer-facing signature is
+preserved: port number, oriented incidence, accessible algebra, response,
+repair law, records, clock data, and refinement maps. Changing that signature
+can change the admitted physics. The twelve-port Echosahedral architecture is
+therefore allowed to matter; its arbitrary labels and hidden presentation are
+not.
+
+Three objects called a screen must remain typed throughout the paper stack:
+
+1. the **local carrier boundary**, the oriented twelve-port interface of one
+   Echosahedral carrier;
+2. the **federation screen**, the routed network of carriers, observer
+   supports, public records, and accepted repairs;
+3. the **global support screen**, the refinement-limit support chart that is
+   $S^2$ on the Lorentz/BW branch.
+
+One carrier is not automatically one primitive observer or one support-chart
+cell. A carrier or connected subfederation becomes an operational observer
+only after readback, durable record, feedback or repair, prediction/control,
+and checkpoint continuation are supplied. Likewise, phase locking can propose
+or stabilize candidate repairs, but it implies consensus only after a typed
+bridge proves accepted descent, local diamonds, fairness where needed, and
+the same quotient normal form. Local $A_5$ incidence does not by itself
+produce the global $S^2$ support.
+
+The BW dependency has two inputs. `FiniteCapBWCertificate`
+contains the support, cap-flow, orientation, group-law, continuity, and
+normalization clauses. `MGNS-1` independently supplies the complete
+algebra-state modular representation. BW consumes both on the same refinement
+tower. Geometry does not manufacture the modular state. GitHub issue #308 owns
+this conditional composition contract; issue #574 owns physical MGNS
+construction.
 
 ## Where the spine is strong
 
 Five load-bearing assets anchor the spine. First, interval certificates: each
-declared P map has exactly one fixed point on its stated domain, and the older
+declared P map has exactly one fixed point on its stated domain, and the
 conditional electroweak comparison map has an interval-certified fixed point; a
 hostile third-party audit reproduced this arithmetic and found
 no false theorem in the recovered mathematical core across its 42 findings.
 Second, machine checking: a sorry-free Lean theorem subset covers the consensus
-core and the older capacity-coupling algebra. Third, fail-closed execution: the
+core and the capacity-coupling algebra. Third, fail-closed execution: the
 hadronic coordinate algebra and finite-clock eligibility predicate have
 fail-closed gates and adversarial regressions. Fourth, the falsification
 program is restricted to mature non-cosmological claims and contains no
@@ -24,7 +63,7 @@ target registry or forward scorecard. Fifth, proximity: the gauge-width map land
 exact convention map distinguishes the PDG 2026 energy-pole mass
 \(M=\operatorname{Re}\sqrt{s}\) from the legacy
 \(\sqrt{\operatorname{Re}s}\) coordinate, while the OPH chart-to-pole readout
-contract and theory covariance remain open; and the conditional electroweak comparison coordinate sits
+contract and theory covariance are open; and the conditional electroweak comparison coordinate sits
 about 2.5 one-dimensional Planck standard deviations from the Λ-located
 coordinate. Neither constructs the operational readback map. The statuses below are binding and move
 only by dated artifact.
@@ -43,7 +82,7 @@ physical producer and receipt bundle for that map has landed.
 strange-loop principles, and the named branch receipts, the declared recovered
 structures follow. The exterior-algebra Standard Model witness is closed under
 its carrier assumptions; forcing that package from the physical twelve-port
-screen remains open.
+screen is open.
 
 Part A closed by landed identification and a singleton fixed-point receipt,
 plus Part B closed by discharged gates, is the formal proof that our universe
@@ -77,10 +116,10 @@ owns downstream electroweak and mass bridges.
 
 | Step | Content | Status |
 |---|---|---|
-| B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems) |
-| B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | conditional theorem on the typed geometric branch; source-derived common-domain tower unconstructed (GAP-B1) |
+| B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems). Physical phase locking is not a premise and reaches this row only through the open synchronization-to-repair bridge |
+| B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | conditional theorem on the typed global-support branch. BW requires `FiniteCapBWCertificate` and independent complete `MGNS-1` on the same tower; physical MGNS construction remains issue #574. The carrier-to-support bridge and source-derived common-domain tower are unconstructed (GAP-B1, GAP-B13) |
 | B3 | Gravity: Einstein equation from entropy stationarity, one metric-proportional term per connected component | conditional composition theorem; certified tails, universal coupling, vacuum reference, and independent scale identification belong to the branch premise (GAP-B1) |
-| B4 | Gauge structure and matter: conditional finite A5 module; exact coefficient bracket and six-axis quotient; exact exterior Standard Model representation witness | exterior branching, three one-Higgs invariant lines, anomaly cancellation, and weak multiplicity four are closed under the carrier/package premises; physical screen forcing remains open through the gates in GAP-B9 |
+| B4 | Gauge structure and matter: the D7-D9 Tannaka/MAR route and the finite A5 screen-current route are separate conditional constructions | the A5 module, coefficient bracket, exterior branching, three one-Higgs invariant lines, anomaly cancellation, and weak multiplicity four are closed under their packet premises. MAR selects $N_g=3$ only as the least value in its declared economy class; physical rank-45 family attachment is open. The source-bound commuting square identifying the two gauge routes is also open (GAP-B9) |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen spectrum | exact conditional screen covariance, source-functional amplitude, edge-center tilt, one-shell radial non-identifiability, and conditional physical-dilation/tomography uniqueness; finite source instantiation and physical promotion are work in progress (GAP-B7) |
@@ -137,7 +176,7 @@ Part A gaps:
   and greatest-fixed-point selection do not discharge uniqueness. The compact
   and particle papers summarize boundaries and downstream bridges; they do not
   own the physical-universe attachment or capacity-indexed packet family.
-- **GAP-A4 (former CP-3).** Closed as a critical-path verdict 2026-07-19.
+- **GAP-A4 (CP-3): CLOSED, 2026-07-19.**
   Averaging re-emission belongs to fluctuation or dynamics claims. It is neither
   necessary for the direct fixed-point location nor a producer of
   $F_{\rm act}$.
@@ -156,7 +195,7 @@ Part A gaps:
   complex-pole coefficients, the neutral one-loop-squared mixing term is excluded
   at this order, and strict coefficients are separated from nonlinear square-root
   coordinates. The fail-closed checker binds the exact subject and rejects
-  self-attested evidence. Physical closure still requires the OPH-to-FJ parameter
+  self-attested evidence. Physical closure requires the OPH-to-FJ parameter
   identity and complete tadpole conversion, target-clean EFT matching, a licensed
   source law/covariance, an independent general-gauge self-energy engine with
   finite-order BRST/ST/Ward/Nielsen receipts, pole isolation and amplitudes, and a
@@ -175,10 +214,9 @@ Part A gaps:
   declared physical interval; the exterior fixed-point set is empty (no nonphysical
   solutions exist). Composed with the 2026-07-14 existence and at-most-one
   certificates, each declared map has exactly one fixed point on its maximal analytic
-  domain. Public claims stay tied to the declared physical interval; the certified
-  fixed point is unchanged.
-- **GAP-A8 (former count-density route).** Closed as a critical-path verdict
-  2026-07-19. A count over states whose membership requires reading the
+  domain. Public claims are tied to the declared physical interval, which
+  contains the certified fixed point.
+- **GAP-A8 (count-density route): CLOSED, 2026-07-19.** A count over states whose membership requires reading the
   supplied capacity is diagonal and circular. After the direct correctable-code
   map exists, the noncircular kernel
   $K_r(D,m)=|\{q:M_0(q)=m\}|$ records the full terminal fiber.
@@ -193,7 +231,12 @@ Part B gaps:
   common-domain tower whose geometry, modular, event, stress, entropy, and scale
   readouts commute with refinement; certify every asymptotic tail; and supply
   universal coupling, a source-derived vacuum reference, and independent scale
-  readouts. The compact-gauge matter-package nonemptiness problem is separate.
+  readouts. If the tower is claimed to descend from the Echosahedral carrier
+  federation, it must also carry the source-bound carrier-to-support map in
+  GAP-B13. Its BW step must carry `FiniteCapBWCertificate` and independently
+  produced complete `MGNS-1` on that same tower. The conditional composition is
+  explicit; issue #574 owns physical MGNS production. The compact-gauge
+  matter-package nonemptiness problem is separate.
 - **GAP-B2.** Quantum pole receipts: the photon, gluon, and graviton zeros are classical
   action statements; the quantum pole constructions are open gates.
 - **GAP-B3.** The flavor-orbit selector: the proven two-modulus non-identifiability names
@@ -220,8 +263,8 @@ Part B gaps:
   $L^2$ approximate-tensorization bound, and the declared multiresolution,
   reflection-positivity, transfer/intertwiner, and nontriviality receipts.
   Finite-range mixing and collar-CMI decay alone do not supply the projection
-  gap. The bundled exact-rational certificate is a theorem-contract witness,
-  not the still-missing physical compact-gauge transfer receipt.
+  gap. The bundled exact-rational certificate is a theorem-contract witness.
+  The physical compact-gauge transfer receipt is open.
 - **GAP-B7.** Cosmology promotion gates: the source-derived applicability rule the
   Cassini exclusion demands, the S8 tension, and physical CMB promotion. The
   screen-spectrum theorem selects the conditional edge-center coordinate
@@ -231,7 +274,15 @@ Part B gaps:
 - **GAP-B8.** Lean formalization of the physics branches. The 98 consensus and
   13 coupling theorems exclude the A5 selector, physical current map,
   trace-balanced group, tensor kernel, and axis-center descent.
-- **GAP-B9.** Physical screen-to-Standard-Model forcing. The exterior witness
+- **GAP-B9.** Physical screen-to-Standard-Model forcing and gauge-route
+  identity. D7-D9 first reconstructs a compact group from the refinement-limit
+  transportable-sector category and then conditionally selects the Standard
+  Model packet inside the declared MAR economy class. Independently, the
+  strengthened $A_5$ screen-current packet conditionally recognizes the same
+  Lie type. A source-bound commuting square identifying these outputs has not
+  been constructed: it must intertwine their group actions on the same physical
+  current and matter sectors, preserve the global quotient and normalization,
+  and commute with refinement. Matching Lie types is not that map. The exterior witness
   closes the one-generation branching, hypercharges, three one-Higgs invariant
   lines, listed anomalies, and weak multiplicity four. The echosahedral source
   selector closes UD12 and RP-A5 on the declared quotient-visible carrier
@@ -260,7 +311,11 @@ Part B gaps:
   declared regulator input, the proposition realizes it, and `lem:qregdatum-realized`
   supplies it constructively on the realized echosahedral multiresolution carrier
   (presentation circuits give Ad-unitary rechartings with the strict cocycle law), so
-  the downstream consensus-to-physics chain runs at full strength on that branch.
+  this discharges the local regulator-gluing obligation on that carrier.
+  The carrier-to-support bridge (GAP-B13), the two gauge-route identity
+  (GAP-B9), the independent same-tower modular algebra-state package owned by
+  issue #574, and every event, stress, entropy, and scale gate retain their
+  stated status.
   Machine-verified evidence bundle: `code/regulator_gluing/` (invertibility and
   triple-overlap composition gates pass on the strict and central witnesses; the
   bare-interface-projection countermodel is rejected with structured reasons;
@@ -275,13 +330,23 @@ Part B gaps:
   boundary law, and sign-domain coherence; then evaluate the emitted history
   through sphaleron transport, washout, and freeze-out without using the
   observed baryon abundance as a source input.
+- **GAP-B13 (carrier, federation, and support integration).** Construct a
+  physical Echosahedral federation whose operational observer supports satisfy
+  the full local observer contract. Prove that the physical phase dynamics
+  induces the accepted quotient-repair relation, including descent,
+  confluence, and any fairness receipt used for long-run convergence. Then
+  construct a source-bound, refinement-natural map from the routed federation
+  nerve to the support complex whose controlled limit is the oriented $S^2$
+  used by the BW branch.
 
 Cross-cutting:
 
 - **GAP-X1.** Discrete structural selections without a consistency-forcing
   derivation. The conditional SM coefficient bracket and exterior weak-doublet
-  multiplicity four are closed mathematical results. Their physical current
-  and load identifications remain selections until GAP-B9 and GAP-A2 close;
+  multiplicity four are closed mathematical results. The MAR result
+  $N_g=3$ is an economy-axiom minimum, not a graph theorem, and its physical
+  rank-45 family attachment is open. The physical current, cross-route group
+  identity, and load identifications remain selections until GAP-B9 and GAP-A2 close;
   the other declared choices remain counted selections.
 - **GAP-X2.** CI regeneration of the ledger from the claim registry
   (SLP-02, SLP-05), and builder-script patches so generated surfaces keep their

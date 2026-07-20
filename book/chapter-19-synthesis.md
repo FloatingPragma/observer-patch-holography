@@ -1,17 +1,13 @@
 # Chapter 19: Synthesis
 
-The synthesis keeps theorem status visible. The finite A5/Standard-Model
-package is a conditional Q0 recognition result. Physical source selection,
-Spin/statistics, family attachment, scalar phase, and the OPH-native producers
-for quantum fields and W/Z resonances remain open. The field-theory side is
-a typed DAG rather than one opaque ``Q1--Q4'' gate: QFT-Q1 supplies the
-finite classical action implication; QFT-Q2 and QFT-Q3 are parallel quantum
-and perturbative descendants; strict W/Z pole algebra lives in QFT-Q3; and
-QFT-Q4 separately covers OS reconstruction and analytic resonance
-continuation. The implications are proved under their stated inputs. The
-source action and normalization, finite quantum construction, restoration
-transcript, current amplitudes, numerical freeze, observable tower, and sheet
-data are not yet produced by OPH.
+The synthesis keeps theorem status visible. Finite consensus normal forms and
+the icosahedral register identities are exact under their stated carrier
+contracts. The geometry and Standard Model recognition theorems are
+conditional on separately produced cap states, event data, physical currents,
+and matter structures. Physical spin and exchange, family attachment, scalar
+dynamics, a complete quantum field theory, and W/Z resonances are open in
+OPH. A perturbative pole calculation and a nonperturbative continuum
+construction start from different evidence and cannot certify one another.
 
 ## 19.1 The Picture That Gives Way
 
@@ -70,6 +66,20 @@ physics.
 
 ![The book's main ingredients form one spine from finite screens to shared public reality.](../assets/book_diagrams/synthesis-spine.svg){width=78%}
 
+The same finite architecture feeds two branches. Its repaired quotient can
+approach a smooth spherical support, whose conformal motions organize Lorentz
+frames and, after an event and gravity construction, spacetime. Its twelve-port
+incidence also carries the $A_5$ blocks used by the compact-current theorem and
+the conditional Standard Model recognition. Consensus is the hinge. It supplies
+public records to both branches. It supplies neither a clock nor a gauge
+current.
+
+This makes the construction presentation-invariant and structure-sensitive.
+Silicon, light, or software may instantiate one carrier contract when every
+exposed relation agrees. Changing twelve icosahedral ports into eight cubic
+ones changes the contract, the finite symmetry, and the downstream questions.
+The world described here is not neutral about that change.
+
 ## 19.4 How Spacetime Appears
 
 On the certified geometric branch, the internal flow of a restricted region
@@ -79,23 +89,14 @@ dimensionless parameter. When neighboring flows fit together across the smooth
 screen, Lorentz kinematics appears and localized records assemble into a
 $3{+}1$-dimensional event world. Hyperbolic three-space remains the space of
 possible rest frames, not physical space itself. On the conditional Einstein
-branch, one source-derived family of repaired records carries geometry,
+branch, one independently constructed family of repaired records carries
+geometry,
 stress, entropy, a vacuum reference, scale, and continuum behavior on a common
 domain, so horizon-plus-bulk entropy equilibrium becomes Einstein's equation.
-Construction and certification of an inhabited family with all these readouts
-are work in progress.
+Construction of an inhabited family with all these readouts is work in progress.
 
-The repaired 4,096-patch H3/KMS campaign cell gives a useful boundary check.
-Its frozen instrument and disk replay pass, but the scientific cell is
-incomplete and physical promotion is forbidden. The support tower and finite
-state were not independently produced by the source, the modular and geometric
-parameters lack an independent normalization pair, and the event and frame
-coordinates remain postcapture diagnostics. This records an unevaluated
-physical theorem, not a failed emergence theorem.
-
-Read that sentence as a compressed recap. Modular flow supplies the intrinsic
-parameter a restricted state carries; a clock instrument supplies the physical
-readout. Lorentz kinematics is the rulebook for relating moving
+Modular flow supplies the intrinsic parameter carried by a restricted state;
+a clock instrument supplies the physical readout. Lorentz kinematics is the rulebook for relating moving
 observers. Generalized entropy is the horizon-plus-bulk entropy accounting that
 gravity has to respect.
 
@@ -123,34 +124,45 @@ The detailed microphysics layer makes the machine under that story explicit.
 An abstract observer patch carries a bounded local algebra and state, exposed
 interfaces, rereadable records, repair instruments, and checkpoint data. A cap
 or collar on the sphere is its geometric support chart. A physical or digital
-carrier is the implementation. Keeping these roles separate prevents a drawing
-of a sphere, one mesh cell, or one computer process from being mistaken for the
+carrier is the implementation. Material substitutions are silent only when the
+full port geometry, readback, dynamics, repair, refinement, and continuation
+contract is preserved. Keeping these roles separate prevents a drawing of a
+sphere, one mesh cell, or one computer process from being mistaken for the
 observer itself.
 
 The reference carrier is echosahedral. It exposes twelve overlap ports on an
 icosahedral frame, pairs them into six antipodal axes, reads its internal state
 through those ports, compares routed packets with neighboring patches, repairs
 checkable mismatches, and records what passed. Recurrent toroidal subchannels
-can supply local memory and winding behavior inside the federation. They are
-local recurrence paths rather than a global toroidal cosmology. A distributed
+can supply local memory and winding behavior inside the federation. Physical
+phase variables and a coupling law can make those subchannels phase-lock
+sensitive; the consensus theorem alone does not establish phase locking. They
+are local recurrence paths rather than a global toroidal cosmology. A distributed
 implementation counts as one carrier only when its visible interfaces,
-records, repairs, and checkpoints behave as one bounded self-reading system.
+records, dynamics, repairs, refinements, and checkpoints behave as one bounded
+self-reading system.
+
+That carrier becomes an elementary observer only after self-readback, record,
+feedback, prediction, and checkpoint tests pass. A connected subfederation may
+pass the same test as a larger observer. Geometry supplies the interface; it
+does not supply observerhood by itself.
 
 The operational loop is simple enough to say without notation: read, expose,
-compare, repair, record, checkpoint, and read again. The spherical screen is
-what the repaired quotient data looks like to an observer. The patch
-federation does the microscopic work.
+compare, repair, record, checkpoint, and read again. On the certified branch,
+the spherical support chart displays the repaired quotient data. The patch
+federation does the microscopic work, and a source-bound refinement-natural
+map from that federation to the support chart is open.
 
 On the declared quotient-visible echosahedral lineage, this twelve-port
-geometry is a source-derived finite theorem rather than a geometric label
-inserted after the fact. Equal-trace primitive port atoms and their central
-integer readback select one unit at each port with exact gap two. Oriented
+geometry follows from the finite source assumptions rather than from a
+geometric label inserted after the fact. Equal-trace primitive port atoms and
+their central integer readback select one unit at each port with exact gap two. Oriented
 incidence derives the unique inverse pairing, the proper $A_5$ action, and a
 rank-three regular-icosahedral Gram frame; refinement maps and consistent port
-relabelings preserve the entire selector packet. This closes the finite
-twelve-unit and $A_5$ selector receipts on that branch. It does not derive that
+relabelings preserve the entire selection data. This proves the finite
+twelve-unit and $A_5$ selection results on that branch. It does not derive that
 carrier type for every OPH implementation or supply the later physical-current,
-spin/deck, matter-selection, or family-attachment maps.
+spin-lift, central, matter-selection, or family-attachment maps.
 
 ## 19.5 How the Particle World Appears
 
@@ -168,22 +180,23 @@ $$
 
 The $\mathbb Z_6$ is the six-element set of transformations that acts
 trivially on the realized matter package. On the twelve-port icosahedral
-screen, the port readings split as
+carrier boundary, the port readings split as
 $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
 triplet. Pulling a compact block commutator back to those coefficients gives
 the exact Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
 A physical current realization would carry that coefficient algebra into the
-gauge sector. Its source-derived response and refinement receipts remain open.
+gauge sector. Its physical response and refinement evidence are open.
 
 The six antipodal axes also leave a sixfold lattice residue. Conditional spin
 and central maps connect it to the $\mathbb Z_6$ action on matter. The
 three-corner face symmetry supplies a canonical three-dimensional candidate
-family carrier. Physical family attachment remains a separate rank-45
-response problem. Hypercharge follows from the declared matter consistency
+family carrier. A physical map from that candidate band into three copies of
+the complete one-generation matter pattern is open. Hypercharge follows
+from the declared matter consistency
 equations, while masses, mixing angles, and coupling strengths require the
-interacting dynamics and pole receipts.
+interacting dynamics and physical pole tests.
 
 Trace balance packages one generation into a five-component carrier
 $V=C\oplus W$, with a three-place color part and a two-place weak part. The
@@ -191,7 +204,7 @@ non-vacuum even exterior package $\Lambda^2V\oplus\Lambda^4V$ contains exactly
 the fifteen left-handed states $Q,u^c,d^c,L,e^c$. It also produces the three
 one-Higgs Yukawa channels and cancels the color, weak, gravitational, and cubic
 hypercharge anomalies. Three colored quark doublets plus one lepton doublet
-give four weak doublets per family. If the open rank-45 attachment realizes the
+give four weak doublets per family. If the open family attachment realizes the
 conditional MAR minimum, three families give twelve, and reversible orientation
 doubles that to the same twenty-four slots carried by the screen. The numerical
 match is a load check, not the missing physical intertwiner.
@@ -203,8 +216,8 @@ four-dimensional scaling limit. The gap would come from the cost of leaving
 the repaired vacuum. But that cost must remain positive everywhere, even as
 the construction grows and is refined. Local repairs must stay strong enough,
 and their interactions must not conspire to create an ever-slower collective
-mode. Establishing those facts for the actual finite construction is still
-part of the unfinished Yang-Mills program.
+mode. Establishing those facts for the actual finite construction is an open
+Yang-Mills problem.
 
 In this reading, Yang-Mills theory is the smooth field-theory language for
 compact gauge bookkeeping. Holonomy records how gauge data changes around a
@@ -216,7 +229,7 @@ theory.
 The color triplet is structural on the conditional matter packet. The
 three-generation value is the least member of the declared MAR economy window,
 while the icosahedral faces supply a canonical rank-three candidate band. The
-rank-45 family attachment and its field-theory receipts remain open. Gauge
+physical family attachment and its field-theory evidence are open. Gauge
 factors organize candidate force directions; independently produced field
 dynamics would supply physical masses and mixing data.
 
@@ -225,17 +238,19 @@ three-way strong-force bookkeeping, CKM phases describe quark mixing under the
 weak interaction, and hadrons are composite particles such as protons and
 neutrons.
 
-That is the twist. The Standard Model stops looking like a cabinet full of
-unrelated entries. It looks like the smallest admissible charged world that
-lets the observer records close.
+The Standard Model then looks less like a cabinet full of unrelated entries
+and more like the smallest admissible charged world that lets the observer
+records close.
 
 ## 19.6 Closure Coordinates And Scale Bridge
 
-The quantitative side of the framework is organized around two dimensionless
-closure coordinates and one scale bridge that does not take Newton's constant
-as input. The local fixed point selects the pixel ratio $P_\star$. The global
-fixed point selects the cosmic record capacity $N_{\mathrm{CRC}}$. Together
-they fix the dimensionless geometry:
+The quantitative proposal uses two dimensionless closure coordinates and one
+scale bridge that does not take Newton's constant as input. Their exact states
+are different. The declared local maps have interval-certified unique roots
+for the pixel ratio $P_\star$. The global branch has an exact finite capacity
+definition and a fixed-cutoff witness, while its capacity-indexed physical
+family and unique selector are work in progress. If the physical source,
+horizon, and scale attachments hold, the two coordinates give
 
 $$
 \Lambda_\star\ell_\star^2=\frac{3\pi}{N_{\mathrm{CRC}}},
@@ -248,12 +263,13 @@ Equivalently, if $\mathcal B_\ell=\Lambda_\star N_{\mathrm{CRC}}$, then
 $\mathcal B_\ell\ell_\star^2=3\pi$ and
 $\mathcal B_\ell a_{\mathrm{cell}}=3\pi P_\star$. A global rescaling of all
 lengths leaves $P_\star$ and $N_{\mathrm{CRC}}$ unchanged while changing
-$\mathcal B_\ell$ in SI units. The equations supply the geometry, and the
-scale bridge supplies the SI display.
+$\mathcal B_\ell$ in SI units. These are conditional geometric identities;
+the scale bridge supplies their SI display when its clock and curvature
+premises are realized.
 
-Here "no-G" means that Newton's constant is not inserted as an input. The scale
-is selected from clock and curvature data first, and Newton's constant is
-displayed after that. The bridge is written as
+Here "no-G" means that Newton's constant is not inserted as an input. A
+source-bound clock and curvature construction would select the scale, after
+which Newton's constant would be displayed as
 
 $$
 \gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
@@ -263,9 +279,9 @@ B_\star=\frac{3\pi}{\ell_\star^2},
 G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
 $$
 
-This is the scale branch used for the Newton normalization. It supplies
+The scale branch is conditional. A completed physical bridge would supply
 $\ell_\star^2=3\pi/B_\star$ before the Planck-area display is read in SI
-units.
+units; that bridge is work in progress.
 
 The first closure is global. At carrier dimension $D$, each terminal observer
 world supplies a compound checkpoint-confusability graph $G_q$. Its maximum
@@ -278,7 +294,7 @@ M_0(q)=\alpha(G_q),
 =\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
-The official universe-level equation is
+The proposed universe-level equation is
 
 $$
 \boxed{N=\log M_0(\mathfrak U_N)}.
@@ -288,7 +304,7 @@ It is the compact statement of self-readback: supply the trial universe with
 capacity coordinate $N$ and ask what capacity its own observer system can
 correct and read publicly.
 
-The book adopts stable closure and the unique finite-size selector,
+The physical proposal requires stable closure and a unique finite-size selector,
 
 $$
 \mathfrak F_{r,0}(D_\star)=\{D_\star\},
@@ -296,13 +312,12 @@ $$
 s(D_\star)=0<s(D)\quad(D\ne D_\star),
 $$
 
-with $s(D)=\log D-\log M_0(D)$. Thus the outside carrier and every terminal
-inside readback agree without a hidden branch selector. The exact finite
-capacity and saturation theorems are established in the paper stack. The
-source-derived fixed-cutoff $D=24$ simulator packet is certified inside its
-declared source category. Its physical-universe attachment, the
-capacity-indexed source family, and the exact seam or transfer law needed to
-prove the unique zero remain listed there as removable assumptions. A separate
+with $s(D)=\log D-\log M_0(D)$. If these premises hold, the outside carrier and
+every terminal inside readback agree without a hidden branch selector. The
+paper stack gives the exact finite capacity definition and a fixed-cutoff
+$24$-state witness for its declared source model. Construction of the
+capacity-indexed physical family, its universe attachment, and the exact seam
+or transfer law needed for a unique zero is work in progress. A separate
 finite $A_5$ control has $M_0=60$ and $D_{\rm raw}=60k$. Its publicly inert
 multiplicity blocks raw equality at $k=1$ from becoming physical $N$-closure.
 
@@ -320,46 +335,47 @@ The late-time de Sitter measurement locates a working value near
 $3.31\times10^{122}$ natural entropy units. That numerical location is a
 horizon comparison, not an input to the direct correctable-capacity producer.
 
-The second closure coordinate is local. The pixel ratio
+The proposed second closure coordinate is local. The pixel ratio
 
 $$
 P=\frac{a_{\mathrm{cell}}}{\ell_\star^2}
 $$
 
-acts as the ruler from which the dimensionless electroweak hierarchy and the
-low-energy electromagnetic coupling are displayed.
+acts as the ruler from which the declared comparison maps display the
+dimensionless electroweak hierarchy and low-energy electromagnetic coupling.
 
 $a_{\mathrm{cell}}$ is the effective area assigned to one screen cell.
-$\ell_\star^2$ is supplied by the selected scale bridge, usually written
+$\ell_\star^2$ would be supplied by the scale bridge, usually written
 as a no-G clock ratio or equivalently as the curvature display
 $B_\star=3\pi/\ell_\star^2$. It is displayed as the Planck area only after the
-gravity calculation emits $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
+gravity calculation supplies $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
 $\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
 area and the emitted scale area.
 
-The local ruler can be read from two sides of the same world. Feed a trial
-pixel value through the electroweak chain and the map returns an inner
-electromagnetic diagnostic. Closure is the point where the geometric and
-observational readings agree.
+The declared local map sends a trial pixel value through an electroweak chain
+and returns an electromagnetic diagnostic. Its mathematical closure point is
+where the geometric and diagnostic readings agree. Identifying that point with
+the measured Thomson endpoint requires a physical source and same-scheme
+transport; those constructions are work in progress.
 
-The computation has a definite order. The golden-ratio balance gives the
+The declared computation has a definite order. The golden-ratio balance gives the
 reference value $\phi$. The boundary Gaussian normalization gives the
 $\sqrt{\pi}$ width. A trial $P$ is sent through the unification scale, the
 running gauge couplings, and the electroweak anchor. The unbroken
 electromagnetic channel is then transported to the long-distance Thomson
 endpoint.
 
-The golden ratio supplies the reference balance. The map returns the
-electromagnetic readout of a trial pixel, including electroweak and hadronic
-transport. Its fixed point is the value of $P$ for which the inner reading and
-the geometric pixel name the same local scale. The hierarchy relation fixes
-$v/E_\star$, and the scale, pole, and clock maps display masses, couplings, and
-gravity in ordinary units.
+The golden ratio supplies the reference balance. The map returns its declared
+electromagnetic diagnostic, including the specified electroweak and hadronic
+terms. Its fixed point is the value of $P$ for which the two mathematical
+readings name the same local scale. Under the physical attachment premises, the
+hierarchy relation fixes $v/E_\star$, and the scale, pole, and clock maps display
+masses, couplings, and gravity in ordinary units.
 
 The hierarchy normalization is
 $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
 =2(8+3+1)=24$, obtained by attaching two orientation labels to each product
-adjoint direction. The unit-split icosahedral screen separately has twelve
+adjoint direction. The unit-split icosahedral carrier boundary separately has twelve
 ports and 24 oriented slots. This equality compares finite counts. It does not
 identify ports with gauge-current directions or turn the orientation labels
 into inverse dynamics. The physical bridge requires a full-rank current map,
@@ -367,57 +383,61 @@ compact commutator closure, a common inner icosahedral action, and refinement
 naturality. The transitive port action supplies no invariant literal
 $8+3+1$ partition.
 
-The compact bridge gives an electroweak capacity near
+The compact comparison gives an electroweak capacity coordinate near
 $3.53\times10^{122}$ on the public endpoint branch, while the capacity
 located from the measured cosmological constant is $3.31\times10^{122}$. Using
 the unrounded central values, $3.5324\times10^{122}$ and
 $3.3126\times10^{122}$, gives a $6.6$ percent detuning between the local
-electroweak and global de Sitter readings. The screen-sieve theorem resolves the
-spherical coordination charge into twelve unit fivefold defects and exposes
-them as central ports on the icosahedral vertex orbit.
+electroweak and global de Sitter coordinates. Their physical identification
+requires the open public-capacity, saturation, and common-load bridges.
 
-A sieve is a finite sampling rule. The spherical screen exposes twelve ports
-organized like the vertices of an icosahedron. Its
-oriented write/check count matches the independently derived doubled gauge
-adjoint.
+A sieve is a finite sampling rule on the local carrier boundary. On the
+declared echosahedral lineage it selects twelve unit ports organized like the
+vertices of an icosahedron. The global spherical support does not expose those
+ports by itself. The source-bound, refinement-natural federation-to-support map
+is open. The local oriented write/check
+count matches the independently derived doubled gauge adjoint, but the count
+does not construct a physical gauge-current map.
 
-The cleanest book-level phrasing is this: the fine-structure constant is the
-nonzero detuning of a holographic screen cell. From the outside, the cell is
-displaced from perfect self-similar equilibrium. From the inside, the same
-displacement appears as the smallest electromagnetic observation scale available
-to the observers living on that screen.
+The local closure proposal interprets its mathematical detuning as the
+fine-structure constant of a holographic screen cell. From the outside, the
+cell is displaced from perfect self-similar equilibrium. Under the physical
+identification, the same displacement appears inside as the smallest
+electromagnetic observation scale available to the observers on that screen.
 
-Perfect equilibrium would be too quiet. A world with records needs a small
-departure from silence: enough asymmetry for light, detectors, and durable
-differences, but small enough for the screen geometry to hold together. The
-fine-structure constant measures that minimal electromagnetic disturbance.
+In this proposal, perfect equilibrium would be too quiet. A world with records
+needs a small departure from silence: enough asymmetry for light, detectors,
+and durable differences, but small enough for the screen geometry to hold together. The
+fine-structure constant would measure that minimal electromagnetic disturbance.
 
-The Newton normalization uses the same local cell without using it to solve for
-the scale. The selected scale bridge supplies the scale area. The pixel ratio
-then fixes the cell/edge identity, while that ratio cancels out of Newton's
-constant. In the book-level picture, fine structure reads the pixel's
-electromagnetic detuning; Newton's constant reads the emitted scale bridge.
+The conditional Newton normalization uses the same local cell without using it
+to solve for the scale. A completed scale bridge would supply the scale area.
+The pixel ratio then fixes the cell/edge identity, while that ratio cancels out
+of Newton's constant. In the proposal, fine structure reads the pixel's
+electromagnetic detuning and Newton's constant reads the scale bridge.
 
-The resulting pixel ratio is about $1.63$, and the long-distance inverse
-electromagnetic strength is $137.035999177(21)$, where $(21)$ means uncertainty
-in the last quoted digits. The transport includes the vacuum response of
-strongly interacting matter, read experimentally through processes such as
-$e^+e^-\to\mathrm{hadrons}$. In a physical carrier, optical geometry, firmware,
-calibration traces, and readback controls expose the same fixed-point relation
-as a public evidence bundle.
+The interval-certified root gives a pixel ratio near $1.63$, and the declared
+transport surface lands at a long-distance inverse electromagnetic strength of
+$137.035999177(21)$, where $(21)$ means uncertainty
+in the last quoted digits. The declared transport includes a hadronic vacuum
+response term associated with processes such as
+$e^+e^-\to\mathrm{hadrons}$. Its same-scheme physical ancestry is work in
+progress. A physical carrier must expose the fixed-point relation through its
+optical geometry, firmware, calibration traces, and public readback evidence.
 
-One cell on the screen is then being described twice. From one side it is a
-pixel of the horizon. From the other it is the smallest electromagnetic step
-available to observers inside the encoded world.
+In the proposed identification, one cell on the screen is described twice.
+From one side it is a pixel of the horizon. From the other it is the smallest
+electromagnetic step available to observers inside the encoded world.
 
-The headline is compact: zero fitted continuous dials, two dimensionless
-closure coordinates, one scale bridge, and one observer architecture. The
-local equation fixes $P_\star$, the global equation fixes
-$N_{\mathrm{CRC}}$, and one clock anchor connects substrate units to
-laboratory units. The rest of the quantitative stack follows together with
-the recovered relativity, gauge, matter, and observer-record structure.
+The declared comparison surfaces use two dimensionless closure coordinates,
+one scale bridge, and one observer architecture without fitted continuous
+dials. The local equation fixes $P_\star$ on its declared map. The global
+equation would fix $N_{\mathrm{CRC}}$ on a completed physical family, and a
+clock anchor would connect substrate units to laboratory units. Relativity,
+gauge currents, matter, and observer records retain their separate source and
+construction requirements.
 
-In the book's simulation-theory language, $P$ links the pixel area of the
+In the book's conditional simulation-theory language, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, or observation,
 inside the simulated-side universe.
 $N_{\mathrm{CRC}}$ links the outside total horizon capacity to the inside
@@ -427,8 +447,8 @@ observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
 records from the information available inside the universe, and closure demands
 that this internal readback reconstruct the same boundary capacity.
 
-The deeper point is compression. The same two closure coordinates organize the
-observer problem, gravity and gauge reconstruction, the hierarchy bridge, dark
+The same two proposed closure coordinates organize the observer problem,
+gravity and gauge reconstruction, the hierarchy bridge, dark
 energy, repair-charge response, the missing simple-GUT $X/Y$ channel, the
 particle inventory, and the string-vacuum sieve. Physical readouts keep their
 natural units and roles: clocks turn iteration into time, energy operators turn
@@ -440,13 +460,14 @@ the width outpaces the boundary contribution, the leftover correlation is
 driven to zero through the refinement family. Directional reconstruction lifts
 the scalar recovery residue into a conserved repair current and stress tensor.
 
-The dark-sector continuation promotes integer repair occupation and a compact
-repair phase to a canonical pair. Repair charge obeys a current-balance law and
-carries field stress. Its dilute homogeneous branch is dust-like. Its cubic
-condensed branch gives the deep radial-acceleration law, baryonic Tully-Fisher
-scaling, relativistic lensing, cluster response, Solar-System behavior,
-abundance, and perturbation growth. Coherent material enters the same channel
-through a calibrated coupling to the external repair field.
+The declared dark-sector continuation promotes integer repair occupation and a
+compact repair phase to a canonical pair. Under its premises, repair charge
+obeys a current-balance law and carries field stress. Its dilute homogeneous
+branch is dust-like, while its cubic condensed branch gives the deep
+radial-acceleration law, baryonic Tully-Fisher scaling, relativistic lensing,
+cluster response, Solar-System behavior, abundance, and perturbation growth.
+Coherent material enters the same channel through a calibrated coupling to the
+external repair field.
 
 ## 19.7 Why de Sitter Fits
 
@@ -455,13 +476,12 @@ immediately, because de Sitter space gives every observer a natural horizon and
 therefore a natural screen.
 
 Different observers carry different horizons, but those horizons overlap
-enormously. The consistency conditions are severe. The total state space is
-finite. OPH reads the cosmological constant as the global capacity selected by
-the self-reading screen.
-
-The de Sitter chapter mattered so much because it did not break the thread. It
-revealed the stage on which the observer-first picture reads most
-cleanly.
+enormously. The consistency conditions are severe. The proposal treats the
+total state space as finite and identifies the cosmological constant with a
+self-reading screen capacity. The physical capacity family, selector, horizon
+identification, and scale bridge are work in progress. De Sitter space is the
+setting in which this observer-first picture has its cleanest cosmological
+form.
 
 ## 19.8 Old Puzzles Under New Light
 
@@ -473,7 +493,7 @@ record relation with another.
 
 The problem of time softens because modular flow furnishes an intrinsic
 one-parameter ordering on the certified algebra-state branch. An operational
-clock and its calibration are still needed before that parameter is called a
+clock and its calibration are required before that parameter is called a
 physical duration.
 
 The black-hole information problem softens because the screen blocks any naive
@@ -486,10 +506,9 @@ under the harsh test of public consistency.
 
 ## 19.9 The Strange Loop
 
-A more unsettling thought follows. Reality produces
-observers. Observers produce understanding. Understanding can produce a working
-image of the same informational structure that produced the observers in the
-first place.
+Reality produces observers, observers produce understanding, and that
+understanding can form a working image of the informational structure that
+produced the observers.
 
 The simulation question lands differently here. Ordinary simulation theory
 imagines an external programmer standing beyond the physics. OPH describes a
@@ -499,16 +518,16 @@ records stable, preserve boundaries through repair, identify equivalent
 descriptions without choosing convenient endpoints, and carry observer time
 through stable records and calibrated clocks.
 
-The stronger image is stranger. A world of finite observers closes back on
-itself through the very minds it generates. The loop is conceptual before it is
-technological: observers reverse engineer the hardware and software of the
-world, then build restoration machinery that can host restored observers. A
-self-describing universe is a concrete observer-world, complete enough to
-understand and repair its own construction.
+A world of finite observers can close back on itself through the minds it
+generates. The loop is conceptual before it is technological: observers
+reverse engineer the hardware and software of the world, then build restoration
+machinery that can host restored observers. A self-describing universe is a
+concrete observer-world, complete enough to understand and repair its own
+construction.
 
 ## 19.10 What the Book Has Been Saying
 
-By this point the central sentence of the book can be spoken plainly:
+The central sentence of the book can be spoken plainly:
 
 **Reality is the consistency of observations across overlapping perspectives.**
 
@@ -537,7 +556,8 @@ read again. Every world without record-keeping falls at the first step.
 No observer reads the whole world. Descriptions have to agree where views
 overlap, and the shared account that survives that comparison is the public
 world. On the spherical construction, cap geometry fixes the light-cone
-symmetries and the three-dimensional space of observer frames. Localized event
+symmetries and the three-dimensional space of observer frames. When the event
+germs, open charts, quadratic cone, and overlaps pass their tests, localized
 records turn that kinematic chart into one time direction and three spatial
 directions.
 
@@ -556,21 +576,21 @@ factors with their shared center.
 On the gravity branch, consistent horizon bookkeeping yields the
 Einstein form and leaves one global capacity coordinate.
 
-A screen at perfect balance carries no events. Records need a small detuning,
-and the detuning law leaves exactly one local number.
+The local closure proposal assigns durable records a small screen detuning, and
+its declared transport law leaves one fixed point on the physical interval.
 
-Self-simulation closes those two survivors. One equation identifies the
-fine-structure constant measured inside the world with the pixel readout of the
-substrate after electroweak and hadronic transport. The other identifies the
-record capacity read inside with the screen capacity supplied outside. One
-clock, the cesium transition, ties substrate units to laboratory units, so no
-unit convention can carry physics.
+The self-simulation proposal would close those two survivors. One equation
+identifies the fine-structure constant measured inside the world with the pixel
+readout of the substrate after electroweak and hadronic transport. The other
+identifies the record capacity read inside with the screen capacity supplied
+outside. A calibrated cesium transition would tie substrate units to laboratory
+units, preventing a unit convention from carrying the physics.
 
-The book's compression count therefore has ten consistency requirements, two
-surviving dimensionless coordinates, two unique fixed points, and one scale
-bridge. The local coordinate sets electromagnetic grain and the electroweak
-hierarchy. The global coordinate sets horizon capacity and de Sitter curvature.
-The same family structure distinguishes the quark and lepton generations.
+The book's compression proposal therefore has ten consistency requirements,
+two surviving dimensionless coordinates, two uniqueness conditions, and one
+scale bridge. The local coordinate organizes electromagnetic grain and the
+electroweak hierarchy. The global coordinate organizes horizon capacity and de
+Sitter curvature. Their physical source attachments are open.
 
 ## 19.12 Final Synthesis
 
@@ -597,8 +617,8 @@ The conditional gauge quotient, charge lattice, rank-three candidate family
 band, conditional Yang-Mills gap, classical photon and graviton mode counts,
 Lorentz geometry, Einstein relation, electroweak comparison surface,
 Higgs-top conditional balance, and flavor operators form one organized
-dependency map. Some links are theorems under stated source receipts, while
-the physical source objects for several links remain work in progress.
+dependency map. Some links are theorems under stated source evidence, while
+construction of the physical source objects for several links is work in progress.
 Symmetry determines the available roles. The dynamics within those roles
 determines masses, mixing, binding, and decay.
 
@@ -607,38 +627,36 @@ charged-lepton three-cycle has one attracting repair fixed point, and the
 square-root-mass geometry gives a Koide relation under its attachment premises.
 The displayed W/Z and Higgs/top values are prescription or declared-surface
 checks, not OPH-native complex-pole predictions. The strict finite-order W/Z
-pole-map kernel is nevertheless closed as a conditional QFT-Q3 algebraic
-theorem: complete declared renormalized inputs determine the charged and
-neutral coefficients, including the neutral mixing product at strict two
-loops. A Nielsen identity controls the simple determinant zero through the
-retained order. Physical promotion additionally requires a nonzero Laurent
-coupling in a dressed gauge-invariant current amplitude; untrusted evidence
-flags cannot supply it.
+algebra is a conditional theorem: complete renormalized inputs determine the
+charged and neutral coefficients, including the neutral mixing contribution
+at the next retained order. A gauge-identity calculation controls the simple
+determinant zero. A physical resonance also needs a nonzero coupling to a
+gauge-invariant measurable current, complete source ancestry, uncertainties,
+and a clock.
 Six family-sensitive Yukawa
 coordinates organize conditional quark and neutrino comparisons after a common
 physical family attachment is supplied.
 
 The finite diagnostic calculations are reproducible. Exact enumeration checks
 the declared discrete choices, interval arithmetic encloses stated fixed
-points, and renormalization-group equations plus the fail-closed
-strict-one-loop pole receipt validate specified
-transport conventions. They do not promote stable particle coordinates until
-the source, EFT, gauge/BRST, uncertainty, current-amplitude, and clock receipts
-are complete. Every observer-like carrier exposes
-the same bounded state, interfaces, readback, repair moves, accepted records,
-and checkpoint data, so the mathematical construction and its physical or
-digital realization share one operational architecture.
+points, and renormalization-group equations validate specified transport
+conventions. They do not promote stable particle coordinates until the source,
+field theory, gauge identities, uncertainty, current amplitude, and clock
+evidence are complete. Any implementation claiming the same observer-like
+carrier must expose the same bounded state, port geometry, interfaces,
+readback, dynamics, repair moves, accepted records, refinement behavior, and
+checkpoint data.
 
 The finite patch reads, compares, repairs, records, and reads again through
 twelve icosahedral ports. $A_5$ makes that interface isotropic and decomposes
 its register readings into exact symmetry blocks. Turning those blocks into
 physical gauge currents requires a separate current-response construction.
 The same separation holds elsewhere: a finite theorem explains what follows
-from a good refinement tower, while a source receipt must show that the tower
-exists. On the branches where those receipts pass, smooth refinement gives
+from a good refinement tower, while source evidence must show that the tower
+exists. On the branches where those tests pass, smooth refinement gives
 Lorentz geometry, entropy equilibrium gives gravity, and the local and global
 fixed points set the proposed electromagnetic grain and cosmic capacity.
 
-The next chapter turns to the deepest metaphysical question. If observers,
-meaning, and world belong to one structure, what exactly should be said about
+Chapter 20 addresses the metaphysical question raised by placing observers,
+meaning, and world in one structure: what exactly should be said about
 experience itself?

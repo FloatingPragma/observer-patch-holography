@@ -31,7 +31,9 @@ Imagine one prisoner is freed. He turns around and sees the fire. He stumbles up
 
 ### The Intuitive Picture
 
-The prisoners represent the intuitive picture. They believe they are seeing reality directly. The shadows seem like real things with real properties. The idea that there is a deeper level-that the shadows are projections of something else-never occurs to them.
+The prisoners represent the intuitive picture. They believe they are seeing
+reality directly. The shadows seem like real things with real properties. The
+idea that the shadows are projections of a deeper level never occurs to them.
 
 ### The Hint
 
@@ -46,7 +48,8 @@ black-hole entropy and related entropy-bound arguments. Leonard Susskind
 developed this into a sharper boundary-first formulation: everything that
 happens in a volume of space may be describable by data on its boundary.
 
-The 3D world is like a hologram-it looks solid and three-dimensional, but the information that generates that appearance may be organized on a 2D surface.
+The 3D world is like a hologram. It looks solid and three-dimensional, although
+the information that generates that appearance may be organized on a 2D surface.
 
 $$S_{max} = \frac{A}{4\ell_P^2}$$
 
@@ -118,7 +121,7 @@ Pyrrho of Elis (c. 360-270 BCE) traveled to India with Alexander the Great's arm
 
 Consider honey. If honey tastes sweet to me but bitter to a man with jaundice, is the honey sweet or bitter?
 
-You might say, "It's really sweet-the sick man's taste buds are malfunctioning." But how do you know your taste buds aren't malfunctioning? Both experiences are equally real to the people having them.
+You might say, "It's really sweet; the sick man's taste buds are malfunctioning." How do you know your taste buds aren't malfunctioning? Both experiences are equally real to the people having them.
 
 ### The Intuitive Picture
 
@@ -182,7 +185,7 @@ Immanuel Kant asked a question that sounds strange at first: are space and time 
 
 ### The Debate Before Kant
 
-**Newton** said space and time are absolute-a fixed container in which things happen. The container exists whether or not anything is in it.
+**Newton** said space and time are absolute, a fixed container in which things happen. The container exists whether or not anything is in it.
 
 **Leibniz** disagreed. Space is just the web of relations between objects. If there were no objects, there would be no space.
 
@@ -253,7 +256,17 @@ The intuitive picture (Democritus) assumes stuff comes first. There are things, 
 
 Aristotle's hint: **form is more fundamental than matter**.
 
-The pattern is what matters. The same pattern can be realized in different substrates. Information-the abstract structure-is primary.
+The pattern matters, but "the substrate does not matter" is too crude. A
+wooden table and a glass table can do the same job because both preserve the
+relevant structure. Turn either one into a violin and the material may be
+unchanged, yet the object is different.
+
+OPH makes the same distinction. Hidden coordinates, labels, and construction
+details can change without changing the physics when the complete operational
+structure survives. The number of ports, their incidence, the accessible
+algebra, readback, records, repair law, clock, and refinement lineage are part
+of that structure. Information here is not a shapeless abstraction. It is
+information with a physical interface.
 
 ### The Physics
 
@@ -261,7 +274,9 @@ Quantum field theory provides a modern analogue to Aristotle's emphasis on form 
 
 Particles are field excitations, ripples in an underlying substrate. An electron is a stable vibration of the electron field rather than a tiny ball.
 
-From the information-theoretic view, we see the ultimate revenge of Aristotle. The universe is best read as structured information-relations, distinctions, and quantum degrees of freedom, not as little hard atoms alone.
+From the information-theoretic view, we see the ultimate revenge of Aristotle.
+The universe is best read as structured information: relations, distinctions,
+and quantum degrees of freedom rather than little hard atoms alone.
 
 What we call "particles" are stable patterns in the finite patch federation,
 displayed through the holographic screen chart. The pattern is real; the
@@ -269,7 +284,7 @@ classical idea of solid "stuff" is emergent.
 
 ## 2.8 Pragmatism: The Survival Hint
 
-In the late 19th century, American philosophers developed **pragmatism**-a distinctive approach to truth.
+In the late 19th century, American philosophers developed **pragmatism**, a distinctive approach to truth.
 
 Charles Sanders Peirce and William James asked: "What makes an idea true?"
 
@@ -472,7 +487,9 @@ But the bar could expand with temperature. It is damaged. And if you were in Jap
 
 In 1983, the definition changed: the meter is the distance light travels in vacuum in 1/299,792,458 of a second.
 
-This is beautiful because it ties length to the speed of light-a quantity that is the same for all observers. Any lab anywhere in the universe can recreate the meter by measuring light.
+This is beautiful because it ties length to the speed of light, a quantity that
+is the same for all observers. Any lab anywhere in the universe can recreate
+the meter by measuring light.
 
 The second is tied to cesium atoms-specifically, 9,192,631,770 oscillations of cesium-133 radiation. Any lab with a cesium clock can reproduce the standard.
 

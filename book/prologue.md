@@ -21,17 +21,34 @@ repaired. The shared world is the structure that survives that pressure. It is
 public because many perspectives can read it back. It is stable because failed
 comparisons have been eliminated.
 
-The reference finite machine is equally concrete. An **echosahedral patch** is
-a bounded self-reading carrier with an internal state, twelve exposed boundary
-ports and readout maps, observer-readable central records, a finite mismatch
-score, allowed repair moves, and enough checkpoint data to continue after a
-repair. On the
-icosahedral screen-sieve branch, the twelve ports sit on a regular icosahedral
-frame. Think of a twelve-socket junction box that can test its own signals and
-remember which tests passed. Many such patches route ports to one another and
-form a federation. The smooth sphere used later in the book is the
-observer-facing chart of their repaired public data, not a literal shell or an
-external computer wrapped around the universe.
+The reference finite machine is equally concrete. An **echosahedral carrier**
+has a bounded internal state, twelve exposed boundary ports, local readout
+maps, a finite mismatch score, repair moves, and checkpoint fields. It is not
+automatically an observer. One carrier or a support spread across several
+carriers becomes observer-like only when it can make durable records, read them
+back, let that readback alter later action, test its own predictions, and
+continue after repair. On the icosahedral screen-sieve branch, the twelve local
+ports sit on a regular icosahedral frame. Think of a twelve-socket junction box
+that can become part of a self-checking network. Many such carriers route ports
+to one another and form a federation.
+
+The smooth sphere used later in the book is a third object: a global support
+chart. The mathematics produces it on a branch with spherical-incidence,
+refinement, mesh, and cross-ratio receipts. A physical map from the carrier
+federation to that support chart is open. The sphere is not a literal
+shell or an external computer wrapped around the universe.
+
+The twelve sockets are part of the physics. Their incidence, opposite pairs,
+orientation, and allowed responses determine which finite patterns can survive
+comparison. An optical rig and a quantum register may realize the same carrier
+when all of those exposed relations agree. A cube fails that test against an
+icosahedron before either machine has been switched on. OPH ignores a hidden
+paint color; it does not ignore architecture.
+
+The carrier earns the name observer only when it reads itself, keeps records,
+lets those records affect later behavior, and can continue from a checkpoint.
+One carrier may pass that test. A connected group of carriers may pass it as a
+larger observer. Twelve ports alone prove neither case.
 
 This is the OPH meaning of simulation: a self-reading system settling into
 public records. No outside machine renders a global timeline frame by frame.
@@ -44,12 +61,13 @@ the world that gets simulated are one closed system, and what we call physical
 law is the condition for that system to stay consistent as it reads itself all
 the way around. Later chapters call this the strange loop, and it is the
 organizing claim of the book. The physics is built to sit inside it. Two
-dimensionless coordinates organize the quantitative loop: the local grain of
-the screen and the total record capacity. Each is defined by a closure equation
-that the universe must satisfy to read itself. The local equation is read
-through electromagnetic transport, while the global equation is read through
-the universe's capacity map. The book unfolds how those two readouts close the
-same loop, one argument at a time.
+dimensionless coordinates organize the quantitative proposal: the local grain
+of the screen and the total record capacity. Each is defined by a closure
+equation. The local maps have certified unique roots, while their physical
+Thomson identification is work in progress. The global equation has an exact
+finite capacity definition and a fixed-cutoff witness; its physical
+capacity-indexed family and unique selector are work in progress. The two
+coordinates test whether local and global readback close one loop.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -75,13 +93,22 @@ The resulting reconstruction is difficult to summarize without making it
 sound less strange than it is. The same architecture produces stable public
 records and quantum-event conditioning; the conformal group of its spherical
 screen is the connected Lorentz group; the space of observer frames is
-three-dimensional; modular and entropy consistency give the Einstein form on
-a source-derived common-domain tower carrying the stated continuum,
-vacuum-reference, coupling, and scale premises;
+three-dimensional; modular and entropy consistency give the Einstein form only
+on one independently constructed refinement family that puts geometry, stress,
+entropy, vacuum reference, coupling, and scale on the same domain;
 the twelve-port coefficient algebra has exactly the Standard Model Lie type;
 trace balance produces its shared-center quotient; and the even exterior
 algebra of a $3+2$ carrier produces one full chiral generation with the three
 one-Higgs couplings and anomaly cancellations.
+
+These results share one finite trunk and retain separate gates. The
+source-bound, refinement-natural federation-to-support map connecting the repaired
+federation to the spherical chart used by the relativity branch is open. The
+finite port geometry supplies the local icosahedral blocks used
+by the second, conditional gauge route. Identifying that route with the
+independent matter/Tannaka route is also open. A repair counter is not a clock,
+and a socket is not a gluon. Physical clocks, event coordinates, gauge currents,
+matter fields, and quantum dynamics require their own source constructions.
 
 In equations, the spine is
 
@@ -248,7 +275,8 @@ that we call "the physical world" is the overlap-consistent backbone that all
 observers must agree on.
 
 The same architecture reaches several familiar layers of physics. On the
-typed common-domain branch, horizon bookkeeping becomes Einstein's equation.
+shared-domain gravity branch, the entropy argument yields Einstein's equation
+under its explicit vacuum, coupling, continuum, and scale premises.
 Transportable charges become the
 Standard Model gauge and matter package. A repair-charge medium has a
 dust-like normal phase and a cubic deep-galaxy phase. Self-referential closure
@@ -265,9 +293,9 @@ where the reconstruction breaks.
 Why is there no preferred reference frame? Because there's no privileged
 observer to define one. Why does measurement affect outcomes? Because
 "measurement" is observer patches entering shared record relations. Why does
-time dilate? Because different
-observers have different internal clocks, and relativity is the consistency
-condition between them. Why can't you explain consciousness from physics?
+time dilate? Because different observers compare calibrated local clocks, and
+relativity is the consistency condition between those comparisons. Why can't
+you explain consciousness from physics?
 Because the inside cannot be derived from an outside that the theory itself
 does not contain.
 
@@ -292,18 +320,21 @@ exact finite normal forms, a certified spherical branch produces Lorentz
 kinematics, compact charge transport reconstructs a gauge group, and the
 minimal realized matter branch gives the Standard Model quotient and charge
 structure. On the conditional Einstein branch, one repaired record family
-supplies modular clocks, stress, entropy, continuum geometry, a vacuum
-reference, and independent scale readouts on a common domain. Construction
-and certification of an inhabited family with all these readouts are work in
-progress. The book keeps the logical layers distinct while showing how one
+supplies modular ordering, calibrated clock records, stress, entropy, continuum
+geometry, a vacuum reference, and independent scale readouts on a common
+domain. Construction of an inhabited family with all these readouts is work in
+progress. The
+book keeps the logical layers distinct while showing how one
 architecture links them.
 
-At the quantitative layer, two closure coordinates organize the construction.
-The fine-structure constant reads the local grain of the picture from inside
-the encoded world. The cosmological constant reads the total screen capacity.
-A scale bridge then converts those dimensionless relations into laboratory
-units. The striking fact is compression: the same two coordinates organize
-gravity, compact gauge structure, and the minimally admissible particle world.
+At the quantitative layer, two conditional closure coordinates organize the
+construction. The local coordinate asks whether electromagnetic transport
+reads back the grain of the picture from inside the encoded world. The global
+coordinate asks whether correctable public records read back the total screen
+capacity. A separate scale bridge converts dimensionless relations into
+laboratory units. Their proposed compression links gravity, compact gauge
+structure, and the minimally admissible particle world; the physical Thomson,
+capacity, and scale identifications are open.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
@@ -361,9 +392,10 @@ structural chain is in place, the book follows the closure-selected quantities
 through gravity, gauge structure, particles, and observers.
 
 This model rests on established mathematics and physics, organized around five
-core axioms. Gravity, the symmetry structure behind the Standard Model, and
-several further programs emerge from the framework. The book explains the path
-from observer consistency to that reconstructed world.
+core axioms. The framework gives conditional reconstructions of gravity and the
+symmetry structure behind the Standard Model, with separate physical source
+questions left visible. The book explains the path from observer consistency
+to that reconstructed world.
 
 This book is self-contained. It states results in plain language and does not
 send the reader chasing external files. Where it says a result is proved

@@ -73,14 +73,14 @@ Outward-rounded interval certificates verify those hypotheses for each
 declared $P$ map and exclude a second root across its full analytic domain.
 The source map and gauge-width map therefore have machine-certified unique
 roots. Identifying either incomplete map with the physical Thomson endpoint
-still requires the source-derived, same-scheme hadronic transport.
+requires the source-derived, same-scheme hadronic transport.
 
 The declared source map closes at
 $\alpha^{-1}=136.994835177413\ldots$. The gauge-width map closes at
 $137.035660136946577\ldots$. These are unique outputs of their declared maps,
 with zero fitted continuous values. The measured Thomson endpoint is
-$137.035999177(21)$. The remaining gap has a precise address in the
-source-derived hadronic transport. This combination of a formal uniqueness
+$137.035999177(21)$. The difference has a precise address in the
+source-derived hadronic transport, which is work in progress. This combination of a formal uniqueness
 theorem, exact numerical certificates, and a near physical endpoint makes $P$
 the quantitative center of the OPH case.
 
@@ -105,7 +105,9 @@ and the unique physical capacity selector are work in progress. $N$ is
 therefore a secondary conditional extension of the verified local $P$ program. Its
 horizon and Higgs comparisons become physical only after their carrier
 identifications are proved. The [closure ledger](docs/CLOSURE_LEDGER.md) gives
-the full finite construction and its proof obligations.
+the full finite construction and its proof obligations; the [proof
+spine](docs/PROOF_SPINE.md) shows how those obligations compose across the
+microphysics, consensus, and SM/GR papers.
 
 ## A Complete Universe From Consistency
 
@@ -113,11 +115,19 @@ OPH tests one central proposition: **one observer-consistency architecture can
 reconstruct the architecture of our observed universe.** The exact finite
 results and the open physical producers are separated below:
 
+OPH is presentation-invariant across hidden implementations that preserve the
+observer-visible quotient. It is carrier-sensitive when visible port incidence,
+topology, record processes, or response laws change. Reality is therefore not
+assumed to be neutral to every substrate geometry.
+
 - finite readback and repair turn private states into stable public records;
 - the algebra of those records gives quantum probabilities and repeatable
   observation;
-- the conformal geometry of a shared spherical screen gives the connected
-  Lorentz group and three observer-frame spatial dimensions;
+- on the branch with certified federation-to-support, incidence, mesh,
+  cross-ratio, normalization, and refinement receipts, plus an independently
+  complete modular algebra-state comparison on the same tower, the conformal
+  geometry of the resulting $S^2$ support gives the
+  connected Lorentz group and three observer-frame spatial dimensions;
 - modular flow, recoverability, null transport, and entropy stationarity give
   the tensor first-variation relation; the absolute Einstein equation requires
   one source-derived common-domain tower, whose construction and certification
@@ -127,8 +137,14 @@ results and the open physical producers are separated below:
   pairing, proper $A_5$ action, and rank-three icosahedral frame with
   refinement and relabeling naturality; that branch has the exact
   coefficient-space decomposition needed for
-  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$;
-- physical current, trace, spin, and center descent produce
+  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; this is a
+  local carrier result and does not force the federation nerve to be spherical;
+- the finite $A_5$ current route and the transportable-sector/Tannaka route
+  with Minimal Admissible Realization (MAR) independently reach the same
+  Standard Model Lie type on their stated
+  premises; identifying them as one source-produced physical current requires
+  the current intertwiner, trace, Spin, center/deck, and refinement receipts;
+- trace balance and center/deck descent produce
   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ on their stated receipts;
 - the declared finite matter packet gives an exact one-generation exterior
   witness, hypercharge and anomaly arithmetic, and a three-color carrier;
@@ -137,29 +153,24 @@ results and the open physical producers are separated below:
 - the canonical rank-three screen band is a candidate family fiber, while its
   physical rank-45 attachment is open; $N_g=3$ is the least value in the
   declared MAR economy class, not a target-free source theorem;
-- the same $P$ and $N$ closures connect the gauge, Higgs, gravitational, and
-  cosmological scales.
+- the conditional $P$ and $N$ closure maps test possible links among the gauge,
+  Higgs, gravitational, and cosmological scales.
 
 Their force comes from a common demand: every local description must glue into one recoverable world that
 can contain observers capable of reading it back. Any individual match could
 be accidental. The joint recovery of quantum observation, Lorentzian
 spacetime, conditional Einstein gravity, the finite Standard Model recognition
 package, and quantitative closure tests motivates the full OPH program. The
-physical source, Spin, family, and scalar receipts remain explicit conditions
-rather than completed outputs. The field-theory landing is a typed DAG:
-QFT-Q2 and QFT-Q3 are parallel descendants of QFT-Q1, strict W/Z pole algebra
-belongs to QFT-Q3, and QFT-Q4 independently requires a nonperturbative
-observable tower and analytic continuation. The conditional implications are
-stated and machine checked; their OPH-native producers remain open.
+physical source, Spin, family, and scalar receipts are explicit conditions.
+The field-theory landing has four typed levels: a finite local action, exact
+finite quantum constructions, perturbative restoration with finite-order pole
+algebra, and a nonperturbative observable tower with resonance continuation.
+The exact finite and perturbative constructions are separate descendants of
+the local action. Their conditional implications are machine checked, while
+their OPH-native physical producers are open.
 
-Machine-readable lane status:
-
-    CONDITIONAL_QFT_TIER_DAG_AND_STRICT_WZ_POLE_ALGEBRA_DEFINED__Q1_SOURCE_CONSTRUCTION_Q2_Q4_OBJECTS_Q3_VALIDATION_AND_OPH_PRODUCERS_OPEN
-    DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
-    CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL
-
-The detailed papers state every theorem-local premise. The finite objects needed
-to remove the remaining conditions are collected near the end of this README.
+The detailed papers state every theorem-local premise. The open physical
+constructions are collected near the end of this README.
 
 ## Why Take The Claim Seriously?
 
@@ -168,8 +179,10 @@ unrelated arrive as one package. OPH starts from a bounded self-reading patch
 instead of a spacetime manifold, field content, gauge group, or table of
 constants. It returns exact dimensions, compact groups, global quotients,
 charge assignments, anomaly cancellations, representation multiplicities, and
-fixed-point equations. These outputs come from the same screen and repair
-architecture. Their shared dependence is the main case that OPH describes one
+fixed-point equations. These outputs come from one typed carrier, overlap, and
+repair architecture. The local icosahedral and compact-sector routes meet at
+the Standard Model Lie type, while their physical source identity is an open
+test. Their shared dependence is the main case that OPH describes one
 physical world rather than a collection of coincidences.
 
 The evidence also comes in different forms: paper proofs, exact arithmetic,
@@ -181,8 +194,8 @@ another numerical match produced by another adjustable model.
 
 Take a finite patch with local state, a boundary, memory, and a repair rule. It
 sees only its piece of the world. When two patches overlap, each can inspect a
-shared interface. A disagreement means that the pair has not produced a public
-fact. Repair continues until the same record can be recovered from either side.
+shared interface. While the readings disagree, no public fact exists on that
+overlap. Repair continues until the same record can be recovered from either side.
 
 The patch net performs one repeated computation:
 
@@ -202,15 +215,30 @@ The public universe is what remains stable. OPH calls this settled result a
 **normal form**. “Subjective” means locally accessible here, not arbitrary: two
 patches must agree about everything both can inspect.
 
-The icosahedron supplies a highly symmetric finite screen with twelve ports,
-twenty triangular faces, and rotation group $A_5$. Its faces organize local
-overlaps, while refinement produces finer patch nets. The project uses
-“echosahedral” for this observer-screen architecture.
+The formal observer patch is this bounded access, record, readback, and repair
+structure. An Echosahedron is a candidate primitive carrier on the homogeneous
+branch. Its twelve-port icosahedral boundary supplies local incidence and
+rotation group $A_5$. A carrier becomes an observer only when the required
+records and repair loop are physically realized.
+
+Three geometries must stay separate. The local carrier boundary is the
+icosahedral twelve-port object. The federation screen is a network of those
+objects together with its overlap nerve. The support screen is the
+observer-facing $S^2$ chart obtained on the separately certified spherical
+branch. Local icosahedral symmetry can coexist with a nonspherical federation
+nerve.
+
+Physical phase locking is a candidate mechanism for coherent overlap
+comparison. It has to produce the accepted repair relation, confluence,
+public records, and noise bounds. No theorem identifies phase
+locking with consensus confluence, modular flow, or an observer clock.
 
 On the certified spherical branch, spacetime kinematics comes out of the
 computation instead of being supplied beforehand. Stable relations among
 patches define public adjacency, angle, and distance. Record order supplies a
-local clock, compatible clocks supply public time, and the conformal symmetry
+candidate history, not a clock; observer-readable transitions, event
+correspondence, and affine calibration supply operational local time. Compatible
+calibrated clocks can then supply public time, and the conformal symmetry
 of the shared spherical screen gives Lorentz symmetry with a
 three-dimensional space of observer frames. Populating that kinematic chart
 with a physical event manifold requires the separate receipts stated in the
@@ -225,28 +253,26 @@ is the smooth geometry required by the shared information and entropy laws.
 software process can instantiate it when it has the required state, boundary,
 records, readback, and repair loop. OPH does not claim that human thoughts
 manufacture reality. It claims that a world with no possible local perspective,
-record, or self-consistent readback has not produced public physics.
+record, or self-consistent readback lacks public physics.
 
 In simulation language, the universe is its own simulator. The patches, computation, records, and resulting world all belong to the same closed system. No external computer or programmer is required by the formal construction.
 
-The reconstruction chain is:
+The reconstruction has a shared trunk and separately gated branches:
 
 ```text
-self-reading patches
+source-selected carrier federation
         ↓
-records, overlap comparison, repair
+observer patches with records, overlap comparison, and repair
         ↓
 public quotient normal forms
+        ├─ federation-to-support receipts → S2 cap geometry and geometric flow
+        ├─ independent algebra-state tower → modular flow
+        │       same-tower composition → Lorentz and conditional Einstein branches
+        └─ transportable sectors → Tannaka reconstruction → MAR matter packet
+             ↕ physical-current identity open
+           local 12-port A5 current → Standard Model Lie type
         ↓
-screen conformal geometry and modular flow
-        ↓
-Lorentz kinematics, observer time, Einstein dynamics
-        ↓
-transportable charges and compact reconstruction
-        ↓
-SU(3) × SU(2) × U(1) / Z6 and Standard Model matter
-        ↓
-quantitative fixed-point and physical-readout programs
+quantitative closure and physical-readout tests
 ```
 
 The exact finite centerpiece of the gauge branch is
@@ -258,9 +284,11 @@ P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
 \cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-This coefficient algebra is constructed from the finite screen instead of
-being supplied as the starting symmetry. Its promotion to physical currents and
-the exact Standard Model matter package uses the receipts listed below.
+This coefficient algebra is constructed from the finite local carrier data
+instead of being supplied as the starting symmetry. It agrees in Lie type with
+the separate transportable-sector/Tannaka/MAR route. Promotion to one physical
+current object and to the exact Standard Model matter packet uses the receipts
+listed below.
 
 ## Results At A Glance
 
@@ -268,13 +296,13 @@ the exact Standard Model matter package uses the receipts listed below.
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Relativity | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Echosahedral selector and finite $A_5$ gauge algebra | Source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Echosahedral selector and finite $A_5$ gauge algebra | Local source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction of $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; no automatic global $S^2$ conclusion | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Standard Model global form | Exact $S(U(3)\times U(2))$ and shared-center $\mathbb Z_6$ calculation, with physical current and descent receipts stated separately | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional MAR selection $N_g=3$; physical family attachment remains open, while the QFT implications and their still-open OPH producers are separated explicitly | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| QFT landing | QFT-Q1 finite-action invariance; QFT-Q2 determinant-line and Hamiltonian criteria; formal QFT-Q3 BV/ST restoration and strict finite-order W/Z algebra; separate QFT-Q4 OS and resonance implications. QFT-Q2 and QFT-Q3 are parallel, and all source-native constructions remain explicit promotion gates | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules frozen. Its current fixture is a post-exposure backend regression; OPH/FJ source matching, an independent gauge/BRST engine, covariance, physical-current amplitudes, and the clock remain open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional MAR selection $N_g=3$; physical family attachment is open, and the conditional field-theory implications are separated from their open OPH producers | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression; source matching, an independent gauge-symmetry engine, covariance, physical-current amplitudes, and the clock are open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Conditional global $N$ extension | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=|X_{\rm reach}|$ on the reversible branch; the physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | $N$–Higgs bridge | Conditional relation $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ from the common screen/weak load carrier | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -325,7 +353,7 @@ python3 -m pytest -q \
 The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and scope of
 each check.
 
-## Remaining Proof Obligations And Falsification Boundary
+## Open Proof Obligations And Falsification Boundary
 
 The direct $N$ theorem contains a finite, source-derived simulator
 public-checkpoint packet. At fixed $D=24$, the packet has the reachable public
@@ -333,7 +361,7 @@ records, the
 publicness rule, joint checkpoint kernels, carrier projections, and extension
 and refinement maps. Injective checkpoint generators reduce its capacity
 theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
-The remaining hard N theorem is its physical-universe attachment, a
+The open physical $N$ theorem requires physical-universe attachment, a
 capacity-indexed source family, and the exact finite-size slack law with one
 physical zero. The independent finite $A_5$ control has $M_0=60$ and
 $D_{\rm raw}=60k$; its publicly inert multiplicity proves that raw equality at
@@ -375,7 +403,7 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
   </a>
 </p>
 
-<p align="center"><sub>The OPH line from observer consistency to public records, spacetime, gravity, gauge structure, matter, and quantitative readout.</sub></p>
+<p align="center"><sub>The typed OPH dependency map. It separates exact and conditional branches from the open source, support, current, attachment, and scale bridges that would make them one physical realization.</sub></p>
 
 ## Repository Guide
 

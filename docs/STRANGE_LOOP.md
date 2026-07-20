@@ -26,12 +26,13 @@ This is a hypothesis, stated as principles SL-0…SL-5, and it is the most expos
 fundamental physics: it requires its closure equations to hold *exactly*, forever, at
 every precision. Each row of the closure ledger is a loaded gun pointed at it.
 
-The program that carries the hypothesis has zero continuous dials,
-machine-certified interval and global-uniqueness fixed points for each
-declared map, a sorry-free Lean subset across the consensus core and the
-capacity-coupling algebra, and a full adversarial third-party audit that
-reproduced the certificate arithmetic and identified no false theorem in the
-recovered mathematical core.
+The frozen numerical maps that carry the hypothesis introduce no continuously
+tunable fit dials. Each declared map has a machine-certified interval and
+global-uniqueness fixed point. The corpus also has a sorry-free Lean subset
+across the consensus core and the capacity-coupling algebra, and a full
+adversarial third-party audit that reproduced the certificate arithmetic and
+identified no false theorem in the recovered mathematical core. None of those
+results manufactures the open physical bridge inputs listed in the proof spine.
 
 ## Lineage: the loop is the completion of established programs
 
@@ -48,9 +49,11 @@ been pulling for a century; it does not arrive from outside physics.
   consistency of self-description, rather than a Lagrangian, fixes the world. The
   conformal bootstrap is the existence proof that "consistency fixes the theory" can be a
   quantitative method rather than a slogan.
-- **Tomita-Takesaki modular theory.** An algebra-state pair generates its own dynamics.
-  This is self-reading at the level of theorems: the restricted state carries the clock.
-  OPH's time, Lorentz branch, and thermality all ride this established mathematics.
+- **Tomita-Takesaki modular theory.** An algebra-state pair generates its own flow.
+  This is self-reading at the level of theorems: the restricted state carries a
+  dimensionless internal ordering. A physical clock additionally needs readable
+  transitions, event correspondence, and calibration. OPH's time, Lorentz, and
+  thermality branches use this established mathematics with their separate receipts.
 - **Jacobson's equation of state.** Einstein's equations recovered from thermodynamic
   consistency of local horizons: dynamics recovered as a consistency condition rather
   than postulated.

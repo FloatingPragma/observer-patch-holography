@@ -11,16 +11,16 @@ It is the finite port symmetry of the echosahedral carrier. It treats all
 twelve vertices alike and splits their real readings as
 $\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. The finite symmetry,
 the gauge group, and the Lorentz group have separate jobs. $A_5$ organizes the
-ports. Outward orientation and the compact noncommuting current bracket turn
-the four port blocks into the $1+3+8$ directions of $U(1)$, $SU(2)$, and
-$SU(3)$. Pairing opposite vertices gives six axes and a $\mathbb Z_6$ residue;
-the spin and central maps carry that identification into the Standard Model
-quotient. A face has a threefold stabilizer, so its nontrivial phase extends to
-a minimal three-dimensional family carrier. The matter construction then
-supplies hypercharge, chirality, the color triplet, the weak doublet, and one
-Higgs doublet. Continuous Lorentz symmetry comes from the conformal group of
-the refined smooth sphere, $\mathrm{Conf}^+(S^2)\cong SO^+(3,1)$, rather than
-from the sixty finite rotations.
+ports. If the source also supplies a compact noncommuting physical current law
+with the same internal $A_5$ action, the four port blocks become the $1+3+8$
+directions of $U(1)$, $SU(2)$, and $SU(3)$. Pairing opposite vertices gives six
+axes and an abstract $\mathbb Z_6$ residue; conditional spin and central maps
+carry that identification into the Standard Model quotient. A face has a
+threefold stabilizer and therefore supplies a candidate three-dimensional
+family carrier. Physical family attachment is a separate construction.
+Continuous Lorentz symmetry comes from the conformal group of the refined
+smooth sphere, $\mathrm{Conf}^+(S^2)\cong SO^+(3,1)$, rather than from the sixty
+finite rotations.
 
 Action
 :   The action is the quantity a physical history makes stationary.
@@ -29,17 +29,6 @@ Lagrangian. In field theory it becomes a spacetime integral of a Lagrangian
 density. Noether's theorem uses the action because symmetries that leave it
 unchanged generate conserved currents. OPH uses the action language mainly
 where established field theory and relativity enter the reconstruction.
-
-QFT-Q1 through QFT-Q4
-:   These labels name a dependency graph, not four rungs that automatically
-follow one another. QFT-Q1 is the finite local classical-action implication.
-QFT-Q2-E and QFT-Q2-H are alternative exact finite quantum-object criteria,
-using an equivariant chiral determinant line or a noncollapsing constrained
-Hamiltonian. QFT-Q3 is formal BV/Slavnov--Taylor restoration and includes the
-strict fixed-parameter W/Z pole algebra. QFT-Q4 begins from a separately
-supplied reflection-positive nonperturbative observable tower; its resonance
-continuation is a further analytic theorem. In the present OPH status, these
-implications are explicit while their source-native producers remain open.
 
 AdS/CFT correspondence
 :   AdS/CFT is a duality in which a gravitational theory
@@ -100,8 +89,10 @@ be explained by local prewritten instruction sheets.
 Bisognano-Wichmann theorem
 :   The Bisognano-Wichmann theorem identifies the
 modular flow of a quantum field restricted to a wedge with a Lorentz boost. It
-is the rigorous bridge from an algebra-state pair to geometric motion. OPH uses
-it to turn modular flow on a round cap into a physical Lorentz boost.
+is the rigorous bridge from an algebra-state pair to geometric motion. The OPH
+Lorentz branch requires both a finite cap-flow certificate and an independently
+complete algebra-state comparison on the same refinement tower before reading
+round-cap modular flow as a Lorentz boost.
 
 Bohr complementarity
 :   Complementarity is Niels Bohr's principle that a
@@ -155,10 +146,11 @@ pattern of one source identifies one point with exact data and a finite region
 with noisy data.
 
 Capacity-electroweak bridge
-:   The bridge reads the weak scale as a local
-projection of the global screen-capacity repair rhythm. The exact bridge
-capacity is separate from the rounded de Sitter capacity display. The
-screen-sieve gives the factor $12$ in the projection.
+:   The proposed bridge reads the weak scale as a local projection of the
+global screen-capacity repair rhythm. The declared comparison capacity is
+separate from the rounded de Sitter display. The screen-sieve gives the factor
+$12$ in the formula. Its physical capacity family and common-load attachment
+are open.
 
 Carnot efficiency
 :   Carnot's result sets the ceiling on the work an engine
@@ -168,16 +160,17 @@ book uses it to introduce entropy as a budget.
 
 Carrier patch
 :   A carrier patch is the physical or digital machine that realizes an
-abstract observer patch. Its hidden material, circuit, coordinates, and labels
-can vary. What matters to the observer-facing description is the accessible
-state, interface readout, records, repairs, and checkpoint behavior it exposes.
+abstract observer patch. Its hidden material, layout, coordinates, and labels
+can vary only when the complete exposed structure stays fixed. That structure
+includes port incidence and orientation, accessible state, readback, dynamics,
+records, repair, refinement, and checkpoint behavior.
 
 Causal structure
 :   Causal structure determines which events can influence
-which. Relativity encodes it through light cones. OPH reads causal structure
-as emerging from no-signaling, modular flow, and screen geometry in the
-smooth limit. Spacelike correlations can exist without becoming controllable
-signals.
+which. Relativity encodes it through light cones. On the certified branch, OPH
+combines no-signaling, matched modular cap motion, screen geometry, event
+charts, and a quadratic Lorentz cone. Spacelike correlations can exist without
+becoming controllable signals.
 
 Celestial sphere
 :   The observer sky $S^2$ is the angular screen that
@@ -202,7 +195,8 @@ CKM matrix
 mix under the weak interaction, and its complex phase is the Standard Model's
 source of charge-parity violation. Counting its physical phases gives the lower
 bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
-consistency gives $N_g\le5$, and MAR selects the least admitted value. This is
+consistency gives $N_g\le5$, and a minimal-realization principle selects
+the least admitted value. This is
 an economy-class selection, not a physical family-attachment theorem.
 
 Classical limit
@@ -264,10 +258,10 @@ overlap-visible records and predictions match.
 Cosmological constant
 :   The cosmological constant $\Lambda$ controls the
 late-time accelerated expansion of the universe in the simplest model. In de
-Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH reads
-the dimensionless products involving $\Lambda$ as global capacity data for the
-finite horizon screen. The scale bridge converts that dimensionless capacity
-into the SI curvature read by observers.
+Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH
+proposes reading dimensionless products involving $\Lambda$ as global capacity
+data for a finite horizon screen. That reading requires the open physical
+capacity family, selector, horizon identification, and scale bridge.
 
 Decoherence
 :   Decoherence is the process by which quantum systems become
@@ -302,7 +296,10 @@ finite internal algebra and state, twelve labeled overlap ports with readout
 maps, observer-readable central records, a finite mismatch score, allowed local
 update and repair moves, and checkpoint data. Its ports occupy the vertices of
 a regular icosahedron, so $A_5$ acts as the exact finite port symmetry. The
-sphere is the support chart through which the carrier is read.
+sphere is the support chart through which the carrier is read. The body becomes
+an observer only after self-readback, record, feedback, prediction, and
+checkpoint tests pass. An observer may instead occupy a connected
+subfederation.
 
 Eigenvalue and eigenstate
 :   An eigenstate is a state in which a measurement
@@ -348,8 +345,9 @@ $Q,u^c,d^c,L,e^c$. It gives their exact hypercharges, the three one-Higgs
 channels $QHu^c$, $QH^\dagger d^c$, and $LH^\dagger e^c$, and cancellation of
 the color, weak, gravitational, and cubic hypercharge anomalies. The quark
 doublet occurs in three color copies and the lepton doublet once, giving four
-weak doublets per generation. The conditional MAR minimum gives twelve only
-after the open rank-45 family attachment is supplied, and pairing each slot
+weak doublets per generation. The conditional minimal-realization minimum gives twelve only
+after one physical complex family space ties three copies of this fifteen-state
+pattern together, and pairing each slot
 with an orientation label then gives twenty-four oriented weak slots. The
 count alone supplies no inverse dynamics or physical current map.
 
@@ -376,10 +374,12 @@ sectors, and boundary records on the observer-facing screen.
 Gauge group
 :   A gauge group organizes local redundancy and charge
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
-quotient by a shared discrete center in the full global structure. OPH
-reconstructs the compact gauge group from persistent charge bookkeeping across
-patches. The oriented twelve-port current algebra gives the Standard Model Lie
-type, and minimal admissible selection picks its one-Higgs matter branch.
+quotient by a shared discrete center in the full global structure. Under its
+transport and refinement premises, OPH reconstructs a compact group from
+persistent charge bookkeeping across patches. Given a separately constructed
+physical current law, the oriented twelve-port decomposition recognizes the
+Standard Model Lie type. Minimal admissible selection then picks its conditional
+one-Higgs matter branch.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -410,9 +410,10 @@ system can carry, with consequences that can be computed.
 
 Golden ratio
 :   The golden ratio $\varphi=(1+\sqrt5)/2$ is the self-similar
-balance point of the entropy bookkeeping on the screen. A screen exactly at that
-balance carries no events. The pixel ratio sits a small distance above it, and
-that detuning is where the fine-structure constant enters.
+balance point in the declared local entropy map. In that proposal, a screen at
+the balance carries no events and the pixel-ratio root lies a small distance
+above it. The physical identification of that detuning with the fine-structure
+constant is work in progress.
 
 Hawking radiation
 :   Hawking radiation is the thermal emission a black-hole
@@ -457,8 +458,8 @@ It from bit
 :   John Wheeler's slogan for the participatory universe, in which
 observers and their observations are part of what gives the world definite
 content. It is the picture the strange-loop chapter turns into a computation.
-OPH closes Wheeler's drawing on itself with two forced numbers: the local
-screen grain and the global horizon capacity.
+OPH tests Wheeler's drawing with a certified local root and a conditional
+global horizon-capacity coordinate. Their physical attachments are open.
 
 Jacobson equation of state
 :   Ted Jacobson derived the Einstein equation from
@@ -558,14 +559,15 @@ Observer-frame chart
 :   The Lorentz reconstruction gives a
 three-dimensional hyperboloid of future observer frames. It is a fiber over
 spacetime events, not a chart of event positions. The event base needs its own
-affine chart, coincidence, cone, and causal-reachability receipts.
+affine chart, coincidence relation, cone, and evidence of causal reachability.
 
 Modular flow
 :   Modular flow is the natural flow associated with an
 algebra-state pair in Tomita-Takesaki theory. It is written
-$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. OPH uses modular flow as a source of
-internal time and as geometric cap motion on the smooth round screen. It is the
-movement of the local question menu generated by the local state.
+$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. OPH uses modular flow as a
+dimensionless intrinsic ordering and as geometric cap motion on the smooth
+round screen. A physical clock additionally requires an observer-readable
+transition, event correspondence, and affine calibration.
 
 Modular Hamiltonian
 :   The modular Hamiltonian $K$ is related to a density
@@ -580,8 +582,11 @@ Modular theory (Tomita-Takesaki)
 :   Tomita-Takesaki theory shows that an
 algebra-state pair generates its own flow, the modular flow, with a thermal KMS
 character. It is self-reading at the level of theorems: the restricted state
-carries its own clock. OPH's internal time, its Lorentz branch, and its
-thermality all ride this mathematics.
+carries its own dimensionless ordering. It does not carry a physical clock by
+itself. OPH's time branch also needs an observer-readable transition, event
+correspondence, and calibration; its Lorentz branch independently needs both
+the finite cap-flow certificate and an independently complete algebra-state
+comparison on the same refinement tower.
 
 MOND
 :   MOND changes low-acceleration gravity to fit galaxy rotation curves. The
@@ -621,7 +626,7 @@ that boundary or sector to have a unique consistent extension. OPH accepts
 overlapping repairs only when each repair has read every fact its write can
 affect, including histories and checkpoints, and each conflicting cluster has
 one coherent combined repair. Under those rules the local-diamond property is
-a theorem. The finite receipt checks that an implementation actually followed
+a theorem. A finite implementation test checks that the device actually followed
 the rules. Atomic commits without that full dependency check are insufficient. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
 between two physically distinct consistent endpoints. The OPH paper stack gives
@@ -633,8 +638,10 @@ region of a sphere. It includes an accessible algebra and state, visible
 interfaces and readouts, rereadable records, repair instruments, and checkpoint
 continuation. A support patch displays this package as a cap, collar, or other
 region in the geometric chart. A carrier patch realizes it in a physical or
-digital substrate. The observer-facing identity sits in the operational data
-shared by those descriptions.
+digital material. Two implementations share an observer-facing identity only
+when they preserve the full exposed structure, including port incidence and
+orientation, readback, dynamics, repair, refinement, and continuation.
+Presentation can vary. Operational architecture cannot.
 
 Obstruction class
 :   An obstruction class is a formal mismatch detector. It
@@ -674,6 +681,14 @@ and overlaps as edges. Loops in the graph create nontrivial consistency
 conditions. Tree-like graphs are simpler, but quantum compatibility can
 be subtle.
 
+Phase locking
+:   Phase locking is the physical alignment of phase variables through a
+coupling. Recurrent channels in an echosahedral carrier can support
+phase-sensitive observables when phases and a coupling law are supplied.
+Consensus synchronization is a different statement: translated port packets
+settle to compatible public records under the confluence hypotheses. Neither
+statement proves the other.
+
 Petz map
 :   The Petz map is a canonical recovery map in quantum information
 theory. In the exact Markov setting it reconstructs the state; in approximate
@@ -694,6 +709,13 @@ The neighbor sees that packet and the associated record, not a copy of the
 whole private interior. The echosahedral reference carrier has twelve labeled
 ports, paired into six inverse directions by the antipodal vertices.
 
+Presentation invariance and structure sensitivity
+:   Hidden labels, paint colors, or circuit layouts can vary without changing
+the physics when the complete operational object remains the same. Port number,
+incidence, orientation, state response, repair law, clocks, currents, and
+refinement are part of that object. OPH is invariant under presentation changes
+and sensitive to changes of architecture.
+
 Projector
 :   A projector is an operator that asks a yes-or-no quantum
 question. It satisfies $P^2=P$, which means asking the same ideal question
@@ -710,6 +732,14 @@ Quantum Darwinism
 environment selects and redundantly records pointer states. The analogy to
 biological selection is disciplined: states become classical because they
 survive environmental monitoring and can be sampled by many observers.
+
+Quantum field-theory construction
+:   The finite Standard Model recognition theorem does not automatically give
+a quantum field theory. A physical construction needs a local action, a chiral
+quantum state space or measure, positivity, gauge identities, refinement, and
+observable fields. Perturbative pole calculations and a nonperturbative
+continuum theory consume different evidence. The conditional implications are
+proved; their OPH-native physical inputs are open.
 
 Quantum marginal problem
 :   The quantum marginal problem asks when local
@@ -728,10 +758,11 @@ purpose at hand. In the Standard Model group
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, a shared discrete center is
 counted once across the gauge factors. Quotients remove duplicate labels from
 the physical bookkeeping. The six-axis icosahedral screen also has an abstract
-$\mathbb Z_6$ residue. The spin lift and central embedding carry that residue
-into the matter action, where the same six shared center transformations act
-trivially. The finite screen and the matter representation therefore use the
-same Standard Model quotient.
+$\mathbb Z_6$ residue. A source-derived spin lift and central intertwiner would
+have to carry that residue into the matter action. That construction and the
+commuting square identifying the local current group with the independent
+Tannaka/matter group are open. Matching abstract quotients does not establish a
+physical identification.
 
 Recoverability
 :   Recoverability means information that appears missing
@@ -767,29 +798,31 @@ escapes. It is the first exact place where a horizon becomes a boundary of
 causal access, one of the book's recurring screen examples.
 
 Screen
-:   The screen is the observer-facing boundary-data structure through which
-finite patches are charted and compared. The word is used at three related
-levels: the global screen net, an observer-facing access cut on that net, and
-the support region displayed for a particular observer. In symmetric cases
-$S^2$ supplies the support and symmetry chart. The finite patch federation is
-the carrier, so the screen is not a literal spherical computer or a private
-shell owned by each observer. Bulk spacetime is reconstructed from repaired
-screen records and overlap consistency.
+:   OPH uses “screen” for three typed objects that must not be collapsed. The
+local carrier boundary has twelve exposed ports on the declared echosahedral
+lineage. A federation screen is the finite network of carriers, observer
+supports, interfaces, and repaired public records. The global support screen is
+the refinement-limit chart, conditionally $S^2$ when the spherical-incidence,
+mesh, and cross-ratio receipts hold. A source-bound federation-to-support map is
+open; it must connect the federation to that global chart. None of these is
+a literal spherical computer or a private shell owned by each observer.
 
 Screen net
-:   A screen net is the whole pattern of observer-facing support regions,
-interface algebras, and overlaps. In symmetric situations it can be charted by
-$S^2$. Finite observers never inspect the whole net. They compare only the
-packets and records exposed at their local interfaces.
+:   A screen net is the federation-level pattern of carrier boundaries,
+observer supports, interface algebras, records, and overlaps. Finite observers
+never inspect the whole net. They compare only the packets and records exposed
+at their local interfaces. A global $S^2$ support chart is a separate
+receipt-gated limit object, not another name for the net.
 
 Screen-sieve
-:   A screen-sieve is a finite port sampling rule on the spherical support
-chart. On the declared echosahedral lineage, equal-trace primitive central
+:   A screen-sieve is a finite port sampling rule on the local carrier boundary.
+On the declared echosahedral lineage, equal-trace primitive central
 port atoms and integer readback uniquely select twelve unit ports with gap two;
 oriented incidence derives their antipodes, proper $A_5$ action, and rank-three
 icosahedral frame. The result is natural under the declared refinement maps.
-Alternative D-optimal or pair-kernel sieves remain sufficient premises on
-other branches. This does not force every observer patch to use this carrier.
+Alternative D-optimal or pair-kernel sieves are sufficient premises on
+other branches. This does not force every observer patch to use this carrier,
+and it does not place the twelve ports directly on the global $S^2$ support.
 
 Selection filter
 :   A selection filter is a constraint that candidate
@@ -873,8 +906,10 @@ duals they carry, and which consistency identities their combinations obey.
 
 Thermal time
 :   Thermal time is the proposal that time flow can be read
-from the state of a system through modular theory. It replaces an external
-clock with an internal flow tied to restricted information.
+from the state of a system through modular theory. The modular flow replaces an
+external ordering parameter, not a calibrated clock. An observer-readable
+transition, event correspondence, and calibration are required before
+the flow measures physical duration.
 
 Trace
 :   The trace is a matrix operation that sums diagonal entries. The
@@ -927,8 +962,9 @@ Wheeler-DeWitt equation
 :   The Wheeler-DeWitt equation, often summarized as
 $\hat H\Psi=0$, describes a quantum universe whose global state does not evolve
 against any external time. It is the sharpest statement of the problem of time.
-OPH answers it by reading time from the modular flow of restricted states inside
-the universe.
+OPH answers it by beginning with the modular flow of restricted states inside
+the universe, then requiring geometry, an observer-readable transition, event
+correspondence, and calibration before calling that flow physical time.
 
 World
 :   In everyday speech the world is the totality of things. In OPH's

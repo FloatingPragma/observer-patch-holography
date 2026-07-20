@@ -68,14 +68,15 @@ and one redesigned world is where the two questions meet.
 ## What Follows
 
 The philosophical weight of this is easy to miss if one hears only the word
-"backup." The interesting question is not digital storage as such. The
-interesting question is continuity.
+"backup." Digital storage matters here because it serves the deeper question
+of continuity.
 
-On the modular-clock branch, time is read from the modular flow of the
-observer's accessible algebra-state pair. The following moment is the next
-point in that operational flow. If a checkpoint is restored with the same
-visible state and future law, the remaining question is whether that restored
-pattern carries the same personal continuation.
+On the modular-time branch, the observer's accessible algebra-state pair
+supplies an intrinsic ordering. A physical clock needs a readable
+transition, an event correspondence, and calibration. Only then can a
+"following moment" be named operationally. If a checkpoint is restored with
+the same visible state and future law, the question is whether that
+restored pattern carries the same personal continuation.
 
 That question is an engineering problem with explicit mathematical boundaries,
 alongside its literary and religious readings. Which parts of the
@@ -109,54 +110,29 @@ repair. The future creators are our future observer-community, and paradise is
 their willful fixed point: the deliberate environment where memory, freedom,
 truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
 
-## The Finite Proof Frontier
+## Open Physical Conditions
 
-The book has deliberately led with the reconstruction. Its remaining proof
-frontier has the following compact form.
+The global capacity branch requires a finite public-checkpoint package. It must
+specify which public records can be written from inside the system, which
+records count as public, every allowed joint continuation, how the carrier is
+read, and how refinement preserves those records. On an exact reversible
+branch, public capacity reduces to the number of reachable public checkpoints.
+That number can be obtained by exact constraint solving or model counting.
 
-The highest-leverage object is one finite packet:
+The open physical theorem must derive the difference between carrier capacity
+and correctable public capacity as a function of carrier size, then prove one
+regulator-stable size where the difference vanishes and a positive difference
+at every other size. The exact finite definition and a fixed-cutoff witness do
+not supply the capacity-indexed physical family or its unique selector.
 
-$$
-\mathrm{PUBLIC\_CHECKPOINT\_PACKET}_{r,D}
-=\bigl(X_{\mathrm{reach}},\mathfrak P,\mathfrak K,
-\{P_x\},\text{ refinement maps}\bigr).
-$$
+Other open constructions must identify public record capacity with horizon
+area, connect screen load to the four-copy weak and Higgs load without feeding
+the answer backward, and construct the physical current, spin, determinant,
+covering, matter, no-extra-sector, and family maps needed to promote the exact
+twelve-port exterior witness to a physical Standard Model. The gravity and
+quantitative particle branches require their own common-domain source evidence.
 
-It records the endogenously writable public records, the frozen publicness
-policy, every global joint checkpoint continuation, the carrier projections,
-and the maps that preserve records through refinement. On the exact reversible
-branch every checkpoint generator is injective, so the public capacity reduces
-to
-
-$$
-M_0(q)=|X_{\mathrm{reach}}(q)|.
-$$
-
-That count is accessible to exact constraint solving or model counting. The
-remaining hard N theorem is then sharply isolated: derive
-
-$$
-s(D)=\log D-\log M_0(D)
-$$
-
-and prove one regulator-stable physical zero,
-
-$$
-s(D_\star)=0,
-\qquad
-s(D)>0\quad(D\ne D_\star).
-$$
-
-The other completion tasks are equally explicit: identify this record capacity
-with the horizon area carrier; identify the screen load with the four-copy
-weak/Higgs load without feeding the answer backward; construct the physical
-current, spin, determinant, deck, matter, no-extra-sector, and family maps that
-promote the exact twelve-port exterior witness to a forced physical Standard
-Model; and instantiate the common-domain gravity and quantitative particle
-receipts.
-
-Each obligation is also a falsifier. An incomplete or ambiguous checkpoint
-fiber, a second stable slack zero, a failed horizon or weak-load identification,
-an unavoidable extra light sector, or a failure of the current and spin lifts
-would break the corresponding claim. OPH is strong precisely because the
-remaining frontier has this finite, inspectable form.
+Each condition is a falsifier. An incomplete or ambiguous checkpoint family, a
+second stable capacity match, a failed horizon or weak-load identification, an
+unavoidable extra light sector, or failure of the current and spin lifts breaks
+the corresponding claim. The conditions are finite and inspectable.

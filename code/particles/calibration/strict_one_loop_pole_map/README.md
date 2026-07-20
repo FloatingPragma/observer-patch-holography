@@ -150,13 +150,13 @@ the map implementation.
 
 ## Files
 
-- `src/wz_pole_map.py` — strict-one-loop map and order guard.
-- `checker/check_receipt.py` — small independent recomputation checker.
-- `schemas/physical_wz_strict_1l_pole_map_receipt.schema.json` — Draft 2020-12 schema.
-- `data/conditional_smdr_order1_fixture.json` — current conditional numerical fixture.
-- `data/oph_fj_input_template.json` — required OPH+FJ producer interface.
-- `outputs/conditional_strict_1l_pole_map_receipt.json` — generated receipt.
-- `tests/test_wz_pole_map.py` — regression and adversarial tests.
-- `THEOREMS_AND_PROOFS.md` — formal statements, proofs, limitations, and
+- `src/wz_pole_map.py`: strict-one-loop map and order guard.
+- `checker/check_receipt.py`: small independent recomputation checker.
+- `schemas/physical_wz_strict_1l_pole_map_receipt.schema.json`: Draft 2020-12 schema.
+- `data/conditional_smdr_order1_fixture.json`: conditional numerical fixture.
+- `data/oph_fj_input_template.json`: required OPH+FJ producer interface.
+- `outputs/conditional_strict_1l_pole_map_receipt.json`: generated receipt.
+- `tests/test_wz_pole_map.py`: regression and adversarial tests.
+- `THEOREMS_AND_PROOFS.md`: formal statements, proofs, limitations, and
   numerical derivation.
-- `IMPLEMENTATION_CONTRACT.md` — ordered instructions for completing the physical producer.
+- `IMPLEMENTATION_CONTRACT.md`: ordered instructions for completing the physical producer.

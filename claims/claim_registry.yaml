@@ -29,7 +29,7 @@
     },
     {
       "claim_id": "OPH-OBS-PATCH-DEF",
-      "statement": "An observer patch is an algebraic object with an accessible algebra, state, record algebra, overlap-visible interfaces, visible restrictions, update/repair instruments, and checkpoint data.",
+      "statement": "An observer patch is an algebraic object with an accessible algebra, state, record algebra, overlap-visible interfaces, visible restrictions, update/repair instruments, and checkpoint data. A carrier cell becomes an observer only when the required readback, durable record, feedback or repair, prediction/control, and checkpoint-continuation clauses are instantiated; port count or geometric shape alone is insufficient.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "definition",
       "assumptions": [
@@ -41,18 +41,45 @@
         "finite_algebra_interfaces",
         "quantum_channel_language"
       ],
-      "oph_specific_delta": "Support patches are geometric charts and carrier patches are realizations of the abstract object within an error bound.",
+      "oph_specific_delta": "The definition separates local carrier boundaries, observer-support/federation patches, and global support charts. It prevents one twelve-port carrier, one support-chart cell, and one operational observer from being identified by cardinality or notation.",
       "novelty_type": "definition",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex"
       ],
-      "falsifier": "A carrier changes an OPH observable while preserving the declared visible algebra, record statistics, repair maps, and checkpoint continuation.",
-      "scope_if_false": "Carrier-independence claims fall; geometric and hardware readings need branch-specific qualification.",
-      "status": "definition_with_invariance_target"
+      "falsifier": "A claimed observer lacks one of the declared operational clauses, or two systems identified as the same observer patch disagree on a protected output while preserving the full declared observer-facing signature.",
+      "scope_if_false": "The observer identification or quotient-equivalence claim falls on the affected branch; finite carrier geometry by itself is a separate object.",
+      "status": "typed_definition_with_operational_observer_gate"
+    },
+    {
+      "claim_id": "OPH-CARRIER-PRESENTATION-INVARIANCE",
+      "statement": "OPH is presentation-invariant but carrier-architecture-sensitive. Relabelings, hidden coordinates, materials, or implementations are physically silent only when they preserve the full quotient-visible observer signature, including port number, oriented incidence, accessible algebra, response maps, repair law, records, clock data, and refinement maps. Changing that signature can change the admitted physics.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "cross_paper_invariance_and_sensitivity_contract",
+      "assumptions": [
+        "full_observer_signature_is_declared",
+        "equivalence_maps_preserve_visible_algebras_records_repairs_clocks_and_refinement",
+        "protected_outputs_factor_through_the_declared_quotient"
+      ],
+      "imported_results": [
+        "equivariance_under_relabeling",
+        "quotient_invariance",
+        "operational_equivalence"
+      ],
+      "oph_specific_delta": "The contract rejects both hidden-coordinate dependence and blanket substrate neutrality. The twelve-port oriented incidence may be load-bearing because it is part of the visible carrier architecture, while its labels and concrete presentation are not.",
+      "novelty_type": "typed_invariance_and_architecture_sensitivity_contract",
+      "evidence": [
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
+      "falsifier": "A protected OPH output changes under an isomorphism preserving the full declared observer signature, or an argument treats two carriers with different visible incidence, response, repair, clock, or refinement data as physically equivalent without a verified map.",
+      "scope_if_false": "The affected invariance or architecture-sensitivity claim falls. Branch-local theorems stated directly on either carrier retain their own statuses.",
+      "status": "declared_cross_paper_contract_with_branch_local_tests"
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
-      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. Finite patch federation, quotient, and public normal form form the common substrate. A source-derived noncommutative state and geometric tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier and physical current lift feed conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify repair, equilibrium, modular flow, event position, gauge current, or QFT tier.",
+      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier-current lift feeds conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the A5 current group with the independently reconstructed Tannaka/MAR group.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "cross_paper_typed_composition_contract",
       "assumptions": [
@@ -60,6 +87,7 @@
         "physical_quotient_and_public_normal_form",
         "source_bound_refinement_natural_tower",
         "separate_geometry_and_physical_current_readouts",
+        "typed_local_federation_and_global_support_screens",
         "common_manifest_without_ledger_retyping"
       ],
       "imported_results": [
@@ -69,7 +97,7 @@
         "conditional_compact_current_classification",
         "conditional_QFT_tier_DAG"
       ],
-      "oph_specific_delta": "The same bounded self-reading observer system supplies the composable substrate for gravity and particle branches while every physical promotion remains attached to its own producer and receipt type.",
+      "oph_specific_delta": "One carrier architecture can supply the common bounded self-reading system through explicit carrier-to-observer, phase-to-consensus, carrier-to-support, current, and group-identification bridges. Every downstream promotion is attached to its own producer and receipt type.",
       "novelty_type": "cross_surface_dependency_and_type_contract",
       "evidence": [
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
@@ -77,8 +105,8 @@
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
       ],
-      "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, two distinct ledgers are identified without an independently verified map, or the gravity and current branches cannot descend from one source-bound refinement tower.",
-      "scope_if_false": "The unified composition claim reopens at the failing interface. Branch-local finite theorems retain their own statuses.",
+      "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, carrier, federation, and support screens are silently identified, phase synchronization is promoted to confluence without an accepted-repair bridge, two gauge routes are identified without an independently verified commuting square, or the gravity and current branches cannot descend from one source-bound refinement tower.",
+      "scope_if_false": "The unified composition fails at that interface. Branch-local finite theorems retain their own statuses.",
       "status": "typed_composition_defined_physical_common_tower_open"
     },
     {
@@ -201,6 +229,8 @@
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_geometric_theorem",
       "assumptions": [
+        "finite_cap_BW_certificate",
+        "independent_complete_MGNS1_certificate_on_the_same_tower",
         "support_visible_BW_scaling",
         "oriented_round_cap_rigidity",
         "consistent_orientation_and_time_orientation"
@@ -211,13 +241,13 @@
         "SL2C_PSL2C_Lorentz_identification",
         "hyperboloid_model_of_H3"
       ],
-      "oph_specific_delta": "The standard cap-normal and hyperbolic-boundary geometry is inserted explicitly into the OPH support-visible BW dependency chain, with a proved non-populated-bulk boundary and a no-go theorem against selecting an observer point from one cap alone.",
+      "oph_specific_delta": "The standard cap-normal and hyperbolic-boundary geometry is inserted explicitly into the OPH support-visible BW dependency chain. BW consumes both the finite cap-flow certificate and an independent complete MGNS-1 algebra-state certificate on the same tower; the geometric certificate does not manufacture the modular state. The branch also retains the non-populated-bulk boundary and no-go theorem against selecting an observer point from one cap alone.",
       "novelty_type": "standard_geometry_integrated_into_OPH_branch",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "paper/observers_are_all_you_need.tex"
       ],
-      "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
+      "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, BW is invoked without FiniteCapBWCertificate and independent MGNS-1 on the same tower, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
       "scope_if_false": "The OPH Lorentz/H3 chart claim falls or must be weakened; finite consensus, compact-gauge reconstruction, and unrelated fixed-cutoff results do not automatically fall.",
       "status": "proved_on_branch"
     },
@@ -254,28 +284,29 @@
     },
     {
       "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
-      "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant; on towers carrying the spherical-incidence, disk/mesh, modular cross-ratio, and 2pi-normalization receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of the finite cap-normal BW certificate are produced with quantitative error envelopes; and repair confluence alone underdetermines topology, dimension, orientation framing, and modular normalization (explicit T2, boundary-of-4-simplex, wedge, and wrong-beta countermodels).",
+      "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant. On towers carrying the spherical-incidence, disk/mesh, coherent complex cross-ratio, source-bound cap-flow, KMS-normalization, and related finite receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of FiniteCapBWCertificate are produced with quantitative error envelopes. BW nevertheless requires a separate complete MGNS-1 algebra-state certificate on the same tower. Repair confluence alone underdetermines topology, dimension, orientation framing, modular normalization, and the MGNS state (explicit T2, boundary-of-4-simplex, wedge, and wrong-normalization countermodels).",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "producer_theorem_plus_underdetermination_no_go",
       "assumptions": [
         "repair_completeness",
         "local_diamond",
         "spherical_incidence_receipt",
-        "mesh_crossratio_normalization_receipts"
+        "mesh_and_coherent_complex_crossratio_receipts",
+        "source_bound_cap_flow_and_KMS_normalization_receipts"
       ],
       "imported_results": [
         "classification_of_closed_combinatorial_surfaces",
         "Rado_uniqueness_of_surface_PL_structure",
         "Mobius_cross_ratio_rigidity_on_S2"
       ],
-      "oph_specific_delta": "The BW certificate is produced from normal-form data under decidable finite-stage receipts, which carry the geometric branch content of Einstein branch entry.",
+      "oph_specific_delta": "FiniteCapBWCertificate is produced from normal-form, support, flow, cross-ratio, and normalization data under decidable finite-stage receipts. MGNS-1 is an independently typed algebra-state producer and must land on the same tower before BW can be consumed; GitHub issue #574 owns physical MGNS construction.",
       "novelty_type": "producer_theorem_with_countermodels",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/geometry/quotient_cap_readout.py",
         "code/geometry/test_quotient_cap_readout.py"
       ],
-      "falsifier": "A receipt-carrying tower fails to produce a certificate clause with the stated envelope, an incidence readout depends on schedule/gauge/refinement presentation, or a countermodel is shown to violate a D1 clause it claims to satisfy.",
+      "falsifier": "A receipt-carrying tower fails to produce a FiniteCapBWCertificate clause with the stated envelope, an incidence readout depends on schedule/gauge/refinement presentation, BW is claimed without independent same-tower MGNS-1, or a countermodel is shown to violate a D1 clause it claims to satisfy.",
       "scope_if_false": "The producer branch reopens and the certificate reverts to a declared hypothesis; the conditional BW/Lorentz theorems and unrelated branches survive on their declared forms.",
       "status": "proved_on_receipt_branch"
     },
@@ -310,7 +341,7 @@
     },
     {
       "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
-      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is second-countable and completely regular; under receipts E1-E4 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle) it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, produced conformal metric, C11 connection/curvature readout, and glued scheduler-independent modular clocks; H3 is strictly the frame fiber over events with no equivariant section; and explicit countermodels show dim H3 = 3 promotes nothing by itself.",
+      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is second-countable and completely regular; under receipts E1-E6 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle, quadratic Lorentz-cone fit, and causal reachability), with E4-prime for the curvature upgrade, it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, and a produced conformal metric. Modular flow supplies dimensionless local ordering. An operational clock additionally requires observer-readable transitions, event correspondence, affine calibration, and the stated gluing residual. H3 is strictly the frame fiber over events with no equivariant section; explicit countermodels show dim H3 = 3 promotes nothing by itself.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_construction_theorem",
       "assumptions": [
@@ -378,14 +409,14 @@
         "finite_first_law_delta_S_equals_K_pairing",
         "maxent_envelope_identity"
       ],
-      "oph_specific_delta": "The dropped-edge-term and fixed-surface/changing-channel defects flagged in the audit are repaired with exact machine-verified identities and explicit countermodels for wrong coefficients and wrong edge normalizations.",
+      "oph_specific_delta": "Exact machine-verified split identities handle edge terms and changing channels, with explicit countermodels for wrong coefficients and wrong edge normalizations.",
       "novelty_type": "first_law_repair_with_countermodels",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/geometry/einstein_closure_receipts.py"
       ],
       "falsifier": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family.",
-      "scope_if_false": "The entropy bridge reopens; Axiom-4 status is unchanged.",
+      "scope_if_false": "The entropy bridge and its Axiom-4 support fail.",
       "status": "proved_finite_plus_receipt_branch"
     },
     {
@@ -430,6 +461,7 @@
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
         "all_receipt_families_of_D3h_D4_D4b_D4c_D4d_D5a",
+        "finite_cap_BW_certificate_and_independent_MGNS1_on_the_same_tower",
         "einstein_typed_common_domain_tower",
         "smooth_lorentzian_small_ball_regime",
         "continuum_diamond_kernel_identity",
@@ -532,7 +564,7 @@
         "code/capacity_readback/test_operational_readback_contract.py"
       ],
       "falsifier": "The parity and independent joint channels with identical local marginals have the same capacity, a reversible cyclic channel has only its fixed-projector capacity, a deflationary map reaches a larger positive fixed point from below, identity and erasure fail as countermodels, or a target-derived estimator fails to return its inserted target.",
-      "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map still requires the complete public checkpoint and code receipt.",
+      "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map requires the complete public checkpoint and code receipt.",
       "status": "proved_no_go"
     },
     {
@@ -820,21 +852,44 @@
       "status": "proved_on_declared_echosahedral_carrier_lineage"
     },
     {
+      "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
+      "statement": "The twelve-port boundary of one echosahedral carrier, the routed federation screen formed by carriers and observer supports, and the global support screen whose refinement limit is S2 are different typed objects. Local icosahedral incidence and A5 symmetry do not by themselves determine the federation nerve, global topology, conformal support, or BW flow. A physical carrier-to-support bridge must be source-bound, refinement-natural, and preserve the declared visible incidence and response data.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "finite_no_go_and_open_physical_bridge",
+      "assumptions": [
+        "declared_local_echosahedral_carrier_boundary",
+        "independently_typed_federation_and_support_screens",
+        "source_bound_refinement_required_for_physical_promotion"
+      ],
+      "imported_results": [
+        "graph_and_nerve_nonuniqueness",
+        "combinatorial_surface_classification",
+        "refinement_naturality"
+      ],
+      "oph_specific_delta": "OPH exposes the exact missing morphism between its finite hardware-facing carrier and its support-visible Lorentz branch instead of treating the shared word screen as an identity proof.",
+      "novelty_type": "typed_screen_separation_and_bridge_contract",
+      "evidence": [
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
+      "falsifier": "The declared local twelve-port packet alone determines a unique global S2 support and BW normalization without routing or refinement data, or a proposed physical bridge fails incidence preservation, source binding, or refinement naturality.",
+      "scope_if_false": "The screen-separation no-go or proposed positive bridge must be revised. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
+      "status": "local_to_global_no_go_established__physical_bridge_open"
+    },
+    {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On the declared echosahedral carrier lineage, the finite source packet now derives the twelve unit ports, inverse pairing, A5 action, and rank-three frame. The remaining Q0 package conditionally recognizes the Standard Model quotient, a one-generation rank-15 exterior witness, and a canonical rank-three candidate family band. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admissible multiplicity is N_g=3. A physical three-family conclusion still requires a rank-45 attachment and every screen-current, determinant/spin/deck, exterior/Higgs, matter-selection, family-descent, locality, current-amplitude, and refinement gate. The QFT-Q1--QFT-Q4 implications are typed separately; their OPH-native action, quantum-object, restoration, observable-tower, and resonance producers remain open.",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. On the separately declared realized one-generation, one-Higgs MAR-admissible packet, D8-D9 conditionally select the Standard Model quotient, its hypercharge lattice, structural electroweak force content, and N_c=3. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admitted multiplicity is N_g=3. This route does not use the echosahedral A5 current construction. Physical matter realization and the rank-45 three-family attachment are open, and QFT-Q1--QFT-Q4 have their own producer gates.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "conditional_physical_screen_forcing_theorem",
+      "tier": "conditional_tannaka_mar_reconstruction_and_selection_chain",
       "assumptions": [
         "zero_obstruction_bosonic_branch",
         "transportable_sector_category",
         "compact_gauge_refinement_receipt",
         "finite_tensor_realization_receipt",
-        "certified_echosahedral_carrier_lineage",
-        "PORT_CURRENT_INNER",
-        "determinant_spin_deck_descent",
-        "exterior_Higgs_matter_selection",
-        "A5_family_attachment_and_descent",
-        "COMMON_EW_LOAD_CARRIER"
+        "declared_realized_one_generation_one_Higgs_matter_package",
+        "MAR_economy_axiom"
       ],
       "imported_results": [
         "Doplicher_Roberts_reconstruction",
@@ -842,22 +897,77 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "The source-derived echosahedral selector plus the exact A5 coefficient bracket and exterior Standard Model representation witness reduce physical screen forcing to named current, global-form, sector-selection, family, and load intertwiners. Equal dimensions, slot counts, and abstract deck orbits do not discharge those maps.",
-      "novelty_type": "conditional_construction_and_selection",
+      "oph_specific_delta": "OPH composes refinement-limit sector reconstruction with an explicit realized-package selection stage and keeps the MAR economy rule, especially N_g=3, visible as an axiom-conditional minimum rather than a graph-theoretic theorem.",
+      "novelty_type": "conditional_tannaka_reconstruction_and_mar_selection",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/particles/calibration/source_completion_no_go.py",
+        "code/particles/calibration/wz_strict_series.py"
+      ],
+      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the declared realized packet, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
+      "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
+      "status": "conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open"
+    },
+    {
+      "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the selected 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, select the light matter package, attach three families, or identify this group with the D7-D9 Tannaka/MAR reconstruction.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_A5_screen_current_recognition_chain",
+      "assumptions": [
+        "certified_echosahedral_carrier_lineage",
+        "strengthened_oriented_A5_current_packet",
+        "full_rank_commutator_closed_physical_current",
+        "inner_action_or_physical_noncentral_five_band",
+        "declared_determinant_balance_cover_and_exterior_packet_for_global_and_matter_conclusions"
+      ],
+      "imported_results": [
+        "A5_representation_theory",
+        "compact_Lie_algebra_classification",
+        "covering_group_and_lattice_algebra",
+        "exterior_representation_and_anomaly_algebra"
+      ],
+      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent Tannaka/MAR group.",
+      "novelty_type": "conditional_finite_screen_current_recognition",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
         "code/a5_closure/README.md",
         "code/a5_closure/echosahedral_selector_certificate.py",
         "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
         "code/a5_closure/exterior_sm_completion.py",
         "code/a5_closure/survival_boundary_certificates.py",
-        "Lean/ObserverPatchHolography/Screen/PhysicalA5ForcingNoGo.lean",
-        "code/particles/calibration/source_completion_no_go.py",
-        "code/particles/calibration/wz_strict_series.py"
+        "Lean/ObserverPatchHolography/Screen/PhysicalA5ForcingNoGo.lean"
       ],
-      "falsifier": "The exact Q0 identities fail under their premises, the MAR window or economy minimum is inconsistent, a carrier satisfying every named physical gate fails to realize the stated quotient and matter package, or a required physical map cannot be constructed without importing the Standard Model target.",
-      "scope_if_false": "The failing Q0, economy, or physical-forcing layer falls. Lorentz and consensus branches must be assessed independently.",
-      "status": "conditional_q0_recognition_and_mar_economy__rank45_attachment_and_qft_producers_open"
+      "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, or exterior witness fails under its exact stated premises, or a promoted physical conclusion omits its current, selection, attachment, or refinement receipt.",
+      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 Tannaka/MAR route and unrelated consensus or gravity branches are separately assessable.",
+      "status": "exact_finite_implications_on_strengthened_packet__physical_current_selection_and_family_attachment_open"
+    },
+    {
+      "claim_id": "OPH-SM-ROUTE-IDENTIFICATION",
+      "statement": "The compact group reconstructed from the D7 transportable-sector category and the compact group recognized from the physical A5 screen current are two conditional outputs. Identifying them as one physical gauge group requires a source-bound commuting square: a refinement-natural group isomorphism must intertwine their actions on the same observer-visible current and matter sectors, preserve the global quotient and normalization data, and commute with the common source tower. The physical identification is open.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "open_cross_route_physical_identification",
+      "assumptions": [
+        "inhabited_D7_D9_tannaka_mar_branch",
+        "inhabited_physical_A5_screen_current_branch",
+        "common_source_bound_refinement_tower",
+        "refinement_natural_intertwining_group_isomorphism"
+      ],
+      "imported_results": [
+        "commuting_square_reasoning",
+        "compact_group_isomorphism",
+        "natural_intertwiner_and_representation_equivalence"
+      ],
+      "oph_specific_delta": "The registry exposes the source-identity problem between two mathematically compatible Standard Model routes instead of counting matching Lie types as a proof that they describe the same physical current.",
+      "novelty_type": "open_source_bound_commuting_square_contract",
+      "evidence": [
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex"
+      ],
+      "falsifier": "A proposed identification fails to intertwine the two group actions, quotient kernels, current normalizations, matter representations, or refinement maps on the same source tower; conversely, an explicit target-free receipt satisfying all clauses would close the open status.",
+      "scope_if_false": "No unified physical identity follows. Each conditional route keeps its own branch-local theorem status.",
+      "status": "open_no_source_bound_commuting_square"
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
@@ -888,7 +998,7 @@
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the typed robust form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). The physical packet and the exact regulator-stable slack law s(D_star)=0<s(D) elsewhere remain open. Greatest-fixed-point order theory does not supply singleton uniqueness.",
+      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the typed robust form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). The physical packet and the exact regulator-stable slack law s(D_star)=0<s(D) elsewhere are open. Greatest-fixed-point order theory does not supply singleton uniqueness.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_quantitative_closure_program",
       "assumptions": [
@@ -994,32 +1104,6 @@
       "falsifier": "A supplied exact receipt has vanishing cycle and channel-closure residuals but no reconstructed potential or compressed grading, or an A5- and reversal-covariant exact realization violates the sign-paired 1,3,3,5 multiplicity pattern.",
       "scope_if_false": "The finite modular-gearing carrier theorem falls. The independent finite modular-flow core, BW certificate theorem, screen-register combinatorics, and gauge-current classification require separate audits.",
       "status": "theorem_proved_source_derived_realization_open"
-    },
-    {
-      "claim_id": "OPH-H3-KMS-REPAIRED-4K-STATUS",
-      "statement": "The repaired 4096-patch H3/KMS campaign cell has instrument status VALID_PASS and exact disk replay, while campaign_complete is false, cell scientific status is INCOMPLETE, replay scientific status is NOT_EVALUATED_BY_DISK_REPLAY, and physical promotion is forbidden. The run records no scientific failure because the physical theorem was not evaluated: the support and state towers are not independently source-produced, modular and geometric parameters lack independent normalization, and event/frame outputs remain postcapture diagnostics.",
-      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
-      "tier": "fail_closed_empirical_campaign_status",
-      "assumptions": [
-        "frozen_4096_patch_campaign_cell",
-        "exact_disk_replay",
-        "declared_four_rung_three_seed_campaign",
-        "source_separation_required_for_physical_promotion"
-      ],
-      "imported_results": [
-        "content_addressed_replay",
-        "preregistered_campaign_accounting"
-      ],
-      "oph_specific_delta": "The status distinguishes instrument validity from physical evaluation and keeps support regulators, modular states, geometry, and event reconstruction behind independent producer gates.",
-      "novelty_type": "empirical_status_and_promotion_firewall",
-      "evidence": [
-        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
-        "code/geometry/H3_KMS_CAMPAIGN_STATUS_2026-07-20.md",
-        "code/geometry/runs/h3_kms_repaired_4k_status.json"
-      ],
-      "falsifier": "The frozen receipt fails exact replay, the campaign contains the complete declared rung/seed matrix, or independent source-produced state, geometry, modular-time, and event-manifold receipts discharge every listed not-evaluated reason.",
-      "scope_if_false": "The stated campaign status must be revised. The analytic conditional BW, event-manifold, and Einstein implications remain separate.",
-      "status": "instrument_valid_science_incomplete_physical_promotion_forbidden"
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",
@@ -1140,7 +1224,7 @@
         "heterotic_standard_model_candidate_literature",
         "string_compactification_language"
       ],
-      "oph_specific_delta": "OPH supplies a precommitted comparison registry and gates that a known string representative must satisfy without retuning. The audit separates dynamical stabilization from target identifiability, defines the constraint-augmented locking map, proves exact and interval local-isolation criteria, requires branch and catalogue coverage for uniqueness, separates the 142-real-dimensional published pre-completion slice from the unprovided completed physical slice, and proves proxy rank zero on the former.",
+      "oph_specific_delta": "OPH supplies a precommitted comparison registry and gates that a known string representative must satisfy without retuning. The audit separates dynamical stabilization from target identifiability, defines the constraint-augmented locking map, proves exact and interval local-isolation criteria, requires branch and catalogue coverage for uniqueness, separates the 142-real-dimensional published pre-completion slice from the unprovided completed physical slice, and proves proxy rank zero on that published slice.",
       "novelty_type": "selector_continuation",
       "evidence": [
         "extra/observer_patch_holography_as_string_vacuum_selector.tex",

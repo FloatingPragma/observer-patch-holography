@@ -138,7 +138,7 @@ A theorem-grade Lean statement matching Prop 4.2 requires:
 - Schedule independence on the physical quotient, transferring the
   abstract-rewriting confluence result to the structured OPH setting.
 
-The full quotient-normal-form theorem is not yet fully formalised as a single
+The full quotient-normal-form theorem is work in progress as a single
 `World` statement. The abstract-rewriting module is the generic skeleton, while
 `Primitives` discharges concrete carrier and reconstruction subclaims and keeps
 the remaining asynchronous repair obligations explicit so they cannot be

@@ -2294,13 +2294,9 @@ The minimal paper-level interface is therefore
 \]
 The reference firmware caps the LED count at \(12\), maps one PIO state machine per LED when the board has enough PIO capacity, clamps drive time by a duty-cycle budget, and reserves a tail-of-flash region for host-owned records. On small Pico-class boards the reference region is \(64\) sectors of \(4\,\mathrm{KiB}\), i.e. \(256\,\mathrm{KiB}\); larger boards can reserve more when the firmware slot and blob region are kept disjoint. This flash-boundary rule is the firmware analogue of OPH's boundary discipline: the substrate exposes records while record writes leave the substrate intact.
 
-The detailed build files live in \texttt{karma-is-all-you-need/}:
-\begin{flushleft}
-\texttt{papers/hardware.html} for the narrative hardware spec;\\
-\texttt{hardware/README.md} for print guidance;\\
-\texttt{optical-compute/firmware/waveio\_core/} for WaveIO Core sources;\\
-\texttt{firmware/waveio\_core/README.md} for built UF2 release notes.
-\end{flushleft}
+The accompanying build documentation covers the narrative hardware
+specification, print guidance, the WaveIO Core firmware sources, and the built
+firmware release notes.
 
 \subsection{The Coupling Scan}
 

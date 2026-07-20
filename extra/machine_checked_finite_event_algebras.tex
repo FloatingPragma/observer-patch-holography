@@ -66,11 +66,11 @@ The fixed states are exactly the states assigning weight one to the event.
 Pinching commutes with the typed update when the event belongs to the
 commutant. A final adapter turns four projection events into dichotomic
 observables and applies an operator-norm Tsirelson theorem through Mathlib's
-CHSH interface. We compare it with Mathlib, Physlib, Lean-Quantum,
+Clauser-Horne-Shimony-Holt (CHSH) interface. We compare it with Mathlib, Physlib, Lean-Quantum,
 Lean-QIT, and Isabelle/HOL. The artifact pins its Lean and Mathlib revisions
 and records declaration-level axiom dependencies. Complete positivity, a
 Physlib correspondence, rank-one classicality, and a state-expectation CHSH
-bound remain outside the formalization.
+bound are outside the formalization.
 \end{abstract}
 
 \noindent\textbf{Keywords:} formal verification, Lean~4, projective measurement,
@@ -281,7 +281,7 @@ holds without a separate nonzero-weight hypothesis
 
 The fixed-point theorem needs no nonzero-weight guard. A state fixed by a
 zero-weight totalized update would equal the zero matrix, which has the wrong
-trace. The raw function still covers the zero-weight case; the state theorem
+trace. The raw function covers the zero-weight case; the state theorem
 does not carry a redundant premise.
 
 \section{Bundled arbitrary-partition pinching}

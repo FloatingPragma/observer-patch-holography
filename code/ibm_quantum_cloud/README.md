@@ -180,7 +180,7 @@ stability expected of a new exact-number measurement:
 | `ibm_marrakesh`, seed 11 | 4,096 | `2.597` | `2.738` | `2.579` |
 | `ibm_marrakesh`, seed 17 | 4,096 | `2.453` | `2.878` | `2.649` |
 | `ibm_fez`, seed 17 | 4,096 | `2.726` | `2.407` | `2.461` |
-| `ibm_marrakesh`, high-shot `t=0.9` | 32,768 | — | — | `2.550` |
+| `ibm_marrakesh`, high-shot `t=0.9` | 32,768 | n/a | n/a | `2.550` |
 
 The observed ratios range from `2.407` to `2.878` around the target `2.618`.
 The high-shot `t=0.9` bootstrap interval was approximately `[2.492, 2.602]`,

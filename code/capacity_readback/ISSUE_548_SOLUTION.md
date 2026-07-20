@@ -1,4 +1,4 @@
-# Issue #548 — Source-Derived Public-Checkpoint Capacity Packet
+# Issue #548: Source-Derived Public-Checkpoint Capacity Packet
 
 ## Result
 
@@ -69,4 +69,3 @@ runtime/source_derived_public_checkpoint_certificate.json
 ## Remaining theorem boundary
 
 This issue closes the first source-derived reversible packet at frozen `D=24`. It does not supply the source family `D -> packet(D)` or the exact slack law selecting one regulator-stable cosmic dimension. Consequently it does not by itself establish the universe-level equation `N=log M_0(U_N)` at a selected `N`.
-

@@ -23,7 +23,7 @@ L’univers est modélisé comme un point fixe de son propre processus de relect
 
 ## L’idée en langage simple
 
-La physique commence habituellement avec un univers déjà muni d’un
+La physique commence habituellement avec un univers muni d’un
 espace-temps, de champs quantiques, d’un groupe de jauge et de constantes
 mesurées. OPH pose une question plus radicale : **quel est le système minimal
 capable d’avoir un monde ?**
@@ -74,14 +74,15 @@ strictement inférieure à un, possède exactement un point fixe. Des certificat
 d’intervalles à arrondi extérieur vérifient ces hypothèses pour chaque
 application déclarée de $P$ et excluent une seconde racine sur son domaine
 analytique complet. L’identification avec la limite physique de Thomson exige
-encore le transport hadronique issu de la source dans le même schéma.
+le transport hadronique issu de la source dans le même schéma. Sa construction
+est en cours.
 
 L’application déclarée de la source se ferme à
 $\alpha^{-1}=136.994835177413\ldots$. L’application de largeur de jauge se
 ferme à $137.035660136946577\ldots$. Ce sont les sorties uniques de leurs
 applications déclarées, sans valeur continue ajustée. La limite de Thomson
-mesurée vaut $137.035999177(21)$. L’écart restant correspond précisément au
-transport hadronique issu de la source. Le théorème formel d’unicité, les
+mesurée vaut $137.035999177(21)$. La différence correspond précisément au
+transport hadronique issu de la source, dont la construction est en cours. Le théorème formel d’unicité, les
 certificats numériques exacts et la proximité de la limite physique font de
 $P$ le centre quantitatif d’OPH.
 
@@ -108,20 +109,32 @@ $N$ est donc une extension conditionnelle secondaire du
 programme local vérifié de $P$. Ses comparaisons avec l’horizon et le Higgs ne
 deviennent physiques qu’après la démonstration des identifications de porteurs.
 Le [registre des clôtures](docs/CLOSURE_LEDGER.md) donne la construction finie
-complète et ses obligations de preuve.
+complète et ses obligations de preuve ; la [trame de
+preuve](docs/PROOF_SPINE.md) montre comment elles se composent entre les
+articles de microphysique, de consensus et de reconstruction SM/GR.
 
 ## Un univers complet imposé par la cohérence
 
 OPH teste une proposition centrale : **une seule architecture de cohérence
 entre observateurs peut reconstruire l’architecture de notre univers observé.**
-Les résultats finis exacts et les producteurs physiques encore ouverts sont
+Les résultats finis exacts et les producteurs physiques ouverts sont
 distingués ci-dessous.
+
+OPH est invariant sous les changements de présentation cachée qui préservent
+le quotient visible aux observateurs. Il reste sensible à l’incidence des
+ports, à la topologie, aux processus d’enregistrement et aux lois de réponse
+lorsque ces données sont visibles. La géométrie du support physique peut donc
+sélectionner la branche réalisée.
 
 - la relecture et la réparation finies transforment les états privés en
   registres publics stables ;
 - l’algèbre de ces registres donne les probabilités quantiques et l’observation
   répétable ;
-- la géométrie conforme d’un écran sphérique donne le groupe de Lorentz et trois
+- sur la branche munie des reçus globaux de passage de la fédération au support,
+  d’incidence, de maillage, de birapports, de normalisation et de raffinement,
+  ainsi que de la prémisse indépendante de comparaison commune
+  des algèbres et états modulaires sur la même tour, la géométrie
+  conforme du support $S^2$ obtenu donne le groupe de Lorentz et trois
   dimensions spatiales de référentiels ;
 - le flot modulaire, la récupérabilité, le transport nul et la stationnarité de
   l’entropie donnent la relation de première variation tensorielle ; l’équation
@@ -132,21 +145,26 @@ distingués ci-dessous.
   séparation en douze unités, l’appariement inverse, l’action propre de $A_5$
   et le repère icosaédrique de rang trois, naturellement sous raffinement et
   réétiquetage ; cette branche possède exactement la décomposition d’espace de coefficients
-  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
-- les descentes physiques du courant, des traces, du spin et du centre donnent
-  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ lorsqu’elles satisfont leurs
-  reçus explicites ;
+  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ; ce résultat
+  est local et n’impose pas une topologie sphérique au nerf de la fédération ;
+- la route finie du courant $A_5$ et la route des secteurs transportables avec
+  reconstruction de Tannaka et réalisation admissible minimale (MAR) atteignent séparément le même
+  type de Lie du Modèle standard sous leurs hypothèses ; leur identification
+  comme un courant physique unique exige les reçus d’entrelacement, de
+  trace, de Spin, de descente du centre et de raffinement ;
+- l’équilibre des traces et la descente du centre donnent conditionnellement
+  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sous leurs reçus explicites ;
 - le paquet de matière fini déclaré donne un témoin extérieur exact pour une
   génération, les calculs d’hypercharge et d’anomalies, et un porteur à trois
   couleurs ;
 - des contre-modèles finis exacts et un théorème Lean sans admission montrent
   que le réducteur exposé sans cible ne détermine pas une complétion unique ;
 - la bande canonique de rang trois est une candidate pour l’espace des
-  familles ; son attachement physique de rang 45 reste ouvert, et $N_g=3$ est
+  familles ; son attachement physique de rang 45 est ouvert, et $N_g=3$ est
   le minimum de la classe économique MAR déclarée plutôt qu’un théorème issu
   de la source ;
-- les mêmes clôtures $P$ et $N$ relient les échelles de jauge, de Higgs, de
-  gravité et de cosmologie.
+- les applications conditionnelles de clôture $P$ et $N$ testent des liens
+  possibles entre les échelles de jauge, de Higgs, de gravité et de cosmologie.
 
 Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
 même exigence : chaque description locale doit se recoller en un monde
@@ -154,20 +172,16 @@ récupérable et capable de se relire. La récupération conjointe de
 l’observation quantique, de l’espace-temps lorentzien, de la gravité
 conditionnelle d’Einstein, du paquet fini de reconnaissance du Modèle standard
 et des tests de clôture quantitative motive le programme OPH. Les reçus
-physiques de source, de Spin, de familles et de scalaire restent des conditions
-explicites. L'atterrissage en théorie quantique des champs est un
-DAG typé : QFT-Q2 et QFT-Q3 descendent en parallèle de QFT-Q1, l'algèbre
-stricte des pôles W/Z appartient à QFT-Q3, et QFT-Q4 exige séparément une tour
-non perturbative d'observables et une continuation analytique. Les implications
-conditionnelles sont explicites ; leurs producteurs natifs OPH restent ouverts.
+physiques de source, de Spin, de familles et de scalaire sont des conditions
+explicites. L'atterrissage en théorie quantique des champs possède quatre
+niveaux typés : action locale finie, constructions quantiques finies exactes,
+restauration perturbative avec algèbre des pôles à ordre fini, puis tour
+non perturbative d'observables avec continuation des résonances. Les routes
+quantique finie et perturbative descendent séparément de l'action locale. Leurs
+implications conditionnelles sont vérifiées par machine et leurs producteurs
+physiques natifs OPH sont ouverts.
 
-État lisible par machine :
-
-    CONDITIONAL_QFT_TIER_DAG_AND_STRICT_WZ_POLE_ALGEBRA_DEFINED__Q1_SOURCE_CONSTRUCTION_Q2_Q4_OBJECTS_Q3_VALIDATION_AND_OPH_PRODUCERS_OPEN
-    DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
-    CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL
-
-Les prémisses techniques et les obligations de preuve restantes sont
+Les prémisses techniques et les obligations de preuve ouvertes sont
 regroupées à la fin de ce document, au lieu d’interrompre l’introduction du
 résultat positif.
 
@@ -179,9 +193,11 @@ part ni d’une variété d’espace-temps, ni d’un contenu de champs, ni d’
 de jauge, ni d’une table de constantes. Elle renvoie des dimensions exactes,
 des groupes compacts, des quotients globaux, des charges, des annulations
 d’anomalies, des multiplicités de représentations et des équations de point
-fixe. Ces sorties viennent du même écran et de la même architecture de
-réparation. Leur dépendance commune constitue l’argument principal en faveur
-d’un seul monde physique.
+fixe. Ces sorties viennent d’une même architecture typée de porteurs, de
+recouvrements et de réparation. La route icosaédrique locale et la route des
+secteurs compacts se rencontrent au niveau du type de Lie du Modèle standard. Leur
+identité physique issue de la source est un test ouvert. Cette dépendance
+commune constitue l’argument principal en faveur d’un seul monde physique.
 
 Les preuves prennent plusieurs formes : démonstrations sur papier, sous-ensemble
 arithmétique exacte, certificats d’intervalles, reçus
@@ -194,17 +210,48 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
 
 - le consensus fini donne des registres publics stables et des formes normales quotientées ;
 - les algèbres centrales de registres donnent les probabilités d’événements quantiques et la mise à jour conditionnelle ;
-- la géométrie conforme d’un écran d’observateur donne le groupe de Lorentz connexe et un espace tridimensionnel de référentiels d’observateur ;
+- sur la branche globale certifiée, la géométrie conforme du support $S^2$
+  donne le groupe de Lorentz connexe et un espace tridimensionnel de
+  référentiels d’observateur ;
 - le flot modulaire, le transport nul, la stationnarité de l’entropie et la géométrie des petites boules se composent conditionnellement en relation d’Einstein sur une même tour issue de la source, avec domaine commun, limites asymptotiques certifiées et identifications physiques indépendantes ; la construction et la certification de cette tour sont en cours ;
-- les charges transportables et la reconstruction compacte donnent la structure de jauge du Modèle standard ;
-- une construction finie à douze ports fondée sur $A_5$ produit l’algèbre de Lie
+- les secteurs transportables et la reconstruction compacte produisent une
+  route conditionnelle vers la structure de jauge du Modèle standard ;
+- une classification finie et locale à douze ports fondée sur $A_5$ produit
+  séparément le même type de Lie
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
-- l’équilibre des traces intègre cette algèbre en
-  $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
-- la branche de réalisation admissible minimale sélectionne le réseau de charges du Modèle standard, trois couleurs, trois générations et un doublet de Higgs ;
+- l’équilibre des traces et la descente du centre conduisent conditionnellement
+  à $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
+  l’identité physique des deux courants exige un reçu séparé ;
+- la réalisation admissible minimale sélectionne le réseau de charges déclaré,
+  trois couleurs, un doublet de Higgs et $N_g=3$ comme minimum économique ;
+  l’attachement à trois familles physiques est ouvert ;
 - Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
 La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.
+
+La parcelle d’observateur est une structure d’accès borné, de registre, de
+relecture et de réparation. Un Échosaèdre est un porteur primitif candidat sur
+la branche homogène. Il devient un observateur seulement si ces fonctions sont
+physiquement réalisées.
+
+Trois objets géométriques sont distincts. La frontière locale du porteur
+est l’objet icosaédrique à douze ports. L’écran de fédération est la fédération et son
+nerf de recouvrement. L’écran support est la carte $S^2$ visible à
+l’observateur sur la branche sphérique certifiée séparément. Une symétrie
+icosaédrique locale peut donc coexister avec un nerf global non sphérique.
+
+Le verrouillage de phase est un mécanisme physique candidat pour la comparaison
+cohérente des recouvrements. Il doit produire la relation de réparation,
+la confluence, les registres publics et les bornes de bruit. Aucun théorème ne
+l’identifie au consensus, au flot modulaire ou à une horloge d’observateur.
+
+Sur la branche sphérique certifiée, l’ordre des registres fournit une histoire
+candidate. Une horloge physique exige une transition lisible par
+l’observateur, une correspondance entre événements et un étalonnage affine.
+Des horloges ainsi calibrées peuvent produire un temps public commun. La
+symétrie conforme du support $S^2$ donne alors le groupe de Lorentz et l’espace
+tridimensionnel des référentiels d’observateur. La variété physique des
+événements exige les reçus séparés de l’article compact.
 
 ## Le résultat fini le plus fort
 
@@ -222,7 +269,11 @@ $$
 \mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-C’est l’algèbre de Lie locale des forces de jauge du Modèle standard. Elle est obtenue à partir de la géométrie finie des coefficients plutôt que posée comme symétrie initiale.
+C’est une classification exacte du type de Lie local du Modèle standard sur
+la lignée déclarée. Elle est obtenue à partir de la géométrie finie des
+coefficients. Son identification avec le courant physique reconstruit par la
+route de Tannaka/MAR exige les reçus de source, de Spin, de centre et de
+raffinement.
 
 La même construction fait apparaître deux fois, indépendamment, le nombre $24$ :
 
@@ -232,24 +283,22 @@ $$
 
 tandis que les douze ports de l’écran donnent $24$ emplacements orientés. Un compte provient de l’algèbre de jauge reconstruite ; l’autre de la géométrie de l’écran.
 
-## Une chaîne de reconstruction
+## Une reconstruction avec tronc commun et branches
 
 ```text
-parcelles auto-lectrices
+fédération de porteurs sélectionnée par la source
         ↓
-registres, comparaison des recouvrements, réparation
+parcelles avec registres, comparaison et réparation
         ↓
 formes normales quotientées publiques
+        ├─ reçus fédération-support → géométrie des calottes S2 et flot géométrique
+        ├─ tour indépendante d’algèbres et d’états → flot modulaire
+        │       composition sur la même tour → Lorentz et branche d’Einstein conditionnelle
+        └─ secteurs transportables → Tannaka → paquet MAR
+             ↕ identité du courant physique ouverte
+           courant A5 local à douze ports → type de Lie du Modèle standard
         ↓
-géométrie conforme de l’écran et flot modulaire
-        ↓
-cinématique de Lorentz, temps d’observateur, dynamique d’Einstein
-        ↓
-charges transportables et reconstruction compacte
-        ↓
-SU(3) × SU(2) × U(1) / Z6 et matière du Modèle standard
-        ↓
-programmes de points fixes quantitatifs et de lecture physique
+tests quantitatifs de clôture et de lecture physique
 ```
 
 Les hypothèses détaillées et les types de reçus sont énoncés dans les articles. La page d’accueil du dépôt est volontairement une carte du résultat positif, et non un substitut à ces énoncés de théorèmes.
@@ -260,13 +309,13 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface d’événements quantiques | Probabilités de Born, conditionnement de Lüders et borne de Tsirelson sur la surface finie des registres | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Relativité | $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Algèbre de jauge finie $A_5$ | Construction exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Algèbre de jauge finie $A_5$ | Construction locale exacte de $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports ; aucune conclusion automatique sur un support global $S^2$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection MAR conditionnelle $N_g=3$ ; l’attachement physique des familles reste ouvert, tandis que les implications QFT et leurs producteurs OPH encore ouverts sont séparés explicitement | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Atterrissage QFT | Invariance de l’action finie QFT-Q1 ; critères de ligne déterminante et hamiltonien QFT-Q2 ; restauration formelle BV/ST et algèbre W/Z stricte QFT-Q3 ; implications OS et résonance QFT-Q4 séparées. QFT-Q2 et QFT-Q3 sont parallèles et toutes les constructions natives de la source restent des portes de promotion | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique actuel reste une régression de backend post-exposition ; l’appariement OPH/FJ, un moteur jauge/BRST indépendant, la covariance, les amplitudes de courant physique et l’horloge restent ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection MAR conditionnelle $N_g=3$ ; l’attachement physique des familles est ouvert, et les implications conditionnelles de théorie des champs sont séparées de leurs producteurs physiques OPH | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition ; l’appariement à la source, un moteur indépendant de symétrie de jauge, la covariance, les amplitudes de courant physique et l’horloge sont ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
 | Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet de simulateur issu de la source à coupure fixe $D=24$ est certifié, tandis que son attachement physique, la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -317,17 +366,17 @@ python3 -m pytest -q \
 Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
 propre et la portée de chaque contrôle.
 
-## Obligations de preuve et frontière de falsification
+## Obligations de preuve ouvertes et frontière de falsification
 
 Le récit principal ci-dessus expose le résultat positif. Les obligations
-restantes sont regroupées ici. L’objet fini central contient l’ensemble des
+ouvertes sont regroupées ici. L’objet fini central contient l’ensemble des
 états accessibles, la politique qui décide quels registres sont publics, les
 noyaux globaux de tous les points de contrôle, les projections du porteur et
 les applications de raffinement.
 
 Sur la branche réversible, ce paquet réduit la capacité à
-$M_0=|X_{\rm reach}|$. La question mathématique difficile restante est alors
-de dériver la loi exacte du défaut fini $s(D)$ et de prouver qu’elle possède un
+$M_0=|X_{\rm reach}|$. Le problème mathématique ouvert consiste à
+dériver la loi exacte du défaut fini $s(D)$ et à prouver qu’elle possède un
 unique zéro physique. Viennent ensuite la saturation horizon-registre, le
 porteur commun écran/faible-Higgs, les portes physiques qui forcent exactement
 le Modèle standard, la tour commune de gravité, et les lectures quantitatives

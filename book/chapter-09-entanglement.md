@@ -22,7 +22,10 @@ Imagine you have a pair of quantum scissors and decide to cut the vacuum itself.
 
 In classical physics, this is boring. Space is just coordinates. You label one side A and the other side B. Nothing changes.
 
-In quantum physics, the vacuum is anything but empty. Fields fluctuate. Virtual particles pop in and out of existence. When a pair appears near your cut, one half can end up inside your sphere and the other outside. That pair is entangled. Your cut doesn't just separate two regions-it severs a web of correlations that tied them together.
+In quantum physics, the vacuum is full of fluctuating fields. Virtual particles
+appear and disappear. When a pair appears near your cut, one half can end up
+inside your sphere and the other outside. That pair is entangled. Your cut
+separates the regions by severing a web of correlations between them.
 
 ### Experimental Evidence
 
@@ -40,7 +43,9 @@ Instead, for ground states of local systems, the entropy scales with the **bound
 
 $$S(A) \propto |\partial A|$$
 
-This is the **area law** for entanglement entropy. Only degrees of freedom near the boundary-within a correlation length of the cut-contribute to the entanglement.
+This is the **area law** for entanglement entropy. Only degrees of freedom near
+the boundary, within a correlation length of the cut, contribute to the
+entanglement.
 
 Read the notation literally. $A$ is the region being studied. $\partial A$ is
 its boundary, the cut between inside and outside. $S(A)$ is the entropy seen
@@ -60,11 +65,13 @@ from correlations.
 
 Recall our core thesis: reality is the process of making observations between observers consistent.
 
-If there were no correlations across your cut, the vacuum wouldn't glue itself together. You couldn't walk from A to B without noticing a seam-a glitch where observations would fail to match.
+If there were no correlations across your cut, the vacuum wouldn't glue itself together. You couldn't walk from A to B without noticing a seam where observations fail to match.
 
 **Space is not a stage that matter lives on. Space is the pattern of correlations that enables observer agreement.**
 
-Two regions are "close" when they share many quantum correlations-when observations in one region constrain observations in the other. Two regions are "far" when they share few correlations-when they are nearly independent.
+Two regions are "close" when they share many quantum correlations, so
+observations in one constrain observations in the other. They are "far" when
+they share few correlations and are nearly independent.
 
 Distance is not a primitive. It emerges from the entanglement structure of the vacuum state.
 
@@ -105,9 +112,10 @@ field theory is allowed to resolve. The logarithm appears because a
 two-dimensional conformal field theory organizes correlations scale by scale.
 The formula is compact, but every symbol carries a physical role.
 
-In AdS_3, the minimal "surface" is a geodesic-a shortest path through the bulk. Compute its length using the AdS metric. Divide by 4G.
+In AdS_3, the minimal "surface" is a geodesic, the shortest path through the bulk. Compute its length using the AdS metric. Divide by 4G.
 
-**With the standard cutoff identification, they match.** Two completely different calculations-one from quantum field theory, one from geometry-give the same answer.
+**With the standard cutoff identification, they match.** A quantum field theory
+calculation and a geometric calculation give the same answer.
 
 ## 9.4 Bell's Theorem: The Reality of Entanglement
 
@@ -195,7 +203,7 @@ Draw threads: imaginary lines carrying entanglement. The density of threads can'
 
 The maximum number equals the RT entropy.
 
-This is a **max-flow, min-cut theorem** in a gravitational setting. The minimal surface is where thread density is maximized-the bottleneck.
+This is a **max-flow, min-cut theorem** in a gravitational setting. The minimal surface is the bottleneck where thread density is maximized.
 
 In the language of this book, threads are the links that let observers compare notes. The more threads between two regions, the more they can agree about shared observations.
 
@@ -232,7 +240,7 @@ is encoded in boundary degrees of freedom with a supplied code structure.
 
 If entanglement builds space, why does space look local? Why can't you step from New York to Tokyo in one move?
 
-The answer is **monogamy of entanglement**.
+**Monogamy of entanglement** supplies the answer.
 
 Quantum entanglement is jealous. If system A is maximally entangled with system B, it can't be entangled with system C at all:
 

@@ -7,8 +7,10 @@ the five-pillar mission are stated in [STRANGE_LOOP.md](STRANGE_LOOP.md); the fo
 chain from the principles to a unique universe is stated in
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); the end-to-end proof strategy and its
 gap register live in [PROOF_SPINE.md](PROOF_SPINE.md). The principle set governs a
-program with zero continuous dials, machine-certified interval and global-uniqueness
-fixed points per declared map, and a sorry-free Lean theorem subset.
+program whose frozen numerical maps introduce no continuously tunable fit dials,
+whose declared fixed points carry machine-certified interval and global-uniqueness
+receipts, and whose finite core includes a sorry-free Lean theorem subset. Open
+physical bridge inputs remain named inputs rather than derived constants.
 
 ## The principles
 

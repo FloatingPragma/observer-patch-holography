@@ -1,13 +1,66 @@
 {
-  "schema": "oph.h3-kms.integration-status.v1",
-  "source_campaign": "survival-proof-4/outputs/run_4k_repaired_20260720",
-  "source_campaign_run_receipt_sha256": "36c5eb61e1684b1081adb9fbc266f9b28819ca1ca70658ee95609871c3895a08",
-  "source_replay_verification_sha256": "3da2834c4c0c6840c59aee579ab100d1729be8007027919558c2448d9e4ce571",
+  "schema": "oph.h3-kms.integration-status.v2",
+  "source_campaign": "survival-proof-4/outputs/run_4k_acceptance_20260720_v5",
+  "source_campaign_run_receipt_sha256": "d534a1c7de0f677ee340a046da1c874bf28da2ba3d63f525b6546f29f6e1380e",
+  "source_replay_verification_sha256": "b71ab8807dda4cc364c8c57775ef5896474e268c480dbe50220cb7c6d6791e65",
+  "source_campaign_manifest_sha256": "ad1684bca13b3b3f2c08f88ad0ea3f6e8c109e45a6f2d160ddfc6ab11fd14ab3",
+  "source_physical_preflight_sha256": "0eb065c37543f77e9de943ef12cfd9e620186a57bc48b52bf7673fa9dd9c47bf",
+  "source_geometry_controls_sha256": "07a311be7503bf8538e3c4bc5f37d597a9d8a351be81fdcff949f2edd38bbc84",
+  "source_replay_manifest_sha256": "3e05b72b326cf6266ff3c30880ea2c5dbe60289ee6585e0378a8a6b6f40782f4",
+  "source_numerical_runtime_sha256": "ca84a0b44801ed1c9aa3ba4d6a73d9f499a1199ff62c3abcb540f25a3599b0e1",
+  "source_capture_semantic_sha256": "b87f880350bf488b0b756899d54211402f8e9a2f6202a2ede81d5e4640b98f31",
+  "campaign_plan_sha256": "b8f3e870ad7b40266b8b7745a79bc5618d3787d2f728addfecb76a362c3342b7",
+  "numerical_runtime_bound": true,
   "instrument_status": "VALID_PASS",
   "campaign_complete": false,
+  "campaign_status": "INCOMPLETE",
   "cell_scientific_status": "INCOMPLETE",
   "replay_scientific_status": "NOT_EVALUATED_BY_DISK_REPLAY",
+  "physical_preflight_verdict": "NO_GO",
+  "physical_preflight_receipt": false,
+  "physical_stage_status": "NOT_EVALUATED",
   "physical_promotion_allowed": false,
+  "branch_retirement_authorized": false,
+  "replay_receipt_pass_count": 21,
+  "replay_receipt_fail_count": 0,
+  "preflight_blocker_count": 11,
+  "physical_stage_counts": {
+    "PASS": 0,
+    "NOT_EVALUATED": 9,
+    "BLOCKED": 0,
+    "INSTRUMENT_INVALID": 0
+  },
+  "campaign_cell_counts": {
+    "INCOMPLETE": 1,
+    "NOT_EVALUATED": 11,
+    "VALID_PASS": 0,
+    "VALID_FAIL": 0,
+    "INSTRUMENT_INVALID": 0
+  },
+  "support_regulator_cell_count": 5120,
+  "diagnostic_geometry_scores": {
+    "E4": 1.1028243826578335e-16,
+    "S2": 0.007683233691735436,
+    "H3": 0.007697199005539036,
+    "E3": 0.009411812413986226
+  },
+  "diagnostic_geometry_physical_gate_eligible": false,
+  "prime_state_status": "CONSTRUCTED_DIAGNOSTIC_ONLY",
+  "source_selection_a5_quotient_invariance_receipt": false,
+  "constructed_mixed_gns_diagnostic": true,
+  "constructed_repeated_rho_identity_receipt": true,
+  "paper_multiresolution_regulator_certificate": false,
+  "conditional_expectations_receipt": false,
+  "native_bw_payload_conformance_receipt": true,
+  "native_bw_payload_receipt": false,
+  "native_bw_passing_clauses": ["BW02"],
+  "event_clause_status": {
+    "EVENT_E1_POPULATION": true,
+    "EVENT_E2_SEPARATION": false,
+    "EVENT_E3_RANK_FOUR": false,
+    "EVENT_E4_POINCARE_COCYCLE": false
+  },
+  "lorentzian_event_cone_receipt": false,
   "postrun_scientific_failures": [],
   "rungs": [4096, 16384, 65536, 262144],
   "seeds": [20260751, 20260761, 20260771],
@@ -20,5 +73,5 @@
     "model_specific_features_are_sensitivity_diagnostics",
     "event_manifold_outputs_are_postcapture_diagnostics"
   ],
-  "claim_boundary": "A valid frozen instrument and exact disk replay do not evaluate or promote physical H3/KMS emergence."
+  "claim_boundary": "A valid replay instrument and exact disk replay do not override a NO_GO physical preflight. The constructed M4 mixed-GNS diagnostic is not MGNS-1, semantic events are presentation-bound, and no Lorentzian event receipt is obtained. Bundle run_4k_acceptance_20260720_v5 evaluates no physical H3/KMS, event, or spacetime stage and permits neither promotion nor retirement."
 }

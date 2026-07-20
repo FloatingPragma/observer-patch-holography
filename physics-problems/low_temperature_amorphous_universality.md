@@ -16,8 +16,8 @@ readout, while special films can escape it.
 **Status:** conditional OPH phenomenological branch and simulator specification.
 The standard TLS reduction is recovered, while the twelve-port/twenty-four-slot
 acoustic bridge is an explicit model assumption awaiting independent material
-receipts. The numerical output is therefore a within-model benchmark, not yet a
-source-only material theorem.
+receipts. The numerical output is a within-model benchmark and carries no
+source-only material theorem status.
 
 Date: 2026-07-08
 
@@ -630,7 +630,7 @@ e^{-P_{\rm src}/24}
 3.244098917358505\times10^{-3}.
 ```
 
-This is a within-model cell probability, not yet a universal inverse relative
+This is a within-model cell probability. It is not a universal inverse relative
 mean free path.
 
 ## Proposition 4: Event-to-Mean-Free-Path Bridge
@@ -1024,12 +1024,12 @@ The OPH LTAS branch fails if:
 ## Scope
 
 OPH supplies a self-reading-patch organization and a conditional finite-event
-benchmark; it does not yet close the microscopic universality problem. A
+benchmark; it does not close the microscopic universality problem. A
 material-specific claim requires a declared source law, an identified
 rigid-record ensemble, regulated scale-flat action, a derived acoustic
 event/cross-section bridge, pre-registered port/register and reserve receipts,
-and an uncertainty-aware comparison. Until then the $12\times24$ branch is a
-useful visualization and falsifiable ansatz rather than a unique resolution.
+and an uncertainty-aware comparison. The $12\times24$ branch is a useful
+visualization and falsifiable ansatz, with no unique-resolution status.
 
 ## References
 

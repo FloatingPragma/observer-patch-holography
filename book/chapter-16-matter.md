@@ -1,14 +1,11 @@
 # Chapter 16: Matter, Motion, and Classical Physics
 
-The finite matter result is a rank-15 internal representation witness under a
-declared packet. It does not supply the physical spacetime Spin lift, graded
-exchange, nonzero matter residues, three-family attachment, or constructive
-QFT. These remain named receipts. The following implications apply once those
-receipts exist: exact finite-action gauge invariance,
-two alternative finite quantum-object criteria, formal order-by-order
-BV/Slavnov--Taylor restoration, strict fixed-parameter W/Z pole algebra, and
-separate OS and resonance theorems. QFT-Q2 and QFT-Q3 are parallel branches;
-QFT-Q4 is not a consequence of a perturbative pole calculation.
+The finite matter result is a fifteen-state internal representation pattern
+under a declared set of premises. It does not supply physical spin and
+exchange, nonzero particle residues, three-family attachment, or a constructed
+quantum field theory. Those bridges are open in OPH. The familiar
+particle language in this chapter applies after the required action,
+positivity, current, and spectral data are supplied.
 
 ## 16.1 The Intuitive Picture: Matter Is Stuff, Motion Is Force
 
@@ -39,22 +36,23 @@ is why it works so well.
 
 ## 16.3 The First-Principles Reframing: Matter as Stable Patterns
 
-**Matter is a stable pattern in the finite patch federation**.
+On the physical field-theory branch, **matter is a stable pattern in the finite
+patch federation**.
 
 Think of the carrier network as a high-resolution quantum information medium,
 displayed to its internal observers through a screen chart. Most patterns are
-noisy and ephemeral. Some are stable: they survive overlap consistency, persist
-under modular time, and can be stitched across real patch interfaces when the
-records leave one clear track.
-Those stable patterns are what we call **particles**.
+noisy and ephemeral. Candidate particle patterns survive overlap consistency
+and can be stitched across real patch interfaces when the records leave one
+clear track. A positive-energy quantum construction and a detector-coupled
+pole decide which candidates propagate as physical particles.
 
 Matter is not a primitive substance. Particles are not tiny billiard balls.
 Matter is the set of durable, localized excitations of the patch-algebra net,
 shown through the observer-facing screen chart.
 
-A useful analogy is a ripple in a pond. The water is the substrate, but the
-ripple is a pattern that moves and interacts. The ripple is not a separate
-thing but a stable excitation. Particles play the same role in the
+A useful analogy is a ripple in a pond. The water is the substrate, while the
+ripple is a moving, interacting pattern. Its identity is the stable excitation
+itself. Particles play the same role in the
 emergent effective theory.
 
 ## 16.4 From Stable Patterns to the Particle World
@@ -70,10 +68,10 @@ Realization (MAR), the economy rule that selects the smallest admitted packet,
 then gives a conditional Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
 carrier, and the conditional minimum $N_g=3$. The physical family attachment
-remains open.
+is open.
 
-This is where the book leans heavily on the collective history of particle
-physics. Rutherford showed that atoms have small nuclei. Chadwick found the
+This chain inherits the collective history of particle physics. Rutherford
+showed that atoms have small nuclei. Chadwick found the
 neutron. Anderson saw the positron. Yukawa predicted a meson-like carrier of
 the nuclear force. Gell-Mann and Zweig organized hadrons into quarks. Glashow,
 Weinberg, and Salam gave the electroweak theory. Gross, Wilczek, and Politzer
@@ -97,13 +95,14 @@ $m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
 through $E=mc^2$.
 
-The same screen cell also sets the strength of electromagnetism. From the
-outside it is a small geometric departure from the golden-ratio balance of the
-screen. From the inside it is the electromagnetic step available to observers.
-The fixed-point equation identifies those two readings, and the gauge transport
-carries the result through electroweak mixing and the charged quantum vacuum to
-the familiar long-distance value of the fine-structure constant, whose inverse
-is close to 137.
+On the local closure proposal, one dimensionless screen coordinate organizes
+the strength of electromagnetism. From the geometric side it is a small departure from the
+golden-ratio balance of the screen. From the inside it is the electromagnetic
+step available to observers. The fixed-point equation identifies those two
+readings, and the declared gauge transport carries the result through
+electroweak mixing and the charged quantum vacuum to a long-distance inverse
+coupling close to 137. Physical promotion requires the source and transport
+attachments stated in the paper stack.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction
@@ -113,11 +112,13 @@ $$
 m_{\rm rep}=2(8+3+1)=24.
 $$
 
-The icosahedral interface has twelve ports and twenty-four oriented slots. The
-vertices mark those exposed interfaces in the screen chart. The numerical
+The icosahedral carrier boundary has twelve ports and twenty-four oriented
+slots. Its vertices mark local exposed interfaces, not points on the global
+support chart. The numerical
 match does not place gauge generators on the ports, define inverse updates, or
 produce an invariant literal $8+3+1$ partition. A physical identification
-requires the separately checked current map and closure receipts. The Higgs
+requires a separately constructed current map and proof that its algebra
+closes. The Higgs
 and top occupy a linked critical balance inside that quantitative structure.
 
 Where can a three-place family candidate come from? The icosahedron supplies
@@ -134,8 +135,9 @@ where $R$ advances one corner. The icosahedral action carries the same unordered
 spectrum from face to face. The sixty face-corner flags are the local copies of
 this dial. After a declared quotient and economy selection, this geometry
 leaves a canonical rank-three candidate band. It becomes a three-generation
-chiral family space only if the open rank-45 physical attachment, family
-descent, locality, residue, and refinement receipts are supplied.
+chiral family space only if one physical complex space ties three copies of the
+fifteen-state matter pattern together and survives the required locality,
+spectral, family-descent, and refinement tests.
 
 The candidate family triplet and the color triplet do different jobs. The face
 triplet supplies a possible family multiplicity carrier; the fundamental
@@ -143,9 +145,10 @@ triplet of $SU(3)$ counts the three colors of a quark on the conditional matter
 packet. Their shared use of the number three comes from different parts of the
 architecture and is not itself a physical attachment theorem.
 
-Reversible repair supplies the write/verify pair. Radial readback places the
-three eigenvalues in the positive square-root-mass geometry, while the binary
-record balance fixes the transverse-to-uniform ratio. The resulting angle gives
+The finite charged-family control supplies a reversible write/verify pair.
+Radial readback places the three eigenvalues in the positive square-root-mass
+geometry, while the binary record balance fixes the transverse-to-uniform
+ratio. The resulting angle gives
 the Koide value
 
 $$
@@ -161,7 +164,7 @@ three-cycle and the record layer selects a stable response. Identifying its
 three eigenmodes with the electron, muon, and tau directions additionally
 requires the open nature, electromagnetic-transport, and pole attachments.
 
-If the physical attachment receipts select the same global family triplet, it
+If the physical construction selects the same global family triplet, it
 carries the quarks and neutrinos. Quarks need six
 Yukawa coordinates at one common scale: three for the up-type sector and three
 for the down-type sector. Their values run with energy as gauge and Higgs
@@ -205,8 +208,8 @@ into baryon number, and freeze-out preserves the excess.
 
 ## 16.5 What Is a Particle?
 
-By the time the book reaches matter, the old billiard-ball picture has fallen
-away. A particle is the stable way an excitation shows up under the
+At the matter layer, the old billiard-ball picture falls away. A particle is
+the stable way an excitation shows up under the
 symmetries of the world. Wigner taught physics to catalogue those recurring
 roles by mass and spin, and OPH inherits the same catalogue once Lorentz
 kinematics emerges from screen dynamics.
@@ -235,10 +238,11 @@ tracking the symmetry structure, not converting units.
 ## 16.6 What Is Energy?
 
 Energy is the price a pattern pays to keep unfolding through time. In this
-framework,
-time first appears as modular flow, so energy first appears as the generator of
-that flow. Far enough out in the effective world, this becomes the ordinary
-Hamiltonian language and the stress tensor familiar from field theory.
+framework, modular flow first supplies a candidate generator. Once geometry and
+a calibrated observer clock identify that generator with time translation, its
+conserved charge becomes physical energy. Far enough out in the effective
+world, this is the ordinary Hamiltonian language and the stress tensor familiar
+from field theory.
 
 The Hamiltonian is the operator that generates time evolution. The stress tensor
 is the field-theory object that records where energy and momentum are and how
@@ -339,7 +343,10 @@ is constrained by the system-environment coupling and by which observables can
 be stably shared across patches. States that cannot be consistently shared
 across patches do not survive as "real" in the intersubjective sense.
 
-So classical physics is the **stable, compressible limit** of the deeper quantum structure: the patterns that survive the consistency filter. The world looks deterministic because only the consistent patterns-the ones that all observers can agree on-rise to the level of "facts."
+Classical physics is the **stable, compressible limit** of the deeper quantum
+structure: the patterns that survive the consistency filter. The world looks
+deterministic because only patterns that observers can agree on rise to the
+level of "facts."
 
 ### Why Classical Physics Isn't Fundamental
 
@@ -357,9 +364,10 @@ decoherence leaves classical correlations behind.
 ## 16.10 Reverse Engineering Summary
 
 Classical physics is not the starting point. It appears when quantum
-information on the screen organizes into stable patterns, modular time becomes
-geometric, and overlap consistency enforces locality. Matter is not primitive
-stuff but a family of stable excitation patterns. The particle catalogue is
+information in the finite federation organizes into stable patterns, modular ordering
+acquires a calibrated geometric clock interpretation, and overlap consistency
+enforces locality. Matter is a family of stable excitation patterns rather
+than primitive stuff. The particle catalogue is
 not arbitrary. It comes with a constrained pattern of charges, carriers,
 couplings, and masses. Energy is the charge of time
 translations. Stationary action is the classical limit of quantum interference. The deterministic world
@@ -372,7 +380,7 @@ does not present them in the same way. A W boson is an electroweak carrier. A
 proton is a bound QCD object. Treating those as the same kind of number would
 erase the physics that makes matter recognizable.
 
-### Matter as a Public Achievement
+### Matter as a Public Structure
 
 The ordinary word "matter" hides several layers of stabilization. At the
 lowest level relevant here are quantum fields and excitations.
@@ -389,11 +397,11 @@ decay channels.
 Atoms add another layer. The electron's small mass, the electromagnetic
 coupling, quantum exclusion, and nuclear structure together make chemistry
 possible. Molecules add shape and bonding. Macroscopic objects add
-decoherence and redundant environmental records. A chair is public not
-because it is more fundamental than a quark, but because enormous
-numbers of microscopic degrees of freedom have settled into patterns that
+decoherence and redundant environmental records. A chair is public because
+enormous numbers of microscopic degrees of freedom have settled into patterns that
 scatter light, resist pressure, leave traces, and can be sampled by many
-observers without being destroyed.
+observers without being destroyed. This does not make it more fundamental than
+a quark.
 
 The history of matter physics is correspondingly collective. Dalton revived
 atomic theory for chemistry. Mendeleev saw order in the periodic table before

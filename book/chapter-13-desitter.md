@@ -101,11 +101,11 @@ radiates like a black body:
 $$T_{dS} = \frac{\hbar H}{2\pi k_B}$$
 
 For our universe, this is about 10^{-30} Kelvin, far below direct detection.
-In conventional inflationary cosmology, horizon-scale quantum fluctuations are
-stretched and later seed structure formation. OPH assigns that job to finite
-observer-screen synchronization: screen geometry and source release supply
-large-scale coherence, and ordinary Boltzmann transfer carries finite
-source data to the sky.
+Conventional inflationary cosmology stretches horizon-scale quantum
+fluctuations that later seed structure formation. OPH studies finite
+observer-screen synchronization as a candidate source of the same large-scale
+coherence. The physical synchronization law, source release, and common
+Boltzmann-transfer packet are work in progress.
 
 The symbols echo earlier horizon physics. $T_{dS}$ is the de Sitter
 temperature. $\hbar$ is Planck's constant divided by $2\pi$. $H$ is the Hubble
@@ -154,7 +154,9 @@ $$N_{\text{scr}} = S_{dS} = \pi N_{\text{patch}} \approx 3.31 \times 10^{122},$$
 
 or about $4.77 \times 10^{122}$ bits.
 
-That is the practical meaning of the formula. It is a capacity statement. The patch does not contain an infinite amount of information hidden in a smooth continuum. It contains a finite number of distinguishable states, and the area of the horizon tells you how large that state space can be.
+The formula is a capacity statement. The patch contains a finite number of
+distinguishable states, and the horizon area determines how large that state
+space can be.
 
 This finite entropy has major implications. An observer's accessible patch has a
 finite information capacity. The smooth continuum starts to look like an
@@ -274,7 +276,7 @@ At fixed $D=24$, the source-derived reversible simulator packet contains 24
 reachable records, a complete declared one-fault terminal fiber, and an empty
 compound confusability graph. Its certificate gives $M_0(q)=24$ on the
 terminal world inside the declared source category. Its attachment to the
-physical universe remains open, and this fixed-cutoff result does not select a
+physical universe is open, and this fixed-cutoff result does not select a
 cosmological capacity.
 
 An independent finite $A_5$ control makes the implementation boundary sharp.
@@ -358,21 +360,20 @@ So the "early universe" in this book means the hot dense side of the
 reconstructed record: the side where the effective plasma is opaque, radiation
 dominates the bookkeeping, and the CMB surface is not transparent. It names a
 record-side limit rather than an absolute origin of being. Likewise, "cosmic
-time" is an effective clock that appears when many local records synchronize,
-an internal clock rather than an external stopwatch measuring spacetime from
-outside.
+time" is an effective clock that appears when many local records synchronize
+and their event correspondences and calibrations agree. It is read from
+inside the reconstructed world, not from an external stopwatch.
 
-Inflation is where this distinction becomes operational. Standard cosmology
-introduces an inflaton field to explain flatness, horizon coherence, and the
-nearly scale-invariant pattern in the CMB. OPH assigns those jobs to finite
-observer-screen synchronization.
-Flatness belongs to the selected spatial branch, horizon coherence to shared
-boundary repair, the near scale-invariant pattern to screen geometry and
-release, and the acoustic peaks to ordinary Boltzmann evolution once finite
-source data are fixed. The CMB and growth curves are empirical tests of that
-source story.
+Standard cosmology uses an inflationary phase to explain flatness, horizon
+coherence, and the nearly scale-invariant pattern in the CMB. The conditional
+OPH cosmology branch distributes those roles across a selected spatial branch,
+shared boundary repair, screen geometry, a release law, and ordinary Boltzmann
+evolution. A physical source that supplies this complete chain is work in
+progress. CMB and growth data provide the empirical test once that source
+packet exists.
 
-The screen release has a precise form. The scalar field is one third of the
+On the declared conditional source branch, the screen release has a precise
+form. The scalar field is one third of the
 logarithmic volume change on a uniform-density release surface, with the average
 and dipole removed. A source-side maximum-entropy law fixes its amplitude from
 the release energy. The screen precision then gives the exact angular spectrum
@@ -394,15 +395,16 @@ of the three-dimensional spectrum and the screen fixes its amplitude. The
 second combines correlations from many radii, much like medical tomography
 combines many views to reconstruct an interior.
 
-The finite source carries the reserve density, release law, stress, clock,
-freezeout surface, physical scale, and radial reconstruction. Ordinary
-Boltzmann transfer then carries that source through temperature and
-polarization spectra. The displayed scalar tilt is the screen-side value before
-that familiar cosmological transfer.
+The physical composition requires one source to carry the reserve density,
+release law, stress, calibrated clock, freezeout surface, physical scale, and
+radial reconstruction. No certified source packet carries this complete set;
+its construction is work in progress. The displayed scalar tilt is a
+screen-side conditional value. Temperature and polarization spectra require
+the separate Boltzmann-transfer packet.
 
 ## 13.7 Scrambling and Chaos
 
-De Sitter space is a **fast scrambler**-perhaps the fastest possible.
+De Sitter space is a **fast scrambler**, perhaps the fastest possible.
 
 Information sent toward the horizon gets thermalized, mixed with all the other quantum information. The scrambling time is:
 
@@ -461,7 +463,7 @@ pull on stars and light, and mostly ignore electromagnetism. That answer works
 well in large-scale cosmology, but the particles themselves have not shown up
 in detectors. MOND takes the opposite route and changes the low-acceleration
 law of gravity. It captures a surprising amount of galaxy phenomenology, while
-clusters and precision cosmology remain difficult terrain.
+clusters and precision cosmology are difficult terrain.
 
 OPH reads the same evidence through the observer screen. A galaxy is luminous
 matter, dust, gas, and dark gravitational behavior inside a finite de Sitter

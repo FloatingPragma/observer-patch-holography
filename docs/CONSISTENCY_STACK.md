@@ -17,6 +17,25 @@ from a scalar direct public-record map with capacity-extension naturality to
 its greatest fixed point; construction of that physical map is open. The chain C1 to C10
 runs end to end with every open item named and mapped to a generator.
 
+## Typed screens and the invariance rule
+
+The stack is presentation-invariant but carrier-architecture-sensitive. A
+relabeling or implementation change is silent only when it preserves the full
+observer-facing signature: port count, oriented incidence, accessible algebra,
+response, repair law, records, clock data, and refinement maps. A change to
+that signature can alter the branch. This is why a twelve-port Echosahedral
+carrier can have downstream consequences without making arbitrary hardware
+labels physical.
+
+The word *screen* names three different carriers in this stack. The local
+carrier boundary is one oriented twelve-port interface. The federation screen
+is the routed network of carriers, operational observer supports, records, and
+repairs. The global support screen is the refinement-limit chart that is
+$S^2$ on the BW/Lorentz branch. None of the three is identified with another
+without a source-bound map. One carrier is also not one primitive observer:
+observer status requires readback, durable records, feedback or repair,
+prediction/control, and checkpoint continuation.
+
 ## The selection chain
 
 The argument has one shape from end to end: begin with the space of all
@@ -28,19 +47,28 @@ description must contain observers, records of those observers' readings, and
 a mechanism that keeps records consistent under continued reading. This removes
 all worlds without internal record-keeping. Carrier: the observer-patch normal
 form (consensus paper); the record/repair architecture (screen microphysics
-paper). Status: principle plus theorem package on the declared branch.
+paper). Physical phase locking can be an implementation of synchronization,
+but it reaches the consensus theorem only after a separate bridge proves
+accepted descent, local diamonds, fairness where used, and quotient-normal-form
+agreement. Status: principle plus theorem package on the declared branch; the
+physical phase-to-consensus bridge is open.
 
 **C2. Overlap consensus.** No observer reads the whole world; descriptions
 must agree where patches overlap. The public world is the quotient normal form
 that survives agreement. This forces the algebraic-quantum language (patch
-algebras, states, trace/Born readings) and, on the S² substrate chart (SL-1),
+algebras, states, trace/Born readings) and, on the S² global-support chart (SL-1),
 forces the kinematics: Conf⁺(S²) ≅ SO⁺(3,1), spatial chart
 H³ = SO⁺(3,1)/SO(3), dimension 6 − 3 = 3. Removed freedom, conditional on the SL-1 chart: given S², signature, dimension, and
 local symmetry group follow; the chart itself is a declared principle and is counted
 where principles are counted. Carrier: compact
 paper, Lorentz branch; consensus paper, quotient normal forms. Status:
 conditional theorem on a source-derived common-domain tower. Construction and
-certification of that tower are work in progress.
+certification of that tower are work in progress. Local $A_5$ incidence does
+not produce this $S^2$; the carrier-to-support bridge is a separate open
+construction. The BW step is also not geometry alone. It consumes
+`FiniteCapBWCertificate` and an independently complete `MGNS-1` algebra-state
+certificate on the same tower. The conditional composition is explicit;
+issue #574 owns physical MGNS construction.
 
 **C3. Modular self-consistency.** A closed system with no external clock needs
 an intrinsic dynamical parameter and an internal way to read it.
@@ -60,16 +88,19 @@ microphysics papers, modular-flow and finite modular-gearing sections. Status:
 finite algebraic theorems established; physical cap-state identification,
 clock calibration, and BW promotion remain receipt-conditional.
 
-The repaired 4,096-patch H3/KMS campaign cell passes its frozen instrument and
-disk-replay checks. Its scientific status is incomplete and physical promotion
-is forbidden because the independent state, geometry, modular-time, and event
-producers are absent. This cell evaluates the instrument, not the physical BW
-or event-emergence theorem.
+The finite cap-flow producer and MGNS-1 are different producers.
+`FiniteCapBWCertificate` carries the support-flow and normalization clauses;
+MGNS-1 carries the complete modular algebra-state representation. BW consumes
+their same-tower pair. A geometric cap certificate cannot stand in for
+MGNS-1, and a modular state without the cap-flow certificate cannot stand in
+for BW geometry.
 
 **C4. Transportable-charge consistency.** Internal labels must transport
-coherently across overlaps. The category of transportable charges, under the
-compact-gauge receipt, reconstructs a compact group (Tannaka-Krein). A
-conditional finite `A5` module admits an exact compact coefficient bracket;
+coherently across overlaps. There are two separate routes. First, the category
+of transportable charges, under the compact-gauge receipt, reconstructs a
+compact group (Tannaka-Krein); D8-D9 then select the declared Standard Model
+packet inside the MAR-admissible realized class. Second, a conditional finite
+`A5` screen-current module admits an exact compact coefficient bracket;
 trace-balanced block integration and the six-axis lattice quotient are exact
 mathematical companions. Independently, the exterior package
 $\Lambda^2(C\oplus W)\oplus\Lambda^4(C\oplus W)$ gives the exact chiral
@@ -78,14 +109,24 @@ and four weak-doublet copies per generation under its declared carrier. This
 is a closed conditional representation witness. On the declared echosahedral
 carrier lineage, the primitive-port readback and oriented-incidence theorem
 closes the unit-port and icosahedral source selectors, including refinement and
-relabeling naturality. Physical forcing from that screen still requires a
+relabeling naturality. Physical forcing from that screen requires a
 physical inner-current action, spin, determinant and deck descent,
 exterior/Higgs and no-extra-sector selection, family attachment, and the
-load/intertwiner receipts.
+load/intertwiner receipts. Identifying the A5 screen-current group with the
+D7-D9 Tannaka/MAR group requires a source-bound, refinement-natural commuting
+square that intertwines their actions, quotient, normalization, and matter
+sectors. Matching Lie types does not construct that square.
 The four weak copies come from exterior multiplicity. No free
 $\mathbb Z_6$ action on the oriented 24-slot bookkeeping register is
 constructed, so the ratio $24/6$ is excluded from the proof.
 Status: conditional mathematical theorem; physical branch construction open.
+
+Within the declared MAR economy class, CP capability and the weak-sector UV
+clause admit $3 \leq N_g \leq 5$, and MAR chooses the least value, $N_g=3$.
+This is an economy-axiom selection, not a theorem of the $A_5$ graph. A
+physical three-family statement requires the complex rank-45 family
+attachment, locality, residue, symmetry-breaking or descent, and refinement
+receipts.
 
 The exact finite $A_5$ capacity control is separate. It gives $M_0=60$ on
 $D_{\rm raw}=60k$ and raw equality only at $k=1$. Since $k$ is invisible to
@@ -134,7 +175,7 @@ and fixed-$D$ refinement stabilization are closed under their premises.
 Checkpoint invariance is not capacity, local marginals do not determine joint
 capacity, and identity/erasure families defeat uniqueness from monotonicity and
 deflation alone. The physical public-checkpoint packet and the exact
-finite-size law $s(D_\star)=0<s(D)$ elsewhere remain open.
+finite-size law $s(D_\star)=0<s(D)$ elsewhere are open.
 Horizon/record saturation and the common screen/electroweak load carrier are
 independent downstream identifications. The operational resolution $\rho_{\rm op}$, continuum averaging,
 and diagonal counts are outside the direct producer lane.
@@ -166,8 +207,12 @@ selections, C1-C6 reduce the remaining quantitative freedom to the two
 coordinates $(P,N)$. C7 supplies their physical-readout requirement. C8-C9 are
 two equations only after their source-only maps are constructed. Unique fixed
 points would then give at most one coordinate pair on that branch. The
-twelve-port-to-Standard-Model selections and physical readback producer remain
-separate branch-nonemptiness obligations. Whether a completed branch describes
+carrier-to-support map, phase-to-consensus bridge, two-route gauge identity,
+twelve-port-to-matter selections, physical rank-45 family attachment, and
+physical readback producer remain separate branch-nonemptiness obligations.
+The unified claim is therefore neither substrate-neutral nor a deduction from
+shape alone. It is a typed claim that one source-bound, architecture-sensitive
+observer system instantiates every bridge. Whether a completed branch describes
 our universe is decided by the closure ledger at zero. "Consistency alone
 generates exactly our universe" remains a theorem-shaped claim whose physical
 and experimental obligations are open.
@@ -258,6 +303,5 @@ construction.
   branch nonemptiness and receipt gates stay visible at the carrier.
 - No C-row is evidence for any other. Evidence enters only through the closure
   ledger.
-- The stack may grow rows (a newly identified consistency requirement is a new
-  C-row with a new carrier), and rows never silently strengthen: changes here
-  are dated, like ledger verdicts.
+- Every consistency requirement has its own C-row and carrier. The date on a
+  row binds its ledger verdict.

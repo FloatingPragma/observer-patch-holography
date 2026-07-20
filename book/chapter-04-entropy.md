@@ -13,7 +13,8 @@ Ordinary life says otherwise.
 
 Glasses break but don't unbreak. Eggs scramble but don't unscramble. Coffee and milk mix but don't unmix. Ice cubes melt in warm rooms; warm rooms don't freeze into ice cubes. We remember yesterday but not tomorrow.
 
-This is the **arrow of time**-the obvious, everyday fact that past and future are different. But where does it come from?
+This everyday difference between past and future is the **arrow of time**. Its
+origin is the puzzle.
 
 If the fundamental laws are time-symmetric, how does irreversibility emerge? If every microscopic collision can be run backward, why can't we run macroscopic processes backward?
 
@@ -25,7 +26,7 @@ This puzzle tormented physicists for decades. The answer they found is one of th
 
 Entropy entered physics through a practical problem: how to build a better steam engine.
 
-In 1824, a French engineer named Sadi Carnot asked: what is the maximum efficiency an engine can achieve? His answer was startling-the maximum efficiency depends only on the temperatures of the heat source and sink:
+In 1824, a French engineer named Sadi Carnot asked: what is the maximum efficiency an engine can achieve? His answer was startling: the maximum efficiency depends only on the temperatures of the heat source and sink:
 
 $$\eta_{max} = 1 - \frac{T_{cold}}{T_{hot}}$$
 
@@ -40,7 +41,7 @@ fall from hot to cold. No clever gears can beat that temperature ratio.
 
 Rudolf Clausius gave this limit a name: **entropy**. He stated the Second Law of Thermodynamics: in an isolated system, entropy never decreases.
 
-But Clausius's entropy was phenomenological-it described what happens without explaining why. The explanation came from Ludwig Boltzmann.
+Clausius's entropy was phenomenological. It described what happens without explaining why. Ludwig Boltzmann supplied the explanation.
 
 ### Boltzmann's Counting
 
@@ -117,7 +118,11 @@ that part of the record count as low entropy?
 
 **Gravity reverses the usual intuition**.
 
-For a gas in a box with no gravity, uniform is high entropy-it's the most probable configuration. But for a self-gravitating system, uniform is *low* entropy. Gravity wants to clump matter together. Stars, galaxies, and black holes are gravitationally collapsed states with far more microstates than uniform distribution.
+For a gas in a box with no gravity, uniform is high entropy because it is the
+most probable configuration. For a self-gravitating system, uniform is *low*
+entropy. Gravity clumps matter together. Stars, galaxies, and black holes are
+gravitationally collapsed states with far more microstates than a uniform
+distribution.
 
 The hot dense record is like a tightly wound spring. The gravitational degrees
 of freedom were almost completely unexploited. Along the observed cosmological
@@ -150,7 +155,10 @@ physics usually treats the low-entropy side of the cosmological record as a
 brute fact, an unexplained boundary condition. This picture suggests why that
 boundary is structurally important.
 
-Consider: for observers to exist at all, they must be able to form consistent records. Records require entropy gradients-you can only write information by pushing entropy somewhere else. A universe in thermal equilibrium has no observers, no records, no consistency-checking, no reality in the sense we've been developing.
+For observers to exist at all, they must be able to form consistent records.
+Records require entropy gradients because writing information pushes entropy
+somewhere else. A universe in thermal equilibrium has no observers, records,
+consistency checks, or public reality in the sense developed here.
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
@@ -227,7 +235,9 @@ The total state is pure-perfectly known, zero entropy. But look at either qubit 
 
 How can the whole be more ordered than the parts?
 
-The answer: the parts are correlated. Measure the first qubit and get 0, the second is guaranteed to be 0. The randomness is not independent-it's perfectly correlated.
+The parts are correlated. Measure the first qubit and get 0, and the second is
+guaranteed to be 0. The randomness is perfectly correlated rather than
+independent.
 
 ### Entanglement Entropy
 
@@ -259,7 +269,7 @@ $$S_A \propto \text{Area}(\partial A)$$
 
 ### Why Area?
 
-Picture the quantum field on a lattice-a grid of points with quantum degrees of freedom. Neighboring points are entangled.
+Picture the quantum field on a lattice, a grid of points with quantum degrees of freedom. Neighboring points are entangled.
 
 When you draw a boundary around region A, you cut through entanglement links. The entanglement comes from the links you cut-proportional to boundary area.
 
@@ -451,7 +461,9 @@ Observers live inside that budget. Their memory, records, and shared facts are
 possible only because the accessible history contains a low-entropy side far
 enough from equilibrium to make those things worth tracking.
 
-The next chapter builds the algebra of observables-the mathematical structure describing what observers can measure and how their measurements must relate across patches.
+Chapter 5 builds the algebra of observables, the mathematical structure
+describing what observers can measure and how their measurements must relate
+across patches.
 
 Once entropy limits what can be stored, the theory has to say what can be
 asked and compared.

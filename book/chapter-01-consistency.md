@@ -140,7 +140,10 @@ These questions have haunted physics for a century. Different interpretations of
 
 **The hint**: Measurement affects outcomes. Observation is an intervention that changes the system.
 
-**The lesson**: The intuitive picture-where objects carry a full set of classical-style definite properties whether or not we observe them-doesn't work at the quantum level. Which properties can be treated as definite depends on the measurement context and the interpretation.
+**The lesson**: The intuitive picture, in which objects carry a full set of
+classical-style definite properties whether or not we observe them, fails at
+the quantum level. Which properties can be treated as definite depends on the
+measurement context and the interpretation.
 
 **The first-principles reframing**: Observers belong to the physical system. Reality is a conversation we participate in.
 
@@ -194,7 +197,9 @@ only have to agree where their views overlap. When Sam walks down the street and
 marks and a taco wrapper, he updates his account: "Okay, I guess there was a
 truck. I just didn't see it."
 
-That is the overlap test. When observers share access to the same facts, they must agree. When they don't agree, something has to change-a memory corrected, a measurement retaken, a theory revised.
+The overlap test requires observers with access to the same facts to agree.
+Disagreement requires a correction to a memory, a repeated measurement, or a
+revised theory.
 
 ### Science as Systematic Overlap Testing
 
@@ -272,7 +277,7 @@ In 1916, Karl Schwarzschild solved Einstein's equations and found a surface wher
 
 ### Acceleration Horizons
 
-Even without black holes, if you keep accelerating, signals from behind you can never catch up. A horizon forms. To you, the accelerating observer, the vacuum itself appears to glow with thermal radiation-the **Unruh effect**.
+Even without black holes, if you keep accelerating, signals from behind you can never catch up. A horizon forms. To you, the accelerating observer, the vacuum itself appears to glow with thermal radiation called the **Unruh effect**.
 
 **The lesson**: Horizons are observer-dependent. Two observers in the same region can disagree about which events are accessible. Each has their own causal patch. Reality is the overlap of those patches.
 
@@ -384,20 +389,27 @@ In one chart, qudits sit on the edges of a triangulated screen and local
 constraints act at vertices. The chart is not the literal computer on which
 the universe runs. The fixed-cutoff carrier is a federation of finite patches
 whose exposed overlaps, records, and repair moves are read through
-observer-facing screen charts. Maximum entropy selects the realized state
-subject to a stable family of local constraints, and the low-energy sector is
-narrowed further by the minimal realization rule used later in the program.
+observer-facing screen charts. On the reference branch, each elementary
+carrier has twelve ports arranged by icosahedral incidence. Maximum entropy
+selects the realized state subject to a stable family of local constraints,
+and the low-energy sector is narrowed further by the minimal realization rule
+used later in the program.
 
 A qudit is the multi-level cousin of a qubit. A triangulated screen is a finite
 network approximation to an observer-facing cut, not a declaration that the
-substrate itself is a smooth sphere.
+carrier itself is a smooth sphere. The distinction does not make the carrier
+arbitrary. Port number, incidence, orientation, readback, repair, and
+refinement belong to its operational structure. Two materials may instantiate
+one structure. Two interface geometries need not.
 
-What is the output? Everything. Spacetime geometry emerges from entanglement
-patterns. Particles emerge as excitations on the realized field-theory branch.
-Observers emerge as bounded self-reading patterns that maintain records,
-compare interfaces, and condition later behavior on what they read. The laws
-of physics emerge as the rules that permit consistent information flow between
-patches.
+On the geometric branch, controlled refinement of the shared records supports
+the spherical chart, Lorentz kinematics, and the conditional gravity
+construction. On the gauge branch, the twelve-port incidence constrains the
+finite symmetry blocks from which a physical current algebra may be
+recognized. Particles require the later field-theory construction. Observers
+are bounded self-reading patterns that maintain records, compare interfaces,
+and condition later behavior on what they read. These outputs share an
+architecture without sharing a shortcut.
 
 An ordinary simulation has an easy answer to the question of time: the counter
 outside the program says step one, step two, step three. Physics cannot use
@@ -405,17 +417,19 @@ that answer. Relativity makes time depend on the observer's path and
 gravitational field. Quantum gravity makes the problem sharper, because the
 whole universe has no outside clock.
 
-OPH puts the clock inside the system. An observer's time is the order in which
-its records can change, be compared, be repaired, and be remembered. A tick
-means a record event that survives comparison with neighboring patches. Public
-time is the part of those local record orders that can be synchronized across
-overlaps.
+OPH puts the ingredients of a clock inside the system. Repair orders records
+and settles disagreements, but the repair count is not a duration. A physical
+clock also needs a reversible state evolution, an instrument readout, a
+calibration, and a rule pairing one observer's events with another's. Public
+time appears when those calibrated clock records agree around the overlap
+network.
 
 This is how OPH can speak about a closed computation without imagining an
 external programmer watching it run. From inside, observers experience clocks,
 causes, memories, and a future that keeps arriving. From the structural view,
-the same world is a self-consistent pattern whose internal clocks agree where
-they meet. Time belongs to the ordering discipline of the observer network.
+the same world is a self-consistent pattern whose calibrated clocks agree where
+their events meet. The irreversible repair order and the reversible clock law
+do different jobs inside that pattern.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one
@@ -426,7 +440,12 @@ Consciousness is what it feels like to be one of those self-modeling patterns.
 
 This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop needs no external cause because it has no temporal first step waiting to be triggered from outside.
 
-"What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The construction studied here uses finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, organized by maximum entropy, and narrowed at low energy by the minimal admissible realization rule. It is concrete enough to do physics, and broad enough to keep the focus on structure without borrowing a material picture from everyday life.
+“What is the universe made of?” becomes, within OPH, “Which finite carrier
+structure can realize the observer contract?” The reference construction uses
+a federation of twelve-port quantum systems whose repaired public data admit a
+spherical chart. The material can vary within exact operational equivalence.
+The incidence, orientation, state, readback, repair law, and refinement cannot
+be discarded, because those are the parts with downstream physical work to do.
 
 ## 1.12 The Reverse Engineering Ahead
 

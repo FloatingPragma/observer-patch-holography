@@ -7,15 +7,15 @@ finite graph labels, cap labels, and repair-cycle labels.
 \begin{definition}[cosmology claim tiers]\label{def:cosmology-claim-tiers}
 Every cosmology artifact has one of three claim tiers:
 \[
-\texttt{DIAGNOSTIC\_PROXY},\qquad
-\texttt{CONDITIONAL\_PHYSICAL},\qquad
-\texttt{OPH\_NATIVE\_PHYSICAL}.
+\text{diagnostic proxy},\qquad
+\text{conditional physical},\qquad
+\emph{source-native physical}.
 \]
-\texttt{DIAGNOSTIC\_PROXY} covers cap angles, graph mode numbers, repair cycles, sorted covariance
+\emph{diagnostic proxy} covers cap angles, graph mode numbers, repair cycles, sorted covariance
 indices, unit strings, and other finite labels without a physical scale bridge.
-\texttt{CONDITIONAL\_PHYSICAL} imports a frozen FLRW geometry packet and proves the downstream
+\emph{conditional physical} imports a frozen FLRW geometry packet and proves the downstream
 spectral, clock, freezeout, source, transfer, and likelihood contracts relative to that packet.
-\texttt{OPH\_NATIVE\_PHYSICAL} requires the geometry packet and source embedding to be read from the
+\emph{source-native physical} requires the geometry packet and source embedding to be read from the
 OPH quotient carrier.
 \end{definition}
 
@@ -178,7 +178,7 @@ requires either a certified full-screen extension or a certified mode-coupling o
 \[
 \widetilde a_\alpha=\sum_{\ell m}\mathcal K_{\alpha,\ell m}a_{\ell m}.
 \]
-Without that operator the label is \(\texttt{PSEUDO\_ELL}\) or \(\texttt{CAP\_MODE\_INDEX}\).
+Without that operator the label is \(\text{pseudo ell}\) or \(\text{cap mode index}\).
 The observed multipole is produced only after transfer:
 \[
 C_{L_{\rm CMB}}^{XY}
@@ -345,7 +345,7 @@ The physical mode-freezeout time is
 \quad\forall \tau'\in[\tau,\tau+\Delta\tau_{\rm pers}]
 \right\}.
 \]
-This proves a \(\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT}\).  A Boltzmann initial-value
+This proves a \(\text{physical mode freezeout map receipt}\).  A Boltzmann initial-value
 problem additionally requires a common spacelike Cauchy slice.  For
 \(\Sigma_{\star,r}=\{x:T_r(x)=T_{\star,r}\}\) and signature \((-+++)\), spacelikeness requires
 \[
@@ -370,7 +370,7 @@ bounded conserved-state residual.  The finite initial packet contains
 \right).
 \]
 A mode-dependent map alone cannot satisfy
-\(\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}\).
+\(\text{physical freezeout surface receipt}\).
 \end{theorem}
 
 \begin{theorem}[common primordial and anomaly basis]\label{thm:common-primordial-anomaly-basis}
@@ -451,8 +451,8 @@ k_{r,I},\ell_{\rm src},a_r(\tau_n),z_r(\tau_n),\eta_r(\tau_n),
 is unique modulo the declared spatial diffeomorphism/isometry quotient, unitary rotations inside
 degenerate spectral projectors, frozen topology and boundary sector, curvature convention, and
 solver convention.  It converges on the declared safe physical band.  The tier is
-\(\texttt{CONDITIONAL\_PHYSICAL}\) when \(\mathfrak G_r\) is imported and frozen.  The tier is
-\(\texttt{OPH\_NATIVE\_PHYSICAL}\) when \(\mathsf{CosmoGeomRead}_r\) and the source embedding are
+\(\text{conditional physical}\) when \(\mathfrak G_r\) is imported and frozen.  The tier is
+\(\text{source-native physical}\) when \(\mathsf{CosmoGeomRead}_r\) and the source embedding are
 proved from the OPH quotient carrier.
 \end{theorem}
 
@@ -471,7 +471,7 @@ Then
 \[
 \texttt{physical\_k\_units\_calibrated}
 \iff
-\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}
+\emph{physical spatial k receipt}
 \iff
 R_{k,\rm spatial}.
 \]
@@ -514,7 +514,7 @@ R_{\rm modefreeze}\wedge R_{\rm spacelike}
 \wedge R_{\rm initial\ data}\wedge R_{\rm refinement}.
 \]
 Only \(R_{\Sigma_\star}\) instantiates
-\(\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}\).  The aggregate scale bridge is
+\(\text{physical freezeout surface receipt}\).  The aggregate scale bridge is
 \[
 R_{\rm scale}=R_{k,\rm spatial}\wedge R_{\rm screen\to k}\wedge
 R_{\ell_{\rm src}}\wedge R_a\wedge R_{\Sigma_\star}\wedge
@@ -526,14 +526,14 @@ convention, freezeout-surface, and source-DAG hashes.  An empty cross-receipt ma
 \end{target}
 
 \begin{target}[native geometry extraction]\label{target:cosmo-geometry-extraction}
-\(\texttt{OPH\_NATIVE\_PHYSICAL}\) requires
+\(\text{source-native physical}\) requires
 \[
 \mathsf{CosmoGeomRead}_r:\operatorname{nf}(\Sigma_r/\Gamma_r)
 \to(\mathfrak G_r,\mathfrak E_r)
 \]
 as a quotient-natural, positive, nondegenerate, causal-order-compatible, observer-clock-compatible,
 executor-independent, refinement-convergent, physically scaled source embedding.  Without that
-construction, the physical route has tier \(\texttt{CONDITIONAL\_PHYSICAL}\) with an imported
+construction, the physical route has tier \(\text{conditional physical}\) with an imported
 frozen FLRW geometry packet.
 \end{target}
 

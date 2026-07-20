@@ -1,8 +1,8 @@
-# Issue #565 — source-derived twelve-unit, antipode, and icosahedral selector theorem
+# Issue #565: source-derived twelve-unit, antipode, and icosahedral selector theorem
 
 ## Result
 
-This artifact closes the live twelve-port geometry target under the simulator architecture now declared for the OPH finite carrier:
+This artifact proves the twelve-port geometry selector under the declared OPH finite-carrier architecture:
 
 > **Architecture assumption.** Every local simulator carrier is a federation member of the same quotient-visible twelve-port echosahedral type. A carrier exposes twelve primitive central port atoms, its oriented edge/face incidence, its integer defect readback, and orientation-preserving port-lineage maps along the cofinal refinement tower.
 
@@ -151,7 +151,7 @@ Port names are presentation data. An arbitrary permutation is allowed only when 
 
 ## 3. Main theorem
 
-### Theorem 565.1 — echosahedral source-selector theorem
+### Theorem 565.1: echosahedral source-selector theorem
 
 Let `(E_r)` be a cofinal carrier lineage satisfying E1–E5. Then, at every stage `r`:
 
@@ -254,7 +254,7 @@ P_g^TGP_g=G.
 
 The induced determinant on the three-dimensional Gram image equals the combinatorial orientation character. Thus the positive subgroup acts through `SO(3)` and gives port-frame equivariance.
 
-Moreover,
+The same construction gives
 
 \[
 v_{\iota(p)}=-v_p,
@@ -290,7 +290,7 @@ If all source fields are relabelled by an arbitrary permutation `sigma`, then ev
 
 ## 4. Proof
 
-### Lemma 565.2 — primitive atoms give the only source-visible line split
+### Lemma 565.2: primitive atoms give the only source-visible line split
 
 Because the `e_p` are the minimal nonzero central idempotents of `Z_r^port`, every algebra automorphism permutes them. Therefore
 
@@ -302,7 +302,7 @@ is intrinsic to the quotient-visible algebra. Any purported source-natural one-d
 
 This is the datum that Euler incidence alone lacked. The conclusion is not that every abstract 12-dimensional vector space has a preferred basis; it is that the simulator’s twelve primitive port events supply one.
 
-### Lemma 565.3 — exact unit floor
+### Lemma 565.3: exact unit floor
 
 For `q in Q_r`, write `x_p=q_p-1`. Since `sum q_p=12`,
 
@@ -326,7 +326,7 @@ Thus `H(q)>=12`, with equality only when all `x_p=0`. If `x` is a nonzero integr
 
 The bound is attained by moving one unit from one port to another, so the next floor is exactly 14.
 
-### Lemma 565.4 — antipode
+### Lemma 565.4: antipode
 
 The exact all-pairs breadth-first search gives, from every port, one vertex at distance zero, five at distance one, five at distance two, and one at distance three. Hence `iota` is defined everywhere and has no fixed point.
 
@@ -338,7 +338,7 @@ g\iota(p)=\iota g(p).
 
 No second incidence-natural inverse pairing exists.
 
-### Lemma 565.5 — finite group identification
+### Lemma 565.5: finite group identification
 
 The verifier enumerates every bijection preserving the exact distance matrix. There are 120. Every such bijection preserves the unoriented face complex. Comparing a face with the declared coherent orientation gives a homomorphism to `{+1,-1}`, with 60 elements of each sign.
 
@@ -352,7 +352,7 @@ The verifier then avoids any classification-table assumption. It constructs ever
 
 The distance-three involution is itself an automorphism. It is central and lies in the negative coset. Multiplication by it maps the positive subgroup bijectively to the negative coset, proving the direct-product statement.
 
-### Lemma 565.6 — exact Gram projector
+### Lemma 565.6: exact Gram projector
 
 The distance relations partition ordered port pairs, so `G` is determined by incidence alone. Direct exact multiplication in `Q(sqrt(5))` gives
 
@@ -388,7 +388,7 @@ Newton’s identity gives
 
 The exact receipt obtains `+1` on all 60 positively oriented automorphisms and `-1` on all 60 negatively oriented automorphisms. Thus the combinatorial and spatial orientation characters agree.
 
-### Lemma 565.7 — refinement descent
+### Lemma 565.7: refinement descent
 
 A lineage map preserves primitive atoms, incidence, and oriented faces. It therefore preserves graph distance and the formula defining `G`. By Lemma 565.4 it commutes with `iota`, and by Lemma 565.6 it intertwines the frame. Since it preserves face orientation, it lies in the positive subgroup. The declared cocycle makes these stagewise intertwiners a coherent cofinal object.
 
@@ -434,7 +434,7 @@ The theorem does not hide necessity claims. Each load-bearing field has a finite
 
 ### N1. Remove primitive port atoms
 
-Keep only an unmarked real 12-space. One-dimensional decompositions are no longer canonical; their presentations form the continuum
+Keep only an unmarked real 12-space. One-dimensional decompositions are noncanonical; their presentations form the continuum
 
 \[
 GL(12,\mathbb R)\big/\big((\mathbb R^*)^{12}\rtimes S_{12}\big).
@@ -456,7 +456,7 @@ and use `H_w(q)=sum w_i q_i^2`. The all-one vector has cost 1, while
 q=(0,2,1,\ldots,1)
 \]
 
-has total 12 and cost `14/15`. The equal unit split is no longer selected. The finite schema mutant is rejected as `PORT_TRACE_NOT_UNIFORM`.
+has total 12 and cost `14/15`. The equal unit split is not selected. The finite schema mutant is rejected as `PORT_TRACE_NOT_UNIFORM`.
 
 ### N3. Remove the total-twelve condition
 
@@ -484,7 +484,7 @@ fixed-point-free pairings, with no canonical choice. They also admit the full `S
 
 ### N6. Keep the graph but remove coherent face orientation
 
-The graph still determines antipodes and the rank-three unoriented frame, but the surviving symmetry is the full order-120 group
+The graph determines antipodes and the rank-three unoriented frame. Its symmetry is the full order-120 group
 
 \[
 A_5\times C_2.
@@ -609,9 +609,8 @@ The finite Python receipt supplies the concrete edge/face tables, permutation ta
 
 ---
 
-## 9. Claim boundary after closure
+## 9. Claim boundary
 
-This result closes the missing **twelve-port finite geometry selector** for the newly declared echosahedral federation branch. It does not prove that every possible OPH carrier must be echosahedral, nor does it turn the coefficient frame into a physical gauge-current algebra, select a Standard Model representation, identify a port load with an electroweak load, or supply a continuum Yang–Mills theorem. Those remain separate receipts.
+This theorem supplies the **twelve-port finite geometry selector** for the declared echosahedral federation branch. It does not prove that every possible OPH carrier must be echosahedral, turn the coefficient frame into a physical gauge-current algebra, select a Standard Model representation, identify a port load with an electroweak load, or supply a continuum Yang–Mills theorem. Those receipts are separate and open.
 
-Within the declared carrier architecture, however, the unit split, inverse pairing, `A5` action, six axes, and regular port frame are no longer premises. They are exact derived objects of the source-visible finite packet.
-
+Within the declared carrier architecture, the unit split, inverse pairing, `A5` action, six axes, and regular port frame are exact derived objects of the source-visible finite packet.

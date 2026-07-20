@@ -297,9 +297,9 @@ non-abelian groups. The Standard Model's $SU(3)\times SU(2)\times U(1)$ is
 not a decorative label. It tells us how charge sectors transform, how
 carriers couple, and which interactions are allowed.
 
-The historical path is again collective. Weyl's early gauge ideas did not
-immediately succeed in their first form, but the phase-gauge insight became
-central. Yang and Mills developed non-abelian gauge theory. Glashow, Salam,
+The historical path is again collective. Weyl's first gauge construction
+failed physically. Its phase-gauge insight became central. Yang and Mills
+developed non-abelian gauge theory. Glashow, Salam,
 and Weinberg unified electromagnetic and weak interactions. Higgs, Englert,
 Brout, Kibble, Guralnik, and Hagen explained how gauge bosons could acquire
 mass without destroying gauge consistency. 't Hooft and Veltman proved
@@ -659,16 +659,18 @@ state spaces carry the real theorem content.
 
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They show gauge structure reconstructed from representation data and
-the face-cycle route to the three-place family carrier. The exterior-matter
+the face-cycle route to a candidate three-place family band. Physical family
+attachment is a separate open construction. The exterior-matter
 diagram then shows how the color and weak carriers generate one chiral
 Standard Model generation.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
-They show how cap flow can become a local geometric clock, how a curved
+They show how cap flow supplies a dimensionless local ordering, how a curved
 screen can look null at a boundary point, and how Einstein gravity reduces to
 Newtonian gravity in the weak-field slow-motion limit. Together they keep the
 finite icosahedral regulator and the smooth Lorentz geometry in their proper
-roles.
+roles. A physical clock additionally requires readable transitions, event
+correspondence, and affine calibration.
 
 The glossary diagrams for matter, selection, synthesis, and observer loops
 are orientation devices. They tell the reader where to look in the prose.
@@ -680,25 +682,36 @@ reader ask a sharper question about the equation next to it.
 The first handle is the finite carrier. Twelve ports sit at the vertices of an
 icosahedron. Twenty triangular faces organize local neighborhoods, thirty edges
 organize collars, and the sixty rotations of $A_5$ treat every direction alike.
-The carrier reads, records, compares, and repairs through those interfaces.
+The carrier provides a local interface for reading, recording, comparing, and
+repairing. It is not automatically one primitive observer. An operational
+observer may occupy one carrier or a connected subfederation.
 
 The second handle is the public world. Patch algebras contain the available
 questions. Central records preserve completed answers. Overlap checks compare
 what neighboring patches expose, and recovery maps rebuild information from
 the correlations that survive local damage.
 
-The third handle is the smooth limit. Refinement turns the finite port sampling
-into a round $S^2$ support chart. Modular flow supplies the internal clock. The
-conformal group of the sphere supplies Lorentz symmetry, and entropy balance
-supplies Einstein gravity. The finite $A_5$ frame remains the regulator, while
-the smooth sphere carries spacetime kinematics.
+The third handle is the smooth limit. Refinement does not turn local
+icosahedra into a round $S^2$ by magic. A federation-to-support map must produce
+the spherical incidence, mesh, cross-ratio, and independently normalized
+cap-flow receipts on one source tower. A complete algebra-state comparison
+package must be produced independently on that same tower. On that branch the conformal
+group of the sphere gives Lorentz kinematics, and $H^3$ is the
+three-dimensional observer-frame space. A $3+1$ event manifold needs its own
+population and cone tests. A measured duration requires a clock instrument and
+calibration, and the Einstein step needs the common stress, entropy, coupling,
+vacuum, and scale packet.
 
-The fourth handle is matter. The twelve port readings split as
-$1+3+3'+5$. Compact oriented current composition turns those blocks into the
-$U(1)$, $SU(2)$, and $SU(3)$ gauge directions. The trace-balanced exterior
-package supplies the chiral quarks and leptons, the one-Higgs interaction
-channels, anomaly cancellation, and the weak-doublet count. Strange-loop
-closure then fixes the local pixel and global record capacity.
+The fourth handle is matter. The twelve port readings split exactly as
+$1+3+3'+5$. A source-produced compact physical current with the required
+$A_5$ action would turn that finite pattern into the
+$U(1)$, $SU(2)$, and $SU(3)$ Lie type. The independent Tannaka and Minimal
+Admissible Realization route reaches the same type from transportable sectors.
+Proving that both groups are the same physical group is an open source-bound
+identity test. The trace-balanced exterior package is an exact
+one-generation representation witness, while physical matter selection,
+three-family attachment, QFT construction, and the local and global readback
+closures keep their own gates.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -752,14 +765,18 @@ and the records they share.
 Tannaka-Krein reconstruction reads a compact group from its charge sectors,
 their fusion rules, and their duals. OPH applies that reconstruction to the
 transport-stable sectors of the patch net. On the icosahedral finite carrier,
-the twelve current readings split as $1+3+3'+5$. Their compact oriented bracket
-gives the $U(1)$, $SU(2)$, and $SU(3)$ gauge directions.
+the twelve port readings split as $1+3+3'+5$. If a source-produced compact
+physical current realizes the required oriented bracket, the conditional
+classification recognizes the $U(1)$, $SU(2)$, and $SU(3)$ Lie type.
 
-Modular theory gives every suitable algebra-state pair a canonical flow. On a
-round cap this flow is a Lorentz boost. Refinement carries the local cap flows
-to the smooth celestial sphere, whose conformal group is the connected Lorentz
-group. Generalized entropy then joins the quantum entropy across a cut to its
-area term, and local entropy balance produces Einstein gravity.
+Modular theory gives every suitable algebra-state pair a canonical flow. It
+becomes the geometric boost flow on a round cap only when the finite cap-flow
+certificate and an independently complete algebra-state package live on the same
+refinement tower. The conformal group of the certified sphere is then the
+connected Lorentz group. Populating a $3+1$ event manifold needs separate event
+and clock receipts. Generalized entropy can produce the Einstein relation only
+after the common stress, entropy, vacuum, coupling, scale, and remainder packet
+has also landed.
 
 Quantum error correction protects logical information in distributed
 correlations. In OPH, collars and recovery maps let a patch rebuild information
@@ -897,9 +914,8 @@ has seismic motion, thermal noise, quantum noise, and human-made
 disturbances. A public fact is the signal that survives after these error
 sources are modeled, bounded, rejected, or carried as uncertainty.
 
-That is why the recovery chapters matter. Recovery is not a fantasy of
-perfect restoration but the mathematical study of which correlations
-contain enough information to rebuild a useful description. In classical
+The recovery chapters study which correlations contain enough information to
+rebuild a useful description under damage. In classical
 error correction, redundant bits protect a message. In quantum error
 correction, information is stored in correlations that local damage cannot
 fully erase. In holography, bulk information can be encoded redundantly on
@@ -926,12 +942,14 @@ correction, holography, neuroscience, philosophy, and computer science.
 The book reads like a map of that inheritance. Each concept comes with the
 scientific relay that made it usable.
 
-The same relay carries the particle story. The finite icosahedral port carrier
-fixes the gauge directions. The exterior package fixes one chiral matter generation and its
-one-Higgs interaction channels. Gauge and Higgs dynamics turn those structures
-into masses, mixings, and poles. Detectors then turn the particle events back
-into public records. The chain runs from screen geometry to laboratory readout
-without changing its observer-facing logic.
+The particle story uses several conditional relays. The finite icosahedral port
+carrier supplies a representation pattern. A source-produced physical current
+and an independent matter-sector reconstruction must identify the same gauge
+group. The exterior package supplies one chiral representation witness and its
+one-Higgs invariant channels. Quantum field theory, source dynamics, spectral
+continuation, and physical readout are separate gates between that witness
+and measured masses, mixings, and poles. Detectors close the observer-facing
+record loop after those gates have been supplied.
 
 The same rule applies to metaphysics. A sentence about experience, God,
 restoration, or self-reference becomes serious only when the record chain

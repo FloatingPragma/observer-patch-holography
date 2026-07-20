@@ -35,8 +35,8 @@ The symbols carry the lesson. $X$ is the position operator. $P$ is the
 momentum operator. Writing $XP$ and $PX$ means composing the two operations in
 opposite orders. The bracket $[X,P]$ measures the failure of those two
 compositions to agree. The number $i$ is the imaginary unit, and $\hbar$ is
-Planck's constant divided by $2\pi$. Nature is not saying that our instruments are
-clumsy but that these two questions do not belong to one classical
+Planck's constant divided by $2\pi$. The limitation belongs to the questions
+themselves, rather than to clumsy instruments. They do not fit one classical
 spreadsheet of pre-existing answers.
 
 ![When questions do not commute, asking A then B can be a different physical operation from asking B then A.](../assets/book_diagrams/question-algebra-order.svg){width=78%}
@@ -366,7 +366,7 @@ density matrices stop being the right local object.
 
 **Type I**: The simplest. These are matrix algebras on a Hilbert space. They have minimal projections-"atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
 
-**Type II**: No atoms, but a finite "trace"-a way to assign size to projections.
+**Type II**: No atoms, but a finite "trace" that assigns size to projections.
 
 **Type III**: No trace and no atoms. These are the "wild" algebras. Type III is actually generic in quantum field theory: the algebra of any bounded spacetime region is typically Type III, and local states do not admit the ordinary finite-trace density-matrix picture familiar from finite systems.
 
@@ -407,7 +407,7 @@ $$\omega(A \sigma_{i}(B)) = \omega(BA)$$
 The KMS condition characterizes thermal equilibrium states. For a non-specialist,
 the important point is not the complex-time formula itself. KMS is the quantum
 signature of a state that behaves thermally with respect to the flow it carries.
-It is the equilibrium test that lets the modular clock and the temperature
+It is the equilibrium test that lets modular ordering and the temperature
 story speak the same language.
 
 ### Time from Algebra
@@ -415,14 +415,15 @@ story speak the same language.
 The implication is strong but specific: once you specify a suitable
 noncommutative algebra-state pair, modular theory gives a natural flow. That
 flow is intrinsic to the pair. Turning its dimensionless parameter into the
-time shown by a physical clock still requires a clock instrument and a
+time shown by a physical clock requires a clock instrument and a
 calibration.
 
 This connects to the **thermal time principle** of Connes and Rovelli: modular
 flow organizes experienced time. Given the quantum state of our patch, the
-algebra provides a natural clock.
+algebra provides a natural ordering. A clock appears only when an
+observer-readable transition, events, and calibration attach durations to it.
 
-The distinction matters already at finite cutoff. A repair normalizer drives a
+The distinction matters at finite cutoff. A repair normalizer drives a
 damaged presentation toward an accepted normal form. A reversible equilibrium
 generator describes relaxation rates. Modular flow is an automorphism of the
 algebra-state pair. These three maps can use information from the same local
@@ -439,7 +440,7 @@ The modular parameter supplies an intrinsic ordering only on that declared
 algebra-state branch. A clock instrument and its calibration turn the parameter
 into an operational readout, and overlapping observers compare their clocks
 through the shared affine conversion between their modular parameters. A count
-of channels---twenty-four or otherwise---does not fix a frequency or a unit of
+of channels, whether twenty-four or another number, does not fix a frequency or a unit of
 time.
 
 Across finite resolutions, compatible embeddings, conditional expectations,

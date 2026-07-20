@@ -1,19 +1,18 @@
-# Survival-proof final integration
+# Survival-proof source integration ledger
 
-This ledger records the final pass over `survival-proof` and
+This ledger identifies the canonical material from `survival-proof` and
 `survival-proof-2` through `survival-proof-5`. File modification time and
-content-addressed receipts determine precedence inside each campaign. A newer
-instrument result may narrow an older interpretation without changing an
-independent mathematical theorem.
+content-addressed receipts determine the selected artifact inside each
+campaign. Instrument claims and independent mathematical theorems keep
+separate scopes.
 
 ## Integrated source material
 
 | Source | Accepted result | Canonical landing | Promotion boundary |
 | --- | --- | --- | --- |
-| `survival-proof/wz-integration-handoff` | QFT-Q1--QFT-Q4 typed DAG, strict finite-order W/Z pole algebra, current-pole criterion, FJ and Nielsen conditions | compact SM/GR paper, particle paper, W/Z status fragment, particle calibration code | Q1 source construction, Q2/Q4 objects, Q3 physical engines and OPH source receipts remain open |
+| `survival-proof/wz-integration-handoff` | QFT-Q1--QFT-Q4 typed DAG, strict finite-order W/Z pole algebra, current-pole criterion, FJ and Nielsen conditions | compact SM/GR paper, particle paper, W/Z status fragment, particle calibration code | Q1 source construction, Q2/Q4 objects, Q3 physical engines and OPH source receipts are open |
 | `survival-proof-2` | exact finite A5 packet with `M_0=60`, `D_raw=60k`, and raw equality only at `k=1` | unified spine, capacity status document and compact JSON ledger, claim registry, README and book boundary | publicly inert multiplicity makes raw dimension nonphysical; no `D_star` or `N_star` is produced |
 | `survival-proof-3` | strict one-loop charged and neutral pole map, explicit `Delta=-Pi` convention, order mask, lower-half-plane root, fail-closed promotion policy | strict-one-loop calibration package and W/Z paper fragments | conditional QFT-Q3 algebra; the numerical fixture is not an OPH-native pole prediction |
-| `survival-proof-4` | repaired 4,096-patch H3/KMS cell with a valid frozen instrument and exact disk replay | unified spine, H3/KMS status document and compact JSON ledger, claim registry, synthesis chapter | campaign incomplete; physical theorem not evaluated; physical promotion forbidden |
 | `survival-proof-5` | semantic-complete confluence, coherent union-collar recovery, event-germ and chart repairs, Lorentz-cone and tetrad conditions, mixed-GNS/BW dependency, transport limit, finite modular gearing, A5 register/current firewall | consensus, microphysics, compact SM/GR, synthesis, and claim registry | finite implication theorems do not construct their source objects or physical common tower |
 
 ## One composable architecture
@@ -21,7 +20,8 @@ independent mathematical theorem.
 The paper stack uses the following order:
 
 ```text
-bounded observer patches
+bounded local carriers and routed interfaces
+  -> operational observer supports with readback, records, feedback, and continuation
   -> physical quotient
   -> schedule-independent public normal form
   -> source-bound refinement tower
@@ -45,14 +45,14 @@ objects. In particular:
 - a finite capacity equality is distinct from physical universe-level
   N-closure.
 
-## Material retained as archive rather than copied
+## Archived source material
 
-The full `survival-proof-2` constructor and mutation suite and the full
-`survival-proof-4` replay bundle remain in the workspace campaign directories.
-The canonical repository carries compact, hash-bound status ledgers rather
-than duplicate multi-megabyte campaign output. The ledgers state that they are
-integration summaries, not independent replays. This keeps the source tree
-auditable while preserving the original artifacts and their exact provenance.
+The full `survival-proof-2` constructor and mutation suite is stored in the
+workspace campaign directories.
+The canonical repository contains compact, hash-bound status ledgers. The
+multi-megabyte campaign output stays in the workspace archive. The ledgers are
+integration summaries with no independent-replay status, and the original
+artifacts retain their exact provenance.
 
 From the repository root, verify both compact ledgers against the archived
 campaign receipts with:

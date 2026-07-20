@@ -34,7 +34,7 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-The consensus layer of OPH models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that form.
+The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that form.
 
 The paper proves the finite mechanics used by the rest of the OPH stack:
 validated repair, exact descent, schedule-independent normal forms under the
@@ -55,9 +55,18 @@ self-reading system only on the declared recovery, record, feedback,
 selected-fiber, and implementation-invariance packet. It does not select the
 physical twelve-port \(A_5\) carrier, attach a canonical rank-three screen band
 to matter, construct a chiral quantum field theory, or determine a W/Z pole.
-Those claims require separately typed physical producers. The current A5
-result is a conditional finite Q0 recognition criterion, and the W/Z
+Those claims require separately typed physical producers. The A5
+result is a conditional finite recognition criterion, and the W/Z
 sufficiency stack has no OPH-native pole promotion.
+
+This boundary does not make consensus carrier-neutral. The repair theorem is
+invariant under hidden presentation changes preserving the complete visible
+observer contract. Port incidence, orientation, accessible algebra, response,
+repair law, record process, clock, and refinement lineage belong to that
+contract and may constrain downstream physics. On the unified Echosahedral
+branch, microphysics supplies the candidate carrier, this paper supplies its
+public normal form, and the compact paper supplies separately gated geometry
+and current projections.
 
 \input{tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex}
 
@@ -77,15 +86,23 @@ a bare overlap graph is only a finite constraint code. Stronger language such as
 quantum error correction, min-cut distance, BFT liveness, or hardware speedup needs its own
 certificate.
 
+Synchronization and consensus are distinct. A physical phase-lock process may establish a stable
+relative phase and a commensurability map between two exposed ports. It enters this theorem only
+after its phase records are tied to the accepted transaction ledger, an independent clock, the
+semantic record surface, and the confluence premises. Frequency entrainment alone can coexist
+with conflicting records.
+
 \section{Introduction}
 
 This paper writes the OPH consensus picture in the simplest concrete form. A universe is represented as a finite graph of observer patches. Each patch carries local state data, neighboring patches compare those data on overlaps, and local repair moves try to reconcile any mismatch. The central mathematical question is whether this repair dynamics converges to one shared world and how the unavoidable obstructions are encoded when it does not.
 
 The word ``dynamics'' is used here in the rewriting-system sense. The repair schedule selects
-terminal normal forms and proves schedule independence under the stated hypotheses. Cosmic time is
-the internal readout of the selected observer-facing structure. A conventional simulation computes
-a surrogate history. OPH computes the fixed point whose internal record order is read as history.
-The patch-net algorithm serves as a theorem device for fixed-point selection. The fundamental
+terminal normal forms and proves schedule independence under the stated hypotheses. The selected
+observer-facing structure can carry an internal record order, which is read as history. A
+conventional simulation computes a surrogate history. OPH computes the fixed point and its
+quotient-visible records. Physical-clock status additionally requires an
+observer-readable transition process, event correspondence, and affine clock calibration.
+The patch-net algorithm is a theorem device for fixed-point selection. The fundamental
 description contains no global timeline on which spacetime contents are rendered.
 
 A bare fixed point is not called an OPH simulation below.
@@ -1020,7 +1037,7 @@ have disjoint write sets and each preserves \(B\) at \(s\). Both lower
 \(\mu(x_1,x_2)=2-x_1-x_2\). Their peak has endpoints \((1,0)\) and \((0,1)\), while either second
 write would reach \((1,1)\) and change \(B\). Neither continuation is admissible. The missing
 dependency is the nonlinear protected observable shared by the two writes. Protected-support and
-conflict completeness expose that dependency; an implementation still has to check the resulting
+conflict completeness expose that dependency; an implementation must check the resulting
 quotient peak.
 \end{remark}
 
@@ -2340,7 +2357,8 @@ be the physical projection. An admissible lifted update \(\widetilde n\) and rea
 \]
 The asynchronous schedule and repair-step counter are proof data, not physical clock
 coordinates. Any history claimed by the branch is read from records in the terminal quotient
-state instead of supplied by an external clock.
+state instead of supplied by an external clock. Promoting that record order to physical time
+requires the independent clock instrument, event correspondence, and calibration receipts.
 \end{enumerate}
 The identities
 \[
@@ -3120,11 +3138,20 @@ supplies the Lorentz bridge. The carrier supplies finite ports, records, and rep
 overlap projections are restrictions to shared subalgebras, and the consistency condition is
 algebraic state agreement on overlaps.
 
+The local carrier boundary, finite federation screen, and support \(S^2\) are different typed
+objects. Identical local Icosahedral carriers can be routed into federation nerves of different
+topology. A spherical physical branch therefore requires the microphysics paper's
+carrier-to-support bridge: full interface-algebra maps, higher-overlap coherence, a quotient-visible
+spherical nerve, and refinement-natural support data. The consensus theorem neither supplies nor
+replaces that bridge.
+
 The bridge to physics works as follows in the broader companion corpus:
 
 \begin{itemize}
 \item The patch net becomes a net of support-visible subregion algebras; \(S^2\) is the standard
-observer-facing regulator chart, not a required literal substrate.
+observer-facing support chart, not a required literal material shell. Its quotient-visible
+topology and conformal data are physical on the spherical branch even though hidden carrier
+coordinates are not.
 \item Overlap Consistency, one of the canonical framework axioms, is the algebraic version of Definition~\ref{def:patchnet}.
 \item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides controlled collar recovery data. The exact collar factorization \(\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}\) is used only at exact Markovity \emph{together with} the Markov-split alignment of the HJPW factors with the preselected edge split (the compact paper's alignment hypothesis; exact Markovity alone yields the normal form only over a state-dependent split), or along the fixed-collar replacement limit with EC-aligned comparison states, while the declared Petz/Fawzi--Renner recovery channels supply recovered comparison states from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
 \item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the fixed-cutoff edge-sector seed package. On the companion compact paper's branch carrying the explicit compact-gauge refinement receipt, coherent surjective pullback functors and compatible forgetful fibers reconstruct a compact group from the tensor-generated combined-zero-obstruction sectors. Here zero obstruction means central or higher-associator strictifiability together with at least one allowed strict \(1\)-cocycle representative having trivial represented holonomy. This supplies receipt-conditional transport across cutoffs and classification. The cofinal witness uses the same receipt, and the Minimal Admissible Realization rule (MAR) plus the explicit one-Higgs matter packet conditionally selects the Standard Model quotient $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$, the exact hypercharge lattice, \(N_c=3\), and the economy minimum \(N_g=3\) inside the window \(3\le N_g\le5\). This does not attach the canonical rank-three screen band to three physical families; the complex rank-45 attachment and complement-complete refinement receipts remain separate.
@@ -3169,6 +3196,13 @@ law-selection meta-model. The relativity chain and the realized Standard Model
 structural chain are the recovered core. The capacity relation is a separate implemented branch
 with universe-level equation \(N=\log M_0(\mathfrak U_N)\), stable whole-fiber target \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\), and an independent EW/Higgs comparison bridge. Downstream phenomenology requires additional assumptions
 beyond the consensus results proved here.
+
+The unified carrier hypothesis assigns this paper one exact role. Consensus turns a routed,
+self-reading carrier federation into a public quotient normal form. The support-screen producer
+may then read geometry from that normal form, and the physical-current producer may read compact
+charge response from it. Neither readout is created by confluence. Their physical composition
+requires one source manifest and refinement tower so that geometry, current, records, and clocks
+refer to the same system rather than to isomorphic fixtures assembled after the fact.
 
 \paragraph{Complexity boundary.}
 On a fixed finite patch net, the accepted reconciliation dynamics is a finite-state asynchronous
@@ -3287,11 +3321,14 @@ Hardware search work reduction & exact-verifier candidate-enrichment factor meas
 This appendix records the algebraic splice statement relating the finite patch-net model to
 the OPH collar formalism.
 
-An observer is written as
+For this collar lemma, write the support-local algebra-state-record reduct of an observer patch as
 \[
-O=(P,\mathcal{A}(P),\rho,R),
+O_{\mathrm{red}}=(P,\mathcal{A}(P),\rho,R),
 \]
-where $P$ is the screen patch, $\mathcal{A}(P)$ the local von Neumann algebra, $\rho$ the local state, and $R$ the record algebra.
+where $P$ is the support-screen patch, $\mathcal{A}(P)$ the local von Neumann algebra, $\rho$ the
+local state, and $R$ the record algebra. The full operational observer also carries overlap
+interface algebras and restriction maps, allowed update and repair instruments, and checkpoint data
+used for continuation.
 
 \begin{theorem}[Markov-collar splice theorem, exact and controlled]\label{thm:splice}
 Suppose a collar tripartition $A$-$B$-$D$ has the EC-aligned exact Markov decomposition

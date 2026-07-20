@@ -559,9 +559,9 @@ from gamma residuals.
 ## Outcome
 
 This note supplies a conditional audit specification for admissible gamma
-morphology claims. It remains open both at the OPH source-derivation level and
-at the empirical detection level. A future claim must first derive or
-explicitly assume a nonzero source morphology and then pass $R_\gamma$,
+morphology claims. The OPH source derivation and empirical detection are open.
+An admissible claim must derive or explicitly assume a nonzero source morphology
+and pass $R_\gamma$,
 including frozen source provenance, count-space instrument response,
 foreground alternatives, identifiability, held-out validation, cross-tracer
 tests, and null tests.

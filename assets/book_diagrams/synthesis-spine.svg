@@ -1,28 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
-  <title id="title">Synthesis spine from screens to observers</title>
-  <desc id="desc">The book's main ingredients align into one spine from finite screens through the P and N_CRC fixed points to shared public reality.</desc>
-  <rect width="960" height="560" fill="#f8f5ef"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title desc">
+  <title id="title">One observer architecture, two physical branches</title>
+  <desc id="desc">A source-selected twelve-port carrier federation settles a public normal form. Separate open bridges lead to the spherical geometry and gravity branch and to the icosahedral current and Standard Model branch. A physical unification requires both branches to come from the same source.</desc>
+  <rect width="960" height="660" fill="#f8f5ef"/>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
       <path d="M0,0 L12,6 L0,12 Z" fill="#2e2a25"/>
     </marker>
+    <marker id="open-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#9a5b36"/>
+    </marker>
   </defs>
-  <path d="M480 74 V486" stroke="#2e2a25" stroke-width="6" marker-end="url(#arrow)"/>
-  <g fill="#fffaf0" stroke="#2e2a25" stroke-width="3">
-    <rect x="250" y="52" width="460" height="54" rx="8"/>
-    <rect x="250" y="126" width="460" height="54" rx="8"/>
-    <rect x="250" y="200" width="460" height="54" rx="8"/>
-    <rect x="250" y="274" width="460" height="54" rx="8"/>
-    <rect x="250" y="348" width="460" height="54" rx="8"/>
-    <rect x="250" y="422" width="460" height="54" rx="8"/>
+
+  <g fill="none" stroke="#2e2a25" stroke-width="5" marker-end="url(#arrow)">
+    <path d="M480 102 V130"/>
+    <path d="M480 202 V230"/>
   </g>
-  <g font-family="Arial, sans-serif" fill="#2e2a25" font-size="23" font-weight="700" text-anchor="middle">
-    <text x="480" y="87">finite cuts</text>
-    <text x="480" y="161">local algebras and overlap</text>
-    <text x="480" y="235">entropy, recovery, and codes</text>
-    <text x="480" y="309">modular time and symmetry</text>
-    <text x="480" y="376" font-size="20">P = 1.630968</text>
-    <text x="480" y="398" font-size="20">N_CRC = 3.31e122</text>
-    <text x="480" y="457">self-reading public reality</text>
+  <g fill="none" stroke="#9a5b36" stroke-width="4" stroke-dasharray="11 8" marker-end="url(#open-arrow)">
+    <path d="M430 302 C390 324 320 326 250 348"/>
+    <path d="M530 302 C570 324 640 326 710 348"/>
+    <path d="M250 508 C300 548 360 552 415 574"/>
+    <path d="M710 508 C660 548 600 552 545 574"/>
+  </g>
+
+  <g stroke="#2e2a25" stroke-width="3">
+    <rect x="150" y="28" width="660" height="74" rx="12" fill="#fffaf0"/>
+    <rect x="180" y="130" width="600" height="72" rx="12" fill="#fffaf0"/>
+    <rect x="210" y="230" width="540" height="72" rx="12" fill="#e8f1ee"/>
+    <rect x="38" y="348" width="424" height="160" rx="14" fill="#e9f0f7"/>
+    <rect x="498" y="348" width="424" height="160" rx="14" fill="#f3e9e0"/>
+    <rect x="200" y="574" width="560" height="66" rx="12" fill="#fff4cf"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" fill="#2e2a25" text-anchor="middle">
+    <text x="480" y="60" font-size="24" font-weight="700">source-selected 12-port carrier architecture</text>
+    <text x="480" y="86" font-size="17">presentation-invariant, architecture-sensitive</text>
+
+    <text x="480" y="160" font-size="23" font-weight="700">federation of self-reading supports</text>
+    <text x="480" y="185" font-size="17">records, feedback, checkpoints, accepted repair</text>
+
+    <text x="480" y="260" font-size="23" font-weight="700">one public normal form</text>
+    <text x="480" y="285" font-size="17">schedule-independent only under the consensus receipts</text>
+
+    <text x="250" y="378" font-size="21" font-weight="700">geometry and gravity</text>
+    <text x="250" y="406" font-size="16" fill="#9a5b36">carrier-to-support bridge: open</text>
+    <text x="250" y="435" font-size="19">S² support + BW/KMS</text>
+    <text x="250" y="462" font-size="19">Lorentz / H³ → 3+1 events</text>
+    <text x="250" y="489" font-size="19">Einstein branch, conditional</text>
+
+    <text x="710" y="378" font-size="21" font-weight="700">currents and matter</text>
+    <text x="710" y="406" font-size="16" fill="#9a5b36">physical current bridge: open</text>
+    <text x="710" y="435" font-size="19">A₅ port response → compact current</text>
+    <text x="710" y="462" font-size="19">Standard Model Lie type</text>
+    <text x="710" y="489" font-size="19">matter and QFT, conditional</text>
+
+    <text x="480" y="600" font-size="21" font-weight="700">one source-bound observer world</text>
+    <text x="480" y="624" font-size="16">route identity, attachment, and inhabited-tower receipts remain open</text>
   </g>
 </svg>

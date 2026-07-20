@@ -72,7 +72,7 @@ gravitational boundary.
 
 **The Holographic Principle**: The maximum information in any region of space is proportional to its surface area. Volume is the wrong counting variable.
 
-If the holographic principle is true, then the 3D world we experience is somehow encoded on 2D surfaces. The third dimension is an illusion-a convenient description of correlations on a boundary.
+If the holographic principle is true, then the 3D world we experience is somehow encoded on 2D surfaces. The third dimension is an illusion, a convenient description of correlations on a boundary.
 
 Leonard Susskind developed these ideas further, connecting them to string theory. The holographic principle remained vague: a principle, without a calculation.
 
@@ -153,7 +153,7 @@ To understand Maldacena's discovery, we need a brief detour through string theor
 
 String theory began in the late 1960s as an attempt to understand the strong nuclear force. A string is a tiny one-dimensional object. Different vibrational modes look like different particles. String theory automatically includes gravity.
 
-In the mid-1990s, Joseph Polchinski discovered **D-branes**-surfaces where open strings can end. Open strings give rise to gauge theories (like electromagnetism). Closed strings give rise to gravity. When you have a D-brane, you have both-gauge theory on the brane, gravity in the bulk.
+In the mid-1990s, Joseph Polchinski discovered **D-branes**, surfaces where open strings can end. Open strings give rise to gauge theories such as electromagnetism. Closed strings give rise to gravity. A D-brane supports gauge theory on the brane and gravity in the bulk.
 
 ### Strominger and Vafa: Counting Microstates
 
@@ -206,7 +206,7 @@ $\Delta$ controls the two-point correlation:
 
 $$\langle \mathcal{O}(x) \mathcal{O}(y) \rangle = \frac{C}{|x-y|^{2\Delta}}$$
 
-No characteristic scale means power-law decay-the same form at all distances.
+No characteristic scale means power-law decay with the same form at all distances.
 
 $\mathcal O(x)$ is an operator inserted at position $x$. The number $\lambda$
 rescales distances. $\Delta$ is the scaling dimension, which tells how strongly
@@ -329,7 +329,9 @@ Local bulk physics depends on **nonlocal** boundary data. The deeper you go, the
 
 A bulk region can be reconstructed from **many different** boundary subsets. This redundancy is exactly what you want in an error-correcting code.
 
-If you erase part of the boundary, bulk information survives-you can recover it from the remaining boundary. This is the holographic implementation of the recovery rule.
+If you erase part of the boundary, bulk information survives and can be
+recovered from the remaining boundary. This is the holographic implementation
+of the recovery rule.
 
 HKLL matters because it shows how a world that looks local inside can be stored
 nonlocally on the boundary without contradiction. The boundary keeps the
@@ -348,15 +350,15 @@ black hole geometry.
 
 ### The Hawking-Page Transition
 
-At low temperature, the preferred bulk geometry is "thermal AdS"-empty AdS. At high temperature, the preferred geometry is an AdS black hole.
+At low temperature, the preferred bulk geometry is "thermal AdS," or empty AdS. At high temperature, the preferred geometry is an AdS black hole.
 
-At a critical temperature, there's a phase transition-the **Hawking-Page transition**. On the boundary, this corresponds to **confinement/deconfinement**. A geometric transition in the bulk mirrors a phase transition in the boundary theory.
+At a critical temperature, there is a phase transition called the **Hawking-Page transition**. On the boundary, this corresponds to **confinement/deconfinement**. A geometric transition in the bulk mirrors a phase transition in the boundary theory.
 
 ### Quasinormal Modes
 
 Perturb a black hole and it "rings" like a bell. These **quasinormal modes** correspond to poles in thermal correlation functions of the boundary theory.
 
-Black holes saturate the quantum **chaos bound**-they're the fastest scramblers allowed by quantum mechanics.
+Black holes saturate the quantum **chaos bound**, making them the fastest scramblers allowed by quantum mechanics.
 
 ## 8.12 How Gravity Emerges from Entanglement
 
@@ -472,9 +474,11 @@ overlap is where two such cuts can be compared.
 OPH is therefore observer-horizon holography rather than dS/CFT at future
 infinity:
 
-**Observer-patch consistency on cosmological horizons, combined with the
-entanglement-equilibrium / Jacobson construction, yields semiclassical gravity
-in the bulk.**
+**On one source-derived tower carrying the required geometry, modular state,
+events, stress, entropy, vacuum, coupling, scale, and continuum receipts,
+observer-patch consistency plus the entanglement-equilibrium / Jacobson
+construction yields the semiclassical Einstein relation in the bulk.** An
+inhabited tower satisfying that full antecedent is work in progress.
 
 The bulk emerges from the boundary through consistency and compression, as the
 readout of boundary data under overlap constraints.
@@ -520,10 +524,12 @@ De Sitter horizons make observer-patch holography natural. Each observer has a
 horizon-bounded access domain, a local screen cut, and overlap conditions tying
 that cut to neighboring ones.
 
-The cosmological constant appears through a **global capacity relation**, the
-total number of degrees of freedom on the screen. The local null-modular
-derivation fixes the traceless curvature response, and the global
-screen-capacity closure supplies the metric-proportional term.
+The proposed cosmological branch assigns the metric-proportional term through a
+**global capacity relation**, the correctable public-record capacity of the
+screen. The local null-modular theorem fixes the traceless curvature response
+only on its typed branch. Supplying the absolute metric term additionally
+requires a physical capacity selector, horizon-record saturation, a vacuum
+reference, and scale transport. Those bridges are open.
 
 The closure target can be said without asking the reader to parse every symbol
 at once. Supply a carrier of dimension $D$. Let every settled
@@ -534,8 +540,8 @@ $$
 \boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
-It says that the capacity supplied to a trial universe is the capacity its
-observers read back internally. The book adopts the rigorous finite form
+It says that the capacity supplied to a trial universe should equal the
+capacity its observers read back internally. The rigorous finite target is
 
 $$
 \mathfrak F_{r,0}(D_\star)
@@ -543,21 +549,21 @@ $$
 =\{D_\star\}.
 $$
 
-The exact capacity is the independence number of the compound checkpoint
-confusability graph. A separate finite-size slack law selects $D_\star$ as its
-unique zero; an entropy-weighted terminal count does not supply that theorem.
-With $N_{\mathrm{CRC}}=\log D_\star$, the OPH scale bridge converts the
-dimensionless capacity into products such as
-$\Lambda\ell_\star^2$ and into the numerical SI value of $\Lambda$. The bare
-de Sitter horizon ratio is about $1.05\times10^{122}$ and the screen-entropy
-capacity is about $3.31\times10^{122}$ natural units, or
-$4.77\times10^{122}$ bits. This is the "size" of reality, just as the pixel
-area is its "resolution."
+At finite cutoff, the exact capacity is the independence number of the compound
+checkpoint confusability graph. A separate finite-size slack law would have to
+select $D_\star$ as its unique zero; an entropy-weighted terminal count does not
+supply that theorem. If that selector, physical saturation, and scale bridge
+are constructed, $N_{\mathrm{CRC}}=\log D_\star$ can be converted into products
+such as $\Lambda\ell_\star^2$ and eventually into an SI value of $\Lambda$.
+For orientation, the measured de Sitter horizon ratio is about
+$1.05\times10^{122}$ and the associated screen-entropy coordinate is about
+$3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. These are
+comparison coordinates, not a completed measurement of the “size of reality.”
 
 This avoids the boundary-at-infinity problem by changing the primitive object.
 OPH builds local patch descriptions that must agree on overlaps. The bulk
 emerges from that agreement, with the dimensionless Lambda-capacity relation as
-the global readout.
+a conditional global readout target.
 
 ## 8.14 Reverse Engineering Summary
 
@@ -574,6 +580,8 @@ notes and force one public world into being.
 
 ---
 
-Boundaries can encode bulks. But what actually weaves the bulk together? What makes one point "close" to another? The answer is entanglement-the quantum correlations used throughout this book.
+Boundaries can encode bulks. What actually weaves the bulk together, making one
+point "close" to another, is entanglement: the quantum correlations used
+throughout this book.
 
 In the next chapter, we zoom in on the main glue of the bulk: entanglement. We'll see how the Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear space apart, and how ER=EPR points toward spacetime being woven from quantum correlations.

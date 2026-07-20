@@ -1,6 +1,6 @@
 \subsubsection*{Strict-one-loop W/Z pole-map kernel}
 
-The finite-order theory map is now explicit and machine checked.  Let the
+The finite-order theory map is explicit and machine checked.  Let the
 renormalized one-doublet electroweak input at scale \(Q\) be
 \(\theta(Q)=(g,g',v_F,\ldots)\), with canonical Higgs kinetic term and
 \(v_F>0\), and set
@@ -13,7 +13,7 @@ Use the inverse-propagator convention
 \Gamma^T(s)=s-m_0^2-\Delta^T(s)
 =s-m_0^2+\Pi^T(s),\qquad \Delta^T=-\Pi^T,
 \]
-where each \(\Delta^{(1)}\) already contains its one-loop factor,
+where each \(\Delta^{(1)}\) includes its one-loop factor,
 counterterms, tadpoles, and the complete declared strict-one-loop mask.
 Relative to the coefficient convention of
 Theorem~\ref{thm:qft-q3-strict-wz-coefficients},
@@ -107,14 +107,12 @@ s_Z^{[1]}&=(8222.835212344102-218.292761806439i)\;\mathrm{GeV}^2.
 The corresponding strict readouts are
 \((M_W,\Gamma_W)=(80.374161202712,2.007425074735)\) GeV and
 \((M_Z,\Gamma_Z)=(90.680036075608,2.402420059845)\) GeV.  These numbers
-reconstruct an archived backend row; they are not an independent self-energy
-evaluation and have target ancestry, no OPH-selected FJ \(v_F\), no complete
-neutral matrix, no source covariance, no independent gauge/BRST receipt, and
-no source clock.  The exact classification is therefore
-\[
-\texttt{CONDITIONAL\_STRICT\_1L\_POLE\_MAP\_NOT\_OPH\_NATIVE\_PHYSICAL},
-\]
-with \(\texttt{physical\_promotion\_allowed=false}\).  What is proved is the
-implication from a complete declared renormalized strict-one-loop packet to
-the separated pole and mass/width readouts; OPH has not yet produced that
-antecedent.
+reconstruct an archived backend row. They carry target ancestry and supply no
+independent self-energy evaluation, no source-selected vacuum normalization, no
+complete neutral matrix, no source covariance, no independent gauge or
+Becchi--Rouet--Stora--Tyutin receipt, and no source clock. The strict one-loop
+pole map is therefore conditional, and it is not source-native physical, so no
+physical promotion is admitted. What is proved is the implication from a
+complete declared renormalized strict-one-loop packet to the separated pole and
+mass and width readouts. The construction of that antecedent from the source is
+open.

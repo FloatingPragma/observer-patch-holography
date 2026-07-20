@@ -288,7 +288,7 @@ C_{\ell_{\rm src},r}^q
 Every radial node, window, and mode bin is bound to the geometry hash,
 source-embedding hash, scale-certificate hash, boundary-condition hash, and
 mode-basis identifier, and the evidence bundle must emit
-\texttt{RADIAL\_KERNEL\_GEOMETRY\_COMPATIBILITY\_RECEIPT}.  The observed multipole \(L_{\rm CMB}\) is not
+\text{radial kernel geometry compatibility receipt}.  The observed multipole \(L_{\rm CMB}\) is not
 \(\ell_{\rm src}\); it is the output index of the line-of-sight transfer solver.
 Cap eigenmodes, inverse cap-opening angles, and relabeled unit strings remain
 diagnostic by the dimensional, angular, cap-mode, and unit-string no-go propositions.
@@ -297,13 +297,13 @@ diagnostic by the dimensional, angular, cap-mode, and unit-string no-go proposit
 The \(k_{rj}\) grid in the preceding equation is not a free producer field.  It is consumed only
 after
 \[
-\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}
+\emph{physical spatial k receipt}
 \]
 recomputes the comoving \(k\)-intervals from the physical geometry, scale certificate, scale factor,
 finite eigenvalues, normalization, and refinement residuals.  The radial kernel and source-screen
 projection additionally require
 \[
-\texttt{SCREEN\_TO\_PHYSICAL\_K\_ASSOCIATION\_RECEIPT}.
+\emph{screen to physical k association receipt}.
 \]
 The source covariance is a finite positive operator on the common physical mode projectors:
 \[
@@ -319,12 +319,12 @@ with a declared residual bound, together with an off-diagonal leakage report
 \]
 The same physical projector family is used by primordial covariance and anomaly response:
 \[
-\texttt{COMMON\_PRIMORDIAL\_ANOMALY\_MODE\_BASIS\_RECEIPT}.
+\emph{common primordial anomaly mode basis receipt}.
 \]
 Mode freezeout and common initial surface are separate gates:
 \[
-\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT},\qquad
-\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}.
+\text{physical mode freezeout map receipt},\qquad
+\emph{physical freezeout surface receipt}.
 \]
 The latter contains initial data and normal derivatives on one common spacelike surface.
 
@@ -350,23 +350,23 @@ packet requires the common source, scale, mode, null-space, positivity,
 ancestry, and non-fitting forward-residual receipts together with one exact
 uniqueness branch from the radial theorem packet below. If the geometry packet
 is imported, the strongest possible claim tier is
-\texttt{CONDITIONAL\_PHYSICAL}; \texttt{OPH\_NATIVE\_PHYSICAL} requires the
+\emph{conditional physical}; \emph{source-native physical} requires the
 native \(\mathsf{CosmoGeomRead}_r\) theorem.
 
 \input{tex_fragments/RADIAL_LIFT_THEOREMS_330.tex}
 
 \[
 \begin{array}{ll}
-\mbox{\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT}} & T_I^{ab},Q_I^a,E_T,\nabla_aT^{ab} \\
-\mbox{\texttt{SINGLE\_CLOCK\_NORMAL\_FORM\_RECEIPT}} & \chi_r,\operatorname{rank}d\mathcal F,\hbox{ connected fibers} \\
-\mbox{\texttt{ENTROPY\_REPAIR\_GAP\_RECEIPT}} & L_\perp,H,\gamma,\hbox{ forcing/refinement bounds} \\
-\mbox{\texttt{CURVATURE\_EVOLUTION\_RECEIPT}} & \zeta_a,\Gamma_a^{\rm eff},\hbox{ evolution residual, freeze bound} \\
-\mbox{\texttt{ADIABATIC\_MODE\_RECEIPT}} & S_{IJ},\Gamma_I,\Xi_I,\hbox{ growing-mode projection} \\
-\mbox{\texttt{ISOCURVATURE\_BOUND\_REPORT}} & \beta_{\rm iso}(k)\hbox{ and source covariance} \\
-\mbox{\texttt{PRIMORDIAL\_PHASE\_COHERENCE\_RECEIPT}} & \lambda_2/\lambda_1,\hbox{ phase and decaying-mode defects} \\
-\mbox{\texttt{SCREEN\_TO\_RADIAL\_LIFT\_RECEIPT}} & W(r),R_\star,\Psi_\ell(k),\hbox{ source hashes} \\
-\mbox{\texttt{RADIAL\_NULL\_SPACE\_REPORT\_RECEIPT}} & \hbox{singular values, null basis, resolution kernels} \\
-\mbox{\texttt{FORWARD\_PROJECTION\_RESIDUAL\_RECEIPT}} & r_\ell,\hbox{ aggregate norms, quadrature and solver errors}.
+\mbox{\text{total stress closure receipt}} & T_I^{ab},Q_I^a,E_T,\nabla_aT^{ab} \\
+\mbox{\text{single clock normal form receipt}} & \chi_r,\operatorname{rank}d\mathcal F,\hbox{ connected fibers} \\
+\mbox{\text{entropy repair gap receipt}} & L_\perp,H,\gamma,\hbox{ forcing/refinement bounds} \\
+\mbox{\text{curvature evolution receipt}} & \zeta_a,\Gamma_a^{\rm eff},\hbox{ evolution residual, freeze bound} \\
+\mbox{\text{adiabatic mode receipt}} & S_{IJ},\Gamma_I,\Xi_I,\hbox{ growing-mode projection} \\
+\mbox{\text{isocurvature bound report}} & \beta_{\rm iso}(k)\hbox{ and source covariance} \\
+\mbox{\text{primordial phase coherence receipt}} & \lambda_2/\lambda_1,\hbox{ phase and decaying-mode defects} \\
+\mbox{\text{screen to radial lift receipt}} & W(r),R_\star,\Psi_\ell(k),\hbox{ source hashes} \\
+\mbox{\text{radial null space report receipt}} & \hbox{singular values, null basis, resolution kernels} \\
+\mbox{\text{forward projection residual receipt}} & r_\ell,\hbox{ aggregate norms, quadrature and solver errors}.
 \end{array}
 \]
 

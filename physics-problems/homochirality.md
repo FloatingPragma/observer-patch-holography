@@ -19,7 +19,7 @@ complete deracemization of conglomerate crystals under grinding and recycling
 enantiomeric excess after circularly polarized ultraviolet irradiation of
 initially achiral interstellar-ice analogues
 [de Marcellus et al. (2011)](https://doi.org/10.1088/2041-8205/727/2/L27).
-These results establish viable seed and gain mechanisms. They do not yet form
+These results establish viable seed and gain mechanisms. They do not form
 one demonstrated path from geochemically plausible feedstock to the linked
 amino-acid and sugar handedness of biology.
 
@@ -65,7 +65,7 @@ mechanisms under particular conditions.
 spatially resolved path from near-racemic feedstock through coupled amino-acid
 and sugar selection to durable biological homochirality. The historical sign,
 transport between compartments, survival under racemization and dilution, and
-replicator architecture remain open.
+replicator architecture are open.
 
 **OPH contribution in this note.** OPH does not uniquely supply the kinetic
 equations. It contributes the observer-like patch and audit decomposition:
@@ -263,7 +263,7 @@ dynamics must be integrated. The qualitative OPH audit statement is only that
 measured gain must outpace measured chirality-erasing processes on the claimed
 timescale.
 
-## 4. Local fixation is not yet global homochirality
+## 4. Local fixation does not imply global homochirality
 
 Let $e_i$ describe compartment $i$ in a graph of ponds, pores, films, or
 droplets. A minimal spatial stochastic extension is

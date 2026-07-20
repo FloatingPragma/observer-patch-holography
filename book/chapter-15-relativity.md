@@ -279,13 +279,19 @@ Black holes exist, and the observed strong-field data match general relativity e
 
 ## 15.8 Recovering Special Relativity from the Screen
 
-The OPH connection is direct.
+The route begins with a finite object and passes through several type gates.
+The twelve-port icosahedron is the local instrument panel. A repaired
+federation supplies the candidate spherical support only under a source-bound,
+refinement-natural federation-to-support map. That map is open. On the certified
+support branch, the conformal symmetry of the smooth sphere supplies Lorentz
+kinematics. Hyperbolic three-space then labels possible rest frames. Events,
+positions, and a four-dimensional spacetime require a further construction.
 
-### Time as Modular Flow
+### From Modular Ordering to an Observer Clock
 
-The modular-time construction reads time from modular flow. At finite cutoff,
-or in a special type-I representation, an observer patch $P$ has a reduced
-density matrix. Its support region is displayed as a cut of the holographic
+The modular-time construction begins with the ordering carried by modular flow.
+At finite cutoff, or in a special type-I representation, an observer patch $P$
+has a reduced density matrix. Its support region is displayed as a cut of the holographic
 screen, and the density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
@@ -294,15 +300,16 @@ This Hamiltonian generates a flow:
 
 $$\sigma_t(A) = e^{iKt} A e^{-iKt}$$
 
-This modular flow provides the observer's natural notion of time on that patch.
-Here $A$ is any observable the patch can ask about. The formula says how that
-question changes as the patch's internal clock advances.
+This modular flow gives the patch an intrinsic one-parameter ordering. Here
+$A$ is any observable the patch can ask about. The formula says how that
+question changes along the flow.
 
 $\rho_P$ is the reduced density matrix for patch $P$. The logarithm turns the
 state into its modular Hamiltonian $K_P$. The map $\sigma_t$ is the modular
-time evolution, and $t$ is the modular time parameter. The exponentials are the
-operator version of changing a question by flowing it forward and then back
-through the patch's internal clock.
+evolution, and $t$ is its dimensionless parameter. The exponentials are the
+operator version of changing a question by flowing it forward and then back.
+Geometry, an observer-readable transition, event correspondence, and
+calibration are needed before $t$ becomes a physical clock reading.
 
 In the continuum limit this operator formula is not always the right target.
 Continuum algebras can be non-type-I, so there may be no density matrix inside
@@ -313,24 +320,26 @@ cap's observable algebra, read on the geometric cap pair.
 ### Geometric Modular Flow on Caps
 
 Consider a cap $C$ on the sphere $S^2$. In the smooth regime, the cap's
-thermal time stops feeling like abstract algebra and starts behaving like an
-actual motion on the sphere. This is where the construction turns into
-relativity. A clock becomes a geometric device inside the math. Its flow becomes the
-same kind of geometric motion that later shows up as boosts and time
-translations.
+modular ordering can become identifiable with a motion on the sphere. This is
+where the construction turns toward relativity. The flow becomes the same
+kind of geometric transformation that later appears as a boost. It does not
+measure a duration by itself.
 
-When the geometry is under enough control, the cap's internal clock matches a
-smooth motion of the sphere. The clock is the rate at which the cap's allowed
-questions flow. The motion is a geometric dilation of the sphere. Matching the
-two also means fixing which side of the cap you mean, which orientation, and
-which scale you are comparing against, and OPH pins those down instead of
-assuming them.
+When the geometry is under enough control, the cap's modular flow can match a
+smooth dilation of the sphere. Matching the two means fixing which side of the
+cap you mean, which orientation, and which independently normalized geometric
+parameter you are comparing against. Those data form part of the finite
+cap-flow certificate. The same refinement tower must independently carry the
+complete algebra-state comparison package. OPH lists both inputs separately.
+A physical clock additionally
+needs an observer-readable transition, an event correspondence, and calibration.
 
-The cap is extracted cleanly, its flow is carried through refinement without
-distortion, the round caps are rigid, and the scale is fixed. The internal clock
-and the geometric dilation are therefore the same operation. Finite cells
-supply the regulator; their controlled smooth limit supplies the continuous
-boost.
+When the cap is extracted cleanly, its flow is carried through refinement
+without distortion, the round caps are rigid, the geometric normalization is
+fixed, and the independent algebra-state package holds on the same tower, the modular
+automorphism and geometric dilation are the same operation on the support
+algebra. Finite cells supply the regulator; their controlled smooth limit
+supplies the continuous boost.
 
 The icosahedral $A_5$ frame belongs on that finite side. It organizes twelve
 ports and gives a highly isotropic regulator, but its sixty rotations are not
@@ -339,13 +348,14 @@ of the smooth observer-facing sphere after the modular and refinement checks
 pass. The polyhedron is the finite instrument panel. The round sphere is the
 continuum kinematic chart.
 
-OPH settles the harder question in both directions. It builds geometry straight
-from repaired local data. A closed spherical support, a well-behaved mesh,
+On the certified branch, a closed spherical support, a well-behaved mesh,
 matching cross-ratios, and the modular temperature scale produce the round
 sphere and its full conformal structure. The observer-facing map then localizes
 records and turns that conformal structure into the shared kinematic chart.
+The finite federation has to produce those inputs independently; a mesh drawn
+by the analyst cannot certify them.
 
-That is the bridge. The state supplies modular flow, and the recovered metric
+The state supplies modular flow, and the recovered metric
 supplies proper time along a worldline. They agree only after the physical
 calibration has been stated. Comparing two different worldlines needs one more
 piece: a rule saying which event on one clock corresponds to which event on
@@ -353,7 +363,7 @@ the other. A local Lorentz factor compares velocities at one event; it is not
 a global clock-conversion formula. Consistent overlap calibrations then let the
 local clocks assemble into one spacetime description.
 
-![Modular flow on a cap acts like an internal clock whose smooth limit becomes geometric motion on the screen.](../assets/book_diagrams/modular-flow-cap.svg){width=78%}
+![Modular ordering on a cap can match geometric motion on the screen after the physical calibration is supplied.](../assets/book_diagrams/modular-flow-cap.svg){width=78%}
 
 ### Conformal Symmetry Is Lorentz Symmetry
 
@@ -365,8 +375,8 @@ $$\text{Conf}^+(S^2) \cong PSL(2, \mathbb{C}) \cong SO^+(3,1)$$
 The conformal group of the sphere is isomorphic to the Lorentz group.
 
 This is the main reason the sphere is the right observer-facing chart. It gives
-each observer a celestial sky, it gives local caps whose modular clocks can
-become geometric flows, and it gives the exact symmetry group that relativity
+each observer a celestial sky, it gives local caps whose modular flows can
+become geometric motions, and it gives the exact symmetry group that relativity
 uses to compare inertial observers.
 
 The precise proof uses null rays and oriented caps, but the picture is simple:
@@ -425,7 +435,7 @@ If reality is encoded with a screen chart carrying finite local degrees of
 freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
 a privileged reference frame?
 
-The answer is that **there is no observer outside the screen net**. The sphere
+**There is no observer outside the screen net.** The sphere
 serves as the symmetric chart for observer-facing support data, with no
 external inspection platform above it. OPH does not include any
 external vantage point. Observers have no user seat outside the computation.
@@ -448,7 +458,8 @@ structure, and avoid turning any one patch into the privileged center of the
 world. A natural symmetry group that does that is the conformal group of
 $S^2$, and $\text{Conf}(S^2)\cong \mathrm{SO}(3,1)$ is the Lorentz group.
 
-So Lorentz invariance appears as the natural symmetry class relating observer perspectives without privileging any one of them.
+On the certified spherical branch, Lorentz invariance is the symmetry class
+relating observer perspectives without privileging any one of them.
 
 **Carrier coordinates do not need to move through a pre-given bulk.** What we
 call motion in emergent 4D spacetime is a stable change in the quotient-visible
@@ -456,9 +467,13 @@ relations and localized records. Its quantum representation, dynamics, and
 pole give the corresponding particle. A Lorentz boost relates
 how two observers describe the same localized pattern in the smooth chart.
 
-The substrate is not in spacetime. Spacetime emerges from how patches relate to
-each other. Asking "what frame is the substrate in?" is like asking "what color
-is the number seven?" The question assumes a category error.
+The carrier does not sit at a hidden coordinate inside the spacetime it helps
+produce. Spacetime emerges from quotient-visible relations among patches.
+Carrier architecture nevertheless matters: changing port incidence,
+orientation, state response, or refinement can change the relations that reach
+the smooth limit. Asking which emergent inertial frame contains the carrier is
+like asking what color the number seven is. Asking which carrier structure was
+realized is a physical question.
 
 ### Why the Speed of Light Is Universal
 
@@ -467,39 +482,43 @@ Why is there a maximum speed, and why is it the same for everyone?
 On the recovered geometric branch, the common causal structure on the screen
 determines the effective light cone.
 
-The speed of light $c$ is then the conversion factor between modular time and
-geometric distance in the emergent bulk description. It is universal because
-all observers read the same conformal light-cone structure.
+The speed of light $c$ is then the conversion factor between calibrated clock
+readings and geometric distance in the emergent bulk description. It is
+universal because all observers read the same conformal light-cone structure.
 
 Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
 
-The repaired records supply more than distance. They supply causal order, time
-separation, and the common light-cone structure. Events are bundles of records
-that coincide. A dense population of separated events, full-rank local frames,
-and consistent chart overlaps reconstruct a four-dimensional spacetime with one
-time direction and three spatial directions. Repair sets the arrow of time, and
-the possible rest frames form a separate hyperbolic space over each event.
+On the event branch, repaired records can supply causal order, time separation,
+and a common light-cone structure. Events are equivalence classes of record
+germs under common refinement, rather than points borrowed from the frame
+space. A dense population of separated events, open local charts, full-rank
+frames, a quadratic cone with one negative direction, and consistent overlaps
+reconstruct a four-dimensional spacetime with one time direction and three
+spatial directions. The possible rest frames form a separate hyperbolic fiber
+over each event.
 
 ## 15.9 Recovering General Relativity
 
-Special relativity emerges from the conformal structure of the screen. What about gravity?
+On the certified geometry branch, special-relativistic kinematics emerges from
+the conformal structure of the screen. What about gravity?
 
 ### How Patch Consistency Enters
 
 Patch consistency does two jobs here. First, it forbids any preferred observer
 or preferred frame. Second, once every observer shares the same local rest-frame
 relation, patch consistency forces those local relations to knit together into a
-single tensor law. The equilibrium state, the local modular clock, and the
+single tensor law. The equilibrium state, the local modular ordering, and the
 entropy balance across small regions together feed the tensor first-variation
-relation. The common-domain, vacuum-reference, coupling, and scale premises
+relation. A common refinement domain, vacuum reference, coupling, and scale
 described below supply the absolute equation.
 
-There is a division of labor. Consensus supplies clean, agreed-upon records.
+The branches divide their work. Consensus supplies clean, agreed-upon records.
 Geometric readout turns those records into caps, small causal diamonds, local
-energy, frame information, and scale. Modular flow supplies the clock. The
-gravitational argument combines those outputs.
+energy, frame information, and scale. Modular flow supplies an ordering
+parameter; an independent observer instrument and calibration supply the clock.
+The gravitational argument combines those outputs.
 
 Two regions join across their shared boundary because correlations through the
 intervening collar decay fast enough under refinement. One common family of
@@ -631,7 +650,8 @@ $$\delta\!\left(G_{ab} + \Lambda g_{ab}
 - 8\pi G \langle T_{ab} \rangle\right)=0$$
 
 This equation fixes the tensor relative to a reference value. It does not set
-the integration tensor to zero. On a source-derived common-domain tower, the
+the integration tensor to zero. On an independently constructed refinement
+family that keeps every quantity on the same domain, the
 Ward identity, contracted Bianchi identity, metric compatibility, and
 connectedness reduce the remaining local freedom to one constant metric term
 per component. A declared vacuum reference evaluates that term. The absolute
@@ -651,8 +671,8 @@ compatibility, and connectedness turn the local metric residue into one global
 constant Lambda.
 
 This is a conditional composition theorem. Finite consensus does not supply
-the tower, and construction and certification of one inhabited common-domain
-tower are work in progress.
+the tower. Construction of an inhabited refinement family with all of these
+readouts on a common domain is work in progress.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
@@ -710,9 +730,12 @@ For any macroscopic process, this ratio is absurdly tiny. General relativity is 
 
 ### The Best Compression
 
-Emergent geometry is the most economical description of how modular clocks fit together.
+Emergent geometry is the most economical description of how calibrated
+observer clocks and their supporting modular flows fit together.
 
-Imagine collecting all the data about how every patch's modular flow relates to every other patch's flow. This is an enormous amount of information.
+Imagine collecting all the data about how every patch's modular flow and clock
+readout relate to every neighboring patch. This is an enormous amount of
+information.
 
 But there's a compression. In the effective geometric regime, specifying a
 metric $g_{ab}$ organizes the leading overlap relations between nearby modular
@@ -754,7 +777,7 @@ This is like asking "what happens to temperature below one molecule?" The questi
 
 The "cosmological constant problem" assumes quantum field theory is fundamental. QFT predicts vacuum energy 10^120 times larger than observed. Something must cancel it.
 
-QFT is an effective description that emerges from the screen. The effective
+QFT is an effective description of observer-facing patch dynamics. The effective
 cosmological constant is tied to the reference
 curvature and global screen capacity discussed in Chapter 13 through
 dimensionless products such as $\Lambda\ell_\star^2$. In natural units, the
@@ -770,10 +793,12 @@ connects the screen units to laboratory units, rather than a local QFT
 vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
 fundamental contributions to the stress tensor.
 
-In OPH the small value of Lambda belongs to the global capacity-closure branch,
-not to a cancellation between enormous local vacuum-energy terms. The
-self-reading fixed point selects the de Sitter capacity, and the scale bridge
-displays the corresponding Lambda in laboratory units.
+In OPH the small value of Lambda belongs to a conditional global
+capacity-closure branch rather than to a cancellation between enormous local
+vacuum-energy terms. The finite capacity definition is exact. Its physical
+capacity-indexed family, unique selector, horizon identification, and scale
+bridge are work in progress. If those premises hold, the selected de Sitter
+capacity and scale display Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
@@ -786,8 +811,8 @@ That changes the bookkeeping. The structure at the boundary blocks any clean spl
 This is the sense in which OPH softens the information paradox. The controlled
 boundary bookkeeping does not require an autonomous bulk-interior store.
 
-The important point is simpler. Information belongs to the observer-visible
-patch and boundary bookkeeping, and the interior is encoded rather than stored
+Information belongs to the observer-visible patch and boundary bookkeeping.
+The interior is encoded rather than stored
 in a second independent vault. Page curves and islands show the same lesson in
 the cleanest holographic examples.
 
@@ -827,8 +852,9 @@ The old picture treated time as universal, gravity as a force, and geometry as
 a fixed stage. Relativity overturns each part. The speed of light forces time
 and distance into one four-dimensional structure. Free fall reveals gravity as
 geometry. OPH pushes the logic one step deeper. On the controlled scaling
-branch, Lorentz symmetry becomes the geometry of how modular times mesh across
-patches, the rest-space quotient gives three spatial directions, and gravity
+branch, Lorentz symmetry becomes the geometry of how calibrated clock records
+and modular cap motions mesh across patches, the separate event construction
+gives one time and three spatial directions, and gravity
 becomes the fixed-cap equilibrium condition after the geometry readout,
 null bridge, bounded-interval kernel, small-ball area identity, and tensor
 upgrade have all been supplied.

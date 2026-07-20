@@ -9,7 +9,8 @@ proved, and what observation could defeat it?
 - **First encounter:** read the [compact case](../extra/compact_proof_of_oph.pdf),
   then [The Strange Loop](STRANGE_LOOP.md).
 - **Scientific audit:** use the [proof spine](PROOF_SPINE.md), [closure
-  ledger](CLOSURE_LEDGER.md), and [falsification
+  ledger](CLOSURE_LEDGER.md), [carrier-coherence
+  audit](UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md), and [falsification
   program](OPH_FALSIFICATION_PROGRAM.md) beside the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
   guide](../REPRODUCE.md), [executable evidence](../code/), and [Lean
@@ -26,6 +27,11 @@ proved, and what observation could defeat it?
 - [Closure Ledger](CLOSURE_LEDGER.md) maps the main quantitative closures to their evidence artifacts.
 - [Proof Spine](PROOF_SPINE.md) gives the dependency route through the principal claims.
 - [Consistency Stack](CONSISTENCY_STACK.md) organizes the selection principles and uniqueness lemmas.
+- [Unified Carrier Coherence Audit](UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md)
+  keeps the local twelve-port carrier, federation screen, and global support
+  screen distinct across the paper and book stack.
+- [Book Chapter Ledger](BOOK_CHAPTER_LEDGER.md) records where the technical
+  theorem boundaries are translated into reader-facing prose.
 - [OPH Falsification Program](OPH_FALSIFICATION_PROGRAM.md) lists only mature mathematical and realized-branch falsifiers.
 
 ## Focused Technical Notes
@@ -33,6 +39,8 @@ proved, and what observation could defeat it?
 - [Entanglement Geometry](ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md) explains the geometric role of entanglement and modular flow.
 - [Hadron Data Policy](HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
 - [IBM Quantum Cloud Archive](IBM_QUANTUM_CLOUD.md) documents the reproducible hardware benchmark and its interpretation boundary.
+- Simulator outputs have no theorem or empirical-promotion authority in the
+  paper stack.
 
 ## Editorial Policy
 

@@ -34,7 +34,9 @@ This seems catastrophic for building reliable systems. Classical computers work 
 
 The second shock came from black holes-and pointed in the opposite direction.
 
-In 1974, Stephen Hawking made a disturbing discovery. Black holes aren't quite black-they emit faint radiation due to quantum effects near the event horizon. This **Hawking radiation** has a precise temperature:
+In 1974, Stephen Hawking made a disturbing discovery. Black holes emit faint
+radiation due to quantum effects near the event horizon. This **Hawking
+radiation** has a precise temperature:
 
 $$T = \frac{\hbar c^3}{8\pi G M k_B}$$
 
@@ -47,7 +49,7 @@ Because $M$ is in the denominator, smaller black holes are hotter.
 
 The problem was severe. Hawking's calculation showed the radiation is thermal-random, uncorrelated noise carrying no information about what fell in. If you throw a book into a black hole and wait for evaporation, all you get out is random static.
 
-If this is true, information is destroyed. A pure quantum state (the book) becomes a mixed thermal state (the radiation). This violates **unitarity**-the foundational principle that quantum evolution preserves information.
+If this is true, information is destroyed. A pure quantum state (the book) becomes a mixed thermal state (the radiation). This violates **unitarity**, the foundational principle that quantum evolution preserves information.
 
 Hawking was willing to accept this. Most other physicists were not.
 
@@ -66,13 +68,23 @@ information.
 
 ### The Library of Alexandria Revisited
 
-In 48 BC, Julius Caesar's troops set fire to the Egyptian fleet in Alexandria's harbor. The flames spread to warehouses, then to buildings, and according to legend, consumed the Great Library-the ancient world's greatest repository of knowledge. Hundreds of thousands of scrolls burned. Sophocles' lost plays, Aristotle's missing books, Euclid's unfinished theorems-gone. Ash drifted over the Mediterranean.
+In 48 BC, Julius Caesar's troops set fire to the Egyptian fleet in Alexandria's
+harbor. The flames spread to warehouses, then to buildings, and according to
+legend consumed the Great Library, the ancient world's greatest repository of
+knowledge. Hundreds of thousands of scrolls burned, including Sophocles' lost
+plays, Aristotle's missing books, and Euclid's unfinished theorems. Ash drifted
+over the Mediterranean.
 
 We intuitively understand this loss is permanent. Once a book is burned, the information is destroyed. Entropy increases, smoke disperses, and time ensures we cannot run the movie backward.
 
 But is the information *really* gone?
 
-This question haunted Ludwig Boltzmann in the 1870s. His colleague Josef Loschmidt pointed out something troubling: the fundamental laws of physics are reversible. Newton's equations run equally well forward or backward. If you knew the exact position and momentum of every molecule of smoke and ash-every atom that had been paper and ink-you could, in principle, reverse their trajectories and reconstruct the scrolls.
+This question haunted Ludwig Boltzmann in the 1870s. His colleague Josef
+Loschmidt pointed out something troubling: the fundamental laws of physics are
+reversible. Newton's equations run equally well forward or backward. If you
+knew the exact position and momentum of every molecule of smoke and ash,
+including every atom that had been paper and ink, you could in principle
+reverse their trajectories and reconstruct the scrolls.
 
 The information isn't destroyed. It's scrambled. Hidden in correlations among billions of particles, diluted into the environment until no practical measurement could extract it. But mathematically, physically, it remains there.
 
@@ -84,7 +96,9 @@ In quantum mechanics, this requirement is non-negotiable. Closed-system quantum
 evolution is **unitary**. If information were genuinely destroyed in that
 setting, the standard quantum-mechanical evolution law would fail.
 
-So the universe must preserve information, even when it looks scrambled beyond recognition. There must be a mechanism-a "Save Game" feature-that allows, in principle, the smoke to remember what the scroll said.
+So the universe must preserve information, even when it looks scrambled beyond
+recognition. Some mechanism, a "Save Game" feature, must in principle allow the
+smoke to remember what the scroll said.
 
 But how can information be preserved if it cannot be copied? The answer: you don't need to copy information perfectly to protect it. You need to encode it **redundantly** in a way that survives local errors.
 
@@ -109,9 +123,12 @@ Shannon's answer: you can't eliminate noise, but you can beat it with **redundan
 A simple example is repetition coding. Send a single bit three times. A zero
 becomes `000`. A one becomes `111`.
 
-Suppose noise flips one bit. You receive "010." Majority vote says the original was "0"-two zeros versus one one. The information survives.
+Suppose noise flips one bit. You receive "010." Majority vote says the original was "0," with two zeros versus one one. The information survives.
 
-This seems obvious, but Shannon proved something surprising: every noisy channel has a **capacity**-a maximum rate at which you can send information reliably. If you send slower than capacity, there exist codes whose error rate can be made arbitrarily small.
+This seems obvious, although Shannon proved something surprising: every noisy
+channel has a **capacity**, a maximum rate at which information can be sent
+reliably. Below that capacity, codes exist whose error rate can be made
+arbitrarily small.
 
 The trick is clever encoding. Spread information across many symbols in subtle patterns. The receiver can reconstruct the original even when individual symbols are corrupted, because the patterns survive even when specific symbols don't.
 
@@ -245,7 +262,7 @@ Strong subadditivity says B can only help, never hurt. If you want to learn abou
 
 In 1986, Hungarian mathematician Denes Petz asked a natural question: if I(A:C|B) = 0 exactly, can we physically reconstruct the state?
 
-The answer is yes, and Petz constructed the explicit procedure later called the **Petz recovery map**:
+Petz constructed an explicit procedure, later called the **Petz recovery map**:
 
 $$R_{B \to BC}(\sigma) = \rho_{BC}^{1/2} (\rho_B^{-1/2} \sigma \rho_B^{-1/2} \otimes I_C) \rho_{BC}^{1/2}$$
 
@@ -300,7 +317,7 @@ The recovery rule becomes clearer in a toy state.
 
 Let A and B be entangled in a Bell state, and let C be an independent qubit.
 
-Since C is independent, knowing B tells you everything B could possibly tell you about C-which is nothing. So I(A:C|B) = 0 exactly. B screens A from C perfectly.
+Since C is independent, knowing B tells you everything B could possibly tell you about C, which is nothing. So I(A:C|B) = 0 exactly. B screens A from C perfectly.
 
 Recovery is trivial here: C has nothing to do with A, so "recovering" C from B just means C can be anything.
 
@@ -445,7 +462,9 @@ In 1993, Don Page proposed a resolution. If information is preserved, the entrop
 
 Early on, radiation entropy increases. Each photon emitted is uncorrelated with previous photons.
 
-But at the **Page time**-roughly when the black hole has lost half its mass-something changes. Radiation entropy should start *decreasing*. Later photons become correlated with earlier ones. The radiation starts "remembering" what fell in.
+At the **Page time**, roughly when the black hole has lost half its mass,
+radiation entropy should start *decreasing*. Later photons become correlated
+with earlier ones. The radiation starts "remembering" what fell in.
 
 Page's curve is the shape unitarity demands: entropy rises until Page time,
 falls after it, and returns to zero for a final pure state.
@@ -478,7 +497,9 @@ When computing entropy in theories with gravity, you should include contribution
 
 Before Page time, no island contributes. Radiation entropy equals naive Hawking calculation-increasing.
 
-After Page time, an island appears. The interior of the black hole-the **island**-is encoded in the radiation. Including the island contribution, radiation entropy decreases.
+After Page time, an island appears. The black-hole interior, called the
+**island**, is encoded in the radiation. Including the island contribution,
+radiation entropy decreases.
 
 The island formula reproduces the Page curve in semiclassical holographic
 models and makes the encoding picture vivid. Alice's diary may be physically
@@ -494,7 +515,9 @@ The black hole resolution points to a deeper truth: spacetime may have the struc
 
 In quantum computing, you can't copy quantum information (no-cloning theorem). So how do you protect qubits from noise?
 
-The answer is **quantum error correction**: spread information across many physical qubits in entangled configurations. If some qubits are corrupted, the others can reconstruct the original.
+**Quantum error correction** spreads information across many physical qubits in
+entangled configurations. If some qubits are corrupted, the others can
+reconstruct the original.
 
 The simplest example is the three-qubit code. Logical $|0\rangle$ becomes
 $|000\rangle$, and logical $|1\rangle$ becomes $|111\rangle$.
@@ -503,12 +526,16 @@ If one qubit flips, majority vote recovers the original. This is just classical 
 
 ### The HaPPY Code
 
-In 2015, Patrick Hayden, Sepehr Nezami, Fernando Pastawski, John Preskill, and Beni Yoshida built a toy model of holography using error correction-the **HaPPY code**.
+In 2015, Patrick Hayden, Sepehr Nezami, Fernando Pastawski, John Preskill, and
+Beni Yoshida built a toy model of holography using error correction, the
+**HaPPY code**.
 
 They constructed a tensor network in which the bulk is the logical
 information and the boundary is made of the physical qubits.
 
-Information in the bulk is redundantly encoded in the boundary. Erase part of the boundary and bulk information survives-you can recover it from the remaining boundary.
+Information in the bulk is redundantly encoded in the boundary. Erase part of
+the boundary and bulk information survives in a form recoverable from the
+remaining boundary.
 
 This is exactly the recovery rule: I(Bulk : Erased | Remaining) is approximately 0.
 

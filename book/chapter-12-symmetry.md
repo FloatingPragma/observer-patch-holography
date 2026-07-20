@@ -55,9 +55,10 @@ Recall our thesis: reality is the process of making observations consistent betw
 Consider two astronomers observing the same galaxy. One measures energy in her reference frame. The other measures energy in his frame, moving at a different velocity. Their numbers are different.
 
 They are compatible because they are related by a Lorentz transformation. On
-the screen, this symmetry grows out of modular time-flow. It tells them how to
-translate between their observations. Lorentz invariance is the rule that keeps
-both accounts compatible.
+the certified screen branch, this symmetry is the conformal motion of the
+refined sphere. Independently supplied modular flow must match that motion and
+its normalization. The Lorentz transformation tells the astronomers how to
+translate between their observations.
 
 **Symmetry is the grammar of consistency.** Without symmetry, different observers could not compare notes. Their measurements would be incommensurable.
 
@@ -79,7 +80,7 @@ SO(3) is the group of ordinary rotations in three-dimensional space. Calling it
 a group only means that rotations can be composed, undone, and compared in a
 consistent way.
 
-This has immediate consequences. Whatever physics lives on the screen must organize itself into **representations** of SO(3)-ways that fields can transform under rotations.
+This has immediate consequences. Whatever physics lives on the screen must organize itself into **representations** of SO(3), which specify how fields transform under rotations.
 
 The representations are labeled by angular momentum $l=0,1,2,\ldots$. The
 scalar mode $l=0$ stays unchanged under rotation. The vector mode $l=1$
@@ -100,7 +101,7 @@ If you rotate an electron by 360 degrees, it doesn't return to its original stat
 
 ### The Double Cover
 
-The resolution: electrons transform under **SU(2)**-the double cover of SO(3). Every rotation in SO(3) corresponds to two elements in SU(2), differing by a sign.
+Electrons transform under **SU(2)**, the double cover of SO(3). Every rotation in SO(3) corresponds to two elements in SU(2), differing by a sign.
 
 Objects transforming under SU(2) are called **spinors**. They have half-integer spin.
 
@@ -134,7 +135,7 @@ Half-integer-spin matter sectors become possible because quantum mechanics allow
 
 In 1939, Eugene Wigner classified all possible elementary particles.
 
-A particle is a representation of the Poincare group-the symmetry group of special relativity.
+A particle is a representation of the Poincare group, the symmetry group of special relativity.
 
 The Poincare group collects the basic moves that leave special relativity
 unchanged: translations in space and time, rotations, and Lorentz boosts between
@@ -144,12 +145,12 @@ Irreducible representations are labeled by two numbers only: mass $m$, which
 is continuous and non-negative, and spin $s$, which comes in the familiar
 discrete ladder $0, 1/2, 1, 3/2, 2, \ldots$.
 
-That's it. Those are the only quantum numbers that follow from spacetime symmetry.
+Mass and spin are the only quantum numbers that follow from spacetime symmetry.
 
 **Particles are representations of symmetries.** Spacetime symmetry fixes the mass-and-spin labels, while the realized internal charges and matter content require additional structure.
 
-That changes what a particle is. A particle is not a tiny marble with a fixed
-identity tag but an allowed transformation pattern. Mass tells you how the
+This changes what a particle is. An allowed transformation pattern replaces
+the image of a tiny marble with a fixed identity tag. Mass tells you how the
 excitation sits with time translations. Spin tells you how it sits with
 rotations.
 
@@ -243,10 +244,12 @@ reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
 This is classification before selection. Transport and refinement reconstruct
-a compact group. Minimal Admissible Realization (MAR) then selects the smallest
-one-Higgs matter package that works, including three colors and three
-generations. In this realization, six shared center transformations act
-trivially on all realized matter. Counting those duplicates once gives
+a compact group under their stated hypotheses. Minimal Admissible Realization
+(MAR) then selects the smallest one-Higgs matter package in its declared
+economy class, including three colors and a conditional minimum of three
+families. Attaching that family count to physical chiral matter is a separate
+construction. On the selected matter package, six shared center
+transformations act trivially. Counting those duplicates once gives
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
@@ -304,21 +307,24 @@ $\pm\sqrt5$. This is the shape arithmetic of the port frame. The later
 golden-ratio balance coordinate plays a separate self-similar role in the
 quantitative construction.
 
-With outward orientation and a compact block composition rule, the same
+With outward orientation and a compact noncommuting current law, the same
 $1+3+3'+5$ coefficient space carries
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Chapter 14 shows
-how the bracket works. The result concerns coefficient and current directions;
-the public record projectors themselves commute. The refinement-stable current
-realization carries these coefficient directions into the gauge sector.
+how the bracket works. The finite register decomposition does not supply that
+law. The result concerns coefficient and current directions; the public record
+projectors themselves commute. A physically constructed, refinement-stable current
+realization is the separate bridge into the gauge sector.
 
 $A_5$ is a finite regulator symmetry. It is neither the Standard Model gauge
 group nor the Lorentz group. Continuous Lorentz symmetry comes from the
 conformal geometry of the smooth $S^2$ cap chart. The physical Standard Model
 matter package and its hypercharges come through the separate gluing and
 minimal-realization route. The six antipodal axes also have an abstract
-$\mathbb Z_6$ residue. The spin and central maps tie that residue to the action
-on matter. Masses and coupling strengths belong to the dynamics within the
-symmetry sectors.
+$\mathbb Z_6$ residue. Tying that residue to the action on matter requires a
+source-derived spin lift and central intertwiner. That construction, and the
+commuting square identifying the local current route with the independent
+Tannaka/matter route, are open. Masses and coupling strengths belong to the
+dynamics within the symmetry sectors.
 
 ### Yang-Mills and the Gap
 
@@ -346,7 +352,7 @@ boundary changes. Once the finite source lists every collar type and prints one
 uniform influence bound below the instability threshold, the paper proves one
 positive gap that works at every location, size, boundary, and refinement
 stage. Locality or mixing alone cannot do this; small finite counterexamples
-show why both controls matter. The actual compact-gauge source still has to
+show why both controls matter. The actual compact-gauge source has to
 produce that list and those bounds. If it does, and the
 finite dynamics survives as a nontrivial four-dimensional quantum theory, the
 accounting is literal:
@@ -360,11 +366,11 @@ to leave the repaired vacuum survives as the least nontrivial gauge excitation
 in the continuum. Locality and fading long-range correlations help, but do not
 by themselves prove that a uniform energy floor survives refinement.
 
-The repository includes a 244-type finite Ising calibration of the
-collar-gap certificate. It checks the exact rational bookkeeping that turns a
+One finite Ising test case calibrates the collar-gap argument. It checks the
+exact rational bookkeeping that turns a
 uniform influence bound into a finite transfer floor of at least one half. It
-does not stand in for the compact-simple-gauge source family: that physical
-receipt still needs its own collar kernels, refinement data, zero-mode handling,
+does not stand in for the compact-simple-gauge source family. That physical
+construction needs its own collar kernels, refinement data, zero-mode handling,
 and continuum transfer checks.
 
 ## 12.8 Symmetry Breaking
@@ -372,14 +378,11 @@ and continuum transfer checks.
 The discussion in this section describes the ordinary electroweak field-theory
 mechanism after its gauge, scalar, source, and quantum premises are supplied.
 The finite OPH icosahedral calculation conditionally recognizes the relevant
-compact algebra and a one-Higgs representation packet; it does not yet produce
-the physical scalar, family attachment, graded-local field algebra, or W/Z
-complex poles. Those require observer-like source patches with operational
-ports, readback, repair records, and typed QFT receipts. The finite-action,
-quantum-object, BV/Slavnov--Taylor, strict W/Z pole-algebra, OS, and resonance
-implications are stated separately. Their OPH-native action, measure or
-Hamiltonian, renormalization, current-amplitude, observable-tower, and
-analytic-sheet producers remain open.
+compact algebra and a one-Higgs representation packet. Physical scalar and
+family fields, a graded-local quantum theory, and W/Z resonances require
+separate observer-like source constructions with operational ports, readback,
+repair records, actions, amplitudes, and spectral tests. Those constructions
+are open in OPH.
 
 The universe has beautiful symmetries. But the symmetries are also hidden.
 
@@ -441,7 +444,7 @@ On the screen, CPT combines charge conjugation with orientation reversal and
 reversal of the record flow. In the Lorentzian field-theory limit this becomes
 the usual combined charge, parity, and time-reversal symmetry.
 
-CPT is the immune system of reality-the consistency check that can never be bypassed.
+CPT is the immune system of reality, a consistency check that can never be bypassed.
 
 ## 12.10 Noether's Theorem: The Calculation
 
@@ -507,9 +510,11 @@ boundaries, and the two sides of a cap all transform together under a Lorentz
 motion. The book-level point is that the same symmetry moves the screen view and
 the recovered spacetime view.
 
-The world obeys the script. Conservation laws hold. CPT remains intact.
-Spin-statistics stays locked. Symmetry is not decorative embroidery on top of
-physics but one of the mechanisms by which physics keeps itself coherent.
+The observed world obeys the script. Conservation laws hold, CPT remains
+intact, and physical quantum fields obey spin-statistics. OPH has to reproduce
+that last connection through its open spin, exchange, and quantum-field
+construction. Symmetry is one of the mechanisms by which physics keeps itself
+coherent.
 
 ### Noether's Human Lesson
 
@@ -570,4 +575,4 @@ The translation rules need an arena that carries them. Our universe expands,
 accelerates, and hides information behind a cosmological horizon. The arena
 itself has thermodynamics.
 
-That is the question for **Chapter 13: The de Sitter Patch**.
+**Chapter 13: The de Sitter Patch** examines that question.

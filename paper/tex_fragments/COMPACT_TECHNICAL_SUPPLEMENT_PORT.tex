@@ -18,7 +18,9 @@ group:
 
 \begin{theorem}[Support-visible geometric modular flow on caps on the extracted geometric subnet]
 Assume the OPH axioms, the derived fixed-cutoff collar package, and the support-visible BW
-scaling theorem on the extracted geometric subnet. Then the scaling-limit modular
+scaling theorem on the extracted geometric subnet. That theorem requires the finite cap-normal
+support/flow certificate and an independently complete \(\mathsf{MGNS\text{-}1}\) algebra-state
+package on the same tower. Then the scaling-limit modular
 automorphism group of the cap pair is geometric conformal dilation on that
 subnet, with the standard \(2\pi\) normalization supplied by the finite cap-normal certificate.
 If the emitted scaling-limit cap algebra is type I, this may be written as
@@ -29,12 +31,13 @@ controlled fixed-collar families with \(\delta^{\mathrm M}\to0\); small CMI supp
 Fawzi--Renner recovered comparison state, not a dimension-free one-shot exact Markov normal form.
 \end{theorem}
 
-\begin{definition}[BW-branch observer-relative time reading]
-On the branch satisfying the hypotheses of the preceding geometric modular-flow theorem, OPH uses
-the modular automorphism parameter \(t\) of the extracted cap pair as that cap observer's relative
-time parameter. This is a declared BW-branch reading of the derived geometric modular flow; it is
-not an additional proof that arbitrary operational clocks, global time, or the full problem of time
-have been derived from the axioms.
+\begin{definition}[BW-branch observer-relative modular ordering]
+On the branch satisfying the hypotheses of the preceding geometric modular-flow theorem, the
+modular automorphism parameter \(t\) of the extracted cap pair supplies a dimensionless ordering for
+that observer's accessible algebra-state pair. Physical time requires an observer-readable
+transition, event correspondence, and calibrated clock instrument. No claim about arbitrary
+operational clocks, global time, or the full problem of time follows from the geometric modular-flow
+theorem alone.
 \end{definition}
 
 \paragraph{BW-side UV scaffold.}
@@ -1168,8 +1171,7 @@ outward-rounded intervals certify \(c_*^{\rm lo}>0\) and \(\eta_*^{\rm hi}<1\), 
 
 \begin{proposition}[Executable finite calibration, not a physical receipt]
 \label{prop:collar-gap-calibration}
-The exact-rational calibration table at
-\texttt{code/yang\_mills\_gap/manifests/atomic\_4d\_ising\_calibration.json}
+The exact-rational four-dimensional Ising calibration table
 has \(244\) active collar types on the declared four-dimensional cofinal family
 \(N_r=3\cdot2^r\), for periodic, free, fixed-plus, and fixed-minus boundary
 conditions.  Its complete deterministic table has
@@ -1398,9 +1400,9 @@ osterwalderSchrader75}.
 
 \begin{remark}[Scope of the compact-gauge OS theorem]
 The preceding reconstruction is restricted to the support-visible bosonic
-compact-gauge cylinder algebra on its declared branch. It is not the full
-chiral \(G_6\) QFT-Q2 construction, does not by itself instantiate the
-Standard-Model QFT-Q4 observable sector, and supplies no resonance-sheet
+compact-gauge cylinder algebra on its declared branch. It falls short of the full
+chiral \(G_6\) exact finite quantization, does not by itself instantiate the
+Standard-Model continuum observable sector, and supplies no resonance-sheet
 continuation. Those are separate typed inputs and implications in
 Section~\ref{sec:compact-technical-supplement}.
 \end{remark}

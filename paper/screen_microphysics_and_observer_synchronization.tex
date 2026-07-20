@@ -37,8 +37,8 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
-papers, central records with Born--L\"uders readout, Bell/CHSH records with the
+Observer-Patch Holography (OPH) needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
+papers, central records with Born--L\"uders readout, Bell and Clauser--Horne--Shimony--Holt (CHSH) records with the
 Tsirelson bound, and checkpoint restoration for observer continuation after
 repair. On a separate reversible proposal layer, source-derived rate ratios
 reconstruct a finite Gibbs potential exactly when cycle affinities vanish; a
@@ -52,8 +52,7 @@ refinement maps derive the twelve unit lines, inverse pairing, proper
 It also states the public evidence rule: hardware runs matter only when
 the device, calibration, circuit, data, and independent check are public.
 Its primitive collar release law supplies the source premises for a conditional
-angular spectrum and tilt theorem. Construction of one finite source carrying
-the complete interface and checkpoint data is work in progress.
+angular spectrum and tilt theorem.
 \end{abstract}
 
 \input{tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex}
@@ -62,9 +61,11 @@ the complete interface and checkpoint data is work in progress.
 
 The rest of the OPH stack talks about observer patches, records, repairs, and screen cuts. This
 paper gives those words a finite carrier. It separates the abstract observer patch from its
-geometric support chart and from any physical or digital implementation. That distinction is what
-prevents the theory from depending on a particular piece of hardware or a convenient drawing of a
-sphere.
+geometric support chart and from its physical or digital implementation. The separation removes
+dependence on hidden coordinates, labels, materials, and wiring choices only when the complete
+observer-visible carrier signature is preserved. OPH is therefore presentation-invariant rather
+than carrier-neutral: quotient-visible port incidence, orientation, response, repair, clock, and
+refinement data can change the physical branch.
 
 The concrete contribution is the regulated screen architecture. Echosahedral carriers supply a
 twelve-port reference interface, edge sectors supply the heat-kernel/Casimir weights used by the
@@ -149,7 +150,8 @@ The echosahedral body used below is a reference carrier architecture. It is a fi
 surface for twelve-port interfaces, records, repair channels, and recurrent subchannels. The
 observer identity lives in the quotient data exposed by \(\mathsf O_i\), so a change of hidden
 coordinates, port labels, or substrate presentation is physically silent when it preserves the
-visible interface and record process.
+visible interface, oriented incidence where declared, response, record, repair, checkpoint, and
+refinement processes.
 
 \begin{definition}[Algebraic audit instrument]
 An algebraic audit instrument is an exact computable map on finite quotient-visible representation
@@ -174,15 +176,20 @@ fixed-capacity elementary carriers would need extra hypotheses: homogeneous UV c
 isomorphic local cell algebras, equivariant overlaps, refinement preservation of the cell type, and a
 proof that one cell or a fixed block of cells is the primitive carrier.
 
-\begin{claim}[Implementation-invariance target]\label{claim:implementation-invariance}
-Two carrier patches that induce isomorphic visible interface algebras, record statistics, repair
-maps, and checkpoint continuation are physically equivalent for all OPH observables in the declared
-quotient.
+\begin{claim}[Presentation invariance and carrier sensitivity]\label{claim:implementation-invariance}
+Two carrier patches are physically equivalent for the declared OPH observables when a
+quotient-visible isomorphism preserves their accessible algebras and states, interface algebras,
+record statistics, repair maps, checkpoint continuation, response laws, and refinement lineage.
+On the Echosahedral branch it must also preserve the twelve-port oriented incidence and its
+antipodal pairing. A material, coordinate, or wiring change satisfying this contract is silent. A
+change of the preserved carrier signature is outside the equivalence claim and may change the
+physical branch.
 \end{claim}
 
 This claim is theorem-level only on a branch that supplies the required quotient isomorphism and
 error bound. It fails if a predicted OPH observable depends on hidden carrier coordinates after the
-visible algebra, record statistics, repair maps, and checkpoint data have been held fixed.
+full visible signature has been held fixed. It says nothing about a cube and an icosahedron whose
+visible incidence structures differ.
 
 \begin{definition}[Operational observer test]\label{def:operational-observer-test}
 A candidate physical system realizes an observer patch when it supplies a bounded accessible
@@ -373,9 +380,9 @@ On the exact analytic round-cap branch,
 n_{C,r}=(\cot\alpha_r,\csc\alpha_r\,\mathbf c_r).
 \]
 On a finite fitted branch the output is labeled
-\(\mathrm{APPROXIMATE\_ROUND\_CAP\_CHART}\). A global bound requires a separate
+\(\text{approximate round cap chart}\). A global bound requires a separate
 round-cap rigidity/convergence certificate; if the fit is not round it
-emits \(\mathrm{CAP\_NOT\_ROUND}\). The normal \(n_{C,r}\) is support-chart data derived from the
+emits \(\text{cap not round}\). The normal \(n_{C,r}\) is support-chart data derived from the
 repaired quotient. It is not a microscopic carrier coordinate, hidden port label, or new local
 degree of freedom. A cap normal determines a geodesic plane and half-space in \(H^3\); selecting
 a particular observer point \(u\in H^3\) requires a separate observer-frame, tetrad, or clock
@@ -383,6 +390,33 @@ receipt. On the compact paper's producer branch, the cap chart itself is produce
 support-visible incidence complex of the repaired normal form under the spherical-incidence,
 mesh, cross-ratio, and \(2\pi\)-normalization receipts, and the continuation from frame
 kinematics to an event base is the compact paper's conditional event-manifold packet.
+
+\begin{definition}[Carrier-to-support screen bridge]\label{def:carrier-support-screen-bridge}
+A carrier-to-support screen bridge at cutoff \(r\) consists of a source-bound map from routed
+carrier ports and seams to the support projections of the repaired observer-patch net, together
+with: (i) unital interface-algebra homomorphisms on every seam; (ii) coherent recovery maps on
+higher overlaps; (iii) a quotient-visible nerve whose support incidence is computed from the
+normal form; and (iv) refinement maps commuting with routing, quotienting, incidence, records,
+and support projection. A spherical bridge additionally certifies that the global nerve satisfies
+the spherical-incidence, cap-mesh, oriented cross-ratio, and normalization receipts consumed by
+the compact paper. Local carrier coordinates are excluded from the support output unless this map
+derives them as quotient-visible data.
+\end{definition}
+
+\begin{proposition}[Local Icosahedral incidence does not select the global support]
+The certified twelve-port incidence of every local carrier does not determine the topology or
+conformal structure of the federation support.
+\end{proposition}
+
+\begin{proof}
+Fix one certified local carrier and make one copy at every vertex of an arbitrary finite graph.
+Route selected port pairs along that graph while leaving each local port algebra, oriented
+incidence, antipode, and \(A_5\) action unchanged. A path, a cycle, a tree, and a cellulation of a
+closed surface therefore have identical local carrier certificates and different federation
+nerves. The local certificate cannot distinguish them. Full interface maps, higher-overlap
+coherence, and the global incidence/refinement receipt are necessary parents of a support-screen
+claim.
+\end{proof}
 
 The fold adds no independent dynamics. Repair is the finite patch operation that compares
 overlaps, updates records, and reaches the accepted normal form. Folding names the spherical
@@ -704,7 +738,8 @@ frequency in hertz.  Operational time requires the independent clock
 instrument and affine calibration used later in this paper.  Physical BW
 promotion further requires a refinement-natural comparison showing that the
 gear-derived state is the same support-visible cap state used by the geometric
-modular theorem, with its regularized cutoff schedule and independent
+modular theorem, the independently complete \(\mathsf{MGNS\text{-}1}\) package
+on that same tower, its regularized cutoff schedule, and the independent
 \(2\pi\)-normalization receipt.
 \end{remark}
 
@@ -1295,7 +1330,7 @@ is that product.
 \begin{theorem}[Coherent-matter same-channel forcing]
 \label{thm:coherent-matter-same-channel-forcing}
 Assume Scalar Edge-Center Exhaustion
-\(\mathrm{SCALAR\_EDGE\_CENTER\_EXHAUSTION}\),
+\(\text{scalar edge center exhaustion}\),
 Theorem~\ref{thm:scalar-channel-exhaustion}.  For every nondegenerate
 OPH-coherent material subfederation on a collar \(C\), the source
 \[
@@ -2025,7 +2060,7 @@ For anomaly abundance selection, the added release maps supply the release
 hypersurface, tetrad normal and physical cell volumes, FLRW zero-mode
 projector, finite anomaly load observable \(\mathsf L_{A,r}\), and
 no-data-use manifest used by
-\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
+\emph{anomaly abundance source receipt}.
 The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
 screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
 freeze-out, geometric-screen-scalar, scalar-precision, primitive-collar-law,
@@ -2346,9 +2381,8 @@ conjugation on the five Klein-four subgroups identifies the latter faithfully
 with all even permutations of five objects, hence with \(A_5\).  Exact
 multiplication in \(\mathbb Q(\sqrt5)\) gives \(G^2=4G\), and the trace fixes
 rank three.  Every declared refinement or complete relabeling preserves the
-source formulas.  The exact implementation and countermodels are
-\texttt{code/a5\_closure/echosahedral\_selector\_certificate.py} and
-\texttt{physics-problems/issue\_565\_echosahedral\_selector.md}.
+source formulas.  The exact implementation and countermodels are carried by the echosahedral
+selector certificate and its accompanying analysis.
 \end{proof}
 
 \begin{remark}[Load-bearing hypotheses]
@@ -2530,7 +2564,7 @@ records, repair or feedback moves, and public evidence. Even a complete
 echosahedral selector receipt does not thereby export a source-selected
 \(G_6\) action, chiral measure or constrained Hamiltonian, BV/ST restoration
 transcript, dressed-current amplitude, nonperturbative observable tower, or
-resonance sheet. The QFT-Q1--QFT-Q4 implications for those typed inputs are
+resonance sheet. The quantization-step implications for those typed inputs are
 proved in the compact and particle papers; construction of the inputs remains
 a separate producer problem.
 \end{remark}
@@ -2570,6 +2604,27 @@ should include:
 \item matched controls that distinguish chamber-mediated dynamics from host-side filtering;
 \item exact-verifier receipts for task-level claims.
 \end{enumerate}
+
+\begin{proposition}[Conditional phase-lock synchronization bridge]
+For every routed interface \(e=((i,a),(j,b))\), suppose a source-produced phase process provides
+an independently calibrated time parameter, frequency entrainment, a stable declared phase offset,
+and held-out controls. Suppose further that the locked phase selects a commensurability map for
+the exposed port packets and that every resulting write enters the consensus ledger through
+semantic-dependency-complete read sets, atomic revalidation, coherent union-collar payloads, and
+the quotient local-diamond and repair-completeness checks. Then the phase process supplies a
+physical synchronization parent for the federated consensus theorem.
+\end{proposition}
+
+\begin{proof}
+The phase certificate fixes when the two port readouts are commensurable. The remaining hypotheses
+are exactly the premises under which the accepted transaction relation terminates and has the
+declared schedule-independent quotient normal form. The phase process supplies the interface
+timing and comparison map; the consensus theorem supplies public agreement.
+\end{proof}
+
+Phase locking without the transaction, record, and clock packet is compatible with two oscillators
+that entrain while reporting different semantic records. It is therefore neither an observer test
+nor a consensus theorem by itself. No physical phase-lock receipt is asserted in this paper.
 
 The OPH interpretation is simple: toroidal recurrence supplies local memory and mode competition
 inside the patch federation. Echosahedral symmetry supplies a reference and consensus geometry.
@@ -2778,7 +2833,7 @@ For a cap \(C\), let \(M_{C,0,O}\) be the declared cap-response probe observable
 M_{C,t,O}:=\sigma_t^{C,O}(M_{C,0,O}),\qquad
 R_i(C,t,O):=\omega_{i,O}(M_{C,t,O}).
 \]
-On the support-visible geometric branch, the modular-clock convention is the same
+On the support-visible geometric branch, the dimensionless modular-parameter convention is the same
 \(2\pi\)-normalized cap flow used by the compact paper:
 \[
 \sigma_t^{C,O}=\alpha_{\lambda_C(2\pi t)}.
@@ -2801,7 +2856,7 @@ single localization error norm \(\sigma_{\mathrm{record}}\) used by the compact 
 theorem.
 
 Two carrier presentations that induce the same quotient-visible record token, conditioned record
-state, cap probe, cap geometry, modular-clock calibration, and response calibration must produce
+state, cap probe, cap geometry, modular-parameter normalization, and response calibration must produce
 the same calibrated response vector and the same \(H^3\) localization ball. A fitted point that
 does not clear held-out cap residuals, mixture controls, and the declared error bound is a failed
 or approximate point-source branch, not a populated-\(H^3\) theorem receipt.
@@ -2965,6 +3020,15 @@ interface: a bounded multi-port patch with symmetry, records, readout, repair, a
 data. Toroidal subchannels supply local recurrence and winding-sensitive dynamics. The mathematical
 exports are fixed-cutoff patch-net embedding, edge-sector Casimir handoff, central-record
 measurement, Bell/CHSH event surfaces, and checkpoint/restoration.
+
+The carrier architecture is physical data up to its declared quotient. Hidden labels and material
+presentations may vary, while the visible incidence, response, repair, record, clock, and
+refinement signature may not be discarded. The local twelve-port theorem constrains the
+\(A_5\)-current branch. A separate carrier-to-support bridge constrains the spherical
+Lorentz/Einstein branch. The consensus normal form is their common finite hinge. Operational
+observer promotion requires readback, durable records, feedback or repair,
+prediction/control, and checkpoint continuation. The physical support and
+current bridges are open.
 
 The claim discipline is the main point. Hardware can guide the architecture and supply public
 evidence through hash-stable evidence bundles. The theorem surface stands on finite algebras and

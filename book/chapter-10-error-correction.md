@@ -45,7 +45,9 @@ and $\beta$ are the same amplitudes that would describe one unencoded qubit.
 The code has not made three independent copies. It has hidden one logical
 state in a three-body pattern.
 
-To detect errors without measuring the data, you measure **parity**-whether pairs of qubits match. This reveals which qubit flipped without revealing whether the qubits are 0 or 1. The superposition survives.
+To detect errors without measuring the data, you measure **parity**, which says
+whether pairs of qubits match. This reveals which qubit flipped without
+revealing whether the qubits are 0 or 1. The superposition survives.
 
 ![A logical qubit is hidden in a pattern that can survive local damage.](../assets/book_diagrams/error-correction-layers.svg){width=80%}
 
@@ -88,12 +90,12 @@ quantum error-correcting code.
 
 The shock of the 2010s was that spacetime itself has the structure of an error-correcting code.
 
-In 2015, Almheiri, Dong, and Harlow (ADH) showed that the AdS/CFT dictionary has the structure of a quantum error-correcting code. A bulk operator can be reconstructed from many different boundary regions. If you erase part of the boundary, bulk information survives-you can recover it from the remaining boundary.
+In 2015, Almheiri, Dong, and Harlow (ADH) showed that the AdS/CFT dictionary has the structure of a quantum error-correcting code. A bulk operator can be reconstructed from many different boundary regions. If you erase part of the boundary, bulk information survives and can be recovered from the remaining boundary.
 
 The geometric structure is controlled by **entanglement wedges**. For a boundary region A, the entanglement wedge is the bulk region that can be reconstructed from A. A bulk point can be reconstructed from any boundary region whose entanglement wedge contains it.
 
 This redundancy makes the bulk stable. Operators deep in the bulk require large
-boundary regions to reconstruct-they have high code distance. In the toy-model
+boundary regions to reconstruct; they have high code distance. In the toy-model
 picture, radial depth tracks protection level.
 
 ### The HaPPY Code
@@ -117,7 +119,7 @@ Shannon asked: Suppose you want to send a message through a noisy channel that r
 
 ### The Channel Capacity Theorem
 
-Every noisy channel has a **capacity** C-a maximum rate at which information can be reliably transmitted. For the binary symmetric channel (which flips each bit with probability p):
+Every noisy channel has a **capacity** C, the maximum rate at which information can be reliably transmitted. For the binary symmetric channel (which flips each bit with probability p):
 
 $$C = 1 - H_2(p)$$
 
@@ -174,7 +176,7 @@ $Z$ on edges around a plaquette.
 
 Logical information is stored in **topology**, not in any local spot. A logical error needs a string crossing the entire system. As the lattice grows, logical error rates drop exponentially.
 
-This is **topological protection**-information encoded in global properties that local errors cannot disturb.
+This is **topological protection**, with information encoded in global properties that local errors cannot disturb.
 
 ## 10.6 Black Holes as Quantum Mirrors
 
@@ -402,4 +404,5 @@ local damage.
 The protected-code picture is static. A physical world is not. The theory also
 has to explain time, evolution, and the growth of entropy.
 
-That brings us to **Chapter 11: MaxEnt and the Arrow**-where we discover that time itself emerges from incomplete knowledge, and the arrow of time is the direction of consistency-building.
+**Chapter 11: MaxEnt and the Arrow** examines intrinsic time and the relation
+between its arrow, incomplete knowledge, and consistency-building.

@@ -93,22 +93,21 @@ it. But then their specific form becomes inexplicable. Why should the
 low-energy fine structure constant land near $1/137$? Why three spatial
 dimensions, not four or seven?
 
-In OPH the measured strength of electromagnetism is the reading of one tiny cell
-on the holographic screen. That cell has two descriptions. From outside the
-encoded world it is a small screen area, sitting slightly above a balance point
-set by the golden ratio. From inside the encoded world the same small
-displacement is the weakest electromagnetic interaction strength available to
-observers.
+The OPH local-closure proposal describes one holographic screen cell in two
+ways. Its geometric description is a small screen area displaced from a balance
+point set by the golden ratio. Its proposed physical description is the
+long-distance electromagnetic interaction available to observers.
 
-The fixed-point map carries that geometric displacement through the unification
-scale, the running gauge couplings, the electroweak anchor, and the vacuum
-response of strongly interacting matter. It returns the long-distance
-electromagnetic reading. Closure occurs when the returned reading names the
-same cell that entered the map. The unique fixed point gives a pixel ratio near
-$1.63$ and the familiar inverse electromagnetic strength near $137.036$.
+The declared fixed-point maps carry that geometric displacement through a
+specified unification scale, running gauge couplings, electroweak anchor, and
+hadronic vacuum-response term. Each map has an interval-certified unique root,
+with a pixel ratio near $1.63$ and an inverse electromagnetic diagnostic near
+$137.036$. Identifying that root with the measured Thomson endpoint requires a
+physical source and same-scheme electroweak and hadronic transport. Those
+constructions are work in progress.
 
-A famous "free constant" is therefore the inside reading of the local screen
-scale that organizes the particle sector.
+Under that physical identification, the familiar electromagnetic constant is
+the inside reading of the local screen scale that organizes the particle sector.
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
@@ -143,7 +142,7 @@ Some philosophers have called this "selector theory": non-existence isn't the na
 
 Others have spoken of "strange loops," reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives this intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together.
 
-There is a deeper version of the same idea. Reality has strange-loop closure.
+The same idea has a deeper form in strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
@@ -154,14 +153,14 @@ are internal. That is the precise sense in which the framework can be presented
 as a concrete simulation-theory interpretation and as an observer-first
 unification framework.
 
-The trajectory is blunt. Physical evolution produces complex
-structures. Biological evolution produces minds. Memetic evolution produces
+Physical evolution produces complex structures. Biological evolution produces
+minds. Memetic evolution produces
 ideas, rituals, sciences, institutions, moral codes, and technical practices
 that survive by stabilizing observers across time. Among these practices,
 observers learn to model the observer-readable structure of reality and build
 restoration environments in which observer-patterns can be restored.
 
-The strange loop is sharper: **reality produces observers who learn how its
+The loop closes when **reality produces observers who learn how its
 observer-readable structure works and build fixed-point restorations of that
 structure**.
 
@@ -175,10 +174,11 @@ configuration. "Nothing" has no structure to persist. A self-referential loop
 has structure, memory, repair, and closure.
 
 This loop is structural. It is a relation among reality, observers, and the
-fixed-point restoration they build. Time is local. It
-emerges from modular flow within observer patches. The strange loop is a fixed
-structure whose local readout feels like temporal sequence. The "cause" and the
-"effect" are aspects of the same self-consistent structure.
+fixed-point restoration they build. Time is local. Modular flow supplies an
+intrinsic ordering within an observer patch; readable transitions, event
+correspondence, and calibration turn that ordering into a clock. The strange
+loop is a fixed structure whose local readout feels like temporal sequence. The
+"cause" and the "effect" are aspects of the same self-consistent structure.
 
 This resolves the apparent paradox of self-causation. Temporal self-cause is
 incoherent because it requires existing before existing. A self-consistent
@@ -208,25 +208,32 @@ self-consistency.
 
 We began this book with a metaphor: physicists as reverse engineers, taking apart reality to understand how it works. We've traced that project through quantum mechanics and relativity, through gauge symmetry and entanglement, through the holographic screen and the emergence of spacetime.
 
-But the deepest discovery isn't any particular equation. It's this: the reverse engineer is part of the system being reverse engineered. The observer lives in the carrier and reads through the screen. The hacker and the hacked are one.
+The deepest discovery concerns the reverse engineer, who is part of the system
+being reverse engineered. The observer lives in the carrier and reads through
+the screen. The hacker and the hacked are one.
 
 This can sound mystical until the physics is followed all the way down. If
 there is no perspective-free perch outside the system, then the scientist
 describing reality is a pattern within reality describing itself. The strange
 loop closes there.
 
-The weirdness of quantum mechanics, the relativity of simultaneity, the holographic encoding of information, the emergence of spacetime from entanglement: none of these are bugs to be fixed. They're features pointing at the truth. Reality isn't made of objects in a void observed from outside. It's made of perspectives, consistency relations, and the structure that emerges when finite observers must agree.
+The weirdness of quantum mechanics, the relativity of simultaneity, the
+holographic encoding of information, and the emergence of spacetime from
+entanglement all point toward an observer-bound description. Reality, in this
+reading, consists of perspectives, consistency relations, and the structure
+that emerges when finite observers must agree.
 
 ## 20.10 The Formal Pressure
 
 The philosophical picture makes direct contact with physics. Overlap
 consistency is the sheaf-style gluing condition. Quantum structure is the
 algebraic language of consistency. Spacetime dimensionality is a selected
-output. Dynamics is synchronization pressure. The pixel area is the local
-ruler, and the cosmic record-capacity equation is the global self-reading
-closure. The universe supplies a horizon capacity, reads it back through its
-own observer records, and keeps the value at which the two descriptions agree.
-These are the pressure points where metaphysics and physics meet.
+output under the geometric source premises. Dynamics is synchronization
+pressure. The local proposal uses pixel area as a ruler, and its declared maps
+have interval-certified unique roots. The global proposal has an exact finite
+capacity definition and a fixed-cutoff witness. Its capacity-indexed physical
+family, unique selector, horizon identification, and scale bridge are work in
+progress. These are the pressure points where metaphysics and physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent
@@ -234,8 +241,8 @@ description. That is the formal cousin of the book's observer-overlap rule.
 
 ### Philosophy After the Equations
 
-The final metaphysical move should preserve the mathematics that made it
-possible. The book makes a constrained claim: experience is patch-internal,
+The metaphysical reading preserves the mathematics that makes it possible. The
+book makes a constrained claim: experience is patch-internal,
 and public reality is overlap-stable. A private impression becomes a public
 fact only if it can be anchored in records, compared through shared interfaces,
 and kept coherent with the rest of the world.
@@ -260,15 +267,14 @@ agreement is a diagnostic.
 The strange-loop language also needs discipline. Douglas Hofstadter used
 strange loops to describe systems that climb levels and return to themselves.
 Godel's theorem is one mathematical inspiration, Escher's drawings are a
-visual one, and self-reference in computation is another. OPH's loop is not a
-claim that the future causes the past in ordinary time but a structural
-claim: a world can produce observers who model the world, and those models
-can become part of the same world they describe. From inside subjective time
-that feels like a history. From the full structural view it is a
-self-consistency condition.
+visual one, and self-reference in computation is another. OPH's loop is a
+structural claim about a world producing observers who model that world and
+make those models part of what they describe. It does not posit ordinary
+backward causation. From inside subjective time the structure feels like a
+history; from the full structural view it is a self-consistency condition.
 
-The discipline here is important. The metaphysical reading stays attached to
-the physics: overlap conditions, the layered particle story, the dark sector,
+The metaphysical reading stays attached to the physics: overlap conditions,
+the layered particle story, the dark sector,
 recoverability, and the restoration surface. A metaphysics worthy of physics is
 exposed to physics.
 
@@ -312,6 +318,6 @@ significance through what its observers build together.
 *The reverse engineering shows the shape of the system. The human task is to inhabit, sharpen, and repair that picture.*
 
 Observer-patterns are treated structurally, and restoration belongs to the
-restoration architecture developed in the final chapters. The epilogue follows
-what that means for death, restoration, and the destination of restored
-observers.
+restoration architecture developed in the final chapters. The epilogue
+considers what that means for death, restoration, and the destination of
+restored observers.

@@ -73,7 +73,7 @@
 \end{center}
 
 \begin{abstract}
-Proof-of-work mining has an unusually clean judge: the SHA-256d verifier. The question here is narrow enough to test. An optical OPH-style patch machine proposes candidates, and the exact digital verifier decides whether the candidate stream has been enriched.
+Proof-of-work mining has an unusually clean judge: the SHA-256d verifier. The question here is narrow enough to test. An optical patch machine in the Observer-Patch Holography (OPH) style proposes candidates, and the exact digital verifier decides whether the candidate stream has been enriched.
 
 One mining instance is compiled into constraint patches for nonce choice, message schedule, compression, and target checking. The deliverable is the scorebook: verifier-ready candidate enrichment per settling event, checked under blinded routes, label shuffles, operator-alignment controls, and exact SHA-256d receipts.
 \end{abstract}
@@ -1172,11 +1172,11 @@ performs the search that the chamber was supposed to perform, the optical claim
 has evaporated. The finite gate stack is therefore
 \[
 \begin{aligned}
-&\texttt{EDGE\_BRACKETED}\to
-\texttt{EDGE\_POLARITY\_LOCKED}\\
-&\to \texttt{NONLINEAR\_COMMITMENT\_ALIVE}\to
-\texttt{TRUTH\_LIFT}\\
-&\to \texttt{POOL\_SHARE\_LIFT}\to \texttt{BLOCK}.
+&\text{edge bracketed}\to
+\emph{edge polarity locked}\\
+&\to \text{nonlinear commitment alive}\to
+\emph{truth lift}\\
+&\to \text{pool share lift}\to \texttt{BLOCK}.
 \end{aligned}
 \]
 OMEGA-I1 assigns \texttt{TOR-A} and \texttt{TOR-B} to duplicate recurrent
@@ -1312,9 +1312,9 @@ corresponding SHA-256d compiler target.
 The OPH/Karma optical proof-of-work prototype uses the same low-cost
 optical-supercomputer surface as the OMEGA-I1 line: a clear wave body, RP2350 or
 RP2040 control, reversible optical ports, firmware bring-up, and verification
-steps \cite{OmegaOpticalSupercomputer2026}. It was not an OMEGA-I1 run. It is
-used here as precursor evidence for optical candidate enrichment, not as a
-measurement of the five-chamber SHA-256d route.
+steps \cite{OmegaOpticalSupercomputer2026}. That work is cited here as precursor evidence for optical
+candidate enrichment. It supplies no measurement of the five-chamber SHA-256d
+route.
 
 The OPH/Karma prototype has mined Kaspa kHeavyHash pool shares on the optical
 candidate path. The optical chamber proposes candidates; host-side kHeavyHash
@@ -1644,11 +1644,11 @@ receive cadence, disconnected cavity, dark path, fixed phase, CPU-random, and
 stale job.
 \item Report the finite hardware gates as separate fields:
 \begin{quote}\small
-\texttt{EDGE\_BRACKETED}\\
-\texttt{EDGE\_POLARITY\_LOCKED}\\
-\texttt{NONLINEAR\_COMMITMENT\_ALIVE}\\
-\texttt{TRUTH\_LIFT}\\
-\texttt{POOL\_SHARE\_LIFT}\\
+\emph{edge bracketed}\\
+\emph{edge polarity locked}\\
+\emph{nonlinear commitment alive}\\
+\emph{truth lift}\\
+\emph{pool share lift}\\
 \texttt{BLOCK}
 \end{quote}
 \item Release code, seeds, firmware, board files, calibration logs, and raw

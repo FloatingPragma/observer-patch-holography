@@ -95,13 +95,13 @@ outside machine and no outside clock. Physical law is whatever it takes for that
 reading to be self-consistent all the way around.
 
 Nothing in this chapter changes the equations of the earlier ones. Modular flow
-supplies time from the algebra of a restricted state, which is self-reference at
-the level of theorems: the state carries its own clock. Gravity comes out of
-horizon thermodynamics made consistent patch by patch. The gauge group is
-reconstructed from the behavior of its own charges, a group read back from its
-shadows. The bulk is stored redundantly inside its own boundary, a code that
-protects itself. Each of those is standard physics, and each is a small strange
-loop. Together they form one architecture with a computable fixed point.
+gives a restricted state an intrinsic ordering, and a calibrated instrument
+turns that ordering into a clock on the geometric branch. Horizon
+thermodynamics gives the Einstein relation when the common geometry, stress,
+vacuum, and scale premises hold. Charge transport reconstructs a compact group;
+the icosahedral current theorem recognizes the Standard Model Lie type after a
+physical current response is supplied. These loops share one architecture and
+keep their source gates visible.
 
 ## 18.4 Self-Reference as Subtraction
 
@@ -118,31 +118,35 @@ read again. Every world without record-keeping falls at the first step.
 
 No observer reads the whole world at once. Descriptions have to agree where
 views overlap, and the shared account that survives that comparison is the
-public world. On the symmetric screen chart the book has used throughout, forcing
-that agreement also forces the geometry: the light-cone symmetries, the three
-spatial directions, the rulebook for relating moving observers. Signature and
-dimension stop being choices and become consequences.
+public world. On the certified spherical branch, refinement of that account
+gives the light-cone symmetries and the three-dimensional space of rest frames.
+An independent event construction, with open local charts and a quadratic cone
+of Lorentzian inertia, turns those frames into one time direction and three
+spatial directions.
 
-A closed world has no outside clock. Its time has to come from within, and the
-mathematics of restricted states supplies exactly one way to generate it. There
-is no external time parameter left to tune.
+A closed world has no outside clock. Its time has to come from within. The
+mathematics of restricted states supplies an intrinsic modular parameter, while
+an observer-readable transition, a calibration, and an event correspondence
+supply physical duration. No repair counter can take their place.
 
 Charges that survive transport across patches form a menu, and that menu
-reconstructs a compact gauge group. On the branch with the smallest matter
-content that works, the menu reads as the strong, weak, and hypercharge factors
-with their shared center.
+reconstructs a compact gauge group under the transport and refinement
+hypotheses. On the branch with the smallest admitted matter content, the menu
+reads as the strong, weak, and hypercharge factors with their shared center.
+The physical current and matter constructions are separate gates.
 
-Horizon bookkeeping, made consistent patch by patch, forces the Einstein form of
-the gravity law and leaves exactly one global number behind.
+On the shared-domain gravity branch, horizon bookkeeping gives the Einstein
+form of the gravity law and leaves a global metric term. The capacity closure
+proposal assigns its numerical value.
 
-A screen at perfect balance carries no events. Records need a small detuning, and
-the detuning law leaves exactly one local number.
+The local closure proposal requires a small screen detuning for durable records.
+Its declared transport map has one fixed point on the physical interval.
 
-What survives those cuts is a short list. The structural freedoms are gone. Geometry,
-signature, dimension, the form of gravity, the gauge menu, the way time is
-generated, all of them are forced. Two numbers remain. One is local, the grain
-of a single screen cell. One is global, the total record capacity of the whole
-horizon. Everything the book has built points at those two survivors.
+What survives those cuts is a short dependency list. Some arrows are finite
+theorems, some are conditional reconstruction theorems, and some need physical
+source witnesses. The two closure proposals then act on one local number, the
+grain of a screen cell, and one global number, the total correctable record
+capacity of the horizon.
 
 ## 18.5 The Two Equations the Loop Writes for Itself
 
@@ -208,8 +212,8 @@ $$
 The global closure adopted in this book is the stable equality
 $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ together with one unique zero of
 $s(D)=\log D-\log M_0(D)$. It says that every terminal branch in the complete
-fiber reads the same saturated capacity, not merely that one favorable branch
-does. Horizon-record saturation then writes
+fiber reads the same saturated capacity. One favorable branch is insufficient.
+Horizon-record saturation then writes
 
 $$
 N_{\mathrm{CRC}}=\log D_\star,
@@ -235,10 +239,11 @@ another vacuum to move to. That flexibility is exactly what makes a landscape
 hard to kill and hard to trust.
 
 A self-reading loop leaves nowhere to relocate once both uniqueness statements
-are in place. The local map has one fixed point, so one cell cannot support
-several competing electromagnetic readings. The adopted global slack law has
-one zero, so the horizon cannot choose among several saturated record budgets.
-Together they select one self-consistent universe.
+and their physical attachments are in place. The local map has one fixed point,
+so one cell cannot support several competing electromagnetic readings. The
+adopted global slack law has one zero, so the horizon cannot choose among
+several saturated record budgets. Under those premises they select one
+self-consistent universe.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
 data inside out. Constants are readings of the architecture rather than settings
@@ -275,7 +280,7 @@ $$
 This equation tests whether the screen load and weak/Higgs load are the same
 physical carrier. It does not generate the direct capacity map. The bridge
 value and the late-time de Sitter reading differ by about $6.6$
-percent, so their exact identification remains a live test rather than a
+percent, so their exact identification is an open test rather than a
 derived detuning law.
 
 The two numbers therefore have different jobs. $P_\star$ is the local grain of

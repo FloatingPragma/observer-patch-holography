@@ -110,15 +110,19 @@ For black holes, the entropy is set by horizon area:
 
 $$S_{BH} = \frac{A}{4 \ell_P^2}.$$
 
-That is the surprise. The natural counting measure for the most extreme gravitating objects is area, not volume. Once that is true, any observer-centered account of accessible information has to take boundaries seriously.
+The surprise is that area supplies the natural counting measure for the most
+extreme gravitating objects. Any observer-centered account of accessible
+information must therefore take boundaries seriously.
 
 Bekenstein sharpened the point further. Pack enough energy into a region and the region becomes a black hole. The black hole then supplies the maximum entropy compatible with that size. Area becomes the natural ceiling for accessible information in gravitational settings.
 
 ## 3.4 From Area Scaling to Holography
 
-This is the jump from thermodynamics to geometry.
-
-If the largest possible entropy in a region is controlled by its boundary, a boundary-first description stops looking like a metaphor. It becomes the natural bookkeeping choice. The bulk may be the world we experience, but the independent data is organized more economically on the boundary.
+The jump from thermodynamics to geometry begins when the largest possible
+entropy in a region is controlled by its boundary. A boundary-first description
+then becomes the natural bookkeeping choice. The bulk may be the world we
+experience, while the independent data is organized more economically on the
+boundary.
 
 This is the holographic idea in its simplest form. A two-dimensional surface can encode a three-dimensional description, just as a hologram stores depth information on a film.
 
@@ -180,15 +184,26 @@ This is a deep shift in perspective. Space is not a fixed container. Each observ
 
 ## 3.6 Why a Sphere?
 
-In the symmetric cases motivating this construction, the screen is naturally modeled as (approximately) spherical. This choice follows from causal light-cone geometry in those cases.
+Here the order of the argument matters. OPH cannot explain the support sphere
+by first assuming a light cone in a pre-existing spacetime. That would
+borrow the geometry it hopes to recover.
 
-Light travels at the same speed in all directions. If you stand at a point and wait, the light that can reach you from a time $t$ ago forms a sphere of radius $ct$ around you.
+The paper stack instead asks for finite, observer-facing receipts. Repaired
+public patches must form a connected, closed, oriented incidence surface with
+Euler characteristic two. Their meshes must become fine without degenerating,
+and their cross-ratios must converge coherently. On that conditional branch the
+topology is $S^2$, and the limiting cross-ratios give it the round conformal
+structure. Without those receipts, repair consensus alone can just as well sit
+on a torus or another support.
 
-Your past light cone, the set of events that could have influenced you, has
-spherical cross-sections. Your future light cone also has spherical
-cross-sections.
+The twelve-port carrier federation and the global support chart are distinct.
+OPH needs a source-bound map showing
+that refinement of the former realizes the latter. That map is open.
 
-In those symmetric light-cone constructions, the sphere is a consequence of the geometry of causality.
+Only after the spherical support has been certified does its conformal group
+produce Lorentz kinematics. Past and future light cones then acquire spherical
+cross-sections as a downstream consequence, not as the premise that selected
+the screen.
 
 ### The Cosmic Microwave Background
 
@@ -204,7 +219,8 @@ The CMB sphere is a useful cosmological proxy for thinking about an observer-cen
 
 ## 3.7 The Geometry of the 2-Sphere
 
-The mathematical object describing the screen is the 2-sphere, $S^2$.
+On the certified global-support branch, the mathematical object describing the
+support screen is the 2-sphere, $S^2$.
 
 $$S^2 = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = 1\}$$
 
@@ -253,9 +269,11 @@ can consult, which boundary data it exposes, and which repairs it can perform.
 The **support patch** is the cap, collar, or other geometric region that
 displays those operations on a sphere. The **carrier patch** is the physical or
 digital machine that realizes them. The observer is identified with this
-visible operational package. A different hidden circuit, material, or port
-labeling is physically silent when it preserves the same readouts, records,
-repairs, and checkpoint continuation.
+visible operational package. A hidden circuit or material change is physically
+silent only when it preserves the complete exposed structure: port incidence
+and orientation, readouts, records, dynamics, repairs, refinement behavior,
+and checkpoint continuation. Presentation labels can wash out. Architecture
+cannot.
 
 The reference carrier is called **echosahedral**. It has a finite internal
 algebra and state, twelve overlap ports, a readout at each port, an
@@ -265,8 +283,10 @@ screen sieve, the ports sit at the vertices of a regular icosahedron and
 opposite ports form six axes. The twenty
 triangular faces and thirty edges organize incidence, edge-sector, and collar
 bookkeeping. Recurrent loops inside a patch or a small group of ports can
-supply local memory and winding-sensitive behavior. They are local subchannels,
-not a claim that the whole universe is a torus.
+supply local memory and winding-sensitive behavior. With physical phase data
+and a coupling law, they can also expose phase-lock-sensitive observables.
+They are local subchannels, not a claim that the whole universe is a torus or
+that every federation has proved phase locking.
 
 On the declared echosahedral carrier lineage, the choice is more than a drawn
 template. Twelve equal-trace primitive central port atoms define an integer
@@ -282,8 +302,13 @@ the regular icosahedral frame. All of these outputs commute with the declared
 refinement maps and consistent relabeling.
 
 This is a theorem about that quotient-visible carrier type. It does not prove
-that every observer patch must be echosahedral, and it does not yet turn the
+that every observer patch must be echosahedral, and it does not turn the
 port coefficients into physical gauge currents.
+
+The body is also not an observer by geometry alone. It becomes an elementary
+observer only when its readback, records, feedback, predictions, and checkpoint
+continuation pass the operational tests. A connected subfederation can satisfy
+the same contract and function as a larger observer.
 
 At one interface, the machine performs a short cycle:
 
@@ -302,12 +327,15 @@ checkpoint and read again
 ```
 
 A federation routes many such ports into shared interfaces. Accepted repairs
-lower a declared mismatch score, and compatible repair orders reach the same
-public normal form.
+lower a declared mismatch score. Different compatible repair orders reach the
+same public normal form only when the protected dependencies are complete,
+conflicting updates have one coherent combined payload, the local-diamond test
+passes, and the repair menu is complete.
 Nested icosahedral subdivisions provide one convenient finite regulator for the
-spherical chart. This does not say that smooth spacetime is a pile of tiny
-icosahedra. The polyhedral carrier sits at finite cutoff. The smooth sphere is
-the observer-facing limit of its repaired quotient data.
+spherical support chart. They are not the twelve-port carrier federation. This
+does not say that smooth spacetime is a pile of tiny icosahedra. The smooth
+sphere is the certified limit of the support-regulator data; the source-bound
+map connecting repaired carrier data to that support is an open bridge.
 
 ## 3.8 Patches and Overlaps
 
@@ -388,12 +416,14 @@ Not in a simple sense. The support region can change from one record slice to
 the next. Records, external interfaces, and checkpoint continuation carry the
 operational identity while the spherical chart displays that change as motion.
 
-What creates the sense of time? The internal structure of the quantum state provides a natural flow: the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution, and the thermal time principle provides an important interpretive-organizational guide.
+What creates the sense of time? The internal structure of a quantum state
+provides a natural algebraic ordering through **modular flow**. On the certified
+geometric branch, an independent clock instrument calibrates that ordering as
+physical duration. The thermal time principle supplies the guide; the state by
+itself does not supply a wristwatch.
 
-Here, "flow" only means an internal rule for ordering changes. Think of it
-as the clock a subsystem inherits from its own state, not a clock imposed from
-outside. Chapter 11 returns to this slowly and gives the physics behind the
-phrase.
+Chapter 11 explains the extra geometry, event correspondence, and calibration
+needed before that parameter becomes the clock read by an observer.
 
 ### Why This Matters
 
@@ -403,10 +433,10 @@ This definition of observers resolves several puzzles:
 
 **Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data and stable records are created. That record formation captures the main physical content behind textbook collapse language.
 
-**Consistency follows from structure**: Two observers may be restrictions of
+**Consistency can follow from a verified structure**: Two observers may be restrictions of
 one underlying state or begin from independently presented local data. In both
-cases, translation, comparison, and repair make their shared descriptions agree
-on overlaps.
+cases, translation, comparison, and certified repair can make their shared
+descriptions agree on overlaps.
 
 ### Reality from Computation
 
@@ -448,9 +478,16 @@ edge modes that carry geometric information.
 the realized state within a declared constraint family. At fixed cutoff this is
 modeled by a Gibbs-like state $\rho \propto e^{-H}$, where $H$ is a sum of local
 terms. The patch update and repair instruments perform the synchronization
-work when exposed records disagree. Refinement keeps both structures aligned.
+work when exposed records disagree. Evidence that both layers come from one
+source and remain compatible under refinement is needed to keep state selection
+and repair aligned across scales.
 
-**The 4D bulk isn't on the sphere.** It emerges from the entanglement structure between patches. When you look around and see three-dimensional space, you're experiencing a compressed encoding of how your patch is entangled with others. In the constructions emphasized later, bulk distance is read from boundary entanglement structure.
+**The 4D bulk is not painted on the sphere.** On the successful geometric
+branch, event spacetime is reconstructed from refined overlap records and their
+entanglement structure. When you look around and see three-dimensional space,
+you are seeing the effective geometry encoded by those relations. In the
+constructions emphasized later, bulk distance is read from boundary
+entanglement structure.
 
 *The patch federation does the work. The screen is the chart. Reality is what observer patches agree on.*
 
@@ -468,8 +505,9 @@ patches with shared boundary data.
 
 This chart does real work. Caps and collars on the sphere identify the local
 questions an observer can ask. Overlaps between caps identify the data two
-observers can compare. The conformal symmetries of the same sphere become the
-Lorentz symmetries of the shared spacetime description in the smooth regime.
+observers can compare. On the certified smooth branch, the conformal symmetries
+of the same sphere become the Lorentz symmetries of the shared spacetime
+description.
 The same chart therefore carries Lorentz meaning: sky directions and cap sides
 transform together. A cap has Lorentzian meaning as well as its screen-picture
 meaning.
@@ -478,11 +516,12 @@ The finite patch federation supplies the machine underneath that chart.
 ### A Physical or Digital Realization
 
 The carrier can be built from quantum registers, optical channels, software
-state machines, or another bounded substrate. The echosahedral body is the
-reference interface rather than one mandatory material or wiring diagram. A
-realization exposes the same local state, twelve-port readback, records, repair
-behavior, and checkpoint continuation within its operating tolerance. More
-general observer patches can have other bounded interface counts.
+state machines, or another bounded material. Such implementations count as the
+same echosahedral carrier only when they preserve the twelve-port incidence,
+orientation, local state, current response, readback, records, repair behavior,
+refinement, and checkpoint continuation within their operating tolerance.
+More general observer patches can have other bounded interface counts, and
+their downstream symmetry and geometry need not match this branch.
 
 A bench device makes the self-reading loop visible through its wiring,
 calibration, raw readouts, controls, repair log, and repeatable checks. Those
@@ -517,9 +556,9 @@ This ladder is a teaching map, with the full particle taxonomy carried by the
 later chapters. The photon belongs to the unbroken electromagnetic sector, gluons to color gauge
 transport, the graviton to emergent geometry and diffeomorphism structure,
 $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
-composites. The ladder explains how OPH moves from seed, to loop, to screen,
-to bulk. Lorentz symmetry, gauge structure, and the field equations fix the
-particle labels.
+composites. The ladder explains how OPH moves from seed, to loop, to screen, to
+observer-frame geometry. Event spacetime, physical gauge currents, and particle
+fields enter through their separate later constructions.
 
 ## 3.12 The Reverse Engineering
 
@@ -564,13 +603,14 @@ chart in which that repaired data is displayed.
 
 ## 3.14 Where We Go Next
 
-We have established four linked facts. Gravitational entropy bounds and
-holographic arguments push away from naive volume counting and toward
-horizon-sensitive information organization. In the symmetric light-cone
-constructions used here, the effective screens are spherical as a consequence
-of causality. The amount of information is finite and bounded by area.
-Entanglement patterns on the screen create the emergent three-dimensional
-geometry.
+We have assembled four linked statements with different status. Gravitational
+entropy bounds and holographic arguments push away from naive volume counting
+and toward horizon-sensitive information organization. Separately, the
+declared incidence, mesh, and cross-ratio receipts select a spherical support
+on the certified branch. Lorentzian causal structure comes after that support
+reconstruction, not before it. Area bounds constrain accessible information,
+and entanglement patterns are the candidate data from which the effective
+three-dimensional geometry must be recovered.
 
 This chapter has separated the screen geometry from the synchronization cycle.
 What gives the surviving records a direction? What creates the arrow of time?

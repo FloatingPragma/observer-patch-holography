@@ -186,20 +186,20 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-OPH turns that census into a short survival story. The twelve icosahedral port
-readings split into the current directions of electromagnetism, the weak force,
-and color. Their stable quantum modes become photons, weak carriers, and gluons.
-The smooth geometric branch supplies the gravitational-wave modes. The Higgs
-vacuum gives mass to the weak carriers, placing the running $W$ and $Z$
-coordinates near $80.3$ and $91.1$ GeV, while a linked critical balance
-organizes the Higgs and top.
+The twelve icosahedral port readings split as $1+3+3'+5$. A source-produced
+compact physical current with the required symmetry would turn that finite
+pattern into the Lie type associated with electromagnetism, the weak force,
+and color. Identifying this current with the independent group reconstructed
+from matter sectors is an open problem. Photons, weak carriers, and gluons
+also require the quantum field theory, positive-state, pole, and phase
+conditions appropriate to each particle.
 
-The faces of the same icosahedron explain the repetition of matter. Every
-outward triangular face carries a three-corner cycle. Symmetry identifies the
-copies across all twenty faces and leaves one global family triplet. Its charged
-lepton directions are the electron, muon, and tau. The quarks use the same
-family space with separate up-type and down-type Yukawa coordinates. Neutrino
-mixing is the rotation between flavor directions and mass directions.
+The face structure contains a canonical rank-three band that can serve as a
+candidate family space. Its attachment to the observed electron, muon, and tau
+families requires a complex rank-45 matter construction and compatible
+refinement data. That physical attachment is open. Quark and neutrino flavor
+coordinates are conditional on the same attachment and on their separate
+Yukawa and mass-sector laws.
 
 The survival ladder continues into composite matter. QCD binds quarks and
 gluons into protons, neutrons, and mesons, with confinement supplying most of
@@ -379,7 +379,7 @@ points to a space of possible laws, and OPH reads the realized laws through
 consistency filters. At the quantum level, that looks like pointer states
 surviving environmental scrutiny. At the informational level, it looks like
 compression schemes that actually fit the data. Cosmic natural selection
-remains a separate analogy unless a concrete cosmological mechanism is
+is a separate analogy in the absence of a concrete cosmological mechanism
 specified. Stable particles survive because they carry the right protections.
 Ideas survive because they spread, predict, and organize thought. The
 fixed-point computation meme matters because it is one way reality may become

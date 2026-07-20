@@ -15,6 +15,39 @@ note widens the frame enough to show the relay team behind it. OPH itself is
 presented in the book as a synthesis, and a synthesis has to honor the tools
 it inherits.
 
+## Coherence Key
+
+The book follows one rule across its geometry, consensus, relativity, and
+particle chapters: OPH is presentation-invariant but sensitive to carrier
+architecture. Renaming a port or changing hidden coordinates changes nothing when
+the full observer-facing signature stays fixed. Changing the number of ports,
+their oriented incidence, the accessible responses, the repair law, the clock,
+or the refinement maps can change the physics. Reality is therefore not
+substrate-neutral in the blanket sense.
+
+The word **screen** has three jobs, and the chapters should never slide among
+them. One Echosahedral carrier has a local twelve-port boundary. Many carriers,
+observer supports, records, and repairs form a federation screen. The Lorentz
+branch uses a global support screen whose controlled limit is $S^2$. One
+carrier is not automatically one primitive observer or one support-chart cell.
+An observer needs readback, a durable record, feedback or repair,
+prediction/control, and continuation after a checkpoint.
+
+Two more bridges stay visible. Phase locking is a candidate synchronization
+mechanism. Consensus requires accepted descent and the same quotient normal
+form. Local $A_5$ incidence does not supply the global $S^2$ support.
+On the particle side, the A5 screen-current route and the D7-D9 Tannaka/MAR
+route are two compatible conditional outputs. Their identity as one physical
+group requires a source-bound commuting square. MAR chooses $N_g=3$ only
+as the least value in its declared economy class; a physical rank-45
+three-family attachment is open.
+
+Finally, the relativity chapters keep the repaired BW dependency explicit.
+`FiniteCapBWCertificate` supplies the cap and support-flow certificate.
+`MGNS-1` independently supplies the complete modular algebra-state
+representation. BW consumes both on the same tower. Geometry does not create
+the modular state.
+
 ## Prologue: The Reverse-Engineering Posture
 
 The prologue sets the method before it sets the physics. A reverse engineer
@@ -192,6 +225,13 @@ stores the universe on its surface. The standard round metric on $S^2$ is the
 symmetric starting geometry for organizing patches, caps, and overlaps, not
 the whole OPH theory.
 
+This support sphere is not the boundary of one twelve-port carrier. The local
+carrier boundary, the routed federation screen, and the global $S^2$ support
+are three different scales of description. The missing carrier-to-support
+map must show how the federation nerve refines toward the spherical support
+while preserving the observer-visible incidence and response data. The local
+icosahedral symmetry alone cannot do that job.
+
 The chapter's screen diagram shows two observer patches and the
 lens-shaped overlap where their descriptions can be compared. That overlap is
 the operational hinge of the book, not decorative shading. There is one
@@ -310,6 +350,14 @@ $P_i$ and $P_j$ are patches. $P_i\cap P_j$ is their intersection. The symbol
 $\mathcal A$ denotes an algebra of observables. The vertical bar means
 "restrict to." In plain language: ignore the private parts and compare only
 the shared questions.
+
+When the book uses coupled oscillators as an intuition, it is describing one
+possible synchronization mechanism. Phase-locked clocks do not prove
+consensus. The physical dynamics must generate the accepted repair
+relation, lower the declared mismatch, resolve local diamonds, satisfy any
+fairness condition used for long-run convergence, and land in the same public
+normal form. Synchrony can help a federation coordinate; confluence is the
+theorem that makes the result objective.
 
 The chapter also uses Bell's CHSH expression. The classical bound is
 $|S|\leq 2$, while quantum mechanics permits $|S|\leq 2\sqrt2$. Here $S$ is
@@ -655,11 +703,16 @@ $SU(3)$ is the color symmetry of the strong interaction. $SU(2)$ is weak
 isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
-In OPH, transportable sectors reconstruct a compact group on the refinement
-branch. Minimal Admissible Realization (MAR) and the matter package select the one-Higgs product Lie type. The
-physical $\mathbb Z_6$ global form comes from the six transformations that act
-trivially on all realized matter. The icosahedral screen has a separate
-sixfold residue, and identifying the two requires a physical map.
+In OPH there are two routes that must not be blended. Transportable sectors
+reconstruct a compact group on the refinement branch, and Minimal Admissible
+Realization (MAR) selects the declared one-Higgs Standard Model packet inside
+its economy class. Separately, the oriented twelve-port coefficient module
+recognizes the Standard Model Lie type after a physical compact current and
+its response conditions are supplied. The physical $\mathbb Z_6$ global form
+on the matter side comes from the transformations that act trivially on the
+realized fields. The icosahedral screen has a separate sixfold residue.
+Identifying the two groups, actions, and quotients requires a source-bound
+commuting square; matching dimensions or Lie types is not enough.
 
 Hypercharge is written $Y$. Electric charge is related by
 
@@ -680,11 +733,16 @@ structure makes the symmetric point unstable so electroweak symmetry breaks.
 Yukawa couplings connect fermions to the Higgs and generate masses after the
 Higgs gets a vacuum expectation value.
 
-The generation-count diagram marks a proved OPH statement: the window begins
-at three for intrinsic CP capability and closes above five from weak-sector
-ultraviolet consistency. The chapter is careful about which entries are proved,
-which are benchmark checks, which use an empirical anchor, and which require
-external data.
+The generation-count diagram marks a conditional window: it begins at three
+for intrinsic CP capability and closes above five from the declared
+weak-sector ultraviolet clause. MAR then chooses three because generation
+number is an explicit economy coordinate. This is not a theorem of the
+icosahedral graph. Turning the canonical rank-three candidate band into three
+physical chiral families requires a complex rank-45 attachment, the
+right locality and residue, compatible symmetry breaking or descent, and
+refinement control. The chapter is careful about which entries are proved,
+which are economy assumptions, which are benchmark checks, and which require
+physical construction or external data.
 
 The builders are too many for a short list, but the relay includes Dirac,
 Pauli, Fermi, Yang, Mills, Gell-Mann, Zweig, Glashow, Salam, Weinberg,
@@ -731,8 +789,18 @@ geometric readout, BW modular covariance, the null-stress bridge, the
 bounded-interval kernel, fixed-cap stationarity, the small-ball area identity,
 remainder control, and the timelike tensor upgrade.
 
+BW modular covariance has two independent parents on the same refinement
+tower. `FiniteCapBWCertificate` supplies the cap family, support flow, group
+law, orientation, continuity, and normalization. `MGNS-1` supplies the complete
+modular representation of the algebra-state pair. A beautiful spherical cap
+flow is not a modular state, and a modular state without the cap geometry is
+not the BW identification. The physical source must produce both before the
+Lorentz, event, or Einstein chain can be inhabited.
+
 The modular-flow, null-blowup, and Newton-limit diagrams in the chapter are
-three steps of the same story. Smooth modular flow gives a local clock.
+three steps of the same story. Smooth modular flow gives a dimensionless local
+ordering; an observer-readable transition, event correspondence, and
+calibration are required for a clock.
 Near a boundary point, curved screen geometry straightens into a null ray.
 In the weak-field slow-motion limit, Einstein's equation reduces to Poisson's
 equation and then Newton's force law.
@@ -882,6 +950,16 @@ story lists each requirement, the freedom it removes, its mathematical carrier,
 and its theorem status. The proof strategy runs in two parts, step by step,
 with every open gap named.
 
+The synthesis is unified by provenance, not by vocabulary. One source-bound
+architecture must instantiate the twelve-port carrier boundaries, operational
+observer supports, accepted federation repairs, the global $S^2$ support,
+the independent cap-flow and MGNS certificates, and the physical current and
+matter readouts. The geometry and particle branches may then descend from one
+self-reading federation. Until the carrier-to-support map, phase-to-consensus
+bridge, and gauge-route commuting square exist, the stack is a coherent typed
+program rather than a proof that those compatible branches are one inhabited
+universe.
+
 The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified
 across the gauge factors. The pixel ratio $P$ is the root of the declared local
@@ -1008,7 +1086,7 @@ rather than borrowing it from measurement.
 
 **$P$** is the OPH local pixel ratio. It is a dimensionless root of the declared
 fixed-point map linking the local screen grain to the electromagnetic readout
-side of the program. The physical Thomson endpoint remains open.
+side of the program. The physical Thomson endpoint is open.
 
 **$\alpha$** is the fine-structure constant, the dimensionless strength of
 electromagnetism at a specified scale. Its inverse $\alpha^{-1}$ is commonly
