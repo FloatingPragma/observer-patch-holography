@@ -60,6 +60,12 @@ microphysics papers, modular-flow and finite modular-gearing sections. Status:
 finite algebraic theorems established; physical cap-state identification,
 clock calibration, and BW promotion remain receipt-conditional.
 
+The repaired 4,096-patch H3/KMS campaign cell passes its frozen instrument and
+disk-replay checks. Its scientific status is incomplete and physical promotion
+is forbidden because the independent state, geometry, modular-time, and event
+producers are absent. This cell evaluates the instrument, not the physical BW
+or event-emergence theorem.
+
 **C4. Transportable-charge consistency.** Internal labels must transport
 coherently across overlaps. The category of transportable charges, under the
 compact-gauge receipt, reconstructs a compact group (Tannaka-Krein). A
@@ -80,6 +86,11 @@ The four weak copies come from exterior multiplicity. No free
 $\mathbb Z_6$ action on the oriented 24-slot bookkeeping register is
 constructed, so the ratio $24/6$ is excluded from the proof.
 Status: conditional mathematical theorem; physical branch construction open.
+
+The exact finite $A_5$ capacity control is separate. It gives $M_0=60$ on
+$D_{\rm raw}=60k$ and raw equality only at $k=1$. Since $k$ is invisible to
+public readback, raw dimension is implementation-dependent. This control does
+not provide a physical gauge current or physical $N$-closure.
 
 **C5. Entropic-gravitational consistency.** Local horizon thermodynamics of
 the record surfaces yields the Einstein equation conditionally on one

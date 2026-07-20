@@ -846,8 +846,10 @@ a full pass through the forward map $A_T$, with $\varphi$ the golden-ratio
 balance and $\sqrt\pi$ the boundary width. The declared map is incomplete. The
 global target is $N=\log M_0(\mathfrak U_N)$: the logarithmic record capacity
 $N$ must equal the logarithm of the correctable public-record code size read
-from within the trial universe. The source-derived physical packet and its
-unique finite-size selector are absent. Self-reading motivates both targets. It
+from within the trial universe. A source-derived fixed-cutoff simulator packet
+at $D=24$ verifies the finite evaluator contract inside its declared source
+category. Its physical-universe attachment, the capacity-indexed family, and
+the unique finite-size selector are absent. Self-reading motivates both targets. It
 does not supply either missing physical construction. Chapter 18 tells that subtraction as a story, and Chapter 19
 folds the same chain into the synthesis.
 

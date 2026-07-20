@@ -1,0 +1,19 @@
+{
+  "schema": "oph.a5-finite-capacity-control.integration-status.v1",
+  "source_campaign": "survival-proof-2",
+  "source_issue_closure_receipt_sha256": "d05483c276a6ad3164a116815a803bd45841bfdf374f1264a542a8fba0e511b2",
+  "group_order": 60,
+  "reachable_public_records": 60,
+  "compound_confusability_graph_edges": 0,
+  "capacity_formula": "M_0(k,r)=60",
+  "raw_dimension_formula": "D_raw(k)=60*k",
+  "raw_defect_formula": "Delta_raw(k)=60*(k-1)",
+  "raw_equality_k": 1,
+  "publicly_inert_multiplicity": true,
+  "intrinsic_physical_capacity_defined": false,
+  "finite_packet_evaluator_control_receipt": true,
+  "raw_carrier_multiplicity_minimum_receipt": true,
+  "physical_n_closure_receipt": false,
+  "status": "BLOCKED_EXTERNAL_PHYSICAL_DERIVATION",
+  "claim_boundary": "The packet proves exact finite software semantics and a raw representation minimum. It supplies no physical D_star, N_star, or extensive horizon-capacity selector."
+}

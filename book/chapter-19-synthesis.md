@@ -4,7 +4,7 @@ The synthesis keeps theorem status visible. The finite A5/Standard-Model
 package is a conditional Q0 recognition result. Physical source selection,
 Spin/statistics, family attachment, scalar phase, and the OPH-native producers
 for quantum fields and W/Z resonances remain open. The field-theory side is
-now a typed DAG rather than one opaque ``Q1--Q4'' gate: QFT-Q1 supplies the
+a typed DAG rather than one opaque ``Q1--Q4'' gate: QFT-Q1 supplies the
 finite classical action implication; QFT-Q2 and QFT-Q3 are parallel quantum
 and perturbative descendants; strict W/Z pole algebra lives in QFT-Q3; and
 QFT-Q4 separately covers OS reconstruction and analytic resonance
@@ -85,6 +85,14 @@ domain, so horizon-plus-bulk entropy equilibrium becomes Einstein's equation.
 Construction and certification of an inhabited family with all these readouts
 are work in progress.
 
+The repaired 4,096-patch H3/KMS campaign cell gives a useful boundary check.
+Its frozen instrument and disk replay pass, but the scientific cell is
+incomplete and physical promotion is forbidden. The support tower and finite
+state were not independently produced by the source, the modular and geometric
+parameters lack an independent normalization pair, and the event and frame
+coordinates remain postcapture diagnostics. This records an unevaluated
+physical theorem, not a failed emergence theorem.
+
 Read that sentence as a compressed recap. Modular flow supplies the intrinsic
 parameter a restricted state carries; a clock instrument supplies the physical
 readout. Lorentz kinematics is the rulebook for relating moving
@@ -134,7 +142,7 @@ what the repaired quotient data looks like to an observer. The patch
 federation does the microscopic work.
 
 On the declared quotient-visible echosahedral lineage, this twelve-port
-geometry is now a source-derived finite theorem rather than a geometric label
+geometry is a source-derived finite theorem rather than a geometric label
 inserted after the fact. Equal-trace primitive port atoms and their central
 integer readback select one unit at each port with exact gap two. Oriented
 incidence derives the unique inverse pairing, the proper $A_5$ action, and a
@@ -273,7 +281,7 @@ $$
 The official universe-level equation is
 
 $$
-\boxed{N=M_0(\mathfrak U_N)}.
+\boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 It is the compact statement of self-readback: supply the trial universe with
@@ -291,9 +299,12 @@ $$
 with $s(D)=\log D-\log M_0(D)$. Thus the outside carrier and every terminal
 inside readback agree without a hidden branch selector. The exact finite
 capacity and saturation theorems are established in the paper stack. The
-source-derived fixed-cutoff $D=24$ packet is certified. The capacity-indexed
-source family and exact seam or transfer law needed to prove the unique zero
-remain listed there as removable assumptions.
+source-derived fixed-cutoff $D=24$ simulator packet is certified inside its
+declared source category. Its physical-universe attachment, the
+capacity-indexed source family, and the exact seam or transfer law needed to
+prove the unique zero remain listed there as removable assumptions. A separate
+finite $A_5$ control has $M_0=60$ and $D_{\rm raw}=60k$. Its publicly inert
+multiplicity blocks raw equality at $k=1$ from becoming physical $N$-closure.
 
 Horizon-record saturation gives the cosmological display
 

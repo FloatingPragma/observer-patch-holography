@@ -16,6 +16,13 @@ The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
 define the direct map. The universe-level physical `N` closure remains open.
 
+The independent finite (A_5) control is summarized in
+[`A5_FINITE_CONTROL_STATUS_2026-07-20.md`](A5_FINITE_CONTROL_STATUS_2026-07-20.md).
+It proves (M_0=60) on a complete bounded software packet and
+(D_{\rm raw}=60k), but its publicly inert multiplicity makes raw dimension
+implementation-dependent. It is a no-go control for physical promotion, not a
+second physical packet or a cosmic selector.
+
 ## Canonical lane
 
 - [`F_READBACK_SPEC.md`](F_READBACK_SPEC.md) is the Pro5 acceptance contract:
@@ -76,8 +83,10 @@ define the direct map. The universe-level physical `N` closure remains open.
 
 The identity family fixes every dimension; the erasure family fixes only the
 bottom dimension. Monotonicity and deflation therefore do not select the
-cosmic value. The `D=24` artifact is the first physical finite packet,
-not an exact finite-size slack law or a universe-level selection theorem.
+cosmic value. The `D=24` artifact is a source-derived fixed-cutoff packet in
+the declared simulator category. Its attachment to the physical universe, an
+exact finite-size slack law, and a universe-level selection theorem remain
+separate obligations.
 
 ## Generate the issue #548 receipts
 

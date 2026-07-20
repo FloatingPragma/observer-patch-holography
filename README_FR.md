@@ -98,10 +98,12 @@ Cette quantité n’a aucun rapport avec la mémoire allouée à une simulation 
 avec un réglage arbitraire d’exécution. $M_0$ est un comptage physique proposé
 des registres publics qui restent corrigibles à travers chaque checkpoint
 d’observation autorisé. La définition finie de la capacité et sa branche de
-comptage réversible sont exactes. Un paquet issu de la source à coupure fixe
-$D=24$ possède une fibre terminale déclarée complète et un reçu de capacité
-réversible exact. Une famille indexée par la capacité, l’accord de toutes les
-branches terminales et le sélecteur physique unique de capacité sont en cours.
+comptage réversible sont exactes. Un paquet de simulateur issu de la source à
+coupure fixe $D=24$ possède une fibre terminale déclarée complète et un reçu de
+capacité réversible exact. Il vérifie le contrat de l’évaluateur dans sa
+catégorie de source déclarée. L’attachement à l’univers physique, une famille
+indexée par la capacité, l’accord de toutes les branches terminales et le
+sélecteur physique unique de capacité sont en cours.
 $N$ est donc une extension conditionnelle secondaire du
 programme local vérifié de $P$. Ses comparaisons avec l’horizon et le Higgs ne
 deviennent physiques qu’après la démonstration des identifications de porteurs.
@@ -153,7 +155,7 @@ l’observation quantique, de l’espace-temps lorentzien, de la gravité
 conditionnelle d’Einstein, du paquet fini de reconnaissance du Modèle standard
 et des tests de clôture quantitative motive le programme OPH. Les reçus
 physiques de source, de Spin, de familles et de scalaire restent des conditions
-explicites. L'atterrissage en théorie quantique des champs est désormais un
+explicites. L'atterrissage en théorie quantique des champs est un
 DAG typé : QFT-Q2 et QFT-Q3 descendent en parallèle de QFT-Q1, l'algèbre
 stricte des pôles W/Z appartient à QFT-Q3, et QFT-Q4 exige séparément une tour
 non perturbative d'observables et une continuation analytique. Les implications
@@ -266,7 +268,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Atterrissage QFT | Invariance de l’action finie QFT-Q1 ; critères de ligne déterminante et hamiltonien QFT-Q2 ; restauration formelle BV/ST et algèbre W/Z stricte QFT-Q3 ; implications OS et résonance QFT-Q4 séparées. QFT-Q2 et QFT-Q3 sont parallèles et toutes les constructions natives de la source restent des portes de promotion | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique actuel reste une régression de backend post-exposition ; l’appariement OPH/FJ, un moteur jauge/BRST indépendant, la covariance, les amplitudes de courant physique et l’horloge restent ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet physique à coupure fixe $D=24$ est certifié, tandis que la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet de simulateur issu de la source à coupure fixe $D=24$ est certifié, tandis que son attachement physique, la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 

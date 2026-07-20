@@ -7,14 +7,14 @@ and three invariant cubic slots under the declared packet. It does not attach
 that band to three physical chiral families. The count $N_g=3$ is the least
 value in the declared Minimal Admissible Realization economy class. Physical
 Spin, family, scalar, interaction, positivity, refinement, and W/Z pole
-producers remain open. What is no longer left implicit is the field-theory
-logic after those inputs are supplied. A finite local $G_6$ action is exactly
+producers remain open. The field-theory logic after those inputs are supplied
+is stated separately. A finite local $G_6$ action is exactly
 gauge invariant; an equivariant determinant-line section or a noncollapsing
 constrained Hamiltonian gives two distinct finite quantum criteria; anomaly
 clearance and stability give formal order-by-order BV/Slavnov--Taylor
 restoration; and a separately supplied reflection-positive observable tower
-admits OS reconstruction. These are conditional implications, not claims that
-OPH has already built their inputs.
+admits OS reconstruction. These are conditional implications. OPH has not
+built their inputs.
 
 The dependency map is not a single Q1--Q4 ladder. QFT-Q2 and QFT-Q3 are
 parallel descendants of the classical QFT-Q1 action. Strict finite-order W/Z
@@ -1287,7 +1287,7 @@ matter packet supplies hypercharge, color fundamentals, weak doublets, and one
 scalar-doublet channel. Source-derived chirality, physical family attachment,
 and genuine 1PI vertices remain open. The strict-one-loop algebra from a
 complete renormalized electroweak packet to charged and neutral complex poles
-is now proved and machine checked, but the current numerical fixture is a
+is proved and machine checked, but the numerical fixture is a
 post-exposure backend regression. OPH has not yet supplied the FJ parameter
 identity, matching chain, independent gauge/BRST engine, source covariance,
 physical-current amplitudes, or clock needed for physical W/Z poles.

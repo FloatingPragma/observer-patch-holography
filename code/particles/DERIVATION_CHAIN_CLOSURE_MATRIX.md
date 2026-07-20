@@ -8,6 +8,13 @@ Remaining nonclosed chains: `p_closure_root, electroweak_massive_bosons, higgs_t
 Chrome Pro workers needed: `False`
 Reason: Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; the P/electromagnetic source-only endpoint needs a populated source spectral measure payload and interval certificate. The hierarchy relation is exact under its declared screen premises, and the naturality defect is exact on the selected branch. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries.
 
+QFT status is orthogonal to this numeric closure matrix. The namespaced
+`SM_QFT_*` oracle proves conditional implications and exact strict W/Z algebra,
+but QFT-Q2 and QFT-Q3 remain parallel and QFT-Q4 consumes a separate
+nonperturbative tower. None of those theorem checks supplies the source action,
+physical-current amplitude, numerical freeze, or resonance sheet required to
+promote `electroweak_massive_bosons`.
+
 | Chain | Status | Promotable | Open gates | Outputs | Next artifact |
 | --- | --- | --- | --- | --- | --- |
 | `p_closure_root` | `candidate_not_certified_root` | `False` | none | `P=1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012`, `alpha_inv=136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341` | code/P_derivation/runtime/r_q_residual_contract_current.json + code/P_derivation/runtime/fine_structure_interval_certificate_current.json |

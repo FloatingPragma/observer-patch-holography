@@ -1,0 +1,24 @@
+{
+  "schema": "oph.h3-kms.integration-status.v1",
+  "source_campaign": "survival-proof-4/outputs/run_4k_repaired_20260720",
+  "source_campaign_run_receipt_sha256": "36c5eb61e1684b1081adb9fbc266f9b28819ca1ca70658ee95609871c3895a08",
+  "source_replay_verification_sha256": "3da2834c4c0c6840c59aee579ab100d1729be8007027919558c2448d9e4ce571",
+  "instrument_status": "VALID_PASS",
+  "campaign_complete": false,
+  "cell_scientific_status": "INCOMPLETE",
+  "replay_scientific_status": "NOT_EVALUATED_BY_DISK_REPLAY",
+  "physical_promotion_allowed": false,
+  "postrun_scientific_failures": [],
+  "rungs": [4096, 16384, 65536, 262144],
+  "seeds": [20260751, 20260761, 20260771],
+  "not_evaluated_reason_codes": [
+    "support_tower_not_source_produced",
+    "state_and_modular_generator_not_independently_produced",
+    "geometric_flow_not_independently_normalized",
+    "bw_payload_lacks_cofinal_physical_state_tower",
+    "modular_and_geometric_parameters_not_independently_paired",
+    "model_specific_features_are_sensitivity_diagnostics",
+    "event_manifold_outputs_are_postcapture_diagnostics"
+  ],
+  "claim_boundary": "A valid frozen instrument and exact disk replay do not evaluate or promote physical H3/KMS emergence."
+}

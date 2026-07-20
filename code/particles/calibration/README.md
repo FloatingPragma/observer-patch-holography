@@ -34,6 +34,12 @@ Three compact boundary modules accompany that larger lane:
   current Higgs/top reduct. The same source coordinate admits distinct
   downstream Higgs and top values, so that reduct cannot support a unique
   source-only pole claim.
+- `q1_q4_wz_theorem_oracle/` is the content-addressed, non-promoting oracle for
+  the enlarged field-theory theorem package. Its `SM_QFT_*` DAG makes QFT-Q2
+  and QFT-Q3 parallel descendants of QFT-Q1, places strict fixed-parameter W/Z
+  algebra in QFT-Q3, and gives QFT-Q4 its own nonperturbative-tower and
+  resonance-sheet inputs. It recomputes exact algebra only; every OPH producer
+  remains fail-closed.
 
 These modules are controls, not OPH-native mass predictions. They do not supply
 the source-selected observer-like carrier, EFT matching and field census,
@@ -41,8 +47,9 @@ gauge/BRST identity checks, analytic continuation, uncertainty transport,
 physical-current amplitudes, or operational clock required for promotion.
 
 The complete strict-one-loop package is also a control under this boundary;
-it closes the map implication after a complete renormalized input packet is
-given, not the missing OPH-native antecedent.
+the enlarged oracle additionally checks the strict two-loop derivative and
+neutral-mixing coefficients. Both close map implications after a complete
+renormalized input packet is given, not the missing OPH-native antecedent.
 
 The comparison-only convention layer is the
 wz_experimental_convention.py module. It maps published

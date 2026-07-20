@@ -202,7 +202,7 @@ $$
 At universe level the official closure equation is simply
 
 $$
-\boxed{N=M_0(\mathfrak U_N)}.
+\boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 The global closure adopted in this book is the stable equality

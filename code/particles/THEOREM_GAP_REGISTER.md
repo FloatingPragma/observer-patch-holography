@@ -19,6 +19,7 @@ Every named open object of the particle program with its class, plus the closure
 | CHARGED_HOMOGENEOUS_SHAPE_SILENCE | charged leptons | a unique invariant MaxEnt state has zero non-singlet expectation and the homogeneous twelve-port branch has the uniform minimizer: family shape requires a selected W5 orbit | `runs/leptons/charged_mcpr_completion_conditional.json` |
 | PHOTON_EXACT_MASSLESSNESS_RECEIPT | massless carriers | unbroken electromagnetic gauge invariance of the recovered quotient forces a transverse self-energy with vanishing zero-momentum part; the photon mass is exactly zero, conditional on the recovered-core gauge structure | `runs/status/theorem_gap_register.json` |
 | GLUON_CARRIER_MASSLESSNESS_RECEIPT | massless carriers | unbroken color forces carrier-level gluon masslessness; confinement removes asymptotic gluon states, so the statement concerns the gauge field, never a physical pole | `runs/status/theorem_gap_register.json` |
+| SM_QFT_Q1_Q4_CONDITIONAL_IMPLICATIONS | W/Z and quantum-field landing | the finite local G6 action implication, two exact finite QFT-Q2 criteria, formal QFT-Q3 BV/ST restoration, strict finite-order W/Z algebra, and separate QFT-Q4 OS/resonance implications are stated and checked without promoting their antecedents | `calibration/q1_q4_wz_theorem_oracle/` |
 
 ## Open
 
@@ -36,4 +37,5 @@ Every named open object of the particle program with its class, plus the closure
 | WARD_ENDPOINT_AND_HADRONIC_TRANSPORT | cross-cutting (P root) | computationally_blocked | the source hadronic spectral transport (issue 425) and the scheme bridge (issue 545); the production route is the unquenched lattice backend with a vector correlator |
 | OPERATIONAL_CLOCK_CHAIN | scale | mixed | R_alpha follows the P root; R_e_abs follows the charged completion; the cesium nuclear packet is computationally blocked; the Feshbach scalar evaluators are closable_by_standard_computation with an interval backend |
 | BRST_POLE_KERNEL_PACKET | cross-cutting | research_open | BRST-complete two-point kernels with sheets, residues, and widths; every mass above is a tree/chart or threshold coordinate until this closes |
+| SM_QFT_NATIVE_PRODUCER_STACK | W/Z and quantum-field landing | research_open | construct the source-selected action/normalization, a QFT-Q2-E measure or QFT-Q2-H Hamiltonian, the regulator-specific QFT-Q3 restoration/matching/identity packet with dressed current amplitudes and numerical freeze, and the separate QFT-Q4 observable tower and resonance-sheet continuation packet |
 | NONPERTURBATIVE_HADRON_FACTOR | hadrons | computationally_blocked | the source-only m_hadron/Lambda factor; the conditional route through the published lattice ratio carries the spectrum in the interim |

@@ -1,5 +1,22 @@
 # W/Z/H source-closure campaign
 
+## QFT tier status after the July 20 theorem audit
+
+This campaign implements producers, not theorems already discharged on paper.
+The conditional QFT-Q1 local-action implication, QFT-Q2-E determinant-line
+criterion, QFT-Q2-H Hamiltonian soundness theorem, formal QFT-Q3 BV/ST
+restoration implication, strict fixed-parameter W/Z coefficient algebra, and
+separate QFT-Q4 OS/resonance implications are now frozen in
+`q1_q4_wz_theorem_oracle/`.
+
+The dependency graph is not linear: QFT-Q2 and QFT-Q3 are parallel descendants
+of QFT-Q1. Strict W/Z algebra is a QFT-Q3 leaf and has no promotion edge to
+QFT-Q4. This campaign remains open until it supplies the source-selected action
+and normalization, one exact QFT-Q2 object, regulator-specific QFT-Q3 matching
+and restoration evidence, two independent identity engines, dressed physical
+current amplitudes, numerical freeze and covariance, source law and clock, and
+the independently required QFT-Q4 observable tower and analytic sheet.
+
 ## Current result
 
 The repository has exact conditional composition theorems, not a completed
@@ -135,7 +152,8 @@ physical masses. Full promotion still requires:
   remainder bounds;
 - BRST-complete physical inverse two-point blocks for W, Z, and Higgs,
   including mixing fields, Ward/Slavnov--Taylor and Nielsen identities,
-  declared sheets and contours, nonzero physical residues, widths, and
+  declared sheets and contours, nonzero Laurent couplings in dressed
+  gauge-invariant current amplitudes (and the separate Higgs scalar amplitude), widths, and
   uncertainty bounds;
 - a prospective same-branch dependency DAG and claim manifest.
 

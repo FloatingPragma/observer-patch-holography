@@ -97,11 +97,12 @@ This quantity is unrelated to the memory allocated to a simulation or an
 arbitrary runtime setting. $M_0$ is a proposed physical count of public records
 that remain correctable through every allowed observation checkpoint. The
 finite capacity definition and its reversible counting branch are exact. A
-source-derived fixed-cutoff packet at $D=24$ has a complete declared terminal
-fiber and exact reversible capacity receipt. A capacity-indexed family,
-agreement across every terminal branch, and the unique physical capacity
-selector are work in progress. $N$ is therefore a secondary conditional
-extension of the verified local $P$ program. Its
+source-derived fixed-cutoff simulator packet at $D=24$ has a complete declared
+terminal fiber and exact reversible capacity receipt. This verifies the finite
+evaluator contract inside its declared source category. Physical-universe
+attachment, a capacity-indexed family, agreement across every terminal branch,
+and the unique physical capacity selector are work in progress. $N$ is
+therefore a secondary conditional extension of the verified local $P$ program. Its
 horizon and Higgs comparisons become physical only after their carrier
 identifications are proved. The [closure ledger](docs/CLOSURE_LEDGER.md) gives
 the full finite construction and its proof obligations.
@@ -145,7 +146,7 @@ be accidental. The joint recovery of quantum observation, Lorentzian
 spacetime, conditional Einstein gravity, the finite Standard Model recognition
 package, and quantitative closure tests motivates the full OPH program. The
 physical source, Spin, family, and scalar receipts remain explicit conditions
-rather than completed outputs. The field-theory landing is now a typed DAG:
+rather than completed outputs. The field-theory landing is a typed DAG:
 QFT-Q2 and QFT-Q3 are parallel descendants of QFT-Q1, strict W/Z pole algebra
 belongs to QFT-Q3, and QFT-Q4 independently requires a nonperturbative
 observable tower and analytic continuation. The conditional implications are
@@ -326,13 +327,17 @@ each check.
 
 ## Remaining Proof Obligations And Falsification Boundary
 
-The direct $N$ theorem contains a finite, source-derived public-checkpoint
-packet. At fixed $D=24$, the packet has the reachable public records, the
+The direct $N$ theorem contains a finite, source-derived simulator
+public-checkpoint packet. At fixed $D=24$, the packet has the reachable public
+records, the
 publicness rule, joint checkpoint kernels, carrier projections, and extension
 and refinement maps. Injective checkpoint generators reduce its capacity
 theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
-The remaining hard N theorem is a capacity-indexed source family and the exact
-finite-size slack law with one physical zero.
+The remaining hard N theorem is its physical-universe attachment, a
+capacity-indexed source family, and the exact finite-size slack law with one
+physical zero. The independent finite $A_5$ control has $M_0=60$ and
+$D_{\rm raw}=60k$; its publicly inert multiplicity proves that raw equality at
+$k=1$ is not physical $N$-closure.
 
 The other named obligations are:
 

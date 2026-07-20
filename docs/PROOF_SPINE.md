@@ -60,9 +60,9 @@ owns downstream electroweak and mass bridges.
 | Step | Content | Status |
 |---|---|---|
 | A1 | Principles SL-0 to SL-5 stated once, with claim rules and the three-layer separation (theory, test, working) | done: STRANGE_LOOP_PRINCIPLES.md |
-| A2 | The two closure equations defined: $P=\varphi+\sqrt\pi/A_T(P)$ and $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ with $N_\star=\log D_\star$ | formal equations stated; the physical $A_T$ transport, capacity packet, and finite-size selector remain incomplete |
+| A2 | The two closure equations defined: $P=\varphi+\sqrt\pi/A_T(P)$ and $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ with $N_\star=\log D_\star$ | formal equations stated; the physical $A_T$ transport, physical-universe capacity attachment, capacity-indexed family, and finite-size selector remain incomplete |
 | A3 | Uniqueness of P | PROVEN only for each declared incomplete arithmetic map on its stated domain; this does not certify the missing physical Thomson map |
-| A4 | Public record gluing | PROVEN: total atom readout maps define finite compatible global sections and their commutative function algebra. Endogenous reachability, frozen publicness, and the physical packet remain receipts (GAP-A3) |
+| A4 | Public record gluing | PROVEN: total atom readout maps define finite compatible global sections and their commutative function algebra. A source-derived fixed-cutoff simulator packet at $D=24$ verifies the finite evaluator contract inside its declared source category. Physical-universe attachment and the capacity-indexed family remain receipts (GAP-A3). The independent finite $A_5$ control has $M_0=60$ and $D_{\rm raw}=60k$; publicly inert multiplicity blocks its raw equality from physical promotion. |
 | A5 | Correctable public record capacity | Official universe equation: $N=\log M_0(\mathfrak U_N)$. Here $M_0$ is always a multiplicative code size. The finite definition uses the compound graph of source-supplied global joint checkpoint kernels: $M_0(q)=\alpha(G_q)$. Proven implications include the support criterion, finite semigroup closure, reversible fast branch, total-variation robustness, $M_\varepsilon\le D$, and complete rank-one saturation. Cyclic permutation and local-marginal countermodels exclude fixed-projector and marginal-only substitutes |
 | A6 | Terminal-fiber readback | PROVEN set-valued construction $\mathfrak F_{r,\varepsilon}(D)=\{M_\varepsilon(q)\}$; a scalar map exists only on a complete nonempty fiber with singleton support. Robust closure is $\mathfrak F_{r,0}(D)=\{D\}$ (GAP-A3) |
 | A7 | Finite order theorem and uniqueness boundary | PROVEN implication: a total monotone deflationary scalar map reaches its greatest fixed point from the top. Identity and erasure families prove this is not singleton uniqueness or cutoff independence. The required selector is the exact slack law $s(D_\star)=0<s(D)$ elsewhere (GAP-A3) |
@@ -136,7 +136,7 @@ Part A gaps:
   $s(D_\star)=0<s(D)$ for every other admissible $D$. Unit asymptotic density
   and greatest-fixed-point selection do not discharge uniqueness. The compact
   and particle papers summarize boundaries and downstream bridges; they do not
-  own the physical packet.
+  own the physical-universe attachment or capacity-indexed packet family.
 - **GAP-A4 (former CP-3).** Closed as a critical-path verdict 2026-07-19.
   Averaging re-emission belongs to fluctuation or dynamics claims. It is neither
   necessary for the direct fixed-point location nor a producer of

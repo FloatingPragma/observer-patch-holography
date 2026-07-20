@@ -531,7 +531,7 @@ observer-supported world read back its correctable public-record capacity
 $M_0(q)$. The official universe-level equation is
 
 $$
-\boxed{N=M_0(\mathfrak U_N)}.
+\boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 It says that the capacity supplied to a trial universe is the capacity its

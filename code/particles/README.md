@@ -20,9 +20,17 @@ the particle paper:
 Historical Oracle batches, worker logs, and transient handoff material are not
 part of this canonical tree.
 
+The QFT theorem oracle is deliberately not a production simulator. It verifies
+the conditional finite-action, anomaly, FJ-coordinate, strict W/Z, and Nielsen
+algebra and the namespaced dependency DAG. It cannot set a physical-promotion
+flag. Source-selected actions, QFT-Q2 constructions, QFT-Q3 restoration and
+identity transcripts, physical-current amplitudes, QFT-Q4 towers, analytic
+sheets, and numerical freezes remain separate producers.
+
 ## Active Layout
 
 - [calibration](calibration)
+- [QFT-Q1--QFT-Q4/WZ theorem oracle](calibration/q1_q4_wz_theorem_oracle)
 - [flavor](flavor)
 - [leptons](leptons)
 - [neutrino](neutrino)

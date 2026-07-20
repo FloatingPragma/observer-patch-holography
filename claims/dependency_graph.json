@@ -42,7 +42,10 @@
     "OPH-POW-PHOTONIC",
     "OPH-IBM-GENERATIVE-REPAIR",
     "OPH-THINKING-PATCH",
-    "OPH-PARADISE"
+    "OPH-PARADISE",
+    "OPH-UNIFIED-TYPED-SPINE",
+    "OPH-GR-D6-A5-FINITE-CONTROL",
+    "OPH-H3-KMS-REPAIRED-4K-STATUS"
   ],
   "edges": [
     {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-OBS-PATCH-DEF", "role": "defines observer-facing primitive"},
@@ -107,6 +110,11 @@
     {"from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "to": "OPH-GR-D5", "role": "upgrades the Jacobson-type first-variation package to the absolute per-component equation under VR/UC"},
     {"from": "OPH-GR-D3H-GEOMETRY-PRODUCER", "to": "OPH-GR-E2E-BRANCH-ENTRY", "role": "first arrow of the composed chain; an inhabited branch requires the same source-derived tower to carry every downstream readout"},
     {"from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "to": "OPH-GR-E2E-BRANCH-ENTRY", "role": "final arrow of the composed chain"},
-    {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-PARADISE", "role": "supplies observer record and continuation vocabulary"}
+    {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-PARADISE", "role": "supplies observer record and continuation vocabulary"},
+    {"from": "OPH-CONS-D1", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "supplies the quotient-normal-form substrate without supplying geometry or current data"},
+    {"from": "OPH-GR-D4B-EVENT-MANIFOLD", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "types event space as the base and H3 as its observer-frame fiber"},
+    {"from": "OPH-GAUGE-D7-D9", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "supplies the conditional compact-current to Standard Model branch"},
+    {"from": "OPH-SCREEN-MODULAR-GEARING", "to": "OPH-H3-KMS-REPAIRED-4K-STATUS", "role": "supplies finite modular tests whose physical BW promotion remains blocked in the repaired campaign cell"},
+    {"from": "OPH-GR-D6-READBACK-NOGO", "to": "OPH-GR-D6-A5-FINITE-CONTROL", "role": "supplies the implementation-invariance boundary tested by the publicly inert A5 multiplicity"}
   ]
 }

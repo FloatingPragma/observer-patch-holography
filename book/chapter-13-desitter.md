@@ -252,7 +252,7 @@ $$
 The official N equation packages the idea in its most direct form:
 
 $$
-\boxed{N=M_0(\mathfrak U_N)}.
+\boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 An OPH trial universe supplied with global capacity $N$ must read back that
@@ -270,10 +270,20 @@ $$
 \{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
-At fixed $D=24$, the source-derived reversible packet contains 24 reachable
-records, a complete declared one-fault terminal fiber, and an empty compound
-confusability graph. Its certificate gives $M_0(q)=24$ on the terminal world.
-This fixed-cutoff result does not select a cosmological capacity.
+At fixed $D=24$, the source-derived reversible simulator packet contains 24
+reachable records, a complete declared one-fault terminal fiber, and an empty
+compound confusability graph. Its certificate gives $M_0(q)=24$ on the
+terminal world inside the declared source category. Its attachment to the
+physical universe remains open, and this fixed-cutoff result does not select a
+cosmological capacity.
+
+An independent finite $A_5$ control makes the implementation boundary sharp.
+It has 60 correctable public records on a raw carrier of dimension
+$D_{\rm raw}=60k$. Its defect is $60(k-1)$, so raw equality occurs at $k=1$.
+The multiplicity $k$ is invisible to every public read. Raw dimension is
+therefore implementation-dependent, and this equality is a software evaluator
+control rather than physical $N$-closure. The equality seam is idempotent and
+does not generate an extensive horizon-capacity law.
 
 This book adopts the stable N-closure postulate: after refinement there is one
 physical $D_\star$ for which

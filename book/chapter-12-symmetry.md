@@ -377,7 +377,7 @@ the physical scalar, family attachment, graded-local field algebra, or W/Z
 complex poles. Those require observer-like source patches with operational
 ports, readback, repair records, and typed QFT receipts. The finite-action,
 quantum-object, BV/Slavnov--Taylor, strict W/Z pole-algebra, OS, and resonance
-implications are now stated separately. Their OPH-native action, measure or
+implications are stated separately. Their OPH-native action, measure or
 Hamiltonian, renormalization, current-amplitude, observable-tower, and
 analytic-sheet producers remain open.
 
