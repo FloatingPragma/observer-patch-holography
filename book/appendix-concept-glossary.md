@@ -741,6 +741,25 @@ observable fields. Perturbative pole calculations and a nonperturbative
 continuum theory consume different evidence. The conditional implications are
 proved; their OPH-native physical inputs are open.
 
+Quantization tiers
+:   The paper stack types the field-theory landing as four tiers: the finite
+local gauge-invariant classical action; exact quantization, in a
+chiral-measure flavor and a constrained-Hamiltonian flavor; the formal
+renormalized perturbative layer, where the strict finite-order W and Z
+complex-pole algebra lives; and the nonperturbative continuum, split into a
+reflection-positivity reconstruction and a resonance-sheet branch. Exact
+quantization and the perturbative layer are parallel descendants of the
+classical action, so the bounded perturbative validation against the imported
+Standard Model does not wait on the exact or nonperturbative constructions.
+
+Native derivation versus imported validation
+:   Two claim lanes that must never merge. A native claim derives its
+inputs from the source construction with no dependency path to the measured
+target. An imported validation borrows the Standard Model's renormalized
+inputs to test a conditional theorem, and its outputs are labeled
+post-exposure. The second lane can be finished with existing tools; only the
+first can ever count as a prediction.
+
 Quantum marginal problem
 :   The quantum marginal problem asks when local
 reduced states are compatible with a global quantum state. Pairwise

@@ -92,7 +92,11 @@ $$
 
 $m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$.
+through $E=mc^2$. The strict complex-pole implication is a proved conditional
+theorem at the quantization tier, and these displayed chart values do not
+instantiate it: they lack the target-clean matching, vacuum-coordinate,
+self-energy, gauge-identity, current-amplitude, covariance, and clock
+receipts that the theorem consumes.
 
 On the local closure proposal, one dimensionless screen coordinate organizes
 the strength of electromagnetism. From the geometric side it is a small departure from the

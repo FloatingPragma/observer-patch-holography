@@ -12,7 +12,10 @@ A separate field-theory theorem checks the finite-order W/Z pole algebra once
 a complete renormalized electroweak theory is supplied. It neither creates that
 theory nor turns a chart coordinate into a physical resonance. A
 nonperturbative continuum theory starts from its own observable and positivity
-data.
+data. These construction problems sit on parallel branches, not on one queue:
+the bounded check of the pole algebra against the imported Standard Model can
+proceed while the exact chiral-measure and nonperturbative constructions stay
+open, and neither waits on the other.
 
 The exposed target-free carrier data also give an exact negative result: they
 admit more than one current and matter completion. Geometry constrains the

@@ -3,7 +3,7 @@
 The operating policy for particle rows whose final numeric values depend on
 low-energy QCD.
 
-## Standing
+## Why The Hadronic Test Is Hard
 
 The source chain fixes everything on its side of the frontier: each declared
 P map has an interval-certified unique fixed point on its stated domain, the
@@ -16,9 +16,7 @@ dispersive determinations carry relative uncertainties near 4×10⁻³, the
 leading lattice programs reach a comparable order after campaigns at the 10⁷
 core-hour scale, the region below 2 GeV is nonperturbative, and a source-only
 payload additionally forbids measured hadronic input even for scale setting.
-See "Why The Hadronic Test Is Hard" in
-[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md). Existing grid
-work is exploratory.
+Existing grid work is exploratory.
 
 ## Closure-Program Note
 

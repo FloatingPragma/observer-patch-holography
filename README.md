@@ -18,7 +18,7 @@ $$
 T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}}.
 $$
 
-The universe is modeled as a fixed point of its own observer-accessible readback and repair process.
+The universe is modeled as a fixed point of its own observer-accessible readback and repair process. The technical documents and the book call this fixed-point condition the strange loop; [docs/STRANGE_LOOP.md](docs/STRANGE_LOOP.md) states it precisely and [docs/CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md) tracks the selection chain it generates.
 
 ## The Idea In Plain Language
 
@@ -350,8 +350,9 @@ python3 -m pytest -q \
   code/consensus/test_verified_tree_packet_net.py
 ```
 
-The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and scope of
-each check.
+The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and the
+fuller finite-core lane, which adds the two W/Z convention and
+survival-boundary calibration tests.
 
 ## Open Proof Obligations And Falsification Boundary
 

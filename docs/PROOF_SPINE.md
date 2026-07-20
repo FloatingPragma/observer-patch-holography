@@ -139,7 +139,7 @@ Part A gaps:
   field: closure asks for 4×10⁻⁹ relative precision on the hadronic moment,
   beyond every method on Earth, and a source-only payload additionally forbids
   measured hadronic input even for scale setting (see "Why The Hadronic Test
-  Is Hard" in [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)).
+  Is Hard" in [HADRON.md](HADRON.md)).
   Existing grid work is exploratory. The historical v2 contract and V1
   execution cannot discharge the gap; their defect inventory (non-blind
   source, mismatched P coordinates, residual/total confusion, non-certified

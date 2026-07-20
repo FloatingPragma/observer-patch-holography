@@ -112,10 +112,8 @@ elimination of a proper candidate basin in the selected boundary/sector fiber, a
 implementation/clock closure. Theorem~\ref{thm:oph-simulation} proves those clauses on the
 named finite branch and supplies a generic fixed-point and variational counterexample.
 
-The resulting theorem package has two layers. The bare overlap network is only a finite
-constraint code: its codewords are the globally overlap-consistent states. Quantum
-error-correction, code-distance / min-cut resilience, exponential mixing, wall-clock BFT
-liveness, and hardware speedup are separate certified branches with additional data. The first
+The resulting theorem package has two layers, bounded by the constraint-code
+firewall stated once in the summary list below. The first
 core consensus layer concerns convergence: primitive recovery proposals are eligible only when
 they satisfy the touched-overlap local-fit contract, but a proposal becomes physical only through
 transactional acceptance with snapshot validation, protected-boundary preservation, and exact
@@ -206,7 +204,7 @@ a literal cosmological dynamics claim.
 The results here are exact theorems about a computational model. The companion
 OPH manuscript uses separate support levels for structural theorems, scaling
 limits, quantitative particle outputs, and phenomenological
-continuations~\cite{OPH}.
+continuations~\cite{ophsynthesis}.
 
 
 \section{Patch Nets, Overlaps, and Global Consistency}
@@ -3489,7 +3487,7 @@ and Rewrite Systems},
 2026.\\
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
 
-\bibitem{OPH}
+\bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},
 2026.\\

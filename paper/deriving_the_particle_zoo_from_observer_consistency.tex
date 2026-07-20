@@ -513,10 +513,13 @@ P
 \longmapsto
 \bigl(t_U(P),t_{\mathrm{tr}}(P)\bigr)
 \longmapsto
-\bigl(t_2(P),t_3(P),v(P)\bigr)
+\bigl(t_2(P),t_3(P),v_{\mathrm{chart}}(P)\bigr)
 \longmapsto
 \alpha_i(\mu_\ast;P).
 \]
+Here \(v_{\mathrm{chart}}(P)\) is the D10 mass-chart coordinate. It is not a
+renormalized vacuum expectation value in any fixed scheme, and no receipt
+identifies it with one.
 The forward transmutation certificate records that the same runtime basis reconstructs the unified diffusion parameter \(t_U(P)=4\pi^2\alpha_U(P)\) and transmutation exponent \(t_{\mathrm{tr}}(P)=2\pi/((N_c+1)\alpha_U(P))\) as the pixel-closure solve itself. The runtime subgraph reads measured electroweak data only on its validation surface, but no frozen provenance receipt excludes target dependence or selects one repair law.
 
 The electroweak branch is the place where the named pixel coordinate organizes the weak-sector rows. The
@@ -753,7 +756,7 @@ P
 \longmapsto
 \bigl(t_U(P),t_{\mathrm{tr}}(P)\bigr)
 \longmapsto
-v(P)
+v_{\mathrm{chart}}(P)
 \longmapsto
 \left(M_W,M_Z\right).
 \]
@@ -1298,6 +1301,17 @@ and only then emit the electroweak transport family from that source basis. The 
 not contain this full chain. Its \(W/Z\) rows are data-comparison adapter coordinates,
 not a D10 prediction theorem.
 
+Two provenance corrections apply to this chart. The D10 couplings are read at
+the source scale \(91.5883371732~\mathrm{GeV}\), a coordinate of the source
+solve, not at the measured \(Z\) target. An earlier apparent \(Z\) near-hit,
+obtained by evaluating the conditional pole map in the raw pre-carrier basis,
+is withdrawn: that evaluation omitted the compact-carrier hypercharge step,
+and the selector-consistent conditional evaluation lands the neutral
+coordinate near \(90.66~\mathrm{GeV}\), about half a GeV below the converted
+reference target. Both numbers are conditional diagnostics of the imported
+prescription; neither is an OPH-native pole. The withdrawal removes a
+coincidence, not a prediction.
+
 The same quantitative lane has one exact golden-ratio benchmark. If one writes
 \[
 x(C):=\frac{S_{\mathrm{gen}}(C)}{S_{\mathrm{bulk}}(C)}
@@ -1345,7 +1359,7 @@ of the candidate, not the inverse adapter. None is a physical pole theorem.
 Let the emitted running/core electroweak basis be
 \[
 Q_{\mathrm{run}}(P)=
-\bigl(\alpha_{Y,m_Z}(P),\alpha_{2,m_Z}(P),v(P),\eta_{\mathrm{source}}(P)\bigr),
+\bigl(\alpha_{Y,m_Z}(P),\alpha_{2,m_Z}(P),v_{\mathrm{chart}}(P),\eta_{\mathrm{source}}(P)\bigr),
 \]
 and write
 \[
@@ -1544,7 +1558,7 @@ Let the D10 source-only emitted basis be
 \[
 Q_{\mathrm{src}}(P)=
 \bigl(\alpha_U(P),\alpha_{2,m_Z}(P),\alpha_{Y,m_Z}(P),
-\eta_{\mathrm{source}}(P),v(P)\bigr),
+\eta_{\mathrm{source}}(P),v_{\mathrm{chart}}(P)\bigr),
 \]
 and define
 \[
@@ -1624,7 +1638,7 @@ M_W^{(10)}=v\sqrt{\pi\alpha_2'},
 \qquad
 M_Z^{(10)}=v\sqrt{\pi(\alpha_2'+\alpha_Y')},
 \qquad
-v=v(P).
+v=v_{\mathrm{chart}}(P).
 \]
 \[
 a_0(P)
@@ -1735,7 +1749,7 @@ running/matching/threshold/scheme surface, with source basis
 \[
 Q_{\mathrm{src}}(P)=
 \bigl(\alpha_U(P),\alpha_{2,m_Z}(P),\alpha_{Y,m_Z}(P),
-\eta_{\mathrm{source}}(P),v(P)\bigr).
+\eta_{\mathrm{source}}(P),v_{\mathrm{chart}}(P)\bigr).
 \]
 Assume the realized D9 branch, so that
 \[
@@ -1978,10 +1992,11 @@ K(I_U)\subset
 \]
 and a strictly negative derivative enclosure
 \([-10.995768,-10.985284]\). Thus the local source equation has a unique zero in
-that enclosure. On the public endpoint branch,
+that enclosure. On the public endpoint branch, at the CODATA-located
+comparison pixel \(P_C\),
 \[
 \begin{aligned}
-\alpha_U(P_\star)&=0.041124336195630495,\\
+\alpha_U(P_C)&=0.041124336195630495,\\
 \frac{v}{E_\star}&=2.0199803239725553\times10^{-17}.
 \end{aligned}
 \]
@@ -2339,6 +2354,14 @@ back-solving from the measured pair through the synchronization-scale scan, so
 it is an exact interpolation of the PDG pair, a target-anchored fit; it
 carries no certified Higgs or top complex pole. The
 target-free headline is the double-criticality family evaluated below. The same surface emits a companion top coordinate.
+An exact negative result bounds this lane from below: at fixed \(P\), with
+\(u=1-P/24\), the exposed target-free reduct admits both the linear
+(\(y_t=u\)) and Born (\(y_t=\sqrt u\)) probability-to-amplitude completions,
+which agree on every reduct field and differ in the leading Higgs and top pole
+ratios by \(2u(1-u)\) and \(u(1-u)/2\). The reduct is therefore not
+\(P\)-complete for the Higgs/top readout, and any future promotion must name
+its amplitude-lift selector as an explicit source object. The compact paper
+states and proves this two-completion theorem.
 The selected-class quark support witness carries a
 target-anchored running-top audit row using the PDG 2025 cross-section entry; it is not a separate
 public source-only top prediction. The bridge to the auxiliary direct-top PDG row is closed as a
@@ -2397,9 +2420,10 @@ physical \(W/Z/H\) theorem requires the following additional composition.
 \begin{proposition}[Conditional physical clock attachment]
 If the same strict source branch emits the dimensionless energy
 \(\varepsilon_{\rm clk}>0\) of a declared clock transition whose physical
-frequency \(\nu_{\rm clk}\) defines the operational unit, then
+frequency \(\nu_{\rm clk}\) defines the operational unit, then, with
+\(h_{\rm P}=2\pi\hbar\) Planck's constant,
 \[
-E_\star=\frac{h\nu_{\rm clk}}{\varepsilon_{\rm clk}}.
+E_\star=\frac{h_{\rm P}\nu_{\rm clk}}{\varepsilon_{\rm clk}}.
 \]
 Equivalently, \(\gamma_\star=\ell_\star\nu_{\rm clk}/c\) gives
 \(E_\star=\hbar\nu_{\rm clk}/\gamma_\star\). An operator-norm perturbation
@@ -2504,7 +2528,8 @@ s_B=\left(M_B-\frac{i}{2}\Gamma_B\right)^2,
 \qquad M_B>0,\quad\Gamma_B\ge0,
 \]
 it determines one mass and width. If a Nielsen identity has the form
-\(\partial_\xi D_B=C_B^{(\xi)}D_B\), the simple pole is gauge-parameter independent.
+\(\partial_\xi D_B=C_B^{(\xi)}D_B\), the simple pole is gauge-parameter
+independent~\cite{gambino1999,grassiKniehlSirlin2001}.
 For \(W\) and \(Z\), promotion to a physical resonance additionally requires
 a dressed BRST-invariant current amplitude whose Laurent coefficient at that
 pole is nonzero; for \(H\), the analogous scalar-amplitude coupling is a
@@ -2578,7 +2603,12 @@ weighted path to each monomial. A non-vacuous certificate must independently
 fix its transitions, path measure, signs, quotient action, exhaustive census,
 rigidity gap, and no-target DAG.
 
-Once genuine source packets are supplied, no stochastic simulation is needed.
+If the source selector is proved deterministic and globally unique, the source
+law is a delta measure and no Monte Carlo source propagation is required. If
+the source emits a nondegenerate law, the simulator must propagate that law
+through the pole map. Scale variation and truncation envelopes are not source
+covariance, and neither a point estimate nor componentwise intervals determine
+the covariance of \((\Re s_W,\Im s_W,\Re s_Z,\Im s_Z)\).
 Summable clock-Hamiltonian refinements give a unique limiting gap; frozen
 Lipschitz RG segments compose uniquely; Rouch\'e, Nielsen, and analytic
 conjugacy isolate gauge-independent poles. If a determinant defect is bounded
@@ -5992,8 +6022,19 @@ the matter packet, and the rank-45 family attachment are open. The value
 On the declared quantitative branch, one local coordinate
 \(P\) organizes the electromagnetic, electroweak, hierarchy, and Higgs readouts.
 The common-load premise gives a dimensionless hierarchy and
-\(\epsilon_H=0\). The weak-boson and Higgs numbers remain chart coordinates
-until a complete physical pole and scheme map is supplied.
+\(\epsilon_H=0\). The weak-boson and Higgs numbers remain chart coordinates.
+The conditional QFT-Q3 implication from a complete renormalized packet to
+strict charged and neutral complex-pole coefficients is specified. The present
+OPH source has not produced that packet: its source-selected action, complete
+Yukawas, FJ coordinate~\cite{dudenasLoschner2020,dittmaierRzehak2022},
+target-clean running/matching, two independent
+engines, executable ST/Nielsen/current-pole receipts, source law/covariance,
+and clock are work in progress. A nonperturbative chiral gauge construction would
+additionally face the known lattice chiral-measure
+program~\cite{luscher1999,luscher2000,kadohKikukawa2008} and the
+\(\gamma_5\)-scheme restoration bookkeeping~\cite{beluscaMaito2020}. QFT-Q2 and QFT-Q4 are not prerequisites for the bounded
+imported-SM QFT-Q3 validation; both are work in progress for their
+stronger exact and nonperturbative claims.
 
 The flavor analysis produces exact algebraic statements and explicit negative
 results. It derives the connected-register Koide balance, proves a
@@ -6108,6 +6149,49 @@ Physics Letters B \textbf{174}, 331--334 (1986).
 P. Duch and W. Dybalski,
 \emph{Infrared problem in quantum electrodynamics},
 arXiv:2307.06114.
+
+\bibitem{luscher1999}
+M. L\"uscher,
+\emph{Abelian chiral gauge theories on the lattice with exact gauge
+invariance},
+Nuclear Physics B \textbf{549}, 295--334 (1999), arXiv:hep-lat/9811032.
+
+\bibitem{luscher2000}
+M. L\"uscher,
+\emph{Lattice regularization of chiral gauge theories to all orders of
+perturbation theory},
+Journal of High Energy Physics \textbf{06} (2000) 028, arXiv:hep-lat/0006014.
+
+\bibitem{kadohKikukawa2008}
+D. Kadoh and Y. Kikukawa,
+\emph{A simple construction of fermion measure term in \(U(1)\) chiral
+lattice gauge theories with exact gauge invariance},
+Journal of High Energy Physics \textbf{02} (2008) 063, arXiv:0709.3658.
+
+\bibitem{beluscaMaito2020}
+H. B\'elusca-Ma\"ito, A. Ilakovac, M. Ma\dj or-Bo\v{z}inovi\'c, and
+D. St\"ockinger,
+\emph{Dimensional regularization and Breitenlohner--Maison/'t
+Hooft--Veltman scheme for \(\gamma_5\) applied to chiral Yang--Mills theory},
+Journal of High Energy Physics \textbf{08} (2020) 024, arXiv:2004.14398.
+
+\bibitem{dudenasLoschner2020}
+V. D\=ud\.enas and M. L\"oschner,
+\emph{Vacuum expectation value renormalization in the Standard Model and
+beyond},
+Physical Review D \textbf{103}, 013003 (2021), arXiv:2010.15076.
+
+\bibitem{dittmaierRzehak2022}
+S. Dittmaier and H. Rzehak,
+\emph{Electroweak renormalization based on gauge-invariant vacuum expectation
+values of non-linear Higgs representations},
+Journal of High Energy Physics \textbf{05} (2022) 125, arXiv:2203.07236.
+
+\bibitem{grassiKniehlSirlin2001}
+P. A. Grassi, B. A. Kniehl, and A. Sirlin,
+\emph{Width and partial widths of unstable particles in the light of the
+Nielsen identities},
+Physical Review D \textbf{65}, 085001 (2002), arXiv:hep-ph/0109228.
 
 \end{thebibliography}
 \end{document}

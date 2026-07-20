@@ -188,8 +188,11 @@ The full transport map carries the trial pixel through the gauge and
 electroweak scales, includes the vacuum response of strongly interacting
 matter, and returns the long-distance electromagnetic reading. At the fixed
 point, the outside geometry and the inside measurement agree. The resulting
-pixel ratio is about $1.63$, and observers inside the world read the inverse
-fine-structure constant as $137.035999177(21)$.
+pixel ratio is about $1.63$. The certified roots of the two declared maps are
+$136.994835\ldots$ for the source map and $137.035660\ldots$ for the
+gauge-width map, beside the measured $137.035999177(21)$; identifying a
+declared-map root with the measured endpoint waits on the same-scheme hadronic
+transport described in chapter 19.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
@@ -260,8 +263,14 @@ inside the encoded world. The fixed point gives
 $$
 P_\star\approx1.63,
 \qquad
-\alpha_\star^{-1}=137.035999177(21).
+\alpha^{-1}_{\mathrm{gauge}}=137.035660\ldots,
+\qquad
+\alpha^{-1}_{\mathrm{meas}}=137.035999177(21).
 $$
+
+The first coupling value is the certified gauge-width fixed point; the second
+is the measurement it is tested against. The residual between them is the
+open hadronic-transport gap, a few parts per million.
 
 The global equation identifies two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
