@@ -102,6 +102,16 @@ independent case studies. This design makes it possible to state precisely
 which results are identities of the underlying star algebra and which consume
 the trace, positivity, or state-normalization layers.
 
+Lean declaration identifiers are printed throughout in monospaced type, for
+example \texttt{partitionPinching\_range}; the underscore is part of the
+identifier. To locate a declaration, search for the exact printed identifier,
+after removing only TeX's protective backslash before each underscore, in the
+\texttt{EventAlgebra/*.lean} files. In the public repository these files are
+under \texttt{Lean/ObserverPatchHolography/Source/EventAlgebra/}; in the
+standalone artifact they are under \texttt{event-algebra-lean/EventAlgebra/}.
+Table~\ref{tab:modules} maps each module name to its subject matter, and the
+top-level \texttt{EventAlgebra.lean} file imports all five modules.
+
 The surrounding formal ecosystem is already substantial. Mathlib contains an
 order-form CHSH/Tsirelson theorem and the reusable
 \texttt{IsCHSHTuple} interface \cite{mathlibCHSH2026}. Physlib's
@@ -423,6 +433,11 @@ The source is a Lake project pinned to
 \begin{center}
 \texttt{lake build EventAlgebra}.
 \end{center}
+The canonical Lean modules are publicly available in the Observer Patch
+Holography repository \cite{observerPatchHolographyRepo} at commit
+\texttt{da9ff3a551e7c635370ec885d972c9527de173b0}. The manuscript source
+accompanies the submission, together with a standalone archive containing a
+byte-identical copy of those modules.
 Every public result discussed in this paper is named above. The modules end
 with \texttt{\#print axioms} commands for the principal declarations. In the
 reported build, those commands list only standard Lean/Mathlib logical axioms
