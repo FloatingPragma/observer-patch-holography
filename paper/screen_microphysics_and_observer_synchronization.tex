@@ -2035,8 +2035,8 @@ quotient-visible maps
 \mathsf{AngularProjectorRead}_r,\\
 \mathsf{FreezeoutMapRead}_r,\quad
 \mathsf{FreezeoutSurfaceRead}_r,\quad
-\mathsf{ReleaseSurfaceRead}_r,\quad
-\mathsf{HomogeneousProjectorRead}_r,\\
+\mathsf{ReleaseSurfaceRead}_r,\\
+\mathsf{HomogeneousProjectorRead}_r,\quad
 \mathsf{AnomalyLoadRead}_r,\quad
 \mathsf{LoadNoDataLedgerRead}_r .
 \end{gathered}
@@ -2280,13 +2280,15 @@ regulator-chart result.
 A finite cosmological run that claims FLRW spatial curvature must export the clock and spatial
 geometry readouts separately from screen/collar defect bookkeeping:
 \[
+\begin{gathered}
 \mathsf{SpatialMetricRead}_r,\quad
 \mathsf{SpatialFrameRead}_r,\quad
-\mathsf{SpatialConnectionRead}_r,\quad
+\mathsf{SpatialConnectionRead}_r,\\
 \mathsf{SpatialTransportRead}_r,\quad
-\mathsf{CurvatureHolonomyRead}_r,\quad
+\mathsf{CurvatureHolonomyRead}_r,\\
 \mathsf{ProperRadiusRead}_r,\quad
 \mathsf{NestedCapacityRead}_r .
+\end{gathered}
 \]
 The transport readout uses the spatial Levi--Civita connection on the clock slice. Finite
 permutation holonomy of an \(S^2\) screen triangulation or \(S_3\) collar defect is a repair/sieve

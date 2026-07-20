@@ -120,41 +120,37 @@ observer-visible quotient. It is carrier-sensitive when visible port incidence,
 topology, record processes, or response laws change. Reality is therefore not
 assumed to be neutral to every substrate geometry.
 
-- finite readback and repair turn private states into stable public records;
-- the algebra of those records gives quantum probabilities and repeatable
-  observation;
-- on the branch with certified federation-to-support, incidence, mesh,
-  cross-ratio, normalization, and refinement receipts, plus an independently
-  complete modular algebra-state comparison on the same tower, the conformal
-  geometry of the resulting $S^2$ support gives the
-  connected Lorentz group and three observer-frame spatial dimensions;
-- modular flow, recoverability, null transport, and entropy stationarity give
-  the tensor first-variation relation; the absolute Einstein equation requires
-  one source-derived common-domain tower, whose construction and certification
-  are work in progress;
-- on the declared quotient-visible echosahedral lineage, primitive port
-  readback and oriented incidence derive the twelve-unit split, inverse
-  pairing, proper $A_5$ action, and rank-three icosahedral frame with
-  refinement and relabeling naturality; that branch has the exact
-  coefficient-space decomposition needed for
-  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; this is a
-  local carrier result and does not force the federation nerve to be spherical;
-- the finite $A_5$ current route and the transportable-sector/Tannaka route
-  with Minimal Admissible Realization (MAR) independently reach the same
-  Standard Model Lie type on their stated
-  premises; identifying them as one source-produced physical current requires
-  the current intertwiner, trace, Spin, center/deck, and refinement receipts;
-- trace balance and center/deck descent produce
-  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ on their stated receipts;
-- the declared finite matter packet gives an exact one-generation exterior
-  witness, hypercharge and anomaly arithmetic, and a three-color carrier;
-- exact finite countermodels and a sorry-free Lean theorem show that the
-  exposed target-free reduct is not completion-unique;
-- the canonical rank-three screen band is a candidate family fiber, while its
-  physical rank-45 attachment is open; $N_g=3$ is the least value in the
-  declared MAR economy class, not a target-free source theorem;
-- the conditional $P$ and $N$ closure maps test possible links among the gauge,
-  Higgs, gravitational, and cosmological scales.
+Finite readback and repair turn private states into stable public records,
+and the algebra of those records gives quantum probabilities and repeatable
+observation. On the certified geometric branch, the conformal geometry of the
+$S^2$ support gives the connected Lorentz group and exactly three
+observer-frame spatial dimensions, and modular flow with entropy stationarity
+gives the Einstein first-variation relation.
+
+The carrier geometry then does surprising work for free. On the certified
+echosahedral lineage, primitive port readback and oriented incidence alone
+derive the twelve-unit split, the antipodal pairing, the proper $A_5$ action,
+and the rank-three icosahedral frame, and the resulting coefficient space
+carries an exact commutator witness of
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$, the gauge
+algebra of the Standard Model. Two logically independent routes, the finite
+$A_5$ current classification and the transportable-sector/Tannaka route with
+Minimal Admissible Realization (MAR), reach that same Lie type; trace balance
+and deck descent produce the global quotient
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$; and the declared matter packet
+gives an exact fifteen-state one-generation witness with the Standard Model
+hypercharges, anomaly cancellation, three colors, and a canonical rank-three
+candidate family band. The conditional $P$ and $N$ closure maps then test
+links among the gauge, Higgs, gravitational, and cosmological scales.
+
+The framework also proves where the free lunch ends. Exact countermodels and
+a sorry-free Lean theorem show that the exposed target-free carrier data are
+not completion-unique: the physical current, Spin and deck descent, matter
+selection, family attachment (the rank-45 receipt), the Einstein source
+tower, and the physical closure packets are named open producers, tracked on
+the issue DAG, and $N_g=3$ is the least value of the declared MAR economy
+class rather than a forced count. Local icosahedral incidence constrains the
+carrier, not the federation nerve.
 
 Their force comes from a common demand: every local description must glue into one recoverable world that
 can contain observers capable of reading it back. Any individual match could

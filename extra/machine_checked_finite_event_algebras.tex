@@ -188,7 +188,7 @@ Module & Principal interface \\
 weight bounds \\
 \texttt{Lueders} & totalized matrix formula, typed state update, repeatability,
 composition, and fixed points \\
-\texttt{PartitionPinching} & projective partitions, bundled commutant,
+\texttt{Partition\allowbreak Pinching} & projective partitions, bundled commutant,
 bundled linear pinching, exact range, geometry, bimodule law, and naturality \\
 \texttt{StateExpectation} & trace pairing bundled as a complex-linear
 functional, normalization and positivity \\
@@ -250,9 +250,11 @@ Lean's field inverse maps zero to zero. The formula therefore covers
 algebraic identities in the zero-weight case. Its return type is a raw
 matrix and carries no state guarantee. The typed operation is
 \[
+\begin{gathered}
 \texttt{luedersStateUpdate} :
- \texttt{StateMatrix n}\to\texttt{ProjectionEvent n}\to
- (\mu_\rho(P)\ne0)\to\texttt{StateMatrix n}.
+ \texttt{StateMatrix n}\to\texttt{ProjectionEvent n}\\
+ \to(\mu_\rho(P)\ne0)\to\texttt{StateMatrix n}.
+\end{gathered}
 \]
 This operation assumes \texttt{NeZero n}. The unique $0\times0$ matrix cannot
 have unit trace, so a state-returning function must exclude that dimension.
@@ -344,7 +346,7 @@ Pythagorean identity
 \]
 and hence contracts the squared Hilbert--Schmidt quantity. A
 commutant-valued complex-linear map with the same trace pairings against every
-commutant element equals \texttt{partitionPinchingLinearMap}.
+commutant element equals \texttt{partition\allowbreak Pinching\allowbreak Linear\allowbreak Map}.
 \end{theorem}
 
 The corresponding declarations are
@@ -472,7 +474,7 @@ bimodule, Hilbert--Schmidt geometry, map-level trace-duality uniqueness \\
 L\"uders update & Isabelle projective measurement and general channel
 infrastructure & raw formula plus typed partial state API, unguarded state
 fixed-point equivalence, typed naturality with arbitrary-partition pinching \\
-CHSH/Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean CHSH
+CHSH\slash Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean CHSH
 rigidity & complementary norm theorem and event-level client; no state-level
 bound or tightness claim \\
 Reproducibility & public CI and archived releases are common best practice &

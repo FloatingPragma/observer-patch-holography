@@ -19,7 +19,7 @@ $$
 T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}}.
 $$
 
-L’univers est modélisé comme un point fixe de son propre processus de relecture et de réparation accessible aux observateurs.
+L’univers est modélisé comme un point fixe de son propre processus de relecture et de réparation accessible aux observateurs. Les documents techniques et le livre appellent cette condition de point fixe la boucle étrange ; [docs/STRANGE_LOOP.md](docs/STRANGE_LOOP.md) l’énonce précisément et [docs/CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md) suit la chaîne de sélection qu’elle engendre.
 
 ## L’idée en langage simple
 
@@ -126,45 +126,41 @@ ports, à la topologie, aux processus d’enregistrement et aux lois de réponse
 lorsque ces données sont visibles. La géométrie du support physique peut donc
 sélectionner la branche réalisée.
 
-- la relecture et la réparation finies transforment les états privés en
-  registres publics stables ;
-- l’algèbre de ces registres donne les probabilités quantiques et l’observation
-  répétable ;
-- sur la branche munie des reçus globaux de passage de la fédération au support,
-  d’incidence, de maillage, de birapports, de normalisation et de raffinement,
-  ainsi que de la prémisse indépendante de comparaison commune
-  des algèbres et états modulaires sur la même tour, la géométrie
-  conforme du support $S^2$ obtenu donne le groupe de Lorentz et trois
-  dimensions spatiales de référentiels ;
-- le flot modulaire, la récupérabilité, le transport nul et la stationnarité de
-  l’entropie donnent la relation de première variation tensorielle ; l’équation
-  absolue d’Einstein exige une même tour issue de la source et de domaine
-  commun, dont la construction et la certification sont en cours ;
-- sur la lignée échosaédrique déclarée et visible au quotient, les atomes de
-  ports primitifs, leur relecture et l’incidence orientée dérivent la
-  séparation en douze unités, l’appariement inverse, l’action propre de $A_5$
-  et le repère icosaédrique de rang trois, naturellement sous raffinement et
-  réétiquetage ; cette branche possède exactement la décomposition d’espace de coefficients
-  $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ; ce résultat
-  est local et n’impose pas une topologie sphérique au nerf de la fédération ;
-- la route finie du courant $A_5$ et la route des secteurs transportables avec
-  reconstruction de Tannaka et réalisation admissible minimale (MAR) atteignent séparément le même
-  type de Lie du Modèle standard sous leurs hypothèses ; leur identification
-  comme un courant physique unique exige les reçus d’entrelacement, de
-  trace, de Spin, de descente du centre et de raffinement ;
-- l’équilibre des traces et la descente du centre donnent conditionnellement
-  $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sous leurs reçus explicites ;
-- le paquet de matière fini déclaré donne un témoin extérieur exact pour une
-  génération, les calculs d’hypercharge et d’anomalies, et un porteur à trois
-  couleurs ;
-- des contre-modèles finis exacts et un théorème Lean sans admission montrent
-  que le réducteur exposé sans cible ne détermine pas une complétion unique ;
-- la bande canonique de rang trois est une candidate pour l’espace des
-  familles ; son attachement physique de rang 45 est ouvert, et $N_g=3$ est
-  le minimum de la classe économique MAR déclarée plutôt qu’un théorème issu
-  de la source ;
-- les applications conditionnelles de clôture $P$ et $N$ testent des liens
-  possibles entre les échelles de jauge, de Higgs, de gravité et de cosmologie.
+La relecture et la réparation finies transforment les états privés en
+registres publics stables, et l’algèbre de ces registres donne les
+probabilités quantiques et l’observation répétable. Sur la branche géométrique
+certifiée, la géométrie conforme du support $S^2$ donne le groupe de Lorentz
+connexe et exactement trois dimensions spatiales de référentiels, et le flot
+modulaire avec la stationnarité de l’entropie donne la relation de première
+variation d’Einstein.
+
+La géométrie du porteur accomplit ensuite un travail surprenant, gratuitement.
+Sur la lignée échosaédrique certifiée, la relecture des ports primitifs et
+l’incidence orientée dérivent à elles seules la séparation en douze unités,
+l’appariement antipodal, l’action propre de $A_5$ et le repère icosaédrique de
+rang trois, et l’espace de coefficients obtenu porte un témoin exact du
+commutateur $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$,
+l’algèbre de jauge du Modèle standard. Deux routes logiquement indépendantes,
+la classification finie du courant $A_5$ et la route des secteurs
+transportables avec Tannaka et réalisation admissible minimale (MAR),
+atteignent ce même type de Lie ; l’équilibre des traces et la descente du
+revêtement produisent le quotient global
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ; et le paquet de matière déclaré
+donne un témoin exact à quinze états pour une génération, avec les
+hypercharges du Modèle standard, l’annulation des anomalies, trois couleurs et
+une bande canonique de rang trois candidate pour les familles. Les
+applications conditionnelles de clôture $P$ et $N$ testent alors des liens
+entre les échelles de jauge, de Higgs, de gravité et de cosmologie.
+
+Le cadre démontre aussi où s’arrête ce travail gratuit. Des contre-modèles
+exacts et un théorème Lean sans admission montrent que les données de porteur
+exposées sans cible ne déterminent pas une complétion unique : le courant
+physique, la descente de Spin et du revêtement, la sélection de la matière,
+l’attachement des familles (le reçu de rang 45), la tour source d’Einstein et
+les paquets physiques de clôture sont des producteurs ouverts nommés, suivis
+sur le DAG des tickets, et $N_g=3$ est le minimum de la classe économique MAR
+déclarée plutôt qu’un décompte forcé. L’incidence icosaédrique locale
+contraint le porteur, pas le nerf de la fédération.
 
 Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
 même exigence : chaque description locale doit se recoller en un monde
@@ -364,7 +360,8 @@ python3 -m pytest -q \
 ```
 
 Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
-propre et la portée de chaque contrôle.
+propre et la voie complète du noyau fini, qui ajoute les deux tests de
+calibration W/Z de convention et de frontières de survie.
 
 ## Obligations de preuve ouvertes et frontière de falsification
 

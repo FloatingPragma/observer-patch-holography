@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,13 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 
 
 def load_api_key(credentials_file: Path) -> str:
+    env_key = os.environ.get("IBM_QUANTUM_API_KEY", "").strip()
+    if env_key:
+        if any(character.isspace() for character in env_key):
+            raise ValueError(
+                "IBM_QUANTUM_API_KEY is set but contains whitespace; expected one raw token"
+            )
+        return env_key
     text = credentials_file.read_text().strip()
     match = re.fullmatch(r"IBM cloud API key:\s*(\S+)", text)
     api_key = match.group(1) if match else text
