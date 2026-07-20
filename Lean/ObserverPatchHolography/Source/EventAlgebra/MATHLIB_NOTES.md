@@ -122,8 +122,8 @@ L2-norm stack.
 - **Organisational difference (the paper's claim):** the present bundle
   separates algebra-only content from trace-dependent content lemma-by-lemma
   (machine-visible doc tags), and routes classicality through an explicit
-  conditional-expectation projector onto a distinguished block-diagonal
-  commutant (`ProjectivePartition` / `pinchingExpectation`), with
+  bundled linear pinching projector onto a distinguished block-diagonal
+  commutant (`ProjectivePartition` / `partitionPinching`), with
   existence/uniqueness/contractivity and the Lüders-compatibility law
   `𝔼 ∘ L_P = L_P ∘ 𝔼` for commutant `P`. That organisation, not the CHSH
   arithmetic, is the delta over the matrix-first prior art.

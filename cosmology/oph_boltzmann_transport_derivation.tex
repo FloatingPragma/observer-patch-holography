@@ -136,12 +136,22 @@ direction.
 \end{definition}
 
 \begin{theorem}[Refinement Liouville]\label{t:liouville}
-On a branch passing the simulation test, with (i) the Maxwell action,
-quantum photon-pole receipt, and overlap Lorentz kinematics (A-QED, A-GEOM),
-(ii) a source-derived between-commit dynamics whose finite-resolution maps
-preserve the corresponding phase-space measures, and (iii) receipt
-\textsc{Boltz-R1}, which certifies convergence of its characteristics to the
-null geodesic flow with vanishing dispersion and measure defect, the
+On a branch with the Maxwell action, quantum photon-pole receipt, and overlap
+Lorentz kinematics (A-QED, A-GEOM), let $P_r$ be the quotient-lumpable
+free-flow transition kernel at step $h_r$. For every frozen smooth compactly
+supported test function $\phi$, set
+\[
+L_r\phi=\frac{P_r\phi-\phi}{h_r},
+\qquad
+\Gamma_r(\phi)=
+\frac{P_r(\phi^2)-(P_r\phi)^2}{h_r}.
+\]
+Receipt \textsc{Boltz-R1} consists of compact containment/tightness,
+convergence of initial laws, uniform-on-compact generator convergence
+$L_r\phi\to X_H\phi$ to the null-geodesic Hamiltonian vector field,
+vanishing quadratic variation $\Gamma_r(\phi)\to0$, uniqueness of the
+Hamiltonian ODE, refinement and schedule naturality, and vanishing boundary
+and phase-space-measure defects. Under this receipt, the
 between-commit record flow satisfies, in the refinement limit,
 \[
 \frac{Df}{\Dd\tau}\;\equiv\;
@@ -157,33 +167,44 @@ preserves the Liouville measure.
 \end{theorem}
 
 \begin{proof}[Proof sketch, with the open receipt named]
-\emph{Characteristics.} The Maxwell and overlap-geometry inputs identify the
-local positive-energy mass shell and its null directions. Receipt
-\textsc{Boltz-R1} supplies the missing dynamical statement: coarse-grained
-record continuations converge to the branch metric's null-geodesic
-characteristics, independently of the accepted repair schedule. Thus
+For every test function, the discrete process minus the time integral of
+$L_r\phi$ is a martingale whose quadratic variation is controlled by
+$\Gamma_r(\phi)$. Tightness gives subsequential limits and vanishing
+quadratic variation makes every limiting martingale deterministic. Generator
+convergence says that each limit solves the martingale problem for $X_H$,
+equivalently the null-geodesic Hamiltonian ODE. Uniqueness identifies the
+whole limit, independently of the accepted repair schedule. Thus
 $\Dd x/\Dd\tau$, $\Dd q/\Dd\tau$, and $\Dd\hat n/\Dd\tau$ are the
 geodesic-flow coefficients. On the background of Assumption~\ref{a:bg},
 $\Dd q/\Dd\tau=q[\dot\phi-\ldots]$ has the form used in
 \S\ref{s:hierarchy}.
 
-\emph{Measure preservation.} Let $T_h$ denote the finite-resolution
-between-commit map and $\mu_h$ its phase-space measure. Assumption (ii) gives
-$(T_h)_\ast\mu_h=\mu_h$. The measure-defect and convergence clauses in
-\textsc{Boltz-R1} pass this identity to the limiting characteristic flow,
-which therefore preserves the Liouville measure. Accepted repair confluence
+\emph{Measure preservation.} The identified limit is Hamiltonian flow on the
+mass shell, so it preserves the canonical Liouville measure. The finite
+measure-defect clause checks that the quotient measures converge to that
+canonical measure rather than to a different coarse volume form. Accepted repair confluence
 only removes schedule dependence of committed endpoints. It supplies neither
 an inverse between-commit dynamics nor a phase-space Jacobian. The
 orientation doubling of a finite label register is bookkeeping and does not
 produce either property.
 
 \emph{Receipt status.} Photon-sector convergence of the finite patch flow to
-geodesic flow with vanishing dispersion is work in progress. The abstract Lean
+the displayed generator and zero-quadratic-variation limits is work in progress. The abstract Lean
 layer proves the corresponding schedule-independence and refinement-naturality
 statement in its setting. The photon receipt is named \textsc{Boltz-R1}, and
 \S\ref{s:receipts} gives its simulator test. Theorem~\ref{t:liouville} is
 conditional on this receipt.
 \end{proof}
+
+\begin{corollary}[Collision and diffusion alternatives]
+If the finite generator decomposes as $L_r=L_r^{\rm free}+C_r$ and
+$C_r\phi\to C\phi$, then the limiting density obeys
+\[
+\partial_\tau f+\{f,H\}=C^*f.
+\]
+A nonzero limit of $\Gamma_r$ produces a diffusion/Fokker--Planck term and
+does not satisfy the deterministic Liouville conclusion.
+\end{corollary}
 
 \begin{remark}
 The transport model places the collision functional at record commits and
@@ -407,8 +428,11 @@ CAMB at the sub-percent level is receipt \textsc{Boltz-V1}.
 \midrule
 \textsc{Boltz-R1} &
 Finite-lattice refinement Liouville: coarse-grained photon-class record
-transport between commits converges to geodesic flow, schedule-independently,
-with vanishing measure defect under refinement. This receipt is independent
+transport has quotient lumpability, tightness, convergent initial laws and
+first conditional moments, vanishing scaled second conditional moments,
+generator convergence on a frozen test basis, unique geodesic characteristics,
+and vanishing schedule, refinement, boundary, mass-shell, and measure defects.
+This receipt is independent
 of repair confluence and of the orientation-doubled label count. &
 open; simulator test below\\
 \textsc{Boltz-N1} &
@@ -438,15 +462,16 @@ issue \#580\\
 \bottomrule
 \end{longtable}
 
-\textbf{Simulator test for \textsc{Boltz-R1}.} Inject a labeled low-weight
-record packet on the 64k lattice; propagate under $N$ random repair
-schedules; measure the arrival-time and dispersion statistics of the packet
-across the screen. Pass condition: schedule-to-schedule divergence of the
-packet trajectory consistent with zero at the run's mismatch tolerance, and
-dispersion shrinking under refinement (16k$\to$64k$\to$256k) at the rate the
-refinement-naturality bounds predict. Fail condition: schedule-dependent
-transport, which would falsify Theorem~\ref{t:liouville} on the implemented
-branch.
+\textbf{Simulator test for \textsc{Boltz-R1}.} Freeze a smooth compactly
+supported test basis. At each regulator estimate the first conditional moment
+$\widehat L_r\phi$ and scaled conditional variance
+$\widehat\Gamma_r(\phi)$, together with quotient-measure, mass-shell,
+schedule, refinement, boundary-leakage, and collision/free-channel residuals.
+Pass requires $\widehat L_r\phi\to X_H\phi$ and
+$\widehat\Gamma_r(\phi)\to0$ on the frozen basis with the preregistered
+uniform compact envelopes. Random schedule packet tests are supplemental.
+A nonzero second-moment limit selects the diffusion alternative rather than
+the Liouville theorem.
 
 \section{What this note does and does not close}
 It records, conditionally on the cited branch theorems, the \emph{scalar

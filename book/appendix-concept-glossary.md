@@ -604,10 +604,11 @@ the repair process stops; confluence is the extra condition that different
 allowed schedules from the same initial quotient state stop at the same
 observer-facing quotient result. Same-boundary uniqueness additionally needs
 that boundary or sector to have a unique consistent extension. OPH accepts
-overlapping repairs only when they preserve the
-shared boundary data and pass an independent local-diamond check on the physical
-quotient. Atomic commits implement the accepted repair steps; they do not prove
-that different one-step branches can be joined. A digital
+overlapping repairs only when each repair has read every fact its write can
+affect, including histories and checkpoints, and each conflicting cluster has
+one coherent combined repair. Under those rules the local-diamond property is
+a theorem. The finite receipt checks that an implementation actually followed
+the rules. Atomic commits without that full dependency check are insufficient. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
 between two physically distinct consistent endpoints. The OPH paper stack gives
 the exact cross-source criterion and its quantitative stability version.

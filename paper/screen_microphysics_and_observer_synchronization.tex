@@ -285,6 +285,33 @@ Here \(\mathsf{Prop}_r\) is a reversible proposal menu,
 \((\pi_r^{\rm eq},L_r^{\rm eq})\) is a separate equilibrium law and reversible or Euclidean
 generator. The refinement maps are \(c_{sr}\).
 
+\begin{definition}[Typed simulator ledger]
+\label{def:typed-simulator-ledger}
+A simulator run has one immutable root manifest and seven typed ledgers:
+\begin{enumerate}[label=\textup{\Alph*.},leftmargin=2em]
+\item the quotient/normalizer ledger owns presentation states, hidden-representative quotient,
+accepted transactions, semantic histories, normal forms, and checkpoint continuation;
+\item the source-ensemble ledger owns the base measure, source action, MaxEnt constraints,
+proposal and acceptance rates, stationary law, detailed balance, and cycle affinities;
+\item the quantum/modular ledger owns the noncommutative algebra, density matrices, spectral
+support, modular Hamiltonians, frequency-resolved jumps, conditional expectations, and mixed-GNS
+comparison data;
+\item the geometry/BW ledger owns support incidence, cap normals, held-out cross-ratios, geometric
+dilation, wrong-temperature controls, event-chart complexes, quadratic cones, and tetrads;
+\item the operational-history ledger owns semantic event identities, the observer registry
+groupoid, worldlines, event correspondences, instrument readings, and affine synchronization;
+\item the physical-current ledger owns reversible port perturbations, unitary response,
+commutators, \(A_5\)-equivariance, and determinant, spin, and deck descent;
+\item the transport ledger owns free and collision kernels, first and second conditional moments,
+mass-shell data, phase-space measure, and stress transfer.
+\end{enumerate}
+The ledgers share source hashes and refinement identifiers through the root manifest.  Their typed
+objects remain distinct. In particular, the accepted strict-descent relation is not reused as the
+equilibrium generator, a central register density emits trivial modular action, a finite register
+operator is not a physical current, and a deterministic transport claim requires a vanishing
+second-moment receipt.
+\end{definition}
+
 \begin{definition}[Sphere fold]\label{def:sphere-fold}
 Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
 federation, let \(\Gamma_r\) be the presentation-redundancy groupoid, and let
@@ -383,6 +410,183 @@ Condition \textup{(ii)} telescopes around every cycle. Under \textup{(i)}, fix a
 independence. Exponentiating \(K_v-K_u=a_{u\to v}\) gives detailed balance, and taking logarithms
 of detailed balance gives \textup{(ii)}.
 \end{proof}
+
+\(K\) in this theorem is a classical Gibbs potential.  On the commutative state algebra its
+modular automorphism is trivial, so rate reconstruction does not create a nontrivial modular
+clock.
+
+\subsection{Finite modular and register theorems}
+\label{sec:finite-modular-register-theorems}
+
+The finite equilibrium layer supports several exact statements before any continuum or physical
+current interpretation is made.  They also fix which information a simulator has to produce.
+
+\begin{theorem}[Exact modular coarse graining]
+\label{thm:exact-modular-coarse-graining}
+Let \(c:X_s\to X_r\) be a surjective coarse-graining map between finite sets and let
+\(\mu_s(x)>0\).  The pushed-forward law and its modular potential are
+\[
+ \mu_r(y)=\sum_{c(x)=y}\mu_s(x),
+ \qquad
+ K_r(y)=-\log\!\left(\sum_{c(x)=y}e^{-K_s(x)}\right),
+ \qquad K_s=-\log\mu_s .
+\]
+Thus modular potentials coarse-grain by a log-sum-exp rule, up to the common additive
+normalization convention.  More generally, if
+\(\mu_s(x)=Z_s^{-1}m_s(x)e^{-S_s(x)}\) and \(m_r(y)>0\) is the declared coarse reference
+weight, then
+\[
+ S_r^{\rm eff}(y)
+ =-\log\!\left(\sum_{c(x)=y}m_s(x)e^{-S_s(x)}\right)+\log m_r(y)
+\]
+gives the exact pushed-forward law.  For a finite quantum channel \(\Phi_{sr}\), the corresponding
+statement is \(\rho_r=\Phi_{sr}(\rho_s)\) and \(K_r=-\log\rho_r\) whenever the output is faithful.
+An arithmetic average of \(K_s\) is not the coarse modular potential in general.
+\end{theorem}
+
+\begin{proof}
+Both classical formulas follow by substituting \(\mu_s=e^{-K_s}\) or
+\(\mu_s=Z_s^{-1}m_se^{-S_s}\) into the definition of the pushforward.  The quantum formula is
+the definition of the modular Hamiltonian of the pushed-forward faithful state.
+\end{proof}
+
+\begin{proposition}[A faithful equilibrium law does not select its generator]
+\label{prop:generator-underdetermination}
+Let \(G=(X,E)\) be a connected finite graph and let \(\mu_x>0\).  For every collection of
+positive symmetric edge conductances \(c_{xy}=c_{yx}\),
+\[
+ q_{x\to y}=\frac{c_{xy}}{\mu_x}
+\]
+defines a continuous-time Markov generator that is reversible with stationary law \(\mu\).
+Distinct conductance families give distinct generators with the same state.  A geometry,
+MaxEnt state, or repair normal form therefore selects no equilibrium dynamics unless an additional
+rate or conductance rule is supplied.
+\end{proposition}
+
+\begin{proof}
+The identity \(\mu_xq_{x\to y}=c_{xy}=\mu_yq_{y\to x}\) is detailed balance.  The diagonal
+entries are fixed by row-sum zero.  Varying any conductance varies the generator while preserving
+the same stationary law.
+\end{proof}
+
+\begin{theorem}[Weighted graph Hodge split and entropy production]
+\label{thm:weighted-hodge-entropy}
+Choose an orientation of a connected finite graph, positive vertex and edge weights, and let
+\(D\) be the vertex-to-edge coboundary.  Every real edge one-cochain has the unique orthogonal
+decomposition
+\[
+ a=DK+h,
+ \qquad D^{*}h=0,
+\]
+with \(K\) unique up to an additive constant.  For an irreducible stationary Markov law \(\pi\),
+define on each chosen edge
+\[
+ J_{xy}=\pi_xq_{x\to y}-\pi_yq_{y\to x},
+ \qquad
+ F_{xy}=\log\frac{\pi_xq_{x\to y}}{\pi_yq_{y\to x}} .
+\]
+Then the steady entropy-production rate is
+\[
+ \sigma=\sum_{\{x,y\}\in E}J_{xy}F_{xy}\ge 0,
+\]
+and it vanishes exactly when detailed balance holds on every edge.  The bare logarithmic rate
+ratio omits the stationary weights and is therefore not, by itself, the thermodynamic force.
+\end{theorem}
+
+\begin{proof}
+Finite-dimensional orthogonal projection gives the Hodge split, since
+\((\operatorname{im}D)^{\perp}=\ker D^{*}\).  Each entropy-production summand has the form
+\((A-B)\log(A/B)\ge0\) for positive \(A,B\).  Equality holds exactly when \(A=B\) edge by edge.
+\end{proof}
+
+\begin{theorem}[Finite KMS-symmetric jump generator]
+\label{thm:finite-kms-jump-generator}
+Let \(\rho=Z^{-1}e^{-K}\) be faithful on a finite matrix algebra.  Suppose a Heisenberg-picture
+Lindblad generator has jump operators \(V_{\omega,a}\) satisfying
+\[
+ [K,V_{\omega,a}]=-\omega V_{\omega,a},
+ \qquad V_{-\omega,a}=V_{\omega,a}^{*},
+ \qquad \gamma_a(-\omega)=e^{-\omega}\gamma_a(\omega),
+\]
+with positive Kossakowski matrices in every frequency sector.  Suppose also that its Lamb-shift
+Hamiltonian commutes with \(K\), and that the generator is self-adjoint for the declared symmetric
+GNS inner product
+\[
+ \langle A,B\rangle_{\rho,1/2}
+ =\operatorname{Tr}(\rho^{1/2}A^{*}\rho^{1/2}B).
+\]
+Then the semigroup is completely positive and unital, preserves \(\rho\), commutes with the modular
+flow \(A\mapsto e^{itK}Ae^{-itK}\), and respects the displayed frequency-sector decomposition.
+The sign in the KMS rate relation is tied to the displayed commutator convention.
+\end{theorem}
+
+\begin{proof}
+Positive Kossakowski matrices give complete positivity.  Unitality and GNS self-adjointness imply
+\(\operatorname{Tr}(\rho L(A))=\langle\mathbf1,L(A)\rangle_{\rho,1/2}
+=\langle L(\mathbf1),A\rangle_{\rho,1/2}=0\), hence stationarity.  The eigenoperator relation,
+the paired KMS rates, and \([K,H_{\rm LS}]=0\) make every term modular covariant and preserve its
+frequency sector.
+\end{proof}
+
+\begin{remark}[Finite modular receipt boundary]
+The source-ensemble ledger reports the pushed-forward laws or channels, independent conductances
+and rates, stationary weights, cycle-affinity residual, and the weighted Hodge remainder.  The
+quantum/modular ledger reports the faithful density, modular spectrum, frequency projectors,
+Kossakowski positivity, KMS-pair residuals, GNS-symmetry residual, and modular-covariance residual.
+These finite data instantiate Theorems~\ref{thm:exact-modular-coarse-graining}--
+\ref{thm:finite-kms-jump-generator}; the theorems do not manufacture those data.
+\end{remark}
+
+\begin{theorem}[Exact \(A_5\times\mathbb Z_2\) register commutant]
+\label{thm:a5-register-commutant}
+For the twelve-port permutation module,
+\[
+ \mathbb R[\mathsf P_{12}]
+ \cong \mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5
+\]
+is multiplicity-free.  The icosahedral adjacency operator has the four distinct eigenvalues
+\(5,\sqrt5,-\sqrt5,-1\) on these summands.  Consequently its real \(A_5\)-commutant is
+\(\mathbb R[A_{\rm ico}]\), represented by polynomials of degree at most three.  On the oriented
+register
+\(\mathsf R_{24}=\mathbb R[\mathsf P_{12}]\otimes\mathbb R[\mathbb Z_2]\), every self-adjoint
+operator commuting with \(A_5\) and orientation reversal is specified by one real scalar on each
+irreducible summand in each parity sector, eight scalars in total.
+\end{theorem}
+
+\begin{proof}
+Schur's lemma gives one scalar on each real irreducible summand.  The four distinct adjacency
+eigenvalues make the spectral projectors degree-three interpolation polynomials in
+\(A_{\rm ico}\).  Diagonalizing the commuting reversal involution gives two parity copies of the
+same multiplicity-free decomposition.
+\end{proof}
+
+\begin{proposition}[No equivariant directed 24-cycle]
+\label{prop:no-equivariant-24-cycle}
+Regard the oriented register as the transitive
+\((A_5\times\mathbb Z_2)/(C_5\times\{1\})\)-set.  It has no
+\(A_5\times\mathbb Z_2\)-equivariant successor permutation that is a single directed 24-cycle.
+\end{proposition}
+
+\begin{proof}
+Its equivariant automorphism group is
+\[
+ N_{A_5\times\mathbb Z_2}(C_5\times\{1\})/(C_5\times\{1\})
+ \cong\mathbb Z_2\times\mathbb Z_2,
+\]
+because \(N_{A_5}(C_5)\cong D_{10}\).  Every equivariant permutation therefore has order at most
+two, whereas a 24-cycle has order 24.
+\end{proof}
+
+The register receipt reports the character-projector multiplicities, equivariance residual,
+within-irrep spectral spread, orientation-parity leakage, adjacency-polynomial residual, and the
+equivariant-permutation order.  Exact data give Theorem~\ref{thm:a5-register-commutant} and
+Proposition~\ref{prop:no-equivariant-24-cycle}; approximate data remain diagnostics with declared
+tolerances.
+
+These theorems classify finite register states and operators.  They do not construct a physical
+gauge-current algebra.  That step requires the separate full-rank, compact skew-adjoint,
+commutator-closed current lift, its inner \(A_5\) action, and refinement-natural physical descent
+used by the compact and particle-sector papers.
 
 On the literal transitive twelve-port set \(\mathsf P_{12}=A_5/C_5\), an irreducible
 \(A_5\)-equivariant rate law has a unique invariant equilibrium distribution, hence

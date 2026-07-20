@@ -14,7 +14,7 @@ lines are its typed finite implementation.
 
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
-define the direct map. The physical N closure remains open.
+define the direct map. The universe-level physical `N` closure remains open.
 
 ## Canonical lane
 
@@ -29,26 +29,64 @@ define the direct map. The physical N closure remains open.
   approximate capacities, support semigroups, carrier bounds, terminal-fiber
   scalarization, no-new-confusability, greatest fixed points, and unique
   slack-zero certificates.
+- [`public_record_csp.py`](public_record_csp.py) is the exact
+  constraint-propagating global-section backend. It is extensionally
+  equivalent to Cartesian enumeration, but it model-counts the connected
+  twelve-observer, twenty-four-atom source packet without exploring `24^12`
+  assignments.
 - [`test_correctable_public_record_capacity.py`](test_correctable_public_record_capacity.py)
   covers saturation, cyclic permutation, joint-coupling nonidentifiability,
   approximate capacity, ambiguous fibers, order countermodels, target taint,
   and carrier failures.
 - [`reversible_public_checkpoint_packet.py`](reversible_public_checkpoint_packet.py)
-  supplies the finite twelve-port icosahedral reference packet requested by
-  the proof program. It verifies every checkpoint generator is a permutation,
-  certifies `M_0(q)=|X_reach(q)|`, and emits the exact rank-one saturation
-  receipt. It is a schema/control, not the missing physical source packet.
+  retains the finite twelve-port icosahedral reference control. It verifies
+  every checkpoint generator is a permutation, certifies
+  `M_0(q)=|X_reach(q)|`, and emits exact rank-one saturation. It remains
+  explicitly nonphysical.
 - [`test_reversible_public_checkpoint_packet.py`](test_reversible_public_checkpoint_packet.py)
   checks the 12 vertices, 30 interfaces, exact reversible capacity identity,
   noninjective failure, and target-taint failure.
+- [`source_derived_public_checkpoint_packet.py`](source_derived_public_checkpoint_packet.py)
+  defines the first source-derived fixed-cutoff physical packet for issue #548.
+  It freezes the carrier to the twelve edge-center ports with reversible
+  write/check orientation, so `D=|P_12 x {write,check}|=24`. The producer emits:
+  - a complete 67-world structural one-fault trial manifest with one terminal
+    world, fully materialized candidates, SHA-256 completeness receipts, and an
+    output-blind membership predicate;
+  - total observer/interface atom readouts and 24 endogenous reachability
+    histories;
+  - a frozen universal publicness policy;
+  - the complete 40-element `D5 x C2 x C2` joint checkpoint family, all 1,600
+    support-relation compositions, and independently checked local marginals;
+  - an empty compound graph, a 24-record independent set, inverse decoders,
+    worst-input and total-variation receipts;
+  - 24 orthogonal rank-one carrier projections, proving `M_epsilon <= 24` and
+    exact saturation `M_0=24`;
+  - empty/incomplete/ambiguous/singleton fiber controls; isomorphism, cyclic,
+    alternative-coupling, tiny-noise, circular-definition, taint, identity,
+    erasure, and finite-suffix controls; and separate extension/refinement
+    no-new-confusability injections with negative controls.
+- [`test_source_derived_public_checkpoint_packet.py`](test_source_derived_public_checkpoint_packet.py)
+  checks the full issue #548 acceptance surface.
+- [`ISSUE_548_SOLUTION.md`](ISSUE_548_SOLUTION.md) maps every acceptance item
+  to the executable receipt.
 - [`public_record_capacity.py`](public_record_capacity.py) and its tests retain
   the superseded Pro4 checkpoint-fixed projection branch as a control. A cyclic
   permutation proves that it is not the canonical capacity definition.
 
 The identity family fixes every dimension; the erasure family fixes only the
 bottom dimension. Monotonicity and deflation therefore do not select the
-cosmic value. Physical closure requires a source-derived complete packet and
-an exact finite-size slack law with one regulator-stable zero.
+cosmic value. The `D=24` artifact is the first physical finite packet,
+not an exact finite-size slack law or a universe-level selection theorem.
+
+## Generate the issue #548 receipts
+
+```bash
+python3 source_derived_public_checkpoint_packet.py --output-dir runtime
+```
+
+This writes the complete terminal-fiber manifest, public checkpoint packet,
+and certificate as canonical JSON.
 
 ## Independent geometric estimator
 
@@ -88,24 +126,27 @@ carrier.
 
 The dated construction notes and `F_candidate_*.py` files preserve historical
 count, affine, and Banach candidates. They have diagnostic value only. The
-`CP*` and `G2_GAP_1` notes likewise do not supply the Pro5 packet or the exact
-finite-size selector.
+`CP*` and `G2_GAP_1` notes likewise do not supply the exact finite-size
+selector.
 
-## Open gates
+## Open gates after issue #548
 
-- source-derived complete capacity-indexed trial universes and terminal fibers;
-- total atom readouts, endogenous reachability, and frozen publicness;
-- complete global joint checkpoint kernels with marginal consistency;
-- compound-graph/MIS and carrier-projection receipts;
-- no-new-confusability extension and refinement embeddings;
-- an exact finite-size slack law with one regulator-stable zero;
-- independent horizon, EW/Higgs, and operational-resolution bridge tests.
+- extend the source construction from the first frozen `D=24` packet to the
+  declared capacity-indexed regulator family;
+- construct an exact finite-size slack law with one regulator-stable physical
+  zero;
+- independently certify the horizon-record, EW/Higgs load-carrier, and
+  operational-resolution bridges;
+- supply public hardware-realization evidence if a carrier implementation is
+  claimed.
 
 ## Usage
 
 ```bash
 python3 -m pytest test_correctable_public_record_capacity.py -q
+python3 -m pytest test_public_record_csp.py -q
 python3 -m pytest test_reversible_public_checkpoint_packet.py -q
+python3 -m pytest test_source_derived_public_checkpoint_packet.py -q
 python3 -m pytest test_operational_readback_contract.py -q
 python3 -m pytest test_public_record_capacity.py -q
 ```

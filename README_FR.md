@@ -98,9 +98,11 @@ Cette quantité n’a aucun rapport avec la mémoire allouée à une simulation 
 avec un réglage arbitraire d’exécution. $M_0$ est un comptage physique proposé
 des registres publics qui restent corrigibles à travers chaque checkpoint
 d’observation autorisé. La définition finie de la capacité et sa branche de
-comptage réversible sont exactes. Le paquet de checkpoints issu de la source,
-l’accord de toutes les branches terminales et le sélecteur physique unique de
-capacité sont en cours. $N$ est donc une extension conditionnelle secondaire du
+comptage réversible sont exactes. Un paquet issu de la source à coupure fixe
+$D=24$ possède une fibre terminale déclarée complète et un reçu de capacité
+réversible exact. Une famille indexée par la capacité, l’accord de toutes les
+branches terminales et le sélecteur physique unique de capacité sont en cours.
+$N$ est donc une extension conditionnelle secondaire du
 programme local vérifié de $P$. Ses comparaisons avec l’horizon et le Higgs ne
 deviennent physiques qu’après la démonstration des identifications de porteurs.
 Le [registre des clôtures](docs/CLOSURE_LEDGER.md) donne la construction finie
@@ -239,7 +241,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Structure de la matière | Témoin extérieur exact pour une génération, puis sélection conditionnelle du réseau d’hypercharges, de trois couleurs, de trois générations et d’un doublet de Higgs | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; le paquet physique et le zéro unique du défaut sont en cours de construction | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=|X_{\rm reach}|$ sur la branche réversible ; un paquet physique à coupure fixe $D=24$ est certifié, tandis que la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 

@@ -17,6 +17,8 @@ from collections import Counter
 from itertools import combinations, product
 from typing import Any, Iterable, Mapping, Sequence
 
+from public_record_csp import public_global_sections_csp
+
 
 FAIL = {
     "NO_CAPACITY_READBACK",
@@ -79,6 +81,12 @@ def public_global_sections(
         if compatible:
             sections.append(candidate)
     return sections
+
+
+# Keep the historical Cartesian implementation as a regression oracle while
+# evaluating source-derived packets with exact constraint propagation.
+_public_global_sections_cartesian = public_global_sections
+public_global_sections = public_global_sections_csp
 
 
 def reachable_public_sections(

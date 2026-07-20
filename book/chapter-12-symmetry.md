@@ -326,13 +326,17 @@ says that the action is built from curvature squared, integrated over
 four-dimensional Euclidean space. In OPH this is the continuum form of
 compact-gauge patch bookkeeping.
 
-The mass-gap argument is conditional. At finite resolution, local repair
+The mass-gap argument has an exact finite theorem and a separate physical gate. At finite resolution, local repair
 removes inconsistencies from the gauge data and returns the system toward its
 repaired vacuum. For that process to enforce a common energy floor, every
 allowed kind of local repair must retain some minimum strength, and neighboring
 repairs must not frustrate one another more and more as the screen grows or its
-boundary changes. Those two facts still need to be established from the actual
-finite Yang-Mills construction. If they hold throughout refinement, and the
+boundary changes. Once the finite source lists every collar type and prints one
+uniform influence bound below the instability threshold, the paper proves one
+positive gap that works at every location, size, boundary, and refinement
+stage. Locality or mixing alone cannot do this; small finite counterexamples
+show why both controls matter. The actual compact-gauge source still has to
+produce that list and those bounds. If it does, and the
 finite dynamics survives as a nontrivial four-dimensional quantum theory, the
 accounting is literal:
 
@@ -345,7 +349,7 @@ to leave the repaired vacuum survives as the least nontrivial gauge excitation
 in the continuum. Locality and fading long-range correlations help, but do not
 by themselves prove that a uniform energy floor survives refinement.
 
-The repository now includes a 244-type finite Ising calibration of the
+The repository includes a 244-type finite Ising calibration of the
 collar-gap certificate. It checks the exact rational bookkeeping that turns a
 uniform influence bound into a finite transfer floor of at least one half. It
 does not stand in for the compact-simple-gauge source family: that physical

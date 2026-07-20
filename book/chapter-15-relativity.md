@@ -345,8 +345,13 @@ matching cross-ratios, and the modular temperature scale produce the round
 sphere and its full conformal structure. The observer-facing map then localizes
 records and turns that conformal structure into the shared kinematic chart.
 
-That is the bridge. The clock defined by the state becomes the same clock
-spacetime symmetry was looking for.
+That is the bridge. The state supplies modular flow, and the recovered metric
+supplies proper time along a worldline. They agree only after the physical
+calibration has been stated. Comparing two different worldlines needs one more
+piece: a rule saying which event on one clock corresponds to which event on
+the other. A local Lorentz factor compares velocities at one event; it is not
+a global clock-conversion formula. Consistent overlap calibrations then let the
+local clocks assemble into one spacetime description.
 
 ![Modular flow on a cap acts like an internal clock whose smooth limit becomes geometric motion on the screen.](../assets/book_diagrams/modular-flow-cap.svg){width=78%}
 

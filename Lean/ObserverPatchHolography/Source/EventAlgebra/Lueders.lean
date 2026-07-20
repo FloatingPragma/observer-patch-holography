@@ -15,8 +15,8 @@ The Lüders update rule for conditioning a state on an event:
 * **compatibility** — for commuting events, sequential conditioning
   composes to conditioning on the product event, hence is
   order-exchangeable;
-* the **classical restriction** — when the state commutes with the event,
-  the update is the normalised restriction `(Tr(ρ P))⁻¹ • (ρ P)`.
+* the **commuting reduction** — when the state commutes with the event,
+  the update is the normalized block restriction `(Tr(ρ P))⁻¹ • (ρ P)`.
 
 ## Tagging convention
 
@@ -77,6 +77,22 @@ theorem luedersUpdate_isState {ρ P : Matrix (Fin n) (Fin n) ℂ}
     IsState (luedersUpdate ρ P) :=
   ⟨luedersUpdate_posSemidef hρ.1 hP, trace_luedersUpdate hP hw⟩
 
+/-- A physically typed Lüders update. The outcome-weight proof is an input,
+and the result carries its state proof. The `[NeZero n]` assumption excludes
+the degenerate zero-dimensional carrier at this user-facing boundary. -/
+noncomputable def luedersStateUpdate [NeZero n]
+    (ρ : StateMatrix n) (P : ProjectionEvent n)
+    (hw : bornWeight ρ.1 P.1 ≠ 0) : StateMatrix n :=
+  ⟨luedersUpdate ρ.1 P.1, luedersUpdate_isState ρ.2 P.2 hw⟩
+
+@[simp]
+theorem coe_luedersStateUpdate [NeZero n]
+    (ρ : StateMatrix n) (P : ProjectionEvent n)
+    (hw : bornWeight ρ.1 P.1 ≠ 0) :
+    (luedersStateUpdate ρ P hw : Matrix (Fin n) (Fin n) ℂ) =
+      luedersUpdate ρ.1 P.1 :=
+  rfl
+
 /-- **Trace-dependent.** **Repeatability**: after conditioning on
 `P`, the event `P` holds with Born weight one. -/
 theorem bornWeight_luedersUpdate_self {ρ P : Matrix (Fin n) (Fin n) ℂ}
@@ -100,12 +116,13 @@ theorem luedersUpdate_idem {ρ P : Matrix (Fin n) (Fin n) ℂ}
 
 /-- **Trace-dependent.** **Compatibility**: for commuting events,
 sequential conditioning composes to conditioning on the product event
-`P * Q` (which is an event by `IsEvent.mul_of_commute`). Only the weight of
-the first conditioning needs a nonvanishing guard: if the joint weight
+`P * Q`. If `Q` is also an event, `IsEvent.mul_of_commute` separately
+shows that the product is an event. Only the weight of the first conditioning
+needs a nonvanishing guard: if the joint weight
 vanishes, both sides degenerate to zero together. -/
 theorem luedersUpdate_luedersUpdate_of_commute
     {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
-    (hP : IsEvent P) (_hQ : IsEvent Q) (hc : P * Q = Q * P)
+    (hP : IsEvent P) (hc : P * Q = Q * P)
     (hw : bornWeight ρ P ≠ 0) :
     luedersUpdate (luedersUpdate ρ P) Q = luedersUpdate ρ (P * Q) := by
   -- The compressed matrix: `Q (P ρ P) Q = (P Q) ρ (P Q)`.
@@ -139,20 +156,20 @@ theorem luedersUpdate_comm {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
     (hwP : bornWeight ρ P ≠ 0) (hwQ : bornWeight ρ Q ≠ 0) :
     luedersUpdate (luedersUpdate ρ P) Q =
       luedersUpdate (luedersUpdate ρ Q) P := by
-  rw [luedersUpdate_luedersUpdate_of_commute hP hQ hc hwP,
-    luedersUpdate_luedersUpdate_of_commute hQ hP hc.symm hwQ, hc]
+  rw [luedersUpdate_luedersUpdate_of_commute hP hc hwP,
+    luedersUpdate_luedersUpdate_of_commute hQ hc.symm hwQ, hc]
 
-/-- **Trace-dependent.** The **classical restriction**: when the
-state commutes with the event, the Lüders update is the normalised
-restriction `(Tr(ρ P))⁻¹ • (ρ P)` — conditioning collapses to classical
-conditional probability. -/
+/-- **Trace-dependent.** The **commuting reduction**: when the state
+commutes with the event, the Lüders update is the normalized block
+restriction `(Tr(ρ P))⁻¹ • (ρ P)`. No commutativity within either block is
+asserted. -/
 theorem luedersUpdate_of_commute {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hP : IsEvent P) (hc : ρ * P = P * ρ) :
     luedersUpdate ρ P = (bornWeight ρ P)⁻¹ • (ρ * P) := by
   rw [luedersUpdate, ← hc, mul_assoc, hP.2]
 
 /-!
-## Conditioning as one-step convergence to a fixed point
+## Conditioning as an idempotent retraction onto fixed points
 
 Repeatability and idempotence assemble into a fixed-point description of
 measurement.  For an event `P`, call a state **certain of `P`** when it
@@ -168,8 +185,7 @@ assigns `P` Born weight `1` (`certainStates`).  Then:
   (`luedersUpdate_eq_self_iff`).
 
 Conditioning on `P` is thus a retraction of the states of nonvanishing
-weight onto its own fixed-point set `certainStates P`: measurement update
-is convergence to a fixed point, reached after one step.
+weight onto its own fixed-point set `certainStates P`.
 -/
 
 /-- The **certainty set** of an event `P`: the states that assign `P` Born
@@ -178,7 +194,7 @@ def certainStates (P : Matrix (Fin n) (Fin n) ℂ) :
     Set (Matrix (Fin n) (Fin n) ℂ) :=
   {σ | IsState σ ∧ bornWeight σ P = 1}
 
-/-- **Trace-dependent.** One-step convergence: conditioning any
+/-- **Trace-dependent.** Retraction: conditioning any
 state of nonvanishing Born weight on `P` lands in the certainty set of `P`.
 This is `luedersUpdate_isState` and repeatability, packaged. -/
 theorem luedersUpdate_mem_certainStates {ρ P : Matrix (Fin n) (Fin n) ℂ}
@@ -237,16 +253,23 @@ theorem luedersUpdate_eq_self_of_mem_certainStates
   obtain ⟨hright, hleft⟩ := mul_eq_self_of_bornWeight_one hstate hP h1
   rw [luedersUpdate, h1, inv_one, one_smul, hleft, hright]
 
-/-- **Trace-dependent.** The fixed-point characterisation of
-measurement: among states assigning `P` nonzero weight, the fixed points of
-conditioning on `P` are exactly the states certain of `P`.  Together with
-`luedersUpdate_mem_certainStates`, conditioning is a one-step retraction of
-the states of nonvanishing weight onto its fixed-point set. -/
+/-- **Trace-dependent.** Unguarded fixed-point characterization: for states,
+the fixed points of the zero-totalized update are exactly the states certain
+of `P`. A fixed state cannot lie on the zero-weight branch, because that
+branch returns the zero matrix, whose trace is not one. -/
 theorem luedersUpdate_eq_self_iff {σ P : Matrix (Fin n) (Fin n) ℂ}
-    (hσ : IsState σ) (hP : IsEvent P) (hw : bornWeight σ P ≠ 0) :
+    (hσ : IsState σ) (hP : IsEvent P) :
     luedersUpdate σ P = σ ↔ σ ∈ certainStates P := by
   constructor
   · intro hfix
+    have hw : bornWeight σ P ≠ 0 := by
+      intro hw0
+      have hup0 : luedersUpdate σ P = 0 := by
+        simp [luedersUpdate, hw0]
+      have hσ0 : σ = 0 := by rw [← hfix, hup0]
+      have htrace := hσ.2
+      rw [hσ0, trace_zero] at htrace
+      exact zero_ne_one htrace
     refine ⟨hσ, ?_⟩
     have := bornWeight_luedersUpdate_self hP hw
     rwa [hfix] at this
@@ -256,6 +279,8 @@ theorem luedersUpdate_eq_self_iff {σ P : Matrix (Fin n) (Fin n) ℂ}
 #print axioms luedersUpdate_posSemidef
 #print axioms trace_luedersUpdate
 #print axioms luedersUpdate_isState
+#print axioms luedersStateUpdate
+#print axioms coe_luedersStateUpdate
 #print axioms bornWeight_luedersUpdate_self
 #print axioms luedersUpdate_idem
 #print axioms luedersUpdate_luedersUpdate_of_commute

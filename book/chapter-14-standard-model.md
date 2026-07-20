@@ -649,8 +649,11 @@ If the five-dimensional block acts noncentrally, the first two disappear. The
 same conclusion follows when the $A_5$ action on a twelve-dimensional compact
 current algebra is implemented by internal gauge transformations. Under those
 physical-current conditions, the Standard Model Lie type is the unique compact
-choice. The refinement-stable current realization turns the finite port
-coefficients into the corresponding gauge-current directions.
+choice. Producing that physical current algebra from the finite register is a
+separate gate. It needs a nondegenerate current pairing, a closed bracket, an
+internal $A_5$ action, and compatibility through refinement. The finite port
+symmetry by itself classifies register operations; it does not manufacture
+gauge currents.
 
 The six axes carry two further pieces of structure. Their integral load lattice
 has an exact sixfold residue. A separate total-trace balance integrates the Lie

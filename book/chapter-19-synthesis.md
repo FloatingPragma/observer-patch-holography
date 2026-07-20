@@ -263,9 +263,10 @@ $$
 
 with $s(D)=\log D-\log M_0(D)$. Thus the outside carrier and every terminal
 inside readback agree without a hidden branch selector. The exact finite
-capacity and saturation theorems are established in the paper stack; the
-physical source packet and exact seam or transfer law needed to prove the
-unique zero are listed there as removable assumptions.
+capacity and saturation theorems are established in the paper stack. The
+source-derived fixed-cutoff $D=24$ packet is certified. The capacity-indexed
+source family and exact seam or transfer law needed to prove the unique zero
+remain listed there as removable assumptions.
 
 Horizon-record saturation gives the cosmological display
 
@@ -549,11 +550,13 @@ mathematician sees an obstruction. A cosmologist sees a horizon. A quantum
 information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
-The gauge quotient, charge lattice, three-generation carrier, Yang-Mills gap,
-photon and graviton modes, Lorentz geometry, Einstein relation, electroweak
-scale, Higgs-top balance, and flavor operators form one organized
-reconstruction. Symmetry determines the available roles. The dynamics within
-those roles determines masses, mixing, binding, and decay.
+The gauge quotient, charge lattice, three-generation carrier, conditional
+Yang-Mills gap, photon and graviton modes, Lorentz geometry, Einstein relation,
+electroweak scale, Higgs-top balance, and flavor operators form one organized
+reconstruction. Some links are theorems under stated source receipts, while
+the physical source objects for several links remain work in progress.
+Symmetry determines the available roles. The dynamics within those roles
+determines masses, mixing, binding, and decay.
 
 The local ruler carries this reconstruction into numbers. The charged-lepton
 three-cycle has one attracting repair fixed point and the square-root-mass
@@ -572,14 +575,14 @@ and checkpoint data, so the mathematical construction and its physical or
 digital realization share one operational architecture.
 
 The finite patch reads, compares, repairs, records, and reads again through
-twelve icosahedral ports. $A_5$ makes that interface isotropic, decomposes its
-current directions into the Standard Model gauge algebra, leaves the sixfold
-global quotient, and organizes the three-place family carrier. Smooth
-refinement turns the same screen into Lorentz geometry; entropy equilibrium
-turns it into gravity; local and global fixed points set the electromagnetic
-grain and cosmic capacity. One self-reading architecture therefore produces
-spacetime, gauge structure, matter families, and the constants by which
-observers recognize their world.
+twelve icosahedral ports. $A_5$ makes that interface isotropic and decomposes
+its register readings into exact symmetry blocks. Turning those blocks into
+physical gauge currents requires a separate current-response construction.
+The same separation holds elsewhere: a finite theorem explains what follows
+from a good refinement tower, while a source receipt must show that the tower
+exists. On the branches where those receipts pass, smooth refinement gives
+Lorentz geometry, entropy equilibrium gives gravity, and the local and global
+fixed points set the proposed electromagnetic grain and cosmic capacity.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

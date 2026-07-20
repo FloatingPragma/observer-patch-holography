@@ -96,10 +96,12 @@ $$
 This quantity is unrelated to the memory allocated to a simulation or an
 arbitrary runtime setting. $M_0$ is a proposed physical count of public records
 that remain correctable through every allowed observation checkpoint. The
-finite capacity definition and its reversible counting branch are exact. The
-source-derived checkpoint packet, agreement across every terminal branch, and
-the unique physical capacity selector are work in progress. $N$ is therefore a
-secondary conditional extension of the verified local $P$ program. Its
+finite capacity definition and its reversible counting branch are exact. A
+source-derived fixed-cutoff packet at $D=24$ has a complete declared terminal
+fiber and exact reversible capacity receipt. A capacity-indexed family,
+agreement across every terminal branch, and the unique physical capacity
+selector are work in progress. $N$ is therefore a secondary conditional
+extension of the verified local $P$ program. Its
 horizon and Higgs comparisons become physical only after their carrier
 identifications are proved. The [closure ledger](docs/CLOSURE_LEDGER.md) gives
 the full finite construction and its proof obligations.
@@ -304,14 +306,13 @@ each check.
 
 ## Remaining Proof Obligations And Falsification Boundary
 
-The direct $N$ theorem needs one finite, source-derived public-checkpoint
-packet. At regulator $r$ and carrier dimension $D$, it contains the reachable
-public records, the publicness rule, the joint checkpoint kernels, the carrier
-projections, and the extension and refinement maps. Building it first on the
-exact reversible branch is the shortest route. Injective checkpoint generators
-reduce the capacity theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or
-model counting. The remaining hard N theorem is then the exact finite-size
-slack law with one physical zero.
+The direct $N$ theorem contains a finite, source-derived public-checkpoint
+packet. At fixed $D=24$, the packet has the reachable public records, the
+publicness rule, joint checkpoint kernels, carrier projections, and extension
+and refinement maps. Injective checkpoint generators reduce its capacity
+theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
+The remaining hard N theorem is a capacity-indexed source family and the exact
+finite-size slack law with one physical zero.
 
 The other named obligations are:
 

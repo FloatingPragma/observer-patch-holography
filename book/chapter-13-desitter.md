@@ -270,6 +270,11 @@ $$
 \{M_0(q):q\in\widetilde\Omega_{r,D}\}.
 $$
 
+At fixed $D=24$, the source-derived reversible packet contains 24 reachable
+records, a complete declared one-fault terminal fiber, and an empty compound
+confusability graph. Its certificate gives $M_0(q)=24$ on the terminal world.
+This fixed-cutoff result does not select a cosmological capacity.
+
 This book adopts the stable N-closure postulate: after refinement there is one
 physical $D_\star$ for which
 
@@ -279,10 +284,10 @@ s(D_\star)=0,\qquad s(D)>0\quad(D\ne D_\star),
 $$
 
 where $s(D)=\log D-\log M_0(D)$ is the finite-size capacity slack. The papers
-separate the exact finite theorems from the still-needed physical packet and
-sharp seam or transfer theorem that establish this postulate without assuming
-it. A mere asymptotic density or an entropy-weighted count does not establish
-the unique zero.
+separate the fixed-cutoff certificate from the capacity-indexed source family
+and sharp seam or transfer theorem that establish this postulate without
+assuming it. A mere asymptotic density or an entropy-weighted count does not
+establish the unique zero.
 
 With horizon-record saturation,
 

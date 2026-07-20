@@ -1,9 +1,9 @@
 import EventAlgebra.Basic
 
 /-!
-# The expectation functional of a state
+# The bundled expectation functional of a state
 
-The linear functional `M ↦ Tr(ρ M)` attached to a state `ρ`:
+The complex-linear functional `M ↦ Tr(ρ M)` attached to a matrix `ρ`:
 
 * it is additive and homogeneous in the observable;
 * it is **positive**: nonnegative on every positive-semidefinite
@@ -25,10 +25,27 @@ open scoped ComplexOrder MatrixOrder
 
 variable {n : ℕ}
 
-/-- The **expectation functional** of a state `ρ`: the linear functional
-`M ↦ Tr(ρ M)` on observables. -/
-noncomputable def expectation (ρ M : Matrix (Fin n) (Fin n) ℂ) : ℂ :=
-  (ρ * M).trace
+/-- The trace pairing with `ρ`, bundled as a complex-linear functional in
+the observable argument. This is the canonical map underlying Born weights. -/
+noncomputable def stateExpectationLinearMap
+    (ρ : Matrix (Fin n) (Fin n) ℂ) :
+    Matrix (Fin n) (Fin n) ℂ →ₗ[ℂ] ℂ where
+  toFun := bornWeight ρ
+  map_add' M N := bornWeight_add ρ M N
+  map_smul' c M := by
+    simp only [bornWeight, mul_smul_comm, trace_smul, smul_eq_mul,
+      RingHom.id_apply]
+
+/-- Semantic abbreviation for evaluating the bundled state expectation. -/
+noncomputable abbrev expectation
+    (ρ M : Matrix (Fin n) (Fin n) ℂ) : ℂ :=
+  stateExpectationLinearMap ρ M
+
+@[simp]
+theorem stateExpectationLinearMap_apply
+    (ρ M : Matrix (Fin n) (Fin n) ℂ) :
+    stateExpectationLinearMap ρ M = bornWeight ρ M :=
+  rfl
 
 /-- **Trace-dependent.** The Born weight of an event is the
 expectation functional evaluated at it. -/
@@ -36,23 +53,12 @@ theorem bornWeight_eq_expectation (ρ P : Matrix (Fin n) (Fin n) ℂ) :
     bornWeight ρ P = expectation ρ P :=
   rfl
 
-/-- **Trace-dependent.** Additivity of the expectation
-functional. -/
-theorem expectation_add (ρ M N : Matrix (Fin n) (Fin n) ℂ) :
-    expectation ρ (M + N) = expectation ρ M + expectation ρ N := by
-  simp only [expectation, mul_add, trace_add]
-
-/-- **Trace-dependent.** Homogeneity of the expectation
-functional. -/
-theorem expectation_smul (ρ M : Matrix (Fin n) (Fin n) ℂ) (c : ℂ) :
-    expectation ρ (c • M) = c * expectation ρ M := by
-  simp only [expectation, mul_smul_comm, trace_smul, smul_eq_mul]
-
 /-- **Trace-dependent.** Normalisation: the expectation of the
 identity observable is `1`. -/
 theorem expectation_one {ρ : Matrix (Fin n) (Fin n) ℂ} (hρ : IsState ρ) :
     expectation ρ 1 = 1 := by
-  rw [expectation, mul_one, hρ.2]
+  change bornWeight ρ 1 = 1
+  exact bornWeight_one hρ
 
 /-- **Trace-dependent.** Positivity of the expectation functional
 on all positive-semidefinite observables, in the partial order of `ℂ`: by
@@ -63,6 +69,7 @@ events to arbitrary positive-semidefinite observables. -/
 theorem expectation_nonneg {ρ M : Matrix (Fin n) (Fin n) ℂ}
     (hρ : ρ.PosSemidef) (hM : M.PosSemidef) : 0 ≤ expectation ρ M := by
   classical
+  change 0 ≤ bornWeight ρ M
   set V : Matrix (Fin n) (Fin n) ℂ :=
     (hM.1.eigenvectorUnitary : Matrix (Fin n) (Fin n) ℂ) with hV
   set d : Fin n → ℂ := RCLike.ofReal ∘ hM.1.eigenvalues with hd
@@ -75,8 +82,8 @@ theorem expectation_nonneg {ρ M : Matrix (Fin n) (Fin n) ℂ}
     have := hρ.conjTranspose_mul_mul_same V
     rwa [← star_eq_conjTranspose] at this
   -- Cycle the trace: `Tr(ρ M) = Tr((V⋆ ρ V) D)`.
-  have hcycle : expectation ρ M = ((star V * ρ * V) * diagonal d).trace := by
-    rw [expectation, hspec,
+  have hcycle : bornWeight ρ M = ((star V * ρ * V) * diagonal d).trace := by
+    rw [bornWeight, hspec,
       show ρ * (V * diagonal d * star V) = (ρ * V * diagonal d) * star V by
         simp only [mul_assoc],
       trace_mul_comm]
@@ -91,8 +98,7 @@ theorem expectation_nonneg {ρ M : Matrix (Fin n) (Fin n) ℂ}
 
 -- Axiom audit: each must report only `[propext, Classical.choice, Quot.sound]`.
 #print axioms bornWeight_eq_expectation
-#print axioms expectation_add
-#print axioms expectation_smul
+#print axioms stateExpectationLinearMap_apply
 #print axioms expectation_one
 #print axioms expectation_nonneg
 
