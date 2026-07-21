@@ -50,12 +50,15 @@ The rest of this README is the architecture those receipts come from.
 The whole construction stands on the five axioms of
 [Observers Are All You Need](paper/observers_are_all_you_need.pdf):
 
-1. **A1 — A screen net.** Local algebras are assigned to connected patches of
-   the holographic screen. The screen is not generic: its exact properties are
-   part of the axiom — locally a twelve-port carrier with icosahedral
-   rotation symmetry $A_5$, globally the observer-facing $S^2$ support chart.
-   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)
-   states this architecture precisely.
+1. **A1 — A screen net.** A finite net of local algebras is assigned to
+   connected patches of the holographic screen — the observer-facing support
+   charted by $S^2$ on the certified spherical branch. The screen is not
+   generic: its microphysical realization is the federated twelve-port
+   carrier architecture with local icosahedral rotation symmetry $A_5$,
+   stated precisely in
+   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+   The local carrier, the federation of carriers, and the global $S^2$
+   support chart stay typed and distinct throughout the corpus.
 2. **A2 — Overlap consistency.** Neighboring patches must agree on shared
    observables. No patch sees the whole universe; a fact becomes public only
    when it survives comparison across overlaps.

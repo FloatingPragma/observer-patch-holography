@@ -54,13 +54,15 @@ Le reste de ce README est l’architecture d’où viennent ces reçus.
 Toute la construction repose sur les cinq axiomes de
 [Observers Are All You Need](paper/observers_are_all_you_need.pdf) :
 
-1. **A1 — Un réseau d’écran.** Des algèbres locales sont assignées aux
-   parcelles connexes de l’écran holographique. L’écran n’est pas générique :
-   ses propriétés exactes font partie de l’axiome — localement un porteur à
-   douze ports de symétrie icosaédrique $A_5$, globalement la carte de
-   support $S^2$ tournée vers l’observateur.
-   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)
-   énonce cette architecture précisément.
+1. **A1 — Un réseau d’écran.** Un réseau fini d’algèbres locales est assigné
+   aux parcelles connexes de l’écran holographique — le support tourné vers
+   l’observateur, cartographié par $S^2$ sur la branche sphérique certifiée.
+   L’écran n’est pas générique : sa réalisation microphysique est
+   l’architecture fédérée de porteurs à douze ports de symétrie icosaédrique
+   locale $A_5$, énoncée précisément dans
+   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+   Le porteur local, la fédération de porteurs et la carte de support
+   globale $S^2$ restent typés et distincts dans tout le corpus.
 2. **A2 — Cohérence des recouvrements.** Les parcelles voisines doivent
    s’accorder sur les observables partagées.
 3. **A3 — MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
