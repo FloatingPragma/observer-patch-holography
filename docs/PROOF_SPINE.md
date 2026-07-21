@@ -118,7 +118,7 @@ owns downstream electroweak and mass bridges.
 |---|---|---|
 | B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems). Physical phase locking is not a premise and reaches this row only through the open synchronization-to-repair bridge |
 | B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | conditional theorem on the typed global-support branch. BW requires `FiniteCapBWCertificate` and independent complete `MGNS-1` on the same tower; physical MGNS construction remains issue #574. The carrier-to-support bridge and source-derived common-domain tower are unconstructed (GAP-B1, GAP-B13) |
-| B3 | Gravity: Einstein equation from entropy stationarity, one metric-proportional term per connected component | conditional composition theorem; certified tails, universal coupling, vacuum reference, and independent scale identification belong to the branch premise (GAP-B1) |
+| B3 | Gravity: Einstein equation from entropy stationarity, one metric-proportional term per connected component | conditional composition theorem with the antecedent instrumented end to end: every clause carries a fail-closed instrument with adversarial controls and semantic countermodels; coupling universality is theorem-grade for every icosahedrally equivariant law (zero spread) and generator positivity holds by construction on the declared family. The measured convergence ladder ([E1], `evidence/einstein_convergence/`) carries held-out signature (1,3) at every density-maintained rung (16,384/65,536/262,144 carriers) with the cone margin halving per rung and a density control that degrades the signature on cue. Open measured targets with frozen verdicts: cap-state modular temperature (finite no-go at fixed cutoff; refinement-limit form) and the projected cone-margin zero crossing; certified tails, vacuum reference, and independent scale identification stay in the branch premise (GAP-B1, #595) |
 | B4 | Gauge structure and matter: the D7-D9 Tannaka/MAR route and the finite A5 screen-current route are separate conditional constructions | the A5 module, coefficient bracket, exterior branching, three one-Higgs invariant lines, anomaly cancellation, and weak multiplicity four are closed under their packet premises. MAR selects $N_g=3$ only as the least value in its declared economy class; physical rank-45 family attachment is open. The source-bound commuting square identifying the two gauge routes is also open (GAP-B9) |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
@@ -236,7 +236,14 @@ Part B gaps:
   GAP-B13. Its BW step must carry `FiniteCapBWCertificate` and independently
   produced complete `MGNS-1` on that same tower. The conditional composition is
   explicit; issue #574 owns physical MGNS production. The compact-gauge
-  matter-package nonemptiness problem is separate.
+  matter-package nonemptiness problem is separate. Status 2026-07-21: the
+  antecedent is instrumented end to end (normalization, GNS/intersections,
+  event cone, stress/coupling, each fail-closed with adversarial controls and
+  countermodels); universality and positivity are theorem-grade on the
+  declared family; the measured convergence ladder shows (1,3) at every
+  density-maintained rung with the cone margin halving per rung
+  (`evidence/einstein_convergence/`, [E1]). Remaining measured targets are
+  tracked in #595.
 - **GAP-B2.** Quantum pole receipts: the photon, gluon, and graviton zeros are classical
   action statements; the quantum pole constructions are open gates.
 - **GAP-B3.** The flavor-orbit selector: the proven two-modulus non-identifiability names

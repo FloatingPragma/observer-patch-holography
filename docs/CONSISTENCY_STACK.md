@@ -140,8 +140,14 @@ modular, event, stress, entropy, continuum-tail, coupling, vacuum, and scale
 premises. The local derivation leaves one metric-proportional term per connected
 component. Removed freedom on the declared branch: the tensor form of the
 gravity law. Carrier: compact paper, typed Einstein branch. Status: conditional
-composition theorem; construction and certification of an inhabited tower are
-work in progress.
+composition theorem with the antecedent instrumented end to end (fail-closed
+instruments, adversarial controls, semantic countermodels); coupling
+universality theorem-grade for icosahedrally equivariant laws; the measured
+convergence ladder carries held-out signature (1,3) at every
+density-maintained rung with the cone margin halving per rung
+(`evidence/einstein_convergence/`). Construction and certification of an
+inhabited tower and the remaining measured targets are work in progress
+(#595).
 
 **C6. Record-existence (SL-2).** A screen at exact golden-ratio balance
 carries no events; records require detuning, and the declared detuning is the
