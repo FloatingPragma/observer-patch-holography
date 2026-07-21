@@ -21,7 +21,8 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{axiom}{Axiom}
+\renewcommand{\theaxiom}{A\arabic{axiom}}
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -1021,6 +1022,13 @@ Observed branch values can locate the scale branch in reverse-engineering mode. 
 row would use a fixed-point value \(N_\star\) together with the selected scale certificate. Using only
 the rounded capacity with the Planck-2018 curvature benchmark would move the Newton row at the
 \(8.4\times10^{-4}\) level, so it is not a precision certificate.
+
+The five OPH axioms are stated here once, as Axioms~A1--A5, and every later
+result cites them by these labels: A1 the screen net (Axiom~\ref{ax:screen}),
+A2 overlap consistency (Axiom~\ref{ax:overlap}), A3 local MaxEnt with
+refinement stability (Axiom~\ref{ax:maxent}), A4 recoverable generalized
+entropy (Axiom~\ref{ax:entropy}), and A5 minimal admissible realization
+(Axiom~\ref{ax:mar}).
 
 \begin{axiom}[Screen Net]\label{ax:screen}
 Physical data are organized on a horizon screen \(S^2\) carrying a net of local algebras
