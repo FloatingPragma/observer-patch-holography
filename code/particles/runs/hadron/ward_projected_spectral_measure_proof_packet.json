@@ -1,0 +1,539 @@
+{
+ "issue": 317,
+ "certificate_id": "issue-317-hadronic-spectral-measure-proof-packet-v1",
+ "artifact": "oph_ward_projected_spectral_measure_proof_packet",
+ "status": "proof_packet_construction_certified_production_payload_delegated_to_425",
+ "accepted": true,
+ "theorem": {
+  "theorem_id": "WardProjectedHadronicSpectralMeasureConstruction_Q",
+  "statement": "On the OPH QCD/matter sector with a declared quotient ensemble, reflection-positive Euclidean vacuum, and transfer operator, the point-split U(1)_Q vector current is gauge invariant and exactly conserved, its Ward projection selects the transverse channel Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2), and the zero-momentum transverse correlator carries the positive finite-volume spectral measure rho_Q(s) = sum_n Z_n delta(s - E_n^2) with Z_n >= 0, support starting at the lowest vector-channel state, normalization fixed by the Z_V ledger, scheme dependence confined to the declared once-subtracted transport kernel, and jackknife-through-pipeline covariance and budget-ledger uncertainty propagation.",
+  "parts": {
+   "a_gauge_invariance_and_source_derivation": "each hop term psibar(x+mu)(1 +- gamma_mu) U_mu(x)^(dag) psi(x) of the point-split current is a color trace of gauge-covariant bilinears with the compensating link insertion, hence invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag, psi(x) -> g(x) psi(x); correlators are functionals of the source ensemble only (executed witness 1)",
+   "b_ward_identity": "the exact Noether current of the U(1) phase rotation of the hopping-normalized Wilson-clover action satisfies the backward-difference Ward identity off contact points; the clover term is phase-invariant, so c_SW does not modify the identity (executed witness 2; lattice_backend/conserved_vector.py)",
+   "c_positivity_and_thresholds": "by reflection positivity and the transfer-operator spectral decomposition, G(t) = sum_n w_n (e^{-E_n t} + e^{-E_n (T-t)}) with w_n proportional to |<0|J_Q|n>|^2 through a positive normalization, hence w_n >= 0; rho_Q is a positive locally finite measure supported on the vector-channel spectrum above the vacuum, with threshold at the lowest such state (two-pion channel in infinite volume)",
+   "d_normalization": "the exactly conserved point-split current needs no renormalization (Z_V = 1); the local current is renormalized by the conserved-local estimator Z_V^eff = C_CL/(2 kappa C_LL), anchored at exactly 1 on the free field (executed witness 3)",
+   "e_scheme_dependence": "the spectral measure is scheme-independent spectral data of the conserved current; scheme enters only through the declared once-subtracted transport kernel mZ^2/(3 pi s (s + mZ^2)) and the same-subtraction lock to a0(P) (SOURCE_SPECTRAL_THEOREM.md; the kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact, lattice_backend/vector_correlator.py)",
+   "f_resonances_and_continuum": "unstable resonances and the continuum enter through the declared Luscher-class finite-volume pushforward from levels and residues to rho_Q(s;P); the scattering scaffolding is typed under particles/hadron/rho_scattering/ and its production execution is issue #425 scope",
+   "g_covariance_and_uncertainty": "spectral moments are linear functionals of the measure, so errors propagate through the kernel by leave-one-out jackknife over configurations; production payloads must carry the seven-row budget ledger (statistical, continuum, finite-volume, chiral, current-matching, quadrature, endpoint-remainder) enforced by the acceptance gate"
+  }
+ },
+ "derivation_chain": [
+  {
+   "step": 1,
+   "premise": "OPH QCD/matter sector and quotient ensemble",
+   "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
+   "receipts": "particles/runs/qcd/hadron_source_backend/qcd_ensemble/",
+   "conclusion": "the source law mu_r^QCD is a declared positive Gibbs measure on the gauge quotient at zero density and theta = 0, with refinement maps and no-target-leak controls; a normal form is not a probability law (source-law non-substitution theorem)"
+  },
+  {
+   "step": 2,
+   "premise": "Euclidean vacuum, reflection positivity, transfer operator",
+   "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
+   "receipts": "particles/runs/qcd/hadron_source_backend/vacuum/",
+   "conclusion": "the Euclidean slab with reflection positivity defines a transfer operator whose spectral decomposition supplies the Hilbert-space representation used for positivity; the executed engine realizes it with the gamma5-hermitian Wilson-clover operator and antiperiodic time boundary"
+  },
+  {
+   "step": 3,
+   "premise": "renormalized electromagnetic current",
+   "source_artifact": "code/particles/hadron/lattice_backend/conserved_vector.py",
+   "conclusion": "the point-split conserved U(1)_Q current V_mu(x) = kappa [psibar(x+mu) (1+gamma_mu) U_mu(x)^dag psi(x) - psibar(x)(1-gamma_mu) U_mu(x) psi(x+mu)] is gauge invariant and exactly conserved; the local current carries Z_V^eff = C_CL/(2 kappa C_LL) with the free-field anchor exactly 1"
+  },
+  {
+   "step": 4,
+   "premise": "Ward projection",
+   "source_artifact": "code/P_derivation/SOURCE_SPECTRAL_THEOREM.md",
+   "conclusion": "current conservation gives q_mu Pi_Q^{mu nu} = 0, so the two-current correlator has the transverse scalar form Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2)"
+  },
+  {
+   "step": 5,
+   "premise": "positive spectral measure with thresholds",
+   "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
+   "conclusion": "the smeared-current quadratic spectral measure of the invariant-mass operator is positive and locally finite; in finite volume it is the atomic measure rho_Q(s) = sum_n Z_n delta(s - E_n^2), Z_n >= 0, with support above the vacuum starting at the lowest vector-channel level"
+  },
+  {
+   "step": 6,
+   "premise": "resonances and continuum",
+   "source_artifact": "code/particles/hadron/rho_scattering/",
+   "conclusion": "two-body channels map to infinite volume through the declared Luscher-class pushforward; unstable resonances and thresholds are treated explicitly at that stage (production execution: issue #425)"
+  },
+  {
+   "step": 7,
+   "premise": "scheme lock and transport kernel",
+   "source_artifact": "code/particles/hadron/lattice_backend/vector_correlator.py",
+   "conclusion": "the once-subtracted spacelike kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact; the measure itself is scheme-independent and the same-subtraction lock ties the transport to a0(P) in the declared convention"
+  },
+  {
+   "step": 8,
+   "premise": "covariance and uncertainty propagation",
+   "source_artifact": "code/particles/hadron/verify_issue_317_spectral_measure_packet.py",
+   "conclusion": "leave-one-out jackknife through the full constructor gives level, residue, and correlator covariance (executed witness 4, with a positive-semidefiniteness check); production payloads carry the seven-row budget ledger"
+  },
+  {
+   "step": 9,
+   "premise": "machine-readable emission with fail-closed guards",
+   "source_artifact": "code/particles/hadron/ward_projected_spectral_measure.schema.json",
+   "conclusion": "the export schema plus semantic gate accepts exactly the schema-conformant positive payloads and rejects measured-HVP guard flips, surrogate flags, missing budgets, quenched branches, negative residues, empty level support, and forbidden-target leaks (executed witness 5)"
+  },
+  {
+   "step": 10,
+   "premise": "blinded comparison and higher-point typing",
+   "source_artifact": "code/particles/runs/qcd/hadron_source_backend/",
+   "conclusion": "empirical compilations are typed oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false and enter only through the comparison manifest; the two-current measure is a marginal of the hadronic precision functor, with four-current and transition objects separately typed (Q4_HLbL_receipt: TWO_POINT_MEASURE_INSUFFICIENT) and QED/EW radiative corrections confined to the Xi_Q remainder ledger"
+  }
+ ],
+ "machine_witnesses": {
+  "gauge_and_ward": {
+   "background": {
+    "lattice_shape_TXYZ": [
+     8,
+     2,
+     2,
+     2
+    ],
+    "beta": 5.5,
+    "kappa": 0.12,
+    "n_sweeps": 6,
+    "cg_tol": 1e-12,
+    "rng_seed": 3170,
+    "plaquette": 0.5888100477481714
+   },
+   "gauge_invariance": {
+    "statement": "the transverse U(1) vector correlator and the plaquette are invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag for random SU(3) g",
+    "correlator_relative_defect": 4.244582835094553e-14,
+    "plaquette_absolute_defect": 3.3306690738754696e-16,
+    "tolerance": 1e-08,
+    "passed": true
+   },
+   "ward_identity": {
+    "statement": "the conserved point-split current V_mu satisfies the exact backward-difference Ward identity sum_mu [V_mu(x) - V_mu(x-mu)] = 0 off the contact point",
+    "max_offsource_divergence": 1.1702791513634736e-13,
+    "correlator_scale": 0.10425234291367294,
+    "relative_defect": 1.1225447013047309e-12,
+    "tolerance": 1e-09,
+    "passed": true
+   }
+  },
+  "zv_free_field_anchor": {
+   "lattice_shape_TXYZ": [
+    16,
+    2,
+    2,
+    2
+   ],
+   "kappa": 0.13,
+   "statement": "on the free field the local-current renormalization estimator Z_V^eff(t) = C_CL(t)/(2 kappa C_LL(t)) equals 1, anchoring sign and normalization",
+   "plateau_window_t": [
+    4,
+    7
+   ],
+   "plateau_values": [
+    0.9999477983422049,
+    0.9999936887110695,
+    0.9999993095850981,
+    0.9999999263299884
+   ],
+   "max_abs_deviation_from_one": 5.220165779507013e-05,
+   "tolerance": 0.005,
+   "passed": true
+  },
+  "demonstrator_measure": {
+   "artifact": "oph_diagnostic_ward_projected_spectral_measure_demonstrator",
+   "role": "executed witness that the packet constructor emits a machine-readable positive spectral measure from source-only lattice data; diagnostic scale, non-promoting, not a production payload",
+   "ensemble": {
+    "npz": "particles/runs/hadron/hybrid_ir_ensembleA_2026-07-16.npz",
+    "ensemble_id": "hybrid_A_quenched_b5p7_16x4c3",
+    "lattice_shape_TXYZ": [
+     16,
+     4,
+     4,
+     4
+    ],
+    "beta": 5.7,
+    "kappa": 0.15,
+    "n_configs": 64,
+    "rng_seed": 716001,
+    "flavors": "quenched_nf0",
+    "external_inputs_used": false,
+    "input_note": "bare parameters (beta, kappa) only; the extracted level and residue are whatever the lattice dynamics produce; no measured HVP, R(s), alpha, or hadron-mass input enters the constructor"
+   },
+   "units": "lattice units a = 1; no scale setting at diagnostic scale (declared)",
+   "charge_convention": "single flavor, unit charge (R-normalization N_c Q^2 = 3); the U(1)_Q flavor charge weighting is a declared production-side factor",
+   "finite_volume_levels": [
+    {
+     "ensemble_id": "hybrid_A_quenched_b5p7_16x4c3",
+     "channel": "vector_transverse_unit_charge",
+     "levels": [
+      {
+       "level_id": "vector_ground_A",
+       "s": 2.048681584077855,
+       "energy": 1.4313216214666273,
+       "energy_jackknife_error": 0.6576894420893482,
+       "weight": 4467.620911708111,
+       "weight_jackknife_error": 14794.816245275504
+      }
+     ]
+    }
+   ],
+   "ward_projected_residues": [
+    {
+     "level_id": "vector_ground_A",
+     "residue": 4467.620911708111,
+     "current_normalization": "Z_V^eff = C_CL/(2 kappa C_LL) from the exactly conserved point-split current; Z_V = 0.755669 +- 0.421214"
+    }
+   ],
+   "rho_had_or_measure": {
+    "representation": "primitive_spectral_measure",
+    "support_variable": "s",
+    "pushforward_rule": "rho(s) = w delta(s - (a m_V)^2) from the single-state model of the folded transverse correlator; the production pushforward to rho_Q(s;P) is the declared Luscher-class finite-volume map (rho_scattering/ scaffolding, issue #425 scope)",
+    "positivity_status": "verified_nonnegative: correlator positive on all significant timeslices, noise-level tail consistent with zero, atom weight positive",
+    "positivity_report": {
+     "rule": "Kallen-Lehmann positivity holds for the exact expectation value; the finite-sample witness requires G(t) > 0 on every statistically significant timeslice (|G| > 2 sigma) and |G| <= 2 sigma wherever the central value is negative",
+     "timeslices": [
+      {
+       "t": 0,
+       "value": 14.182634694840681,
+       "jackknife_error": 0.05829397124216501,
+       "significant": true
+      },
+      {
+       "t": 1,
+       "value": 1.080385688746702,
+       "jackknife_error": 0.014464292802500302,
+       "significant": true
+      },
+      {
+       "t": 2,
+       "value": 0.1963750672845537,
+       "jackknife_error": 0.008663139698627049,
+       "significant": true
+      },
+      {
+       "t": 3,
+       "value": 0.04574547080559006,
+       "jackknife_error": 0.004969410644306291,
+       "significant": true
+      },
+      {
+       "t": 4,
+       "value": 0.013877622704377292,
+       "jackknife_error": 0.002703211578671415,
+       "significant": true
+      },
+      {
+       "t": 5,
+       "value": 0.004023665037398038,
+       "jackknife_error": 0.0006918394286413217,
+       "significant": true
+      },
+      {
+       "t": 6,
+       "value": 0.0006251914315341796,
+       "jackknife_error": 0.001295529207232434,
+       "significant": false
+      },
+      {
+       "t": 7,
+       "value": -0.002346129389372376,
+       "jackknife_error": 0.0035541705633590328,
+       "significant": false
+      },
+      {
+       "t": 8,
+       "value": -0.0022326237794251264,
+       "jackknife_error": 0.003300566385901056,
+       "significant": false
+      }
+     ],
+     "positive_where_significant": true,
+     "negative_values_consistent_with_zero_at_2_sigma": true,
+     "noise_note": "the vector channel enters noise at t >= 6 on this volume (declared in the hybrid IR bracket note); negative central values there are statistical fluctuations around zero, not spectral-positivity violations"
+    }
+   },
+   "covariance": {
+    "object": "jackknife covariance of the folded transverse correlator",
+    "dimension": 9,
+    "matrix": [
+     [
+      0.0033981870831823616,
+      0.0005920548951063088,
+      0.0003054276661011725,
+      0.0001893629471579591,
+      0.00010531644280571407,
+      1.133757556036665e-05,
+      -4.000508298136907e-05,
+      -0.00012686579974573867,
+      -0.0001170580582470392
+     ],
+     [
+      0.0005920548951063088,
+      0.00020921576627646208,
+      0.00011933277298941464,
+      6.728605240200673e-05,
+      3.524528695739581e-05,
+      4.494359989373193e-06,
+      -1.1575873823560666e-05,
+      -3.869948917883536e-05,
+      -3.5962023505763436e-05
+     ],
+     [
+      0.0003054276661011726,
+      0.00011933277298941464,
+      7.504998943792794e-05,
+      4.22270251679102e-05,
+      2.167397724970666e-05,
+      2.870722075544946e-06,
+      -6.808354887299973e-06,
+      -2.320095607071693e-05,
+      -2.1678230417076998e-05
+     ],
+     [
+      0.0001893629471579591,
+      6.728605240200673e-05,
+      4.22270251679102e-05,
+      2.469504215174467e-05,
+      1.3111002571099702e-05,
+      1.7003880025731844e-06,
+      -4.299988492750246e-06,
+      -1.4463447857574075e-05,
+      -1.3503131430211511e-05
+     ],
+     [
+      0.00010531644280571406,
+      3.524528695739581e-05,
+      2.167397724970666e-05,
+      1.31110025710997e-05,
+      7.307352839063204e-06,
+      1.013533354267053e-06,
+      -2.3989849494981784e-06,
+      -8.125109943340215e-06,
+      -7.573763494663247e-06
+     ],
+     [
+      1.133757556036665e-05,
+      4.494359989373193e-06,
+      2.8707220755449463e-06,
+      1.7003880025731844e-06,
+      1.013533354267053e-06,
+      4.786417950227505e-07,
+      1.9914604735226802e-07,
+      -9.040259718192886e-08,
+      -1.0623235964888292e-07
+     ],
+     [
+      -4.000508298136906e-05,
+      -1.1575873823560665e-05,
+      -6.808354887299972e-06,
+      -4.2999884927502456e-06,
+      -2.398984949498178e-06,
+      1.9914604735226805e-07,
+      1.6783959267922989e-06,
+      4.4351689582454e-06,
+      4.094310490110404e-06
+     ],
+     [
+      -0.0001268657997457387,
+      -3.869948917883536e-05,
+      -2.320095607071693e-05,
+      -1.4463447857574075e-05,
+      -8.125109943340215e-06,
+      -9.040259718192886e-08,
+      4.4351689582454e-06,
+      1.2632128393447865e-05,
+      1.17192869246989e-05
+     ],
+     [
+      -0.0001170580582470392,
+      -3.5962023505763456e-05,
+      -2.167823041707699e-05,
+      -1.3503131430211508e-05,
+      -7.573763494663247e-06,
+      -1.0623235964888284e-07,
+      4.094310490110403e-06,
+      1.1719286924698902e-05,
+      1.0893738467739958e-05
+     ]
+    ],
+    "min_eigenvalue": 2.097976113453257e-09,
+    "max_eigenvalue": 0.0035595247688286875,
+    "positive_semidefinite": true
+   },
+   "extraction": {
+    "am_vector": 1.4313216214666273,
+    "am_vector_jackknife_error": 0.6576894420893482,
+    "z_v": 0.7556688181970018,
+    "z_v_jackknife_error": 0.4212144319135873,
+    "amplitude_hop": 4.254828556104056,
+    "weight_physical_units": 4467.620911708111,
+    "weight_jackknife_error": 14794.816245275504,
+    "window_rule": "cosh effective mass over the positive decaying window from t = 3"
+   },
+   "systematics": {
+    "statistical_budget": {
+     "method": "leave-one-out jackknife through the full constructor",
+     "relative_error_weight": 3.3115648211116877,
+     "relative_error_energy": 0.45949801374161864
+    },
+    "quadrature_budget": {
+     "method": "extraction-window start shifted by +1",
+     "abs_mass_shift": 0.11922070033895538
+    },
+    "continuum_budget": {
+     "status": "not_quantified_at_diagnostic_scale",
+     "production_scope": "issue #425 backend export budgets"
+    },
+    "finite_volume_budget": {
+     "status": "not_quantified_at_diagnostic_scale",
+     "production_scope": "issue #425 backend export budgets"
+    },
+    "chiral_budget": {
+     "status": "not_quantified_at_diagnostic_scale",
+     "production_scope": "issue #425 backend export budgets"
+    },
+    "current_matching_budget": {
+     "status": "not_quantified_at_diagnostic_scale",
+     "production_scope": "issue #425 backend export budgets"
+    },
+    "endpoint_remainder_budget": {
+     "status": "not_quantified_at_diagnostic_scale",
+     "production_scope": "issue #425 backend export budgets"
+    }
+   },
+   "guards": {
+    "execution_class": "real_lattice_diagnostic_toy_scale",
+    "promotion_allowed": false,
+    "production_schema_conformant": false,
+    "production_schema_nonconformance_reason": "branch.flavors is quenched_nf0; the production schema requires the seeded 2+1 family, so this demonstrator is rejected by the same acceptance gate it demonstrates",
+    "surrogate_hadron_artifact": false,
+    "target_anchored": false,
+    "external_inputs_used": false
+   },
+   "checks_passed": true
+  },
+  "acceptance_gate": {
+   "schema": "particles/hadron/ward_projected_spectral_measure.schema.json",
+   "semantic_checks": [
+    "forbidden-target leak fails closed (TARGET_LEAK_DETECTED)",
+    "level weights and residues nonnegative",
+    "level energies positive",
+    "all seven budget rows present and nonempty"
+   ],
+   "conformant_payload_accepted": true,
+   "conformant_payload_reason": "accepted",
+   "negative_controls": [
+    {
+     "control_id": "measured_hvp_comparison_endpoint",
+     "guards_criterion": "no measured HVP input / blinded comparison only",
+     "rejected": true,
+     "rejection_reason": "schema_violation: False was expected"
+    },
+    {
+     "control_id": "forbidden_target_leak_ee_to_hadrons",
+     "guards_criterion": "no measured HVP input",
+     "rejected": true,
+     "rejection_reason": "TARGET_LEAK_DETECTED: EE_TO_HADRONS"
+    },
+    {
+     "control_id": "surrogate_hadron_artifact",
+     "guards_criterion": "source-derived only",
+     "rejected": true,
+     "rejection_reason": "schema_violation: False was expected"
+    },
+    {
+     "control_id": "stable_channel_only_export",
+     "guards_criterion": "full vector-channel spectral support required",
+     "rejected": true,
+     "rejection_reason": "schema_violation: False was expected"
+    },
+    {
+     "control_id": "missing_chiral_budget",
+     "guards_criterion": "uncertainty propagation ledger complete",
+     "rejected": true,
+     "rejection_reason": "schema_violation: 'chiral_budget' is a required property"
+    },
+    {
+     "control_id": "quenched_branch",
+     "guards_criterion": "physical 2+1 matter sector required",
+     "rejected": true,
+     "rejection_reason": "schema_violation: '2+1' was expected"
+    },
+    {
+     "control_id": "negative_residue",
+     "guards_criterion": "positivity proved and enforced",
+     "rejected": true,
+     "rejection_reason": "negative_residue: L0"
+    },
+    {
+     "control_id": "empty_level_support",
+     "guards_criterion": "nonempty finite-volume spectral support",
+     "rejected": true,
+     "rejection_reason": "schema_violation: [] should be non-empty"
+    },
+    {
+     "control_id": "ward_projection_dropped",
+     "guards_criterion": "gauge invariance / Ward projection required",
+     "rejected": true,
+     "rejection_reason": "schema_violation: True was expected"
+    }
+   ],
+   "all_negative_controls_rejected": true,
+   "passed": true
+  }
+ },
+ "acceptance_criteria_status": {
+  "current_and_measure_gauge_invariant_and_source_derived": true,
+  "positivity_normalization_thresholds_scheme_dependence_proved": true,
+  "machine_readable_measure_emitted_without_measured_hvp_input": true,
+  "empirical_data_typed_blinded_comparison_only": true,
+  "higher_point_and_radiative_corrections_separately_typed": true
+ },
+ "acceptance_criteria_mapping": {
+  "current_and_measure_gauge_invariant_and_source_derived": "theorem parts (a), (b); executed witnesses 1 and 2; source-law non-substitution theorem excludes non-source substitutes",
+  "positivity_normalization_thresholds_scheme_dependence_proved": "theorem parts (c), (d), (e); executed witnesses 3 and 4",
+  "machine_readable_measure_emitted_without_measured_hvp_input": "export schema plus semantic gate; executed witnesses 4 and 5; the demonstrator consumes bare lattice parameters only",
+  "empirical_data_typed_blinded_comparison_only": "empirical companion row class oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false (empirical_ward_projected_spectral_measure.schema.json); source-side comparison manifest empty (controls/comparison_data_manifest.json: NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under falsification/frozen_targets/",
+  "higher_point_and_radiative_corrections_separately_typed": "hadronic precision functor typing: two-current measure is one marginal; Gamma^{(4)} and transition amplitudes are distinct required artifacts (higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT); QED/EW corrections live in the mutually exclusive Xi_Q ledger rows"
+ },
+ "claim_boundary": {
+  "closed_here": "the construction theorem for the renormalized U(1)_Q current and its positive spectral measure (gauge invariance, Ward identity, positivity, normalization, thresholds, scheme confinement, covariance and uncertainty-propagation rules), the machine-readable emission contract with fail-closed guards and negative controls, an executed diagnostic demonstrator on committed real lattice data, and the typing of empirical, higher-point, and radiative objects",
+  "not_closed_here": [
+   "the production 2+1 payload with real correlator arrays and quantified continuum/finite-volume/chiral/current-matching/endpoint budgets (issue #425 backend execution)",
+   "production-scale resonance extraction through the Luscher-class map",
+   "continuum-limit and confinement certificates (H4 tier)",
+   "the source QCD parameter map P -> (g_3, quark masses, scheme)",
+   "physical promotion of any hadronic number"
+  ],
+  "scope": "This packet is the proof and contract layer of the hadronic spectral measure: it fixes what the production export must satisfy and proves the structural claims on the declared construction. It emits no physical hadronic prediction; the demonstrator measure is diagnostic, non-promoting, and is itself rejected by the production acceptance gate it demonstrates."
+ },
+ "dependency_note": {
+  "direction": "this proof packet is upstream of production execution: issue #425's acceptance list requires that the production backend 'exports the Ward-current spectral payload consumed by #317', i.e. #425 supplies a payload conforming to the contract certified here; no result of #425 is consumed by this packet",
+  "upstream_of_425_not_downstream": true,
+  "gauge_carrier_selection": "the physical gauge/matter carrier selection (#590) gates #425's physical promotion, not this packet"
+ },
+ "dependency_artifacts": {
+  "export_schema": "code/particles/hadron/ward_projected_spectral_measure.schema.json",
+  "constructive_contract": "code/particles/runs/hadron/ward_projected_spectral_measure_contract.json",
+  "nonidentifiability_obstruction": "code/particles/hadron/derive_ward_projected_spectral_measure_obstruction.py",
+  "endpoint_reduction_theorem": "code/P_derivation/source_spectral_theorem.py (WardProjectedHadronicSpectralEmission_Q)",
+  "backend_spec_note": "physics-problems/hadronic_precision_endpoint.md",
+  "receipt_bundle": "code/particles/runs/qcd/hadron_source_backend/ (claim: SOURCE_PROTOTYPE_NOT_PROMOTED)",
+  "lattice_engine": "code/particles/hadron/lattice_backend/",
+  "demonstrator_ensemble": "code/particles/runs/hadron/hybrid_ir_ensembleA_2026-07-16.npz"
+ },
+ "consumer_artifacts": {
+  "production_backend_export": "issue #425 production export bundle conforming to the schema and acceptance gate certified here",
+  "thomson_endpoint_lane": "code/P_derivation/source_spectral_theorem.py consumes a conforming payload for the source-only Thomson endpoint interval certificate"
+ },
+ "forbidden_inputs": [
+  "CODATA_ALPHA",
+  "MUON_G_MINUS_2",
+  "EE_TO_HADRONS",
+  "RARE_DECAY_DATA",
+  "HADRON_MASS_TARGETS",
+  "PDG_QCD_FITS"
+ ],
+ "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
+ "volatile": {
+  "generated_utc": "2026-07-21T14:48:47Z",
+  "note": "timestamp only; excluded from acceptance logic"
+ }
+}
