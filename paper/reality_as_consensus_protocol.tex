@@ -2225,6 +2225,12 @@ one has
 Because the exact record projectors lie in the center of \(\mathcal A_t^{\mathrm{acc}}\), they
 generate a finite commutative central algebra. Finite-dimensional projective measurement on that
 commuting algebra gives the Born trace and the L\"uders conditioned state, proving (1) and (2).
+The finite-matrix steps behind (1) and (2) are machine-checked in the companion Lean~4
+event-algebra development \cite{eventalgebraLean}: the commutative span of a projective
+partition and its containment in the center of the partition commutant, the trace-preserving
+expectation onto that span, preservation of the partition Born statistics, the L\"uders
+fixed-point law, and the collapse of conditioning on a partition member to its normalized
+projector are theorem-level exports with declaration-level axiom audits.
 
 If no accepted repair touches the support of \(\widehat P_E(t)\), then the next completed read is
 performed on the same central projector surface. After conditioning on \(E\), the state lies in
@@ -3488,6 +3494,13 @@ B.~M\"uller, D.~Matscheko, and J.~Hill,
 and Rewrite Systems},
 2026.\\
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
+
+\bibitem{eventalgebraLean}
+B.~M\"uller,
+\emph{Verified Projection-Event Calculus in Lean~4: Bundled Arbitrary-Partition Pinching,
+L\"uders Retractions, and CHSH Interoperability},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/machine_checked_finite_event_algebras.pdf}.
 
 \bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,

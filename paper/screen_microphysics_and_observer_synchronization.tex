@@ -2814,7 +2814,10 @@ The theorem is the standard finite-dimensional central-record argument. Because 
 record events commute and belong to the observer-accessible center for the completed slice, they
 define an ordinary finite classical event algebra. Probabilities are Born traces on that event
 algebra, and conditioning on an event is the L\"uders update. After conditioning on \(E\), the
-same central projector \(E\) is true with probability one.
+same central projector \(E\) is true with probability one. Each finite-matrix step of this
+argument (commutativity and centrality of the record span, Born traces, the L\"uders update with
+its fixed-point law, and the collapse of record conditioning to the normalized projector) is
+machine-checked in the companion Lean~4 event-algebra development \cite{eventalgebraLean}.
 \end{proof}
 
 \subsection{Record-conditioned modular cap responses}\label{subsec:record-conditioned-modular-cap-responses}
@@ -3102,6 +3105,13 @@ B.\ M\"uller, D.\ Matscheko, and J.\ Hill,
 and Rewrite Systems},
 2026.\\
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
+
+\bibitem{eventalgebraLean}
+B.\ M\"uller,
+\emph{Verified Projection-Event Calculus in Lean~4: Bundled Arbitrary-Partition Pinching,
+L\"uders Retractions, and CHSH Interoperability},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/machine_checked_finite_event_algebras.pdf}.
 
 \bibitem{ophconsensus}
 B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
