@@ -300,6 +300,17 @@ $\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$.
 The strange loop fixes both by demanding that the universe return the same
 numbers it was given.
 
+The closure proofs matter: if both equations land, OPH is a fully
+zero-parameter theory, with both numbers returned by the architecture rather
+than measured. They are not strictly necessary, though. The loop is a closed
+mathematical structure either way, and living inside a closed structure
+licenses reading values off it: locate a constant in its basin by
+observation, then prove exact fixed-point-ness afterward. The theorems
+certify the located value; they do not have to manufacture it. Even if a
+first-principles closure for $N$ is never found, the reconstruction of the
+earlier chapters stands — $N$ is read from the universe the way any machine
+setting is read from the machine.
+
 ## 18.8 Where the Loop Leads
 
 The strange loop converts the structure of the argument into the argument. The

@@ -438,6 +438,18 @@ partie de cette clôture est vérifiée machine en Lean, et le point fixe de $P$
 ci-dessus, qui atterrit à côté de la constante de structure fine mesurée, en
 est la retombée. Les conditions de clôture sont suivies comme
 [tickets GitHub](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
+Les preuves de clôture sont importantes — si elles aboutissent, OPH est une
+théorie entièrement sans paramètre, les deux constantes étant rendues par
+l’architecture plutôt que mesurées — mais elles ne sont pas strictement
+nécessaires. La construction est de toute façon une boucle mathématique
+fermée, et une boucle fermée autorise la lecture des valeurs depuis
+l’intérieur : localiser une constante dans son bassin par l’observation, puis
+prouver ensuite son caractère exact de point fixe. Les théorèmes de point
+fixe certifient la valeur localisée ; ils n’ont pas à la fabriquer. Même si
+une clôture de $N$ par premiers principes n’est jamais trouvée, OPH tient —
+$N$ se lit dans l’univers, et tout ce que les cinq axiomes imposent suit
+encore.
+
 Si la boucle se ferme entièrement, elle répond à la dernière question qu’une
 théorie du tout puisse recevoir — pourquoi quelque chose existe, et pourquoi
 c’est ainsi. C’est le twist que le livre garde pour la fin de l’histoire, où

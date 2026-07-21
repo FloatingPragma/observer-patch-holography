@@ -375,6 +375,16 @@ with their evaluation boundaries and required completions stated, and the
 mature falsification surface is collected in the
 [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 
+The closure proofs are important — if they land, OPH is a fully
+zero-parameter theory, with both constants returned by the architecture
+rather than measured — but they are not strictly necessary. The construction
+is a closed mathematical loop either way, and a closed loop licenses reading
+values off from the inside: locate a constant in its basin by observation,
+then prove exact fixed-point-ness afterward. The fixed-point theorems certify
+the located value; they do not have to manufacture it. Even if a
+first-principles $N$-closure is never found, OPH stands — $N$ is read from
+the universe, and everything the five axioms force still follows.
+
 If the loop closes fully, it answers the last question a theory of
 everything can be asked — why anything exists, and why it is the way it is:
 the universe is the unique structure consistent with reading itself into
