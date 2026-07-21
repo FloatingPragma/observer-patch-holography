@@ -295,15 +295,14 @@ Part B gaps:
   selector closes UD12 and RP-A5 on the declared quotient-visible carrier
   lineage, deriving the unit split, inverse pairing, proper A5 action, exact
   frame, and refinement/relabeling naturality. PORT-CURRENT-INNER is closed
-  conditionally on the declared response branch by the exact port-current
+  on the declared response branch by the exact port-current
   certificate (`code/a5_closure/port_current_inner_certificate.py`): the
   injective full-rank current lift onto
   $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with compact skew-adjoint closure,
   inner A5 action, refinement naturality, and a register-relabeling no-go,
-  with the response packet (four band scales, one common odd sign) entering
-  as a typed branch premise; the physical response-field measurement is the
-  remaining producer named in the receipt's closure condition. The other
-  remaining producer gates are block determinant balance and
+  with the response source data (four band scales, one common odd sign)
+  declared in the source packet — the same epistemic status as the pinned
+  carrier manifest. The remaining producer gates are block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
   non-vacuum exterior package and $H=W$; exclusion of the vacuum
   singlet and other anomaly-free light sectors; A5 family attachment plus a

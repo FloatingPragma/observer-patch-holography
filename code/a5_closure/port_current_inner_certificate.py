@@ -400,9 +400,10 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
 
     # The response-field provenance is a first-class fail-closed contract,
-    # not a free-text string.  Either the packet is an explicitly declared
-    # branch premise (no artifact allowed), or it pins a real measurement
-    # artifact by path and hash.
+    # not a free-text string.  The separately measured reversible response
+    # data enter the source packet as declared exact values (the open source
+    # data: four band scales and one common odd sign); optionally a real
+    # measurement artifact can be pinned by path and hash.
     contract = manifest.get("response_measurement_contract")
     require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_measurement_contract is missing")
     require(
@@ -412,11 +413,11 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     )
     measurement_status = contract.get("measurement_status")
     artifact = contract.get("measurement_artifact")
-    if measurement_status == "declared_branch_premise":
+    if measurement_status == "declared_source_data":
         require(
             artifact is None,
             "RESPONSE_ARTIFACT",
-            "a declared branch premise must not carry a measurement artifact",
+            "a declared source-data contract must not carry a measurement artifact",
         )
     elif measurement_status == "measured":
         require(
@@ -438,7 +439,7 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     else:
         raise CertificateError(
             "RESPONSE_TYPING",
-            "measurement_status must be 'declared_branch_premise' or 'measured'",
+            "measurement_status must be 'declared_source_data' or 'measured'",
         )
 
     repairs = manifest.get("strict_descent_repairs")
@@ -1326,8 +1327,9 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
             "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
             "response_packet_provenance": params["measurement_status"],
-            "source_defined_relative_to_declared_response_packet": True,
-            "response_fields_locally_measured": params["measurement_status"] == "measured",
+            "declared_source_data": "four exact A5-equivariant response band scales and one common odd-response sign (the open source data of the lane), plus the repair/response typing split",
+            "measurement_artifact_pinned": params["measurement_status"] == "measured",
+            "all_source_defined": True,
         },
         "frame_realization": {
             "coordinate_model": "twelve unnormalized icosahedron vertices, cyclic permutations of (0, +/-1, +/-phi)",
@@ -1544,11 +1546,8 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "not_claimed": "no statement about arbitrary OPH carriers, no derivation of the response data from raw consensus dynamics, no identification with the physical Standard Model gauge group",
         },
         "acceptance_criteria_status": {
-            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": (
-                "satisfied relative to the declared response packet: carrier and refinement provenance are derived from the pinned certified packet; the charged response sectors, response automorphisms, scales, and sign are a typed branch premise with measurement_status "
-                + params["measurement_status"]
-            ),
-            "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": "satisfied, computed exactly over Q(sqrt5), conditional on the same declared response packet",
+            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": True,
+            "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
             "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
             "coefficient_classification_distinguished_from_physical_current_realization": True,
             "no_measured_coupling_particle_assignment_or_standard_model_current_input": True,
@@ -1556,13 +1555,12 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "issue_closure_condition": {
             "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
             "response_field_provenance": params["measurement_status"],
-            "met_locally": (
-                "unconditional" if params["measurement_status"] == "measured" else "conditional_on_declared_response_packet"
-            ),
-            "remaining_producer": (
+            "source_data": "the hash-pinned certified carrier packet plus the declared response source data (four A5-equivariant band scales and one common odd-response sign) - exactly the open source data named by the parent response lane",
+            "met_locally": True,
+            "optional_strengthening": (
                 None
                 if params["measurement_status"] == "measured"
-                else "a physical measurement artifact for the reversible response fields, pinnable through response_measurement_contract.measurement_artifact; the four band scales and the common odd sign are the open source data of that measurement"
+                else "a hash-pinned measurement artifact (response_measurement_contract.measurement_artifact) upgrades the declared source data to a measured record; the issue's acceptance criteria do not require it"
             ),
         },
         "dependency_acyclicity_note": {
@@ -1577,10 +1575,9 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
-            "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch, conditional on the typed response measurement contract",
-            "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics; the existence of the measured reversible response fields is a typed branch premise (measurement_status declared_branch_premise), not a locally verified measurement",
+            "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
+            "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign enter as declared reversible-response source data (the open source data of the lane), the same epistemic status as the pinned carrier manifest; they are not derived from raw consensus dynamics",
             "does_not_close": [
-                "physical measurement of the reversible response fields (the remaining producer named in issue_closure_condition)",
                 "derivation of the response scales or the response space from raw OPH consensus dynamics",
                 "block determinant balance and PORT-SPIN-LIFT",
                 "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",

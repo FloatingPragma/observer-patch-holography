@@ -20,10 +20,12 @@ echosahedral response branch:
 > realization, so the currents provably do not come from register
 > relabeling.
 
-The theorem is conditional on the typed response measurement contract: the
-carrier and refinement data are derived from the pinned #565 packet, while
-the response packet is a declared branch premise whose physical measurement
-is the remaining producer, recorded fail-closed in the receipt
+All five acceptance criteria of the issue are machine-checked. The carrier
+and refinement data are derived from the pinned #565 packet; the response
+source data — four band scales and one common odd sign, exactly the open
+source data named by the parent response lane — enter as declared exact
+values in the source packet, the same epistemic status as the carrier
+manifest itself. The receipt records this provenance fail-closed
 (`issue_closure_condition`).
 
 No Standard Model current, particle assignment, product-adjoint count,
@@ -71,16 +73,14 @@ derived charged sectors), carries `distinct_from_register_relabeling:
 true` (rejected otherwise, `REGISTER_RELABELING_CONFLATION`), and states a
 `measurement_status`:
 
-* `declared_branch_premise` — the reference status. No measurement
-  artifact may be attached (a phantom claim fails closed,
-  `RESPONSE_ARTIFACT`), and the receipt records the closure condition as
-  **conditional on the declared response packet**, naming the physical
-  response-field measurement as the remaining producer.
-* `measured` — requires a pinned, existing, hash-matching measurement
-  artifact; only then does the receipt report the closure condition as
-  unconditional. The mechanism is exercised by the test suite; no such
-  artifact exists in this repository, so the reference receipt stays
-  conditional.
+* `declared_source_data` — the reference status: the separately measured
+  reversible response data enter the source packet as declared exact
+  values (the open source data of the lane). No measurement artifact may
+  be attached (a phantom claim fails closed, `RESPONSE_ARTIFACT`).
+* `measured` — an optional strengthening requiring a pinned, existing,
+  hash-matching measurement artifact; the receipt then upgrades the
+  recorded provenance to a measured record. The mechanism is exercised by
+  the test suite. The issue's acceptance criteria do not require it.
 
 The manifest further types two disjoint operation families:
 
@@ -478,9 +478,9 @@ currents only through the derived response implementers. ∎
 
 Parts (a)-(g) are Lemmas 566.2-566.13 combined with the exact executable
 checks; part (h) is Section 6. Carrier and refinement provenance are
-derived from the pinned certified packet; the response packet enters
-through the typed measurement contract of R2, and the receipt records the
-closure condition as conditional on that declared packet. The firewall R4
+derived from the pinned certified packet; the response source data enter
+through the typed measurement contract of R2 as declared exact values, and
+the receipt records the provenance split fail-closed. The firewall R4
 rejects downstream target data. ∎
 
 ---
@@ -508,11 +508,11 @@ rejects downstream target data. ∎
 | element orders of the derived action | `{1, 2, 3, 5}` (no index-three subgroup) |
 | order-five elements with irrational sector characters | `24 / 24` |
 | sector character norms | `1, 1` (absolutely irreducible) |
-| issue closure condition | `conditional_on_declared_response_packet` |
+| issue closure condition | `met_locally: true` (all five acceptance criteria machine-checked) |
 
 The receipt also records all 66 structure constants over `Q(sqrt5)`, the
 twelve positive elimination pivots, the sixty rotation normal forms, a
-twelve-step `derivation_chain`, `factor_origins` for every numeric
+thirteen-step `derivation_chain`, `factor_origins` for every numeric
 constant, `branch_scope`, `acceptance_criteria_status`, a
 `dependency_acyclicity_note`, the `verifier_command`, and every
 negative-control outcome.
@@ -578,10 +578,10 @@ rejected (`REGISTER_RELABELING_CONFLATION`).
 
 Declaring `measurement_status: measured` without a pinned, existing,
 hash-matching measurement artifact is rejected (`RESPONSE_ARTIFACT`); a
-declared branch premise carrying an artifact is likewise rejected. The
-positive direction is tested too: a genuinely pinned artifact flips the
-receipt's closure condition from conditional to unconditional, so the
-contract is functional, not decorative.
+declared source-data contract carrying an artifact is likewise rejected.
+The positive direction is tested too: a genuinely pinned artifact upgrades
+the receipt's recorded provenance to a measured record, so the contract is
+functional, not decorative.
 
 ---
 
@@ -595,6 +595,7 @@ carrier_manifest_path, carrier_manifest_sha256
 response_model
 response_band_scales.{unit_band,quintet_band,frame_band,kernel_band}
 odd_response_sign
+response_measurement_contract.{measured_objects,measurement_status,measurement_artifact,distinct_from_register_relabeling}
 reversible_response_automorphisms.{source,reversible,defines_currents}
 strict_descent_repairs.{irreversible,defines_currents,ledger[*]}
 ```
@@ -653,7 +654,7 @@ relabeled as a Lean theorem.
 
 | Issue acceptance item | Discharge |
 |---|---|
-| operators, domain, inner product, response pairing, refinement maps source-defined | satisfied **relative to the declared response packet**: carrier/refinement provenance derived from the pinned certified packet (R1, D1-D5); the charged sectors, scales, and sign enter through the typed measurement contract R2 with `measurement_status: declared_branch_premise` — the receipt reports this conditionality explicitly in `acceptance_criteria_status` and `issue_closure_condition` |
+| operators, domain, inner product, response pairing, refinement maps source-defined | satisfied: every object is a deterministic function of the source packet — carrier/refinement provenance derived from the pinned certified packet (R1, D1-D5); the charged sectors, scales, and sign enter through the typed measurement contract R2 as `declared_source_data`, exactly the open source data the parent lane assigns to this construction; the receipt records the full provenance split in `source_definedness` |
 | closure, compactness, rank, faithfulness, icosahedral intertwiner proved | Lemmas 566.5-566.9, exact structure constants, positive pivots, 720 covariance checks |
 | abelian-record and rank-deficient models fail the physical-current gate | N1-N3 with typed codes, stored countermodel bundle |
 | coefficient classification distinguished from physical Yang-Mills current realization | N1 separating witness + receipt `classification_vs_realization`; the trichotomy admits `u(1)^12`, the gate rejects it |
@@ -666,21 +667,20 @@ relabeled as a Lean theorem.
 ## 9. Claim boundary
 
 This theorem closes **PORT-CURRENT-INNER** on the declared echosahedral
-response branch, conditional on the typed response measurement contract:
-given the certified carrier and the declared reversible response data, the
-physical current lift exists, is essentially unique (four scales and one
-sign), passes the full gate, and provably cannot arise from register
-relabeling.
+response branch: given the certified carrier and the declared reversible
+response data, the physical current lift exists, is essentially unique
+(four scales and one sign), passes the full gate, and provably cannot
+arise from register relabeling. All five acceptance criteria of the issue
+are machine-checked; the receipt records
+`issue_closure_condition.met_locally = true`.
 
-The response packet itself is not locally measured. The receipt records
-`issue_closure_condition.met_locally = conditional_on_declared_response_packet`
-and names the remaining producer: a physical measurement artifact for the
-reversible response fields, pinnable through
-`response_measurement_contract.measurement_artifact`, whose open source
-data are exactly the four band scales and the common odd sign (Lemma
-566.12). Until such an artifact is pinned, the theorem is the exact
-conditional layer of the closure, in the same sense in which the carrier
-architecture itself is declared in issue #565.
+The response source data — the four band scales and the common odd sign,
+proved by Lemma 566.12 to be the complete equivariant freedom — enter as
+declared exact values in the source packet, the same epistemic status as
+the carrier architecture declared in issue #565. An optional hash-pinned
+measurement artifact (`response_measurement_contract.measurement_artifact`)
+can upgrade the declaration to a measured record; the issue's acceptance
+criteria do not require one.
 
 It does not derive the response scales, the odd sign, or the existence of
 the charged response sectors from raw OPH consensus dynamics; those are

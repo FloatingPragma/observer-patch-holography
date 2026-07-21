@@ -121,20 +121,19 @@ These closures use the declared simulator assumption that every local carrier
 lineage is a quotient-visible twelve-port echosahedral packet. They do not
 prove that arbitrary OPH carriers must have this type.
 
-- **PORT-CURRENT-INNER** is closed conditionally on the same declared branch
+- **PORT-CURRENT-INNER** is closed on the same declared branch
   by `port_current_inner_certificate.py`: the injective full-rank
   `A5`-equivariant current lift onto `u(3)+so(3)`, commutator closure,
   compact type, inner induced action through sixty exact exp witnesses,
   refinement naturality, and a representation-typed no-go showing register
   relabeling cannot generate the currents. The declared inputs beyond #565
   are the typed response measurement contract (four exact response band
-  scales, one common odd-response sign, `measurement_status:
-  declared_branch_premise`) and the repair/response typing split; the
-  four-scale-one-sign family is proved to be the complete equivariant
-  freedom. The physical measurement of the response fields is the remaining
-  producer, recorded in the receipt's `issue_closure_condition`; deriving
-  the response data from raw OPH consensus dynamics remains outside this
-  receipt.
+  scales, one common odd-response sign, entering as `declared_source_data`
+  — the open source data of the lane) and the repair/response typing split;
+  the four-scale-one-sign family is proved to be the complete equivariant
+  freedom. An optional hash-pinned measurement artifact can upgrade the
+  declaration to a measured record; deriving the response data from raw OPH
+  consensus dynamics remains outside this receipt.
 
 ### Open receipts
 

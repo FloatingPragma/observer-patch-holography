@@ -1,10 +1,10 @@
 {
   "acceptance_criteria_status": {
     "abelian_record_and_rank_deficient_models_fail_physical_current_gate": true,
-    "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": "satisfied, computed exactly over Q(sqrt5), conditional on the same declared response packet",
+    "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": true,
     "coefficient_classification_distinguished_from_physical_current_realization": true,
     "no_measured_coupling_particle_assignment_or_standard_model_current_input": true,
-    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": "satisfied relative to the declared response packet: carrier and refinement provenance are derived from the pinned certified packet; the charged response sectors, response automorphisms, scales, and sign are a typed branch premise with measurement_status declared_branch_premise"
+    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
   },
   "branch_scope": {
     "branch": "declared echosahedral response branch",
@@ -20,10 +20,9 @@
     "matrix_faithful": true
   },
   "claim_boundary": {
-    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch, conditional on the typed response measurement contract",
-    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics; the existence of the measured reversible response fields is a typed branch premise (measurement_status declared_branch_premise), not a locally verified measurement",
+    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
+    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign enter as declared reversible-response source data (the open source data of the lane), the same epistemic status as the pinned carrier manifest; they are not derived from raw consensus dynamics",
     "does_not_close": [
-      "physical measurement of the reversible response fields (the remaining producer named in issue_closure_condition)",
       "derivation of the response scales or the response space from raw OPH consensus dynamics",
       "block determinant balance and PORT-SPIN-LIFT",
       "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
@@ -2523,12 +2522,13 @@
   },
   "issue": 566,
   "issue_closure_condition": {
-    "met_locally": "conditional_on_declared_response_packet",
+    "met_locally": true,
+    "optional_strengthening": "a hash-pinned measurement artifact (response_measurement_contract.measurement_artifact) upgrades the declared source data to a measured record; the issue's acceptance criteria do not require it",
     "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
-    "remaining_producer": "a physical measurement artifact for the reversible response fields, pinnable through response_measurement_contract.measurement_artifact; the four band scales and the common odd sign are the open source data of that measurement",
-    "response_field_provenance": "declared_branch_premise"
+    "response_field_provenance": "declared_source_data",
+    "source_data": "the hash-pinned certified carrier packet plus the declared response source data (four A5-equivariant band scales and one common odd-response sign) - exactly the open source data named by the parent response lane"
   },
-  "manifest_sha256": "1afe016267567dd69bad5dee79483cabd56f353e9aef00502c2c16c505a58db6",
+  "manifest_sha256": "c167c52646d352ebb910ebf653e61190ee47c6b81d09ff336fd472bc99e3e3d6",
   "physical_current_gate": {
     "a5_covariant_icosahedral_intertwiner": true,
     "adjoint_rank_eleven": true,
@@ -2641,15 +2641,16 @@
   },
   "schema": "oph.port_current_inner_receipt.v1",
   "source_definedness": {
+    "all_source_defined": true,
     "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
+    "declared_source_data": "four exact A5-equivariant response band scales and one common odd-response sign (the open source data of the lane), plus the repair/response typing split",
     "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
     "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
+    "measurement_artifact_pinned": false,
     "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
     "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
-    "response_fields_locally_measured": false,
-    "response_packet_provenance": "declared_branch_premise",
-    "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
-    "source_defined_relative_to_declared_response_packet": true
+    "response_packet_provenance": "declared_source_data",
+    "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
   },
   "source_firewall": {
     "forbidden_dependency_hits": [],

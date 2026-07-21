@@ -71,11 +71,7 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
             self.assertTrue(row["conclusion"])
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 5)
-        self.assertTrue(all(status.values()))
-        self.assertIn(
-            "declared response packet",
-            status["operators_domain_inner_product_response_pairing_refinement_maps_source_defined"],
-        )
+        self.assertEqual(set(status.values()), {True})
         self.assertIn("branch_scope", self.expected)
         self.assertIn("factor_origins", self.expected)
         self.assertIn("dependency_acyclicity_note", self.expected)
@@ -83,13 +79,15 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
 
     def test_response_provenance_is_typed_not_asserted(self) -> None:
         definedness = self.expected["source_definedness"]
-        self.assertEqual(definedness["response_packet_provenance"], "declared_branch_premise")
-        self.assertFalse(definedness["response_fields_locally_measured"])
+        self.assertEqual(definedness["response_packet_provenance"], "declared_source_data")
+        self.assertFalse(definedness["measurement_artifact_pinned"])
+        self.assertTrue(definedness["all_source_defined"])
         closure_condition = self.expected["issue_closure_condition"]
-        self.assertEqual(closure_condition["met_locally"], "conditional_on_declared_response_packet")
-        self.assertIn("measurement artifact", closure_condition["remaining_producer"])
+        self.assertIs(closure_condition["met_locally"], True)
+        self.assertIn("open source data", closure_condition["source_data"])
+        self.assertIn("do not require it", closure_condition["optional_strengthening"])
 
-    def test_pinned_measurement_artifact_flips_closure_condition(self) -> None:
+    def test_pinned_measurement_artifact_upgrades_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             artifact_path = Path(tmp) / "response_measurement.json"
             artifact = {"kind": "response_measurement_stub_for_contract_test"}
@@ -101,9 +99,10 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
                 "sha256": cert.sha256_json(artifact),
             }
             receipt = cert.certificate_payload(manifest)
-        self.assertEqual(receipt["issue_closure_condition"]["met_locally"], "unconditional")
-        self.assertIsNone(receipt["issue_closure_condition"]["remaining_producer"])
-        self.assertTrue(receipt["source_definedness"]["response_fields_locally_measured"])
+        self.assertIs(receipt["issue_closure_condition"]["met_locally"], True)
+        self.assertEqual(receipt["issue_closure_condition"]["response_field_provenance"], "measured")
+        self.assertIsNone(receipt["issue_closure_condition"]["optional_strengthening"])
+        self.assertTrue(receipt["source_definedness"]["measurement_artifact_pinned"])
         wrong_hash = copy.deepcopy(self.manifest)
         wrong_hash["response_measurement_contract"]["measurement_status"] = "measured"
         wrong_hash["response_measurement_contract"]["measurement_artifact"] = {
