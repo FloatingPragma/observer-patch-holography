@@ -82,6 +82,20 @@ jobs:
             echo "::warning::lake build stopped with exit $status (124 = time budget reached); progress is cached for the next run"
           fi
 
+      - name: Fetch Mathlib olean cache for the neutral submission artifact
+        if: steps.budget_build.outputs.status == '0'
+        working-directory: Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
+        # The nested project pins the same Mathlib revision as the umbrella
+        # project; without this fetch it compiles Mathlib from source and
+        # exhausts its budget.
+        run: |
+          set -euo pipefail
+          status=0
+          lake exe cache get 2>&1 | tail -n 5 || status=$?
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::nested lake exe cache get exited with $status; continuing"
+          fi
+
       - name: Build neutral submission artifact
         id: onf_build
         if: steps.budget_build.outputs.status == '0'
@@ -89,7 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           status=0
-          timeout 30m lake build 2>&1 | tee onf-build.log || status=$?
+          timeout 60m lake build 2>&1 | tee onf-build.log || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
             echo "::warning::ObservableNormalForms build stopped with exit $status; progress is cached for the next run"
