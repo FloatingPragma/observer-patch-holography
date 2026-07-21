@@ -13,7 +13,7 @@
    "c_positivity_and_thresholds": "by reflection positivity and the transfer-operator spectral decomposition, G(t) = sum_n w_n (e^{-E_n t} + e^{-E_n (T-t)}) with w_n proportional to |<0|J_Q|n>|^2 through a positive normalization, hence w_n >= 0; rho_Q is a positive locally finite measure supported on the vector-channel spectrum above the vacuum, with threshold at the lowest such state (two-pion channel in infinite volume)",
    "d_normalization": "the exactly conserved point-split current needs no renormalization (Z_V = 1); the local current is renormalized by the conserved-local estimator Z_V^eff = C_CL/(2 kappa C_LL), anchored at exactly 1 on the free field (executed witness 3)",
    "e_scheme_dependence": "the spectral measure is scheme-independent spectral data of the conserved current; scheme enters only through the declared once-subtracted transport kernel mZ^2/(3 pi s (s + mZ^2)) and the same-subtraction lock to a0(P) (SOURCE_SPECTRAL_THEOREM.md; the kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact, lattice_backend/vector_correlator.py)",
-   "f_resonances_and_continuum": "unstable resonances and the continuum enter through the declared Luscher-class finite-volume pushforward from levels and residues to rho_Q(s;P); the scattering scaffolding is typed under particles/hadron/rho_scattering/ and its production execution is issue #425 scope",
+   "f_resonances_and_continuum": "unstable resonances and the continuum enter through the declared Luscher-class finite-volume pushforward from levels and residues to rho_Q(s;P); the scattering scaffolding is typed under particles/hadron/rho_scattering/ and its production execution belongs to the production backend export lane (dependency_note)",
    "g_covariance_and_uncertainty": "spectral moments are linear functionals of the measure, so errors propagate through the kernel by leave-one-out jackknife over configurations; production payloads must carry the seven-row budget ledger (statistical, continuum, finite-volume, chiral, current-matching, quadrature, endpoint-remainder) enforced by the acceptance gate"
   }
  },
@@ -30,7 +30,7 @@
    "premise": "Euclidean vacuum, reflection positivity, transfer operator",
    "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
    "receipts": "particles/runs/qcd/hadron_source_backend/vacuum/",
-   "conclusion": "the Euclidean slab with reflection positivity defines a transfer operator whose spectral decomposition supplies the Hilbert-space representation used for positivity; the executed engine realizes it with the gamma5-hermitian Wilson-clover operator and antiperiodic time boundary"
+   "conclusion": "the Euclidean slab with reflection positivity defines a transfer operator whose spectral decomposition supplies the Hilbert-space representation used for positivity; reflection positivity is a theorem for the unimproved Wilson action (Osterwalder-Seiler), while the clover-improved engine restores it only in the continuum limit, so at finite spacing the demonstrator checks positivity as an executed witness rather than assuming it"
   },
   {
    "step": 3,
@@ -54,7 +54,7 @@
    "step": 6,
    "premise": "resonances and continuum",
    "source_artifact": "code/particles/hadron/rho_scattering/",
-   "conclusion": "two-body channels map to infinite volume through the declared Luscher-class pushforward; unstable resonances and thresholds are treated explicitly at that stage (production execution: issue #425)"
+   "conclusion": "two-body channels map to infinite volume through the declared Luscher-class pushforward; unstable resonances and thresholds are treated explicitly at that stage (production backend export lane)"
   },
   {
    "step": 7,
@@ -168,8 +168,8 @@
        "s": 2.048681584077855,
        "energy": 1.4313216214666273,
        "energy_jackknife_error": 0.6576894420893482,
-       "weight": 4467.620911708111,
-       "weight_jackknife_error": 14794.816245275504
+       "weight": 36.18772938483569,
+       "weight_jackknife_error": 119.8380115867316
       }
      ]
     }
@@ -177,14 +177,14 @@
    "ward_projected_residues": [
     {
      "level_id": "vector_ground_A",
-     "residue": 4467.620911708111,
+     "residue": 36.18772938483569,
      "current_normalization": "Z_V^eff = C_CL/(2 kappa C_LL) from the exactly conserved point-split current; Z_V = 0.755669 +- 0.421214"
     }
    ],
    "rho_had_or_measure": {
     "representation": "primitive_spectral_measure",
     "support_variable": "s",
-    "pushforward_rule": "rho(s) = w delta(s - (a m_V)^2) from the single-state model of the folded transverse correlator; the production pushforward to rho_Q(s;P) is the declared Luscher-class finite-volume map (rho_scattering/ scaffolding, issue #425 scope)",
+    "pushforward_rule": "rho(s) = w delta(s - (a m_V)^2) from the single-state model of the folded transverse correlator; the production pushforward to rho_Q(s;P) is the declared Luscher-class finite-volume map (rho_scattering/ scaffolding, production backend export lane)",
     "positivity_status": "verified_nonnegative: correlator positive on all significant timeslices, noise-level tail consistent with zero, atom weight positive",
     "positivity_report": {
      "rule": "Kallen-Lehmann positivity holds for the exact expectation value; the finite-sample witness requires G(t) > 0 on every statistically significant timeslice (|G| > 2 sigma) and |G| <= 2 sigma wherever the central value is negative",
@@ -363,14 +363,14 @@
     "z_v": 0.7556688181970018,
     "z_v_jackknife_error": 0.4212144319135873,
     "amplitude_hop": 4.254828556104056,
-    "weight_physical_units": 4467.620911708111,
-    "weight_jackknife_error": 14794.816245275504,
+    "weight_physical_units": 36.18772938483569,
+    "weight_jackknife_error": 119.8380115867316,
     "window_rule": "cosh effective mass over the positive decaying window from t = 3"
    },
    "systematics": {
     "statistical_budget": {
      "method": "leave-one-out jackknife through the full constructor",
-     "relative_error_weight": 3.3115648211116877,
+     "relative_error_weight": 3.3115648211116886,
      "relative_error_energy": 0.45949801374161864
     },
     "quadrature_budget": {
@@ -379,23 +379,23 @@
     },
     "continuum_budget": {
      "status": "not_quantified_at_diagnostic_scale",
-     "production_scope": "issue #425 backend export budgets"
+     "production_scope": "production backend export budgets (dependency_note)"
     },
     "finite_volume_budget": {
      "status": "not_quantified_at_diagnostic_scale",
-     "production_scope": "issue #425 backend export budgets"
+     "production_scope": "production backend export budgets (dependency_note)"
     },
     "chiral_budget": {
      "status": "not_quantified_at_diagnostic_scale",
-     "production_scope": "issue #425 backend export budgets"
+     "production_scope": "production backend export budgets (dependency_note)"
     },
     "current_matching_budget": {
      "status": "not_quantified_at_diagnostic_scale",
-     "production_scope": "issue #425 backend export budgets"
+     "production_scope": "production backend export budgets (dependency_note)"
     },
     "endpoint_remainder_budget": {
      "status": "not_quantified_at_diagnostic_scale",
-     "production_scope": "issue #425 backend export budgets"
+     "production_scope": "production backend export budgets (dependency_note)"
     }
    },
    "guards": {
@@ -496,7 +496,7 @@
  "claim_boundary": {
   "closed_here": "the construction theorem for the renormalized U(1)_Q current and its positive spectral measure (gauge invariance, Ward identity, positivity, normalization, thresholds, scheme confinement, covariance and uncertainty-propagation rules), the machine-readable emission contract with fail-closed guards and negative controls, an executed diagnostic demonstrator on committed real lattice data, and the typing of empirical, higher-point, and radiative objects",
   "not_closed_here": [
-   "the production 2+1 payload with real correlator arrays and quantified continuum/finite-volume/chiral/current-matching/endpoint budgets (issue #425 backend execution)",
+   "the production 2+1 payload with real correlator arrays and quantified continuum/finite-volume/chiral/current-matching/endpoint budgets (production backend execution, dependency_note)",
    "production-scale resonance extraction through the Luscher-class map",
    "continuum-limit and confinement certificates (H4 tier)",
    "the source QCD parameter map P -> (g_3, quark masses, scheme)",
@@ -520,7 +520,7 @@
   "demonstrator_ensemble": "code/particles/runs/hadron/hybrid_ir_ensembleA_2026-07-16.npz"
  },
  "consumer_artifacts": {
-  "production_backend_export": "issue #425 production export bundle conforming to the schema and acceptance gate certified here",
+  "production_backend_export": "production backend export bundle conforming to the schema and acceptance gate certified here (dependency_note)",
   "thomson_endpoint_lane": "code/P_derivation/source_spectral_theorem.py consumes a conforming payload for the source-only Thomson endpoint interval certificate"
  },
  "forbidden_inputs": [
@@ -533,7 +533,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-21T14:48:47Z",
+  "generated_utc": "2026-07-21T15:01:56Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }

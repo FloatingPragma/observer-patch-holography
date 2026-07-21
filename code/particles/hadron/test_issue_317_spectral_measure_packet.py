@@ -111,6 +111,20 @@ def test_acceptance_gate_accepts_conformant_and_rejects_all_controls(packet):
         assert control["rejected"] is True, control
 
 
+def test_demonstrator_residue_normalization_chain(packet):
+    """w_phys = Z_V^2 (2 kappa)^2 * 24 pi^2 A / m, per conserved_vector.py:
+    the hopping-to-physical factor is (2 kappa)^2 and the atom amplitude is
+    A = w m / (24 pi^2) (vector_correlator.synthetic_atom_correlator)."""
+    import math
+
+    demo = packet["machine_witnesses"]["demonstrator_measure"]
+    kappa = demo["ensemble"]["kappa"]
+    ex = demo["extraction"]
+    w_hop = 24.0 * math.pi**2 * ex["amplitude_hop"] / ex["am_vector"]
+    expected = ex["z_v"] ** 2 * (2.0 * kappa) ** 2 * w_hop
+    assert ex["weight_physical_units"] == pytest.approx(expected, rel=1e-12)
+
+
 def test_gate_target_leak_fails_closed_directly():
     schema = json.loads(packet_mod.SCHEMA_PATH.read_text(encoding="utf-8"))
     payload = packet_mod.build_conformant_payload()
@@ -122,10 +136,11 @@ def test_gate_target_leak_fails_closed_directly():
 
 def test_claim_boundary_and_dependency_direction(packet):
     boundary = packet["claim_boundary"]
-    assert any("#425" in row for row in boundary["not_closed_here"])
+    assert any("production backend execution" in row for row in boundary["not_closed_here"])
     assert "physical promotion" in " ".join(boundary["not_closed_here"])
     dep = packet["dependency_note"]
     assert dep["upstream_of_425_not_downstream"] is True
+    assert "consumed by #317" in dep["direction"]
     assert packet["forbidden_inputs"] == packet_mod.FORBIDDEN_TARGETS
 
 

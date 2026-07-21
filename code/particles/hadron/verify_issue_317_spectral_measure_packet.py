@@ -2,18 +2,18 @@
 """Verifier for OPH issue #317: Ward-projected hadronic spectral-measure proof packet.
 
 The packet certifies the construction layer that the production hadron
-backend (issue #425) must satisfy: the renormalized electromagnetic
-hadronic current, its positive spectral measure with thresholds,
-resonances-and-continuum typing, covariance, and uncertainty propagation,
-all derived from the OPH QCD/matter sector with no measured HVP input.
+backend must satisfy: the renormalized electromagnetic hadronic current,
+its positive spectral measure with thresholds, resonances-and-continuum
+typing, covariance, and uncertainty propagation, all derived from the OPH
+QCD/matter sector with no measured HVP input.
 
-The packet is upstream of production execution. Issue #425's acceptance
-list states that the production backend "exports the Ward-current spectral
-payload consumed by #317"; this verifier fixes and machine-checks the
-contract that the export must satisfy, proves the structural theorem parts
-on the declared construction, and demonstrates the constructor end-to-end
-on committed real lattice data at diagnostic scale. Physical promotion of
-any hadronic number stays with the production lane.
+The packet is upstream of production execution: the production backend
+(issue #425) "exports the Ward-current spectral payload consumed by #317",
+so this verifier fixes and machine-checks the contract that the export
+must satisfy, proves the structural theorem parts on the declared
+construction, and demonstrates the constructor end-to-end on committed
+real lattice data at diagnostic scale. Physical promotion of any hadronic
+number stays with the production lane.
 
 Machine checks executed at emission time:
 
@@ -257,10 +257,13 @@ def _atom_pipeline(
 
     Single-state model for the folded correlator, f(t) = A (e^{-m t} +
     e^{-m (T-t)}).  For an R-normalized spectral atom rho_R = w delta(s - m^2)
-    the hopping-normalized amplitude is A = w m / (24 pi^2)
+    the amplitude is A = w m / (24 pi^2)
     (``vector_correlator.synthetic_atom_correlator``), so w_hop = 24 pi^2 A / m.
-    Physical field normalization divides by (2 kappa)^2 and the local current
-    renormalizes with Z_V^2: w_phys = Z_V^2 w_hop / (2 kappa)^2.
+    The correlator is built from hopping-normalized propagators; the physical
+    correlator is (2 kappa)^2 times the hopping one (psi_phys =
+    sqrt(2 kappa) psi_hop; ``conserved_vector.py`` docstring: "the analysis
+    layer applies that factor"), and the local current renormalizes with
+    Z_V^2: w_phys = Z_V^2 (2 kappa)^2 w_hop.
     """
     folded_ll = fold_correlator(ll_mean)
     folded_cl = fold_correlator(cl_mean)
@@ -273,7 +276,7 @@ def _atom_pipeline(
     ]
     amp = float(np.mean(amps))
     w_hop = 24.0 * math.pi**2 * amp / m_v
-    w_phys = z_v * z_v * w_hop / (2.0 * kappa) ** 2
+    w_phys = z_v * z_v * (2.0 * kappa) ** 2 * w_hop
     return {"am_v": m_v, "z_v": z_v, "amplitude_hop": amp, "weight_phys": w_phys}
 
 
@@ -356,7 +359,7 @@ def demonstrator_measure(npz_path: Path = ENSEMBLE_NPZ) -> dict[str, Any]:
 
     unquantified = {
         "status": "not_quantified_at_diagnostic_scale",
-        "production_scope": "issue #425 backend export budgets",
+        "production_scope": "production backend export budgets (dependency_note)",
     }
     am_v = central["am_v"]
 
@@ -422,7 +425,7 @@ def demonstrator_measure(npz_path: Path = ENSEMBLE_NPZ) -> dict[str, Any]:
                 "rho(s) = w delta(s - (a m_V)^2) from the single-state model of the "
                 "folded transverse correlator; the production pushforward to "
                 "rho_Q(s;P) is the declared Luscher-class finite-volume map "
-                "(rho_scattering/ scaffolding, issue #425 scope)"
+                "(rho_scattering/ scaffolding, production backend export lane)"
             ),
             "positivity_status": (
                 "verified_nonnegative: correlator positive on all significant "
@@ -731,8 +734,8 @@ def build_theorem() -> dict[str, Any]:
                 "unstable resonances and the continuum enter through the declared "
                 "Luscher-class finite-volume pushforward from levels and residues to "
                 "rho_Q(s;P); the scattering scaffolding is typed under "
-                "particles/hadron/rho_scattering/ and its production execution is "
-                "issue #425 scope"
+                "particles/hadron/rho_scattering/ and its production execution "
+                "belongs to the production backend export lane (dependency_note)"
             ),
             "g_covariance_and_uncertainty": (
                 "spectral moments are linear functionals of the measure, so errors "
@@ -767,8 +770,11 @@ def build_derivation_chain() -> list[dict[str, Any]]:
             "conclusion": (
                 "the Euclidean slab with reflection positivity defines a transfer operator "
                 "whose spectral decomposition supplies the Hilbert-space representation "
-                "used for positivity; the executed engine realizes it with the "
-                "gamma5-hermitian Wilson-clover operator and antiperiodic time boundary"
+                "used for positivity; reflection positivity is a theorem for the "
+                "unimproved Wilson action (Osterwalder-Seiler), while the "
+                "clover-improved engine restores it only in the continuum limit, so at "
+                "finite spacing the demonstrator checks positivity as an executed "
+                "witness rather than assuming it"
             ),
         },
         {
@@ -810,7 +816,7 @@ def build_derivation_chain() -> list[dict[str, Any]]:
             "conclusion": (
                 "two-body channels map to infinite volume through the declared "
                 "Luscher-class pushforward; unstable resonances and thresholds are "
-                "treated explicitly at that stage (production execution: issue #425)"
+                "treated explicitly at that stage (production backend export lane)"
             ),
         },
         {
@@ -941,7 +947,7 @@ def build_packet() -> dict[str, Any]:
             "not_closed_here": [
                 "the production 2+1 payload with real correlator arrays and quantified "
                 "continuum/finite-volume/chiral/current-matching/endpoint budgets "
-                "(issue #425 backend execution)",
+                "(production backend execution, dependency_note)",
                 "production-scale resonance extraction through the Luscher-class map",
                 "continuum-limit and confinement certificates (H4 tier)",
                 "the source QCD parameter map P -> (g_3, quark masses, scheme)",
@@ -982,8 +988,8 @@ def build_packet() -> dict[str, Any]:
         },
         "consumer_artifacts": {
             "production_backend_export": (
-                "issue #425 production export bundle conforming to the schema and "
-                "acceptance gate certified here"
+                "production backend export bundle conforming to the schema and "
+                "acceptance gate certified here (dependency_note)"
             ),
             "thomson_endpoint_lane": (
                 "code/P_derivation/source_spectral_theorem.py consumes a conforming "
