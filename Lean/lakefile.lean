@@ -27,7 +27,7 @@ lean_lib «OPHScreen» where
   srcDir := "ObserverPatchHolography/Screen"
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,
     `TopThreeKernelFix, `UnitSplit12, `Z6Exact, `PhysicalA5ForcingNoGo,
-    `PortFrameGram, `A5PortAction]
+    `PortFrameGram, `A5PortAction, `A5CouplingSymmetry]
 
 lean_exe «oph» where
   root := `Main

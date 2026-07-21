@@ -61,6 +61,20 @@ Mapping between Lean 4 theorems in this project and statements in
   The identification of this order-sixty incidence-automorphism group with
   the abstract `A5` (simplicity or classification) stays on paper; no
   physical current or descent content.
+- Universal cap coupling from icosahedral symmetry
+  (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
+  sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to
+  caps under all sixty rotations, the composition law, the right-translation
+  bijection of the group list, transitivity on ports); the quantified
+  statements are symbolic over arbitrary rational port data: `A5`-invariant
+  readouts have equal cap sums at every port, group-averaged cap sums are
+  port-independent for every data assignment, and hence the per-cap ratio of
+  any two averaged readouts (entropy over stress flux) is universal with
+  zero spread. This converts the Einstein-branch universality clause from a
+  measurement into a theorem whose one remaining hypothesis is
+  `A5`-equivariance of the source law; checking that hypothesis on an
+  implemented law is a finite simulator check. No physical coupling value or
+  promotion is implied.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
