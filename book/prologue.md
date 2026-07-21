@@ -55,19 +55,20 @@ public records. No outside machine renders a global timeline frame by frame.
 History is the inside readout of the settled structure, as experienced by
 observers who live inside it.
 
-That closed reading is the thread the whole book hangs on. The universe is the
-fixed point of its own description. The structure that does the simulating and
-the world that gets simulated are one closed system, and what we call physical
-law is the condition for that system to stay consistent as it reads itself all
-the way around. Later chapters call this the strange loop, and it is the
-organizing claim of the book. The physics is built to sit inside it. Two
-dimensionless coordinates organize the quantitative proposal: the local grain
-of the screen and the total record capacity. Each is defined by a closure
-equation. The local maps have certified unique roots, while their physical
-Thomson identification is work in progress. The global equation has an exact
-finite capacity definition and a fixed-cutoff witness; its physical
-capacity-indexed family and unique selector are work in progress. The two
-coordinates test whether local and global readback close one loop.
+That closed reading points at the book's final twist rather than its starting
+point. The thread the chapters actually hang on is simpler: observers come
+first, and objective reality is what their overlapping readings force into
+existence. Two dimensionless coordinates organize the quantitative proposal:
+the local grain of the screen and the total record capacity. Each is defined
+by a closure equation. The local maps have certified unique roots, while their
+physical Thomson identification is work in progress. The global equation has
+an exact finite capacity definition and a fixed-cutoff witness; its physical
+capacity-indexed family and unique selector are work in progress. Near the
+end of the book the twist gets its name — the strange loop: the universe as
+the fixed point of its own description, the structure that does the
+simulating and the world that gets simulated one closed system, and physical
+law the condition for that system to stay consistent as it reads itself all
+the way around.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic

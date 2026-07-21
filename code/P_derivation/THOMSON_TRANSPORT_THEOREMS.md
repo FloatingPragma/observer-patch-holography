@@ -263,7 +263,7 @@ Delta_impl(P) = 8.686567119456435565397988595605414327...
 so the source-only theorem must account for
 
 ```text
-Delta_missing(P) = 0.041163999587062704710570535563112120... (converged precision-100 rerun, CL-6; the earlier printed 0.041164012378350542... tail predates the converged rerun)
+Delta_missing(P) = 0.041163999587062704710570535563112120... (converged precision-100 rerun, printed-pair identity; the earlier printed 0.041164012378350542... tail predates the converged rerun)
 ```
 
 without using the measured endpoint as an input.

@@ -7,7 +7,7 @@ after the physical load receipts hold. It does not construct the capacity map.
 The direct producer contract is [F_READBACK_SPEC.md](F_READBACK_SPEC.md).
 
 **Status: conditional electroweak identification theorem. The displayed fixed
-point belongs to a target-tainted affine candidate and has no CL-7 promotion
+point belongs to a target-tainted affine candidate and has no N-closure issue #505 promotion
 weight. Its exact algebra survives as a comparison after an independent direct
 public-record `F` exists.**
 
@@ -272,8 +272,8 @@ Executed candidate: `F(N) = pi*exp((1-lambda)*log(N/pi) + lambda*x_EW(P))`,
 | A3 self-map enclosure | pass on the load interval `[x_EW - 1, x_EW + 1]`; capacity-coordinate check passes on `[0.9, 1.1] * N_CRC` |
 | A4 contraction | pass; derivative enclosure thin at `1/2` on the load coordinate (`L = 0.5827` on the capacity-coordinate interval) |
 | A5 fixed-point enclosure | pass; enclosures of S12, `x_EW` contained in the certified box |
-| A6 blindness (V-08) | fails by construction, recorded before any comparison: the candidate definition contains the bridge exponent `6*pi/(P*alpha_U)`. It cannot serve as a blind CL-7 landing test |
-| A7 landing | informative comparison only, no verdict: fixed point over the SL-4 display `3.31e122` is `1.0671` (`log10` offset `0.0282`). This restates the CL-3 residual (bridge capacity above the Lambda-located capacity by 6.6 percent in the ledger's units); it is the single live test if CP-1 through CP-3 discharge |
+| A6 blindness (V-08) | fails by construction, recorded before any comparison: the candidate definition contains the bridge exponent `6*pi/(P*alpha_U)`. It cannot serve as a blind N-closure issue #505 landing test |
+| A7 landing | informative comparison only, no verdict: fixed point over the Lambda-located capacity display `3.31e122` is `1.0671` (`log10` offset `0.0282`). This restates the capacity-comparison residual of issue #589 (bridge capacity above the Lambda-located capacity by 6.6 percent); it is the single live test if CP-1 through CP-3 discharge |
 
 Properties: P1 pass on the certificate interval (physical-grammar totality travels with
 CP-2/CP-3); P2 pass (`F' > 0`); P3 pass (`L = 1/2`); P4 open obligation, recorded (the
@@ -287,8 +287,8 @@ P5 pass for `lambda in (0,1)`.
 ## 7. Consequence for the ledger geometry
 
 CP-1 through CP-3 close the algebra and contraction analysis of the displayed
-target-coupled affine candidate. They do not close CL-7 because its evaluation
-cone contains the electroweak bridge exponent. CL-7 requires the independent
+target-coupled affine candidate. They do not close N-closure issue #505 because its evaluation
+cone contains the electroweak bridge exponent. N-closure issue #505 requires the independent
 public-record equalizer and stable code, complete-fiber scalarization,
 capacity-extension naturality, refinement, and greatest-fixed-point receipts
 in the primary specification.
@@ -318,6 +318,6 @@ alpha_U*X - 6*pi/P        =   1.2e-60
 
 ## 9. Canon actions
 
-This record closes no ledger row by itself. CL-7 stays open until a source-only
+This record closes no tracked closure condition by itself. N-closure issue #505 stays open until a source-only
 direct-capacity receipt satisfies [F_READBACK_SPEC.md](F_READBACK_SPEC.md). The
 target-coupled execution remains a comparison and negative-control artifact.

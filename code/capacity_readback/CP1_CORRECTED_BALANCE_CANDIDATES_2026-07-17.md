@@ -47,7 +47,7 @@ propagation artifact is prerequisite to any scoring.
 
 The seed-15π/16 candidate admits a structural reading as a per-cell trace
 quotient: 15/16 = dim sl(4)/dim gl(4), the traceless fraction of a 4×4 matrix
-algebra, with the trace mode read as conformal gauge on the SL-1 screen. A
+algebra, with the trace mode read as conformal gauge on the $S^2$ support screen. A
 corpus search finds no declared carrier for it: per-cell record content is
 never counted as matrix modes, the traceless objects in the corpus are the
 Einstein-branch TT modes and the scalar-to-tensor Y_ab, and d² − 1 = 15
@@ -57,7 +57,7 @@ candidates face the three named splices of the tick-projection scope note
 with no shortcut found. Conclusion of the attempt: no candidate is derivable
 from declared structure at current standing; the equation that would force
 the Λ-located capacity is not known, and the working capacity stays a basin
-location under SL-4.
+location under the capacity identity.
 
 ## Discharge obligations
 
@@ -65,8 +65,8 @@ Each candidate faces the CP-1 gate in corrected form: a counting or geometric
 derivation from declared screen structure, with the same three named splices
 the tick-projection certificate scope note leaves open (the port/adjoint
 identification, the pixel-area weight per port read, the port/channel
-identification). A derivation landing one of these terms closes CL-7 in
-corrected form and moves CL-3 from a 2.4σ conditional offset to a sub-0.1σ
+identification). A derivation landing one of these terms closes N-closure issue #505 in
+corrected form and moves capacity-comparison issue #589 from a 2.4σ conditional offset to a sub-0.1σ
 conditional landing at declared menu price M = 40, still conditional on CP-2
 and the F construction. A derivation landing the uncorrected balance keeps the
 2.4σ offset and returns the burden to the Λ side. Either derivation decides;

@@ -57,7 +57,7 @@ certified nonzero at every off-balance probe (load offsets `0.1` to `30`) and
 encloses zero at balance, so the clause-4-exact support is the fixed-point
 box. Consequence: under this reading the count representation carries no
 information beyond the fixed point; the two representations are one display,
-and the SL-4 one-N rule is satisfied vacuously.
+and the one-capacity rule is satisfied vacuously.
 
 **Per-configuration reading.** Readback varies across configurations at fixed
 `N`; `A_r(N)` counts the configurations whose own surface reads `N`; `l` is

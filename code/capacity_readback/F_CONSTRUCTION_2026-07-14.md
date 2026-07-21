@@ -14,7 +14,7 @@ enumerated and carried as a branch; no branch is selected by its landing; all fi
 points are recorded before any comparison with a reference capacity.
 
 Status header, written after execution: **no branch lands near a reference capacity.
-CL-7 stays open. Outcome class (b) with one named gap item (G2-GAP-1).** The
+N-closure issue #505 stays open. Outcome class (b) with one named gap item (G2-GAP-1).** The
 constructed candidates are recorded here as excluded.
 
 ## 0. Inputs and blindness cone
@@ -24,7 +24,7 @@ The construction consumes:
 - `P` only as the certified forward closure enclosure from
   [`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`](../P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json),
   `P ∈ [1.6309720958588973769645139031692..., 1.6309720958588973769645139038446...]`
-  (display value `P_fwd = 1.630972095858897`). No measured endpoint, no SL-3
+  (display value `P_fwd = 1.630972095858897`). No measured endpoint, no measured-endpoint anchor
   measured-endpoint root `1.6309682094`.
 - Integers supplied by declared theorems: 12, 24, 6, 20, 60, and the constant `pi`.
 - No measured Lambda, no `3.31e122`, no `N_EW = pi*exp(6*pi/(P*alpha_U))` value, no
@@ -140,7 +140,7 @@ carrier (`def:oriented-24-slot-register`).
 A fifth reading exists: equate the per-port read to the inner electromagnetic
 observation step of the D10 lane, which forces
 `log(N/pi)/12 = pi/(2 P alpha_U)` and a constant readback at
-`pi*exp(6 pi/(P alpha_U))`. This is the CL-3 electroweak-bridge expression, listed
+`pi*exp(6 pi/(P alpha_U))`. This is the capacity-comparison issue #589 electroweak-bridge expression, listed
 by name in the spec blindness cone (Section 3 of the spec). Excluded pre-evaluation
 under V-08; recorded as branch CAP-B in Step 7 and never executed.
 
@@ -329,7 +329,7 @@ admissible interval. The whole family is excluded; the P3 bracketing pair
 ## 3. Comparison table (written after Section 2 was frozen)
 
 Reference capacities, used here for the first time in this document and never inside
-any candidate cone: the Lambda-located SL-4 basin `3.31e122` and the CL-3
+any candidate cone: the Lambda-located capacity basin `3.31e122` and the #589
 electroweak-bridge value `3.53e122` (`log` values `282.11` and `282.18` nats of
 `log N`; as capacities, `~3.3e122` nats).
 
@@ -346,13 +346,13 @@ cone contains the reference values). Landing criterion
 | total | 190 | 102 | 1.4686 .. 1452.33 | >= 119.36 | 0 |
 
 No branch lands. The best certified fixed point of the whole run
-(`capL.R3.Xq.K1.Sp`, `N_CRC ≈ 1452.33` nats) sits `10^119.36` below the SL-4
-basin and `10^119.39` below the CL-3 bridge value. Every certified branch is
+(`capL.R3.Xq.K1.Sp`, `N_CRC ≈ 1452.33` nats) sits `10^119.36` below the Lambda-located capacity
+basin and `10^119.39` below the capacity-comparison issue #589 bridge value. Every certified branch is
 excluded as a candidate for the physical readback map at the reference scale.
 
 ## 4. Outcome
 
-**Outcome class (b): no branch lands; CL-7 stays open; the constructed candidates
+**Outcome class (b): no branch lands; N-closure issue #505 stays open; the constructed candidates
 are recorded as excluded.** The exclusion is informative in three ways.
 
 1. **Scale exclusion.** Every count assembled from the declared 12/24-port,
@@ -375,22 +375,22 @@ are recorded as excluded.** The exclusion is informative in three ways.
    `N_CRC = pi` for every degradation strength: the readback scale is set by the
    `pi` in the invariant load `X = log(N/pi)`, and reserve costs cannot move it.
    Any port-based landing at `~1e122` must inject `~282` nats of additive per-load
-   structure, which is Step 4's excluded fifth reading (the CL-3 bridge exponent).
+   structure, which is Step 4's excluded fifth reading (the capacity-comparison issue #589 bridge exponent).
 
 **Gap item G2-GAP-1.** The declared structure underdetermines the count at
 exactly one load-bearing point: no theorem supplies a per-cell or per-port record
 multiplicity of order `exp(6*pi/(P*alpha_U))`, equivalently a mechanism producing
 `1 - rho` at the `1e-122` scale or an `N log N` tail with stationary point near
-`exp(282)`. The only corpus object of that order is the CL-3 electroweak-bridge
+`exp(282)`. The only corpus object of that order is the capacity-comparison issue #589 electroweak-bridge
 exponent, whose value is barred from the evaluation cone by the spec (Section 3)
-and whose derivation from the source side is precisely the CL-3 resolution path
+and whose derivation from the source side is precisely the capacity-comparison issue #589 resolution path
 ("derive the EW-bridge/capacity connection"). Without a source-side theorem tying the
 port load `X = log(N/pi)` to the inner observation step of the D10 lane, every
 count built from the declared combinatorics closes at O(1)-O(10^3) nats. G2 (this
-map) and the CL-3 connection are one missing theorem, seen from two rows.
+map) and the #589 connection are one missing theorem, seen from two rows.
 
 **Ledger state.** No branch passes A7, so
-[CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md) row CL-7 has no promotable branch;
+the robust public-record closure ([#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505)) has no promotable branch;
 this document and the runtime certificates carry the exclusion record. Promotion
 requires a count with a structure-derived reference-scale stationary
 point, P4 coherence or a registered discrepancy row, a directed-rounding backend

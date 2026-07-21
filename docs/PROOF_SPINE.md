@@ -1,13 +1,13 @@
 # The OPH Proof Spine
 
 The end-to-end structure of the proof strategy, with the status of every step and a
-complete register of open gaps. This is the master document of the docs/ set; the
-companions carry the detail: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)
-(principles and claim rules), [STRANGE_LOOP.md](STRANGE_LOOP.md) (thesis and lineage),
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (forcing chain C1 to C10, lemmas, generator
-table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals),
+complete register of open gaps. This is the master audit document of the docs/ set.
+The five axioms and the late strange-loop closure hypothesis are stated in the
+repository [README](../README.md) and the papers; each quantitative closure
+condition is tracked as a
+[GitHub issue labeled `closure`](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure);
 and [UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md](UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md)
-(the three-screen and cross-paper composition audit).
+carries the three-screen and cross-paper composition audit.
 
 ## The carrier doctrine that binds the stack
 
@@ -78,8 +78,8 @@ saturation rigidity, greatest-fixed-point selection, refinement stabilization,
 and capacity-density implications are closed under their stated premises. No
 physical producer and receipt bundle for that map has landed.
 
-**Part B (the conditional structure program).** Given $(P,N)$, the
-strange-loop principles, and the named branch receipts, the declared recovered
+**Part B (the conditional structure program).** Given $(P,N)$, the five
+axioms, the closure hypothesis, and the named branch receipts, the declared recovered
 structures follow. The exterior-algebra Standard Model witness is closed under
 its carrier assumptions; forcing that package from the physical twelve-port
 screen is open.
@@ -98,7 +98,7 @@ owns downstream electroweak and mass bridges.
 
 | Step | Content | Status |
 |---|---|---|
-| A1 | Principles SL-0 to SL-5 stated once, with claim rules and the three-layer separation (theory, test, working) | done: STRANGE_LOOP_PRINCIPLES.md |
+| A1 | The five axioms and the strange-loop closure hypothesis stated once, with claim rules separating theory, test, and working layers | done: repository README and the observers synthesis paper |
 | A2 | The two closure equations defined: $P=\varphi+\sqrt\pi/A_T(P)$ and $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ with $N_\star=\log D_\star$ | formal equations stated; the physical $A_T$ transport, physical-universe capacity attachment, capacity-indexed family, and finite-size selector remain incomplete |
 | A3 | Uniqueness of P | PROVEN only for each declared incomplete arithmetic map on its stated domain; this does not certify the missing physical Thomson map |
 | A4 | Public record gluing | PROVEN: total atom readout maps define finite compatible global sections and their commutative function algebra. A source-derived fixed-cutoff simulator packet at $D=24$ verifies the finite evaluator contract inside its declared source category. Physical-universe attachment and the capacity-indexed family remain receipts (GAP-A3). The independent finite $A_5$ control has $M_0=60$ and $D_{\rm raw}=60k$; publicly inert multiplicity blocks its raw equality from physical promotion. |
@@ -134,7 +134,7 @@ that is not on this list; anything removed from this list carries a dated verdic
 
 Part A gaps:
 
-- **GAP-A1 (CL-1/CL-2, generator G1).** The source-emitted Ward-projected
+- **GAP-A1 (P-closure issue #545, generator G1).** The source-emitted Ward-projected
   transport and same-scheme endpoint map. This gap is a frontier of the entire
   field: closure asks for 4×10⁻⁹ relative precision on the hadronic moment,
   beyond every method on Earth, and a source-only payload additionally forbids
@@ -143,8 +143,8 @@ Part A gaps:
   Existing grid work is exploratory. The historical v2 contract and V1
   execution cannot discharge the gap; their defect inventory (non-blind
   source, mismatched P coordinates, residual/total confusion, non-certified
-  envelope) is recorded in the reading rules of
-  [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). Corrective v3 is an inactive
+  envelope) is recorded on the P-closure issue
+  ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)). Corrective v3 is an inactive
   post-target-access erratum scaffold, never an activatable contract.
   Discharged by: issue a detached successor whose complete method is frozen
   before genuinely withheld data or built by an audited clean-room operator;
@@ -160,7 +160,7 @@ Part A gaps:
   electroweak readouts. One-dimensional positivity and unitality then remove the
   continuous normalization freedom. Equal integer counts do not construct the
   common source-normalized line.
-- **GAP-A3 (CL-7 direct public-record producer and selector).** The canonical
+- **GAP-A3 (N-closure issues #505/#551: direct public-record producer and selector).** The canonical
   capacity surface is owned by the observers synthesis paper. Construct
   unclosed trial universes $\mathfrak U_{r,D}$ without an observer-visible
   answer record. Emit a complete public-checkpoint packet: frozen carrier type,
@@ -180,7 +180,7 @@ Part A gaps:
   Averaging re-emission belongs to fluctuation or dynamics claims. It is neither
   necessary for the direct fixed-point location nor a producer of
   $F_{\rm act}$.
-- **GAP-A5 (CL-3/CL-4).** The nominal 6.6% central-value difference between the
+- **GAP-A5 (comparison issues #589/#547).** The nominal 6.6% central-value difference between the
   independent electroweak and $\Lambda$-located comparison coordinates is not
   evaluable as a common-observable residual. Evaluation requires closure of
   GAP-A3, the common electroweak load carrier from GAP-A2, and the
@@ -190,7 +190,7 @@ Part A gaps:
   frozen likelihood and convention map. The independent $\rho_{\rm op}$ test
   compares $\log M_0$ with $\pi/\rho_{\rm op}^2$ and cannot define
   either side. Existing posterior propagation remains diagnostic.
-- **GAP-A6 (CL-5, generator G3).** The strict-one-loop algebraic kernel is closed:
+- **GAP-A6 (electroweak readout issue #594, generator G3).** The strict-one-loop algebraic kernel is closed:
   a complete declared renormalized packet determines the charged and neutral
   complex-pole coefficients, the neutral one-loop-squared mixing term is excluded
   at this order, and strict coefficients are separated from nonlinear square-root
@@ -223,7 +223,7 @@ Part A gaps:
   $K_r(D,D)>0$ proves existence of a self-read terminal branch. A scalar
   deterministic map requires singleton support for every nonempty row. A
   diagonal count-density argmax may rank closed branches and is not a
-  producer of CL-7.
+  producer of the N closure (#505).
 
 Part B gaps:
 

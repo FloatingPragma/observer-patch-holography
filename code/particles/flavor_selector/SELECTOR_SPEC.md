@@ -54,7 +54,7 @@ A candidate is admissible for evaluation only if all of S1-S5 hold.
   ratio only, or a one-parameter family is not a selector candidate.
 - **S2. Declared structure only (2b).** The closed form is a function of exactly:
   - the computed fixed point `P_fwd = 1.630972095858897`
-    (`code/P_derivation/FULL_DERIVATION.md`, CL-6 converged forward value), and its
+    (`code/P_derivation/FULL_DERIVATION.md`, printed-pair converged forward value), and its
     certified source-audit companion `alpha_U(P_fwd) = 0.041124247441816685` where a
     candidate declares it;
   - A5 orbit geometry: 12 vertices (C5 ports), 20 faces (C3 fibers), 30 edges,

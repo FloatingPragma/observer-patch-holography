@@ -433,8 +433,10 @@ do different jobs inside that pattern.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one
-self-referential loop. Later chapters call this closed loop the strange loop, and it is
-the backbone of the whole argument rather than a closing ornament. The patterns that persist
+self-referential loop. Chapter 18 gives that closed loop its name — the strange loop — and
+saves it for late in the story, where it belongs: the argument of this book stands on
+observers and consistency alone, and the loop arrives at the end as a twist those
+chapters have earned. The patterns that persist
 are the patterns that are consistent. Observers are patterns that learn to model other patterns.
 Consciousness is what it feels like to be one of those self-modeling patterns.
 

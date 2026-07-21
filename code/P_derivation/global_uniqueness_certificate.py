@@ -535,7 +535,7 @@ def build_certificate(
         ),
         "protocol_stage": (
             "global uniqueness supplement to stage 2 of the basin-then-contract "
-            "protocol for the P coordinate; see CLOSURE_LEDGER.md"
+            "protocol for the P coordinate; see the P-closure issue (#545)"
         ),
         "domain": {
             "alpha": {"lo": domain_lo, "hi": domain_hi},

@@ -342,11 +342,15 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 ### The Physics
 
-OPH puts this self-reference at the center. The organizing claim of the whole
-program is that reality is the fixed point of a self-reading computation: the
-structure doing the simulating and the world being simulated are one closed
-system, with no outside machine and no outside clock. Later chapters call this
-the strange loop, and the physics is built to sit inside it.
+OPH inherits this self-reference as its final twist rather than its
+foundation. The central claim of the program is that observers are primary
+and objective reality is emergent from their overlap agreement. Push that
+claim to complete consistency, though, and something further appears:
+whatever exists with no outside support must be capable of creating itself.
+Reality then reads as the fixed point of a self-reading computation — the
+structure doing the simulating and the world being simulated one closed
+system, with no outside machine and no outside clock. Chapter 18 develops
+this under its proper name, the strange loop.
 
 The loop is the closure of threads physics has been pulling for a century; it
 does not arrive from nowhere. Wheeler drew the universe as a big U with an eye on
@@ -435,12 +439,13 @@ as a loose metaphor.
 
 The strange loop has two layers, and they have to be kept apart.
 
-The first layer is the organizing claim of the whole program: reality is the
-fixed point of a self-reading computation, one closed system with its
-description and its world identified. That layer is core. The physics chapters
-are built inside it, and the two closure numbers are the loop reading itself.
-Chapter 18 makes that layer do physics, tracing how the loop forces those two
-numbers.
+The first layer is the closure hypothesis itself: reality is the fixed point
+of a self-reading computation, one closed system with its description and its
+world identified. That layer is an extra hypothesis on top of the
+observers-first core — the physics chapters do not depend on it — and its
+bonus is quantitative: if the loop closes, the two closure numbers are the
+loop reading itself. Chapter 18 makes that layer do physics, tracing how the
+loop forces those two numbers.
 
 The second layer is a further, speculative possibility. If reality is that
 self-reading fixed point, observers can evolve inside its output, model their

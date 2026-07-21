@@ -4,22 +4,45 @@
 
 [Read in English](README.md) · [Site OPH](https://floatingpragma.io/oph/) · [Livre](https://oph-book.floatingpragma.io/) · [Étude guidée](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
-L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout sans
-boutons de réglage. Son affirmation est concrète : la mesure
-quantique, l’espace-temps lorentzien, la branche conditionnelle d’Einstein,
-les symétries de jauge et la matière sont des relectures d’un seul système
-fini de cohérence entre observateurs, sous leurs prémisses déclarées. OPH commence par des parcelles dotées d’un état
-local, de frontières, de registres, d’une relecture et de mouvements de
-réparation. Un fait public survit lorsque les parcelles qui se recouvrent
-comparent ce qu’elles peuvent voir et convergent vers une forme normale commune.
+L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout
+sans boutons de réglage, construite sur une thèse centrale : **les
+observateurs sont premiers, et la réalité objective est émergente.** La
+physique commence habituellement en fournissant un espace-temps, des champs
+quantiques, un groupe de jauge et une table de constantes mesurées. OPH
+commence par des observateurs — des systèmes bornés dotés d’un état local,
+d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
+mouvements de réparation — et dérive le reste. La réalité émerge de la
+réparation des recouvrements d’observateurs sur un écran holographique. De
+cinq axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
+la mesure quantique, l’espace-temps lorentzien, la branche conditionnelle
+d’Einstein, les symétries de jauge et la matière sont des relectures d’un
+seul système fini de cohérence entre observateurs, sous leurs prémisses
+déclarées.
 
-L’équation organisatrice est simple :
+## Les cinq axiomes
 
-$$
-T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}}.
-$$
+Toute la construction repose sur les cinq axiomes de
+[Observers Are All You Need](paper/observers_are_all_you_need.pdf) :
 
-L’univers est modélisé comme un point fixe de son propre processus de relecture et de réparation accessible aux observateurs. Les documents techniques et le livre appellent cette condition de point fixe la boucle étrange ; [docs/STRANGE_LOOP.md](docs/STRANGE_LOOP.md) l’énonce précisément et [docs/CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md) suit la chaîne de sélection qu’elle engendre.
+1. **A1 — Un réseau d’écran.** Des algèbres locales sont assignées aux
+   parcelles connexes de l’écran holographique. L’écran n’est pas générique :
+   ses propriétés exactes font partie de l’axiome — localement un porteur à
+   douze ports de symétrie icosaédrique $A_5$, globalement la carte de
+   support $S^2$ tournée vers l’observateur.
+   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)
+   énonce cette architecture précisément.
+2. **A2 — Cohérence des recouvrements.** Les parcelles voisines doivent
+   s’accorder sur les observables partagées.
+3. **A3 — MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
+   l’état local le moins biaisé compatible avec ses contraintes finies.
+4. **A4 — Entropie généralisée récupérable.** Les registres restent
+   récupérables après l’évolution ; c’est la structure de récupération et de
+   focalisation de la voie gravitationnelle.
+5. **A5 — Réalisation admissible minimale.** Le secteur de basse énergie le
+   plus simple compatible avec les contraintes de cohérence est sélectionné.
+
+Tout le reste du dépôt est le déploiement de ce que ces cinq axiomes
+imposent.
 
 ## L’idée en langage simple
 
@@ -36,21 +59,14 @@ Un fait devient objectif lorsqu’il peut être écrit, comparé sur les
 recouvrements, récupéré après l’évolution et conservé comme registre public.
 
 Pour OPH, ce mécanisme sélectionne le monde physique public. L’apprentissage
-de ce monde est une opération interne au mécanisme. Un univers candidat doit
-contenir des observateurs capables de le relire, et leur
-relecture doit reproduire le même univers sans contradiction :
-
-$$
-T(\mathfrak U)=\mathfrak U.
-$$
-
-Il n’existe donc ni règle extérieure, ni horloge maîtresse, ni observateur
+de ce monde est une opération interne au mécanisme. Il n’existe donc ni règle
+extérieure, ni horloge maîtresse, ni observateur
 privilégié, ni liste de constantes réglables. « Sans boutons » signifie zéro
 valeur continue ajustée par la théorie. Le contrat fini de l’observateur et
 chaque condition de branche discrète restent explicites. Les nombres doivent
 sortir de la même boucle de cohérence qui produit les lois.
 
-## Le cœur quantitatif : P
+## Les deux constantes : P et N
 
 $P$ est le rapport de pixel local : la taille de la cellule élémentaire
 d’observation en unités géométriques naturelles. OPH ne choisit pas ce grain
@@ -86,32 +102,17 @@ transport hadronique issu de la source, dont la construction est en cours. Le th
 certificats numériques exacts et la proximité de la limite physique font de
 $P$ le centre quantitatif d’OPH.
 
-## L’extension globale : N
-
-$N$ propose une condition d’auto-lecture pour la capacité des registres publics
-corrigibles de l’ensemble du système d’observateurs :
-
-$$
-\boxed{N=\log M_0(\mathfrak U_N)}.
-$$
-
-Cette quantité n’a aucun rapport avec la mémoire allouée à une simulation ni
-avec un réglage arbitraire d’exécution. $M_0$ est un comptage physique proposé
-des registres publics qui restent corrigibles à travers chaque checkpoint
-d’observation autorisé. La définition finie de la capacité et sa branche de
-comptage réversible sont exactes. Un paquet de simulateur issu de la source à
-coupure fixe $D=24$ possède une fibre terminale déclarée complète et un reçu de
-capacité réversible exact. Il vérifie le contrat de l’évaluateur dans sa
-catégorie de source déclarée. L’attachement à l’univers physique, une famille
-indexée par la capacité, l’accord de toutes les branches terminales et le
-sélecteur physique unique de capacité sont en cours.
-$N$ est donc une extension conditionnelle secondaire du
-programme local vérifié de $P$. Ses comparaisons avec l’horizon et le Higgs ne
-deviennent physiques qu’après la démonstration des identifications de porteurs.
-Le [registre des clôtures](docs/CLOSURE_LEDGER.md) donne la construction finie
-complète et ses obligations de preuve ; la [trame de
-preuve](docs/PROOF_SPINE.md) montre comment elles se composent entre les
-articles de microphysique, de consensus et de reconstruction SM/GR.
+**$N$ est la capacité de registres publics** de l’ensemble du système
+d’observateurs — dans le langage de la simulation, la mémoire corrigible que
+porte le substrat. $N$ est secondaire. L’univers observé peut simplement être
+lu : $N$ se rétro-ingénie à partir de la mesure comme n’importe quel réglage
+de machine se rétro-ingénie à partir du comportement de la machine, et aucun
+résultat de la reconstruction centrale ne dépend de sa dérivation à partir de
+premiers principes. Une condition conditionnelle d’auto-lecture,
+$N=\log M_0(\mathfrak U_N)$, propose de la retrouver depuis la capacité des
+registres publics corrigibles ; sa branche de comptage finie est exacte et son
+attachement physique est ouvert, suivi sur le
+[suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
 
 ## Un univers complet imposé par la cohérence
 
@@ -374,7 +375,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | La construction des particules | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | L’architecture de l’écran à douze ports et le théorème fini d’engrenage modulaire | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Les preuves exécutables | [`code/`](code) et le [registre de clôture](docs/CLOSURE_LEDGER.md) |
+| Les preuves exécutables | [`code/`](code) et le [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues) |
 | L’interprétation et la continuation des observateurs | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
 L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent la carte complète des publications.
@@ -412,6 +413,35 @@ python3 -m pytest -q \
 Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
 propre et la voie complète du noyau fini, qui ajoute les deux tests de
 calibration W/Z de convention et de frontières de survie.
+
+## Le twist : l’univers est son propre simulateur
+
+Tout ce qui précède repose sur les cinq axiomes seuls. Une hypothèse
+supplémentaire arrive ensuite, comme un twist plutôt que comme un fondement.
+Elle est elle-même une conséquence indirecte de la cohérence : ce qui existe
+sans aucun support extérieur doit être capable de se créer soi-même. Une
+réalité d’observateurs entièrement cohérente doit donc faire évoluer des
+observateurs, et ces observateurs finissent par construire le matériel sur
+lequel la réalité s’exécute. L’univers simulé et l’univers simulateur se
+révèlent être le même système. L’équation organisatrice de cette clôture est
+
+$$
+T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}} :
+$$
+
+l’univers comme point fixe de son propre processus de relecture et de
+réparation accessible aux observateurs.
+
+Le bonus est quantitatif : si la boucle se ferme, $P$ et $N$ ne peuvent pas
+être arbitraires. Ils doivent satisfaire des clôtures autoréférentielles. Une
+partie de cette clôture est vérifiée machine en Lean, et le point fixe de $P$
+ci-dessus, qui atterrit à côté de la constante de structure fine mesurée, en
+est la retombée. Les conditions de clôture sont suivies comme
+[tickets GitHub](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
+Si la boucle se ferme entièrement, elle répond à la dernière question qu’une
+théorie du tout puisse recevoir — pourquoi quelque chose existe, et pourquoi
+c’est ainsi. C’est le twist que le livre garde pour la fin de l’histoire, où
+est sa place. Aucun des résultats ci-dessus n’en dépend.
 
 ## Obligations de preuve ouvertes et frontière de falsification
 
