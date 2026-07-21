@@ -127,6 +127,25 @@ $S^2$ support gives the connected Lorentz group and exactly three
 observer-frame spatial dimensions, and modular flow with entropy stationarity
 gives the Einstein first-variation relation.
 
+The Einstein branch is instrumented end to end. Every clause of its
+antecedent (geometric modular normalization, GNS cyclicity and modular
+intersections, the Lorentzian event cone, same-source stress and coupling) has
+a machine-certified fail-closed instrument with adversarial negative controls
+and semantic countermodels, so each clause is either a proved theorem or a
+measured quantity, never an assumption. Two clauses have been promoted to
+theorems: coupling universality holds with zero spread for every icosahedrally
+symmetric source law, and generator positivity holds by construction for the
+declared law family. Direct measurement supplies the deepest result to date:
+as the observer network grows dense enough for cross-observer record reading,
+the held-out event form of the repair dynamics reaches Lorentzian signature
+$(1,3)$, one time and three space directions, and the coupling spread falls
+steadily toward the symmetric limit. Spacetime behaves as an effective
+description of many mutually reading observers, measured, not assumed. The
+remaining open clauses (the modular temperature of the cap states, and a
+positive cone margin at scale) are tracked with frozen verdicts in the
+[simulation repository](https://github.com/muellerberndt/oph-physics-sim),
+whose Einstein-branch guide reproduces every number on this page.
+
 The carrier geometry then does surprising work for free. On the certified
 echosahedral lineage, primitive port readback and oriented incidence alone
 derive the twelve-unit split, the antipodal pairing, the proper $A_5$ action,
@@ -321,13 +340,15 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 
 ## Evidence You Can Inspect
 
-The repository contains several complementary forms of evidence:
+The evidence comes in several complementary forms:
 
 - hand proofs in the TeX papers;
 - interval and uniqueness certificates for declared numerical maps;
 - finite carrier and hierarchy receipts;
 - particle, geometry, dark-sector, and quantum-hardware code;
-- simulations reaching more than one million patches;
+- a small-scale simulation harness that supplies receipts where the hand proofs
+  and the Lean development do not reach, in the companion
+  [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim) repository;
 - a claim registry and closure ledger connecting prose claims to artifacts.
 
 ## Audit The Finite Core

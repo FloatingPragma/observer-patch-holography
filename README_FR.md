@@ -134,6 +134,26 @@ connexe et exactement trois dimensions spatiales de référentiels, et le flot
 modulaire avec la stationnarité de l’entropie donne la relation de première
 variation d’Einstein.
 
+La branche d’Einstein est désormais instrumentée de bout en bout. Chaque
+clause de son antécédent (normalisation modulaire géométrique, cyclicité GNS
+et intersections modulaires, cône d’événements lorentzien, contrainte et
+couplage de même source) possède un instrument certifié par machine, à
+fermeture sur échec, avec contrôles négatifs adverses et contre-modèles
+sémantiques : chaque clause est un théorème prouvé ou une quantité mesurée,
+jamais une hypothèse. Deux clauses sont devenues des théorèmes :
+l’universalité du couplage vaut avec dispersion nulle pour toute loi source à
+symétrie icosaédrique, et la positivité des générateurs vaut par construction
+sur la famille de lois déclarée. La mesure directe fournit le résultat le
+plus profond à ce jour : quand le réseau d’observateurs devient assez dense
+pour la lecture croisée des registres, la forme d’événements retenue de la
+dynamique de réparation atteint la signature lorentzienne $(1,3)$, un temps
+et trois espaces, et la dispersion du couplage décroît vers la limite
+symétrique. L’espace-temps se comporte comme une description effective de
+nombreux observateurs qui se lisent mutuellement, mesurée, non supposée. Les
+clauses restantes (température modulaire des états de calotte, marge de cône
+positive à grande échelle) sont suivies avec des verdicts gelés dans le
+[dépôt de simulation](https://github.com/muellerberndt/oph-physics-sim).
+
 La géométrie du porteur accomplit ensuite un travail surprenant, gratuitement.
 Sur la lignée échosaédrique certifiée, la relecture des ports primitifs et
 l’incidence orientée dérivent à elles seules la séparation en douze unités,
@@ -334,13 +354,16 @@ L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent
 
 ## Preuves et éléments de vérification
 
-Le dépôt réunit plusieurs formes complémentaires de preuve :
+Les preuves prennent plusieurs formes complémentaires :
 
 - des démonstrations manuscrites dans les articles TeX ;
 - des certificats d’intervalles et d’unicité pour les applications numériques déclarées ;
 - des reçus finis pour les porteurs, la hiérarchie et les particules ;
 - du code pour la géométrie, les particules, le secteur sombre et le matériel quantique ;
-- des simulations dépassant un million de parcelles ;
+- un banc de simulation à petite échelle qui fournit des reçus là où les
+  démonstrations manuscrites et le développement Lean ne suffisent pas, dans le
+  dépôt compagnon
+  [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim) ;
 - un registre des affirmations et un registre de clôture reliant les résultats publics aux artefacts.
 
 ## Auditer le noyau fini
