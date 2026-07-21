@@ -1,0 +1,43 @@
+{
+ "capture_seconds": 121.2,
+ "capture_sha256": "sha256:78d6c311965dcd64712896ee0a2b0d098b64e753c30c69b8965cbfcece27057d",
+ "causal_pairs_total": 56610,
+ "causal_stride": 1,
+ "cone_margin": -3.219901300819808,
+ "config": {
+  "carrier_count": 65536,
+  "cycles": 16,
+  "geometry_transport": "held_out_flow",
+  "observer_count": 256,
+  "observer_cross_reads": true,
+  "observer_samples": 6,
+  "observer_support_size": 96,
+  "seed": 20260751,
+  "snapshot_coverage": "spanning"
+ },
+ "coupling_spread": 0.185951,
+ "cross_observer_edges": 312,
+ "eigenvalues": [
+  -18.458784352871476,
+  -5.119053088705857,
+  -0.0006692964891456546,
+  6.657066404031732
+ ],
+ "event_count": 4608,
+ "held_out_inertia": [
+  1,
+  3
+ ],
+ "normalization_coefficients": [
+  0.227938,
+  0.2293,
+  0.222474,
+  0.230927,
+  0.224608,
+  0.230019
+ ],
+ "pair_cap": 300000,
+ "raw_moment_min_eig": 0.004134938313870849,
+ "spacelike_pairs_total": 10557918,
+ "spacelike_stride": 35
+}
