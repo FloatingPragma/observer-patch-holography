@@ -5,8 +5,11 @@ Coverage: (a) the stored packet certificate matches a fresh emission on all
 acceptance-relevant fields, (b) the executed witnesses hold (gauge
 invariance, exact Ward identity, free-field Z_V anchor, demonstrator
 positivity and covariance), (c) the acceptance gate accepts the conformant
-payload and rejects every negative control, (d) the claim boundary and
-dependency direction (packet upstream of issue #425) stay explicit.
+payload and rejects every negative control, (d) the typing criteria are
+live artifact checks rather than hard-coded booleans, (e) the author-stated
+issue-closure condition is computed from live production-lane artifacts and
+reports open, (f) the claim boundary and dependency direction (packet
+upstream of issue #425) stay explicit.
 """
 
 from __future__ import annotations
@@ -42,11 +45,51 @@ def stored() -> dict:
     return json.loads(STORED.read_text(encoding="utf-8"))
 
 
-def test_packet_accepted_and_all_criteria_true(packet):
+def test_packet_accepted_and_all_criteria_machine_checked(packet):
     assert packet["accepted"] is True
+    assert "packet construction/contract layer only" in packet["acceptance_scope"]
     criteria = packet["acceptance_criteria_status"]
     assert len(criteria) == 5
-    assert all(criteria.values()), criteria
+    for name, row in criteria.items():
+        assert row["packet_level_passed"] is True, name
+        assert row["machine_checks"], name
+
+
+def test_typing_criteria_are_live_checks_not_hardcoded(packet):
+    """Criteria 4 and 5 must be derived from live artifact reads."""
+    empirical = packet["machine_witnesses"]["empirical_typing"]
+    assert empirical["passed"] is True
+    assert all(empirical["checks"].values()), empirical["checks"]
+    assert "comparison_data_manifest.json" in empirical["checked_artifacts"]["comparison_manifest"]
+    higher = packet["machine_witnesses"]["higher_point_typing"]
+    assert higher["passed"] is True
+    assert all(higher["checks"].values()), higher["checks"]
+    assert set(empirical["checks"]) == {
+        "comparison_manifest_empty",
+        "comparison_manifest_status_no_data",
+        "row_class_const_comparison_only",
+        "promotable_as_oph_source_theorem_const_false",
+        "satisfies_production_constructive_next_artifact_const_false",
+        "external_cross_section_data_declared_const_true",
+    }
+    assert set(higher["checks"]) == {
+        "q4_status_two_point_measure_insufficient",
+        "q4_promotion_not_allowed",
+        "q4_no_external_targets",
+    }
+
+
+def test_issue_closure_condition_computed_and_open(packet):
+    closure = packet["issue_closure_condition"]
+    assert closure["met_locally"] is False
+    checked = closure["checked_objects"]
+    assert checked["production_backend_export_bundle"]["status"] == "open"
+    assert checked["production_backend_export_bundle"]["closure_grade"] == "execution_incomplete"
+    assert checked["qcd_base_measure"]["status"] == "REQUIRED_NOT_POPULATED"
+    assert checked["ward_current_source_certificate"]["status"] == "MISSING_SOURCE_CERTIFICATE"
+    # statuses must mirror the live artifacts, not stored strings
+    live_base = json.loads(packet_mod.BASE_MEASURE.read_text(encoding="utf-8"))
+    assert checked["qcd_base_measure"]["status"] == live_base["status"]
 
 
 def test_gauge_invariance_witness(packet):
@@ -149,6 +192,7 @@ def test_stored_packet_matches_fresh_emission(packet, stored):
     assert stored["artifact"] == packet["artifact"]
     assert stored["status"] == packet["status"]
     assert stored["accepted"] is True
+    assert stored["issue_closure_condition"] == packet["issue_closure_condition"]
     assert stored["acceptance_criteria_status"] == packet["acceptance_criteria_status"]
     assert stored["theorem"] == packet["theorem"]
     assert stored["derivation_chain"] == packet["derivation_chain"]

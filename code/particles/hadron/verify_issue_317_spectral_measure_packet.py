@@ -36,6 +36,20 @@ Machine checks executed at emission time:
    surrogate flag, missing budget, quenched branch, negative residue,
    empty level support, forbidden-target leak) is rejected, so the
    machine-readable emission fails closed exactly as the claim requires.
+6. Empirical typing: the source-side comparison manifest is empty and the
+   declared-empirical companion schema pins the comparison-only row class
+   and non-promotable guards as schema constants (read live, not asserted).
+7. Higher-point typing: the four-current receipt records the two-point
+   measure as insufficient, non-promoting, with no external targets
+   (read live, not asserted).
+
+The certificate separates two verdicts. ``accepted`` covers the packet
+construction/contract layer only. ``issue_closure_condition`` computes the
+author-stated closure bar (backend export bundle, unquenching execution,
+runtime receipt, uncertainty ledger) from the live production-lane
+artifacts and currently reports ``met_locally: false``; the production
+export bundle, populated base measure, and Ward-current source certificate
+remain open in the production lane.
 
 Run:
     python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py \
@@ -77,8 +91,15 @@ from lattice_backend.vector_correlator import fold_correlator  # noqa: E402
 
 ROOT = HERE.parents[1]
 SCHEMA_PATH = HERE / "ward_projected_spectral_measure.schema.json"
+EMPIRICAL_SCHEMA_PATH = HERE / "empirical_ward_projected_spectral_measure.schema.json"
 ENSEMBLE_NPZ = ROOT / "particles" / "runs" / "hadron" / "hybrid_ir_ensembleA_2026-07-16.npz"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "hadron" / "ward_projected_spectral_measure_proof_packet.json"
+BACKEND_DIR = ROOT / "particles" / "runs" / "qcd" / "hadron_source_backend"
+COMPARISON_MANIFEST = BACKEND_DIR / "controls" / "comparison_data_manifest.json"
+Q4_RECEIPT = BACKEND_DIR / "higher_point" / "Q4_HLbL_receipt.json"
+BASE_MEASURE = BACKEND_DIR / "qcd_ensemble" / "base_measure.json"
+WARD_CURRENT_DEFINITION = BACKEND_DIR / "currents" / "ward_current_definition.json"
+READINESS_REPORT = ROOT / "particles" / "runs" / "hadron" / "hadron_production_readiness_report.json"
 
 FORBIDDEN_TARGETS = [
     "CODATA_ALPHA",
@@ -97,6 +118,128 @@ EFFMASS_WINDOW_START = 3
 
 def _now_utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _rel(path: Path) -> str:
+    return path.relative_to(ROOT.parent).as_posix()
+
+
+# ---------------------------------------------------------------------------
+# Live artifact checks: typing criteria and the issue-closure condition.
+# ---------------------------------------------------------------------------
+
+
+def empirical_typing_check() -> dict[str, Any]:
+    """Criterion: empirical data are typed blinded-comparison-only.
+
+    Machine-checked against the live artifacts instead of asserted: the
+    source-side comparison manifest must be empty, and the declared-empirical
+    companion schema must pin the comparison row class with non-promotable
+    guards as schema constants.
+    """
+    manifest = _load_json(COMPARISON_MANIFEST)
+    schema = _load_json(EMPIRICAL_SCHEMA_PATH)
+    guards = schema["properties"]["guards"]["properties"]
+    checks = {
+        "comparison_manifest_empty": manifest.get("comparison_data") == [],
+        "comparison_manifest_status_no_data": manifest.get("status") == "NO_COMPARISON_DATA_ATTACHED",
+        "row_class_const_comparison_only": (
+            schema["properties"]["row_class"].get("const") == "oph_plus_empirical_hadron_closure"
+        ),
+        "promotable_as_oph_source_theorem_const_false": (
+            guards["promotable_as_oph_source_theorem"].get("const") is False
+        ),
+        "satisfies_production_constructive_next_artifact_const_false": (
+            guards["satisfies_production_constructive_next_artifact"].get("const") is False
+        ),
+        "external_cross_section_data_declared_const_true": (
+            guards["external_cross_section_data_used"].get("const") is True
+        ),
+    }
+    return {
+        "checked_artifacts": {
+            "comparison_manifest": _rel(COMPARISON_MANIFEST),
+            "empirical_companion_schema": _rel(EMPIRICAL_SCHEMA_PATH),
+        },
+        "checks": checks,
+        "passed": bool(all(checks.values())),
+    }
+
+
+def higher_point_typing_check() -> dict[str, Any]:
+    """Criterion: higher-point and radiative corrections stay separately typed.
+
+    Machine-checked against the live four-current receipt: the two-point
+    measure must be recorded as insufficient for HLbL-class objects and the
+    receipt must be non-promoting with no external targets.
+    """
+    receipt = _load_json(Q4_RECEIPT)
+    checks = {
+        "q4_status_two_point_measure_insufficient": (
+            receipt.get("status") == "TWO_POINT_MEASURE_INSUFFICIENT"
+        ),
+        "q4_promotion_not_allowed": receipt.get("promotion_allowed") is False,
+        "q4_no_external_targets": receipt.get("external_targets_used") == [],
+    }
+    return {
+        "checked_artifacts": {"q4_hlbl_receipt": _rel(Q4_RECEIPT)},
+        "checks": checks,
+        "passed": bool(all(checks.values())),
+    }
+
+
+def issue_closure_condition() -> dict[str, Any]:
+    """Author-stated closure bar, computed from live repo state.
+
+    The issue author's close condition requires the backend export bundle,
+    unquenching execution, runtime receipt, and uncertainty ledger. This
+    packet certifies the construction/contract layer; the closure objects
+    live in the production lane, and their current statuses are read from
+    the repository rather than asserted.
+    """
+    readiness = _load_json(READINESS_REPORT)
+    base_measure = _load_json(BASE_MEASURE)
+    ward_current = _load_json(WARD_CURRENT_DEFINITION)
+    remaining = readiness["exact_remaining_runtime_object"]
+    closure = readiness["closure_status"]
+    checked = {
+        "production_backend_export_bundle": {
+            "path": _rel(READINESS_REPORT),
+            "status": remaining.get("status"),
+            "closure_grade": closure.get("closure_grade"),
+            "public_unsuppression_ready": closure.get("public_unsuppression_ready"),
+        },
+        "qcd_base_measure": {
+            "path": _rel(BASE_MEASURE),
+            "status": base_measure.get("status"),
+        },
+        "ward_current_source_certificate": {
+            "path": _rel(WARD_CURRENT_DEFINITION),
+            "status": ward_current.get("status"),
+        },
+    }
+    met = bool(
+        remaining.get("status") != "open"
+        and closure.get("closure_grade") not in (None, "execution_incomplete")
+        and base_measure.get("status") != "REQUIRED_NOT_POPULATED"
+        and ward_current.get("status") != "MISSING_SOURCE_CERTIFICATE"
+    )
+    return {
+        "author_condition": (
+            "close only when the backend export bundle, unquenching execution, "
+            "runtime receipt, and uncertainty ledger are present"
+        ),
+        "checked_objects": checked,
+        "met_locally": met,
+        "resolution_path": (
+            "production backend export lane (dependency_note); the export must "
+            "conform to the schema and acceptance gate certified in this packet"
+        ),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -874,30 +1017,80 @@ def build_packet() -> dict[str, Any]:
     zv_witness = zv_free_field_witness()
     demonstrator = demonstrator_measure()
     gate = run_acceptance_gate()
+    empirical_typing = empirical_typing_check()
+    higher_point_typing = higher_point_typing_check()
+    closure = issue_closure_condition()
 
     criteria = {
-        "current_and_measure_gauge_invariant_and_source_derived": bool(
-            witnesses["gauge_invariance"]["passed"] and witnesses["ward_identity"]["passed"]
-        ),
-        "positivity_normalization_thresholds_scheme_dependence_proved": bool(
-            zv_witness["passed"] and demonstrator["checks_passed"]
-        ),
-        "machine_readable_measure_emitted_without_measured_hvp_input": bool(
-            demonstrator["checks_passed"]
-            and demonstrator["ensemble"]["external_inputs_used"] is False
-            and gate["passed"]
-        ),
-        "empirical_data_typed_blinded_comparison_only": True,
-        "higher_point_and_radiative_corrections_separately_typed": True,
+        "current_and_measure_gauge_invariant_and_source_derived": {
+            "packet_level_passed": bool(
+                witnesses["gauge_invariance"]["passed"]
+                and witnesses["ward_identity"]["passed"]
+            ),
+            "machine_checks": "executed witnesses 1 and 2 (machine_witnesses.gauge_and_ward)",
+            "production_open_items": [
+                "source QCD parameter map P -> (g_3, quark masses, scheme)",
+                "qcd_ensemble/base_measure.json: REQUIRED_NOT_POPULATED",
+                "currents/ward_current_definition.json: MISSING_SOURCE_CERTIFICATE",
+                "the demonstrator runs at declared diagnostic bare parameters on a "
+                "quenched ensemble, not on the derived physical branch",
+            ],
+        },
+        "positivity_normalization_thresholds_scheme_dependence_proved": {
+            "packet_level_passed": bool(
+                zv_witness["passed"] and demonstrator["checks_passed"]
+            ),
+            "machine_checks": (
+                "executed witnesses 3 and 4 (machine_witnesses.zv_free_field_anchor, "
+                "machine_witnesses.demonstrator_measure)"
+            ),
+            "production_open_items": [
+                "reflection-positivity and transfer-operator source certificates",
+                "production thresholds and resonance pushforward execution",
+                "continuum limit; five budget rows not quantified at diagnostic scale",
+            ],
+        },
+        "machine_readable_measure_emitted_without_measured_hvp_input": {
+            "packet_level_passed": bool(
+                demonstrator["checks_passed"]
+                and demonstrator["ensemble"]["external_inputs_used"] is False
+                and gate["passed"]
+            ),
+            "machine_checks": (
+                "executed witnesses 4 and 5 (machine_witnesses.demonstrator_measure, "
+                "machine_witnesses.acceptance_gate)"
+            ),
+            "production_open_items": [
+                "the production 2+1 payload; the diagnostic demonstrator is rejected "
+                "by the production gate by construction",
+            ],
+        },
+        "empirical_data_typed_blinded_comparison_only": {
+            "packet_level_passed": bool(empirical_typing["passed"]),
+            "machine_checks": "live artifact check (machine_witnesses.empirical_typing)",
+            "production_open_items": [],
+        },
+        "higher_point_and_radiative_corrections_separately_typed": {
+            "packet_level_passed": bool(higher_point_typing["passed"]),
+            "machine_checks": "live artifact check (machine_witnesses.higher_point_typing)",
+            "production_open_items": [],
+        },
     }
-    accepted = all(criteria.values())
+    accepted = all(row["packet_level_passed"] for row in criteria.values())
 
     return {
         "issue": 317,
         "certificate_id": "issue-317-hadronic-spectral-measure-proof-packet-v1",
         "artifact": "oph_ward_projected_spectral_measure_proof_packet",
-        "status": "proof_packet_construction_certified_production_payload_delegated_to_425",
+        "status": "proof_packet_construction_certified_issue_closure_condition_open",
         "accepted": bool(accepted),
+        "acceptance_scope": (
+            "'accepted' certifies the packet construction/contract layer only: the "
+            "theorem parts, executed witnesses, typing checks, and the fail-closed "
+            "emission gate. It does not assert the author-stated issue-closure "
+            "condition, which is computed separately in issue_closure_condition "
+            "and is currently not met locally."
+        ),
         "theorem": build_theorem(),
         "derivation_chain": build_derivation_chain(),
         "machine_witnesses": {
@@ -905,8 +1098,11 @@ def build_packet() -> dict[str, Any]:
             "zv_free_field_anchor": zv_witness,
             "demonstrator_measure": demonstrator,
             "acceptance_gate": gate,
+            "empirical_typing": empirical_typing,
+            "higher_point_typing": higher_point_typing,
         },
         "acceptance_criteria_status": criteria,
+        "issue_closure_condition": closure,
         "acceptance_criteria_mapping": {
             "current_and_measure_gauge_invariant_and_source_derived": (
                 "theorem parts (a), (b); executed witnesses 1 and 2; source-law "
@@ -920,18 +1116,21 @@ def build_packet() -> dict[str, Any]:
                 "demonstrator consumes bare lattice parameters only"
             ),
             "empirical_data_typed_blinded_comparison_only": (
-                "empirical companion row class oph_plus_empirical_hadron_closure with "
-                "promotable_as_oph_source_theorem = false "
+                "machine-checked live (machine_witnesses.empirical_typing): empirical "
+                "companion row class oph_plus_empirical_hadron_closure with "
+                "promotable_as_oph_source_theorem = false as schema constants "
                 "(empirical_ward_projected_spectral_measure.schema.json); source-side "
                 "comparison manifest empty (controls/comparison_data_manifest.json: "
                 "NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under "
                 "falsification/frozen_targets/"
             ),
             "higher_point_and_radiative_corrections_separately_typed": (
-                "hadronic precision functor typing: two-current measure is one marginal; "
+                "machine-checked live (machine_witnesses.higher_point_typing): "
+                "two-current measure is one marginal of the hadronic precision functor; "
                 "Gamma^{(4)} and transition amplitudes are distinct required artifacts "
-                "(higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT); "
-                "QED/EW corrections live in the mutually exclusive Xi_Q ledger rows"
+                "(higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT, "
+                "non-promoting, no external targets); QED/EW corrections live in the "
+                "mutually exclusive Xi_Q ledger rows"
             ),
         },
         "claim_boundary": {
@@ -1032,7 +1231,10 @@ def main() -> int:
     print(f"acceptance gate: conformant accepted = {gate['conformant_payload_accepted']}, "
           f"negative controls rejected = {gate['all_negative_controls_rejected']} "
           f"({len(gate['negative_controls'])} controls)")
-    print(f"accepted: {packet['accepted']}")
+    print(f"empirical typing check passed: {witnesses['empirical_typing']['passed']}")
+    print(f"higher-point typing check passed: {witnesses['higher_point_typing']['passed']}")
+    print(f"packet accepted: {packet['accepted']}")
+    print(f"issue closure condition met locally: {packet['issue_closure_condition']['met_locally']}")
     print(f"wrote {out_path}")
     if args.check and not packet["accepted"]:
         return 1

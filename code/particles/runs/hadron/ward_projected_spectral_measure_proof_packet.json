@@ -2,8 +2,9 @@
  "issue": 317,
  "certificate_id": "issue-317-hadronic-spectral-measure-proof-packet-v1",
  "artifact": "oph_ward_projected_spectral_measure_proof_packet",
- "status": "proof_packet_construction_certified_production_payload_delegated_to_425",
+ "status": "proof_packet_construction_certified_issue_closure_condition_open",
  "accepted": true,
+ "acceptance_scope": "'accepted' certifies the packet construction/contract layer only: the theorem parts, executed witnesses, typing checks, and the fail-closed emission gate. It does not assert the author-stated issue-closure condition, which is computed separately in issue_closure_condition and is currently not met locally.",
  "theorem": {
   "theorem_id": "WardProjectedHadronicSpectralMeasureConstruction_Q",
   "statement": "On the OPH QCD/matter sector with a declared quotient ensemble, reflection-positive Euclidean vacuum, and transfer operator, the point-split U(1)_Q vector current is gauge invariant and exactly conserved, its Ward projection selects the transverse channel Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2), and the zero-momentum transverse correlator carries the positive finite-volume spectral measure rho_Q(s) = sum_n Z_n delta(s - E_n^2) with Z_n >= 0, support starting at the lowest vector-channel state, normalization fixed by the Z_V ledger, scheme dependence confined to the declared once-subtracted transport kernel, and jackknife-through-pipeline covariance and budget-ledger uncertainty propagation.",
@@ -477,21 +478,99 @@
    ],
    "all_negative_controls_rejected": true,
    "passed": true
+  },
+  "empirical_typing": {
+   "checked_artifacts": {
+    "comparison_manifest": "code/particles/runs/qcd/hadron_source_backend/controls/comparison_data_manifest.json",
+    "empirical_companion_schema": "code/particles/hadron/empirical_ward_projected_spectral_measure.schema.json"
+   },
+   "checks": {
+    "comparison_manifest_empty": true,
+    "comparison_manifest_status_no_data": true,
+    "row_class_const_comparison_only": true,
+    "promotable_as_oph_source_theorem_const_false": true,
+    "satisfies_production_constructive_next_artifact_const_false": true,
+    "external_cross_section_data_declared_const_true": true
+   },
+   "passed": true
+  },
+  "higher_point_typing": {
+   "checked_artifacts": {
+    "q4_hlbl_receipt": "code/particles/runs/qcd/hadron_source_backend/higher_point/Q4_HLbL_receipt.json"
+   },
+   "checks": {
+    "q4_status_two_point_measure_insufficient": true,
+    "q4_promotion_not_allowed": true,
+    "q4_no_external_targets": true
+   },
+   "passed": true
   }
  },
  "acceptance_criteria_status": {
-  "current_and_measure_gauge_invariant_and_source_derived": true,
-  "positivity_normalization_thresholds_scheme_dependence_proved": true,
-  "machine_readable_measure_emitted_without_measured_hvp_input": true,
-  "empirical_data_typed_blinded_comparison_only": true,
-  "higher_point_and_radiative_corrections_separately_typed": true
+  "current_and_measure_gauge_invariant_and_source_derived": {
+   "packet_level_passed": true,
+   "machine_checks": "executed witnesses 1 and 2 (machine_witnesses.gauge_and_ward)",
+   "production_open_items": [
+    "source QCD parameter map P -> (g_3, quark masses, scheme)",
+    "qcd_ensemble/base_measure.json: REQUIRED_NOT_POPULATED",
+    "currents/ward_current_definition.json: MISSING_SOURCE_CERTIFICATE",
+    "the demonstrator runs at declared diagnostic bare parameters on a quenched ensemble, not on the derived physical branch"
+   ]
+  },
+  "positivity_normalization_thresholds_scheme_dependence_proved": {
+   "packet_level_passed": true,
+   "machine_checks": "executed witnesses 3 and 4 (machine_witnesses.zv_free_field_anchor, machine_witnesses.demonstrator_measure)",
+   "production_open_items": [
+    "reflection-positivity and transfer-operator source certificates",
+    "production thresholds and resonance pushforward execution",
+    "continuum limit; five budget rows not quantified at diagnostic scale"
+   ]
+  },
+  "machine_readable_measure_emitted_without_measured_hvp_input": {
+   "packet_level_passed": true,
+   "machine_checks": "executed witnesses 4 and 5 (machine_witnesses.demonstrator_measure, machine_witnesses.acceptance_gate)",
+   "production_open_items": [
+    "the production 2+1 payload; the diagnostic demonstrator is rejected by the production gate by construction"
+   ]
+  },
+  "empirical_data_typed_blinded_comparison_only": {
+   "packet_level_passed": true,
+   "machine_checks": "live artifact check (machine_witnesses.empirical_typing)",
+   "production_open_items": []
+  },
+  "higher_point_and_radiative_corrections_separately_typed": {
+   "packet_level_passed": true,
+   "machine_checks": "live artifact check (machine_witnesses.higher_point_typing)",
+   "production_open_items": []
+  }
+ },
+ "issue_closure_condition": {
+  "author_condition": "close only when the backend export bundle, unquenching execution, runtime receipt, and uncertainty ledger are present",
+  "checked_objects": {
+   "production_backend_export_bundle": {
+    "path": "code/particles/runs/hadron/hadron_production_readiness_report.json",
+    "status": "open",
+    "closure_grade": "execution_incomplete",
+    "public_unsuppression_ready": false
+   },
+   "qcd_base_measure": {
+    "path": "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/base_measure.json",
+    "status": "REQUIRED_NOT_POPULATED"
+   },
+   "ward_current_source_certificate": {
+    "path": "code/particles/runs/qcd/hadron_source_backend/currents/ward_current_definition.json",
+    "status": "MISSING_SOURCE_CERTIFICATE"
+   }
+  },
+  "met_locally": false,
+  "resolution_path": "production backend export lane (dependency_note); the export must conform to the schema and acceptance gate certified in this packet"
  },
  "acceptance_criteria_mapping": {
   "current_and_measure_gauge_invariant_and_source_derived": "theorem parts (a), (b); executed witnesses 1 and 2; source-law non-substitution theorem excludes non-source substitutes",
   "positivity_normalization_thresholds_scheme_dependence_proved": "theorem parts (c), (d), (e); executed witnesses 3 and 4",
   "machine_readable_measure_emitted_without_measured_hvp_input": "export schema plus semantic gate; executed witnesses 4 and 5; the demonstrator consumes bare lattice parameters only",
-  "empirical_data_typed_blinded_comparison_only": "empirical companion row class oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false (empirical_ward_projected_spectral_measure.schema.json); source-side comparison manifest empty (controls/comparison_data_manifest.json: NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under falsification/frozen_targets/",
-  "higher_point_and_radiative_corrections_separately_typed": "hadronic precision functor typing: two-current measure is one marginal; Gamma^{(4)} and transition amplitudes are distinct required artifacts (higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT); QED/EW corrections live in the mutually exclusive Xi_Q ledger rows"
+  "empirical_data_typed_blinded_comparison_only": "machine-checked live (machine_witnesses.empirical_typing): empirical companion row class oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false as schema constants (empirical_ward_projected_spectral_measure.schema.json); source-side comparison manifest empty (controls/comparison_data_manifest.json: NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under falsification/frozen_targets/",
+  "higher_point_and_radiative_corrections_separately_typed": "machine-checked live (machine_witnesses.higher_point_typing): two-current measure is one marginal of the hadronic precision functor; Gamma^{(4)} and transition amplitudes are distinct required artifacts (higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT, non-promoting, no external targets); QED/EW corrections live in the mutually exclusive Xi_Q ledger rows"
  },
  "claim_boundary": {
   "closed_here": "the construction theorem for the renormalized U(1)_Q current and its positive spectral measure (gauge invariance, Ward identity, positivity, normalization, thresholds, scheme confinement, covariance and uncertainty-propagation rules), the machine-readable emission contract with fail-closed guards and negative controls, an executed diagnostic demonstrator on committed real lattice data, and the typing of empirical, higher-point, and radiative objects",
@@ -533,7 +612,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-21T15:01:56Z",
+  "generated_utc": "2026-07-21T15:18:16Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }
