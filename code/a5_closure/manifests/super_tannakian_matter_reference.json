@@ -1,0 +1,49 @@
+{
+  "schema": "oph.super_tannakian_matter_manifest.v1",
+  "description": "Reference source packet for the super-Tannakian matter lift (issue #314). The physical current algebra is strictly upstream through the hash-pinned #566 packet; this manifest declares only the trace-balanced exterior matter contract, the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration.",
+  "current_manifest_path": "manifests/port_current_response_reference.json",
+  "current_manifest_sha256": "c167c52646d352ebb910ebf653e61190ee47c6b81d09ff336fd472bc99e3e3d6",
+  "current_receipt_path": "receipts/port_current_inner_reference.receipt.json",
+  "current_receipt_sha256": "05ef5e561b8b7799a7f974fa26d1650e4b9c138e4cd978afb3cc4a6ac321edb6",
+  "exterior_matter_contract": {
+    "block_trace_charges": {
+      "color_block": "-1/3",
+      "weak_block": "1/2"
+    },
+    "trace_balanced": true,
+    "one_scalar": "weak_block",
+    "yukawa_channels": [
+      ["Q", "S", "u_c"],
+      ["Q", "Sbar", "d_c"],
+      ["L", "Sbar", "e_c"]
+    ],
+    "extra_scalars": [],
+    "note": "the exact block trace charges satisfy 3*(-1/3) + 2*(1/2) = 0; the balance itself is a declared contract of the conditional exterior lane, not derived here"
+  },
+  "statistics_contract": {
+    "matter_statistics": "fermionic_odd",
+    "auxiliary_car_modes": 5,
+    "distinct_from_bosonic_records": true,
+    "note": "matter states are built from anticommuting auxiliary CAR generators; the abelian bosonic coefficient records of the screen lane are a different typed object"
+  },
+  "category_contract": {
+    "typing": "spin_odd_weyl_super",
+    "spin_lift": {
+      "double_cover": true,
+      "note": "the kernel-block action must be lifted through a genuine double cover; a split lift is rejected against the derived unique-involution witness"
+    },
+    "selection_rule": "parity_even_minus_derived_invariants",
+    "realization": "operator_projector",
+    "note": "the fifteen-state module must be selected from the full auxiliary CAR/Fock space by the source-derived equivariant projector; representation arithmetic alone is not physical realization"
+  },
+  "kernel_emission_contract": {
+    "emit": true,
+    "assume_global_quotient": false,
+    "note": "the common action kernel on every realized matter tensor is emitted as data for the downstream global-form descent; the final quotient is not chosen here"
+  },
+  "mar_class": {
+    "declared": "one_generation_one_scalar_chiral_anomaly_free",
+    "promote_uniqueness": false,
+    "note": "this packet proves the declared class nonempty by realization; uniqueness stays in the MAR lane"
+  }
+}

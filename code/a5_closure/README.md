@@ -16,7 +16,8 @@ python3 exterior_sm_completion.py        # exterior matter, anomalies, weak load
 python3 a5_selection_certificate.py      # sharpness data for Cohn-Kumar universal optimality
 python3 echosahedral_selector_certificate.py all  # issue #565 source selector, receipt, controls
 python3 port_current_inner_certificate.py all     # issue #566 physical port-current algebra, receipt, controls
-python3 -m unittest discover -s tests -v    # issue #565/#566 regression and adversarial suites
+python3 super_tannakian_matter_lift_certificate.py all  # issue #314 super-Tannakian matter lift, receipt, controls
+python3 -m unittest discover -s tests -v    # issue #565/#566/#314 regression and adversarial suites
 python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
 python3 bh_log_correction.py             # conditional horizon log-coefficient decision tree
@@ -33,6 +34,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 |---|---|
 | **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
 | **Physical port-current algebra (#566)** | On the certified #565 carrier with declared reversible-response data (four exact band scales, one common odd sign, repairs typed irreversible and excluded), the injective port-to-generator map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)` on a faithful charged response space, with one-dimensional central `u(1)` on the constant even port line, derived dimension 11, adjoint rank 11, positive-definite invariant Hilbert-Schmidt pullback with band coefficients `1/4, 3+sqrt5, 5+sqrt5, 5-sqrt5`, A5 covariance (720 checks), faithful implementer homomorphism (3600 products), inner A5 action (60 exact Rodrigues normal-form exp witnesses), refinement naturality, and exactly four-dimensional equivariant response moduli. A representation-typed no-go (irrational order-five characters, no index-three subgroup) certifies the currents cannot arise from register relabeling. Abelian-record and rank-deficient models fail the gate with typed codes. The response source data enter as declared exact values (`measurement_status: declared_source_data`), the same epistemic status as the carrier manifest; an optional hash-pinned artifact can upgrade them to a measured record. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
+| **Super-Tannakian matter lift (#314)** | On the hash-pinned #566 packet with the declared trace-balanced exterior matter contract (`(y_C, y_W) = (-1/3, 1/2)`, one scalar `= W`, three Yukawa channels), fermionic statistics, and Spin/odd-Weyl typing: the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — PORT-SPIN-LIFT on this branch); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the source-derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed and **emitted** as data (order 6, generator `(zeta_6, omega, -1)`) without forming the quotient; the declared MAR class is witnessed nonempty without promoting uniqueness. Fifteen typed negative controls (Vec, split-sVec, opposite-Weyl, bosonic statistics, truncated/over-full selections, empty Gauss data, assumed quotient, kernel-killing scalar, representation-arithmetic-only, charge-dead, unbalanced, uniqueness promotion, firewall) fail closed. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -70,10 +72,14 @@ six-axis lattice quotient `Z6`. Central record projectors commute; the
 full-rank compact skew-adjoint receipt **PORT-CURRENT-INNER** is now closed
 on the declared echosahedral response branch by
 `port_current_inner_certificate.py` (four declared response band scales and
-one common odd sign remain source data). The global form still requires
-**PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel
-premises. The coefficient construction supplies no observational
-discriminator.
+one common odd sign remain source data), and **SUPER-TANNAKIAN-MATTER-LIFT**
+— including the PORT-SPIN-LIFT construction and the MAR nonemptiness
+witness — is closed on the same declared branch by
+`super_tannakian_matter_lift_certificate.py` (the trace-balanced exterior
+matter contract remains declared source data). The global form still
+requires block determinant balance and axis/center descent; the matter
+lift emits the order-six action kernel as data for that descent. The
+coefficient construction supplies no observational discriminator.
 
 `survival_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -135,6 +141,21 @@ prove that arbitrary OPH carriers must have this type.
   declaration to a measured record; deriving the response data from raw OPH
   consensus dynamics remains outside this receipt.
 
+- **SUPER-TANNAKIAN-MATTER-LIFT** (issue #314) is closed on the same
+  declared branch by `super_tannakian_matter_lift_certificate.py`: the
+  exact non-split SU(2) double cover of the sixty proper implementers
+  (PORT-SPIN-LIFT on this branch), the faithful current action on the
+  matter carrier and the fifteen-state module, the source-derived
+  equivariant projector on the auxiliary CAR/Fock space, realized anomaly
+  and Witten checks, exact chirality and conjugation, three Yukawa
+  invariant lines, refinement descent, the emitted order-six action
+  kernel, and the MAR nonemptiness witness. The declared inputs beyond
+  #566 are the trace-balanced exterior matter contract, the fermionic
+  statistics contract, the Spin/odd-Weyl category typing, the kernel
+  emission contract, and the MAR class declaration — all typed and
+  enforced fail-closed. Theorem: 
+  `physics-problems/issue_314_super_tannakian_matter_lift.md`.
+
 ### Open receipts
 
 - *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
@@ -142,9 +163,12 @@ prove that arbitrary OPH carriers must have this type.
   source-derived repair composition with nonzero projected `W_5` commutator.
   The stronger **PORT-CURRENT-INNER** route is closed above, so this branch
   is only needed for carriers outside the declared response packet.
-- **BLOCK-DETERMINANT-BALANCE**, **PORT-SPIN-LIFT**, and
-  **AXIS-CENTER-DESCENT**: select total trace zero, land the mathematical
-  Clifford lift physically, and identify port-loop winding with the deck class.
+- **BLOCK-DETERMINANT-BALANCE** and **AXIS-CENTER-DESCENT**: select total
+  trace zero from source dynamics (the #314 packet declares it as contract
+  data) and identify port-loop winding with the deck class; the matter
+  lift emits the order-six action kernel this descent consumes.
+  PORT-SPIN-LIFT itself is constructed on the declared branch by the #314
+  packet.
 - **A5-FAMILY-ATTACHMENT** (family corollary only): prove the chiral family
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
@@ -152,8 +176,11 @@ prove that arbitrary OPH carriers must have this type.
 - **A5-FAMILY-DESCENT**: derive how the selection symmetry is broken, hidden,
   or forgotten before general family Yukawa matrices are admitted.
 - **EXTERIOR-PACKAGE-SELECTION**: select the non-vacuum even exterior package
-  and `H=W`, then exclude the vacuum singlet and other anomaly-free light
-  generators.
+  and `H=W` physically, then exclude the vacuum singlet and other
+  anomaly-free light generators. The #314 packet realizes the selection by
+  the source-derived equivariant projector under its declared selection
+  contract (and its controls reject the full even Clifford module), but
+  the MGFC-grade exclusion of alternative sectors remains open.
 - **PORT-WEAK-INTERTWINER** and **PORT-LOAD-TRACE**: identify a physical
   four-dimensional screen invariant with the four weak-doublet copies and
   prove that its normalized additive load is the physical `4P` readout.
@@ -185,7 +212,10 @@ twelve are all one. The issue-#565 artifact supplies an exact executable finite
 proof of the source integer domain, strict readback cost, antipode, `A5`
 action, frame, refinement, relabelling, and countermodels. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
-moduli proofs on the declared response branch. A Lean port of those
+moduli proofs on the declared response branch. The issue-#314 artifact
+supplies the exact executable spin lift, matter transport, CAR/Fock
+selection, chirality, anomaly, kernel-emission, and refinement-descent
+proofs on the same branch. A Lean port of those
 complete finite packets remains available work; the Python receipts are not
 being relabelled as Lean theorems. `Phi`, `Theta`, the compact-Lie
 trichotomy, trace-balanced group, and physical descent retain their
