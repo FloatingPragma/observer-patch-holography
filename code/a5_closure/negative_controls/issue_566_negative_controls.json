@@ -19,6 +19,8 @@
     },
     "typing": {
       "firewall": "a measured-coupling target in the source manifest fails closed",
+      "phantom_measurement": "claiming measured status without a pinned, existing, hash-matching artifact fails closed",
+      "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
       "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed"
     }
   },
@@ -66,6 +68,18 @@
       "passed": true
     },
     {
+      "actual_error": "REGISTER_RELABELING_CONFLATION",
+      "expected_error": "REGISTER_RELABELING_CONFLATION",
+      "name": "register_relabeling_conflated_as_response",
+      "passed": true
+    },
+    {
+      "actual_error": "RESPONSE_ARTIFACT",
+      "expected_error": "RESPONSE_ARTIFACT",
+      "name": "phantom_measurement_claim",
+      "passed": true
+    },
+    {
       "actual_error": "FORBIDDEN_DEPENDENCY",
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "inject_downstream_target",
@@ -73,6 +87,6 @@
     }
   ],
   "issue": 566,
-  "manifest_sha256": "72c8dd215da940ee56022d04b920efafb65a9bd3de96f6f195ab056554d84458",
+  "manifest_sha256": "1afe016267567dd69bad5dee79483cabd56f353e9aef00502c2c16c505a58db6",
   "schema": "oph.port_current_inner_negative_controls.v1"
 }

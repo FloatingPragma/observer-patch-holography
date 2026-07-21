@@ -32,7 +32,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Object | Statement |
 |---|---|
 | **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
-| **Physical port-current algebra (#566)** | On the certified #565 carrier with declared reversible-response data (four exact band scales, one common odd sign, repairs typed irreversible and excluded), the injective port-to-generator map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)` on a faithful charged response space, with one-dimensional central `u(1)` on the constant even port line, derived dimension 11, adjoint rank 11, positive-definite invariant Hilbert-Schmidt pullback with band coefficients `1/4, 3+sqrt5, 5+sqrt5, 5-sqrt5`, A5 covariance (720 checks), faithful implementer homomorphism (3600 products), inner A5 action (60 exact Rodrigues normal-form exp witnesses), refinement naturality, and exactly four-dimensional equivariant response moduli. Abelian-record and rank-deficient models fail the gate with typed codes. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
+| **Physical port-current algebra (#566)** | On the certified #565 carrier with declared reversible-response data (four exact band scales, one common odd sign, repairs typed irreversible and excluded), the injective port-to-generator map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)` on a faithful charged response space, with one-dimensional central `u(1)` on the constant even port line, derived dimension 11, adjoint rank 11, positive-definite invariant Hilbert-Schmidt pullback with band coefficients `1/4, 3+sqrt5, 5+sqrt5, 5-sqrt5`, A5 covariance (720 checks), faithful implementer homomorphism (3600 products), inner A5 action (60 exact Rodrigues normal-form exp witnesses), refinement naturality, and exactly four-dimensional equivariant response moduli. A representation-typed no-go (irrational order-five characters, no index-three subgroup) certifies the currents cannot arise from register relabeling. Abelian-record and rank-deficient models fail the gate with typed codes. The response packet is a typed branch premise (`measurement_status: declared_branch_premise`); the receipt records the closure condition as conditional and names the physical response-field measurement as the remaining producer. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -121,16 +121,20 @@ These closures use the declared simulator assumption that every local carrier
 lineage is a quotient-visible twelve-port echosahedral packet. They do not
 prove that arbitrary OPH carriers must have this type.
 
-- **PORT-CURRENT-INNER** is closed on the same declared branch by
-  `port_current_inner_certificate.py`: the injective full-rank
+- **PORT-CURRENT-INNER** is closed conditionally on the same declared branch
+  by `port_current_inner_certificate.py`: the injective full-rank
   `A5`-equivariant current lift onto `u(3)+so(3)`, commutator closure,
-  compact type, inner induced action through sixty exact exp witnesses, and
-  refinement naturality, from reversible response fields rather than
-  register relabeling. The declared inputs beyond #565 are four exact
-  response band scales, one common odd-response sign, and the
-  repair/response typing split; the four-scale-one-sign family is proved to
-  be the complete equivariant freedom. Deriving those response data from
-  raw OPH consensus dynamics remains outside this receipt.
+  compact type, inner induced action through sixty exact exp witnesses,
+  refinement naturality, and a representation-typed no-go showing register
+  relabeling cannot generate the currents. The declared inputs beyond #565
+  are the typed response measurement contract (four exact response band
+  scales, one common odd-response sign, `measurement_status:
+  declared_branch_premise`) and the repair/response typing split; the
+  four-scale-one-sign family is proved to be the complete equivariant
+  freedom. The physical measurement of the response fields is the remaining
+  producer, recorded in the receipt's `issue_closure_condition`; deriving
+  the response data from raw OPH consensus dynamics remains outside this
+  receipt.
 
 ### Open receipts
 

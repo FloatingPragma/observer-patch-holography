@@ -853,12 +853,13 @@
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
-      "statement": "On the certified twelve-port echosahedral carrier lineage with declared reversible response data (four exact A5-equivariant band scales, one common odd-response sign, strict-descent repairs typed irreversible and excluded from currents), the source packet derives an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on a faithful charged response space C^3+C^3, with one-dimensional central u(1) on the constant even port line, derived dimension eleven, adjoint rank eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action via sixty exact rotation normal-form exponential witnesses, and refinement naturality. The equivariant lifts form exactly the four-scale-one-sign family. Abelian-record and rank-deficient response models fail the physical-current gate. It does not derive the response scales or sectors from raw OPH consensus dynamics and does not identify the algebra with the physical Standard Model gauge group.",
+      "statement": "On the certified twelve-port echosahedral carrier lineage with a typed response measurement contract (four exact A5-equivariant band scales, one common odd-response sign, measurement_status declared_branch_premise, strict-descent repairs typed irreversible and excluded from currents), the source packet derives an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on a faithful charged response space C^3+C^3, with one-dimensional central u(1) on the constant even port line, derived dimension eleven, adjoint rank eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action via sixty exact rotation normal-form exponential witnesses, and refinement naturality. A representation-typed no-go (irrational order-five sector characters, absolute irreducibility, no index-three subgroup) certifies that register relabeling cannot generate the currents. The equivariant lifts form exactly the four-scale-one-sign family. Abelian-record and rank-deficient response models fail the physical-current gate. The response packet is a declared branch premise: the receipt records the closure condition as conditional and names the physical response-field measurement as the remaining producer. It does not derive the response scales or sectors from raw OPH consensus dynamics and does not identify the algebra with the physical Standard Model gauge group.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "source_derived_finite_branch_theorem",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
-        "declared_reversible_response_band_scales_and_odd_sign"
+        "declared_reversible_response_band_scales_and_odd_sign",
+        "typed_response_measurement_contract_as_branch_premise"
       ],
       "imported_results": [
         "exact_Q_sqrt5_linear_algebra",
@@ -879,7 +880,7 @@
       ],
       "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate.",
       "scope_if_false": "The physical port-current theorem and the PORT-CURRENT-INNER closure fall back to the coefficient-level trichotomy. The echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
-      "status": "proved_on_declared_echosahedral_response_branch"
+      "status": "proved_conditionally_on_declared_response_packet__response_field_measurement_open"
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",

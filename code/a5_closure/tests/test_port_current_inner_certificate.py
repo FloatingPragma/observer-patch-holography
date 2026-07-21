@@ -62,8 +62,8 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
 
     def test_derivation_chain_and_acceptance_status(self) -> None:
         chain = self.expected["derivation_chain"]
-        self.assertEqual(len(chain), 12)
-        self.assertEqual([row["step"] for row in chain], list(range(1, 13)))
+        self.assertEqual(len(chain), 13)
+        self.assertEqual([row["step"] for row in chain], list(range(1, 14)))
         for row in chain:
             self.assertTrue(row["premise"])
             self.assertTrue(row["uses"])
@@ -72,10 +72,54 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 5)
         self.assertTrue(all(status.values()))
+        self.assertIn(
+            "declared response packet",
+            status["operators_domain_inner_product_response_pairing_refinement_maps_source_defined"],
+        )
         self.assertIn("branch_scope", self.expected)
         self.assertIn("factor_origins", self.expected)
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
+
+    def test_response_provenance_is_typed_not_asserted(self) -> None:
+        definedness = self.expected["source_definedness"]
+        self.assertEqual(definedness["response_packet_provenance"], "declared_branch_premise")
+        self.assertFalse(definedness["response_fields_locally_measured"])
+        closure_condition = self.expected["issue_closure_condition"]
+        self.assertEqual(closure_condition["met_locally"], "conditional_on_declared_response_packet")
+        self.assertIn("measurement artifact", closure_condition["remaining_producer"])
+
+    def test_pinned_measurement_artifact_flips_closure_condition(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            artifact_path = Path(tmp) / "response_measurement.json"
+            artifact = {"kind": "response_measurement_stub_for_contract_test"}
+            cert.write_json(artifact_path, artifact)
+            manifest = copy.deepcopy(self.manifest)
+            manifest["response_measurement_contract"]["measurement_status"] = "measured"
+            manifest["response_measurement_contract"]["measurement_artifact"] = {
+                "path": str(artifact_path),
+                "sha256": cert.sha256_json(artifact),
+            }
+            receipt = cert.certificate_payload(manifest)
+        self.assertEqual(receipt["issue_closure_condition"]["met_locally"], "unconditional")
+        self.assertIsNone(receipt["issue_closure_condition"]["remaining_producer"])
+        self.assertTrue(receipt["source_definedness"]["response_fields_locally_measured"])
+        wrong_hash = copy.deepcopy(self.manifest)
+        wrong_hash["response_measurement_contract"]["measurement_status"] = "measured"
+        wrong_hash["response_measurement_contract"]["measurement_artifact"] = {
+            "path": "manifests/port_current_response_reference.json",
+            "sha256": "0" * 64,
+        }
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(wrong_hash)
+        self.assertEqual(caught.exception.code, "RESPONSE_ARTIFACT")
+
+    def test_register_relabeling_no_go(self) -> None:
+        row = self.expected["response_versus_register_relabeling"]
+        self.assertEqual(row["element_orders"], [1, 2, 3, 5])
+        self.assertEqual(row["order_five_elements_with_irrational_sector_characters"], 24)
+        self.assertEqual(row["sector_character_norms"], {"even_block": "1", "kernel_block": "1"})
+        self.assertIn("cannot generate these currents", row["conclusion"])
 
     def test_hilbert_schmidt_band_coefficients_are_galois_paired(self) -> None:
         bands = self.expected["compactness"]["hilbert_schmidt_pullback_band_coefficients"]
@@ -139,11 +183,13 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         payload = cert.negative_control_payload(self.manifest)
         stored = cert.load_json(self.negative_path)
         self.assertEqual(payload, stored)
-        self.assertGreaterEqual(len(payload["finite_controls"]), 8)
+        self.assertGreaterEqual(len(payload["finite_controls"]), 10)
         self.assertTrue(all(row["passed"] for row in payload["finite_controls"]))
         by_name = {row["name"]: row["actual_error"] for row in payload["finite_controls"]}
         self.assertEqual(by_name["abelian_record_model"], "CENTER_NOT_ONE_DIMENSIONAL")
         self.assertEqual(by_name["rank_deficient_kernel_band"], "IMAGE_RANK_DEFICIENT")
+        self.assertEqual(by_name["register_relabeling_conflated_as_response"], "REGISTER_RELABELING_CONFLATION")
+        self.assertEqual(by_name["phantom_measurement_claim"], "RESPONSE_ARTIFACT")
 
     def test_forbidden_downstream_data_is_rejected(self) -> None:
         mutant = copy.deepcopy(self.manifest)

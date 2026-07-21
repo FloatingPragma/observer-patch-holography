@@ -1,10 +1,10 @@
 {
   "acceptance_criteria_status": {
     "abelian_record_and_rank_deficient_models_fail_physical_current_gate": true,
-    "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": true,
+    "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": "satisfied, computed exactly over Q(sqrt5), conditional on the same declared response packet",
     "coefficient_classification_distinguished_from_physical_current_realization": true,
     "no_measured_coupling_particle_assignment_or_standard_model_current_input": true,
-    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
+    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": "satisfied relative to the declared response packet: carrier and refinement provenance are derived from the pinned certified packet; the charged response sectors, response automorphisms, scales, and sign are a typed branch premise with measurement_status declared_branch_premise"
   },
   "branch_scope": {
     "branch": "declared echosahedral response branch",
@@ -20,9 +20,10 @@
     "matrix_faithful": true
   },
   "claim_boundary": {
-    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
-    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics",
+    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch, conditional on the typed response measurement contract",
+    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics; the existence of the measured reversible response fields is a typed branch premise (measurement_status declared_branch_premise), not a locally verified measurement",
     "does_not_close": [
+      "physical measurement of the reversible response fields (the remaining producer named in issue_closure_condition)",
       "derivation of the response scales or the response space from raw OPH consensus dynamics",
       "block determinant balance and PORT-SPIN-LIFT",
       "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
@@ -1127,10 +1128,21 @@
       ]
     },
     {
+      "conclusion": "register-relabeling no-go: neither charged sector admits a monomial realization, so the currents cannot come from register relabeling",
+      "premise": "exact character arithmetic and element orders of the derived action",
+      "source_artifact": "certificate_payload",
+      "step": 12,
+      "uses": [
+        "irrational order-five sector characters",
+        "character norms one",
+        "element orders {1,2,3,5}"
+      ]
+    },
+    {
       "conclusion": "the physical-current gate passes on the reference packet and fails closed on every countermodel",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_566_negative_controls.json",
-      "step": 12,
+      "step": 13,
       "uses": [
         "typed negative controls"
       ]
@@ -2510,7 +2522,13 @@
     ]
   },
   "issue": 566,
-  "manifest_sha256": "72c8dd215da940ee56022d04b920efafb65a9bd3de96f6f195ab056554d84458",
+  "issue_closure_condition": {
+    "met_locally": "conditional_on_declared_response_packet",
+    "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
+    "remaining_producer": "a physical measurement artifact for the reversible response fields, pinnable through response_measurement_contract.measurement_artifact; the four band scales and the common odd sign are the open source data of that measurement",
+    "response_field_provenance": "declared_branch_premise"
+  },
+  "manifest_sha256": "1afe016267567dd69bad5dee79483cabd56f353e9aef00502c2c16c505a58db6",
   "physical_current_gate": {
     "a5_covariant_icosahedral_intertwiner": true,
     "adjoint_rank_eleven": true,
@@ -2604,19 +2622,40 @@
       "one common odd-response sign"
     ]
   },
+  "response_versus_register_relabeling": {
+    "conclusion": "the current lift factors through genuinely non-relabeling response sectors; register relabeling provably cannot generate these currents",
+    "element_orders": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "no_go": "both charged sectors are absolutely irreducible with irrational order-five characters and no index-three subgroup exists, so neither sector admits a signed or phased register-relabeling (monomial) realization in any register basis",
+    "no_index_three_subgroup": "element orders {1,2,3,5} exclude every group of order 20, so the derived action has no index-three subgroup",
+    "order_five_elements_with_irrational_sector_characters": 24,
+    "port_action_is_register_relabeling": "the port action is a permutation representation; relabeled records generate only the abelian algebra, which fails the gate (finite control abelian_record_model)",
+    "sector_character_norms": {
+      "even_block": "1",
+      "kernel_block": "1"
+    }
+  },
   "schema": "oph.port_current_inner_receipt.v1",
   "source_definedness": {
-    "all_source_defined": true,
+    "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
     "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
     "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
     "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
     "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
-    "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
+    "response_fields_locally_measured": false,
+    "response_packet_provenance": "declared_branch_premise",
+    "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
+    "source_defined_relative_to_declared_response_packet": true
   },
   "source_firewall": {
     "forbidden_dependency_hits": [],
     "uses_only": [
       "certified twelve-port carrier packet",
+      "typed response measurement contract",
       "reversible response automorphism typing",
       "four exact response band scales",
       "one common odd-response sign",

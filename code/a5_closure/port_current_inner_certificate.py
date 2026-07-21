@@ -390,7 +390,7 @@ def parse_rational(value: Any, code: str) -> Fraction:
         raise CertificateError(code, f"cannot parse exact rational {value!r}") from exc
 
 
-def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
+def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
     e565.enforce_source_firewall(manifest)
     require(manifest.get("schema") == SCHEMA, "SCHEMA", f"expected {SCHEMA}")
 
@@ -398,6 +398,48 @@ def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
     require(isinstance(response, Mapping), "RESPONSE_TYPING", "reversible_response_automorphisms is missing")
     require(response.get("reversible") is True, "RESPONSE_TYPING", "response automorphisms must be typed reversible")
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
+
+    # The response-field provenance is a first-class fail-closed contract,
+    # not a free-text string.  Either the packet is an explicitly declared
+    # branch premise (no artifact allowed), or it pins a real measurement
+    # artifact by path and hash.
+    contract = manifest.get("response_measurement_contract")
+    require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_measurement_contract is missing")
+    require(
+        contract.get("distinct_from_register_relabeling") is True,
+        "REGISTER_RELABELING_CONFLATION",
+        "the response fields must be typed distinct from register relabeling",
+    )
+    measurement_status = contract.get("measurement_status")
+    artifact = contract.get("measurement_artifact")
+    if measurement_status == "declared_branch_premise":
+        require(
+            artifact is None,
+            "RESPONSE_ARTIFACT",
+            "a declared branch premise must not carry a measurement artifact",
+        )
+    elif measurement_status == "measured":
+        require(
+            isinstance(artifact, Mapping)
+            and isinstance(artifact.get("path"), str)
+            and isinstance(artifact.get("sha256"), str),
+            "RESPONSE_ARTIFACT",
+            "a measured response packet must pin its measurement artifact by path and sha256",
+        )
+        artifact_path = Path(artifact["path"])
+        if not artifact_path.is_absolute():
+            artifact_path = (base_dir or MODULE_DIR) / artifact_path
+        require(artifact_path.is_file(), "RESPONSE_ARTIFACT", "the pinned measurement artifact does not exist")
+        require(
+            sha256_json(load_json(artifact_path)) == artifact["sha256"],
+            "RESPONSE_ARTIFACT",
+            "the pinned measurement artifact hash does not match",
+        )
+    else:
+        raise CertificateError(
+            "RESPONSE_TYPING",
+            "measurement_status must be 'declared_branch_premise' or 'measured'",
+        )
 
     repairs = manifest.get("strict_descent_repairs")
     require(isinstance(repairs, Mapping), "REPAIR_TYPING", "strict_descent_repairs is missing")
@@ -458,6 +500,7 @@ def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
         "axis_scales": axis_scales,
         "odd_axis_signs": [int(s) for s in odd_axis_signs_raw],
         "repair_ledger_rows": len(ledger),
+        "measurement_status": measurement_status,
     }
 
 
@@ -900,7 +943,7 @@ def band_projectors(frame: FrameRealization) -> dict[str, RMat]:
 
 def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
     base = base_dir or MODULE_DIR
-    params = validate_manifest(manifest)
+    params = validate_manifest(manifest, base)
     carrier, group_row, plus, carrier_manifest = load_carrier(manifest, base)
 
     verts = standard_vertices()
@@ -1138,6 +1181,54 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         )
     require(len(innerness_rows) == 60, "INNERNESS_COUNT", "expected sixty innerness witnesses")
 
+    # Register-relabeling no-go: the current lift provably cannot arise from
+    # register relabeling.  Three exact facts, all basis-independent:
+    # (1) the port action is a relabeling representation (non-negative
+    #     integer character), and relabeled records generate only the abelian
+    #     algebra that fails the gate (finite control);
+    # (2) both charged-sector characters are irrational on every order-five
+    #     element, so neither sector carries a signed register-relabeling
+    #     action in any register basis;
+    # (3) both sector characters have exact norm one (absolutely
+    #     irreducible), and the element orders are exactly {1,2,3,5}, so no
+    #     order-20 subgroup and hence no index-three subgroup exists: a
+    #     three-dimensional irreducible monomial realization (relabeling with
+    #     phases) is impossible.
+    element_orders = sorted({order_of(tuple(g)) for g in plus})
+    require(
+        element_orders == [1, 2, 3, 5],
+        "RELABELING_NO_GO",
+        f"expected element orders [1, 2, 3, 5], got {element_orders}",
+    )
+    order_five_irrational = 0
+    even_norm = ZERO
+    kernel_norm = ZERO
+    for g in plus:
+        rotation = frame.rotation_of(g)
+        even_trace = rotation[0][0] + rotation[1][1] + rotation[2][2]
+        kernel_trace = even_trace.conj()
+        even_norm = even_norm + even_trace * even_trace
+        kernel_norm = kernel_norm + kernel_trace * kernel_trace
+        if order_of(tuple(g)) == 5:
+            require(
+                even_trace.b != 0 and kernel_trace.b != 0,
+                "RELABELING_NO_GO",
+                "an order-five implementer has an integer character value",
+            )
+            order_five_irrational += 1
+    require(order_five_irrational == 24, "RELABELING_NO_GO", "expected 24 order-five elements")
+    group_order = F5(60)
+    require(
+        ((even_norm / group_order) - ONE).is_zero(),
+        "RELABELING_NO_GO",
+        "the even charged sector is not absolutely irreducible",
+    )
+    require(
+        ((kernel_norm / group_order) - ONE).is_zero(),
+        "RELABELING_NO_GO",
+        "the kernel charged sector is not absolutely irreducible",
+    )
+
     # Refinement naturality: every declared tower map is intertwined by K.
     refinement_row = e565.validate_refinement(carrier_manifest, carrier, plus, e565.gram_matrix(carrier))
     tower = carrier_manifest["refinement_tower"]
@@ -1220,6 +1311,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "forbidden_dependency_hits": [],
             "uses_only": [
                 "certified twelve-port carrier packet",
+                "typed response measurement contract",
                 "reversible response automorphism typing",
                 "four exact response band scales",
                 "one common odd-response sign",
@@ -1232,7 +1324,10 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
             "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
             "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
-            "all_source_defined": True,
+            "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
+            "response_packet_provenance": params["measurement_status"],
+            "source_defined_relative_to_declared_response_packet": True,
+            "response_fields_locally_measured": params["measurement_status"] == "measured",
         },
         "frame_realization": {
             "coordinate_model": "twelve unnormalized icosahedron vertices, cyclic permutations of (0, +/-1, +/-phi)",
@@ -1300,6 +1395,15 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "witness_count": len(innerness_rows),
             "witnesses": innerness_rows,
             "conclusion": "every implementer is exp of an element of the current image, so the induced A5 action lies in Int(g)",
+        },
+        "response_versus_register_relabeling": {
+            "port_action_is_register_relabeling": "the port action is a permutation representation; relabeled records generate only the abelian algebra, which fails the gate (finite control abelian_record_model)",
+            "element_orders": element_orders,
+            "order_five_elements_with_irrational_sector_characters": order_five_irrational,
+            "sector_character_norms": {"even_block": "1", "kernel_block": "1"},
+            "no_index_three_subgroup": "element orders {1,2,3,5} exclude every group of order 20, so the derived action has no index-three subgroup",
+            "no_go": "both charged sectors are absolutely irreducible with irrational order-five characters and no index-three subgroup exists, so neither sector admits a signed or phased register-relabeling (monomial) realization in any register basis",
+            "conclusion": "the current lift factors through genuinely non-relabeling response sectors; register relabeling provably cannot generate these currents",
         },
         "refinement": {
             "carrier_tower": refinement_row,
@@ -1411,6 +1515,13 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             },
             {
                 "step": 12,
+                "premise": "exact character arithmetic and element orders of the derived action",
+                "uses": ["irrational order-five sector characters", "character norms one", "element orders {1,2,3,5}"],
+                "source_artifact": "certificate_payload",
+                "conclusion": "register-relabeling no-go: neither charged sector admits a monomial realization, so the currents cannot come from register relabeling",
+            },
+            {
+                "step": 13,
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_566_negative_controls.json",
@@ -1433,11 +1544,26 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "not_claimed": "no statement about arbitrary OPH carriers, no derivation of the response data from raw consensus dynamics, no identification with the physical Standard Model gauge group",
         },
         "acceptance_criteria_status": {
-            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": True,
-            "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
+            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": (
+                "satisfied relative to the declared response packet: carrier and refinement provenance are derived from the pinned certified packet; the charged response sectors, response automorphisms, scales, and sign are a typed branch premise with measurement_status "
+                + params["measurement_status"]
+            ),
+            "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": "satisfied, computed exactly over Q(sqrt5), conditional on the same declared response packet",
             "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
             "coefficient_classification_distinguished_from_physical_current_realization": True,
             "no_measured_coupling_particle_assignment_or_standard_model_current_input": True,
+        },
+        "issue_closure_condition": {
+            "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
+            "response_field_provenance": params["measurement_status"],
+            "met_locally": (
+                "unconditional" if params["measurement_status"] == "measured" else "conditional_on_declared_response_packet"
+            ),
+            "remaining_producer": (
+                None
+                if params["measurement_status"] == "measured"
+                else "a physical measurement artifact for the reversible response fields, pinnable through response_measurement_contract.measurement_artifact; the four band scales and the common odd sign are the open source data of that measurement"
+            ),
         },
         "dependency_acyclicity_note": {
             "upstream": [
@@ -1451,9 +1577,10 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
-            "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
-            "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics",
+            "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch, conditional on the typed response measurement contract",
+            "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics; the existence of the measured reversible response fields is a typed branch premise (measurement_status declared_branch_premise), not a locally verified measurement",
             "does_not_close": [
+                "physical measurement of the reversible response fields (the remaining producer named in issue_closure_condition)",
                 "derivation of the response scales or the response space from raw OPH consensus dynamics",
                 "block determinant balance and PORT-SPIN-LIFT",
                 "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
@@ -1499,6 +1626,14 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     conflated = copy.deepcopy(manifest)
     conflated["strict_descent_repairs"]["ledger"][0]["defines_currents"] = True
     cases.append(("repair_conflated_with_response", conflated, "REPAIR_RESPONSE_CONFLATION"))
+
+    relabeling = copy.deepcopy(manifest)
+    relabeling["response_measurement_contract"]["distinct_from_register_relabeling"] = False
+    cases.append(("register_relabeling_conflated_as_response", relabeling, "REGISTER_RELABELING_CONFLATION"))
+
+    phantom = copy.deepcopy(manifest)
+    phantom["response_measurement_contract"]["measurement_status"] = "measured"
+    cases.append(("phantom_measurement_claim", phantom, "RESPONSE_ARTIFACT"))
 
     forbidden = copy.deepcopy(manifest)
     forbidden["downstream_hint"] = {"measured_coupling_target": "alpha_inverse"}
@@ -1546,6 +1681,8 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             },
             "typing": {
                 "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed",
+                "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
+                "phantom_measurement": "claiming measured status without a pinned, existing, hash-matching artifact fails closed",
                 "firewall": "a measured-coupling target in the source manifest fails closed",
             },
         },

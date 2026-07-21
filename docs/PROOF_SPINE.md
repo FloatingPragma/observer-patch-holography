@@ -294,13 +294,16 @@ Part B gaps:
   lines, listed anomalies, and weak multiplicity four. The echosahedral source
   selector closes UD12 and RP-A5 on the declared quotient-visible carrier
   lineage, deriving the unit split, inverse pairing, proper A5 action, exact
-  frame, and refinement/relabeling naturality. PORT-CURRENT-INNER is closed on
-  the declared response branch by the exact port-current certificate
-  (`code/a5_closure/port_current_inner_certificate.py`): the injective
-  full-rank current lift onto $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with
-  compact skew-adjoint closure, inner A5 action, and refinement naturality,
-  with four response band scales and one common odd sign as declared source
-  data. The remaining producer gates are block determinant balance and
+  frame, and refinement/relabeling naturality. PORT-CURRENT-INNER is closed
+  conditionally on the declared response branch by the exact port-current
+  certificate (`code/a5_closure/port_current_inner_certificate.py`): the
+  injective full-rank current lift onto
+  $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with compact skew-adjoint closure,
+  inner A5 action, refinement naturality, and a register-relabeling no-go,
+  with the response packet (four band scales, one common odd sign) entering
+  as a typed branch premise; the physical response-field measurement is the
+  remaining producer named in the receipt's closure condition. The other
+  remaining producer gates are block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
   non-vacuum exterior package and $H=W$; exclusion of the vacuum
   singlet and other anomaly-free light sectors; A5 family attachment plus a
