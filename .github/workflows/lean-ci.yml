@@ -14,11 +14,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A cold runner rebuilds the OPH libraries after fetching the Mathlib
-    # olean cache; 60 minutes cancelled three consecutive runs before the
-    # package cache could ever be saved. 180 minutes lets one run succeed
-    # and seed the cache; warm runs finish far below the limit.
-    timeout-minutes: 180
+    # A cold build (Mathlib source fallback plus the OPH libraries) exceeds
+    # any single-job limit on a two-core runner, and a job cancelled by
+    # timeout-minutes skips cache post-steps, so no progress was ever saved
+    # and every run restarted from zero. The build therefore runs under an
+    # internal time budget, the Lake directories are saved explicitly even
+    # when the budget expires, and the next run resumes from the saved
+    # state until it completes.
+    timeout-minutes: 350
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,15 +39,16 @@ jobs:
           lean --version
           lake --version
 
-      - name: Cache Lake build
-        uses: actions/cache@v4
+      - name: Restore Lake build cache
+        uses: actions/cache/restore@v4
         with:
           path: |
-            Lean/.lake/packages
-            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake/packages
-          key: lake-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
+            Lean/.lake
+            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
+          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
           restore-keys: |
-            lake-${{ runner.os }}-
+            lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
+            lake2-${{ runner.os }}-
 
       - name: Verify pinned dependency inputs
         working-directory: Lean
@@ -55,17 +59,69 @@ jobs:
           grep -F '"mathlib"' lake-manifest.json
           grep -F 'v4.29.1' lakefile.lean
 
-      - name: Clean and fetch Mathlib cache
-        working-directory: Lean
-        run: |
-          lake clean
-          lake exe cache get || true
-
-      - name: Build and check zero proof debt
+      - name: Fetch Mathlib olean cache
         working-directory: Lean
         run: |
           set -euo pipefail
-          lake build 2>&1 | tee lake-build.log
+          status=0
+          lake exe cache get 2>&1 | tee cache-get.log || status=$?
+          tail -n 5 cache-get.log || true
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::lake exe cache get exited with $status; continuing (Mathlib may build from source under the time budget)"
+          fi
+
+      - name: Build under time budget
+        id: budget_build
+        working-directory: Lean
+        run: |
+          set -euo pipefail
+          status=0
+          timeout 300m lake build 2>&1 | tee lake-build.log || status=$?
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::lake build stopped with exit $status (124 = time budget reached); progress is cached for the next run"
+          fi
+
+      - name: Build neutral submission artifact
+        id: onf_build
+        if: steps.budget_build.outputs.status == '0'
+        working-directory: Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
+        run: |
+          set -euo pipefail
+          status=0
+          timeout 30m lake build 2>&1 | tee onf-build.log || status=$?
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::ObservableNormalForms build stopped with exit $status; progress is cached for the next run"
+          fi
+
+      - name: Save Lake build cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            Lean/.lake
+            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
+          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}
+
+      - name: Fail when the time budget expired before completion
+        if: steps.budget_build.outputs.status != '0'
+        run: |
+          echo "The Lake build did not complete within the time budget." >&2
+          echo "Progress was saved; re-run this workflow to resume from the cache." >&2
+          exit 1
+
+      - name: Fail when the artifact build did not complete
+        if: steps.onf_build.outputs.status != '0'
+        run: |
+          echo "The ObservableNormalForms build did not complete within its budget." >&2
+          echo "Progress was saved; re-run this workflow to resume from the cache." >&2
+          exit 1
+
+      - name: Check zero proof debt
+        working-directory: Lean
+        run: |
+          set -euo pipefail
 
           if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
               . --glob '*.lean' --glob '!**/.lake/**'; then
@@ -80,18 +136,14 @@ jobs:
             exit 1
           fi
 
-          (
-            cd ObserverPatchHolography/Proofs/ObservableNormalForms
-            lake build
-            if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
-                ObservableNormalForms --glob '*.lean'; then
-              echo "Unexpected admission in neutral submission artifact." >&2
-              exit 1
-            fi
-          )
+          if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
+              ObserverPatchHolography/Proofs/ObservableNormalForms/ObservableNormalForms \
+              --glob '*.lean'; then
+            echo "Unexpected admission in neutral submission artifact." >&2
+            exit 1
+          fi
 
           sorry_warnings="$(grep -F 'declaration uses `sorry`' lake-build.log || true)"
-
           if [ -n "$sorry_warnings" ]; then
             echo "Unexpected Lean proof-debt state." >&2
             echo "Expected zero sorry warnings (the Primitives.lean admissions were discharged)." >&2
@@ -100,7 +152,22 @@ jobs:
             exit 1
           fi
 
-          grep -F "bare_consensus_not_einstein_complete' depends on axioms" lake-build.log
-          grep -F "composedEinsteinBranch' depends on axioms" lake-build.log
+      - name: Replay Einstein-branch axiom audit
+        working-directory: Lean
+        # The audit is replayed explicitly because a warm cached build does
+        # not re-elaborate the file, so its #print axioms output would be
+        # absent from lake-build.log.
+        run: |
+          set -euo pipefail
+          lake env lean \
+            ObserverPatchHolography/Source/ObserverPatchHolography/EinsteinBranch/AxiomAudit.lean \
+            2>&1 | tee axiom-audit.log
+          grep -F "bare_consensus_not_einstein_complete' depends on axioms" axiom-audit.log
+          grep -F "composedEinsteinBranch' depends on axioms" axiom-audit.log
+          if grep -F 'sorryAx' axiom-audit.log; then
+            echo "Unexpected sorryAx in the Einstein-branch audit." >&2
+            exit 1
+          fi
 
-          git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json
+      - name: Verify manifest unchanged
+        run: git diff --exit-code -- Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json
