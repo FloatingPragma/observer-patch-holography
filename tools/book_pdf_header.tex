@@ -105,7 +105,9 @@
 \renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftsecfont}{\small}
 \renewcommand{\cftchappagefont}{\bfseries}
-\setlength{\cftbeforechapskip}{0.55em}
+% Entry spacing is sized so the whole contents list holds one page. Raising it
+% pushes the trailing entry onto a second, near-empty page.
+\setlength{\cftbeforechapskip}{0.40em}
 \setlength{\cftbeforesecskip}{0.12em}
 
 \makeatletter
@@ -135,6 +137,11 @@
   \clearpage
 }
 \makeatother
+
+% The book is set openany, so no page break may force a recto start. The book
+% class calls \cleardoublepage at \mainmatter, which lands a blank verso
+% carrying the running header between the contents list and the first chapter.
+\let\cleardoublepage\clearpage
 
 \pagestyle{fancy}
 \fancyhf{}
