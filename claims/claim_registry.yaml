@@ -852,6 +852,36 @@
       "status": "proved_on_declared_echosahedral_carrier_lineage"
     },
     {
+      "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
+      "statement": "On the certified twelve-port echosahedral carrier lineage with declared reversible response data (four exact A5-equivariant band scales, one common odd-response sign, strict-descent repairs typed irreversible and excluded from currents), the source packet derives an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on a faithful charged response space C^3+C^3, with one-dimensional central u(1) on the constant even port line, derived dimension eleven, adjoint rank eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action via sixty exact rotation normal-form exponential witnesses, and refinement naturality. The equivariant lifts form exactly the four-scale-one-sign family. Abelian-record and rank-deficient response models fail the physical-current gate. It does not derive the response scales or sectors from raw OPH consensus dynamics and does not identify the algebra with the physical Standard Model gauge group.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "source_derived_finite_branch_theorem",
+      "assumptions": [
+        "certified_echosahedral_carrier_lineage",
+        "declared_reversible_response_band_scales_and_odd_sign"
+      ],
+      "imported_results": [
+        "exact_Q_sqrt5_linear_algebra",
+        "real_Schur_lemma_for_finite_groups",
+        "Rodrigues_rotation_normal_form",
+        "Burnside_orbit_counting"
+      ],
+      "oph_specific_delta": "The physical current lift is computed only from the certified carrier packet plus typed reversible response data, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). It closes PORT-CURRENT-INNER on that branch without importing rotation tables, Lie targets, Standard Model currents, particle assignments, or measured couplings, and it separates coefficient classification from physical current realization by an executable abelian countermodel.",
+      "novelty_type": "source_derived_finite_current_lift_certificate",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "physics-problems/issue_566_port_current_algebra.md",
+        "code/a5_closure/port_current_inner_certificate.py",
+        "code/a5_closure/manifests/port_current_response_reference.json",
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "code/a5_closure/negative_controls/issue_566_negative_controls.json",
+        "code/a5_closure/tests/test_port_current_inner_certificate.py"
+      ],
+      "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate.",
+      "scope_if_false": "The physical port-current theorem and the PORT-CURRENT-INNER closure fall back to the coefficient-level trichotomy. The echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
+      "status": "proved_on_declared_echosahedral_response_branch"
+    },
+    {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
       "statement": "The twelve-port boundary of one echosahedral carrier, the routed federation screen formed by carriers and observer supports, and the global support screen whose refinement limit is S2 are different typed objects. Local icosahedral incidence and A5 symmetry do not by themselves determine the federation nerve, global topology, conformal support, or BW flow. A physical carrier-to-support bridge must be source-bound, refinement-natural, and preserve the declared visible incidence and response data.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",

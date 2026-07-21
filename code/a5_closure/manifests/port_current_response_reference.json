@@ -1,0 +1,32 @@
+{
+  "schema": "oph.port_current_response_manifest.v1",
+  "carrier_manifest_path": "manifests/echosahedral_federation_reference.json",
+  "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+  "response_model": "charged_double_triplet",
+  "response_band_scales": {
+    "unit_band": "1",
+    "quintet_band": "1",
+    "frame_band": "1",
+    "kernel_band": "1"
+  },
+  "odd_response_sign": 1,
+  "reversible_response_automorphisms": {
+    "source": "separately_measured_reversible_response_automorphisms_of_the_carrier",
+    "reversible": true,
+    "defines_currents": true,
+    "note": "the response automorphism family is the proper carrier incidence action; it is closed under composition and inverse"
+  },
+  "strict_descent_repairs": {
+    "irreversible": true,
+    "defines_currents": false,
+    "ledger": [
+      {
+        "repair_id": "strict_descent_repair_r0_0",
+        "type": "irreversible_strict_descent",
+        "reversible": false,
+        "defines_currents": false,
+        "description": "coordination defect repair record on the r0 stage; typed irreversible and excluded from the current construction"
+      }
+    ]
+  }
+}

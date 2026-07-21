@@ -1,0 +1,78 @@
+{
+  "countermodel_witnesses": {
+    "abelian_record": {
+      "center_dimension": 12,
+      "conclusion": "coefficient records that commute never pass the physical-current gate",
+      "derived_dimension": 0,
+      "induced_action_on_abelian_algebra": "nontrivial, hence not inner: Int of an abelian algebra is trivial",
+      "matches_coefficient_module": true,
+      "model": "K(f) = i*diag(f) on C^12 with permutation implementers"
+    },
+    "equivariance": {
+      "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
+      "per_axis_sign_flip": "breaks the common odd-response sign and covariance"
+    },
+    "rank_deficient": {
+      "conclusion": "degenerate response scales cannot produce the twelve-dimensional physical current",
+      "kernel_band_scale_zero_image_dimension": 9,
+      "unit_band_scale_zero_image_dimension": 11
+    },
+    "typing": {
+      "firewall": "a measured-coupling target in the source manifest fails closed",
+      "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed"
+    }
+  },
+  "finite_controls": [
+    {
+      "actual_error": "CENTER_NOT_ONE_DIMENSIONAL",
+      "expected_error": "CENTER_NOT_ONE_DIMENSIONAL",
+      "name": "abelian_record_model",
+      "passed": true
+    },
+    {
+      "actual_error": "IMAGE_RANK_DEFICIENT",
+      "expected_error": "IMAGE_RANK_DEFICIENT",
+      "name": "rank_deficient_kernel_band",
+      "passed": true
+    },
+    {
+      "actual_error": "IMAGE_RANK_DEFICIENT",
+      "expected_error": "IMAGE_RANK_DEFICIENT",
+      "name": "rank_deficient_dead_center",
+      "passed": true
+    },
+    {
+      "actual_error": "COVARIANCE_BROKEN",
+      "expected_error": "COVARIANCE_BROKEN",
+      "name": "non_equivariant_axis_response",
+      "passed": true
+    },
+    {
+      "actual_error": "COVARIANCE_BROKEN",
+      "expected_error": "COVARIANCE_BROKEN",
+      "name": "odd_response_sign_not_common",
+      "passed": true
+    },
+    {
+      "actual_error": "SKEW_ADJOINTNESS_BROKEN",
+      "expected_error": "SKEW_ADJOINTNESS_BROKEN",
+      "name": "symmetric_record_pairing",
+      "passed": true
+    },
+    {
+      "actual_error": "REPAIR_RESPONSE_CONFLATION",
+      "expected_error": "REPAIR_RESPONSE_CONFLATION",
+      "name": "repair_conflated_with_response",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "inject_downstream_target",
+      "passed": true
+    }
+  ],
+  "issue": 566,
+  "manifest_sha256": "72c8dd215da940ee56022d04b920efafb65a9bd3de96f6f195ab056554d84458",
+  "schema": "oph.port_current_inner_negative_controls.v1"
+}

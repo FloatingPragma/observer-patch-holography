@@ -196,7 +196,7 @@ payload = {
         ],
         "physical_gates": [
             "the echosahedral source-selector certificate closes UD12 and RP-A5 only on the declared quotient-visible carrier lineage",
-            "PORT-CURRENT-INNER supplies a full-rank compact skew-adjoint commutator-closed current algebra with inner A5 action",
+            "PORT-CURRENT-INNER is closed on the declared response branch by port_current_inner_certificate.py: a full-rank compact skew-adjoint commutator-closed current algebra with inner A5 action; four response band scales and one common odd-response sign remain declared source data",
             "BLOCK-DETERMINANT-BALANCE, PORT-SPIN-LIFT, and AXIS-CENTER-DESCENT identify the physical group and quotient",
             "MAR supplies the matter, hypercharge, and faithful tensor-kernel premises",
         ],

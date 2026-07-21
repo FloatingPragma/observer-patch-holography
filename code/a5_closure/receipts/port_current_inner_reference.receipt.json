@@ -1,0 +1,2463 @@
+{
+  "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+  "charged_faithfulness": {
+    "central_charge": "the central generator acts as i*(unit scale) on the even sector and 0 on the kernel sector",
+    "charged": true,
+    "equivariant_charge_rigidity": "an equivariant lift either charges the response space through the scalar central character or degenerates to a rank-deficient map",
+    "matrix_faithful": true
+  },
+  "claim_boundary": {
+    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
+    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics",
+    "does_not_close": [
+      "derivation of the response scales or the response space from raw OPH consensus dynamics",
+      "block determinant balance and PORT-SPIN-LIFT",
+      "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
+      "matter attachment, family structure, and exterior package selection",
+      "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
+    ]
+  },
+  "classification_vs_realization": {
+    "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
+    "distinguished": true,
+    "physical_layer": "this receipt constructs current operators on a faithful charged response space with nonabelian closure and an inner A5 action",
+    "separating_witness": "the abelian record model matches the coefficient module yet fails the physical-current gate with CENTER_NOT_ONE_DIMENSIONAL"
+  },
+  "closure": {
+    "adjoint_rank": 11,
+    "center_dimension": 1,
+    "center_is_constant_even_port_line": true,
+    "central_u1_kernel": "the adjoint action kills exactly the constant even port line",
+    "commutator_closed": true,
+    "derived_dimension": 11,
+    "structure_constants": {
+      "[0,10]": [
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)"
+      ],
+      "[0,11]": [
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0"
+      ],
+      "[0,1]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)"
+      ],
+      "[0,2]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)"
+      ],
+      "[0,3]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[0,4]": [
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)"
+      ],
+      "[0,5]": [
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)"
+      ],
+      "[0,6]": [
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)"
+      ],
+      "[0,7]": [
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)"
+      ],
+      "[0,8]": [
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0"
+      ],
+      "[0,9]": [
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -1/40*sqrt(5)"
+      ],
+      "[1,10]": [
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-3/8 + 1/40*sqrt(5)"
+      ],
+      "[1,11]": [
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0"
+      ],
+      "[1,2]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[1,3]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)"
+      ],
+      "[1,4]": [
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)"
+      ],
+      "[1,5]": [
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)"
+      ],
+      "[1,6]": [
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)"
+      ],
+      "[1,7]": [
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)"
+      ],
+      "[1,8]": [
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0"
+      ],
+      "[1,9]": [
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)"
+      ],
+      "[10,11]": [
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[2,10]": [
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)"
+      ],
+      "[2,11]": [
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0"
+      ],
+      "[2,3]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)"
+      ],
+      "[2,4]": [
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)"
+      ],
+      "[2,5]": [
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)"
+      ],
+      "[2,6]": [
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)"
+      ],
+      "[2,7]": [
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)"
+      ],
+      "[2,8]": [
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0"
+      ],
+      "[2,9]": [
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 1/40*sqrt(5)"
+      ],
+      "[3,10]": [
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "3/8 + -1/40*sqrt(5)"
+      ],
+      "[3,11]": [
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0"
+      ],
+      "[3,4]": [
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)"
+      ],
+      "[3,5]": [
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)"
+      ],
+      "[3,6]": [
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)"
+      ],
+      "[3,7]": [
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)"
+      ],
+      "[3,8]": [
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0"
+      ],
+      "[3,9]": [
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)"
+      ],
+      "[4,10]": [
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)"
+      ],
+      "[4,11]": [
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0"
+      ],
+      "[4,5]": [
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)"
+      ],
+      "[4,6]": [
+        "5/8 + 13/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)"
+      ],
+      "[4,7]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[4,8]": [
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0"
+      ],
+      "[4,9]": [
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -7/40*sqrt(5)"
+      ],
+      "[5,10]": [
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)"
+      ],
+      "[5,11]": [
+        "5/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0"
+      ],
+      "[5,6]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[5,7]": [
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)"
+      ],
+      "[5,8]": [
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0"
+      ],
+      "[5,9]": [
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 7/40*sqrt(5)"
+      ],
+      "[6,10]": [
+        "5/8 + 13/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -13/40*sqrt(5)"
+      ],
+      "[6,11]": [
+        "1/8 + 1/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0"
+      ],
+      "[6,7]": [
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)"
+      ],
+      "[6,8]": [
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0"
+      ],
+      "[6,9]": [
+        "-1/8 + 3/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "0",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -3/40*sqrt(5)"
+      ],
+      "[7,10]": [
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + -1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "0",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "0",
+        "5/8 + 13/40*sqrt(5)"
+      ],
+      "[7,11]": [
+        "-1/8 + 7/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "0",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "1/8 + -7/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "0"
+      ],
+      "[7,8]": [
+        "1/8 + -3/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "-3/8 + 1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0"
+      ],
+      "[7,9]": [
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "0",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "0",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "-1/8 + 3/40*sqrt(5)"
+      ],
+      "[8,10]": [
+        "-3/8 + 1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "-5/8 + -1/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[8,11]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[8,9]": [
+        "1/8 + 1/40*sqrt(5)",
+        "1/8 + 1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "-1/8 + -1/40*sqrt(5)",
+        "5/8 + 13/40*sqrt(5)",
+        "-5/8 + -13/40*sqrt(5)",
+        "1/8 + -7/40*sqrt(5)",
+        "-1/8 + 7/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[9,10]": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "[9,11]": [
+        "-5/8 + -1/40*sqrt(5)",
+        "3/8 + -1/40*sqrt(5)",
+        "5/8 + 1/40*sqrt(5)",
+        "-3/8 + 1/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "1/8 + -3/40*sqrt(5)",
+        "-1/8 + 3/40*sqrt(5)",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "structure_constants_field": "Q(sqrt5)"
+  },
+  "compactness": {
+    "a5_invariant": true,
+    "conclusion": "the current algebra carries an invariant positive-definite form, hence is of compact type",
+    "elimination_pivots": [
+      "181/48 + 5/12*sqrt(5)",
+      "111657/30761 + 12305/30761*sqrt(5)",
+      "279677/95171 + 74265/95171*sqrt(5)",
+      "377760/133031 + 99216/133031*sqrt(5)",
+      "417/122 + 459/1220*sqrt(5)",
+      "19718/5951 + 6170/17853*sqrt(5)",
+      "92889/34751 + 23811/34751*sqrt(5)",
+      "35560/13893 + 3000/4631*sqrt(5)",
+      "2071/696 + 61/232*sqrt(5)",
+      "102277/35531 + 8565/35531*sqrt(5)",
+      "261075/142042 + 50875/142042*sqrt(5)",
+      "444/311 + 60/311*sqrt(5)"
+    ],
+    "hilbert_schmidt_pullback_band_coefficients": {
+      "frame_band": "5 + 1*sqrt(5)",
+      "kernel_band": "5 + -1*sqrt(5)",
+      "quintet_band": "3 + 1*sqrt(5)",
+      "unit_band": "1/4"
+    },
+    "positive_definite": true,
+    "pullback_form": "-Re tr(K(f) K(f')) on port fields"
+  },
+  "frame_realization": {
+    "arithmetic_field": "Q(sqrt5), no floating point in any proof decision",
+    "axis_representatives": [
+      "p00",
+      "p01",
+      "p04",
+      "p05",
+      "p08",
+      "p09"
+    ],
+    "canonical_assignment": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      9,
+      11
+    ],
+    "coordinate_model": "twelve unnormalized icosahedron vertices, cyclic permutations of (0, +/-1, +/-phi)",
+    "equivalence": "realizations form one proper orbit; exact band coefficients verified equal for an alternative orientation-matched realization",
+    "orientation_matched_assignments": 60
+  },
+  "icosahedral_intertwiner": {
+    "covariance_checks": 720,
+    "implementer_homomorphism_pairs": 3600,
+    "implementers_faithful": true,
+    "kernel_band_schur_rigidity": {
+      "conclusion": "the kernel band cannot act on the even sector; the block allocation is forced",
+      "multiplicity_of_kernel_band_in_even_block": "0"
+    }
+  },
+  "inner_action": {
+    "block_skew_pairs_in_image": true,
+    "conclusion": "every implementer is exp of an element of the current image, so the induced A5 action lies in Int(g)",
+    "witness_count": 60,
+    "witnesses": [
+      {
+        "element_order": 1,
+        "even_block": {
+          "axis": [
+            "0",
+            "0",
+            "0"
+          ],
+          "cosine": "1",
+          "identity": true
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "0",
+            "0"
+          ],
+          "cosine": "1",
+          "identity": true
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "0",
+            "1",
+            "0"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "1",
+            "0"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "0",
+            "0",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "0",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "1",
+            "0",
+            "0"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1",
+            "0",
+            "0"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "-1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "-1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "0",
+            "3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "-3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "-3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "0",
+            "3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "-3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "-3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "3/2 + 1/2*sqrt(5)",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "3/2 + -1/2*sqrt(5)",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "0",
+            "-3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "0",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1",
+            "1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "1/2 + -1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "1/2 + 1/2*sqrt(5)",
+            "1",
+            "0"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 2,
+        "even_block": {
+          "axis": [
+            "-3/2 + -1/2*sqrt(5)",
+            "1/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-3/2 + 1/2*sqrt(5)",
+            "1/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "0",
+            "-3/2 + -1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "0",
+            "-3/2 + 1/2*sqrt(5)",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 5,
+        "even_block": {
+          "axis": [
+            "-1/2 + -1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + -1/4*sqrt(5)",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1/2 + 1/2*sqrt(5)",
+            "0",
+            "1"
+          ],
+          "cosine": "-1/4 + 1/4*sqrt(5)",
+          "identity": false
+        }
+      },
+      {
+        "element_order": 3,
+        "even_block": {
+          "axis": [
+            "-1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        },
+        "exp_witness": "Pi(g) = exp(diag(theta_E hat(n_E), theta_W hat(n_W))) with both blocks in the current image",
+        "kernel_block": {
+          "axis": [
+            "-1",
+            "-1",
+            "1"
+          ],
+          "cosine": "-1/2",
+          "identity": false
+        }
+      }
+    ]
+  },
+  "issue": 566,
+  "manifest_sha256": "72c8dd215da940ee56022d04b920efafb65a9bd3de96f6f195ab056554d84458",
+  "physical_current_gate": {
+    "a5_covariant_icosahedral_intertwiner": true,
+    "adjoint_rank_eleven": true,
+    "central_u1_kernel_dimension_one": true,
+    "commutator_closed": true,
+    "compact_type_positive_definite_invariant_form": true,
+    "derived_dimension_eleven": true,
+    "faithful_charged_response_space": true,
+    "induced_a5_action_inner": true,
+    "injective_twelve_dimensional_image": true,
+    "passed": true,
+    "refinement_natural": true,
+    "repairs_distinct_from_responses": true,
+    "skew_adjoint": true,
+    "source_defined_operators_domain_pairing_refinement": true
+  },
+  "port_to_generator_map": {
+    "band_realization": {
+      "frame_band": "real cross-product generators hat(U d) on the even block",
+      "kernel_band": "Galois-twisted cross-product generators hat(sigma(U) d) on the kernel block",
+      "quintet_band": "i * traceless symmetric axis quadrupoles on the even block",
+      "unit_band": "i * (scale) * identity on the even block: the central u(1)"
+    },
+    "block_dimensions": {
+      "even_block_u3": 9,
+      "kernel_block_so3": 3
+    },
+    "compact_lie_type": "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)",
+    "image_real_dimension": 12,
+    "injective": true,
+    "model": "charged_double_triplet",
+    "odd_response_sign": 1,
+    "response_band_scales": {
+      "frame_band": "1",
+      "kernel_band": "1",
+      "quintet_band": "1",
+      "unit_band": "1"
+    },
+    "skew_adjoint": true
+  },
+  "refinement": {
+    "carrier_tower": {
+      "all_maps_in_A5": true,
+      "antipode_natural": true,
+      "checked_cocycle_triangles": 1,
+      "declared_nonidentity_maps": 3,
+      "frame_gram_natural": true,
+      "levels": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "unit_lines_natural": true
+    },
+    "natural": true,
+    "naturality": [
+      {
+        "intertwined": true,
+        "source": "r0",
+        "target": "r1"
+      },
+      {
+        "intertwined": true,
+        "source": "r1",
+        "target": "r2"
+      },
+      {
+        "intertwined": true,
+        "source": "r0",
+        "target": "r2"
+      }
+    ]
+  },
+  "repair_response_distinction": {
+    "disjoint": true,
+    "repair_ledger_rows": 1,
+    "responses_closed_under_inverse": true,
+    "reversible_response_automorphisms_define_currents": true,
+    "strict_descent_repairs_typed_irreversible": true
+  },
+  "response_moduli": {
+    "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
+    "equivariant_lift_dimension": 4,
+    "open_source_data": [
+      "unit band response scale",
+      "quintet band response scale",
+      "frame band response scale",
+      "kernel band response scale",
+      "one common odd-response sign"
+    ]
+  },
+  "schema": "oph.port_current_inner_receipt.v1",
+  "source_definedness": {
+    "all_source_defined": true,
+    "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
+    "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
+    "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
+    "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
+    "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
+  },
+  "source_firewall": {
+    "forbidden_dependency_hits": [],
+    "uses_only": [
+      "certified twelve-port carrier packet",
+      "reversible response automorphism typing",
+      "four exact response band scales",
+      "one common odd-response sign",
+      "irreversible strict-descent repair ledger (excluded from currents)"
+    ]
+  }
+}
