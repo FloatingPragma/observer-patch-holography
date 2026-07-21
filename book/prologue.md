@@ -336,6 +336,22 @@ laboratory units. Their proposed compression links gravity, compact gauge
 structure, and the minimally admissible particle world; the physical Thomson,
 capacity, and scale identifications are open.
 
+One more thing before the story starts, because a book like this earns
+suspicion by default. Everything here is tied to a public repository, and the
+load-bearing mathematics in that repository is machine-checked: hundreds of
+theorems verified by a proof kernel down to the axioms, covering the consensus
+core, the record algebra, the icosahedral port geometry, and the boundary
+theorems that state exactly what the geometry cannot force on its own. Beside
+the proofs sit the simulation receipts: deterministic runs of the repair
+dynamics, from small acceptance cells up to a million patches, each shipping
+the raw data needed to recheck every printed number without rerunning
+anything. The largest of these runs watched a Lorentzian light-cone signature
+emerge in the event form of the repair dynamics and tracked its convergence
+rung by rung at the scales tested. Where a claim has neither a proof nor a
+receipt, the book says so, and the gap sits in a public ledger with its own
+issue number. Readers who would rather audit than believe can do the whole
+thing from a clean checkout.
+
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
 record-bearing patch needs an algebra of what it can read, compare, and repair.
