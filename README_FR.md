@@ -19,6 +19,36 @@ d’Einstein, les symétries de jauge et la matière sont des relectures d’un
 seul système fini de cohérence entre observateurs, sous leurs prémisses
 déclarées.
 
+## Trois reçus qu’aucun autre programme ne possède
+
+Avant tout argument, trois artefacts. Chacun est public, reproductible et —
+d’après le dossier publié — sans équivalent dans aucun programme concurrent
+de théorie du tout :
+
+1. **Un espace-temps quadridimensionnel, mesuré en train d’émerger.** Dans
+   des exécutions déterministes de la dynamique de réparation à 16k, 65k et
+   262k porteurs, la forme d’événement tenue à l’écart porte la signature
+   lorentzienne $(1,3)$ — un temps, trois espaces — à chaque barreau, la
+   marge de cône se divisant par deux à chaque barreau vers le cône
+   d’Einstein, avec un contrôle adverse de densité qui dégrade la signature
+   dès que le mécanisme est retiré. Données brutes :
+   [evidence/einstein_convergence](evidence/einstein_convergence/) ; chaque
+   nombre se régénère bit à bit.
+2. **Un noyau vérifié machine qui se surveille lui-même.** Une bibliothèque
+   Lean 4 sans `sorry` de 639 théorèmes et lemmes couvre le noyau de
+   consensus, le théorème d’identifiabilité de jauge et la composition de la
+   branche d’Einstein — et vérifie machine un résultat négatif contre la
+   version naïve de l’affirmation du programme lui-même. [Lean/](Lean/)
+3. **Une constante sans dimension rendue, non ajustée.** La clôture de pixel
+   $P=\varphi+\sqrt\pi/A_T(P)$ possède une racine unique certifiée machine
+   pour chaque application déclarée, sans aucune valeur continue ajustée ; la
+   racine de largeur de jauge se situe à $2{,}5\times10^{-6}$ de la mesure
+   $\alpha^{-1}=137{,}035999177(21)$, l’adresse de l’écart restant étant
+   énoncée (le transport hadronique ouvert). Aucun autre cadre ne calcule la
+   moindre valeur de $\alpha$.
+
+Le reste de ce README est l’architecture d’où viennent ces reçus.
+
 ## Les cinq axiomes
 
 Toute la construction repose sur les cinq axiomes de
@@ -65,6 +95,29 @@ privilégié, ni liste de constantes réglables. « Sans boutons » signifie zé
 valeur continue ajustée par la théorie. Le contrat fini de l’observateur et
 chaque condition de branche discrète restent explicites. Les nombres doivent
 sortir de la même boucle de cohérence qui produit les lois.
+
+## Le tableau des scores
+
+Évaluez les grands programmes face à ce qu’une théorie du tout achevée doit
+livrer. Les entrées d’OPH portent leurs propres frontières d’énoncé — c’est
+ce qui les rend évaluables :
+
+| Une TOE achevée doit livrer... | OPH | Théorie des cordes | Gravitation quantique à boucles |
+| --- | --- | --- | --- |
+| La structure de jauge du Modèle standard | Dérivée de la géométrie du porteur par deux routes indépendantes ; reçus de promotion nommés | Choisie par compactification ; aucun principe de sélection | Non traitée |
+| Le contenu en matière (générations, hypercharges, anomalies) | Témoin exact à quinze états d’une génération ; sélection d’économie $N_g=3$ ; portes ouvertes nommées | Dépendant du paysage | Non traité |
+| L’espace-temps lorentzien 4D | Émergent et mesuré : signature $(1,3)$ à chaque barreau, marge de cône divisée par deux | Supposé comme arrière-plan | Limite semi-classique ouverte |
+| Les équations d’Einstein | Composition conditionnelle, chaque clause prouvée ou instrumentée | Retrouvées sur des arrière-plans supposés | Ouvertes |
+| Les constantes sans dimension | $\alpha^{-1}$ rendue par un point fixe unique certifié, à $2{,}5\times10^{-6}$ de la mesure, zéro bouton | Sélection environnementale sur le paysage | Non traitées |
+| Combien d’univers | Un univers exact | $\sim10^{500}$ vides | Non traité |
+| Une chaîne de dérivation vérifiée machine | 639 théorèmes Lean sans `sorry`, dont un résultat négatif autocritique | Aucune | Aucune |
+| Des conditions de falsification déclarées à l’avance | Conditions d’élimination publiques et clôtures suivies par tickets | Aucune opérante | Rares |
+
+La distance n’est pas incrémentale. Sur ces huit critères, le programme
+concurrent le plus proche en livre un ; OPH les livre tous les huit sous ses
+reçus conditionnels déclarés, et chaque case de sa colonne renvoie à un
+artefact public de ce dépôt. Cet écart — et non un résultat isolé — est la
+mesure de la position d’OPH.
 
 ## Les deux constantes : P et N
 

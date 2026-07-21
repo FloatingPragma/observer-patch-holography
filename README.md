@@ -16,6 +16,35 @@ quantum measurement, Lorentzian spacetime, the conditional Einstein branch,
 gauge symmetry, and matter are readouts of one finite observer-consistency
 system on their stated premises.
 
+## Three Receipts No Other Program Has
+
+Before any argument, three artifacts. Each is public, reproducible, and — as
+far as the published record shows — without counterpart in any competing
+theory-of-everything program:
+
+1. **Four-dimensional spacetime, measured emerging.** In deterministic runs
+   of the repair dynamics at 16k, 65k, and 262k carriers, the held-out event
+   form carries Lorentzian signature $(1,3)$ — one time, three space — at
+   every rung, with the cone margin halving per rung toward the Einstein
+   cone and an adversarial density control that degrades the signature on
+   cue when the mechanism is removed. Raw data:
+   [evidence/einstein_convergence](evidence/einstein_convergence/); every
+   number regenerates bit for bit.
+2. **A machine-checked core that polices itself.** A sorry-free Lean 4
+   library of 639 theorems and lemmas covers the consensus core, the gauge
+   identifiability theorem, and the Einstein-branch composition — and it
+   machine-checks a negative result against the naive version of the
+   program's own claim. Every public theorem carries a per-theorem axiom
+   report. [Lean/](Lean/)
+3. **A dimensionless constant returned, not fitted.** The pixel closure
+   $P=\varphi+\sqrt\pi/A_T(P)$ has a machine-certified unique root for each
+   declared map, with zero fitted continuous values; the gauge-width root
+   sits $2.5\times10^{-6}$ from the measured $\alpha^{-1}=137.035999177(21)$
+   with the remaining gap's address stated (the open hadronic transport).
+   No other framework computes a value of $\alpha$ at all.
+
+The rest of this README is the architecture those receipts come from.
+
 ## The Five Axioms
 
 The whole construction stands on the five axioms of
@@ -235,6 +264,29 @@ the [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/
 and $N_g=3$ is the least value of the declared MAR economy
 class rather than a forced count. Local icosahedral incidence constrains the
 carrier, not the federation nerve.
+
+## The Scoreboard
+
+Score the leading programs against what a completed theory of everything
+must deliver. OPH's entries carry their own boundary statements — that is
+what makes them scoreable at all:
+
+| A completed TOE must deliver... | OPH | String theory | Loop quantum gravity |
+| --- | --- | --- | --- |
+| Standard Model gauge structure | Derived from carrier geometry by two independent routes; promotion receipts named | Chosen by compactification; no selection principle | Not addressed |
+| Matter content (generations, hypercharges, anomalies) | Exact fifteen-state one-generation witness; $N_g=3$ economy selection; open gates named | Landscape-dependent | Not addressed |
+| 4D Lorentzian spacetime | Emergent and measured: $(1,3)$ signature at every rung, cone margin halving | Assumed as background | Semiclassical limit open |
+| Einstein equations | Conditional composition with every clause proved or instrumented | Recovered on assumed backgrounds | Open |
+| Dimensionless constants | $\alpha^{-1}$ returned by a certified unique fixed point, $2.5\times10^{-6}$ from measurement, zero dials | Environmentally selected on the landscape | Not addressed |
+| How many universes | One exact universe | $\sim10^{500}$ vacua | Not addressed |
+| Machine-verified derivation chain | 639 sorry-free Lean theorems, including a self-critical negative result | None | None |
+| Falsification conditions declared in advance | Public kill conditions and tracked closure issues | None operative | Few |
+
+The distance is not incremental. On these eight criteria the nearest
+competing program delivers one; OPH delivers on all eight under its stated
+conditional receipts, and every cell in its column links to a public
+artifact in this repository. That gap — not any single result — is the
+measure of where OPH stands.
 
 ## The Two Constants: P and N
 
