@@ -187,9 +187,9 @@ R_Q \wedge R_\mu \wedge R_{\rm DAG} \wedge R_{\rm no\ data}
 
 The symbols are gate names, not additional derived equations. Their detailed
 artifact schemas and thresholds live in
-[`oph_cosmology_finite_source_cmb_program.md`](../cosmology/oph_cosmology_finite_source_cmb_program.md)
+[`oph_cosmology_finite_source_cmb_program.tex`](../cosmology/oph_cosmology_finite_source_cmb_program.tex)
 and
-[`oph_cosmology_data_likelihood_contracts.md`](../cosmology/oph_cosmology_data_likelihood_contracts.md).
+[`oph_cosmology_data_likelihood_contracts.tex`](../cosmology/oph_cosmology_data_likelihood_contracts.tex).
 The geometry route is a typed alternative: the conditional route requires an
 imported-FLRW receipt, while the native route requires `CosmoGeomRead_r`; a run
 does not need to satisfy both mutually exclusive origins. An
