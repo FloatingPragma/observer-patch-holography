@@ -89,7 +89,7 @@ def test_typing_criteria_are_live_checks_not_hardcoded(packet):
     }
 
 
-def test_blinding_and_disclosure_recorded_honestly(packet):
+def test_blinding_and_disclosure_fields_explicit(packet):
     """The blinding state and the empirical public-use disclosure must be
     explicit fields, and the radiative ledger's missing source certificate
     must be disclosed rather than absorbed."""
