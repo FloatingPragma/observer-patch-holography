@@ -1,6 +1,6 @@
 import Mathlib
 import ObserverPatchHolography.CollarStatesT1
-import EventAlgebra.CenterExpectation
+import EventAlgebra.PartitionPinching
 
 /-!
 # Issue #544 bridge receipts: the flux expectation against the
@@ -9,7 +9,7 @@ import EventAlgebra.CenterExpectation
 This module records, admission-free, the precise relationship between the
 T1 flux conditional expectation `EfluxL` (from `CollarStatesT1.lean`) and
 the `EventAlgebra` library's commutant-valued pinching
-`EventAlgebra.pinchingExpectation` (from `EventAlgebra/CenterExpectation.lean`).
+`EventAlgebra.partitionPinching` (from `EventAlgebra/PartitionPinching.lean`).
 
 ## Why a bridge and not a replacement
 
@@ -37,13 +37,13 @@ is carried here as additive receipts:
   (`quP_isHermitian`, `quP_idem`, `quP_mul`, `sum_quP`).
 * `collarReindex_EfluxL_eq_compressed_pinching` (**R2a**): transported
   along `collarReindex`, `EfluxL` *is* the blockwise normalised-trace
-  compression of `pinchingExpectation fluxPartition`; the block traces
-  are computed with the library's `pinchingExpectation_mul_proj` and
+  compression of `partitionPinching fluxPartition`; the block traces
+  are computed with the library's `partitionPinching_mul_proj` and
   `trace_sandwich`.
 * `EfluxL_absorbs_pinching` (**R2b**): `EfluxL` factors through the
   library pinching : pinching first changes nothing. Proved with the
   library's defining conditional-expectation property
-  `trace_pinchingExpectation_mul_central`.
+  `trace_partitionPinching_mul_commutant`.
 
 Nothing in this file is load-bearing for the T0/T1/T2 payloads; deleting
 it changes no payload statement. It exists so the state-side no-gos cite
@@ -116,20 +116,20 @@ theorem fluxPartition_proj_comm (s t : Fin 2) :
 /-- **R2a.** Transported along `collarReindex`, the flux expectation
 `EfluxL` is exactly the blockwise normalised-trace compression of the
 library pinching for `fluxPartition`: each block trace of the pinching
-(computed with the library's `pinchingExpectation_mul_proj` and
+(computed with the library's `partitionPinching_mul_proj` and
 `trace_sandwich`) is divided by the block rank `2` and spread back over
 the block projector. This is the precise sense in which `EfluxL` is one
-step finer than : not an instance of : `pinchingExpectation`. -/
+step finer than : not an instance of : `partitionPinching`. -/
 theorem collarReindex_EfluxL_eq_compressed_pinching (m : CollarC) :
     collarReindex (EfluxL m) =
       ∑ s : Fin 2,
-        ((EventAlgebra.pinchingExpectation fluxPartition (collarReindex m)
+        ((EventAlgebra.partitionPinching fluxPartition (collarReindex m)
             * fluxPartition.proj s).trace / 2) • fluxPartition.proj s := by
   have hblock : ∀ s : Fin 2,
-      (EventAlgebra.pinchingExpectation fluxPartition (collarReindex m)
+      (EventAlgebra.partitionPinching fluxPartition (collarReindex m)
           * fluxPartition.proj s).trace = (quP s * m).trace := by
     intro s
-    rw [EventAlgebra.pinchingExpectation_mul_proj,
+    rw [EventAlgebra.partitionPinching_mul_proj,
       EventAlgebra.trace_sandwich (fluxPartition.isEvent s).2,
       EventAlgebra.bornWeight, fluxPartition_proj, ← map_mul,
       trace_collarReindex, Matrix.trace_mul_comm]
@@ -140,33 +140,33 @@ theorem collarReindex_EfluxL_eq_compressed_pinching (m : CollarC) :
         rw [map_sum]
         exact Finset.sum_congr rfl fun s _ => map_smul _ _ _
     _ = ∑ s : Fin 2,
-          ((EventAlgebra.pinchingExpectation fluxPartition (collarReindex m)
+          ((EventAlgebra.partitionPinching fluxPartition (collarReindex m)
               * fluxPartition.proj s).trace / 2) • fluxPartition.proj s := by
         exact Finset.sum_congr rfl fun s _ => by rw [hblock, fluxPartition_proj]
 
 /-- The identity is central for any partition : trace compatibility
 specialised to `C = 1`. -/
 private theorem pinching_trace_eq (X : Matrix (Fin (2 * 2)) (Fin (2 * 2)) ℂ) :
-    (EventAlgebra.pinchingExpectation fluxPartition X).trace = X.trace := by
-  have h := EventAlgebra.trace_pinchingExpectation_mul_central fluxPartition X 1
+    (EventAlgebra.partitionPinching fluxPartition X).trace = X.trace := by
+  have h := EventAlgebra.trace_partitionPinching_mul_commutant fluxPartition X 1
     (fun i => by rw [one_mul, mul_one])
   rwa [mul_one, mul_one] at h
 
 /-- **R2b.** `EfluxL` absorbs the library pinching: applying
-`pinchingExpectation fluxPartition` first (transported back along
+`partitionPinching fluxPartition` first (transported back along
 `collarReindex.symm`) changes nothing. `EfluxL` reads only the two trace
 pairings `Tr(m)` and `Tr(uuC · m)`, and both are invariant under the
 pinching by the library's defining conditional-expectation property
-`trace_pinchingExpectation_mul_central` (tested against the central
+`trace_partitionPinching_mul_commutant` (tested against the central
 elements `1` and `collarReindex uuC`). -/
 theorem EfluxL_absorbs_pinching (m : CollarC) :
     EfluxL (collarReindex.symm
-      (EventAlgebra.pinchingExpectation fluxPartition (collarReindex m)))
+      (EventAlgebra.partitionPinching fluxPartition (collarReindex m)))
       = EfluxL m := by
   set x : CollarC := collarReindex.symm
-    (EventAlgebra.pinchingExpectation fluxPartition (collarReindex m)) with hx
+    (EventAlgebra.partitionPinching fluxPartition (collarReindex m)) with hx
   have hxr : collarReindex x
-      = EventAlgebra.pinchingExpectation fluxPartition (collarReindex m) := by
+      = EventAlgebra.partitionPinching fluxPartition (collarReindex m) := by
     rw [hx, AlgEquiv.apply_symm_apply]
   have htrace : x.trace = m.trace := by
     rw [← trace_collarReindex x, hxr, pinching_trace_eq, trace_collarReindex]
@@ -176,7 +176,7 @@ theorem EfluxL_absorbs_pinching (m : CollarC) :
     rw [collarReindex_uuC_eq, sub_mul, mul_sub,
       fluxPartition_proj_comm 0 i, fluxPartition_proj_comm 1 i]
   have huu : (uuC * x).trace = (uuC * m).trace := by
-    have h := EventAlgebra.trace_pinchingExpectation_mul_central fluxPartition
+    have h := EventAlgebra.trace_partitionPinching_mul_commutant fluxPartition
       (collarReindex m) (collarReindex uuC) huuC_central
     rw [← hxr] at h
     calc (uuC * x).trace
