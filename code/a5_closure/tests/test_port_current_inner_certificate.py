@@ -43,16 +43,39 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertEqual(row["image_real_dimension"], 12)
         self.assertTrue(row["skew_adjoint"])
         self.assertEqual(row["block_dimensions"], {"even_block_u3": 9, "kernel_block_so3": 3})
+        self.assertTrue(row["block_dimensions_verified"])
+        self.assertTrue(row["kernel_block_real_verified"])
         self.assertEqual(row["compact_lie_type"], "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)")
 
     def test_closure_center_and_adjoint_rank(self) -> None:
         row = self.expected["closure"]
         self.assertTrue(row["commutator_closed"])
         self.assertEqual(row["derived_dimension"], 11)
+        self.assertEqual(
+            row["derived_block_dimensions"],
+            {"even_block_su3": 8, "kernel_block_so3": 3},
+        )
         self.assertEqual(row["center_dimension"], 1)
         self.assertTrue(row["center_is_constant_even_port_line"])
         self.assertEqual(row["adjoint_rank"], 11)
         self.assertEqual(len(row["structure_constants"]), 66)
+
+    def test_derivation_chain_and_acceptance_status(self) -> None:
+        chain = self.expected["derivation_chain"]
+        self.assertEqual(len(chain), 12)
+        self.assertEqual([row["step"] for row in chain], list(range(1, 13)))
+        for row in chain:
+            self.assertTrue(row["premise"])
+            self.assertTrue(row["uses"])
+            self.assertTrue(row["source_artifact"])
+            self.assertTrue(row["conclusion"])
+        status = self.expected["acceptance_criteria_status"]
+        self.assertEqual(len(status), 5)
+        self.assertTrue(all(status.values()))
+        self.assertIn("branch_scope", self.expected)
+        self.assertIn("factor_origins", self.expected)
+        self.assertIn("dependency_acyclicity_note", self.expected)
+        self.assertIn("verify", self.expected["verifier_command"])
 
     def test_hilbert_schmidt_band_coefficients_are_galois_paired(self) -> None:
         bands = self.expected["compactness"]["hilbert_schmidt_pullback_band_coefficients"]

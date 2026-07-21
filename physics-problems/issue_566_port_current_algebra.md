@@ -315,8 +315,15 @@ K(P_{12})=i\,\mathrm{Sym}(3)\oplus\mathfrak{so}(3)_E\ \oplus\
 \]
 
 which is closed under commutators as a block-diagonal sum of matrix Lie
-algebras. The verifier does not rely on this identification: it solves all
-66 basis brackets in the span exactly and records the structure constants.
+algebras. The verifier does not take this identification on faith: it
+checks that the kernel block is exactly real, that the block projections of
+the twelve generators have exact ranks `(9, 3)` (so the even image is all
+of `u(3)` and the kernel image all of `so(3)`), solves all 66 basis
+brackets in the span exactly, and records the structure constants. The
+derived-algebra block projections have exact ranks `(8, 3)`; commutators
+are traceless, so the eight-dimensional even derived block is exactly
+`su(3)` and the kernel derived block is `so(3)`, which pins the type
+`u(1) (+) su(3) (+) su(2)` by machine check rather than by construction.
 
 ### Lemma 566.6: compact type and the band coefficients
 
@@ -425,8 +432,9 @@ function of R1-R3 and the firewall R4 rejects downstream target data. ∎
 |---|---:|
 | distance isometries / orientation-matched | `120 / 60` |
 | image real dimension | `12` |
-| block dimensions (even, kernel) | `9, 3` |
-| compact Lie type | `u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)` |
+| block dimensions (even, kernel), verified | `9, 3` |
+| derived block dimensions (even, kernel), verified | `8, 3` |
+| compact Lie type (machine-identified) | `u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)` |
 | derived dimension / center dimension | `11 / 1` |
 | adjoint rank | `11` |
 | central line | constant even port field |
@@ -440,8 +448,11 @@ function of R1-R3 and the firewall R4 rejects downstream target data. ∎
 | refinement maps intertwined | all declared (`3` in the reference tower) |
 
 The receipt also records all 66 structure constants over `Q(sqrt5)`, the
-twelve positive elimination pivots, the sixty rotation normal forms, and
-every negative-control outcome.
+twelve positive elimination pivots, the sixty rotation normal forms, a
+twelve-step `derivation_chain`, `factor_origins` for every numeric
+constant, `branch_scope`, `acceptance_criteria_status`, a
+`dependency_acyclicity_note`, the `verifier_command`, and every
+negative-control outcome.
 
 ---
 

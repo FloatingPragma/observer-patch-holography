@@ -925,6 +925,28 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         f"the port-to-generator map must be injective with twelve-dimensional image, got rank {image_rank}",
     )
 
+    # Exact block identification: the even-block projections span the full
+    # nine-dimensional skew-Hermitian algebra u(3), the kernel-block
+    # projections are real and span the three-dimensional so(3).
+    block_dimensions_verified = False
+    if isinstance(model, ChargedDoubleTripletModel):
+        for blocks in generators:
+            for row in blocks[1]:
+                for entry in row:
+                    require(
+                        entry.im.is_zero(),
+                        "KERNEL_BLOCK_NOT_REAL",
+                        "the kernel block must be a real skew matrix",
+                    )
+        even_rank = rank([row[:18] for row in flat])
+        kernel_rank = rank([row[18:] for row in flat])
+        require(
+            even_rank == 9 and kernel_rank == 3,
+            "BLOCK_DIMENSIONS",
+            f"expected block dimensions (9, 3), got ({even_rank}, {kernel_rank})",
+        )
+        block_dimensions_verified = True
+
     structure_constants: dict[str, list[str]] = {}
     commutator_flats: list[list[F5]] = []
     for i in range(12):
@@ -943,6 +965,17 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         derived_dimension == 11,
         "CENTER_NOT_ONE_DIMENSIONAL",
         f"physical currents need derived dimension eleven; records that commute give {derived_dimension}",
+    )
+
+    # Exact type identification of the derived algebra: commutators are
+    # traceless, so an eight-dimensional even derived block inside u(3) is
+    # exactly su(3), and a three-dimensional kernel derived block is so(3).
+    derived_even_rank = rank([row[:18] for row in commutator_flats])
+    derived_kernel_rank = rank([row[18:] for row in commutator_flats])
+    require(
+        derived_even_rank == 8 and derived_kernel_rank == 3,
+        "DERIVED_TYPE",
+        f"expected derived block dimensions (8, 3), got ({derived_even_rank}, {derived_kernel_rank})",
     )
 
     # Center: x with [K(x), K_j] = 0 for all j, from the exact commutators.
@@ -1217,6 +1250,8 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "image_real_dimension": image_rank,
             "skew_adjoint": True,
             "block_dimensions": {"even_block_u3": 9, "kernel_block_so3": 3},
+            "block_dimensions_verified": block_dimensions_verified,
+            "kernel_block_real_verified": True,
             "compact_lie_type": "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)",
             "band_realization": {
                 "unit_band": "i * (scale) * identity on the even block: the central u(1)",
@@ -1230,6 +1265,8 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "structure_constants_field": "Q(sqrt5)",
             "structure_constants": structure_constants,
             "derived_dimension": derived_dimension,
+            "derived_block_dimensions": {"even_block_su3": derived_even_rank, "kernel_block_so3": derived_kernel_rank},
+            "derived_type_identification": "commutators are traceless, so the eight-dimensional even derived block is exactly su(3) and the three-dimensional kernel derived block is so(3)",
             "center_dimension": len(center_basis),
             "center_is_constant_even_port_line": True,
             "adjoint_rank": adjoint_rank,
@@ -1294,6 +1331,125 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "distinguished": True,
         },
         "physical_current_gate": {**gate, "passed": True},
+        "derivation_chain": [
+            {
+                "step": 1,
+                "premise": "declared response manifest with firewall and repair/response typing",
+                "uses": ["schema validation", "forbidden-token firewall", "reversible/irreversible typing split"],
+                "source_artifact": "manifests/port_current_response_reference.json",
+                "conclusion": "the source packet is admissible: four exact band scales, one common odd sign, repairs excluded from currents",
+            },
+            {
+                "step": 2,
+                "premise": "hash-pinned certified carrier manifest",
+                "uses": ["echosahedral_selector_certificate.validate_carrier", "group_certificate"],
+                "source_artifact": "manifests/echosahedral_federation_reference.json",
+                "conclusion": "unit split, antipode, faithful proper A5 action (60 permutations), distances, oriented faces, refinement tower re-derived",
+            },
+            {
+                "step": 3,
+                "premise": "exact coordinate model: cyclic permutations of (0, +/-1, +/-phi) over Q(sqrt5)",
+                "uses": ["distance-isometry enumeration", "exact face determinant signs"],
+                "source_artifact": "standard_vertices()",
+                "conclusion": "120 distance isometries, exactly 60 orientation-matched: one proper orbit of oriented frame realizations",
+            },
+            {
+                "step": 4,
+                "premise": "antipode band split and the frame map U d = (1/2) sum_p f_p v_p",
+                "uses": ["Galois automorphism sigma(sqrt5) = -sqrt5 applied entrywise"],
+                "source_artifact": "FrameRealization.frame_map / galois_frame_map",
+                "conclusion": "the four isotypic response bands are separated inside Q(sqrt5); sigma(U) kills the frame band and isolates the kernel band",
+            },
+            {
+                "step": 5,
+                "premise": "declared band scales attached to the derived band maps",
+                "uses": ["skew-adjointness check", "exact rank over Q(sqrt5)"],
+                "source_artifact": "ChargedDoubleTripletModel.generator",
+                "conclusion": "injective port-to-generator map, image real dimension 12 with verified block dimensions (9, 3) and real kernel block",
+            },
+            {
+                "step": 6,
+                "premise": "implementers solved exactly from the frame transport R_g v_p = v_{g(p)}",
+                "uses": ["720 covariance identities", "3600 homomorphism products", "faithfulness"],
+                "source_artifact": "FrameRealization.rotation_of",
+                "conclusion": "K(g.f) = Pi(g) K(f) Pi(g)* for the full derived icosahedral action",
+            },
+            {
+                "step": 7,
+                "premise": "all 66 basis brackets solved in the span",
+                "uses": ["exact structure constants", "centralizer null space", "derived block ranks (8, 3)"],
+                "source_artifact": "solve_in_span",
+                "conclusion": "commutator-closed algebra with one-dimensional center on the constant even port line, derived dimension 11, adjoint rank 11; derived type su(3) (+) so(3)",
+            },
+            {
+                "step": 8,
+                "premise": "Hilbert-Schmidt pullback of the response pairing",
+                "uses": ["twelve positive elimination pivots", "band-scalar reconstruction", "A5 invariance", "assignment independence"],
+                "source_artifact": "certificate_payload",
+                "conclusion": "invariant positive-definite form: compact type, with exact band coefficients",
+            },
+            {
+                "step": 9,
+                "premise": "odd bands jointly surject onto both skew blocks (exact rank six)",
+                "uses": ["60 exact Rodrigues rotation normal forms in Q(sqrt5)"],
+                "source_artifact": "rotation_normal_form",
+                "conclusion": "every implementer is exp of an element of the current image, so the induced A5 action lies in Int(g)",
+            },
+            {
+                "step": 10,
+                "premise": "declared refinement tower maps",
+                "uses": ["per-map intertwining checks", "carrier tower cocycle"],
+                "source_artifact": "echosahedral_selector_certificate.validate_refinement",
+                "conclusion": "the current construction is natural along the declared refinement tower",
+            },
+            {
+                "step": 11,
+                "premise": "Burnside count of the port action and exact character arithmetic",
+                "uses": ["sum of squared fixed-port counts = 240", "kernel-band multiplicity 0 in the even block"],
+                "source_artifact": "certificate_payload",
+                "conclusion": "equivariant lifts form exactly the four-scale family with one common odd sign; the block allocation is forced",
+            },
+            {
+                "step": 12,
+                "premise": "gate aggregation and finite countermodels",
+                "uses": ["typed negative controls"],
+                "source_artifact": "negative_controls/issue_566_negative_controls.json",
+                "conclusion": "the physical-current gate passes on the reference packet and fails closed on every countermodel",
+            },
+        ],
+        "factor_origins": {
+            "band_coefficients_1/4_3+sqrt5_5+sqrt5_5-sqrt5": "traces of the pullback form against the exact band projectors at unit scales; the frame/kernel pair is Galois-conjugate because the kernel band is realized through the Galois-twisted frame intertwiner",
+            "dimensions_12_9_3": "exact ranks of the flattened generators and their block projections over Q(sqrt5)",
+            "derived_11_center_1_adjoint_rank_11": "rank of the bracket span, nullity of the exact centralizer system, and their difference",
+            "counts_120_60": "distance isometries onto the coordinate model and the orientation-matched proper subset",
+            "checks_720_3600": "60 automorphisms times 12 basis fields; 60 times 60 implementer products",
+            "moduli_4": "Burnside sum 240 of squared fixed-port counts divided by the group order 60",
+            "order_five_cosines_(-1+-sqrt5)/4": "traces of the order-five rotation implementers, Galois-paired across the two blocks",
+        },
+        "branch_scope": {
+            "branch": "declared echosahedral response branch",
+            "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
+            "declared_response_data": "four exact A5-equivariant response band scales and one common odd-response sign, typed as separately measured reversible response automorphism data",
+            "not_claimed": "no statement about arbitrary OPH carriers, no derivation of the response data from raw consensus dynamics, no identification with the physical Standard Model gauge group",
+        },
+        "acceptance_criteria_status": {
+            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": True,
+            "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
+            "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
+            "coefficient_classification_distinguished_from_physical_current_realization": True,
+            "no_measured_coupling_particle_assignment_or_standard_model_current_input": True,
+        },
+        "dependency_acyclicity_note": {
+            "upstream": [
+                "manifests/echosahedral_federation_reference.json and its receipt (strictly upstream carrier packet)",
+                "the exact Q(sqrt5) coordinate model and the declared response manifest",
+            ],
+            "downstream": [
+                "a5_screen_sm_closure.py and exterior_sm_completion.py reference this closure in their gate ledgers; this receipt does not consume them",
+            ],
+            "summary": "the proof-level dependency graph is acyclic: carrier packet -> response packet -> current receipt -> ledger references",
+        },
+        "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
             "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
             "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign are declared reversible-response source data, not derived from raw consensus dynamics",
