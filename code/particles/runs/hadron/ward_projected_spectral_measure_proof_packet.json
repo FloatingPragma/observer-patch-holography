@@ -482,27 +482,49 @@
   "empirical_typing": {
    "checked_artifacts": {
     "comparison_manifest": "code/particles/runs/qcd/hadron_source_backend/controls/comparison_data_manifest.json",
-    "empirical_companion_schema": "code/particles/hadron/empirical_ward_projected_spectral_measure.schema.json"
+    "empirical_companion_schema": "code/particles/hadron/empirical_ward_projected_spectral_measure.schema.json",
+    "production_export_schema": "code/particles/hadron/ward_projected_spectral_measure.schema.json"
    },
    "checks": {
     "comparison_manifest_empty": true,
     "comparison_manifest_status_no_data": true,
-    "row_class_const_comparison_only": true,
+    "production_schema_rejects_compare_only_const_false": true,
+    "production_schema_rejects_surrogate_const_false": true,
+    "gate_rejects_measured_hvp_comparison_endpoint": true,
+    "gate_rejects_ee_to_hadrons_target_leak": true,
+    "row_class_const_empirical_closure": true,
+    "empirical_surface_not_source_only_const": true,
+    "empirical_use_disclosed_const_true": true,
     "promotable_as_oph_source_theorem_const_false": true,
-    "satisfies_production_constructive_next_artifact_const_false": true,
-    "external_cross_section_data_declared_const_true": true
+    "satisfies_production_constructive_next_artifact_const_false": true
+   },
+   "public_use_disclosure": {
+    "usable_for_public_final_values_const": true,
+    "confinement": "public use is a property of the disclosed empirical-closure row class only; the same schema constants forbid promoting that surface as an OPH source theorem or substituting it for the production artifact, so with respect to the source spectral measure the empirical data remain comparison-only"
+   },
+   "blinding_status": {
+    "comparison_event_performed": false,
+    "statement": "no empirical dataset is attached to the source lane, so no comparison has occurred and there is nothing unblinded; the comparison event is production-scope and must append to the comparison manifest after the source payload is emitted"
    },
    "passed": true
   },
   "higher_point_typing": {
    "checked_artifacts": {
-    "q4_hlbl_receipt": "code/particles/runs/qcd/hadron_source_backend/higher_point/Q4_HLbL_receipt.json"
+    "q4_hlbl_receipt": "code/particles/runs/qcd/hadron_source_backend/higher_point/Q4_HLbL_receipt.json",
+    "xi_same_scheme_ledger": "code/particles/runs/qcd/hadron_source_backend/endpoint/Xi_same_scheme.json",
+    "production_export_schema": "code/particles/hadron/ward_projected_spectral_measure.schema.json"
    },
    "checks": {
     "q4_status_two_point_measure_insufficient": true,
     "q4_promotion_not_allowed": true,
-    "q4_no_external_targets": true
+    "q4_no_external_targets": true,
+    "xi_ledger_distinct_artifact": true,
+    "xi_required_terms_include_qed_and_ew": true,
+    "xi_promotion_not_allowed": true,
+    "xi_no_external_targets": true,
+    "production_branch_excludes_qed": true
    },
+   "xi_ledger_source_certificate_status": "MISSING_SOURCE_CERTIFICATE",
    "passed": true
   }
  },
@@ -535,13 +557,17 @@
   },
   "empirical_data_typed_blinded_comparison_only": {
    "packet_level_passed": true,
-   "machine_checks": "live artifact check (machine_witnesses.empirical_typing)",
-   "production_open_items": []
+   "machine_checks": "live artifact check with gate-derived fail-closed witnesses (machine_witnesses.empirical_typing)",
+   "production_open_items": [
+    "the comparison event itself: no empirical dataset is attached, so the blinded comparison is executed only after the production payload exists, appending to the comparison manifest"
+   ]
   },
   "higher_point_and_radiative_corrections_separately_typed": {
    "packet_level_passed": true,
    "machine_checks": "live artifact check (machine_witnesses.higher_point_typing)",
-   "production_open_items": []
+   "production_open_items": [
+    "endpoint/Xi_same_scheme.json source certificate (MISSING_SOURCE_CERTIFICATE): the radiative rows are separately typed but their source content is production-scope"
+   ]
   }
  },
  "issue_closure_condition": {
@@ -569,8 +595,8 @@
   "current_and_measure_gauge_invariant_and_source_derived": "theorem parts (a), (b); executed witnesses 1 and 2; source-law non-substitution theorem excludes non-source substitutes",
   "positivity_normalization_thresholds_scheme_dependence_proved": "theorem parts (c), (d), (e); executed witnesses 3 and 4",
   "machine_readable_measure_emitted_without_measured_hvp_input": "export schema plus semantic gate; executed witnesses 4 and 5; the demonstrator consumes bare lattice parameters only",
-  "empirical_data_typed_blinded_comparison_only": "machine-checked live (machine_witnesses.empirical_typing): empirical companion row class oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false as schema constants (empirical_ward_projected_spectral_measure.schema.json); source-side comparison manifest empty (controls/comparison_data_manifest.json: NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under falsification/frozen_targets/",
-  "higher_point_and_radiative_corrections_separately_typed": "machine-checked live (machine_witnesses.higher_point_typing): two-current measure is one marginal of the hadronic precision functor; Gamma^{(4)} and transition amplitudes are distinct required artifacts (higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT, non-promoting, no external targets); QED/EW corrections live in the mutually exclusive Xi_Q ledger rows"
+  "empirical_data_typed_blinded_comparison_only": "machine-checked live in three layers (machine_witnesses.empirical_typing): blinding of the source construction (comparison manifest empty, production-schema guard constants, gate fails closed on the measured-HVP controls), comparison-channel typing (empirical companion row class oph_plus_empirical_hadron_closure pinned non-source by schema constants), and explicit disclosure that public use of the empirical surface is confined to that non-promotable row class; no comparison event has occurred, so blinding is intact",
+  "higher_point_and_radiative_corrections_separately_typed": "machine-checked live for both halves (machine_witnesses.higher_point_typing): higher-point half via higher_point/Q4_HLbL_receipt.json (TWO_POINT_MEASURE_INSUFFICIENT, non-promoting, no external targets); radiative half via endpoint/Xi_same_scheme.json (distinct typed ledger whose required terms include QED and EW, non-promoting) plus the production schema branch.qed exclusion; the Xi source certificate itself remains a disclosed production-level gap"
  },
  "claim_boundary": {
   "closed_here": "the construction theorem for the renormalized U(1)_Q current and its positive spectral measure (gauge invariance, Ward identity, positivity, normalization, thresholds, scheme confinement, covariance and uncertainty-propagation rules), the machine-readable emission contract with fail-closed guards and negative controls, an executed diagnostic demonstrator on committed real lattice data, and the typing of empirical, higher-point, and radiative objects",
@@ -612,7 +638,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-21T15:18:16Z",
+  "generated_utc": "2026-07-21T16:11:46Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }

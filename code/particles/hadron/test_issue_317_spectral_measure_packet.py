@@ -67,16 +67,45 @@ def test_typing_criteria_are_live_checks_not_hardcoded(packet):
     assert set(empirical["checks"]) == {
         "comparison_manifest_empty",
         "comparison_manifest_status_no_data",
-        "row_class_const_comparison_only",
+        "production_schema_rejects_compare_only_const_false",
+        "production_schema_rejects_surrogate_const_false",
+        "gate_rejects_measured_hvp_comparison_endpoint",
+        "gate_rejects_ee_to_hadrons_target_leak",
+        "row_class_const_empirical_closure",
+        "empirical_surface_not_source_only_const",
+        "empirical_use_disclosed_const_true",
         "promotable_as_oph_source_theorem_const_false",
         "satisfies_production_constructive_next_artifact_const_false",
-        "external_cross_section_data_declared_const_true",
     }
     assert set(higher["checks"]) == {
         "q4_status_two_point_measure_insufficient",
         "q4_promotion_not_allowed",
         "q4_no_external_targets",
+        "xi_ledger_distinct_artifact",
+        "xi_required_terms_include_qed_and_ew",
+        "xi_promotion_not_allowed",
+        "xi_no_external_targets",
+        "production_branch_excludes_qed",
     }
+
+
+def test_blinding_and_disclosure_recorded_honestly(packet):
+    """The blinding state and the empirical public-use disclosure must be
+    explicit fields, and the radiative ledger's missing source certificate
+    must be disclosed rather than absorbed."""
+    empirical = packet["machine_witnesses"]["empirical_typing"]
+    blinding = empirical["blinding_status"]
+    assert blinding["comparison_event_performed"] is False
+    disclosure = empirical["public_use_disclosure"]
+    assert disclosure["usable_for_public_final_values_const"] is True
+    assert "comparison-only" in disclosure["confinement"]
+    higher = packet["machine_witnesses"]["higher_point_typing"]
+    assert higher["xi_ledger_source_certificate_status"] == "MISSING_SOURCE_CERTIFICATE"
+    criteria = packet["acceptance_criteria_status"]
+    radiative_open = criteria["higher_point_and_radiative_corrections_separately_typed"][
+        "production_open_items"
+    ]
+    assert any("Xi_same_scheme" in row for row in radiative_open)
 
 
 def test_issue_closure_condition_computed_and_open(packet):

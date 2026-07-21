@@ -36,12 +36,19 @@ Machine checks executed at emission time:
    surrogate flag, missing budget, quenched branch, negative residue,
    empty level support, forbidden-target leak) is rejected, so the
    machine-readable emission fails closed exactly as the claim requires.
-6. Empirical typing: the source-side comparison manifest is empty and the
-   declared-empirical companion schema pins the comparison-only row class
-   and non-promotable guards as schema constants (read live, not asserted).
-7. Higher-point typing: the four-current receipt records the two-point
-   measure as insufficient, non-promoting, with no external targets
-   (read live, not asserted).
+6. Empirical typing and blinding: the source-side comparison manifest is
+   empty (blinding intact, no comparison event), the production schema and
+   the executed gate exclude every measured-HVP path from the source
+   construction, the declared-empirical companion schema pins the
+   comparison row class non-source by constants, and the public-use
+   property of that empirical surface is recorded as an explicit
+   disclosure confined to the non-promotable row class.
+7. Higher-point and radiative typing: the four-current receipt records the
+   two-point measure as insufficient (higher-point half), and the
+   Xi_same_scheme remainder ledger is a distinct typed artifact whose
+   required terms include the QED and EW rows while the production schema
+   excludes QED from the two-point branch (radiative half); the Xi source
+   certificate itself is a disclosed production-level gap.
 
 The certificate separates two verdicts. ``accepted`` covers the packet
 construction/contract layer only. ``issue_closure_condition`` computes the
@@ -97,6 +104,7 @@ DEFAULT_OUT = ROOT / "particles" / "runs" / "hadron" / "ward_projected_spectral_
 BACKEND_DIR = ROOT / "particles" / "runs" / "qcd" / "hadron_source_backend"
 COMPARISON_MANIFEST = BACKEND_DIR / "controls" / "comparison_data_manifest.json"
 Q4_RECEIPT = BACKEND_DIR / "higher_point" / "Q4_HLbL_receipt.json"
+XI_LEDGER = BACKEND_DIR / "endpoint" / "Xi_same_scheme.json"
 BASE_MEASURE = BACKEND_DIR / "qcd_ensemble" / "base_measure.json"
 WARD_CURRENT_DEFINITION = BACKEND_DIR / "currents" / "ward_current_definition.json"
 READINESS_REPORT = ROOT / "particles" / "runs" / "hadron" / "hadron_production_readiness_report.json"
@@ -133,22 +141,61 @@ def _rel(path: Path) -> str:
 # ---------------------------------------------------------------------------
 
 
-def empirical_typing_check() -> dict[str, Any]:
-    """Criterion: empirical data are typed blinded-comparison-only.
+def empirical_typing_check(gate: dict[str, Any]) -> dict[str, Any]:
+    """Criterion: empirical data are used only for a blinded comparison.
 
-    Machine-checked against the live artifacts instead of asserted: the
-    source-side comparison manifest must be empty, and the declared-empirical
-    companion schema must pin the comparison row class with non-promotable
-    guards as schema constants.
+    Machine-checked in three layers against live artifacts:
+
+    1. Blinding of the source construction: no empirical dataset is attached
+       to the source lane (comparison manifest empty), and the source export
+       cannot admit empirical input (production schema pins the source
+       guards as constants and the semantic gate fails closed on
+       EE_TO_HADRONS; executed in the acceptance-gate witness).
+    2. Comparison channel typing: the only surface where empirical data may
+       ever attach to this lane is the declared-empirical companion row
+       class, pinned non-source by schema constants.
+    3. Disclosure: the empirical companion surface allows public final
+       values (usable_for_public_final_values const true). That use is
+       confined to the disclosed oph_plus_empirical_hadron_closure row
+       class, which by the same constants can never be promoted as an OPH
+       source theorem and never satisfies the production constructive
+       artifact, so the source measure itself only ever meets empirical
+       data as a comparison. The check records the disclosure explicitly
+       rather than hiding it.
+
+    No comparison event has occurred (the manifest is empty); the
+    unblinding event is production-scope and must attach through the
+    comparison manifest after a source payload exists.
     """
     manifest = _load_json(COMPARISON_MANIFEST)
     schema = _load_json(EMPIRICAL_SCHEMA_PATH)
+    production_schema = _load_json(SCHEMA_PATH)
     guards = schema["properties"]["guards"]["properties"]
+    production_guards = production_schema["properties"]["guards"]["properties"]
+    gate_rejections = {
+        row["control_id"]: row["rejected"] for row in gate["negative_controls"]
+    }
     checks = {
         "comparison_manifest_empty": manifest.get("comparison_data") == [],
         "comparison_manifest_status_no_data": manifest.get("status") == "NO_COMPARISON_DATA_ATTACHED",
-        "row_class_const_comparison_only": (
+        "production_schema_rejects_compare_only_const_false": (
+            production_guards["compare_only_external_endpoint"].get("const") is False
+        ),
+        "production_schema_rejects_surrogate_const_false": (
+            production_guards["surrogate_hadron_artifact"].get("const") is False
+        ),
+        "gate_rejects_measured_hvp_comparison_endpoint": bool(
+            gate_rejections.get("measured_hvp_comparison_endpoint")
+        ),
+        "gate_rejects_ee_to_hadrons_target_leak": bool(
+            gate_rejections.get("forbidden_target_leak_ee_to_hadrons")
+        ),
+        "row_class_const_empirical_closure": (
             schema["properties"]["row_class"].get("const") == "oph_plus_empirical_hadron_closure"
+        ),
+        "empirical_surface_not_source_only_const": guards["source_only"].get("const") is False,
+        "empirical_use_disclosed_const_true": (
+            guards["external_cross_section_data_used"].get("const") is True
         ),
         "promotable_as_oph_source_theorem_const_false": (
             guards["promotable_as_oph_source_theorem"].get("const") is False
@@ -156,16 +203,35 @@ def empirical_typing_check() -> dict[str, Any]:
         "satisfies_production_constructive_next_artifact_const_false": (
             guards["satisfies_production_constructive_next_artifact"].get("const") is False
         ),
-        "external_cross_section_data_declared_const_true": (
-            guards["external_cross_section_data_used"].get("const") is True
+    }
+    public_use_disclosure = {
+        "usable_for_public_final_values_const": guards["usable_for_public_final_values"].get("const"),
+        "confinement": (
+            "public use is a property of the disclosed empirical-closure row class "
+            "only; the same schema constants forbid promoting that surface as an "
+            "OPH source theorem or substituting it for the production artifact, "
+            "so with respect to the source spectral measure the empirical data "
+            "remain comparison-only"
+        ),
+    }
+    blinding_status = {
+        "comparison_event_performed": bool(manifest.get("comparison_data")),
+        "statement": (
+            "no empirical dataset is attached to the source lane, so no comparison "
+            "has occurred and there is nothing unblinded; the comparison event is "
+            "production-scope and must append to the comparison manifest after the "
+            "source payload is emitted"
         ),
     }
     return {
         "checked_artifacts": {
             "comparison_manifest": _rel(COMPARISON_MANIFEST),
             "empirical_companion_schema": _rel(EMPIRICAL_SCHEMA_PATH),
+            "production_export_schema": _rel(SCHEMA_PATH),
         },
         "checks": checks,
+        "public_use_disclosure": public_use_disclosure,
+        "blinding_status": blinding_status,
         "passed": bool(all(checks.values())),
     }
 
@@ -173,21 +239,51 @@ def empirical_typing_check() -> dict[str, Any]:
 def higher_point_typing_check() -> dict[str, Any]:
     """Criterion: higher-point and radiative corrections stay separately typed.
 
-    Machine-checked against the live four-current receipt: the two-point
-    measure must be recorded as insufficient for HLbL-class objects and the
-    receipt must be non-promoting with no external targets.
+    Machine-checked for both halves against live artifacts:
+
+    - higher-point half: the four-current receipt records the two-point
+      measure as insufficient for HLbL-class objects, non-promoting, with no
+      external targets;
+    - radiative half: the same-scheme remainder ledger Xi_same_scheme is a
+      distinct typed artifact whose required term rows include the QED and
+      EW corrections, non-promoting, with no external targets; the
+      production export schema additionally excludes QED from the two-point
+      branch (branch.qed limited to off/explicitly_superseded).
+
+    The Xi ledger's source certificate is itself still missing
+    (MISSING_SOURCE_CERTIFICATE); that is a production-level content gap
+    recorded under production_open_items. The typing separation checked
+    here is exactly that the radiative rows live in that distinct ledger
+    rather than inside the two-point measure.
     """
     receipt = _load_json(Q4_RECEIPT)
+    xi = _load_json(XI_LEDGER)
+    production_schema = _load_json(SCHEMA_PATH)
+    qed_enum = (
+        production_schema["properties"]["branch"]["properties"]["qed"].get("enum") or []
+    )
     checks = {
         "q4_status_two_point_measure_insufficient": (
             receipt.get("status") == "TWO_POINT_MEASURE_INSUFFICIENT"
         ),
         "q4_promotion_not_allowed": receipt.get("promotion_allowed") is False,
         "q4_no_external_targets": receipt.get("external_targets_used") == [],
+        "xi_ledger_distinct_artifact": xi.get("artifact") == "Xi_same_scheme",
+        "xi_required_terms_include_qed_and_ew": (
+            {"QED", "EW"} <= set(xi.get("required_terms", []))
+        ),
+        "xi_promotion_not_allowed": xi.get("promotion_allowed") is False,
+        "xi_no_external_targets": xi.get("external_targets_used") == [],
+        "production_branch_excludes_qed": "on" not in qed_enum and "off" in qed_enum,
     }
     return {
-        "checked_artifacts": {"q4_hlbl_receipt": _rel(Q4_RECEIPT)},
+        "checked_artifacts": {
+            "q4_hlbl_receipt": _rel(Q4_RECEIPT),
+            "xi_same_scheme_ledger": _rel(XI_LEDGER),
+            "production_export_schema": _rel(SCHEMA_PATH),
+        },
         "checks": checks,
+        "xi_ledger_source_certificate_status": xi.get("status"),
         "passed": bool(all(checks.values())),
     }
 
@@ -1017,7 +1113,7 @@ def build_packet() -> dict[str, Any]:
     zv_witness = zv_free_field_witness()
     demonstrator = demonstrator_measure()
     gate = run_acceptance_gate()
-    empirical_typing = empirical_typing_check()
+    empirical_typing = empirical_typing_check(gate)
     higher_point_typing = higher_point_typing_check()
     closure = issue_closure_condition()
 
@@ -1067,13 +1163,24 @@ def build_packet() -> dict[str, Any]:
         },
         "empirical_data_typed_blinded_comparison_only": {
             "packet_level_passed": bool(empirical_typing["passed"]),
-            "machine_checks": "live artifact check (machine_witnesses.empirical_typing)",
-            "production_open_items": [],
+            "machine_checks": (
+                "live artifact check with gate-derived fail-closed witnesses "
+                "(machine_witnesses.empirical_typing)"
+            ),
+            "production_open_items": [
+                "the comparison event itself: no empirical dataset is attached, so "
+                "the blinded comparison is executed only after the production "
+                "payload exists, appending to the comparison manifest",
+            ],
         },
         "higher_point_and_radiative_corrections_separately_typed": {
             "packet_level_passed": bool(higher_point_typing["passed"]),
             "machine_checks": "live artifact check (machine_witnesses.higher_point_typing)",
-            "production_open_items": [],
+            "production_open_items": [
+                "endpoint/Xi_same_scheme.json source certificate "
+                "(MISSING_SOURCE_CERTIFICATE): the radiative rows are separately "
+                "typed but their source content is production-scope",
+            ],
         },
     }
     accepted = all(row["packet_level_passed"] for row in criteria.values())
@@ -1116,21 +1223,24 @@ def build_packet() -> dict[str, Any]:
                 "demonstrator consumes bare lattice parameters only"
             ),
             "empirical_data_typed_blinded_comparison_only": (
-                "machine-checked live (machine_witnesses.empirical_typing): empirical "
-                "companion row class oph_plus_empirical_hadron_closure with "
-                "promotable_as_oph_source_theorem = false as schema constants "
-                "(empirical_ward_projected_spectral_measure.schema.json); source-side "
-                "comparison manifest empty (controls/comparison_data_manifest.json: "
-                "NO_COMPARISON_DATA_ATTACHED); frozen comparison targets under "
-                "falsification/frozen_targets/"
+                "machine-checked live in three layers (machine_witnesses."
+                "empirical_typing): blinding of the source construction (comparison "
+                "manifest empty, production-schema guard constants, gate fails closed "
+                "on the measured-HVP controls), comparison-channel typing (empirical "
+                "companion row class oph_plus_empirical_hadron_closure pinned "
+                "non-source by schema constants), and explicit disclosure that public "
+                "use of the empirical surface is confined to that non-promotable row "
+                "class; no comparison event has occurred, so blinding is intact"
             ),
             "higher_point_and_radiative_corrections_separately_typed": (
-                "machine-checked live (machine_witnesses.higher_point_typing): "
-                "two-current measure is one marginal of the hadronic precision functor; "
-                "Gamma^{(4)} and transition amplitudes are distinct required artifacts "
-                "(higher_point/Q4_HLbL_receipt.json: TWO_POINT_MEASURE_INSUFFICIENT, "
-                "non-promoting, no external targets); QED/EW corrections live in the "
-                "mutually exclusive Xi_Q ledger rows"
+                "machine-checked live for both halves (machine_witnesses."
+                "higher_point_typing): higher-point half via "
+                "higher_point/Q4_HLbL_receipt.json (TWO_POINT_MEASURE_INSUFFICIENT, "
+                "non-promoting, no external targets); radiative half via "
+                "endpoint/Xi_same_scheme.json (distinct typed ledger whose required "
+                "terms include QED and EW, non-promoting) plus the production schema "
+                "branch.qed exclusion; the Xi source certificate itself remains a "
+                "disclosed production-level gap"
             ),
         },
         "claim_boundary": {
