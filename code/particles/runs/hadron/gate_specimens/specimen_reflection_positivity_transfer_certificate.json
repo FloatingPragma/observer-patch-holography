@@ -1,0 +1,9 @@
+{
+ "artifact": "oph_reflection_positivity_transfer_certificate",
+ "premise": "P4",
+ "specimen_for_gate_testing": true,
+ "promotion_allowed": false,
+ "external_targets_used": [],
+ "content": "typed specimen exercising the strict gate reference checks (existence, LF-normalized sha256 pin, artifact type, empty target list); carries no physical certificate content",
+ "production_note": "the production backend lane must emit the real reflection-positivity/transfer certificate with specimen_for_gate_testing false; the physical availability verdict rejects specimen-backed payloads"
+}

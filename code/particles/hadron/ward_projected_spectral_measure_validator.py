@@ -37,6 +37,10 @@ Positively enforced requirements (ids in SEMANTIC_REQUIREMENTS):
   dimension and row basis, symmetric within COVARIANCE_SYMMETRY_REL_TOL.
 - covariance_positive_semidefinite: min eigenvalue >= -COVARIANCE_PSD_REL_TOL
   relative to the matrix scale.
+- covariance_rows_cover_all_levels: the covariance row basis must consist of
+  exactly the rows {level_id}_energy and {level_id}_weight for every declared
+  level, each exactly once (joint covariance completeness: a payload cannot
+  add a level without extending the covariance).
 - complete_budget_rows: exactly the seven required budget rows.
 - finite_ordered_bound_intervals: every budget carries bound_interval with
   finite decimals 0 <= lo <= hi.
@@ -46,6 +50,33 @@ Positively enforced requirements (ids in SEMANTIC_REQUIREMENTS):
 - strict_branch_typing: flavors exactly "2+1", qed from the closed enum;
   quenched, surrogate, target-calibrated and compare-only payloads are
   excluded from acceptance.
+- format_version_allowlisted: the format version must be a known version
+  (currently exactly 2); unknown versions fail closed.
+- channel_allowlisted: every level block channel must come from the closed
+  channel allowlist (currently exactly "U(1)_Q_vector").
+- typed_normalization_convention: current_normalization must be a typed
+  object with a convention from the closed allowlist and a certificate
+  pointer to premise_certificates.conserved_current_or_matching; arbitrary
+  normalization strings fail closed.
+- typed_premise_certificate_references: the physical premises (gauge-quotient
+  ensemble, conserved current / normalization matching, Ward identity,
+  reflection positivity / transfer) must be typed references
+  {artifact, path, sha256} with the correct const artifact type, a safe
+  repo-relative path that resolves to an existing JSON file whose
+  LF-normalized sha256 matches the pin, whose declared artifact type matches,
+  and whose external_targets_used list is empty.
+- reflection_positivity_certificate_required: positivity_status
+  "certified_positive" is only accepted together with the required
+  positivity_certificate pointer to
+  premise_certificates.reflection_positivity_transfer and a resolvable
+  reflection-positivity/transfer premise certificate.
+- provenance_ensemble_cross_reference: the set of ensemble_ids used by the
+  level blocks must equal the set of source_ensemble identifiers declared in
+  provenance.source_inputs (no undeclared or unused ensembles).
+- referenced_artifacts_source_only: every oph_source_artifact provenance
+  identifier must be a safe repo-relative path to an existing file; JSON
+  files that declare guards.source_only false or an empirical row class are
+  rejected, so target compilations cannot be disguised as OPH artifacts.
 - guard_flags_exactly_false: the three guard booleans are literally False
   (strings, 0, None, or missing fail).
 - ward_projection_required: projection.ward_projected is literally True and
@@ -54,6 +85,14 @@ Positively enforced requirements (ids in SEMANTIC_REQUIREMENTS):
   rejected (additionalProperties: false everywhere in the schema).
 - positivity_status_allowlisted: rho_had_or_measure.positivity_status must
   be exactly "certified_positive"; unknown status strings fail closed.
+
+Certificate references are resolved against base_dir (default: the repo
+root); hashes are computed over LF-normalized bytes so the pin is invariant
+under platform line-ending conversion. The committed gate specimens under
+code/particles/runs/hadron/gate_specimens/ declare
+specimen_for_gate_testing: true; the gate accepts them (contract testing),
+but the physical availability verdict in the verifier rejects
+specimen-backed payloads.
 
 The gate is downstream-compatible by construction: an accepted payload
 embeds as `source_measure` into the source-transport payload contract of
@@ -64,8 +103,10 @@ executes that implication as an integration witness.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
+import re
 import sys
 from dataclasses import dataclass, field
 from decimal import Decimal, InvalidOperation
@@ -86,6 +127,7 @@ from thomson_spectral_transport import (  # noqa: E402
 )
 
 SCHEMA_PATH = HERE / "ward_projected_spectral_measure.schema.json"
+REPO_ROOT = ROOT.parent
 
 FORBIDDEN_TARGETS = (
     "CODATA_ALPHA",
@@ -95,6 +137,11 @@ FORBIDDEN_TARGETS = (
     "HADRON_MASS_TARGETS",
     "PDG_QCD_FITS",
 )
+
+# Broader token set for the recursive scan: full forbidden targets plus the
+# bare compilation names, so target provenance cannot hide behind shortened
+# labels.
+SCAN_TOKENS = FORBIDDEN_TARGETS + ("CODATA", "NIST", "PDG")
 
 # Declared numerical tolerances of the contract.
 S_EQUALS_ENERGY_SQUARED_REL_TOL = 1e-12
@@ -114,6 +161,48 @@ ALLOWED_POSITIVITY_STATUS = ("certified_positive",)
 
 ALLOWED_FLAVORS = ("2+1",)
 ALLOWED_QED = ("off", "explicitly_superseded")
+ALLOWED_FORMAT_VERSIONS = (2,)
+ALLOWED_CHANNELS = ("U(1)_Q_vector",)
+ALLOWED_NORMALIZATION_CONVENTIONS = (
+    "conserved_current_ZV_equals_1",
+    "conserved_local_matching_certificate",
+)
+NORMALIZATION_CERTIFICATE_POINTER = "premise_certificates.conserved_current_or_matching"
+POSITIVITY_CERTIFICATE_POINTER = "premise_certificates.reflection_positivity_transfer"
+
+# Typed premise-certificate references: the physical premises P1-P4 (and the
+# P6 normalization matching) must be carried as hash-pinned references to
+# certificate artifacts of the correct type, not as prose assertions.
+PREMISE_CERTIFICATE_TYPES = {
+    "gauge_quotient_ensemble": "oph_qcd_source_ensemble_certificate",
+    "conserved_current_or_matching": "oph_ward_current_source_certificate",
+    "ward_identity": "oph_ward_identity_certificate",
+    "reflection_positivity_transfer": "oph_reflection_positivity_transfer_certificate",
+}
+
+# Committed typed specimens for exercising the gate's reference checks. They
+# declare specimen_for_gate_testing: true, so the physical availability
+# verdict rejects any payload backed by them.
+SPECIMEN_CERTIFICATE_PATHS = {
+    "gauge_quotient_ensemble": (
+        "code/particles/runs/hadron/gate_specimens/"
+        "specimen_gauge_quotient_ensemble_certificate.json"
+    ),
+    "conserved_current_or_matching": (
+        "code/particles/runs/hadron/gate_specimens/"
+        "specimen_ward_current_source_certificate.json"
+    ),
+    "ward_identity": (
+        "code/particles/runs/hadron/gate_specimens/"
+        "specimen_ward_identity_certificate.json"
+    ),
+    "reflection_positivity_transfer": (
+        "code/particles/runs/hadron/gate_specimens/"
+        "specimen_reflection_positivity_transfer_certificate.json"
+    ),
+}
+
+_HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
 SEMANTIC_REQUIREMENTS = (
     "finite_numeric_values",
@@ -128,10 +217,18 @@ SEMANTIC_REQUIREMENTS = (
     "no_measured_hvp_or_target_inputs",
     "covariance_dimension_and_symmetry",
     "covariance_positive_semidefinite",
+    "covariance_rows_cover_all_levels",
     "complete_budget_rows",
     "finite_ordered_bound_intervals",
     "transport_moment_certificate_complete",
     "strict_branch_typing",
+    "format_version_allowlisted",
+    "channel_allowlisted",
+    "typed_normalization_convention",
+    "typed_premise_certificate_references",
+    "reflection_positivity_certificate_required",
+    "provenance_ensemble_cross_reference",
+    "referenced_artifacts_source_only",
     "guard_flags_exactly_false",
     "ward_projection_required",
     "closed_object_boundaries",
@@ -150,6 +247,32 @@ class ValidationResult:
 
 def load_schema() -> dict[str, Any]:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+
+
+def lf_sha256(path: Path) -> str:
+    """sha256 over LF-normalized bytes (invariant under CRLF checkouts)."""
+    data = path.read_bytes().replace(b"\r\n", b"\n")
+    return hashlib.sha256(data).hexdigest()
+
+
+def specimen_certificate_reference(key: str, base_dir: Path | None = None) -> dict[str, Any]:
+    """Typed reference to the committed gate specimen for a premise key."""
+    base = base_dir if base_dir is not None else REPO_ROOT
+    path_text = SPECIMEN_CERTIFICATE_PATHS[key]
+    return {
+        "artifact": PREMISE_CERTIFICATE_TYPES[key],
+        "path": path_text,
+        "sha256": lf_sha256(base / path_text),
+    }
+
+
+def _safe_relative_path(text: Any) -> bool:
+    """Accept only repo-relative forward-slash paths without traversal."""
+    if not isinstance(text, str) or not text:
+        return False
+    if "\\" in text or text.startswith("/") or ":" in text:
+        return False
+    return ".." not in text.split("/")
 
 
 def _is_number(value: Any) -> bool:
@@ -181,9 +304,10 @@ def _scan_finiteness(payload: Any, where: str, reasons: list[str]) -> None:
 def _scan_forbidden_tokens(payload: Any, where: str, reasons: list[str]) -> None:
     """Recursive forbidden-token scan over every key and string value.
 
-    Rejects (a) any key or string value containing a forbidden target token
-    (case-insensitive), and (b) any key equal to a downstream-forbidden
-    source key. This closes the nested-provenance leak class, e.g.
+    Rejects (a) any key or string value containing a scan token (the full
+    forbidden targets plus the bare compilation names, case-insensitive),
+    and (b) any key equal to a downstream-forbidden source key. This closes
+    the nested-provenance leak class, e.g.
     {"measured_hvp_input": {"source": "EE_TO_HADRONS"}}, independently of
     whether the schema boundary already rejects the unknown key.
     """
@@ -192,7 +316,7 @@ def _scan_forbidden_tokens(payload: Any, where: str, reasons: list[str]) -> None
             key_text = str(key)
             key_where = f"{where}.{key_text}" if where else key_text
             upper = key_text.upper()
-            for token in FORBIDDEN_TARGETS:
+            for token in SCAN_TOKENS:
                 if token in upper:
                     reasons.append(f"TARGET_LEAK_DETECTED:key:{key_where}")
             if key_text in DOWNSTREAM_FORBIDDEN_KEYS:
@@ -203,7 +327,7 @@ def _scan_forbidden_tokens(payload: Any, where: str, reasons: list[str]) -> None
             _scan_forbidden_tokens(value, f"{where}[{index}]", reasons)
     elif isinstance(payload, str):
         upper = payload.upper()
-        for token in FORBIDDEN_TARGETS:
+        for token in SCAN_TOKENS:
             if token in upper:
                 reasons.append(f"TARGET_LEAK_DETECTED:value:{where}")
 
@@ -248,7 +372,7 @@ def _check_schema(payload: dict[str, Any], schema: dict[str, Any], reasons: list
         reasons.append(f"schema_violation:{error.json_path}:{error.message}")
 
 
-def _check_provenance(payload: dict[str, Any], reasons: list[str]) -> None:
+def _check_provenance(payload: dict[str, Any], base_dir: Path, reasons: list[str]) -> None:
     targets = payload.get("external_targets_used")
     if not isinstance(targets, list):
         reasons.append("external_targets_used_not_a_list")
@@ -268,20 +392,161 @@ def _check_provenance(payload: dict[str, Any], reasons: list[str]) -> None:
             if not isinstance(item, dict):
                 reasons.append(f"provenance_source_input_not_typed:[{index}]")
                 continue
-            if item.get("kind") not in ALLOWED_SOURCE_INPUT_KINDS:
+            kind = item.get("kind")
+            if kind not in ALLOWED_SOURCE_INPUT_KINDS:
                 reasons.append(
-                    f"provenance_source_input_kind_not_allowlisted:[{index}]:{item.get('kind')!r}"
+                    f"provenance_source_input_kind_not_allowlisted:[{index}]:{kind!r}"
                 )
             identifier = item.get("identifier")
             if not isinstance(identifier, str) or not identifier:
                 reasons.append(f"provenance_source_input_identifier_missing:[{index}]")
+            elif kind == "oph_source_artifact":
+                _check_source_artifact_reference(identifier, index, base_dir, reasons)
     if provenance.get("measured_hvp_input_present") is not False:
         reasons.append("provenance_measured_hvp_input_present_not_false")
     if provenance.get("target_calibration_present") is not False:
         reasons.append("provenance_target_calibration_present_not_false")
 
 
-def _check_levels_and_residues(payload: dict[str, Any], reasons: list[str]) -> None:
+def _check_source_artifact_reference(
+    identifier: str, index: int, base_dir: Path, reasons: list[str]
+) -> None:
+    """Resolve an oph_source_artifact provenance reference fail-closed.
+
+    The identifier must be a safe repo-relative path to an existing file, so
+    a target compilation cannot be disguised as an OPH artifact by label
+    alone. Referenced JSON files that declare guards.source_only false or an
+    empirical row class (e.g. the compare-only empirical companion) are
+    rejected as provenance.
+    """
+    where = f"provenance.source_inputs[{index}]"
+    if not _safe_relative_path(identifier):
+        reasons.append(f"source_artifact_reference_invalid:{where}:{identifier!r}")
+        return
+    file_path = base_dir / identifier
+    if not file_path.is_file():
+        reasons.append(f"source_artifact_reference_absent:{where}:{identifier}")
+        return
+    if file_path.suffix != ".json":
+        return
+    try:
+        content = json.loads(file_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        reasons.append(f"source_artifact_reference_unreadable:{where}:{identifier}")
+        return
+    if not isinstance(content, dict):
+        return
+    guards = content.get("guards") if isinstance(content.get("guards"), dict) else {}
+    row_class = content.get("row_class")
+    if guards.get("source_only") is False or row_class == "oph_plus_empirical_hadron_closure":
+        reasons.append(f"referenced_artifact_not_source_only:{where}:{identifier}")
+    if guards.get("compare_only_external_endpoint") is True:
+        reasons.append(f"referenced_artifact_compare_only:{where}:{identifier}")
+
+
+def _check_provenance_cross_reference(payload: dict[str, Any], reasons: list[str]) -> None:
+    """Ensemble ids used by level blocks must match declared source ensembles."""
+    provenance = payload.get("provenance")
+    source_inputs = provenance.get("source_inputs") if isinstance(provenance, dict) else None
+    declared: set[str] = set()
+    if isinstance(source_inputs, list):
+        for item in source_inputs:
+            if isinstance(item, dict) and item.get("kind") == "source_ensemble":
+                identifier = item.get("identifier")
+                if isinstance(identifier, str) and identifier:
+                    declared.add(identifier)
+    blocks = payload.get("finite_volume_levels")
+    used: set[str] = set()
+    if isinstance(blocks, list):
+        for block in blocks:
+            if isinstance(block, dict):
+                ensemble_id = block.get("ensemble_id")
+                if isinstance(ensemble_id, str) and ensemble_id:
+                    used.add(ensemble_id)
+    for missing in sorted(used - declared):
+        reasons.append(f"ensemble_not_declared_in_provenance:{missing}")
+    for unused in sorted(declared - used):
+        reasons.append(f"declared_source_ensemble_unused:{unused}")
+
+
+def _check_premise_certificates(
+    payload: dict[str, Any], base_dir: Path, reasons: list[str]
+) -> None:
+    """Typed, hash-pinned premise-certificate references (P1-P4, P6)."""
+    block = payload.get("premise_certificates")
+    if not isinstance(block, dict):
+        reasons.append("premise_certificates_missing")
+        return
+    for key in block:
+        if key not in PREMISE_CERTIFICATE_TYPES:
+            reasons.append(f"unknown_premise_certificate:{key}")
+    for key, artifact in PREMISE_CERTIFICATE_TYPES.items():
+        entry = block.get(key)
+        where = f"premise_certificates.{key}"
+        if not isinstance(entry, dict):
+            reasons.append(f"premise_certificate_missing:{key}")
+            continue
+        if entry.get("artifact") != artifact:
+            reasons.append(f"premise_certificate_artifact_mismatch:{key}")
+        path_text = entry.get("path")
+        if not _safe_relative_path(path_text):
+            reasons.append(f"premise_certificate_path_invalid:{key}")
+            continue
+        sha = entry.get("sha256")
+        if not isinstance(sha, str) or not _HEX64.match(sha):
+            reasons.append(f"premise_certificate_sha256_invalid:{key}")
+            continue
+        file_path = base_dir / path_text
+        if not file_path.is_file():
+            reasons.append(f"premise_certificate_file_absent:{key}:{path_text}")
+            continue
+        if lf_sha256(file_path) != sha:
+            reasons.append(f"premise_certificate_hash_mismatch:{key}")
+            continue
+        try:
+            content = json.loads(file_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            reasons.append(f"premise_certificate_unreadable:{key}")
+            continue
+        if not isinstance(content, dict) or content.get("artifact") != artifact:
+            reasons.append(f"premise_certificate_content_artifact_mismatch:{key}")
+        if isinstance(content, dict) and content.get("external_targets_used") != []:
+            reasons.append(f"premise_certificate_external_targets_not_empty:{key}")
+
+
+def premise_certificate_specimen_flags(
+    payload: dict[str, Any], base_dir: Path | None = None
+) -> dict[str, bool]:
+    """Which premise certificates of a payload are gate-testing specimens.
+
+    Fails closed: unresolvable references count as specimen (True), so a
+    payload can only be treated as non-specimen-backed when every reference
+    resolves to a readable certificate with specimen_for_gate_testing
+    exactly False.
+    """
+    base = base_dir if base_dir is not None else REPO_ROOT
+    block = payload.get("premise_certificates")
+    flags: dict[str, bool] = {}
+    for key in PREMISE_CERTIFICATE_TYPES:
+        entry = block.get(key) if isinstance(block, dict) else None
+        path_text = entry.get("path") if isinstance(entry, dict) else None
+        if not _safe_relative_path(path_text):
+            flags[key] = True
+            continue
+        file_path = base / path_text
+        try:
+            content = json.loads(file_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            flags[key] = True
+            continue
+        flags[key] = (
+            not isinstance(content, dict)
+            or content.get("specimen_for_gate_testing") is not False
+        )
+    return flags
+
+
+def _check_levels_and_residues(payload: dict[str, Any], reasons: list[str]) -> set[str]:
     blocks = payload.get("finite_volume_levels")
     if not isinstance(blocks, list) or not blocks:
         reasons.append("finite_volume_levels_missing_or_empty")
@@ -292,6 +557,11 @@ def _check_levels_and_residues(payload: dict[str, Any], reasons: list[str]) -> N
         if not isinstance(block, dict):
             reasons.append(f"level_block_not_typed:[{b_index}]")
             continue
+        channel = block.get("channel")
+        if channel not in ALLOWED_CHANNELS:
+            reasons.append(
+                f"channel_not_allowlisted:finite_volume_levels[{b_index}]:{channel!r}"
+            )
         levels = block.get("levels")
         if not isinstance(levels, list) or not levels:
             reasons.append(f"levels_missing_or_empty:[{b_index}]")
@@ -352,8 +622,16 @@ def _check_levels_and_residues(payload: dict[str, Any], reasons: list[str]) -> N
         if residue is not None and residue < 0.0:
             reasons.append(f"negative_residue:{where}")
         normalization = row.get("current_normalization")
-        if not isinstance(normalization, str) or not normalization:
-            reasons.append(f"current_normalization_missing:{where}")
+        if not isinstance(normalization, dict):
+            reasons.append(f"normalization_not_typed:{where}")
+        else:
+            convention = normalization.get("convention")
+            if convention not in ALLOWED_NORMALIZATION_CONVENTIONS:
+                reasons.append(
+                    f"normalization_convention_not_allowlisted:{where}:{convention!r}"
+                )
+            if normalization.get("certificate") != NORMALIZATION_CERTIFICATE_POINTER:
+                reasons.append(f"normalization_certificate_pointer_missing:{where}")
         if (
             residue is not None
             and level_id is not None
@@ -364,6 +642,7 @@ def _check_levels_and_residues(payload: dict[str, Any], reasons: list[str]) -> N
                 reasons.append(f"weight_residue_inconsistent:{level_id}")
     for level_id in sorted(seen_ids - residue_ids):
         reasons.append(f"level_without_residue:{level_id}")
+    return seen_ids
 
 
 def _check_measure_block(payload: dict[str, Any], reasons: list[str]) -> None:
@@ -379,9 +658,13 @@ def _check_measure_block(payload: dict[str, Any], reasons: list[str]) -> None:
         reasons.append(
             f"positivity_status_not_allowlisted:{rho.get('positivity_status')!r}"
         )
+    if rho.get("positivity_certificate") != POSITIVITY_CERTIFICATE_POINTER:
+        reasons.append("positivity_certificate_pointer_missing")
 
 
-def _check_covariance(payload: dict[str, Any], reasons: list[str]) -> None:
+def _check_covariance(
+    payload: dict[str, Any], level_ids: set[str], reasons: list[str]
+) -> None:
     covariance = payload.get("covariance")
     if not isinstance(covariance, dict):
         reasons.append("covariance_missing")
@@ -394,6 +677,15 @@ def _check_covariance(payload: dict[str, Any], reasons: list[str]) -> None:
         return
     if not isinstance(row_basis, list) or len(row_basis) != dimension:
         reasons.append("covariance_row_basis_dimension_mismatch")
+    if isinstance(row_basis, list) and level_ids:
+        rows = [str(row) for row in row_basis]
+        if len(set(rows)) != len(rows):
+            reasons.append("covariance_row_basis_duplicates")
+        expected = {f"{level_id}_energy" for level_id in level_ids} | {
+            f"{level_id}_weight" for level_id in level_ids
+        }
+        if set(rows) != expected:
+            reasons.append("covariance_rows_do_not_cover_levels")
     if not isinstance(matrix, list) or len(matrix) != dimension:
         reasons.append("covariance_matrix_dimension_mismatch")
         return
@@ -465,6 +757,9 @@ def _check_budgets(payload: dict[str, Any], reasons: list[str]) -> None:
 
 
 def _check_typing_and_guards(payload: dict[str, Any], reasons: list[str]) -> None:
+    version = payload.get("format_version")
+    if isinstance(version, bool) or version not in ALLOWED_FORMAT_VERSIONS:
+        reasons.append(f"format_version_not_allowlisted:{version!r}")
     branch = payload.get("branch")
     if not isinstance(branch, dict):
         reasons.append("branch_missing")
@@ -491,20 +786,29 @@ def _check_typing_and_guards(payload: dict[str, Any], reasons: list[str]) -> Non
 
 
 def validate_production_payload(
-    payload: Any, schema: dict[str, Any] | None = None
+    payload: Any,
+    schema: dict[str, Any] | None = None,
+    base_dir: Path | None = None,
 ) -> ValidationResult:
-    """Strict fail-closed acceptance decision for a production export payload."""
+    """Strict fail-closed acceptance decision for a production export payload.
+
+    base_dir is the directory against which certificate and source-artifact
+    references are resolved (default: the repository root).
+    """
     if not isinstance(payload, dict):
         return ValidationResult(False, ("payload_not_an_object",))
     schema = schema or load_schema()
+    base = base_dir if base_dir is not None else REPO_ROOT
     reasons: list[str] = []
     _check_schema(payload, schema, reasons)
     _scan_finiteness(payload, "", reasons)
     _scan_forbidden_tokens(payload, "", reasons)
-    _check_provenance(payload, reasons)
-    _check_levels_and_residues(payload, reasons)
+    _check_provenance(payload, base, reasons)
+    _check_provenance_cross_reference(payload, reasons)
+    _check_premise_certificates(payload, base, reasons)
+    level_ids = _check_levels_and_residues(payload, reasons)
     _check_measure_block(payload, reasons)
-    _check_covariance(payload, reasons)
+    _check_covariance(payload, level_ids, reasons)
     _check_transport_certificate(payload, reasons)
     _check_budgets(payload, reasons)
     _check_typing_and_guards(payload, reasons)

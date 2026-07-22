@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://oph.local/schemas/hadron/ward_projected_spectral_measure.schema.json",
   "title": "OPH Ward-projected hadronic spectral measure export (strict production contract)",
-  "description": "Strict fail-closed production export contract. Every object boundary is closed (additionalProperties: false), provenance is a required typed manifest, the covariance block and the transport-moment certificate required by the downstream source-transport consumer are mandatory, and numeric fields carry sign constraints. Semantic constraints that JSON Schema cannot express (finiteness, s = energy^2, identifier integrity, residue/weight consistency, covariance symmetry and positive semidefiniteness, ordered budget intervals, forbidden-token scan) are enforced by ward_projected_spectral_measure_validator.py; schema conformance alone is never acceptance.",
+  "description": "Strict fail-closed production export contract. Every object boundary is closed (additionalProperties: false), provenance is a required typed manifest cross-referenced to the ensemble ids, the physical premises (gauge-quotient ensemble, conserved current / normalization matching, Ward identity, reflection positivity / transfer) are required typed certificate references pinned by LF-normalized sha256, channels and normalization conventions are allowlisted enums, the format version is pinned, and the covariance block and the transport-moment certificate required by the downstream source-transport consumer are mandatory. Semantic constraints that JSON Schema cannot express (finiteness, s = energy^2, identifier integrity, residue/weight consistency, covariance symmetry, positive semidefiniteness and per-level row coverage, ordered budget intervals, forbidden-token scan, certificate resolution and hash verification, provenance cross-references) are enforced by ward_projected_spectral_measure_validator.py; schema conformance alone is never acceptance.",
   "type": "object",
   "required": [
     "artifact",
@@ -12,6 +12,7 @@
     "projection",
     "backend",
     "provenance",
+    "premise_certificates",
     "external_targets_used",
     "finite_volume_levels",
     "ward_projected_residues",
@@ -27,8 +28,7 @@
       "const": "oph_qcd_ward_projected_hadronic_spectral_measure"
     },
     "format_version": {
-      "type": "integer",
-      "minimum": 2
+      "const": 2
     },
     "profile_id": {
       "type": "string",
@@ -98,6 +98,58 @@
         "target_calibration_present": {"const": false}
       }
     },
+    "premise_certificates": {
+      "type": "object",
+      "required": [
+        "gauge_quotient_ensemble",
+        "conserved_current_or_matching",
+        "ward_identity",
+        "reflection_positivity_transfer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gauge_quotient_ensemble": {
+          "type": "object",
+          "required": ["artifact", "path", "sha256"],
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {"const": "oph_qcd_source_ensemble_certificate"},
+            "path": {"type": "string", "minLength": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        },
+        "conserved_current_or_matching": {
+          "type": "object",
+          "required": ["artifact", "path", "sha256"],
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {"const": "oph_ward_current_source_certificate"},
+            "path": {"type": "string", "minLength": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        },
+        "ward_identity": {
+          "type": "object",
+          "required": ["artifact", "path", "sha256"],
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {"const": "oph_ward_identity_certificate"},
+            "path": {"type": "string", "minLength": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        },
+        "reflection_positivity_transfer": {
+          "type": "object",
+          "required": ["artifact", "path", "sha256"],
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {"const": "oph_reflection_positivity_transfer_certificate"},
+            "path": {"type": "string", "minLength": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      }
+    },
     "external_targets_used": {
       "type": "array",
       "maxItems": 0,
@@ -112,7 +164,7 @@
         "additionalProperties": false,
         "properties": {
           "ensemble_id": {"type": "string", "minLength": 1},
-          "channel": {"type": "string", "minLength": 1},
+          "channel": {"enum": ["U(1)_Q_vector"]},
           "levels": {
             "type": "array",
             "minItems": 1,
@@ -143,21 +195,34 @@
         "properties": {
           "level_id": {"type": "string", "minLength": 1},
           "residue": {"type": "number", "minimum": 0},
-          "current_normalization": {"type": "string", "minLength": 1},
+          "current_normalization": {
+            "type": "object",
+            "required": ["convention", "certificate"],
+            "additionalProperties": false,
+            "properties": {
+              "convention": {
+                "enum": [
+                  "conserved_current_ZV_equals_1",
+                  "conserved_local_matching_certificate"
+                ]
+              },
+              "certificate": {"const": "premise_certificates.conserved_current_or_matching"}
+            }
+          },
           "residue_jackknife_error": {"type": "number", "minimum": 0}
         }
       }
     },
     "rho_had_or_measure": {
       "type": "object",
-      "required": ["representation", "support_variable", "pushforward_rule", "positivity_status"],
+      "required": ["representation", "support_variable", "pushforward_rule", "positivity_status", "positivity_certificate"],
       "additionalProperties": false,
       "properties": {
         "representation": {"enum": ["rho_had", "primitive_spectral_measure"]},
         "support_variable": {"const": "s"},
         "pushforward_rule": {"type": "string", "minLength": 1},
         "positivity_status": {"enum": ["certified_positive"]},
-        "positivity_certificate": {"type": "string", "minLength": 1}
+        "positivity_certificate": {"const": "premise_certificates.reflection_positivity_transfer"}
       }
     },
     "covariance": {

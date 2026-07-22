@@ -15,7 +15,8 @@
     "name": "gauge_invariant_quotient_ensemble_and_action",
     "statement": "a declared gauge-invariant quotient ensemble with a positive Gibbs source law at zero density and theta = 0 (a normal form is not a probability law; source-law non-substitution theorem)",
     "contract_fields": [
-     "provenance.source_inputs",
+     "premise_certificates.gauge_quotient_ensemble",
+     "provenance.source_inputs (cross-referenced to ensemble_ids)",
      "branch.flavors",
      "backend"
     ],
@@ -28,7 +29,8 @@
     "name": "conserved_current_or_certified_renormalization_map",
     "statement": "a conserved electromagnetic hadronic current, or a local current with a certified renormalization map to the conserved one",
     "contract_fields": [
-     "ward_projected_residues[].current_normalization"
+     "premise_certificates.conserved_current_or_matching",
+     "ward_projected_residues[].current_normalization (typed convention)"
     ],
     "physical_population_status": "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)",
     "premise_type": "declared_premise_validated_in_representation_only",
@@ -39,6 +41,7 @@
     "name": "ward_identity_certificate",
     "statement": "a Ward-identity certificate for the declared current",
     "contract_fields": [
+     "premise_certificates.ward_identity",
      "projection.ward_projected"
     ],
     "physical_population_status": "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)",
@@ -50,6 +53,8 @@
     "name": "reflection_positive_state_and_transfer_certificate",
     "statement": "a reflection-positive Euclidean state and transfer-operator certificate; reflection positivity is a theorem for the unimproved Wilson action (Osterwalder-Seiler) and is not available at finite spacing for the clover-improved engine, so this premise is never supplied by the diagnostic demonstrator",
     "contract_fields": [
+     "premise_certificates.reflection_positivity_transfer",
+     "rho_had_or_measure.positivity_certificate",
      "rho_had_or_measure.positivity_status"
     ],
     "physical_population_status": "not populated (vacuum/ transfer certificates absent)",
@@ -73,7 +78,8 @@
     "name": "current_normalization_conventions",
     "statement": "current-normalization conventions: Z_V = 1 for the exactly conserved current, the declared matching certificate for a local one",
     "contract_fields": [
-     "ward_projected_residues[].current_normalization"
+     "ward_projected_residues[].current_normalization.convention (allowlisted)",
+     "premise_certificates.conserved_current_or_matching"
     ],
     "physical_population_status": "convention declared; production matching not populated",
     "premise_type": "declared_premise_validated_in_representation_only",
@@ -96,7 +102,7 @@
     "name": "threshold_and_channel_typing",
     "statement": "threshold and channel typing for the declared vector channel",
     "contract_fields": [
-     "finite_volume_levels[].channel"
+     "finite_volume_levels[].channel (allowlisted U(1)_Q_vector)"
     ],
     "physical_population_status": "typed; production spectrum not populated",
     "premise_type": "declared_premise_validated_in_representation_only",
@@ -217,6 +223,7 @@
    "conclusion_uses_reference_declared_premises": true,
    "positivity_conclusion_requires_reflection_positivity_premise": true,
    "threshold_conclusion_requires_reflection_positivity_premise": true,
+   "physical_premises_reference_typed_certificates": true,
    "explicit_conditionality_statement": true
   },
   "passed": true
@@ -697,10 +704,18 @@
     "no_measured_hvp_or_target_inputs",
     "covariance_dimension_and_symmetry",
     "covariance_positive_semidefinite",
+    "covariance_rows_cover_all_levels",
     "complete_budget_rows",
     "finite_ordered_bound_intervals",
     "transport_moment_certificate_complete",
     "strict_branch_typing",
+    "format_version_allowlisted",
+    "channel_allowlisted",
+    "typed_normalization_convention",
+    "typed_premise_certificate_references",
+    "reflection_positivity_certificate_required",
+    "provenance_ensemble_cross_reference",
+    "referenced_artifacts_source_only",
     "guard_flags_exactly_false",
     "ward_projection_required",
     "closed_object_boundaries",
@@ -964,6 +979,7 @@
      "rejected": true,
      "rejection_reasons": [
       "schema_violation:$.finite_volume_levels:[] should be non-empty",
+      "declared_source_ensemble_unused:gate_ens",
       "finite_volume_levels_missing_or_empty",
       "residue_references_unknown_level:L0"
      ]
@@ -1031,7 +1047,8 @@
      "rejected": true,
      "rejection_reasons": [
       "schema_violation:$:'provenance' is a required property",
-      "provenance_manifest_missing"
+      "provenance_manifest_missing",
+      "ensemble_not_declared_in_provenance:gate_ens"
      ]
     },
     {
@@ -1064,7 +1081,8 @@
      "rejected": true,
      "rejection_reasons": [
       "schema_violation:$.provenance.source_inputs:[] should be non-empty",
-      "provenance_source_inputs_missing_or_empty"
+      "provenance_source_inputs_missing_or_empty",
+      "ensemble_not_declared_in_provenance:gate_ens"
      ]
     },
     {
@@ -1108,6 +1126,148 @@
       "schema_violation:$.rho_had_or_measure.positivity_status:'diagnostic_sign_check_passed' is not one of ['certified_positive']",
       "positivity_status_not_allowlisted:'diagnostic_sign_check_passed'"
      ]
+    },
+    {
+     "control_id": "format_version_unknown",
+     "semantic_requirements": [
+      "format_version_allowlisted"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.format_version:2 was expected",
+      "format_version_not_allowlisted:999"
+     ]
+    },
+    {
+     "control_id": "channel_not_allowlisted",
+     "semantic_requirements": [
+      "channel_allowlisted"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.finite_volume_levels[0].channel:'banana' is not one of ['U(1)_Q_vector']",
+      "channel_not_allowlisted:finite_volume_levels[0]:'banana'"
+     ]
+    },
+    {
+     "control_id": "normalization_arbitrary_string",
+     "semantic_requirements": [
+      "typed_normalization_convention"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.ward_projected_residues[0].current_normalization:'x' is not of type 'object'",
+      "normalization_not_typed:ward_projected_residues[0]"
+     ]
+    },
+    {
+     "control_id": "normalization_unknown_convention",
+     "semantic_requirements": [
+      "typed_normalization_convention"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.ward_projected_residues[0].current_normalization.convention:'x' is not one of ['conserved_current_ZV_equals_1', 'conserved_local_matching_certificate']",
+      "normalization_convention_not_allowlisted:ward_projected_residues[0]:'x'"
+     ]
+    },
+    {
+     "control_id": "missing_reflection_positivity_certificate",
+     "semantic_requirements": [
+      "typed_premise_certificate_references",
+      "reflection_positivity_certificate_required"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.premise_certificates:'reflection_positivity_transfer' is a required property",
+      "premise_certificate_missing:reflection_positivity_transfer"
+     ]
+    },
+    {
+     "control_id": "positivity_certificate_pointer_missing",
+     "semantic_requirements": [
+      "reflection_positivity_certificate_required"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.rho_had_or_measure:'positivity_certificate' is a required property",
+      "positivity_certificate_pointer_missing"
+     ]
+    },
+    {
+     "control_id": "premise_certificate_hash_mismatch",
+     "semantic_requirements": [
+      "typed_premise_certificate_references"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "premise_certificate_hash_mismatch:ward_identity"
+     ]
+    },
+    {
+     "control_id": "premise_certificate_nonexistent_path",
+     "semantic_requirements": [
+      "typed_premise_certificate_references"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "premise_certificate_file_absent:gauge_quotient_ensemble:code/particles/runs/hadron/gate_specimens/no_such_certificate.json"
+     ]
+    },
+    {
+     "control_id": "premise_certificate_wrong_artifact_type",
+     "semantic_requirements": [
+      "typed_premise_certificate_references"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.premise_certificates.ward_identity.artifact:'oph_ward_identity_certificate' was expected",
+      "premise_certificate_artifact_mismatch:ward_identity",
+      "premise_certificate_content_artifact_mismatch:ward_identity"
+     ]
+    },
+    {
+     "control_id": "target_provenance_disguised_as_source_artifact",
+     "semantic_requirements": [
+      "referenced_artifacts_source_only",
+      "no_measured_hvp_or_target_inputs"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "TARGET_LEAK_DETECTED:value:provenance.source_inputs[2].identifier",
+      "source_artifact_reference_absent:provenance.source_inputs[2]:compilations/ee_to_hadrons_r_ratio.json"
+     ]
+    },
+    {
+     "control_id": "empirical_companion_disguised_as_source_artifact",
+     "semantic_requirements": [
+      "referenced_artifacts_source_only"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "referenced_artifact_not_source_only:provenance.source_inputs[2]:code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
+     ]
+    },
+    {
+     "control_id": "ensemble_not_declared_in_provenance",
+     "semantic_requirements": [
+      "provenance_ensemble_cross_reference"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "ensemble_not_declared_in_provenance:undeclared_ens",
+      "declared_source_ensemble_unused:gate_ens"
+     ]
+    },
+    {
+     "control_id": "new_level_without_covariance_rows",
+     "semantic_requirements": [
+      "covariance_rows_cover_all_levels"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "covariance_rows_do_not_cover_levels"
+     ]
     }
    ],
    "all_negative_controls_rejected": true,
@@ -1148,7 +1308,8 @@
     "no_measured_hvp_or_target_inputs": [
      "forbidden_target_leak_ee_to_hadrons",
      "nested_measured_hvp_provenance",
-     "external_targets_used_supplied_as_string"
+     "external_targets_used_supplied_as_string",
+     "target_provenance_disguised_as_source_artifact"
     ],
     "covariance_dimension_and_symmetry": [
      "covariance_asymmetric",
@@ -1156,6 +1317,9 @@
     ],
     "covariance_positive_semidefinite": [
      "covariance_not_positive_semidefinite"
+    ],
+    "covariance_rows_cover_all_levels": [
+     "new_level_without_covariance_rows"
     ],
     "complete_budget_rows": [
      "missing_chiral_budget"
@@ -1170,6 +1334,33 @@
     ],
     "strict_branch_typing": [
      "quenched_branch"
+    ],
+    "format_version_allowlisted": [
+     "format_version_unknown"
+    ],
+    "channel_allowlisted": [
+     "channel_not_allowlisted"
+    ],
+    "typed_normalization_convention": [
+     "normalization_arbitrary_string",
+     "normalization_unknown_convention"
+    ],
+    "typed_premise_certificate_references": [
+     "missing_reflection_positivity_certificate",
+     "premise_certificate_hash_mismatch",
+     "premise_certificate_nonexistent_path",
+     "premise_certificate_wrong_artifact_type"
+    ],
+    "reflection_positivity_certificate_required": [
+     "missing_reflection_positivity_certificate",
+     "positivity_certificate_pointer_missing"
+    ],
+    "provenance_ensemble_cross_reference": [
+     "ensemble_not_declared_in_provenance"
+    ],
+    "referenced_artifacts_source_only": [
+     "target_provenance_disguised_as_source_artifact",
+     "empirical_companion_disguised_as_source_artifact"
     ],
     "guard_flags_exactly_false": [
      "measured_hvp_comparison_endpoint",
@@ -1283,7 +1474,7 @@
    "passed": true
   },
   "fail_closed_probes": {
-   "statement": "the availability predicate is executed on unknown, renamed, missing, None, blocked, and contradictory status combinations and must report unavailable on every one; success requires literal allowlist membership plus an existing gate-approved payload",
+   "statement": "the availability predicate is executed on unknown, renamed, missing, None, blocked, and contradictory status combinations and must report unavailable on every one; success requires literal allowlist membership plus an existing gate-approved payload whose premise certificates are real (non-specimen) certificates",
    "probes": [
     {
      "probe_id": "status_blocked",
@@ -1356,6 +1547,16 @@
      "reasons": [
       "production_payload_absent:ward_projected_spectral_measure.production.json"
      ]
+    },
+    {
+     "probe_id": "gate_approved_but_specimen_backed_payload",
+     "reported_unavailable": true,
+     "reasons": [
+      "premise_certificate_is_specimen_or_unresolvable:conserved_current_or_matching",
+      "premise_certificate_is_specimen_or_unresolvable:gauge_quotient_ensemble",
+      "premise_certificate_is_specimen_or_unresolvable:reflection_positivity_transfer",
+      "premise_certificate_is_specimen_or_unresolvable:ward_identity"
+     ]
     }
    ],
    "passed": true
@@ -1410,7 +1611,8 @@
     },
     "additional_positive_requirements": [
      "public_unsuppression_ready is exactly true",
-     "a production payload exists at code/particles/runs/hadron/ward_projected_spectral_measure.production.json and passes the strict production gate"
+     "a production payload exists at code/particles/runs/hadron/ward_projected_spectral_measure.production.json and passes the strict production gate",
+     "every premise-certificate reference of the payload resolves to a non-specimen certificate (specimen_for_gate_testing exactly false); gate-testing specimens never make the physical lane available"
     ],
     "live_status_snapshot": {
      "export_bundle_status": "open",
@@ -1445,7 +1647,7 @@
  "acceptance_criteria_status": {
   "conditional_theorem_stated_with_typed_premises_and_conclusions": {
    "packet_level_passed": true,
-   "machine_checks": "theorem_structure_check (theorem.premises P1-P10, theorem.conclusions C1-C8)"
+   "machine_checks": "theorem_structure_check (theorem.premises P1-P10, theorem.conclusions C1-C8; the physical premises P1-P4/P6 are anchored to typed, hash-pinned premise_certificates contract fields, not prose strings)"
   },
   "gauge_invariance_and_ward_identity_proved_for_point_split_current": {
    "packet_level_passed": true,
@@ -1461,11 +1663,11 @@
   },
   "validator_fails_closed_on_all_invalid_payload_classes": {
    "packet_level_passed": true,
-   "machine_checks": "strict validator battery: malformed, non-finite, inconsistent, target-leaking (incl. nested provenance and stringly-typed target lists), quenched, surrogate, and unquantified payloads all rejected with typed reasons"
+   "machine_checks": "strict validator battery: malformed, non-finite, inconsistent, target-leaking (incl. nested provenance, stringly-typed target lists, and target compilations disguised as OPH source artifacts), unknown-version, unknown-channel, untyped-normalization, missing/mismatched premise-certificate, quenched, surrogate, and unquantified payloads all rejected with typed reasons"
   },
   "gate_validates_consistency_relations": {
    "packet_level_passed": true,
-   "machine_checks": "executed controls for s = E^2, identifier integrity, residue/weight consistency, covariance integrity, and complete uncertainty intervals"
+   "machine_checks": "executed controls for s = E^2, identifier integrity, residue/weight consistency, covariance integrity and per-level row coverage (joint covariance completeness), complete uncertainty intervals, pinned format version, allowlisted channels and normalization conventions, typed hash-pinned premise-certificate references, required reflection-positivity certificate, provenance/ensemble cross-references, and source-only artifact resolution"
   },
   "gate_approved_payloads_accepted_by_downstream_validator": {
    "packet_level_passed": true,
@@ -1559,7 +1761,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-22T12:36:28Z",
+  "generated_utc": "2026-07-22T13:03:15Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }

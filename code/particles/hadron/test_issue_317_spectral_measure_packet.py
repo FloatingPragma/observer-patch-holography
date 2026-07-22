@@ -13,7 +13,11 @@ Coverage, following the re-scoped acceptance list:
     the review enumerated (nested measured-HVP provenance, stringly-typed
     target lists, s != E^2, dangling and duplicate identifiers, NaN and
     infinite numerics, unquantified and unordered budgets, covariance
-    defects, weight/residue inconsistency, unknown keys, unknown statuses);
+    defects including missing per-level rows, weight/residue inconsistency,
+    unknown keys, unknown statuses, unknown format versions, unknown
+    channels, arbitrary normalization strings, missing or mismatched typed
+    premise-certificate references, and target provenance disguised as OPH
+    source artifacts);
 (d) the adversarial battery covers every declared semantic requirement;
 (e) every gate-approved payload is accepted by the real downstream
     source-transport validator (executed implication);
@@ -92,6 +96,16 @@ def test_theorem_typed_premises_and_conclusions(packet):
         assert conclusion["uses"], conclusion["id"]
         assert set(conclusion["uses"]) <= premise_ids
     assert packet["theorem_structure_check"]["passed"] is True
+    # the physical premises are anchored to typed certificate references,
+    # not prose assertions
+    checks = packet["theorem_structure_check"]["checks"]
+    assert checks["physical_premises_reference_typed_certificates"] is True
+    by_id = {p["id"]: p for p in premises}
+    for pid in ("P1", "P2", "P3", "P4", "P6"):
+        assert any(
+            str(f).startswith("premise_certificates.")
+            for f in by_id[pid]["contract_fields"]
+        ), pid
 
 
 def test_positivity_conclusion_conditional_on_reflection_positivity(packet):
@@ -399,6 +413,138 @@ def test_downstream_forbidden_keys_rejected_by_gate(schema):
     assert any("downstream_forbidden_key:c_Q" in r for r in reasons)
 
 
+def test_missing_positivity_transfer_certificate_rejected(schema):
+    """Audit probe: a payload without the positivity/transfer certificate."""
+    payload = packet_mod.build_conformant_payload()
+    del payload["premise_certificates"]["reflection_positivity_transfer"]
+    reasons = _reject(payload, schema)
+    assert "premise_certificate_missing:reflection_positivity_transfer" in reasons
+
+    payload = packet_mod.build_conformant_payload()
+    del payload["rho_had_or_measure"]["positivity_certificate"]
+    reasons = _reject(payload, schema)
+    assert "positivity_certificate_pointer_missing" in reasons
+
+
+def test_unknown_channel_rejected(schema):
+    """Audit probe: channel 'banana'."""
+    payload = packet_mod.build_conformant_payload()
+    payload["finite_volume_levels"][0]["channel"] = "banana"
+    reasons = _reject(payload, schema)
+    assert any("channel_not_allowlisted" in r for r in reasons)
+
+
+def test_arbitrary_normalization_rejected(schema):
+    """Audit probe: arbitrary normalization text 'x'."""
+    payload = packet_mod.build_conformant_payload()
+    payload["ward_projected_residues"][0]["current_normalization"] = "x"
+    reasons = _reject(payload, schema)
+    assert any("normalization_not_typed" in r for r in reasons)
+
+    payload = packet_mod.build_conformant_payload()
+    payload["ward_projected_residues"][0]["current_normalization"] = {
+        "convention": "x",
+        "certificate": "premise_certificates.conserved_current_or_matching",
+    }
+    reasons = _reject(payload, schema)
+    assert any("normalization_convention_not_allowlisted" in r for r in reasons)
+
+
+def test_unknown_format_version_rejected(schema):
+    """Audit probe: unknown schema version 999."""
+    payload = packet_mod.build_conformant_payload()
+    payload["format_version"] = 999
+    reasons = _reject(payload, schema)
+    assert any("format_version_not_allowlisted" in r for r in reasons)
+
+
+def test_disguised_target_provenance_rejected(schema):
+    """Audit probe: target provenance disguised as an OPH artifact."""
+    payload = packet_mod.build_conformant_payload()
+    payload["provenance"]["source_inputs"].append(
+        {"kind": "oph_source_artifact", "identifier": "compilations/ee_to_hadrons_r_ratio.json"}
+    )
+    reasons = _reject(payload, schema)
+    assert any("source_artifact_reference_absent" in r for r in reasons)
+    assert any(r.startswith("TARGET_LEAK_DETECTED") for r in reasons)
+
+    # an existing repo file that is genuinely empirical/compare-only is
+    # rejected by content, not just by name
+    payload = packet_mod.build_conformant_payload()
+    payload["provenance"]["source_inputs"].append(
+        {
+            "kind": "oph_source_artifact",
+            "identifier": (
+                "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
+            ),
+        }
+    )
+    reasons = _reject(payload, schema)
+    assert any("referenced_artifact_not_source_only" in r for r in reasons)
+
+
+def test_premise_certificate_reference_defects_rejected(schema):
+    payload = packet_mod.build_conformant_payload()
+    payload["premise_certificates"]["ward_identity"]["sha256"] = "0" * 64
+    reasons = _reject(payload, schema)
+    assert "premise_certificate_hash_mismatch:ward_identity" in reasons
+
+    payload = packet_mod.build_conformant_payload()
+    payload["premise_certificates"]["gauge_quotient_ensemble"]["path"] = (
+        "code/particles/runs/hadron/gate_specimens/no_such_certificate.json"
+    )
+    reasons = _reject(payload, schema)
+    assert any("premise_certificate_file_absent" in r for r in reasons)
+
+    payload = packet_mod.build_conformant_payload()
+    payload["premise_certificates"]["ward_identity"] = (
+        strict_validator.specimen_certificate_reference("gauge_quotient_ensemble")
+    )
+    reasons = _reject(payload, schema)
+    assert "premise_certificate_artifact_mismatch:ward_identity" in reasons
+
+    payload = packet_mod.build_conformant_payload()
+    payload["premise_certificates"]["ward_identity"]["path"] = "../outside/cert.json"
+    reasons = _reject(payload, schema)
+    assert "premise_certificate_path_invalid:ward_identity" in reasons
+
+
+def test_new_level_without_covariance_rows_rejected(schema):
+    """Audit probe: adding a level without extending the covariance."""
+    payload = packet_mod.build_conformant_payload()
+    payload["finite_volume_levels"].append(
+        {
+            "ensemble_id": "gate_ens_B",
+            "channel": "U(1)_Q_vector",
+            "levels": [{"level_id": "B0", "s": 1.21, "energy": 1.1, "weight": 0.3}],
+        }
+    )
+    payload["ward_projected_residues"].append(
+        {
+            "level_id": "B0",
+            "residue": 0.3,
+            "current_normalization": {
+                "convention": "conserved_current_ZV_equals_1",
+                "certificate": "premise_certificates.conserved_current_or_matching",
+            },
+        }
+    )
+    payload["provenance"]["source_inputs"].append(
+        {"kind": "source_ensemble", "identifier": "gate_ens_B"}
+    )
+    # covariance intentionally NOT extended
+    reasons = _reject(payload, schema)
+    assert "covariance_rows_do_not_cover_levels" in reasons
+
+
+def test_ensemble_provenance_cross_reference_rejected(schema):
+    payload = packet_mod.build_conformant_payload()
+    payload["finite_volume_levels"][0]["ensemble_id"] = "undeclared_ens"
+    reasons = _reject(payload, schema)
+    assert "ensemble_not_declared_in_provenance:undeclared_ens" in reasons
+    assert "declared_source_ensemble_unused:gate_ens" in reasons
+
+
 def test_adversarial_battery_covers_every_semantic_requirement(packet):
     gate = packet["machine_witnesses"]["acceptance_gate"]
     assert gate["passed"] is True
@@ -504,6 +650,31 @@ def test_availability_predicate_fails_closed_on_unknown_statuses():
     assert any("production_payload_absent" in r for r in verdict["reasons"])
 
 
+def _non_specimen_certificates(tmp_path) -> dict:
+    """Write non-specimen premise certificates under tmp_path; return typed refs."""
+    (tmp_path / "certs").mkdir(exist_ok=True)
+    references = {}
+    for key, artifact in strict_validator.PREMISE_CERTIFICATE_TYPES.items():
+        rel = f"certs/{key}.json"
+        cert_path = tmp_path / rel
+        cert_path.write_text(
+            json.dumps(
+                {
+                    "artifact": artifact,
+                    "specimen_for_gate_testing": False,
+                    "external_targets_used": [],
+                }
+            ),
+            encoding="utf-8",
+        )
+        references[key] = {
+            "artifact": artifact,
+            "path": rel,
+            "sha256": strict_validator.lf_sha256(cert_path),
+        }
+    return references
+
+
 def test_availability_requires_gate_approved_payload(tmp_path):
     """Success statuses plus an existing but non-conforming payload still fail."""
     bad_payload_path = tmp_path / "ward_projected_spectral_measure.production.json"
@@ -515,19 +686,49 @@ def test_availability_requires_gate_approved_payload(tmp_path):
         "base_measure_status": "POPULATED",
         "ward_current_status": "SOURCE_CERTIFICATE_VERIFIED",
         "production_payload_path": bad_payload_path,
+        "certificate_base_dir": tmp_path,
     }
     verdict = packet_mod.physical_source_payload_verdict(state)
     assert verdict["available"] is False
     assert any("production_payload_rejected_by_strict_gate" in r for r in verdict["reasons"])
 
+    # positive control: gate-approved payload backed by NON-specimen
+    # certificates makes the lane available
+    good_payload = packet_mod.build_conformant_payload()
+    good_payload["premise_certificates"] = _non_specimen_certificates(tmp_path)
     good_payload_path = tmp_path / "good.production.json"
-    good_payload_path.write_text(
-        json.dumps(packet_mod.build_conformant_payload()), encoding="utf-8"
-    )
+    good_payload_path.write_text(json.dumps(good_payload), encoding="utf-8")
     state["production_payload_path"] = good_payload_path
     verdict = packet_mod.physical_source_payload_verdict(state)
     assert verdict["available"] is True
     assert verdict["reasons"] == []
+
+
+def test_availability_rejects_specimen_backed_payload(tmp_path):
+    """A gate-approved payload whose premise certificates are the committed
+    gate-testing specimens must NOT make the physical lane available."""
+    payload_path = tmp_path / "specimen_backed.production.json"
+    payload_path.write_text(
+        json.dumps(packet_mod.build_conformant_payload()), encoding="utf-8"
+    )
+    state = {
+        "export_bundle_status": "complete",
+        "closure_grade": "execution_complete",
+        "public_unsuppression_ready": True,
+        "base_measure_status": "POPULATED",
+        "ward_current_status": "SOURCE_CERTIFICATE_VERIFIED",
+        "production_payload_path": payload_path,
+    }
+    verdict = packet_mod.physical_source_payload_verdict(state)
+    assert verdict["available"] is False
+    assert sorted(
+        r
+        for r in verdict["reasons"]
+        if r.startswith("premise_certificate_is_specimen_or_unresolvable:")
+    ) == [
+        f"premise_certificate_is_specimen_or_unresolvable:{key}"
+        for key in sorted(strict_validator.PREMISE_CERTIFICATE_TYPES)
+    ]
 
 
 def test_fail_closed_probe_battery_in_packet(packet):
@@ -544,6 +745,7 @@ def test_fail_closed_probe_battery_in_packet(packet):
         "public_unsuppression_stringly_true",
         "all_keys_missing",
         "all_statuses_success_but_payload_absent",
+        "gate_approved_but_specimen_backed_payload",
     } <= probe_ids
     for row in probes["probes"]:
         assert row["reported_unavailable"] is True, row["probe_id"]
@@ -657,6 +859,7 @@ def test_stored_schema_is_strict(schema):
         assert schema["properties"][key]["additionalProperties"] is False, key
     assert set(schema["required"]) >= {
         "provenance",
+        "premise_certificates",
         "external_targets_used",
         "covariance",
         "transport_moment_certificate",
@@ -669,3 +872,46 @@ def test_stored_schema_is_strict(schema):
     assert schema["properties"]["rho_had_or_measure"]["properties"]["positivity_status"][
         "enum"
     ] == ["certified_positive"]
+    # pinned format version; unknown versions cannot schema-validate
+    assert schema["properties"]["format_version"] == {"const": 2}
+    # allowlisted channel
+    block_schema = schema["properties"]["finite_volume_levels"]["items"]
+    assert block_schema["properties"]["channel"]["enum"] == ["U(1)_Q_vector"]
+    # typed normalization object
+    residue_schema = schema["properties"]["ward_projected_residues"]["items"]
+    normalization_schema = residue_schema["properties"]["current_normalization"]
+    assert normalization_schema["additionalProperties"] is False
+    assert set(normalization_schema["required"]) == {"convention", "certificate"}
+    assert set(normalization_schema["properties"]["convention"]["enum"]) == set(
+        strict_validator.ALLOWED_NORMALIZATION_CONVENTIONS
+    )
+    # required positivity-certificate pointer
+    rho_schema = schema["properties"]["rho_had_or_measure"]
+    assert "positivity_certificate" in rho_schema["required"]
+    assert rho_schema["properties"]["positivity_certificate"] == {
+        "const": "premise_certificates.reflection_positivity_transfer"
+    }
+    # closed typed premise-certificate block with const artifact types
+    pc_schema = schema["properties"]["premise_certificates"]
+    assert pc_schema["additionalProperties"] is False
+    assert set(pc_schema["required"]) == set(strict_validator.PREMISE_CERTIFICATE_TYPES)
+    for key, artifact in strict_validator.PREMISE_CERTIFICATE_TYPES.items():
+        entry = pc_schema["properties"][key]
+        assert entry["additionalProperties"] is False
+        assert set(entry["required"]) == {"artifact", "path", "sha256"}
+        assert entry["properties"]["artifact"] == {"const": artifact}
+        assert entry["properties"]["sha256"]["pattern"] == "^[0-9a-f]{64}$"
+
+
+def test_committed_specimens_are_marked_and_hash_stable():
+    """The committed gate specimens must be typed, marked, and LF-hash pinned."""
+    for key, rel in strict_validator.SPECIMEN_CERTIFICATE_PATHS.items():
+        path = strict_validator.REPO_ROOT / rel
+        assert path.is_file(), rel
+        content = json.loads(path.read_text(encoding="utf-8"))
+        assert content["artifact"] == strict_validator.PREMISE_CERTIFICATE_TYPES[key]
+        assert content["specimen_for_gate_testing"] is True
+        assert content["promotion_allowed"] is False
+        assert content["external_targets_used"] == []
+        reference = strict_validator.specimen_certificate_reference(key)
+        assert reference["sha256"] == strict_validator.lf_sha256(path)

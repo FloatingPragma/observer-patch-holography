@@ -1,0 +1,9 @@
+{
+ "artifact": "oph_ward_current_source_certificate",
+ "premise": "P2_P6",
+ "specimen_for_gate_testing": true,
+ "promotion_allowed": false,
+ "external_targets_used": [],
+ "content": "typed specimen exercising the strict gate reference checks (existence, LF-normalized sha256 pin, artifact type, empty target list); carries no physical certificate content",
+ "production_note": "the production backend lane must emit the real conserved-current / normalization-matching certificate with specimen_for_gate_testing false; the physical availability verdict rejects specimen-backed payloads"
+}

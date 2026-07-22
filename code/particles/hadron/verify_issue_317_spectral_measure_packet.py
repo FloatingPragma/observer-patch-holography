@@ -80,6 +80,7 @@ import copy
 import json
 import math
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -187,7 +188,12 @@ def build_theorem() -> dict[str, Any]:
                 "source law at zero density and theta = 0 (a normal form is not a "
                 "probability law; source-law non-substitution theorem)"
             ),
-            "contract_fields": ["provenance.source_inputs", "branch.flavors", "backend"],
+            "contract_fields": [
+                "premise_certificates.gauge_quotient_ensemble",
+                "provenance.source_inputs (cross-referenced to ensemble_ids)",
+                "branch.flavors",
+                "backend",
+            ],
             "physical_population_status": "REQUIRED_NOT_POPULATED (qcd_ensemble/base_measure.json)",
         },
         {
@@ -197,7 +203,10 @@ def build_theorem() -> dict[str, Any]:
                 "a conserved electromagnetic hadronic current, or a local current "
                 "with a certified renormalization map to the conserved one"
             ),
-            "contract_fields": ["ward_projected_residues[].current_normalization"],
+            "contract_fields": [
+                "premise_certificates.conserved_current_or_matching",
+                "ward_projected_residues[].current_normalization (typed convention)",
+            ],
             "physical_population_status": (
                 "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)"
             ),
@@ -206,7 +215,10 @@ def build_theorem() -> dict[str, Any]:
             "id": "P3",
             "name": "ward_identity_certificate",
             "statement": "a Ward-identity certificate for the declared current",
-            "contract_fields": ["projection.ward_projected"],
+            "contract_fields": [
+                "premise_certificates.ward_identity",
+                "projection.ward_projected",
+            ],
             "physical_population_status": (
                 "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)"
             ),
@@ -221,7 +233,11 @@ def build_theorem() -> dict[str, Any]:
                 "spacing for the clover-improved engine, so this premise is never "
                 "supplied by the diagnostic demonstrator"
             ),
-            "contract_fields": ["rho_had_or_measure.positivity_status"],
+            "contract_fields": [
+                "premise_certificates.reflection_positivity_transfer",
+                "rho_had_or_measure.positivity_certificate",
+                "rho_had_or_measure.positivity_status",
+            ],
             "physical_population_status": "not populated (vacuum/ transfer certificates absent)",
         },
         {
@@ -241,7 +257,10 @@ def build_theorem() -> dict[str, Any]:
                 "current-normalization conventions: Z_V = 1 for the exactly "
                 "conserved current, the declared matching certificate for a local one"
             ),
-            "contract_fields": ["ward_projected_residues[].current_normalization"],
+            "contract_fields": [
+                "ward_projected_residues[].current_normalization.convention (allowlisted)",
+                "premise_certificates.conserved_current_or_matching",
+            ],
             "physical_population_status": "convention declared; production matching not populated",
         },
         {
@@ -255,7 +274,7 @@ def build_theorem() -> dict[str, Any]:
             "id": "P8",
             "name": "threshold_and_channel_typing",
             "statement": "threshold and channel typing for the declared vector channel",
-            "contract_fields": ["finite_volume_levels[].channel"],
+            "contract_fields": ["finite_volume_levels[].channel (allowlisted U(1)_Q_vector)"],
             "physical_population_status": "typed; production spectrum not populated",
         },
         {
@@ -430,6 +449,14 @@ def theorem_structure_check(theorem: dict[str, Any]) -> dict[str, Any]:
         ),
         "threshold_conclusion_requires_reflection_positivity_premise": any(
             c["id"] == "C4" and "P4" in c["uses"] for c in conclusions
+        ),
+        "physical_premises_reference_typed_certificates": all(
+            any(
+                str(field_name).startswith("premise_certificates.")
+                for field_name in p.get("contract_fields", [])
+            )
+            for p in premises
+            if p.get("id") in ("P1", "P2", "P3", "P4", "P6")
         ),
         "explicit_conditionality_statement": "conditional" in theorem.get("conditionality", ""),
     }
@@ -630,6 +657,9 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
             f"{state.get('public_unsuppression_ready')!r}"
         )
     payload_path = state.get("production_payload_path")
+    certificate_base_dir = state.get("certificate_base_dir")
+    if not isinstance(certificate_base_dir, Path):
+        certificate_base_dir = strict_validator.REPO_ROOT
     if not isinstance(payload_path, Path) or not payload_path.exists():
         reasons.append(f"production_payload_absent:{Path(str(payload_path)).name}")
     else:
@@ -640,12 +670,19 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
         if payload is None:
             reasons.append("production_payload_unreadable")
         else:
-            result = strict_validator.validate_production_payload(payload)
+            result = strict_validator.validate_production_payload(
+                payload, base_dir=certificate_base_dir
+            )
             if not result.accepted:
                 reasons.append(
                     "production_payload_rejected_by_strict_gate:"
                     + ";".join(result.reasons[:5])
                 )
+            specimen_flags = strict_validator.premise_certificate_specimen_flags(
+                payload, base_dir=certificate_base_dir
+            )
+            for key in sorted(k for k, is_specimen in specimen_flags.items() if is_specimen):
+                reasons.append(f"premise_certificate_is_specimen_or_unresolvable:{key}")
     return {
         "available": not reasons,
         "reasons": reasons,
@@ -655,6 +692,9 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
             "a production payload exists at "
             + PRODUCTION_PAYLOAD_PATH.relative_to(ROOT.parent).as_posix()
             + " and passes the strict production gate",
+            "every premise-certificate reference of the payload resolves to a "
+            "non-specimen certificate (specimen_for_gate_testing exactly false); "
+            "gate-testing specimens never make the physical lane available",
         ],
         "live_status_snapshot": {
             key: state.get(key)
@@ -742,12 +782,33 @@ def fail_closed_probe_battery() -> dict[str, Any]:
             }
         )
         all_failed_closed = all_failed_closed and not verdict["available"]
+
+    # Strongest probe: every status is in the success allowlist AND a
+    # gate-approved payload exists, but its premise certificates are the
+    # committed gate-testing specimens; the physical lane must stay closed.
+    with tempfile.TemporaryDirectory() as tmp:
+        specimen_payload_path = Path(tmp) / "specimen_backed_payload.json"
+        specimen_payload_path.write_text(
+            json.dumps(build_conformant_payload()), encoding="utf-8"
+        )
+        verdict = physical_source_payload_verdict(
+            {**all_success, "production_payload_path": specimen_payload_path}
+        )
+    rows.append(
+        {
+            "probe_id": "gate_approved_but_specimen_backed_payload",
+            "reported_unavailable": not verdict["available"],
+            "reasons": verdict["reasons"][:4],
+        }
+    )
+    all_failed_closed = all_failed_closed and not verdict["available"]
     return {
         "statement": (
             "the availability predicate is executed on unknown, renamed, missing, "
             "None, blocked, and contradictory status combinations and must report "
             "unavailable on every one; success requires literal allowlist membership "
-            "plus an existing gate-approved payload"
+            "plus an existing gate-approved payload whose premise certificates are "
+            "real (non-specimen) certificates"
         ),
         "probes": rows,
         "passed": bool(all_failed_closed),
@@ -1290,6 +1351,10 @@ def build_conformant_payload() -> dict[str, Any]:
             "measured_hvp_input_present": False,
             "target_calibration_present": False,
         },
+        "premise_certificates": {
+            key: strict_validator.specimen_certificate_reference(key)
+            for key in strict_validator.PREMISE_CERTIFICATE_TYPES
+        },
         "external_targets_used": [],
         "finite_volume_levels": [
             {
@@ -1301,17 +1366,21 @@ def build_conformant_payload() -> dict[str, Any]:
             }
         ],
         "ward_projected_residues": [
-            {"level_id": "L0", "residue": 0.5, "current_normalization": "Z_V ledger"}
+            {
+                "level_id": "L0",
+                "residue": 0.5,
+                "current_normalization": {
+                    "convention": "conserved_current_ZV_equals_1",
+                    "certificate": "premise_certificates.conserved_current_or_matching",
+                },
+            }
         ],
         "rho_had_or_measure": {
             "representation": "rho_had",
             "support_variable": "s",
             "pushforward_rule": "declared Luscher-class finite-volume to continuum map",
             "positivity_status": "certified_positive",
-            "positivity_certificate": (
-                "reflection-positive transfer certificate reference (premise P4 "
-                "content, supplied by the production packet)"
-            ),
+            "positivity_certificate": "premise_certificates.reflection_positivity_transfer",
         },
         "covariance": {
             "row_basis": ["L0_energy", "L0_weight"],
@@ -1556,6 +1625,124 @@ def build_negative_controls() -> list[dict[str, Any]]:
             "positivity_status", "diagnostic_sign_check_passed"
         ),
     )
+    add(
+        "format_version_unknown",
+        ["format_version_allowlisted"],
+        lambda p: p.__setitem__("format_version", 999),
+    )
+    add(
+        "channel_not_allowlisted",
+        ["channel_allowlisted"],
+        lambda p: p["finite_volume_levels"][0].__setitem__("channel", "banana"),
+    )
+    add(
+        "normalization_arbitrary_string",
+        ["typed_normalization_convention"],
+        lambda p: p["ward_projected_residues"][0].__setitem__("current_normalization", "x"),
+    )
+    add(
+        "normalization_unknown_convention",
+        ["typed_normalization_convention"],
+        lambda p: p["ward_projected_residues"][0].__setitem__(
+            "current_normalization",
+            {
+                "convention": "x",
+                "certificate": "premise_certificates.conserved_current_or_matching",
+            },
+        ),
+    )
+    add(
+        "missing_reflection_positivity_certificate",
+        [
+            "typed_premise_certificate_references",
+            "reflection_positivity_certificate_required",
+        ],
+        lambda p: p["premise_certificates"].pop("reflection_positivity_transfer"),
+    )
+    add(
+        "positivity_certificate_pointer_missing",
+        ["reflection_positivity_certificate_required"],
+        lambda p: p["rho_had_or_measure"].pop("positivity_certificate"),
+    )
+    add(
+        "premise_certificate_hash_mismatch",
+        ["typed_premise_certificate_references"],
+        lambda p: p["premise_certificates"]["ward_identity"].__setitem__(
+            "sha256", "0" * 64
+        ),
+    )
+    add(
+        "premise_certificate_nonexistent_path",
+        ["typed_premise_certificate_references"],
+        lambda p: p["premise_certificates"]["gauge_quotient_ensemble"].__setitem__(
+            "path", "code/particles/runs/hadron/gate_specimens/no_such_certificate.json"
+        ),
+    )
+    add(
+        "premise_certificate_wrong_artifact_type",
+        ["typed_premise_certificate_references"],
+        lambda p: p["premise_certificates"].__setitem__(
+            "ward_identity",
+            strict_validator.specimen_certificate_reference("gauge_quotient_ensemble"),
+        ),
+    )
+    add(
+        "target_provenance_disguised_as_source_artifact",
+        ["referenced_artifacts_source_only", "no_measured_hvp_or_target_inputs"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": "compilations/ee_to_hadrons_r_ratio.json",
+            }
+        ),
+    )
+    add(
+        "empirical_companion_disguised_as_source_artifact",
+        ["referenced_artifacts_source_only"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": (
+                    "code/particles/runs/hadron/"
+                    "empirical_ward_projected_spectral_measure.json"
+                ),
+            }
+        ),
+    )
+    add(
+        "ensemble_not_declared_in_provenance",
+        ["provenance_ensemble_cross_reference"],
+        lambda p: p["finite_volume_levels"][0].__setitem__("ensemble_id", "undeclared_ens"),
+    )
+
+    def _add_level_without_covariance_rows(p: dict[str, Any]) -> None:
+        p["finite_volume_levels"].append(
+            {
+                "ensemble_id": "gate_ens_B",
+                "channel": "U(1)_Q_vector",
+                "levels": [{"level_id": "B0", "s": 1.21, "energy": 1.1, "weight": 0.3}],
+            }
+        )
+        p["ward_projected_residues"].append(
+            {
+                "level_id": "B0",
+                "residue": 0.3,
+                "current_normalization": {
+                    "convention": "conserved_current_ZV_equals_1",
+                    "certificate": "premise_certificates.conserved_current_or_matching",
+                },
+            }
+        )
+        p["provenance"]["source_inputs"].append(
+            {"kind": "source_ensemble", "identifier": "gate_ens_B"}
+        )
+        # covariance intentionally NOT extended: still only L0 rows.
+
+    add(
+        "new_level_without_covariance_rows",
+        ["covariance_rows_cover_all_levels"],
+        _add_level_without_covariance_rows,
+    )
     return controls
 
 
@@ -1627,7 +1814,10 @@ def build_gate_approved_variants() -> list[tuple[str, dict[str, Any]]]:
         {
             "level_id": "L1",
             "residue": 0.25,
-            "current_normalization": "Z_V ledger",
+            "current_normalization": {
+                "convention": "conserved_current_ZV_equals_1",
+                "certificate": "premise_certificates.conserved_current_or_matching",
+            },
             "residue_jackknife_error": 0.005,
         }
     )
@@ -1652,8 +1842,30 @@ def build_gate_approved_variants() -> list[tuple[str, dict[str, Any]]]:
         }
     )
     two_ensembles["ward_projected_residues"].append(
-        {"level_id": "B0", "residue": 0.3, "current_normalization": "Z_V ledger"}
+        {
+            "level_id": "B0",
+            "residue": 0.3,
+            "current_normalization": {
+                "convention": "conserved_current_ZV_equals_1",
+                "certificate": "premise_certificates.conserved_current_or_matching",
+            },
+        }
     )
+    two_ensembles["provenance"]["source_inputs"].append(
+        {"kind": "source_ensemble", "identifier": "gate_ens_B"}
+    )
+    # Joint covariance completeness: adding a level requires extending the
+    # covariance to cover its energy and weight rows.
+    two_ensembles["covariance"] = {
+        "row_basis": ["L0_energy", "L0_weight", "B0_energy", "B0_weight"],
+        "dimension": 4,
+        "matrix": [
+            [1.0e-4, 0.0, 0.0, 0.0],
+            [0.0, 1.0e-4, 0.0, 0.0],
+            [0.0, 0.0, 1.0e-4, 0.0],
+            [0.0, 0.0, 0.0, 1.0e-4],
+        ],
+    }
 
     string_bounds = copy.deepcopy(base)
     string_bounds["profile_id"] = "issue_317_gate_string_decimal_bounds_variant"
@@ -1967,7 +2179,11 @@ def build_packet() -> dict[str, Any]:
     criteria = {
         "conditional_theorem_stated_with_typed_premises_and_conclusions": {
             "packet_level_passed": bool(theorem_check["passed"]),
-            "machine_checks": "theorem_structure_check (theorem.premises P1-P10, theorem.conclusions C1-C8)",
+            "machine_checks": (
+                "theorem_structure_check (theorem.premises P1-P10, theorem.conclusions "
+                "C1-C8; the physical premises P1-P4/P6 are anchored to typed, "
+                "hash-pinned premise_certificates contract fields, not prose strings)"
+            ),
         },
         "gauge_invariance_and_ward_identity_proved_for_point_split_current": {
             "packet_level_passed": bool(
@@ -2021,9 +2237,11 @@ def build_packet() -> dict[str, Any]:
             ),
             "machine_checks": (
                 "strict validator battery: malformed, non-finite, inconsistent, "
-                "target-leaking (incl. nested provenance and stringly-typed target "
-                "lists), quenched, surrogate, and unquantified payloads all rejected "
-                "with typed reasons"
+                "target-leaking (incl. nested provenance, stringly-typed target lists, "
+                "and target compilations disguised as OPH source artifacts), "
+                "unknown-version, unknown-channel, untyped-normalization, "
+                "missing/mismatched premise-certificate, quenched, surrogate, and "
+                "unquantified payloads all rejected with typed reasons"
             ),
         },
         "gate_validates_consistency_relations": {
@@ -2037,14 +2255,27 @@ def build_packet() -> dict[str, Any]:
                         "weight_residue_consistency",
                         "covariance_dimension_and_symmetry",
                         "covariance_positive_semidefinite",
+                        "covariance_rows_cover_all_levels",
                         "finite_ordered_bound_intervals",
+                        "format_version_allowlisted",
+                        "channel_allowlisted",
+                        "typed_normalization_convention",
+                        "typed_premise_certificate_references",
+                        "reflection_positivity_certificate_required",
+                        "provenance_ensemble_cross_reference",
+                        "referenced_artifacts_source_only",
                     )
                 )
                 and gate["conformant_payload_accepted"]
             ),
             "machine_checks": (
                 "executed controls for s = E^2, identifier integrity, residue/weight "
-                "consistency, covariance integrity, and complete uncertainty intervals"
+                "consistency, covariance integrity and per-level row coverage (joint "
+                "covariance completeness), complete uncertainty intervals, pinned "
+                "format version, allowlisted channels and normalization conventions, "
+                "typed hash-pinned premise-certificate references, required "
+                "reflection-positivity certificate, provenance/ensemble "
+                "cross-references, and source-only artifact resolution"
             ),
         },
         "gate_approved_payloads_accepted_by_downstream_validator": {
