@@ -131,7 +131,7 @@ observer sees heat. This is an exact result of quantum field theory: the
 vacuum looks different depending on your state of motion.
 
 Acceleration creates a **Rindler horizon**, a boundary beyond which signals
-can never reach the accelerating observer. The region still visible to that
+can never reach the accelerating observer. The region visible to that
 observer is the **Rindler wedge**. The horizon has thermodynamic properties
 identical to a black hole horizon, and the temperature comes from quantum
 fluctuations near it.

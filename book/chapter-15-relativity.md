@@ -283,7 +283,7 @@ Black holes exist, and the observed strong-field data match general relativity e
 
 ## 15.8 Recovering Special Relativity from the Screen
 
-Everything so far was the standard story, told the standard way. The question
+The account above is the standard story, told the standard way. The question
 for this book is different: sit a federation of finite observers on the
 screen and ask what comparisons they can consistently make. Relativity should
 fall out as the answer, or the framework is in trouble.
@@ -301,7 +301,7 @@ require a further construction.
 ### From Modular Ordering to an Observer Clock
 
 The modular-time construction begins with the ordering carried by modular flow.
-At finite cutoff, or in the special representations that still admit density
+At finite cutoff, or in the special representations that admit density
 matrices, an observer patch $P$ has a reduced density matrix. Its support region is displayed as a cut of the holographic
 screen, and the density matrix defines a modular Hamiltonian:
 
@@ -806,9 +806,8 @@ fundamental contributions to the stress tensor.
 
 In OPH the small value of Lambda belongs to a conditional global
 capacity-closure branch rather than to a cancellation between enormous local
-vacuum-energy terms. The finite capacity definition is exact. Its physical
-capacity-indexed family, unique selector, horizon identification, and scale
-bridge are work in progress. If those premises hold, the selected de Sitter
+vacuum-energy terms. The finite capacity definition is exact; its physical
+attachments are work in progress, and under them the selected de Sitter
 capacity and scale display Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability

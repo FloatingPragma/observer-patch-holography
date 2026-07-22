@@ -7,9 +7,9 @@
 Observer Patch Holography (OPH) is a zero-dial theory of everything built on
 one central thesis: **observers are primary, and objective reality is
 emergent.** Physics normally begins by supplying spacetime, quantum fields, a
-gauge group, and a table of measured constants. OPH begins with observers —
+gauge group, and a table of measured constants. OPH begins with observers:
 bounded systems that carry local state, read part of themselves and their
-neighbors, keep records, and repair disagreement — and derives the rest.
+neighbors, keep records, and repair disagreement. From this it derives the rest.
 Reality emerges from observer overlap repair on a holographic screen. From
 five axioms and two constants, $P$ and $N$, the observed universe arises:
 quantum measurement, Lorentzian spacetime, the conditional Einstein branch,
@@ -18,13 +18,13 @@ system on their stated premises.
 
 ## Three Receipts No Other Program Has
 
-Before any argument, three artifacts. Each is public, reproducible, and — as
-far as the published record shows — without counterpart in any competing
+Before any argument, three artifacts. Each is public, reproducible and, as
+far as the published record shows, without counterpart in any competing
 theory-of-everything program:
 
 1. **Four-dimensional spacetime, measured emerging.** In deterministic runs
    of the repair dynamics at 16k, 65k, and 262k carriers, the held-out event
-   form carries Lorentzian signature $(1,3)$ — one time, three space — at
+   form carries Lorentzian signature $(1,3)$ (one time, three space) at
    every rung, with the cone margin halving per rung toward the Einstein
    cone and an adversarial density control that degrades the signature on
    cue when the mechanism is removed. Raw data:
@@ -32,7 +32,7 @@ theory-of-everything program:
    number regenerates bit for bit.
 2. **A machine-checked core that polices itself.** A sorry-free Lean 4
    library of 639 theorems and lemmas covers the consensus core, the gauge
-   identifiability theorem, and the Einstein-branch composition — and it
+   identifiability theorem and the Einstein-branch composition; it
    machine-checks a negative result against the naive version of the
    program's own claim. Every public theorem carries a per-theorem axiom
    report. [Lean/](Lean/)
@@ -50,8 +50,8 @@ The rest of this README is the architecture those receipts come from.
 The whole construction stands on the five axioms of
 [Observers Are All You Need](paper/observers_are_all_you_need.pdf):
 
-1. **A1 — A screen net.** A finite net of local algebras is assigned to
-   connected patches of the holographic screen — the observer-facing support
+1. **A1: A screen net.** A finite net of local algebras is assigned to
+   connected patches of the holographic screen, the observer-facing support
    charted by $S^2$ on the certified spherical branch. The screen is not
    generic: its microphysical realization is the federated twelve-port
    carrier architecture with local icosahedral rotation symmetry $A_5$,
@@ -59,16 +59,16 @@ The whole construction stands on the five axioms of
    [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
    The local carrier, the federation of carriers, and the global $S^2$
    support chart stay typed and distinct throughout the corpus.
-2. **A2 — Overlap consistency.** Neighboring patches must agree on shared
+2. **A2: Overlap consistency.** Neighboring patches must agree on shared
    observables. No patch sees the whole universe; a fact becomes public only
    when it survives comparison across overlaps.
-3. **A3 — Local MaxEnt with refinement stability.** Each patch carries the
+3. **A3: Local MaxEnt with refinement stability.** Each patch carries the
    least biased local state compatible with its finite constraint data,
    stably under refinement.
-4. **A4 — Recoverable generalized entropy.** Records can be recovered after
+4. **A4: Recoverable generalized entropy.** Records can be recovered after
    further evolution; this supplies the collar-recovery and focusing
    structure used by the gravity lane.
-5. **A5 — Minimal admissible realization.** The simplest low-energy sector
+5. **A5: Minimal admissible realization.** The simplest low-energy sector
    compatible with the consistency constraints is selected.
 
 Everything else in the repository is the working-out of what these five
@@ -271,7 +271,7 @@ carrier, not the federation nerve.
 ## The Scoreboard
 
 Score the leading programs against what a completed theory of everything
-must deliver. OPH's entries carry their own boundary statements — that is
+must deliver. OPH's entries carry their own boundary statements; that is
 what makes them scoreable at all:
 
 | A completed TOE must deliver... | OPH | String theory | Loop quantum gravity |
@@ -288,13 +288,13 @@ what makes them scoreable at all:
 The distance is not incremental. On these eight criteria the nearest
 competing program delivers one; OPH delivers on all eight under its stated
 conditional receipts, and every cell in its column links to a public
-artifact in this repository. That gap — not any single result — is the
+artifact in this repository. That gap, rather than any single result, is the
 measure of where OPH stands.
 
 ## The Two Constants: P and N
 
 **$P$ is the local pixel ratio**: the size of the elementary observation cell
-in natural geometric units — informally, the universe's **resolution**. OPH
+in natural geometric units, informally the universe's **resolution**. OPH
 does not choose this grain by fitting the fine-structure constant. It asks a
 cell to agree with the observation process that the cell itself supports. The
 local inside/outside readback closes at
@@ -319,7 +319,7 @@ source-derived hadronic transport, which is work in progress. This
 combination of a formal uniqueness theorem, exact numerical certificates, and
 a near physical endpoint makes $P$ the quantitative center of the OPH case.
 
-**$N$ is the public-record capacity** of the whole observer system — in
+**$N$ is the public-record capacity** of the whole observer system, or in
 simulation language, how much correctable memory the substrate carries. It is
 secondary. The observed universe can simply be read: $N$ is reverse-engineered
 from measurement the way any machine setting is reverse-engineered from the
@@ -337,7 +337,7 @@ attachment is open, tracked on the issue tracker.
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Echosahedral selector and finite $A_5$ gauge algebra | Local source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction and, conditional on a declared charged-double-triplet representation with four signed coefficients, an exact compact-current algebra $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Physical response source binding and physical refinement intertwining remain open; there is no automatic global $S^2$ conclusion | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Echosahedral selector and finite $A_5$ gauge algebra | Local source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction and, conditional on a declared charged-double-triplet representation with four signed coefficients, an exact compact-current algebra $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Physical response source binding and physical refinement intertwining are open; there is no automatic global $S^2$ conclusion | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Standard Model global form | Exact $S(U(3)\times U(2))$ and shared-center $\mathbb Z_6$ calculation, with physical current and descent receipts stated separately | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional MAR selection $N_g=3$; physical family attachment is open, and the conditional field-theory implications are separated from their open OPH producers | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
@@ -419,7 +419,7 @@ the universe as a fixed point of its own observer-accessible readback and
 repair process.
 
 The bonus is quantitative: if the loop closes, $P$ and $N$ cannot be
-arbitrary. They must satisfy self-referential closure conditions — the cell
+arbitrary. They must satisfy self-referential closure conditions: the cell
 must agree with the observation process it supports, and the record capacity
 must agree with the records the system keeps about itself. Part of that
 closure is machine-checked in Lean, and the $P$ fixed point above, landing
@@ -430,21 +430,20 @@ with their evaluation boundaries and required completions stated, and the
 mature falsification surface is collected in the
 [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 
-The closure proofs are important — if they land, OPH is a fully
-zero-parameter theory, with both constants returned by the architecture
-rather than measured — but they are not strictly necessary. The construction
-is a closed mathematical loop either way, and a closed loop licenses reading
-values off from the inside: locate a constant in its basin by observation,
+Closure of both constants gives a fully zero-parameter theory, with both
+values returned by the architecture rather than measured. The construction
+is a closed mathematical loop without that additional result, and a closed
+loop licenses reading values off from the inside: locate a constant in its basin by observation,
 then prove exact fixed-point-ness afterward. The fixed-point theorems certify
-the located value; they do not have to manufacture it. Even if a
-first-principles $N$-closure is never found, OPH stands — $N$ is read from
-the universe, and everything the five axioms force still follows.
+the located value; they do not have to manufacture it. The first-principles
+$N$ closure is work in progress. Reading $N$ from the universe leaves every
+consequence of the five axioms intact.
 
-If the loop closes fully, it answers the last question a theory of
-everything can be asked — why anything exists, and why it is the way it is:
-the universe is the unique structure consistent with reading itself into
+Under full closure, the loop answers the last question a theory of
+everything can be asked: why anything exists, and why it is the way it is.
+The universe is the unique structure consistent with reading itself into
 existence. That is the twist the book saves for late in the story, where it
-belongs — after the observers-first reconstruction stands on its own. None of
+belongs, after the observers-first reconstruction stands on its own. None of
 the results above depend on it.
 
 ## Open Proof Obligations And Falsification Boundary
@@ -534,6 +533,17 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 - [Guided study](https://learn.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - OPH Sage on [Telegram](https://t.me/HoloObserverBot) and [X](https://x.com/OphSage)
+
+## Contribute
+
+OPH is an open research program, and contributions are wanted: proofs,
+counterexamples, simulations, audits, and readable explanations all move it
+forward. A good first hour is the [reproduction guide](REPRODUCE.md), which
+rebuilds the certificates and checks from a clean clone. The open problems
+live on the
+[issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
+and in the [selection ledger](docs/SELECTION_LEDGER.md), which lists exactly
+what is proved and exactly what is left. Pick a row and take it.
 
 ## License
 

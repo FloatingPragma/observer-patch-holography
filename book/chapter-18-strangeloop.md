@@ -187,8 +187,7 @@ electroweak scales, includes the vacuum response of strongly interacting
 matter, and returns the long-distance electromagnetic reading. At the fixed
 point, the outside geometry and the inside measurement agree. Run the
 machinery and the fixed point lands within a few parts per million of the
-measured value; closing that last gap is work in progress, and the synthesis
-chapter keeps the ledger.
+measured value.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
@@ -266,7 +265,7 @@ The global equation identifies two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
 world it is the correctable public record reconstructed by observers. A
 separate consistency check asks whether the screen's record load and the weak
-sector's load are one and the same carrier; the two readings currently differ
+sector's load are one and the same carrier; the two readings differ
 by about $6.6$ percent, and reconciling them is work in progress.
 
 If both equations land, OPH is a fully zero-parameter theory, with both

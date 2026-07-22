@@ -241,17 +241,17 @@ The fine-structure constant measures the strength of electromagnetism, and it
 too drifts with energy. The OPH construction proposes maps whose unique roots
 land near $137$. Electroweak running and the vacuum response of quarks and hadrons
 define the proposed transport down to the value measured in the laboratory,
-the Thomson coupling, the electromagnetic strength read off at essentially
-zero energy. The physical source and same-scheme transport construction
-is work in progress.
+the Thomson coupling, the electromagnetic strength read off at
+zero energy.
 
 That low-energy number lives in the same electroweak theory as the W and Z
 bosons. Once the electroweak structure is fixed, electromagnetism is the
 unbroken piece left after the weak and hypercharge parts mix together. The OPH
 code includes running-coordinate and finite-order pole prescription checks.
-Construction of the source matching, independent gauge-identity checks,
-uncertainty law, physical-current amplitudes, and clock is work in progress.
-No OPH-native physical W or Z pole is promoted.
+One note covers this whole construction: the physical source matching and
+same-scheme transport, together with the independent gauge-identity checks,
+uncertainty law, physical-current amplitudes, and clock, are work in
+progress, and no OPH-native physical W or Z pole is promoted.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -286,8 +286,7 @@ The fermions come in a strange pattern: three copies. The up and down quarks, pl
 The Standard Model by itself does not explain why there are three generations.
 On the declared OPH one-Higgs economy class, the admitted window is three to
 five and the economy rule selects its least value. This is a model-selection
-statement, and the physical attachment of the canonical rank-three screen
-band to matter is work in progress. The charged members of the second and
+statement; section 14.9 states its standing precisely. The charged members of the second and
 third observed generations are heavier copies of the first, while the
 neutrino sector has its own mixing pattern. Almost all ordinary matter uses
 only first-generation particles.
@@ -710,17 +709,16 @@ If the five-dimensional block acts noncentrally, the first two disappear. The
 same conclusion follows when the $A_5$ action on a twelve-dimensional compact
 current algebra is implemented by internal gauge transformations. Under those
 physical-current conditions, the Standard Model Lie type is the unique compact
-choice. Producing that physical current algebra from the finite register is a
-separate gate. It needs a nondegenerate current pairing, a closed bracket, an
-internal $A_5$ action, and compatibility through refinement. The finite port
-symmetry by itself classifies register operations; it does not manufacture
-gauge currents. An exact finite certificate now discharges the algebraic part
-conditional on a declared charged-double-triplet response representation and
-four signed coefficients: it constructs
+choice. The physical current gate requires source binding, a nondegenerate
+current pairing, an internal $A_5$ action, and compatibility through
+refinement. The finite port symmetry by itself classifies register operations;
+it does not manufacture gauge currents. A declared charged-double-triplet
+response representation and four signed nonzero coefficients support an exact
+finite certificate of the algebraic part. The certificate constructs
 $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with the required closure, covariance,
-and inner action. Deriving or measuring that representation and those
-coefficients from physical carrier response, and binding the physical
-refinement maps, remain open.
+inner action, and a positive invariant pairing. The representation and
+coefficients are inputs. Their derivation or measurement from physical carrier
+response, together with physical refinement maps, is work in progress.
 
 The six axes carry two further pieces of structure. Their integral load
 lattice has an exact sixfold residue, and a separate total-trace balance
@@ -795,16 +793,12 @@ weak doublets after physical attachment, and pairing each slot with an
 orientation label gives twenty-four oriented weak slots, the same finite
 count as twelve ports with two orientations.
 
-Now the fine print for this whole construction, gathered in one place. The
-recognition theorem is scoped to the declared carrier type. It does not show
+The recognition theorem applies to the declared carrier type. It does not show
 that every OPH carrier must be echosahedral, and it imports no quark,
 doublet, or measured particle data. Recognizing the same abstract symmetry
-type from the ports is also weaker than identifying the physical group. The
-finite port symmetry classifies register operations, and turning it into
-genuine gauge currents needs a separately constructed current algebra with a
-nondegenerate pairing, a closed bracket, an internal $A_5$ action, and good
-behavior under refinement; the port action by itself does not even single out
-a literal $8{+}3{+}1$ split of the ports. Matching this geometric route to
+type from the ports is also weaker than identifying the physical group, and
+the port action by itself does not even single out a literal $8{+}3{+}1$
+split of the ports. Matching this geometric route to
 the matter route, including the source-derived spin lift, central embedding,
 and commuting action square that must show the sixfold residue is the same
 physical identification in both constructions, is work in progress.
@@ -813,7 +807,7 @@ The family story carries its own fine print. Promoting the three-place face
 slot to three physical generations requires one complex family space tying
 three copies of the fifteen-state pattern together, proof that no extra
 family band survives, and proof that the identification holds up under
-refinement; that attachment is work in progress, and a physical CKM phase
+refinement; a physical CKM phase
 further needs family breaking and a genuine interacting vertex structure. The
 four-dimensional representation of $A_5$ cannot sneak in as a hidden Higgs,
 because it has no complex structure compatible with the hypercharge action.
@@ -1102,8 +1096,7 @@ The particle picture can be told as one continuous line. The framework first
 rebuilds a conditional gauge structure from charge sectors that fit together
 around every loop. A smallest-that-works rule then picks a declared Standard
 Model packet, its charge lattice, the color carrier, and an economy-class
-generation count. Attaching that count to physical particles requires separate
-evidence. The same structure
+generation count. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
 positive-energy quantum sectors give the corresponding particles.
@@ -1155,9 +1148,9 @@ measured in the laboratory.
 The local closure proposal compares a golden-ratio balance point with a small
 screen displacement that can carry records and lasting measurement traces.
 The proposed maps read electromagnetic strength from that displacement and
-have unique roots on the physical interval. Identifying either root with the measured
-Thomson coupling requires the source-derived transport that is work in
-progress. In the book's chain of consistency requirements this is the
+have unique roots on the physical interval. Identifying either root with the
+measured Thomson coupling waits on the same source-and-transport construction
+noted in section 14.4. In the book's chain of consistency requirements this is the
 record-existence test: a perfectly balanced screen carries no events, and a
 record-producing branch selects a nonzero local coordinate.
 
@@ -1283,7 +1276,7 @@ Traditional Grand Unified Theories achieve unification by embedding the Standard
 
 Super-Kamiokande has spent nearly thirty years watching fifty thousand tons
 of exceptionally pure water, waiting for a single proton to do something
-interesting. The protons have so far declined. The experimental limit is
+interesting. The protons have declined to cooperate. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
 simplest GUTs are dead.
 
@@ -1349,12 +1342,9 @@ The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
 The declared-response certificate verifies the compact-current algebraic
-conditions conditionally, but does not source-bind the response representation,
-its four signed coefficients, or physical refinement.
-
-Fixing global capacity and the laboratory scale needs a cosmic-capacity
-selector and a calibrated clock and curvature map; that construction is work
-in progress.
+conditions under its stated premises. Source binding of the certificate
+inputs, the cosmic-capacity selector, and the calibrated clock-and-curvature
+map are work in progress.
 
 The result is an organized conditional particle packet: a specific gauge
 group, charge pattern, color carrier, economy-class generation count, carrier

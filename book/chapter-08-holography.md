@@ -393,8 +393,7 @@ Just as PV = nRT follows from statistical mechanics without knowing molecular de
 
 Observer patches have horizons, horizons have temperatures, and agreement
 across overlaps behaves like thermodynamic equilibrium. Run Jacobson's
-argument on that equilibrium and Einstein's equations fall out. Building the
-machine-checked version of that whole chain is work in progress.
+argument on that equilibrium and Einstein's equations fall out.
 
 On this thermodynamic reading, four-dimensional spacetime geometry works so well
 because it behaves like an equilibrium description of horizon entropy. The
@@ -505,7 +504,7 @@ This avoids the boundary-at-infinity problem by changing the primitive object.
 OPH builds local patch descriptions that must agree on overlaps, and the bulk
 emerges from that agreement.
 
-For now, take the horizon's capacity as a brute fact about our universe.
+This chapter treats the horizon's capacity as a brute fact about our universe.
 Whether anything obliges it to have the value it has is a different kind of
 question.
 

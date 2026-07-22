@@ -300,7 +300,7 @@ When matter falls in, $S_{\text{outside}}$ decreases because the matter's
 entropy disappears from the outside description, while $S_{BH}$ increases as
 the horizon area grows.
 
-In semiclassical regimes, meaning quantum matter on a still-classical spacetime, the generalized second law is expected to hold: the black hole's entropy increase compensates for what is lost from the outside description.
+In semiclassical regimes, meaning quantum matter on a classical spacetime, the generalized second law is expected to hold: the black hole's entropy increase compensates for what is lost from the outside description.
 
 ### The Page Curve: Information Escapes
 

@@ -192,7 +192,7 @@ The most dramatic application is the black hole information problem.
 
 Take a black hole that has emitted more than half its entropy. Throw a diary into it. How long until an outside observer can recover the diary from Hawking radiation?
 
-The answer is that recovery becomes possible after roughly the scrambling time, the time the black hole needs to mix new information through everything it already holds, plus enough outgoing radiation to carry the diary information. For an old, highly scrambled black hole, this can be parametrically fast compared with the full evaporation time. In that sense the black hole acts like a mirror.
+The answer is that recovery becomes possible after roughly the scrambling time, the time the black hole needs to mix new information through its contents, plus enough outgoing radiation to carry the diary information. For an old, highly scrambled black hole, this can be parametrically fast compared with the full evaporation time. In that sense the black hole acts like a mirror.
 
 ### The Page Curve and Islands
 

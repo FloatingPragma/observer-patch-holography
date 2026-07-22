@@ -813,7 +813,7 @@ principle or within controlled error.
 
 Refinement
 :   Refinement replaces a coarse description with a finer one while
-preserving what the coarse description already established. In OPH it is the
+preserving what the coarse description established. In OPH it is the
 ladder by which finite carriers approach smooth geometry. Statements about
 the smooth world are statements about what survives refinement.
 
