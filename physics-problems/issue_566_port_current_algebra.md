@@ -1,32 +1,31 @@
-# Issue #566: the physical port-current algebra on the echosahedral response branch
+# Issue #566: conditional port-current algebra on a declared response representation
 
 ## Result
 
-This artifact closes the **PORT-CURRENT-INNER** receipt on the declared
-echosahedral response branch:
+This artifact proves the exact algebraic **PORT-CURRENT-INNER** construction
+conditional on a declared charged-double-triplet response representation. It
+does not close the physical source-binding receipt:
 
-> **Theorem (physical port-current algebra).** On a certified twelve-port
-> echosahedral carrier lineage with declared reversible response data, there
-> is an injective source-derived port-to-generator map
+> **Theorem (conditional port-current algebra).** On a certified twelve-port
+> echosahedral carrier lineage, given the declared charged-double-triplet
+> response construction and four signed nonzero response coefficients, there
+> is an injective port-to-generator map
 > `K_r : P_12,r -> u(H_r)` with twelve-dimensional image on a faithful
 > charged response space `H_r`. Its image is a compact-type skew-adjoint
 > commutator-closed Lie algebra with one-dimensional central `u(1)` kernel
 > and adjoint rank eleven. The map intertwines the derived icosahedral
 > action, the induced `A5` action on the image lies in `Int(g)`, and the
-> construction is natural along the declared refinement tower. The
-> equivariant lifts form exactly a four-parameter family: four independent
-> `A5`-equivariant response band scales and one common odd-response sign are
-> the open source data. Neither charged sector admits a register-relabeling
+> construction is natural along the declared algebraic refinement tower. The
+> equivariant lifts form exactly a four-parameter family of signed
+> `A5`-equivariant response coefficients. Neither charged sector admits a register-relabeling
 > realization, so the currents provably do not come from register
 > relabeling.
 
-All five acceptance criteria of the issue are machine-checked. The carrier
-and refinement data are derived from the pinned #565 packet; the response
-source data — four band scales and one common odd sign, exactly the open
-source data named by the parent response lane — enter as declared exact
-values in the source packet, the same epistemic status as the carrier
-manifest itself. The receipt records this provenance fail-closed
-(`issue_closure_condition`).
+The algebraic properties are machine-checked. The carrier and declared tower
+data are derived from the pinned #565 packet. The response representation and
+four coefficients enter as explicit branch premises, not as measurements or
+physical source-bound data. The receipt therefore records a passing
+conditional algebraic gate and an open physical source-realization gate.
 
 No Standard Model current, particle assignment, product-adjoint count,
 measured coupling, or gauge target is an input. Every proof decision is
@@ -47,7 +46,7 @@ Fix a refinement stage `r` on one certified carrier lineage. The source
 packet is
 
 \[
-\mathsf R_r=\bigl(\mathsf E_r,\ \Lambda,\ \varepsilon,\ \mathsf T\bigr),
+\mathsf R_r=\bigl(\mathsf E_r,\ \Lambda,\ \mathsf T\bigr),
 \]
 
 with the following fields.
@@ -64,23 +63,14 @@ exact rank-three Gram frame `G^2 = 4G`, and refinement/relabeling
 naturality. The #566 manifest references this carrier manifest by path and
 SHA-256 pin; the pin is enforced fail-closed.
 
-### R2. Response measurement contract and reversible response typing
+### R2. Declared response construction and reversible response typing
 
-The response-field provenance is a first-class fail-closed contract, not a
-free-text declaration. `response_measurement_contract` types the measured
-objects (reversible one-parameter response orbit families on the two
-derived charged sectors), carries `distinct_from_register_relabeling:
-true` (rejected otherwise, `REGISTER_RELABELING_CONFLATION`), and states a
-`measurement_status`:
-
-* `declared_source_data` — the reference status: the separately measured
-  reversible response data enter the source packet as declared exact
-  values (the open source data of the lane). No measurement artifact may
-  be attached (a phantom claim fails closed, `RESPONSE_ARTIFACT`).
-* `measured` — an optional strengthening requiring a pinned, existing,
-  hash-matching measurement artifact; the receipt then upgrades the
-  recorded provenance to a measured record. The mechanism is exercised by
-  the test suite. The issue's acceptance criteria do not require it.
+`response_declaration_contract` identifies the charged-double-triplet model
+as a `declared_branch_premise` and carries
+`distinct_from_register_relabeling: true`. It is a mathematical construction
+selector, not response measurement data. Measurement artifacts are rejected
+until a separately reviewed semantic schema can bind the carrier, response
+basis, sector order, coefficients, orientation convention, and provenance.
 
 The manifest further types two disjoint operation families:
 
@@ -98,14 +88,13 @@ The manifest further types two disjoint operation families:
   declared as a current source is rejected fail-closed
   (`REPAIR_RESPONSE_CONFLATION`).
 
-### R3. Response scales and the odd sign
+### R3. Four signed response coefficients
 
-`Lambda = (lambda_1, lambda_5, lambda_3, lambda_3')` are four exact rational
-response band scales, one per isotypic band of the port module
-`P_12 = 1 + 5 + 3 + 3'`, and `varepsilon in {+1, -1}` is one common
-odd-response sign. These are the declared source response data. The theorem
-proves (part g) that this is exactly the freedom an equivariant lift has, so
-nothing else is smuggled in.
+`Lambda = (lambda_1, lambda_5, lambda_3, lambda_3')` are four signed exact
+rational response coefficients, one per isotypic band of the port module
+`P_12 = 1 + 5 + 3 + 3'`. They are declared algebraic premises. Part (g)
+proves that the intertwiner space has dimension four; no additional sign
+parameter or per-axis freedom exists.
 
 ### R4. Source firewall
 
@@ -187,7 +176,7 @@ With `hat` the cross-product generator map (`hat(x)y = x × y`),
 K(f)=\operatorname{diag}\Bigl(
 \lambda_3\,\widehat{Ud}
 \;+\;i\bigl(\lambda_1 c\,I_3+\lambda_5\,\Phi_0(b^0)\bigr),\ \ \
-\varepsilon\lambda_{3'}\,\widehat{\sigma(U)d}
+\lambda_{3'}\,\widehat{\sigma(U)d}
 \Bigr),
 \qquad
 \Phi_0(b^0)=\sum_i b^0_i\,u_iu_i^{\mathsf T}.
@@ -276,9 +265,8 @@ tower cocycle holds by the #565 receipt.
 #### (g) Response moduli
 
 The space of `A5`-equivariant real-linear maps `P_12 -> g` has dimension
-exactly four. Hence the four band scales together with the common
-odd-response sign are exactly the open source data; no fifth parameter and
-no per-axis freedom exists.
+exactly four. Hence four signed band coefficients give the complete
+parameterization; no fifth parameter and no per-axis freedom exists.
 
 #### (h) Physical-current gate
 
@@ -442,10 +430,8 @@ is equivariantly isomorphic to the port permutation module `P_12`, and
 
 the exact Burnside rank of the icosahedral port action (distance classes
 `0, 1, 2, 3`). All four irreducible bands have real endomorphism field
-`R`, so the equivariant lifts are exactly the four band rescalings; a sign
-choice on the odd bands is the residual discrete datum, declared as the
-common odd-response sign. This proves that R3 is the complete open source
-data.
+`R`, so the equivariant lifts are exactly the four signed band rescalings.
+This proves that R3 is the complete algebraic freedom.
 
 ### Lemma 566.13: register-relabeling no-go
 
@@ -478,10 +464,10 @@ currents only through the derived response implementers. ∎
 
 Parts (a)-(g) are Lemmas 566.2-566.13 combined with the exact executable
 checks; part (h) is Section 6. Carrier and refinement provenance are
-derived from the pinned certified packet; the response source data enter
-through the typed measurement contract of R2 as declared exact values, and
-the receipt records the provenance split fail-closed. The firewall R4
-rejects downstream target data. ∎
+derived from the pinned certified packet; the response representation and
+coefficients enter as declared algebraic premises. The receipt keeps the
+conditional algebraic and physical source-binding gates separate. The
+firewall R4 rejects downstream target data. ∎
 
 ---
 
@@ -508,7 +494,8 @@ rejects downstream target data. ∎
 | element orders of the derived action | `{1, 2, 3, 5}` (no index-three subgroup) |
 | order-five elements with irrational sector characters | `24 / 24` |
 | sector character norms | `1, 1` (absolutely irreducible) |
-| issue closure condition | `met_locally: true` (all five acceptance criteria machine-checked) |
+| conditional algebraic gate | `passed: true` |
+| physical source-realization gate | `passed: false`; issue closure remains open |
 
 The receipt also records all 66 structure constants over `Q(sqrt5)`, the
 twelve positive elimination pivots, the sixty rotation normal forms, a
@@ -519,9 +506,9 @@ negative-control outcome.
 
 ---
 
-## 6. Physical-current gate and negative controls
+## 6. Conditional algebraic gate and negative controls
 
-The gate requires: source-defined packet; injective twelve-dimensional
+The algebraic gate requires: injective twelve-dimensional
 image; skew-adjointness; commutator closure; compact type; center exactly
 one-dimensional on the constant line; derived dimension eleven; charged
 faithfulness; covariance; implementer homomorphism; innerness witnesses;
@@ -550,8 +537,7 @@ degenerates.
 
 A per-axis rescaling of the quintet response and a non-common odd-axis
 sign each break `K(g.f) = Pi(g)K(f)Pi(g)^*` (`COVARIANCE_BROKEN`),
-witnessing that the four scales must be band-uniform and the odd sign
-common.
+witnessing that the four coefficients must be band-uniform.
 
 ### N6. Symmetric record pairing
 
@@ -574,14 +560,11 @@ A measured-coupling target injected into the source manifest is rejected
 A response contract not typed distinct from register relabeling is
 rejected (`REGISTER_RELABELING_CONFLATION`).
 
-### N10. Phantom measurement claim
+### N10. Unsupported measurement upgrade
 
-Declaring `measurement_status: measured` without a pinned, existing,
-hash-matching measurement artifact is rejected (`RESPONSE_ARTIFACT`); a
-declared source-data contract carrying an artifact is likewise rejected.
-The positive direction is tested too: a genuinely pinned artifact upgrades
-the receipt's recorded provenance to a measured record, so the contract is
-functional, not decorative.
+Adding a measurement artifact to the declaration contract is rejected
+(`RESPONSE_ARTIFACT`). A measured upgrade requires a separately reviewed
+semantic artifact schema and is intentionally unavailable in this packet.
 
 ---
 
@@ -592,10 +575,9 @@ functional, not decorative.
 ```text
 schema
 carrier_manifest_path, carrier_manifest_sha256
-response_model
+construction_model
 response_band_scales.{unit_band,quintet_band,frame_band,kernel_band}
-odd_response_sign
-response_measurement_contract.{measured_objects,measurement_status,measurement_artifact,distinct_from_register_relabeling}
+response_declaration_contract.{declared_objects,status,distinct_from_register_relabeling}
 reversible_response_automorphisms.{source,reversible,defines_currents}
 strict_descent_repairs.{irreversible,defines_currents,ledger[*]}
 ```
@@ -626,7 +608,6 @@ emit receipt and negative controls
 structure PortCurrentPacket where
   carrier : EchosahedralCarrier
   scales : Fin 4 → ℚ
-  oddSign : ℤˣ
 
 def K (P : PortCurrentPacket) : (P.carrier.Port → ℝ) →ₗ[ℝ] u3 × so3 := ...
 
@@ -654,9 +635,9 @@ relabeled as a Lean theorem.
 
 | Issue acceptance item | Discharge |
 |---|---|
-| operators, domain, inner product, response pairing, refinement maps source-defined | satisfied: every object is a deterministic function of the source packet — carrier/refinement provenance derived from the pinned certified packet (R1, D1-D5); the charged sectors, scales, and sign enter through the typed measurement contract R2 as `declared_source_data`, exactly the open source data the parent lane assigns to this construction; the receipt records the full provenance split in `source_definedness` |
+| operators, domain, inner product, response pairing, refinement maps source-defined | open physically: the carrier and declared tower are source-bound, while the charged-double-triplet representation and four signed coefficients remain declared algebraic premises |
 | closure, compactness, rank, faithfulness, icosahedral intertwiner proved | Lemmas 566.5-566.9, exact structure constants, positive pivots, 720 covariance checks |
-| abelian-record and rank-deficient models fail the physical-current gate | N1-N3 with typed codes, stored countermodel bundle |
+| abelian-record and rank-deficient models fail the conditional algebraic gate | N1-N3 with typed codes, stored countermodel bundle |
 | coefficient classification distinguished from physical Yang-Mills current realization | N1 separating witness + receipt `classification_vs_realization`; the trichotomy admits `u(1)^12`, the gate rejects it |
 | no measured coupling, particle assignment, or Standard Model current as input | schema firewall R4, fail-closed control N8 |
 | central `u(1)` kernel, adjoint rank eleven (not twelve) | Lemma 566.7, receipt `closure` |
@@ -666,25 +647,14 @@ relabeled as a Lean theorem.
 
 ## 9. Claim boundary
 
-This theorem closes **PORT-CURRENT-INNER** on the declared echosahedral
-response branch: given the certified carrier and the declared reversible
-response data, the physical current lift exists, is essentially unique
-(four scales and one sign), passes the full gate, and provably cannot
-arise from register relabeling. All five acceptance criteria of the issue
-are machine-checked; the receipt records
-`issue_closure_condition.met_locally = true`.
+This theorem proves the conditional exact algebraic construction for the
+declared charged-double-triplet representation and four signed coefficients.
+It does not close **PORT-CURRENT-INNER** as a physical source-bound receipt;
+`issue_closure_condition.met_locally` is therefore `false`.
 
-The response source data — the four band scales and the common odd sign,
-proved by Lemma 566.12 to be the complete equivariant freedom — enter as
-declared exact values in the source packet, the same epistemic status as
-the carrier architecture declared in issue #565. An optional hash-pinned
-measurement artifact (`response_measurement_contract.measurement_artifact`)
-can upgrade the declaration to a measured record; the issue's acceptance
-criteria do not require one.
-
-It does not derive the response scales, the odd sign, or the existence of
-the charged response sectors from raw OPH consensus dynamics; those are
-declared source response data on this branch. It does not close block determinant
+It does not derive or measure the charged response sectors or coefficients
+from physical carrier response, and it does not establish physical refinement
+intertwining. It also does not close block determinant
 balance, `PORT-SPIN-LIFT`, the physical `Z6` deck/line descent
 (`AXIS-CENTER-DESCENT`), exterior package or matter selection, family
 attachment, or any continuum Yang-Mills, coupling, mass, or measured-number

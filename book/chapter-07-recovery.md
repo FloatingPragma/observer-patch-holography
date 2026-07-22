@@ -32,7 +32,7 @@ This seems catastrophic for building reliable systems. Classical computers work 
 
 ### The Black Hole Information Paradox
 
-The second shock came from black holes-and pointed in the opposite direction.
+The second shock came from black holes, and it pointed in the opposite direction.
 
 In 1974, Stephen Hawking made a disturbing discovery. Black holes emit faint
 radiation due to quantum effects near the event horizon. This **Hawking
@@ -99,7 +99,7 @@ So the universe must preserve information, even when it looks scrambled beyond
 recognition. Some mechanism, a "Save Game" feature, must in principle allow the
 smoke to remember what the scroll said.
 
-But how can information be preserved if it cannot be copied? The answer: you don't need to copy information perfectly to protect it. You need to encode it **redundantly** in a way that survives local errors.
+But how can information be preserved if it cannot be copied? Perfect copies were never required. It is enough to encode the information **redundantly**, in a way that survives local errors.
 
 ## 7.4 Claude Shannon's Discovery
 
@@ -117,7 +117,7 @@ theory, and buried in its pages was the recovery idea that matters here.
 
 Imagine you're sending a message through a bad phone line. You say "yes," but static might make it sound like "mess" or "ness." How can you guarantee your message gets through?
 
-Shannon's answer: you can't eliminate noise, but you can beat it with **redundancy**.
+Shannon's answer was that you can't eliminate noise, but you can beat it with **redundancy**.
 
 A simple example is repetition coding. Send a single bit three times. A zero
 becomes `000`. A one becomes `111`.
@@ -175,9 +175,9 @@ $H(X|Y)$ means the uncertainty left about $X$ after $Y$ is known. $H(X,Y)$ is
 the joint entropy of the pair. Mutual information is the amount of uncertainty
 that disappears when one variable predicts the other.
 
-### CMI: The Recovery Metric
+### Conditional Mutual Information: The Recovery Metric
 
-Recovery enters through CMI, which measures correlation between X and Y *given* knowledge of Z:
+Recovery enters through conditional mutual information, CMI for short, which measures correlation between X and Y *given* knowledge of Z:
 
 $$I(X:Y|Z) = H(X|Z) + H(Y|Z) - H(X,Y|Z)$$
 
@@ -241,7 +241,7 @@ $\lambda_i$ are the weights of the independent quantum alternatives after the
 density matrix is diagonalized. The trace expression is the coordinate-free way
 to compute the same uncertainty without choosing a favorite basis.
 
-The quantum CMI is:
+The quantum CMI is the same formula as before, now built from quantum entropies:
 
 $$I(A:C|B) = S(AB) + S(BC) - S(B) - S(ABC)$$
 
@@ -300,13 +300,7 @@ The theorem turns a small information leak into a concrete reconstruction
 bound.
 
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
-A small information leak gives a reconstruction with a controlled error. The
-zero-leak limit gives the exact identities that split and recombine regions
-without slack. In a refining family, thicker boundary layers drive the leak to
-zero while the geometric separator remains aligned with the way the state
-divides. A single entangled pair laid across a differently chosen cut explains
-why this alignment belongs to the separator geometry rather than to the scalar
-CMI value alone.
+Where you draw the cut matters as much as how much leaks across it.
 
 ## 7.8 Example Calculations
 
@@ -348,7 +342,9 @@ You cannot recover C from B alone. The GHZ state is non-Markov.
 
 ## 7.9 The Fourth Axiom: Local Markov/Recoverability
 
-We can state the recovery rule as a physical principle.
+We can state the recovery rule as a physical principle. One piece of
+vocabulary first: a **collar** is a thin buffer strip wrapped around a region,
+like a moat around a castle.
 
 **Axiom 4 (Local Markov/Recoverability)**: For any three support regions $P_A$,
 $P_B$, and $P_C$ on the screen chart, where $P_B$ topologically separates
@@ -356,48 +352,36 @@ $P_A$ from $P_C$:
 
 $$I(A:C|B) \leq \varepsilon(B)$$
 
-Here $\varepsilon(B)$ measures how much correlation can bypass the separator.
-For the finite Gibbs screen, it has the form of a boundary-size prefactor times
-exponential decay with collar thickness.
+$A$, $B$, and $C$ label the subsystems carried by those support regions. $B$
+is the separator, typically a collar, and the small quantity $\varepsilon(B)$
+is the allowed leakage past it. Exact Markov screening sets it to zero. In the
+finite thermal screen model, $\varepsilon(B)$ is a boundary-size prefactor
+times a factor that decays exponentially with the collar's thickness.
 
-$A$, $B$, and $C$ label the subsystems carried by those support regions. $B$ is the separator. The small
-quantity $\varepsilon(B)$ is the allowed leakage past that separator. Exact
-Markov screening sets it to zero. Local interaction and mixing data fix the
-mechanism and constants controlling a nonzero remainder.
-
-OPH uses the Fawzi-Renner map for the recovered comparison state. On a fixed
-collar, or after pullback to one, its collar-local error tends to zero and the
-comparison state becomes the exact Markov normal form used in ideal splice and
-modular-additivity calculations.
+The framework's repair tool is the Fawzi-Renner recovery map from earlier in
+this chapter. As the collar thickens, the repair error shrinks toward zero,
+and the recovered state approaches the exact zero-leak form that the ideal
+splitting-and-recombining identities assume.
 
 ### Two Routes to Zero Leakage
 
-There are two ways to pin down when the leakage across a boundary is small
-enough for the exact identities to hold.
+Sometimes the cut lines up perfectly. When the energy stored at the boundary
+depends only on a conserved label shared by both sides, the natural way to cut
+the system matches the way the state itself divides, and the leakage across
+the boundary is exactly zero.
 
-The first route is clean. When the energy stored at the boundary depends only on
-a conserved label shared by both sides, the natural way to cut the system lines
-up perfectly with the way the state itself divides. The leakage across the
-boundary is then exactly zero, and the exact splitting-and-recombining
-identities apply with no slack.
-
-The second route is quantitative and applies more broadly. It starts from a
+Otherwise, thickening the buffer beats the leakage. The concrete picture is
+the one in the figure below: a cap $A$ on the screen, a collar $B$ wrapped
+around it, and the exterior $D$, everything outside the moat. For a
 well-behaved thermal state whose boundary correlations mix uniformly as one
-moves inward. This stronger boundary mixing controls the whole separator beyond
-pairwise correlations. The leakage then falls off exponentially with the
-thickness of the boundary layer,
+moves inward, the leakage falls off exponentially with the collar's thickness,
 
-$$I(A:D\,|\,B)\ \le\ c\,|\partial C|\,e^{-\delta/\xi},$$
+$$I(A:D\,|\,B)\ \le\ c\,|\partial B|\,e^{-\delta/\xi},$$
 
-where $\delta$ is the thickness of the boundary layer, $\xi$ is a fixed decay
-length, and $|\partial C|$ counts the cells along the boundary. A thicker layer
-drives the leakage down. A larger boundary raises the prefactor in front, so the
-thickness has to grow fast enough to win the race as the boundary grows.
-
-At every finite resolution, the interaction range, boundary size, measured
-leakage, and decay margin record this screening quantitatively. Uniform mixing
-carries the same constants through the refinement family and turns the finite
-bounds into the limiting recovery law.
+where $\delta$ is the thickness of the collar, $\xi$ is a fixed decay length,
+and $|\partial B|$ counts the cells along the collar's boundary. A thicker
+collar drives the leakage down, while a longer boundary raises the prefactor
+in front. The collar has to thicken faster than the boundary grows.
 
 ### Screening Through the Separator
 
@@ -411,11 +395,12 @@ boundary supplies more places for a residual correlation to cross.
 
 ### Constructive Gluing (Tree Covers)
 
-In the finite-dimensional code-subspace setting, Axiom 4 yields a clean
-constructive result for tree-ordered covers. Each new patch overlaps the
-existing glued union only on a single separator $B$. The induced $A$-$B$-$C$
-split is a genuine tensor product at each step, and recovery maps glue the
-patches into a global state.
+In the finite-dimensional code-subspace setting, the arena of the
+error-correcting codes below, Axiom 4 yields a clean constructive result for
+patch families arranged like a tree. Each new patch touches the already-glued
+union only through a single separator $B$, the induced $A$-$B$-$C$ split is a
+genuine tensor product at each step, and recovery maps glue the patches into
+a global state.
 
 The reconstruction error per step is bounded by
 
@@ -435,7 +420,7 @@ Here, recoverability bounds scale with separator size rather than bulk volume.
 
 ### Why This Matters
 
-The recovery rule has dramatic consequences. If the interior of a region can be
+The recovery rule does a surprising amount of work. If the interior of a region can be
 recovered from its boundary, bulk physics is encoded in boundary physics. If
 $I(A:C|B)$ is small, then $A$ and $C$ behave independently once $B$ is known,
 which is exactly the operational face of locality. Ground states of local
@@ -482,19 +467,17 @@ Initially, B is small. The collected radiation is too small to decode the diary 
 
 As time passes, B grows. More radiation is emitted, and the correlations needed for decoding become increasingly accessible in the radiation subsystem.
 
-At Page time, B becomes large enough to screen A from C effectively in the heuristic picture. The CMI I(A:C|B) is then expected to drop.
+At Page time, B becomes large enough to screen A from C. The CMI I(A:C|B) is
+then expected to drop, and later radiation becomes recoverable from earlier
+radiation once the separator grows large enough to do its screening work.
 
-This motivates an encoded-information picture. Later radiation becomes
-recoverable from earlier radiation once the separator grows large enough to do
-its screening work.
-
-### Islands: The Mathematical Proof
+### Islands
 
 In 2019, several groups (Penington; Almheiri, Engelhardt, Marolf, and Maxfield) made this precise using a concept called "islands."
 
 When computing entropy in theories with gravity, you should include contributions from **island regions** inside the black hole.
 
-Before Page time, no island contributes. Radiation entropy equals naive Hawking calculation-increasing.
+Before Page time, no island contributes. Radiation entropy tracks the naive Hawking calculation and keeps increasing.
 
 After Page time, an island appears. The black-hole interior, called the
 **island**, is encoded in the radiation. Including the island contribution,
@@ -525,9 +508,10 @@ If one qubit flips, majority vote recovers the original. This is just classical 
 
 ### The HaPPY Code
 
-In 2015, Patrick Hayden, Sepehr Nezami, Fernando Pastawski, John Preskill, and
-Beni Yoshida built a toy model of holography using error correction, the
-**HaPPY code**.
+In 2015, Fernando Pastawski, Beni Yoshida, Daniel Harlow, and John Preskill
+built a toy model of holography using error correction, the **HaPPY code**.
+The acronym is assembled from their surnames, which is roughly what passes
+for wordplay in quantum gravity.
 
 They constructed a tensor network in which the bulk is the logical
 information and the boundary is made of the physical qubits.
@@ -540,23 +524,9 @@ This is exactly the recovery rule: I(Bulk : Erased | Remaining) is approximately
 
 The "gravity" in the HaPPY code emerges from the code structure. Regions of the bulk are closer when they share more boundary support. Distance becomes a property of information, not something fundamental.
 
-## 7.12 What Recovery Implies
-
-Recovery sits on a strong foundation. No-cloning blocks naive copying. Strong
-subadditivity guarantees that CMI cannot go
-negative. Fawzi-Renner and Petz show that when the missing correlation is
-small enough, there is a map that rebuilds what looked lost.
-
-The physics mirrors the mathematics. Ordinary quantum evolution keeps
-information in play. Black-hole evaporation is read through the Page curve.
-Entanglement wedges reconstruct bulk data from boundary data. Quantum error
-correction works in the lab, which means encoded recovery has operational
-teeth. The world keeps telling us the same thing: information can survive
-without sitting in one place.
-
 ---
 
-## 7.13 The Indestructible Past
+## 7.12 The Indestructible Past
 
 The recovery rule has a startling implication: in this recoverability picture,
 nothing is simply deleted from the full quantum description.
@@ -564,7 +534,7 @@ nothing is simply deleted from the full quantum description.
 If the universe is unitary and holographic encoding is stable, information is
 redistributed into increasingly nonlocal correlations of the full quantum state.
 
-The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles.
+The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles. You would have to wait a while for the answer, and then check whether you still remembered the question.
 
 Paleontology and astronomy use weak versions of this. Fossils preserve information about creatures from millions of years ago. Astronomy records light that has traveled for billions of years before reaching our telescopes. The cosmic microwave background is one vivid example of very old information preserved in radiation.
 
@@ -578,15 +548,25 @@ recover the Library of Alexandria would exceed any conceivable technology.
 Chaos amplifies tiny errors. A single misplaced bit in trillions grows into
 garbage.
 
-This distinction matters enormously. The past is recoverable in principle but
+The distinction matters. The past is recoverable in principle but
 inaccessible in practice. That gives us both unitarity and the lived arrow of
-time. The past is encrypted with a key we will never find.
+time. The past is encrypted with a key we will never find. Patterns, it turns
+out, are harder to destroy than the things that carry them.
 
-## 7.14 Reverse Engineering Summary
+## 7.13 Reverse Engineering Summary
 
 Information can remain recoverable without being freely copied. No-cloning
 blocks duplication. Recovery survives because the information is encoded across
-extended correlations. That is how a noisy world carries history, how
+extended correlations, and the mathematics underwrites the claim: strong
+subadditivity guarantees that CMI cannot go negative, and Fawzi-Renner and
+Petz show that when the missing correlation is small enough, there is a map
+that rebuilds what looked lost.
+
+The physics mirrors the mathematics. Black-hole evaporation is read through
+the Page curve. Entanglement wedges, the boundary regions that carry
+everything about a given piece of the bulk, reconstruct interior data from
+edge data. Quantum error correction works in the lab, which means encoded
+recovery has operational teeth. That is how a noisy world carries history, how
 observers can agree on a past they never saw, and why black holes do not
 behave like cosmic shredders. It is also why spacetime starts to look like a
 code: a structure whose geometry and stability are tied to the same redundancy

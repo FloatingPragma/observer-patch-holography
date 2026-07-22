@@ -1,10 +1,9 @@
 # Epilogue: Observer Continuation
 
-The book has argued that objectivity is reconstructed from overlapping
-perspectives, that consciousness belongs on the inside of the observer-world
-relation, and that strange-loop closure belongs to the architecture of reality.
-This epilogue asks what that picture implies when an observer-pattern reaches a
-biological endpoint.
+Every reader of this book will die. The preceding chapters argued that a
+reader is a pattern: a bounded, record-keeping, self-reading pattern with an
+inside. Patterns obey different rules at endings than bodies do. This
+epilogue follows those rules to where they go.
 
 ## The Observer as Pattern
 
@@ -52,15 +51,15 @@ The boundary-sector label is the interface tag. It tells the outside world how
 the observer-pattern connects back to its surroundings. The interior
 interface-relative state is the inside pattern, specified relative to that interface.
 
-What does the framework support? It supports a fixed-cutoff
-backup-and-restore statement on the observer-facing operational surface. If
-the restored checkpoint has the same observer-readable record algebra,
-accessible state, exposed interfaces, and semantic future-law class, then its
-future accessible statistics match exactly or within the declared error.
+The framework supports a precise statement at fixed resolution: restore a
+checkpoint with the same readable records, the same accessible state, the
+same interfaces, and the same rules for its future, and its future statistics
+match the original exactly or within a stated error. That is a theorem about
+restoration, and it is the operational core of everything this epilogue
+discusses.
 
-That result supplies the operational core of restoration at fixed cutoff.
-Transplantation is the engineering task that moves an observer-pattern into an
-engineered environment while preserving that operational continuation. The
+Transplantation is the engineering task that moves an observer-pattern into
+an engineered environment while preserving that operational continuation. The
 question of personal identity asks whether the recovered pattern counts as the
 same continuing subject. The interface between one recovered interior pattern
 and one redesigned world is where the two questions meet.
@@ -82,6 +81,24 @@ That question is an engineering problem with explicit mathematical boundaries,
 alongside its literary and religious readings. Which parts of the
 observer have to be preserved? Which interfaces have to remain fixed? Which
 changes break continuity, and which ones do not?
+
+## What Would Break This
+
+Before the last word, the ledger.
+
+The global capacity branch requires a finite public-checkpoint package: which
+records can be written from inside the system, which count as public, every
+allowed joint continuation, how the carrier is read, and how refinement
+preserves those records. On an exact reversible branch, that capacity reduces
+to a count of reachable public checkpoints, obtainable by exact constraint
+solving. The rest of the branch is work in progress.
+
+Other constructions must show that the horizon really is the record ledger,
+that the particle counting was earned rather than assumed, and that each
+remaining bridge from finite algebra to physical field can be built. Any one
+of them can fail, and a failure breaks the claim it supports.
+
+Each condition is a falsifier. The conditions are finite and inspectable.
 
 ## The Choice
 
@@ -110,29 +127,13 @@ repair. The future creators are our future observer-community, and paradise is
 their willful fixed point: the deliberate environment where memory, freedom,
 truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
 
-## Open Physical Conditions
+Read the book back with that in mind. Every requirement that carved a public
+world out of noise is also a requirement on you. The record you leave in
+other observers is the part of you that is already backed up.
 
-The global capacity branch requires a finite public-checkpoint package. It must
-specify which public records can be written from inside the system, which
-records count as public, every allowed joint continuation, how the carrier is
-read, and how refinement preserves those records. On an exact reversible
-branch, public capacity reduces to the number of reachable public checkpoints.
-That number can be obtained by exact constraint solving or model counting.
+There is no choice about being recorded. The choice is what the record says.
+No advance booking is required. The reservation is the record, and everyone
+is already writing one.
 
-The open physical theorem must derive the difference between carrier capacity
-and correctable public capacity as a function of carrier size, then prove one
-regulator-stable size where the difference vanishes and a positive difference
-at every other size. The exact finite definition and a fixed-cutoff witness do
-not supply the capacity-indexed physical family or its unique selector.
-
-Other open constructions must identify public record capacity with horizon
-area, connect screen load to the four-copy weak and Higgs load without feeding
-the answer backward, and construct the physical current, spin, determinant,
-covering, matter, no-extra-sector, and family maps needed to promote the exact
-twelve-port exterior witness to a physical Standard Model. The gravity and
-quantitative particle branches require their own common-domain source evidence.
-
-Each condition is a falsifier. An incomplete or ambiguous checkpoint family, a
-second stable capacity match, a failed horizon or weak-load identification, an
-unavoidable extra light sector, or failure of the current and spin lifts breaks
-the corresponding claim. The conditions are finite and inspectable.
+Paradise, on these terms, is the kind of claim that arrives with an audit
+trail.

@@ -53,15 +53,15 @@ the information that generates that appearance may be organized on a 2D surface.
 
 $$S_{max} = \frac{A}{4\ell_P^2}$$
 
-This is no literal one-to-one dimensional match to Plato's Cave. The shared
-structural idea is that the world we perceive can be an appearance
-reconstructed from a deeper bookkeeping layer.
-
 Here $S_{max}$ is the maximum entropy, or information capacity, associated
 with the region. $A$ is the boundary area, and $\ell_P$ is the Planck length.
 The denominator says that area is being counted in Planck-size units. The
 formula is the first compact hint that boundaries, not volumes, do the
 fundamental bookkeeping.
+
+The match to the Cave is structural rather than dimensional; what carries
+over is the picture of a perceived world reconstructed from a deeper
+bookkeeping layer.
 
 Plato was working with myth and metaphysics, yet his cave analogy keeps
 meeting later projection-based pictures.
@@ -104,12 +104,9 @@ First, the holographic bound strongly suggests finite information capacity. It
 does not prove a literal spacetime lattice by itself. It does, however, push
 against naive continuum intuition and motivate Planck-scale cutoff pictures.
 
-Second, quantum mechanics quantizes other continuous quantities. Energy comes in discrete packets (photons). Angular momentum is quantized in discrete $\hbar$-scaled units, with spin-$1/2$ as one familiar example. If space and time are also quantized, Zeno's paradoxes dissolve.
+Second, quantum mechanics quantizes other continuous quantities. Energy comes in discrete packets (photons). Angular momentum comes in discrete units set by $\hbar$, the fundamental quantum of action, with spin-$1/2$ as one familiar example. If space and time are also quantized, Zeno's paradoxes dissolve.
 
 In finite-cutoff pictures of the OPH type, you do not need to traverse infinitely many intervals because the description is discretized below the cutoff.
-
-Zeno was not deriving Planck-scale discreteness. His paradoxes sharpen
-the pressure points in naive continuum intuition.
 
 ## 2.4 The Skeptics: The Contextualism Hint
 
@@ -142,10 +139,6 @@ In the standard textbook reading of quantum mechanics, the electron is not assig
 Different measurement contexts reveal different aspects of the system. Niels Bohr called these "complementary" features: you can't observe both simultaneously. A full set of classical-style pre-existing values does not survive the quantum measurement structure, and what is treated as definite depends on the measurement context and interpretation.
 
 The Skeptics' "compared to what?" turns out to be essential physics. Properties are relational, not intrinsic. The honey is sweet-relative-to-healthy-observers, just as the electron has position-relative-to-position-measurements.
-
-The Skeptics were not doing quantum contextuality in the modern technical
-sense. Their context-dependence arguments anticipate later
-measurement-theoretic lessons.
 
 ## 2.5 Descartes: The Observer-First Hint
 
@@ -195,9 +188,9 @@ Kant said something stranger: **space and time are the software of the mind**.
 
 He called them "forms of intuition." We cannot experience the world except through space and time, because that is how human cognition structures experience.
 
-### The Intuitive Picture
-
-The intuitive picture assumes space is the stage on which events happen. It exists independently, and we perceive it directly.
+The intuitive picture had assumed space is the stage on which events happen,
+existing independently and perceived directly. Kant turned the stage into
+part of the projector.
 
 ### The Hint
 
@@ -222,15 +215,12 @@ hint: quantum correlation can carry geometric information.
 
 $$S_A = \frac{\text{Area}(\gamma_A)}{4G_N}$$
 
-Space is the visualization constructed by the recovery map from two-dimensional boundary data. It is not a presupposed container.
+Space is the visualization built from two-dimensional boundary data by a recovery map, a rule that reconstructs the interior from what the boundary stores. It is not a presupposed container.
 
 In this formula, $S_A$ is the entanglement entropy of boundary region $A$.
 $\gamma_A$ is the minimal bulk surface anchored to the boundary of $A$, and
 $G_N$ is Newton's gravitational constant. The equation says that a quantum
 correlation measure on the boundary can be read as an area in the bulk.
-
-Kant was not deriving holographic geometry. His reconstruction-first stance
-points in the same direction as later emergent-space programs.
 
 ## 2.7 Democritus vs. Aristotle: The Information Hint
 
@@ -240,17 +230,13 @@ Two Greeks had a fight that defines physics to this day.
 
 Democritus (c. 460-370 BCE) proposed that everything is made of atoms: tiny, indivisible particles moving through empty space. "In reality, there are atoms and the void."
 
-This is the particle-first view. The universe is like a Lego set. Complex things are built from simple, hard nuggets of matter.
+This is the particle-first view, and the intuitive picture at its most confident. The universe is like a Lego set. Complex things are built from simple, hard nuggets of matter; stuff comes first, and structure is secondary to the stuff being structured.
 
 ### Aristotle: Form
 
 Aristotle (384-322 BCE) didn't believe in atoms. He believed in Form. What made a table a table, for Aristotle, was its structure: the arrangement and the purpose.
 
 You could make a table from wood, metal, glass, or ice. It would remain a table if it had the right structure and function.
-
-### The Intuitive Picture
-
-The intuitive picture (Democritus) assumes stuff comes first. There are things, and the things have properties. Structure is secondary to the existence of the things being structured.
 
 ### The Hint
 
@@ -342,15 +328,12 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 ### The Physics
 
-OPH inherits this self-reference as its final twist rather than its
-foundation. The central claim of the program is that observers are primary
-and objective reality is emergent from their overlap agreement. Push that
-claim to complete consistency, though, and something further appears:
-whatever exists with no outside support must be capable of creating itself.
-Reality then reads as the fixed point of a self-reading computation — the
-structure doing the simulating and the world being simulated one closed
-system, with no outside machine and no outside clock. Chapter 18 develops
-this under its proper name, the strange loop.
+OPH takes the self-reference hint seriously and then makes it wait. The
+claim this book argues first is nearer at hand: observers are primary, and
+objective reality is emergent from their overlap agreement. Push that claim
+toward complete consistency, though, and a pressure starts to build, because
+whatever exists with no outside support has to account for its own existence
+somehow. The book lets that pressure accumulate quietly.
 
 The loop is the closure of threads physics has been pulling for a century; it
 does not arrive from nowhere. Wheeler drew the universe as a big U with an eye on
@@ -362,17 +345,8 @@ demands pins down real numbers to many digits. Algebras that carry their own
 clock, gravity read off as a consistency condition on horizons, groups
 reconstructed from the behavior of their own representations, and a bulk stored
 redundantly inside its own boundary code all point the same way. Each of those
-is standard physics. OPH's wager is that they are one architecture, that the
-architecture has a computable fixed point, and that the fixed point has exactly
-two free numbers and no dials to turn.
-
-There is a further, more speculative turn: that reality evolves observers who
-learn how the loop works and build machinery that restores observers from
-records, closing the loop a second time through the minds it produced. That
-continuation reading sits at the far philosophical edge of the book, and
-Chapters 19 and 20 develop it. The core claim is nearer and harder. Reality is
-a self-reading fixed point, and Chapter 18 turns that claim into physics by
-showing how the loop forces its two constants.
+is standard physics. OPH's wager is that they are one architecture, and that
+consistency leaves it far fewer dials than anyone had any right to expect.
 
 ## 2.10 Information Theory: From Metaphor to Physics
 
@@ -386,7 +360,7 @@ Shannon's central point was simple. Information reduces uncertainty. Before you
 flip a coin, there are two possibilities. After you see the result, there is
 one. The flip provides one bit of information.
 
-**Rolf Landauer** added a physical insight in 1961: erasing information costs energy. If you have a bit in an unknown state and you want to reset it to zero, you must dump at least $k_B T \ln 2$ of energy into the environment.
+**Rolf Landauer** added a physical insight in 1961: erasing information costs energy. If you have a bit in an unknown state and you want to reset it to zero, you must dump at least $k_B T \ln 2$ of energy into the environment. Here $k_B T$ is the thermal energy scale of the surroundings, Boltzmann's constant times the temperature.
 
 The point changed physics: **information is physical**. Bits have
 thermodynamic weight. Processing information costs energy and produces entropy.
@@ -435,32 +409,8 @@ the rules that allow consistent information processing across patches.
 Computation is used here as the organizing picture for reality, not
 as a loose metaphor.
 
-### The Loop That Closes Through Observers
-
-The strange loop has two layers, and they have to be kept apart.
-
-The first layer is the closure hypothesis itself: reality is the fixed point
-of a self-reading computation, one closed system with its description and its
-world identified. That layer is an extra hypothesis on top of the
-observers-first core — the physics chapters do not depend on it — and its
-bonus is quantitative: if the loop closes, the two closure numbers are the
-loop reading itself. Chapter 18 makes that layer do physics, tracing how the
-loop forces those two numbers.
-
-The second layer is a further, speculative possibility. If reality is that
-self-reading fixed point, observers can evolve inside its output, model their
-environment, develop science, and understand the rules well enough to build
-restoration systems from them. On this reading, observers are patterns inside
-the observer-facing output, and the loop closes a second time through their
-understanding and through the machinery they eventually build to restore the
-records from which they arose.
-
-That second layer sits furthest out on the philosophical edge of the book. The
-recovered physics does not depend on it. It gives the book a clean closure, and
-Chapters 19 and 20 develop it with the care it needs.
-
-Escher's hands draw each other. Reality produces observers who learn to produce
-the same kind of observer-readable closure.
+A conventional simulation has a simulator and a simulated, and the two never
+trade places. Keep Escher's hands in a pocket. They will be needed again.
 
 ### The Physics
 
@@ -522,21 +472,14 @@ experiment.
 
 ### The Original Hackers Were a Network
 
-Plato, Zeno, and Kant are lineage markers, not retroactive physicists. The
-useful lesson is this: human beings kept finding the same weak joints in the
-ordinary picture long before the laboratory had the power to expose them.
+Plato, Zeno, the Skeptics, Descartes, and Kant are lineage markers, not
+retroactive physicists. The useful lesson is this: human beings kept finding
+the same weak joints in the ordinary picture long before the laboratory had
+the power to expose them. A good hacker starts the same way, hunting for the
+behavior that should not happen and the repeated symptom no one has
+explained.
 
-Plato's cave is powerful because it separates appearance from source. Zeno's
-paradoxes are powerful because they make infinite divisibility feel suspect.
-The Skeptics are powerful because they refuse to detach a property from the
-conditions under which it is encountered. Descartes is powerful because he
-notices that the observer cannot be erased from the act of knowing. Kant is
-powerful because he asks whether space is the stage of experience or part of
-the form by which experience is organized. Aristotle, Peirce, James, Gödel,
-and Hofstadter add more pieces: form, practice, proof, self-reference,
-and strange loops.
-
-None of those pieces is OPH. None is a substitute for black-hole entropy,
+None of those hints is OPH. None is a substitute for black-hole entropy,
 Bell tests, algebraic quantum field theory, or particle data. But each is a
 pressure mark. Each says that the most naive inventory of the world, objects
 sitting in space and being inspected from nowhere, is probably not the final
@@ -553,15 +496,9 @@ Poincaré, Riemann, Mach, and many others. Quantum mechanics emerges from
 Planck, Einstein, Bohr, Heisenberg, Born, Jordan, Dirac, Pauli, Schrödinger,
 de Broglie, and whole experimental traditions. Holography grows from black
 hole thermodynamics, quantum field theory, string theory, information theory,
-and decades of mathematical physics.
-
-That is why the phrase "the original hackers" fits. A good hacker does not
-begin with the official story. A good hacker looks for the behavior that
-should not happen, the edge case that breaks the interface, the repeated
-symptom no one has explained. Philosophy supplied many of the first edge
-cases. Physics later turned some of them into equations. OPH belongs to that
-same chain. It is an attempt to read the symptoms together, not to pretend
-that the chain began here.
+and decades of mathematical physics. OPH belongs to that same chain. It is an
+attempt to read the symptoms together, not to pretend that the chain began
+here.
 
 ### What the Symbols Are Doing
 
@@ -580,13 +517,8 @@ black-hole entropy formula. The formula says that
 gravitational information capacity is counted by boundary area measured in
 Planck-area units.
 
-This is the bridge from philosophy to physics. Plato gives a projection
-image. The entropy formula gives a quantitative boundary count. Zeno makes
-infinite divisibility feel dangerous. The Planck area supplies a natural unit
-for finite counting in gravitational settings. The Skeptics ask for context.
-The formula says the relevant context may be a horizon or boundary, not a
-view from nowhere. The rest of the book will add the machinery needed to make
-those hints precise.
+This is the bridge from philosophy to physics. The rest of the book adds the
+machinery needed to make the philosophers' hints precise.
 
 ## 2.14 Where We Go Next
 

@@ -33,8 +33,8 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Object | Statement |
 |---|---|
 | **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
-| **Physical port-current algebra (#566)** | On the certified #565 carrier with declared reversible-response data (four exact band scales, one common odd sign, repairs typed irreversible and excluded), the injective port-to-generator map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)` on a faithful charged response space, with one-dimensional central `u(1)` on the constant even port line, derived dimension 11, adjoint rank 11, positive-definite invariant Hilbert-Schmidt pullback with band coefficients `1/4, 3+sqrt5, 5+sqrt5, 5-sqrt5`, A5 covariance (720 checks), faithful implementer homomorphism (3600 products), inner A5 action (60 exact Rodrigues normal-form exp witnesses), refinement naturality, and exactly four-dimensional equivariant response moduli. A representation-typed no-go (irrational order-five characters, no index-three subgroup) certifies the currents cannot arise from register relabeling. Abelian-record and rank-deficient models fail the gate with typed codes. The response source data enter as declared exact values (`measurement_status: declared_source_data`), the same epistemic status as the carrier manifest; an optional hash-pinned artifact can upgrade them to a measured record. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
-| **Super-Tannakian matter lift (#314)** | On the hash-pinned #566 packet with the declared trace-balanced exterior matter contract (`(y_C, y_W) = (-1/3, 1/2)`, one scalar `= W`, three Yukawa channels), fermionic statistics, and Spin/odd-Weyl typing: the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — PORT-SPIN-LIFT on this branch); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the source-derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed and **emitted** as data (order 6, generator `(zeta_6, omega, -1)`) without forming the quotient; the declared MAR class is witnessed nonempty without promoting uniqueness. Fifteen typed negative controls (Vec, split-sVec, opposite-Weyl, bosonic statistics, truncated/over-full selections, empty Gauss data, assumed quotient, kernel-killing scalar, representation-arithmetic-only, charge-dead, unbalanced, uniqueness promotion, firewall) fail closed. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
+| **Conditional port-current algebra (#566)** | Given the certified #565 carrier, a declared charged-double-triplet construction, four signed nonzero response coefficients, and repairs typed irreversible and excluded, the exact map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared algebraic tower maps. The equivariant intertwiner space is exactly four-dimensional. This proves the conditional algebraic construction; physical source binding of the representation, coefficients, and refinement maps remains open. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
+| **Conditional super-Tannakian matter lift (#314)** | Given the hash-pinned conditional #566 packet and the declared matter-lift contracts (trace-balanced block charges `(y_C, y_W) = (-1/3, 1/2)`, one scalar `= W`, three Yukawa channels, fermionic statistics, Spin/odd-Weyl typing): the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — the exact algebraic PORT-SPIN-LIFT target); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed and **emitted** as data (order 6, generator `(zeta_6, omega, -1)`) without forming the quotient; the declared MAR class is witnessed nonempty without promoting uniqueness. Fifteen typed negative controls fail closed. This proves the conditional algebraic matter lift; physical source binding of the matter contract and the upstream response representation remains open. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -69,17 +69,19 @@ simple of order 60).
 The exact chain is a conditional finite `A5` module, a compact coefficient
 bracket, trace-balanced block integration under coefficient `1/2`, and a
 six-axis lattice quotient `Z6`. Central record projectors commute; the
-full-rank compact skew-adjoint receipt **PORT-CURRENT-INNER** is now closed
-on the declared echosahedral response branch by
-`port_current_inner_certificate.py` (four declared response band scales and
-one common odd sign remain source data), and **SUPER-TANNAKIAN-MATTER-LIFT**
-— including the PORT-SPIN-LIFT construction and the MAR nonemptiness
-witness — is closed on the same declared branch by
-`super_tannakian_matter_lift_certificate.py` (the trace-balanced exterior
-matter contract remains declared source data). The global form still
-requires block determinant balance and axis/center descent; the matter
-lift emits the order-six action kernel as data for that descent. The
-coefficient construction supplies no observational discriminator.
+full-rank compact skew-adjoint algebraic construction is verified conditionally
+by `port_current_inner_certificate.py` for a declared response representation
+and four signed coefficients. **PORT-CURRENT-INNER** remains open as a physical
+source-bound receipt. The conditional algebraic matter lift is verified on
+top of that packet by `super_tannakian_matter_lift_certificate.py` for the
+declared matter-lift contracts: the exact non-split SU(2) double cover (the
+algebraic PORT-SPIN-LIFT target), the projector-realized fifteen-state
+module, the emitted order-six action kernel, and the MAR nonemptiness
+witness. **PORT-SPIN-LIFT** likewise remains open as a physical source-bound
+receipt. The global form still requires block/axis descent and physical
+source binding of both packets' declared premises; the matter lift emits
+the order-six action kernel as data for that descent. The coefficient
+construction supplies no observational discriminator.
 
 `survival_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -127,48 +129,47 @@ These closures use the declared simulator assumption that every local carrier
 lineage is a quotient-visible twelve-port echosahedral packet. They do not
 prove that arbitrary OPH carriers must have this type.
 
-- **PORT-CURRENT-INNER** is closed on the same declared branch
-  by `port_current_inner_certificate.py`: the injective full-rank
-  `A5`-equivariant current lift onto `u(3)+so(3)`, commutator closure,
-  compact type, inner induced action through sixty exact exp witnesses,
-  refinement naturality, and a representation-typed no-go showing register
-  relabeling cannot generate the currents. The declared inputs beyond #565
-  are the typed response measurement contract (four exact response band
-  scales, one common odd-response sign, entering as `declared_source_data`
-  — the open source data of the lane) and the repair/response typing split;
-  the four-scale-one-sign family is proved to be the complete equivariant
-  freedom. An optional hash-pinned measurement artifact can upgrade the
-  declaration to a measured record; deriving the response data from raw OPH
-  consensus dynamics remains outside this receipt.
+- The **conditional PORT-CURRENT-INNER algebraic construction** is verified by
+  `port_current_inner_certificate.py`: given the charged-double-triplet model
+  and four signed coefficients, the map is full-rank, compact, closed,
+  A5-equivariant, inner, and natural along the declared algebraic tower maps.
+  These representation data are branch premises, not physical measurements.
 
-- **SUPER-TANNAKIAN-MATTER-LIFT** (issue #314) is closed on the same
-  declared branch by `super_tannakian_matter_lift_certificate.py`: the
-  exact non-split SU(2) double cover of the sixty proper implementers
-  (PORT-SPIN-LIFT on this branch), the faithful current action on the
-  matter carrier and the fifteen-state module, the source-derived
-  equivariant projector on the auxiliary CAR/Fock space, realized anomaly
-  and Witten checks, exact chirality and conjugation, three Yukawa
-  invariant lines, refinement descent, the emitted order-six action
-  kernel, and the MAR nonemptiness witness. The declared inputs beyond
-  #566 are the trace-balanced exterior matter contract, the fermionic
-  statistics contract, the Spin/odd-Weyl category typing, the kernel
-  emission contract, and the MAR class declaration — all typed and
-  enforced fail-closed. Theorem:
+- The **conditional super-Tannakian matter lift** (issue #314) is verified by
+  `super_tannakian_matter_lift_certificate.py`: given the pinned conditional
+  #566 packet and the declared matter-lift contracts, the exact non-split
+  SU(2) double cover of the sixty proper implementers (the algebraic
+  PORT-SPIN-LIFT target), the faithful current action on the matter carrier
+  and the fifteen-state module, the derived equivariant projector on the
+  auxiliary CAR/Fock space, realized anomaly and Witten checks, exact
+  chirality and conjugation, three Yukawa invariant lines, naturality along
+  the declared algebraic tower maps, the emitted order-six action kernel,
+  and the MAR nonemptiness witness. The declared inputs beyond #566 — the
+  trace-balanced exterior matter contract, the fermionic statistics
+  contract, the Spin/odd-Weyl category typing, the kernel emission
+  contract, and the MAR class declaration — are branch premises, typed and
+  enforced fail-closed, not physical measurements. Theorem:
   `physics-problems/issue_314_super_tannakian_matter_lift.md`.
 
 ### Open receipts
 
+- **PORT-CURRENT-INNER (physical source binding)**: derive or measure the
+  charged response representation and four coefficients from carrier response,
+  and bind the physical refinement maps to the resulting operators.
 - *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
   one group-level action shared by ports and gauge reconstruction, plus one
   source-derived repair composition with nonzero projected `W_5` commutator.
-  The stronger **PORT-CURRENT-INNER** route is closed above, so this branch
-  is only needed for carriers outside the declared response packet.
+  The conditional algebraic route above is stronger once its physical
+  response premises are source-bound.
+- **PORT-SPIN-LIFT (physical source binding)**: land the exact algebraic
+  double cover physically. The #314 packet verifies the algebraic target
+  (non-split binary icosahedral cover with a unique involution) given the
+  conditional #566 premises; the physical receipt inherits their open
+  source binding.
 - **BLOCK-DETERMINANT-BALANCE** and **AXIS-CENTER-DESCENT**: select total
-  trace zero from source dynamics (the #314 packet declares it as contract
-  data) and identify port-loop winding with the deck class; the matter
+  trace zero from source dynamics (the #314 packet declares it as a branch
+  premise) and identify port-loop winding with the deck class; the matter
   lift emits the order-six action kernel this descent consumes.
-  PORT-SPIN-LIFT itself is constructed on the declared branch by the #314
-  packet.
 - **A5-FAMILY-ATTACHMENT** (family corollary only): prove the chiral family
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
@@ -178,9 +179,9 @@ prove that arbitrary OPH carriers must have this type.
 - **EXTERIOR-PACKAGE-SELECTION**: select the non-vacuum even exterior package
   and `H=W` physically, then exclude the vacuum singlet and other
   anomaly-free light generators. The #314 packet realizes the selection by
-  the source-derived equivariant projector under its declared selection
-  contract (and its controls reject the full even Clifford module), but
-  the MGFC-grade exclusion of alternative sectors remains open.
+  the derived equivariant projector under its declared selection contract
+  (and its controls reject the full even Clifford module), but the
+  MGFC-grade exclusion of alternative sectors remains open.
 - **PORT-WEAK-INTERTWINER** and **PORT-LOAD-TRACE**: identify a physical
   four-dimensional screen invariant with the four weak-doublet copies and
   prove that its normalized additive load is the physical `4P` readout.
@@ -214,13 +215,14 @@ action, frame, refinement, relabelling, and countermodels. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
 moduli proofs on the declared response branch. The issue-#314 artifact
 supplies the exact executable spin lift, matter transport, CAR/Fock
-selection, chirality, anomaly, kernel-emission, and refinement-descent
-proofs on the same branch. A Lean port of those
+selection, chirality, anomaly, kernel-emission, and declared-tower descent
+proofs on top of that packet. A Lean port of those
 complete finite packets remains available work; the Python receipts are not
 being relabelled as Lean theorems. `Phi`, `Theta`, the compact-Lie
 trichotomy, trace-balanced group, and physical descent retain their
-separate support boundaries; the physical current is now certified on the
-declared response branch with its declared source data stated explicitly.
+separate support boundaries; only the conditional current algebra and the
+conditional matter lift are certified here, while physical source binding
+of their declared premises remains open.
 
 ## Novelty boundary
 

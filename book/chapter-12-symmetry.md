@@ -68,7 +68,7 @@ translate between their observations.
 Observers have patches with algebras of observables. When patches overlap, they
 must agree on the overlap region.
 
-Conservation laws are the simplest form of this agreement. If I measure total energy in my region and you measure total energy in your region, and our regions overlap, then we must agree on the energy in the overlap-because energy is conserved.
+Conservation laws are the simplest form of this agreement. If I measure total energy in my region and you measure total energy in your region, and our regions overlap, then we must agree on the energy in the overlap, because energy is conserved.
 
 **Symmetry provides the translation manual that makes different viewpoints compatible.**
 
@@ -146,6 +146,8 @@ is continuous and non-negative, and spin $s$, which comes in the familiar
 discrete ladder $0, 1/2, 1, 3/2, 2, \ldots$.
 
 Mass and spin are the only quantum numbers that follow from spacetime symmetry.
+The complete catalogue entry for an elementary particle is two numbers. As
+catalogue entries go, this is admirably brief.
 
 **Particles are representations of symmetries.** Spacetime symmetry fixes the mass-and-spin labels, while the realized internal charges and matter content require additional structure.
 
@@ -209,16 +211,9 @@ $SU(3)$ carries the strong-force color bookkeeping. $SU(2)$ carries the weak
 interaction before symmetry breaking. $U(1)$ carries hypercharge and later
 feeds electromagnetism through its mixing with $SU(2)$.
 
-The subscripted version used later, $G_{SM}$, means "the Standard Model gauge
-group." The multiplication signs mean that the three bookkeeping systems run
-side by side. They do not multiply numbers. They combine independent symmetry
-roles.
-
 Where do these internal symmetries come from?
 
-With the notation unpacked, the physical roles are less mysterious. $SU(3)$ keeps track of the color bookkeeping that confines quarks. $SU(2)$ groups left-handed weak partners into doublets. $U(1)$ carries the leftover charge assignment that survives symmetry breaking and becomes ordinary electromagnetism. The real question of the chapter is why nature settles on exactly this trio.
-
-The useful picture is practical. These groups are the accounting systems that specify which transformations count as physically equivalent in the strong, weak, and electromagnetic sectors. The later Standard Model chapter asks why this accounting structure is so specific.
+The useful picture is practical. These groups are the accounting systems that specify which transformations count as physically equivalent in the strong, weak, and electromagnetic sectors. The real question of the chapter, and of the later Standard Model chapter, is why nature settles on exactly this trio.
 
 ### Extra Dimensions
 
@@ -238,25 +233,27 @@ A conserved current on the screen creates a gauge boson in the bulk.
 
 In this book we take a different route. The gauge group is not assumed in
 advance. We look at what happens when observer patches are glued together. The
-edge charges seen at a fixed resolution combine according to a fusion table, and
-as the resolution is refined that fusion data carries through consistently. A
+edge charges seen at a fixed resolution combine according to a fusion table, a
+finite chart of which charges can merge into which, and as the resolution is
+refined that fusion data carries through consistently. A
 reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
 This is classification before selection. Transport and refinement reconstruct
 a compact group under their stated hypotheses. The economy rule
-then selects the smallest one-Higgs matter package in its declared
-economy class, including three colors and a conditional minimum of three
+then selects the smallest admissible one-Higgs matter package, including
+three colors and a conditional minimum of three
 families. Attaching that family count to physical chiral matter is a separate
 construction. On the selected matter package, six shared center
 transformations act trivially. Counting those duplicates once gives
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
+Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
+the quotient says those six shared moves are one move.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
 system. $U(1)$ is the single continuous charge direction that feeds ordinary
-electromagnetism after symmetry breaking. The quotient by $\mathbb Z_6$ says
-that some shared center labels are counted only once.
+electromagnetism after symmetry breaking.
 
 ### The Icosahedral Finite Symmetry
 
@@ -266,18 +263,13 @@ elements. It is the same abstract group as the even permutations of five
 objects. In the carrier picture it acts on twelve vertices, twenty faces, and
 thirty edges. Their stabilizers have orders five, three, and two. One small
 group therefore organizes the ports, the triangular overlap neighborhoods, and
-the edge-sector and collar bookkeeping without choosing a preferred direction.
+the edge-sector and boundary bookkeeping without choosing a preferred
+direction.
 
-For the declared echosahedral lineage, neither the inverse pairing nor $A_5$
-is inserted as a target label. Equal-trace primitive port atoms and the source
-cost $H(q)=\sum_pq_p^2$ uniquely select one defect unit per port with gap two.
-The oriented incidence graph has one and only one vertex at distance three
-from each port, deriving the six antipodal pairs. Its positive automorphism
-group is then $A_5$, and the distance Gram matrix satisfies $G^2=4G$ with
-rank three, recovering the regular icosahedral frame up to oriented rotation.
-These statements are natural under the declared refinement lineage. They are
-scoped to that carrier architecture, not a proof that arbitrary OPH data must
-choose it.
+In the declared echosahedral lineage, the twelve ports arrange themselves
+under the construction rules; the antipodal pairing and the icosahedral
+symmetry come out rather than being put in. The result is scoped to that
+architecture.
 
 The twelve real port readings split under $A_5$ into four bundles:
 
@@ -315,16 +307,10 @@ law. The result concerns coefficient and current directions; the public record
 projectors themselves commute. A physically constructed, refinement-stable current
 realization is the separate bridge into the gauge sector.
 
-$A_5$ is a finite regulator symmetry. It is neither the Standard Model gauge
-group nor the Lorentz group. Continuous Lorentz symmetry comes from the
-conformal geometry of the smooth $S^2$ cap chart. The physical Standard Model
-matter package and its hypercharges come through the separate gluing and
-minimal-realization route. The six antipodal axes also have an abstract
-$\mathbb Z_6$ residue. Tying that residue to the action on matter requires a
-source-derived spin lift and central intertwiner. That construction, and the
-commuting square identifying the local current route with the independent
-Tannaka/matter route, are open. Masses and coupling strengths belong to the
-dynamics within the symmetry sectors.
+$A_5$ is a finite regulator symmetry, neither the Standard Model gauge group
+nor the Lorentz group; continuous Lorentz symmetry and the physical matter
+package arrive by the separate routes already described. Tying the antipodal
+$\mathbb Z_6$ residue to its action on matter is work in progress.
 
 ### Yang-Mills and the Gap
 
@@ -343,46 +329,33 @@ says that the action is built from curvature squared, integrated over
 four-dimensional Euclidean space. In OPH this is the continuum form of
 compact-gauge patch bookkeeping.
 
-The mass-gap argument has an exact finite theorem and a separate physical gate. At finite resolution, local repair
+The mass-gap proposal has a simple image. At finite resolution, local repair
 removes inconsistencies from the gauge data and returns the system toward its
-repaired vacuum. For that process to enforce a common energy floor, every
-allowed kind of local repair must retain some minimum strength, and neighboring
-repairs must not frustrate one another more and more as the screen grows or its
-boundary changes. Once the finite source lists every collar type and prints one
-uniform influence bound below the instability threshold, the paper proves one
-positive gap that works at every location, size, boundary, and refinement
-stage. Locality or mixing alone cannot do this; small finite counterexamples
-show why both controls matter. The actual compact-gauge source has to
-produce that list and those bounds. If it does, and the
-finite dynamics survives as a nontrivial four-dimensional quantum theory, the
-accounting is literal:
+repaired vacuum. The Yang-Mills gap is then the repair gap: the least
+nontrivial energy needed to leave the repaired vacuum survives as the least
+nontrivial gauge excitation in the continuum,
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-The Yang-Mills gap is then the repair gap: the least nontrivial energy needed
-to leave the repaired vacuum survives as the least nontrivial gauge excitation
-in the continuum. Locality and fading long-range correlations help, but do not
-by themselves prove that a uniform energy floor survives refinement.
+Behind the image sits an exact finite theorem with a separate physical gate.
+For repair to enforce a common energy floor, every allowed kind of local
+repair must retain some minimum strength, and neighboring repairs must not
+frustrate one another more and more as the screen grows or its boundary
+changes. Once the finite source lists every boundary-layer type and prints
+one uniform influence bound below the instability threshold, the theorem
+gives one positive gap that works at every location, size, boundary, and
+refinement stage. Locality or mixing alone cannot do this; small finite
+counterexamples show why both controls matter. The actual compact-gauge
+source still has to produce that list and those bounds, and the finite
+dynamics still has to survive as a nontrivial four-dimensional quantum
+theory, before the accounting becomes literal.
 
-One finite Ising test case calibrates the collar-gap argument. It checks the
-exact rational bookkeeping that turns a
-uniform influence bound into a finite transfer floor of at least one half. It
-does not stand in for the compact-simple-gauge source family. That physical
-construction needs its own collar kernels, refinement data, zero-mode handling,
-and continuum transfer checks.
+A single finite Ising test case calibrates the arithmetic of that argument;
+it does not stand in for the compact-gauge construction itself.
 
 ## 12.8 Symmetry Breaking
-
-The discussion in this section describes the ordinary electroweak field-theory
-mechanism after its gauge, scalar, source, and quantum premises are supplied.
-The finite OPH icosahedral calculation conditionally recognizes the relevant
-compact algebra and a one-Higgs representation packet. Physical scalar and
-family fields, a graded-local quantum theory, and W/Z resonances require
-separate observer-like source constructions with operational ports, readback,
-repair records, actions, amplitudes, and spectral tests. Those constructions
-are open in OPH.
 
 The universe has beautiful symmetries. But the symmetries are also hidden.
 
@@ -420,11 +393,15 @@ states needed by massive $W$ and $Z$ bosons.
 
 In the quantized electroweak theory, the surviving
 $U(1)_{\mathrm{em}}$ direction carries the Maxwell kinetic term in the
-deconfined vacuum. Its positive-residue massless pole is the photon, while the
-broken directions carry the massive $W$ and $Z$ excitations.
+deconfined vacuum. The photon shows up as an exactly massless messenger,
+while the broken directions carry the massive $W$ and $Z$ excitations.
 
 Symmetry breaking corresponds to the screen "freezing" into a specific
 configuration. We live in a frozen shard of a more symmetric world.
+
+This section describes the ordinary electroweak mechanism with its gauge,
+scalar, source, and quantum premises taken as given; building those
+ingredients from observer-like sources inside OPH is work in progress.
 
 ## 12.9 CPT: The Unbreakable Symmetry
 
@@ -452,13 +429,14 @@ Consider a field theory with action:
 
 $$S = \int d^4x \, \mathcal{L}(\phi, \partial_\mu\phi)$$
 
-Under infinitesimal transformation phi goes to phi + epsilon times delta phi, if the action doesn't change:
-
 Here $S$ is the action, the quantity whose stationary points give the field
 equations. The integral $\int d^4x$ means "add contributions over spacetime."
 $\mathcal{L}$ is the Lagrangian density, a local rule built from the field
 $\phi$ and its spacetime derivatives $\partial_\mu\phi$. The Greek index $\mu$
 labels spacetime directions.
+
+Suppose an infinitesimal change $\phi \to \phi + \epsilon\,\delta\phi$ leaves
+the action unchanged. Then a current is conserved:
 
 $$\partial_\mu J^\mu = 0$$
 
@@ -469,12 +447,15 @@ $$J^\mu = \frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi$$
 $J^\mu$ is the current associated with the symmetry. The equation
 $\partial_\mu J^\mu=0$ is a continuity equation: what flows out of one region
 must enter another. The variation $\delta\phi$ is the infinitesimal change of
-the field under the symmetry. Noether's theorem says that if changing the
-field this way leaves the action fixed, a current must be conserved.
+the field under the symmetry, and the factor
+$\partial\mathcal{L}/\partial(\partial_\mu\phi)$ measures how sensitively the
+local rule responds to changes in the field's rate of change. Noether's
+theorem says that if changing the field this way leaves the action fixed, a
+current must be conserved.
 
-For time translation, delta phi = partial_t phi. The conserved current is energy density.
+For time translation, $\delta\phi = \partial_t\phi$. The conserved current is energy density.
 
-For space translation, delta phi = partial_i phi. The conserved current is momentum density.
+For space translation, $\delta\phi = \partial_i\phi$. The conserved current is momentum density.
 
 Together, these form the **stress-energy tensor**:
 
@@ -511,10 +492,10 @@ motion. The book-level point is that the same symmetry moves the screen view and
 the recovered spacetime view.
 
 The observed world obeys the script. Conservation laws hold, CPT remains
-intact, and physical quantum fields obey spin-statistics. OPH has to reproduce
-that last connection through its open spin, exchange, and quantum-field
-construction. Symmetry is one of the mechanisms by which physics keeps itself
-coherent.
+intact, and physical quantum fields obey spin-statistics. OPH has to
+reproduce that last connection; its spin, exchange, and quantum-field
+construction is work in progress. Symmetry is one of the mechanisms by which
+physics keeps itself coherent.
 
 ### Noether's Human Lesson
 
@@ -544,15 +525,8 @@ and the quotient by a shared center, which returns in Chapter 14, records
 which transformations that look separate are actually identified on all
 physical states.
 
-For a reader tracking symbols, the action $S=\int d^4x\,\mathcal L$ is the
-global score assigned to a field history. The Lagrangian density
-$\mathcal L$ is the local contribution to that score. The derivative
-$\partial_\mu$ means "change along spacetime direction $\mu$." The current
-$J^\mu$ is what flows because a symmetry exists. The conservation equation
-$\partial_\mu J^\mu=0$ says the flow has no source or sink. What leaves one
-piece of spacetime enters another. That is why the theorem is so natural in a
-book about shared records: conservation laws are the durable threads that
-let observers compare the same physical story from different cuts.
+Conservation laws are the durable threads that let observers compare the same
+physical story from different cuts.
 
 ## 12.12 Reverse Engineering Summary
 
@@ -563,6 +537,9 @@ descriptions compatible across direction. Time-translation symmetry keeps them
 compatible across repeated comparison. Gauge symmetry keeps them compatible
 across local descriptions of charge. Conservation laws are the public record
 of that agreement.
+
+Consistency has dictated grammar. What it says about size is the next
+question.
 
 ---
 
