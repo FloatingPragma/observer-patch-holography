@@ -116,7 +116,7 @@ Reality emerges from the agreement of observer patches. But where do observers
 compare notes? They need a shared record, a common reference where their
 descriptions must match.
 
-The boundary serves exactly this role. A patch exposes a boundary packet and an
+The boundary is that place. A patch exposes a boundary packet and an
 observer-readable record there. Another patch can translate, compare, and, when
 the protocol permits it, repair a mismatch. When patches overlap, their shared
 visible values must agree. The bulk emerges as the most consistent account that
@@ -130,7 +130,7 @@ readout of what the boundary description encodes.
 
 ## 8.4 The Soup Can Universe
 
-You live inside a soup can. This one is infinitely tall and wide, yet a beam of light can reach the wall in finite time. The geometry is warped. As you walk toward the wall, your ruler shrinks, so the wall keeps retreating. March for a billion years and you'll never touch it, yet a flashlight can hit the wall and bounce back before your coffee gets cold.
+You live inside a soup can. This one is infinitely tall and wide, yet a beam of light can reach the wall in finite time. The geometry is warped. As you walk toward the wall, your ruler shrinks, so the wall keeps retreating. March for a billion years and you'll never touch it, yet a flashlight can hit the wall and bounce back before your coffee gets cold. The wall is, for every practical purpose, somebody else's problem.
 
 This is **anti-de Sitter space**, or AdS. It's a spacetime with constant negative curvature. If flat space is a sheet of paper, AdS is a saddle that keeps curving in every direction. Light rays curve back toward the center. Nothing drifts away forever.
 
@@ -200,8 +200,11 @@ observations.
 
 ### Key Properties
 
-**Scaling dimensions**: Under rescaling, $x$ goes to $\lambda x$. A field with
-dimension $\Delta$ transforms as:
+**Scaling dimensions**: Under rescaling, $x$ goes to $\lambda x$. Here
+$\mathcal O(x)$ is an operator inserted at position $x$, the number $\lambda$
+rescales distances, and $\Delta$ is the scaling dimension, which tells how
+strongly the operator changes under zooming. A field with dimension $\Delta$
+transforms as:
 
 $$\mathcal{O}(x) \to \lambda^{-\Delta} \mathcal{O}(\lambda x)$$
 
@@ -210,13 +213,9 @@ $\Delta$ controls the two-point correlation:
 
 $$\langle \mathcal{O}(x) \mathcal{O}(y) \rangle = \frac{C}{|x-y|^{2\Delta}}$$
 
-No characteristic scale means power-law decay with the same form at all distances.
-
-$\mathcal O(x)$ is an operator inserted at position $x$. The number $\lambda$
-rescales distances. $\Delta$ is the scaling dimension, which tells how strongly
-the operator changes under zooming. $C$ is a normalization constant, and
-$|x-y|$ is the distance between insertions. The power law is the signature of a
-theory with no preferred length scale.
+Here $C$ is a normalization constant and $|x-y|$ is the distance between
+insertions. No characteristic scale means power-law decay with the same form
+at all distances.
 
 **Central charge**: Every CFT has a number c that counts degrees of freedom.
 
@@ -226,7 +225,9 @@ The Poincare patch metric for AdS is:
 
 $$ds^2 = \frac{R^2}{z^2}\left(dz^2 + \eta_{\mu\nu} dx^\mu dx^\nu\right)$$
 
-where z > 0 is the radial coordinate and eta is the flat Minkowski metric.
+where z > 0 is the radial coordinate and eta is the flat Minkowski metric. A
+metric is a recipe for measuring distances, and the indices $\mu$ and $\nu$
+label the directions it compares.
 
 This formula is less important than its interpretation. It says AdS can be
 sliced into ordinary-looking flat spacetime layers, stacked along a new radial
@@ -239,7 +240,7 @@ As z goes to 0, you approach the boundary. Each slice of constant z looks like f
 
 The coordinate z has physical meaning. In the boundary CFT, z corresponds to **energy scale**. Small z means high energy (UV). Large z means low energy (IR).
 
-This is the **UV/IR connection**. High energies on the boundary map to small z in the bulk. The radial direction encodes the energy hierarchy. The bulk geometrizes the renormalization group.
+This is the **UV/IR connection**. High energies on the boundary map to small z in the bulk. The radial direction encodes the energy hierarchy. The bulk geometrizes the renormalization group, the procedure of zooming out and asking what survives.
 
 ## 8.8 The GKPW Dictionary
 
@@ -254,13 +255,6 @@ encodes all bulk amplitudes. The integral $\int d^d x$ runs over the
 $d$-dimensional boundary. The angle brackets mean expectation value in the
 CFT. The exponential collects the effect of turning on the source throughout
 the boundary theory.
-
-The formula earns its keep because it turns a bulk question into a boundary
-calculation. Fix the boundary data, and the bulk tells you how the interior
-responds. Turn on the corresponding source in the CFT, and the boundary tells
-you the same thing in field-theory language. Differentiate with respect to the
-source and you generate correlation functions. Bulk and boundary are solving
-one problem in two dialects.
 
 It helps to picture one concrete use. If the boundary theorist asks, "What happens if I couple a source to this operator and measure the response?" the bulk theorist asks, "What bulk field profile reaches the boundary with that asymptotic value?" GKPW says those are the same computation written on opposite sides of the correspondence.
 
@@ -278,12 +272,6 @@ Its physical meaning is simple. A heavy bulk field maps to a boundary operator
 with large scaling dimension, so the boundary disturbance it creates dies away
 more quickly under coarse-graining.
 
-The table does real work. Each row says what kind of bulk quantity the
-boundary theory is keeping track of. A bulk scalar is read as a boundary
-operator. A bulk gauge field is read as a conserved current. A bulk black hole
-is read as a hot many-body state. The third spatial direction in the bulk
-becomes a bookkeeping device for scale on the boundary.
-
 ## 8.9 The Ryu-Takayanagi Formula
 
 The deepest connection between bulk geometry and boundary physics involves entanglement.
@@ -294,15 +282,14 @@ $$S(A) = \frac{\text{Area}(\gamma_A)}{4G}$$
 
 where gamma_A is the **minimal surface** in the bulk that ends on the boundary of region A.
 
-This tells you how much geometry is needed to keep region $A$ tied to the rest of the state. More entanglement across the boundary cut means a larger minimal surface. Less entanglement means a smaller one. Entropy becomes the quantity that measures how much bulk geometry is supporting the connection.
-
-The surface $\gamma_A$ can be read as the cheapest geometric bottleneck compatible with the boundary cut. Its area measures how much correlation has to pass between $A$ and its complement. The formula therefore says something very concrete: the bulk pays for connectivity with area, and that bill is exactly the boundary entanglement entropy.
-
 ### Geometry from Entanglement
 
-Draw a region A on the boundary. There's a surface in the bulk that dips into the interior, anchored on the edge of A, with minimal area. The entanglement entropy equals this area divided by 4G.
-
-More entanglement means a larger minimal surface. The geometry of the bulk encodes entanglement structure on the boundary.
+The surface $\gamma_A$ can be read as the cheapest geometric bottleneck
+compatible with the boundary cut. Its area measures how much correlation has
+to pass between $A$ and its complement. More entanglement across the cut
+means a larger minimal surface, and less entanglement means a smaller one.
+The bulk pays for connectivity with area, and that bill is exactly the
+boundary entanglement entropy.
 
 The RT formula sits at the center of the chapter because it turns a
 quantum-information question into a geometric one. Once area can be read from
@@ -362,7 +349,7 @@ At a critical temperature, there is a phase transition called the **Hawking-Page
 
 Perturb a black hole and it "rings" like a bell. These **quasinormal modes** correspond to poles in thermal correlation functions of the boundary theory.
 
-Black holes saturate the quantum **chaos bound**, making them the fastest scramblers allowed by quantum mechanics.
+Black holes saturate the quantum **chaos bound**, a speed limit on how fast information can be shuffled, making them the fastest scramblers allowed by quantum mechanics.
 
 ## 8.12 How Gravity Emerges from Entanglement
 
@@ -373,23 +360,14 @@ entanglement structure on the boundary.
 
 Read the RT formula backwards: **area is determined by entanglement**. More entanglement between region A and its complement means a larger minimal surface connecting them. The geometry of the bulk is literally woven from quantum correlations on the boundary.
 
-Mark Van Raamsdonk made this vivid with a thought experiment. Take two entangled CFTs, two copies of the boundary theory in an entangled state. Together they describe a connected bulk spacetime: a wormhole connecting two regions.
-
-Reduce the entanglement. As you dial down the correlations between the two CFTs, what happens to the wormhole? It stretches and thins. When entanglement reaches zero, the wormhole pinches off entirely. Two disconnected spacetimes.
-
-**Entanglement is the glue of spacetime.** Without it, space falls apart.
-
 ### The ER = EPR Connection
 
-Einstein and Rosen studied wormholes (ER bridges) in 1935. Einstein, Podolsky, and Rosen studied entanglement (EPR pairs) in 1935. For eighty years, no one connected them.
-
-In 2013, Maldacena and Susskind proposed: **ER = EPR**. In the right holographic settings, wormholes and entanglement can be read as two descriptions of the same underlying connectivity.
-
-In the strongest holographic examples, entangled systems admit wormhole descriptions. The connection is suggestive more broadly, but it should not be stated here as a literal geometric fact for every entangled pair.
-
-This unifies two seemingly different concepts. Quantum mechanics gives us
-entanglement. General relativity gives us wormholes. In the right settings,
-geometry becomes one language for certain entanglement structures.
+There is a stronger version of this idea, with a curious pedigree: wormholes
+and entanglement both entered physics in 1935, in two papers carrying
+Einstein's name, and for eighty years nobody connected them. In 2013,
+Maldacena and Susskind proposed that the two are linked, a slogan they wrote
+as **ER = EPR**, and Mark Van Raamsdonk argued that entanglement is what
+holds a shared bulk together. Chapter 9 tells that story in full.
 
 ### Gravity from Thermodynamics
 
@@ -413,28 +391,15 @@ Just as PV = nRT follows from statistical mechanics without knowing molecular de
 
 ### Why This Matters for OPH
 
-Observer patches have boundaries, those patches have to agree on overlaps, and
-that agreement takes the thermodynamic form of equilibrium.
-
-Geometric modular flow on caps supplies the local horizon temperature, while
-the error-correction structure splits entropy into area and bulk pieces.
-Jacobson's thermodynamic argument then turns observer-horizon consistency into
-Einstein's equations on the typed common-domain branch. That OPH composition
-also requires uniform continuum control, universal coupling, a vacuum
-reference, and independent scale readouts. Construction and certification of
-one inhabited source-derived tower with all these premises are work in
-progress.
+Observer patches have horizons, horizons have temperatures, and agreement
+across overlaps behaves like thermodynamic equilibrium. Run Jacobson's
+argument on that equilibrium and Einstein's equations fall out. Building the
+machine-checked version of that whole chain is work in progress.
 
 On this thermodynamic reading, four-dimensional spacetime geometry works so well
 because it behaves like an equilibrium description of horizon entropy. The
 geometry we observe is then read as the effective configuration favored by that
 entropy bookkeeping under matter constraints.
-
-The neutral bulk is built from chart-independent records. Interface transport
-closes the holonomy, duplicate feature labels are quotiented away, and resolved
-incidences turn preliminary separations into physical distances. The
-thermodynamic and modular constructions act on this shared geometry rather than
-on a mere collection of joined tables.
 
 ## 8.13 How OPH Rebuilds the Holographic Lesson
 
@@ -478,11 +443,12 @@ overlap is where two such cuts can be compared.
 OPH is therefore observer-horizon holography rather than dS/CFT at future
 infinity:
 
-**On one source-derived tower carrying the required geometry, modular state,
-events, stress, entropy, vacuum, coupling, scale, and continuum receipts,
-observer-patch consistency plus the entanglement-equilibrium / Jacobson
-construction yields the semiclassical Einstein relation in the bulk.** An
-inhabited tower satisfying that full antecedent is work in progress.
+**Given a construction that supplies all the required ingredients, the
+geometry, the thermodynamic state, the entropy accounting, a vacuum
+reference, the coupling, and a uniform notion of scale, observer-patch
+consistency plus the Jacobson construction yields the semiclassical Einstein
+relation in the bulk.** Exhibiting a construction that satisfies that full
+list is work in progress.
 
 The bulk emerges from the boundary through consistency and compression, as the
 readout of boundary data under overlap constraints.
@@ -499,7 +465,14 @@ Think of AdS/CFT as a proof of concept that boundaries can encode bulks with
 gravity. OPH takes that encoding lesson and rebuilds it in an observer-first
 setting.
 
-The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert space of about $\exp(3.31\times10^{122})$ dimensions, and observer-dependence built in from the start. These finite features make the observer-centric approach natural.
+The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert
+space of about $\exp(3.31\times10^{122})$ dimensions, and observer-dependence
+built in from the start. These finite features make the observer-centric
+approach natural. For orientation, the measured de Sitter horizon ratio is
+about $1.05\times10^{122}$, and the associated screen-entropy coordinate is
+about $3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. These
+are comparison coordinates rather than a completed measurement of the size of
+reality.
 
 ### Observer-Horizon Holography in de Sitter
 
@@ -528,46 +501,13 @@ De Sitter horizons make observer-patch holography natural. Each observer has a
 horizon-bounded access domain, a local screen cut, and overlap conditions tying
 that cut to neighboring ones.
 
-The proposed cosmological branch assigns the metric-proportional term through a
-**global capacity relation**, the correctable public-record capacity of the
-screen. The local null-modular theorem fixes the traceless curvature response
-only on its typed branch. Supplying the absolute metric term additionally
-requires a physical capacity selector, horizon-record saturation, a vacuum
-reference, and scale transport. Those bridges are open.
-
-The closure target can be said without asking the reader to parse every symbol
-at once. Supply a carrier of dimension $D$. Let every settled
-observer-supported world read back its correctable public-record capacity
-$M_0(q)$. The official universe-level equation is
-
-$$
-\boxed{N=\log M_0(\mathfrak U_N)}.
-$$
-
-It says that the capacity supplied to a trial universe should equal the
-capacity its observers read back internally. The rigorous finite target is
-
-$$
-\mathfrak F_{r,0}(D_\star)
-=\{M_0(q):q\in\widetilde\Omega_{r,D_\star}\}
-=\{D_\star\}.
-$$
-
-At finite cutoff, the exact capacity is the independence number of the compound
-checkpoint confusability graph. A separate finite-size slack law would have to
-select $D_\star$ as its unique zero; an entropy-weighted terminal count does not
-supply that theorem. If that selector, physical saturation, and scale bridge
-are constructed, $N_{\mathrm{CRC}}=\log D_\star$ can be converted into products
-such as $\Lambda\ell_\star^2$ and eventually into an SI value of $\Lambda$.
-For orientation, the measured de Sitter horizon ratio is about
-$1.05\times10^{122}$ and the associated screen-entropy coordinate is about
-$3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. These are
-comparison coordinates, not a completed measurement of the “size of reality.”
-
 This avoids the boundary-at-infinity problem by changing the primitive object.
-OPH builds local patch descriptions that must agree on overlaps. The bulk
-emerges from that agreement, with the dimensionless Lambda-capacity relation as
-a conditional global readout target.
+OPH builds local patch descriptions that must agree on overlaps, and the bulk
+emerges from that agreement.
+
+For now, take the horizon's capacity as a brute fact about our universe.
+Whether anything obliges it to have the value it has is a different kind of
+question.
 
 ## 8.14 Reverse Engineering Summary
 
@@ -585,7 +525,8 @@ notes and force one public world into being.
 ---
 
 Boundaries can encode bulks. What actually weaves the bulk together, making one
-point "close" to another, is entanglement: the quantum correlations used
-throughout this book.
-
-In the next chapter, we zoom in on the main glue of the bulk: entanglement. We'll see how the Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear space apart, and how ER=EPR points toward spacetime being woven from quantum correlations.
+point "close" to another, is entanglement, the quantum correlations used
+throughout this book. The next chapter zooms in on that glue: how the
+Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear
+space apart, and how ER=EPR points toward spacetime being woven from quantum
+correlations.

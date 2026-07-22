@@ -36,7 +36,7 @@ We take a narrower, operational step: **treat reality as a structure that has to
 
 ### Why the Intuitive Picture Fails
 
-Why abandon the intuitive picture at all? Because the universe gave us hints, strange, persistent, reproducible hints, that it cannot be correct.
+Why abandon the intuitive picture at all? Because the universe gave us hints, strange and reproducible hints, that it cannot be correct.
 
 Imagine a cosmic record that contains *all* facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
 
@@ -165,22 +165,16 @@ Put these hints together, and a new picture emerges.
 
 There is no God's-eye view. There is no absolute description of reality that exists independently of observers. Instead, there are many observers, each with a limited perspective, and reality is what emerges when their perspectives must agree.
 
-This is the turnaround: **the “objective world” is the fixed point of consistency across many observer patches, and those patches are themselves forced by a structure that has to read itself consistently.**
+This is the turnaround: **the "objective world" is the fixed point of consistency across many observer patches, and those patches are themselves forced by a structure that has to read itself consistently.**
 
-![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap checks pass.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
-According to OPH, a proposed repair counts as a physical step only after the
-overlap checks pass. Overlapping proposals are bundled into one transaction,
-checked against the shared record state, required to preserve the boundary and
-sector data, and accepted only when the repair measure descends. The shared
-normal form comes from confluence in that transaction layer rather than from a
-simulation choosing the most convenient branch.
-
-That theorem compares repair schedules beginning at one fixed quotient state.
-Two different interiors exposing the same boundary reach the same public result
-only when the boundary identifies the consistent quotient, modulo the declared
-gauge or silent relation. The OPH paper stack proves this cross-source criterion
-and keeps endpoint existence and schedule liveness as separate conditions.
+OPH adds one demand to this picture: a proposed correction only counts as a
+physical step once the overlap checks pass. Different repair schedules,
+started from the same shared state, provably settle to the same public
+result, granted separately that a settled endpoint exists and the schedule
+keeps making moves. The proof is machine-checked; the moral is that the
+shared world does not depend on who repairs first.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
@@ -226,6 +220,7 @@ Change almost any of these by a small amount, and the universe becomes incapable
 
 We exist in a tiny island of consistency in a vast sea of possible physics.
 Most possible universes are sterile: no stars, no chemistry, no observers.
+Nobody in them minds.
 
 ### Why Is Physics Uniform?
 
@@ -239,9 +234,9 @@ A symmetry says "this thing looks the same from different perspectives."
 
 **Translation symmetry**: Do an experiment here, move five feet left, do it again, get the same result. If physics depended on where you are, observers in different locations couldn't agree.
 
-**Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, observers with different orientations couldn't agree.
+**Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, no two lab benches would give the same physics.
 
-**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion couldn't agree.
+**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion would inhabit different worlds.
 
 **Gauge symmetry**: You use one mathematical description, I use another. As long as they're related by a gauge transformation, we make the same physical predictions. A gauge choice is like choosing coordinates for an internal bookkeeping system. Different choices can describe the same physical situation. This lets different mathematical formalisms agree on reality.
 
@@ -334,7 +329,7 @@ If something cannot be consistent, it cannot be observed by multiple observers, 
 
 If this sounds too abstract, look at gases.
 
-Molecules can follow many different microscopic rules. They can be hydrogen, helium, nitrogen, or sulfur hexafluoride. Yet almost every gas follows the same macroscopic law: $PV = nRT$.
+Molecules can follow many different microscopic rules. They can be hydrogen, helium, nitrogen, or sulfur hexafluoride. Yet almost every gas follows the same macroscopic law: $PV = nRT$. Pressure times volume tracks the amount of gas and its temperature; no molecular detail appears in the law.
 
 Why? Because macroscopic observers don't see molecules. They see pressure gauges and thermometers. The microscopic details wash out. What survives is a pattern that many different microscopic systems share.
 
@@ -346,7 +341,8 @@ From these hints, OPH distills **five core axioms** that guide the rest of this
 book:
 
 **Axiom 1: Screen Net / Finite Access**
-Every observer is finite. Its operational patch has a bounded algebra and
+No observer reads the whole world; every view comes through a bounded window
+backed by a finite memory. Every observer is finite. Its operational patch has a bounded algebra and
 state, records, exposed interfaces, and allowed updates. On the geometric
 branch, that patch is displayed as a local cut of the shared screen net. No
 observer accesses the whole structure at once.
@@ -355,7 +351,8 @@ observer accesses the whole structure at once.
 If you look at a star and I look at the same star, we have to agree on what we can jointly check. Where patches overlap, their descriptions must match on the shared observables. That single constraint shapes almost everything.
 
 **Axiom 3: Local MaxEnt and Refinement Stability**
-At the regulator scale, the realized state is selected by maximizing entropy
+Where its checks run out, an observer assumes as little as possible, and it
+keeps the same short list of assumptions as the picture sharpens. At the regulator scale, the realized state is selected by maximizing entropy
 subject to a short, fixed list of constraints on screen-wide totals, one
 dial per constraint in the list rather than one per screen cell. The axiom then adds
 a genuine physical assumption, the refinement-closure clause: as the screen is
@@ -367,7 +364,8 @@ The regulator scale is the working resolution of the screen. MaxEnt means
 the observer can actually enforce.
 
 **Axiom 4: Recoverable Generalized Entropy**
-You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
+Tear a page out of a well-kept ledger and the neighboring entries let you
+rebuild it. You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
 
 Generalized entropy is ordinary quantum entropy plus the geometric boundary
 term familiar from horizons. Recoverability means that missing local data can
@@ -375,7 +373,9 @@ be reconstructed from neighboring overlap data when the correlations have the
 right form.
 
 **Axiom 5: Economy Principle**
-Among the admissible low-energy possibilities, the realized sector is the
+When several particle worlds would all satisfy the checks, the realized one
+is the cheapest. Later chapters make "cheapest" precise; here it is enough
+that the tie-breaker is economy. Among the admissible low-energy possibilities, the realized sector is the
 minimal one under the precise complexity ordering used in the physics program.
 This is the selector that acts after compact-gauge reconstruction and narrows
 the realized low-energy package to the Standard Model branch.
@@ -387,7 +387,7 @@ These five axioms point toward a radical conclusion: reality can be modeled comp
 The observer-facing screen can be represented by a finite quantum regulator.
 In one chart, qudits sit on the edges of a triangulated screen and local
 constraints act at vertices. The chart is not the literal computer on which
-the universe runs. The fixed-cutoff carrier is a federation of finite patches
+the universe runs. The finite-resolution carrier is a federation of finite patches
 whose exposed overlaps, records, and repair moves are read through
 observer-facing screen charts. On the reference branch, each elementary
 carrier has twelve ports arranged by icosahedral incidence. Maximum entropy
@@ -431,19 +431,17 @@ the same world is a self-consistent pattern whose calibrated clocks agree where
 their events meet. The irreversible repair order and the reversible clock law
 do different jobs inside that pattern.
 
-You might ask: "If reality is a computation, what is it computing?" It is computing one closed
-structure whose geometry, particles, observers, records, and hardware belong to one
-self-referential loop. Chapter 18 gives that closed loop its name — the strange loop — and
-saves it for late in the story, where it belongs: the argument of this book stands on
-observers and consistency alone, and the loop arrives at the end as a twist those
-chapters have earned. The patterns that persist
-are the patterns that are consistent. Observers are patterns that learn to model other patterns.
-Consciousness is what it feels like to be one of those self-modeling patterns.
+You might ask what such a computation is computing. It is computing one
+closed structure whose geometry, particles, observers, records, and hardware
+hold together with no outside help. The patterns that persist are the
+patterns that are consistent. Observers are patterns that learn to model
+other patterns. Consciousness is what it feels like to be one of those
+self-modeling patterns.
 
-This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop needs no external cause because it has no temporal first step waiting to be triggered from outside.
+This view changes many traditional puzzles. "Why does anything exist at all?" stops being a question about a first cause and becomes a question about whether a description can hold together with nothing underneath it.
 
-“What is the universe made of?” becomes, within OPH, “Which finite carrier
-structure can realize the observer contract?” The reference construction uses
+"What is the universe made of?" becomes, within OPH, "Which finite carrier
+structure can realize the observer contract?" The reference construction uses
 a federation of twelve-port quantum systems whose repaired public data admit a
 spherical chart. The material can vary within exact operational equivalence.
 The incidence, orientation, state, readback, repair law, and refinement cannot
@@ -471,8 +469,8 @@ conservation laws, and de Sitter horizons emerge from consistency?
 classical physics emerge from the screen?
 
 **Chapter 17-20**: The selection and self-reference hint: why these laws and not
-others, whether laws are evolutionary survivors, how a universe that reads itself
-forces its two constants, and what all of this means for existence itself.
+others, whether laws are evolutionary survivors, and what a universe that must
+account for itself does to the last numbers on the board.
 
 The 3D world you see around you, the chairs, the stars, the empty space, is
 secondary to the boundary bookkeeping. The real data is organized on
@@ -480,6 +478,6 @@ boundaries. We call this the holographic principle. In gravitational settings,
 it says that the independent bookkeeping for a region may be carried by data on
 the surface that encloses it.
 
-The first hard clue came from black holes.
-
 The next chapter traces the lineage of that suspicion. It moves from philosophy to physics and shows how the long argument about appearance and reality became a concrete argument about information and geometry.
+
+The first hard clue came from black holes.

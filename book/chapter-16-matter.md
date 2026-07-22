@@ -1,11 +1,11 @@
 # Chapter 16: Matter, Motion, and Classical Physics
 
-The finite matter result is a fifteen-state internal representation pattern
-under a declared set of premises. It does not supply physical spin and
-exchange, nonzero particle residues, three-family attachment, or a constructed
-quantum field theory. Those bridges are open in OPH. The familiar
-particle language in this chapter applies after the required action,
-positivity, current, and spectral data are supplied.
+In 1909, alpha particles fired at a sheet of gold foil in Manchester came
+bouncing back. Rutherford called the result as incredible "as if you fired a
+15-inch shell at a piece of tissue paper and it came back and hit you." The
+only architecture that survived the recoil was a tiny, dense nucleus in a
+vast emptiness. Probed hard enough, matter keeps turning out to be structure
+rather than stuff. This chapter follows that lesson to the bottom.
 
 ## 16.1 The Intuitive Picture: Matter Is Stuff, Motion Is Force
 
@@ -21,8 +21,8 @@ In this view, the world is a stage (space), time ticks forward, and matter is
 the cast. Classical physics is the script: Newton's laws, conservation of
 energy, and the principle of least action.
 
-The picture passes every test daily life can devise. So why not take it as
-fundamental?
+The picture passes every test daily life can devise. It is almost, though
+not quite, entirely adequate. So why not take it as fundamental?
 
 ## 16.2 The Surprising Hint: The Classical World Is Not Fundamental
 
@@ -56,6 +56,9 @@ the ripple is a pattern that moves, interacts, and keeps its identity without
 owning any fixed set of water molecules. Particles play the same role in the
 emergent effective theory.
 
+Everything in this chapter is the pattern layer; attaching it to measured
+particles is work in progress, and the synthesis chapter keeps the ledger.
+
 ## 16.4 From Stable Patterns to the Particle World
 
 Stable-pattern language earns its keep only where the familiar particle
@@ -68,13 +71,10 @@ charge sectors reconstruct the compact gauge structure. The economy rule, which 
 then gives a conditional Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
 carrier, and the conditional minimum $N_g=3$. The physical family attachment
-is open.
+is work in progress.
 
-This chain inherits the collective history of particle physics. When alpha
-particles bounced backward off gold foil in Manchester in 1909, Rutherford
-called the result as incredible "as if you fired a 15-inch shell at a piece
-of tissue paper and it came back and hit you"; the tiny nucleus was the only
-architecture that survived the recoil. Chadwick found the
+This chain inherits the collective history of particle physics. Rutherford's
+recoil opened it. Chadwick found the
 neutron. Anderson saw the positron. Yukawa predicted a meson-like carrier of
 the nuclear force. Gell-Mann and Zweig organized hadrons into quarks. Glashow,
 Weinberg, and Salam gave the electroweak theory. Gross, Wilczek, and Politzer
@@ -96,20 +96,12 @@ $$
 
 $m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. The strict complex-pole implication is a proved conditional
-theorem at the quantization tier, and these displayed chart values do not
-instantiate it: they lack the target-clean matching, vacuum-coordinate,
-self-energy, gauge-identity, current-amplitude, covariance, and clock
-receipts that the theorem consumes.
+through $E=mc^2$. Those two numbers are where the calculation currently
+points; promoting them to predictions needs several attachment steps that are
+work in progress.
 
-On the local closure proposal, one dimensionless screen coordinate organizes
-the strength of electromagnetism. From the geometric side it is a small departure from the
-golden-ratio balance of the screen. From the inside it is the electromagnetic
-step available to observers. The fixed-point equation identifies those two
-readings, and the declared gauge transport carries the result through
-electroweak mixing and the charged quantum vacuum to a long-distance inverse
-coupling close to 137. Physical promotion requires the source and transport
-attachments stated in the paper stack.
+The strength of electromagnetism turns out to be readable off the screen's
+geometry, for a reason the book holds until it can be stated properly.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction
@@ -120,13 +112,10 @@ m_{\rm rep}=2(8+3+1)=24.
 $$
 
 The icosahedral carrier boundary has twelve ports and twenty-four oriented
-slots. Its vertices mark local exposed interfaces, not points on the global
-support chart. The numerical
-match does not place gauge generators on the ports, define inverse updates, or
-produce an invariant literal $8+3+1$ partition. A physical identification
-requires a separately constructed current map and proof that its algebra
-closes. The Higgs
-and top occupy a linked critical balance inside that quantitative structure.
+slots, matching that count. Whether the match is physics or coincidence turns
+on constructing the current that would tie gauge directions to ports, and
+that construction is work in progress. The Higgs and top occupy a linked
+critical balance inside the same quantitative structure.
 
 Where can a three-place family candidate come from? The icosahedron supplies
 one with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
@@ -138,24 +127,22 @@ $$
 C=aI+bR+\overline bR^2,
 $$
 
-where $R$ advances one corner. The icosahedral action carries the same unordered
-spectrum from face to face. The sixty face-corner flags are the local copies of
-this dial. After a declared quotient and economy selection, this geometry
-leaves a canonical rank-three candidate band. It becomes a three-generation
-chiral family space only if one physical complex space ties three copies of the
-fifteen-state matter pattern together and survives the required locality,
-spectral, family-descent, and refinement tests.
+where $I$ is the identity, $R$ advances one corner, $a$ sets the response the
+three corners share, and $b$ sets how they differ. A circulant is a matrix
+whose rows are all the same list, rotated one step each row. The icosahedral
+action carries the same unordered spectrum from face to face. The sixty
+face-corner flags are the local copies of this dial, and the economy
+selection leaves a canonical three-slot candidate band. The face triplet and
+the color triplet of $SU(3)$ do different jobs; their shared use of the
+number three comes from different parts of the architecture. Tying the face
+triplet to the three observed generations is work in progress.
 
-The candidate family triplet and the color triplet do different jobs. The face
-triplet supplies a possible family multiplicity carrier; the fundamental
-triplet of $SU(3)$ counts the three colors of a quark on the conditional matter
-packet. Their shared use of the number three comes from different parts of the
-architecture and is not itself a physical attachment theorem.
-
-The finite charged-family control supplies a reversible write/verify pair.
-Radial readback places the three eigenvalues in the positive square-root-mass
-geometry, while the binary record balance fixes the transverse-to-uniform
-ratio. The resulting angle gives
+In 1981 Yoshio Koide wrote down a formula tying together the masses of the
+electron, muon, and tau. It fit the tau mass before precision measurements
+confirmed it, and nobody knew why it should hold. The face geometry offers an
+answer. Read the three eigenvalues as square roots of the charged-lepton
+masses, let the record balance fix how much the three share against how much
+they differ, and the resulting angle gives
 the Koide value
 
 $$
@@ -164,54 +151,49 @@ Q=\frac{m_e+m_\mu+m_\tau}
 =\frac23.
 $$
 
-An eight-register finite model realizes this loop with bounded local state,
-ports, readback, repair moves, and durable accepted or rejected records. It is
+An eight-register finite model realizes this write-and-verify cycle with
+bounded local state, ports, readback, repair moves, and durable accepted or
+rejected records. It is
 an observer-like self-reading charged-family control. The geometry supplies the
 three-cycle and the record layer selects a stable response. Identifying its
-three eigenmodes with the electron, muon, and tau directions additionally
-requires the open nature, electromagnetic-transport, and pole attachments.
+three eigenmodes with the physical electron, muon, and tau is work in
+progress.
 
 If the physical construction selects the same global family triplet, it
-carries the quarks and neutrinos. Quarks need six
-Yukawa coordinates at one common scale: three for the up-type sector and three
-for the down-type sector. Their values run with energy as gauge and Higgs
-interactions dress the underlying family response.
+carries the quarks and neutrinos. The six quark flavors, up, down, strange,
+charm, bottom, and top, need six Yukawa coordinates at one common scale,
+three up-type and three down-type. Their values run with energy as gauge and
+Higgs interactions dress the underlying family response.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
 short-distance table is not the same kind of number as a proton mass measured in
-the lab.
+the lab: the proton is a bound state, and most of its mass is the confinement
+energy of the quarks and gluons inside it.
 
-The subscripts name the six quark flavors: up, down, strange, charm, bottom, and
-top. Their masses are short-distance quantities tied to a chosen energy scale.
-Protons, neutrons, and mesons are different kinds of objects. They are bound
-states, and most of their mass comes from the confinement energy of quarks and
-gluons.
-
-On that conditional attachment, neutrinos use the same three-family space in a different basis. Electron,
-muon, and tau name flavor directions, while $m_1,m_2,m_3$ name mass directions.
-The PMNS matrix is the rotation between those two descriptions. Majorana phases
-are extra phases that become physical when neutrinos are their own
-antiparticles.
-
-QCD is quantum chromodynamics, the strong-interaction theory that binds quarks
-and gluons into hadrons. The symbols $\theta_{\mathrm{QCD}}$ and $\bar\theta$
-name strong-CP angles, parameters that measure a CP-violating
-strong-interaction phase.
+On that conditional attachment, neutrinos use the same three-family space in
+a different basis: electron, muon, and tau name flavor directions,
+$m_1,m_2,m_3$ name mass directions, and the PMNS matrix is the rotation
+between those two descriptions.
 
 ### Why the Universe Contains More Matter Than Antimatter
 
-The particle map first gives matter and antimatter together. Their later
-imbalance comes from a directed repair current. A gauge-singlet record phase is
-attached to the electroweak $B+L$ charge, the combination of baryon and lepton
-number changed by sphaleron processes. Its winding distinguishes a history from
-its charge-parity mirror and biases transitions in one direction.
+Every recipe above produces matter and antimatter in equal amounts, and
+equal amounts annihilate. Run that forward and the universe ends as a thin
+bath of light with nobody in it. Something tipped the balance by roughly one
+part in a billion, and that tip is the reason there are galaxies, chemistry,
+and readers.
 
-The sixfold Standard Model phase has a different job. It identifies duplicate
-color, weak, and hypercharge transformations and is anomaly-free. The singlet
-record phase carries the anomalous direction needed for the matter excess. As
-the universe cools, sphaleron transport converts the directed repair history
-into baryon number, and freeze-out preserves the excess.
+In this framework the tip comes from the record layer. The repair current
+that keeps records consistent carries a phase, a winding that tells a history
+apart from its mirror image. That phase attaches to the combined baryon and
+lepton charge that sphalerons can change; a sphaleron is a high-temperature
+process that can convert one kind of charge into another. The winding biases
+those conversions in one direction. As the universe cools, the biased
+conversions leave a small surplus of matter behind, and freeze-out locks the
+surplus in. The Standard Model's own sixfold phase cannot do this job; it
+only identifies duplicate color, weak, and hypercharge transformations, and
+the record phase supplies the extra direction the excess needs.
 
 ## 16.5 What Is a Particle?
 
@@ -264,7 +246,7 @@ Classical motion can be described in two equivalent languages. One uses force
 laws such as $F = ma$. The other uses variational laws in which trajectories
 extremize an action. Both are effective descriptions. Motion is a property of
 stable patterns moving under modular flow, observed consistently across
-patches. Forces describe how those patterns interact within the emergent EFT.
+patches. Forces describe how those patterns interact within the emergent effective field theory.
 
 **Locality and consistency constrain motion.** Overlaps
 force observers to agree on what happened. The Markov structure enforces local
@@ -408,16 +390,12 @@ scatter light, resist pressure, leave traces, and can be sampled by many
 observers without being destroyed. This does not make it more fundamental than
 a quark.
 
-The history of matter physics is correspondingly collective. Dalton revived
-atomic theory for chemistry. Mendeleev saw order in the periodic table before
-the electron, nucleus, or quantum mechanics explained it. Thomson discovered
-the electron. Rutherford inferred the nucleus. Moseley tied atomic number to
-nuclear charge. Chadwick found the neutron. Pauli, Fermi, Yukawa, Anderson,
-Powell, Gell-Mann, Zweig, Glashow, Salam, Weinberg, Higgs, Englert, Brout,
-Kibble, 't Hooft, Veltman, Kobayashi, Maskawa, Cabibbo, Lederman, Perl, and
-many experimental teams turned the particle zoo into the Standard Model.
-Modern mass measurements then require colliders, detectors, lattice QCD,
-spectral fits, and global averaging groups.
+The history of matter physics is correspondingly collective. Mendeleev saw
+order in the periodic table before anyone knew what an atom was made of.
+Thomson found the electron, Rutherford the nucleus, Chadwick the neutron.
+Generations of theorists and experimental teams then turned the particle zoo
+into the Standard Model, and modern mass measurements require colliders,
+detectors, lattice QCD, spectral fits, and global averaging groups.
 
 That history is also why the chapter refuses to flatten the particle table into
 one kind of entry. Most of a proton's mass comes from QCD binding energy,
