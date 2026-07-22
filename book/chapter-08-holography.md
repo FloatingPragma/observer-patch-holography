@@ -393,8 +393,7 @@ Just as PV = nRT follows from statistical mechanics without knowing molecular de
 
 Observer patches have horizons, horizons have temperatures, and agreement
 across overlaps behaves like thermodynamic equilibrium. Run Jacobson's
-argument on that equilibrium and Einstein's equations fall out. Building the
-machine-checked version of that whole chain is work in progress.
+argument on that equilibrium and Einstein's equations fall out.
 
 On this thermodynamic reading, four-dimensional spacetime geometry works so well
 because it behaves like an equilibrium description of horizon entropy. The

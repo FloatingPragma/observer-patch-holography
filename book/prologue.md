@@ -35,8 +35,7 @@ to one another and form a federation.
 
 The smooth sphere used later in the book is a third object: a global support
 chart. The mathematics produces it on a branch with spherical-incidence,
-refinement, mesh, and cross-ratio receipts. A physical map from the carrier
-federation to that support chart is work in progress. The sphere is not a literal
+refinement, mesh, and cross-ratio receipts. The sphere is not a literal
 shell or an external computer wrapped around the universe.
 
 The twelve sockets are part of the physics. Their incidence, opposite pairs,
@@ -61,12 +60,12 @@ actually hang on is simpler: observers come first, and objective reality is
 what their overlapping readings force into existence. Two dimensionless
 coordinates organize the quantitative proposal: the local grain of the screen
 and the total record capacity. Each is defined by a closure equation. The
-local maps have certified unique roots, while their physical identification
-through the Thomson problem, the old question of how equal charges repelling
-on a sphere settle into their best arrangement, is work in progress. The
+local maps have certified unique roots, and the
 global equation has an exact finite capacity definition and a worked example
-at one fixed resolution; its physical capacity-indexed family and unique
-selector are work in progress.
+at one fixed resolution. Their physical identifications, through the Thomson
+problem, the old question of how equal charges repelling on a sphere settle
+into their best arrangement, and through a capacity-indexed selector, are
+work in progress.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -296,8 +295,7 @@ minimal realized matter branch gives the Standard Model quotient and charge
 structure. On the conditional Einstein branch, one repaired record family
 supplies modular ordering, calibrated clock records, stress, entropy, continuum
 geometry, a vacuum reference, and independent scale readouts on a common
-domain. Construction of an inhabited family with all these readouts is work in
-progress. The
+domain. The
 book keeps the logical layers distinct while showing how one
 architecture links them.
 
@@ -307,8 +305,9 @@ reads back the grain of the picture from inside the encoded world. The global
 coordinate asks whether correctable public records read back the total screen
 capacity. A separate scale bridge converts dimensionless relations into
 laboratory units. Their proposed compression links gravity, compact gauge
-structure, and the minimally admissible particle world; the physical Thomson,
-capacity, and scale identifications are work in progress.
+structure, and the minimally admissible particle world; the inhabited record
+family and the physical Thomson, capacity, and scale identifications are
+work in progress.
 
 One more thing before the story starts, because a book like this earns
 suspicion by default. Everything here is tied to a public repository, and the

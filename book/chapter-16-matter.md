@@ -70,8 +70,7 @@ recovered, durable excitations are sorted by mass, spin, and helicity. Stable
 charge sectors reconstruct the compact gauge structure. The economy rule, which selects the smallest admitted packet,
 then gives a conditional Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
-carrier, and the conditional minimum $N_g=3$. The physical family attachment
-is work in progress.
+carrier, and the conditional minimum $N_g=3$.
 
 This chain inherits the collective history of particle physics. Rutherford's
 recoil opened it. Chadwick found the
@@ -96,9 +95,7 @@ $$
 
 $m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. The calculation produces those two coordinates. Their
-promotion to predictions needs several attachment steps that are work in
-progress.
+through $E=mc^2$. The calculation produces those two coordinates.
 
 The strength of electromagnetism turns out to be readable off the screen's
 geometry, for a reason the book holds until it can be stated properly.
@@ -113,8 +110,7 @@ $$
 
 The icosahedral carrier boundary has twelve ports and twenty-four oriented
 slots, matching that count. Whether the match is physics or coincidence turns
-on constructing the current that would tie gauge directions to ports, and
-that construction is work in progress. The Higgs and top occupy a linked
+on constructing the current that would tie gauge directions to ports. The Higgs and top occupy a linked
 critical balance inside the same quantitative structure.
 
 Where can a three-place family candidate come from? The icosahedron supplies
@@ -134,8 +130,7 @@ action carries the same unordered spectrum from face to face. The sixty
 face-corner flags are the local copies of this dial, and the economy
 selection leaves a canonical three-slot candidate band. The face triplet and
 the color triplet of $SU(3)$ do different jobs; their shared use of the
-number three comes from different parts of the architecture. Tying the face
-triplet to the three observed generations is work in progress.
+number three comes from different parts of the architecture.
 
 In 1981 Yoshio Koide wrote down a formula tying together the masses of the
 electron, muon, and tau. It fit the tau mass before precision measurements
@@ -155,9 +150,7 @@ An eight-register finite model realizes this write-and-verify cycle with
 bounded local state, ports, readback, repair moves, and durable accepted or
 rejected records. It is
 an observer-like self-reading charged-family control. The geometry supplies the
-three-cycle and the record layer selects a stable response. Identifying its
-three eigenmodes with the physical electron, muon, and tau is work in
-progress.
+three-cycle and the record layer selects a stable response.
 
 If the physical construction selects the same global family triplet, it
 carries the quarks and neutrinos. The six quark flavors, up, down, strange,
@@ -175,6 +168,12 @@ On that conditional attachment, neutrinos use the same three-family space in
 a different basis: electron, muon, and tau name flavor directions,
 $m_1,m_2,m_3$ name mass directions, and the PMNS matrix is the rotation
 between those two descriptions.
+
+One qualification covers this whole chain. The physical family
+attachment, the current construction that would tie gauge directions to
+ports, the promotion of the W and Z running coordinates to predictions, and
+the identification of the face triplet and its three eigenmodes with the
+measured electron, muon, and tau are work in progress.
 
 ### Why the Universe Contains More Matter Than Antimatter
 

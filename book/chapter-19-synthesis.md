@@ -189,8 +189,7 @@ progress.
 The six antipodal axes also leave a sixfold lattice residue. Conditional spin
 and central maps connect it to the $\mathbb Z_6$ action on matter. The
 three-corner face symmetry supplies a canonical three-dimensional candidate
-family carrier. A physical map from that candidate band into three copies of
-the complete one-generation matter pattern is work in progress. Hypercharge
+family carrier. Hypercharge
 follows from the declared matter consistency
 equations, while masses, mixing angles, and coupling strengths require the
 interacting dynamics and physical pole tests.
@@ -310,8 +309,7 @@ sent through the unification scale, the running gauge couplings, and the
 electroweak anchor, and the unbroken electromagnetic channel is then
 transported to the long-distance Thomson endpoint. The fixed point is the
 value of $P$ at which the geometric and diagnostic readings name the same
-local scale. Identifying that point with the measured Thomson endpoint
-requires a physical source and same-scheme transport. Under the attachment
+local scale. Under the attachment
 premises, the hierarchy relation fixes $v/E_\star$, and the scale, pole, and
 clock maps display masses, couplings, and gravity in ordinary units.
 
@@ -337,8 +335,7 @@ declared echosahedral lineage it selects twelve unit ports organized like the
 vertices of an icosahedron. The global spherical support does not expose
 those ports by itself; the federation-to-support map would have to supply
 them. The local oriented write/check count matches the independently derived
-doubled gauge adjoint. The count does not construct a physical gauge-current
-map.
+doubled gauge adjoint.
 
 The local closure proposal reads one holographic screen cell twice. From the
 outside it is a pixel of the horizon, displaced from perfect self-similar
@@ -408,8 +405,7 @@ therefore a natural screen.
 Different observers carry different horizons, but those horizons overlap
 enormously. The consistency conditions are severe. The proposal treats the
 total state space as finite and identifies the cosmological constant with a
-self-reading screen capacity. The physical capacity family, selector, horizon
-identification, and scale bridge are work in progress. De Sitter space is the
+self-reading screen capacity. De Sitter space is the
 setting in which this observer-first picture has its cleanest cosmological
 form.
 
@@ -520,9 +516,8 @@ physical family attachment is supplied.
 The finite diagnostic calculations are reproducible. Exact enumeration checks
 the declared discrete choices, interval arithmetic encloses stated fixed
 points, and renormalization-group equations validate specified transport
-conventions. They do not promote stable particle coordinates until the source,
-field theory, gauge identities, uncertainty, current amplitude, and clock
-evidence are complete. Any implementation claiming the same observer-like
+conventions. They do not promote stable particle coordinates until that
+evidence is complete. Any implementation claiming the same observer-like
 carrier must expose the same bounded state, port geometry, interfaces,
 readback, dynamics, repair moves, accepted records, refinement behavior, and
 checkpoint data.

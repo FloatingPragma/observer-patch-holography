@@ -534,6 +534,17 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 - [Blog](https://blog.floatingpragma.io/)
 - OPH Sage on [Telegram](https://t.me/HoloObserverBot) and [X](https://x.com/OphSage)
 
+## Contribute
+
+OPH is an open research program, and contributions are wanted: proofs,
+counterexamples, simulations, audits, and readable explanations all move it
+forward. A good first hour is the [reproduction guide](REPRODUCE.md), which
+rebuilds the certificates and checks from a clean clone. The open problems
+live on the
+[issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
+and in the [selection ledger](docs/SELECTION_LEDGER.md), which lists exactly
+what is proved and exactly what is left. Pick a row and take it.
+
 ## License
 
 The authored material is licensed under [CC BY-NC-SA 4.0](LICENSE). The repository-wide [OPH Open Use and Anti-Patent Covenant](PATENTS.md) keeps OPH-derived ideas, software, methods, devices, simulations, and hardware open to study, implementation, modification, and sharing without private patent monopolies.

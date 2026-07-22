@@ -187,8 +187,7 @@ electroweak scales, includes the vacuum response of strongly interacting
 matter, and returns the long-distance electromagnetic reading. At the fixed
 point, the outside geometry and the inside measurement agree. Run the
 machinery and the fixed point lands within a few parts per million of the
-measured value; closing that last gap is work in progress, and the synthesis
-chapter keeps the ledger.
+measured value.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every

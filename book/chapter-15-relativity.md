@@ -806,9 +806,8 @@ fundamental contributions to the stress tensor.
 
 In OPH the small value of Lambda belongs to a conditional global
 capacity-closure branch rather than to a cancellation between enormous local
-vacuum-energy terms. The finite capacity definition is exact. Its physical
-capacity-indexed family, unique selector, horizon identification, and scale
-bridge are work in progress. If those premises hold, the selected de Sitter
+vacuum-energy terms. The finite capacity definition is exact; its physical
+attachments are work in progress, and under them the selected de Sitter
 capacity and scale display Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability
