@@ -5,22 +5,14 @@ without pausing every few pages. The entries are not dictionary definitions in
 isolation. Each one says how the concept functions inside the book.
 
 A5 / icosahedral symmetry
-:   $A_5$ is the sixty-element proper rotation group of a regular
-icosahedron, the same abstract group as the even permutations of five objects.
-It is the finite port symmetry of the echosahedral carrier. It treats all
-twelve vertices alike and splits their real readings as
-$\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. The finite symmetry,
-the gauge group, and the Lorentz group have separate jobs. $A_5$ organizes the
-ports. If the source also supplies a compact noncommuting physical current law
-with the same internal $A_5$ action, the four port blocks become the $1+3+8$
-directions of $U(1)$, $SU(2)$, and $SU(3)$. Pairing opposite vertices gives six
-axes and an abstract $\mathbb Z_6$ residue; conditional spin and central maps
-carry that identification into the Standard Model quotient. A face has a
-threefold stabilizer and therefore supplies a candidate three-dimensional
-family carrier. Physical family attachment is a separate construction.
-Continuous Lorentz symmetry comes from the conformal group of the refined
-smooth sphere, $\mathrm{Conf}^+(S^2)\cong SO^+(3,1)$, rather than from the sixty
-finite rotations.
+:   Take a regular icosahedron, the twenty-sided die. Its sixty rotations
+form the group $A_5$, the same abstract group as the even permutations of
+five objects. In OPH it is the finite symmetry of the twelve-port carrier: it
+treats all twelve vertices alike and splits their readings as
+$\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. Those four blocks are
+the raw material the Standard Model chapter works with. Continuous Lorentz
+symmetry is a separate structure that arrives later, from the smooth refined
+sphere.
 
 Action
 :   The action is the quantity a physical history makes stationary.
@@ -90,9 +82,9 @@ Bisognano-Wichmann theorem
 :   The Bisognano-Wichmann theorem identifies the
 modular flow of a quantum field restricted to a wedge with a Lorentz boost. It
 is the rigorous bridge from an algebra-state pair to geometric motion. The OPH
-Lorentz branch requires both a finite cap-flow certificate and an independently
-complete algebra-state comparison on the same refinement tower before reading
-round-cap modular flow as a Lorentz boost.
+Lorentz branch requires both a machine-checked certificate for the finite cap
+flow and an independently complete algebra-state comparison on the same
+refinement tower before reading round-cap modular flow as a Lorentz boost.
 
 Bohr complementarity
 :   Complementarity is Niels Bohr's principle that a
@@ -114,6 +106,13 @@ and returned as the modern conformal bootstrap, where crossing symmetry and
 unitarity pin real numbers to many digits. OPH is the same wager carried up to
 the whole universe.
 
+Born rule
+:   The Born rule assigns probabilities to measurement outcomes from the
+quantum state, as squared amplitudes in the simplest case and as a trace in
+general. Gleason's theorem shows that in dimension three or more it is the
+only consistent assignment. The book therefore treats it as forced rather
+than postulated.
+
 Boundary
 :   A boundary is the surface or interface where information capacity,
 comparison, and
@@ -125,8 +124,8 @@ Bulk
 :   The bulk is the emergent interior spacetime description. In
 holography, bulk physics can be encoded in boundary data. OPH treats the bulk
 as the compressed public geometry reconstructed from finite patch data exposed
-through screen charts and overlap consistency, not as the primitive storage
-layer.
+through screen charts and overlap consistency rather than as the primitive
+storage layer.
 
 Cap
 :   A cap is a support region in the spherical screen chart. It displays an
@@ -145,12 +144,18 @@ spatial chart by comparing how calibrated caps respond to it. The response
 pattern of one source identifies one point with exact data and a finite region
 with noisy data.
 
+Capacity
+:   Capacity is the amount of information a boundary or horizon can hold,
+counted in fundamental units. Area laws make capacity finite, and finite
+capacity turns record keeping into a budget. Much of the book's cosmology
+reads horizon properties as capacity statements.
+
 Capacity-electroweak bridge
 :   The proposed bridge reads the weak scale as a local projection of the
 global screen-capacity repair rhythm. The declared comparison capacity is
 separate from the rounded de Sitter display. The screen-sieve gives the factor
 $12$ in the formula. Its physical capacity family and common-load attachment
-are open.
+are work in progress.
 
 Carnot efficiency
 :   Carnot's result sets the ceiling on the work an engine
@@ -197,14 +202,30 @@ source of charge-parity violation. Counting its physical phases gives the lower
 bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
 consistency gives $N_g\le5$, and a minimal-realization principle selects
 the least admitted value. This is
-an economy-class selection, not a physical family-attachment theorem.
+an economy-class selection only. Physical family attachment is a separate
+construction.
 
 Classical limit
 :   The classical limit is the regime where quantum
 interference becomes inaccessible and stable public records dominate. Large
 action compared with $\hbar$, decoherence, coarse-graining, and redundant
 environmental records all contribute. OPH treats classical physics as the
-public face of quantum reality, not as the fundamental layer.
+public face of quantum reality.
+
+Closure
+:   Closure is a self-consistency demand: a quantity fed through the world's
+machinery must come back equal to itself. A closure equation therefore
+selects its own solution rather than taking one from outside. The book's
+later chapters use closure conditions to pin down quantities that would
+otherwise be free.
+
+CMI
+:   CMI is conditional mutual information, written $I(A:C|B)$. It measures
+how much correlation remains between $A$ and $C$ once $B$ is known. In
+quantum information, small CMI signals approximate recoverability: a recovery
+map can rebuild the missing part with controlled error. OPH uses it to
+express when local damage can be repaired from surrounding data; exact repair
+identities need stronger conditions.
 
 Code space
 :   A code space is the protected subspace in an error-correcting
@@ -212,14 +233,6 @@ code. Logical information lives there. Physical errors are correctable when
 they do not reveal or scramble which logical state was encoded. Holographic
 spacetime behaves like an approximate code space in which bulk information is
 protected by boundary redundancy.
-
-Constraint code
-:   A constraint code is the set of assignments satisfying a
-declared family of local constraints. In OPH, a bare finite overlap network is
-first a constraint code: valid codewords are globally overlap-consistent patch
-assignments. A protected subspace, logical operators, a specified error family,
-and a recovery map promote that constraint code to a quantum error-correcting
-or topological code.
 
 Collar
 :   A collar is a buffer region between a cap and its exterior. In
@@ -233,16 +246,6 @@ commute. If it is zero, order does not matter. If it is nonzero, asking the
 questions in different orders can give different physical operations. The
 position-momentum commutator is the standard quantum example.
 
-CMI
-:   CMI
-$I(A:C|B)$ measures how much correlation remains between $A$ and $C$ once
-$B$ is known. In quantum information, small CMI
-signals approximate recoverability: there is a recovered comparison state with
-controlled error. By itself it gives no exact Markov normal form. OPH uses it
-to express when local damage can be repaired from surrounding data, while exact
-splice or modular-additivity identities require exact Markovity or a
-controlled collar replacement modulus tending to zero.
-
 Conservation law
 :   A conservation law says a quantity is locally balanced:
 what flows out of one region flows into another. Noether's theorem ties
@@ -255,13 +258,22 @@ identical private experience. Two observer patches can disagree or differ
 outside their overlap. They become part of one public world when their
 overlap-visible records and predictions match.
 
+Constraint code
+:   A constraint code is the set of assignments satisfying a
+declared family of local constraints. In OPH, a bare finite overlap network is
+first a constraint code: valid codewords are globally overlap-consistent patch
+assignments. A protected subspace, logical operators, a specified error family,
+and a recovery map promote that constraint code to a quantum error-correcting
+or topological code.
+
 Cosmological constant
 :   The cosmological constant $\Lambda$ controls the
 late-time accelerated expansion of the universe in the simplest model. In de
 Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH
 proposes reading dimensionless products involving $\Lambda$ as global capacity
-data for a finite horizon screen. That reading requires the open physical
-capacity family, selector, horizon identification, and scale bridge.
+data for a finite horizon screen. The physical capacity family, selector,
+horizon identification, and scale bridge that reading requires are work in
+progress.
 
 Decoherence
 :   Decoherence is the process by which quantum systems become
@@ -283,12 +295,11 @@ with a positive cosmological constant. Each observer has a horizon and a
 finite static patch. OPH uses de Sitter structure because our universe appears
 to approach such a phase at late times.
 
-Effective theory
-:   An effective theory is a description valid in a regime,
-not necessarily fundamental at all scales. Classical mechanics, fluid
-dynamics, quantum field theory, and semiclassical gravity all have effective
-domains. OPH explains why those effective interfaces appear from a
-deeper observer-patch architecture.
+Detuning
+:   Detuning is a small displacement from an exact balance point. In the
+book's entropy-map proposal, the working screen sits slightly off the
+self-similar balance, and that offset is where the interesting physics is
+proposed to live. Whether the proposal survives is work in progress.
 
 Echosahedral patch
 :   An echosahedral patch is OPH's twelve-port reference carrier. It has a
@@ -300,6 +311,13 @@ sphere is the support chart through which the carrier is read. The body becomes
 an observer only after self-readback, record, feedback, prediction, and
 checkpoint tests pass. An observer may instead occupy a connected
 subfederation.
+
+Effective theory
+:   An effective theory is a description valid in a regime,
+not necessarily fundamental at all scales. Classical mechanics, fluid
+dynamics, quantum field theory, and semiclassical gravity all have effective
+domains. OPH explains why those effective interfaces appear from a
+deeper observer-patch architecture.
 
 Eigenvalue and eigenstate
 :   An eigenstate is a state in which a measurement
@@ -336,20 +354,13 @@ the constraint code. A protected subspace, logical operators, an error family,
 and a recovery map turn it into quantum error correction.
 
 Exterior matter package
-:   Start with the trace-balanced five-component carrier
-$V=C\oplus W$, where $C=(\mathbf3,\mathbf1)_{-1/3}$ carries color and
-$W=(\mathbf1,\mathbf2)_{1/2}$ carries weak isospin. The non-vacuum even
-exterior package $\Lambda^2V\oplus\Lambda^4V$ contains exactly the fifteen
-left-handed states of one Standard Model generation:
-$Q,u^c,d^c,L,e^c$. It gives their exact hypercharges, the three one-Higgs
-channels $QHu^c$, $QH^\dagger d^c$, and $LH^\dagger e^c$, and cancellation of
-the color, weak, gravitational, and cubic hypercharge anomalies. The quark
-doublet occurs in three color copies and the lepton doublet once, giving four
-weak doublets per generation. The conditional minimal-realization minimum gives twelve only
-after one physical complex family space ties three copies of this fifteen-state
-pattern together, and pairing each slot
-with an orientation label then gives twenty-four oriented weak slots. The
-count alone supplies no inverse dynamics or physical current map.
+:   Start with a five-component carrier: three color slots and two weak
+slots. Form its even antisymmetric combinations, the ways of choosing two or
+four items from the five. That package contains exactly the fifteen
+left-handed states of one Standard Model generation, with their exact
+hypercharges, the three allowed one-Higgs interaction channels, and full
+anomaly cancellation. The count is a representation fact; the dynamics that
+would make it physical matter is a separate construction.
 
 Fawzi-Renner theorem
 :   The Fawzi-Renner theorem shows that small conditional
@@ -357,6 +368,14 @@ mutual information implies a recovery map that approximately reconstructs a stat
 from partial data. It made approximate recoverability quantitative. OPH uses it
 to argue that locally damaged records can be repaired from surrounding
 correlations.
+
+Fine-structure constant
+:   The fine-structure constant is the dimensionless strength of
+electromagnetism, with a famous low-energy inverse value near 137. It is
+measured with extraordinary precision, which has made it a magnet for
+numerology. The book's interest is in what any claimed derivation would have
+to supply, including scale, scheme, and transport, before the number means
+anything.
 
 Fixed point
 :   A fixed point is a value or state left unchanged by a process
@@ -411,9 +430,8 @@ system can carry, with consequences that can be computed.
 Golden ratio
 :   The golden ratio $\varphi=(1+\sqrt5)/2$ is the self-similar
 balance point in the declared local entropy map. In that proposal, a screen at
-the balance carries no events and the pixel-ratio root lies a small distance
-above it. The physical identification of that detuning with the fine-structure
-constant is work in progress.
+the exact balance carries no events, and the working screen sits slightly off
+it. The physical meaning of that small detuning is work in progress.
 
 Hawking radiation
 :   Hawking radiation is the thermal emission a black-hole
@@ -457,9 +475,9 @@ which makes them natural supports for observer-facing screen cuts in OPH.
 It from bit
 :   John Wheeler's slogan for the participatory universe, in which
 observers and their observations are part of what gives the world definite
-content. It is the picture the strange-loop chapter turns into a computation.
-OPH tests Wheeler's drawing with a certified local root and a conditional
-global horizon-capacity coordinate. Their physical attachments are open.
+content. It is the picture the book's later chapters take up in earnest. OPH
+tests Wheeler's drawing against quantities the screen picture supplies, and
+their physical attachment is work in progress.
 
 Jacobson equation of state
 :   Ted Jacobson derived the Einstein equation from
@@ -555,12 +573,6 @@ the light-cone structure. It is the arena Lorentz symmetry acts on. OPH
 recovers Minkowski kinematics from modular boosts and the conformal geometry of
 the refined round screen.
 
-Observer-frame chart
-:   The Lorentz reconstruction gives a
-three-dimensional hyperboloid of future observer frames. It is a fiber over
-spacetime events, not a chart of event positions. The event base needs its own
-affine chart, coincidence relation, cone, and evidence of causal reachability.
-
 Modular flow
 :   Modular flow is the natural flow associated with an
 algebra-state pair in Tomita-Takesaki theory. It is written
@@ -584,9 +596,9 @@ algebra-state pair generates its own flow, the modular flow, with a thermal KMS
 character. It is self-reading at the level of theorems: the restricted state
 carries its own dimensionless ordering. It does not carry a physical clock by
 itself. OPH's time branch also needs an observer-readable transition, event
-correspondence, and calibration; its Lorentz branch independently needs both
-the finite cap-flow certificate and an independently complete algebra-state
-comparison on the same refinement tower.
+correspondence, and calibration; its Lorentz branch independently needs
+checks that must pass on the finite cap flow together with a complete
+algebra-state comparison on the same refinement tower.
 
 MOND
 :   MOND changes low-acceleration gravity to fit galaxy rotation curves. The
@@ -601,6 +613,12 @@ shared freely: if two systems are maximally entangled with each other, neither
 has entanglement left for a third. It is one reason entanglement networks can
 support locality. OPH uses it as a constraint on how screen correlations knit
 into geometry.
+
+N
+:   N is the horizon's record capacity counted in logarithmic units, roughly
+the number of elementary records the cosmological horizon can hold. The
+book's later chapters pin it down with a closure argument. Until that
+argument arrives, treat it as a labeled unknown rather than a measured input.
 
 No-cloning
 :   The no-cloning theorem says an unknown quantum state cannot be
@@ -617,20 +635,23 @@ rules, not mere aesthetic preferences.
 Normal form
 :   A normal form is a canonical result reached by applying
 rewrite or repair rules. If different repair paths reach the same normal
-form, the system has confluence. OPH uses this as a computational image for
-public reality as the stable result of overlap repair. Termination only says
-the repair process stops; confluence is the extra condition that different
-allowed schedules from the same initial quotient state stop at the same
-observer-facing quotient result. Same-boundary uniqueness additionally needs
-that boundary or sector to have a unique consistent extension. OPH accepts
-overlapping repairs only when each repair has read every fact its write can
-affect, including histories and checkpoints, and each conflicting cluster has
-one coherent combined repair. Under those rules the local-diamond property is
-a theorem. A finite implementation test checks that the device actually followed
-the rules. Atomic commits without that full dependency check are insufficient. A digital
-fingerprint can help show that two computed outputs match, but it cannot select
-between two physically distinct consistent endpoints. The OPH paper stack gives
-the exact cross-source criterion and its quantitative stability version.
+form, the system has confluence. Termination only says the repair process
+stops; confluence is the extra condition that all allowed schedules from the
+same starting point stop at the same result. OPH uses this as a computational
+image for public reality as the stable outcome of overlap repair.
+
+Observer
+:   An observer in this book is any bounded physical system that can form
+records, compare them with other records, and update without losing the
+conditions that made the comparison meaningful. A person qualifies, and so
+does a detector wired to a data pipeline. See Observer patch for the full
+operational package.
+
+Observer-frame chart
+:   The Lorentz reconstruction gives a
+three-dimensional hyperboloid of future observer frames. It is a fiber over
+spacetime events, not a chart of event positions. The event base needs its own
+affine chart, coincidence relation, cone, and evidence of causal reachability.
 
 Observer patch
 :   An observer patch is a finite operational package rather than simply a
@@ -645,9 +666,9 @@ Presentation can vary. Operational architecture cannot.
 
 Obstruction class
 :   An obstruction class is a formal mismatch detector. It
-measures whether gluing observer patches around a loop leaves a leftover twist
-that prevents a clean global fit. When the obstruction vanishes, a consistent
-gluing exists. A separate condition asks that the gluing also close cleanly
+measures whether gluing observer patches around a loop leaves a residual
+misalignment that prevents a clean global fit. When the obstruction vanishes,
+a consistent gluing exists. A separate condition asks that the gluing also close cleanly
 around loops that cannot be shrunk to a point.
 
 Operator
@@ -661,6 +682,12 @@ Overlap
 descriptions can be compared. It may be geometric, algebraic, or operational.
 The overlap condition requires matching state assignments on shared
 observables.
+
+P
+:   P is the local pixel ratio, a dimensionless coordinate for the grain of
+the screen an observer reads. It carries no units and no chosen scale. The
+book's later chapters pin it down with a closure equation. Until that
+equation arrives, treat it as a labeled unknown.
 
 Page curve
 :   The Page curve is the shape black-hole radiation entropy takes
@@ -681,6 +708,13 @@ and overlaps as edges. Loops in the graph create nontrivial consistency
 conditions. Tree-like graphs are simpler, but quantum compatibility can
 be subtle.
 
+Petz map
+:   The Petz map is a canonical recovery map in quantum information
+theory. In the exact Markov setting it reconstructs the state; in approximate
+settings it supplies a controlled recovered comparison state. OPH uses
+Petz-style recovery as part of the repair logic for missing or scrambled local
+information across a collar.
+
 Phase locking
 :   Phase locking is the physical alignment of phase variables through a
 coupling. Recurrent channels in an echosahedral carrier can support
@@ -689,12 +723,9 @@ Consensus synchronization is a different statement: translated port packets
 settle to compatible public records under the confluence hypotheses. Neither
 statement proves the other.
 
-Petz map
-:   The Petz map is a canonical recovery map in quantum information
-theory. In the exact Markov setting it reconstructs the state; in approximate
-settings it supplies a controlled recovered comparison state. OPH uses
-Petz-style recovery as part of the repair logic for missing or scrambled local
-information across a collar.
+Pixel ratio
+:   The pixel ratio is the dimensionless screen-grain coordinate the book
+writes as P. See the entry for P.
 
 Pointer state
 :   Pointer states are stable states selected by
@@ -708,6 +739,16 @@ another. Its readout map turns the relevant internal state into visible data.
 The neighbor sees that packet and the associated record, not a copy of the
 whole private interior. The echosahedral reference carrier has twelve labeled
 ports, paired into six inverse directions by the antipodal vertices.
+
+Prediction versus validation
+:   OPH separates two kinds of numerical claim. A derivation counts as a
+prediction only when its inputs come from the source construction, with no
+path back to the measured answer. A validation borrows measured Standard
+Model numbers to test a conditional result; it can build confidence but
+never counts as a prediction. The full quantum field theory behind the
+matter chapters, with its action, quantization, and continuum limit, is work
+in progress, so most current numerical claims live in the validation
+category.
 
 Presentation invariance and structure sensitivity
 :   Hidden labels, paint colors, or circuit layouts can vary without changing
@@ -733,33 +774,6 @@ environment selects and redundantly records pointer states. The analogy to
 biological selection is disciplined: states become classical because they
 survive environmental monitoring and can be sampled by many observers.
 
-Quantum field-theory construction
-:   The finite Standard Model recognition theorem does not automatically give
-a quantum field theory. A physical construction needs a local action, a chiral
-quantum state space or measure, positivity, gauge identities, refinement, and
-observable fields. Perturbative pole calculations and a nonperturbative
-continuum theory consume different evidence. The conditional implications are
-proved; their OPH-native physical inputs are open.
-
-Quantization tiers
-:   The paper stack types the field-theory landing as four tiers: the finite
-local gauge-invariant classical action; exact quantization, in a
-chiral-measure flavor and a constrained-Hamiltonian flavor; the formal
-renormalized perturbative layer, where the strict finite-order W and Z
-complex-pole algebra lives; and the nonperturbative continuum, split into a
-reflection-positivity reconstruction and a resonance-sheet branch. Exact
-quantization and the perturbative layer are parallel descendants of the
-classical action, so the bounded perturbative validation against the imported
-Standard Model does not wait on the exact or nonperturbative constructions.
-
-Native derivation versus imported validation
-:   Two claim lanes that must never merge. A native claim derives its
-inputs from the source construction with no dependency path to the measured
-target. An imported validation borrows the Standard Model's renormalized
-inputs to test a conditional theorem, and its outputs are labeled
-post-exposure. The second lane can be finished with existing tools; only the
-first can ever count as a prediction.
-
 Quantum marginal problem
 :   The quantum marginal problem asks when local
 reduced states are compatible with a global quantum state. Pairwise
@@ -780,14 +794,8 @@ the physical bookkeeping. The six-axis icosahedral screen also has an abstract
 $\mathbb Z_6$ residue. A source-derived spin lift and central intertwiner would
 have to carry that residue into the matter action. That construction and the
 commuting square identifying the local current group with the independent
-Tannaka/matter group are open. Matching abstract quotients does not establish a
-physical identification.
-
-Recoverability
-:   Recoverability means information that appears missing
-locally can be reconstructed from other correlated data. Easy practical access
-is a separate question. The encoding structure preserves enough information in
-principle or within controlled error.
+Tannaka/matter group are work in progress. Matching abstract quotients does
+not establish a physical identification.
 
 Record
 :   A record is physical information that can be consulted later or
@@ -797,11 +805,30 @@ patch model, completed observer-readable records form a commuting algebra in
 the center. An approximate carrier states the error with which its record layer
 realizes that behavior.
 
+Recoverability
+:   Recoverability means information that appears missing
+locally can be reconstructed from other correlated data. Easy practical access
+is a separate question. The encoding structure preserves enough information in
+principle or within controlled error.
+
+Refinement
+:   Refinement replaces a coarse description with a finer one while
+preserving what the coarse description already established. In OPH it is the
+ladder by which finite carriers approach smooth geometry. Statements about
+the smooth world are statements about what survives refinement.
+
 Renormalization
 :   Renormalization tracks how effective parameters change
 with scale. Couplings and masses can run. This is essential for particle
 physics because a number such as a quark mass or coupling constant is not
 complete without its scale and scheme.
+
+Repair
+:   Repair is the process that brings mismatched records on an overlap back
+into agreement through allowed local moves. It is how the public world
+absorbs noise, damage, and disagreement. The book's consensus arguments ask
+when repair terminates and when every allowed repair order reaches the same
+result.
 
 Ryu-Takayanagi formula
 :   The Ryu-Takayanagi formula computes the entanglement
@@ -821,27 +848,24 @@ Screen
 local carrier boundary has twelve exposed ports on the declared echosahedral
 lineage. A federation screen is the finite network of carriers, observer
 supports, interfaces, and repaired public records. The global support screen is
-the refinement-limit chart, conditionally $S^2$ when the spherical-incidence,
-mesh, and cross-ratio receipts hold. A source-bound federation-to-support map is
-open; it must connect the federation to that global chart. None of these is
-a literal spherical computer or a private shell owned by each observer.
+the refinement-limit chart, conditionally $S^2$ when a family of geometric
+checks passes. A map connecting the federation to that global chart is work
+in progress. None of these is a literal spherical computer or a private shell
+owned by each observer.
 
 Screen net
 :   A screen net is the federation-level pattern of carrier boundaries,
 observer supports, interface algebras, records, and overlaps. Finite observers
 never inspect the whole net. They compare only the packets and records exposed
-at their local interfaces. A global $S^2$ support chart is a separate
-receipt-gated limit object, not another name for the net.
+at their local interfaces. A global $S^2$ support chart is a separate limit
+object with its own checks that must pass, not another name for the net.
 
 Screen-sieve
-:   A screen-sieve is a finite port sampling rule on the local carrier boundary.
-On the declared echosahedral lineage, equal-trace primitive central
-port atoms and integer readback uniquely select twelve unit ports with gap two;
-oriented incidence derives their antipodes, proper $A_5$ action, and rank-three
-icosahedral frame. The result is natural under the declared refinement maps.
-Alternative D-optimal or pair-kernel sieves are sufficient premises on
-other branches. This does not force every observer patch to use this carrier,
-and it does not place the twelve ports directly on the global $S^2$ support.
+:   A screen-sieve is the finite rule that picks out the ports on the local
+carrier boundary. On the declared carrier lineage it selects exactly twelve
+equal ports, arranged as the vertices of an icosahedron with the full $A_5$
+symmetry. It does not force every observer patch to use this carrier, and it
+does not place the twelve ports directly on the global spherical chart.
 
 Selection filter
 :   A selection filter is a constraint that candidate
@@ -867,13 +891,6 @@ three-dimensional hyperbolic space of future observer frames. The last rung is
 an observer-frame chart. Global spatial topology is a separate object, and
 particle identities come from Lorentz and gauge structure.
 
-Support patch
-:   A support patch is the geometric region that displays an observer patch
-after geometry has been reconstructed. It can be a cap, collar, causal diamond,
-or another observer-facing cut. It carries chart information for overlap,
-entropy, and modular-flow arguments. It is the map location of the operational
-patch rather than its microscopic machine.
-
 Stabilizer code
 :   A stabilizer code is a quantum error-correcting code
 defined by the operators that leave its protected states fixed, the framework
@@ -889,9 +906,8 @@ Strange loop
 :   A strange loop is a structure that climbs through the levels
 of a hierarchy and returns to its own starting point, so that the describer and
 the described become one system. Hofstadter used it for the self, and Escher
-drew it as two hands drawing each other. OPH's central thesis is that the
-universe is such a loop, the fixed point of its own description, with the two
-closure numbers standing for the loop reading itself.
+drew it as two hands drawing each other. The book's final movement asks
+whether the universe itself has this shape.
 
 Stress-energy tensor
 :   The stress-energy tensor $T_{\mu\nu}$ contains
@@ -904,6 +920,19 @@ Strong subadditivity
 entropy that keeps conditional mutual information from ever going negative. Much
 of quantum information recovery rests on it. OPH uses the results it supports,
 from recovery maps to monogamy, as stability tools for records.
+
+Superposition
+:   Superposition is the quantum rule that states can be added. A system can
+occupy a weighted combination of alternatives that classical logic would
+treat as exclusive, and interference between the components shows the
+combination is physically real rather than a statement of ignorance.
+
+Support patch
+:   A support patch is the geometric region that displays an observer patch
+after geometry has been reconstructed. It can be a cap, collar, causal diamond,
+or another observer-facing cut. It carries chart information for overlap,
+entropy, and modular-flow arguments. It is the map location of the operational
+patch rather than its microscopic machine.
 
 Tannaka-Krein reconstruction
 :   Tannaka-Krein reconstruction is a family of
@@ -989,7 +1018,8 @@ World
 :   In everyday speech the world is the totality of things. In OPH's
 technical posture, the public world is the stable structure produced by
 overlap-consistent observer patches. This does not make the world imaginary.
-It makes objectivity a repaired and maintained structure.
+It makes objectivity a repaired and maintained structure. The shortest
+accurate entry for it would read mostly consistent.
 
 Yukawa coupling
 :   A Yukawa coupling ties a fermion to the Higgs field and

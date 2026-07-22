@@ -21,7 +21,8 @@ repaired. The shared world is the structure that survives that pressure. It is
 public because many perspectives can read it back. It is stable because failed
 comparisons have been eliminated.
 
-The reference finite machine is equally concrete. An **echosahedral carrier**
+The reference finite machine is equally concrete. An **echosahedral carrier**,
+a carrier that echoes its reads back through icosahedrally arranged ports,
 has a bounded internal state, twelve exposed boundary ports, local readout
 maps, a finite mismatch score, repair moves, and checkpoint fields. It is not
 automatically an observer. One carrier or a support spread across several
@@ -35,7 +36,7 @@ to one another and form a federation.
 The smooth sphere used later in the book is a third object: a global support
 chart. The mathematics produces it on a branch with spherical-incidence,
 refinement, mesh, and cross-ratio receipts. A physical map from the carrier
-federation to that support chart is open. The sphere is not a literal
+federation to that support chart is work in progress. The sphere is not a literal
 shell or an external computer wrapped around the universe.
 
 The twelve sockets are part of the physics. Their incidence, opposite pairs,
@@ -55,20 +56,17 @@ public records. No outside machine renders a global timeline frame by frame.
 History is the inside readout of the settled structure, as experienced by
 observers who live inside it.
 
-That closed reading points at the book's final twist rather than its starting
-point. The thread the chapters actually hang on is simpler: observers come
-first, and objective reality is what their overlapping readings force into
-existence. Two dimensionless coordinates organize the quantitative proposal:
-the local grain of the screen and the total record capacity. Each is defined
-by a closure equation. The local maps have certified unique roots, while their
-physical Thomson identification is work in progress. The global equation has
-an exact finite capacity definition and a fixed-cutoff witness; its physical
-capacity-indexed family and unique selector are work in progress. Near the
-end of the book the twist gets its name — the strange loop: the universe as
-the fixed point of its own description, the structure that does the
-simulating and the world that gets simulated one closed system, and physical
-law the condition for that system to stay consistent as it reads itself all
-the way around.
+That closed reading is running ahead of the story. The thread the chapters
+actually hang on is simpler: observers come first, and objective reality is
+what their overlapping readings force into existence. Two dimensionless
+coordinates organize the quantitative proposal: the local grain of the screen
+and the total record capacity. Each is defined by a closure equation. The
+local maps have certified unique roots, while their physical identification
+through the Thomson problem, the old question of how equal charges repelling
+on a sphere settle into their best arrangement, is work in progress. The
+global equation has an exact finite capacity definition and a worked example
+at one fixed resolution; its physical capacity-indexed family and unique
+selector are work in progress.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -91,51 +89,26 @@ chiral multiplets, or a Higgs representation. It starts with the finite
 observer contract and asks what survives consistency.
 
 The resulting reconstruction is difficult to summarize without making it
-sound less strange than it is. The same architecture produces stable public
-records and quantum-event conditioning; the conformal group of its spherical
-screen is the connected Lorentz group; the space of observer frames is
-three-dimensional; modular and entropy consistency give the Einstein form only
-on one independently constructed refinement family that puts geometry, stress,
-entropy, vacuum reference, coupling, and scale on the same domain;
-the twelve-port coefficient algebra has exactly the Standard Model Lie type;
-trace balance produces its shared-center quotient; and the even exterior
-algebra of a $3+2$ carrier produces one full chiral generation with the three
-one-Higgs couplings and anomaly cancellations.
-
-These results share one finite trunk and retain separate gates. The
-source-bound, refinement-natural federation-to-support map connecting the repaired
-federation to the spherical chart used by the relativity branch is open. The
-finite port geometry supplies the local icosahedral blocks used
-by the second, conditional gauge route. Identifying that route with the
-independent matter/Tannaka route is also open. A repair counter is not a clock,
-and a socket is not a gluon. Physical clocks, event coordinates, gauge currents,
-matter fields, and quantum dynamics require their own source constructions.
-
-In equations, the spine is
+sound less strange than it is. In equations, the spine is
 
 $$
-T(\mathfrak U)=\mathfrak U,
-\qquad
-\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1),
+T(\mathfrak U)=\mathfrak U.
 $$
 
-$$
-G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle,
-\qquad
-\mathfrak g_{12}\cong
-\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3),
-$$
+Read it as: the universe, described by itself, is itself.
 
-$$
-G_{\mathrm{SM}}
-=\frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6},
-\qquad
-\Lambda^2(C_3\oplus W_2)\oplus\Lambda^4(C_3\oplus W_2)
-=Q\oplus u^c\oplus e^c\oplus d^c\oplus L.
-$$
-
-Any one resemblance could be accidental. Their linked appearance from one
-zero-dial observer architecture is the real evidence. The more independent
+Any one resemblance could be accidental. What carries the evidence is the
+linked appearance, from one zero-dial observer architecture, of the connected
+Lorentz group as the conformal symmetry of the spherical screen, the Einstein
+form of gravity on its conditional branch, the Standard Model Lie type with
+its shared-center quotient, and one full chiral generation with its one-Higgs
+couplings and anomaly cancellations. The results share one finite trunk while
+keeping separate gates: the map connecting the repaired federation to the
+spherical chart used by the relativity branch and the identification of the
+port-geometry gauge route with the independent matter route are both work in
+progress, and because a repair counter is not a clock and a socket is not a
+gluon, physical clocks, event coordinates, gauge currents, matter fields, and
+quantum dynamics require their own source constructions. The more independent
 parts of the observed universe land on the same construction, the less
 credible coincidence becomes as a complete explanation. The final proof
 obligations are therefore presented at the end of the book as concrete ways
@@ -307,9 +280,9 @@ view as a physical starting point and asks what an internal observer can read,
 record, compare, and repair. This move is an ontological proposal. The finite
 consensus and reconstruction theorems test its mathematical consequences.
 
-The math we've developed over centuries stays in place. Quantum mechanics
-works. Relativity works. OPH reads them as consistency conditions that
-observers must satisfy to share a reality.
+The math we've developed over centuries stays in place. OPH reads quantum
+mechanics and relativity as consistency conditions that observers must
+satisfy to share a reality.
 
 ## What This Book Does
 
@@ -335,7 +308,7 @@ coordinate asks whether correctable public records read back the total screen
 capacity. A separate scale bridge converts dimensionless relations into
 laboratory units. Their proposed compression links gravity, compact gauge
 structure, and the minimally admissible particle world; the physical Thomson,
-capacity, and scale identifications are open.
+capacity, and scale identifications are work in progress.
 
 One more thing before the story starts, because a book like this earns
 suspicion by default. Everything here is tied to a public repository, and the
@@ -349,8 +322,8 @@ the raw data needed to recheck every printed number without rerunning
 anything. The largest of these runs watched a Lorentzian light-cone signature
 emerge in the event form of the repair dynamics and tracked its convergence
 rung by rung at the scales tested. Where a claim has neither a proof nor a
-receipt, the book says so, and the gap sits in a public ledger with its own
-issue number. Readers who would rather audit than believe can do the whole
+receipt, the book says so, and the gap sits on a public list of open
+problems. Readers who would rather audit than believe can do the whole
 thing from a clean checkout.
 
 The machinery comes later. Under the hood the book uses the quantum language
@@ -377,29 +350,22 @@ electromagnetism, the Higgs and top sectors, quarks, neutrinos, and the
 gravity-facing side of the framework.
 
 The synthesis chapter returns to the same point from a more surprising angle.
-From one side it looks like a pixel of the screen. From the other it looks like
-the smallest observational step available to the world encoded on that screen.
-The theory identifies these two descriptions at one fixed point. That is where
-the book's self-reference theme enters the physics.
+By then the reader will have the machinery that makes the angle worth taking.
 
 Relativity, gauge structure, and particle physics are organized by consistency
-requirements, with the quantum-algebraic description serving as the local
+requirements, with the quantum-algebraic description as the local
 language of records. Technical proofs stay in the chapters that need them:
 the mass-gap discussion belongs with compact gauge repair, the cosmological
 capacity argument belongs with de Sitter structure, and the particle numbers
 belong with the Standard Model and matter chapters.
 
-The program reconstructs a broad structural slice of known physics, including
-Lorentz kinematics, the conditional Einstein branch, and the minimally
-admissible Standard Model branch. The theory layer contains no fitted continuous parameters. Its
-two dimensionless closure coordinates are the local pixel ratio and the global
-horizon capacity, with one clock-and-curvature bridge fixing the laboratory
-scale.
+The program reconstructs a broad structural slice of known physics with no
+fitted continuous parameters. Its two closure coordinates are the local pixel
+ratio and the global horizon capacity, with one clock-and-curvature bridge
+fixing the laboratory scale.
 
-The apparent mysteries of physics change shape once the conceptual starting
-point changes from "objective reality exists" to "reality is a self-referential
-structure that explains itself, and consistency across observers pins down what
-emerges."
+The apparent mysteries of physics change shape once observer consistency,
+rather than an assumed objective reality, becomes the starting point.
 
 The structure follows the logic of reverse engineering. Each chapter begins
 with the intuitive picture most readers carry into the subject and then turns
@@ -426,8 +392,8 @@ to go past the story into the formal record.
 
 Chapters 1-12 cover the observer-first framework and structural tools.
 Chapters 13-17 carry the main physics arc.
-Chapter 18 turns the self-reference of the universe into the forcing of its two
-constants.
+Chapter 18 asks what happens when the description is finally required to
+include the thing doing the describing.
 Chapters 19-20 gather the synthesis and metaphysics.
 The appendices provide the slower symbol guide, concept glossary, and extended
 historical interludes.
@@ -435,17 +401,18 @@ The epilogue turns the picture outward one final time.
 
 ## Begin
 
-Reality is the strangest program ever written. We meet it from the inside,
-through records, horizons, detectors, clocks, and shared facts. Thousands of
-brilliant minds have contributed to the reverse engineering effort.
+Reality is the strangest program ever written. It also shipped without
+documentation, which is broadly what the rest of this book is about. We meet
+it from the inside, through records, horizons, detectors, clocks, and shared
+facts. Thousands of brilliant minds have contributed to the reverse
+engineering effort.
 
 The naive model, a 3D world of independent objects moving through absolute
 time and existing whether or not anyone observes it, turns out to be the
 equivalent of a stub loader. It works for everyday purposes, then fails in the
 places where physics became interesting.
 
-The deeper account is weirder, more elegant, and more unified than the surface
-shows. It starts with a structure that explains itself. Consistency forces
+The deeper account is weirder and more unified than the surface shows. It starts with a structure that explains itself. Consistency forces
 observers, and those observers must agree. Spacetime appears as the agreement
 pattern before it appears as a container.
 

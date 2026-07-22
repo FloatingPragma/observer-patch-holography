@@ -184,7 +184,7 @@ If special relativity were wrong, the accelerator wouldn't work. The particles w
 
 The Global Positioning System requires timing accuracy of nanoseconds. GPS satellites orbit at high speed (time dilation makes their clocks run slow) and at high altitude (gravitational time dilation, which we'll discuss shortly, makes their clocks run fast).
 
-Without relativistic corrections, GPS would accumulate errors of 10 kilometers per day. It works because the corrections are applied. Every time you use GPS, you're confirming Einstein.
+Without relativistic corrections, GPS would accumulate errors of 10 kilometers per day. It works because the corrections are applied. Every time you use GPS, you're confirming Einstein. Your phone corrects for the curvature of spacetime several times a second and has never once been thanked for it.
 
 ## 15.6 General Relativity: Gravity as Geometry
 
@@ -218,11 +218,11 @@ By the equivalence principle, light must also bend in a gravitational field. Gra
 
 Light, though, is supposed to travel in straight lines. If it bends near massive objects, maybe "straight" isn't what we think.
 
-Einstein's radical proposal: massive objects curve spacetime itself. Light travels along the straightest possible paths. But in curved spacetime, the straightest paths are curves.
+Einstein's radical proposal was that massive objects curve spacetime itself. Light travels along the straightest possible paths. But in curved spacetime, the straightest paths are curves.
 
 A geodesic is the straightest path in a curved geometry. On a sphere, geodesics are great circles. On Earth, the shortest flight from New York to London curves north over the Atlantic.
 
-In curved spacetime, planets don't orbit the Sun because of a force. They're following geodesics in the curved geometry created by the Sun's mass. They're going as straight as they can, but the space around them is bent.
+In curved spacetime, planets don't orbit the Sun because of a force. They're following geodesics in the curved geometry created by the Sun's mass. They're going as straight as they can, but the space around them is bent. A planet is falling toward the Sun at every moment and, on account of its sideways speed, perpetually missing.
 
 ### The Einstein Field Equations
 
@@ -283,19 +283,26 @@ Black holes exist, and the observed strong-field data match general relativity e
 
 ## 15.8 Recovering Special Relativity from the Screen
 
-The route begins with a finite object and passes through several type gates.
+Everything so far was the standard story, told the standard way. The question
+for this book is different: sit a federation of finite observers on the
+screen and ask what comparisons they can consistently make. Relativity should
+fall out as the answer, or the framework is in trouble.
+
+The route begins with a finite object and has to clear several checks along
+the way, each one a change in the kind of mathematical object being handled.
 The twelve-port icosahedron is the local instrument panel. A repaired
-federation supplies the candidate spherical support only under a source-bound,
-refinement-natural federation-to-support map. That map is open. On the certified
-support branch, the conformal symmetry of the smooth sphere supplies Lorentz
-kinematics. Hyperbolic three-space then labels possible rest frames. Events,
-positions, and a four-dimensional spacetime require a further construction.
+federation supplies the candidate spherical support only under a
+source-bound, refinement-natural federation-to-support map, and that map is
+work in progress. On the supported branch, the conformal symmetry of the
+smooth sphere supplies Lorentz kinematics. Hyperbolic three-space then labels
+possible rest frames. Events, positions, and a four-dimensional spacetime
+require a further construction.
 
 ### From Modular Ordering to an Observer Clock
 
 The modular-time construction begins with the ordering carried by modular flow.
-At finite cutoff, or in a special type-I representation, an observer patch $P$
-has a reduced density matrix. Its support region is displayed as a cut of the holographic
+At finite cutoff, or in the special representations that still admit density
+matrices, an observer patch $P$ has a reduced density matrix. Its support region is displayed as a cut of the holographic
 screen, and the density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
@@ -312,12 +319,10 @@ $\rho_P$ is the reduced density matrix for patch $P$. The logarithm turns the
 state into its modular Hamiltonian $K_P$. The map $\sigma_t$ is the modular
 evolution, and $t$ is its dimensionless parameter. The exponentials are the
 operator version of changing a question by flowing it forward and then back.
-Geometry, an observer-readable transition, event correspondence, and
-calibration are needed before $t$ becomes a physical clock reading.
 
 In the continuum limit this operator formula is not always the right target.
-Continuum algebras can be non-type-I, so there may be no density matrix inside
-the cap algebra and no inner operator $K=-\log\rho$. The more general OPH
+Continuum algebras can stop admitting density matrices altogether, so there
+may be no operator $K=-\log\rho$ inside the cap algebra. The more general OPH
 statement is about the modular automorphism group itself: the whole flow of the
 cap's observable algebra, read on the geometric cap pair.
 
@@ -332,11 +337,8 @@ measure a duration by itself.
 When the geometry is under enough control, the cap's modular flow can match a
 smooth dilation of the sphere. Matching the two means fixing which side of the
 cap you mean, which orientation, and which independently normalized geometric
-parameter you are comparing against. Those data form part of the finite
-cap-flow certificate. The same refinement tower must independently carry the
-complete algebra-state comparison package. OPH lists both inputs separately.
-A physical clock additionally
-needs an observer-readable transition, an event correspondence, and calibration.
+parameter you are comparing against, while the same refinement tower
+independently carries the complete algebra-state comparison package.
 
 When the cap is extracted cleanly, its flow is carried through refinement
 without distortion, the round caps are rigid, the geometric normalization is
@@ -353,19 +355,22 @@ pass. The polyhedron is the finite instrument panel. The round sphere is the
 continuum kinematic chart.
 
 On the certified branch, a closed spherical support, a well-behaved mesh,
-matching cross-ratios, and the modular temperature scale produce the round
-sphere and its full conformal structure. The observer-facing map then localizes
-records and turns that conformal structure into the shared kinematic chart.
-The finite federation has to produce those inputs independently; a mesh drawn
-by the analyst cannot certify them.
+matching cross-ratios (a distance-free way to compare four points), and the
+modular temperature scale produce the round sphere and its full conformal
+structure. The observer-facing map then localizes records and turns that
+conformal structure into the shared kinematic chart. The finite federation
+has to produce those inputs independently; a mesh drawn by the analyst cannot
+stand in for them.
 
-The state supplies modular flow, and the recovered metric
-supplies proper time along a worldline. They agree only after the physical
-calibration has been stated. Comparing two different worldlines needs one more
-piece: a rule saying which event on one clock corresponds to which event on
-the other. A local Lorentz factor compares velocities at one event; it is not
-a global clock-conversion formula. Consistent overlap calibrations then let the
-local clocks assemble into one spacetime description.
+The state supplies modular flow, and the recovered metric supplies proper
+time along a worldline. Before the flow parameter counts as a physical clock
+reading, an observer-readable transition, an event correspondence, and a
+stated calibration have to be supplied. Comparing two different worldlines
+needs one more piece: a rule saying which event on one clock corresponds to
+which event on the other. A local Lorentz factor compares velocities at one
+event; it is not a global clock-conversion formula. Consistent overlap
+calibrations then let the local clocks assemble into one spacetime
+description.
 
 ![Modular ordering on a cap can match geometric motion on the screen after the physical calibration is supplied.](../assets/book_diagrams/modular-flow-cap.svg){width=78%}
 
@@ -419,14 +424,16 @@ The Lorentz group has six generators. Rotations use three of them. The quotient
 leaves three boost directions, so the frame space has dimension $6-3=3$.
 Its points are future unit timelike frames. They are not positions in space.
 
-A cap is not an observer point. Observer data, such as a clock, a tetrad, or a
-stable record frame, select a frame value in this fiber. The fiber's overall
-physical scale is a separate gravity-branch question.
+A cap is not an observer point. Observer data, such as a clock, a carried set
+of reference axes, or a stable record frame, select a frame value in this
+fiber. The fiber's overall physical scale is a separate gravity-branch
+question.
 
-Record-conditioned frame estimation is a separate step. A record token selects
-a frame value only when its calibrated cap responses pass the frame model and
-the error budget is complete. Finite noisy data produce a certified frame ball
-or an ambiguity report. A spacetime event needs another construction: affine
+Reading a frame out of records is a separate step. A record picks out a frame
+only when its measured cap responses fit the frame model with every source of
+error accounted for. Finite noisy data then deliver either a small ball of
+frames guaranteed to contain the right one, or a plain admission that the
+data cannot decide. A spacetime event needs another construction: affine
 event coordinates, coincidence, causal ancestry, a quadratic cone with one
 timelike direction, and compatible charts. The celestial sphere checks the
 boundary of that cone; it does not determine the cone by itself.
@@ -440,7 +447,7 @@ freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
 a privileged reference frame?
 
 **There is no observer outside the screen net.** The sphere
-serves as the symmetric chart for observer-facing support data, with no
+is the symmetric chart for observer-facing support data, with no
 external inspection platform above it. OPH does not include any
 external vantage point. Observers have no user seat outside the computation.
 They are operational patterns within the finite patch federation, visible
@@ -449,8 +456,9 @@ through the screen chart.
 Think about what an observer actually is in OPH. It is a bounded patch or
 connected subfederation with a local algebra and state, internal readback,
 rereadable records, exposed interfaces, record-conditioned updates, and
-checkpoint continuation. Stability of one correlation pattern is useful, but
-it is not the whole observer test. The support chart displays that operational
+checkpoint continuation. Nothing in that list names the particular patch the
+pattern happens to be running on. Stability of one correlation pattern is
+useful, but it is not the whole observer test. The support chart displays that operational
 domain as $P_O \subset S^2$. No observer can access the entire screen net
 simultaneously. A global state $\omega$ may exist in a mathematical model, but
 no entity within OPH can inspect it as a private object.
@@ -462,17 +470,19 @@ structure, and avoid turning any one patch into the privileged center of the
 world. A natural symmetry group that does that is the conformal group of
 $S^2$, and $\text{Conf}(S^2)\cong \mathrm{SO}(3,1)$ is the Lorentz group.
 
-On the certified spherical branch, Lorentz invariance is the symmetry class
+On the spherical branch, Lorentz invariance is the symmetry class
 relating observer perspectives without privileging any one of them.
 
 **Carrier coordinates do not need to move through a pre-given bulk.** What we
-call motion in emergent 4D spacetime is a stable change in the quotient-visible
-relations and localized records. Its quantum representation, dynamics, and
+call motion in emergent 4D spacetime is a stable change in the relations
+visible in the shared public description, together with the localized
+records. Its quantum representation, dynamics, and
 pole give the corresponding particle. A Lorentz boost relates
 how two observers describe the same localized pattern in the smooth chart.
 
 The carrier does not sit at a hidden coordinate inside the spacetime it helps
-produce. Spacetime emerges from quotient-visible relations among patches.
+produce. Spacetime emerges from those publicly visible relations among
+patches.
 Carrier architecture nevertheless matters: changing port incidence,
 orientation, state response, or refinement can change the relations that reach
 the smooth limit. Asking which emergent inertial frame contains the carrier is
@@ -570,24 +580,20 @@ that a small entropy change matches a small modular-energy change.
 
 Once the controlled geometric construction has supplied the modular
 automorphism, a finite-dimensional realization may be written as
-$K_C = 2\pi B_C + Z_C$, where $Z_C$ records the boundary sectors. On that
-representation, the first law becomes:
+$K_C = 2\pi B_C + Z_C$, where $B_C$ is the boost-energy part and $Z_C$ is the
+sector bookkeeping. On that representation, the first law becomes:
 
 $$\delta S_C = 2\pi \delta \langle B_C \rangle
 + \delta\langle Z_C\rangle$$
 
-For a direct sum of bulk states with maximally mixed boundary factors, the
-entropy splits exactly. The bulk part includes the Shannon entropy of the
-sector probabilities. The boundary part is the average logarithm of the sector
-dimensions. With that bookkeeping, the boundary variation equals
-$\delta\langle Z_C\rangle$, and the bulk variation equals
-$2\pi\delta\langle B_C\rangle$ even when the sector probabilities vary.
+With that split, the accounting works even when the sector probabilities
+shift; the bulk and boundary parts each keep their own ledger.
 
 ### The Stress Tensor Bridge
 
 To get Einstein's equation, modular energy has to be connected to the stress
-tensor. One route passes through a UV CFT regime, where the modular
-Hamiltonian is explicitly local:
+tensor. One route passes through a short-distance regime where the theory
+looks scale-free, and there the modular Hamiltonian is explicitly local:
 
 $$K = \int_\Sigma T_{ab} \zeta^b d\Sigma^a$$
 
@@ -622,9 +628,10 @@ Here $\delta A|_{V,\Lambda}$ is the small change of area while the small
 diamond's volume and the metric-term convention are held fixed. $\ell$ is the
 diamond's characteristic size, $u^a$ is the local rest-frame four-velocity,
 $G_{ab}$ is the Einstein tensor, $g_{ab}$ is the metric, and $\Lambda$ is the
-cosmological-constant term. The formula says that the area response of the
-local screen is controlled by the same curvature combination that appears in
-Einstein's equation.
+cosmological-constant term. The remainder $o(\ell^4)$ means smaller than
+$\ell^4$ in the limit of small $\ell$. The formula says that the area
+response of the local screen is controlled by the same curvature combination
+that appears in Einstein's equation.
 
 The equilibrium condition then compares that geometric response with the
 matter-energy response:
@@ -806,7 +813,7 @@ capacity and scale display Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
-In the microscopic description, quotient-visible data live in the
+In the microscopic description, the publicly visible data live in the
 finite patch federation and are displayed through the screen chart. The bulk,
 including black hole interiors, is emergent.
 
@@ -828,27 +835,34 @@ Galaxies rotate faster than their visible matter predicts. Lensing, clusters,
 the cosmic microwave background, and structure growth extend the discrepancy
 beyond rotation curves.
 
-The standard response: dark matter particles. Some new, weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have produced no confirmed new particle.
+The standard response is dark matter, a new weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have produced no confirmed new particle.
 
 Modified Newtonian dynamics, or MOND, changes the low-acceleration law. It fits
 many galaxy rotation curves but does not by itself supply relativistic lensing,
 cluster stress, or cosmological perturbations.
 
-### The Repair-Charge Completion
+### The Repair-Charge Medium
 
-The dark-sector action pairs an integer count of repair occupation with a
-compact repair phase, much like the number and angle of a rotor. Its continuity
-equation includes repair flux through the boundary, and changing the geometry
-supplies the field stress. The dilute phase scales as pressureless matter. A
-cubic condensed phase gives the spherical deep-galaxy relation
-$a_R=\sqrt{a_ba_0}$.
+OPH's candidate is a medium of repair charge. Its local state is a number and
+an angle, the occupation count and the phase of a rotor that can spin up in
+whole units. The medium has two phases. In the normal phase it behaves like
+dust, pressureless matter that clumps and gravitates, which is what cosmology
+needs at large scales. In the condensed phase, reached where gravitational
+gradients run deep, the medium changes the effective force law. For a roughly
+spherical galaxy the condensed phase gives the deep-field relation
 
-### Stress and Relativistic Observables
+$$a_R=\sqrt{a_b a_0},$$
 
-The canonical pair and its constitutive law provide a conserved relativistic
-stress. Its dilute branch controls abundance and perturbations; its condensed
-branch controls gravitational slip, lensing, clusters, Solar-System response,
-and the deep-galaxy acceleration law.
+where $a_b$ is the ordinary baryonic pull and $a_0$ is a tiny acceleration
+scale, about one ten-billionth of Earth gravity, below which rotation curves
+misbehave.
+
+Because the count and the angle enter one action, the medium carries a
+conserved relativistic stress rather than a fitted force rule. The dust-like
+phase controls abundance and the growth of structure. The condensed phase
+controls lensing, gravitational slip (light and matter bending differently),
+cluster interiors, the quiet Solar System, and the deep-galaxy acceleration
+law.
 
 ## 15.13 Reverse Engineering Summary
 

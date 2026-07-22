@@ -79,19 +79,9 @@ Distance emerges from the entanglement structure of the vacuum state; nothing ab
 
 We introduced the RT formula in Chapter 8: entanglement entropy of a boundary region equals the area of the minimal bulk surface anchored on that region's boundary, divided by 4G. This looks exactly like the Bekenstein-Hawking formula for black hole entropy, except the same structure applies to any region.
 
-The deep implication: **geometry encodes entanglement**.
+The implication runs deep. **Geometry encodes entanglement.**
 
 That sentence is easy to repeat and easy to misunderstand. The precise claim is stronger: the amount of quantum correlation across a cut determines the size of the bulk surface associated with that cut. Entropy is doing geometric work. If the boundary state ties two regions together strongly, the bulk description between them is correspondingly thick and connected.
-
-This idea did not arrive as one person's finished vision. Bekenstein and
-Hawking made black holes count states. Srednicki and many others showed how
-ordinary quantum fields produce area-law entanglement. Maldacena gave the
-AdS/CFT setting in which a boundary theory and a gravitational bulk could be
-compared. Ryu and Takayanagi found the sharp area formula. Hubeny, Rangamani,
-Takayanagi, Faulkner, Lewkowycz, Maldacena, Engelhardt, Wall, Harlow, and many
-others then turned the slogan into a working toolkit. OPH uses that inherited
-toolkit and asks what common observer-first architecture those clues are
-pointing toward.
 
 ### A Simple Example
 
@@ -101,16 +91,13 @@ $$S = \frac{c}{3}\ln\frac{L}{\epsilon}$$
 
 where c is the central charge and epsilon is a UV cutoff.
 
-The central charge counts, roughly, how many independent quantum degrees of
-freedom the CFT has. The UV cutoff is the shortest distance the calculation
-allows. Without it, the field theory would keep counting arbitrarily tiny
-correlations across the boundary of the interval.
-
-$S$ is the entanglement entropy of the interval. $L$ is the interval length.
-$\epsilon$ is the short-distance cutoff, the smallest distance the effective
-field theory is allowed to resolve. The logarithm appears because a
-two-dimensional conformal field theory organizes correlations scale by scale.
-The formula is compact, but every symbol carries a physical role.
+$S$ is the entanglement entropy of the interval and $L$ is the interval
+length. The central charge $c$ counts, roughly, how many independent quantum
+degrees of freedom the CFT has. The cutoff $\epsilon$ is the shortest
+distance the calculation is allowed to resolve; without it, the field theory
+would keep counting arbitrarily tiny correlations across the boundary of the
+interval. The logarithm appears because a two-dimensional conformal field
+theory organizes correlations scale by scale.
 
 In AdS_3, the minimal "surface" is a geodesic, the shortest path through the bulk. Compute its length using the AdS metric. Divide by 4G.
 
@@ -218,7 +205,7 @@ A **tensor network** builds a large quantum state from small pieces. Each tensor
 
 ### MERA: Building in Scale
 
-The **Multi-scale Entanglement Renormalization Ansatz** (MERA) handles critical systems by building in scale. Layer by layer, you move to larger scales. The network grows upward into a new dimension.
+The **Multi-scale Entanglement Renormalization Ansatz** (MERA) handles critical systems, matter poised at a phase transition, by building in scale. Layer by layer, you move to larger scales. The network grows upward into a new dimension.
 
 In 2012, Brian Swingle noticed that the geometry of a MERA network is
 **hyperbolic**, just like AdS space. The depth in the network plays the role of
@@ -231,8 +218,9 @@ showing how entanglement can organize geometry in an AdS-like way.
 
 In 2015, Hayden, Pastawski, Preskill, Nezami, and Yoshida built a toy model called the **HaPPY code**.
 
-They tiled a hyperbolic disk with perfect tensors, and two things happened at
-once. The RT formula became exact, with boundary entropy equal to the number of
+They tiled a hyperbolic disk with perfect tensors, tensors that spread
+whatever enters one leg evenly across all the others, and two things happened
+at once. The RT formula became exact, with boundary entropy equal to the number of
 legs cut by a minimal path. Bulk operators also became recoverable from
 different boundary regions.
 
@@ -281,7 +269,7 @@ In AdS/CFT and related semiclassical holographic models, Hawking radiation can
 produce a late-time effect: the radiation's entanglement wedge can include a
 region **inside** the black hole, an "island."
 
-In those models, the island formula reproduces the Page curve and shows how the radiation can encode information that semiclassical bulk reasoning seemed to lose.
+In those models, the island formula reproduces the Page curve, the rise-then-fall of radiation entropy that unitarity demands, and shows how the radiation can encode information that semiclassical bulk reasoning seemed to lose.
 
 The island formula shows what holographic encoding can do. Information that
 looks lost in one description can remain stored in a nonlocal way and reappear
@@ -299,23 +287,23 @@ When a quantum system interacts with its environment, certain "pointer states" b
 
 Classical facts are quantum information that got copied everywhere. You look at a chair. I look at the same chair. We agree because we're both sampling redundant records in the environment.
 
-This is error correction as a law of physics. Reality stabilizes itself through redundancy.
+This is error correction as a law of physics. Reality stabilizes itself through redundancy. A pattern copied widely enough stops depending on any one copy.
 
 ## 9.11 What Entanglement Predicts
 
 If geometry is built from entanglement, several things have to happen. In the
-holographic regime, boundary entropy has to track extremal surfaces. Low-energy
+holographic regime, boundary entropy has to track extremal surfaces, the
+time-dependent generalization of Chapter 8's minimal surfaces. Low-energy
 states have to care about boundary area more than bulk volume. Entropy
 inequalities have to act like geometric constraints. Bulk regions have to be
 reconstructible from the right boundary data. Black-hole evaporation has to
 respect unitarity through encoded interior information.
 
-That is the direction the evidence points. Ryu-Takayanagi works in the
-settings where it should. Area-law scaling is widespread in the regimes that
-matter here. Entanglement wedge reconstruction works in explicit examples.
-Black-hole information is read through encoded radiation, not simple deletion,
-in the semiclassical holographic models where the island/Page-curve picture is
-under control.
+That is the direction the evidence points. Ryu-Takayanagi works. Area-law
+scaling is widespread. Entanglement wedge reconstruction works. Black-hole
+information is read through encoded radiation rather than simple deletion in
+the semiclassical holographic models where the island picture is under
+control.
 
 ### Entanglement as a Discovery Chain
 
@@ -324,40 +312,31 @@ as a complaint. Einstein, Podolsky, and Rosen used it in 1935 to argue that
 quantum mechanics could not be complete. Schrödinger answered by naming the
 phenomenon and rating it, in his 1935 reply, as "the characteristic trait of
 quantum mechanics, the one that enforces its entire departure from classical
-lines of thought." For decades the issue looked
-philosophical. Then John Bell found the inequality that moved the argument
-from taste to experiment. Clauser, Freedman, Aspect, Zeilinger, and many
-others turned the test into a laboratory program. Modern loophole-free Bell
-experiments make the point hard to evade: the world does not carry local
-classical instruction sheets that determine all possible measurement results.
+lines of thought." For decades the issue looked philosophical. Then John Bell
+found the inequality that moved the argument from taste to experiment, and
+Clauser, Freedman, Aspect, Zeilinger, and others turned the test into a
+laboratory program. Modern loophole-free Bell experiments make the point hard
+to evade: the world does not carry local classical instruction sheets that
+determine all possible measurement results.
 
 The later holographic story is just as communal. Bekenstein and Hawking made
 horizons thermodynamic. 't Hooft and Susskind drew the boundary-first lesson.
 Maldacena supplied the AdS/CFT laboratory. Ryu and Takayanagi wrote the
-minimal-area formula that made entanglement look geometric. Hubeny,
-Rangamani, and Takayanagi extended it to time-dependent cases. Van Raamsdonk
-emphasized that changing entanglement can change connectivity. Swingle,
-Pastawski, Hayden, Preskill, Yoshida, Almheiri, Engelhardt, Penington, and
-many others connected tensor networks, error correction, wedges, and islands.
+minimal-area formula that made entanglement look geometric, and Van Raamsdonk
+emphasized that changing entanglement can change connectivity. A long list of
+others connected tensor networks, error correction, wedges, and islands.
 
 That history matters because the formula
 
 $$S(A)=\frac{\mathrm{Area}(\gamma_A)}{4G_N}$$
 
-is easy to admire without digesting. $S(A)$ is the entanglement entropy of
-boundary region $A$. The surface $\gamma_A$ is the bulk extremal surface
-anchored to the boundary of $A$. $G_N$ is Newton's gravitational constant.
-The equation says that a quantum-information quantity on a boundary is
-measured by a geometric area in the bulk. If area changes, entropy changes.
-If entropy changes, the emergent geometry changes.
+is easy to admire without digesting. Chapter 8 unpacked these symbols. The
+point to carry forward is the direction of dependence: change the entropy and
+the emergent geometry changes.
 
-The Bell inequality in the same chapter uses the symbol $S$ in a different
-way, for the CHSH combination of correlations,
-usually written as a sum and difference of expectation values for four
-measurement settings. The classical limit is $|S|\leq 2$. Quantum theory can
-reach $2\sqrt 2$. The repeated letter is unfortunate but common. The book
-uses context to distinguish them: entropy $S(A)$ belongs to regions and
-areas, while Bell $S$ belongs to correlation tests.
+One caution about notation: entropy $S(A)$ belongs to regions and areas,
+while the Bell $S$ of this chapter's earlier sections belongs to correlation
+tests.
 
 OPH needs both meanings. Bell-type entanglement says local classical
 bookkeeping is too small. RT-type entanglement says quantum bookkeeping can
@@ -365,13 +344,8 @@ be geometric. Entanglement wedges then say that two observers may reconstruct
 the same interior region from different boundary data. If they do, agreement
 is forced. The shared wedge is the geometric version of an overlap.
 
-For finite evidence bundles, that overlap language has a strict neutral-bulk
-version. Observer features from different shards are comparable only after
-gauge and port presentation labels have been quotiented, terminal normal forms
-have been reached, and interface transport has glued the charts without hidden
-cycle holonomy. A distance built from the descended features is first a
-pseudometric. It becomes a metric only after feature collisions are quotiented
-or the features are proved jointly separating.
+Making that overlap comparison exact for finite records, so that distances
+built from shared features behave like true distances, is work in progress.
 
 ## 9.12 Reverse Engineering Summary
 
@@ -383,10 +357,7 @@ correlations. Cut enough entanglement and you cut space itself.
 
 ---
 
-Space emerges from entanglement. But why is this structure stable? Why doesn't the entanglement web unravel?
+Space emerges from entanglement. But why is this structure stable? Why doesn't
+the entanglement web unravel?
 
-In the next chapter, this picture connects to quantum error correction. In controlled holographic
-settings, spacetime is encoded in a structure that can protect information. The OPH overlap
-network begins more modestly as a finite constraint code, and it becomes a quantum
-error-correcting claim only when the code subspace, logical operators, error model, and recovery
-map are supplied.
+The next chapter argues the answer is a mechanism engineers know well.

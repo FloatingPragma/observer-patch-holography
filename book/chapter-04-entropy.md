@@ -137,7 +137,7 @@ A solar-mass black hole has about $10^{77}$ bits of entropy. The supermassive bl
 
 For comparison, the entropy of all ordinary matter in the observable universe is only about $10^{80}$ bits. Black holes dominate.
 
-The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute thermal equilibrium at maximum entropy, with nothing left to remember and no one left to notice.
+The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute thermal equilibrium at maximum entropy, with nothing left to remember and no one left to notice. This is widely regarded as bad news.
 
 We exist in a brief window when entropy is high enough for complexity but low enough for structure.
 
@@ -182,9 +182,6 @@ $p_i$ is the probability of outcome $i$. The minus sign is present because
 probabilities lie between 0 and 1, so their logarithms are negative. The
 formula turns uncertainty into a number.
 
-Thermodynamic and information-theoretic entropy share the same core counting
-logic, though the standard formulas are written in slightly different settings.
-
 **Entropy measures missing information.**
 
 In thermodynamics, you're missing information about the microstate. In communication, you're missing information about the message. The mathematics shares the same counting logic across different settings.
@@ -206,7 +203,7 @@ The modern resolution is subtler than one sentence, but Landauer-style memory er
 
 **The hint**: Information processing has thermodynamic costs. You cannot observe, remember, or compute for free.
 
-**The reframing**: Observers are physical systems subject to entropy constraints. The consistency process-comparing notes between observers-costs energy and generates entropy. Reality-making is thermodynamically expensive.
+**The reframing**: Observers are physical systems subject to entropy constraints. The consistency process of comparing notes between observers costs energy and generates entropy. Reality-making is thermodynamically expensive.
 
 ## 4.5 Quantum Entropy and Entanglement
 
@@ -227,7 +224,9 @@ written `Tr`, is the matrix version of summing over all possibilities.
 
 The weirdness appears in a simple quantum pair.
 
-Consider two qubits in a **Bell state**:
+Consider two qubits in a **Bell state**. In the bracket notation below, the
+two digits inside each bracket are the readouts of the two qubits, and the
+state is an equal blend of both-zero and both-one:
 
 $$|\Psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$
 
@@ -265,6 +264,9 @@ For ground states of reasonable theories:
 
 $$S_A \propto \text{Area}(\partial A)$$
 
+The symbol $\partial A$ names the boundary of region A, the surface where the
+region meets the rest.
+
 **The entanglement entropy scales with boundary area, not volume.**
 
 ### Why Area?
@@ -279,9 +281,8 @@ Points deep inside A are entangled with other inside points, not the outside. Th
 
 Black-hole entropy bounds point toward area scaling, while the area law of entanglement says actual entropy (in ground states) scales with area too.
 
-This is no coincidence. Gravitational entropy bounds and entanglement area laws
-point in the same structural direction, even though they arise in different
-settings.
+This is no coincidence. Gravitational entropy bounds and entanglement area
+laws point in the same structural direction.
 
 **The hint**: Both quantum entanglement and gravitational entropy obey area laws.
 
@@ -299,13 +300,13 @@ When matter falls in, $S_{\text{outside}}$ decreases because the matter's
 entropy disappears from the outside description, while $S_{BH}$ increases as
 the horizon area grows.
 
-In the semiclassical regimes where the generalized second law is expected to hold, the black hole's entropy increase compensates for what is lost from the outside description.
+In semiclassical regimes, meaning quantum matter on a still-classical spacetime, the generalized second law is expected to hold: the black hole's entropy increase compensates for what is lost from the outside description.
 
 ### The Page Curve: Information Escapes
 
 Hawking showed black holes radiate. In the semiclassical picture, they slowly evaporate by emitting thermal radiation, apparently shrinking toward disappearance.
 
-His original calculation said the radiation is random-no information about what fell in. This would conflict with the standard unitary expectation of quantum mechanics and is what makes the information-loss problem so sharp.
+His original calculation said the radiation is random, carrying no information about what fell in. That would conflict with the standard expectation that quantum evolution is unitary, an evolution that loses nothing, and it is what makes the information-loss problem so sharp.
 
 Don Page proposed a test. If evaporation is unitary, radiation entropy rises at
 early times while the radiation is entangled with the remaining black hole,
@@ -346,12 +347,9 @@ When two observers compare notes, they share information across patch boundaries
 
 ### The Information Budget
 
-For the late-time de Sitter horizon used in the OPH capacity closure, after the
-selected OPH scale bridge is expressed in SI units, the bare radius-squared
-count is about $1.05\times10^{122}$ and the Gibbons-Hawking entropy capacity is
-about $3.31\times10^{122}$ in natural units, or $4.77\times10^{122}$ bits.
-Other cosmological horizon conventions stay in the band from $10^{122}$ to
-$10^{123}$. The budget is enormous but finite.
+For the horizon that bounds everything we will ever see, the budget works out
+to roughly $10^{122}$ bits, with different accounting conventions shifting the
+answer by less than a factor of ten. The budget is enormous but finite.
 
 But most of that entropy is in black holes, inaccessible. The entropy we can actually manipulate is far less.
 
@@ -368,7 +366,7 @@ and increasing entanglement, remembers by creating records from low-entropy
 resources and free energy, and erases by paying the Landauer cost for making
 room for fresh memory.
 
-Observers are constrained by thermodynamics. They cannot observe without entangling. They cannot remember without consuming free energy. They cannot forget without generating heat.
+Observers are constrained by thermodynamics. They cannot observe without entangling, and they cannot remember without consuming free energy. Even forgetting generates heat.
 
 The consistency process has thermodynamic costs. Sending, receiving, and processing messages all require energy. Agreement is not free.
 
@@ -376,7 +374,8 @@ The consistency process has thermodynamic costs. Sending, receiving, and process
 
 Entropy rests on hard thermodynamic and quantum structure. Boltzmann gives
 the counting picture. Landauer ties information to energy cost. Strong
-subadditivity fixes the basic logic of quantum entropy.
+subadditivity, the rule that overlapping regions cannot have their information
+counted twice, fixes the basic logic of quantum entropy.
 
 The physical world keeps pushing in the same direction. The Second Law holds
 with overwhelming reliability in isolated systems. Black-hole entropy follows
@@ -384,7 +383,8 @@ the semiclassical area law. Controlled holographic models produce the Page
 curve when information is preserved. In the low-energy regimes relevant to the
 book, entanglement commonly tracks boundary area more closely than bulk
 volume. None of this looks accidental. All of it points toward a world in
-which information has a budget, storage has a geometry, and memory has a cost.
+which information has a budget, storage has a geometry, and no one remembers
+anything for free.
 
 ### A Short History of the Arrow
 
@@ -399,9 +399,8 @@ general statistical language.
 Planck used entropy in the route to quantum theory. Shannon rediscovered an
 information-theoretic cousin while studying communication. Landauer then showed
 that information processing itself pays a thermodynamic price. Bekenstein and
-Hawking put entropy on horizons. Page, Hayden, Preskill, Almheiri, Engelhardt,
-Marolf, Maxfield, Penington, and many others turned black-hole entropy into a
-sharp quantum-information problem.
+Hawking put entropy on horizons. Page, Penington, and a small crowd of others
+then turned black-hole entropy into a sharp quantum-information problem.
 
 That chain is important because entropy is easy to misread as a single
 metaphor. In this book the same accounting idea appears in different physical
@@ -414,21 +413,18 @@ some physical system has been driven into a durable low-entropy correlation
 with what happened.
 
 The formulas are modest. Carnot's $\eta_{max}=1-T_{cold}/T_{hot}$ says what
-no engine can beat, without saying how to build one. Boltzmann's $S=k_B\ln W$
-says what matters after coarse-graining: how many microscopic possibilities
-fit the same macroscopic description. Shannon's $H=-\sum_i p_i\log_2 p_i$
-measures uncertainty in a probability distribution, indifferent to whether
-the messages are poems, voltages, or detector clicks. The horizon bound
-$S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ is silent on the detailed microstates
-of quantum gravity and says only that the storage budget scales like area.
+no engine can beat. Boltzmann's $S=k_B\ln W$ counts how many microscopic
+possibilities fit the same macroscopic description. Shannon's
+$H=-\sum_i p_i\log_2 p_i$ measures uncertainty in a probability distribution,
+and the horizon bound $S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ says only that
+the storage budget scales like area.
 
 Together those equations explain why observers cannot be free-floating
-witnesses. To observe, an observer must couple to something. To remember, the
-observer must build a physical record. To compare records, observers must
-send, receive, and stabilize information. All of that happens under an
-entropy budget. If OPH treats public reality as a consensus process, entropy
-is the cost accounting for that process. Agreement requires records, and
-records require an arrow.
+witnesses. To observe, an observer must couple to something. To remember, it
+must build a physical record, and comparing records costs energy of its own.
+All of that happens under an entropy budget. If OPH treats public reality as a
+consensus process, entropy is the cost accounting for that process. Agreement
+requires records, and records require an arrow.
 
 ---
 

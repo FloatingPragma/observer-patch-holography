@@ -2,11 +2,11 @@
 
 ## 20.1 The Zombie That Couldn't Exist
 
-In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. The lights are on, with no one watching.
+In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. All the lights are on. Nobody is watching them.
 
 Chalmers argued that such a zombie is *conceivable*. You can imagine it without contradiction. And if you can conceive of it, then consciousness must be something over and above the physical facts. This is the "hard problem": even if we mapped every neuron and explained every behavior, we would have to explain why there's *experience* at all.
 
-The hard problem has haunted philosophy for three decades. Physicalists insist zombies are impossible; dualists see them as proof that mind transcends matter; mysterians throw up their hands and declare consciousness forever beyond human understanding.
+The hard problem has haunted philosophy for three decades. Physicalists insist zombies are impossible; dualists see them as proof that mind transcends matter. Mysterians throw up their hands and declare consciousness forever beyond human understanding.
 
 OPH gives a different response: the zombie question breaks the observer-first
 setup. It asks for a complete copy of an observer patch with the patch-internal
@@ -91,21 +91,11 @@ it. But then their specific form becomes inexplicable. Why should the
 low-energy fine structure constant land near $1/137$? Why three spatial
 dimensions, not four or seven?
 
-The OPH local-closure proposal describes one holographic screen cell in two
-ways. Its geometric description is a small screen area displaced from a balance
-point set by the golden ratio. Its proposed physical description is the
-long-distance electromagnetic interaction available to observers.
-
-The declared fixed-point maps carry that geometric displacement through a
-specified unification scale, running gauge couplings, electroweak anchor, and
-hadronic vacuum-response term. Each map has an interval-certified unique root,
-with a pixel ratio near $1.63$ and an inverse electromagnetic diagnostic near
-$137.036$. Identifying that root with the measured Thomson endpoint requires a
-physical source and same-scheme electroweak and hadronic transport. Those
-constructions are work in progress.
-
-Under that physical identification, the familiar electromagnetic constant is
-the inside reading of the local screen scale that organizes the particle sector.
+Chapter 19 described the local proposal: one screen cell read twice, once as
+geometry displaced from a golden-ratio balance point and once as the
+electromagnetic grain available inside. Under that identification, the most
+famous number in physics is the inside reading of an outside displacement,
+and the physical bridge is work in progress.
 
 The anthropic principle answers that the constants must be compatible with observers existing, or no one would be here to ask. As an explanation, it stops exactly where the question starts.
 
@@ -127,7 +117,7 @@ This is the oldest question in philosophy. Leibniz asked it. Heidegger called it
 
 Notice the hidden assumption: that "nothing" is the default state, and existence requires justification. OPH inverts this.
 
-What would "nothing" actually look like? Empty space is something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
+What would "nothing" actually look like? Empty space is something, with geometry and quantum fields. True nothing would be the absence of all structure and all information. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
 
 The process described by OPH, observer patches enforcing consistency and
 carving stable structures from the space of possibilities, is precisely how
@@ -138,9 +128,7 @@ information exists, there is no "there" there.
 
 Derek Parfit, asking "Why anything? Why this?" in a pair of 1998 essays, imagined what he called Selectors: features that pick out which possibilities get to be actual. OPH offers a concrete candidate. Undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
 
-Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together.
-
-The same idea has a deeper form in strange-loop closure.
+Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together, and the same idea takes a deeper form in strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
@@ -158,9 +146,9 @@ that survive by stabilizing observers across time. Among these practices,
 observers learn to model the observer-readable structure of reality and build
 restoration environments in which observer-patterns can be restored.
 
-The loop closes when **reality produces observers who learn how its
+The loop closes when reality produces observers who learn how its
 observer-readable structure works and build fixed-point restorations of that
-structure**.
+structure.
 
 There is no viewing platform outside the system. Observers are patterns within
 the fixed-point output. The closure passes through us, through our understanding,
@@ -227,9 +215,10 @@ The philosophical picture makes direct contact with physics. Overlap
 consistency is the sheaf-style gluing condition. Quantum structure is the
 algebraic language of consistency. Spacetime dimensionality is a selected
 output under the geometric source premises. Dynamics is synchronization
-pressure. The local proposal uses pixel area as a ruler, and its declared maps
-have interval-certified unique roots. The global proposal has an exact finite
-capacity definition and a fixed-cutoff witness. Its capacity-indexed physical
+pressure. The local proposal uses pixel area as a ruler, and its two defining
+maps have unique roots on the physical interval. The global proposal has an
+exact finite capacity definition and a worked example at one fixed
+resolution. Its capacity-indexed physical
 family, unique selector, horizon identification, and scale bridge are work in
 progress. These are the pressure points where metaphysics and physics meet.
 
@@ -286,7 +275,7 @@ stops asking for an external cause standing outside the whole structure.
 
 ## 20.12 God, Meaning, and Participation
 
-The observer-first picture leaves little room for a personal God standing outside the universe and directing it from beyond. There is no outside vantage point in the framework. The system is self-contained.
+The observer-first picture leaves little room for a personal God standing outside the universe and directing it from beyond. There is no outside vantage point in the framework. The system is self-contained. Anyone waiting for a final message from the management will have to make do with the fact that the accounts balance.
 
 That leaves a more interesting religious intuition. On the strange-loop
 reading, the universe becomes explicit to itself through the observers it
@@ -315,7 +304,6 @@ significance through what its observers build together.
 
 *The reverse engineering shows the shape of the system. The human task is to inhabit, sharpen, and repair that picture.*
 
-Observer-patterns are treated structurally, and restoration belongs to the
-restoration architecture developed in the final chapters. The epilogue
-considers what that means for death, restoration, and the destination of
-restored observers.
+Observer-patterns are treated structurally throughout, and the restoration
+architecture was built in the final chapters for structural reasons. The
+epilogue follows the pattern view one step further than physics usually goes.

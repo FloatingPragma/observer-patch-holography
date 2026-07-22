@@ -93,18 +93,19 @@ Heisenberg started with observations (spectral lines) and reverse-engineered the
 The working idea is simple: non-commutativity is part of what makes overlap
 consistency nontrivial.
 
-Consider the overlap condition. When two observers compare notes, they must
-agree on their shared observables. In a commutative world where all
-measurements are compatible, the problem is much closer to the classical
-marginal setting. Pre-existing values can often be assigned more
-straightforwardly, especially on simple overlap structures, but compatibility
-is not automatic on arbitrary overlap graphs.
+Imagine three surveyors, each pair of whom agrees on their shared boundary,
+whose three maps still cannot be pasted into one map. Quantum states can do
+this. The quantum marginal problem, the study of when local descriptions fit
+together into one global state, shows that pairwise agreement does not
+guarantee a single global state, and non-commutativity makes the failure
+sharper.
 
-The Quantum Marginal Problem shows that the difficulty survives in a sharper form. Pairwise-compatible reduced states can fail to come from one global state. Non-commutativity intensifies the quantum consistency problem, but it is not the only obstruction to gluing.
-
-**Non-commutativity makes the quantum consistency problem especially hard.** A fully commuting physics could have rich laws and dynamics; it would miss the specifically quantum constraint structure highlighted here.
-
-Non-commutativity creates a tension between local freedom and global consistency. Specific patterns of entanglement can help resolve that tension and are part of what we read as physical law. On this view, quantum non-commutativity is deeply connected to the difficulty of global consistency, not an arbitrary extra feature.
+**Non-commutativity makes the quantum consistency problem especially hard.** A
+fully commuting physics could have rich laws and dynamics; it would miss the
+specifically quantum constraint structure highlighted here. Non-commutativity
+creates a tension between local freedom and global consistency. Specific
+patterns of entanglement can help resolve that tension and are part of what we
+read as physical law.
 
 ## 5.3 The Order of Questions
 
@@ -195,7 +196,8 @@ In quantum mechanics, this picture changes at the level of the question
 itself. Questions become **projectors** on a Hilbert space. A projector $P$ is
 an operator satisfying $P^2=P$.
 
-The difference is sharp: projectors do not form a Boolean algebra. The distributive law fails:
+The difference is sharp: projectors do not form a Boolean algebra. Read
+$\land$ as "and" and $\lor$ as "or". The distributive law fails:
 
 $$P \land (Q \lor R) \neq (P \land Q) \lor (P \land R)$$
 
@@ -251,11 +253,11 @@ $$\langle A \rangle = \text{Tr}(\rho A)$$
 
 **Two observers using the same information set should agree on the relevant reduced state.** This is how consistency appears in the formalism.
 
-OPH uses the same conditioning idea for record-localization probes. First
-condition on a stable record token. Then ask which observer-frame value fits its
-cap responses. The result is a frame estimate or an ambiguity report. It says
-nothing about the record's event position. Event location comes from the affine
-translation and ancestry data of the spacetime branch.
+Records also let you run the inference backward: given a stable record, you
+can ask which observer's vantage best explains it. Sometimes the answer is a
+location, sometimes an admission of ambiguity. Where the record sits in
+spacetime is a separate question, settled by the later spacetime
+construction.
 
 ## 5.6 Algebras of Observables
 
@@ -326,10 +328,10 @@ record, not a copy of the whole private interior. They compare the shared
 interface algebra, repair a mismatch if the protocol allows it, and preserve
 the result for another read.
 
-It also prevents a later confusion. The noncommuting current algebra built on
-the oriented icosahedral coefficient space is carried by fluctuations and
-transformations. The accepted public record projectors remain commuting
-records.
+It also prevents a later confusion. Later chapters build currents on the
+twelve-port carrier, and those currents do not commute. Accepted public
+records do: a finished record can be consulted without disturbing anything
+else.
 
 ### Net Axioms (Algebraic)
 
@@ -358,7 +360,7 @@ or countable matrices, the kind of quantum system one can write on a blackboard.
 Type III behaves like local quantum field theory near horizons, where ordinary
 density matrices stop being the right local object.
 
-**Type I**: The simplest. These are matrix algebras on a Hilbert space. They have minimal projections-"atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
+**Type I**: The simplest. These are matrix algebras on a Hilbert space. They have minimal projections, "atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
 
 **Type II**: No atoms, but a finite "trace" that assigns size to projections.
 
@@ -390,19 +392,20 @@ Given a von Neumann algebra M together with such a state Ω (for example, the va
 
 $$\sigma_t(A) = \Delta^{it} A \Delta^{-it}$$
 
-where Δ is the "modular operator" associated with the algebra and state.
+where Δ is the "modular operator" associated with the algebra and state. The
+expression $\Delta^{it}$ is a matrix raised to an imaginary power, which is
+how an algebra manufactures a flow.
 
 ### The KMS Condition
 
-These modular automorphisms satisfy a thermal-equilibrium test. The state Ω is a **KMS state** at inverse temperature β = 1:
+These modular automorphisms satisfy a thermal-equilibrium test: the state Ω
+is a **KMS state** at inverse temperature β = 1.
 
-$$\omega(A \sigma_{i}(B)) = \omega(BA)$$
-
-The KMS condition characterizes thermal equilibrium states. For a non-specialist,
-the important point is not the complex-time formula itself. KMS is the quantum
-signature of a state that behaves thermally with respect to the flow it carries.
-It is the equilibrium test that lets modular ordering and the temperature
-story speak the same language.
+The KMS condition characterizes thermal equilibrium states. Its full
+definition runs through complex time and matters mainly to specialists. KMS is
+the quantum signature of a state that behaves thermally with respect to the
+flow it carries. It is the equilibrium test that lets modular ordering and the
+temperature story speak the same language.
 
 ### Time from Algebra
 
@@ -417,30 +420,11 @@ flow organizes experienced time. Given the quantum state of our patch, the
 algebra provides a natural ordering. A clock appears only when an
 observer-readable transition, events, and calibration attach durations to it.
 
-The distinction matters at finite cutoff. A repair normalizer drives a
-damaged presentation toward an accepted normal form. A reversible equilibrium
-generator describes relaxation rates. Modular flow is an automorphism of the
-algebra-state pair. These three maps can use information from the same local
-channels without being the same dynamics.
-
-Rate ratios on a reversible transition graph can reconstruct a classical Gibbs
-potential when every cycle affinity vanishes. On the commutative algebra of
-classical states, however, modular automorphisms are trivial. A nontrivial
-modular flow needs a noncommutative operator algebra and transition operators
-that identify its generator, at best up to the operators that commute with all
-of them.
-
-The modular parameter supplies an intrinsic ordering only on that declared
-algebra-state branch. A clock instrument and its calibration turn the parameter
-into an operational readout, and overlapping observers compare their clocks
-through the shared affine conversion between their modular parameters. A count
-of channels, whether twenty-four or another number, does not fix a frequency or a unit of
-time.
-
-Across finite resolutions, compatible embeddings, conditional expectations,
-transported local states, and the cutoff schedule carry this clock coherently.
-Their smooth limit is the geometric modular flow that becomes a Lorentz boost
-on the observer-facing cap.
+One caution. Several different processes can flow through the same channels:
+the repair process that fixes a damaged record, the relaxation that carries a
+system to equilibrium, and the modular flow intrinsic to the algebra and
+state. They are cousins, and they are distinct. Distinguishing them cleanly is
+work in progress.
 
 ## 5.11 Commutation and Causality
 
@@ -470,7 +454,7 @@ The logic runs through the whole chapter. The intuitive picture says objects hav
 definite properties and measurements simply reveal them. The hints keep
 breaking that image. Heisenberg's matrices do not commute. Stern-Gerlach shows
 that measurement order changes outcomes. The uncertainty principle limits
-simultaneous knowledge. Interference demands complex amplitudes, not
+simultaneous knowledge. Interference demands complex amplitudes rather than
 plain probabilities.
 
 The reframing is therefore unavoidable. Observables form algebras with
@@ -504,15 +488,7 @@ The history explains why the algebra should be taken seriously. The
 non-commuting product was forced on physics by spectral lines, scattering,
 atomic stability, and the failure of the old orbit picture; nobody wanted
 nature to be strange. The notation $XP\neq PX$ is therefore a compressed
-record of a long experimental and mathematical reconstruction, not a
-philosophical slogan.
-
-The same is true for the uncertainty relation. When the book writes
-$\Delta X\,\Delta P\geq \hbar/2$, the symbol $\Delta X$ means the spread of
-position outcomes prepared in a given state, and $\Delta P$ means the spread
-of momentum outcomes in that same state. A state that makes the position question sharply
-answerable cannot also make the momentum question sharply answerable. The
-restriction belongs to the algebra of questions.
+record of a long experimental and mathematical reconstruction.
 
 That is why OPH puts algebras on patches. A support patch is the chart region
 carrying the local menu of possible questions; the abstract observer patch also
@@ -522,15 +498,9 @@ by transformation. Some commute with questions in a distant patch and
 therefore respect causal independence. The overlap problem is then the problem
 of making these local menus agree where they refer to the same shared records.
 
-The chapter also introduces modular flow because the algebra-state pair is
-richer than a static database. A state tells the algebra how
-expectation values are assigned. The pair carries a
-natural internal flow, written
-$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. Here $A$ is an observable, $t$ is the
-flow parameter, and $\Delta$ is the modular operator built from the algebra
-and state. This is the first glimpse of a recurring OPH pattern: once the
-right local structure is specified, time-like behavior can be read from the
-inside, not imposed by an external clock.
+Modular flow is the first glimpse of a recurring OPH pattern: once the right
+local structure is specified, time-like behavior can be read from the inside,
+not imposed by an external clock.
 
 The next chapter develops the overlap consistency condition in detail: exactly how must measurements on shared regions agree?
 

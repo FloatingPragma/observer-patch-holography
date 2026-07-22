@@ -118,35 +118,27 @@ read again. Every world without record-keeping falls at the first step.
 
 No observer reads the whole world at once. Descriptions have to agree where
 views overlap, and the shared account that survives that comparison is the
-public world. On the certified spherical branch, refinement of that account
-gives the light-cone symmetries and the three-dimensional space of rest frames.
-An independent event construction, with open local charts and a quadratic cone
-of Lorentzian inertia, turns those frames into one time direction and three
-spatial directions.
+public world. Refined far enough, that account yields a cone of directions
+separating cause from elsewhere, one time direction, and three of space.
 
-A closed world has no outside clock. Its time has to come from within. The
-mathematics of restricted states supplies an intrinsic modular parameter, while
-an observer-readable transition, a calibration, and an event correspondence
-supply physical duration. No repair counter can take their place.
+A closed world has no outside clock, so its time has to come from within:
+the mathematics of restricted states supplies an ordering, and calibrated
+observers turn that ordering into duration.
 
-Charges that survive transport across patches form a menu, and that menu
-reconstructs a compact gauge group under the transport and refinement
-hypotheses. On the branch with the smallest admitted matter content, the menu
-reads as the strong, weak, and hypercharge factors with their shared center.
-The physical current and matter constructions are separate gates.
+Charges that survive transport from patch to patch form a menu, and with the
+smallest matter content admitted, the menu reads as the strong, weak, and
+hypercharge forces.
 
-On the shared-domain gravity branch, horizon bookkeeping gives the Einstein
-form of the gravity law and leaves a global metric term. The capacity closure
-proposal assigns its numerical value.
+Horizon bookkeeping gives the Einstein form of the gravity law and leaves one
+global term unassigned.
 
-The local closure proposal requires a small screen detuning for durable records.
-Its declared transport map has one fixed point on the physical interval.
+Durable records need the screen slightly detuned from perfect balance, and
+the map that carries that detuning through the world has one fixed point.
 
-What survives those cuts is a short dependency list. Some arrows are finite
-theorems, some are conditional reconstruction theorems, and some need physical
-source witnesses. The two closure proposals then act on one local number, the
-grain of a screen cell, and one global number, the total correctable record
-capacity of the horizon.
+What survives those cuts is a short list. The two closure demands act on one
+local number, the grain of a screen cell, and one global number, the total
+record capacity of the horizon. Some of those cuts are proved outright; the
+rest are proved conditionally, and the conditions are work in progress.
 
 ## 18.5 The Two Equations the Loop Writes for Itself
 
@@ -160,7 +152,9 @@ set by the golden ratio $\varphi$. Perfect balance would be too quiet to carry
 anything. A world with records needs a small departure from silence, enough
 asymmetry for light and detectors and durable differences, small enough for the
 screen geometry to hold together. The size of that departure, measured in the
-natural width $\sqrt{\pi}$ that the boundary supplies, is the detuning:
+natural width $\sqrt{\pi}$ that the boundary supplies, is the detuning,
+written with $\alpha$, the interaction strength a physicist inside would
+measure:
 
 $$
 P = \varphi + \sqrt{\pi}\,\alpha .
@@ -183,51 +177,46 @@ $$
 P = \varphi + \frac{\sqrt{\pi}}{A_T(P)} .
 $$
 
+$A_T(P)$ is what the machinery hands back: the inverse of that interaction
+strength, the famous 137-ish number, so dividing the width by it is the same
+detuning written in terms of the answer.
+
 This self-consistency equation has one fixed point on the physical interval.
 The full transport map carries the trial pixel through the gauge and
 electroweak scales, includes the vacuum response of strongly interacting
 matter, and returns the long-distance electromagnetic reading. At the fixed
-point, the outside geometry and the inside measurement agree. The resulting
-pixel ratio is about $1.63$. The certified roots of the two declared maps are
-$136.994835\ldots$ for the source map and $137.035660\ldots$ for the
-gauge-width map, beside the measured $137.035999177(21)$; identifying a
-declared-map root with the measured endpoint waits on the same-scheme hadronic
-transport described in chapter 19.
+point, the outside geometry and the inside measurement agree. Run the
+machinery and the fixed point lands within a few parts per million of the
+measured value; closing that last gap is work in progress, and the synthesis
+chapter keeps the ledger.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
 reachable terminal observer world, and ask how many public records remain
-jointly decodable through every authorized checkpoint. For terminal world $q$
-the answer is
-
-$$
-M_0(q)=\alpha(G_q),
-\qquad
-\mathfrak F_{r,0}(D)=\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
-$$
-
-At universe level the official closure equation is simply
+jointly decodable through every authorized checkpoint. At universe level the
+closure equation is
 
 $$
 \boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
-The global closure adopted in this book is the stable equality
-$\mathfrak F_{r,0}(D_\star)=\{D_\star\}$ together with one unique zero of
-$s(D)=\log D-\log M_0(D)$. It says that every terminal branch in the complete
-fiber reads the same saturated capacity. One favorable branch is insufficient.
-Horizon-record saturation then writes
+$M_0$ counts the public records that survive every checkpoint; $\mathfrak U_N$
+is the universe built on a carrier of capacity $N$. The local loop reads the
+grain of one screen cell. The global loop reads the total record capacity of
+the horizon.
+
+The closure adopted in this book demands more than one favorable branch:
+every terminal world the construction can reach has to read the same
+saturated capacity, and the capacity equation has to have exactly one
+solution. Horizon-record saturation then turns that capacity into curvature,
+fixing the cosmological constant $\Lambda$ in terms of $N$ and the horizon's
+natural length unit $\ell_\star$:
 
 $$
-N_{\mathrm{CRC}}=\log D_\star,
-\qquad
-\Lambda_{\mathrm{CRC}}\ell_\star^2
-=\frac{3\pi}{N_{\mathrm{CRC}}} .
+\Lambda\ell_\star^2=\frac{3\pi}{N} .
 $$
 
-These are the two closure equations for the two surviving numbers. The local
-loop reads the grain of one screen cell. The global loop reads the total record
-capacity of the horizon. Each number is supplied to the world and returned by
+Each number is supplied to the world and returned by
 the world, and closure keeps the value only when the two readings coincide.
 
 ## 18.6 One Universe, No Place to Hide
@@ -244,8 +233,8 @@ hard to kill and hard to trust.
 A self-reading loop leaves nowhere to relocate once both uniqueness statements
 and their physical attachments are in place. The local map has one fixed point,
 so one cell cannot support several competing electromagnetic readings. The
-adopted global slack law has one zero, so the horizon cannot choose among
-several saturated record budgets. Under those premises they select one
+adopted global capacity equation has one solution, so the horizon cannot
+choose among several saturated record budgets. Under those premises they select one
 self-consistent universe.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
@@ -268,48 +257,34 @@ P_\star\approx1.63,
 \alpha^{-1}_{\mathrm{meas}}=137.035999177(21).
 $$
 
-The first coupling value is the certified gauge-width fixed point; the second
-is the measurement it is tested against. The residual between them is the
-open hadronic-transport gap, a few parts per million.
+The first coupling value is the certified fixed point, machine-checked in
+the proof assistant; the second is the measurement it is tested against. The
+residual between them is the hadronic-transport gap of a few parts per
+million; closing it is work in progress.
 
 The global equation identifies two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
 world it is the correctable public record reconstructed by observers. A
-separate common-load hypothesis connects this capacity to the electroweak and
-Higgs branch:
+separate consistency check asks whether the screen's record load and the weak
+sector's load are one and the same carrier; the two readings currently differ
+by about $6.6$ percent, and reconciling them is work in progress.
 
-$$
-R_{\mathrm{EW}}(P,N)
-=\alpha_U(P)\log\!\left(\frac{N}{\pi}\right)-\frac{6\pi}{P}=0,
-\qquad
-N_{\mathrm{bridge}}
-=\pi\exp\!\left[\frac{6\pi}{P\alpha_U(P)}\right].
-$$
+If both equations land, OPH is a fully zero-parameter theory, with both
+numbers returned by the architecture rather than measured. The closure proofs
+are not strictly necessary, though. The loop is a closed mathematical
+structure either way, and living inside a closed structure licenses reading
+values off it: locate a constant in its basin by observation, then prove
+exact fixed-point-ness afterward. The theorems certify the located value;
+they do not have to manufacture it. Even if a first-principles closure for
+$N$ is never found, the reconstruction of the earlier chapters stands. $N$ is
+read from the universe the way any machine setting is read from the machine.
 
-This equation tests whether the screen load and weak/Higgs load are the same
-physical carrier. It does not generate the direct capacity map. The bridge
-value and the late-time de Sitter reading differ by about $6.6$
-percent, so their exact identification is an open test rather than a
-derived detuning law.
-
-The two numbers therefore have different jobs. $P_\star$ is the local grain of
-observation. $N_{\mathrm{CRC}}$ is the global capacity for records. The first
-sets the electromagnetic readout of a screen cell. The second sets the cosmic
-curvature through
-$\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$.
+The two numbers have different jobs. $P_\star$ is the local grain of
+observation. $N$ is the global capacity for records. The first sets the
+electromagnetic readout of a screen cell. The second sets the cosmic
+curvature through $\Lambda=3\pi/(GN)$, with $G$ Newton's constant.
 The strange loop fixes both by demanding that the universe return the same
 numbers it was given.
-
-The closure proofs matter: if both equations land, OPH is a fully
-zero-parameter theory, with both numbers returned by the architecture rather
-than measured. They are not strictly necessary, though. The loop is a closed
-mathematical structure either way, and living inside a closed structure
-licenses reading values off it: locate a constant in its basin by
-observation, then prove exact fixed-point-ness afterward. The theorems
-certify the located value; they do not have to manufacture it. Even if a
-first-principles closure for $N$ is never found, the reconstruction of the
-earlier chapters stands — $N$ is read from the universe the way any machine
-setting is read from the machine.
 
 ## 18.8 Where the Loop Leads
 

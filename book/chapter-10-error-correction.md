@@ -25,7 +25,7 @@ Translating classical error correction to quantum computing seemed impossible du
 
 **Measurement Destroys**: Quantum measurement collapses superpositions. If your qubit is alpha|0> + beta|1>, measuring it destroys the relationship between alpha and beta. You cannot peek at the data without wrecking it.
 
-**Continuous Errors**: Classical noise flips bits discretely. Quantum noise rotates states continuously on the Bloch sphere. How can you correct a continuum of errors?
+**Continuous Errors**: Classical noise flips bits discretely. Quantum noise rotates states continuously on the Bloch sphere, the globe whose points are the possible states of a single qubit. How can you correct a continuum of errors?
 
 For a while, these obstacles seemed insurmountable. Rolf Landauer of IBM, the field's designated skeptic, liked to suggest that every quantum-computing proposal should carry a disclaimer admitting that it relied on speculative technology and probably would not work.
 
@@ -73,10 +73,11 @@ all.
 
 Recall our thesis: reality is the process of making observations consistent between observers.
 
-Each observer has a local patch of data. Each patch is noisy. Sensors fail,
-memories fade, quantum fluctuations intrude. If two observers want to agree on
-a shared world, they need redundancy, overlap, and a correction protocol. That
-is exactly what error-correcting codes provide.
+Each observer has a local patch of data. Each patch is noisy. Sensors fail
+and memories fade, and quantum fluctuations intrude on whatever survives. If
+two observers want to agree on a shared world, they need redundancy, overlap,
+and a correction protocol. That is exactly what error-correcting codes
+provide.
 
 **Reality can be read as error-corrected.** The consistency we observe requires
 durable encoding of shared information.
@@ -140,7 +141,7 @@ Shannon's theorem says: **arbitrarily reliable communication is possible even in
 
 Richard Hamming provided the first practical construction. Hamming shared Bell Labs with Shannon, and he had a grievance: the relay computers he fed on Fridays kept hitting errors over the weekend and dumping his jobs unfinished. His question, as he later told it, was "Damn it, if the machine can detect an error, why can't it locate the position of the error and correct it?" The Hamming [7,4] code is the answer. It takes four data bits and expands them to seven. The extra three bits are parity checks.
 
-The key innovation: the code has **distance** d = 3, meaning any two valid codewords differ in at least three positions. A code of distance three can correct one error.
+The key innovation is that the code has **distance** d = 3, meaning any two valid codewords differ in at least three positions. A code of distance three can correct one error.
 
 The valid codewords form a 4-dimensional subspace of the 7-dimensional bit vector space. Error correction is projection back onto that subspace.
 
@@ -166,7 +167,8 @@ $$|0_L\rangle = \frac{(|000\rangle + |111\rangle)^{\otimes 3}}{2\sqrt{2}}$$
 This corrects any single-qubit error. The encoding spreads information so thoroughly that local noise cannot destroy it.
 
 The tensor-power symbol $\otimes 3$ means "take three independent blocks of
-the same three-qubit cat state." The denominator $2\sqrt{2}$ normalizes the
+the same three-qubit cat state," where a cat state is a superposition of all
+zeros and all ones, named for Schrödinger's cat. The denominator $2\sqrt{2}$ normalizes the
 nine-qubit superposition. Shor's code is doing two jobs at once: it protects
 against bit flips and phase flips by nesting one repetition idea inside
 another.
@@ -190,7 +192,7 @@ The most dramatic application is the black hole information problem.
 
 Take a black hole that has emitted more than half its entropy. Throw a diary into it. How long until an outside observer can recover the diary from Hawking radiation?
 
-The answer: after roughly the scrambling time, plus enough outgoing radiation to carry the diary information. For an old, highly scrambled black hole, this can be parametrically fast compared with the full evaporation time. In that sense the black hole acts like a mirror.
+The answer is that recovery becomes possible after roughly the scrambling time, the time the black hole needs to mix new information through everything it already holds, plus enough outgoing radiation to carry the diary information. For an old, highly scrambled black hole, this can be parametrically fast compared with the full evaporation time. In that sense the black hole acts like a mirror.
 
 ### The Page Curve and Islands
 
@@ -223,55 +225,34 @@ As we saw in Chapter 6, Zurek's **quantum Darwinism** explains how classical fac
 
 In computer science, networks agree on shared states through consensus protocols. Physics does this constantly. The nodes are observers. The messages are light signals and memory traces. The consensus rule is physical law.
 
-OPH sharpens this into an observer-based fixed-point consensus protocol. A
-finite network of patches carries local state data. Neighboring patches compare
-the data on their overlaps. Local repair moves try to reduce a shared mismatch
-score. Each proposed commit must read every boundary, score, enablement,
-history, parent, and checkpoint dependency that its write can change.
-Proposals that conflict are replaced by one canonical union-collar
-transaction. Proposals in different conflict components commute only after
-those complete read/write checks pass. With that local-diamond receipt, strict
-descent, and repair completeness, compatible repair orders from the same fixed
-quotient problem converge to the same public description. Atomic updates or
-pairwise agreement alone do not prove this.
-
-When the starting interior is hidden, the boundary identifies all sources that
-represent the same physical quotient. Confluence makes every repair path from
-each source settle to that quotient, while normalization and fair scheduling
-keep the repair cycle live. The result depends on the shared boundary data
-rather than on a hidden presentation.
+OPH sharpens this into a repair protocol. Patches compare notes on their
+overlaps and propose local fixes, and a fix is accepted only if it lowers the
+total mismatch. Conflicting fixes get merged into one canonical step. The
+claim that every allowed repair order settles on the same public description
+is a theorem with conditions, and the conditions are exact bookkeeping about
+who read what before writing.
 
 That public description is the fixed point: a shared state produced by the
-allowed observer-network repairs, with no vote and no view from nowhere. The
-measurement layer then singles out the records that observers can actually
-compare, with the usual Born probabilities and measurement updates on that
-accessible record structure. The Bell analysis stays within the standard
-quantum limits as well.
-Stable public facts appear when many local correction steps settle on one
-common answer.
+allowed repairs, with no vote and no view from nowhere. The measurement layer
+then singles out the records that observers can actually compare, with the
+usual Born probabilities and measurement updates on that accessible record
+structure. Stable public facts appear when many local correction steps settle
+on one common answer.
 
-This settling map is not an equilibrium process. Accepted repairs descend
-toward a normal form and need not have accepted reverse moves. A separate
-bidirectional proposal or equilibrium layer can carry rates and a stationary
-state; a third layer carries modular flow on the associated noncommutative
-algebra. Keeping the layers separate prevents a repair counter from being
-mistaken for a physical clock.
+One caution applies. The settling process is not an equilibrium. Accepted
+repairs move toward a final form and need not have accepted reverse moves, so
+a repair counter must never be mistaken for a physical clock.
 
 ### Checkpoints and Continuation
 
-A self-reading patch also needs a reproducible snapshot that can be reread. At
-a checkpoint it preserves the observer-readable record algebra, the accessible
-state, the packets exposed at its external ports, and the semantic class of the
-future update law. It can also keep enough provenance to reproduce the check at
-the declared accuracy. A checkpoint is therefore more than a backup file. It
-says which visible state was preserved and what future experiment that state
-is prepared to continue.
+A self-reading patch also needs a reproducible snapshot that can be reread. A
+checkpoint records everything an observer could check: the readable records,
+the visible state, the interfaces, and the rules for what comes next. A
+checkpoint is therefore more than a backup file. It says which visible state
+was preserved and what future experiment that state is prepared to continue.
 
-If two exact fixed-cutoff checkpoints agree on the record algebra, accessible
-state, external interfaces, and semantic future-law class, they give the same
-future observer-accessible probability law. This operational continuation is
-the physical content of identity available to the patch microarchitecture:
-future visible statistics agree under the same interface conditions.
+Two checkpoints that agree on all of that continue the same experiment.
+Nothing about the hardware underneath enters into it.
 
 Error correction is a physical principle as well as a tool for engineers. It is the way the universe builds stable facts.
 
@@ -299,7 +280,8 @@ recovery possible.
 
 In quantum gravity, we only have approximate codes. The Knill-Laflamme
 condition is correspondingly approximate, with corrections often organized in
-powers of $1/N$. That is enough to make classical spacetime look stable in
+powers of $1/N$, where $N$ counts the boundary's degrees of freedom in these
+models. That is enough to make classical spacetime look stable in
 the controlled large-$N$ settings where the code picture applies.
 
 In OPH, the protected subspace stores the public record, the error family
@@ -314,25 +296,9 @@ The **threshold theorem**: If the physical error rate per gate is below some thr
 There is a phase transition. Below threshold, reliable computation is possible.
 Above threshold, noise overwhelms correction.
 
-A universe with noise above threshold wouldn't have stable structures, memories, or observers. A universe below threshold can build long-lived records and complex patterns.
+A universe with noise above threshold wouldn't have stable structures, memories, or observers. Nothing in it would last long enough to notice. A universe below threshold can build long-lived records and complex patterns.
 
-## 10.10 What Error Correction Predicts
-
-Quantum error correction is one of the cleanest places where deep mathematics
-and hard engineering meet. Shannon shows that noisy channels have a capacity.
-Knill-Laflamme tells us exactly when a quantum code works. The threshold
-theorem says reliability grows once the error rate is low enough. The lab
-confirms the picture: below threshold, encoded qubits outperform bare ones.
-
-That same logic shows up in holography. Holographic codes reproduce the
-RT-like area relation. Bulk information survives boundary erasure when the
-remaining boundary retains the right entanglement wedge. The message is the
-same from both sides. Stability does not require isolation. It requires the
-right redundancy.
-
----
-
-## 10.11 The Thermodynamic Cost
+## 10.10 The Thermodynamic Cost
 
 Error correction costs energy.
 
@@ -354,27 +320,17 @@ chapter uses a stronger reading. The laboratory codes and the holographic
 codes share an actual structural problem: how can a message remain available
 when no single local carrier is trusted?
 
-In a classical repetition code the answer is visible. Store 000 for logical
-0 and 111 for logical 1. If one bit flips, majority vote repairs it. Quantum
-codes cannot do that, because an unknown state
-$\alpha|0\rangle+\beta|1\rangle$ cannot be copied into three independent
-versions. The protected information must be stored in correlations. The
-syndrome measurement asks only which error happened, not which logical state
-was present. That distinction is the miracle. The code learns enough to
-repair the carrier while refusing to learn the protected message.
+A classical repetition code answers it by majority vote among copies.
+Quantum codes cannot copy an unknown state
+$\alpha|0\rangle+\beta|1\rangle$, so the protected information must be
+stored in correlations. The syndrome measurement asks only which error
+happened, never which logical state was present. That distinction is the
+miracle. The code learns enough to repair the carrier while refusing to
+learn the protected message.
 
-The Knill-Laflamme equation
-
-$$P E_a^\dagger E_b P=\alpha_{ab}P$$
-
-is the compact version of that miracle. $P$ projects onto the code subspace.
-$E_a$ and $E_b$ are possible errors. The adjoint dagger is the quantum
-operation that reverses an operator inside an inner product. The matrix
-$\alpha_{ab}$ records syndrome information. The right-hand side being
-proportional to $P$ means that, inside the code space, the error process has
-not learned the logical state. If the environment could tell whether the code
-stored $|0_L\rangle$ or $|1_L\rangle$, the information would have leaked and
-correction would fail.
+The Knill-Laflamme condition from earlier is the compact version of that
+miracle: the environment learns which error happened while learning nothing
+about the message.
 
 Holographic reconstruction has the same flavor. A bulk degree of freedom is
 encoded across an extended boundary
@@ -393,7 +349,7 @@ public through that labor. The same is true in the book's cosmological
 language: a public world is a message continually protected by redundancy,
 repair, and thermodynamic work.
 
-## 10.12 Reverse Engineering Summary
+## 10.11 Reverse Engineering Summary
 
 The old intuition said that information is fragile unless you make literal
 copies of it. Quantum theory rejects both halves of that sentence. No-cloning
@@ -402,6 +358,16 @@ across entangled correlations and recovered from them. Holography says the
 same thing on a grander scale. The bulk is protected by boundary redundancy.
 Shared facts survive because the world is coded deeply enough to repair its
 local damage.
+
+Quantum error correction is also one of the cleanest places where deep
+mathematics and hard engineering meet. Shannon shows that noisy channels have
+a capacity. Knill-Laflamme tells us exactly when a quantum code works. The
+threshold theorem says reliability grows once the error rate is low enough.
+The lab confirms the picture: below threshold, encoded qubits outperform bare
+ones. Holographic codes reproduce the RT-like area relation, and bulk
+information survives boundary erasure when the remaining boundary retains the
+right entanglement wedge. Stability does not require isolation. It requires
+the right redundancy.
 
 ---
 

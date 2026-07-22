@@ -1,26 +1,13 @@
 # Chapter 14: The Standard Model from Consistency
 
-The exact finite result in this chapter is conditional recognition. Given the
-declared twelve-port carrier, physical current law, and matter premises, the
-construction recognizes the Standard Model gauge Lie type, its sixfold global
-quotient, and the fifteen chiral states of one generation. The icosahedral
-faces also supply a canonical three-place candidate family band. Attaching
-that band to three physical families, and constructing spin, scalar fields,
-interactions, positivity, refinement, and W/Z resonances, are open in OPH.
-
-A separate field-theory theorem checks the finite-order W/Z pole algebra once
-a complete renormalized electroweak theory is supplied. It neither creates that
-theory nor turns a chart coordinate into a physical resonance. A
-nonperturbative continuum theory starts from its own observable and positivity
-data. These construction problems sit on parallel branches, not on one queue:
-the bounded check of the pole algebra against the imported Standard Model can
-proceed while the exact chiral-measure and nonperturbative constructions stay
-open, and neither waits on the other.
-
-The exposed target-free carrier data also give an exact negative result: they
-admit more than one current and matter completion. Geometry constrains the
-answer sharply, but it cannot choose every physical structure without richer
-observer-like source readback.
+The electron's charge is exactly three times the down quark's, to every
+decimal place anyone has measured. Nobody ordered that. The two particles
+feel different forces and have nothing else obvious in common, yet their
+charges lock together so precisely that a hydrogen atom is electrically
+neutral to better than one part in a billion billion. Somewhere under the
+particle catalog sits a locking mechanism. This chapter asks what that
+mechanism is and how much of it can be reverse engineered from consistency
+alone.
 
 ## 14.1 The Intuitive Picture: Particles and Forces Are Fundamental
 
@@ -78,7 +65,7 @@ electrons pop out. The energy of those electrons depends only on the light's
 frequency, not its intensity. Brighter light produces more electrons, not
 faster ones.
 
-Einstein's explanation: light really does come in packets. A photon of
+Einstein argued that light really does come in packets. A photon of
 frequency $f$ carries energy $hf$. One photon kicks out one electron. The
 photon's frequency determines the electron's energy.
 
@@ -165,7 +152,9 @@ Position times momentum is not the same as momentum times position:
 
 $$XP - PX = i\hbar$$
 
-This commutation relation is the mathematical heart of quantum mechanics. It implies the uncertainty principle:
+Here $X$ and $P$ are operators, the matrix versions of position and momentum,
+and the $i$ is what keeps the two measurements from being simultaneously
+sharp. This commutation relation is the mathematical heart of quantum mechanics. It implies the uncertainty principle:
 
 $$\Delta x \cdot \Delta p \geq \frac{\hbar}{2}$$
 
@@ -214,7 +203,7 @@ Consider a violin string. The string can vibrate in different modes. Each mode h
 
 Quantum fields work similarly. The electromagnetic field can be decomposed into modes. Each mode is a quantum harmonic oscillator. Exciting a mode means adding photons.
 
-The vacuum isn't empty. It's the ground state of all fields. Every mode is in its lowest energy state. But even the ground state has fluctuations. These zero-point fluctuations are real and measurable.
+The vacuum, in this picture, is the ground state of all fields, with every mode in its lowest energy state. Even that lowest state has fluctuations, and these zero-point fluctuations are real and measurable.
 
 ### Feynman Diagrams
 
@@ -249,19 +238,20 @@ Renormalization works for some theories (called "renormalizable") but not others
 A strange consequence of renormalization: coupling constants change with energy.
 
 The fine-structure constant measures the strength of electromagnetism, and it
-too drifts with energy. The declared OPH fixed-point maps have unique roots
-near $137$. Electroweak running and the vacuum response of quarks and hadrons
-define the proposed transport to the long-distance Thomson coupling measured
-in the laboratory. The physical source and same-scheme transport construction
+too drifts with energy. The OPH construction proposes maps whose unique roots
+land near $137$. Electroweak running and the vacuum response of quarks and hadrons
+define the proposed transport down to the value measured in the laboratory,
+the Thomson coupling, the electromagnetic strength read off at essentially
+zero energy. The physical source and same-scheme transport construction
 is work in progress.
 
 That low-energy number lives in the same electroweak theory as the W and Z
 bosons. Once the electroweak structure is fixed, electromagnetism is the
 unbroken piece left after the weak and hypercharge parts mix together. The OPH
-code includes running-coordinate and finite-order pole prescription checks,
-while the source matching, independent gauge-identity checks, uncertainty law,
-physical-current amplitudes, and clock are open. No OPH-native physical W
-or Z pole is promoted.
+code includes running-coordinate and finite-order pole prescription checks.
+Construction of the source matching, independent gauge-identity checks,
+uncertainty law, physical-current amplitudes, and clock is work in progress.
+No OPH-native physical W or Z pole is promoted.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -295,12 +285,12 @@ The fermions come in a strange pattern: three copies. The up and down quarks, pl
 
 The Standard Model by itself does not explain why there are three generations.
 On the declared OPH one-Higgs economy class, the admitted window is three to
-five and the economy rule selects its least value. This is
-a model-selection statement. The
-physical attachment of the canonical rank-three screen band to matter is
-open. The charged members of the second and third observed generations are
-heavier copies of the first, while the neutrino sector has its own mixing
-pattern. Almost all ordinary matter uses only first-generation particles.
+five and the economy rule selects its least value. This is a model-selection
+statement, and the physical attachment of the canonical rank-three screen
+band to matter is work in progress. The charged members of the second and
+third observed generations are heavier copies of the first, while the
+neutrino sector has its own mixing pattern. Almost all ordinary matter uses
+only first-generation particles.
 
 ### Bosons: The Force Carriers
 
@@ -313,7 +303,7 @@ speed, and couples to electric charge.
 **W and Z bosons** (spin 1): Carry the weak force. W has charge plus or minus 1. Z is neutral. Both are massive: about 80-90 GeV. The weak force is weak at low energies because its carriers are heavy.
 
 **Gluons** (spin 1): Carry the strong interaction in perturbative descriptions.
-There are eight color components. The pure Yang--Mills quadratic action has no
+There are eight color components. The pure Yang-Mills quadratic action has no
 hard mass term, but confined QCD has no isolated free-gluon particle pole.
 
 The Yang-Mills mass gap is a statement about the spectrum of the strong
@@ -402,9 +392,8 @@ The Standard Model survives because one generation of quarks and leptons
 cancels every dangerous hypercharge contribution at once. Color, weak charge,
 the cubic hypercharge sum, and the gravitational sum all close together.
 
-The famous charges do not float freely. Thirds of an electron
-charge are not decorative details. They are the values that let the structure
-hold.
+The famous charges do not float freely. Thirds of an electron charge are
+exactly the values that let the structure hold.
 
 ### Connection to OPH
 
@@ -429,7 +418,7 @@ Consider the Higgs potential:
 
 $$V(\phi) = -\mu^2|\phi|^2 + \lambda|\phi|^4$$
 
-This is symmetric under rotations in field space. But the minimum isn't at zero. It's in a circular valley at radius v = mu/sqrt(lambda).
+This is symmetric under rotations in field space, but the minimum sits away from zero, in a circular valley at radius $v=\mu/\sqrt{\lambda}$.
 
 $\phi$ is the Higgs field. $\mu$ and $\lambda$ are parameters of the
 potential. The negative quadratic term pushes the field away from zero, while
@@ -477,7 +466,29 @@ Why do the Yukawa couplings have the values they do? Why is the top quark so muc
 
 ## 14.9 From Overlaps to Gauge Structure
 
-The OPH connection is direct.
+Before the machinery starts, one paragraph on what the construction delivers
+and what it does not, stated here so the rest of the chapter can move freely.
+Given the declared twelve-port carrier with its current and matter premises,
+the construction recognizes the Standard Model's gauge symmetry type, its
+sixfold global quotient, and the fifteen chiral states of one generation, and
+the icosahedral faces supply a canonical three-place candidate slot for the
+families. Attaching that slot to three physical families, and building spin,
+scalar fields, interactions, positivity, refinement, and the W and Z
+resonances on top of the recognition, is work in progress. A separate
+machine-checked theorem verifies the finite-order W and Z pole algebra once a
+complete renormalized electroweak theory is supplied to it; it neither
+creates that theory nor turns a chart coordinate into a physical resonance,
+and a physical W or Z claim would further need source-selected parameters,
+matching across scales, the gauge identities, a coupling to a measurable
+current, an uncertainty budget, and an independent clock, since a zero of an
+inverse propagator is only part of a resonance. A nonperturbative continuum
+theory starts from its own observable and positivity data, and the bounded
+pole check can proceed in parallel with those exact constructions; neither
+waits on the other. Finally, the exposed carrier data admit more than one
+current and matter completion. Geometry constrains the answer sharply, and
+richer observer-like readback from the source has to choose the rest.
+
+With that stated, the OPH connection is direct.
 
 ### Gauge as Gluing Redundancy
 
@@ -510,10 +521,12 @@ Technically, the Hilbert space decomposes:
 
 $$\mathcal{H}_{collar} = \bigoplus_\alpha (\mathcal{H}_{left}^\alpha \otimes \mathcal{H}_{right}^\alpha)$$
 
-The direct-sum symbol means the boundary data split into sectors labeled by
-$\alpha$. The tensor-product symbol joins the left and right sides inside one
-sector. The formula is just the precise way to say that an edge carries a label
-both neighboring patches must respect.
+The letter $\mathcal H$ names a Hilbert space, the quantum state space for a
+piece of the system, and the collar is the thin overlap zone near a boundary.
+The direct-sum symbol splits the boundary data into sectors labeled by
+$\alpha$, and the tensor product joins the left and right sides of one shared
+edge-charge sector. The formula is the precise way to say that an edge
+carries a label both neighboring patches must respect.
 
 The labels alpha are the edge charges visible in this one-collar algebra. In
 the bosonic gauge picture they are the seed carriers for the tensor category
@@ -525,12 +538,6 @@ infinitely many simple charge types.
 The construction keeps only the charges whose loops close cleanly under one
 shared transport choice. Charges that would need a different, incompatible choice
 belong to separate families and are not quietly merged in.
-
-The letter $\mathcal H$ names a Hilbert space, the quantum state space for a
-piece of the system. "Collar" means the thin overlap zone near a boundary. The
-superscript $\alpha$ says that each left and right Hilbert space belongs to one
-shared edge-charge sector. The formula is the bookkeeping form that makes
-boundary agreement possible, not an extra postulate about particles.
 
 ### Fusion Rules Define the Group
 
@@ -626,20 +633,18 @@ fingerprint. A cubic carrier would leave another one. The hardware geometry
 therefore enters the particle argument at its first finite line, long before a
 quark or a weak boson appears.
 
-The finite carrier can conditionally recognize the same Lie type from a second
-direction. This route starts with the reference microarchitecture from Chapter 3, not with quarks,
-weak doublets, or measured particle data. On the declared echosahedral carrier
-lineage, twelve equal-trace primitive central atoms and their integer readback
-give $H(q)=\sum_pq_p^2$ on the total-charge-twelve fiber. The identity
-$H(q)=12+\sum_p(q_p-1)^2$ uniquely selects one unit at every port with gap two.
-Oriented incidence then supplies the unique distance-three inverse pairing,
-the proper automorphism group $A_5$, and an exact rank-three regular-
-icosahedral Gram frame. These outputs commute with refinement and consistent
-relabeling. The theorem is scoped to this declared carrier type; it does not
-derive that every OPH carrier is echosahedral or import quarks, weak doublets,
-or measured particle data. Recognizing the same abstract Lie type does not
-identify the physical group or its action with the independently reconstructed
-Tannaka/matter route.
+The finite carrier can conditionally recognize the same Lie type from a
+second direction. This route starts with the reference microarchitecture from
+Chapter 3, long before quarks, weak doublets, or measured particle data enter
+the story. On the declared echosahedral carrier, charge lives at twelve
+equivalent ports, and the energy accounting forces the cheapest loadout:
+exactly one unit of charge at every port, with every alternative costing at
+least two units more. The wiring of the edges then does the rest. It pairs
+each port with the one directly opposite it, three steps away across the
+graph, it hands the whole structure the sixty rotations of a regular
+icosahedron, the group called $A_5$, and it recovers the icosahedron's actual
+three-dimensional shape from pure bookkeeping. None of these outputs change
+when the description is refined or the ports are consistently relabeled.
 
 The twelve real port readings form the permutation space
 
@@ -683,11 +688,12 @@ $$
 \mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-Antisymmetry and the Jacobi identity then come for free from the matrix
-commutator. The five-dimensional block is genuinely noncommuting, which is
-what lets it join the color algebra rather than sit in an abelian center. The
-bracket acts on coefficient or current fluctuations. The observer-readable
-central record projectors remain commuting records.
+Antisymmetry and the Jacobi identity, the standard consistency rule that any
+bracket of symmetry generators has to satisfy, then come for free from the
+matrix commutator. The five-dimensional block is genuinely noncommuting,
+which is what lets it join the color algebra rather than sit in an abelian
+center. The bracket acts on fluctuations of the coefficients and currents;
+the records that observers actually read stay in the commuting part.
 
 The distinction between symmetry and multiplication matters. $A_5$ symmetry
 by itself permits fourteen equivariant antisymmetric products on the twelve
@@ -716,45 +722,24 @@ and inner action. Deriving or measuring that representation and those
 coefficients from physical carrier response, and binding the physical
 refinement maps, remain open.
 
-The six axes carry two further pieces of structure. Their integral load lattice
-has an exact sixfold residue. A separate total-trace balance integrates the Lie
-algebra to
-
-$$
-S(U(3)\times U(2))
-\cong
-\frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6}.
-$$
-
-Under its trace-balance premises, the local current route integrates to the
-displayed abstract global form. The matter route independently uses the
-Standard Model quotient. A source-derived spin lift, central embedding, and
-commuting action square must show that the six-axis residue is the same
-physical sixfold identification in both constructions. Those maps are open.
+The six axes carry two further pieces of structure. Their integral load
+lattice has an exact sixfold residue, and a separate total-trace balance
+integrates the algebra to the same sixfold-quotiented global group displayed
+earlier in the chapter. The geometry route and the matter route thus arrive
+at matching global forms from independent directions.
 
 The face structure organizes families. The twenty outward faces form one
-orbit, and the threefold stabilizer of a face cycles its corners. The only
-one-dimensional representation of $A_5$ is trivial, and $A_5$ has no
-two-dimensional irreducible representation. The smallest global irreducible
-carrier of a nontrivial face phase therefore has dimension three. This is a
-canonical candidate family fiber. Calling it three physical generations
-requires one complex family space tying three copies of the fifteen-state
-matter pattern together, proof that no extra family band survives, and proof
-that this identification persists under refinement. Those physical attachment
-steps are open. A
-physical CKM phase also requires family breaking or descent and a genuine 1PI
-interaction packet.
+orbit, and the threefold symmetry of each face cycles its corners. The only
+one-dimensional representation of $A_5$ is the trivial one, and $A_5$ has no
+two-dimensional irreducible representation at all, so the smallest global
+carrier of a nontrivial face phase has dimension exactly three. The screen,
+in other words, comes with a natural three-place slot built into its faces, a
+canonical candidate home for the three families.
 
-Under a source-produced full-rank compact current, the oriented icosahedral
-carrier conditionally recognizes the
-gauge-adjoint Lie type and an abstract sixfold quotient. The matter and
-minimal-realization construction independently supplies hypercharge, chirality, the color
-fundamental, the weak doublet, and one Higgs doublet. The four-dimensional
-irreducible representation of $A_5$ cannot act as a hidden Higgs shortcut
-because it has no compatible complex structure for the commuting hypercharge
-action. Identifying the two gauge routes is an open source-bound bridge.
-Masses, mixing angles, coupling strengths, and poles belong to the dynamics
-carried by these symmetry sectors.
+Put together, the oriented carrier conditionally recognizes the gauge-adjoint
+symmetry type and an abstract sixfold quotient, while the matter route
+independently supplies hypercharge, chirality, the color fundamental, the
+weak doublet, and one Higgs doublet.
 
 ### The Exterior Matter Package
 
@@ -770,16 +755,21 @@ C=(\mathbf3,\mathbf1)_{-1/3},
 W=(\mathbf1,\mathbf2)_{1/2}.
 $$
 
-$C$ is the three-place color carrier and $W$ is the two-place weak carrier.
-Their weighted hypercharges add to zero:
+Read a symbol like $(\mathbf3,\mathbf1)$ with a subscript as three answers in
+one: how the object looks to the color force, how it looks to the weak force,
+and its hypercharge tag. So $C$ is the three-place color carrier, $W$ is the
+two-place weak carrier, and their weighted hypercharges add to zero:
 $3(-1/3)+2(1/2)=0$. Form the non-vacuum even exterior package
 
 $$
 \Lambda^2V\oplus\Lambda^4V.
 $$
 
-Its pieces are exactly the fifteen left-handed Weyl states of one Standard
-Model generation:
+$\Lambda^2$ means: choose two of the five slots, order irrelevant, no
+repeats; $\Lambda^4$ means choose four. The pieces of this package are
+exactly the fifteen left-handed Weyl states of one Standard Model generation,
+a Weyl state being the smallest chiral building block a relativistic fermion
+can be made from:
 
 $$
 Q=(\mathbf3,\mathbf2)_{1/6},\quad
@@ -788,6 +778,9 @@ d^c=(\overline{\mathbf3},\mathbf1)_{1/3},\quad
 L=(\mathbf1,\mathbf2)_{-1/2},\quad
 e^c=(\mathbf1,\mathbf1)_1.
 $$
+
+Here an overbar marks the anticolor version of a charge, and a superscript
+$c$ marks a field written in its antiparticle form.
 
 The exterior powers do several jobs at once. They make the package chiral.
 They produce the three one-Higgs interaction channels $QHu^c$,
@@ -798,10 +791,36 @@ They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
 conditional economy minimum of three families would therefore carry twelve
-weak doublets after physical attachment. Pairing
-each slot with an orientation label gives twenty-four oriented weak slots, the
-same finite count as twelve ports with two orientations. This equality is a
-register identity. It supplies no inverse update rule or physical current map.
+weak doublets after physical attachment, and pairing each slot with an
+orientation label gives twenty-four oriented weak slots, the same finite
+count as twelve ports with two orientations.
+
+Now the fine print for this whole construction, gathered in one place. The
+recognition theorem is scoped to the declared carrier type. It does not show
+that every OPH carrier must be echosahedral, and it imports no quark,
+doublet, or measured particle data. Recognizing the same abstract symmetry
+type from the ports is also weaker than identifying the physical group. The
+finite port symmetry classifies register operations, and turning it into
+genuine gauge currents needs a separately constructed current algebra with a
+nondegenerate pairing, a closed bracket, an internal $A_5$ action, and good
+behavior under refinement; the port action by itself does not even single out
+a literal $8{+}3{+}1$ split of the ports. Matching this geometric route to
+the matter route, including the source-derived spin lift, central embedding,
+and commuting action square that must show the sixfold residue is the same
+physical identification in both constructions, is work in progress.
+
+The family story carries its own fine print. Promoting the three-place face
+slot to three physical generations requires one complex family space tying
+three copies of the fifteen-state pattern together, proof that no extra
+family band survives, and proof that the identification holds up under
+refinement; that attachment is work in progress, and a physical CKM phase
+further needs family breaking and a genuine interacting vertex structure. The
+four-dimensional representation of $A_5$ cannot sneak in as a hidden Higgs,
+because it has no complex structure compatible with the hypercharge action.
+The twenty-four-slot equality above is a register identity, a matching of
+counts that supplies no update rule and no physical current map. Masses,
+mixing angles, coupling strengths, and poles belong to the dynamics carried
+by these symmetry sectors, downstream of everything in this section.
 
 ## 14.10 Hypercharge from Gluing Consistency
 
@@ -915,13 +934,11 @@ Anomaly cancellation works generation by generation. Each generation independent
 ### CKM CP Capability Requires Three
 
 The CKM matrix describes how quarks mix under the weak force. In general, it is
-a unitary $N_g\times N_g$ matrix. The number of physical CP-violating phases
-is:
-
-CP means charge-parity reversal: swap particles with antiparticles and mirror
-space. A CP-violating phase is a built-in complex phase that lets those mirrored
-processes differ. In ordinary language, it is one source of particle-antiparticle
-rate differences in weak interactions.
+a unitary $N_g\times N_g$ matrix. CP means charge-parity reversal: swap
+particles with antiparticles and mirror space. A CP-violating phase is a
+built-in complex phase that lets those mirrored processes differ, one source
+of particle-antiparticle rate differences in weak interactions. The number of
+physical CP-violating phases is:
 
 $$\text{(CP phases)} = \frac{(N_g - 1)(N_g - 2)}{2}$$
 
@@ -935,12 +952,10 @@ $$N_g \ge 3$$
 
 ### Weak-Sector UV Completability Limits
 
-Too many generations spoil asymptotic freedom. The $SU(2)$ beta function
-coefficient is:
-
-Asymptotic freedom means an interaction gets weaker at shorter distances or
-higher energies. The beta function is the bookkeeping rule for how a coupling
-changes with scale.
+Too many generations spoil asymptotic freedom. Asymptotic freedom means an
+interaction gets weaker at shorter distances or higher energies, and the beta
+function is the bookkeeping rule for how a coupling changes with scale. The
+$SU(2)$ beta function coefficient is:
 
 $$b_{SU(2)} = \frac{22}{3} - \frac{1}{3}N_g(N_c + 1) - \frac{1}{6}$$
 
@@ -973,20 +988,23 @@ $$\boxed{N_g = 3}$$
 This boxed value is a conditional economy selection. It is not forced by anomaly
 cancellation, the $A_5$ graph, or the target-free source reduct.
 
-The one-Higgs slot also has a clean local geometric carrier. On the selected
-electroweak branch, the weak screen chart can be modeled locally as
-$\mathbb{CP}^1$ with the minimal positive Hopf line bundle $\mathcal O(1)$.
-Borel-Weil then gives
+The one-Higgs slot also has a clean local geometric carrier. The construction
+needs exactly one weak doublet to appear at the bottom rung, and complex
+geometry supplies exactly one. On the selected electroweak branch, the weak
+screen chart can be modeled locally as the simplest curved complex geometry,
+the projective line $\mathbb{CP}^1$, carrying its minimal positive line
+bundle $\mathcal O(1)$. The Borel-Weil theorem then gives
 
 $$H^0(\mathbb{CP}^1,\mathcal O(1))\cong\mathbb C^2.$$
 
-This is the first nontrivial holomorphic section space, so it supplies the
-weak doublet carrier. OPH fixes the hypercharge convention with the neutral
-component condition $Q(\phi^0)=T_3+Y=0$, giving $Y=+1/2$. A nonzero section
-direction is a point of the same projective line, but that ray cannot determine
-the unbroken electromagnetic group. Hypercharge multiplies the whole doublet by
-a common phase, which projectivization erases. For the nonzero lower-component
-vacuum vector
+The first nontrivial space of fields that geometry supports is
+two-dimensional, which is exactly the weak doublet carrier. OPH fixes the
+hypercharge convention with the neutral component condition
+$Q(\phi^0)=T_3+Y=0$, giving $Y=+1/2$. A nonzero field direction picks out a
+ray on the projective line, but that ray cannot determine the unbroken
+electromagnetic group, because hypercharge multiplies the whole doublet by a
+common phase and a ray does not notice a common phase. For the nonzero
+lower-component vacuum vector
 
 $$\phi_0=\frac{v}{\sqrt 2}\binom{0}{1},\qquad v\ne0,$$
 
@@ -995,15 +1013,13 @@ the electroweak action is
 $$e^{i\alpha T_3}e^{i\beta Y}\phi_0
 =e^{i(\beta-\alpha)/2}\phi_0.$$
 
-Independent $T_3$ and hypercharge phases therefore fix the ray
-$[\phi_0]$. Its projective stabilizer is a two-torus,
-$U(1)_{T_3}\times U(1)_Y$, modulo the inherited finite center. The vector itself
-is fixed only when $\beta=\alpha$, locally, leaving the electromagnetic
-$U(1)_Q$ generated by $Q=T_3+Y$. The projective line explains the scalar
-carrier; the nonzero vacuum vector explains why electromagnetism remains
-unbroken. This construction does not explain the Higgs mass, the quartic, or
-the weak scale; those belong to the OPH hierarchy and Higgs/top quantitative
-branch.
+Independent $T_3$ and hypercharge phases move the vector while leaving the
+ray $[\phi_0]$ where it is. The vector itself is fixed only when
+$\beta=\alpha$, locally, leaving the electromagnetic $U(1)_Q$ generated by
+$Q=T_3+Y$. The projective line explains the scalar carrier; the nonzero
+vacuum vector explains why electromagnetism remains unbroken. This
+construction does not explain the Higgs mass, the quartic, or the weak scale;
+those belong to the OPH hierarchy and Higgs/top quantitative branch.
 
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
@@ -1031,18 +1047,15 @@ If both chiralities exist in conjugate representations, this term is allowed. Un
 Relevant operators that aren't forbidden by symmetry or constraints get turned
 on under refinement. They can't be kept at zero without fine tuning.
 
-This state-side renormalization statement is not a spectral completeness
-theorem. Preserving an old sector and remaining a positive distance from a
-contour boundary do not exclude a new fine-scale eigenvalue inside the
-contour. Physical persistence additionally requires the actual complementary
-Hamiltonian block, exclusion of its spectrum from the selected interior,
-off-diagonal bounds, and equality of the full selected rank. The mutation
-$H_s=H_r\oplus0$ is the exact warning: it preserves the old block while adding
-a hidden selected mode.
+Keeping the old spectrum intact does not by itself prove that nothing new
+sneaked in at finer resolution; that stronger check is work in progress.
 
 If a mass term is allowed, it will generically appear. The fermion will become massive. At low energies, it will decouple.
 
-To keep fermions light without fine tuning, the mass term must be forbidden. The cleanest way: make the fermion chiral. If only one chirality exists, there's no partner to couple to. No mass term is possible.
+To keep fermions light without fine tuning, the mass term must be forbidden,
+and the cleanest way to forbid it is to make the fermion chiral. If only one
+chirality exists, there is no partner to couple to and no mass term is
+possible.
 
 The Standard Model fermions are chiral for that reason. Chirality protects their masses from running to the cutoff scale.
 
@@ -1062,7 +1075,8 @@ settle into a stable excitation that survives local time evolution, keeps its
 identity across overlaps, and transforms in a repeatable way under the emergent
 symmetries, the theory has found a carrier pattern: a particle whose state
 space, energy spectrum, and detector response are the quantum description of
-the same stable pattern.
+the same stable pattern. The pattern is the particle. The particular patch
+that happens to be running it is bookkeeping.
 
 There is a subtler question underneath. A stable pattern can be carried from one
 observer's patch to the next, and two detector clicks on opposite sides of a
@@ -1116,17 +1130,12 @@ labels of mass, spin, and helicity. The realized gauge quotient, hypercharge
 lattice, and generation-color counting supply the particle-side structure. Together
 they decide which charged excitations can exist and how they transform.
 
-Then comes the fixed-point closure. The same patch of screen is read
-two ways.
-From the outside it is a tiny departure from perfect golden-ratio balance. From
-the inside it is the electromagnetic measurement step available to observers
-living in the encoded world. The forward map has a unique root near $137$.
-
-The chain contains several translations. Golden-ratio balance fixes
-the screen side. The width of the boundary sets the small electromagnetic
-detuning. The translation then carries that value down through the high-energy unification of
-forces, electroweak mixing, and the hadronic vacuum response to the
-electromagnetism measured at long distance.
+Then comes the local detuning. The screen sits a tiny distance off perfect
+golden-ratio balance, and the width of the boundary sets the size of that
+departure. The proposed forward map carries that value down through the
+high-energy unification of forces, electroweak mixing, and the hadronic
+vacuum response to the electromagnetism measured at long distance, and its
+unique root lands near $137$.
 
 The fine-structure constant belongs here beside the weak sector. It is the local
 electromagnetic strength of the patch of screen that supports an observer. From
@@ -1145,8 +1154,8 @@ measured in the laboratory.
 
 The local closure proposal compares a golden-ratio balance point with a small
 screen displacement that can carry records and lasting measurement traces.
-The declared maps read electromagnetic strength from that displacement and
-have certified unique roots. Identifying either root with the measured
+The proposed maps read electromagnetic strength from that displacement and
+have unique roots on the physical interval. Identifying either root with the measured
 Thomson coupling requires the source-derived transport that is work in
 progress. In the book's chain of consistency requirements this is the
 record-existence test: a perfectly balanced screen carries no events, and a
@@ -1173,7 +1182,7 @@ two-point function.
 ## 14.16 What the Gravitational Branch Supplies
 
 Chapter 15 explains how modular screen geometry leads to the classical Einstein
-branch. On a flat background, the Einstein--Hilbert action can
+branch. On a flat background, the Einstein-Hilbert action can
 be linearized and gauge-reduced. The result has two transverse-traceless
 classical wave modes, conventionally called the plus and cross polarizations,
 with the same invariant null speed $c_*$.
@@ -1219,11 +1228,13 @@ shows up with tight numerical accuracy. Even the golden-ratio fingerprint of
 $\mathbb Z_5$ appears where the group geometry says it should. Entanglement
 geometry leaves visible marks on the coupling structure.
 
-The same golden-ratio motif returns on the fixed-point side. Perfect
+The same golden-ratio motif returns on the screen side. Perfect
 self-similar balance would sit exactly at $\phi$. A lived universe with durable
 records sits nearby, carrying the slight detuning that makes structure and
 history possible. Reliable extraction of gauge couplings from entanglement
 therefore sharpens the quantitative picture.
+
+A universe balanced perfectly would have nothing to remember itself by.
 
 ## 14.19 Gauge Unification and the Proton
 
@@ -1252,7 +1263,7 @@ representation block. A second factor of the dimension returns in the running.
 That is what lets the beta-function shifts land near the familiar unification
 benchmark.
 
-At the unification-scale heat-kernel parameter $t_U \approx 1.64$, this gives:
+With the smoothing parameter tuned to the unification scale, this gives:
 
 $$\Delta b_{\text{edge}} \approx (2.49,\ 4.38,\ 3.97)$$
 
@@ -1270,8 +1281,11 @@ The sharper structural prediction concerns *how* any unification-like closure wo
 
 Traditional Grand Unified Theories achieve unification by embedding the Standard Model gauge group into a larger simple group like SU(5) or SO(10). This embedding has a dramatic consequence: it introduces new gauge bosons called X and Y bosons that can turn quarks into leptons. Protons should decay, with minimal SU(5) predicting lifetimes around $10^{31}$ years.
 
-But Super-Kamiokande has been watching for proton decay since 1996. The experimental limit is
-$\tau_p > 10^{34}$ years, a thousand times longer than predicted. The simplest GUTs are dead.
+Super-Kamiokande has spent nearly thirty years watching fifty thousand tons
+of exceptionally pure water, waiting for a single proton to do something
+interesting. The protons have so far declined. The experimental limit is
+$\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
+simplest GUTs are dead.
 
 The realized connected gauge adjoint is the product branch
 
@@ -1282,107 +1296,74 @@ simple-GUT gauge-mediated proton-decay channel is absent. Baryon-number change,
 when present, belongs to the matter and repair dynamics rather than to a hidden
 connected X/Y gauge direction.
 
-## 14.20 What the Model Explains
+## 14.20 The Big Picture
 
-The framework accounts for several concrete facts.
+The Standard Model looks like the answer to a very specific question. What is
+the simplest set of low-energy matter that OPH's gluing rules can carry,
+rebuild into a gauge structure, and keep stable as you look closer? The
+framework accounts for several concrete facts.
 
-**The integers.** In the one-Higgs chiral economy class, anomaly cancellation and
-Yukawa invariance fix the hypercharge lattice, and the minimal coupled carrier
-fixes the color triplet. CKM CP capability and weak-sector ultraviolet
-consistency give $3\le N_g\le5$. The economy rule selects the least value. Physical
-three-family attachment is a separate construction.
+**The integers.** In the one-Higgs chiral economy class, anomaly cancellation
+and Yukawa invariance fix the hypercharge lattice, and the minimal coupled
+carrier fixes the color triplet. CKM CP capability and weak-sector
+ultraviolet consistency give $3\le N_g\le5$, and the economy rule selects the
+least value.
 
-**The carrier modes.** The Maxwell action gives electromagnetism two transverse
-massless modes. The Einstein action around flat space gives gravity two
-transverse-traceless modes, the plus and cross polarizations. Positive-energy
-quantization turns these into the photon and graviton sectors.
+**The carrier modes.** The Maxwell action gives electromagnetism two
+transverse massless modes. The Einstein action around flat space gives
+gravity two transverse-traceless modes, the plus and cross polarizations.
+Positive-energy quantization turns these recurring carrier patterns into the
+photon and graviton sectors, stable and detectable.
 
-**The particle structure.** The $A_5$ screen fixes the gauge-adjoint coefficient
-geometry and a canonical rank-three candidate family band. The conditional
-matter packet supplies hypercharge, color fundamentals, weak doublets, and one
-scalar-doublet channel. Physical chirality, family attachment, and interacting
-vertices are open in OPH.
+**The particle structure.** The $A_5$ screen fixes the gauge-adjoint
+coefficient geometry and a canonical rank-three candidate family band, and
+the conditional matter packet supplies hypercharge, color fundamentals, weak
+doublets, and one scalar-doublet channel. Charged leptons, quarks, and
+neutrinos acquire one common three-family interpretation only after the
+family attachment and interacting Yukawa tests from section 14.9 pass.
 
-Given a complete renormalized electroweak theory, the machine-checked algebra
-determines the charged and neutral complex-pole expansion through the declared
-finite order. A numerical test checks that algebra after the target values
-are known. A physical W or Z claim needs more: source-selected parameters,
-matching across scales, the gauge identities, a coupling to a measurable
-current, an uncertainty budget, and an independent clock. A zero of an inverse
-propagator is only part of a resonance.
+**Charge quantization and line operators.** On the realized matter package,
+color singlets have integer electric charge. On the physical economy/tensor
+$\mathbb Z_6$ branch, the minimum magnetic line is one electron-Dirac unit
+with the required color-magnetic charge, and the electromagnetic theta period
+is $2\pi$. These are consequences of the global gauge form.
+
+**Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
+generator, so the standard simple-GUT channel is absent. Baryon-number
+dynamics lives in the matter and repair sectors instead.
+
+**Why hadrons are harder.** Quark masses are short-distance parameters, while
+hadrons are bound states. Most of the proton's mass comes from confinement
+rather than from the bare quark masses, so the OPH hadron story has to pass
+through the strong-binding layer.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
 dimensionless electroweak hierarchy, the low-energy electromagnetic endpoint,
-and the effective gravitational coupling. The point does not require every intermediate symbol.
-OPH ties
-electroweak relations, the Higgs/top quantitative relation,
-electromagnetism at low energy, and Newton's constant into one common
-structure.
+and the effective gravitational coupling. The point does not require every
+intermediate symbol. OPH ties electroweak relations, the Higgs/top
+quantitative relation, electromagnetism at low energy, and Newton's constant
+into one common structure.
 
 The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
+The declared-response certificate verifies the compact-current algebraic
+conditions conditionally, but does not source-bind the response representation,
+its four signed coefficients, or physical refinement.
 
-The hierarchy count is independent of the screen selector:
-$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
-=2(8+3+1)=24$. The unit-split screen separately has twelve ports and 24
-oriented slots. The equality compares dimensions and does not identify a port
-with a gauge-current direction. Such an identification requires a full-rank
-physical current map, compact commutator closure, a common inner icosahedral
-action, and refinement naturality. The declared-response certificate verifies
-these algebraic conditions conditionally, but does not source-bind the response
-representation, its four signed coefficients, or physical refinement. The
-transitive port action also supplies no
-invariant literal $8+3+1$ partition. The oriented faces supply a canonical
-rank-three candidate family band. Its physical family attachment is open. The
-cosmic-capacity selector and calibrated clock/curvature map needed for global
-capacity and laboratory scale are also open.
-
-**Charge quantization and line operators.** On the realized matter package,
-color singlets have integer electric charge. On the physical economy/tensor
-$\mathbb Z_6$ branch, the minimum magnetic line is one electron-Dirac unit with
-the required color-magnetic charge, and the electromagnetic theta period is
-$2\pi$. These are consequences of the global gauge form.
-
-**Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
-generator, so the standard simple-GUT channel is absent. Baryon-number dynamics
-lives in the matter and repair sectors instead.
-
-**Why hadrons are harder.** Quark masses are short-distance parameters.
-Hadrons are bound states. Their masses come from the nonperturbative dynamics
-of confined quarks and gluons. The OPH hadron story therefore has to pass
-through strong binding, the same hard physics that makes most of the proton's
-mass come from confinement rather than from the bare quark masses.
-
-## 14.21 The Big Picture
-
-The Standard Model looks like the answer to a very specific question. What is
-the simplest set of low-energy matter that OPH's gluing rules can carry, rebuild
-into a gauge structure, and keep stable as you look closer?
-
-The reconstruction fixes the symmetry, the geometric roles, and the quantum
-sectors. The Maxwell action and gauge reduction leave two massless light modes.
-The Einstein action around flat space leaves two tensor polarizations. Their
-positive-energy quantum state spaces turn those recurring carrier patterns into
-stable, detectable particles.
-
-Within the one-Higgs chiral economy class, the smallest admissible
-gauge-and-matter packet fixes the displayed quark and lepton charges
-conditionally. The color carrier gives three colors. CP capability and the
-weak-sector clause give a three-to-five window, and the economy rule selects three. The
-physical attachment of three generations is an open, separate construction.
+Fixing global capacity and the laboratory scale needs a cosmic-capacity
+selector and a calibrated clock and curvature map; that construction is work
+in progress.
 
 The result is an organized conditional particle packet: a specific gauge
 group, charge pattern, color carrier, economy-class generation count, carrier
-inventory, and quantitative comparison surfaces. Charged leptons, quarks,
-and neutrinos acquire one common three-family interpretation only after the
-physical family attachment and interacting Yukawa tests pass. Hadrons then
-require the strong-binding layer.
-
-The screen supplies candidate stable patterns organized by its emergent
-symmetries. Physical particles require the open source and spectral bridges.
-The natural sequel is spacetime itself: can geometry satisfy the analogous
-consistency test?
+inventory, and quantitative comparison surfaces, with candidate stable
+patterns organized by the screen's emergent symmetries. Underneath the whole
+inventory runs the quietest thread in the chapter. The screen that carries
+these particles sits close to perfect golden-ratio balance without sitting on
+it, and that slight detuning is why there are records and structure for any
+of this machinery to act on. The natural sequel is spacetime itself: can
+geometry satisfy the analogous consistency test?
 
 That's the question of **Chapter 15: Relativity from Modular Time**.
