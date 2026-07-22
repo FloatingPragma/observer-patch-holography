@@ -235,7 +235,7 @@ payload = {
             "PORT-CURRENT-INNER physical source binding remains open; port_current_inner_certificate.py verifies the conditional algebraic construction for a declared charged-double-triplet representation and four signed coefficients",
             "PORT-SPIN-LIFT physical source binding remains open; super_tannakian_matter_lift_certificate.py verifies the conditional algebraic matter lift for the declared matter-lift contracts: the non-split double cover, the projector-realized fifteen-state module, kernel emission, and MAR nonemptiness",
             "BLOCK-DETERMINANT-BALANCE",
-            "AXIS-CENTER-DESCENT and the physical line spectrum (consuming the emitted order-six action kernel)",
+            "AXIS-CENTER-DESCENT and the physical line spectrum (consuming the emitted action-kernel data: generator, deck relation, residual order six)",
             "physical selection of the non-vacuum even exterior package beyond the declared selection contract",
             "physical selection of H=W as the scalar doublet beyond the declared one-scalar contract",
             "A5-FAMILY-ATTACHMENT",

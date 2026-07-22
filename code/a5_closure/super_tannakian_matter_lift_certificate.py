@@ -34,9 +34,12 @@ From that packet the verifier derives, rather than assumes:
 * exact chirality (disjoint charge spectra force a zero intertwiner
   space), realized perturbative anomaly traces, the even Witten parity,
   and exactly one invariant line per declared Yukawa channel;
-* the common action kernel on the simply connected cover, emitted as data
-  (derived integrality normalization, generator, exact order six) without
-  forming the global quotient;
+* the common action kernel on the simply connected cover R x SU(3) x SU(2),
+  emitted as data: infinite cyclic with generator (zeta_6-turn, omega, -1),
+  whose sixth power is the unit deck translation (one full central turn) -
+  not the identity on the cover - with residual order six modulo the pure
+  deck translations; neither the compactification of the central R nor any
+  global quotient is formed;
 * descent along the declared algebraic carrier tower maps.
 
 This is a conditional exact algebraic theorem.  It does not source-bind
@@ -1515,14 +1518,26 @@ def certificate_payload(
     nonzero_qs = [abs(q) for _, q, _, _ in integer_charges if q != 0]
     require(
         bool(nonzero_qs),
-        "KERNEL_NOT_FINITE",
-        "every realized charge vanished, so the whole U(1) sits inside the kernel and the kernel is not finite",
+        "KERNEL_NOT_DISCRETE",
+        "every realized charge vanished, so the whole central R sits inside the kernel; "
+        "a non-discrete kernel cannot be emitted as data",
     )
     charge_gcd = 0
     for q in nonzero_qs:
         charge_gcd = math.gcd(charge_gcd, q)
+
+    # The kernel lives on the simply connected cover R x SU(3) x SU(2): the
+    # central factor is the non-compact R (in phase turns), NOT U(1); no
+    # compactification quotient is chosen here.  An element (r, a, b) of
+    # R x Z3 x Z2 acts trivially on a realized weight (q, t, d) iff
+    # r q + a t/3 + b d/2 in Z.  Multiplying by 6 shows 6 r q in Z for every
+    # integral charge q, and a Bezout combination gives
+    # r in (1/(6 gcd)) Z.  Membership then depends on the numerator
+    # k = 6 gcd r only through k mod (6 gcd) (adding 6 gcd to k shifts each
+    # phase by the integer q), so enumerating one fundamental window of
+    # residues determines the full kernel on the cover exactly.
     denominator_bound = 6 * charge_gcd
-    kernel_elements: list[tuple[Fraction, int, int]] = []
+    kernel_residues: list[tuple[int, int, int]] = []
     for k in range(denominator_bound):
         r = Fraction(k, denominator_bound)
         for a in range(3):
@@ -1534,55 +1549,102 @@ def certificate_payload(
                         trivial = False
                         break
                 if trivial:
-                    kernel_elements.append((r, a, b))
+                    kernel_residues.append((k, a, b))
     require(
-        len(kernel_elements) > 1,
+        (0, 0, 0) in kernel_residues,
+        "KERNEL_CLOSURE",
+        "the identity residue is missing from the enumerated kernel",
+    )
+    # The unit deck translation (one full central turn, trivial centers) is
+    # always in the kernel: r = 1 times an integral charge is an integer.
+    # Its residue is (0, 0, 0), so the kernel on the cover is INFINITE; the
+    # finite object below is the residual modulo these pure translations.
+    residual_order = len(kernel_residues)
+    require(
+        residual_order > 1,
         "KERNEL_TRIVIAL",
-        "the computed common action kernel is trivial; a zero common kernel cannot satisfy the packet",
+        "the kernel reduces to the pure full-turn deck translations; "
+        "a trivial residual kernel cannot satisfy the packet",
     )
 
-    def add_elements(x: tuple[Fraction, int, int], y: tuple[Fraction, int, int]) -> tuple[Fraction, int, int]:
-        return ((x[0] + y[0]) % 1, (x[1] + y[1]) % 3, (x[2] + y[2]) % 2)
-
-    element_set = set(kernel_elements)
-    for x in kernel_elements:
-        for y in kernel_elements:
+    # Residue-level closure: composition in R x Z3 x Z2 adds numerators in Z
+    # (full-turn carries do not affect membership), so the kernel is a
+    # subgroup iff the residue set is closed under residue addition.
+    residue_set = set(kernel_residues)
+    for x in kernel_residues:
+        for y in kernel_residues:
+            composed = ((x[0] + y[0]) % denominator_bound, (x[1] + y[1]) % 3, (x[2] + y[2]) % 2)
             require(
-                add_elements(x, y) in element_set,
+                composed in residue_set,
                 "KERNEL_CLOSURE",
                 "the emitted kernel is not closed under composition",
             )
-    kernel_order = len(kernel_elements)
-    generator: tuple[Fraction, int, int] | None = None
-    for candidate in sorted(kernel_elements):
-        if candidate == (Fraction(0), 0, 0):
-            continue
-        power = candidate
-        order = 1
-        while power != (Fraction(0), 0, 0):
-            power = add_elements(power, candidate)
-            order += 1
-        if order == kernel_order:
-            generator = candidate
-            break
-    require(generator is not None, "KERNEL_CYCLIC", "the emitted kernel is not cyclic")
+    # Torsion-freeness on the cover: a torsion element must have r = 0
+    # (R is torsion-free), so torsion shows up as a residue (0, a, b) with
+    # (a, b) != (0, 0).  Its absence forces the su3/su2 components to be
+    # determined by the r-numerator, so the kernel projects injectively to
+    # (1/(6 gcd)) Z and is free of rank one: infinite cyclic.
+    for k, a, b in kernel_residues:
+        require(
+            k != 0 or (a == 0 and b == 0),
+            "KERNEL_CYCLIC",
+            "the emitted kernel has torsion over the pure deck translations and is not infinite cyclic",
+        )
+    numerators = sorted({k for k, _, _ in kernel_residues})
+    step = min(k for k in numerators if k > 0) if len(numerators) > 1 else denominator_bound
+    require(
+        denominator_bound % step == 0 and denominator_bound // step == residual_order,
+        "KERNEL_CYCLIC",
+        "the kernel residues are not generated by a single element",
+    )
+    generator_row = next((k, a, b) for k, a, b in sorted(kernel_residues) if k == step)
+    generator = (Fraction(step, denominator_bound), generator_row[1], generator_row[2])
+    # Verify cyclic generation and the deck relation exactly: the n-th power
+    # of the generator has numerator n*step; at n = residual_order it equals
+    # one full turn with trivial center components - the unit deck
+    # translation, which is NOT the identity on the cover.
+    for n in range(1, residual_order + 1):
+        power = (
+            (n * step) % denominator_bound,
+            (n * generator[1]) % 3,
+            (n * generator[2]) % 2,
+        )
+        require(
+            power in residue_set,
+            "KERNEL_CYCLIC",
+            "a generator power leaves the enumerated kernel residues",
+        )
+    require(
+        generator[0] * residual_order == 1
+        and (generator[1] * residual_order) % 3 == 0
+        and (generator[2] * residual_order) % 2 == 0,
+        "KERNEL_CYCLIC",
+        "the generator's residual-order power is not the unit deck translation",
+    )
 
     kernel_payload = {
         "cover": "R x SU(3) x SU(2), the simply connected cover of the derived current group data",
+        "central_factor": "the non-compact R (phase turns); no compactification of R to U(1) is chosen here",
         "integrality_normalization": normalization,
-        "kernel_order": kernel_order,
+        "kernel_group_on_cover": "infinite cyclic (isomorphic to Z); the kernel is NOT finite on the cover",
         "kernel_generator": {
             "u1_phase_turns": frac_text(generator[0]),
             "su3_center_power": generator[1],
             "su2_center_power": generator[2],
         },
-        "kernel_elements": [
+        "deck_relation": (
+            f"generator^{residual_order} = (one full central turn, trivial centers), the unit deck "
+            "translation, which is not the identity on the cover"
+        ),
+        "pure_deck_translation_subgroup": "generated by (1 turn, 0, 0) = generator^" + str(residual_order),
+        "residual_order_modulo_deck_translations": residual_order,
+        "kernel_residues_modulo_deck_translations": [
             {
-                "u1_phase_turns": frac_text(r),
+                "u1_phase_turns": frac_text(Fraction(k, denominator_bound)),
                 "su3_center_power": a,
                 "su2_center_power": b,
             }
-            for r, a, b in sorted(kernel_elements)
+            for k, a, b in sorted(kernel_residues)
         ],
         "verified_trivial_on": "every realized matter state, every carrier mode, and the declared scalar",
         "tensor_additivity": (
@@ -1590,7 +1652,11 @@ def certificate_payload(
             "so triviality on the verified weight list extends to every realized matter tensor"
         ),
         "global_quotient_assumed": False,
-        "downstream_consumer": "AXIS-CENTER-DESCENT (global-form descent); the quotient is not formed here",
+        "downstream_consumer": (
+            "AXIS-CENTER-DESCENT (global-form descent); neither the compactification of the central R "
+            "nor any global quotient is formed here - the emitted generator, deck relation, and residual "
+            "determine the kernel image in every candidate quotient"
+        ),
     }
 
     # --- Refinement descent --------------------------------------------------------
@@ -1878,7 +1944,7 @@ def certificate_payload(
                 "premise": "realized weights with triality and duality",
                 "uses": ["derived integrality normalization", "exact congruence enumeration", "closure and cyclicity"],
                 "source_artifact": "certificate_payload",
-                "conclusion": "the common action kernel (order six, generator (zeta_6, omega, -1)) is emitted as data; the global quotient is not formed",
+                "conclusion": "the common action kernel on the cover (infinite cyclic, generator (zeta_6, omega, -1), sixth power the unit deck translation, residual order six modulo pure deck translations) is emitted as data; neither the central compactification nor the global quotient is formed",
             },
             {
                 "step": 15,
@@ -1901,7 +1967,7 @@ def certificate_payload(
             "order_profile_1_1_20_30_24_20_24": "exact element orders of the binary icosahedral lift group (orders 1,2,3,4,5,6,10)",
             "charges_1/6_-2/3_1_1/3_-1/2": "additive weights of the declared (y_C, y_W) = (-1/3, 1/2) on the realized exterior blocks",
             "normalization_6": "least common multiple of the realized charge denominators",
-            "kernel_order_6": "exact count of (u1 phase, su3 center, su2 center) triples acting trivially on every realized weight",
+            "kernel_residual_order_6": "exact count of kernel residues modulo the pure full-turn deck translations; on the cover itself the kernel is infinite cyclic, since the unit deck translation acts trivially on every integral weight without being the identity",
             "weak_doublets_4": "half the number of matter states with nonzero su(2) Casimir diagonal",
             "yukawa_lines_3": "exact joint-invariant dimensions of the three declared channels",
         },
@@ -1935,8 +2001,8 @@ def certificate_payload(
             "produced_locally": (
                 "the conditional exact matter lift: the non-split algebraic PORT-SPIN-LIFT target, faithful "
                 "current action, derived equivariant selection of the fifteen-state module, realized anomaly "
-                "and Witten checks, chirality, conjugation, Yukawa invariant lines, emitted order-six action "
-                "kernel, and declared-tower descent"
+                "and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action "
+                "kernel (infinite cyclic on the cover, residual order six), and declared-tower descent"
             ),
             "branch_premises": (
                 "the hash-pinned #565/#566 packets plus the declared matter-lift contracts (trace-balanced "
@@ -2100,7 +2166,7 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             },
             "kernel": {
                 "assumed_quotient": "assuming the global quotient violates the emission contract",
-                "kernel_killing_scalar": "an extra integral-charge singlet forces the computed kernel to be trivial, which cannot satisfy the packet",
+                "kernel_killing_scalar": "an extra integral-charge singlet collapses the kernel to the pure full-turn deck translations; a trivial residual cannot satisfy the packet",
             },
             "typing": {
                 "bosonic_matter": "the derived matter-building operators anticommute; bosonic typing fails closed",

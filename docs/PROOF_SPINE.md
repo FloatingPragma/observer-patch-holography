@@ -309,9 +309,10 @@ Part B gaps:
   binary icosahedral with a unique involution), the fifteen-state chiral
   module realized by a derived equivariant projector on the auxiliary
   CAR/Fock space with all listed realized anomaly traces and three Yukawa
-  invariant lines checked exactly, the order-six common action kernel
-  emitted as data for the global-form descent, and the declared MAR class
-  nonempty. PORT-SPIN-LIFT likewise remains open as a physical receipt
+  invariant lines checked exactly, the common action kernel on the
+  simply connected cover emitted as data (infinite cyclic; residual
+  order six modulo the pure deck translations) for the global-form
+  descent, and the declared MAR class nonempty. PORT-SPIN-LIFT likewise remains open as a physical receipt
   until its premises are source-bound.
   The remaining producer gates are block determinant balance;
   physical $\mathbb Z_6$ deck/line descent (consuming the emitted

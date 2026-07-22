@@ -148,17 +148,36 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertTrue(all(item["invariant_dimension"] == 1 for item in row["channels"]))
         self.assertEqual(row["forbidden_channel_control"]["invariant_dimension"], 0)
 
-    def test_kernel_is_emitted_order_six_not_assumed(self) -> None:
+    def test_kernel_is_emitted_on_the_cover_not_assumed(self) -> None:
         row = self.expected["kernel_emission"]
-        self.assertEqual(row["kernel_order"], 6)
+        # On the simply connected cover R x SU(3) x SU(2) the kernel is
+        # infinite: the unit deck translation (one full central turn) acts
+        # trivially on every integral weight without being the identity.
+        self.assertIn("infinite cyclic", row["kernel_group_on_cover"])
+        self.assertIn("non-compact R", row["central_factor"])
         self.assertEqual(row["integrality_normalization"], 6)
         self.assertEqual(
             row["kernel_generator"],
             {"u1_phase_turns": "1/6", "su3_center_power": 1, "su2_center_power": 1},
         )
-        self.assertEqual(len(row["kernel_elements"]), 6)
+        self.assertIn("generator^6", row["deck_relation"])
+        self.assertIn("not the identity on the cover", row["deck_relation"])
+        self.assertEqual(row["residual_order_modulo_deck_translations"], 6)
+        self.assertEqual(len(row["kernel_residues_modulo_deck_translations"]), 6)
         self.assertFalse(row["global_quotient_assumed"])
         self.assertIn("AXIS-CENTER-DESCENT", row["downstream_consumer"])
+
+    def test_kernel_generator_sixth_power_is_deck_translation_not_identity(self) -> None:
+        # Exact recomputation of the inconsistency fix: compose the generator
+        # six times in R x Z3 x Z2 WITHOUT reducing the R coordinate mod 1.
+        row = self.expected["kernel_emission"]
+        gen = row["kernel_generator"]
+        r = Fraction(gen["u1_phase_turns"])
+        a = gen["su3_center_power"]
+        b = gen["su2_center_power"]
+        sixth = (6 * r, (6 * a) % 3, (6 * b) % 2)
+        self.assertEqual(sixth, (Fraction(1), 0, 0))
+        self.assertNotEqual(sixth, (Fraction(0), 0, 0))
 
     def test_refinement_descent(self) -> None:
         row = self.expected["refinement"]
@@ -291,7 +310,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
 
     def test_tampered_receipt_is_rejected(self) -> None:
         receipt = copy.deepcopy(self.expected)
-        receipt["kernel_emission"]["kernel_order"] = 12
+        receipt["kernel_emission"]["residual_order_modulo_deck_translations"] = 12
         with self.assertRaises(cert.CertificateError) as caught:
             cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(caught.exception.code, "RECEIPT_MISMATCH")
