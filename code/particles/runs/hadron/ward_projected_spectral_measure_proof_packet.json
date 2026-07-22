@@ -716,6 +716,7 @@
     "reflection_positivity_certificate_required",
     "provenance_ensemble_cross_reference",
     "referenced_artifacts_source_only",
+    "source_artifact_positive_certification",
     "guard_flags_exactly_false",
     "ward_projection_required",
     "closed_object_boundaries",
@@ -1235,7 +1236,7 @@
      "rejected": true,
      "rejection_reasons": [
       "TARGET_LEAK_DETECTED:value:provenance.source_inputs[2].identifier",
-      "source_artifact_reference_absent:provenance.source_inputs[2]:compilations/ee_to_hadrons_r_ratio.json"
+      "source_artifact_location_not_allowlisted:provenance.source_inputs[2]:compilations/ee_to_hadrons_r_ratio.json"
      ]
     },
     {
@@ -1245,7 +1246,57 @@
      ],
      "rejected": true,
      "rejection_reasons": [
-      "referenced_artifact_not_source_only:provenance.source_inputs[2]:code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
+      "source_artifact_location_not_allowlisted:provenance.source_inputs[2]:code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
+     ]
+    },
+    {
+     "control_id": "comparison_artifact_disguised_as_source_artifact",
+     "semantic_requirements": [
+      "referenced_artifacts_source_only"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "source_artifact_location_not_allowlisted:provenance.source_inputs[2]:code/particles/runs/calibration/d11_criticality_comparison.json"
+     ]
+    },
+    {
+     "control_id": "observational_data_disguised_as_source_artifact",
+     "semantic_requirements": [
+      "referenced_artifacts_source_only"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "source_artifact_location_not_allowlisted:provenance.source_inputs[2]:code/dark_matter/data/observational_comparisons.json"
+     ]
+    },
+    {
+     "control_id": "documentation_file_as_source_artifact",
+     "semantic_requirements": [
+      "referenced_artifacts_source_only"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "source_artifact_location_not_allowlisted:provenance.source_inputs[2]:README.md"
+     ]
+    },
+    {
+     "control_id": "non_json_backend_file_as_source_artifact",
+     "semantic_requirements": [
+      "source_artifact_positive_certification"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "source_artifact_reference_not_json:provenance.source_inputs[2]:code/particles/runs/qcd/hadron_source_backend/claim.md"
+     ]
+    },
+    {
+     "control_id": "unattested_backend_file_as_source_artifact",
+     "semantic_requirements": [
+      "source_artifact_positive_certification"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "source_artifact_external_targets_not_declared_empty:provenance.source_inputs[2]:code/particles/runs/qcd/hadron_source_backend/manifest.json"
      ]
     },
     {
@@ -1360,7 +1411,14 @@
     ],
     "referenced_artifacts_source_only": [
      "target_provenance_disguised_as_source_artifact",
-     "empirical_companion_disguised_as_source_artifact"
+     "empirical_companion_disguised_as_source_artifact",
+     "comparison_artifact_disguised_as_source_artifact",
+     "observational_data_disguised_as_source_artifact",
+     "documentation_file_as_source_artifact"
+    ],
+    "source_artifact_positive_certification": [
+     "non_json_backend_file_as_source_artifact",
+     "unattested_backend_file_as_source_artifact"
     ],
     "guard_flags_exactly_false": [
      "measured_hvp_comparison_endpoint",
@@ -1415,6 +1473,14 @@
     },
     {
      "variant_id": "string_decimal_bounds",
+     "gate_accepted": true,
+     "gate_reasons": [],
+     "downstream_source_measure_reasons": [],
+     "downstream_forbidden_keys": [],
+     "implication_holds": true
+    },
+    {
+     "variant_id": "with_source_artifact",
      "gate_accepted": true,
      "gate_reasons": [],
      "downstream_source_measure_reasons": [],
@@ -1557,6 +1623,17 @@
       "premise_certificate_is_specimen_or_unresolvable:reflection_positivity_transfer",
       "premise_certificate_is_specimen_or_unresolvable:ward_identity"
      ]
+    },
+    {
+     "probe_id": "gate_approved_but_specimen_source_artifact_provenance",
+     "reported_unavailable": true,
+     "reasons": [
+      "premise_certificate_is_specimen_or_unresolvable:conserved_current_or_matching",
+      "premise_certificate_is_specimen_or_unresolvable:gauge_quotient_ensemble",
+      "premise_certificate_is_specimen_or_unresolvable:reflection_positivity_transfer",
+      "premise_certificate_is_specimen_or_unresolvable:ward_identity",
+      "source_artifact_reference_is_gate_specimen:code/particles/runs/hadron/gate_specimens/specimen_source_artifact.json"
+     ]
     }
    ],
    "passed": true
@@ -1612,7 +1689,8 @@
     "additional_positive_requirements": [
      "public_unsuppression_ready is exactly true",
      "a production payload exists at code/particles/runs/hadron/ward_projected_spectral_measure.production.json and passes the strict production gate",
-     "every premise-certificate reference of the payload resolves to a non-specimen certificate (specimen_for_gate_testing exactly false); gate-testing specimens never make the physical lane available"
+     "every premise-certificate reference of the payload resolves to a non-specimen certificate (specimen_for_gate_testing exactly false); gate-testing specimens never make the physical lane available",
+     "no oph_source_artifact provenance reference is a gate specimen (under the gate-specimens root or declaring specimen_for_gate_testing true)"
     ],
     "live_status_snapshot": {
      "export_bundle_status": "open",
@@ -1667,7 +1745,7 @@
   },
   "gate_validates_consistency_relations": {
    "packet_level_passed": true,
-   "machine_checks": "executed controls for s = E^2, identifier integrity, residue/weight consistency, covariance integrity and per-level row coverage (joint covariance completeness), complete uncertainty intervals, pinned format version, allowlisted channels and normalization conventions, typed hash-pinned premise-certificate references, required reflection-positivity certificate, provenance/ensemble cross-references, and source-only artifact resolution"
+   "machine_checks": "executed controls for s = E^2, identifier integrity, residue/weight consistency, covariance integrity and per-level row coverage (joint covariance completeness), complete uncertainty intervals, pinned format version, allowlisted channels and normalization conventions, typed hash-pinned premise-certificate references, required reflection-positivity certificate, provenance/ensemble cross-references, and positive source-only certification of referenced artifacts (source-lane location allowlist plus explicit typed self-declaration; mere absence of negative markers never accepts)"
   },
   "gate_approved_payloads_accepted_by_downstream_validator": {
    "packet_level_passed": true,
@@ -1761,7 +1839,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-22T13:03:15Z",
+  "generated_utc": "2026-07-22T13:47:59Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }

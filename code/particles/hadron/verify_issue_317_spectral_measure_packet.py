@@ -683,6 +683,13 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
             )
             for key in sorted(k for k, is_specimen in specimen_flags.items() if is_specimen):
                 reasons.append(f"premise_certificate_is_specimen_or_unresolvable:{key}")
+            source_flags = strict_validator.source_artifact_specimen_flags(
+                payload, base_dir=certificate_base_dir
+            )
+            for identifier in sorted(
+                i for i, is_specimen in source_flags.items() if is_specimen
+            ):
+                reasons.append(f"source_artifact_reference_is_gate_specimen:{identifier}")
     return {
         "available": not reasons,
         "reasons": reasons,
@@ -695,6 +702,9 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
             "every premise-certificate reference of the payload resolves to a "
             "non-specimen certificate (specimen_for_gate_testing exactly false); "
             "gate-testing specimens never make the physical lane available",
+            "no oph_source_artifact provenance reference is a gate specimen "
+            "(under the gate-specimens root or declaring "
+            "specimen_for_gate_testing true)",
         ],
         "live_status_snapshot": {
             key: state.get(key)
@@ -799,6 +809,27 @@ def fail_closed_probe_battery() -> dict[str, Any]:
             "probe_id": "gate_approved_but_specimen_backed_payload",
             "reported_unavailable": not verdict["available"],
             "reasons": verdict["reasons"][:4],
+        }
+    )
+    all_failed_closed = all_failed_closed and not verdict["available"]
+
+    # Same probe class for provenance: a gate-approved payload whose
+    # oph_source_artifact reference is the committed specimen source
+    # artifact must also leave the physical lane closed.
+    variants = dict(build_gate_approved_variants())
+    with tempfile.TemporaryDirectory() as tmp:
+        source_specimen_payload_path = Path(tmp) / "specimen_source_artifact_payload.json"
+        source_specimen_payload_path.write_text(
+            json.dumps(variants["with_source_artifact"]), encoding="utf-8"
+        )
+        verdict = physical_source_payload_verdict(
+            {**all_success, "production_payload_path": source_specimen_payload_path}
+        )
+    rows.append(
+        {
+            "probe_id": "gate_approved_but_specimen_source_artifact_provenance",
+            "reported_unavailable": not verdict["available"],
+            "reasons": verdict["reasons"][:6],
         }
     )
     all_failed_closed = all_failed_closed and not verdict["available"]
@@ -1710,6 +1741,53 @@ def build_negative_controls() -> list[dict[str, Any]]:
         ),
     )
     add(
+        "comparison_artifact_disguised_as_source_artifact",
+        ["referenced_artifacts_source_only"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": "code/particles/runs/calibration/d11_criticality_comparison.json",
+            }
+        ),
+    )
+    add(
+        "observational_data_disguised_as_source_artifact",
+        ["referenced_artifacts_source_only"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": "code/dark_matter/data/observational_comparisons.json",
+            }
+        ),
+    )
+    add(
+        "documentation_file_as_source_artifact",
+        ["referenced_artifacts_source_only"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {"kind": "oph_source_artifact", "identifier": "README.md"}
+        ),
+    )
+    add(
+        "non_json_backend_file_as_source_artifact",
+        ["source_artifact_positive_certification"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": "code/particles/runs/qcd/hadron_source_backend/claim.md",
+            }
+        ),
+    )
+    add(
+        "unattested_backend_file_as_source_artifact",
+        ["source_artifact_positive_certification"],
+        lambda p: p["provenance"]["source_inputs"].append(
+            {
+                "kind": "oph_source_artifact",
+                "identifier": "code/particles/runs/qcd/hadron_source_backend/manifest.json",
+            }
+        ),
+    )
+    add(
         "ensemble_not_declared_in_provenance",
         ["provenance_ensemble_cross_reference"],
         lambda p: p["finite_volume_levels"][0].__setitem__("ensemble_id", "undeclared_ens"),
@@ -1878,11 +1956,26 @@ def build_gate_approved_variants() -> list[tuple[str, dict[str, Any]]]:
     for budget in string_bounds["systematics"].values():
         budget["bound_interval"] = {"lo": "0", "hi": "1e-30"}
 
+    # Positive control for the source-artifact certification: a reference
+    # that satisfies the positive requirements (source-lane location, typed
+    # artifact identifier, explicitly empty external_targets_used) is
+    # accepted by the gate; the availability verdict still rejects it as a
+    # gate specimen.
+    with_source_artifact = copy.deepcopy(base)
+    with_source_artifact["profile_id"] = "issue_317_gate_source_artifact_reference_variant"
+    with_source_artifact["provenance"]["source_inputs"].append(
+        {
+            "kind": "oph_source_artifact",
+            "identifier": strict_validator.SPECIMEN_SOURCE_ARTIFACT_PATH,
+        }
+    )
+
     return [
         ("conformant_baseline", base),
         ("multi_level", multi),
         ("two_ensembles", two_ensembles),
         ("string_decimal_bounds", string_bounds),
+        ("with_source_artifact", with_source_artifact),
     ]
 
 
@@ -2264,6 +2357,7 @@ def build_packet() -> dict[str, Any]:
                         "reflection_positivity_certificate_required",
                         "provenance_ensemble_cross_reference",
                         "referenced_artifacts_source_only",
+                        "source_artifact_positive_certification",
                     )
                 )
                 and gate["conformant_payload_accepted"]
@@ -2275,7 +2369,10 @@ def build_packet() -> dict[str, Any]:
                 "format version, allowlisted channels and normalization conventions, "
                 "typed hash-pinned premise-certificate references, required "
                 "reflection-positivity certificate, provenance/ensemble "
-                "cross-references, and source-only artifact resolution"
+                "cross-references, and positive source-only certification of "
+                "referenced artifacts (source-lane location allowlist plus explicit "
+                "typed self-declaration; mere absence of negative markers never "
+                "accepts)"
             ),
         },
         "gate_approved_payloads_accepted_by_downstream_validator": {

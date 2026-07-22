@@ -458,29 +458,102 @@ def test_unknown_format_version_rejected(schema):
     assert any("format_version_not_allowlisted" in r for r in reasons)
 
 
+def _with_source_artifact(identifier: str) -> dict:
+    payload = packet_mod.build_conformant_payload()
+    payload["provenance"]["source_inputs"].append(
+        {"kind": "oph_source_artifact", "identifier": identifier}
+    )
+    return payload
+
+
 def test_disguised_target_provenance_rejected(schema):
     """Audit probe: target provenance disguised as an OPH artifact."""
-    payload = packet_mod.build_conformant_payload()
-    payload["provenance"]["source_inputs"].append(
-        {"kind": "oph_source_artifact", "identifier": "compilations/ee_to_hadrons_r_ratio.json"}
-    )
+    payload = _with_source_artifact("compilations/ee_to_hadrons_r_ratio.json")
     reasons = _reject(payload, schema)
-    assert any("source_artifact_reference_absent" in r for r in reasons)
+    assert any("source_artifact_location_not_allowlisted" in r for r in reasons)
     assert any(r.startswith("TARGET_LEAK_DETECTED") for r in reasons)
 
-    # an existing repo file that is genuinely empirical/compare-only is
-    # rejected by content, not just by name
-    payload = packet_mod.build_conformant_payload()
-    payload["provenance"]["source_inputs"].append(
-        {
-            "kind": "oph_source_artifact",
-            "identifier": (
-                "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
-            ),
-        }
+    # the compare-only empirical companion exists but lies outside the
+    # source lane: rejected by location
+    payload = _with_source_artifact(
+        "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json"
     )
     reasons = _reject(payload, schema)
-    assert any("referenced_artifact_not_source_only" in r for r in reasons)
+    assert any("source_artifact_location_not_allowlisted" in r for r in reasons)
+
+
+@pytest.mark.parametrize(
+    "identifier",
+    [
+        # second-audit examples: comparison/observational/documentation
+        # artifacts mislabeled as oph_source_artifact
+        "code/particles/runs/calibration/d11_criticality_comparison.json",
+        "code/dark_matter/data/observational_comparisons.json",
+        "README.md",
+    ],
+)
+def test_mislabeled_source_artifacts_rejected_by_location(schema, identifier):
+    reasons = _reject(_with_source_artifact(identifier), schema)
+    assert any("source_artifact_location_not_allowlisted" in r for r in reasons), reasons
+
+
+def test_source_artifact_positive_certification_required(schema):
+    """Absence of negative markers never accepts: positive certification only."""
+    # non-JSON file inside the source lane: rejected
+    reasons = _reject(
+        _with_source_artifact("code/particles/runs/qcd/hadron_source_backend/claim.md"),
+        schema,
+    )
+    assert any("source_artifact_reference_not_json" in r for r in reasons)
+
+    # JSON file inside the source lane without the explicit
+    # external_targets_used: [] self-declaration: rejected
+    reasons = _reject(
+        _with_source_artifact("code/particles/runs/qcd/hadron_source_backend/manifest.json"),
+        schema,
+    )
+    assert any(
+        "source_artifact_external_targets_not_declared_empty" in r for r in reasons
+    )
+
+
+def test_source_artifact_negative_markers_reject_despite_certification(schema, tmp_path):
+    """Even a positively certified file is rejected if it carries negative markers."""
+    rel = "code/particles/runs/qcd/hadron_source_backend/fake_empirical.json"
+    target = tmp_path / rel
+    target.parent.mkdir(parents=True)
+    target.write_text(
+        json.dumps(
+            {
+                "artifact": "oph_disguised_comparison",
+                "external_targets_used": [],
+                "row_class": "oph_plus_empirical_hadron_closure",
+            }
+        ),
+        encoding="utf-8",
+    )
+    payload = _with_source_artifact(rel)
+    # premise certificates must also resolve under the tmp base_dir
+    payload["premise_certificates"] = _non_specimen_certificates(tmp_path)
+    result = strict_validator.validate_production_payload(payload, schema, base_dir=tmp_path)
+    assert result.accepted is False
+    assert any("referenced_artifact_not_source_only" in r for r in result.reasons)
+
+
+def test_positively_certified_source_artifacts_accepted(schema):
+    """Positive controls: the check must not reject the genuine source lane."""
+    # the committed specimen source artifact
+    payload = _with_source_artifact(strict_validator.SPECIMEN_SOURCE_ARTIFACT_PATH)
+    result = strict_validator.validate_production_payload(payload, schema)
+    assert result.accepted is True, result.reasons
+
+    # a genuine source-backend artifact that positively certifies itself
+    # (typed artifact identifier plus explicit external_targets_used: [])
+    payload = _with_source_artifact(
+        "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/base_measure.json"
+    )
+    result = strict_validator.validate_production_payload(payload, schema)
+    assert result.accepted is True, result.reasons
 
 
 def test_premise_certificate_reference_defects_rejected(schema):
@@ -570,7 +643,13 @@ def test_gate_approved_payloads_accepted_by_downstream_validator(packet):
     downstream = packet["machine_witnesses"]["downstream_compatibility"]
     assert downstream["passed"] is True
     variant_ids = {row["variant_id"] for row in downstream["variants"]}
-    assert {"conformant_baseline", "multi_level", "two_ensembles", "string_decimal_bounds"} <= variant_ids
+    assert {
+        "conformant_baseline",
+        "multi_level",
+        "two_ensembles",
+        "string_decimal_bounds",
+        "with_source_artifact",
+    } <= variant_ids
     for row in downstream["variants"]:
         assert row["gate_accepted"] is True, row["variant_id"]
         assert row["downstream_source_measure_reasons"] == [], row["variant_id"]
@@ -731,6 +810,40 @@ def test_availability_rejects_specimen_backed_payload(tmp_path):
     ]
 
 
+def test_availability_rejects_specimen_source_artifact_provenance(tmp_path):
+    """A gate-approved payload whose provenance references the specimen
+    source artifact must NOT make the physical lane available."""
+    variants = dict(packet_mod.build_gate_approved_variants())
+    payload = variants["with_source_artifact"]
+    # make the premise certificates non-specimen and mirror the specimen
+    # source artifact into the tmp tree, so the strict gate accepts and the
+    # ONLY blocker left is the source-artifact specimen flag
+    payload["premise_certificates"] = _non_specimen_certificates(tmp_path)
+    spec_rel = strict_validator.SPECIMEN_SOURCE_ARTIFACT_PATH
+    spec_dst = tmp_path / spec_rel
+    spec_dst.parent.mkdir(parents=True, exist_ok=True)
+    spec_dst.write_text(
+        (strict_validator.REPO_ROOT / spec_rel).read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    payload_path = tmp_path / "with_source_specimen.production.json"
+    payload_path.write_text(json.dumps(payload), encoding="utf-8")
+    state = {
+        "export_bundle_status": "complete",
+        "closure_grade": "execution_complete",
+        "public_unsuppression_ready": True,
+        "base_measure_status": "POPULATED",
+        "ward_current_status": "SOURCE_CERTIFICATE_VERIFIED",
+        "production_payload_path": payload_path,
+        "certificate_base_dir": tmp_path,
+    }
+    verdict = packet_mod.physical_source_payload_verdict(state)
+    assert verdict["available"] is False
+    assert verdict["reasons"] == [
+        f"source_artifact_reference_is_gate_specimen:{spec_rel}"
+    ]
+
+
 def test_fail_closed_probe_battery_in_packet(packet):
     probes = packet["machine_witnesses"]["fail_closed_probes"]
     assert probes["passed"] is True
@@ -746,6 +859,7 @@ def test_fail_closed_probe_battery_in_packet(packet):
         "all_keys_missing",
         "all_statuses_success_but_payload_absent",
         "gate_approved_but_specimen_backed_payload",
+        "gate_approved_but_specimen_source_artifact_provenance",
     } <= probe_ids
     for row in probes["probes"]:
         assert row["reported_unavailable"] is True, row["probe_id"]
@@ -915,3 +1029,15 @@ def test_committed_specimens_are_marked_and_hash_stable():
         assert content["external_targets_used"] == []
         reference = strict_validator.specimen_certificate_reference(key)
         assert reference["sha256"] == strict_validator.lf_sha256(path)
+    # the specimen source artifact is positively certified, marked, and
+    # located under the specimen root (so availability always rejects it)
+    source_path = strict_validator.REPO_ROOT / strict_validator.SPECIMEN_SOURCE_ARTIFACT_PATH
+    assert source_path.is_file()
+    source = json.loads(source_path.read_text(encoding="utf-8"))
+    assert source["specimen_for_gate_testing"] is True
+    assert source["promotion_allowed"] is False
+    assert source["external_targets_used"] == []
+    assert isinstance(source["artifact"], str) and source["artifact"]
+    assert strict_validator.SPECIMEN_SOURCE_ARTIFACT_PATH.startswith(
+        strict_validator.SPECIMEN_GATE_ROOT
+    )

@@ -74,9 +74,18 @@ Positively enforced requirements (ids in SEMANTIC_REQUIREMENTS):
   level blocks must equal the set of source_ensemble identifiers declared in
   provenance.source_inputs (no undeclared or unused ensembles).
 - referenced_artifacts_source_only: every oph_source_artifact provenance
-  identifier must be a safe repo-relative path to an existing file; JSON
-  files that declare guards.source_only false or an empirical row class are
-  rejected, so target compilations cannot be disguised as OPH artifacts.
+  identifier must be a safe repo-relative path inside the declared
+  source-lane roots (ALLOWED_SOURCE_ARTIFACT_ROOTS) that resolves to an
+  existing file; references outside the source lane (comparison artifacts,
+  observational data, documentation) are rejected by location, and JSON
+  files that declare guards.source_only false, an empirical row class, or
+  compare-only guards are additionally rejected by content.
+- source_artifact_positive_certification: a source-artifact reference is
+  accepted only when the referenced file POSITIVELY certifies itself as a
+  typed source-only artifact: it must be JSON, parse to an object, declare
+  a nonempty typed "artifact" identifier, and explicitly declare
+  "external_targets_used": []. Mere absence of negative markers is never
+  sufficient; non-JSON files and unattested files fail closed.
 - guard_flags_exactly_false: the three guard booleans are literally False
   (strings, 0, None, or missing fail).
 - ward_projection_required: projection.ward_projected is literally True and
@@ -204,6 +213,20 @@ SPECIMEN_CERTIFICATE_PATHS = {
 
 _HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
+# Closed set of repo locations from which oph_source_artifact provenance
+# references may be drawn: the production source-backend lane and the
+# committed gate specimens. Everything else fails closed by location,
+# regardless of content.
+ALLOWED_SOURCE_ARTIFACT_ROOTS = (
+    "code/particles/runs/qcd/hadron_source_backend/",
+    "code/particles/runs/hadron/gate_specimens/",
+)
+
+SPECIMEN_GATE_ROOT = "code/particles/runs/hadron/gate_specimens/"
+SPECIMEN_SOURCE_ARTIFACT_PATH = (
+    "code/particles/runs/hadron/gate_specimens/specimen_source_artifact.json"
+)
+
 SEMANTIC_REQUIREMENTS = (
     "finite_numeric_values",
     "nonempty_level_support",
@@ -229,6 +252,7 @@ SEMANTIC_REQUIREMENTS = (
     "reflection_positivity_certificate_required",
     "provenance_ensemble_cross_reference",
     "referenced_artifacts_source_only",
+    "source_artifact_positive_certification",
     "guard_flags_exactly_false",
     "ward_projection_required",
     "closed_object_boundaries",
@@ -413,21 +437,29 @@ def _check_source_artifact_reference(
 ) -> None:
     """Resolve an oph_source_artifact provenance reference fail-closed.
 
-    The identifier must be a safe repo-relative path to an existing file, so
-    a target compilation cannot be disguised as an OPH artifact by label
-    alone. Referenced JSON files that declare guards.source_only false or an
-    empirical row class (e.g. the compare-only empirical companion) are
-    rejected as provenance.
+    Acceptance is a POSITIVE certification, never the mere absence of
+    negative markers: the identifier must be a safe repo-relative path
+    inside the declared source-lane roots, resolve to an existing JSON
+    file, parse to an object, declare a nonempty typed "artifact"
+    identifier, and explicitly declare "external_targets_used": []. On top
+    of that, negative markers (source_only false, empirical row class,
+    compare-only guard) reject regardless. Non-JSON files, files outside
+    the source lane, and unattested files all fail closed, so comparison
+    or target artifacts cannot be disguised as OPH source artifacts.
     """
     where = f"provenance.source_inputs[{index}]"
     if not _safe_relative_path(identifier):
         reasons.append(f"source_artifact_reference_invalid:{where}:{identifier!r}")
+        return
+    if not identifier.startswith(ALLOWED_SOURCE_ARTIFACT_ROOTS):
+        reasons.append(f"source_artifact_location_not_allowlisted:{where}:{identifier}")
         return
     file_path = base_dir / identifier
     if not file_path.is_file():
         reasons.append(f"source_artifact_reference_absent:{where}:{identifier}")
         return
     if file_path.suffix != ".json":
+        reasons.append(f"source_artifact_reference_not_json:{where}:{identifier}")
         return
     try:
         content = json.loads(file_path.read_text(encoding="utf-8"))
@@ -435,7 +467,15 @@ def _check_source_artifact_reference(
         reasons.append(f"source_artifact_reference_unreadable:{where}:{identifier}")
         return
     if not isinstance(content, dict):
+        reasons.append(f"source_artifact_not_positively_certified:{where}:{identifier}")
         return
+    artifact = content.get("artifact")
+    if not isinstance(artifact, str) or not artifact:
+        reasons.append(f"source_artifact_reference_untyped:{where}:{identifier}")
+    if content.get("external_targets_used") != []:
+        reasons.append(
+            f"source_artifact_external_targets_not_declared_empty:{where}:{identifier}"
+        )
     guards = content.get("guards") if isinstance(content.get("guards"), dict) else {}
     row_class = content.get("row_class")
     if guards.get("source_only") is False or row_class == "oph_plus_empirical_hadron_closure":
@@ -512,6 +552,43 @@ def _check_premise_certificates(
             reasons.append(f"premise_certificate_content_artifact_mismatch:{key}")
         if isinstance(content, dict) and content.get("external_targets_used") != []:
             reasons.append(f"premise_certificate_external_targets_not_empty:{key}")
+
+
+def source_artifact_specimen_flags(
+    payload: dict[str, Any], base_dir: Path | None = None
+) -> dict[str, bool]:
+    """Which oph_source_artifact provenance references are gate specimens.
+
+    Fails closed: references under the gate-specimens root, unreadable
+    references, and references whose content declares
+    specimen_for_gate_testing true all count as specimen (True).
+    """
+    base = base_dir if base_dir is not None else REPO_ROOT
+    provenance = payload.get("provenance") if isinstance(payload, dict) else None
+    inputs = provenance.get("source_inputs") if isinstance(provenance, dict) else None
+    flags: dict[str, bool] = {}
+    if not isinstance(inputs, list):
+        return flags
+    for item in inputs:
+        if not (isinstance(item, dict) and item.get("kind") == "oph_source_artifact"):
+            continue
+        identifier = item.get("identifier")
+        if not _safe_relative_path(identifier):
+            flags[str(identifier)] = True
+            continue
+        if identifier.startswith(SPECIMEN_GATE_ROOT):
+            flags[identifier] = True
+            continue
+        try:
+            content = json.loads((base / identifier).read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            flags[identifier] = True
+            continue
+        flags[identifier] = (
+            not isinstance(content, dict)
+            or content.get("specimen_for_gate_testing") is True
+        )
+    return flags
 
 
 def premise_certificate_specimen_flags(
