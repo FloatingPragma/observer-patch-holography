@@ -1,89 +1,299 @@
 {
  "issue": 317,
- "certificate_id": "issue-317-hadronic-spectral-measure-proof-packet-v1",
+ "certificate_id": "issue-317-hadronic-spectral-measure-proof-packet-v2",
  "artifact": "oph_ward_projected_spectral_measure_proof_packet",
- "status": "proof_packet_construction_certified_issue_closure_condition_open",
+ "status": "conditional_theorem_and_contract_certified_physical_source_payload_unavailable",
  "accepted": true,
- "acceptance_scope": "'accepted' certifies the packet construction/contract layer only: the theorem parts, executed witnesses, typing checks, and the fail-closed emission gate. It does not assert the author-stated issue-closure condition, which is computed separately in issue_closure_condition and is currently not met locally.",
+ "acceptance_scope": "'accepted' certifies the re-scoped theorem-and-contract layer only: the conditional construction theorem with typed premises and conclusions, the strict fail-closed production contract, downstream-consumer compatibility, typing confinement, and the fail-closed separation of the physical verdicts. It asserts no physical source payload, no production positivity, and no promotable hadronic number; those are the physical_source_payload_available and physical_promotion_allowed verdicts, both currently false with typed reasons.",
  "theorem": {
-  "theorem_id": "WardProjectedHadronicSpectralMeasureConstruction_Q",
-  "statement": "On the OPH QCD/matter sector with a declared quotient ensemble, reflection-positive Euclidean vacuum, and transfer operator, the point-split U(1)_Q vector current is gauge invariant and exactly conserved, its Ward projection selects the transverse channel Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2), and the zero-momentum transverse correlator carries the positive finite-volume spectral measure rho_Q(s) = sum_n Z_n delta(s - E_n^2) with Z_n >= 0, support starting at the lowest vector-channel state, normalization fixed by the Z_V ledger, scheme dependence confined to the declared once-subtracted transport kernel, and jackknife-through-pipeline covariance and budget-ledger uncertainty propagation.",
-  "parts": {
-   "a_gauge_invariance_and_source_derivation": "each hop term psibar(x+mu)(1 +- gamma_mu) U_mu(x)^(dag) psi(x) of the point-split current is a color trace of gauge-covariant bilinears with the compensating link insertion, hence invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag, psi(x) -> g(x) psi(x); correlators are functionals of the source ensemble only (executed witness 1)",
-   "b_ward_identity": "the exact Noether current of the U(1) phase rotation of the hopping-normalized Wilson-clover action satisfies the backward-difference Ward identity off contact points; the clover term is phase-invariant, so c_SW does not modify the identity (executed witness 2; lattice_backend/conserved_vector.py)",
-   "c_positivity_and_thresholds": "by reflection positivity and the transfer-operator spectral decomposition, G(t) = sum_n w_n (e^{-E_n t} + e^{-E_n (T-t)}) with w_n proportional to |<0|J_Q|n>|^2 through a positive normalization, hence w_n >= 0; rho_Q is a positive locally finite measure supported on the vector-channel spectrum above the vacuum, with threshold at the lowest such state (two-pion channel in infinite volume)",
-   "d_normalization": "the exactly conserved point-split current needs no renormalization (Z_V = 1); the local current is renormalized by the conserved-local estimator Z_V^eff = C_CL/(2 kappa C_LL), anchored at exactly 1 on the free field (executed witness 3)",
-   "e_scheme_dependence": "the spectral measure is scheme-independent spectral data of the conserved current; scheme enters only through the declared once-subtracted transport kernel mZ^2/(3 pi s (s + mZ^2)) and the same-subtraction lock to a0(P) (SOURCE_SPECTRAL_THEOREM.md; the kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact, lattice_backend/vector_correlator.py)",
-   "f_resonances_and_continuum": "unstable resonances and the continuum enter through the declared Luscher-class finite-volume pushforward from levels and residues to rho_Q(s;P); the scattering scaffolding is typed under particles/hadron/rho_scattering/ and its production execution belongs to the production backend export lane (dependency_note)",
-   "g_covariance_and_uncertainty": "spectral moments are linear functionals of the measure, so errors propagate through the kernel by leave-one-out jackknife over configurations; production payloads must carry the seven-row budget ledger (statistical, continuum, finite-volume, chiral, current-matching, quadrature, endpoint-remainder) enforced by the acceptance gate"
-  }
+  "theorem_id": "SpectralMeasureQ_ConditionalConstruction",
+  "form": "SpectralMeasure_Q : ValidQCDSourcePacket -> WardProjectedSpectralMeasure",
+  "statement": "Given a source packet satisfying the declared gauge, current, reflection-positivity, transfer, normalization, threshold, and covariance premises (P1-P10), the corresponding Ward-projected positive spectral measure exists and has the stated structural properties (C1-C8). This issue specifies the premises and validates their representation; it does not produce their physical QCD values.",
+  "premises": [
+   {
+    "id": "P1",
+    "name": "gauge_invariant_quotient_ensemble_and_action",
+    "statement": "a declared gauge-invariant quotient ensemble with a positive Gibbs source law at zero density and theta = 0 (a normal form is not a probability law; source-law non-substitution theorem)",
+    "contract_fields": [
+     "provenance.source_inputs",
+     "branch.flavors",
+     "backend"
+    ],
+    "physical_population_status": "REQUIRED_NOT_POPULATED (qcd_ensemble/base_measure.json)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P2",
+    "name": "conserved_current_or_certified_renormalization_map",
+    "statement": "a conserved electromagnetic hadronic current, or a local current with a certified renormalization map to the conserved one",
+    "contract_fields": [
+     "ward_projected_residues[].current_normalization"
+    ],
+    "physical_population_status": "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P3",
+    "name": "ward_identity_certificate",
+    "statement": "a Ward-identity certificate for the declared current",
+    "contract_fields": [
+     "projection.ward_projected"
+    ],
+    "physical_population_status": "MISSING_SOURCE_CERTIFICATE (currents/ward_current_definition.json)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P4",
+    "name": "reflection_positive_state_and_transfer_certificate",
+    "statement": "a reflection-positive Euclidean state and transfer-operator certificate; reflection positivity is a theorem for the unimproved Wilson action (Osterwalder-Seiler) and is not available at finite spacing for the clover-improved engine, so this premise is never supplied by the diagnostic demonstrator",
+    "contract_fields": [
+     "rho_had_or_measure.positivity_status"
+    ],
+    "physical_population_status": "not populated (vacuum/ transfer certificates absent)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P5",
+    "name": "finite_volume_correlators_with_joint_covariance",
+    "statement": "finite-volume current correlators and their joint covariance from one common resampling pipeline",
+    "contract_fields": [
+     "covariance.row_basis",
+     "covariance.matrix"
+    ],
+    "physical_population_status": "not populated (production correlator arrays absent)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P6",
+    "name": "current_normalization_conventions",
+    "statement": "current-normalization conventions: Z_V = 1 for the exactly conserved current, the declared matching certificate for a local one",
+    "contract_fields": [
+     "ward_projected_residues[].current_normalization"
+    ],
+    "physical_population_status": "convention declared; production matching not populated",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P7",
+    "name": "finite_volume_level_and_residue_records",
+    "statement": "finite-volume level and residue records with identifier integrity",
+    "contract_fields": [
+     "finite_volume_levels",
+     "ward_projected_residues"
+    ],
+    "physical_population_status": "not populated (production levels absent)",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P8",
+    "name": "threshold_and_channel_typing",
+    "statement": "threshold and channel typing for the declared vector channel",
+    "contract_fields": [
+     "finite_volume_levels[].channel"
+    ],
+    "physical_population_status": "typed; production spectrum not populated",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P9",
+    "name": "declared_subtraction_and_transport_convention",
+    "statement": "the declared once-subtracted transport kernel mZ(P)^2/(3 pi s (s + mZ(P)^2)) with the same-subtraction lock to a0(P)",
+    "contract_fields": [
+     "transport_moment_certificate.kernel"
+    ],
+    "physical_population_status": "convention declared; production certificate not populated",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   },
+   {
+    "id": "P10",
+    "name": "no_measured_hvp_or_target_provenance",
+    "statement": "provenance proving that no measured HVP or hadronic target entered the source construction",
+    "contract_fields": [
+     "provenance",
+     "external_targets_used"
+    ],
+    "physical_population_status": "enforced by the strict validator on any payload",
+    "premise_type": "declared_premise_validated_in_representation_only",
+    "physical_value_produced_here": false
+   }
+  ],
+  "conclusions": [
+   {
+    "id": "C1",
+    "name": "current_correlator_gauge_invariant",
+    "statement": "each hop term psibar(x+mu)(1 +- gamma_mu) U_mu(x)^dag psi(x) of the point-split current is a color trace of gauge-covariant bilinears with the compensating link insertion, hence the current correlator is exactly gauge invariant",
+    "uses": [
+     "P1",
+     "P2"
+    ],
+    "implementation_witness": "machine_witnesses.gauge_and_ward.conserved_current_gauge_invariance"
+   },
+   {
+    "id": "C2",
+    "name": "ward_projection_transverse",
+    "statement": "the current is the exact Noether current of the U(1) phase rotation of the Wilson-clover action (the clover term is phase-invariant), so q_mu Pi_Q^{mu nu} = 0 and the two-current correlator has the transverse form Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2)",
+    "uses": [
+     "P2",
+     "P3"
+    ],
+    "implementation_witness": "machine_witnesses.gauge_and_ward.ward_identity"
+   },
+   {
+    "id": "C3",
+    "name": "positive_locally_finite_spectral_measure",
+    "statement": "given the reflection-positive transfer certificate, the spectral decomposition gives G(t) = sum_n w_n (e^{-E_n t} + e^{-E_n (T-t)}) with w_n proportional to |<0|J_Q|n>|^2 >= 0, so rho_Q(s) = sum_n Z_n delta(s - E_n^2) is a positive locally finite measure; without P4 this conclusion is not asserted, and no finite-sample sign check substitutes for it",
+    "uses": [
+     "P4",
+     "P5",
+     "P7"
+    ],
+    "implementation_witness": null
+   },
+   {
+    "id": "C4",
+    "name": "threshold_support",
+    "statement": "the support of rho_Q begins at the lowest state in the declared vector channel above the vacuum (two-pion channel in infinite volume)",
+    "uses": [
+     "P4",
+     "P7",
+     "P8"
+    ],
+    "implementation_witness": null
+   },
+   {
+    "id": "C5",
+    "name": "normalization",
+    "statement": "the exactly conserved current has Z_V = 1; a local current is renormalized through the declared matching certificate Z_V^eff = C_CL/(2 kappa C_LL), anchored at exactly 1 on the free field",
+    "uses": [
+     "P2",
+     "P6"
+    ],
+    "implementation_witness": "machine_witnesses.zv_free_field_anchor"
+   },
+   {
+    "id": "C6",
+    "name": "scheme_confinement",
+    "statement": "the spectral measure is scheme-independent spectral data; the endpoint subtraction convention does not change the measure, and scheme dependence is confined to the declared transport kernel and matching remainder (the kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact; lattice_backend/vector_correlator.py)",
+    "uses": [
+     "P9"
+    ],
+    "implementation_witness": null
+   },
+   {
+    "id": "C7",
+    "name": "covariance_propagation",
+    "statement": "linear spectral moments and nonlinear downstream quantities carry covariance propagated from one common resampling pipeline; the contract requires the covariance block and the seven-row budget ledger with finite ordered bound intervals",
+    "uses": [
+     "P5"
+    ],
+    "implementation_witness": "machine_witnesses.demonstrator_measure.joint_extraction_covariance"
+   },
+   {
+    "id": "C8",
+    "name": "higher_point_and_radiative_separately_typed",
+    "statement": "higher-point (four-current, HLbL-class) and radiative (QED/EW) objects remain separately typed artifacts and cannot be substituted by the two-current measure",
+    "uses": [
+     "P8",
+     "P10"
+    ],
+    "implementation_witness": "machine_witnesses.higher_point_typing"
+   }
+  ],
+  "conditionality": "every conclusion holds only under the premises it lists; the theorem remains explicitly conditional whenever reflection positivity (P4), continuum existence, the scattering pushforward, or any other physical premise is absent. Diagnostic or quenched data exercise the code paths but cannot satisfy the physical premises or promote a hadronic number."
+ },
+ "theorem_structure_check": {
+  "checks": {
+   "ten_premises_typed": true,
+   "eight_conclusions_typed": true,
+   "conclusion_uses_reference_declared_premises": true,
+   "positivity_conclusion_requires_reflection_positivity_premise": true,
+   "threshold_conclusion_requires_reflection_positivity_premise": true,
+   "explicit_conditionality_statement": true
+  },
+  "passed": true
  },
  "derivation_chain": [
   {
    "step": 1,
-   "premise": "OPH QCD/matter sector and quotient ensemble",
+   "premise": "P1: declared gauge-invariant quotient ensemble and action",
    "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
    "receipts": "particles/runs/qcd/hadron_source_backend/qcd_ensemble/",
-   "conclusion": "the source law mu_r^QCD is a declared positive Gibbs measure on the gauge quotient at zero density and theta = 0, with refinement maps and no-target-leak controls; a normal form is not a probability law (source-law non-substitution theorem)"
+   "conclusion": "the source law mu_r^QCD is a declared positive Gibbs measure on the gauge quotient at zero density and theta = 0, with refinement maps and no-target-leak controls; a normal form is not a probability law (source-law non-substitution theorem); its physical population is production-lane content (REQUIRED_NOT_POPULATED)"
   },
   {
    "step": 2,
-   "premise": "Euclidean vacuum, reflection positivity, transfer operator",
+   "premise": "P4: reflection positivity and transfer operator (declared, not supplied here)",
    "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
    "receipts": "particles/runs/qcd/hadron_source_backend/vacuum/",
-   "conclusion": "the Euclidean slab with reflection positivity defines a transfer operator whose spectral decomposition supplies the Hilbert-space representation used for positivity; reflection positivity is a theorem for the unimproved Wilson action (Osterwalder-Seiler), while the clover-improved engine restores it only in the continuum limit, so at finite spacing the demonstrator checks positivity as an executed witness rather than assuming it"
+   "conclusion": "given a reflection-positive Euclidean slab, the transfer operator's spectral decomposition supplies the Hilbert-space representation used for positivity; reflection positivity is a theorem for the unimproved Wilson action (Osterwalder-Seiler) and is not available at finite spacing for the clover-improved engine, so conclusion C3 stays conditional on this premise and no finite-sample sign check substitutes for it"
   },
   {
    "step": 3,
-   "premise": "renormalized electromagnetic current",
+   "premise": "P2, P3: conserved current and Ward certificate",
    "source_artifact": "code/particles/hadron/lattice_backend/conserved_vector.py",
-   "conclusion": "the point-split conserved U(1)_Q current V_mu(x) = kappa [psibar(x+mu) (1+gamma_mu) U_mu(x)^dag psi(x) - psibar(x)(1-gamma_mu) U_mu(x) psi(x+mu)] is gauge invariant and exactly conserved; the local current carries Z_V^eff = C_CL/(2 kappa C_LL) with the free-field anchor exactly 1"
+   "conclusion": "the point-split conserved U(1)_Q current V_mu(x) = kappa [psibar(x+mu) (1+gamma_mu) U_mu(x)^dag psi(x) - psibar(x)(1-gamma_mu) U_mu(x) psi(x+mu)] is gauge invariant and exactly conserved (C1, C2; executed witnesses on the actual conserved-current observable); the local current carries Z_V^eff = C_CL/(2 kappa C_LL) with the free-field anchor exactly 1 (C5)"
   },
   {
    "step": 4,
    "premise": "Ward projection",
    "source_artifact": "code/P_derivation/SOURCE_SPECTRAL_THEOREM.md",
-   "conclusion": "current conservation gives q_mu Pi_Q^{mu nu} = 0, so the two-current correlator has the transverse scalar form Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2)"
+   "conclusion": "current conservation gives q_mu Pi_Q^{mu nu} = 0, so the two-current correlator has the transverse scalar form Pi_Q^{mu nu} = (q^mu q^nu - q^2 eta^{mu nu}) Pi_Q(q^2) (C2)"
   },
   {
    "step": 5,
-   "premise": "positive spectral measure with thresholds",
+   "premise": "P4, P5, P7: positive spectral measure with thresholds (conditional)",
    "source_artifact": "physics-problems/hadronic_precision_endpoint.md",
-   "conclusion": "the smeared-current quadratic spectral measure of the invariant-mass operator is positive and locally finite; in finite volume it is the atomic measure rho_Q(s) = sum_n Z_n delta(s - E_n^2), Z_n >= 0, with support above the vacuum starting at the lowest vector-channel level"
+   "conclusion": "under the reflection-positivity/transfer premise the smeared-current quadratic spectral measure is positive and locally finite; in finite volume it is the atomic measure rho_Q(s) = sum_n Z_n delta(s - E_n^2), Z_n >= 0, supported above the vacuum from the lowest vector-channel level (C3, C4)"
   },
   {
    "step": 6,
-   "premise": "resonances and continuum",
+   "premise": "P8: resonances and continuum typing",
    "source_artifact": "code/particles/hadron/rho_scattering/",
    "conclusion": "two-body channels map to infinite volume through the declared Luscher-class pushforward; unstable resonances and thresholds are treated explicitly at that stage (production backend export lane)"
   },
   {
    "step": 7,
-   "premise": "scheme lock and transport kernel",
+   "premise": "P9: scheme lock and transport kernel",
    "source_artifact": "code/particles/hadron/lattice_backend/vector_correlator.py",
-   "conclusion": "the once-subtracted spacelike kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact; the measure itself is scheme-independent and the same-subtraction lock ties the transport to a0(P) in the declared convention"
+   "conclusion": "the once-subtracted spacelike kernel identity Delta_had = 4 pi Pihat(mZ^2) is exact; the measure itself is scheme-independent and the same-subtraction lock ties the transport to a0(P) in the declared convention (C6)"
   },
   {
    "step": 8,
-   "premise": "covariance and uncertainty propagation",
+   "premise": "P5: covariance and uncertainty propagation",
    "source_artifact": "code/particles/hadron/verify_issue_317_spectral_measure_packet.py",
-   "conclusion": "leave-one-out jackknife through the full constructor gives level, residue, and correlator covariance (executed witness 4, with a positive-semidefiniteness check); production payloads carry the seven-row budget ledger"
+   "conclusion": "one common leave-one-out jackknife pipeline propagates the correlator covariance and the joint covariance of the extracted observables (executed witness; both blocks emitted and labeled separately); production payloads must carry the covariance block and the seven-row budget ledger with finite ordered bound intervals (C7)"
   },
   {
    "step": 9,
-   "premise": "machine-readable emission with fail-closed guards",
-   "source_artifact": "code/particles/hadron/ward_projected_spectral_measure.schema.json",
-   "conclusion": "the export schema plus semantic gate accepts exactly the schema-conformant positive payloads and rejects measured-HVP guard flips, surrogate flags, missing budgets, quenched branches, negative residues, empty level support, and forbidden-target leaks (executed witness 5)"
+   "premise": "machine-readable emission with a strict fail-closed gate",
+   "source_artifact": "code/particles/hadron/ward_projected_spectral_measure_validator.py",
+   "conclusion": "the strict typed validator positively enforces finiteness, identifier integrity, s = E^2, residue/weight consistency, typed provenance, covariance integrity, ordered budget intervals, the transport-moment certificate, branch typing, and literal guard flags; unknown, missing, malformed, contradictory, or non-finite values fail closed (executed adversarial battery with complete requirement coverage)"
   },
   {
    "step": 10,
-   "premise": "blinded comparison and higher-point typing",
+   "premise": "downstream consumer compatibility",
+   "source_artifact": "code/P_derivation/thomson_spectral_transport.py",
+   "conclusion": "every gate-approved payload embeds as source_measure into the downstream source-transport validator with zero reasons (executed implication witness), so the certified contract is the one the stated consumer accepts"
+  },
+  {
+   "step": 11,
+   "premise": "P10 and typing: blinded comparison, higher-point, radiative",
    "source_artifact": "code/particles/runs/qcd/hadron_source_backend/",
-   "conclusion": "empirical compilations are typed oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false and enter only through the comparison manifest; the two-current measure is a marginal of the hadronic precision functor, with four-current and transition objects separately typed (Q4_HLbL_receipt: TWO_POINT_MEASURE_INSUFFICIENT) and QED/EW radiative corrections confined to the Xi_Q remainder ledger"
+   "conclusion": "empirical compilations are typed oph_plus_empirical_hadron_closure with promotable_as_oph_source_theorem = false and enter only through the comparison manifest; the two-current measure is a marginal of the hadronic precision functor, with four-current and transition objects separately typed (Q4_HLbL_receipt: TWO_POINT_MEASURE_INSUFFICIENT) and QED/EW radiative corrections confined to the Xi_Q remainder ledger (C8)"
   }
  ],
  "machine_witnesses": {
   "gauge_and_ward": {
+   "non_promoting_diagnostic": true,
    "background": {
     "lattice_shape_TXYZ": [
      8,
@@ -96,25 +306,35 @@
     "n_sweeps": 6,
     "cg_tol": 1e-12,
     "rng_seed": 3170,
-    "plaquette": 0.5888100477481714
+    "plaquette": 0.5888100477481721
    },
-   "gauge_invariance": {
-    "statement": "the transverse U(1) vector correlator and the plaquette are invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag for random SU(3) g",
-    "correlator_relative_defect": 4.244582835094553e-14,
+   "local_current_gauge_invariance": {
+    "observable": "local-local transverse correlator sum_x <psibar gamma_k psi(x) psibar gamma_k psi(0)>, k = 1..3",
+    "statement": "the local-local transverse U(1) vector correlator and the plaquette are invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag for random SU(3) g",
+    "correlator_relative_defect": 4.286208758886105e-14,
     "plaquette_absolute_defect": 3.3306690738754696e-16,
     "tolerance": 1e-08,
     "passed": true
    },
+   "conserved_current_gauge_invariance": {
+    "observable": "conserved(sink)-local(source) transverse correlator C_CL(t): the sink operator is the actual link-inserted point-split conserved current V_mu(x) = kappa [psibar(x+mu)(1+gamma_mu) U_mu(x)^dag psi(x) - psibar(x)(1-gamma_mu) U_mu(x) psi(x+mu)], mu = 1..3",
+    "statement": "the correlator containing the link-inserted point-split conserved current is invariant under the same random SU(3) gauge rotation; this is the observable whose gauge invariance conclusion C1 asserts",
+    "correlator_relative_defect": 2.4341102119962233e-13,
+    "tolerance": 1e-08,
+    "passed": true
+   },
    "ward_identity": {
+    "observable": "backward-difference divergence of <V_mu^cons(x) J_nu^loc(0)> over all off-source sites",
     "statement": "the conserved point-split current V_mu satisfies the exact backward-difference Ward identity sum_mu [V_mu(x) - V_mu(x-mu)] = 0 off the contact point",
-    "max_offsource_divergence": 1.1702791513634736e-13,
-    "correlator_scale": 0.10425234291367294,
-    "relative_defect": 1.1225447013047309e-12,
+    "max_offsource_divergence": 1.2069425320282434e-13,
+    "correlator_scale": 0.10425234291367895,
+    "relative_defect": 1.1577126214109098e-12,
     "tolerance": 1e-09,
     "passed": true
    }
   },
   "zv_free_field_anchor": {
+   "non_promoting_diagnostic": true,
    "lattice_shape_TXYZ": [
     16,
     2,
@@ -122,12 +342,12 @@
     2
    ],
    "kappa": 0.13,
-   "statement": "on the free field the local-current renormalization estimator Z_V^eff(t) = C_CL(t)/(2 kappa C_LL(t)) equals 1, anchoring sign and normalization",
-   "plateau_window_t": [
+   "statement": "on the free field the local-current renormalization estimator Z_V^eff(t) = C_CL(t)/(2 kappa C_LL(t)) equals 1, anchoring sign and normalization convention; not an interacting plateau determination",
+   "window_t": [
     4,
     7
    ],
-   "plateau_values": [
+   "window_values": [
     0.9999477983422049,
     0.9999936887110695,
     0.9999993095850981,
@@ -139,7 +359,8 @@
   },
   "demonstrator_measure": {
    "artifact": "oph_diagnostic_ward_projected_spectral_measure_demonstrator",
-   "role": "executed witness that the packet constructor emits a machine-readable positive spectral measure from source-only lattice data; diagnostic scale, non-promoting, not a production payload",
+   "non_promoting_diagnostic": true,
+   "role": "executed implementation witness that the constructor pipeline runs end-to-end on source-only lattice data and emits a machine-readable object; diagnostic scale, non-promoting, not a production payload, rejected by the production gate by construction",
    "ensemble": {
     "npz": "particles/runs/hadron/hybrid_ir_ensembleA_2026-07-16.npz",
     "ensemble_id": "hybrid_A_quenched_b5p7_16x4c3",
@@ -179,16 +400,19 @@
     {
      "level_id": "vector_ground_A",
      "residue": 36.18772938483569,
-     "current_normalization": "Z_V^eff = C_CL/(2 kappa C_LL) from the exactly conserved point-split current; Z_V = 0.755669 +- 0.421214"
+     "current_normalization": "Z_V^eff = C_CL/(2 kappa C_LL) from the exactly conserved point-split current; Z_V = 0.755669 +- 0.421214 (windowed average, diagnostic)"
     }
    ],
    "rho_had_or_measure": {
     "representation": "primitive_spectral_measure",
     "support_variable": "s",
     "pushforward_rule": "rho(s) = w delta(s - (a m_V)^2) from the single-state model of the folded transverse correlator; the production pushforward to rho_Q(s;P) is the declared Luscher-class finite-volume map (rho_scattering/ scaffolding, production backend export lane)",
-    "positivity_status": "verified_nonnegative: correlator positive on all significant timeslices, noise-level tail consistent with zero, atom weight positive",
-    "positivity_report": {
-     "rule": "Kallen-Lehmann positivity holds for the exact expectation value; the finite-sample witness requires G(t) > 0 on every statistically significant timeslice (|G| > 2 sigma) and |G| <= 2 sigma wherever the central value is negative",
+    "positivity_status": "diagnostic_sign_check_passed_not_a_positivity_certificate",
+    "sign_check_report": {
+     "statement": "no statistically significant sign violation was detected in the diagnostic correlator",
+     "not_a_proof_of_spectral_positivity": true,
+     "why_not_a_proof": "pointwise positivity of G(t) does not imply a positive spectral measure (counterexample: G(t) = e^{-t} - 0.1 e^{-2t} > 0 for t >= 0 with a negative coefficient); spectral positivity is conclusion C3, conditional on the reflection-positive transfer premise P4, which is not available for the finite-spacing clover engine",
+     "rule": "G(t) > 0 on every statistically significant timeslice (|G| > 2 sigma) and |G| <= 2 sigma wherever the central value is negative",
      "timeslices": [
       {
        "t": 0,
@@ -247,11 +471,11 @@
      ],
      "positive_where_significant": true,
      "negative_values_consistent_with_zero_at_2_sigma": true,
-     "noise_note": "the vector channel enters noise at t >= 6 on this volume (declared in the hybrid IR bracket note); negative central values there are statistical fluctuations around zero, not spectral-positivity violations"
+     "noise_note": "the vector channel enters noise at t >= 6 on this volume (declared in the hybrid IR bracket note); negative central values there are statistical fluctuations around zero"
     }
    },
    "covariance": {
-    "object": "jackknife covariance of the folded transverse correlator",
+    "object": "jackknife covariance of the folded transverse correlator (this block is exactly the correlator covariance and nothing more)",
     "dimension": 9,
     "matrix": [
      [
@@ -358,6 +582,45 @@
     "max_eigenvalue": 0.0035595247688286875,
     "positive_semidefinite": true
    },
+   "joint_extraction_covariance": {
+    "object": "joint leave-one-out jackknife covariance of the nonlinear extracted observables from the one common resampling pipeline",
+    "row_basis": [
+     "am_v",
+     "z_v",
+     "amplitude_hop",
+     "weight_phys"
+    ],
+    "dimension": 4,
+    "matrix": [
+     [
+      0.432555402235798,
+      0.26855161111094256,
+      4.799135240857926,
+      56.30663085470413
+     ],
+     [
+      0.26855161111094256,
+      0.1774215976522861,
+      3.480484637297749,
+      43.245112836347325
+     ],
+     [
+      4.799135240857926,
+      3.480484637297749,
+      79.74456622302229,
+      1055.4186595310127
+     ],
+     [
+      56.306630854704125,
+      43.245112836347325,
+      1055.4186595310127,
+      14361.149021061616
+     ]
+    ],
+    "min_eigenvalue": 0.0003794609061373484,
+    "max_eigenvalue": 14439.076268315937,
+    "positive_semidefinite": true
+   },
    "extraction": {
     "am_vector": 1.4313216214666273,
     "am_vector_jackknife_error": 0.6576894420893482,
@@ -366,8 +629,16 @@
     "amplitude_hop": 4.254828556104056,
     "weight_physical_units": 36.18772938483569,
     "weight_jackknife_error": 119.8380115867316,
-    "window_rule": "cosh effective mass over the positive decaying window from t = 3"
+    "window_rule": "cosh effective mass over the positive decaying window from t = 3; Z_V from the windowed average of Z_V^eff(t) over the same range (not a validated plateau)"
    },
+   "diagnostic_limitations": [
+    "no correlated fit and no goodness-of-fit statistic",
+    "no excited-state stability test and no model-selection test",
+    "no model-truncation uncertainty budget",
+    "Z_V is a windowed average, not a statistically validated plateau",
+    "single-state model at toy volume; values carry O(50%) jackknife errors",
+    "the emitted correlator covariance is the covariance of the folded correlator only; the joint covariance of the extracted observables is reported separately in joint_extraction_covariance"
+   ],
    "systematics": {
     "statistical_budget": {
      "method": "leave-one-out jackknife through the full constructor",
@@ -403,7 +674,7 @@
     "execution_class": "real_lattice_diagnostic_toy_scale",
     "promotion_allowed": false,
     "production_schema_conformant": false,
-    "production_schema_nonconformance_reason": "branch.flavors is quenched_nf0; the production schema requires the seeded 2+1 family, so this demonstrator is rejected by the same acceptance gate it demonstrates",
+    "production_schema_nonconformance_reason": "quenched branch, no typed provenance manifest, no transport-moment certificate, unquantified budget rows: the strict production gate rejects this demonstrator on multiple independent grounds, by construction",
     "surrogate_hadron_artifact": false,
     "target_anchored": false,
     "external_inputs_used": false
@@ -412,71 +683,554 @@
   },
   "acceptance_gate": {
    "schema": "particles/hadron/ward_projected_spectral_measure.schema.json",
-   "semantic_checks": [
-    "forbidden-target leak fails closed (TARGET_LEAK_DETECTED)",
-    "level weights and residues nonnegative",
-    "level energies positive",
-    "all seven budget rows present and nonempty"
+   "validator": "code/particles/hadron/ward_projected_spectral_measure_validator.py",
+   "semantic_requirements": [
+    "finite_numeric_values",
+    "nonempty_level_support",
+    "unique_level_identifiers",
+    "residue_level_reference_integrity",
+    "positive_energies",
+    "s_equals_energy_squared",
+    "nonnegative_weights_and_residues",
+    "weight_residue_consistency",
+    "complete_typed_provenance",
+    "no_measured_hvp_or_target_inputs",
+    "covariance_dimension_and_symmetry",
+    "covariance_positive_semidefinite",
+    "complete_budget_rows",
+    "finite_ordered_bound_intervals",
+    "transport_moment_certificate_complete",
+    "strict_branch_typing",
+    "guard_flags_exactly_false",
+    "ward_projection_required",
+    "closed_object_boundaries",
+    "positivity_status_allowlisted"
    ],
+   "declared_tolerances": {
+    "s_equals_energy_squared_rel_tol": 1e-12,
+    "weight_residue_rel_tol": 1e-12,
+    "covariance_symmetry_rel_tol": 1e-12,
+    "covariance_psd_rel_tol": 1e-12
+   },
    "conformant_payload_accepted": true,
-   "conformant_payload_reason": "accepted",
+   "conformant_payload_reasons": [],
    "negative_controls": [
     {
      "control_id": "measured_hvp_comparison_endpoint",
-     "guards_criterion": "no measured HVP input / blinded comparison only",
+     "semantic_requirements": [
+      "guard_flags_exactly_false"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: False was expected"
+     "rejection_reasons": [
+      "schema_violation:$.guards.compare_only_external_endpoint:False was expected",
+      "guard_not_literal_false:compare_only_external_endpoint"
+     ]
     },
     {
      "control_id": "forbidden_target_leak_ee_to_hadrons",
-     "guards_criterion": "no measured HVP input",
+     "semantic_requirements": [
+      "no_measured_hvp_or_target_inputs"
+     ],
      "rejected": true,
-     "rejection_reason": "TARGET_LEAK_DETECTED: EE_TO_HADRONS"
+     "rejection_reasons": [
+      "schema_violation:$.external_targets_used:['EE_TO_HADRONS'] is expected to be empty",
+      "TARGET_LEAK_DETECTED:value:external_targets_used[0]",
+      "TARGET_LEAK_DETECTED:external_targets_used:EE_TO_HADRONS"
+     ]
     },
     {
-     "control_id": "surrogate_hadron_artifact",
-     "guards_criterion": "source-derived only",
+     "control_id": "nested_measured_hvp_provenance",
+     "semantic_requirements": [
+      "no_measured_hvp_or_target_inputs",
+      "closed_object_boundaries"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: False was expected"
+     "rejection_reasons": [
+      "schema_violation:$:Additional properties are not allowed ('measured_hvp_input' was unexpected)",
+      "TARGET_LEAK_DETECTED:value:measured_hvp_input.source"
+     ]
     },
     {
-     "control_id": "stable_channel_only_export",
-     "guards_criterion": "full vector-channel spectral support required",
+     "control_id": "external_targets_used_supplied_as_string",
+     "semantic_requirements": [
+      "no_measured_hvp_or_target_inputs"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: False was expected"
+     "rejection_reasons": [
+      "schema_violation:$.external_targets_used:'EE_TO_HADRONS' is not of type 'array'",
+      "TARGET_LEAK_DETECTED:value:external_targets_used",
+      "external_targets_used_not_a_list"
+     ]
+    },
+    {
+     "control_id": "s_not_energy_squared",
+     "semantic_requirements": [
+      "s_equals_energy_squared"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "s_not_equal_energy_squared:finite_volume_levels[0].levels[0]"
+     ]
+    },
+    {
+     "control_id": "dangling_residue_reference",
+     "semantic_requirements": [
+      "residue_level_reference_integrity"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "residue_references_unknown_level:NO_SUCH_LEVEL",
+      "level_without_residue:L0"
+     ]
+    },
+    {
+     "control_id": "duplicate_level_id",
+     "semantic_requirements": [
+      "unique_level_identifiers"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "duplicate_level_id:L0",
+      "weight_residue_inconsistent:L0"
+     ]
+    },
+    {
+     "control_id": "nan_energy",
+     "semantic_requirements": [
+      "finite_numeric_values"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "nonfinite_number:finite_volume_levels[0].levels[0].energy"
+     ]
+    },
+    {
+     "control_id": "infinite_weight",
+     "semantic_requirements": [
+      "finite_numeric_values"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "nonfinite_number:finite_volume_levels[0].levels[0].weight"
+     ]
+    },
+    {
+     "control_id": "nan_residue",
+     "semantic_requirements": [
+      "finite_numeric_values"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "nonfinite_number:ward_projected_residues[0].residue"
+     ]
+    },
+    {
+     "control_id": "all_budgets_status_not_quantified",
+     "semantic_requirements": [
+      "finite_ordered_bound_intervals"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.systematics.chiral_budget:'bound_interval' is a required property",
+      "schema_violation:$.systematics.chiral_budget:Additional properties are not allowed ('status' was unexpected)",
+      "schema_violation:$.systematics.continuum_budget:'bound_interval' is a required property",
+      "schema_violation:$.systematics.continuum_budget:Additional properties are not allowed ('status' was unexpected)"
+     ]
     },
     {
      "control_id": "missing_chiral_budget",
-     "guards_criterion": "uncertainty propagation ledger complete",
+     "semantic_requirements": [
+      "complete_budget_rows"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: 'chiral_budget' is a required property"
+     "rejection_reasons": [
+      "schema_violation:$.systematics:'chiral_budget' is a required property",
+      "budget_missing:chiral_budget"
+     ]
     },
     {
-     "control_id": "quenched_branch",
-     "guards_criterion": "physical 2+1 matter sector required",
+     "control_id": "unordered_bound_interval",
+     "semantic_requirements": [
+      "finite_ordered_bound_intervals"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: '2+1' was expected"
+     "rejection_reasons": [
+      "invalid_interval_order:systematics.statistical_budget.bound_interval"
+     ]
+    },
+    {
+     "control_id": "nonfinite_bound_interval",
+     "semantic_requirements": [
+      "finite_ordered_bound_intervals"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "nonfinite_number:systematics.continuum_budget.bound_interval.hi"
+     ]
+    },
+    {
+     "control_id": "missing_transport_moment_certificate",
+     "semantic_requirements": [
+      "transport_moment_certificate_complete"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$:'transport_moment_certificate' is a required property",
+      "transport_moment_certificate_missing"
+     ]
+    },
+    {
+     "control_id": "covariance_asymmetric",
+     "semantic_requirements": [
+      "covariance_dimension_and_symmetry"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "covariance_not_symmetric"
+     ]
+    },
+    {
+     "control_id": "covariance_not_positive_semidefinite",
+     "semantic_requirements": [
+      "covariance_positive_semidefinite"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "covariance_not_positive_semidefinite"
+     ]
+    },
+    {
+     "control_id": "covariance_dimension_mismatch",
+     "semantic_requirements": [
+      "covariance_dimension_and_symmetry"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "covariance_row_basis_dimension_mismatch",
+      "covariance_matrix_dimension_mismatch"
+     ]
+    },
+    {
+     "control_id": "weight_residue_inconsistent",
+     "semantic_requirements": [
+      "weight_residue_consistency"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "weight_residue_inconsistent:L0"
+     ]
     },
     {
      "control_id": "negative_residue",
-     "guards_criterion": "positivity proved and enforced",
+     "semantic_requirements": [
+      "nonnegative_weights_and_residues"
+     ],
      "rejected": true,
-     "rejection_reason": "negative_residue: L0"
+     "rejection_reasons": [
+      "schema_violation:$.finite_volume_levels[0].levels[0].weight:-0.5 is less than the minimum of 0",
+      "schema_violation:$.ward_projected_residues[0].residue:-0.5 is less than the minimum of 0",
+      "negative_level_weight:finite_volume_levels[0].levels[0]",
+      "negative_residue:ward_projected_residues[0]"
+     ]
+    },
+    {
+     "control_id": "negative_level_weight",
+     "semantic_requirements": [
+      "nonnegative_weights_and_residues"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.finite_volume_levels[0].levels[0].weight:-0.1 is less than the minimum of 0",
+      "negative_level_weight:finite_volume_levels[0].levels[0]",
+      "weight_residue_inconsistent:L0"
+     ]
+    },
+    {
+     "control_id": "nonpositive_energy",
+     "semantic_requirements": [
+      "positive_energies"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.finite_volume_levels[0].levels[0].energy:0.0 is less than or equal to the minimum of 0",
+      "nonpositive_energy:finite_volume_levels[0].levels[0]"
+     ]
     },
     {
      "control_id": "empty_level_support",
-     "guards_criterion": "nonempty finite-volume spectral support",
+     "semantic_requirements": [
+      "nonempty_level_support"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: [] should be non-empty"
+     "rejection_reasons": [
+      "schema_violation:$.finite_volume_levels:[] should be non-empty",
+      "finite_volume_levels_missing_or_empty",
+      "residue_references_unknown_level:L0"
+     ]
+    },
+    {
+     "control_id": "quenched_branch",
+     "semantic_requirements": [
+      "strict_branch_typing"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.branch.flavors:'2+1' was expected",
+      "branch_flavors_not_allowlisted:'quenched'"
+     ]
+    },
+    {
+     "control_id": "surrogate_hadron_artifact",
+     "semantic_requirements": [
+      "guard_flags_exactly_false"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.guards.surrogate_hadron_artifact:False was expected",
+      "guard_not_literal_false:surrogate_hadron_artifact"
+     ]
+    },
+    {
+     "control_id": "stable_channel_only_export",
+     "semantic_requirements": [
+      "guard_flags_exactly_false"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.guards.stable_channel_only:False was expected",
+      "guard_not_literal_false:stable_channel_only"
+     ]
+    },
+    {
+     "control_id": "guard_stringly_false",
+     "semantic_requirements": [
+      "guard_flags_exactly_false"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.guards.compare_only_external_endpoint:False was expected",
+      "guard_not_literal_false:compare_only_external_endpoint"
+     ]
     },
     {
      "control_id": "ward_projection_dropped",
-     "guards_criterion": "gauge invariance / Ward projection required",
+     "semantic_requirements": [
+      "ward_projection_required"
+     ],
      "rejected": true,
-     "rejection_reason": "schema_violation: True was expected"
+     "rejection_reasons": [
+      "schema_violation:$.projection.ward_projected:True was expected",
+      "ward_projection_dropped"
+     ]
+    },
+    {
+     "control_id": "provenance_manifest_missing",
+     "semantic_requirements": [
+      "complete_typed_provenance"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$:'provenance' is a required property",
+      "provenance_manifest_missing"
+     ]
+    },
+    {
+     "control_id": "provenance_unknown_input_kind",
+     "semantic_requirements": [
+      "complete_typed_provenance"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.provenance.source_inputs[2].kind:'external_dataset' is not one of ['bare_lattice_parameter', 'source_ensemble', 'oph_source_artifact', 'declared_convention', 'backend_provenance']",
+      "provenance_source_input_kind_not_allowlisted:[2]:'external_dataset'"
+     ]
+    },
+    {
+     "control_id": "provenance_hvp_flag_true",
+     "semantic_requirements": [
+      "complete_typed_provenance"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.provenance.measured_hvp_input_present:False was expected",
+      "provenance_measured_hvp_input_present_not_false"
+     ]
+    },
+    {
+     "control_id": "provenance_empty_source_inputs",
+     "semantic_requirements": [
+      "complete_typed_provenance"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.provenance.source_inputs:[] should be non-empty",
+      "provenance_source_inputs_missing_or_empty"
+     ]
+    },
+    {
+     "control_id": "unknown_root_key",
+     "semantic_requirements": [
+      "closed_object_boundaries"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$:Additional properties are not allowed ('undeclared_extra_block' was unexpected)"
+     ]
+    },
+    {
+     "control_id": "unknown_guard_key",
+     "semantic_requirements": [
+      "closed_object_boundaries"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.guards:Additional properties are not allowed ('undeclared_guard' was unexpected)"
+     ]
+    },
+    {
+     "control_id": "positivity_status_unknown_string",
+     "semantic_requirements": [
+      "positivity_status_allowlisted"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.rho_had_or_measure.positivity_status:'checked_numerically' is not one of ['certified_positive']",
+      "positivity_status_not_allowlisted:'checked_numerically'"
+     ]
+    },
+    {
+     "control_id": "positivity_status_sign_check_substitution",
+     "semantic_requirements": [
+      "positivity_status_allowlisted"
+     ],
+     "rejected": true,
+     "rejection_reasons": [
+      "schema_violation:$.rho_had_or_measure.positivity_status:'diagnostic_sign_check_passed' is not one of ['certified_positive']",
+      "positivity_status_not_allowlisted:'diagnostic_sign_check_passed'"
+     ]
     }
    ],
    "all_negative_controls_rejected": true,
+   "adversarial_coverage": {
+    "finite_numeric_values": [
+     "nan_energy",
+     "infinite_weight",
+     "nan_residue"
+    ],
+    "nonempty_level_support": [
+     "empty_level_support"
+    ],
+    "unique_level_identifiers": [
+     "duplicate_level_id"
+    ],
+    "residue_level_reference_integrity": [
+     "dangling_residue_reference"
+    ],
+    "positive_energies": [
+     "nonpositive_energy"
+    ],
+    "s_equals_energy_squared": [
+     "s_not_energy_squared"
+    ],
+    "nonnegative_weights_and_residues": [
+     "negative_residue",
+     "negative_level_weight"
+    ],
+    "weight_residue_consistency": [
+     "weight_residue_inconsistent"
+    ],
+    "complete_typed_provenance": [
+     "provenance_manifest_missing",
+     "provenance_unknown_input_kind",
+     "provenance_hvp_flag_true",
+     "provenance_empty_source_inputs"
+    ],
+    "no_measured_hvp_or_target_inputs": [
+     "forbidden_target_leak_ee_to_hadrons",
+     "nested_measured_hvp_provenance",
+     "external_targets_used_supplied_as_string"
+    ],
+    "covariance_dimension_and_symmetry": [
+     "covariance_asymmetric",
+     "covariance_dimension_mismatch"
+    ],
+    "covariance_positive_semidefinite": [
+     "covariance_not_positive_semidefinite"
+    ],
+    "complete_budget_rows": [
+     "missing_chiral_budget"
+    ],
+    "finite_ordered_bound_intervals": [
+     "all_budgets_status_not_quantified",
+     "unordered_bound_interval",
+     "nonfinite_bound_interval"
+    ],
+    "transport_moment_certificate_complete": [
+     "missing_transport_moment_certificate"
+    ],
+    "strict_branch_typing": [
+     "quenched_branch"
+    ],
+    "guard_flags_exactly_false": [
+     "measured_hvp_comparison_endpoint",
+     "surrogate_hadron_artifact",
+     "stable_channel_only_export",
+     "guard_stringly_false"
+    ],
+    "ward_projection_required": [
+     "ward_projection_dropped"
+    ],
+    "closed_object_boundaries": [
+     "nested_measured_hvp_provenance",
+     "unknown_root_key",
+     "unknown_guard_key"
+    ],
+    "positivity_status_allowlisted": [
+     "positivity_status_unknown_string",
+     "positivity_status_sign_check_substitution"
+    ]
+   },
+   "uncovered_semantic_requirements": [],
+   "adversarial_coverage_complete": true,
+   "passed": true
+  },
+  "downstream_compatibility": {
+   "implication": "packet gate accepts payload => downstream source-transport validator accepts the resulting source_measure",
+   "downstream_validator": "code/P_derivation/thomson_spectral_transport.py (_validate_source_measure and source_payload_forbidden_keys; the same module whose validate_source_transport_payload gates the Thomson endpoint promotion)",
+   "variants": [
+    {
+     "variant_id": "conformant_baseline",
+     "gate_accepted": true,
+     "gate_reasons": [],
+     "downstream_source_measure_reasons": [],
+     "downstream_forbidden_keys": [],
+     "implication_holds": true
+    },
+    {
+     "variant_id": "multi_level",
+     "gate_accepted": true,
+     "gate_reasons": [],
+     "downstream_source_measure_reasons": [],
+     "downstream_forbidden_keys": [],
+     "implication_holds": true
+    },
+    {
+     "variant_id": "two_ensembles",
+     "gate_accepted": true,
+     "gate_reasons": [],
+     "downstream_source_measure_reasons": [],
+     "downstream_forbidden_keys": [],
+     "implication_holds": true
+    },
+    {
+     "variant_id": "string_decimal_bounds",
+     "gate_accepted": true,
+     "gate_reasons": [],
+     "downstream_source_measure_reasons": [],
+     "downstream_forbidden_keys": [],
+     "implication_holds": true
+    }
+   ],
    "passed": true
   },
   "empirical_typing": {
@@ -492,6 +1246,7 @@
     "production_schema_rejects_surrogate_const_false": true,
     "gate_rejects_measured_hvp_comparison_endpoint": true,
     "gate_rejects_ee_to_hadrons_target_leak": true,
+    "gate_rejects_nested_measured_hvp_provenance": true,
     "row_class_const_empirical_closure": true,
     "empirical_surface_not_source_only_const": true,
     "empirical_use_disclosed_const_true": true,
@@ -526,106 +1281,272 @@
    },
    "xi_ledger_source_certificate_status": "MISSING_SOURCE_CERTIFICATE",
    "passed": true
+  },
+  "fail_closed_probes": {
+   "statement": "the availability predicate is executed on unknown, renamed, missing, None, blocked, and contradictory status combinations and must report unavailable on every one; success requires literal allowlist membership plus an existing gate-approved payload",
+   "probes": [
+    {
+     "probe_id": "status_blocked",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:export_bundle_status='blocked'",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "status_missing_string",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:base_measure_status='MISSING'",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "status_none",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:ward_current_status=None",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "status_renamed",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:export_bundle_status='done'",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "closure_grade_unknown",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:closure_grade='complete_pending_review'",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "public_unsuppression_not_ready",
+     "reported_unavailable": true,
+     "reasons": [
+      "public_unsuppression_ready_not_true:False",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "public_unsuppression_stringly_true",
+     "reported_unavailable": true,
+     "reasons": [
+      "public_unsuppression_ready_not_true:'true'",
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    },
+    {
+     "probe_id": "all_keys_missing",
+     "reported_unavailable": true,
+     "reasons": [
+      "status_not_in_success_allowlist:export_bundle_status=None",
+      "status_not_in_success_allowlist:closure_grade=None",
+      "status_not_in_success_allowlist:base_measure_status=None"
+     ]
+    },
+    {
+     "probe_id": "all_statuses_success_but_payload_absent",
+     "reported_unavailable": true,
+     "reasons": [
+      "production_payload_absent:ward_projected_spectral_measure.production.json"
+     ]
+    }
+   ],
+   "passed": true
+  }
+ },
+ "verdicts": {
+  "contract_certified": {
+   "value": true,
+   "meaning": "the conditional construction theorem and the machine-readable contract are stated, machine-checked, fail-closed, and downstream-compatible; no physical claim is included",
+   "computed_from": {
+    "theorem_typed_conditional": true,
+    "conserved_current_gauge_witness": true,
+    "local_current_gauge_witness": true,
+    "ward_identity_witness": true,
+    "zv_free_field_anchor": true,
+    "demonstrator_pipeline": true,
+    "strict_gate_with_full_adversarial_coverage": true,
+    "downstream_consumer_compatibility": true,
+    "empirical_typing": true,
+    "higher_point_typing": true,
+    "fail_closed_status_probes": true,
+    "diagnostic_witnesses_labeled_non_promoting": true,
+    "deterministic_reemission_agreement": true
+   }
+  },
+  "physical_source_payload_available": {
+   "value": false,
+   "meaning": "a gate-approved physical production payload exists and the production-lane artifacts are in their explicit success states (fail-closed allowlists); supplied by the production backend lane",
+   "computed_from": {
+    "available": false,
+    "reasons": [
+     "status_not_in_success_allowlist:export_bundle_status='open'",
+     "status_not_in_success_allowlist:closure_grade='execution_incomplete'",
+     "status_not_in_success_allowlist:base_measure_status='REQUIRED_NOT_POPULATED'",
+     "status_not_in_success_allowlist:ward_current_status='MISSING_SOURCE_CERTIFICATE'",
+     "public_unsuppression_ready_not_true:False",
+     "production_payload_absent:ward_projected_spectral_measure.production.json"
+    ],
+    "success_allowlists": {
+     "export_bundle_status": [
+      "complete"
+     ],
+     "closure_grade": [
+      "execution_complete"
+     ],
+     "base_measure_status": [
+      "POPULATED"
+     ],
+     "ward_current_status": [
+      "SOURCE_CERTIFICATE_VERIFIED"
+     ]
+    },
+    "additional_positive_requirements": [
+     "public_unsuppression_ready is exactly true",
+     "a production payload exists at code/particles/runs/hadron/ward_projected_spectral_measure.production.json and passes the strict production gate"
+    ],
+    "live_status_snapshot": {
+     "export_bundle_status": "open",
+     "closure_grade": "execution_incomplete",
+     "public_unsuppression_ready": false,
+     "base_measure_status": "REQUIRED_NOT_POPULATED",
+     "ward_current_status": "MISSING_SOURCE_CERTIFICATE"
+    },
+    "checked_artifacts": {
+     "production_backend_export_bundle": "code/particles/runs/hadron/hadron_production_readiness_report.json",
+     "qcd_base_measure": "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/base_measure.json",
+     "ward_current_source_certificate": "code/particles/runs/qcd/hadron_source_backend/currents/ward_current_definition.json"
+    }
+   }
+  },
+  "physical_promotion_allowed": {
+   "value": false,
+   "meaning": "the physical payload is available AND the downstream source-transport certificate accepts the production transport payload; only then may any hadronic number be promoted",
+   "computed_from": {
+    "allowed": false,
+    "reasons": [
+     "physical_source_payload_not_available",
+     "production_source_transport_payload_absent:source_transport_payload.production.json"
+    ],
+    "positive_requirements": [
+     "physical_source_payload_available is true",
+     "a production source-transport payload exists at code/P_derivation/runtime/source_transport_payload.production.json and is accepted by validate_source_transport_payload (code/P_derivation/thomson_spectral_transport.py)"
+    ]
+   }
   }
  },
  "acceptance_criteria_status": {
-  "current_and_measure_gauge_invariant_and_source_derived": {
+  "conditional_theorem_stated_with_typed_premises_and_conclusions": {
    "packet_level_passed": true,
-   "machine_checks": "executed witnesses 1 and 2 (machine_witnesses.gauge_and_ward)",
-   "production_open_items": [
-    "source QCD parameter map P -> (g_3, quark masses, scheme)",
-    "qcd_ensemble/base_measure.json: REQUIRED_NOT_POPULATED",
-    "currents/ward_current_definition.json: MISSING_SOURCE_CERTIFICATE",
-    "the demonstrator runs at declared diagnostic bare parameters on a quenched ensemble, not on the derived physical branch"
-   ]
+   "machine_checks": "theorem_structure_check (theorem.premises P1-P10, theorem.conclusions C1-C8)"
   },
-  "positivity_normalization_thresholds_scheme_dependence_proved": {
+  "gauge_invariance_and_ward_identity_proved_for_point_split_current": {
    "packet_level_passed": true,
-   "machine_checks": "executed witnesses 3 and 4 (machine_witnesses.zv_free_field_anchor, machine_witnesses.demonstrator_measure)",
-   "production_open_items": [
-    "reflection-positivity and transfer-operator source certificates",
-    "production thresholds and resonance pushforward execution",
-    "continuum limit; five budget rows not quantified at diagnostic scale"
-   ]
+   "machine_checks": "machine_witnesses.gauge_and_ward: the gauge witness now includes the conserved(sink)-local(source) correlator containing the actual link-inserted point-split conserved current, plus the exact backward-difference Ward identity"
   },
-  "machine_readable_measure_emitted_without_measured_hvp_input": {
+  "positivity_and_threshold_conditional_without_sign_check_substitution": {
    "packet_level_passed": true,
-   "machine_checks": "executed witnesses 4 and 5 (machine_witnesses.demonstrator_measure, machine_witnesses.acceptance_gate)",
-   "production_open_items": [
-    "the production 2+1 payload; the diagnostic demonstrator is rejected by the production gate by construction"
-   ]
+   "machine_checks": "conclusions C3/C4 are typed conditional on premise P4 (reflection positivity + transfer); the demonstrator's finite-sample check is labeled a diagnostic sign check that is not a positivity proof; the production gate rejects sign-check positivity statuses (positivity_status_sign_check_substitution control)"
   },
-  "empirical_data_typed_blinded_comparison_only": {
+  "normalization_and_scheme_dependence_stated_conditionally": {
    "packet_level_passed": true,
-   "machine_checks": "live artifact check with gate-derived fail-closed witnesses (machine_witnesses.empirical_typing)",
-   "production_open_items": [
-    "the comparison event itself: no empirical dataset is attached, so the blinded comparison is executed only after the production payload exists, appending to the comparison manifest"
-   ]
+   "machine_checks": "conclusions C5 (Z_V = 1 conserved / declared matching certificate) and C6 (scheme confinement to the declared kernel) typed against premises P6/P9; free-field anchor executed as a convention witness, explicitly not an interacting plateau determination"
+  },
+  "validator_fails_closed_on_all_invalid_payload_classes": {
+   "packet_level_passed": true,
+   "machine_checks": "strict validator battery: malformed, non-finite, inconsistent, target-leaking (incl. nested provenance and stringly-typed target lists), quenched, surrogate, and unquantified payloads all rejected with typed reasons"
+  },
+  "gate_validates_consistency_relations": {
+   "packet_level_passed": true,
+   "machine_checks": "executed controls for s = E^2, identifier integrity, residue/weight consistency, covariance integrity, and complete uncertainty intervals"
+  },
+  "gate_approved_payloads_accepted_by_downstream_validator": {
+   "packet_level_passed": true,
+   "machine_checks": "machine_witnesses.downstream_compatibility: every gate-approved variant embeds as source_measure with zero downstream reasons"
+  },
+  "empirical_data_confined_to_nonsource_nonpromoting_row_class": {
+   "packet_level_passed": true,
+   "machine_checks": "machine_witnesses.empirical_typing (live artifact reads)"
   },
   "higher_point_and_radiative_corrections_separately_typed": {
    "packet_level_passed": true,
-   "machine_checks": "live artifact check (machine_witnesses.higher_point_typing)",
-   "production_open_items": [
-    "endpoint/Xi_same_scheme.json source certificate (MISSING_SOURCE_CERTIFICATE): the radiative rows are separately typed but their source content is production-scope"
-   ]
+   "machine_checks": "machine_witnesses.higher_point_typing (live artifact reads)"
+  },
+  "diagnostic_witnesses_explicitly_labeled_non_promoting": {
+   "packet_level_passed": true,
+   "machine_checks": "{'gauge_and_ward_labeled': True, 'zv_anchor_labeled': True, 'demonstrator_labeled': True, 'sign_check_labeled_not_a_proof': True}"
+  },
+  "certificate_distinguishes_three_verdicts": {
+   "packet_level_passed": true,
+   "machine_checks": "verdicts.contract_certified / physical_source_payload_available / physical_promotion_allowed are computed independently; a false physical verdict must carry typed reasons"
+  },
+  "unknown_or_missing_status_values_fail_closed": {
+   "packet_level_passed": true,
+   "machine_checks": "machine_witnesses.fail_closed_probes: unknown, renamed, missing, None, blocked, contradictory, and payload-absent states all report unavailable"
+  },
+  "adversarial_tests_cover_all_semantic_requirements": {
+   "packet_level_passed": true,
+   "machine_checks": "acceptance_gate.adversarial_coverage maps every declared semantic requirement to at least one rejected control; uncovered_semantic_requirements is empty"
+  },
+  "stored_and_fresh_certificates_agree": {
+   "packet_level_passed": true,
+   "machine_checks": "deterministic re-emission agreement executed at build time on the theorem, gate, and downstream blocks; full stored-vs-fresh agreement including the seeded numeric witnesses is enforced by test_issue_317_spectral_measure_packet.py::test_stored_packet_matches_fresh_emission"
   }
  },
  "issue_closure_condition": {
-  "author_condition": "close only when the backend export bundle, unquenching execution, runtime receipt, and uncertainty ledger are present",
-  "checked_objects": {
-   "production_backend_export_bundle": {
-    "path": "code/particles/runs/hadron/hadron_production_readiness_report.json",
-    "status": "open",
-    "closure_grade": "execution_incomplete",
-    "public_unsuppression_ready": false
-   },
-   "qcd_base_measure": {
-    "path": "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/base_measure.json",
-    "status": "REQUIRED_NOT_POPULATED"
-   },
-   "ward_current_source_certificate": {
-    "path": "code/particles/runs/qcd/hadron_source_backend/currents/ward_current_definition.json",
-    "status": "MISSING_SOURCE_CERTIFICATE"
-   }
+  "re_scoped_closure_rule": "per the maintainer's re-scoping on the PR review (2026-07-22), the issue closes when the theorem-and-contract acceptance list passes; closure of the contract issue must not be interpreted as completion of the production backend lane or as production of a physical hadronic spectral measure",
+  "theorem_and_contract_acceptance_list_passes": true,
+  "original_scope_production_condition": {
+   "author_condition": "backend export bundle, unquenching execution, runtime receipt, and uncertainty ledger present",
+   "maps_to": "verdicts.physical_source_payload_available (fail-closed allowlists)",
+   "met_locally": false
   },
-  "met_locally": false,
-  "resolution_path": "production backend export lane (dependency_note); the export must conform to the schema and acceptance gate certified in this packet"
- },
- "acceptance_criteria_mapping": {
-  "current_and_measure_gauge_invariant_and_source_derived": "theorem parts (a), (b); executed witnesses 1 and 2; source-law non-substitution theorem excludes non-source substitutes",
-  "positivity_normalization_thresholds_scheme_dependence_proved": "theorem parts (c), (d), (e); executed witnesses 3 and 4",
-  "machine_readable_measure_emitted_without_measured_hvp_input": "export schema plus semantic gate; executed witnesses 4 and 5; the demonstrator consumes bare lattice parameters only",
-  "empirical_data_typed_blinded_comparison_only": "machine-checked live in three layers (machine_witnesses.empirical_typing): blinding of the source construction (comparison manifest empty, production-schema guard constants, gate fails closed on the measured-HVP controls), comparison-channel typing (empirical companion row class oph_plus_empirical_hadron_closure pinned non-source by schema constants), and explicit disclosure that public use of the empirical surface is confined to that non-promotable row class; no comparison event has occurred, so blinding is intact",
-  "higher_point_and_radiative_corrections_separately_typed": "machine-checked live for both halves (machine_witnesses.higher_point_typing): higher-point half via higher_point/Q4_HLbL_receipt.json (TWO_POINT_MEASURE_INSUFFICIENT, non-promoting, no external targets); radiative half via endpoint/Xi_same_scheme.json (distinct typed ledger whose required terms include QED and EW, non-promoting) plus the production schema branch.qed exclusion; the Xi source certificate itself remains a disclosed production-level gap"
+  "closing_keyword_policy": "the PR references this issue with a non-closing reference until the issue body itself adopts the re-scoped acceptance list"
  },
  "claim_boundary": {
-  "closed_here": "the construction theorem for the renormalized U(1)_Q current and its positive spectral measure (gauge invariance, Ward identity, positivity, normalization, thresholds, scheme confinement, covariance and uncertainty-propagation rules), the machine-readable emission contract with fail-closed guards and negative controls, an executed diagnostic demonstrator on committed real lattice data, and the typing of empirical, higher-point, and radiative objects",
+  "closed_here": "the conditional construction theorem SpectralMeasure_Q with ten typed premises and eight typed conclusions, the strict fail-closed machine-readable production contract (schema plus semantic validator) with complete adversarial coverage, the executed implication that gate-approved payloads are accepted by the downstream source-transport validator, executed implementation witnesses on the actual conserved point-split current, and the typing confinement of empirical, higher-point, and radiative objects",
   "not_closed_here": [
-   "the production 2+1 payload with real correlator arrays and quantified continuum/finite-volume/chiral/current-matching/endpoint budgets (production backend execution, dependency_note)",
+   "a populated physical 2+1-flavor QCD ensemble or any production payload (production backend execution, dependency_note)",
+   "production spectral positivity: conclusion C3 remains conditional on the reflection-positive transfer certificate (premise P4)",
    "production-scale resonance extraction through the Luscher-class map",
-   "continuum-limit and confinement certificates (H4 tier)",
+   "continuum-limit and infinite-volume numerical extrapolation",
    "the source QCD parameter map P -> (g_3, quark masses, scheme)",
-   "physical promotion of any hadronic number"
+   "a source-derived hadronic numerical value or physical promotion of any hadronic number into the fine-structure endpoint"
   ],
-  "scope": "This packet is the proof and contract layer of the hadronic spectral measure: it fixes what the production export must satisfy and proves the structural claims on the declared construction. It emits no physical hadronic prediction; the demonstrator measure is diagnostic, non-promoting, and is itself rejected by the production acceptance gate it demonstrates."
+  "scope": "This packet is the conditional proof and contract layer of the hadronic spectral measure: it fixes what the production export must satisfy, proves the structural claims conditional on the typed premises, and emits no physical hadronic prediction. The diagnostic demonstrator is non-promoting and is rejected by the production gate it demonstrates."
  },
  "dependency_note": {
-  "direction": "this proof packet is upstream of production execution: issue #425's acceptance list requires that the production backend 'exports the Ward-current spectral payload consumed by #317', i.e. #425 supplies a payload conforming to the contract certified here; no result of #425 is consumed by this packet",
-  "upstream_of_425_not_downstream": true,
-  "gauge_carrier_selection": "the physical gauge/matter carrier selection (#590) gates #425's physical promotion, not this packet"
+  "contract_design_edge": {
+   "direction": "#317 contract specification -> #425 implementation",
+   "meaning": "this packet fixes the theorem and the strict export contract that the production backend must satisfy; it consumes no production result"
+  },
+  "execution_dependency_edge": {
+   "direction": "#425 physical payload -> physical_source_payload_available -> physical_promotion_allowed",
+   "meaning": "the production backend's physical payload is required before the physical availability verdict can pass, and the downstream source-transport certificate is additionally required before any promotion; the production lane is therefore upstream of issue completion in the execution sense, while this packet is upstream in the specification sense"
+  },
+  "gauge_carrier_selection": "the physical gauge/matter carrier selection (#590) gates the production lane's physical promotion, not this packet"
  },
  "dependency_artifacts": {
   "export_schema": "code/particles/hadron/ward_projected_spectral_measure.schema.json",
+  "strict_validator": "code/particles/hadron/ward_projected_spectral_measure_validator.py",
   "constructive_contract": "code/particles/runs/hadron/ward_projected_spectral_measure_contract.json",
   "nonidentifiability_obstruction": "code/particles/hadron/derive_ward_projected_spectral_measure_obstruction.py",
   "endpoint_reduction_theorem": "code/P_derivation/source_spectral_theorem.py (WardProjectedHadronicSpectralEmission_Q)",
+  "downstream_source_transport_validator": "code/P_derivation/thomson_spectral_transport.py",
   "backend_spec_note": "physics-problems/hadronic_precision_endpoint.md",
   "receipt_bundle": "code/particles/runs/qcd/hadron_source_backend/ (claim: SOURCE_PROTOTYPE_NOT_PROMOTED)",
   "lattice_engine": "code/particles/hadron/lattice_backend/",
   "demonstrator_ensemble": "code/particles/runs/hadron/hybrid_ir_ensembleA_2026-07-16.npz"
  },
  "consumer_artifacts": {
-  "production_backend_export": "production backend export bundle conforming to the schema and acceptance gate certified here (dependency_note)",
+  "production_backend_export": "production backend export bundle conforming to the strict schema and validator certified here (dependency_note); expected at code/particles/runs/hadron/ward_projected_spectral_measure.production.json",
   "thomson_endpoint_lane": "code/P_derivation/source_spectral_theorem.py consumes a conforming payload for the source-only Thomson endpoint interval certificate"
  },
  "forbidden_inputs": [
@@ -638,7 +1559,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-21T16:11:46Z",
+  "generated_utc": "2026-07-22T11:52:29Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }
