@@ -2175,8 +2175,12 @@ def build_packet() -> dict[str, Any]:
                 "met_locally": bool(payload_verdict["available"]),
             },
             "closing_keyword_policy": (
-                "the PR references this issue with a non-closing reference until the "
-                "issue body itself adopts the re-scoped acceptance list"
+                "the PR resolves this issue under the re-scoped acceptance list; the "
+                "issue body must be updated to the re-scoped text and the production "
+                "targets (populated 2+1 ensemble, unquenched execution, physical "
+                "resonance extraction, continuum/infinite-volume extrapolation, "
+                "source-derived hadronic value, endpoint promotion) moved to the "
+                "production backend issue, per the maintainer's re-scoping comment"
             ),
         },
         "claim_boundary": {

@@ -603,7 +603,10 @@ def test_claim_boundary_and_dependency_edges(packet):
     closure = packet["issue_closure_condition"]
     assert closure["theorem_and_contract_acceptance_list_passes"] is True
     assert closure["original_scope_production_condition"]["met_locally"] is False
-    assert "non-closing reference" in closure["closing_keyword_policy"]
+    assert "resolves this issue under the re-scoped acceptance list" in closure[
+        "closing_keyword_policy"
+    ]
+    assert "production" in closure["closing_keyword_policy"]
 
 
 def test_stored_packet_matches_fresh_emission(packet, stored):
