@@ -65,9 +65,11 @@ The same finite architecture feeds two branches. Its repaired quotient can
 approach a smooth spherical support, whose conformal motions organize Lorentz
 frames and, after an event and gravity construction, spacetime. Its twelve-port
 incidence also carries the $A_5$ blocks used by the compact-current theorem and
-the conditional Standard Model recognition. Consensus is the hinge. It supplies
-public records to both branches. It supplies neither a clock nor a gauge
-current.
+the conditional Standard Model recognition. The compact-current algebra is
+verified exactly for a declared charged-double-triplet response representation
+and four signed coefficients; physical response source binding remains open.
+Consensus is the hinge. It supplies public records to both branches. It
+supplies neither a clock nor a gauge current.
 
 This makes the construction presentation-invariant and structure-sensitive.
 Silicon, light, or software may instantiate one carrier contract when every

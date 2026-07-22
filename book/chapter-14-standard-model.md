@@ -710,7 +710,17 @@ If the five-dimensional block acts noncentrally, the first two disappear. The
 same conclusion follows when the $A_5$ action on a twelve-dimensional compact
 current algebra is implemented by internal gauge transformations. Under those
 physical-current conditions, the Standard Model Lie type is the unique compact
-choice.
+choice. Producing that physical current algebra from the finite register is a
+separate gate. It needs a nondegenerate current pairing, a closed bracket, an
+internal $A_5$ action, and compatibility through refinement. The finite port
+symmetry by itself classifies register operations; it does not manufacture
+gauge currents. An exact finite certificate now discharges the algebraic part
+conditional on a declared charged-double-triplet response representation and
+four signed coefficients: it constructs
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$ with the required closure, covariance,
+and inner action. Deriving or measuring that representation and those
+coefficients from physical carrier response, and binding the physical
+refinement maps, remain open.
 
 The six axes carry two further pieces of structure. Their integral load
 lattice has an exact sixfold residue, and a separate total-trace balance
@@ -1338,6 +1348,10 @@ into one common structure.
 The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
+The declared-response certificate verifies the compact-current algebraic
+conditions conditionally, but does not source-bind the response representation,
+its four signed coefficients, or physical refinement.
+
 Fixing global capacity and the laboratory scale needs a cosmic-capacity
 selector and a calibrated clock and curvature map; that construction is work
 in progress.

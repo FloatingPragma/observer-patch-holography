@@ -294,8 +294,15 @@ Part B gaps:
   lines, listed anomalies, and weak multiplicity four. The echosahedral source
   selector closes UD12 and RP-A5 on the declared quotient-visible carrier
   lineage, deriving the unit split, inverse pairing, proper A5 action, exact
-  frame, and refinement/relabeling naturality. The remaining producer gates are
-  PORT-CURRENT-INNER; block determinant balance and
+  frame, and refinement/relabeling naturality. The exact port-current
+  certificate (`code/a5_closure/port_current_inner_certificate.py`) proves,
+  conditional on a declared charged-double-triplet representation and four
+  signed coefficients, an injective full-rank lift onto
+  $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with compact skew-adjoint closure,
+  inner A5 action, declared-tower naturality, and a register-relabeling no-go.
+  PORT-CURRENT-INNER remains open as a physical receipt until the response
+  representation, coefficients, and physical refinement maps are source-bound.
+  The remaining producer gates are block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the
   non-vacuum exterior package and $H=W$; exclusion of the vacuum
   singlet and other anomaly-free light sectors; A5 family attachment plus a

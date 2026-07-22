@@ -15,7 +15,8 @@ python3 a5_screen_sm_closure.py          # module identity, trichotomy, face pha
 python3 exterior_sm_completion.py        # exterior matter, anomalies, weak load, deck control
 python3 a5_selection_certificate.py      # sharpness data for Cohn-Kumar universal optimality
 python3 echosahedral_selector_certificate.py all  # issue #565 source selector, receipt, controls
-python3 -m unittest discover -s tests -v    # issue #565 regression and adversarial suite
+python3 port_current_inner_certificate.py all     # issue #566 physical port-current algebra, receipt, controls
+python3 -m unittest discover -s tests -v    # issue #565/#566 regression and adversarial suites
 python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
 python3 bh_log_correction.py             # conditional horizon log-coefficient decision tree
@@ -31,6 +32,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Object | Statement |
 |---|---|
 | **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
+| **Conditional port-current algebra (#566)** | Given the certified #565 carrier, a declared charged-double-triplet construction, four signed nonzero response coefficients, and repairs typed irreversible and excluded, the exact map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared algebraic tower maps. The equivariant intertwiner space is exactly four-dimensional. This proves the conditional algebraic construction; physical source binding of the representation, coefficients, and refinement maps remains open. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -64,11 +66,14 @@ simple of order 60).
 
 The exact chain is a conditional finite `A5` module, a compact coefficient
 bracket, trace-balanced block integration under coefficient `1/2`, and a
-six-axis lattice quotient `Z6`. Central record projectors commute; physical
-gauge currents and global form require the full-rank compact skew-adjoint
-receipt **PORT-CURRENT-INNER**,
-**PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel premises.
-The coefficient construction supplies no observational discriminator.
+six-axis lattice quotient `Z6`. Central record projectors commute; the
+full-rank compact skew-adjoint algebraic construction is verified conditionally
+by `port_current_inner_certificate.py` for a declared response representation
+and four signed coefficients. **PORT-CURRENT-INNER** remains open as a physical
+source-bound receipt. The global form still requires
+**PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel
+premises. The coefficient construction supplies no observational
+discriminator.
 
 `survival_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -116,14 +121,22 @@ These closures use the declared simulator assumption that every local carrier
 lineage is a quotient-visible twelve-port echosahedral packet. They do not
 prove that arbitrary OPH carriers must have this type.
 
+- The **conditional PORT-CURRENT-INNER algebraic construction** is verified by
+  `port_current_inner_certificate.py`: given the charged-double-triplet model
+  and four signed coefficients, the map is full-rank, compact, closed,
+  A5-equivariant, inner, and natural along the declared algebraic tower maps.
+  These representation data are branch premises, not physical measurements.
+
 ### Open receipts
 
-- **PORT-CURRENT-INNER**: construct a full-rank `A5`-equivariant map onto a
-  twelve-dimensional compact commutator-closed current algebra, prove that the
-  induced action lies in `Int(g)`, and intertwine refinement.
+- **PORT-CURRENT-INNER (physical source binding)**: derive or measure the
+  charged response representation and four coefficients from carrier response,
+  and bind the physical refinement maps to the resulting operators.
 - *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
   one group-level action shared by ports and gauge reconstruction, plus one
   source-derived repair composition with nonzero projected `W_5` commutator.
+  The conditional algebraic route above is stronger once its physical
+  response premises are source-bound.
 - **BLOCK-DETERMINANT-BALANCE**, **PORT-SPIN-LIFT**, and
   **AXIS-CENTER-DESCENT**: select total trace zero, land the mathematical
   Clifford lift physically, and identify port-loop winding with the deck class.
@@ -165,11 +178,14 @@ noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
 `UnitSplit12.lean` proves only that twelve positive integer weights summing to
 twelve are all one. The issue-#565 artifact supplies an exact executable finite
 proof of the source integer domain, strict readback cost, antipode, `A5`
-action, frame, refinement, relabelling, and countermodels. A Lean port of that
-complete finite packet remains available work; the Python receipt is not being
-relabelled as a Lean theorem. `Phi`, `Theta`, the compact-Lie trichotomy,
-trace-balanced group, physical currents, and physical descent retain their
-separate support boundaries.
+action, frame, refinement, relabelling, and countermodels. The issue-#566
+artifact supplies the exact executable current lift, closure, innerness, and
+moduli proofs on the declared response branch. A Lean port of those
+complete finite packets remains available work; the Python receipts are not
+being relabelled as Lean theorems. `Phi`, `Theta`, the compact-Lie
+trichotomy, trace-balanced group, and physical descent retain their
+separate support boundaries; only the conditional current algebra is certified
+here, while physical response source binding remains open.
 
 ## Novelty boundary
 

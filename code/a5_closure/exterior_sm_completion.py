@@ -232,7 +232,7 @@ payload = {
         ],
         "remaining_producers": [
             "certified echosahedral carrier lineage (UD12 and RP-A5 are closed there, but not for arbitrary OPH carriers)",
-            "PORT-CURRENT-INNER",
+            "PORT-CURRENT-INNER physical source binding remains open; port_current_inner_certificate.py verifies the conditional algebraic construction for a declared charged-double-triplet representation and four signed coefficients",
             "BLOCK-DETERMINANT-BALANCE and PORT-SPIN-LIFT",
             "AXIS-CENTER-DESCENT and the physical line spectrum",
             "selection of the non-vacuum even exterior package",
