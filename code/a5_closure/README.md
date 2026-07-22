@@ -153,7 +153,7 @@ prove that arbitrary OPH carriers must have this type.
   #566 are the trace-balanced exterior matter contract, the fermionic
   statistics contract, the Spin/odd-Weyl category typing, the kernel
   emission contract, and the MAR class declaration — all typed and
-  enforced fail-closed. Theorem: 
+  enforced fail-closed. Theorem:
   `physics-problems/issue_314_super_tannakian_matter_lift.md`.
 
 ### Open receipts
