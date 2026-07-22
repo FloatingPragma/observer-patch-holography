@@ -6,8 +6,9 @@ name: Mandatory Suite
 # environment the guide gets from a venv), so the reproducibility infrastructure
 # from #555 / #581 / #584 is regression-guarded on every push and PR.
 #
-# Scope: this gate checks reproducibility infrastructure only and carries no
-# physics claim. It runs `--collect-only`, the documented green mandatory command;
+# Scope: this gate checks the general reproducibility infrastructure with the
+# documented `--collect-only` command and executes the focused #566 exact
+# certificate/adversarial suite;
 # a clean collection also proves the optional hardware/cloud lanes (IBM/Qiskit,
 # CAMB, legacy D10) stay opt-in and fail closed without their credentials, since
 # an accidentally-collected optional test would break the import and fail this job.
@@ -56,3 +57,9 @@ jobs:
 
       - name: Collect the mandatory scientific suite
         run: python -m pytest --collect-only code
+
+      - name: Execute the conditional port-current certificate suite
+        run: python -m pytest -q code/a5_closure/tests/test_port_current_inner_certificate.py
+
+      - name: Audit A5 closure ledgers
+        run: python code/a5_closure/test_audit.py

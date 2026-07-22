@@ -1,19 +1,17 @@
 {
-  "schema": "oph.port_current_response_manifest.v1",
+  "schema": "oph.port_current_response_manifest.v2",
   "carrier_manifest_path": "manifests/echosahedral_federation_reference.json",
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
-  "response_model": "charged_double_triplet",
+  "construction_model": "charged_double_triplet",
   "response_band_scales": {
     "unit_band": "1",
     "quintet_band": "1",
     "frame_band": "1",
     "kernel_band": "1"
   },
-  "odd_response_sign": 1,
-  "response_measurement_contract": {
-    "measured_objects": "reversible one-parameter response orbit families on the two derived charged sectors, one scale per isotypic band plus one common odd sign",
-    "measurement_status": "declared_source_data",
-    "measurement_artifact": null,
+  "response_declaration_contract": {
+    "declared_objects": "the charged-double-triplet algebraic construction with four signed coefficients, one per isotypic band",
+    "status": "declared_branch_premise",
     "distinct_from_register_relabeling": true
   },
   "reversible_response_automorphisms": {

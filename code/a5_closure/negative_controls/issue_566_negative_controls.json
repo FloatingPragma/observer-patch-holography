@@ -2,7 +2,7 @@
   "countermodel_witnesses": {
     "abelian_record": {
       "center_dimension": 12,
-      "conclusion": "coefficient records that commute never pass the physical-current gate",
+      "conclusion": "coefficient records that commute never pass the conditional algebraic gate",
       "derived_dimension": 0,
       "induced_action_on_abelian_algebra": "nontrivial, hence not inner: Int of an abelian algebra is trivial",
       "matches_coefficient_module": true,
@@ -10,18 +10,18 @@
     },
     "equivariance": {
       "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
-      "per_axis_sign_flip": "breaks the common odd-response sign and covariance"
+      "per_axis_sign_flip": "breaks equivariance and covariance"
     },
     "rank_deficient": {
-      "conclusion": "degenerate response scales cannot produce the twelve-dimensional physical current",
+      "conclusion": "degenerate response coefficients cannot produce the twelve-dimensional algebraic current construction",
       "kernel_band_scale_zero_image_dimension": 9,
       "unit_band_scale_zero_image_dimension": 11
     },
     "typing": {
       "firewall": "a measured-coupling target in the source manifest fails closed",
-      "phantom_measurement": "claiming measured status without a pinned, existing, hash-matching artifact fails closed",
       "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
-      "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed"
+      "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed",
+      "unsupported_measurement_upgrade": "measurement artifacts are rejected until a separately reviewed semantic schema exists"
     }
   },
   "finite_controls": [
@@ -52,7 +52,7 @@
     {
       "actual_error": "COVARIANCE_BROKEN",
       "expected_error": "COVARIANCE_BROKEN",
-      "name": "odd_response_sign_not_common",
+      "name": "odd_axis_sign_not_common",
       "passed": true
     },
     {
@@ -76,7 +76,7 @@
     {
       "actual_error": "RESPONSE_ARTIFACT",
       "expected_error": "RESPONSE_ARTIFACT",
-      "name": "phantom_measurement_claim",
+      "name": "unsupported_measurement_upgrade",
       "passed": true
     },
     {
@@ -87,6 +87,6 @@
     }
   ],
   "issue": 566,
-  "manifest_sha256": "c167c52646d352ebb910ebf653e61190ee47c6b81d09ff336fd472bc99e3e3d6",
-  "schema": "oph.port_current_inner_negative_controls.v1"
+  "manifest_sha256": "4285344be88495c335b6784bd19be8992a9b532c2df9588baca389f1079e7684",
+  "schema": "oph.port_current_inner_negative_controls.v2"
 }

@@ -708,7 +708,13 @@ choice. Producing that physical current algebra from the finite register is a
 separate gate. It needs a nondegenerate current pairing, a closed bracket, an
 internal $A_5$ action, and compatibility through refinement. The finite port
 symmetry by itself classifies register operations; it does not manufacture
-gauge currents.
+gauge currents. An exact finite certificate now discharges the algebraic part
+conditional on a declared charged-double-triplet response representation and
+four signed coefficients: it constructs
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$ with the required closure, covariance,
+and inner action. Deriving or measuring that representation and those
+coefficients from physical carrier response, and binding the physical
+refinement maps, remain open.
 
 The six axes carry two further pieces of structure. Their integral load lattice
 has an exact sixfold residue. A separate total-trace balance integrates the Lie
@@ -1324,7 +1330,10 @@ $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
 oriented slots. The equality compares dimensions and does not identify a port
 with a gauge-current direction. Such an identification requires a full-rank
 physical current map, compact commutator closure, a common inner icosahedral
-action, and refinement naturality. The transitive port action also supplies no
+action, and refinement naturality. The declared-response certificate verifies
+these algebraic conditions conditionally, but does not source-bind the response
+representation, its four signed coefficients, or physical refinement. The
+transitive port action also supplies no
 invariant literal $8+3+1$ partition. The oriented faces supply a canonical
 rank-three candidate family band. Its physical family attachment is open. The
 cosmic-capacity selector and calibrated clock/curvature map needed for global

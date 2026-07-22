@@ -4,8 +4,7 @@
 The input is a port-current response manifest.  It declares only:
 
 * the certified twelve-port echosahedral carrier manifest (by path and hash);
-* four A5-equivariant reversible-response band scales and one common
-  odd-response sign, as exact rationals;
+* four signed A5-equivariant response coefficients, as exact rationals;
 * the typing split between reversible response automorphisms (current
   sources) and irreversible strict-descent repairs (never current sources).
 
@@ -22,11 +21,11 @@ than assumes:
 * A5 covariance, the icosahedral intertwiner, and innerness of the induced
   A5 action through sixty exact rotation normal-form witnesses;
 * refinement naturality along the declared carrier tower;
-* the four-dimensional equivariant response moduli (four band scales and one
-  common odd sign are exactly the open source data).
+* the four-dimensional equivariant response moduli (four signed band
+  coefficients are exactly the declared algebraic freedom).
 
-Abelian-record and rank-deficient response models fail the physical-current
-gate with typed error codes.  No Standard Model representation, particle
+Abelian-record and rank-deficient response models fail the conditional
+algebraic gate with typed error codes.  No Standard Model representation, particle
 assignment, measured coupling, or gauge target is accepted in a source
 manifest.  Every arithmetic decision is exact in Q(sqrt5); no floating point
 appears in a proof step.
@@ -48,9 +47,9 @@ if str(MODULE_DIR) not in sys.path:
 
 import echosahedral_selector_certificate as e565  # noqa: E402
 
-SCHEMA = "oph.port_current_response_manifest.v1"
-RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v1"
-NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v1"
+SCHEMA = "oph.port_current_response_manifest.v2"
+RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v2"
+NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v2"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -390,7 +389,12 @@ def parse_rational(value: Any, code: str) -> Fraction:
         raise CertificateError(code, f"cannot parse exact rational {value!r}") from exc
 
 
-def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
+def validate_manifest(
+    manifest: Mapping[str, Any],
+    base_dir: Path | None = None,
+    *,
+    allow_control_models: bool = False,
+) -> dict[str, Any]:
     e565.enforce_source_firewall(manifest)
     require(manifest.get("schema") == SCHEMA, "SCHEMA", f"expected {SCHEMA}")
 
@@ -399,48 +403,26 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     require(response.get("reversible") is True, "RESPONSE_TYPING", "response automorphisms must be typed reversible")
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
 
-    # The response-field provenance is a first-class fail-closed contract,
-    # not a free-text string.  The separately measured reversible response
-    # data enter the source packet as declared exact values (the open source
-    # data: four band scales and one common odd sign); optionally a real
-    # measurement artifact can be pinned by path and hash.
-    contract = manifest.get("response_measurement_contract")
-    require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_measurement_contract is missing")
+    # This packet declares a mathematical response construction.  It does
+    # not claim that the construction was derived from a physical response
+    # measurement; that remains a separate source-binding gate.
+    contract = manifest.get("response_declaration_contract")
+    require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_declaration_contract is missing")
     require(
         contract.get("distinct_from_register_relabeling") is True,
         "REGISTER_RELABELING_CONFLATION",
         "the response fields must be typed distinct from register relabeling",
     )
-    measurement_status = contract.get("measurement_status")
-    artifact = contract.get("measurement_artifact")
-    if measurement_status == "declared_source_data":
-        require(
-            artifact is None,
-            "RESPONSE_ARTIFACT",
-            "a declared source-data contract must not carry a measurement artifact",
-        )
-    elif measurement_status == "measured":
-        require(
-            isinstance(artifact, Mapping)
-            and isinstance(artifact.get("path"), str)
-            and isinstance(artifact.get("sha256"), str),
-            "RESPONSE_ARTIFACT",
-            "a measured response packet must pin its measurement artifact by path and sha256",
-        )
-        artifact_path = Path(artifact["path"])
-        if not artifact_path.is_absolute():
-            artifact_path = (base_dir or MODULE_DIR) / artifact_path
-        require(artifact_path.is_file(), "RESPONSE_ARTIFACT", "the pinned measurement artifact does not exist")
-        require(
-            sha256_json(load_json(artifact_path)) == artifact["sha256"],
-            "RESPONSE_ARTIFACT",
-            "the pinned measurement artifact hash does not match",
-        )
-    else:
-        raise CertificateError(
-            "RESPONSE_TYPING",
-            "measurement_status must be 'declared_source_data' or 'measured'",
-        )
+    require(
+        contract.get("status") == "declared_branch_premise",
+        "RESPONSE_TYPING",
+        "response construction status must be 'declared_branch_premise'",
+    )
+    require(
+        "measurement_artifact" not in contract,
+        "RESPONSE_ARTIFACT",
+        "measurement upgrades require a separately reviewed semantic artifact schema",
+    )
 
     repairs = manifest.get("strict_descent_repairs")
     require(isinstance(repairs, Mapping), "REPAIR_TYPING", "strict_descent_repairs is missing")
@@ -461,11 +443,16 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
             f"repair record {row.get('repair_id')} is conflated with the current source",
         )
 
-    model = manifest.get("response_model")
+    model = manifest.get("construction_model")
+    allowed_models = (
+        ("charged_double_triplet", "abelian_record", "symmetric_record_control")
+        if allow_control_models
+        else ("charged_double_triplet",)
+    )
     require(
-        model in ("charged_double_triplet", "abelian_record", "symmetric_record_control"),
+        model in allowed_models,
         "RESPONSE_MODEL",
-        f"unknown response model {model!r}",
+        "the production packet must declare the charged_double_triplet algebraic construction",
     )
 
     scales_raw = manifest.get("response_band_scales")
@@ -473,9 +460,6 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     band_names = ("unit_band", "quintet_band", "frame_band", "kernel_band")
     require(set(scales_raw) == set(band_names), "RESPONSE_SCALES", f"scales must name exactly the bands {band_names}")
     scales = {name: parse_rational(scales_raw[name], "RESPONSE_SCALES") for name in band_names}
-
-    sign = manifest.get("odd_response_sign")
-    require(sign in (1, -1), "ODD_RESPONSE_SIGN", "odd_response_sign must be +1 or -1")
 
     axis_scales_raw = manifest.get("even_quintet_axis_scales", ["1"] * 6)
     require(
@@ -497,11 +481,10 @@ def validate_manifest(manifest: Mapping[str, Any], base_dir: Path | None = None)
     return {
         "model": model,
         "scales": scales,
-        "sign": int(sign),
         "axis_scales": axis_scales,
         "odd_axis_signs": [int(s) for s in odd_axis_signs_raw],
         "repair_ledger_rows": len(ledger),
-        "measurement_status": measurement_status,
+        "response_status": "declared_branch_premise",
     }
 
 
@@ -674,7 +657,7 @@ class ChargedDoubleTripletModel:
         self.lam_unit = F5(scales["unit_band"])
         self.lam_quintet = F5(scales["quintet_band"])
         self.lam_frame = F5(scales["frame_band"])
-        self.lam_kernel = F5(scales["kernel_band"]) * F5(params["sign"])
+        self.lam_kernel = F5(scales["kernel_band"])
         self.axis_scales = [F5(x) for x in params["axis_scales"]]
         self.odd_axis_signs = [F5(s) for s in params["odd_axis_signs"]]
         self.blocks = (3, 3)
@@ -942,9 +925,14 @@ def band_projectors(frame: FrameRealization) -> dict[str, RMat]:
     return {"unit_band": unit, "quintet_band": quintet, "frame_band": frame_band, "kernel_band": kernel_band}
 
 
-def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
+def certificate_payload(
+    manifest: Mapping[str, Any],
+    base_dir: Path | None = None,
+    *,
+    allow_control_models: bool = False,
+) -> dict[str, Any]:
     base = base_dir or MODULE_DIR
-    params = validate_manifest(manifest, base)
+    params = validate_manifest(manifest, base, allow_control_models=allow_control_models)
     carrier, group_row, plus, carrier_manifest = load_carrier(manifest, base)
 
     verts = standard_vertices()
@@ -1008,7 +996,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
     require(
         derived_dimension == 11,
         "CENTER_NOT_ONE_DIMENSIONAL",
-        f"physical currents need derived dimension eleven; records that commute give {derived_dimension}",
+        f"the conditional current construction needs derived dimension eleven; records that commute give {derived_dimension}",
     )
 
     # Exact type identification of the derived algebra: commutators are
@@ -1287,7 +1275,6 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
     )
 
     gate = {
-        "source_defined_operators_domain_pairing_refinement": True,
         "injective_twelve_dimensional_image": True,
         "skew_adjoint": True,
         "commutator_closed": True,
@@ -1301,7 +1288,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "refinement_natural": True,
         "repairs_distinct_from_responses": True,
     }
-    require(all(gate.values()), "GATE", "physical-current gate did not pass")
+    require(all(gate.values()), "GATE", "conditional algebraic gate did not pass")
 
     return {
         "schema": RECEIPT_SCHEMA,
@@ -1312,10 +1299,9 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "forbidden_dependency_hits": [],
             "uses_only": [
                 "certified twelve-port carrier packet",
-                "typed response measurement contract",
+                "declared algebraic response construction",
                 "reversible response automorphism typing",
-                "four exact response band scales",
-                "one common odd-response sign",
+                "four exact signed response coefficients",
                 "irreversible strict-descent repair ledger (excluded from currents)",
             ],
         },
@@ -1326,10 +1312,12 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
             "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
             "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
-            "response_packet_provenance": params["measurement_status"],
-            "declared_source_data": "four exact A5-equivariant response band scales and one common odd-response sign (the open source data of the lane), plus the repair/response typing split",
-            "measurement_artifact_pinned": params["measurement_status"] == "measured",
-            "all_source_defined": True,
+            "response_construction_status": params["response_status"],
+            "declared_branch_premise": "the charged-double-triplet construction and four signed A5-equivariant response coefficients",
+            "carrier_and_refinement_source_bound": True,
+            "response_model_declared_as_branch_premise": True,
+            "physical_response_source_bound": False,
+            "algebraic_construction_verified": True,
         },
         "frame_realization": {
             "coordinate_model": "twelve unnormalized icosahedron vertices, cyclic permutations of (0, +/-1, +/-phi)",
@@ -1341,8 +1329,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "port_to_generator_map": {
             "model": params["model"],
-            "response_band_scales": {k: str(v) for k, v in params["scales"].items()},
-            "odd_response_sign": params["sign"],
+            "signed_response_band_coefficients": {k: str(v) for k, v in params["scales"].items()},
             "injective": True,
             "image_real_dimension": image_rank,
             "skew_adjoint": True,
@@ -1416,11 +1403,10 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "equivariant_lift_dimension": moduli_dimension,
             "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
             "open_source_data": [
-                "unit band response scale",
-                "quintet band response scale",
-                "frame band response scale",
-                "kernel band response scale",
-                "one common odd-response sign",
+                "signed unit-band response coefficient",
+                "signed quintet-band response coefficient",
+                "signed frame-band response coefficient",
+                "signed kernel-band response coefficient",
             ],
         },
         "repair_response_distinction": {
@@ -1432,18 +1418,24 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "classification_vs_realization": {
             "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
-            "physical_layer": "this receipt constructs current operators on a faithful charged response space with nonabelian closure and an inner A5 action",
-            "separating_witness": "the abelian record model matches the coefficient module yet fails the physical-current gate with CENTER_NOT_ONE_DIMENSIONAL",
+            "conditional_current_layer": "given the declared charged-double-triplet construction, this receipt constructs current operators with nonabelian closure and an inner A5 action",
+            "separating_witness": "the abelian record model matches the coefficient module yet fails the conditional algebraic gate with CENTER_NOT_ONE_DIMENSIONAL",
             "distinguished": True,
         },
-        "physical_current_gate": {**gate, "passed": True},
+        "conditional_algebraic_gate": {**gate, "passed": True},
+        "physical_source_gate": {
+            "response_model_source_bound": False,
+            "response_coefficients_source_bound": False,
+            "physical_refinement_intertwining_source_bound": False,
+            "passed": False,
+        },
         "derivation_chain": [
             {
                 "step": 1,
                 "premise": "declared response manifest with firewall and repair/response typing",
                 "uses": ["schema validation", "forbidden-token firewall", "reversible/irreversible typing split"],
                 "source_artifact": "manifests/port_current_response_reference.json",
-                "conclusion": "the source packet is admissible: four exact band scales, one common odd sign, repairs excluded from currents",
+                "conclusion": "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents",
             },
             {
                 "step": 2,
@@ -1513,7 +1505,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "Burnside count of the port action and exact character arithmetic",
                 "uses": ["sum of squared fixed-port counts = 240", "kernel-band multiplicity 0 in the even block"],
                 "source_artifact": "certificate_payload",
-                "conclusion": "equivariant lifts form exactly the four-scale family with one common odd sign; the block allocation is forced",
+                "conclusion": "equivariant lifts form exactly a four-dimensional family of signed band coefficients; the block allocation is forced",
             },
             {
                 "step": 12,
@@ -1527,7 +1519,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_566_negative_controls.json",
-                "conclusion": "the physical-current gate passes on the reference packet and fails closed on every countermodel",
+                "conclusion": "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; physical source binding remains open",
             },
         ],
         "factor_origins": {
@@ -1542,26 +1534,23 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "branch_scope": {
             "branch": "declared echosahedral response branch",
             "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
-            "declared_response_data": "four exact A5-equivariant response band scales and one common odd-response sign, typed as separately measured reversible response automorphism data",
-            "not_claimed": "no statement about arbitrary OPH carriers, no derivation of the response data from raw consensus dynamics, no identification with the physical Standard Model gauge group",
+            "declared_response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements",
+            "not_claimed": "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group",
         },
         "acceptance_criteria_status": {
-            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": True,
+            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": False,
             "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
             "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
             "coefficient_classification_distinguished_from_physical_current_realization": True,
             "no_measured_coupling_particle_assignment_or_standard_model_current_input": True,
         },
         "issue_closure_condition": {
-            "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
-            "response_field_provenance": params["measurement_status"],
-            "source_data": "the hash-pinned certified carrier packet plus the declared response source data (four A5-equivariant band scales and one common odd-response sign) - exactly the open source data named by the parent response lane",
-            "met_locally": True,
-            "optional_strengthening": (
-                None
-                if params["measurement_status"] == "measured"
-                else "a hash-pinned measurement artifact (response_measurement_contract.measurement_artifact) upgrades the declared source data to a measured record; the issue's acceptance criteria do not require it"
-            ),
+            "produced_locally": "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)",
+            "response_field_provenance": "declared_branch_premise",
+            "conditional_algebraic_gate_passed": True,
+            "physical_source_realization_gate_passed": False,
+            "met_locally": False,
+            "remaining_producer": "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps",
         },
         "dependency_acyclicity_note": {
             "upstream": [
@@ -1575,10 +1564,12 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
-            "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
-            "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign enter as declared reversible-response source data (the open source data of the lane), the same epistemic status as the pinned carrier manifest; they are not derived from raw consensus dynamics",
+            "proves": "the conditional exact port-current algebra for the declared charged-double-triplet response construction",
+            "status": "proved_conditional_on_declared_response_representation",
             "does_not_close": [
-                "derivation of the response scales or the response space from raw OPH consensus dynamics",
+                "PORT-CURRENT-INNER as a physical source-bound receipt",
+                "derivation or measurement of the response representation and coefficients from physical carrier response",
+                "physical refinement intertwining beyond the declared algebraic tower maps",
                 "block determinant balance and PORT-SPIN-LIFT",
                 "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
                 "matter attachment, family structure, and exterior package selection",
@@ -1597,7 +1588,7 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     cases: list[tuple[str, dict[str, Any], str]] = []
 
     abelian = copy.deepcopy(manifest)
-    abelian["response_model"] = "abelian_record"
+    abelian["construction_model"] = "abelian_record"
     cases.append(("abelian_record_model", abelian, "CENTER_NOT_ONE_DIMENSIONAL"))
 
     rank_deficient = copy.deepcopy(manifest)
@@ -1614,10 +1605,10 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
 
     uncommon_sign = copy.deepcopy(manifest)
     uncommon_sign["odd_axis_signs"] = [1, 1, 1, 1, 1, -1]
-    cases.append(("odd_response_sign_not_common", uncommon_sign, "COVARIANCE_BROKEN"))
+    cases.append(("odd_axis_sign_not_common", uncommon_sign, "COVARIANCE_BROKEN"))
 
     symmetric = copy.deepcopy(manifest)
-    symmetric["response_model"] = "symmetric_record_control"
+    symmetric["construction_model"] = "symmetric_record_control"
     cases.append(("symmetric_record_pairing", symmetric, "SKEW_ADJOINTNESS_BROKEN"))
 
     conflated = copy.deepcopy(manifest)
@@ -1625,12 +1616,15 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     cases.append(("repair_conflated_with_response", conflated, "REPAIR_RESPONSE_CONFLATION"))
 
     relabeling = copy.deepcopy(manifest)
-    relabeling["response_measurement_contract"]["distinct_from_register_relabeling"] = False
+    relabeling["response_declaration_contract"]["distinct_from_register_relabeling"] = False
     cases.append(("register_relabeling_conflated_as_response", relabeling, "REGISTER_RELABELING_CONFLATION"))
 
-    phantom = copy.deepcopy(manifest)
-    phantom["response_measurement_contract"]["measurement_status"] = "measured"
-    cases.append(("phantom_measurement_claim", phantom, "RESPONSE_ARTIFACT"))
+    unsupported_measurement = copy.deepcopy(manifest)
+    unsupported_measurement["response_declaration_contract"]["measurement_artifact"] = {
+        "path": "unrelated.json",
+        "sha256": "0" * 64,
+    }
+    cases.append(("unsupported_measurement_upgrade", unsupported_measurement, "RESPONSE_ARTIFACT"))
 
     forbidden = copy.deepcopy(manifest)
     forbidden["downstream_hint"] = {"measured_coupling_target": "alpha_inverse"}
@@ -1644,7 +1638,7 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
     for name, mutant, expected_code in negative_control_cases(manifest):
         actual_code = "ACCEPTED"
         try:
-            certificate_payload(mutant, base_dir)
+            certificate_payload(mutant, base_dir, allow_control_models=True)
         except CertificateError as exc:
             actual_code = exc.code
         require(
@@ -1665,21 +1659,21 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
                 "derived_dimension": 0,
                 "center_dimension": 12,
                 "induced_action_on_abelian_algebra": "nontrivial, hence not inner: Int of an abelian algebra is trivial",
-                "conclusion": "coefficient records that commute never pass the physical-current gate",
+                "conclusion": "coefficient records that commute never pass the conditional algebraic gate",
             },
             "rank_deficient": {
                 "kernel_band_scale_zero_image_dimension": 9,
                 "unit_band_scale_zero_image_dimension": 11,
-                "conclusion": "degenerate response scales cannot produce the twelve-dimensional physical current",
+                "conclusion": "degenerate response coefficients cannot produce the twelve-dimensional algebraic current construction",
             },
             "equivariance": {
                 "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
-                "per_axis_sign_flip": "breaks the common odd-response sign and covariance",
+                "per_axis_sign_flip": "breaks equivariance and covariance",
             },
             "typing": {
                 "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed",
                 "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
-                "phantom_measurement": "claiming measured status without a pinned, existing, hash-matching artifact fails closed",
+                "unsupported_measurement_upgrade": "measurement artifacts are rejected until a separately reviewed semantic schema exists",
                 "firewall": "a measured-coupling target in the source manifest fails closed",
             },
         },

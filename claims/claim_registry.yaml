@@ -853,13 +853,13 @@
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
-      "statement": "On the certified twelve-port echosahedral carrier lineage with a typed response measurement contract (four exact A5-equivariant band scales, one common odd-response sign entering as declared source data, strict-descent repairs typed irreversible and excluded from currents), the source packet derives an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on a faithful charged response space C^3+C^3, with one-dimensional central u(1) on the constant even port line, derived dimension eleven, adjoint rank eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action via sixty exact rotation normal-form exponential witnesses, and refinement naturality. A representation-typed no-go (irrational order-five sector characters, absolute irreducibility, no index-three subgroup) certifies that register relabeling cannot generate the currents. The equivariant lifts form exactly the four-scale-one-sign family. Abelian-record and rank-deficient response models fail the physical-current gate. The response source data have the same epistemic status as the pinned carrier manifest; an optional hash-pinned measurement artifact can upgrade them to a measured record. The claim does not derive the response scales or sectors from raw OPH consensus dynamics and does not identify the algebra with the physical Standard Model gauge group.",
+      "statement": "Given the certified twelve-port echosahedral carrier lineage, the declared charged-double-triplet response construction, four signed nonzero A5-equivariant response coefficients, and strict-descent repairs typed irreversible and excluded from currents, the certificate constructs an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on C^3+C^3, with one-dimensional central u(1), derived dimension eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action, and naturality along the declared algebraic tower maps. This is a conditional exact algebraic theorem. It does not source-bind the response representation or coefficients to physical carrier response, close physical refinement intertwining, or identify the algebra with the physical Standard Model gauge group.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "source_derived_finite_branch_theorem",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
-        "declared_reversible_response_band_scales_and_odd_sign",
-        "typed_response_measurement_contract_as_declared_source_data"
+        "declared_charged_double_triplet_algebraic_construction",
+        "four_signed_nonzero_response_coefficients"
       ],
       "imported_results": [
         "exact_Q_sqrt5_linear_algebra",
@@ -867,8 +867,8 @@
         "Rodrigues_rotation_normal_form",
         "Burnside_orbit_counting"
       ],
-      "oph_specific_delta": "The physical current lift is computed only from the certified carrier packet plus typed reversible response data, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). It closes PORT-CURRENT-INNER on that branch without importing rotation tables, Lie targets, Standard Model currents, particle assignments, or measured couplings, and it separates coefficient classification from physical current realization by an executable abelian countermodel.",
-      "novelty_type": "source_derived_finite_current_lift_certificate",
+      "oph_specific_delta": "The conditional current lift is computed from the certified carrier packet plus a declared charged-double-triplet construction, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). It proves the exact algebraic PORT-CURRENT-INNER target under that representation premise without importing rotation tables, Standard Model currents, particle assignments, or measured couplings. Physical source binding remains open.",
+      "novelty_type": "conditional_finite_current_lift_certificate",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "physics-problems/issue_566_port_current_algebra.md",
@@ -879,8 +879,8 @@
         "code/a5_closure/tests/test_port_current_inner_certificate.py"
       ],
       "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate.",
-      "scope_if_false": "The physical port-current theorem and the PORT-CURRENT-INNER closure fall back to the coefficient-level trichotomy. The echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
-      "status": "proved_on_declared_echosahedral_response_branch"
+      "scope_if_false": "The conditional port-current algebra construction falls back to the coefficient-level trichotomy. The physical source-binding receipt is already open independently; the echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
+      "status": "proved_conditional_on_declared_response_representation"
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",

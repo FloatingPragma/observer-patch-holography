@@ -4,13 +4,13 @@
     "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": true,
     "coefficient_classification_distinguished_from_physical_current_realization": true,
     "no_measured_coupling_particle_assignment_or_standard_model_current_input": true,
-    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
+    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": false
   },
   "branch_scope": {
     "branch": "declared echosahedral response branch",
     "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
-    "declared_response_data": "four exact A5-equivariant response band scales and one common odd-response sign, typed as separately measured reversible response automorphism data",
-    "not_claimed": "no statement about arbitrary OPH carriers, no derivation of the response data from raw consensus dynamics, no identification with the physical Standard Model gauge group"
+    "declared_response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements",
+    "not_claimed": "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group"
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charged_faithfulness": {
@@ -20,21 +20,23 @@
     "matrix_faithful": true
   },
   "claim_boundary": {
-    "closes": "PORT-CURRENT-INNER on the declared echosahedral response branch",
-    "declared_source_data": "the four A5-equivariant response band scales and the common odd-response sign enter as declared reversible-response source data (the open source data of the lane), the same epistemic status as the pinned carrier manifest; they are not derived from raw consensus dynamics",
     "does_not_close": [
-      "derivation of the response scales or the response space from raw OPH consensus dynamics",
+      "PORT-CURRENT-INNER as a physical source-bound receipt",
+      "derivation or measurement of the response representation and coefficients from physical carrier response",
+      "physical refinement intertwining beyond the declared algebraic tower maps",
       "block determinant balance and PORT-SPIN-LIFT",
       "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
       "matter attachment, family structure, and exterior package selection",
       "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
-    ]
+    ],
+    "proves": "the conditional exact port-current algebra for the declared charged-double-triplet response construction",
+    "status": "proved_conditional_on_declared_response_representation"
   },
   "classification_vs_realization": {
     "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
+    "conditional_current_layer": "given the declared charged-double-triplet construction, this receipt constructs current operators with nonabelian closure and an inner A5 action",
     "distinguished": true,
-    "physical_layer": "this receipt constructs current operators on a faithful charged response space with nonabelian closure and an inner A5 action",
-    "separating_witness": "the abelian record model matches the coefficient module yet fails the physical-current gate with CENTER_NOT_ONE_DIMENSIONAL"
+    "separating_witness": "the abelian record model matches the coefficient module yet fails the conditional algebraic gate with CENTER_NOT_ONE_DIMENSIONAL"
   },
   "closure": {
     "adjoint_rank": 11,
@@ -1002,6 +1004,21 @@
     "positive_definite": true,
     "pullback_form": "-Re tr(K(f) K(f')) on port fields"
   },
+  "conditional_algebraic_gate": {
+    "a5_covariant_icosahedral_intertwiner": true,
+    "adjoint_rank_eleven": true,
+    "central_u1_kernel_dimension_one": true,
+    "commutator_closed": true,
+    "compact_type_positive_definite_invariant_form": true,
+    "derived_dimension_eleven": true,
+    "faithful_charged_response_space": true,
+    "induced_a5_action_inner": true,
+    "injective_twelve_dimensional_image": true,
+    "passed": true,
+    "refinement_natural": true,
+    "repairs_distinct_from_responses": true,
+    "skew_adjoint": true
+  },
   "dependency_acyclicity_note": {
     "downstream": [
       "a5_screen_sm_closure.py and exterior_sm_completion.py reference this closure in their gate ledgers; this receipt does not consume them"
@@ -1014,7 +1031,7 @@
   },
   "derivation_chain": [
     {
-      "conclusion": "the source packet is admissible: four exact band scales, one common odd sign, repairs excluded from currents",
+      "conclusion": "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents",
       "premise": "declared response manifest with firewall and repair/response typing",
       "source_artifact": "manifests/port_current_response_reference.json",
       "step": 1,
@@ -1117,7 +1134,7 @@
       ]
     },
     {
-      "conclusion": "equivariant lifts form exactly the four-scale family with one common odd sign; the block allocation is forced",
+      "conclusion": "equivariant lifts form exactly a four-dimensional family of signed band coefficients; the block allocation is forced",
       "premise": "Burnside count of the port action and exact character arithmetic",
       "source_artifact": "certificate_payload",
       "step": 11,
@@ -1138,7 +1155,7 @@
       ]
     },
     {
-      "conclusion": "the physical-current gate passes on the reference packet and fails closed on every countermodel",
+      "conclusion": "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; physical source binding remains open",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_566_negative_controls.json",
       "step": 13,
@@ -2522,28 +2539,19 @@
   },
   "issue": 566,
   "issue_closure_condition": {
-    "met_locally": true,
-    "optional_strengthening": "a hash-pinned measurement artifact (response_measurement_contract.measurement_artifact) upgrades the declared source data to a measured record; the issue's acceptance criteria do not require it",
-    "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, refinement naturality, and the register-relabeling no-go, exact over Q(sqrt5)",
-    "response_field_provenance": "declared_source_data",
-    "source_data": "the hash-pinned certified carrier packet plus the declared response source data (four A5-equivariant band scales and one common odd-response sign) - exactly the open source data named by the parent response lane"
+    "conditional_algebraic_gate_passed": true,
+    "met_locally": false,
+    "physical_source_realization_gate_passed": false,
+    "produced_locally": "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)",
+    "remaining_producer": "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps",
+    "response_field_provenance": "declared_branch_premise"
   },
-  "manifest_sha256": "c167c52646d352ebb910ebf653e61190ee47c6b81d09ff336fd472bc99e3e3d6",
-  "physical_current_gate": {
-    "a5_covariant_icosahedral_intertwiner": true,
-    "adjoint_rank_eleven": true,
-    "central_u1_kernel_dimension_one": true,
-    "commutator_closed": true,
-    "compact_type_positive_definite_invariant_form": true,
-    "derived_dimension_eleven": true,
-    "faithful_charged_response_space": true,
-    "induced_a5_action_inner": true,
-    "injective_twelve_dimensional_image": true,
-    "passed": true,
-    "refinement_natural": true,
-    "repairs_distinct_from_responses": true,
-    "skew_adjoint": true,
-    "source_defined_operators_domain_pairing_refinement": true
+  "manifest_sha256": "4285344be88495c335b6784bd19be8992a9b532c2df9588baca389f1079e7684",
+  "physical_source_gate": {
+    "passed": false,
+    "physical_refinement_intertwining_source_bound": false,
+    "response_coefficients_source_bound": false,
+    "response_model_source_bound": false
   },
   "port_to_generator_map": {
     "band_realization": {
@@ -2562,8 +2570,7 @@
     "injective": true,
     "kernel_block_real_verified": true,
     "model": "charged_double_triplet",
-    "odd_response_sign": 1,
-    "response_band_scales": {
+    "signed_response_band_coefficients": {
       "frame_band": "1",
       "kernel_band": "1",
       "quintet_band": "1",
@@ -2615,11 +2622,10 @@
     "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
     "equivariant_lift_dimension": 4,
     "open_source_data": [
-      "unit band response scale",
-      "quintet band response scale",
-      "frame band response scale",
-      "kernel band response scale",
-      "one common odd-response sign"
+      "signed unit-band response coefficient",
+      "signed quintet-band response coefficient",
+      "signed frame-band response coefficient",
+      "signed kernel-band response coefficient"
     ]
   },
   "response_versus_register_relabeling": {
@@ -2639,27 +2645,28 @@
       "kernel_block": "1"
     }
   },
-  "schema": "oph.port_current_inner_receipt.v1",
+  "schema": "oph.port_current_inner_receipt.v2",
   "source_definedness": {
-    "all_source_defined": true,
+    "algebraic_construction_verified": true,
     "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
-    "declared_source_data": "four exact A5-equivariant response band scales and one common odd-response sign (the open source data of the lane), plus the repair/response typing split",
+    "carrier_and_refinement_source_bound": true,
+    "declared_branch_premise": "the charged-double-triplet construction and four signed A5-equivariant response coefficients",
     "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
     "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
-    "measurement_artifact_pinned": false,
     "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
+    "physical_response_source_bound": false,
     "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
-    "response_packet_provenance": "declared_source_data",
+    "response_construction_status": "declared_branch_premise",
+    "response_model_declared_as_branch_premise": true,
     "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
   },
   "source_firewall": {
     "forbidden_dependency_hits": [],
     "uses_only": [
       "certified twelve-port carrier packet",
-      "typed response measurement contract",
+      "declared algebraic response construction",
       "reversible response automorphism typing",
-      "four exact response band scales",
-      "one common odd-response sign",
+      "four exact signed response coefficients",
       "irreversible strict-descent repair ledger (excluded from currents)"
     ]
   },
