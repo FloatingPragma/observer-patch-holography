@@ -1,16 +1,28 @@
 {
   "$schema": "../uv/oph_bd_threshold_spectrum_inputs.schema.json",
   "artifact": "oph_bd_threshold_spectrum_source_packet",
+  "continuation_issues": [
+    369
+  ],
   "bd_branch": {
     "identifier": "BD_n=1_E8xE8_heterotic_SU5_one_massless_Higgs_pair",
     "scope": "Bouchard-Donagi visible massless-cohomology branch",
     "selected_hidden_completion": null,
     "selected_moduli_point": null
   },
+  "comparison_registry": {
+    "common_threshold_scheme_fixed": false,
+    "complete_oph_target": false,
+    "status": "five_coordinate_mixed_status_comparison_contract"
+  },
   "bd_uv_inputs": {
+    "augmented_interval_isolation_receipt": null,
+    "branch_global_coverage_receipt": null,
     "bundle_moduli_point_and_mass_matrix": null,
     "bulk_five_brane_sector_and_moduli_or_absence": null,
     "complex_structure_moduli_point_and_mass_matrix": null,
+    "comparative_catalogue_coverage_receipt": null,
+    "completed_constraint_system_and_stability_receipt": null,
     "conventional_soft_terms_boundary_conditions": null,
     "conventional_susy_breaking_and_mediation_data": null,
     "heavy_nonzero_mode_spectrum": null,
@@ -20,9 +32,11 @@
     "low_energy_spectrum_solver_receipt": null,
     "bd_equivalent_non_susy_uv_deformation_receipt": null,
     "physical_moduli_jacobian": null,
+    "physical_quotient_descent_receipt": null,
     "normalized_yukawa_boundary_data": null,
     "string_compactification_and_matching_scales": null,
     "supersymmetric_sector_decoupling_map": null,
+    "target_registry_precommitment_receipt": null,
     "threshold_matching_receipt": null
   },
   "external_sources": [
@@ -65,10 +79,27 @@
   "literature_inventory": {
     "available": {
       "bundle_moduli_count": 51,
+      "bundle_moduli_count_scope": "complex gauge-inequivalent invariant bundle deformations before restricting to the one-Higgs locus",
       "complex_structure_moduli_count": 11,
       "hidden_completion_original": "trivial hidden bundle and unbroken E8 N=1 super-Yang-Mills, plus bulk M5-branes that cancel the remaining anomaly class",
       "kahler_moduli_count": 11,
+      "moduli_count_field": "complex",
+      "one_higgs_determinantal_data": {
+        "constituent_bundle_deformations_complex": [
+          4,
+          3
+        ],
+        "extension_tangent_dimension_complex": 42,
+        "map_codomain_dimension_complex": 9,
+        "map_domain_dimension_complex": 8,
+        "map_rank_on_one_higgs_locus": 7,
+        "source_ids": [
+          "bd2005",
+          "bcd2006"
+        ]
+      },
       "one_higgs_locus": "codimension-two locus in the invariant extension-moduli space",
+      "one_higgs_locus_codimension_complex": 2,
       "visible_massless_spectrum": "three chiral families, one massless Higgs-pair stratum, and no massless visible exotics"
     },
     "not_supplied_by_published_bd_sources": [
@@ -82,7 +113,11 @@
       "canonically normalized numerical Yukawa matrices",
       "a low-energy spectrum-generator input/output pair",
       "one-loop string or heavy-field threshold determinants",
-      "the physical moduli-to-observable Jacobian"
+      "the physical quotient-descent proof and complete coordinate registry",
+      "the completed constraint system, stationary effective potential, and physical Hessian stability bound",
+      "the physical moduli-to-observable and completion-constraint Jacobians",
+      "an outward-rounded interval existence-and-isolation certificate for the augmented system",
+      "branch-global parameter-domain coverage and a duality-deduplicated comparative catalogue"
     ]
   },
   "numerical_policy": {
@@ -138,7 +173,7 @@
       "value": "91.1879"
     }
   },
-  "schema_version": 1,
+  "schema_version": 3,
   "target_coordinates": {
     "alpha2_mz": {
       "claim_status": "declared_D10_surface_coordinate",

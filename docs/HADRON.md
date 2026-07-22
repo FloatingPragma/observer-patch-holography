@@ -3,33 +3,32 @@
 The operating policy for particle rows whose final numeric values depend on
 low-energy QCD.
 
-## Standing
+## Why The Hadronic Test Is Hard
 
 The source chain fixes everything on its side of the frontier: each declared
 P map has an interval-certified unique fixed point on its stated domain, the
 charged-lepton transport term is a closed one-loop kernel, and the gauge-width
 map lands 2.5×10⁻⁶ relative from the measured α⁻¹ with the hadronic transport
 term open. That open term is a frontier of the entire field, a property of
-the observable: closing CL-1/CL-2 asks for 4×10⁻⁹ relative precision on the
+the observable: closing the pixel maps of issue #545 asks for 4×10⁻⁹ relative precision on the
 hadronic moment, beyond every method on Earth. The best data-driven
 dispersive determinations carry relative uncertainties near 4×10⁻³, the
 leading lattice programs reach a comparable order after campaigns at the 10⁷
 core-hour scale, the region below 2 GeV is nonperturbative, and a source-only
 payload additionally forbids measured hadronic input even for scale setting.
-See "Why The Hadronic Test Is Hard" in
-[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md). Existing grid
-work is exploratory.
+Existing grid work is exploratory.
 
 ## Closure-Program Note
 
-The hadronic lane is generator G1 of the closure program
-([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): a
+The hadronic lane is the primary generator of the closure program
+([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)): a
 genuinely target-blind Ward-projected transport computation under a valid
-detached contract is the object that could close or move CL-1 and CL-2. The
+detached contract is the object that could close or move the source-chain
+and gauge-width pixel maps. The
 target-contract provenance (externally timestamped v1/v2, v2's invalid scalar
 scoring algebra, the permanently inactive post-target-access v3 erratum
-scaffold, the exploratory non-blind V1 grid) is recorded in the reading rules
-of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). A valid experiment needs a
+scaffold, the exploratory non-blind V1 grid) is recorded on the P-closure
+issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)). A valid experiment needs a
 detached successor whose complete source method is frozen before genuinely
 withheld data, or an audited clean-room producer with no target access. The
 payload computation must not read the target file; the complete transitive

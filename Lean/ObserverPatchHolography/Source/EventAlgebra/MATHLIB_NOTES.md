@@ -122,8 +122,43 @@ L2-norm stack.
 - **Organisational difference (the paper's claim):** the present bundle
   separates algebra-only content from trace-dependent content lemma-by-lemma
   (machine-visible doc tags), and routes classicality through an explicit
-  conditional-expectation projector onto a distinguished block-diagonal
-  commutant (`ProjectivePartition` / `pinchingExpectation`), with
+  bundled linear pinching projector onto a distinguished block-diagonal
+  commutant (`ProjectivePartition` / `partitionPinching`), with
   existence/uniqueness/contractivity and the Lüders-compatibility law
   `𝔼 ∘ L_P = L_P ∘ 𝔼` for commutant `P`. That organisation, not the CHSH
   arithmetic, is the delta over the matrix-first prior art.
+
+## Additions from the average and state-bound modules (2026-07-21)
+
+13. **`Submodule.span_induction₂` does not infer its motive.** The binary
+    span-induction principle behind the span closure package
+    (`mul_mem_span`, `span_mul_comm`) fails higher-order unification when
+    applied bare; the predicate must be passed explicitly via
+    `(p := fun x y _ _ => ...)`. The unary `span_induction` infers fine
+    through `induction ... using`.
+14. **Dependent-motive `rw` failure with bundled state hypotheses.**
+    Rewriting with the unit-trace equation `ρ.trace = 1` inside a
+    hypothesis whose proof term mentions `IsState ρ` fails the motive
+    typecheck, because the state predicate itself contains the trace being
+    abstracted. **Workaround:** term-level chains (`h.symm.trans hρ.2`)
+    plus `Complex.ofReal_injective` instead of `rw ... at`.
+15. **`Matrix.unitaryGroup` is a `Submonoid`, not Mathlib's `unitary`.**
+    `CStarRing.norm_coe_unitary` therefore does not apply to
+    `IsHermitian.eigenvectorUnitary`. **Workaround:** norm one by hand from
+    `mem_unitaryGroup_iff'` and the C*-identity
+    (`norm_eq_one_of_mem_unitaryGroup`), mirroring the involution lemma.
+16. **`dotProduct` lives at the root namespace** in this revision
+    (`Matrix.dotProduct` is unknown); `dotProduct_single` closes the
+    basis-vector `mulVec` computation of the diagonal-entry bound.
+17. **`EuclideanSpace.single`/`norm_single` are deprecated toward `PiLp`**
+    (since 2026-03-15) and the `WithLp` machinery is identity-transparent
+    (`toLp`/`ofLp` are `rfl`), so a `show` converts Euclidean-space
+    statements to raw matrix-vector algebra.
+    `EuclideanSpace.inner_single_left` (not deprecated),
+    `norm_inner_le_norm`, and `l2_opNorm_mulVec` give the diagonal-entry
+    bound `‖B i i‖ ≤ ‖B‖` in a few lines.
+18. **State bound ingredients all present:**
+    `IsHermitian.trace_eq_sum_eigenvalues`,
+    `PosSemidef.eigenvalues_nonneg`, `l2_opNorm_mul`, `norm_star`, and
+    `RCLike.norm_ofReal` complete `‖Tr(ρ M)‖ ≤ ‖M‖` and hence the
+    state-level CHSH corollary in about sixty lines.

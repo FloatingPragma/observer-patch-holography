@@ -1,10 +1,12 @@
 % Bibliography for
-% "Machine-Checked Finite Quantum Event Algebras ..."
+% "Verified Projection-Event Calculus in Lean 4"
 % Bibliographic details that could not be confirmed to the level of
 % volume/page are given as author/title/venue/year only, per submission policy.
+% DOIs are given as full links in notes because the sn-mathphys-num style
+% does not typeset a separate doi field.
 
 % ---------------------------------------------------------------------------
-% Foundational quantum-probability sources
+% Foundational quantum-probability and operator-algebra sources
 % ---------------------------------------------------------------------------
 
 @book{vonneumann1932,
@@ -23,7 +25,7 @@
   journal = {Annalen der Physik},
   volume  = {8},
   pages   = {322--328},
-  year    = {1950},
+  year    = {1951},
   note    = {English translation by K.~A.~Kirkpatrick, {\em Concerning the
                state-change due to the measurement process}, Annalen der
                Physik {\bf 15}(9), 663--670 (2006)}
@@ -46,7 +48,8 @@
   volume  = {1},
   number  = {3},
   pages   = {195--200},
-  year    = {1964}
+  year    = {1964},
+  note    = {\url{https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195}}
 }
 
 @article{chsh1969,
@@ -57,7 +60,8 @@
   volume  = {23},
   number  = {15},
   pages   = {880--884},
-  year    = {1969}
+  year    = {1969},
+  note    = {\url{https://doi.org/10.1103/PhysRevLett.23.880}}
 }
 
 @article{tsirelson1980,
@@ -67,7 +71,51 @@
   volume  = {4},
   number  = {2},
   pages   = {93--100},
-  year    = {1980}
+  year    = {1980},
+  note    = {\url{https://doi.org/10.1007/BF00417500}}
+}
+
+@article{umegaki1954,
+  author  = {Hisaharu Umegaki},
+  title   = {Conditional expectation in an operator algebra},
+  journal = {T{\^o}hoku Mathematical Journal},
+  volume  = {6},
+  number  = {2--3},
+  pages   = {177--181},
+  year    = {1954},
+  note    = {\url{https://doi.org/10.2748/tmj/1178245177}}
+}
+
+@article{takesaki1972,
+  author  = {Masamichi Takesaki},
+  title   = {Conditional expectations in von {Neumann} algebras},
+  journal = {Journal of Functional Analysis},
+  volume  = {9},
+  number  = {3},
+  pages   = {306--321},
+  year    = {1972},
+  note    = {\url{https://doi.org/10.1016/0022-1236(72)90004-3}}
+}
+
+@article{bhatia2000,
+  author  = {Rajendra Bhatia},
+  title   = {Pinching, trimming, truncating, and averaging of matrices},
+  journal = {The American Mathematical Monthly},
+  volume  = {107},
+  number  = {7},
+  pages   = {602--608},
+  year    = {2000}
+}
+
+@book{hayashi2017,
+  author    = {Masahito Hayashi},
+  title     = {Quantum Information Theory: Mathematical Foundation},
+  edition   = {2nd},
+  series    = {Graduate Texts in Physics},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {2017},
+  note      = {\url{https://doi.org/10.1007/978-3-662-49725-8}}
 }
 
 % ---------------------------------------------------------------------------
@@ -108,7 +156,7 @@
   volume  = {68},
   pages   = {Article 2},
   year    = {2024},
-  note    = {DOI: 10.1007/s10817-023-09689-9}
+  note    = {\url{https://doi.org/10.1007/s10817-023-09689-9}}
 }
 
 @article{bordg2021,
@@ -117,7 +165,8 @@
   journal = {Journal of Automated Reasoning},
   volume  = {65},
   pages   = {691--709},
-  year    = {2021}
+  year    = {2021},
+  note    = {\url{https://doi.org/10.1007/s10817-020-09584-7}}
 }
 
 @article{bordg2020afp,
@@ -150,14 +199,7 @@
   volume  = {70},
   pages   = {Article 10},
   year    = {2026},
-  note    = {DOI: 10.1007/s10817-026-09750-3}
-}
-
-@misc{nash2023,
-  author = {Oliver Nash},
-  title  = {Engel's Theorem in Mathlib},
-  year   = {2023},
-  note   = {Preprint, arXiv}
+  note    = {\url{https://doi.org/10.1007/s10817-026-09750-3}}
 }
 
 @article{baanen2022,
@@ -178,7 +220,8 @@
                Certified Programs and Proofs (CPP 2020)},
   publisher = {ACM},
   pages     = {367--381},
-  year      = {2020}
+  year      = {2020},
+  note      = {\url{https://doi.org/10.1145/3372885.3373824}}
 }
 
 @inproceedings{lean4,
@@ -189,7 +232,8 @@
   volume    = {12699},
   pages     = {625--635},
   publisher = {Springer},
-  year      = {2021}
+  year      = {2021},
+  note      = {\url{https://doi.org/10.1007/978-3-030-79876-5_37}}
 }
 
 @misc{eventalgebra,
@@ -201,8 +245,62 @@
             \texttt{leanprover/lean4:v4.29.1} over Mathlib}
 }
 
+@misc{zhaoYu2026CHSHRigidity,
+  author        = {Tianrun Zhao and Nengkun Yu},
+  title         = {Formalizing {CHSH} Rigidity in {Lean 4}},
+  year          = {2026},
+  eprint        = {2604.03884},
+  archivePrefix = {arXiv},
+  primaryClass  = {quant-ph},
+  note          = {arXiv:2604.03884,
+                   \url{https://doi.org/10.48550/arXiv.2604.03884}}
+}
+
+@misc{kasauraEtAl2026LeanQuantum,
+  author        = {Kazumi Kasaura and Kei Tsukamoto and Kento Mori and Risa Mizuno and
+                   Takahiro Namatame and Yuta Oriike and Masaya Taniguchi and Sho Sonoda and
+                   Hayata Yamasaki},
+  title         = {{Lean-Quantum}: Toward {AI}-Assisted Formalization of Quantum Information},
+  year          = {2026},
+  eprint        = {2607.05492},
+  archivePrefix = {arXiv},
+  primaryClass  = {quant-ph},
+  note          = {arXiv:2607.05492,
+                   \url{https://doi.org/10.48550/arXiv.2607.05492}}
+}
+
+@misc{zhuEtAl2026LeanQIT,
+  author        = {Chengkai Zhu and Ziao Tang and Guocheng Zhen and Yimeng Cao and
+                   Yusheng Zhao and Ranyiliu Chen and Xuanqiang Zhao and Lei Zhang and Xin Wang},
+  title         = {{Lean-QIT}: Towards a Formal Infrastructure for Quantum Information Theory},
+  year          = {2026},
+  eprint        = {2607.09632},
+  archivePrefix = {arXiv},
+  primaryClass  = {quant-ph},
+  note          = {arXiv:2607.09632,
+                   \url{https://doi.org/10.48550/arXiv.2607.09632}}
+}
+
+@misc{physlibPinching2026,
+  author       = {{Physlib contributors}},
+  title        = {QuantumInfo.Finite.Pinching: Pinching Channels},
+  year         = {2026},
+  howpublished = {Lean library documentation},
+  url          = {https://ohaithe.re/Lean-QuantumInfo/QuantumInfo/Finite/Pinching.html},
+  note         = {Accessed 20 July 2026}
+}
+
+@misc{mathlibCHSH2026,
+  author       = {Kim Morrison and {Mathlib contributors}},
+  title        = {Mathlib.Algebra.Star.CHSH},
+  year         = {2026},
+  howpublished = {Mathlib documentation},
+  url          = {https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Star/CHSH.html},
+  note         = {Accessed 20 July 2026}
+}
+
 % ---------------------------------------------------------------------------
-% Venue-native foundational bank (Quantum Studies: Mathematics and Foundations)
+% Additional venue-relevant sources
 % ---------------------------------------------------------------------------
 
 @article{reddigerpoirier2025,
@@ -213,7 +311,7 @@
   volume  = {12},
   pages   = {Article 5},
   year    = {2025},
-  note    = {DOI: 10.1007/s40509-024-00349-0}
+  note    = {\url{https://doi.org/10.1007/s40509-024-00349-0}}
 }
 
 @article{reddiger2026,
@@ -224,7 +322,7 @@
   volume  = {13},
   pages   = {Article 1},
   year    = {2026},
-  note    = {DOI: 10.1007/s40509-025-00375-6}
+  note    = {\url{https://doi.org/10.1007/s40509-025-00375-6}}
 }
 
 @article{goldstein2026,
@@ -234,7 +332,7 @@
   volume  = {13},
   pages   = {Article 11},
   year    = {2026},
-  note    = {DOI: 10.1007/s40509-025-00381-8}
+  note    = {\url{https://doi.org/10.1007/s40509-025-00381-8}}
 }
 
 @article{aharonovshushi2024,
@@ -245,7 +343,7 @@
   volume  = {11},
   pages   = {287--290},
   year    = {2024},
-  note    = {DOI: 10.1007/s40509-024-00322-x}
+  note    = {\url{https://doi.org/10.1007/s40509-024-00322-x}}
 }
 
 @article{beck2026,
@@ -255,7 +353,7 @@
   volume  = {13},
   pages   = {Article 6},
   year    = {2026},
-  note    = {DOI: 10.1007/s40509-025-00378-3}
+  note    = {\url{https://doi.org/10.1007/s40509-025-00378-3}}
 }
 
 @article{arsiwalla2024,
@@ -265,7 +363,7 @@
   volume  = {11},
   pages   = {193--215},
   year    = {2024},
-  note    = {DOI: 10.1007/s40509-023-00311-6}
+  note    = {\url{https://doi.org/10.1007/s40509-023-00311-6}}
 }
 
 @article{kumarpan2023,
@@ -276,7 +374,7 @@
   volume  = {10},
   pages   = {353--372},
   year    = {2023},
-  note    = {DOI: 10.1007/s40509-023-00300-9}
+  note    = {\url{https://doi.org/10.1007/s40509-023-00300-9}}
 }
 
 @misc{held2021,
@@ -293,4 +391,13 @@
   year   = {2026},
   note   = {Software project; finite mixed states as positive-semidefinite
             trace-one matrices, POVMs, and Born-rule measurement}
+}
+
+@misc{observerPatchHolographyRepo,
+  author       = {{Observer Patch Holography contributors}},
+  title        = {{Observer Patch Holography}: Source Repository},
+  year         = {2026},
+  howpublished = {\url{https://github.com/FloatingPragma/observer-patch-holography}},
+  note         = {Commit 49ee36e01eb245d4d508e82c9b08fd47f7a85243;
+                  accessed 21 July 2026}
 }

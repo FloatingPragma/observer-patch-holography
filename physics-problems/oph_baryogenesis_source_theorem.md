@@ -390,8 +390,8 @@ The transport functional is closed. The source problem splits into the following
 \begin{array}{l}
 \text{phase/cocycle candidate: conditionally available on PSTRC},\\
 \text{direct gauge/deck attachment: ruled out by }k_R=0,\\
-\text{nonzero anomalous attachment: not yet derived},\\
-\text{sign and }\dot\Theta_R(T):\text{ exactly defined by }L_{r,T}\text{, but source generator open}.
+\text{nonzero anomalous attachment: derivation is open},\\
+\text{sign and }\dot\Theta_R(T):\text{ exactly defined by }L_{r,T}\text{; source generator is open}.
 \end{array}}
 \]
 

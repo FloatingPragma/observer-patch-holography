@@ -1,10 +1,10 @@
 import Mathlib
 
 /-!
-# Finite event algebras: events, states, Born weights
+# Finite projection-event calculus: events, states, and Born weights
 
-This module develops the elementary theory of finite-dimensional quantum
-event algebras over `Matrix (Fin n) (Fin n) ℂ`:
+This module develops the elementary theory of finite-dimensional matrix
+algebras equipped with projection events over `Matrix (Fin n) (Fin n) ℂ`:
 
 * `EventAlgebra.IsEvent` — an **event** is a Hermitian idempotent
   (an orthogonal projection);
@@ -46,6 +46,15 @@ def IsEvent (P : Matrix (Fin n) (Fin n) ℂ) : Prop :=
 a positive-semidefinite matrix of trace one (a density matrix). -/
 def IsState (ρ : Matrix (Fin n) (Fin n) ℂ) : Prop :=
   ρ.PosSemidef ∧ ρ.trace = 1
+
+/-- A state-facing subtype. APIs returning this type certify normalization
+and positivity in their result rather than returning an arbitrary matrix. -/
+abbrev StateMatrix (n : ℕ) :=
+  {ρ : Matrix (Fin n) (Fin n) ℂ // IsState ρ}
+
+/-- A projection-event subtype used by semantically typed measurement APIs. -/
+abbrev ProjectionEvent (n : ℕ) :=
+  {P : Matrix (Fin n) (Fin n) ℂ // IsEvent P}
 
 /-- The **Born weight** of the event `P` under the state `ρ`: the trace
 pairing `Tr(ρ P)`. -/
@@ -213,13 +222,15 @@ theorem bornWeight_one {ρ : Matrix (Fin n) (Fin n) ℂ} (hρ : IsState ρ) :
     bornWeight ρ 1 = 1 := by
   rw [bornWeight, mul_one, hρ.2]
 
-/-- **Trace-dependent.** Additivity on orthogonal events, packaged
-with the closure lemma `IsEvent.add`: for orthogonal events the weight of
-the disjunction is the sum of the weights. -/
-theorem bornWeight_add_of_orthogonal {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
-    (_ : IsEvent P) (_ : IsEvent Q) (_ : P * Q = 0) :
-    bornWeight ρ (P + Q) = bornWeight ρ P + bornWeight ρ Q :=
-  bornWeight_add ρ P Q
+/-- **Trace-dependent.** Orthogonal events have an event-valued sum and
+additive Born weight. Unlike bare trace linearity, both conclusions usefully
+package the projection-event hypotheses. -/
+theorem isEvent_add_and_bornWeight_add_of_orthogonal
+    {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
+    (hP : IsEvent P) (hQ : IsEvent Q) (hPQ : P * Q = 0) :
+    IsEvent (P + Q) ∧
+      bornWeight ρ (P + Q) = bornWeight ρ P + bornWeight ρ Q :=
+  ⟨hP.add hQ hPQ, bornWeight_add ρ P Q⟩
 
 /-- **Trace-dependent.** Upper bound: the Born weight of any event
 under a state is at most `1`, in the partial order of `ℂ` (via the
@@ -282,7 +293,7 @@ theorem bornWeight_ne_zero_iff_re_pos {ρ P : Matrix (Fin n) (Fin n) ℂ}
 #print axioms bornWeight_nonneg
 #print axioms bornWeight_re_nonneg
 #print axioms bornWeight_one
-#print axioms bornWeight_add_of_orthogonal
+#print axioms isEvent_add_and_bornWeight_add_of_orthogonal
 #print axioms bornWeight_le_one
 #print axioms bornWeight_re_le_one
 #print axioms bornWeight_mono

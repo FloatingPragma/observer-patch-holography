@@ -6,7 +6,9 @@ algebras to overlap, from overlap to recovery, from recovery to spacetime,
 and from spacetime to matter, selection, and interpretation. This appendix
 slows the path down. It adds longer narrative interludes for readers who want
 more of the connective tissue: how discoveries happened, why equations were
-introduced, and how OPH inherits a vast scientific commons.
+introduced, and how OPH inherits a vast scientific commons. Length is doing a
+job here. The extra room holds historical context, symbol explanations, and
+reader support that the fast main line cannot carry.
 
 ## Interlude 1: Why Reverse Engineering Is the Right Metaphor
 
@@ -79,9 +81,10 @@ mechanics had trained physicists to expect reversible laws. If molecules obey
 reversible equations, why does a room not spontaneously unmix smoke, rebuild
 glass fragments, and restore every spent gradient?
 
-Boltzmann changed the question. Entropy was not a mysterious fluid. It was
-counting. A macrostate is what coarse observers can describe: pressure,
-volume, temperature, visible arrangement. A microstate is the detailed
+Boltzmann changed the question. Entropy, in his hands, stopped being a
+mysterious fluid and became counting. A macrostate is what coarse
+observers can describe: pressure, volume, temperature,
+visible arrangement. A microstate is the detailed
 configuration underneath. There are vastly more microstates corresponding to
 equilibrated macrostates than to special organized ones. A system wanders
 through microscopic possibilities and spends almost all its time in the
@@ -134,7 +137,7 @@ elsewhere.
 
 Heisenberg's move was radical because it gave up on unobserved orbits. He
 kept transitions, frequencies, and intensities, the things experiments
-actually reported. Born recognized the matrix structure. Schrodinger found a
+actually reported. Born recognized the matrix structure. Schrödinger found a
 wave equation that looked very different but produced the same physics.
 Dirac unified the languages. Born gave the probability interpretation.
 Bohr emphasized complementarity. Pauli discovered exclusion. Von Neumann
@@ -181,16 +184,16 @@ not the main storage device.
 Black holes forced the reversal. If a black hole's entropy scaled with
 volume, merging or lowering entropy-bearing systems into black holes would
 threaten thermodynamics. The Bekenstein-Hawking formula made area the count.
-For a horizon, the surface serves as the bookkeeping interface through which
-external observers describe what can be known, rather than as a passive shell.
+For a horizon, the surface is the bookkeeping interface through which
+external observers describe what can be known, rather than a passive shell.
 
 't Hooft and Susskind drew the general lesson: gravity appears to limit
 independent degrees of freedom by area. Maldacena then gave a controlled
 example in AdS/CFT. A gravitational theory in an anti-de Sitter bulk is
 equivalent, in that setting, to a conformal field theory on the boundary.
-That duality did not solve all quantum gravity. It did something equally
-important: it proved that boundary encoding of bulk gravity is not a poetic
-analogy. It can be exact in a carefully defined class of systems.
+The duality solved a problem narrower than all of quantum gravity and more
+consequential: it proved that boundary encoding of bulk gravity can be exact
+in a carefully defined class of systems, rather than a poetic analogy.
 
 Ryu and Takayanagi added the entanglement bridge. Boundary entanglement
 entropy equals a bulk area in the appropriate units. This made geometry look
@@ -280,9 +283,8 @@ content. That makes it a language rule for observers.
 Noether's theorem is the key. If the action is unchanged under a continuous
 transformation, a conserved current follows. Time translations give energy.
 Space translations give momentum. Rotations give angular momentum. Gauge
-symmetries give charges. Conservation laws are not arbitrary accounting
-rules. They are the public invariants left by transformations that do not
-change the underlying physics.
+symmetries give charges. Conservation laws are the public
+invariants left by transformations that do not change the underlying physics.
 
 This is why symmetry fits OPH so naturally. Different observer patches need
 not use the same coordinates, phases, gauges, or local frames. If their
@@ -293,13 +295,13 @@ from becoming public contradiction.
 Gauge symmetry is the deepest version of this lesson. The electromagnetic
 potential has redundancy: different potentials can describe the same electric
 and magnetic fields. Yang-Mills theory generalized that redundancy to
-non-abelian groups. The Standard Model's $SU(3)\times SU(2)\times U(1)$ is
-not a decorative label. It tells us how charge sectors transform, how
+non-abelian groups. The Standard Model's
+$SU(3)\times SU(2)\times U(1)$ tells us how charge sectors transform, how
 carriers couple, and which interactions are allowed.
 
-The historical path is again collective. Weyl's early gauge ideas did not
-immediately succeed in their first form, but the phase-gauge insight became
-central. Yang and Mills developed non-abelian gauge theory. Glashow, Salam,
+The historical path is again collective. Weyl's first gauge construction
+failed physically. Its phase-gauge insight became central. Yang and Mills
+developed non-abelian gauge theory. Glashow, Salam,
 and Weinberg unified electromagnetic and weak interactions. Higgs, Englert,
 Brout, Kibble, Guralnik, and Hagen explained how gauge bosons could acquire
 mass without destroying gauge consistency. 't Hooft and Veltman proved
@@ -322,7 +324,7 @@ large-scale story. That makes cosmology naturally observer-aware.
 
 The discovery of expansion changed the meaning of the universe.
 Slipher's redshifts, Leavitt's distance ladder, Hubble's relation, Friedmann's
-solutions, and Lemaitre's interpretation turned the cosmos from a static
+solutions, and Lemaître's interpretation turned the cosmos from a static
 stage into an evolving system. The cosmic microwave background then made the
 hot dense side of the standard reconstruction visible. Nucleosynthesis, galaxy
 surveys, lensing,
@@ -333,9 +335,8 @@ The late-time acceleration changed the picture again. Type Ia supernova teams
 found that distant supernovae were dimmer than expected in a decelerating
 universe. A positive cosmological constant gives a de Sitter horizon radius
 $r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. In OPH, the universe
-supplies that capacity to its observer network and reads the same number back
-through its terminal records. The fixed point closes the global record budget,
-while the scale bridge turns it into the curvature observers measure.
+supplies that capacity to its observer network, and a scale bridge turns the
+capacity into the curvature observers measure.
 
 The dark sector is the repair-charge side of the same architecture. A modular
 mismatch becomes an integer occupation with a compact phase. The dilute branch
@@ -345,7 +346,7 @@ the repair charge into lensing and cosmic structure, so the galaxy and horizon
 readings belong to one field rather than two unrelated patches.
 
 The human chain includes observers and instrument builders as much as
-theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,
+theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaître, Zwicky, Rubin,
 Ford, Penzias, Wilson, Peebles, Guth, Starobinsky, Linde, Perlmutter, Riess,
 Schmidt, Planck and WMAP teams, DES, KiDS, ACT, SPT, Euclid, Rubin
 Observatory, and many more. Cosmology is public reality at the largest scale.
@@ -399,8 +400,8 @@ Solipsism says only my mind is sure. OPH says finite observer patches are forced
 into being by a self-consistent reality, and public reality is what survives
 overlap consistency among many of them. That is almost the opposite of
 solipsism. The
-individual observer is not sovereign. The individual observer is constrained
-by every interface where records can be compared. A hallucination, a detector
+individual observer is sovereign nowhere and constrained at every interface
+where records can be compared. A hallucination, a detector
 fault, and a genuine event can all be experiences inside some patch. They do
 not have the same public support because they do not survive the same
 cross-checks.
@@ -420,12 +421,11 @@ has to be denied. The hard part is the interface: how the inside process
 forms records that can enter public comparison, and how public comparison
 feeds back into the inside process as learning, correction, and expectation.
 
-This is also where the epilogue's continuation question belongs. If an
-observer is a structured process with boundary interfaces and interior
-interface-relative state, then restoration asks which structures preserve the
-next internal moment as the continuation of the previous one. OPH gives the
-engineering boundary: records, interfaces, given-data independence, and
-recoverability.
+Continuation questions belong here too. If an observer is a structured
+process with boundary interfaces and interior interface-relative state, one
+can ask which structures preserve the next internal moment as the
+continuation of the previous one. OPH gives the engineering boundary:
+records, interfaces, given-data independence, and recoverability.
 
 The metaphysical discipline is essential. Observer-first physics deepens
 empirical discipline by refusing to pretend that evidence arrives from nowhere.
@@ -454,7 +454,8 @@ consistent when two descriptions are identified.
 Third ask which symbols are local and which are global. A patch algebra
 $\mathcal A(P)$ is local to a patch. The dimensionless products involving the
 cosmological constant $\Lambda$ are global capacity data in the OPH reading;
-the SI value of $\Lambda$ also needs the selected scale certificate. A density
+the SI value of $\Lambda$ also needs a physical scale to be supplied
+separately. A density
 matrix $\rho_A$ is restricted to subsystem $A$. The full state, if available,
 contains more than any one patch sees. Confusing local and global symbols is
 one of the fastest ways to misread the book.
@@ -510,30 +511,28 @@ counts, which interfaces it crosses, and which descriptions it identifies.
 The diagrams orient the eye. The equations perform the closure. The prose
 explains why the same move reappears from quantum measurement to cosmology.
 
-## Interlude 12: A Final Chapter-Wise Reading Checklist
+## Interlude 12: A Chapter-Wise Rereading Guide
 
-When rereading the book, use this checklist as a quick guide.
+On a second pass through the book, each chapter rewards one focused question.
 
-In the prologue, ask whether the reverse-engineering metaphor is clear and
-whether the reader understands observer patches before any heavy physics
-appears. In Chapter 1, ask whether consistency is being treated as a repair
-condition, not a social vote. In Chapter 2, ask whether the philosophy
-is presented as historical resonance, not as retroactive physics. In Chapter
-3, ask whether area scaling has replaced volume intuition. In Chapter 4, ask
-whether records are visibly thermodynamic objects.
+In the prologue, settle the reverse-engineering metaphor and the idea of an
+observer patch before any heavy physics appears. In Chapter 1, watch
+consistency work as a repair condition rather than a social vote. In Chapter
+2, read the philosophy as historical echo rather than retroactive physics. In
+Chapter 3, check whether area scaling has replaced your volume intuition. In
+Chapter 4, look at records as thermodynamic objects.
 
-In Chapter 5, ask whether non-commutativity is explained as order-dependence
-of questions. In Chapter 6, ask whether overlap restriction is clear. In
-Chapter 7, ask whether recovery is separated from copying. In Chapter 8, ask
-whether holography is presented through black holes and controlled dualities
-before OPH generalizes it. In Chapter 9, ask whether entanglement is doing
-geometric work. In Chapter 10, ask whether error correction functions as a
+In Chapter 5, read non-commutativity as order-dependence of questions. In
+Chapter 6, keep overlap restriction in view. In Chapter 7, separate recovery
+from copying. In Chapter 8, take holography through black holes and
+controlled dualities before OPH generalizes it. In Chapter 9, watch
+entanglement do geometric work. In Chapter 10, treat error correction as a
 mechanism.
 
-In Chapter 11, ask whether modular time is tied to restricted states and not
-an external clock. In Chapter 12, ask whether symmetry is presented as a
-translation rule for shared descriptions. In Chapter 13, ask whether the de
-Sitter horizon is understood as a finite capacity surface. In Chapter 14,
+In Chapter 11, tie modular time to restricted states rather than an external
+clock. In Chapter 12, read symmetry as a translation rule for shared
+descriptions. In Chapter 13, read the de Sitter horizon as a finite capacity
+surface. In Chapter 14,
 follow the twelve $A_5$ port modes into the gauge algebra and the exterior
 matter package into one chiral generation. In Chapter 15, follow modular flow
 and the smooth sphere into Lorentz geometry, then entropy balance into the
@@ -541,12 +540,12 @@ Einstein equation and its weak-field limit.
 
 In Chapter 16, follow matter as a stability ladder from quantum excitations to
 public records. In Chapter 17, follow selection as a disciplined filter. In
-Chapter 18, follow the strange loop from self-referential mathematics to the
-forcing of the two constants. In Chapter 19, follow the synthesis across the
-whole stack. In Chapter 20, follow metaphysics downstream of physics. In the
-epilogue, follow restoration as an engineering problem with explicit interfaces.
+Chapter 18, follow self-reference from the named theorems into physics. In
+Chapter 19, follow the synthesis across the whole stack. In Chapter 20,
+follow metaphysics downstream of physics. In the epilogue, ask what the
+observer-first posture implies for the reader.
 
-The book has done its job when the reader can inspect the architecture of
+The reread has done its job when you can inspect the architecture of
 reality.
 
 ## Interlude 13: The Plain-Language Contract
@@ -569,8 +568,8 @@ can ask; recovery explains how damaged or hidden information can stay
 available under controlled conditions. Each claim can be tested by asking
 what changes if the condition fails.
 
-The same rule applies to historical material. The names in the chapters are
-not decorations. They mark real handoffs in a long chain: Carnot to Clausius
+The same rule applies to historical material. The names in the chapters
+mark real handoffs in a long chain: Carnot to Clausius
 to Boltzmann to Shannon; Maxwell to Lorentz to Einstein; Noether to Wigner;
 Bekenstein to Hawking to holography; Shannon to quantum codes to
 entanglement wedges. OPH belongs inside that chain. The book should give the
@@ -580,8 +579,8 @@ like a procession toward one author.
 The same rule applies to metaphysics. A metaphysical sentence earns its place
 only when it remains tied to the machinery that came before it. Experience is
 inside a bounded observer process. Objectivity is the overlap-stable public
-pattern. The strange loop is the closure of a self-reading information
-architecture. Those claims are powerful because they are constrained. Remove
+pattern. The strange loop, when the book reaches it, is built from that same
+machinery. Those claims are powerful because they are constrained. Remove
 the constraints and they turn into slogans.
 
 The reader can use one practical test throughout the book. Ask what the
@@ -615,26 +614,16 @@ map is the result of instruments scanning, filtering, subtracting foregrounds,
 estimating noise, and stitching observations into a shared coordinate system.
 Public reality is built through these record chains.
 
-The Large Hadron Collider is a good example. When the Higgs boson was
-announced, no one had seen a little object called the Higgs with unaided
-senses. ATLAS and CMS observed decay products, reconstructed invariant masses,
-compared channels, controlled backgrounds, and accumulated statistical
-significance. The public fact was not one raw sensation. It was a structured
-agreement across detector subsystems, analysis groups, simulations,
-calibrations, and independent experiments.
-
-Gravitational waves show the same pattern. LIGO did not hear spacetime with a
-human ear. It measured tiny changes in interferometer arm lengths, compared
-signals between distant sites, matched waveforms to general-relativistic
-templates, and rejected environmental noise. The event became public because
-overlap-consistent records survived a harsh pipeline.
+The Higgs discovery and the first gravitational-wave detections are the two
+cleanest modern examples of this record-chain structure. Interlude 19 walks
+through both in detail.
 
 This is why OPH's observer language should feel practical. Observers are
 record-making systems embedded in physical
 interfaces. Human consciousness matters in later interpretive chapters, but
 the scientific role of the observer is broader: bounded access, memory,
 comparison, and update. Instruments enlarge patches and make records more
-shareable. They do not remove the observer problem. They make it precise.
+shareable; they make the observer problem precise rather than removing it.
 
 ## Interlude 15: Diagrams Are Arguments With Edges
 
@@ -644,7 +633,7 @@ where the simplified picture stops being the theory.
 
 The cave diagram shows source, projection, and reconstruction. Its edge is
 that Plato's story is not holography. The diagram captures a structural
-resonance, not a derivation. The entropy-arrow diagram shows low-entropy
+rhyme, not a derivation. The entropy-arrow diagram shows low-entropy
 resources becoming records and waste heat. Its edge is that real
 thermodynamic processes can be enormously more complex than the arrow. The
 algebra-order diagram shows that question order matters. Its edge is that an
@@ -659,16 +648,18 @@ state spaces carry the real theorem content.
 
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They show gauge structure reconstructed from representation data and
-the face-cycle route to the three-place family carrier. The exterior-matter
+the face-cycle route to a candidate three-place family band. Physical family
+attachment is work in progress. The exterior-matter
 diagram then shows how the color and weak carriers generate one chiral
 Standard Model generation.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
-They show how cap flow can become a local geometric clock, how a curved
+They show how cap flow supplies a dimensionless local ordering, how a curved
 screen can look null at a boundary point, and how Einstein gravity reduces to
 Newtonian gravity in the weak-field slow-motion limit. Together they keep the
 finite icosahedral regulator and the smooth Lorentz geometry in their proper
-roles.
+roles. A physical clock additionally requires readable transitions, event
+correspondence, and affine calibration.
 
 The glossary diagrams for matter, selection, synthesis, and observer loops
 are orientation devices. They tell the reader where to look in the prose.
@@ -680,25 +671,36 @@ reader ask a sharper question about the equation next to it.
 The first handle is the finite carrier. Twelve ports sit at the vertices of an
 icosahedron. Twenty triangular faces organize local neighborhoods, thirty edges
 organize collars, and the sixty rotations of $A_5$ treat every direction alike.
-The carrier reads, records, compares, and repairs through those interfaces.
+The carrier provides a local interface for reading, recording, comparing, and
+repairing. It is not automatically one primitive observer. An operational
+observer may occupy one carrier or a connected subfederation.
 
 The second handle is the public world. Patch algebras contain the available
 questions. Central records preserve completed answers. Overlap checks compare
 what neighboring patches expose, and recovery maps rebuild information from
 the correlations that survive local damage.
 
-The third handle is the smooth limit. Refinement turns the finite port sampling
-into a round $S^2$ support chart. Modular flow supplies the internal clock. The
-conformal group of the sphere supplies Lorentz symmetry, and entropy balance
-supplies Einstein gravity. The finite $A_5$ frame remains the regulator, while
-the smooth sphere carries spacetime kinematics.
+The third handle is the smooth limit. Refinement does not turn local
+icosahedra into a round $S^2$ by magic. A federation-to-support map must pass
+a family of geometric checks on one source tower, and a complete
+algebra-state comparison must be carried out independently on that same
+tower. On that branch the conformal group of the sphere gives Lorentz
+kinematics, and $H^3$ is the three-dimensional observer-frame space. A $3+1$
+event manifold needs its own population and cone tests. A measured duration
+requires a clock instrument and calibration, and the Einstein step needs
+stress, entropy, coupling, vacuum, and scale conditions that must be supplied
+together.
 
-The fourth handle is matter. The twelve port readings split as
-$1+3+3'+5$. Compact oriented current composition turns those blocks into the
-$U(1)$, $SU(2)$, and $SU(3)$ gauge directions. The trace-balanced exterior
-package supplies the chiral quarks and leptons, the one-Higgs interaction
-channels, anomaly cancellation, and the weak-doublet count. Strange-loop
-closure then fixes the local pixel and global record capacity.
+The fourth handle is matter. The twelve port readings split exactly as
+$1+3+3'+5$. A source-produced compact physical current with the required
+$A_5$ action would turn that finite pattern into the
+$U(1)$, $SU(2)$, and $SU(3)$ Lie type. An independent route through
+transportable charge sectors, asking for the smallest matter package the
+rules admit, reaches the same type. Proving that both groups are the same
+physical group is work in progress. The trace-balanced exterior package is an
+exact one-generation representation witness, while physical matter selection,
+three-family attachment, quantum field-theory construction, and the local and
+global readback closures are each a separate construction.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -752,14 +754,18 @@ and the records they share.
 Tannaka-Krein reconstruction reads a compact group from its charge sectors,
 their fusion rules, and their duals. OPH applies that reconstruction to the
 transport-stable sectors of the patch net. On the icosahedral finite carrier,
-the twelve current readings split as $1+3+3'+5$. Their compact oriented bracket
-gives the $U(1)$, $SU(2)$, and $SU(3)$ gauge directions.
+the twelve port readings split as $1+3+3'+5$. If a source-produced compact
+physical current realizes the required oriented bracket, the conditional
+classification recognizes the $U(1)$, $SU(2)$, and $SU(3)$ Lie type.
 
-Modular theory gives every suitable algebra-state pair a canonical flow. On a
-round cap this flow is a Lorentz boost. Refinement carries the local cap flows
-to the smooth celestial sphere, whose conformal group is the connected Lorentz
-group. Generalized entropy then joins the quantum entropy across a cut to its
-area term, and local entropy balance produces Einstein gravity.
+Modular theory gives every suitable algebra-state pair a canonical flow. It
+becomes the geometric boost flow on a round cap only when the finite cap-flow
+checks and an independently complete algebra-state comparison hold on the
+same refinement tower. The conformal group of that sphere is then the
+connected Lorentz group. Populating a $3+1$ event manifold needs separate
+event and clock data that must be supplied. Generalized entropy can produce
+the Einstein relation only after the common stress, entropy, vacuum,
+coupling, scale, and remainder conditions have also been supplied.
 
 Quantum error correction protects logical information in distributed
 correlations. In OPH, collars and recovery maps let a patch rebuild information
@@ -772,30 +778,7 @@ theory reconstructs its gauge language. Modular flow and entropy build its
 spacetime. Recovery protects its records. The same observer architecture runs
 through every step.
 
-## Interlude 19: Why Length Helps
-
-A short book can be elegant. A short book about a synthesis this large can also
-become misleading. It can let a symbol appear before the reader has been given
-enough handles to use it. It can hide the connection between two equations. It
-can make the work of whole communities disappear behind a few famous names.
-
-Length has no automatic virtue. Padding is bad. Repetition is bad. Useful
-length serves the reader: historical context, symbol explanations, diagrams
-placed where they reduce cognitive load, and appendices that
-let a reader recover the thread after a difficult chapter.
-
-That is the purpose of the long form. The chapter guide lets readers
-revisit each chapter's symbols and human lineage. The concept glossary gives
-quick local definitions. The extended interludes explain how major bridges
-should and should not be read. The chapter illustrations make the structure
-visible without pretending the diagram is the proof.
-
-Length has a practical meaning here. It gives the book room for examples,
-historical credit, and reader support. The goal is to be long enough that a
-serious reader can follow the objects, equations, and transformations without
-losing the main story.
-
-## Interlude 20: How a Public Fact Gets Built
+## Interlude 19: How a Public Fact Gets Built
 
 The word fact can sound simple. A thing happens. Someone sees it. A sentence
 gets written down. Science is harder than that, and more interesting. A
@@ -824,15 +807,16 @@ Einstein did something different with that public fact. He treated the
 stubborn invariance as a structural clue. Time, length, simultaneity, and
 energy had to be rewritten so that the shared speed of light survived every
 allowed change of frame. Special relativity was born from that discipline.
-The lesson for OPH is direct: agreement between observers is not a decorative
-theme. It can force the shape of spacetime.
+The lesson for OPH is direct: agreement between observers can force the shape
+of spacetime.
 
 Consider the cosmic distance ladder. Henrietta Swan Leavitt studied Cepheid
 variables in the Magellanic Clouds and found that their brightness period
 carried distance information. Her work gave astronomers a rung on the ladder.
-Vesto Slipher measured redshifts. Edwin Hubble combined distances and
-redshifts into an expansion relation. Georges Lemaitre gave the relation a
-relativistic reading. The expanding universe became a public fact through a
+Vesto Slipher measured redshifts. Georges Lemaître derived the expansion
+relation from general relativity in 1927 and estimated its rate. Two years
+later, Edwin Hubble's distances and redshifts made the relation unavoidable.
+The expanding universe became a public fact through a
 chain of plates, stars, spectra, statistics, theory, and contested
 interpretation.
 
@@ -882,7 +866,7 @@ curved spacetime and found radiation. Gibbons and Hawking extended the
 thermodynamic lesson to cosmological horizons. Holography, AdS/CFT,
 entanglement wedges, and island formulas turned that thermodynamic clue into
 a deep statement about encoding. Each step changed the record chain. A black
-hole was no mere sink. It became a surface with countable capacity.
+hole stopped being a mere sink and became a surface with countable capacity.
 
 OPH leans heavily on the idea that records live on accessible boundaries. That
 statement inherits the labor of black-hole thermodynamics, quantum field
@@ -894,12 +878,14 @@ Public facts also depend on error correction. A detector has noise. A
 telescope has atmosphere, foregrounds, dust, instrument drift, and missing
 pixels. A collider analysis has backgrounds. A gravitational-wave detector
 has seismic motion, thermal noise, quantum noise, and human-made
-disturbances. A public fact is the signal that survives after these error
-sources are modeled, bounded, rejected, or carried as uncertainty.
+disturbances. The first gravitational-wave detections became public facts
+because two distant interferometers recorded matching waveforms, matched to
+general-relativistic templates, that survived that noise budget. A public
+fact is the signal that survives after these error sources are modeled,
+bounded, rejected, or carried as uncertainty.
 
-That is why the recovery chapters matter. Recovery is not a fantasy of
-perfect restoration but the mathematical study of which correlations
-contain enough information to rebuild a useful description. In classical
+The recovery chapters study which correlations contain enough information to
+rebuild a useful description under damage. In classical
 error correction, redundant bits protect a message. In quantum error
 correction, information is stored in correlations that local damage cannot
 fully erase. In holography, bulk information can be encoded redundantly on
@@ -926,18 +912,21 @@ correction, holography, neuroscience, philosophy, and computer science.
 The book reads like a map of that inheritance. Each concept comes with the
 scientific relay that made it usable.
 
-The same relay carries the particle story. The finite icosahedral port carrier
-fixes the gauge directions. The exterior package fixes one chiral matter generation and its
-one-Higgs interaction channels. Gauge and Higgs dynamics turn those structures
-into masses, mixings, and poles. Detectors then turn the particle events back
-into public records. The chain runs from screen geometry to laboratory readout
-without changing its observer-facing logic.
+The particle story uses several conditional relays. The finite icosahedral port
+carrier supplies a representation pattern. A source-produced physical current
+and an independent matter-sector reconstruction must identify the same gauge
+group. The exterior package supplies one chiral representation witness and its
+one-Higgs invariant channels. Quantum field theory, source dynamics, spectral
+continuation, and physical readout are separate steps between that witness
+and measured masses, mixings, and poles, and each is work in progress.
+Detectors close the observer-facing record loop after those steps have been
+supplied.
 
 The same rule applies to metaphysics. A sentence about experience, God,
-restoration, or self-reference becomes serious only when the record chain
+continuation, or self-reference becomes serious only when the record chain
 behind it stays visible. Experience is patch-internal. Objectivity is
-overlap-stable. Restoration is tied to recoverable checkpoint data and
-identity conditions. Meaning is tied to participation inside a closed
+overlap-stable. Continuation questions are tied to recoverable checkpoint
+data and identity conditions. Meaning is tied to participation inside a closed
 observer-consistency structure. Those claims should never float away from the
 physics that constrains them.
 

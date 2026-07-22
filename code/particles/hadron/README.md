@@ -178,8 +178,7 @@ python3 -m pytest \
   hadron/test_current_hadron_lane_audit.py
 ```
 
-## License And Patent Policy
+## License
 
 This particle hadron surface is part of the OPH public repository. See the main
-[LICENSE](../../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).
+[LICENSE](../../../LICENSE).

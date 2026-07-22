@@ -230,7 +230,7 @@ P = phi + alpha * sqrt(pi)
 ```
 
 It also does not indicate a failure of numerical convergence. The converged
-precision-100 report carries a fixed-point residual below 10^-37 (CL-6,
+precision-100 report carries a fixed-point residual below 10^-37 (printed-pair identity,
 closed).
 
 The finite-code payload to populate is the low-energy transport/readout term

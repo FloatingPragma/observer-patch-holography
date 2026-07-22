@@ -4,6 +4,15 @@ Generated: `2026-07-18T05:32:25Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
+## QFT/WZ theorem boundary
+
+The July 20 theorem oracle closes the conditional implication layer only:
+QFT-Q1 finite-action invariance, QFT-Q2-E/H criteria, formal QFT-Q3 BV/ST
+restoration and strict fixed-parameter W/Z algebra, plus separate QFT-Q4 OS and
+resonance implications. QFT-Q2 and QFT-Q3 are parallel. No new particle row is
+promotable: the OPH-native producer stack listed in
+`calibration/q1_q4_wz_theorem_oracle/theorem_status.json` remains open.
+
 ## Scope
 
 - Scope: `source_only_rows_plus_empirical_hadron_closure_policy`

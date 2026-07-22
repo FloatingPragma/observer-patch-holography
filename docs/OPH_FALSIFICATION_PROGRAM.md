@@ -85,7 +85,7 @@ receipt set used to establish its premises. The machine-readable row mapping is
 [`claims/falsification_matrix.csv`](../claims/falsification_matrix.csv), and
 the current claim status is in
 [`claims/claim_registry.yaml`](../claims/claim_registry.yaml). Open physical
-maps are listed in [`CLOSURE_LEDGER.md`](CLOSURE_LEDGER.md). A result on an
+maps are tracked as [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure). A result on an
 ineligible surface is evidence for or against that continuation only; it is not
 silently promoted into this program.
 
@@ -96,6 +96,6 @@ and the result addresses the same mathematical or physical observable in the
 same convention. Missing hypotheses yield no verdict. Counterexamples remain
 scoped to the stated claim and do not transfer to independent theorem rows.
 
-Claim status and unclosed maps are recorded in
-[`CLOSURE_LEDGER.md`](CLOSURE_LEDGER.md) and
+Claim status and unclosed maps are recorded on the
+[closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure) and in
 [`PROOF_SPINE.md`](PROOF_SPINE.md).

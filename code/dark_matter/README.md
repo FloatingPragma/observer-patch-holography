@@ -77,8 +77,7 @@ normalizations, a relativistic stress tensor, source-derived abundance and
 initial perturbations, disk and lensing solvers, a Boltzmann module, cluster
 maps, and joint likelihoods. These derivations are work in progress.
 
-## License And Patent Policy
+## License
 
 This code surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

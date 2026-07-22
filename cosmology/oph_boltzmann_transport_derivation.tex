@@ -46,10 +46,10 @@ a Theorem-Conditional Reduction}
 
 \begin{abstract}
 This note shows that standard general-relativistic photon--baryon Boltzmann
-transport follows on the OPH branch when its geometry, electromagnetic action,
+transport follows on the Observer-Patch Holography (OPH) branch when its geometry, electromagnetic action,
 physical photon, electron mass, and recombination history are supplied. It
 locates the repair-exchange and collar-stress interfaces where an OPH-specific
-effect could enter. A physical CMB prediction requires finite source receipts,
+effect could enter. A physical cosmic microwave background (CMB) prediction requires finite source receipts,
 transfer functions, and likelihood closure.
 \end{abstract}
 
@@ -70,9 +70,9 @@ The observer-facing normal form carries a Lorentzian metric $g_{ab}$
 satisfying $G_{ab}+\Lambda g_{ab}=8\pi G_{\rm geom}\langle T_{ab}\rangle$,
 with $G_{\rm geom}=\ell_\star^2$ from the edge-entropy/area-law theorem and
 $\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. $N_\star$ is the
-SL-4 estimate read from measured $\Lambda$ with the scale bridge of the
+capacity-identity estimate read from measured $\Lambda$ with the scale bridge of the
 strange-loop principle register; $\Lambda$ is an input to this assumption, not an
-OPH output. Promotion of $N_\star$ beyond the SL-4 estimate runs through
+OPH output. Promotion of $N_\star$ beyond that capacity-identity estimate runs through
 generator G2 of the project consistency stack: constructing the readback
 map $F$ and its contraction certificate. Provenance:
 branch theorem (paper stack A22/A5); not re-proved here.
@@ -123,7 +123,7 @@ note consumes \(A_s\) and \(n_s\) as gated inputs and derives no initial
 spectrum.
 \end{assumption}
 
-\section{Theorem B1: reversible repair gives Liouville transport}
+\section{Theorem B1: conditional refinement Liouville transport}
 
 \begin{definition}[One-photon record density]
 Conditional on the physical pole in Assumption~\ref{a:qed}, let
@@ -136,13 +136,23 @@ direction.
 \end{definition}
 
 \begin{theorem}[Refinement Liouville]\label{t:liouville}
-On a branch passing the simulation test, with (i) the Maxwell action,
-quantum photon-pole receipt, and overlap Lorentz kinematics (A-QED, A-GEOM),
-and (ii) repair
-moves organized in reversible write/check pairs (the orientation doubling in
-$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak
-u(1))=24$), the between-commit record flow satisfies, in the refinement
-limit,
+On a branch with the Maxwell action, quantum photon-pole receipt, and overlap
+Lorentz kinematics (A-QED, A-GEOM), let $P_r$ be the quotient-lumpable
+free-flow transition kernel at step $h_r$. For every frozen smooth compactly
+supported test function $\phi$, set
+\[
+L_r\phi=\frac{P_r\phi-\phi}{h_r},
+\qquad
+\Gamma_r(\phi)=
+\frac{P_r(\phi^2)-(P_r\phi)^2}{h_r}.
+\]
+Receipt \textsc{Boltz-R1} consists of compact containment/tightness,
+convergence of initial laws, uniform-on-compact generator convergence
+$L_r\phi\to X_H\phi$ to the null-geodesic Hamiltonian vector field,
+vanishing quadratic variation $\Gamma_r(\phi)\to0$, uniqueness of the
+Hamiltonian ODE, refinement and schedule naturality, and vanishing boundary
+and phase-space-measure defects. Under this receipt, the
+between-commit record flow satisfies, in the refinement limit,
 \[
 \frac{Df}{\Dd\tau}\;\equiv\;
 \frac{\partial f}{\partial\tau}
@@ -157,40 +167,51 @@ preserves the Liouville measure.
 \end{theorem}
 
 \begin{proof}[Proof sketch, with the open receipt named]
-\emph{Characteristics.} A single-excitation record continued across an
-overlap must agree with both patches' readouts; by overlap Lorentz kinematics
-the unique continuation consistent with all overlapping patches is parallel
-transport along the branch metric's null geodesic. Any other continuation
-produces a nonzero overlap mismatch, which the repair fixed point sets to
-zero; schedule independence (confluence) makes the continuation unique and
-schedule-free. Hence $\Dd x/\Dd\tau$, $\Dd q/\Dd\tau$, $\Dd\hat n/\Dd\tau$
-are the geodesic-flow coefficients; on the background of
-Assumption~\ref{a:bg}, $\Dd q/\Dd\tau=q[\dot\phi-\ldots]$ takes the standard
-form used in \S\ref{s:hierarchy}.
+For every test function, the discrete process minus the time integral of
+$L_r\phi$ is a martingale whose quadratic variation is controlled by
+$\Gamma_r(\phi)$. Tightness gives subsequential limits and vanishing
+quadratic variation makes every limiting martingale deterministic. Generator
+convergence says that each limit solves the martingale problem for $X_H$,
+equivalently the null-geodesic Hamiltonian ODE. Uniqueness identifies the
+whole limit, independently of the accepted repair schedule. Thus
+$\Dd x/\Dd\tau$, $\Dd q/\Dd\tau$, and $\Dd\hat n/\Dd\tau$ are the
+geodesic-flow coefficients. On the background of Assumption~\ref{a:bg},
+$\Dd q/\Dd\tau=q[\dot\phi-\ldots]$ has the form used in
+\S\ref{s:hierarchy}.
 
-\emph{Measure preservation.} Each repair move is a write/check pair: a
-bijection on the finite record configuration space with an explicit inverse
-(this is what the orientation doubling tracks). A finite composition of
-bijections has unit Jacobian on the induced finite phase space, for every
-schedule; confluence makes the endpoint schedule-independent, so the
-coarse-grained flow inherits unit Jacobian. The refinement limit of a
-sequence of unit-Jacobian flows converging to the geodesic flow preserves the
-Liouville measure.
+\emph{Measure preservation.} The identified limit is Hamiltonian flow on the
+mass shell, so it preserves the canonical Liouville measure. The finite
+measure-defect clause checks that the quotient measures converge to that
+canonical measure rather than to a different coarse volume form. Accepted repair confluence
+only removes schedule dependence of committed endpoints. It supplies neither
+an inverse between-commit dynamics nor a phase-space Jacobian. The
+orientation doubling of a finite label register is bookkeeping and does not
+produce either property.
 
 \emph{Receipt status.} Photon-sector convergence of the finite patch flow to
-geodesic flow with vanishing dispersion is work in progress. The abstract Lean
+the displayed generator and zero-quadratic-variation limits is work in progress. The abstract Lean
 layer proves the corresponding schedule-independence and refinement-naturality
 statement in its setting. The photon receipt is named \textsc{Boltz-R1}, and
 \S\ref{s:receipts} gives its simulator test. Theorem~\ref{t:liouville} is
 conditional on this receipt.
 \end{proof}
 
+\begin{corollary}[Collision and diffusion alternatives]
+If the finite generator decomposes as $L_r=L_r^{\rm free}+C_r$ and
+$C_r\phi\to C\phi$, then the limiting density obeys
+\[
+\partial_\tau f+\{f,H\}=C^*f.
+\]
+A nonzero limit of $\Gamma_r$ produces a diffusion/Fokker--Planck term and
+does not satisfy the deterministic Liouville conclusion.
+\end{corollary}
+
 \begin{remark}
-The physical content is that \emph{irreversibility enters only at commits}.
-Free streaming is unitary bookkeeping; entropy production is localized in the
-record-commit events that the collision functional counts. This is the
-transport-level face of the general OPH position that measurement-like
-irreversibility lives at the record interface.
+The transport model places the collision functional at record commits and
+uses the independently certified measure-preserving flow between them. Claims
+about entropy production therefore refer to the commit terms counted by
+$C[f]$. The accepted repair relation and the reversible equilibrium or
+between-commit dynamics remain separate structures.
 \end{remark}
 
 \section{Theorem B2: record commits give the Thomson collision functional}
@@ -208,9 +229,11 @@ C[f](q,\hat n)\;=\;a\,n_e\sigma_T\left[
 \qquad
 \sigma_T=\frac{8\pi}{3}\frac{\alpha^2}{m_e^2},
 \]
-boosted to the frame where baryons move with velocity $v_b$. Moreover the
-write/check reversibility of commits implies detailed balance of the angular
-commit kernel. For every fixed photon energy $q$, isotropic angular
+boosted to the frame where baryons move with velocity $v_b$. The
+source-derived reversible proposal kernel is assumed to obey detailed balance
+on the angular state space. Write/check orientation labels alone do not imply
+that property, and the accepted strict-descent repair relation is not the
+equilibrium kernel. For every fixed photon energy $q$, isotropic angular
 distributions are stationary under this Thomson operator. This displayed
 scalar-intensity kernel does not by itself derive the Stokes-space Thomson
 matrix needed for polarization.
@@ -222,9 +245,9 @@ occupancies with kernel given by the squared vertex; the soft
 (photon energy $\ll m_e$) limit of the recovered $\mathrm U(1)$ vertex is
 classical Thomson scattering with the stated total cross-section and
 $1+\cos^2$ angular kernel; this step is standard QED evaluated on the branch
-couplings and is not repeated here. Detailed balance: a write/check pair and
-its orientation reverse implement the commit and its inverse with equal
-kernel weight; a symmetric kernel damps angular anisotropy at each fixed
+couplings and is not repeated here. The detailed-balance receipt equates the
+stationary weights of each reversible proposal pair. The resulting symmetric
+rest-frame kernel damps angular anisotropy at each fixed
 $q$. It does not mix frequencies, so its stationary kernel contains every
 isotropic spectrum $f(q)$ rather than a unique Bose or Planck occupancy.
 Momentum conservation per commit, summed over
@@ -405,8 +428,12 @@ CAMB at the sub-percent level is receipt \textsc{Boltz-V1}.
 \midrule
 \textsc{Boltz-R1} &
 Finite-lattice refinement Liouville: coarse-grained photon-class record
-transport between commits converges to geodesic flow, schedule-independently,
-with vanishing measure defect under refinement. &
+transport has quotient lumpability, tightness, convergent initial laws and
+first conditional moments, vanishing scaled second conditional moments,
+generator convergence on a frozen test basis, unique geodesic characteristics,
+and vanishing schedule, refinement, boundary, mass-shell, and measure defects.
+This receipt is independent
+of repair confluence and of the orientation-doubled label count. &
 open; simulator test below\\
 \textsc{Boltz-N1} &
 $\sigma_T$ normalization: absolute $m_e$ is a declared import; the
@@ -435,15 +462,16 @@ issue \#580\\
 \bottomrule
 \end{longtable}
 
-\textbf{Simulator test for \textsc{Boltz-R1}.} Inject a labeled low-weight
-record packet on the 64k lattice; propagate under $N$ random repair
-schedules; measure the arrival-time and dispersion statistics of the packet
-across the screen. Pass condition: schedule-to-schedule divergence of the
-packet trajectory consistent with zero at the run's mismatch tolerance, and
-dispersion shrinking under refinement (16k$\to$64k$\to$256k) at the rate the
-refinement-naturality bounds predict. Fail condition: schedule-dependent
-transport, which would falsify Theorem~\ref{t:liouville} on the implemented
-branch.
+\textbf{Simulator test for \textsc{Boltz-R1}.} Freeze a smooth compactly
+supported test basis. At each regulator estimate the first conditional moment
+$\widehat L_r\phi$ and scaled conditional variance
+$\widehat\Gamma_r(\phi)$, together with quotient-measure, mass-shell,
+schedule, refinement, boundary-leakage, and collision/free-channel residuals.
+Pass requires $\widehat L_r\phi\to X_H\phi$ and
+$\widehat\Gamma_r(\phi)\to0$ on the frozen basis with the preregistered
+uniform compact envelopes. Random schedule packet tests are supplemental.
+A nonzero second-moment limit selects the diffusion alternative rather than
+the Liouville theorem.
 
 \section{What this note does and does not close}
 It records, conditionally on the cited branch theorems, the \emph{scalar

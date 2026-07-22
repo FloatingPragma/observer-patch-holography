@@ -37,6 +37,27 @@ READER_GLOBS = [
     "physics-problems/**/*.md",
 ]
 
+STATUS_GLOBS = [
+    "docs/PROOF_SPINE.md",
+    "docs/BOOK_CHAPTER_LEDGER.md",
+    "docs/CONSISTENCY_STACK.md",
+    "docs/CLOSURE_LEDGER.md",
+    "docs/SURVIVAL_PROOF_FINAL_INTEGRATION_*.md",
+    "docs/UNIFIED_CARRIER_COHERENCE_AUDIT_*.md",
+    "code/geometry/*STATUS*.md",
+    "claims/claim_registry.yaml",
+    "claims/dependency_graph.json",
+    "claims/falsification_matrix.csv",
+    "claims/novelty_matrix.csv",
+    "code/geometry/runs/*status.json",
+]
+
+INFORMAL_GLOBS = [
+    "README.md",
+    "README_FR.md",
+    "book/**/*.md",
+]
+
 PAPER_GLOBS = [
     "paper/**/*.tex",
     "extra/**/*.tex",
@@ -47,6 +68,7 @@ PROGRESS_PATTERNS = [
     (re.compile(r"\bnow\b", re.IGNORECASE), "progress word: now"),
     (re.compile(r"\balready\b", re.IGNORECASE), "progress word: already"),
     (re.compile(r"\bcurrently\b", re.IGNORECASE), "progress word: currently"),
+    (re.compile(r"\bpresently\b", re.IGNORECASE), "progress word: presently"),
     (re.compile(r"\blatest\b", re.IGNORECASE), "progress word: latest"),
     (re.compile(r"\brecent(?:ly)?\b", re.IGNORECASE), "progress word: recent/recently"),
     (re.compile(r"\bnewly\b", re.IGNORECASE), "progress word: newly"),
@@ -54,6 +76,8 @@ PROGRESS_PATTERNS = [
     (re.compile(r"\bformerly\b", re.IGNORECASE), "progress word: formerly"),
     (re.compile(r"\bno longer\b", re.IGNORECASE), "progress phrase: no longer"),
     (re.compile(r"\bstill\b", re.IGNORECASE), "progress word: still"),
+    (re.compile(r"\b(?:has|have|had)?\s*not yet\b", re.IGNORECASE), "progress phrase: not yet"),
+    (re.compile(r"\bremains? open\b", re.IGNORECASE), "progress phrase: remains open"),
     (re.compile(r"\bso far\b", re.IGNORECASE), "progress phrase: so far"),
     (re.compile(r"\bfuture work\b", re.IGNORECASE), "progress phrase: future work"),
     (re.compile(r"\bnext step\b", re.IGNORECASE), "progress phrase: next step"),
@@ -104,6 +128,18 @@ ABSTRACT_IDENTIFIER_PATTERNS = [
     (re.compile(r"\bsigma_[A-Za-z0-9_]+\b"), "internal sigma identifier in abstract"),
     (re.compile(r"\bmanifest\b", re.IGNORECASE), "internal manifest reference in abstract"),
     (re.compile(r"\btheorem_contract\b", re.IGNORECASE), "internal code identifier in abstract"),
+    (re.compile(r"\bQFT-Q\d+\b", re.IGNORECASE), "internal QFT-stage identifier in abstract"),
+    (re.compile(r"\bMGNS-1\b", re.IGNORECASE), "internal modular-state identifier in abstract"),
+]
+
+INFORMAL_IDENTIFIER_PATTERNS = [
+    (re.compile(r"\bQFT-Q\d+\b", re.IGNORECASE), "internal QFT-stage identifier in informal prose"),
+    (re.compile(r"\bMGNS-1\b", re.IGNORECASE), "internal modular-state identifier in informal prose"),
+    (re.compile(r"\bFiniteCapBWCertificate\b"), "internal certificate identifier in informal prose"),
+    (
+        re.compile(r"\bCONDITIONAL_[A-Z0-9_]+\b"),
+        "machine status identifier in informal prose",
+    ),
 ]
 
 
@@ -139,7 +175,7 @@ def abstracts(text: str) -> list[tuple[int, str]]:
 def main() -> int:
     issues: list[str] = []
 
-    all_paths = iter_paths(READER_GLOBS + PAPER_GLOBS)
+    all_paths = iter_paths(READER_GLOBS + STATUS_GLOBS + PAPER_GLOBS)
     for path in all_paths:
         text = path.read_text(encoding="utf-8", errors="ignore")
         add_matches(
@@ -154,6 +190,10 @@ def main() -> int:
     for path in iter_paths(READER_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")
         add_matches(issues, path, text, READER_IDENTIFIER_PATTERNS)
+
+    for path in iter_paths(INFORMAL_GLOBS):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        add_matches(issues, path, text, INFORMAL_IDENTIFIER_PATTERNS)
 
     for path in iter_paths(PAPER_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")

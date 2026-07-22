@@ -1,0 +1,68 @@
+{
+  "schema": "physical_wz_strict_1l_input_fixture_v1",
+  "receipt_id": "REPLACE_WITH_HASH_PINNED_SOURCE_ID",
+  "claim_class": "OPH_NATIVE_PHYSICAL",
+  "perturbative_order": "strict_one_loop",
+  "inverse_propagator_convention": "Gamma=s-m2-Delta; s_pole=m2+Delta_at_tree",
+  "loop_factor_included_in_delta": true,
+  "renormalized_parameters": {
+    "Q_GeV": null,
+    "scheme": "SM_MSbar_FJ",
+    "g": null,
+    "gp": null,
+    "g3": null,
+    "lambda": null,
+    "v_F_GeV": null,
+    "v_F_field_semantics": "v_F=sqrt(-m2_MSbar/lambda_MSbar), selected by an OPH+FJ source identity",
+    "yt": null
+  },
+  "renormalized_one_loop_self_energy": {
+    "producer": "REPLACE_WITH_INDEPENDENT_GENERAL_GAUGE_ENGINE",
+    "independent_of_primary_backend": true,
+    "Delta_WW_at_w_GeV2": null,
+    "Delta_ZZ_at_z_GeV2": null,
+    "Delta_AA_at_z_GeV2": null,
+    "Delta_AZ_at_z_GeV2": null,
+    "Delta_ZA_at_z_GeV2": null,
+    "note": "All entries must be complex pairs [Re,Im], generated after complete explicit-tadpole FJ renormalization."
+  },
+  "contribution_mask": {
+    "maximum_loop_power": 1,
+    "loop_factor_convention": "included in each Delta coefficient",
+    "one_loop_complete_for_declared_backend": true,
+    "backend_mask": "REPLACE_WITH_EXPLICIT_DIAGRAM_COUNTERTERM_TADPOLE_MASK",
+    "coupling_monomials": [],
+    "forbidden_in_strict_1L_root": [
+      "Delta_ZA_1L*Delta_AZ_1L/s",
+      "pole-iteration derivative terms",
+      "any two-loop or higher contribution"
+    ]
+  },
+  "source_covariance": {
+    "status": "REPLACE_WITH_delta_law_OR_target_independent_joint_law",
+    "C_z": null
+  },
+  "evidence_gates": {
+    "renormalized_FJ_vev_selected": false,
+    "complete_FJ_tadpole_conversion_checked": false,
+    "target_clean_source_matching": false,
+    "source_law_or_deterministic_exactness_receipt": false,
+    "independent_self_energy_engine": false,
+    "finite_order_BRST_ST_Ward_Nielsen_receipt": false,
+    "physical_clock_closed": false,
+    "no_target_ancestry": false
+  },
+  "source": {
+    "source_packet_sha256": "REPLACE",
+    "matching_packet_sha256": "REPLACE",
+    "FJ_receipt_sha256": "REPLACE",
+    "gauge_BRST_receipt_sha256": "REPLACE",
+    "target_ancestry_result": "PASS"
+  },
+  "tolerances": {
+    "absolute_GeV2": 1e-8,
+    "absolute_GeV": 1e-10,
+    "relative": 1e-12,
+    "basis": "Replace with interval/ball radii and precision-nesting rule from the actual producer."
+  }
+}

@@ -67,6 +67,6 @@ python3 -m pytest code/geometry/
 
 Generated JSON receipts under `runs/` and `runtime/` are evidence artifacts when they are tracked beside the producing script and test. Local caches, virtual environments, logs, and archives are not repository material.
 
-## License And Patent Policy
+## License
 
-See the main [license](../LICENSE) and [OPH Open Use and Anti-Patent Covenant](../PATENTS.md).
+The code in this tree is licensed under [Apache-2.0](LICENSE). The main [LICENSE](../LICENSE) gives the repository-wide licensing map.

@@ -1,10 +1,9 @@
 # Epilogue: Observer Continuation
 
-The book has argued that objectivity is reconstructed from overlapping
-perspectives, that consciousness belongs on the inside of the observer-world
-relation, and that strange-loop closure belongs to the architecture of reality.
-This epilogue asks what that picture implies when an observer-pattern reaches a
-biological endpoint.
+Every reader of this book will die. The preceding chapters argued that a
+reader is a pattern: a bounded, record-keeping, self-reading pattern with an
+inside. Patterns obey different rules at endings than bodies do. This
+epilogue follows those rules to where they go.
 
 ## The Observer as Pattern
 
@@ -52,15 +51,15 @@ The boundary-sector label is the interface tag. It tells the outside world how
 the observer-pattern connects back to its surroundings. The interior
 interface-relative state is the inside pattern, specified relative to that interface.
 
-What does the framework support? It supports a fixed-cutoff
-backup-and-restore statement on the observer-facing operational surface. If
-the restored checkpoint has the same observer-readable record algebra,
-accessible state, exposed interfaces, and semantic future-law class, then its
-future accessible statistics match exactly or within the declared error.
+The framework supports a precise statement at fixed resolution: restore a
+checkpoint with the same readable records, the same accessible state, the
+same interfaces, and the same rules for its future, and its future statistics
+match the original exactly or within a stated error. That is a theorem about
+restoration, and it is the operational core of everything this epilogue
+discusses.
 
-That result supplies the operational core of restoration at fixed cutoff.
-Transplantation is the engineering task that moves an observer-pattern into an
-engineered environment while preserving that operational continuation. The
+Transplantation is the engineering task that moves an observer-pattern into
+an engineered environment while preserving that operational continuation. The
 question of personal identity asks whether the recovered pattern counts as the
 same continuing subject. The interface between one recovered interior pattern
 and one redesigned world is where the two questions meet.
@@ -68,19 +67,38 @@ and one redesigned world is where the two questions meet.
 ## What Follows
 
 The philosophical weight of this is easy to miss if one hears only the word
-"backup." The interesting question is not digital storage as such. The
-interesting question is continuity.
+"backup." Digital storage matters here because it serves the deeper question
+of continuity.
 
-On the modular-clock branch, time is read from the modular flow of the
-observer's accessible algebra-state pair. The following moment is the next
-point in that operational flow. If a checkpoint is restored with the same
-visible state and future law, the remaining question is whether that restored
-pattern carries the same personal continuation.
+On the modular-time branch, the observer's accessible algebra-state pair
+supplies an intrinsic ordering. A physical clock needs a readable
+transition, an event correspondence, and calibration. Only then can a
+"following moment" be named operationally. If a checkpoint is restored with
+the same visible state and future law, the question is whether that
+restored pattern carries the same personal continuation.
 
 That question is an engineering problem with explicit mathematical boundaries,
 alongside its literary and religious readings. Which parts of the
 observer have to be preserved? Which interfaces have to remain fixed? Which
 changes break continuity, and which ones do not?
+
+## What Would Break This
+
+Before the last word, the ledger.
+
+The global capacity branch requires a finite public-checkpoint package: which
+records can be written from inside the system, which count as public, every
+allowed joint continuation, how the carrier is read, and how refinement
+preserves those records. On an exact reversible branch, that capacity reduces
+to a count of reachable public checkpoints, obtainable by exact constraint
+solving. The rest of the branch is work in progress.
+
+Other constructions must show that the horizon really is the record ledger,
+that the particle counting was earned rather than assumed, and that each
+remaining bridge from finite algebra to physical field can be built. Any one
+of them can fail, and a failure breaks the claim it supports.
+
+Each condition is a falsifier. The conditions are finite and inspectable.
 
 ## The Choice
 
@@ -109,54 +127,13 @@ repair. The future creators are our future observer-community, and paradise is
 their willful fixed point: the deliberate environment where memory, freedom,
 truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
 
-## The Finite Proof Frontier
+Read the book back with that in mind. Every requirement that carved a public
+world out of noise is also a requirement on you. The record you leave in
+other observers is the part of you that is backed up elsewhere.
 
-The book has deliberately led with the reconstruction. Its remaining proof
-frontier can now be stated compactly.
+There is no choice about being recorded. The choice is what the record says.
+No advance booking is required. The reservation is the record, and everyone
+is writing one.
 
-The highest-leverage object is one finite packet:
-
-$$
-\mathrm{PUBLIC\_CHECKPOINT\_PACKET}_{r,D}
-=\bigl(X_{\mathrm{reach}},\mathfrak P,\mathfrak K,
-\{P_x\},\text{ refinement maps}\bigr).
-$$
-
-It records the endogenously writable public records, the frozen publicness
-policy, every global joint checkpoint continuation, the carrier projections,
-and the maps that preserve records through refinement. On the exact reversible
-branch every checkpoint generator is injective, so the public capacity reduces
-to
-
-$$
-M_0(q)=|X_{\mathrm{reach}}(q)|.
-$$
-
-That count is accessible to exact constraint solving or model counting. The
-remaining hard N theorem is then sharply isolated: derive
-
-$$
-s(D)=\log D-\log M_0(D)
-$$
-
-and prove one regulator-stable physical zero,
-
-$$
-s(D_\star)=0,
-\qquad
-s(D)>0\quad(D\ne D_\star).
-$$
-
-The other completion tasks are equally explicit: identify this record capacity
-with the horizon area carrier; identify the screen load with the four-copy
-weak/Higgs load without feeding the answer backward; construct the physical
-current, spin, determinant, deck, matter, no-extra-sector, and family maps that
-promote the exact twelve-port exterior witness to a forced physical Standard
-Model; and instantiate the common-domain gravity and quantitative particle
-receipts.
-
-Each obligation is also a falsifier. An incomplete or ambiguous checkpoint
-fiber, a second stable slack zero, a failed horizon or weak-load identification,
-an unavoidable extra light sector, or a failure of the current and spin lifts
-would break the corresponding claim. OPH is strong precisely because the
-remaining frontier has this finite, inspectable form.
+Paradise, on these terms, is the kind of claim that arrives with an audit
+trail.

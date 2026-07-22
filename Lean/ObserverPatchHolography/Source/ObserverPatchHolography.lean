@@ -15,6 +15,8 @@ import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 import ObserverPatchHolography.IcosahedralAntibridge
 import ObserverPatchHolography.IcosahedralOrbitStabilizer
+import ObserverPatchHolography.BridgeBoundaries
+import ObserverPatchHolography.EinsteinBranch
 import EventAlgebra
 
 /-!
@@ -47,6 +49,20 @@ capacity fixed-point uniqueness schema, and the CAP-P seed statement. They
 formalise the algebraic layer only; the physical identities I1/I2 are
 outside the formalised set.
 
+The `BridgeBoundaries` module carries the finite anti-bridges used by the
+consensus correction: disjoint writes can fail to compose when a nonlinear
+protected observable is omitted from the dependency graph, and equal one- and
+two-bit marginals do not determine a tripartite payload. Positive local-diamond
+and coherent union-collar theorems therefore keep their receipts explicit.
+
+The `EinsteinBranch` modules carry the issue #578 algebraic/compositional
+kernel: bare-tower non-entailment, common-domain typed arrows and
+boundary-fibre composition, explicit null tomography, finite entropy/MaxEnt
+identities, exact small-ball coefficient arithmetic, timelike and null tensor
+algebra, Ward/Bianchi constancy, and strict manifest deletion logic.  The
+continuum, asymptotic, and physical premises remain explicit theorem inputs;
+no inhabited Einstein-admissible tower is claimed.
+
 The `EventAlgebra` library (re-exported here for convenience) is an
 independent, self-contained, sorry-free development of finite-dimensional
 quantum event algebras: events, states, Born weights, Lüders
@@ -54,5 +70,5 @@ conditioning, the conditional expectation onto a commutative center, the
 expectation functional, and the Tsirelson bound. It deliberately imports
 only Mathlib and carries no vocabulary from the rest of this repository.
 
-See `../README.md` and `../PROOF_INDEX.md` for scope and completion tracking.
+See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
 -/

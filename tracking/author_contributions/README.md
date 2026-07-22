@@ -46,8 +46,7 @@ For paper ordering, read the report in this order:
 
 Do not use raw commit count alone as the sole authorship rule.
 
-## License And Patent Policy
+## License
 
 This tracking surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

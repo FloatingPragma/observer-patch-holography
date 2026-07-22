@@ -1,0 +1,74 @@
+{
+  "created": "2026-07-20",
+  "file_count": 15,
+  "files": {
+    "IMPLEMENTATION_CONTRACT.md": {
+      "bytes": 7511,
+      "sha256": "287b885d1bde7e7856b9d101267481f1f7b461755bc2b60126a510a52aa79119"
+    },
+    "PATCH_NOTES.md": {
+      "bytes": 2261,
+      "sha256": "adcebb01167adf55a1ccee42251f870cc550adcc04c83945024eec16e6554d1d"
+    },
+    "README.md": {
+      "bytes": 5581,
+      "sha256": "514da3c2fc4e6e7a6a2ce9665782e6c0aa3e2d5ca402061d9f8e40dbdaffafc1"
+    },
+    "THEOREMS_AND_PROOFS.md": {
+      "bytes": 17294,
+      "sha256": "1a3b6faf066a004823beb0f4b1e517610163daf318d4107887e11f20a0384266"
+    },
+    "UPSTREAM_PACKAGE_MANIFEST.json": {
+      "bytes": 1983,
+      "sha256": "eada7fd515c720b62b95f71e4f236262d7656221eefe669577f0da7a32de7af7"
+    },
+    "checker/check_receipt.py": {
+      "bytes": 12727,
+      "sha256": "9644e6b1491bd52d9f7af81ff3e99bddc6a33d5505ec8d050fa114201dc5c76f"
+    },
+    "data/conditional_smdr_order1_fixture.json": {
+      "bytes": 3280,
+      "sha256": "d17be283996d4dbd9923f5849f2b88b339e709ff474dcbf6492a2c850aecae47"
+    },
+    "data/oph_fj_input_template.json": {
+      "bytes": 2418,
+      "sha256": "39daa89a581a0991fe74a200d8d0f3dfcbb435c7c17577dfd3c05273fe5ce1ec"
+    },
+    "outputs/conditional_strict_1l_pole_map_receipt.json": {
+      "bytes": 6762,
+      "sha256": "99a8fb4a3cee918044a1dc83f8c1efdfbd972e1d357935bda8b59259a3aa3e2e"
+    },
+    "run_all.py": {
+      "bytes": 1390,
+      "sha256": "d846191e671c395c0632e7f3d32dfc2a06631959a2b225208aab0bd94fd483a4"
+    },
+    "schemas/physical_wz_strict_1l_input_fixture.schema.json": {
+      "bytes": 5878,
+      "sha256": "ae116c48d2e8314af0767bdd4abcb23a4a5672873d3aa8e365bc1f997c91f5c7"
+    },
+    "schemas/physical_wz_strict_1l_pole_map_receipt.schema.json": {
+      "bytes": 10437,
+      "sha256": "3c7190086959d6151777e127b6bba827fbbd5414011ecc930d8383d22b4a74b0"
+    },
+    "src/make_integration_manifest.py": {
+      "bytes": 2338,
+      "sha256": "ec22d498c9571377b83bf9a1a1ea1dea392936107134c965e7208a8a9fee6bbc"
+    },
+    "src/wz_pole_map.py": {
+      "bytes": 13807,
+      "sha256": "30679960ecd2baa33458773ff64579d6402e9f7d7fd52123ea7c2051181bdc69"
+    },
+    "tests/test_wz_pole_map.py": {
+      "bytes": 11367,
+      "sha256": "9a35d5117f8e95cdfbfb48c4b13c5712ae071fb005f85f946bf4806441cd57ef"
+    }
+  },
+  "package_id": "physical_wz_strict_one_loop_pole_map_rer_port_2026-07-20",
+  "physical_promotion_allowed": false,
+  "port_location": "code/particles/calibration/strict_one_loop_pole_map",
+  "schema": "physical_wz_strict_one_loop_rer_port_manifest_v1",
+  "scientific_classification": "CONDITIONAL_STRICT_1L_POLE_MAP_NOT_OPH_NATIVE_PHYSICAL",
+  "source_archive_sha256": "fb871c5ac810f8703fd49b9fdcf621096c1bd60bc0c426d34ba42dc2fd3bae8c",
+  "upstream_manifest": "UPSTREAM_PACKAGE_MANIFEST.json",
+  "upstream_manifest_validation": "PASS_12_OF_12_BEFORE_INTEGRATION"
+}

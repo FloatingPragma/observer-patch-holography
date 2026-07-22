@@ -227,8 +227,7 @@ The outputs stay under `particles/runs/neutrino/`. Prediction promotion
 requires a source-emitted family transport kernel, source-derived cycle and
 label laws, refinement stability, and a pre-reference hash lock.
 
-## License And Patent Policy
+## License
 
 This particle neutrino surface is part of the OPH public repository. See the
-main [LICENSE](../../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).
+main [LICENSE](../../../LICENSE).

@@ -71,6 +71,27 @@ class AuditTests(unittest.TestCase):
         self.assertIn("coefficient", state["exact_here"])
         self.assertTrue(any("PORT-CURRENT-INNER" in x for x in state["physical_gates"]))
         self.assertTrue(any("MAR" in x for x in state["physical_gates"]))
+        port_gate = next(x for x in state["physical_gates"] if "PORT-CURRENT-INNER" in x)
+        self.assertIn("conditional", port_gate)
+        self.assertIn("remain open", port_gate)
+        self.assertNotIn("is closed", port_gate)
+
+        receipt = json.loads(
+            (ROOT / "receipts" / "port_current_inner_reference.receipt.json").read_text()
+        )
+        self.assertTrue(receipt["conditional_algebraic_gate"]["passed"])
+        self.assertFalse(receipt["physical_source_gate"]["passed"])
+        self.assertFalse(receipt["issue_closure_condition"]["met_locally"])
+
+        registry = json.loads((ROOT.parent.parent / "claims" / "claim_registry.yaml").read_text())
+        claim = next(
+            row for row in registry["claims"]
+            if row["claim_id"] == "OPH-SCREEN-PORT-CURRENT-INNER"
+        )
+        self.assertEqual(
+            claim["status"],
+            receipt["claim_boundary"]["status"],
+        )
 
     def test_exterior_sm_completion(self):
         m = load("exterior_sm_completion")
@@ -97,6 +118,37 @@ class AuditTests(unittest.TestCase):
         )
         runtime = json.loads((ROOT / "exterior_sm_completion.json").read_text())
         self.assertEqual(runtime, p)
+
+    def test_survival_boundary_certificates(self):
+        m = load("survival_boundary_certificates")
+        no_go = m.source_completion_nonuniqueness_certificate()
+        self.assertEqual(no_go["status"], "EXACT_FINITE_NONIDENTIFIABILITY_THEOREM")
+        self.assertEqual(len(no_go["inequivalent_current_completions"]), 2)
+        self.assertEqual(len(no_go["inequivalent_matter_completions"]), 2)
+        self.assertFalse(no_go["source_only_reconstruction_of_every_completion"])
+
+        p15 = m.rank15_clifford_certificate()
+        self.assertEqual(p15["majorana_count"], 10)
+        self.assertEqual(p15["rank"], 15)
+        self.assertFalse(p15["physical_promotion"])
+
+        gaussian = m.gaussian_composite_1pi_certificate()
+        self.assertEqual(gaussian["connected_third_cumulant"], "14")
+        self.assertEqual(
+            gaussian["composite_effective_action_third_derivative"], "-14/27"
+        )
+        self.assertEqual(gaussian["fundamental_effective_action_third_derivative"], "0")
+
+        refinement = m.refinement_complement_certificate()
+        self.assertTrue(refinement["positive"]["passes_complement_interior_exclusion"])
+        self.assertFalse(
+            refinement["hidden_zero_mode"]["passes_complement_interior_exclusion"]
+        )
+        self.assertEqual(refinement["hidden_zero_mode"]["fine_selected_rank"], 4)
+
+        settlement = m.finite_settlement_certificate()
+        self.assertEqual(settlement["risk_path"], [16, 16, 12])
+        self.assertFalse(settlement["physical_promotion"])
 
     def test_log_coefficients(self):
         m = load("bh_log_correction")

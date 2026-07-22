@@ -75,8 +75,7 @@ A simulator artifact carrying this claim should expose at least:
 The claim fails closed unless every check is recomputed from the attached raw
 objects and the final anti-circularity field is `false`.
 
-## License And Patent Policy
+## License
 
 This code surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

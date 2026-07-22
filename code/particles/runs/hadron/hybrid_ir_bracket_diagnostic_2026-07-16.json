@@ -137,7 +137,7 @@
    "containment_rule": {
     "comparison": "compare_only_non_blind",
     "check": "S_required inside [s_lo, s_hi] of the hybrid bracket; also reported: distance from S_required to the nearest edge, hybrid width versus old width, hybrid width in Delta_source alpha^-1 units versus the 2.1e-8 pass tolerance, and the equivalent relative width on Delta_had versus the 4.04e-9 relative pass tolerance.",
-    "honesty_clause": "If the interval is wider than the old bracket or excludes S_required, that outcome is reported as-is."
+    "reporting_clause": "If the interval is wider than the comparison bracket or excludes S_required, that outcome is reported as-is."
    }
   }
  },

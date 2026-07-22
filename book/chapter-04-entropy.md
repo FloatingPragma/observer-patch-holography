@@ -11,9 +11,10 @@ future should be symmetric.
 
 Ordinary life says otherwise.
 
-Glasses break but don't unbreak. Eggs scramble but don't unscramble. Coffee and milk mix but don't unmix. Ice cubes melt in warm rooms; warm rooms don't freeze into ice cubes. We remember yesterday but not tomorrow.
+Glasses break and stay broken. Eggs scramble but never unscramble, coffee and milk mix and refuse to unmix, and a warm room will melt an ice cube without ever once freezing one back. We remember yesterday but not tomorrow.
 
-This is the **arrow of time**-the obvious, everyday fact that past and future are different. But where does it come from?
+This everyday difference between past and future is the **arrow of time**. Its
+origin is the puzzle.
 
 If the fundamental laws are time-symmetric, how does irreversibility emerge? If every microscopic collision can be run backward, why can't we run macroscopic processes backward?
 
@@ -25,7 +26,7 @@ This puzzle tormented physicists for decades. The answer they found is one of th
 
 Entropy entered physics through a practical problem: how to build a better steam engine.
 
-In 1824, a French engineer named Sadi Carnot asked: what is the maximum efficiency an engine can achieve? His answer was startling-the maximum efficiency depends only on the temperatures of the heat source and sink:
+In 1824, a French engineer named Sadi Carnot asked: what is the maximum efficiency an engine can achieve? His answer was startling: the maximum efficiency depends only on the temperatures of the heat source and sink:
 
 $$\eta_{max} = 1 - \frac{T_{cold}}{T_{hot}}$$
 
@@ -40,17 +41,17 @@ fall from hot to cold. No clever gears can beat that temperature ratio.
 
 Rudolf Clausius gave this limit a name: **entropy**. He stated the Second Law of Thermodynamics: in an isolated system, entropy never decreases.
 
-But Clausius's entropy was phenomenological-it described what happens without explaining why. The explanation came from Ludwig Boltzmann.
+Clausius's entropy was phenomenological. It described what happens without explaining why. Ludwig Boltzmann supplied the explanation.
 
 ### Boltzmann's Counting
 
-Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt.
+Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt, and the counting formula he fought for is carved above his grave in Vienna's Zentralfriedhof.
 
 Boltzmann looked at heat and saw a counting problem.
 
 A gas consists of about $10^{23}$ molecules. Each molecule has a position and velocity. If you could list every molecule's state, you would have the **microstate**.
 
-But we never know the microstate. We measure temperature, pressure, volume-coarse properties that don't distinguish between countless microstates. This coarse description is the **macrostate**.
+But we never know the microstate. We measure temperature, pressure, volume: coarse properties that don't distinguish between countless microstates. This coarse description is the **macrostate**.
 
 Boltzmann saw the central fact clearly: many different microstates correspond
 to the same macrostate.
@@ -77,9 +78,9 @@ The Second Law becomes almost obvious.
 
 Consider a box with gas in the left half. Remove the partition. What happens?
 
-The "all molecules on the left" macrostate has relatively few microstates-each molecule must be in the left half. The "molecules spread throughout" macrostate has vastly more microstates-each molecule can be anywhere.
+The "all molecules on the left" macrostate has relatively few microstates, because each molecule must be in the left half. The "molecules spread throughout" macrostate has vastly more, because each molecule can be anywhere.
 
-As the gas evolves randomly, it wanders through microstates. It spends almost all its time in high-entropy macrostates simply because there are more of them. The probability of all molecules spontaneously returning to the left half is about $2^{-10^{23}}$-so small it will never happen.
+As the gas evolves randomly, it wanders through microstates. It spends almost all its time in high-entropy macrostates simply because there are more of them. The probability of all molecules spontaneously returning to the left half is about $2^{-10^{23}}$, so small it will never happen.
 
 **The hint**: The Second Law is statistics. Entropy increases because high-entropy states are overwhelmingly more probable.
 
@@ -117,7 +118,11 @@ that part of the record count as low entropy?
 
 **Gravity reverses the usual intuition**.
 
-For a gas in a box with no gravity, uniform is high entropy-it's the most probable configuration. But for a self-gravitating system, uniform is *low* entropy. Gravity wants to clump matter together. Stars, galaxies, and black holes are gravitationally collapsed states with far more microstates than uniform distribution.
+For a gas in a box with no gravity, uniform is high entropy because it is the
+most probable configuration. For a self-gravitating system, uniform is *low*
+entropy. Gravity clumps matter together. Stars, galaxies, and black holes are
+gravitationally collapsed states with far more microstates than a uniform
+distribution.
 
 The hot dense record is like a tightly wound spring. The gravitational degrees
 of freedom were almost completely unexploited. Along the observed cosmological
@@ -132,14 +137,14 @@ A solar-mass black hole has about $10^{77}$ bits of entropy. The supermassive bl
 
 For comparison, the entropy of all ordinary matter in the observable universe is only about $10^{80}$ bits. Black holes dominate.
 
-The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute, thermal equilibrium. Maximum entropy. No memory. No observers.
+The ultimate fate of the universe, if it keeps expanding, is heat death: cold, dilute thermal equilibrium at maximum entropy, with nothing left to remember and no one left to notice. This is widely regarded as bad news.
 
 We exist in a brief window when entropy is high enough for complexity but low enough for structure.
 
 ### The First-Principles Reframing
 
-Time is a fundamental dimension. The arrow of time should come from fundamental
-laws.
+The intuitive picture says time is a fundamental dimension whose arrow is
+built into the fundamental laws.
 
 **The hint**: The microscopic laws are time-symmetric. Irreversibility is
 statistical, not fundamental. The arrow traces to the low-entropy side of the
@@ -150,7 +155,10 @@ physics usually treats the low-entropy side of the cosmological record as a
 brute fact, an unexplained boundary condition. This picture suggests why that
 boundary is structurally important.
 
-Consider: for observers to exist at all, they must be able to form consistent records. Records require entropy gradients-you can only write information by pushing entropy somewhere else. A universe in thermal equilibrium has no observers, no records, no consistency-checking, no reality in the sense we've been developing.
+For observers to exist at all, they must be able to form consistent records.
+Records require entropy gradients because writing information pushes entropy
+somewhere else. A universe in thermal equilibrium has no observers, records,
+consistency checks, or public reality in the sense developed here.
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
@@ -174,9 +182,6 @@ $p_i$ is the probability of outcome $i$. The minus sign is present because
 probabilities lie between 0 and 1, so their logarithms are negative. The
 formula turns uncertainty into a number.
 
-Thermodynamic and information-theoretic entropy share the same core counting
-logic, though the standard formulas are written in slightly different settings.
-
 **Entropy measures missing information.**
 
 In thermodynamics, you're missing information about the microstate. In communication, you're missing information about the message. The mathematics shares the same counting logic across different settings.
@@ -192,13 +197,13 @@ thermodynamic objects with energy costs.
 
 ### Maxwell's Demon
 
-In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work-seemingly violating the Second Law.
+In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work, seemingly violating the Second Law.
 
 The modern resolution is subtler than one sentence, but Landauer-style memory erasure is a central part of it: the demon must observe and remember each molecule's velocity, and resetting that memory carries a thermodynamic cost that preserves the Second Law.
 
 **The hint**: Information processing has thermodynamic costs. You cannot observe, remember, or compute for free.
 
-**The reframing**: Observers are physical systems subject to entropy constraints. The consistency process-comparing notes between observers-costs energy and generates entropy. Reality-making is thermodynamically expensive.
+**The reframing**: Observers are physical systems subject to entropy constraints. The consistency process of comparing notes between observers costs energy and generates entropy. Reality-making is thermodynamically expensive.
 
 ## 4.5 Quantum Entropy and Entanglement
 
@@ -219,15 +224,19 @@ written `Tr`, is the matrix version of summing over all possibilities.
 
 The weirdness appears in a simple quantum pair.
 
-Consider two qubits in a **Bell state**:
+Consider two qubits in a **Bell state**. In the bracket notation below, the
+two digits inside each bracket are the readouts of the two qubits, and the
+state is an equal blend of both-zero and both-one:
 
 $$|\Psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$
 
-The total state is pure-perfectly known, zero entropy. But look at either qubit alone, and it appears maximally mixed-completely random, maximum entropy.
+The total state is pure: perfectly known, zero entropy. But look at either qubit alone, and it appears maximally mixed: completely random, maximum entropy.
 
 How can the whole be more ordered than the parts?
 
-The answer: the parts are correlated. Measure the first qubit and get 0, the second is guaranteed to be 0. The randomness is not independent-it's perfectly correlated.
+The parts are correlated. Measure the first qubit and get 0, and the second is
+guaranteed to be 0. The randomness is perfectly correlated rather than
+independent.
 
 ### Entanglement Entropy
 
@@ -255,13 +264,16 @@ For ground states of reasonable theories:
 
 $$S_A \propto \text{Area}(\partial A)$$
 
+The symbol $\partial A$ names the boundary of region A, the surface where the
+region meets the rest.
+
 **The entanglement entropy scales with boundary area, not volume.**
 
 ### Why Area?
 
-Picture the quantum field on a lattice-a grid of points with quantum degrees of freedom. Neighboring points are entangled.
+Picture the quantum field on a lattice, a grid of points with quantum degrees of freedom. Neighboring points are entangled.
 
-When you draw a boundary around region A, you cut through entanglement links. The entanglement comes from the links you cut-proportional to boundary area.
+When you draw a boundary around region A, you cut through entanglement links. The entanglement comes from the links you cut, proportional to boundary area.
 
 Points deep inside A are entangled with other inside points, not the outside. The interior doesn't contribute to boundary entanglement.
 
@@ -269,9 +281,8 @@ Points deep inside A are entangled with other inside points, not the outside. Th
 
 Black-hole entropy bounds point toward area scaling, while the area law of entanglement says actual entropy (in ground states) scales with area too.
 
-This is no coincidence. Gravitational entropy bounds and entanglement area laws
-point in the same structural direction, even though they arise in different
-settings.
+This is no coincidence. Gravitational entropy bounds and entanglement area
+laws point in the same structural direction.
 
 **The hint**: Both quantum entanglement and gravitational entropy obey area laws.
 
@@ -289,13 +300,13 @@ When matter falls in, $S_{\text{outside}}$ decreases because the matter's
 entropy disappears from the outside description, while $S_{BH}$ increases as
 the horizon area grows.
 
-In the semiclassical regimes where the generalized second law is expected to hold, the black hole's entropy increase compensates for what is lost from the outside description.
+In semiclassical regimes, meaning quantum matter on a classical spacetime, the generalized second law is expected to hold: the black hole's entropy increase compensates for what is lost from the outside description.
 
 ### The Page Curve: Information Escapes
 
 Hawking showed black holes radiate. In the semiclassical picture, they slowly evaporate by emitting thermal radiation, apparently shrinking toward disappearance.
 
-His original calculation said the radiation is random-no information about what fell in. This would conflict with the standard unitary expectation of quantum mechanics and is what makes the information-loss problem so sharp.
+His original calculation said the radiation is random, carrying no information about what fell in. That would conflict with the standard expectation that quantum evolution is unitary, an evolution that loses nothing, and it is what makes the information-loss problem so sharp.
 
 Don Page proposed a test. If evaporation is unitary, radiation entropy rises at
 early times while the radiation is entangled with the remaining black hole,
@@ -336,12 +347,9 @@ When two observers compare notes, they share information across patch boundaries
 
 ### The Information Budget
 
-For the late-time de Sitter horizon used in the OPH capacity closure, after the
-selected OPH scale bridge is expressed in SI units, the bare radius-squared
-count is about $1.05\times10^{122}$ and the Gibbons-Hawking entropy capacity is
-about $3.31\times10^{122}$ in natural units, or $4.77\times10^{122}$ bits.
-Other cosmological horizon conventions stay in the band from $10^{122}$ to
-$10^{123}$. The budget is enormous but finite.
+For the horizon that bounds everything we will ever see, the budget works out
+to roughly $10^{122}$ bits, with different accounting conventions shifting the
+answer by less than a factor of ten. The budget is enormous but finite.
 
 But most of that entropy is in black holes, inaccessible. The entropy we can actually manipulate is far less.
 
@@ -358,15 +366,16 @@ and increasing entanglement, remembers by creating records from low-entropy
 resources and free energy, and erases by paying the Landauer cost for making
 room for fresh memory.
 
-Observers are constrained by thermodynamics. They cannot observe without entangling. They cannot remember without consuming free energy. They cannot forget without generating heat.
+Observers are constrained by thermodynamics. They cannot observe without entangling, and they cannot remember without consuming free energy. Even forgetting generates heat.
 
 The consistency process has thermodynamic costs. Sending, receiving, and processing messages all require energy. Agreement is not free.
 
 ## 4.9 What Entropy Tells Us
 
-Entropy is not a loose metaphor. It rests on hard thermodynamic and quantum
-structure. Boltzmann gives the counting picture. Landauer ties information to
-energy cost. Strong subadditivity fixes the basic logic of quantum entropy.
+Entropy rests on hard thermodynamic and quantum structure. Boltzmann gives
+the counting picture. Landauer ties information to energy cost. Strong
+subadditivity, the rule that overlapping regions cannot have their information
+counted twice, fixes the basic logic of quantum entropy.
 
 The physical world keeps pushing in the same direction. The Second Law holds
 with overwhelming reliability in isolated systems. Black-hole entropy follows
@@ -374,25 +383,24 @@ the semiclassical area law. Controlled holographic models produce the Page
 curve when information is preserved. In the low-energy regimes relevant to the
 book, entanglement commonly tracks boundary area more closely than bulk
 volume. None of this looks accidental. All of it points toward a world in
-which information has a budget, storage has a geometry, and memory has a cost.
+which information has a budget, storage has a geometry, and no one remembers
+anything for free.
 
 ### A Short History of the Arrow
 
 The arrow of time is a collective discovery because every generation found a
-different face of the same constraint. Carnot was not trying to solve the
-philosophy of time. He was trying to understand engines. Clausius did not
-begin with black holes. He named entropy because heat engines forced him to
-distinguish usable energy from unavailable energy. Boltzmann did not have
-quantum information theory. He had atoms, probabilities, and the courage to
+different face of the same constraint. Carnot was trying to understand
+engines, and the philosophy of time came along uninvited. Clausius named
+entropy because heat engines forced him to distinguish usable energy from
+unavailable energy. Boltzmann had atoms, probabilities, and the courage to
 say that thermodynamics was counting. Gibbs turned that counting into a
 general statistical language.
 
 Planck used entropy in the route to quantum theory. Shannon rediscovered an
 information-theoretic cousin while studying communication. Landauer then showed
 that information processing itself pays a thermodynamic price. Bekenstein and
-Hawking put entropy on horizons. Page, Hayden, Preskill, Almheiri, Engelhardt,
-Marolf, Maxfield, Penington, and many others turned black-hole entropy into a
-sharp quantum-information problem.
+Hawking put entropy on horizons. Page, Penington, and a small crowd of others
+then turned black-hole entropy into a sharp quantum-information problem.
 
 That chain is important because entropy is easy to misread as a single
 metaphor. In this book the same accounting idea appears in different physical
@@ -404,24 +412,19 @@ microscopic distinctions behind a finite area. A public record exists because
 some physical system has been driven into a durable low-entropy correlation
 with what happened.
 
-The reader should also notice how modest the formulas are. Carnot's
-$\eta_{max}=1-T_{cold}/T_{hot}$ does not say how to build a particular engine.
-It says what no engine can beat. Boltzmann's $S=k_B\ln W$ does not list every
-molecule. It says what matters after coarse-graining: how many microscopic
+The formulas are modest. Carnot's $\eta_{max}=1-T_{cold}/T_{hot}$ says what
+no engine can beat. Boltzmann's $S=k_B\ln W$ counts how many microscopic
 possibilities fit the same macroscopic description. Shannon's
-$H=-\sum_i p_i\log_2 p_i$ does not care whether the messages are poems,
-voltages, or detector clicks. It measures uncertainty in a probability
-distribution. The horizon bound $S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ does
-not tell us the detailed microstates of quantum gravity. It says the storage
-budget scales like area.
+$H=-\sum_i p_i\log_2 p_i$ measures uncertainty in a probability distribution,
+and the horizon bound $S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ says only that
+the storage budget scales like area.
 
 Together those equations explain why observers cannot be free-floating
-witnesses. To observe, an observer must couple to something. To remember, the
-observer must build a physical record. To compare records, observers must
-send, receive, and stabilize information. All of that happens under an
-entropy budget. If OPH treats public reality as a consensus process, entropy
-is the cost accounting for that process. Agreement requires records, and
-records require an arrow.
+witnesses. To observe, an observer must couple to something. To remember, it
+must build a physical record, and comparing records costs energy of its own.
+All of that happens under an entropy budget. If OPH treats public reality as a
+consensus process, entropy is the cost accounting for that process. Agreement
+requires records, and records require an arrow.
 
 ---
 
@@ -451,7 +454,9 @@ Observers live inside that budget. Their memory, records, and shared facts are
 possible only because the accessible history contains a low-entropy side far
 enough from equilibrium to make those things worth tracking.
 
-The next chapter builds the algebra of observables-the mathematical structure describing what observers can measure and how their measurements must relate across patches.
+Chapter 5 builds the algebra of observables, the mathematical structure
+describing what observers can measure and how their measurements must relate
+across patches.
 
 Once entropy limits what can be stored, the theory has to say what can be
 asked and compared.

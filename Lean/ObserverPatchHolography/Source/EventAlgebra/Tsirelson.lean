@@ -3,8 +3,8 @@ import EventAlgebra.Basic
 /-!
 # The Tsirelson bound
 
-The Tsirelson bound in operator-norm form, proved in an abstract unital
-C*-algebra: for self-adjoint involutions `a₀, a₁, b₀, b₁` with each `aᵢ`
+The Tsirelson bound in operator-norm form, proved in a nontrivial unital
+C*-ring in Mathlib's sense: for self-adjoint involutions `a₀, a₁, b₀, b₁` with each `aᵢ`
 commuting with each `bⱼ`, the CHSH combination
 
   `S = a₀ b₀ + a₀ b₁ + a₁ b₀ − a₁ b₁`
@@ -28,8 +28,9 @@ is an inequality, and nothing here asserts that `2√2` is achieved.
 Mathlib's `Mathlib/Algebra/Star/CHSH.lean` proves the *order-form*
 Tsirelson inequality `S ≤ √2^3 • 1` in an ordered star-algebra
 (`tsirelson_inequality`).  The present module is the complementary
-*norm-form* statement in a C*-algebra; it does not assume any order
-structure on the algebra, only the C*-identity for the norm.
+*norm-form* statement in a C*-ring; it assumes neither completeness, a
+scalar-algebra structure, nor an order structure, only the C*-identity for
+the norm.
 
 The abstract statement instantiates in particular to
 `Matrix (Fin n) (Fin n) ℂ` with the `L2` operator norm
@@ -88,13 +89,29 @@ theorem chsh_mul_self (a₀ a₁ b₀ b₁ : R)
 
 end RingIdentity
 
+section EventCommutation
+
+variable {R : Type*} [Ring R]
+
+/-- **Algebra-only.** Commuting elements produce commuting dichotomic
+expressions. This is the adapter used by the event-level CHSH client. -/
+theorem one_sub_two_smul_commute {P Q : R} (h : P * Q = Q * P) :
+    (1 - 2 • P) * (1 - 2 • Q) = (1 - 2 • Q) * (1 - 2 • P) := by
+  calc
+    (1 - 2 • P) * (1 - 2 • Q) =
+        1 - 2 • P - 2 • Q + 4 • (P * Q) := by noncomm_ring
+    _ = 1 - 2 • P - 2 • Q + 4 • (Q * P) := by rw [h]
+    _ = (1 - 2 • Q) * (1 - 2 • P) := by noncomm_ring
+
+end EventCommutation
+
 /-! ## The norm bound -/
 
 section CStarNorm
 
 variable {A : Type*} [NormedRing A] [StarRing A] [CStarRing A] [Nontrivial A]
 
-/-- **Algebra-only.** In a unital C*-algebra, a self-adjoint involution has
+/-- **Algebra-only.** In a nontrivial unital C*-ring, a self-adjoint involution has
 norm one: `‖a‖² = ‖a* a‖ = ‖1‖ = 1`. -/
 theorem norm_eq_one_of_selfAdjoint_involution {a : A}
     (ha : IsSelfAdjoint a) (h : a * a = 1) : ‖a‖ = 1 := by
@@ -117,8 +134,8 @@ theorem norm_commutator_le_two {a₀ a₁ : A} (h₀ : ‖a₀‖ = 1) (h₁ : �
         add_le_add (norm_mul_le _ _) (norm_mul_le _ _)
     _ = 2 := by rw [h₀, h₁]; norm_num
 
-/-- **Algebra-only.** The **Tsirelson bound**, norm form: in a unital
-C*-algebra, for self-adjoint involutions `a₀, a₁, b₀, b₁` with each `aᵢ`
+/-- **Algebra-only.** The **Tsirelson bound**, norm form: in a nontrivial
+unital C*-ring, for self-adjoint involutions `a₀, a₁, b₀, b₁` with each `aᵢ`
 commuting with each `bⱼ`,
 
   `‖a₀ b₀ + a₀ b₁ + a₁ b₀ − a₁ b₁‖ ≤ 2 √2`.
@@ -218,14 +235,41 @@ theorem matrix_tsirelson_bound {n : ℕ} [NeZero n]
   exact tsirelson_bound a₀ a₁ b₀ b₁ sa₀ sa₁ sb₀ sb₁
     ha₀ ha₁ hb₀ hb₁ h₀₀ h₀₁ h₁₀ h₁₁
 
+/-- **Algebra-only.** End-to-end event client: four projection events with
+the cross-party commutation pattern give dichotomic observables satisfying
+the operator-norm Tsirelson bound. -/
+theorem matrix_tsirelson_bound_of_events {n : ℕ} [NeZero n]
+    (A₀ A₁ B₀ B₁ : Matrix (Fin n) (Fin n) ℂ)
+    (hA₀ : IsEvent A₀) (hA₁ : IsEvent A₁)
+    (hB₀ : IsEvent B₀) (hB₁ : IsEvent B₁)
+    (h₀₀ : A₀ * B₀ = B₀ * A₀) (h₀₁ : A₀ * B₁ = B₁ * A₀)
+    (h₁₀ : A₁ * B₀ = B₀ * A₁) (h₁₁ : A₁ * B₁ = B₁ * A₁) :
+    ‖(1 - 2 • A₀) * (1 - 2 • B₀) +
+        (1 - 2 • A₀) * (1 - 2 • B₁) +
+        (1 - 2 • A₁) * (1 - 2 • B₀) -
+        (1 - 2 • A₁) * (1 - 2 • B₁)‖ ≤ 2 * Real.sqrt 2 := by
+  obtain ⟨sa₀, ha₀⟩ := hA₀.one_sub_two_smul_involution
+  obtain ⟨sa₁, ha₁⟩ := hA₁.one_sub_two_smul_involution
+  obtain ⟨sb₀, hb₀⟩ := hB₀.one_sub_two_smul_involution
+  obtain ⟨sb₁, hb₁⟩ := hB₁.one_sub_two_smul_involution
+  exact matrix_tsirelson_bound
+    (1 - 2 • A₀) (1 - 2 • A₁) (1 - 2 • B₀) (1 - 2 • B₁)
+    sa₀ sa₁ sb₀ sb₁ ha₀ ha₁ hb₀ hb₁
+    (one_sub_two_smul_commute h₀₀)
+    (one_sub_two_smul_commute h₀₁)
+    (one_sub_two_smul_commute h₁₀)
+    (one_sub_two_smul_commute h₁₁)
+
 end MatrixInstance
 
 -- Axiom audit: each must report only `[propext, Classical.choice, Quot.sound]`.
 #print axioms chsh_mul_self
+#print axioms one_sub_two_smul_commute
 #print axioms norm_eq_one_of_selfAdjoint_involution
 #print axioms norm_commutator_le_two
 #print axioms tsirelson_bound
 #print axioms tsirelson_bound_of_isCHSHTuple
 #print axioms matrix_tsirelson_bound
+#print axioms matrix_tsirelson_bound_of_events
 
 end EventAlgebra

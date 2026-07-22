@@ -51,7 +51,7 @@
 
 \begin{abstract}
 The Clay Yang--Mills problem asks for a nontrivial four-dimensional quantum
-gauge theory with a positive mass gap. OPH supplies a finite repair mechanism
+gauge theory with a positive mass gap. Observer-Patch Holography (OPH) supplies a finite repair mechanism
 whose relaxation gap equals the transfer-Hamiltonian gap when both operators
 come from the same ground-state transform. The four-dimensional conclusion also
 requires convergence of the Schwinger functions, reflection positivity,
@@ -93,7 +93,8 @@ four-dimensional scaling chart, the reflection-positive ordinary vacuum sector, 
 additional gauge-invariant relevant dimension-four pure-gauge operators beyond the positive
 quadratic curvature invariant, the support-visible cylinder extraction, and the renormalized
 regularity/universality receipt. The later mass-gap step adds the finite transfer receipt, exact
-local repair, bounded-color active collars, repair completeness, and the uniform-gap certificate.
+atomic heat-bath collars, a finite source-type table, and a uniform \(L^2\)
+approximate-tensorization/influence certificate.
 
 Acceptance as a Clay-admissible solution depends on supplying the unproved parts of the OPH
 compact-gauge continuum certificate: renormalized Schwinger-function convergence, reflection
@@ -131,7 +132,7 @@ then the cost of leaving the repair-fixed vacuum sector: the same
 consistency requirement that forces records at the substrate level supplies
 the relaxation generator whose spectral floor is \(\Delta_{\mathrm{rep}}\).
 This interpretation adds no strength to the Clay-facing claim: the identity
-\(\Delta_{\YM}=\Delta_{\mathrm{rep}}\) remains conditional on (Y1)--(Y6) and
+\(\Delta_{\YM}=\Delta_{\mathrm{rep}}\) is conditional on (Y1)--(Y6) and
 the continuum certificate exactly as stated above.
 
 The Clay-facing import is the compact paper's Yang--Mills theorem surface: the compact-gauge
@@ -204,6 +205,7 @@ Notation & Meaning \\
 \(U_r\) & finite-stage unitary from the physical Euclidean Hilbert space to the repair \(L^2\) space. \\
 \(K,\Hcal,U\) & support-visible continuum repair Hilbert space, physical Hilbert space, and limiting unitary. \\
 \(c_*\) & uniform active-collar repair-rate floor. \\
+\(A_*,\delta_*\) & uniform approximate-tensorization constant and certified global gap \(c_*/A_*\). \\
 \bottomrule
 \end{longtable}
 
@@ -487,99 +489,122 @@ so summing over the active collars gives (1), and exponentiation of the positive
 generator gives (2).
 \end{proof}
 
-\begin{lemma}[Uniform active-collar rate floor]
-\label{lem:floor}
-Assume finite local combinatorial type, a branch-homogeneous local constraint family, and
-refinement-stable exact repair semantics. Then the local Euclidean repair rate depends only on
-active collar type, the active collar-type set is finite across the cofinal refinement family, and
-there is \(c_*>0\), independent of \(r\), such that
+\begin{definition}[Source-defined admissible atomic collar tower]
+\label{def:admissible-collar-tower}
+For every regulator and allowed boundary condition \(b\), let the source give an atomic register
+set \(V_r\) with finite local alphabets, a finite-range Gibbs law \(\pi_{r,b}\), and one rooted active collar \(C(v)\) per
+\(v\in V_r\), with
 \[
-c_C\ge c_*
-\qquad
-\text{for every active collar }C\in\mathcal C_r.
+P_{v,r,b}f:=\mathbb E_{\pi_{r,b}}[f\mid x_{V_r\setminus\{v\}}].
+\]
+Its source type is the isomorphism class of the rooted interaction-radius neighbourhood,
+boundary/sector flags, local alphabets, nonzero potential templates, complete repaired readback,
+conditional kernel, and normalized rate.  The tower is admissible when:
+\begin{enumerate}[label=\textup{(G\arabic*)},leftmargin=2em]
+\item all active types over every location, allowed boundary, system size, and cofinal refinement
+stage belong to one printed finite set \(\mathfrak T_{\rm act}\);
+\item \(\mathcal C_r=\{C(v):v\in V_r\}\), \(E_{C(v)}=P_{v,r,b}\), and type-equivalent collars
+have the same rate \(c_{v,r,b}=c_{\tau(v)}\ge c_*>0\);
+\item if \(a_{vu}^{r,b}\) is the supremum total-variation change of the root-\(v\) conditional
+kernel when exterior configurations differ only at \(u\), outward-rounded rational bounds from
+the finite type table prove
+\[
+\sup_{r,b,v}\sum_{u\ne v}a_{vu}^{r,b}\le\eta_*<1.
 \tag{3}
 \]
-\end{lemma}
+The Dobrushin Poincar\'e comparison then derives the uniform approximate-tensorization bound
+with \(A_*=(1-\eta_*)^{-1}\) \cite{wu06};
+\item coarse shadow preserves the listed type transitions and conditional kernels and creates no
+unlisted type.
+\end{enumerate}
+Qualitative finite-range mixing and collar-CMI decay are not item \textup{(G3)}.
+\end{definition}
+
+\begin{proposition}[Finite collar classification and local-rate floor]
+\label{lem:floor}
+The admissible collar classes are exactly the nonempty fibers of
+\(\tau:\bigsqcup_rV_r\to\mathfrak T_{\rm act}\).  Hence there are at most
+\(|\mathfrak T_{\rm act}|\) classes and
+\[
+c_{v,r,b}\ge c_*:=\min_{t\in\mathfrak T_{\rm act}}c_t>0
+\tag{4}
+\]
+uniformly across location, boundary condition, system size, and cofinal refinement.
+\end{proposition}
 
 \begin{proof}
-Active collars are exactly the collars on which complementary invisible fiber data are genuinely
-relaxed. Hence \(D_C\neq0\) on \(\ker(E_C)\), so \(c_C>0\). Finite local combinatorial type gives
-a finite list of bounded collar patterns, including their visible interface alphabets, hidden
-fiber cardinalities, local constraint templates, and admissible repair maps. Branch homogeneity
-makes the conditioned MaxEnt relaxation scalar a function of this finite type data. Refinement
-stability says that refinement replaces a collar by copies of the same bounded type templates
-with the same normalized local Euclidean repair semantics, so no new rate-degenerating collar
-type appears along the cofinal family. Taking the minimum of \(c_C\) over the finite active type
-list gives \(c_*>0\).
+The type tuple is a complete source signature.  Items \textup{(G1)}--\textup{(G2)} therefore
+identify precisely a finite image with a positive finite minimum, while item \textup{(G4)}
+prevents refinement from producing a new or rate-degenerate type.
 \end{proof}
 
 \section{Finite-Stage Gap}
 
-\begin{proposition}[Special commuting-color finite-stage repair gap]
+\begin{theorem}[Uniform collar-projection and transfer gap]
 \label{prop:finite-gap}
-Assume that the collar family admits a bounded-color decomposition
+For an admissible collar tower satisfying the finite ground-state-transform receipt, set
 \[
-\mathcal C_r=\bigsqcup_{a=1}^{q}\mathcal C_{r,a},
-\qquad q<\infty,
-\tag{4}
-\]
-independent of \(r\), and that exact quotient-local gluing makes the corresponding color
-expectations commute. Then
-\[
-L_r^{\Rep}\ge c_*(I-P_{0,r}),
+\delta_*:=c_*(1-\eta_*)=\frac{c_*}{A_*}>0
 \tag{5}
 \]
-where \(P_{0,r}\) projects onto constants in \(K_r\). Hence
+in the influence-certified case.  Uniformly across the complete family,
 \[
-\Delta_{\mathrm{rep},r}\ge c_*>0.
+L_{r,b}^{\Rep}\ge\delta_*(I-P_{0,r,b}),
+\qquad
+\|e^{-tL_{r,b}^{\Rep}}-P_{0,r,b}\|_{2\to2}\le e^{-t\delta_*}.
 \tag{6}
 \]
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
-For each color \(a\), define the parallel color expectation
+Every \(P_{v,r,b}\) is an orthogonal conditional expectation.  The Dobrushin comparison applied
+to item \textup{(G3)} gives (AT), so for \(f\perp\mathbf1\),
 \[
-E_{r,a}:=\prod_{C\in\mathcal C_{r,a}}E_C.
+\langle f,L_{r,b}^{\Rep}f\rangle
+=\sum_vc_{v,r,b}\|(I-P_{v,r,b})f\|_2^2
+\ge\frac{c_*}{A_*}\|f\|_2^2.
 \]
-Same-color collars are disjoint, so the factors commute. Exact quotient-local gluing makes
-\(\{E_{r,a}\}_{a=1}^{q}\) a commuting family of orthogonal projections on the vacuum branch.
-
-Repair completeness says that the only support-visible observables fixed by every local repair
-are constants:
-\[
-\bigcap_{a=1}^{q}\operatorname{Ran}(E_{r,a})=\C\,\mathbf 1_r.
-\tag{7}
-\]
-Define
-\[
-\widetilde L_r:=\sum_{a=1}^{q} c_*(I-E_{r,a}).
-\]
-For commuting projections,
-\[
-I-\prod E_C\le \sum_C(I-E_C),
-\]
-so \(\widetilde L_r\le L_r^{\Rep}\). The projections \(E_{r,a}\) are simultaneously
-diagonalizable. On the joint all-ones eigenspace, (7) says the vector is constant. Every
-nonconstant joint eigenspace has at least one color eigenvalue zero, so
-\[
-\widetilde L_r\ge c_*(I-P_{0,r}).
-\]
-This proves (5), and the spectral gap bound (6) follows.
+This proves the operator bound, and the spectral theorem gives the transfer bound.  The four
+uniformities follow because items \textup{(G1)}--\textup{(G4)} use one type table and one
+approximate-tensorization modulus on the entire cofinal tower.
 \end{proof}
 
-\begin{remark}[Generic repair-gap certificate]
-The commuting-color proposition is a special certificate, not the generic repair-generator route.
-For overlapping collars one must instead compute
+\begin{proposition}[Finite countermodels for the two hypotheses]
+\label{prop:gap-countermodels}
+If uniform mixing is removed, the faithful two-site family
 \[
-\kappa_r=\inf_{f\perp 1}
-\frac{\sum_C\|(I-E_C)f\|^2}{\|f\|^2}.
+\pi_\varepsilon(00)=\pi_\varepsilon(11)=\frac{1-\varepsilon}{2},
+\qquad
+\pi_\varepsilon(01)=\pi_\varepsilon(10)=\frac{\varepsilon}{2}
 \]
-If local fiber rates have a lower bound \(\gamma_*>0\), then
+has exact heat-bath spectrum \(\{0,2\varepsilon,2(1-\varepsilon),2\}\), hence gap
+\(2\varepsilon\to0\).  If locality is removed,
+put the product fair-bit law on \(\{0,1\}^m\), list its \(2^m\) states in cyclic Gray-code order,
+and average over the two alternating perfect matchings, with projections \(E_0,E_1\).  Product
+mixing is exact and separated CMI is zero, but deciding which bit to change reads the whole
+configuration.  Exact cycle Fourier modes give
 \[
-L_r^{\Rep}\ge \gamma_*\kappa_r(I-P_{0,r}).
+\operatorname{gap}\bigl((I-E_0)+(I-E_1)\bigr)
+=1-\cos(2\pi/2^m)\longrightarrow0.
+\tag{7}
 \]
-Finite repair completeness gives \(\kappa_r>0\) at fixed regulator; a uniform refinement lower
-bound is a separate receipt.
+Thus both countermodels are finite, and neither hypothesis can be deleted.
+\end{proposition}
+
+\begin{remark}[What the certificate must contain]
+Finite-range Gibbs form and collar-CMI decay do not imply (3) and do not control projection
+angles.  A numerical receipt must certify outward-rounded bounds \(c_*^{\rm lo}>0\) and
+\(\eta_*^{\rm hi}<1\), yielding the explicit certified floor
+\(\delta_*^{\rm lo}=c_*^{\rm lo}(1-\eta_*^{\rm hi})\).  Point estimates do not qualify.
+\end{remark}
+
+\begin{remark}[Executable calibration boundary]
+The exact-rational \(244\)-type four-dimensional Ising calibration has \(c_*=1\), \(\eta_*\le1/2\), and hence
+\(\delta_*\ge1/2\) for its declared finite family.  Its receipt is an executable
+test of the collar-type data model, not a physical compact-simple-gauge source
+receipt.  The physical manifest is intentionally uninstantiated and fails
+closed pending source collar kernels, refinement closure, gauge/zero-mode data,
+and the independent continuum and transfer receipts.
 \end{remark}
 
 \section{Continuum Extraction}
@@ -900,11 +925,11 @@ UHU^{-1}=L^{\mathrm{rep}}.
 \]
 If the finite repair generators satisfy
 \[
-L_r^{\Rep}\ge c_*(I-P_{0,r})
+L_r^{\Rep}\ge \delta_*(I-P_{0,r})
 \]
-with one \(c_*>0\) and the vacuum projections converge strongly, then
+with one \(\delta_*>0\) and the vacuum projections converge strongly, then
 \[
-H\ge c_*(I-P_0^{\Hcal}).
+H\ge \delta_*(I-P_0^{\Hcal}).
 \]
 \end{theorem}
 
@@ -920,12 +945,12 @@ so uniqueness of self-adjoint semigroup generators gives \(UHU^{-1}=L^{\mathrm{r
 repair-form Mosco recovery sequence \(\psi_r\to\psi\),
 \[
 q_r^{\mathrm{rep}}(\psi_r)
-\ge c_*\bigl(\|\psi_r\|^2-\|P_{0,r}\psi_r\|^2\bigr).
+\ge \delta_*\bigl(\|\psi_r\|^2-\|P_{0,r}\psi_r\|^2\bigr).
 \]
 Taking the limit and using strong convergence of the vacuum projections gives the continuum form
 inequality. In the exact direct-limit alternative, the finite bound is equivalently
 \[
-\|e^{-tL_r^{\Rep}}(I-P_{0,r})\|\le e^{-c_*t};
+\|e^{-tL_r^{\Rep}}(I-P_{0,r})\|\le e^{-\delta_*t};
 \]
 coherence passes this estimate to the direct-limit semigroup, and the spectral theorem gives the
 same continuum form inequality.
@@ -993,14 +1018,14 @@ Proposition~\ref{prop:finite-gap}. The theory reconstructed in
 Theorem~\ref{thm:os}
 is nontrivial, and its continuum support-visible Hamiltonian \(H\) satisfies
 \[
-H\ge c_*(I-P_0^{\Hcal}),
+H\ge \delta_*(I-P_0^{\Hcal}),
 \tag{10}
 \]
 where \(P_0^{\Hcal}\) projects onto the physical vacuum. Therefore
 \[
-\operatorname{Spec}(H)\cap(0,c_*)=\varnothing,
+\operatorname{Spec}(H)\cap(0,\delta_*)=\varnothing,
 \qquad
-\Delta_{\YM}\ge c_*>0.
+\Delta_{\YM}\ge \delta_*>0.
 \tag{11}
 \]
 On that certified continuum branch the repair gap and Yang--Mills gap are exactly equal:
@@ -1013,12 +1038,12 @@ On that certified continuum branch the repair gap and Yang--Mills gap are exactl
 \begin{proof}
 At every finite stage, Proposition~\ref{prop:finite-gap} gives
 \[
-L_r^{\Rep}\ge c_*(I-P_{0,r}).
+L_r^{\Rep}\ge \delta_*(I-P_{0,r}).
 \]
 By Theorem~\ref{thm:continuum}, on the extracted cylinder/GNS space, this lower bound passes to
 the support-visible continuum:
 \[
-L^{\mathrm{rep}}\ge c_*(I-P_0^K).
+L^{\mathrm{rep}}\ge \delta_*(I-P_0^K).
 \]
 Using (9), \(UHU^{-1}=L^{\mathrm{rep}}\). Conjugating the lower bound by \(U^{-1}\) gives (10),
 and the spectral statement (11) follows. Since unitary equivalence preserves the nonzero spectrum
@@ -1030,8 +1055,8 @@ same on both sides, giving (12).
 The proof is group-uniform. Once a compact simple \(G\) is carried by a compact-gauge
 zero-obstruction OPH branch, no step uses special properties of the realized Standard Model
 quotient. The inputs are compact-gauge support-visible quotient locality, exact local repair on
-collars, the finite ground-state-transform/cross-fiber receipt, the uniform rate and commuting-color
-receipts, refinement coherence, projective cylinder extraction, the transfer/vacuum certificate,
+collars, the finite ground-state-transform/cross-fiber receipt, the source-type and uniform
+approximate-tensorization receipts, refinement coherence, projective cylinder extraction, the transfer/vacuum certificate,
 and the OS regularity/noncollapse certificate.
 \end{remark}
 
@@ -1058,7 +1083,7 @@ The Yang--Mills gap is exactly the first nonzero repair eigenvalue:
 =:
 \Delta_{\mathrm{rep}}.
 \]
-The finite-stage color argument proves \(\Delta_{\mathrm{rep}}\ge c_*>0\). The exact accounting
+The finite-stage approximate-tensorization argument proves \(\Delta_{\mathrm{rep}}\ge\delta_*>0\). The exact accounting
 statement is the conditional equality \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\); the inequality is the
 positivity proof for that same quantity. Without the continuum certificate, the same equations
 remain finite-regulator repair accounting instead of a Clay-admissible Yang--Mills theorem.
@@ -1090,10 +1115,10 @@ Clay/Jaffe--Witten target & OPH repair-dynamics boundary \\
 \endhead
 Compact simple gauge group \(G\) & \(G\) is arbitrary compact simple, provided it is carried by the OPH compact-gauge zero-obstruction branch. \\
 Four-dimensional Euclidean Yang--Mills form & Theorem~\ref{thm:ym-form}, imported from the compact paper's Yang--Mills theorem surface, gives \(S_E[A]=\frac{1}{4g^2}\int_{\R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x\) under the branch and renormalized identification certificates. \\
-Four-dimensional quantum Yang--Mills theory & Proposition~\ref{prop:extraction} proves support-visible projective weak-* / GNS extraction. Renormalized Schwinger convergence, reflection positivity, Euclidean covariance/locality, clustering, nontriviality, and transfer/intertwiner convergence remain conditional on Assumption~\ref{ass:ym-continuum-certificate}. \\
+Four-dimensional quantum Yang--Mills theory & Proposition~\ref{prop:extraction} proves support-visible projective weak-* / GNS extraction. Renormalized Schwinger convergence, reflection positivity, Euclidean covariance/locality, clustering, nontriviality, and transfer/intertwiner convergence are conditional on Assumption~\ref{ass:ym-continuum-certificate}. \\
 Nontriviality & Conditional on the variance-floor and finite-energy certificate in item (Y6). Finite nonconstant Wilson/plaquette cylinders are candidates; weak-\(*\) convergence alone is not enough. \\
 Axiomatic strength & Theorem~\ref{thm:os} states the conditional OS reconstruction step on the support-visible gauge-invariant local algebra. \\
-Mass gap & Under the finite ground-state-transform, cross-fiber-rate, commuting-color, and uniform-floor receipts, \(L_r^{\Rep}\ge c_*(I-P_{0,r})\). The continuum Hamiltonian bound \(H\ge c_*(I-P_0^{\Hcal})\) follows only after Theorem~\ref{thm:continuum}. \\
+Mass gap & Under the finite ground-state-transform, source-type, cross-fiber-rate, and uniform approximate-tensorization receipts, \(L_r^{\Rep}\ge\delta_*(I-P_{0,r})\), where \(\delta_*=c_*/A_*\). The continuum Hamiltonian bound \(H\ge\delta_*(I-P_0^{\Hcal})\) follows only after Theorem~\ref{thm:continuum}. \\
 Exact gap accounting & On the certified continuum branch, \(UHU^{-1}=L^{\mathrm{rep}}\) gives \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\). OPH accounts exactly for the Yang--Mills gap as the first nonzero repair eigenvalue only on that branch. \\
 Uniformity in \(G\) & The proof uses compact simplicity and compact-gauge quotient locality, not Standard-Model-specific representation data. \\
 \bottomrule
@@ -1104,10 +1129,10 @@ Uniformity in \(G\) & The proof uses compact simplicity and compact-gauge quotie
 The OPH finite repair mechanism for the Yang--Mills mass gap is simple. A non-vacuum
 support-visible compact-gauge excitation is not fixed by all local repair collars. At least one
 active collar must relax it. Because active collar rates have a uniform positive floor and the
-collars can be organized into finitely many commuting colors, every non-vacuum finite-regulator
+source law has one uniform approximate-tensorization constant, every non-vacuum finite-regulator
 state pays a positive Euclidean repair cost. The finite-stage statements are exact theorems on the
 declared cylinder system, with every assumption named and the load-bearing unverified receipt
-isolated in one place; the mechanism inherits the wider program's discipline of machine-checked
+isolated in one place; the mechanism inherits the wider program's discipline of finite
 core theorems and zero continuous dials.
 
 The Clay-facing conclusion is conditional. If the regulator family also satisfies the
@@ -1118,7 +1143,7 @@ Yang--Mills gap is the repair gap:
 
 \[
 \boxed{
-\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge c_*>0.
+\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge \delta_*=c_*/A_*>0.
 }
 \]
 
@@ -1203,6 +1228,12 @@ D.~J.~Gross and W.~Taylor,
 ``Two-dimensional QCD is a string theory,''
 \emph{Nucl.\ Phys.\ B} \textbf{400} (1993), 181--208,
 arXiv:hep-th/9301068.
+
+\bibitem{wu06}
+L.~Wu,
+``Poincar\'e and transportation inequalities for Gibbs measures under the Dobrushin uniqueness condition,''
+\emph{Annals of Probability} \textbf{34} (2006), 1960--1989,
+arXiv:math/0611635.
 
 \end{thebibliography}
 

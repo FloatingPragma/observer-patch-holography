@@ -1282,7 +1282,7 @@ def build_certificate(
         ),
         "protocol_stage": (
             "stage 2 (contraction certificate) of the basin-then-contract protocol "
-            "for the P coordinate; see CLOSURE_LEDGER.md"
+            "for the P coordinate; see the P-closure issue (#545)"
         ),
         "scope": (
             "certificate applies to the declared numerical closure map at the stated "

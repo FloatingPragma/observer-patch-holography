@@ -80,12 +80,12 @@ seen from within. Their self-read equation is
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)},
 \]
 where \(\ATh(P)\) is the Thomson-limit inverse coupling emitted by a trial
-pixel. Lean checks the contraction theorem that gives existence and uniqueness,
+pixel. The contraction theorem gives existence and uniqueness,
 and outward-rounded interval certificates discharge its concrete hypotheses.
 The source map has the interval-certified unique root
 \(\alpha^{-1}=136.994835177413\ldots\). Adding the finite-screen gauge width
 inside the same loop gives the certified root
-\(137.035660136946577\ldots\). The CODATA value is used only to test these
+\(137.035660136946577\ldots\). The recommended experimental value is used only to test these
 source calculations. A physical low-energy prediction requires the same-scheme
 hadronic spectral transport, which is work in progress.
 \end{abstract}
@@ -102,9 +102,9 @@ spectral transport. OPH adds the pixel self-reference: the outside area coordina
 \(P\) must agree with the inside electromagnetic observation scale read by
 observers on the same branch.
 
-The pixel map carries zero continuous dials. Lean checks the fixed-point
-existence and uniqueness theorem used by the calculation, and each declared
-map has a machine-certified unique fixed point: the source map contracts to
+The pixel map carries zero continuous dials. The fixed-point existence and
+uniqueness theorem used by the calculation, together with interval certificates,
+gives each declared map a unique fixed point: the source map contracts to
 \(136.994835177413\ldots\) (\(3.0\times10^{-4}\) relative from the measured
 endpoint) and the self-consistent gauge-width map to
 \(137.035660136947\) (\(2.5\times10^{-6}\) relative; the declared map is
@@ -116,6 +116,13 @@ QCD step, and a clear boundary between source theorem, empirical endpoint
 closure, and measured comparison.
 
 \section{Introduction}
+
+The screen cell in this calculation is not free-floating. On the declared
+carrier branch of the OPH stack it is a cell of the federated screen built
+from twelve-port icosahedral carriers, the same lineage whose port algebra
+witnesses the Standard Model gauge structure in the compact
+paper~\cite{oph-smgr}; the local pixel equation reads back the
+electromagnetic resolution of one such cell.
 
 Two declared principles carry the construction. The detuning law places the
 pixel ratio off the golden-ratio balance point by the Gaussian-normalized width
@@ -131,7 +138,7 @@ There is a long history of attempts to understand \(\alpha\) from deeper structu
 \begin{quote}\small
 \textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\), with relative residual \(2.5\times10^{-6}\), about \(1.6\times10^{4}\) measurement sigma. The combination \(A_{\alpha_U}^{\mathrm{fp}}=137.035959513609\ldots\) mixes the certified source root with \(\alpha_U(\Ppub)\) evaluated at the CODATA-derived comparison pixel; it is not a fixed point of a single declared map. The measured value is a downstream endpoint test and does not fix either source root.
 
-\textbf{CODATA/NIST measured endpoint.} CODATA/NIST reports \(\alphainv(0)=137.035999177(21)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
+\textbf{CODATA\slash NIST measured endpoint.} CODATA\slash NIST reports the value \(137.035999177(21)\) for \(\alphainv(0)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
 
 \paragraph*{Intuitive picture: three readings of one pixel.}
@@ -255,7 +262,7 @@ Symbol & Definition & Informal meaning \\
 \(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the displayed OPH output misses the CODATA/NIST central endpoint. \\
 \(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
 \(A_{\alpha_U}^{\mathrm{fp}}\) & \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(\Ppub)\) & Mixed-provenance no-hadron comparison diagnostic; the root is source-side and \(\Ppub\) is CODATA-derived. \\
-\(J_{24,Q}(P),\omega_Q(P),\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
+\(J_{24,Q}(P)\), \(\omega_Q(P)\), \(\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
 \(\Ppub\) & CODATA/NIST comparison pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
 \bottomrule
 \end{longtable}
@@ -413,7 +420,12 @@ The source branch uses
 \begin{equation}
 \beta_{\mathrm{EW}}=\Nc+1=4
 \end{equation}
-with \(\Nc=3\), and defines
+with \(\Nc=3\). The same value has a representation-theoretic reading in the
+compact paper: the selected exterior matter package contains exactly four weak
+doublets, \(3+1\) from the quark and lepton sectors of one generation, so
+\(\Nc+1\) and the weak-doublet multiplicity name one coefficient. The
+identification of that abstract load with the physical screen load is the
+separate common-carrier receipt. The branch defines
 \begin{equation}
 v(P,\alpha_U)
 =
@@ -887,7 +899,7 @@ Why this step is needed: the measured endpoint and the comparison pixel are two 
 \paragraph{Two-\(P\) provenance audit.}
 There are two distinct pixel numerals in this paper.  The source-only
 solve gives \(P_{\mathrm{root}}\) in Eq.~\eqref{eq:Prootnum}; it is the
-branch used to audit what the OPH source chain emits before a same-scheme
+branch that audits what the OPH source chain emits before a same-scheme
 hadronic endpoint correction is supplied.  The comparison value \(\Ppub\) in
 Eq.~\eqref{eq:Ppub} is different by about \(3.9\times10^{-6}\) in \(P\)-space
 because it is defined from the measured CODATA/NIST Thomson endpoint.  Thus
@@ -1121,9 +1133,11 @@ This differs from \(137.035999177\). Holding this raw hadronic denominator shift
 \end{equation}
 or a same-scheme source-anchor bridge of
 \begin{equation}
+\begin{gathered}
 \bigl(\Delta\alpha_{\mathrm{had,req}}-\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z)\bigr)\cdot\alphainv(0)
-=
+=\\
 \decnum{0.6350718999845777629071473607087944109058081590769662204754254946822541269913529133871}
+\end{gathered}
 \label{eq:bridgegap}
 \end{equation}
 inverse-alpha units, with \(\Delta\alpha_{\mathrm{had,req}}\) from
@@ -1173,9 +1187,9 @@ Informally: the measured hadronic input supplies the electromagnetic spectral in
 
 Why this step is needed: the dispersion relation explains why measured \(e^+e^-\to\mathrm{hadrons}\) data are the right empirical input. They measure the electromagnetic spectral function that the endpoint transport requires.
 
-\section{No-Go: The 24-Register Scale Does Not Determine the Hadronic Residual}
+\section{No-Go: The 24-Slot Register Scale Does Not Determine the Hadronic Residual}
 
-\begin{theorem}[Coarse 24-register data do not determine the Thomson residual]
+\begin{theorem}[Coarse 24-slot register data do not determine the Thomson residual]
 The specified OPH source objects \(P\), \(\alpha_U(P)\), \(N_c=3\), \(N_g=3\), and the
 24-slot repair-register count do not determine the exact low-energy Thomson residual.
 \end{theorem}
@@ -1208,7 +1222,7 @@ have equal total mass, but
 \qquad
 \int K_P(s)\rho_2(s)\dd s=M K_P(s_2),
 \]
-which are generically unequal. Thus the 24-register scale explains the size of the correction but
+which are generically unequal. Thus the 24-slot register scale explains the size of the correction but
 does not select the spectral measure that fixes its exact value.
 \end{proof}
 
@@ -1349,8 +1363,7 @@ certifies \(1/\alpha_3(m_Z)\ge 4\) and a positive inverse-alpha readout
 floor on the whole analytic domain, and an interval sweep of the full pixel
 window certifies that every window-consistent fixed-point candidate of
 either readout map lies inside the declared physical interval
-(runtime artifact
-\texttt{p\_global\_uniqueness\_extension\_certificate\_2026-07-17.json}).
+(global uniqueness extension certificate).
 Each declared map therefore has exactly one fixed point on its maximal
 analytic domain, and the set of fixed points outside the declared interval
 is empty; the headline enclosures above are unchanged.

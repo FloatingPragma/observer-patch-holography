@@ -1,0 +1,62 @@
+{
+ "rungs": [
+  {
+   "artifact": "rung_16384.npz.gz",
+   "artifact_sha256": "sha256:1ee4c9bc666b25df8dad714acc454b9acd62425b84a4ccff6b680c988466cb59",
+   "carrier_count": 16384,
+   "cone_margin": -5.624222634635595,
+   "coupling_spread": 0.187527,
+   "cross_observer_edges": 348,
+   "held_out_inertia": [
+    1,
+    3
+   ],
+   "summary": "rung_16384.json",
+   "summary_sha256": "sha256:b91706514bea0966d10a14c9372653901ba0bbf0973eb7024d93409c672d63de"
+  },
+  {
+   "artifact": "rung_65536.npz.gz",
+   "artifact_sha256": "sha256:e87c83daf6207e6e2d561f5f771e42e6517111177a1d543cb4971b88f497fc79",
+   "carrier_count": 65536,
+   "cone_margin": -3.219901300819808,
+   "coupling_spread": 0.185951,
+   "cross_observer_edges": 312,
+   "held_out_inertia": [
+    1,
+    3
+   ],
+   "summary": "rung_65536.json",
+   "summary_sha256": "sha256:bd175076787d4b291f5557dc57987dbbf297a7a0552b258532fc75e5ef35a0fb"
+  },
+  {
+   "artifact": "rung_262144.npz.gz",
+   "artifact_sha256": "sha256:212d454d324310723f1c96a706f7ea8728910a35c64c3ab1c4a8ab8188e7f882",
+   "carrier_count": 262144,
+   "cone_margin": -2.4927748023410743,
+   "coupling_spread": 0.17657,
+   "cross_observer_edges": 312,
+   "held_out_inertia": [
+    2,
+    2
+   ],
+   "summary": "rung_262144.json",
+   "summary_sha256": "sha256:1d7dad7adadb00094988e44c7e892a6ececd26c8babccf19b2937aedbc8bb1ed"
+  },
+  {
+   "artifact": "rung_262144_dense.npz.gz",
+   "artifact_sha256": "sha256:150b7bd27a57f729ee06bd9472b70555521643f6847260b5cfc7b553d0b94435",
+   "carrier_count": 262144,
+   "cone_margin": -1.4122990611036421,
+   "coupling_spread": 0.17657,
+   "cross_observer_edges": 1062,
+   "held_out_inertia": [
+    1,
+    3
+   ],
+   "summary": "rung_262144_dense.json",
+   "summary_sha256": "sha256:e81e87e2df0408ed85670529e1939daec2ab74c937978a0eeafd42b23adf5b18",
+   "variant": "density_corrected_support_384"
+  }
+ ],
+ "schema": "oph.einstein-convergence-ladder.v1"
+}

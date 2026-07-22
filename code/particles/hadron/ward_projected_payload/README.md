@@ -1,7 +1,7 @@
 # Ward-Projected Hadronic Transport Harness
 
-This directory emits source-side transport diagnostics for closure rows CL-1
-and CL-2. It contains no comparison target, tolerance, decision rule, scorer,
+This directory emits source-side transport diagnostics for the source-chain and gauge-width pixel maps of the
+P-closure issue (#545). It contains no comparison target, tolerance, decision rule, scorer,
 or promotion mechanism.
 
 The harness computes the declared source quantities at the internal Stage-5

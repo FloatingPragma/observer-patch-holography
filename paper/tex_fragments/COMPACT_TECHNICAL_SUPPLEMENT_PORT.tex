@@ -16,9 +16,11 @@ group:
 \]
 \end{theorem}
 
-\begin{theorem}[Support-visible geometric modular flow on caps on the extracted prime geometric subnet]
+\begin{theorem}[Support-visible geometric modular flow on caps on the extracted geometric subnet]
 Assume the OPH axioms, the derived fixed-cutoff collar package, and the support-visible BW
-scaling theorem on the extracted prime geometric subnet. Then the scaling-limit modular
+scaling theorem on the extracted geometric subnet. That theorem requires the finite cap-normal
+support/flow certificate and an independently complete \(\mathsf{MGNS\text{-}1}\) algebra-state
+package on the same tower. Then the scaling-limit modular
 automorphism group of the cap pair is geometric conformal dilation on that
 subnet, with the standard \(2\pi\) normalization supplied by the finite cap-normal certificate.
 If the emitted scaling-limit cap algebra is type I, this may be written as
@@ -29,12 +31,13 @@ controlled fixed-collar families with \(\delta^{\mathrm M}\to0\); small CMI supp
 Fawzi--Renner recovered comparison state, not a dimension-free one-shot exact Markov normal form.
 \end{theorem}
 
-\begin{definition}[BW-branch observer-relative time reading]
-On the branch satisfying the hypotheses of the preceding geometric modular-flow theorem, OPH uses
-the modular automorphism parameter \(t\) of the extracted cap pair as that cap observer's relative
-time parameter. This is a declared BW-branch reading of the derived geometric modular flow; it is
-not an additional proof that arbitrary operational clocks, global time, or the full problem of time
-have been derived from the axioms.
+\begin{definition}[BW-branch observer-relative modular ordering]
+On the branch satisfying the hypotheses of the preceding geometric modular-flow theorem, the
+modular automorphism parameter \(t\) of the extracted cap pair supplies a dimensionless ordering for
+that observer's accessible algebra-state pair. Physical time requires an observer-readable
+transition, event correspondence, and calibrated clock instrument. No claim about arbitrary
+operational clocks, global time, or the full problem of time follows from the geometric modular-flow
+theorem alone.
 \end{definition}
 
 \paragraph{BW-side UV scaffold.}
@@ -135,11 +138,11 @@ Within the null-modular reconstruction used here:
 \item all \(T_{kk}\) data are unchanged under \(T_{ab}\to T_{ab}+\phi g_{ab}\);
 \item therefore \(\Lambda\) cannot be fixed by local overlap consistency alone; and
 \item the dimensionless \(\Lambda\)-capacity relation requires the global
-screen-capacity closure beyond the local null data. The robust closure target is
+screen-capacity closure beyond the local null data. The stable closure target is
 \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\), with
 \(N_{\mathrm{CRC}}=\log D_\star\). Definition~\ref{def:self-closure-density}
 and Theorem~\ref{thm:conditional-operational-n-closure} close its operational
-public-section, correctable-code, capacity-bound, approximate-robustness, and
+public-section, correctable-code, capacity-bound, approximate-stability, and
 greatest-fixed-point implications under named premises. The full specification
 and receipt schema are carried by \emph{Observers Are All You Need}. The
 record-atom restrictions, endogenous reachability, frozen publicness policy,
@@ -204,7 +207,7 @@ assumption. Minimal Admissible Realization (MAR) acts on low-energy gauge/matter
 selector.
 
 \begin{theorem}[D5--D6 cosmological-capacity closure stack]
-Assume the compact paper's local Einstein branch, robust direct public-record closure and its
+Assume the compact paper's local Einstein branch, stable direct public-record closure and its
 capacity coordinate
 \[
 \mathfrak F_{r,0}(D_\star)=\{D_\star\},
@@ -245,7 +248,7 @@ output.
 \end{theorem}
 
 \paragraph{Scope boundary.}
-The D6 hypotheses are exactly the D5 local Einstein branch, robust whole-fiber public-record
+The D6 hypotheses are exactly the D5 local Einstein branch, stable whole-fiber public-record
 closure \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\), horizon--record identification
 \(N_{\mathrm{CRC}}=S_{\mathrm{dS}}\), the standard de Sitter entropy relation, and the standard
 static-patch formulas. The local null-data route does not by itself determine the global capacity;
@@ -1029,80 +1032,171 @@ for a collar-type constant \(c_C>0\). Summing over the active collars gives the 
 generator. Positivity and self-adjointness give the transfer-semigroup identity.
 \end{proof}
 
-\begin{lemma}[Uniform active-collar rate floor]
+\begin{definition}[Source-defined admissible atomic collar tower]
+\label{def:admissible-atomic-collar-tower}
+For every regulator and allowed boundary condition \(b\), suppose the finite source presentation
+gives an atomic register set \(V_r\) with finite local alphabets, a finite-range Gibbs law \(\pi_{r,b}\), and, for each
+\(v\in V_r\), a rooted active collar \(C(v)\) and the heat-bath projection
+\[
+P_{v,r,b}f:=\mathbb E_{\pi_{r,b}}[f\mid x_{V_r\setminus\{v\}}].
+\]
+The \emph{source type} of \(C(v)\) is the isomorphism class of the finite tuple consisting of its
+rooted interaction-radius neighbourhood, boundary/sector flags, local register alphabets,
+nonzero Gibbs-potential templates, complete repaired readback, conditional kernel, and normalized
+rate.  The tower is admissible when the following data are printed by the source rather than
+inferred from the target gap:
+\begin{enumerate}[label=\textup{(G\arabic*)},leftmargin=2em]
+\item one finite set \(\mathfrak T_{\rm act}\) contains every active source type at every
+location, size, allowed boundary condition, and stage of the selected cofinal refinement tail;
+\item the active family is exactly \(\mathcal C_r=\{C(v):v\in V_r\}\), with
+\(E_{C(v)}=P_{v,r,b}\); type-equivalent collars have the same exact heat-bath kernel and rate,
+every atomic register has one active rooted collar, and
+\(c_{v,r,b}=c_{\tau(v)}\ge c_*>0\);
+\item for the one-site conditional kernels, let \(a_{vu}^{r,b}\) be the supremum total-variation
+change at root \(v\) when two exterior configurations differ only at \(u\).  Outward-rounded
+rational interval bounds printed in the finite type table prove
+\[
+\sup_{r,b,v}\sum_{u\ne v}a_{vu}^{r,b}\le\eta_*<1.
+\tag{INF}
+\]
+The Dobrushin Poincar\'e comparison then derives, rather than assumes,
+\[
+\operatorname{Var}_{\pi_{r,b}}(f)
+\le\frac{1}{1-\eta_*}\sum_{v\in V_r}\|(I-P_{v,r,b})f\|_{2,\pi_{r,b}}^2
+\tag{AT}
+\]
+uniformly over the family \cite{wuDobrushin06};
+\item coarse shadow sends each rooted fine collar to a rooted collar of the same declared type or
+to an explicitly listed type transition, preserves the conditional kernels on pulled-back coarse
+functions, and introduces no type outside \(\mathfrak T_{\rm act}\).
+\end{enumerate}
+Collar CMI decay and qualitative finite-range Gibbs mixing are not item \textup{(G3)}.
+\end{definition}
+
+\begin{proposition}[Finite classification and uniform local-rate floor]
 \label{lem:repair-rate-floor}
-Assume finite local combinatorial type, a branch-homogeneous local constraint family, and
-refinement-stable exact repair semantics. Then the local Euclidean repair rate depends only on
-active collar type, the active collar-type set is finite across the cofinal refinement family, and
-there is \(c_*>0\), independent of \(r\), such that
+For an admissible atomic collar tower, two active collars have the same source type exactly when
+their tuples in Definition~\ref{def:admissible-atomic-collar-tower} are isomorphic.  Thus the
+admissible active collar classes are precisely the nonempty fibers of
+\(\tau:\bigsqcup_r V_r\to\mathfrak T_{\rm act}\); in particular there are at most
+\(|\mathfrak T_{\rm act}|\) classes.  Their rates obey
 \[
-c_C\ge c_*
-\qquad\text{for every active collar }C\in\mathcal C_r.
+c_{v,r,b}\ge c_*:=\min_{t\in\mathfrak T_{\rm act}}c_t>0
 \]
-\end{lemma}
-
-\begin{proof}
-Active collars are exactly the collars on which complementary invisible fiber data are genuinely
-relaxed, so \(D_C\neq0\) on \(\ker(E_C)\) and \(c_C>0\). Finite local combinatorial type gives a
-finite list of bounded collar patterns, including visible interfaces, hidden fiber cardinalities,
-constraint templates, and repair maps. Branch homogeneity makes the conditioned MaxEnt relaxation
-scalar a function of this finite type data. Refinement stability replaces collars by copies of the
-same bounded type templates with the same normalized local Euclidean repair semantics. Taking the
-minimum over the finite active type list gives \(c_*>0\).
-\end{proof}
-
-\begin{proposition}[Special commuting-color finite-stage repair gap]
-\label{prop:finite-stage-repair-gap}
-Assume the active collars admit a bounded-color decomposition
-\[
-\mathcal C_r=\bigsqcup_{a=1}^{q}\mathcal C_{r,a},
-\qquad q<\infty,
-\]
-independent of \(r\), and that exact quotient-local gluing makes the corresponding color
-expectations commute. Let \(P_{0,r}\) project onto constants in \(K_r\). Then
-\[
-L_r^{\mathrm{EC}}\ge c_*(I-P_{0,r}),
-\qquad
-\Delta_{\mathrm{rep},r}\ge c_*>0.
-\]
+uniformly in location, boundary condition, system size, and cofinal refinement.
 \end{proposition}
 
 \begin{proof}
-For each color \(a\), define the parallel color expectation
-\[
-E_{r,a}:=\prod_{C\in\mathcal C_{r,a}}E_C.
-\]
-Same-color collars are disjoint, so the factors commute, and exact quotient-local gluing makes
-the family \(\{E_{r,a}\}_{a=1}^q\) a commuting family of orthogonal projections on the vacuum
-branch. Repair completeness says that the only support-visible observables fixed by every local
-repair are constants:
-\[
-\bigcap_{a=1}^{q}\operatorname{Ran}(E_{r,a})=\mathbb C\,\mathbf 1_r.
-\]
-Set
-\[
-\widetilde L_r:=\sum_{a=1}^{q} c_*(I-E_{r,a}).
-\]
-For commuting projections, \(I-\prod E_C\le\sum_C(I-E_C)\), so
-\(\widetilde L_r\le L_r^{\mathrm{EC}}\). Since the \(E_{r,a}\) commute, they are simultaneously
-diagonalizable. On every nonconstant joint eigenspace at least one color eigenvalue is zero.
-Thus \(\widetilde L_r\ge c_*(I-P_{0,r})\), and the same lower bound holds for
-\(L_r^{\mathrm{EC}}\).
+The tuple is a complete source signature, so equality of types is exactly rooted
+signature-isomorphism.  Item \textup{(G1)} makes its image finite.  Item \textup{(G2)} makes the
+rate a positive function on that finite image, and item \textup{(G4)} prevents refinement from
+creating an unlisted or rate-degenerate signature.  The displayed finite minimum is therefore
+positive and has all four stated uniformities.
 \end{proof}
 
-\begin{remark}[Generic repair-gap certificate]
-The commuting-color proposition is a special certificate, not the generic repair-generator route.
-For overlapping collars one must instead compute
+\begin{theorem}[Uniform collar-projection and transfer gap]
+\label{prop:finite-stage-repair-gap}
+On an admissible atomic collar tower satisfying the finite ground-state-transform receipt, define
 \[
-\kappa_r=\inf_{f\perp 1}
-\frac{\sum_C\|(I-E_C)f\|^2}{\|f\|^2}.
+L_{r,b}^{\rm col}:=\sum_{v\in V_r}c_{v,r,b}(I-P_{v,r,b}),
+\qquad P_{0,r,b}f:=\pi_{r,b}(f)\mathbf1.
 \]
-If local fiber rates have a lower bound \(\gamma_*>0\), then
+Then, with the single explicit modulus
 \[
-L_r^{\mathrm{EC}}\ge \gamma_*\kappa_r(I-P_{0,r}).
+\delta_*:=c_*(1-\eta_*)>0,
+\tag{GAP}
 \]
-Finite repair completeness gives \(\kappa_r>0\) at fixed regulator; a uniform refinement lower
-bound is a separate receipt.
+one has, simultaneously for all locations, allowed boundary conditions, system sizes, and stages
+of the cofinal refinement tower,
+\[
+L_{r,b}^{\rm col}\ge\delta_*(I-P_{0,r,b}),
+\qquad
+\|e^{-tL_{r,b}^{\rm col}}-P_{0,r,b}\|_{2\to2}\le e^{-t\delta_*}.
+\]
+Consequently the collar transfer operator has a positive projection/transfer gap at least
+\(\delta_*\).  Under item \textup{(G2)}, \(L_{r,b}^{\rm col}=L_r^{\rm EC}\).
+\end{theorem}
+
+\begin{proof}
+Conditional expectation is an orthogonal projection, hence
+\[
+\langle f,(I-P_{v,r,b})f\rangle
+=\|(I-P_{v,r,b})f\|_2^2.
+\]
+For \(f\perp\mathbf1\), item \textup{(G3)} gives (AT), and item \textup{(G2)} gives
+\[
+\langle f,L_{r,b}^{\rm col}f\rangle
+\ge c_*\sum_v\|(I-P_{v,r,b})f\|_2^2
+\ge c_*(1-\eta_*)\|f\|_2^2.
+\]
+This is the operator inequality.  The spectral theorem gives the semigroup estimate.  All
+constants are source-type constants and item \textup{(G4)} carries the same table and receipt up
+the cofinal tower, so none depends on \(r,b,|V_r|\), or the collar location.
+\end{proof}
+
+\begin{proposition}[Sharp hypothesis countermodels]
+\label{prop:repair-gap-countermodels}
+Neither locality nor mixing may be deleted from the preceding theorem.
+\begin{enumerate}[label=(\roman*)]
+\item Without uniform mixing, take the faithful two-site law
+\[
+\pi_\varepsilon(00)=\pi_\varepsilon(11)=\frac{1-\varepsilon}{2},
+\qquad
+\pi_\varepsilon(01)=\pi_\varepsilon(10)=\frac{\varepsilon}{2}.
+\]
+The exact spectrum of the two single-site heat-bath generator is
+\(\{0,2\varepsilon,2(1-\varepsilon),2\}\), so its gap is
+\(2\varepsilon\to0\).  The limiting zero-gap example is therefore not doing
+any work hidden by a loss of faithfulness.
+\item Without source locality, put the product fair-bit law on \(\{0,1\}^m\), list its
+\(N=2^m\) states in cyclic Gray-code order, and let \(E_0,E_1\) average over the two alternating
+perfect matchings of that cycle.  The law has exact product mixing and zero separated CMI, but
+selecting which bit to change uses the entire configuration.  For
+\(L_m=(I-E_0)+(I-E_1)\), exact Fourier diagonalization of the cycle gives
+\[
+\operatorname{gap}(L_m)=1-\cos(2\pi/2^m)\longrightarrow0.
+\]
+\end{enumerate}
+Both examples are finite at every displayed \(m\); the second is a finite family with an explicit
+vanishing gap.
+\end{proposition}
+
+\begin{remark}[Claim boundary]
+Finite-range Gibbs form and collar-CMI decay alone do not prove \textup{(AT)}, do not classify the
+kernel/rate signatures, and do not bound the Friedrichs angles between collar projections.
+Accordingly they do not imply a uniform repair gap.  A numerical receipt is admissible only when
+outward-rounded intervals certify \(c_*^{\rm lo}>0\) and \(\eta_*^{\rm hi}<1\), in which case
+\(\delta_*^{\rm lo}=c_*^{\rm lo}(1-\eta_*^{\rm hi})\); a point estimate is not a certificate.
+\end{remark}
+
+\begin{proposition}[Executable finite calibration, not a physical receipt]
+\label{prop:collar-gap-calibration}
+The exact-rational four-dimensional Ising calibration table
+has \(244\) active collar types on the declared four-dimensional cofinal family
+\(N_r=3\cdot2^r\), for periodic, free, fixed-plus, and fixed-minus boundary
+conditions.  Its complete deterministic table has
+\[
+c_*=1,\qquad \eta_*\le\frac12,\qquad A_*\le2,
+\qquad \delta_*\ge\frac12.
+\]
+Thus its declared finite generator obeys
+\[
+L_{r,b}\ge\frac12(I-P_{0,r,b}),\qquad
+\|e^{-tL_{r,b}}-P_{0,r,b}\|_{2\to2}\le e^{-t/2}.
+\]
+The bundled verifier recomputes every rational conditional-row variation and
+the receipt hash, and rejects binary floating-point inputs, nonpositive rate
+floors, and noncontractive influence rows.
+\end{proposition}
+
+\begin{remark}[Non-promotion boundary]
+Proposition~\ref{prop:collar-gap-calibration} validates the finite data model and
+the stated implication for a declared calibration family.  It does not identify
+that Ising family with the compact-simple-gauge OPH tower.  The intentionally
+uninstantiated physical manifest fails closed until quotient-first gauge collar
+types, source conditional kernels, rate floors, refinement closure, gauge and
+topological zero-mode handling, an independent ground-state-transform receipt,
+and the separate continuum/transfer/OS-noncollapse receipts are supplied.
 \end{remark}
 
 \begin{assumption}[Finite transfer and vacuum compatibility receipt]
@@ -1181,11 +1275,11 @@ P_0^{\mathcal H}=|\Omega\rangle\langle\Omega|,
 \qquad
 UP_0^{\mathcal H}U^{-1}=P_0^K.
 \]
-If \(L_r^{\mathrm{EC}}\ge c_*(I-P_{0,r})\) for one \(c_*>0\), then
+If \(L_r^{\mathrm{EC}}\ge \delta_*(I-P_{0,r})\) for one \(\delta_*>0\), then
 \[
-L^{\mathrm{rep}}\ge c_*(I-P_0^K),
+L^{\mathrm{rep}}\ge \delta_*(I-P_0^K),
 \qquad
-H\ge c_*(I-P_0^{\mathcal H}).
+H\ge \delta_*(I-P_0^{\mathcal H}).
 \]
 \end{theorem}
 
@@ -1236,11 +1330,11 @@ physical side and the unitary identifies them.
 
 The finite operator inequality implies
 \[
-\|e^{-tL_r^{\mathrm{EC}}}(I-P_{0,r})\|\le e^{-c_*t}.
+\|e^{-tL_r^{\mathrm{EC}}}(I-P_{0,r})\|\le e^{-\delta_*t}.
 \]
 Passing this norm bound through the direct-limit definition gives
-\(\|e^{-tL^{\mathrm{rep}}}(I-P_0^K)\|\le e^{-c_*t}\). The spectral theorem is equivalent to
-\(L^{\mathrm{rep}}\ge c_*(I-P_0^K)\), and conjugation by \(U^{-1}\) gives the physical bound.
+\(\|e^{-tL^{\mathrm{rep}}}(I-P_0^K)\|\le e^{-\delta_*t}\). The spectral theorem is equivalent to
+\(L^{\mathrm{rep}}\ge \delta_*(I-P_0^K)\), and conjugation by \(U^{-1}\) gives the physical bound.
 \end{proof}
 
 \begin{remark}[Asymptotic alternative]
@@ -1304,6 +1398,15 @@ algebra, positive Hamiltonian, and Euclidean transfer semigroup~\cite{osterwalde
 osterwalderSchrader75}.
 \end{proof}
 
+\begin{remark}[Scope of the compact-gauge OS theorem]
+The preceding reconstruction is restricted to the support-visible bosonic
+compact-gauge cylinder algebra on its declared branch. It falls short of the full
+chiral \(G_6\) exact finite quantization, does not by itself instantiate the
+Standard-Model continuum observable sector, and supplies no resonance-sheet
+continuation. Those are separate typed inputs and implications in
+Appendix~\ref{app:compact-technical-port}.
+\end{remark}
+
 \begin{proposition}[Nontriviality of the support-visible compact-gauge theory]
 \label{prop:compact-gauge-nontriviality-yang-mills}
 Under Assumptions~\ref{ass:compact-gauge-transfer-receipt} and
@@ -1337,15 +1440,15 @@ Proposition~\ref{prop:compact-gauge-nontriviality-yang-mills}, and its continuum
 Hamiltonian \(H\)
 satisfies
 \[
-H\ge c_*(I-P_0^{\mathcal H}),
+H\ge \delta_*(I-P_0^{\mathcal H}),
 \]
 where \(P_0^{\mathcal H}\) projects onto the physical vacuum. Therefore
 \[
-\operatorname{Spec}(H)\cap(0,c_*)=\varnothing,
+\operatorname{Spec}(H)\cap(0,\delta_*)=\varnothing,
 \qquad
-\Delta_{\mathrm{YM}}\ge c_*>0.
+\Delta_{\mathrm{YM}}\ge \delta_*>0.
 \]
-Moreover the Yang--Mills gap is the repair gap:
+The Yang--Mills gap is the repair gap:
 \[
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 \]
@@ -1354,12 +1457,12 @@ Moreover the Yang--Mills gap is the repair gap:
 \begin{proof}
 Proposition~\ref{prop:finite-stage-repair-gap} gives
 \[
-L_r^{\mathrm{EC}}\ge c_*(I-P_{0,r})
+L_r^{\mathrm{EC}}\ge \delta_*(I-P_{0,r})
 \]
 at every finite stage. Theorem~\ref{thm:continuum-transfer-identification}, using the explicit
 finite transfer/vacuum receipt, transports the bound to the support-visible continuum:
 \[
-L^{\mathrm{rep}}\ge c_*(I-P_0^K).
+L^{\mathrm{rep}}\ge \delta_*(I-P_0^K).
 \]
 Using \(UHU^{-1}=L^{\mathrm{rep}}\), conjugation by \(U^{-1}\) gives the Hamiltonian lower bound.
 The spectral-gap statement follows immediately. Since \(U\) is unitary and maps the vacuum to the

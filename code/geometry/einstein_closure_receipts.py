@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Machine receipts for the Einstein branch closure packets (GitHub #526-#528, #503).
+"""Machine receipts for the Einstein branch closure packets (GitHub #526-#528, #503, #578).
 
 Implements finite witnesses for the compact paper's subsection
 `subsec:einstein-branch-closure`:
@@ -11,10 +11,15 @@ Implements finite witnesses for the compact paper's subsection
   violate one dependent-family linearity relation admit no rank-two source
   (irreducible least-squares residual);
 * bulk/edge/central first law (Theorem `thm:bulk-edge-central-first-law`):
-  for blockwise central-interface states, delta S = 2pi delta<B> + delta<Z>
-  exactly at fixed operators, delta<Z> = delta S_edge on the declared
-  normalization z_alpha = log d_alpha, and the naive bookkeeping defect
-  sum (z_alpha - log d_alpha) delta p_alpha for mismatched normalizations
+  for the explicit direct-sum states
+  oplus_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha),
+  S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha),
+  S_edge = sum_alpha p_alpha log d_alpha, and
+  delta S = 2pi delta<B> + delta<Z> exactly at fixed operators.  Here Z
+  contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge
+  and delta S_bulk = 2pi delta<B> on the declared normalization.  A mismatch
+  z_alpha != log d_alpha gives the computable defect
+  sum_alpha (z_alpha - log d_alpha) delta p_alpha
   (Proposition `prop:entropy-coefficient-countermodel`(ii));
 * MaxEnt multiplier identity (Theorem `thm:maxent-lagrange-stationarity`):
   dS/dt = lambda along a Gibbs/MaxEnt constraint family, verified by finite
@@ -128,8 +133,18 @@ def random_faithful(dim: int, rng: np.random.Generator) -> np.ndarray:
     return rho / np.trace(rho)
 
 
-def blockwise_state(ps: list[float], sector_states: list[np.ndarray]) -> np.ndarray:
-    blocks = [p * rho for p, rho in zip(ps, sector_states)]
+def blockwise_state(ps: list[float], bulk_states: list[np.ndarray],
+                    edge_dims: list[int]) -> np.ndarray:
+    """Build oplus_a p_a (rho_bulk,a tensor I_edge,a / d_a)."""
+    if not (len(ps) == len(bulk_states) == len(edge_dims)):
+        raise ValueError("ps, bulk_states, and edge_dims must have equal length")
+    if any(d <= 0 for d in edge_dims):
+        raise ValueError("edge dimensions must be positive")
+
+    blocks = [
+        p * np.kron(rho_bulk, np.eye(d_edge) / d_edge)
+        for p, rho_bulk, d_edge in zip(ps, bulk_states, edge_dims)
+    ]
     dim = sum(b.shape[0] for b in blocks)
     out = np.zeros((dim, dim), dtype=complex)
     i = 0
@@ -140,14 +155,18 @@ def blockwise_state(ps: list[float], sector_states: list[np.ndarray]) -> np.ndar
     return out
 
 
-def central_z(ps: list[float], dims: list[int],
+def central_z(bulk_dims: list[int], edge_dims: list[int],
               z_weights: list[float]) -> np.ndarray:
-    """Z = oplus_alpha (-log p_alpha + z_alpha) 1_alpha."""
-    dim = sum(dims)
+    """Build Z = oplus_alpha z_alpha 1_alpha (no ``-log p_alpha`` term)."""
+    if not (len(bulk_dims) == len(edge_dims) == len(z_weights)):
+        raise ValueError("bulk_dims, edge_dims, and z_weights must have equal length")
+    block_dims = [d_bulk * d_edge
+                  for d_bulk, d_edge in zip(bulk_dims, edge_dims)]
+    dim = sum(block_dims)
     out = np.zeros((dim, dim))
     i = 0
-    for p, d, z in zip(ps, dims, z_weights):
-        out[i:i + d, i:i + d] = (-np.log(p) + z) * np.eye(d)
+    for d, z in zip(block_dims, z_weights):
+        out[i:i + d, i:i + d] = z * np.eye(d)
         i += d
     return out
 
@@ -158,9 +177,22 @@ def entropy(rho: np.ndarray) -> float:
     return float(-np.sum(evals * np.log(evals)))
 
 
-def edge_entropy(ps: list[float], dims: list[int]) -> float:
-    return float(-np.sum(np.array(ps) * np.log(ps))
-                 + np.sum(np.array(ps) * np.log(dims)))
+def shannon_entropy(ps: list[float]) -> float:
+    probabilities = np.asarray(ps, dtype=float)
+    positive = probabilities[probabilities > 0.0]
+    return float(-np.sum(positive * np.log(positive)))
+
+
+def bulk_entropy(ps: list[float], bulk_states: list[np.ndarray]) -> float:
+    """H(p) + sum_a p_a S(rho_bulk,a), including the central Shannon term."""
+    return shannon_entropy(ps) + sum(
+        p * entropy(rho_bulk) for p, rho_bulk in zip(ps, bulk_states)
+    )
+
+
+def edge_entropy(ps: list[float], edge_dims: list[int]) -> float:
+    """sum_a p_a log d_a; the Shannon term belongs to ``bulk_entropy``."""
+    return float(np.dot(np.asarray(ps, dtype=float), np.log(edge_dims)))
 
 
 def first_law_receipt(z_weights: list[float] | None = None,
@@ -169,53 +201,63 @@ def first_law_receipt(z_weights: list[float] | None = None,
     """Finite-difference check of Theorem thm:bulk-edge-central-first-law.
 
     Verified identities (declared normalization z_alpha = log d_alpha):
+      * direct-sum entropy: S = S_bulk + S_edge, where S_bulk includes H(p);
       * first law: delta S = 2pi delta<B> + delta<Z> (exact, fixed operators);
       * edge identification: delta<Z> = delta S_edge;
       * boxed split: delta S = 2pi delta<B> + delta S_edge;
-      * naive-step defect: delta S_bulk - 2pi delta<B> = sum_a z_a dp_a,
-        which vanishes exactly on the fixed-sector-weight class and equals
-        the central flux otherwise;
+      * bulk identity: delta S_bulk = 2pi delta<B>, including variations of
+        the central probabilities because -log p_alpha is in the bulk
+        modular generator rather than Z;
       * mismatched normalization z != log d breaks the edge identification
-        by sum_a (z_a - log d_a) dp_a.
+        and the bulk identity by sum_a (z_a - log d_a) dp_a.
     """
     rng = np.random.default_rng(seed)
-    dims = [2, 3]
+    bulk_dims = [2, 3]
+    edge_dims = [2, 3]
     ps0 = [0.6, 0.4]
-    sectors0 = [random_faithful(d, rng) for d in dims]
-    correct_z = [float(np.log(d)) for d in dims]
+    sectors0 = [random_faithful(d, rng) for d in bulk_dims]
+    correct_z = [float(np.log(d)) for d in edge_dims]
     zw = correct_z if z_weights is None else z_weights
 
     # base operators at the base point
-    rho0 = blockwise_state(ps0, sectors0)
+    rho0 = blockwise_state(ps0, sectors0, edge_dims)
     k0 = -logm(rho0)
-    z0 = central_z(ps0, dims, zw)
+    z0 = central_z(bulk_dims, edge_dims, zw)
     b0 = (k0 - z0) / (2.0 * np.pi)
 
     # a variation moving sector states, and optionally sector weights
     dps = [eps, -eps] if move_weights else [0.0, 0.0]
-    dsectors = [random_faithful(d, rng) for d in dims]
+    dsectors = [random_faithful(d, rng) for d in bulk_dims]
     ps1 = [p + dp for p, dp in zip(ps0, dps)]
     sectors1 = [
         (1 - eps) * s + eps * t for s, t in zip(sectors0, dsectors)
     ]
-    rho1 = blockwise_state(ps1, sectors1)
+    rho1 = blockwise_state(ps1, sectors1, edge_dims)
     drho = rho1 - rho0
 
     d_s = entropy(rho1) - entropy(rho0)
     d_b = float(np.real(np.trace(b0 @ drho)))
     d_z = float(np.real(np.trace(z0 @ drho)))
-    d_s_edge = edge_entropy(ps1, dims) - edge_entropy(ps0, dims)
-    s_bulk0 = sum(p * entropy(s) for p, s in zip(ps0, sectors0))
-    s_bulk1 = sum(p * entropy(s) for p, s in zip(ps1, sectors1))
+    d_s_edge = edge_entropy(ps1, edge_dims) - edge_entropy(ps0, edge_dims)
+    s_bulk0 = bulk_entropy(ps0, sectors0)
+    s_bulk1 = bulk_entropy(ps1, sectors1)
     d_s_bulk = s_bulk1 - s_bulk0
 
     return {
+        "base_entropy_split_defect": abs(
+            entropy(rho0) - s_bulk0 - edge_entropy(ps0, edge_dims)
+        ),
+        "varied_entropy_split_defect": abs(
+            entropy(rho1) - s_bulk1 - edge_entropy(ps1, edge_dims)
+        ),
         "first_law_defect": abs(d_s - (2.0 * np.pi * d_b + d_z)) / eps,
         "edge_identification_defect": abs(d_z - d_s_edge) / eps,
         "split_identity_defect": abs(d_s - (2.0 * np.pi * d_b + d_s_edge)) / eps
         if z_weights is None else float("nan"),
-        "naive_step_defect": abs(d_s_bulk - 2.0 * np.pi * d_b) / eps,
-        "predicted_naive_defect": abs(float(np.dot(zw, dps))) / eps,
+        "bulk_identity_defect": abs(d_s_bulk - 2.0 * np.pi * d_b) / eps,
+        "predicted_bulk_defect": abs(
+            float(np.dot(np.array(zw) - np.array(correct_z), dps))
+        ) / eps,
         "predicted_edge_defect": abs(
             float(np.dot(np.array(zw) - np.array(correct_z), dps))
         ) / eps,

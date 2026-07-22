@@ -68,8 +68,7 @@ derived run summary.
 
 This is the IBM usage snapshot captured after the main `S_3` cleanup run set.
 
-## License And Patent Policy
+## License
 
 This public data index is part of the OPH public repository. See the main
-[LICENSE](../../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).
+[LICENSE](../../../LICENSE).

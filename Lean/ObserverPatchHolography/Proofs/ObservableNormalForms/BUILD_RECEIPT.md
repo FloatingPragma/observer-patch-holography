@@ -29,12 +29,11 @@ lake build
 Build completed successfully (8265 jobs).
 ```
 
-That full build replays the repository's pre-existing concrete target and
-therefore reports its three intentionally declared admissions in
-`Primitives.lean` (`localRepair`, `Repair`, and `repair_respects_gauge`).  Those
-declarations are outside this standalone artifact.  The
-`ObservableNormalForms` sources themselves remain admission-free, and their
-axiom audit reports no `sorryAx`.
+That full build also replays the repository's concrete target. The former
+`Primitives.lean` admissions (`localRepair`, `Repair`, and
+`repair_respects_gauge`) are discharged. The `ObservableNormalForms`
+sources remain independently admission-free, and their axiom audit reports no
+`sorryAx`.
 
 `ObservableNormalForms/AxiomAudit.lean` was included in both builds. Its
 theorem-level reports contain only the standard axioms `propext`,

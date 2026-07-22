@@ -2,12 +2,12 @@
 
 This note collects rebuttals to common objections to the OPH framework, with longer technical responses where needed.
 
-The objections below meet a certified core: 111 sorry-free Lean theorems,
+The objections below meet a certified core: a sorry-free Lean theorem subset,
 machine-certified interval and global-uniqueness fixed points for each
 declared map, and a full adversarial third-party audit that reproduced the
 certificate arithmetic and identified no false theorem in the recovered
 mathematical core. Each rebuttal states its conditionals explicitly; the
-binding statuses live in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and
+binding statuses live on the [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure) and in
 [PROOF_SPINE.md](PROOF_SPINE.md).
 
 ## Contents
@@ -45,8 +45,8 @@ from CODATA are `3.0e-4` and `2.5e-6` in relative units. The familiar `2e6` and
 `1.6e4` figures divide by experimental uncertainty only; they are diagnostics, not
 physical pulls, because the same-scheme hadronic and finite remainder plus a theory
 uncertainty model are missing. The corresponding source-chain and gauge-width
-rows in the [closure ledger](CLOSURE_LEDGER.md) are therefore incomplete-map
-rows. The missing
+maps ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)) are therefore incomplete
+maps. The missing
 hadronic term is a frontier for every method on Earth: the payload asks for 4×10⁻⁹
 relative precision on the hadronic moment (see "Why The Hadronic Test Is Hard" in
 [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). A target-blind
@@ -85,13 +85,13 @@ for each declared incomplete pixel map; the completed physical Thomson map is th
 object. The capacity statement is conditional on the source-derived public checkpoint packet,
 whole-fiber scalarization, a unique physical zero of the finite-size slack, and the two named
 horizon and EW/Higgs bridge receipts. The corpus
-therefore does not prove that the full SLH principle set admits at most one physical
-`(P, N)`; that statement is the open no-landscape corollary (L3 in
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)).
+therefore does not prove that the strange-loop closure hypothesis admits at most one
+physical `(P, N)`; that no-landscape statement is an open corollary of the
+closure program.
 
 Arming the exposure is open work. The historical v2 target is externally timestamped,
-but the V1 execution was not target-blind; its defect inventory is recorded in the
-reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). A corrected contract must be
+but the V1 execution was not target-blind; its defect inventory is recorded on the
+P-closure issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)). A corrected contract must be
 activated and executed before this lane can test the "exactly our universe" claim.
 
 ---

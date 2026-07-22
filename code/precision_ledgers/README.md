@@ -9,8 +9,8 @@ Canonical runner:
 - `gw_ledger_separation.py`: verifies (A) the ledger-separation counterexample
   (zero trace distance, identical bounded-observable expectations, yet a
   nonzero fractional group-velocity error), (B) the conditional bridge lemma
-  bounds — Davis--Kahan projector estimate, band-uniform speed estimate with
-  `L_B = 1 + 4 M_B`, and the group-delay bound — on randomized C^1 fiber
+  bounds (Davis--Kahan projector estimate, band-uniform speed estimate with
+  `L_B = 1 + 4 M_B`, and the group-delay bound) on randomized C^1 fiber
   families, and (C) the dual-norm inequality behind the state--observable
   ledger.
 

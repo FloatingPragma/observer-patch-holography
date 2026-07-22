@@ -993,7 +993,7 @@ local-pair scale used in this note. In the present audit language,
 ```math
 T_c^{\rm reported}\ \text{is high under pressure},
 \qquad
-\text{ambient stability and retention remain open design constraints}.
+\text{ambient stability and retention are open design constraints}.
 ```
 
 The actionable hydride program searches for metastable descendants whose

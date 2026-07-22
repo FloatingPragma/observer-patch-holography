@@ -8,7 +8,7 @@ the first evaluation run.
 ## Declared structure (SPEC clause S2)
 
 ```
-P      = P_fwd = 1.630972095858897        computed fixed point (CL-6 forward value)
+P      = P_fwd = 1.630972095858897        computed fixed point (printed-pair forward value)
 aU     = alpha_U(P_fwd) = 0.041124247441816685   certified source-audit companion of P_fwd
 V      = 12    icosahedral vertices (C5 curvature ports)
 F      = 20    icosahedral faces (C3 fibers of the carrier)

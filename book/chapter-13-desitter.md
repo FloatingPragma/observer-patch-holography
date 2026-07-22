@@ -8,14 +8,14 @@ The universe is either static, with things staying roughly as they are, or
 decelerating, with gravity pulling everything together and slowing expansion.
 This is the natural expectation from Newton through Einstein.
 
-Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant, calling it his "greatest blunder."
+Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant; George Gamow later reported him calling it his "greatest blunder."
 
 Even after accepting expansion, the expectation was deceleration. Gravity
 attracts. The mutual pull of all the matter in the universe should slow the
 expansion, like a ball thrown upward gradually slowing. The expansion might
 stop or even reverse.
 
-Supernova data broke that picture.
+The supernova data ended that picture.
 
 ## 13.2 The Surprising Hint: The Universe Is Accelerating
 
@@ -30,9 +30,10 @@ Type Ia supernovae, the "standard candles" of cosmology.
 Everyone expected to find that expansion is slowing. The data showed the opposite.
 
 Distant supernovae were fainter than expected, farther away than a decelerating
-universe would predict. The universe is **speeding up**.
+universe would predict. The universe is **speeding up**. Schmidt later
+described his own reaction as somewhere between amazement and horror.
 
-Something is pushing the cosmos apart. Something is fighting gravity and winning. The teams called it "dark energy."
+Something is pushing the cosmos apart. Something is fighting gravity and winning. The cosmologist Michael Turner gave it the name "dark energy."
 
 The supernova result also rested on historical work. Henrietta Leavitt's study of
 Cepheid variable stars gave astronomy a way to climb the cosmic distance
@@ -101,11 +102,6 @@ radiates like a black body:
 $$T_{dS} = \frac{\hbar H}{2\pi k_B}$$
 
 For our universe, this is about 10^{-30} Kelvin, far below direct detection.
-In conventional inflationary cosmology, horizon-scale quantum fluctuations are
-stretched and later seed structure formation. OPH assigns that job to finite
-observer-screen synchronization: screen geometry and source release supply
-large-scale coherence, and ordinary Boltzmann transfer carries finite
-source data to the sky.
 
 The symbols echo earlier horizon physics. $T_{dS}$ is the de Sitter
 temperature. $\hbar$ is Planck's constant divided by $2\pi$. $H$ is the Hubble
@@ -128,7 +124,7 @@ $$T_U = \frac{\hbar a}{2\pi c k_B}$$
 
 So the de Sitter and Unruh temperatures are locally linked, but they should not be identified by assigning every static-patch observer the same acceleration $a = cH$.
 
-This has an important implication for OPH: **de Sitter horizons satisfy the same thermodynamic relations as Rindler horizons**. This is standard Gibbons-Hawking thermodynamics.
+De Sitter horizons therefore satisfy the same thermodynamic relations as Rindler horizons. This is standard Gibbons-Hawking thermodynamics, and it is the structure OPH builds on.
 
 ### Finite Entropy
 
@@ -148,17 +144,20 @@ For the late-time horizon of our universe, $R_{dS} \approx 1.66 \times 10^{26}$ 
 
 $$N_{\text{patch}} = \left(\frac{R_{dS}}{\ell_P}\right)^2 \approx 1.05 \times 10^{122}.$$
 
-The entropy capacity includes the area factor:
+The entropy capacity includes the area factor, since the area law carries a
+factor of $\pi$ once the radius is squared into an area:
 
 $$N_{\text{scr}} = S_{dS} = \pi N_{\text{patch}} \approx 3.31 \times 10^{122},$$
 
 or about $4.77 \times 10^{122}$ bits.
 
-That is the practical meaning of the formula. It is a capacity statement. The patch does not contain an infinite amount of information hidden in a smooth continuum. It contains a finite number of distinguishable states, and the area of the horizon tells you how large that state space can be.
+The formula is a capacity statement. The patch contains a finite number of
+distinguishable states, and the horizon area determines how large that state
+space can be.
 
-This finite entropy has major implications. An observer's accessible patch has a
-finite information capacity. The smooth continuum starts to look like an
-effective description laid over a screen with a hard budget.
+An observer's accessible patch therefore has a finite information capacity.
+The smooth continuum starts to look like an effective description laid over a
+screen with a hard budget.
 
 There is one naming trap. The cap-normal theorem in the papers also uses the
 phrase "de Sitter," but there it names a bookkeeping space for oriented round
@@ -173,11 +172,17 @@ and a first law tying heat to entropy. De Sitter thermodynamics supplies that
 structure. In OPH it becomes the natural thermodynamic backdrop for the
 gravity relation recovered from observer-patch consistency.
 
+Conventional inflationary cosmology stretches horizon-scale quantum
+fluctuations that later seed structure formation. OPH studies finite
+observer-screen synchronization as a candidate source of the same large-scale
+coherence; the chain from synchronization law through source release to the
+common Boltzmann-transfer packet is work in progress.
+
 ## 13.5 The Problem of Time in De Sitter
 
 In Anti-de Sitter space, there's a boundary at spatial infinity that provides a universal time reference.
 
-De Sitter has no spatial boundary. The only boundary is the horizon-and the horizon is observer-dependent.
+De Sitter has no spatial boundary. The only boundary is the horizon, and the horizon is observer-dependent.
 
 ### Horizon Complementarity
 
@@ -226,89 +231,27 @@ This is a different target. The "unsolved problem" of dS holography is about fin
 
 ### The Lambda-Capacity Relation
 
-A key point: the cosmological constant belongs to global capacity rather than
-local patch data. Null modular probes reconstruct the stress tensor only up to
-a term proportional to the metric itself, so $\Lambda g_{ab}$ enters as the one
+The cosmological constant belongs to global capacity rather than local patch
+data. Null modular probes reconstruct the stress tensor only up to a term
+proportional to the metric itself, so $\Lambda g_{ab}$ enters as the one
 global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
 It belongs to the global capacity branch.
 
-On that branch the dimensionless Lambda-capacity relation is a **global**
-self-reading constraint: the outside carrier and the inside
-observer-accessible public record must have the same capacity. Write
-$D=\dim\mathcal H_{\mathrm{cap}}$ and $N=\log D$. At fixed $D$, compatible
-observer-record atoms glue to a finite public set $X_{\mathrm{pub}}$. Keep only
-the records that can be written by an endogenous history, giving
-$X_{\mathrm{reach}}$. The complete family of joint public checkpoint channels
-then defines a confusability graph $G_q$ for each terminal world $q$. Its exact
-correctable public capacity is
+The horizon capacity of a static patch is a definite finite number, a count
+of the distinguishable records the screen can hold. The capacity relation
+belongs to global screen size: a larger self-consistent record capacity
+corresponds to a smaller positive cosmological constant once the selected
+scale bridge is used for the SI display. The small measured Lambda then reads
+as the size label of a very large but finite screen, a number every observer
+patch inherits from its horizon.
 
-$$
-M_0(q)=\alpha(G_q),
-$$
-
-The official N equation packages the idea in its most direct form:
-
-$$
-\boxed{N=M_0(\mathfrak U_N)}.
-$$
-
-An OPH trial universe supplied with global capacity $N$ must read back that
-same capacity through its own correctable public records.
-
-the size of a largest set of records that remains perfectly distinguishable
-through every authorized continuation. This decoder definition matters: a
-cyclic permutation preserves every label even though its fixed-function space
-contains only constants.
-
-The readback is set-valued over the complete terminal fiber,
-
-$$
-\mathfrak F_{r,0}(D)=
-\{M_0(q):q\in\widetilde\Omega_{r,D}\}.
-$$
-
-This book adopts the robust N-closure postulate: after refinement there is one
-physical $D_\star$ for which
-
-$$
-\mathfrak F_{r,0}(D_\star)=\{D_\star\},\qquad
-s(D_\star)=0,\qquad s(D)>0\quad(D\ne D_\star),
-$$
-
-where $s(D)=\log D-\log M_0(D)$ is the finite-size capacity slack. The papers
-separate the exact finite theorems from the still-needed physical packet and
-sharp seam or transfer theorem that establish this postulate without assuming
-it. A mere asymptotic density or an entropy-weighted count does not establish
-the unique zero.
-
-With horizon-record saturation,
-
-$$
-N_{\mathrm{CRC}}=\log D_\star=\frac{A_{\mathrm{dS}}}{4\ell_\star^2},
-\qquad
-\Lambda_{\mathrm{CRC}}\ell_\star^2=\frac{3\pi}{N_{\mathrm{CRC}}}.
-$$
-
-The image is the important part. The small positive Lambda is the size label
-of a finite self-reading horizon. It is the number every observer patch
-inherits as the universe reconstructs its own boundary from inside.
-In the book’s chain of consistency requirements this is the capacity self-reading
-step: a world that reads itself has to read back its own size, without deficit
-or slack.
-
-This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
-total horizon capacity. From the inside the datum is total observer-accessible
-public record. Closure says that the universe must be able to reconstruct its
-own boundary. Observers exist inside it, and infer geometry, horizons, entropy,
-$\Lambda$, history, and records from the information available inside the
-universe.
-
-The capacity relation belongs to global screen size: a larger
-self-consistent record capacity corresponds to a smaller positive cosmological
-constant once the selected scale bridge is used for the SI display.
+Observers sit inside the universe and infer geometry, horizons, entropy,
+Lambda, history, and records from the information available inside it. A
+world that reads itself has to read back its own size. What that demand can
+pin down is a question the book returns to.
 
 ### Many Observers, One Lambda
 
@@ -343,30 +286,30 @@ So the "early universe" in this book means the hot dense side of the
 reconstructed record: the side where the effective plasma is opaque, radiation
 dominates the bookkeeping, and the CMB surface is not transparent. It names a
 record-side limit rather than an absolute origin of being. Likewise, "cosmic
-time" is an effective clock that appears when many local records synchronize,
-an internal clock rather than an external stopwatch measuring spacetime from
-outside.
+time" is an effective clock that appears when many local records synchronize
+and their event correspondences and calibrations agree. It is read from
+inside the reconstructed world, not from an external stopwatch.
 
-Inflation is where this distinction becomes operational. Standard cosmology
-introduces an inflaton field to explain flatness, horizon coherence, and the
-nearly scale-invariant pattern in the CMB. OPH assigns those jobs to finite
-observer-screen synchronization.
-Flatness belongs to the selected spatial branch, horizon coherence to shared
-boundary repair, the near scale-invariant pattern to screen geometry and
-release, and the acoustic peaks to ordinary Boltzmann evolution once finite
-source data are fixed. The CMB and growth curves are empirical tests of that
-source story.
+Standard cosmology uses an inflationary phase to explain flatness, horizon
+coherence, and the nearly scale-invariant pattern in the CMB. The conditional
+OPH cosmology branch distributes those roles across a selected spatial branch,
+shared boundary repair, screen geometry, a release law, and ordinary Boltzmann
+evolution.
 
-The screen release has a precise form. The scalar field is one third of the
+On the declared conditional source branch, the screen release has a precise
+form. The scalar field is one third of the
 logarithmic volume change on a uniform-density release surface, with the average
 and dipole removed. A source-side maximum-entropy law fixes its amplitude from
 the release energy. The screen precision then gives the exact angular spectrum
 through a ratio of gamma functions.
 
-The selected dimensionless pixel ratio is denoted by $P_*$. The finite source
-supplies the edge-center reserve density, so the scalar tilt is
+$P$ is the local pixel ratio the book has been tracking. The finite
+source supplies the edge-center reserve density, so the scalar tilt is
 
-$$n_s=1-\frac{P_*}{48}=0.9660214956\ldots$$
+$$n_s=1-\frac{P}{48},$$
+
+about 0.966, against a measured 0.965. The screen's pixel budget shows up as
+a small deficit from perfect scale invariance.
 
 A single spherical snapshot loses depth information. Even a perfect sky map can
 compare points only across distances up to the sphere's diameter. Many different
@@ -379,21 +322,20 @@ of the three-dimensional spectrum and the screen fixes its amplitude. The
 second combines correlations from many radii, much like medical tomography
 combines many views to reconstruct an interior.
 
-The finite source carries the reserve density, release law, stress, clock,
-freezeout surface, physical scale, and radial reconstruction. Ordinary
-Boltzmann transfer then carries that source through temperature and
-polarization spectra. The displayed scalar tilt is the screen-side value before
-that familiar cosmological transfer.
+A physical source carrying this complete chain, from reserve density and
+release law through calibrated clocks to the radial reconstruction, is work
+in progress; until it exists, the displayed tilt is a screen-side conditional
+value and the CMB spectra remain the empirical test.
 
 ## 13.7 Scrambling and Chaos
 
-De Sitter space is a **fast scrambler**-perhaps the fastest possible.
+De Sitter space is a **fast scrambler**, perhaps the fastest possible.
 
 Information sent toward the horizon gets thermalized, mixed with all the other quantum information. The scrambling time is:
 
 $$t_{scrambling} \sim \frac{1}{H}\ln S \sim \frac{280}{H}$$
 
-For our universe, this is about 4 trillion years. Black holes are the standard saturators of the chaos bound in holographic settings, and de Sitter is often discussed as a fast-scrambling horizon with analogous scaling.
+For our universe, this is about 4 trillion years. There is no need to reschedule anything. Black holes are the standard saturators of the chaos bound in holographic settings, and de Sitter is often discussed as a fast-scrambling horizon with analogous scaling.
 
 $t_{scrambling}$ is the time needed for initially localized information to
 become thoroughly mixed across the horizon degrees of freedom. The symbol
@@ -401,7 +343,7 @@ $\sim$ means "scales like," not exact equality. $S$ is the de Sitter entropy.
 The number 280 comes from the logarithm of the huge entropy associated with
 our late-time horizon.
 
-The smooth, empty appearance of the de Sitter vacuum can be read as highly scrambled information in this perspective.
+The smooth, empty appearance of the de Sitter vacuum can be read as highly scrambled information in this perspective. Thoroughly mixed is a different condition from gone.
 
 ## 13.8 The Swampland and Anthropic Selection
 
@@ -416,20 +358,12 @@ galaxies couldn't form. If it were negative, the universe would recollapse. In
 the simplest fit, we find ourselves in a universe with small positive Lambda
 because that is where observers can exist.
 
-## 13.9 Reverse Engineering Summary
-
-Historical cosmology expected expansion to slow under gravity. The sky disagreed.
-The supernova data and the standard late-time fit point toward de Sitter
-behavior, and de Sitter fits the observer-first picture with almost suspicious
-neatness. Each observer has a static patch, a horizon, a temperature, an
-entropy budget, and finite accessible information. The cosmological horizon is
-the natural screen in this reading.
-
-## 13.10 The Dark Sector: Repair Charge and Galactic Response
+## 13.9 The Dark Sector: Repair Charge and Galactic Response
 
 In 1933, Fritz Zwicky looked at galaxies in the Coma Cluster and found a
 problem. They were moving as if the cluster contained far more mass than the
-telescopes could see. Four decades later, Vera Rubin and Kent Ford found the
+telescopes could see, and he gave the missing component its lasting name:
+dunkle Materie, dark matter. Four decades later, Vera Rubin and Kent Ford found the
 same kind of problem inside spiral galaxies. The outer stars were orbiting too
 fast. If the visible stars and gas were all the mass there was, those outskirts
 should have behaved differently.
@@ -446,7 +380,7 @@ pull on stars and light, and mostly ignore electromagnetism. That answer works
 well in large-scale cosmology, but the particles themselves have not shown up
 in detectors. MOND takes the opposite route and changes the low-acceleration
 law of gravity. It captures a surprising amount of galaxy phenomenology, while
-clusters and precision cosmology remain difficult terrain.
+clusters and precision cosmology are difficult terrain.
 
 OPH reads the same evidence through the observer screen. A galaxy is luminous
 matter, dust, gas, and dark gravitational behavior inside a finite de Sitter
@@ -487,14 +421,17 @@ In the spherical deep-gradient regime, a cubic repair-phase link energy gives
 
 $$a_R=\sqrt{a_0g_b}$$
 
-where $g_b$ is the Newtonian acceleration from baryons. For a galaxy this gives
-the flat-rotation-curve behavior astronomers actually see.
+where $g_b$ is the Newtonian acceleration from the baryons, the stars, gas,
+and dust, and $a_0$ is a tiny acceleration scale, about $10^{-10}$ m/s$^2$;
+below it, rotation curves flatten. For a galaxy this gives the
+flat-rotation-curve behavior astronomers actually see: in the deep regime the
+observed acceleration $g_{\text{obs}}$ approaches $\sqrt{a_0g_b}$, which
+falls off slowly enough to hold the rotation speed constant. The same
+asymptote gives the baryonic Tully-Fisher scaling
 
-$g_{\text{obs}}$ is inferred from the rotation curve, and $g_b$ is the
-Newtonian acceleration of stars, gas, and dust. The same asymptote gives the
-baryonic Tully-Fisher scaling
+$$V^4 = GM_ba_0,$$
 
-$$V^4 = GM_ba_0.$$
+where $V$ is the flat rotation speed and $M_b$ is the galaxy's baryonic mass.
 
 The cubic phase law therefore links a single repair-charge medium to flat
 galaxy rotation curves and the baryonic Tully-Fisher relation. Its relativistic
@@ -507,6 +444,17 @@ also needs a dimensional calibration and either an external repair gradient,
 net repair charge, or momentum carried away by the repair field. A closed,
 repair-neutral device cannot support itself through an internal coherence
 contrast.
+
+## 13.10 Reverse Engineering Summary
+
+Historical cosmology expected expansion to slow under gravity. The sky disagreed.
+The supernova data and the standard late-time fit point toward de Sitter
+behavior, and de Sitter fits the observer-first picture with almost suspicious
+neatness. Each observer has a static patch, a horizon, a temperature, an
+entropy budget, and finite accessible information. The cosmological horizon is
+the natural screen in this reading. The dark sector joins the same ledger as a
+repair-charge medium that dilutes like matter and flattens rotation curves
+where accelerations run low.
 
 ---
 

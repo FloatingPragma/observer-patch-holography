@@ -8,7 +8,7 @@ This note responds from the OPH point of view to the following question:
 
 In OPH, a Bell pair is not a semiclassical wormhole, and entanglement entropy by itself does not determine geometry. In the semiclassical regime, the relevant quantity is the generalized entropy of the patch algebra, with the edge/center sector structure supplying the area term. A reduction in entanglement therefore does not by itself specify a metric deformation of the bridge. The actual chain is: state perturbation changes the modular Hamiltonian, that fixes the null stress profile, and the Einstein equation gives the metric backreaction. Entropy controls part of the area response, while the full tensor deformation requires more information.
 
-Arbitrary local spacetime reshaping is excluded because OPH geometry comes from a globally consistent net of overlapping observer algebras. Local operations can perturb a state inside one patch, and only overlap-consistent, Markov-recoverable deformations remain in the semiclassical geometric sector. Topology sits in the global holonomy and edge-sector structure of the net, so a local channel on one subsystem lacks the degrees of freedom needed to rewrite it. In the consistency-stack ordering ([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)), this is row C5 territory: the Einstein branch is recovered from patch-by-patch horizon thermodynamics of the record surfaces, so the entanglement-to-geometry map runs through that consistency requirement rather than through an entropy scalar alone.
+Arbitrary local spacetime reshaping is excluded because OPH geometry comes from a globally consistent net of overlapping observer algebras. Local operations can perturb a state inside one patch, and only overlap-consistent, Markov-recoverable deformations remain in the semiclassical geometric sector. Topology sits in the global holonomy and edge-sector structure of the net, so a local channel on one subsystem lacks the degrees of freedom needed to rewrite it. The Einstein branch is recovered from patch-by-patch horizon thermodynamics of the record surfaces, so the entanglement-to-geometry map runs through that consistency requirement rather than through an entropy scalar alone.
 
 In brief:
 
@@ -174,25 +174,31 @@ Since `L_C` is the area operator, this is the first-order area response.
 
 ### 4.2 Geometric modular flow
 
-OPH derives geometric modular flow for caps:
+The geometric modular-flow theorem is conditional on two independently
+produced inputs carried by the same refinement tower: the finite cap-normal
+support/flow certificate and a complete algebra-state modular comparison
+package. Under those premises:
 
 ```text
 sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}
 Conf^+(S^2) ~= PSL(2,C) ~= SO^+(3,1)
 ```
 
-This is a controlled scaling-limit statement on the extracted prime
-geometric cap pair. It asserts Lorentz covariance of the limiting cap pair,
-with no claim that finite cells are Lorentz invariant and no full-algebra
-matrix identity. Only in the special type-I representation may the
-automorphism identity be written as:
+This is a controlled scaling-limit statement on the extracted geometric cap
+pair. Lorentz covariance applies to the limiting support-visible cap pair.
+Finite cells and off-support directions carry no Lorentz claim. In the special
+type-I representation, the automorphism identity may be written as:
 
 ```text
-K_C = 2pi B_C
+K_C = 2pi B_C + Z_C
 ```
 
-The modular automorphism is therefore the geometric boost/dilation action on
-the certified branch.
+Here `Z_C` is central and reduces to a scalar when the cap algebra is a factor.
+The generic continuum statement is the automorphism identity. The finite
+cap-normal certificate supplies the support geometry, framed cap flow,
+cross-ratio rigidity, and independent normalization controls. The separate
+algebra-state package supplies the state tower, comparison maps, mixed-GNS
+convergence, inverse-time control, and modular support covariance.
 
 ### 4.3 Null modular bridge
 

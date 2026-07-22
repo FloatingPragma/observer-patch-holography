@@ -489,9 +489,9 @@ python3 jwst/build_compact_object_source_release_receipts.py \
   --output runs/jwst/compact_object_source_release
 ```
 
-These commands do not yet execute the source-to-spectrum chain or validate a
+These commands do not execute the source-to-spectrum chain or validate a
 physical object parent. The remaining hard paper-side object is the actual
 numerical compact-object source action `S^{obj}_r(q)`. Until OPH derives it
 upstream or declares it as a
-conditional branch with no-data receipts, the JWST lane remains source-open and
-simulation-buildable rather than physically closed.
+conditional branch with no-data receipts, the JWST lane is source-open and
+simulation-buildable. It carries no physically closed status.

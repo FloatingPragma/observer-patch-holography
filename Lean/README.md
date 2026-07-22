@@ -1,10 +1,12 @@
 # Lean formalization workspace
 
-This is the umbrella Lean 4 / Mathlib project for the repository. The paper
-stack cites a sorry-free 111-theorem subset covering finite observer consensus,
-public records, normal forms, and related coupling algebra. Lean checks those
-formal statements exactly. The continuum gravity branch and physical
-screen-to-matter carriers remain paper-level conditional constructions.
+This is the umbrella Lean 4 / Mathlib project for the repository. It contains
+a sorry-free proof subset covering finite observer consensus, public records,
+normal forms, coupling algebra, and the exact algebraic/compositional kernel of
+the corrected Einstein branch. Lean checks those formal statements exactly.
+Continuum geometry, asymptotic tails, physical identification, and existence
+of an Einstein-admissible source tower remain explicit premises rather than
+proved facts.
 
 ## Layout
 

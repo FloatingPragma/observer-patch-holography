@@ -9,7 +9,7 @@ outside cosmic history. They will exist after the heat death. Newton's laws,
 Maxwell's equations, and Einstein's field equations are discovered, not
 invented. They describe timeless constraints on reality.
 
-This is the Platonic view of physics. The universe obeys laws because those laws are somehow part of mathematics itself. The laws aren't explained by anything deeper; they simply *are*.
+The universe, on this view, obeys laws because those laws are somehow part of mathematics itself. The laws aren't explained by anything deeper; they simply *are*.
 
 In this picture, asking "why these laws?" is meaningless. Laws are brute facts. They could have been different, but they happen to be what they are.
 
@@ -45,10 +45,12 @@ The list goes on. The more we look, the more fine-tuning we find.
 
 ### Three Responses
 
-Three broad responses present themselves. One says the parameters were set by
-design. One says we won a cosmic lottery. One says there is selection across a
-space of possible laws, so observers inevitably see the conditions that permit
-observers. That third route is the anthropic principle in its bare form.
+Three broad responses circulate. The parameters were set by design; we won a
+cosmic lottery; or a larger space of possible laws is filtered by selection,
+so observers inevitably see the conditions that permit observers. The third
+route is the anthropic principle in its bare form, and it needs handling with
+care. A puddle waking up in a hole might be struck by how exactly the hole
+fits it, and might conclude the hole was made with it in mind.
 
 Fine-tuning at least suggests that the realized laws are not the only
 conceivable ones, and that what we observe is filtered by the fact that we are
@@ -70,7 +72,7 @@ alternative.
 
 ### Lee Smolin's Cosmological Natural Selection
 
-In 1992, Lee Smolin proposed a radical idea: **Cosmological Natural Selection (CNS)**.
+In 1992, Lee Smolin proposed **Cosmological Natural Selection (CNS)**.
 
 Smolin noticed something curious. The parameters of our universe are often
 argued to be tuned for life and black-hole production. If
@@ -154,11 +156,6 @@ Here $A$ is the area of the boundary and $G$ is Newton's gravitational constant.
 The formula is the black-hole entropy scaling in plain form: storage capacity
 grows like area, not volume.
 
-More precisely, in units where $\hbar=c=k_B=1$, the entropy scale is
-$A/(4G)$. The area $A$ belongs to the bounding screen. The constant $G$ sets
-the gravitational unit of area. Calling the result "bits" is a reader-friendly
-translation of entropy into information capacity.
-
 What are physical laws? They are statements that reduce the amount of
 information needed to describe the world. If energy is conserved, you do not
 need to track a different value at every moment. If the electron mass is
@@ -186,20 +183,9 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-OPH turns that census into a short survival story. The twelve icosahedral port
-readings split into the current directions of electromagnetism, the weak force,
-and color. Their stable quantum modes become photons, weak carriers, and gluons.
-The smooth geometric branch supplies the gravitational-wave modes. The Higgs
-vacuum gives mass to the weak carriers, placing the running $W$ and $Z$
-coordinates near $80.3$ and $91.1$ GeV, while a linked critical balance
-organizes the Higgs and top.
-
-The faces of the same icosahedron explain the repetition of matter. Every
-outward triangular face carries a three-corner cycle. Symmetry identifies the
-copies across all twenty faces and leaves one global family triplet. Its charged
-lepton directions are the electron, muon, and tau. The quarks use the same
-family space with separate up-type and down-type Yukawa coordinates. Neutrino
-mixing is the rotation between flavor directions and mass directions.
+The gauge chapters built the finite structure behind this census; attaching
+its patterns to the measured particle families is work in progress, and the
+synthesis chapter keeps the ledger.
 
 The survival ladder continues into composite matter. QCD binds quarks and
 gluons into protons, neutrons, and mesons, with confinement supplying most of
@@ -238,8 +224,8 @@ longer, and replicate more faithfully than others.
 ### Memetic Selection
 
 Memes evolve by the same Darwinian logic as genes. They vary as they pass from
-mind to mind, successful versions get copied, and the ideas that resonate or
-predict better spread further. The history of science is memetic evolution.
+mind to mind, successful versions get copied, and the ideas that copy well or
+predict well spread further. The history of science is memetic evolution.
 Phlogiston lost to oxygen. Steady-state cosmology lost to hot expanding
 cosmology. Memes that fit the data survive the selection pressure of empirical
 testing.
@@ -252,11 +238,11 @@ cosmic microwave background by Penzias and Wilson. Darwin himself shared the
 stage with Alfred Russel Wallace. Good ideas survive because many observers
 can stress them from different sides.
 
-### The Fixed-Point Computation Meme
+### The Self-Reading Computation Meme
 
 Among all the memes that have evolved in human culture, one stands out as unique.
 
-The **fixed-point computation meme**, the idea that reality can be read as an
+The **self-reading computation meme**, the idea that reality can be read as an
 observer-readable closure, is the meme that lets reality become explicit to
 some of its own observers.
 
@@ -265,27 +251,26 @@ appears as a precise compression scheme. Physics appears as a family of memes
 that model the rules. Computation theory appears as a meme about information
 processing itself. The simulation principle condenses those threads into one
 idea, then OPH sharpens it: reality may be a computation whose output is the
-world read from inside. That is the meme that closes the loop.
+world read from inside.
 
-### The Strange Loop of Memetic Evolution
+### The Meme That Reads Its Maker
 
-On the strange-loop reading, reality is computational. Within this computation,
+On this reading, reality is computational. Within this computation,
 biological evolution produces minds. Within minds, memetic evolution produces
-ideas. Among these ideas, the fixed-point computation meme appears as an
+ideas. Among these ideas, the self-reading computation meme appears as an
 understanding of reality at the computational level.
 
 Armed with this meme, observers can build computations that preserve and repair
-observer records. A sufficiently rich restored world could contain its own
-observers, who may in turn arrive at the same meme. The meme that explains
-reality is itself a product of reality. Chapter 18 develops the strange loop as
-physics, and Chapter 20 treats this memetic reading as a philosophical extension
-of the framework.
+observer records. The meme that explains reality is itself a product of
+reality. The next chapter takes this shape and asks it to do physical work.
+Chapter 20 treats this memetic reading as a philosophical extension of the
+framework.
 
 ## 17.8 The Observer as Selector
 
-In biological evolution, "nature" is the selector. In quantum Darwinism, "the environment" is the selector. In memetic evolution, "minds" are the selector.
+Biological evolution has nature for its selector, quantum Darwinism the environment, memetic evolution minds.
 
-**The requirement of consistency between observers** is the selector.
+In OPH, the selector is **the requirement of consistency between observers**.
 
 The screen has finite capacity. Only patterns that fit survive. When two observers compare notes, incompatible descriptions get rejected. Compatible descriptions persist.
 
@@ -325,9 +310,9 @@ existence of observers who can verify them.
 
 Physical laws are **coordination protocols**, like TCP/IP for the internet.
 
-TCP/IP is not a law of nature. It emerged because it works. Computers that follow the protocol can exchange data. Computers that do not follow it are isolated.
+TCP/IP emerged because it works. Computers that follow the protocol can exchange data; computers that do not are isolated.
 
-Similarly, physical laws are conventions that enable consistent communication between observer patches. The laws we observe are the protocols that survived. They work. They enable agreement. They persist.
+Similarly, physical laws are conventions that enable consistent communication between observer patches. The laws we observe are the protocols that survived. They enable agreement, and so they persist.
 
 ### Darwin, Wallace, and the Discipline of Selection
 
@@ -335,18 +320,18 @@ Darwin did not discover evolution by imagining change in the abstract. He
 spent years gathering small stubborn facts: island species, barnacles, fossils,
 domesticated breeding records, geographical ranges, and the selective power of breeders.
 Alfred Russel Wallace independently found the same principle through field
-experience in the Amazon and Malay Archipelago. Natural selection became
-persuasive because it organized a huge mess of observations with one filter:
-variants that reproduce better become more common.
+experience in the Amazon and Malay Archipelago, and when his essay reached
+Down House in June 1858, the two accounts were read jointly at the Linnean
+Society within weeks: Darwin at home mourning a dead child, Wallace on the
+far side of the world, unaware the meeting was taking place. Natural
+selection became persuasive because it organized a huge mess of observations
+with one filter: variants that reproduce better become more common.
 
 The analogy needs the same discipline. OPH
 does not say that equations literally have children, or that constants wander
-around like animals. It says that public physical structure must pass filters
-before it can belong to a stable observer world. A candidate pattern must fit
-inside the finite screen capacity. It must support local records. It must
-allow patches to repair mismatches. It must be compressible enough to be
-learned and reused. It must permit observers complex enough to do the
-comparing. Those are selection pressures.
+around like animals. It says that public physical structure must pass the
+filters described above before it can belong to a stable observer world, and
+those filters are selection pressures.
 
 The same idea appears at several scales. In quantum Darwinism, pointer states
 survive because the environment redundantly records them. In scientific
@@ -356,18 +341,13 @@ parameters are considered through the structures they permit. OPH adds the
 observer-overlap version: a law survives if it can act as a coordination
 protocol across finite patches.
 
-The symbol work is correspondingly light but important.
-When the text says a black-hole entropy budget scales like $A/(4G)$ or
-$A/(4\ell_P^2)$, it is pointing at a finite selection environment. $A$ is
-area. $G$ is Newton's constant when units keep it explicit. $\ell_P$ is the
-Planck length when the same idea is written in Planck-area units. Patterns
-that demand more independent information than the screen can carry are not
-available as public laws. When the text speaks of compression, it means that
-a law must summarize many observations with fewer bits than a raw lookup
-table would need. A universe with no compressible regularities could
-have events, but it could not have science in the sense this book needs.
+A law must summarize many observations with fewer bits than a raw lookup
+table would need, and patterns that demand more independent information than
+the screen can carry are not available as public laws. A universe with no
+compressible regularities could have events, but it could not have science in
+the sense this book needs.
 
-That is the human moral of the chapter. The laws we write down are not
+The laws we write down are not
 private revelations. They are proposals submitted to a harsh public filter.
 They survive only when many observers can use them to coordinate expectation,
 measurement, memory, and action.
@@ -379,13 +359,15 @@ points to a space of possible laws, and OPH reads the realized laws through
 consistency filters. At the quantum level, that looks like pointer states
 surviving environmental scrutiny. At the informational level, it looks like
 compression schemes that actually fit the data. Cosmic natural selection
-remains a separate analogy unless a concrete cosmological mechanism is
-specified. Stable particles survive because they carry the right protections.
+is a separate analogy, with no concrete cosmological mechanism specified.
+Stable particles survive because they carry the right protections.
 Ideas survive because they spread, predict, and organize thought. The
-fixed-point computation meme matters because it is one way reality may become
+self-reading computation meme matters because it is one way reality may become
 explicit to itself through the observers it produces.
 
 ---
 
-Laws emerge through selection filters. The synthesis chapter puts those filters
-back beside spacetime, particles, and observers.
+Every filter in this chapter needed something outside the thing being
+selected: an environment, a rival, a reader. The next chapter removes the
+outside. It asks what happens when the only selector left is the system
+itself, and finds that the answer has numbers in it.

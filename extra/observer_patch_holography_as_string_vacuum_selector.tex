@@ -67,14 +67,16 @@ Observers, Clocks, Edge Strings, and the Bouchard-Donagi Candidate}
 \author{B.\ M\"uller}
 \date{\OPHPaperReleaseDate}
 
+% #542 typesetting hardening (layout only, no claim change)
+\usepackage{microtype}
 \begin{document}
 \maketitle
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-String theory is read here as an effective language for OPH edge dynamics. Finite observer patches compare shared records, and their settled repair histories can be read as worldsheet-like histories on the edge system.
+String theory is read here as an effective language for Observer-Patch Holography (OPH) edge dynamics. Finite observer patches compare shared records, and their settled repair histories can be read as worldsheet-like histories on the edge system.
 
-The paper uses that reading as a vacuum-selection sieve. OPH supplies the target spacetime, Standard Model structure, records, interfaces, checkpoints, and synchronization rules. A conventional string vacuum is promoted only after the geometric, worldsheet-critical, threshold, and moduli-locking gates pass. The worked object is a heterotic Bouchard--Donagi type Standard Model candidate with one massless Higgs pair and explicit safety gates. The published construction supplies a visible massless-cohomology spectrum, without the stabilized nonzero-mode spectrum or decoupling map needed for a low-energy threshold calculation. The threshold/spectrum certificate is not emitted here, so this paper does not promote the candidate to a passing OPH-correct witness.
+The paper uses that reading as a vacuum-selection sieve. OPH supplies the target spacetime, Standard Model structure, records, interfaces, checkpoints, and synchronization rules. A conventional string vacuum is promoted only after the geometric, worldsheet-critical, threshold, and moduli-locking gates pass. The worked object is a heterotic Bouchard--Donagi (BD) type Standard Model construction with one massless Higgs pair and explicit safety gates. The published construction supplies a visible massless-cohomology spectrum, without the stabilized nonzero-mode spectrum or decoupling map needed for a low-energy threshold calculation. The smooth published one-Higgs space has \(71\) complex pre-completion moduli. The five-coordinate comparison map uses no BD branch data and has rank zero on that space; only three of its coordinates carry promoted OPH status. No completed physical slice or Jacobian is supplied. The operator-safe proposal is not selected. The structural BD audit row and the recovered OPH core are kept.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -93,11 +95,13 @@ The string representative must realize those forces and the particle content on 
 observer-visible branch.
 
 The worked contribution is a sieve for string-vacuum candidates. A
-Bouchard--Donagi type heterotic object is treated as a named candidate and
+Bouchard--Donagi type heterotic object is treated as a named structural test row and
 tested against OPH gates: one massless Higgs pair, the Standard Model quotient,
 operator safety, worldsheet criticality, threshold compatibility, and moduli locking. Every
-unemitted certificate is explicit. A vacuum survives only if its string data land on the OPH
-quantitative vector without retuning. The statement selects string data through OPH gates; it
+unemitted certificate is explicit. The moduli gate carries a negative rank/isolation receipt,
+rather than only a target equation. A vacuum survives only if its string data land on the OPH
+quantitative vector without retuning and all physical source directions are locked. The statement
+tests string data through OPH gates; it
 does not promote a reference ensemble or ordinary string vacuum into the OPH-native vacuum.
 
 \tableofcontents
@@ -169,30 +173,27 @@ whole structure. The three Standard Model gauge forces are the low-energy decomp
 global quotient, while the pure-Einstein tensor carrier is read as a closed-string graviton only
 after a critical lift supplies the required physical-state and pole receipts.
 
-The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
-Bouchard-Donagi one-Higgs stratum locks to the OPH quantitative vector without free retuning,
-and if the MSSM \(\ZfourR\) safety layer is realized on the same branch, OPH becomes an
-independent selector of a particular known heterotic Standard Model representative:
-\[
-BD_{n=1,+}^{\OPH}.
-\]
+The target claim is a gate implication, not a completed selection. The rank certificate shows that
+the antecedent fails for the emitted BD source/target packet. Consequently the selector admits no
+string representative from this row.
 
 The notation separates two roles:
 \[
 BD_{n=1}^{\OPH}
 \quad
-\text{is the geometric one-Higgs witness,}
+\text{labels the geometric one-Higgs structural row,}
 \]
 \[
 BD_{n=1,+}^{\OPH}
  =
 BD_{n=1}^{\OPH}+\ZfourR
 \quad
-\text{is the operator-safe candidate.}
+\text{labels the tested operator-safe proposal.}
 \]
 The \(+\) records the MSSM \(\ZfourR\) safety layer. The charge-algebra part of this gate closes
 inside the paper; the realization of \(\ZfourR\) as a symmetry of the BD compactification is a
-certificate gate.
+certificate gate. The issue-369 rank obstruction assigns failed selected/passing status to this
+proposal. The underlying BD zero-mode construction remains a structural benchmark.
 
 The compact rule is:
 \[
@@ -207,8 +208,9 @@ the statement is certified globally, exactly one fixed point per readout map
 on the declared physical domain, by the machine-checked domain-global
 uniqueness certificate shipped with the code release.
 On the OPH side of the map
-there is no vacuum landscape to relocate into, and the selection carries zero
-continuous dials. The sieve reading of string
+there is no vacuum landscape to relocate into, and the frozen target packet carries no
+retunable target-side dials. The BD source does carry many unresolved physical continuous
+directions; the rank certificate below makes that distinction explicit. The sieve reading of string
 theory is therefore an edge-language statement, a statement about which
 worldsheet completions can present the one selected normal form rather than a
 competing selection mechanism, and it inherits no anthropic weighting from
@@ -220,10 +222,10 @@ the space of candidates it filters.
 \toprule
 \textbf{Goal} & \textbf{Paper claim} & \textbf{Receipt carried here} \\
 \midrule
-Named string candidate & OPH tests the operator-safe Bouchard--Donagi one-Higgs heterotic
-Standard Model candidate \(BD_{n=1,+}^{\OPH}\). Passing OPH-correct status requires the
-unemitted threshold/spectrum and other certificate gates. & Selector gates, global group proof,
-safety charge table, candidate sieve. \\
+Named string test row & OPH tests the operator-safe Bouchard--Donagi one-Higgs heterotic
+Standard Model proposal \(BD_{n=1,+}^{\OPH}\). Its selected-candidate status fails under
+the moduli-rank obstruction. & Selector gates, global group proof, safety charge table,
+structural sieve, and fail-closed rank certificate. \\
 String-theory pressure points & The landscape, global group, Higgs multiplicity, exotics,
 operator danger, proton decay, and moduli problems become explicit gates. & Gate table,
 acceptance table, falsifier matrix. \\
@@ -272,7 +274,7 @@ problem \cite{OPHYangMillsGap}.
 The particle-sector paper carries the electroweak, Higgs/top, quark, charged-lepton, neutrino, and
 hadron audit lanes \cite{OPHParticleZoo}. The fine-structure note isolates the local pixel fixed
 point that feeds the quantitative electroweak target \cite{OPHFineStructure}. These papers supply
-the numerical vector against which the named candidate branch is screened.
+the numerical vector against which the named BD structural row is screened.
 
 \paragraph{4. Why observers and records are literal inputs.}
 The screen-microphysics paper turns patches into finite record-bearing carriers with ports,
@@ -356,11 +358,42 @@ G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6;
 \]
 \item the same hypercharge lattice, chiral index, and low-energy matter package;
 \item the same operator-safety algebra on the visible superpotential;
-\item the same OPH quantitative target vector \(\calO_{\OPH}\), modulo threshold and moduli
-coordinates invisible to the OPH quotient.
+\item the same complete OPH quantitative readout, including physical threshold and modulus
+effects.
 \end{enumerate}
-Duality frames are charts on the same OPH-visible normal form.
+Here ``OPH-invisible'' means an independently established presentation redundancy: a
+diffeomorphism or bundle/B-field gauge orbit, bundle isomorphism, local representative or exact
+field-basis change, or a verified scheme/duality change with identical complete public readout.
+It is not defined as the kernel of a chosen finite target map. Physical scalar directions cannot be
+discarded merely because the frozen five-coordinate packet does not read them. Duality frames
+are charts on the same OPH-visible normal form only after that equivalence has been proved.
 \end{definition}
+
+\begin{lemma}[Quotient descent and presentation invariance]
+Let a redundancy group \(G\) preserve the completed constraint locus, and let every component of
+the observer-visible readout be \(G\)-invariant. The constraints and readout then descend to each
+fixed-orbit-type stratum of the physical quotient. If two quotient charts are related by a
+\(C^1\) diffeomorphism \(\phi\), and two equivalent output conventions are related by a \(C^1\)
+diffeomorphism \(\psi\), then
+\[
+F'=\psi\circ F\circ\phi^{-1},
+\qquad
+DF'=D\psi\,DF\,D\phi^{-1}.
+\]
+Thus rank on the physical tangent, kernel dimension, and local isolation are independent of the
+certified chart or convention. A scheme change or string duality can be placed in the invisible
+quotient only after the transition maps and equality of the complete physical readout are proved.
+An unclassified continuous stabilizer, singular orbit-type change, or gauge-copy ambiguity fails
+this lemma's hypotheses and must be treated on a separate stratum.
+\end{lemma}
+
+\begin{proof}
+Invariance makes the constraints and readout constant on every \(G\)-orbit, so the universal
+property of the quotient gives the descended maps. The derivative formula is the chain rule.
+Both outer derivatives are invertible, which preserves rank and kernel dimension. Diffeomorphisms
+also preserve whether a target fiber is locally a singleton. The final sentence records cases in
+which no such quotient chart has been certified.
+\end{proof}
 
 \begin{definition}[OPH-correct critical string]
 A critical-string presentation \(\mathcal T\) is OPH-correct if it satisfies all of the following.
@@ -376,11 +409,13 @@ one-Higgs-pair branch used by the OPH electroweak target.
 \item Its visible operator algebra has the \(\ZfourR\) safety layer, or an OPH-equivalent rule,
 which permits Yukawas and the Weinberg operator, and forbids perturbative RPV, perturbative
 dimension-five proton decay, and the perturbative \(\mu\)-term.
-\item Its moduli and threshold map satisfies
+\item Its completed physical equations have a dynamically stable solution, and its precommitted
+scheme-locked threshold map satisfies
 \[
 \calF_{\mathcal T}(m_\star)=\calO_{\OPH}
 \]
-with full transverse rank after quotienting OPH-invisible redundancies.
+with full transverse rank jointly with the completion constraints after quotienting independently
+proved OPH-invisible redundancies.
 \end{enumerate}
 \end{definition}
 
@@ -413,48 +448,57 @@ Those conditions are exactly the OPH-correctness gates for the named witness. Qu
 \(\Teq\) removes pure presentation duplicates of the same observer-visible data.
 \end{proof}
 
-\begin{proposition}[Global singleton certificate criterion]
-Let \(\mathcal C\) be an explicitly enumerated candidate class containing every critical-string
-presentation allowed to compete for the same OPH-visible target. Suppose every row of
-\(\mathcal C\) has a reproducible gate certificate, and suppose the certified survivors are ordered
-first by gate satisfaction, then by the minimality vector
+\begin{corollary}[BD selection status]\label{cor:bd-selection-status}
+The antecedent of the conditional witness theorem is false for the committed source packet. In
+particular, no completed constraint system, dynamically stable point, physical readout, or
+constraint-augmented Jacobian is supplied. The locking and isolation gate is obstructed by
+Theorem~\ref{thm:bd-rank-obstruction}. Hence
 \[
-C(v)=
-\bigl(
-N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
-N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
-\bigr),
+BD_{n=1,+}^{\OPH}
+\quad\text{is not a selected or passing OPH-string witness.}
 \]
-with ties quotienting by \(\Teq\). If the only row in \(\mathcal C/\Teq\) that passes all gates and
-attains the minimality bound is \(BD_{n=1,+}^{\OPH}\), then the singleton statement holds for that
-enumerated class:
+The published BD zero-mode construction remains a structural audit benchmark. The OPH
+recovered-core theorem stack is a separate claim tier.
+\end{corollary}
+
+\begin{proposition}[Catalogue-relative singleton certificate criterion]
+Let \(\mathcal U\) be a declared candidate universe and let \(\mathcal C\) be an explicitly
+enumerated catalogue. Assume a coverage certificate proves that every element of \(\mathcal U\)
+is represented by a row of \(\mathcal C\) up to \(\Teq\). Assume also that every discrete branch
+and every physical parameter domain has a certified cover with no unresolved cells, and that the
+candidate gates are recomputed for every resulting equivalence class. If the exact passing set is
+the single class \(BD_{n=1,+}^{\OPH}\), then
 \[
 \boxed{
 \{
-\mathcal T\in\mathcal C:\mathcal T\text{ is OPH-correct}
+\mathcal T\in\mathcal U:\mathcal T\text{ is OPH-correct}
 \}/\Teq
 =
 \{BD_{n=1,+}^{\OPH}\}.
 }
 \]
+Without the coverage certificate, the same calculation makes a claim only about the explicitly
+enumerated catalogue. A minimality score does not remove a second physically passing class unless
+that ordering is independently derived as part of the OPH target.
 \end{proposition}
 
 \begin{proof}
-This is the finite-selector normal-form argument. The enumerated certificate table supplies the
-candidate set, the gate vector, and the minimality vector for every row. The hypothesis says that
-all rows outside \(BD_{n=1,+}^{\OPH}\) either fail a gate or lose the minimality comparison after
-quotienting by \(\Teq\). Therefore the certified survivor set in \(\mathcal C/\Teq\) is the stated
-singleton. Without the exhaustive table for \(\mathcal C\), this proposition is a certificate
-criterion rather than a global landscape theorem.
+Coverage maps every candidate in \(\mathcal U\) to a certified catalogue row. The branch and
+parameter covers classify every row as passing or failing, with no unclassified region. Quotienting
+the exact passing set by the certified equivalence relation gives the stated singleton by
+hypothesis. If catalogue coverage is absent, the same argument has no premise for candidates
+outside \(\mathcal C\). A score cannot change membership in the passing set unless its ordering is
+itself one of the independently fixed physical gates.
 \end{proof}
 
 \begin{remark}[How strong this is]
 BD is not decoration here. OPH supplies an external observer-visible target, so a named branch can
 be tested by a normal-form equation. The claim is falsifiable by construction: failure of the BD
 cohomology, safety-layer realization, threshold/spectrum certificate, decoupling map, or transverse
-moduli rank retracts the
-named witness without retracting the OPH recovered core. Global uniqueness is a separate
-comparative-catalogue certificate.
+moduli rank excludes the named string proposal while leaving the OPH recovered core intact. The
+moduli certificate realizes that failure case. Global uniqueness is a separate
+comparative-catalogue question, moot for this row because it does not pass the existence
+gates.
 \end{remark}
 
 \section{Theorem Agenda}
@@ -1247,7 +1291,7 @@ and self-reads, but the spatial edge coordinate needed for a
 \((1+1)\)-dimensional scaling theory is absent. Central charge, current modes, and Virasoro closure
 require a sewn edge cylinder
 \[
-\mathrm{EDGE\_CYLINDER}(L),
+\text{edge cylinder}(L),
 \qquad
 \mathcal H_L=\bigotimes_{x=0}^{L-1}\mathcal H_{\mathrm{cell},x},
 \qquad x\equiv x+L.
@@ -1558,8 +1602,10 @@ and self-dual. Hence
 \Gamma_{16}=D_{16}^{+},
 \]
 corresponding to the heterotic gauge groups \(E_8\times E_8\) and
-\(\operatorname{Spin}(32)/\Z_2\). The Bouchard-Donagi selector used in this paper chooses the
-\(E_8\oplus E_8\) branch. With \(D=10\), the covariant Weyl anomalies cancel:
+\(\operatorname{Spin}(32)/\Z_2\). The Bouchard--Donagi construction lies on the
+\(E_8\oplus E_8\) branch. The lattice theorem does not select that branch over
+\(D_{16}^{+}\), and compactification dualities require a separate equivalence audit. With \(D=10\),
+the covariant Weyl anomalies cancel:
 \[
 (10+16)-26=0,
 \qquad
@@ -1787,13 +1833,17 @@ G_{\rm phys},Y,N_c,N_g,n_H,\calO_{\rm op},G_4,\Lambda,\calO_{\rm quant}
 \]
 from compactification data to observer-visible records, together with the constraints
 \[
+\mathcal C_v(m_\star)=0,
+\qquad
 \Pi_{\OPH}(v)=\Pi_{\rm target}^{\OPH},
 \qquad
-\operatorname{rank}D\Pi_{\OPH}|_{N_{\OPH}}=\dim N_{\OPH},
+\ker D\mathcal C_v\cap\ker D\Pi_{\OPH}=T(G_{\rm inv}\!\cdot m_\star),
 \]
-where \(N_{\OPH}\) is the moduli subspace transverse to OPH-invisible redundancies. The rank
-condition is the moduli-locking condition: the target has no adjustable flat direction after the
-OPH quotient.
+where \(N_{\OPH}\) is a physical slice transverse to independently proved OPH-invisible
+redundancies, as formalized in Definition~\ref{def:bd-physical-slice}. It is not defined by
+\(\ker D\Pi_{\OPH}\). The constraints require a separate dynamical stability receipt. The joint
+kernel condition is the coordinate-free moduli-locking certificate of
+Theorem~\ref{thm:constraint-augmented-locking}.
 \end{definition}
 
 The augmented vacuum equations are:
@@ -1808,12 +1858,17 @@ c_2(TX)-c_2(V_{\rm vis})-c_2(V_{\rm hid})=[W], & \text{Bianchi/anomaly condition
 G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6, & \text{global group target},\\
 \calO_{\rm op}=\ZfourR\text{ safety}, & \text{operator target},\\
 G_4^{\rm string}=G_4^{\OPH},\quad \alpha'\mapsto\alpha'_{\OPH}, & \text{graviton normalization target},\\
-\calF_v(m_\star)=\calO_{\OPH},\quad \operatorname{rank}D\calF_v=\mathrm{full}, & \text{moduli/threshold target}.
+\nabla V_{\rm eff}(m_\star)=0,\quad \operatorname{Hess}_{\rm phys}V_{\rm eff}\succeq\mu^2I,
+& \text{dynamical stabilization},\\
+\mathcal H_v(m_\star)=0,\quad \operatorname{rank}D\mathcal H_v=\dim\mathcal X_v,
+& \text{constraint-augmented target locking}.
 \end{cases}
 \]
 
-This turns landscape selection into a finite certificate problem. A conventional string vacuum can
-be internally consistent and fail the OPH observer-visible target map.
+For a finite catalogue with certified parameter-domain coverage, these equations define a finite
+certificate problem. A conventional string vacuum can be internally consistent and fail the OPH
+observer-visible target map. No finiteness or exhaustiveness claim follows for the unrestricted
+candidate universe.
 
 \subsection{Testable consequences after certificate closure}
 
@@ -1859,7 +1914,7 @@ n_H=1,\quad \text{no light chiral exotics},\quad \ZfourR\text{ safety}
 \end{gathered}
 \right).
 \]
-The named geometric witness in the package is
+The named geometric structural row in the package is
 \[
 \boxed{
 BD_{n=1}^{\OPH}
@@ -1868,7 +1923,7 @@ BD_{n=1}^{\OPH}
 \text{ heterotic }\SU(5)\text{ Standard Model, one-Higgs-pair stratum}.
 }
 \]
-The named operator-safe candidate is
+The tested operator-safe proposal is
 \[
 \boxed{
 BD_{n=1,+}^{\OPH}
@@ -1903,8 +1958,10 @@ A critical string vacuum \(\mathcal T\) is OPH-admissible only if
 \[
 \Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}.
 \]
-For the package studied here, the named geometric witness is \(BD_{n=1}^{\OPH}\), and the
-operator-safe candidate is \(BD_{n=1,+}^{\OPH}\).
+For the package studied here, the named geometric structural row is \(BD_{n=1}^{\OPH}\), and the
+operator-safe structural row is \(BD_{n=1,+}^{\OPH}\). This theorem is a necessary sieve
+statement; it does not override the failed rank gate in
+Corollary~\ref{cor:bd-selection-status}.
 \end{theorem}
 
 \begin{theorem}[Global group locking theorem]
@@ -1981,11 +2038,16 @@ String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl pro
 Worldsheet criticality & The twelve-port and twenty-four oriented-register counts define only a
 heterotic central-charge target until the edge VOA is identified. & Non-implication theorem plus
 critical-edge certificate theorem; finite-carrier receipts not emitted here. \\
-Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map not emitted here. \\
+Vacuum stabilization & Requires stationarity, a canonically normalized physical scalar mass
+matrix, and a route-appropriate stability bound. & No completed BD effective potential, point, or
+Hessian enclosure is emitted. \\
+Target locking & Requires a physical quotient, precommitted target map, and a certified
+constraint-augmented full-column-rank minor. & Physical-slice definition and negative rank
+certificate emitted; the completed constraint map, selected point, and physical BD map are absent. \\
 Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
 forbids perturbative RPV, dimension-five proton decay, and the perturbative \(\mu\)-term. &
 Charge algebra closes; BD geometric realization is a certificate gate. \\
-Empirical tests & Assigns the named candidate a compact list of failure-prone low-energy and
+Empirical tests & Assigns the named structural row a compact list of failure-prone low-energy and
 threshold proxy screens. & Reproducible target equations; no branch compatibility result. \\
 \bottomrule
 \end{longtable}
@@ -2014,9 +2076,12 @@ Critical dimension & If the sewn-edge carrier has the heterotic polarization
 RPV and \(\mu\)-problem & \(\ZfourR\) permits Yukawas, forbids perturbative RPV and
 dimension-five proton decay, forbids perturbative \(\mu\), and leaves matter parity. & Exact
 charge algebra; compactification certificate required. \\
-Moduli stabilization & The problem becomes \(\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}\) plus
-full transverse rank. & Abstract isolation criterion only; no BD numerical point or rank
-certificate is emitted. \\
+Vacuum stabilization & The problem requires a controlled effective action, stationarity, and a
+physical Hessian stability bound. & No BD completion supplies these data. \\
+Target identifiability & The problem requires a scheme-locked physical map plus a certified
+constraint-augmented rank and interval-isolation receipt. & Issue-369 obstruction: the published
+pre-completion slice has \(142\) real directions, the five-row proxy has rank zero, and no completed
+constraint map, physical slice, or Jacobian is supplied. \\
 Predictivity & Higgs/top, stop, and one-loop gauge-running coordinates give failure-prone proxy
 targets. & Reproducible target-side proxies only; no spectrum or threshold certificate is emitted. \\
 \bottomrule
@@ -2041,16 +2106,16 @@ n_H=1
 \end{gathered}
 \]
 
-\begin{theorem}[Selector reduction]
+\begin{theorem}[Set-theoretic selector reduction]
 Let \(\mathcal C\) be any class of critical string compactifications with an observer-visible
 infrared projection \(\Pi_{\rm IR}^{\OPH}\). Define
 \[
 \mathcal C_{\OPH}=
 \{\mathcal T\in\mathcal C:\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\}.
 \]
-The OPH selection problem over \(\mathcal C\) is exactly the finite or enumerable audit of
-\(\mathcal C_{\OPH}\) against the gates in \(\mathfrak S_{\OPH}\) and the quantitative target
-\(\calO_{\OPH}\).
+The OPH selection problem over \(\mathcal C\) is the audit of \(\mathcal C_{\OPH}\) against the
+quantitative target \(\calO_{\OPH}\). This is an effective finite or enumerable audit only when a
+separate enumeration and domain-coverage certificate for \(\mathcal C\) is supplied.
 \end{theorem}
 
 \begin{proof}
@@ -2062,7 +2127,8 @@ equalities and exclusions hold. The quantitative stage appends the equation
 \[
 \calF_{\mathcal T}(m)=\calO_{\OPH}.
 \]
-The landscape question becomes a sieve and target equation.
+The selection condition is therefore a sieve and target equation. The definition alone supplies no
+algorithm for enumerating \(\mathcal C\), solving every branch, or quotienting all dualities.
 \end{proof}
 
 \subsection{Problem 2: global Standard Model group}
@@ -2242,7 +2308,7 @@ N_g=\frac{12}{2\cdot2}=3.
 \subsection{Problem 5: Higgs-stratum selection}
 
 The Bouchard-Donagi construction has regions with zero, one, or two Higgs doublet conjugate
-pairs. OPH selects the one-pair stratum.
+pairs. The structural Higgs-count gate selects the one-pair stratum.
 
 \begin{theorem}[One-Higgs zero-mode minimality gate]
 Within the published Bouchard--Donagi massless-cohomology strata, the \(n=1\) Higgs-pair
@@ -2315,29 +2381,193 @@ K_t(1)=\sum_R d_R^2e^{-tC_2(R)}=Z_{\rm edge}(t).
 \]
 \end{proof}
 
-\subsection{Problem 8: moduli stabilization as target locking}
+\subsection{Problem 8: dynamical stabilization and target locking}
 
 The OPH contribution is a target criterion. This paper does not emit a completed BD moduli computation.
 
-\begin{theorem}[Local isolation by full rank]
-Let \(\calF:\mathcal M\to\mathbb R^K\) be smooth, and suppose
+\begin{theorem}[Constraint-augmented local locking]
+\label{thm:constraint-augmented-locking}
+Let \(\mathcal P\) be an \(n\)-real-dimensional ambient parameter space, let \(G\) be an
+independently certified OPH-invisible redundancy group with orbit dimension \(g\) on a fixed
+orbit-type stratum, and let
 \[
-\calF(m_\star)=\calO_{\OPH},
+\mathcal C:\mathcal P\longrightarrow\mathbb R^L,
 \qquad
-\operatorname{rank}D\calF(m_\star)=\dim\mathcal M_{\rm phys}
+F:\mathcal P\longrightarrow\mathbb R^K
 \]
-after quotienting OPH-stable equivalences. The solution \(m_\star\) is locally isolated in the
-physical moduli directions.
+be the invariant completion constraints and a candidate-independent observer-visible readout.
+Suppose \(p\) satisfies \(\mathcal C(p)=0\), \(F(p)=\mathcal O_{\OPH}\), and
+\(D\mathcal C(p)\) has rank \(c\) transverse to the \(G\)-orbit. The completed quotient tangent
+has dimension
+\[
+d=n-g-c.
+\]
+The coordinate-free locking condition is
+\[
+\ker D\mathcal C(p)\cap\ker DF(p)=T_p(G\!\cdot p).
+\label{eq:augmented-locking-kernel}
+\]
+It is equivalent to the following gauge-slice certificate. On a certified local slice \(\Sigma\),
+choose \(c\) independent completion rows \(A\) and \(d\) independently registered readout rows
+\(I\), and set
+\[
+\mathcal H_{A,I}
+=
+\left(
+\pi_A\mathcal C|_\Sigma,
+\pi_I(F-\mathcal O_{\OPH})|_\Sigma
+\right).
+\]
+Then \(\dim\Sigma=c+d\), and condition~\eqref{eq:augmented-locking-kernel} holds exactly when some such precommitted row set
+has
+\[
+\det D\mathcal H_{A,I}(p)\ne0.
+\]
+Under either form of the condition, \([p]\) is the unique nearby orbit satisfying both the
+completion equations and the OPH target equations.
 \end{theorem}
 
 \begin{proof}
-Work on a local slice transverse to OPH-stable equivalence, of dimension
-\(\dim\mathcal M_{\rm phys}\). The derivative of \(\calF\) restricted to that slice has full
-rank. The regular level-set theorem gives a level set of dimension
+The regular-level-set theorem gives
 \[
-\dim\mathcal M_{\rm phys}-\operatorname{rank}D\calF=0.
+T_{[p]}\bigl(\mathcal C^{-1}(0)/G\bigr)
+\cong
+\ker D\mathcal C(p)/T_p(G\!\cdot p).
 \]
-The target equation has an isolated local solution on the physical slice.
+The derivative induced by \(F\) on this quotient tangent is injective exactly when its lifted
+kernel is the orbit tangent, which is condition~\eqref{eq:augmented-locking-kernel}. On a local slice the orbit tangent is
+removed. Choose \(c\) independent rows of \(D\mathcal C\). Injectivity of \(DF\) on the
+\(d\)-dimensional kernel of those rows is equivalent to the existence of \(d\) readout rows making
+the combined \((c+d)\)-square derivative invertible. The inverse-function theorem then makes the
+joint zero a local singleton on the slice. Quotient descent identifies that singleton with one
+physical orbit.
+\end{proof}
+
+\begin{corollary}[BD dimension budget]
+Start from the documented \(142\)-real-dimensional published one-Higgs quotient. If a completion
+adds \(a\) real physical coordinates, imposes completion equations of transverse rank \(r\), and
+removes \(g\) additional independently proved invisible orbit directions, then
+\[
+d=142+a-r-g.
+\]
+A locking certificate using \(k\) legitimate readout rows requires
+\[
+r+g-a\ge 142-k.
+\]
+Thus five legitimate rows require at least \(137\) net real cuts, while the three
+promoted OPH rows require at least \(139\). These bounds are necessary and not sufficient. If
+\(d=0\), the completion equations isolate the vacuum and no readout derivative is needed.
+\end{corollary}
+
+\begin{proof}
+The dimension formula is the regular quotient count. An injective linear map from a
+\(d\)-dimensional tangent space to \(\mathbb R^k\) requires \(d\le k\). Rearranging gives the
+stated inequalities.
+\end{proof}
+
+\begin{theorem}[Dynamical stabilization certificate]
+\label{thm:dynamical-stabilization}
+Let \(V_{\rm eff}\) be a \(G\)-invariant \(C^2\) effective potential with a certified domain of
+validity. A Minkowski or de Sitter scalar vacuum is strictly locally stabilized modulo \(G\) if
+\[
+\nabla V_{\rm eff}(p)=0,
+\qquad
+\operatorname{Hess}V_{\rm eff}(p)|_{T_{[p]}\mathcal M^{\rm phys}}
+\succeq \mu^2 I
+\]
+in canonically normalized physical coordinates for a certified \(\mu^2>0\), after removing gauge
+and Goldstone directions. An anti-de Sitter branch instead requires the corresponding
+Breitenlohner--Freedman spectral bound. Full rank of an observer readout proves local
+identifiability; it does not give a scalar a mass. Both stabilization and target-locking receipts
+are required unless the declared completion equations themselves include a separately certified
+stability theorem.
+\end{theorem}
+
+\begin{proof}
+For the Minkowski or de Sitter case, Taylor's theorem and the positive lower Hessian bound give a
+strict quadratic increase of \(V_{\rm eff}\) in every sufficiently small physical displacement.
+The removed orbit and Goldstone directions are not physical scalar moduli. The anti-de Sitter
+statement uses its stability bound rather than positivity of the potential Hessian. The derivative
+of a separate readout does not enter either mass operator, which proves the final distinction.
+\end{proof}
+
+\begin{theorem}[Local isolation by a certified row minor]\label{thm:row-minor-isolation}
+Let \(\calF:\mathcal M\to\mathbb R^K\) be \(C^1\), let the physical slice have real
+dimension \(d\leq K\), and suppose
+\[
+\calF(m_\star)=\calO_{\OPH},
+\]
+after quotienting independently proved OPH-invisible equivalences. If an explicitly identified
+\(d\times d\) row minor of \(D\calF(m_\star)\) has nonzero determinant, then
+\(\operatorname{rank}D\calF(m_\star)=d\) and \(m_\star\) is locally isolated in the physical
+moduli directions.
+\end{theorem}
+
+\begin{proof}
+Let \(I\) be the selected set of \(d\) output rows and let \(\pi_I\) be the corresponding
+coordinate projection. The derivative of \(\pi_I\circ\calF\) is invertible at \(m_\star\).
+The inverse-function theorem gives a neighborhood on which \(\pi_I\circ\calF\) is injective.
+Any point in that neighborhood with \(\calF=\calO_{\OPH}\) has the same projected value as
+\(m_\star\), and hence equals \(m_\star\). This proves local branch isolation only; it is not a
+global uniqueness theorem.
+\end{proof}
+
+\begin{remark}[What deficient rank does and does not prove]
+If \(D\calF\) has constant rank \(r<d\) nearby, the constant-rank theorem gives a local target
+fiber of dimension \(d-r\), tangent to \(\ker D\calF\). Without constant rank or explicit
+target-preserving curves, kernel vectors are only infinitesimal target-null directions; deficient
+rank alone does not rule out a singular isolated solution. The moduli-locking gate in this paper
+nevertheless requires the stronger row-minor certificate so that isolation is public and stable
+under first-order perturbations.
+\end{remark}
+
+\begin{theorem}[Interval contraction existence and isolation receipt]
+\label{thm:interval-locking}
+Let \(H:B\to\mathbb R^N\) be a square selected constraint-and-readout system on a closed rational
+box \(B\subset\mathbb R^N\). Let \(x_0\in B\), let \(A\) be an invertible rational matrix, and
+let \([H(x_0)]\) and \([J(B)]\) be outward-rounded interval enclosures of the residual and every
+Jacobian on \(B\). Define
+\[
+K(B)=x_0-A[H(x_0)]+\bigl(I-A[J(B)]\bigr)(B-x_0).
+\]
+If
+\[
+K(B)\subset\operatorname{int}B,
+\qquad
+\sup_{J\in[J(B)]}\|I-AJ\|_\infty\le q<1,
+\]
+then \(H\) has exactly one zero in \(B\). If the selected equations are proved to generate the
+full completion-and-target zero system on \(B\), this is a full existence and isolation
+certificate. Otherwise every omitted required row needs an independent identity or exact
+full-system solution receipt at that root. An interval determinant excluding zero certifies rank
+only; it does not by itself certify existence.
+\end{theorem}
+
+\begin{proof}
+Set \(T(x)=x-AH(x)\). The interval mean-value enclosure and the definition of \(K(B)\) give
+\(T(B)\subset K(B)\subset B\). The norm bound makes \(T\) a contraction on the complete metric
+space \(B\). Banach's fixed-point theorem gives exactly one fixed point. Since \(A\) is invertible,
+\(T(x)=x\) is equivalent to \(H(x)=0\). The statements about omitted rows and a determinant follow
+because neither condition proves those rows vanish or proves that a zero exists.
+\end{proof}
+
+\begin{theorem}[Branch-global cover certificate]
+Let a declared physical branch domain be covered by finitely many validated quotient-chart boxes.
+Assume one box has the full interval existence-and-isolation receipt of
+Theorem~\ref{thm:interval-locking}. Assume every other box is excluded because at least one
+required residual interval omits zero, and assume chart boundaries, singular strata, all discrete
+completion choices, and every noncompact end are covered or excluded by certified tail bounds.
+Then the declared branch contains exactly one target-matching physical orbit. If any box, boundary,
+stratum, discrete choice, or end is unresolved, the result remains local and the branch-global
+uniqueness gate stays open.
+\end{theorem}
+
+\begin{proof}
+The validated cover places every point of the declared branch in one of the listed regions. The
+accepted box contains exactly one physical orbit. Every other region contains no joint zero by its
+residual exclusion certificate. Boundary, singular, discrete, and tail hypotheses remove the
+places omitted by ordinary interior chart boxes. Hence no second orbit exists on the declared
+branch. An unresolved region invalidates the exhaustive disjunction and gives the final statement.
 \end{proof}
 
 \subsection{Problem 9: operator safety}
@@ -2346,7 +2576,7 @@ Gauge invariance allows the standard dangerous operators
 \[
 LH_u,\quad LLe^c,\quad LQd^c,\quad u^cd^cd^c,\quad QQQL,\quad u^cu^cd^ce^c.
 \]
-The operator-safe candidate adds the MSSM \(\ZfourR\) safety layer. Lee, Raby, Ratz, Ross,
+The operator-safe proposal adds the MSSM \(\ZfourR\) safety layer. Lee, Raby, Ratz, Ross,
 Schieren, Schmidt-Hoberg, and Vaudrevange prove that, allowing Green-Schwarz anomaly
 cancellation and requiring a discrete symmetry commuting with \(SO(10)\) that forbids the
 perturbative \(\mu\)-term, the MSSM has a unique \(\ZfourR\) symmetry. It leaves exact matter
@@ -2386,8 +2616,8 @@ A perturbative superpotential monomial is allowed precisely when its total \(R\)
 At the MSSM charge-algebra level, adding the \(\ZfourR\) layer to \(BD_{n=1}^{\OPH}\) permits
 all Standard Model Yukawa couplings and the Weinberg operator, forbids perturbative
 dimension-four RPV, forbids perturbative dimension-five proton decay, forbids the perturbative
-\(\mu\)-term, and leaves exact matter parity after nonperturbative breaking. The operator-safe
-candidate is
+\(\mu\)-term, and leaves exact matter parity after nonperturbative breaking. The charge-algebra
+proposal is
 \[
 BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
 \]
@@ -2404,8 +2634,8 @@ matter-parity remnant after nonperturbative breaking.
 
 \section{Acceptance Gates}
 
-The package is adversarial by design. The named operator-safe candidate has to pass the same
-gates as any competitor:
+The package is adversarial by design. The named operator-safe proposal has to pass the same
+gates as any competitor; the present moduli gate records that it does not:
 \begin{longtable}{p{0.33\linewidth}p{0.57\linewidth}}
 \toprule
 \textbf{Gate} & \textbf{Requirement} \\
@@ -2423,13 +2653,16 @@ mixed \((3,2,\pm5/6)\) generator. \\
 Operator safety & The MSSM \(\ZfourR\) safety layer forbids perturbative RPV, dimension-five
 proton decay, and the perturbative \(\mu\)-term, with exact matter parity after
 nonperturbative breaking. \\
-Moduli and thresholds & The branch must solve
-\(\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}\). \\
+Vacuum, moduli, and thresholds & The branch must supply a stable physical vacuum and derived
+threshold map, solve \(\mathcal H_{BD,n=1,+}(m_\star)=0\), and certify an invertible augmented
+row minor plus an interval existence-and-isolation box. The frozen five-row proxy fails this gate
+on the documented \(142\)-real-dimensional pre-completion slice; the completion constraints,
+stable point, and physical map are not supplied. \\
 \bottomrule
 \end{longtable}
 
 \begin{theorem}[No mixed \(X/Y\) connected-adjoint generator]
-On the selected product-group branch, the connected gauge adjoint is
+On the product-group branch, the connected gauge adjoint is
 \[
 (8,1,0)\oplus(1,3,0)\oplus(1,1,0).
 \]
@@ -2486,8 +2719,8 @@ The OPH low-energy target used here has no supersymmetric partner sector. The in
 arises because the BD compactification is \(N=1\) supersymmetric. A complete certificate must
 therefore supply a decoupling map. A conventional route needs supersymmetry breaking, mediation,
 and soft boundary conditions. A non-supersymmetric route would instead require a new,
-independently consistent UV construction or deformation. To certify this BD candidate, it must be
-proved an OPH-equivalent continuation that preserves the cited BD visible-branch data, as well as
+independently consistent UV construction or deformation. For this BD row to pass, the
+continuation must be proved OPH-equivalent to the cited BD visible-branch data, as well as
 establishing worldsheet or modular consistency, anomaly cancellation, a stable vacuum, its
 spectrum and couplings, and the resulting thresholds. An unrelated construction is a different
 candidate, and a projection label or hash is not sufficient.
@@ -2495,11 +2728,9 @@ candidate, and a projection label or hash is not sufficient.
 The quantities below are target-side one-loop proxies. They do not use a BD heavy spectrum,
 stabilized moduli point, decoupling map, hidden-sector dynamics, mediation data, soft terms, or
 spectrum-generator output. Proxy reproduction is therefore not threshold compatibility, and
-\(BD_{n=1,+}^{\OPH}\) remains a named candidate rather than a passing OPH-correct witness. The
-machine-readable bundle under
-\texttt{code/particles/runs/uv/oph\_bd\_threshold\_spectrum/} records repository-relative
-dependency paths, SHA-256 hashes, JSON selectors, an 80-decimal-digit arithmetic policy, scheme
-status, and the fail-closed gate result.
+\(BD_{n=1,+}^{\OPH}\) is only a named structural row; its selected-candidate gate fails. The accompanying machine-readable threshold-spectrum bundle records its
+dependency provenance, cryptographic hashes, selectors, an 80-decimal-digit
+arithmetic policy, scheme status, and the fail-closed gate result.
 
 From reference-side coordinates, including candidate-only Higgs/top inputs, the proxy computes
 \begin{longtable}{p{0.44\linewidth}p{0.44\linewidth}}
@@ -2508,9 +2739,9 @@ From reference-side coordinates, including candidate-only Higgs/top inputs, the 
 \midrule
 Tree-level top coordinate & \(y_t^{\rm tree}=0.987745211164\) \\
 Tree-level Higgs quartic coordinate & \(\lambda_H^{\rm tree}=0.128706603202\) \\
-MSSM tree-level quartic ceiling & \(\lambda_{\rm MSSM,max}=0.068275831787\) \\
-Large-\(\tan\beta\) algebraic quartic gap & \(\Delta\lambda_{\rm proxy}=0.060430771415\) \\
-Tree-level Higgs mass proxy ceiling & \(m_{h,\rm tree}^{\rm max}=m_Z=91.1876\,\mathrm{GeV}\) \\
+MSSM tree-level quartic ceiling & \(\lambda_{\rm MSSM,max}=0.068973725409\) \\
+Large-\(\tan\beta\) algebraic quartic gap & \(\Delta\lambda_{\rm proxy}=0.059732877792\) \\
+Tree-level Higgs mass proxy ceiling & \(m_{h,\rm tree}^{\rm max}=91.652460286\,\mathrm{GeV}\) \\
 \bottomrule
 \end{longtable}
 
@@ -2522,11 +2753,13 @@ y_t^{\rm tree}=0.987745211164,
 \]
 with the MSSM tree-level quartic ceiling
 \[
-\lambda_{\rm MSSM,max}=\frac{m_Z^2}{2v^2}=0.068275831787,
+\lambda_{\rm MSSM,max}
+=\frac{\pi}{2}\bigl(\alpha_2(m_Z)+\alpha_Y(m_Z)\bigr)
+=0.068973725409,
 \]
 and the corresponding algebraic gap is
 \[
-\Delta\lambda_{\rm proxy}=0.060430771415.
+\Delta\lambda_{\rm proxy}=0.059732877792.
 \]
 The displayed \(y_t^{\rm tree}\) is likewise the algebraic pole-coordinate conversion
 \(\sqrt2m_t/v\), not a running Yukawa in a common scheme. The quartic subtraction mixes declared
@@ -2554,14 +2787,14 @@ and the tree-level electroweak ceiling above, the frozen proxy gives:
 \toprule
 \(\tan\beta\) & \(X_t/M_S\) & \(M_S\) proxy target \\
 \midrule
-2 & \(0\) & \(3067.501\,\mathrm{GeV}\)\\
-2 & \(\sqrt6\) & \(684.452\,\mathrm{GeV}\)\\
-5 & \(0\) & \(1211.588\,\mathrm{GeV}\)\\
-5 & \(\sqrt6\) & \(270.342\,\mathrm{GeV}\)\\
-10 & \(0\) & \(986.784\,\mathrm{GeV}\)\\
-10 & \(\sqrt6\) & \(220.181\,\mathrm{GeV}\)\\
-50 & \(0\) & \(919.146\,\mathrm{GeV}\)\\
-50 & \(\sqrt6\) & \(205.089\,\mathrm{GeV}\)\\
+2 & \(0\) & \(3046.266\,\mathrm{GeV}\)\\
+2 & \(\sqrt6\) & \(679.714\,\mathrm{GeV}\)\\
+5 & \(0\) & \(1191.830\,\mathrm{GeV}\)\\
+5 & \(\sqrt6\) & \(265.933\,\mathrm{GeV}\)\\
+10 & \(0\) & \(968.658\,\mathrm{GeV}\)\\
+10 & \(\sqrt6\) & \(216.137\,\mathrm{GeV}\)\\
+50 & \(0\) & \(901.608\,\mathrm{GeV}\)\\
+50 & \(\sqrt6\) & \(201.176\,\mathrm{GeV}\)\\
 \bottomrule
 \end{longtable}
 These rows invert a leading one-loop formula. They do not determine \(\tan\beta\), \(M_S\), or
@@ -2575,15 +2808,15 @@ derive its own masses and decoupling thresholds within the independently consist
 A one-loop SM/MSSM running proxy with \(M_{\rm SUSY}=1\,\mathrm{TeV}\) and
 \(\alpha_1=(5/3)\alpha_Y\) gives
 \[
-\log_{10}(M_U/\mathrm{GeV})=16.0815812332,
+\log_{10}(M_U/\mathrm{GeV})=16.0815807506,
 \]
 \[
 M_U=1.20665\times10^{16}\,\mathrm{GeV},
 \qquad
-\alpha_U^{-1}=26.0176807530,
+\alpha_U^{-1}=26.0176813615,
 \]
 \[
-\alpha_3^{\rm pred}(m_Z)=0.111511310319.
+\alpha_3^{\rm pred}(m_Z)=0.111511308019.
 \]
 The symbols \(\alpha_U\) and \(M_U\) here name the one-loop running-unification proxy
 coordinates of this subsection; they are different objects from the finite-screen unified
@@ -2592,15 +2825,15 @@ of the compact paper, which carry the same symbols with different values.
 Against the PDG 2025 comparison value
 \(\alpha_s(m_Z)=0.1180\pm0.0009\) \cite{PDG2025QCD}, the residual inverse-coupling combination is
 \[
-\mathcal C_3^{\rm proxy}=-0.493123930167,
+\mathcal C_3^{\rm proxy}=-0.493124115142,
 \]
 with the reference-only interval
 \[
--0.557271269478
+-0.557271454453
 \leq
 \mathcal C_3^{\rm proxy}
 \leq
--0.427990551481.
+-0.427990736457.
 \]
 Here the declared matching convention is
 \[
@@ -2631,9 +2864,10 @@ BHOP \(\SU(4),\Z_3\times\Z_3\) & \(4/9\) & Backup witness. \\
 Generic \(\mathrm{Spin}(32)/\Z_2\) heterotic & \(0/9\) & Rejected as minimal class. \\
 \bottomrule
 \end{longtable}
-Inside this encoded structural audit, \(BD_{n=1}^{\SU(5),\Z_2}\) is the selected geometric
-zero-mode witness and \(BD_{n=1,+}^{\SU(5),\Z_2}\) is the selected operator-safe candidate.
-The score excludes the threshold and moduli gates and therefore cannot establish OPH-correctness.
+Inside this encoded structural audit, \(BD_{n=1}^{\SU(5),\Z_2}\) is the geometric
+zero-mode row and \(BD_{n=1,+}^{\SU(5),\Z_2}\) is the unique structural full-score row.
+The score excludes the threshold and moduli gates and therefore cannot select an OPH-correct
+string witness. Corollary~\ref{cor:bd-selection-status} records the fail-closed verdict.
 
 \begin{theorem}[Encoded structural-only audit uniqueness]
 Let \(\mathcal C_{\rm audit}\) be the six-branch candidate family in the table above, scored
@@ -2653,7 +2887,7 @@ structural set inside \(\mathcal C_{\rm audit}\) is the singleton
 
 These proxy numbers define a target-side screen for a full cohomology, Yukawa, heavy-spectrum,
 threshold, and decoupling computation. The conventional MSSM route requires supersymmetry
-breaking and soft boundary conditions. A non-supersymmetric route can certify this BD candidate
+breaking and soft boundary conditions. A non-supersymmetric route could rehabilitate this BD row
 only if it is an independently consistent, OPH-equivalent deformation or continuation that
 preserves the cited BD visible-branch data; an unrelated construction is a different candidate.
 Cohomology algorithms such as
@@ -2663,30 +2897,287 @@ cohomology are designed for massless-mode calculations in compactifications
 renormalization-group equations with supplied conventional breaking constraints
 \cite{Allanach2001}; citing such a tool is not evidence that a BD spectrum run occurred.
 
-\begin{theorem}[OPH moduli-locking criterion]
-Let \(\mathcal M_{BD,n=1,+}\) be the moduli, threshold, safety-layer, and decoupling
-parameter space of the selected one-Higgs operator-safe stratum, and let
+\section{Physical Moduli Slice and Rank/Isolation Certificate}
+\label{sec:bd-rank-certificate}
+
+The moduli gate must begin with a source space. Quotienting by the kernel of a short observable
+list would make full rank tautological, so the quotient and the target map are defined separately.
+
+\begin{definition}[Published and completed physical BD slices]\label{def:bd-physical-slice}
+Fix the BD topological and equivariant branch and its one-massless-Higgs-pair cohomology stratum.
+Let \(\widetilde{\mathcal M}_{\rm pub}^{n=1}\) be the smooth published visible-sector solution
+deformations satisfying Hermitian Yang--Mills, bundle stability, the fixed topological and
+equivariant data, and the one-Higgs condition. Quotient only independently verified OPH-invisible
+transformations:
+diffeomorphism and bundle/B-field gauge orbits, bundle isomorphisms, and changes of local
+representative or exact field basis. The documented pre-completion physical slice is
 \[
-\calF_{BD,n=1,+}:\mathcal M_{BD,n=1,+}\to\mathbb R^K
+\mathcal M_{\rm pub}^{n=1}
+=
+\widetilde{\mathcal M}_{\rm pub}^{n=1}/\mathcal G_{\rm pub,inv}.
 \]
-send a point \(m\) to its gauge, Yukawa, Higgs, threshold, and mass vector. If
+
+For an operator-safe completed branch, let \(q=(s,h,w,\theta)\) collect the dilaton,
+hidden-sector, bulk-five-brane, and scheme-locked threshold/decoupling data. Given a realized
+safety layer and a fixed completion route, define
 \[
-\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}
+\mathcal M^{\rm phys}_{BD,n=1,+}
+=
+\left\{([m],q)\in\mathcal M_{\rm pub}^{n=1}\times\mathcal D_{\rm comp}:
+\mathcal C_{\rm comp}([m],q)=0\right\}/\mathcal G_{\rm comp,inv},
 \]
-and
+where \(\mathcal C_{\rm comp}=0\) contains the hidden/anomaly, safety-realization, spectrum,
+threshold, vacuum, stabilization, and decoupling equations. The quotient
+\(\mathcal G_{\rm comp,inv}\) contains only exact scheme or duality-presentation changes with
+identical complete OPH readout. Genuine mediation or boundary parameters remain physical source
+coordinates. Heavy masses and thresholds are derived on this constraint locus; benchmark values
+are not independent fit coordinates.
+
+At a smooth point \(p\), a physical slice \(S_p\) is a local representative of this quotient, and
 \[
-\operatorname{rank}D\calF_{BD,n=1,+}(m_\star)=\dim\mathcal M_{\rm phys}
+T_{[p]}\mathcal M^{\rm phys}_{BD,n=1,+}
+\cong
+\frac{\ker D\mathcal C_{\rm comp}(p)}
+{T_p(\mathcal G_{\rm comp,inv}\!\cdot p)}.
 \]
-on a slice transverse to OPH-stable equivalence, then \(m_\star\) is locally isolated as a
-physical solution of the target equation.
+Its real dimension \(d_p\) is part of the completion certificate. It cannot be inferred from the
+ambient published-moduli count because stabilization and vacuum equations can remove tangent
+directions. A physical modulus is not put in either invisible quotient merely because the frozen
+target packet omits its observable effects.
+\end{definition}
+
+\begin{definition}[Constraint-augmented BD selector map]
+\label{def:bd-augmented-map}
+Let \(\mathcal X_{BD,n=1,+}\) be a local quotient chart for
+\(\mathcal M_{\rm pub}^{n=1}\times\mathcal D_{\rm comp}\) after removing only the certified
+presentation redundancies, but before imposing \(\mathcal C_{\rm comp}=0\). Once the physical
+forward calculation exists, define
+\[
+\mathcal H_{BD,n=1,+}
+=
+\left(
+\mathcal C_{\rm comp},
+\calF_{BD,n=1,+}-\calO_{\OPH}
+\right).
+\]
+The completion rows include stationarity and all branch-consistency equations. The target rows are
+observer-visible quantities fixed independently of the candidate. Discrete topology, criticality,
+cohomology, and operator-safety gates remain separate Boolean certificates. A positive local
+receipt may either apply Theorem~\ref{thm:row-minor-isolation} on the completed physical slice or
+apply Theorem~\ref{thm:constraint-augmented-locking} directly to this ambient quotient chart.
+Theorem~\ref{thm:interval-locking} supplies the stronger existence-and-uniqueness form.
+\end{definition}
+
+\begin{proposition}[Ambient one-Higgs normal dimension and conditional pullback rank]
+\label{prop:bd-one-higgs-rank}
+For the invariant BD extension data, the Higgs cohomology is controlled by the negative block
+\(M_-:\mathbb C^8\to\mathbb C^9\), with
+\[
+n=1\quad\Longleftrightarrow\quad \operatorname{rank}M_-=7
+\]
+while the positive \(9\times9\) block remains full rank. At a rank-seven matrix, the ambient
+determinantal normal space is
+\[
+\operatorname{Hom}(\ker M_-,\operatorname{coker}M_-),
+\qquad
+\dim_{\mathbb C}=1\cdot2=2.
+\]
+If the cited BD pullback is scheme-theoretically regular and transverse at a chosen point, its
+local defining map has exact transverse complex rank two. The published codimension count and
+smooth reduced-locus description do not by themselves prove this differential statement. A
+positive pullback-rank receipt must supply local extension coordinates, the entries of \(M_-\),
+two local defining equations, and a nonzero exact or interval-certified \(2\times2\) Jacobian
+minor. Under that receipt, the two normal extension directions are OPH-visible branch-exit
+directions: leaving the locus changes the one-massless-Higgs-pair data.
+\end{proposition}
+
+\begin{proof}
+At rank seven, \(\dim_{\mathbb C}\ker M_-=8-7=1\) and
+\(\dim_{\mathbb C}\operatorname{coker}M_-=9-7=2\). The standard tangent space to a fixed-rank
+matrix stratum consists of perturbations \(\delta M\) for which the induced map
+\(\ker M_-\to\operatorname{coker}M_-\) vanishes. The quotient by that tangent space is therefore
+the displayed two-complex-dimensional Hom space. Ambient rank alone does not prove transversality
+of the extension-moduli pullback. Equal codimension also does not exclude a nonreduced pullback
+whose derivative loses rank. Surjectivity of the induced normal map is exactly the additional
+hypothesis that yields transverse complex rank two. The cited calculations give the one-Higgs
+codimension and identify the two relevant normal modulus couplings
+\cite{BouchardDonagi2005,BouchardCveticDonagi2006}; the machine packet does not contain the local
+map entries needed to verify the additional hypothesis.
+\end{proof}
+
+The exact invariant bundle-moduli count is \(51\) complex dimensions. Restricting to the smooth
+codimension-two one-Higgs locus leaves \(49=42+4+3\) complex tangent directions: forty-two
+extension tangents and seven constituent-bundle deformations. Together with eleven complexified
+K\"ahler and eleven complex-structure moduli, the documented pre-completion source slice is
+\[
+\dim_{\mathbb C}\mathcal M_{\rm pub}^{n=1}
+=11+11+(51-2)=71,
+\qquad
+\dim_{\mathbb R}\mathcal M_{\rm pub}^{n=1}=142.
+\]
+The \(\ZfourR\) label is discrete and adds no tangent direction. At a singular point of the
+determinantal locus the Zariski tangent dimension can be larger. The displayed \(142\) is not a
+lower bound for \(\dim_{\mathbb R}\mathcal M^{\rm phys}_{BD,n=1,+}\): completion variables can
+add ambient coordinates, while independent stabilization and vacuum equations can cut them.
+
+\begin{definition}[Coordinate-locked BD comparison map]\label{def:bd-target-map}
+Separate the discrete structural target from the differentiable target. The global group,
+generation count, hypercharge lattice, Higgs count, exotic-matter exclusion, and safety rule define
+the allowed stratum; locally constant discrete gates do not supply rows of a Jacobian. On a
+physical slice and a completed threshold receipt define
+\[
+\begin{split}
+\calF_{BD,n=1}\equiv\calF_{BD,n=1,+}:
+\mathcal M^{\rm phys}_{BD,n=1,+}&\longrightarrow\mathbb R^5,\\
+[m,\theta]&\longmapsto
+\left(
+\alpha_2^{BD}(m_Z),
+\alpha_Y^{BD}(m_Z),
+\frac{v^{BD}}{\mathrm{GeV}},
+\frac{m_H^{BD,\mathrm{pole}}}{\mathrm{GeV}},
+\frac{m_t^{BD,\mathrm{pole}}}{\mathrm{GeV}}
+\right),
+\end{split}
+\]
+with \(\alpha_2\) and \(\alpha_Y\) evaluated in their declared running scheme and at their
+declared scale, \(v\) in its declared normalization, and \(m_H,m_t\) as declared pole
+coordinates. The packet does not fix a common threshold scheme, so this is a comparison contract
+rather than an executable physical map. Its ordered comparison vector is
+\[
+\calO_{\OPH,\mathrm{cmp}}^{(5)}=
+\begin{pmatrix}
+0.03377843630219015\\
+0.010131601067241624\\
+246.76711732749683\\
+125.1995304097179\\
+172.3523553288312
+\end{pmatrix}.
+\]
+The first three entries are declared OPH surface coordinates. The last two are explicitly
+candidate-only, not promoted OPH predictions, so the displayed vector is not a complete OPH
+target. The compare-only \(\alpha_3(m_Z)\) and \(m_Z\) inputs are not additional target rows. A physical
+\(\calF_{BD,n=1,+}\) exists only after the same branch supplies the hidden/nonzero-mode
+spectrum, normalized Yukawas, matching scales and scheme, and decoupling map. Genuine mediation
+or boundary parameters are physical source coordinates; convention-only scheme coordinates are
+quotiented.
+\end{definition}
+
+\begin{definition}[Admissible target-rank row]
+A row may contribute to the target-rank certificate only when its observable definition, units,
+scheme, scale, acceptance region, and claim status are frozen independently of the candidate
+evaluation. The row must be observer-visible and source-derived. A candidate benchmark, fitted
+nuisance coordinate, or target value copied from the evaluated point is not an OPH target row.
+Physical mediation and boundary parameters remain source coordinates. The evaluator freezes and
+hashes the source model before it loads the target registry.
+\end{definition}
+
+\begin{lemma}[No self-targeting rank certificate]
+Appending candidate coordinates to a readout and assigning their values at a chosen point can
+manufacture full rank at any regular point. Such rows provide no selection evidence. In
+particular, the candidate-only Higgs and top coordinates in the five-row comparison packet do not
+count toward an OPH target-rank certificate. They can be used as independently frozen empirical
+acceptance tests, with declared covariance and scheme, but not as promoted OPH predictions unless
+their status changes through a separate proof.
+\end{lemma}
+
+\begin{proof}
+In local physical coordinates \(x_1,\ldots,x_d\), append the map
+\(x\mapsto(x_1,\ldots,x_d)\) and choose target values \(x_i(p)\). Its derivative is the identity,
+so the augmented readout has a nonsingular \(d\times d\) minor regardless of the physical theory.
+Independent precommitment excludes this construction. The frozen packet classifies its Higgs and
+top values as candidate-only, which gives the stated application.
+\end{proof}
+
+\begin{theorem}[Committed-corpus transverse-rank obstruction]
+\label{thm:bd-rank-obstruction}
+For the source and target in Definition~\ref{def:bd-target-map}, the committed corpus does not
+supply the completed constraint locus, its dimension \(d_\star\), a point \(m_\star\), an
+evaluable physical \(\calF_{BD,n=1,+}\) or \(\mathcal H_{BD,n=1,+}\), or either Jacobian. The only executable object is a
+target-side proxy that uses no BD branch value. Pulled back to the documented published BD slice,
+that proxy is constant, and hence
+\[
+D\calF_{\rm proxy}=0_{5\times142},
+\qquad
+\operatorname{rank}D\calF_{\rm proxy}=0.
+\]
+Its proxy target fiber contains the entire local published slice and is therefore not isolated.
+Any differentiable map defined on all of \(\mathcal M_{\rm pub}^{n=1}\) with this same
+five-real-coordinate codomain satisfies
+\[
+\operatorname{rank}D\calF\leq5<142,
+\qquad
+\dim\ker D\calF\geq137.
+\]
+These equations are a rank obstruction on the documented pre-completion slice, not a dimension
+claim about an unprovided stabilized slice. A completion could cut the physical dimension to five
+or fewer, but it must certify those constraints and the resulting Jacobian. No such certificate is
+present, so \(BD_{n=1,+}^{\OPH}\) fails this paper's moduli-locking gate. The two-complex-dimensional
+ambient normal calculation in Proposition~\ref{prop:bd-one-higgs-rank} concerns only the Higgs
+multiplicity locus, and its pullback transversality is itself an open receipt. It does not change
+this conclusion.
 \end{theorem}
+
+\begin{proof}
+The source packet records \(51\) invariant bundle, \(11\) complex-structure, and \(11\)
+complexified K\"ahler moduli, with a codimension-two one-Higgs locus. This gives the stated
+\(142\)-real-dimensional published slice. The packet records no completed slice, selected point,
+or physical Jacobian. The proxy receipt states that no BD branch values enter, so its pullback
+factors through a point and has the displayed zero derivative. For any map from the full
+published slice to \(\mathbb R^5\), elementary linear algebra gives rank at most five and
+rank--nullity gives nullity at least \(142-5=137\). Neither calculation supplies the absent
+completed-slice row minor required by Theorem~\ref{thm:row-minor-isolation} or the augmented
+constraint certificate of Theorem~\ref{thm:constraint-augmented-locking}.
+\end{proof}
+
+The \(137\)-dimensional bound concerns maps on the full published pre-completion slice. It is not
+a nullity bound after unknown completion constraints. For a nonconstant map, kernel vectors become
+proved adjustable flat curves only after a constant-rank neighborhood or explicit
+target-preserving family is supplied. Every retained published direction is an actual flat
+direction of the emitted constant proxy.
+
+\begin{longtable}{p{0.25\linewidth}p{0.17\linewidth}p{0.46\linewidth}}
+\toprule
+\textbf{Direction family} & \textbf{Classification} & \textbf{Physical meaning and status} \\
+\midrule
+Eleven complexified K\"ahler directions & OPH-visible published moduli & Volumes and B-field
+axions enter \(G_4\), gauge kinetic functions, KK/winding scales, and thresholds. Proxy-flat;
+survival under completion constraints unresolved. \\
+Eleven complex-structure directions & OPH-visible published moduli & Periods, spectra, normalized
+Yukawas, and thresholds. Proxy-flat; survival under completion constraints unresolved. \\
+Forty-nine complex bundle tangents to \(n=1\) & OPH-visible published moduli & Bundle cohomology,
+singlet couplings, Yukawas, operator rules, and heavy/vectorlike masses. Proxy-flat; survival under
+completion constraints unresolved. \\
+Two complex ambient bundle normals & OPH-visible branch-exit candidates & The determinantal
+normal space has complex dimension two. Pullback transversality requires the local Jacobian
+receipt. Under that receipt, moving normally changes the Higgs/lepton mass pairing. \\
+Dilaton, hidden/M5, and decoupling sectors & OPH-visible completion data, uncounted & Their
+variables and constraint equations are missing, so their net effect on the completed-slice
+dimension is unknown. \\
+Gauge, diffeomorphism, bundle-isomorphism, exact basis/scheme, and proved duality directions &
+OPH-invisible & Presentation redundancies are quotiented; they do not rescue the rank count. \\
+\bottomrule
+\end{longtable}
+
+\begin{corollary}[Fail-closed scope of the rank certificate]
+The issue-369 receipt assigns failed operator-safe selected-candidate and passing-witness status to
+\(BD_{n=1,+}^{\OPH}\) because the emitted proxy has rank zero on the documented slice and no
+completed-slice rank or isolation receipt exists. This certificate does not exclude a completion
+whose proved constraints leave a smaller physical slice; such a completion is absent from the
+candidate packet. The cited BD one-Higgs zero-mode construction remains a structural benchmark.
+The independently stated OPH recovered core is a separate claim tier. A positive certificate
+requires the completion equations, their stability domain, a selected physical point, a derived
+threshold/decoupling map with precommitted rows, and either the completed-slice certificate of
+Theorem~\ref{thm:row-minor-isolation} or the constraint-augmented certificate of
+Theorem~\ref{thm:constraint-augmented-locking}. Existence and uniqueness in a numerical box require
+Theorem~\ref{thm:interval-locking}; a floating-point matrix-rank call alone is not a proof.
+\end{corollary}
 
 \section{Conditional BD Witness Certificate Criterion}
 
-The strongest mathematically clean statement has certificate form. It separates what the paper
-proves by algebra from what the BD computation would have to certify. The required certificate is
-not emitted here, and no global uniqueness statement follows without a complete comparison
-catalogue.
+The strongest mathematically clean promotion statement has certificate form. It separates what the
+paper proves by algebra from what a complete BD branch must certify. The negative rank
+certificate is emitted in Section~\ref{sec:bd-rank-certificate}; the required positive witness
+package is not. No global uniqueness statement follows without a complete comparison catalogue.
 
 \begin{theorem}[Conditional OPH BD witness implication]
 Assume the following data.
@@ -2714,14 +3205,20 @@ low-energy branch. For a conventional breaking route this includes mediation and
 conditions. A non-supersymmetric alternative must instead supply an independently consistent,
 OPH-equivalent deformation or continuation of the BD branch, prove that it preserves the cited
 visible cohomology and safety data, and compute its threshold map. An unrelated construction does
-not certify the BD candidate.
-\item There is \(m_\star\in\mathcal M_{BD,n=1,+}\), on the complete source surface described in
-Section~\ref{sec:claim-gates}, with
+not certify the BD row.
+\item There is a certified quotient chart \(\mathcal X_{BD,n=1,+}\), a complete constraint map
+\(\mathcal C_{\rm comp}\), a precommitted scheme-locked target map, and a point \(m_\star\) such
+that
 \[
-\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH},
+\mathcal C_{\rm comp}(m_\star)=0,
 \qquad
-\operatorname{rank}D\calF_{BD,n=1,+}(m_\star)=\dim\mathcal M_{\rm phys}.
+\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}.
 \]
+The same receipt proves dynamical stability under Theorem~\ref{thm:dynamical-stabilization}
+and gives either an exact nonsingular square minor of the augmented map in
+Definition~\ref{def:bd-augmented-map}, or an interval contraction box satisfying
+Theorem~\ref{thm:interval-locking}. Every row obeys the no-self-targeting rule, and every omitted
+required equation follows by a certified identity or independent solution receipt.
 \end{enumerate}
 Then the following OPH-stable equivalence class is a passing named critical-string witness:
 \[
@@ -2744,8 +3241,8 @@ required three-generation, no-exotics, one-Higgs massless cohomology. The centra
 its Wilson-line centralizer with the OPH global Standard Model group. The \(\ZfourR\) safety
 layer closes the visible operator algebra gate. The threshold/spectrum and decoupling hypothesis
 supplies the physical map from that supersymmetric zero-mode branch to the OPH target. The
-moduli-locking rank hypothesis isolates
-\(m_\star\) modulo OPH-stable equivalence. Therefore the named class
+stability receipt gives a physical vacuum, while the augmented exact or interval certificate
+isolates \(m_\star\) modulo independently verified OPH-invisible equivalence. Therefore the named class
 \[
 \left[
 BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
@@ -2757,39 +3254,45 @@ satisfies the OPH-correct witness gates.
 \begin{remark}[Certificate boundary]
 The theorem gives the witness proof shape. Its algebraic steps close in this paper. The critical-edge
 receipt table, cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table,
-heavy-spectrum and decoupling table, threshold table, and Jacobian-rank table would form the
-external witness package. That package is not emitted here. A comparison table over an exhaustive
-candidate class is an additional requirement.
+heavy-spectrum and decoupling table, threshold table, stability table, and augmented interval-isolation table would
+form the external positive witness package. That package is not emitted here; the emitted issue-369
+receipt is a rank obstruction and failure-scope certificate. A comparison table over an exhaustive
+candidate class is an additional requirement after an existence row passes.
 \end{remark}
 
-\begin{theorem}[Certificate closure criterion]
-The class-restricted equality
+\begin{theorem}[Tiered certificate closure criterion]
+A named local BD witness passes only when critical-edge closure, cohomology, \(\ZfourR\)
+realization, superpotential safety, threshold and low-energy matching, completed-slice stability,
+and augmented local isolation all pass. Branch-global uniqueness additionally requires a validated
+cover of every chart, boundary, singular stratum, discrete completion, and noncompact end of that
+BD branch. The class-restricted equality
 \[
 \{\mathcal T\in\mathcal C:\mathcal T\text{ is OPH-correct}\}/\Teq=\{BD_{n=1,+}^{\OPH}\}
 \]
-is fully certified for an explicitly enumerated candidate class \(\mathcal C\) once the seven
-certificates in Section~\ref{sec:claim-gates}
-verify: critical-edge closure, cohomology, \(\ZfourR\) realization, superpotential
-safety, threshold matching, moduli locking with full transverse rank, and comparative uniqueness.
-If any of the first six
-certificates fails, the named witness retracts. If the seventh certificate fails, uniqueness
-retracts and the surviving OPH-admissible set requires a wider comparison audit. Without an
-exhaustive \(\mathcal C\), the criterion does not assert a global critical-string singleton.
+additionally requires exhaustive catalogue coverage, duality deduplication, one replayed verdict
+for every equivalence class, exactly one passing class, and no inconclusive class. A claim beyond
+\(\mathcal C\) requires a separate theorem that the declared candidate universe is covered by
+\(\mathcal C/\Teq\).
 \end{theorem}
 
 \begin{proof}
-The criterion is a conjunction of seven independent certificate gates. Gates 1--6 are
-existence and safety gates for the named witness. Gate 7 is a comparison gate over the declared
-candidate class. If all seven hold for an exhaustive \(\mathcal C\), the named witness exists and is
-the unique minimal OPH-admissible survivor inside \(\mathcal C/\Teq\). If an existence or safety
-gate fails, the named witness misses the definition of OPH-correctness. If the comparison gate
-alone fails, the named witness may remain OPH-correct, with singleton claim retracted. This proves
-the criterion.
+The first conjunction is exactly the local witness definition and the local existence-and-isolation
+theorems. A validated branch cover excludes any second solution on the same declared branch. The
+catalogue ledger then computes the exact set of passing equivalence classes because every row is
+covered and none is inconclusive. Singleton membership gives the class-restricted equality. The
+last conclusion follows only when the coverage theorem maps every candidate in the wider declared
+universe into that catalogue.
 \end{proof}
+
+\begin{remark}[Closure status]
+The issue-369 certificate fails the moduli-locking gate for the present five-coordinate contract.
+Thus the closure criterion is not satisfied by the BD row in the committed corpus; comparative
+uniqueness cannot promote a row that fails an existence gate.
+\end{remark}
 
 \section{Empirical Test Surface}
 
-The candidate is useful because its structural claims and assigned proxy targets can fail. The
+The BD structural row is useful because its structural claims and assigned proxy targets can fail. The
 table keeps those two classes separate. Published zero-mode results test the visible massless
 branch. Numerical rows define screens for the required heavy-spectrum and low-energy calculation,
 which is not emitted here; they are not realized BD predictions.
@@ -2829,19 +3332,22 @@ Stop proxy & The table gives \(M_S\) values for representative
 \((\tan\beta,X_t/M_S)\) choices. & Conventional-route soft terms miss the proxy screen. A
 BD-equivalent non-supersymmetric deformation has its own mass and threshold calculation. \\
 One-loop gauge residual & At \(M_{\rm SUSY}=1\,\mathrm{TeV}\),
-\(\mathcal C_3^{\rm proxy}=-0.493123930167\), with the reference-only interval shown in
+\(\mathcal C_3^{\rm proxy}=-0.493124115142\), with the reference-only interval shown in
 Section~\ref{sec:bd-threshold-proxy}. & A supplied heavy-threshold combination misses the proxy
 screen; the residual itself is not a BD string threshold. \\
 \bottomrule
 \end{longtable}
 
 The published branch supplies a narrow massless visible package. This paper assigns numerical
-screens, but the required calculation is not emitted here; no threshold corridor is established
-for the BD candidate.
-The open map is
+screens. The threshold/spectrum certificate is not emitted here; no threshold corridor is
+established
+for the BD row. The displayed five-coordinate contract is
 \[
-\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}.
+\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH,\mathrm{cmp}}^{(5)},
 \]
+but no \(m_\star\) or physical forward map is supplied, and Theorem~\ref{thm:bd-rank-obstruction}
+proves that this five-row contract cannot meet the constraint-augmented locking gate on the
+documented slice without additional certified completion constraints.
 
 \section{Claim Gates}\label{sec:claim-gates}
 
@@ -2871,16 +3377,24 @@ boundary conditions. A non-supersymmetric alternative requires an independently 
 construction or deformation and its own mass and threshold calculation. & \textbf{Not emitted
 here:} proxy coordinates reproduce, but compatibility is not evaluated. No heavy-threshold or
 low-energy spectrum certificate is present. \\
-Moduli-locking certificate & Full map \(D\calF_{BD,n=1}\) on the physical moduli slice. & Isolation
-criterion proved; rank computation not emitted here. \\
-Comparative uniqueness certificate & Expanded heterotic edge-sector audit, plus any brane,
-orientifold, or duality-rewritten presentations claiming OPH equivalence. & Encoded audit selects
-\(BD_{n=1,+}^{\OPH}\) inside its declared rows; broader catalogue audit not emitted here. \\
+Vacuum-stability certificate & Complete effective potential, stationary point, physical scalar
+metric and Hessian, control bounds, and a positive mass or route-appropriate stability enclosure. &
+No BD stability receipt is emitted. \\
+Moduli-locking certificate & Physical quotient, precommitted scheme-locked map, completed
+constraints, selected point, and a certified augmented Jacobian and interval-isolation box. &
+Negative issue-369 receipt emitted: the published pre-completion source has dimension \(142\)
+real, its five-row proxy has rank zero, and the completed source, point, and Jacobian are absent.
+Selected-candidate status fails. \\
+Comparative uniqueness certificate & Branch-domain coverage, expanded heterotic edge-sector
+audit, and any brane, orientifold, or duality-rewritten presentations claiming OPH equivalence. &
+The encoded audit has one structural full-score row. It is not a selection or catalogue-coverage
+certificate. \\
 \bottomrule
 \end{longtable}
 
-Without passing threshold/spectrum and moduli-locking receipts,
-\(BD_{n=1,+}^{\OPH}\) is a structural and operator-safe candidate. It is not a passing
+The threshold/spectrum receipt is open, and the moduli-locking receipt fails closed.
+Accordingly \(BD_{n=1,+}^{\OPH}\) is retained only as the full-score row of the declared
+structural audit. It is neither the selected operator-safe string candidate nor a passing
 OPH-correct witness.
 
 \section{Falsifier Matrix}
@@ -2900,9 +3414,11 @@ Massive BD \(X/Y\)-type modes or induced operators & Evaluated by the heavy-spec
 coupling certificate; the zero-mode adjoint theorem does not decide them. \\
 BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as named geometric witness. \\
 \(\ZfourR\) or equivalent safety layer absent & Retracts \(BD_{n=1,+}^{\OPH}\) as
-operator-safe candidate. \\
+an operator-safe proposal. \\
 Dangerous operators survive without suppression & Severe pressure on the effective theory. \\
-No moduli point matches \(\calO_{\OPH}\) & Retracts the operator-safe candidate. \\
+No moduli point matches \(\calO_{\OPH}\) & Retracts the operator-safe selected candidate. \\
+Constraint-augmented locking certificate fails or physical directions remain unclassified & Retracts the
+operator-safe selected candidate; the structural BD row and recovered OPH core remain separate. \\
 Central-charge or supercurrent gate fails & Retracts the heterotic critical-worldsheet
 identification of the sewn edge branch. \\
 Critical-string lift fails & Weakens the string continuation; the OPH recovered core is a separate claim tier. \\
@@ -2928,8 +3444,8 @@ catalogue;
 \item freeze the nonzero-mode and hidden spectra, all physical moduli and scales, either a
 conventional SUSY-breaking decoupling route or an independently consistent OPH-equivalent
 non-supersymmetric deformation with its own mass and threshold calculation, the low-energy forward calculation, threshold matching,
-repository-relative source paths and hashes, and numerical precision; then evaluate the target
-map and its physical-moduli Jacobian.
+repository-relative source paths and hashes, and numerical precision; then evaluate the completed
+constraint map, physical Hessian, target map, augmented Jacobian, and interval-isolation box.
 \end{enumerate}
 
 The first two items target the de Sitter observer and time-reversal program. The last four items
@@ -2955,10 +3471,10 @@ Where is de Sitter entropy? & Edge-center record capacity,
 \(S_{\rm dS}=A/(4\ell_P^2)=N_{\rm scr}\). & Capacity normalization. \\
 Why do strings appear? & Sewn OPH edge partitions are heat-kernel sums; the controlled
 large-edge continuation is a worldsheet expansion. & Large-edge control. \\
-Which string theory passes the OPH selector? & No candidate is promoted by this paper.
-\(BD_{n=1,+}^{\OPH}\) is the named conditional candidate. Passage requires every stated gate;
-global uniqueness also requires an exhaustive comparison audit. & Critical-edge, cohomology,
-safety, threshold/spectrum, decoupling, and moduli certificates. \\
+Which string theory passes the OPH selector? & None in the present certificate set.
+\(BD_{n=1,+}^{\OPH}\) is the structural test row with failed selection status: its proxy has rank
+zero and its completed physical slice and Jacobian are absent. & Critical-edge, cohomology, safety,
+threshold/spectrum, decoupling, and moduli certificates. \\
 Why anthropic landscape selection is absent & OPH provides a target normal form
 \(\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\), with no statistical sampling weight. & Exhaustive audits. \\
 Why the exact SM global group? & Wilson-line centralizer and OPH quotient both give
@@ -2968,9 +3484,11 @@ Why no connected simple-GUT \(X/Y\) generator? & The connected product-group adj
 in their action and heavy-spectrum gates. & Algebraic adjoint proof plus action/heavy-mode certificates. \\
 How is the \(\mu\)-problem controlled? & The \(\ZfourR\) safety layer forbids perturbative
 \(H_uH_d\) and allows nonperturbative generation. & Compactification realization. \\
-How are moduli stabilization claims tested? & The candidate must solve the target-locking equation
-\(\calF(m_\star)=\calO_{\OPH}\) with full transverse rank. No solution point is emitted. &
-Numerical/rank certificate. \\
+How are moduli claims tested? & Dynamical stabilization requires stationarity and a physical
+Hessian bound. Target locking separately requires a precommitted augmented residual map and an
+exact or interval-certified isolation receipt. The proxy has rank zero on the \(142\)-real-dimensional
+published pre-completion slice; no completed constraint map, stability certificate, or augmented
+rank is supplied. & Negative issue-369 rank/isolation certificate plus open stability gate. \\
 What is the string graviton? & A BRST-physical closed-string vertex with a positive-residue
 massless pole whose classical limit is the OPH transverse-traceless metric perturbation. &
 Quantum-particle receipt plus normalization match. \\
@@ -3001,19 +3519,30 @@ OPH gives a finite observer/record/overlap implementation layer for de Sitter ho
 same edge system admits a sewn-worldsheet language. Critical string theory enters as the
 effective completion of that language only after the critical-edge certificate closes. Conditional on
 that gate, the OPH visible-normal-form target tests the
-Bouchard--Donagi one-Higgs heterotic Standard Model as a geometric zero-mode candidate. Adding the MSSM
-\(\ZfourR\) safety layer gives the named operator-safe candidate
+Bouchard--Donagi one-Higgs heterotic Standard Model as a geometric zero-mode benchmark. Adding the MSSM
+\(\ZfourR\) safety layer defines the tested operator-safe proposal
 \[
 BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
 \]
 
 The sieve itself is fully specified: every gate is named, every unemitted certificate is listed,
-the target normal form is unique under the certified closure lemmas, and the selection
-carries zero continuous dials. The threshold/spectrum certificate is not emitted here because the
-published BD data do not
-contain a stabilized heavy spectrum or a map from the supersymmetric compactification to the
-non-supersymmetric OPH low-energy branch. The critical-edge, cohomology, safety-layer, threshold,
-decoupling, and moduli gates therefore leave \(BD_{n=1,+}^{\OPH}\) at candidate status.
+and the frozen target packet has no retunable target-side dial. The smooth published one-Higgs
+slice has \(71\) complex pre-completion moduli. The emitted target-side proxy is constant in those
+directions, and any map defined on that full slice with the frozen five-real-coordinate registry
+has rank at most five. Completion constraints could reduce the physical dimension, but no such
+constraint locus or Jacobian is supplied. The
+threshold/spectrum certificate is open because the published BD data do not contain a
+stabilized heavy spectrum or a map from the supersymmetric compactification to the
+non-supersymmetric OPH low-energy branch. Therefore \(BD_{n=1,+}^{\OPH}\) is not a
+selected/passing string witness and is retained only as a structural audit benchmark. The recovered
+OPH core is a separate claim tier.
+
+This status does not prove that the BD compactification is physically inconsistent. It proves that
+the available data do not select it. No alternative string vacuum passes the certificate stack in
+this paper. The strongest justified result is therefore an empty selected set for the emitted
+catalogue receipts, with BD retained as a structural candidate. Any positive result is local until
+the branch-cover theorem closes, and catalogue-relative until the candidate-universe coverage
+theorem closes.
 
 \begin{thebibliography}{99}
 

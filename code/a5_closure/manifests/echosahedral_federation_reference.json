@@ -1,0 +1,68 @@
+{
+  "architecture": "federation_of_12_port_echosahedra",
+  "carrier": {
+    "atoms_pairwise_orthogonal": true,
+    "atoms_sum_to_one": true,
+    "central_port_atoms": [
+      {"atom_id": "e_p00", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p00", "primitive": true},
+      {"atom_id": "e_p01", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p01", "primitive": true},
+      {"atom_id": "e_p02", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p02", "primitive": true},
+      {"atom_id": "e_p03", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p03", "primitive": true},
+      {"atom_id": "e_p04", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p04", "primitive": true},
+      {"atom_id": "e_p05", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p05", "primitive": true},
+      {"atom_id": "e_p06", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p06", "primitive": true},
+      {"atom_id": "e_p07", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p07", "primitive": true},
+      {"atom_id": "e_p08", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p08", "primitive": true},
+      {"atom_id": "e_p09", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p09", "primitive": true},
+      {"atom_id": "e_p10", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p10", "primitive": true},
+      {"atom_id": "e_p11", "normalized_trace": {"denominator": 12, "numerator": 1}, "port": "p11", "primitive": true}
+    ],
+    "edges": [
+      ["p00", "p02"], ["p00", "p04"], ["p00", "p06"], ["p00", "p08"], ["p00", "p10"],
+      ["p01", "p03"], ["p01", "p04"], ["p01", "p06"], ["p01", "p09"], ["p01", "p11"],
+      ["p02", "p05"], ["p02", "p07"], ["p02", "p08"], ["p02", "p10"],
+      ["p03", "p05"], ["p03", "p07"], ["p03", "p09"], ["p03", "p11"],
+      ["p04", "p06"], ["p04", "p08"], ["p04", "p09"],
+      ["p05", "p07"], ["p05", "p08"], ["p05", "p09"],
+      ["p06", "p10"], ["p06", "p11"],
+      ["p07", "p10"], ["p07", "p11"],
+      ["p08", "p09"], ["p10", "p11"]
+    ],
+    "oriented_faces": [
+      ["p00", "p02", "p08"], ["p00", "p10", "p02"], ["p00", "p04", "p06"], ["p00", "p08", "p04"], ["p00", "p06", "p10"],
+      ["p01", "p09", "p03"], ["p01", "p03", "p11"], ["p01", "p06", "p04"], ["p01", "p04", "p09"], ["p01", "p11", "p06"],
+      ["p02", "p07", "p05"], ["p02", "p05", "p08"], ["p02", "p10", "p07"],
+      ["p03", "p05", "p07"], ["p03", "p09", "p05"], ["p03", "p07", "p11"],
+      ["p04", "p08", "p09"], ["p05", "p09", "p08"], ["p06", "p11", "p10"], ["p07", "p10", "p11"]
+    ],
+    "ports": ["p00", "p01", "p02", "p03", "p04", "p05", "p06", "p07", "p08", "p09", "p10", "p11"]
+  },
+  "refinement_tower": {
+    "levels": ["r0", "r1", "r2"],
+    "maps": [
+      {
+        "port_map": ["p01", "p00", "p03", "p02", "p06", "p07", "p04", "p05", "p11", "p10", "p09", "p08"],
+        "source": "r0",
+        "target": "r1"
+      },
+      {
+        "port_map": ["p01", "p05", "p06", "p02", "p09", "p00", "p03", "p10", "p04", "p08", "p11", "p07"],
+        "source": "r1",
+        "target": "r2"
+      },
+      {
+        "port_map": ["p05", "p01", "p02", "p06", "p03", "p10", "p09", "p00", "p07", "p11", "p08", "p04"],
+        "source": "r0",
+        "target": "r2"
+      }
+    ]
+  },
+  "schema": "oph.echosahedral_selector_manifest.v1",
+  "source_readback": {
+    "cost_origin": "normalized_central_readback_hilbert_schmidt_norm",
+    "defect_domain": "integer_port_charges",
+    "mismatch_cost": "sum_of_port_charge_squares",
+    "total_charge": 12
+  }
+}
+

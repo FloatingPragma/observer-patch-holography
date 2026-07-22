@@ -36,9 +36,9 @@ We take a narrower, operational step: **treat reality as a structure that has to
 
 ### Why the Intuitive Picture Fails
 
-Why abandon the intuitive picture at all? Because the universe gave us hints, strange, persistent, reproducible hints, that it cannot be correct.
+Why abandon the intuitive picture at all? Because the universe gave us hints, strange and reproducible hints, that it cannot be correct.
 
-Imagine a cosmic record that contains **all** facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
+Imagine a cosmic record that contains *all* facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
 
 The intuitive picture fails where physics became interesting. It gives the
 right engineering answers at ordinary scales, then misdescribes the nature of
@@ -52,7 +52,7 @@ The first major hint came from an experiment designed to confirm the intuitive p
 
 ### The Aether That Wasn't There
 
-By the 1880s, physics had achieved a spectacular triumph. James Clerk Maxwell had unified electricity and magnetism into a single theory that predicted electromagnetic waves traveling at a specific speed-about 300,000 kilometers per second. This matched the measured speed of light. Light was an electromagnetic wave.
+By the 1880s, physics had achieved a spectacular triumph. James Clerk Maxwell had unified electricity and magnetism into a single theory that predicted electromagnetic waves traveling at a specific speed, about 300,000 kilometers per second. This matched the measured speed of light. Light was an electromagnetic wave.
 
 But waves need a medium. Sound travels through air. Water waves travel through water. What did light travel through?
 
@@ -60,11 +60,11 @@ Physicists invented the "luminiferous aether," a hypothetical substance filling 
 
 If the aether existed, it should have measurable effects. Earth moves through its orbit at about 30 km/s. If we're plowing through an aether that fills space, we should detect an "aether wind." Light traveling with the wind should move faster than light traveling against it.
 
-In 1887, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their paths.
+In the summer of 1887, in a basement laboratory in Cleveland, Ohio, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their paths.
 
-They floated their apparatus on a pool of mercury to eliminate vibrations. They measured at different times of day as Earth rotated. They measured at different times of year as Earth's orbital velocity changed direction.
+They mounted the optics on a massive sandstone slab and floated the slab in a trough of liquid mercury, so the whole apparatus could turn smoothly without vibration. They measured at different times of day as Earth rotated. They measured at different times of year as Earth's orbital velocity changed direction.
 
-**They found nothing.**
+They found nothing.
 
 The interference pattern didn't shift within the sensitivity of the experiment. No directional difference in the speed of light was detected as Earth moved.
 
@@ -78,7 +78,7 @@ The Michelson-Morley result meant the speed of light was the same for everyone. 
 
 Einstein realized something had to give. If the speed of light is truly constant for all observers, then our intuitions about space and time must be wrong.
 
-He traced the logic ruthlessly. What if different observers disagree about simultaneity? What if time itself runs at different rates for observers in relative motion? What if lengths contract?
+He traced the logic ruthlessly. What if different observers disagree about simultaneity? What if time runs at different rates for observers in relative motion, and lengths contract?
 
 The result was special relativity. It was a revolution disguised as bookkeeping.
 
@@ -90,7 +90,7 @@ time differently, while agreeing on the laws and on the speed of light.
 
 Einstein's discovery was sharp: **to keep the speed of light consistent across all observers, space and time themselves must be observer-dependent.**
 
-Time dilates. A moving clock ticks slower. In 1971, physicists Hafele and Keating flew atomic clocks around the Earth on commercial jets. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, and they were consistent with relativity's predictions within experimental uncertainty.
+Time dilates. A moving clock ticks slower. In 1971, Joseph Hafele and Richard Keating flew cesium atomic clocks around the Earth on commercial jets, the clocks strapped into their own purchased seats. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, and they were consistent with relativity's predictions within experimental uncertainty.
 
 Lengths contract. A moving ruler is shorter. If a spaceship flies past me at 90% of the speed of light, I measure it as less than half its rest length.
 
@@ -119,7 +119,7 @@ with themselves.
 
 But wait. Put a detector at one of the slits to see which way the electron went. What happens then?
 
-**The interference pattern disappears.** The electrons behave like particles again, piling up in two bands.
+The interference pattern disappears. The electrons behave like particles again, piling up in two bands.
 
 The mere act of observation changes the outcome.
 
@@ -140,7 +140,10 @@ These questions have haunted physics for a century. Different interpretations of
 
 **The hint**: Measurement affects outcomes. Observation is an intervention that changes the system.
 
-**The lesson**: The intuitive picture-where objects carry a full set of classical-style definite properties whether or not we observe them-doesn't work at the quantum level. Which properties can be treated as definite depends on the measurement context and the interpretation.
+**The lesson**: The intuitive picture, in which objects carry a full set of
+classical-style definite properties whether or not we observe them, fails at
+the quantum level. Which properties can be treated as definite depends on the
+measurement context and the interpretation.
 
 **The first-principles reframing**: Observers belong to the physical system. Reality is a conversation we participate in.
 
@@ -162,22 +165,16 @@ Put these hints together, and a new picture emerges.
 
 There is no God's-eye view. There is no absolute description of reality that exists independently of observers. Instead, there are many observers, each with a limited perspective, and reality is what emerges when their perspectives must agree.
 
-This is the turnaround: **the “objective world” is the fixed point of consistency across many observer patches, and those patches are themselves forced by a structure that has to read itself consistently.**
+This is the turnaround: **the "objective world" is the fixed point of consistency across many observer patches, and those patches are themselves forced by a structure that has to read itself consistently.**
 
-![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap checks pass.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
-According to OPH, a proposed repair counts as a physical step only after the
-overlap checks pass. Overlapping proposals are bundled into one transaction,
-checked against the shared record state, required to preserve the boundary and
-sector data, and accepted only when the repair measure descends. The shared
-normal form comes from confluence in that transaction layer rather than from a
-simulation choosing the most convenient branch.
-
-That theorem compares repair schedules beginning at one fixed quotient state.
-Two different interiors exposing the same boundary reach the same public result
-only when the boundary identifies the consistent quotient, modulo the declared
-gauge or silent relation. The OPH paper stack proves this cross-source criterion
-and keeps endpoint existence and schedule liveness as separate conditions.
+OPH adds one demand to this picture: a proposed correction only counts as a
+physical step once the overlap checks pass. Different repair schedules,
+started from the same shared state, provably settle to the same public
+result, granted separately that a settled endpoint exists and the schedule
+keeps making moves. The proof is machine-checked; the moral is that the
+shared world does not depend on who repairs first.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
@@ -194,7 +191,9 @@ only have to agree where their views overlap. When Sam walks down the street and
 marks and a taco wrapper, he updates his account: "Okay, I guess there was a
 truck. I just didn't see it."
 
-That is the overlap test. When observers share access to the same facts, they must agree. When they don't agree, something has to change-a memory corrected, a measurement retaken, a theory revised.
+The overlap test requires observers with access to the same facts to agree.
+Disagreement requires a correction to a memory, a repeated measurement, or a
+revised theory.
 
 ### Science as Systematic Overlap Testing
 
@@ -217,14 +216,15 @@ The easy-to-miss hint is that agreement between observers is hard to construct.
 Look at the constants of nature: the strength of gravity, the masses of
 elementary particles, the charge of the electron, the cosmological constant.
 
-Change almost any of these by a small amount, and the universe becomes incapable of supporting complex structures. Make gravity slightly stronger, and stars burn out too fast for planets to form. Make the strong nuclear force slightly weaker, and nuclei fall apart. Make the cosmological constant larger, and space expands too fast for galaxies to condense.
+Change almost any of these by a small amount, and the universe becomes incapable of supporting complex structures. Make gravity slightly stronger and stars burn out too fast for planets to form. Weaken the strong nuclear force and nuclei fall apart; raise the cosmological constant and space expands too fast for galaxies to condense.
 
 We exist in a tiny island of consistency in a vast sea of possible physics.
 Most possible universes are sterile: no stars, no chemistry, no observers.
+Nobody in them minds.
 
 ### Why Is Physics Uniform?
 
-The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted, but it's worth asking: what enforces this uniformity? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is a consistency requirement.
+The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted. What enforces it? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is a consistency requirement.
 
 ## 1.6 Symmetry as Consistency
 
@@ -234,9 +234,9 @@ A symmetry says "this thing looks the same from different perspectives."
 
 **Translation symmetry**: Do an experiment here, move five feet left, do it again, get the same result. If physics depended on where you are, observers in different locations couldn't agree.
 
-**Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, observers with different orientations couldn't agree.
+**Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, no two lab benches would give the same physics.
 
-**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion couldn't agree.
+**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion would inhabit different worlds.
 
 **Gauge symmetry**: You use one mathematical description, I use another. As long as they're related by a gauge transformation, we make the same physical predictions. A gauge choice is like choosing coordinates for an internal bookkeeping system. Different choices can describe the same physical situation. This lets different mathematical formalisms agree on reality.
 
@@ -272,7 +272,7 @@ In 1916, Karl Schwarzschild solved Einstein's equations and found a surface wher
 
 ### Acceleration Horizons
 
-Even without black holes, if you keep accelerating, signals from behind you can never catch up. A horizon forms. To you, the accelerating observer, the vacuum itself appears to glow with thermal radiation-the **Unruh effect**.
+Even without black holes, if you keep accelerating, signals from behind you can never catch up. A horizon forms. To you, the accelerating observer, the vacuum itself appears to glow with thermal radiation called the **Unruh effect**.
 
 **The lesson**: Horizons are observer-dependent. Two observers in the same region can disagree about which events are accessible. Each has their own causal patch. Reality is the overlap of those patches.
 
@@ -329,7 +329,7 @@ If something cannot be consistent, it cannot be observed by multiple observers, 
 
 If this sounds too abstract, look at gases.
 
-Molecules can follow many different microscopic rules. They can be hydrogen, helium, nitrogen, or sulfur hexafluoride. Yet almost every gas follows the same macroscopic law: $PV = nRT$.
+Molecules can follow many different microscopic rules. They can be hydrogen, helium, nitrogen, or sulfur hexafluoride. Yet almost every gas follows the same macroscopic law: $PV = nRT$. Pressure times volume tracks the amount of gas and its temperature; no molecular detail appears in the law.
 
 Why? Because macroscopic observers don't see molecules. They see pressure gauges and thermometers. The microscopic details wash out. What survives is a pattern that many different microscopic systems share.
 
@@ -341,7 +341,8 @@ From these hints, OPH distills **five core axioms** that guide the rest of this
 book:
 
 **Axiom 1: Screen Net / Finite Access**
-Every observer is finite. Its operational patch has a bounded algebra and
+No observer reads the whole world; every view comes through a bounded window
+backed by a finite memory. Every observer is finite. Its operational patch has a bounded algebra and
 state, records, exposed interfaces, and allowed updates. On the geometric
 branch, that patch is displayed as a local cut of the shared screen net. No
 observer accesses the whole structure at once.
@@ -350,7 +351,8 @@ observer accesses the whole structure at once.
 If you look at a star and I look at the same star, we have to agree on what we can jointly check. Where patches overlap, their descriptions must match on the shared observables. That single constraint shapes almost everything.
 
 **Axiom 3: Local MaxEnt and Refinement Stability**
-At the regulator scale, the realized state is selected by maximizing entropy
+Where its checks run out, an observer assumes as little as possible, and it
+keeps the same short list of assumptions as the picture sharpens. At the regulator scale, the realized state is selected by maximizing entropy
 subject to a short, fixed list of constraints on screen-wide totals, one
 dial per constraint in the list rather than one per screen cell. The axiom then adds
 a genuine physical assumption, the refinement-closure clause: as the screen is
@@ -362,7 +364,8 @@ The regulator scale is the working resolution of the screen. MaxEnt means
 the observer can actually enforce.
 
 **Axiom 4: Recoverable Generalized Entropy**
-You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
+Tear a page out of a well-kept ledger and the neighboring entries let you
+rebuild it. You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
 
 Generalized entropy is ordinary quantum entropy plus the geometric boundary
 term familiar from horizons. Recoverability means that missing local data can
@@ -370,7 +373,9 @@ be reconstructed from neighboring overlap data when the correlations have the
 right form.
 
 **Axiom 5: Economy Principle**
-Among the admissible low-energy possibilities, the realized sector is the
+When several particle worlds would all satisfy the checks, the realized one
+is the cheapest. Later chapters make "cheapest" precise; here it is enough
+that the tie-breaker is economy. Among the admissible low-energy possibilities, the realized sector is the
 minimal one under the precise complexity ordering used in the physics program.
 This is the selector that acts after compact-gauge reconstruction and narrows
 the realized low-energy package to the Standard Model branch.
@@ -382,22 +387,29 @@ These five axioms point toward a radical conclusion: reality can be modeled comp
 The observer-facing screen can be represented by a finite quantum regulator.
 In one chart, qudits sit on the edges of a triangulated screen and local
 constraints act at vertices. The chart is not the literal computer on which
-the universe runs. The fixed-cutoff carrier is a federation of finite patches
+the universe runs. The finite-resolution carrier is a federation of finite patches
 whose exposed overlaps, records, and repair moves are read through
-observer-facing screen charts. Maximum entropy selects the realized state
-subject to a stable family of local constraints, and the low-energy sector is
-narrowed further by the minimal realization rule used later in the program.
+observer-facing screen charts. On the reference branch, each elementary
+carrier has twelve ports arranged by icosahedral incidence. Maximum entropy
+selects the realized state subject to a stable family of local constraints,
+and the low-energy sector is narrowed further by the minimal realization rule
+used later in the program.
 
 A qudit is the multi-level cousin of a qubit. A triangulated screen is a finite
 network approximation to an observer-facing cut, not a declaration that the
-substrate itself is a smooth sphere.
+carrier itself is a smooth sphere. The distinction does not make the carrier
+arbitrary. Port number, incidence, orientation, readback, repair, and
+refinement belong to its operational structure. Two materials may instantiate
+one structure. Two interface geometries need not.
 
-What is the output? Everything. Spacetime geometry emerges from entanglement
-patterns. Particles emerge as excitations on the realized field-theory branch.
-Observers emerge as bounded self-reading patterns that maintain records,
-compare interfaces, and condition later behavior on what they read. The laws
-of physics emerge as the rules that permit consistent information flow between
-patches.
+On the geometric branch, controlled refinement of the shared records supports
+the spherical chart, Lorentz kinematics, and the conditional gravity
+construction. On the gauge branch, the twelve-port incidence constrains the
+finite symmetry blocks from which a physical current algebra may be
+recognized. Particles require the later field-theory construction. Observers
+are bounded self-reading patterns that maintain records, compare interfaces,
+and condition later behavior on what they read. These outputs share an
+architecture without sharing a shortcut.
 
 An ordinary simulation has an easy answer to the question of time: the counter
 outside the program says step one, step two, step three. Physics cannot use
@@ -405,28 +417,35 @@ that answer. Relativity makes time depend on the observer's path and
 gravitational field. Quantum gravity makes the problem sharper, because the
 whole universe has no outside clock.
 
-OPH puts the clock inside the system. An observer's time is the order in which
-its records can change, be compared, be repaired, and be remembered. A tick
-means a record event that survives comparison with neighboring patches. Public
-time is the part of those local record orders that can be synchronized across
-overlaps.
+OPH puts the ingredients of a clock inside the system. Repair orders records
+and settles disagreements, but the repair count is not a duration. A physical
+clock also needs a reversible state evolution, an instrument readout, a
+calibration, and a rule pairing one observer's events with another's. Public
+time appears when those calibrated clock records agree around the overlap
+network.
 
 This is how OPH can speak about a closed computation without imagining an
 external programmer watching it run. From inside, observers experience clocks,
 causes, memories, and a future that keeps arriving. From the structural view,
-the same world is a self-consistent pattern whose internal clocks agree where
-they meet. Time belongs to the ordering discipline of the observer network.
+the same world is a self-consistent pattern whose calibrated clocks agree where
+their events meet. The irreversible repair order and the reversible clock law
+do different jobs inside that pattern.
 
-You might ask: "If reality is a computation, what is it computing?" It is computing one closed
-structure whose geometry, particles, observers, records, and hardware belong to one
-self-referential loop. Later chapters call this closed loop the strange loop, and it is
-the backbone of the whole argument rather than a closing ornament. The patterns that persist
-are the patterns that are consistent. Observers are patterns that learn to model other patterns.
-Consciousness is what it feels like to be one of those self-modeling patterns.
+You might ask what such a computation is computing. It is computing one
+closed structure whose geometry, particles, observers, records, and hardware
+hold together with no outside help. The patterns that persist are the
+patterns that are consistent. Observers are patterns that learn to model
+other patterns. Consciousness is what it feels like to be one of those
+self-modeling patterns.
 
-This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop needs no external cause because it has no temporal first step waiting to be triggered from outside.
+This view changes many traditional puzzles. "Why does anything exist at all?" stops being a question about a first cause and becomes a question about whether a description can hold together with nothing underneath it.
 
-"What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The construction studied here uses finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, organized by maximum entropy, and narrowed at low energy by the minimal admissible realization rule. It is concrete enough to do physics, and broad enough to keep the focus on structure without borrowing a material picture from everyday life.
+"What is the universe made of?" becomes, within OPH, "Which finite carrier
+structure can realize the observer contract?" The reference construction uses
+a federation of twelve-port quantum systems whose repaired public data admit a
+spherical chart. The material can vary within exact operational equivalence.
+The incidence, orientation, state, readback, repair law, and refinement cannot
+be discarded, because those are the parts with downstream physical work to do.
 
 ## 1.12 The Reverse Engineering Ahead
 
@@ -450,8 +469,8 @@ conservation laws, and de Sitter horizons emerge from consistency?
 classical physics emerge from the screen?
 
 **Chapter 17-20**: The selection and self-reference hint: why these laws and not
-others, whether laws are evolutionary survivors, how a universe that reads itself
-forces its two constants, and what all of this means for existence itself.
+others, whether laws are evolutionary survivors, and what a universe that must
+account for itself does to the last numbers on the board.
 
 The 3D world you see around you, the chairs, the stars, the empty space, is
 secondary to the boundary bookkeeping. The real data is organized on
@@ -459,6 +478,6 @@ boundaries. We call this the holographic principle. In gravitational settings,
 it says that the independent bookkeeping for a region may be carried by data on
 the surface that encloses it.
 
-The first hard clue came from black holes.
-
 The next chapter traces the lineage of that suspicion. It moves from philosophy to physics and shows how the long argument about appearance and reality became a concrete argument about information and geometry.
+
+The first hard clue came from black holes.

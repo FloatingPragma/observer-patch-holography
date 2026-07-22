@@ -1,0 +1,107 @@
+{
+  "classified_larger_families": {
+    "labelled_fixed_point_free_pairings": 10395,
+    "linear_cost_minimizers_on_nonnegative_total_12": 1352078,
+    "unmarked_12_space_splittings": "GL(12,R)/((R^*)^12 semidirect S12)",
+    "unoriented_icosahedral_symmetry_order": 120
+  },
+  "countermodel_witnesses": {
+    "broken_refinement": {
+      "cocycle_failure": "replace the declared r0->r2 composite by the identity",
+      "nonincidence_map": "transposition of ports 0 and 1"
+    },
+    "linear_cost_total_12": {
+      "form": "all weak compositions of 12 into 12 nonnegative parts",
+      "minimizer_count": 1352078
+    },
+    "missing_incidence": {
+      "fixed_point_free_pairings": 10395
+    },
+    "missing_orientation": {
+      "order": 120,
+      "surviving_group": "A5 x C2"
+    },
+    "unequal_trace": {
+      "all_one_cost": "1",
+      "alternative_cost": "14/15",
+      "alternative_q": [
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "weights": "(4,1,1,1,1,1,1,1,1,1,1,1)/15"
+    },
+    "wrong_total_13": {
+      "form": "one coordinate 2 and eleven coordinates 1",
+      "minimizer_count": 12
+    }
+  },
+  "finite_controls": [
+    {
+      "actual_error": "PORT_ATOMS_COUNT",
+      "expected_error": "PORT_ATOMS_COUNT",
+      "name": "remove_twelve_primitive_atoms",
+      "passed": true
+    },
+    {
+      "actual_error": "PORT_TRACE_NOT_UNIFORM",
+      "expected_error": "PORT_TRACE_NOT_UNIFORM",
+      "name": "remove_equal_port_trace",
+      "passed": true
+    },
+    {
+      "actual_error": "TOTAL_CHARGE_NOT_12",
+      "expected_error": "TOTAL_CHARGE_NOT_12",
+      "name": "remove_total_twelve",
+      "passed": true
+    },
+    {
+      "actual_error": "COST_NOT_STRICT_QUADRATIC",
+      "expected_error": "COST_NOT_STRICT_QUADRATIC",
+      "name": "remove_strict_quadratic_cost",
+      "passed": true
+    },
+    {
+      "actual_error": "EDGE_COUNT",
+      "expected_error": "EDGE_COUNT",
+      "name": "remove_icosahedral_incidence",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_INCIDENCE",
+      "expected_error": "REFINEMENT_INCIDENCE",
+      "name": "remove_orientation_preserving_refinement",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_INCIDENCE",
+      "expected_error": "REFINEMENT_INCIDENCE",
+      "name": "remove_incidence_naturality",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_COCYCLE",
+      "expected_error": "REFINEMENT_COCYCLE",
+      "name": "remove_refinement_cocycle",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "inject_downstream_target",
+      "passed": true
+    }
+  ],
+  "issue": 565,
+  "manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+  "schema": "oph.echosahedral_selector_negative_controls.v1"
+}

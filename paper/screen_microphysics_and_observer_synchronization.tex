@@ -29,34 +29,55 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie \and Maarten Antonie Visser \and David Matscheko}
 \date{\OPHPaperReleaseDate}
 
+% #542 typesetting hardening (layout only, no claim change)
+\usepackage{microtype}
+\setlength{\emergencystretch}{3em}
 \begin{document}
 \maketitle
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
-papers, central records with Born--L\"uders readout, Bell/CHSH records with the
+Observer-Patch Holography (OPH) needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules. The construction gives a conditional twelve-port screen sieve, edge weights used by companion
+papers, central records with Born--L\"uders readout, Bell and Clauser--Horne--Shimony--Holt (CHSH) records with the
 Tsirelson bound, and checkpoint restoration for observer continuation after
-repair. It also states the public evidence rule: hardware runs matter only when
+repair. On a separate reversible proposal layer, source-derived rate ratios
+reconstruct a finite Gibbs potential exactly when cycle affinities vanish; a
+source-derived \(24\)-channel embedding then has an exact modular-compression
+test and, under \(A_5\) and reversal covariance, a paired
+\(1,3,3,5\) degeneracy theorem. These results do not turn accepted repair or
+the register count into a physical clock. On the declared echosahedral carrier
+lineage, primitive port atoms, central readback, oriented incidence, and
+refinement maps derive the twelve unit lines, inverse pairing, proper
+\(A_5\) action, and rank-three six-axis frame with executable countermodels.
+It also states the public evidence rule: hardware runs matter only when
 the device, calibration, circuit, data, and independent check are public.
 Its primitive collar release law supplies the source premises for a conditional
-angular spectrum and tilt theorem. Construction of one finite source carrying
-the complete interface and checkpoint data is work in progress.
+angular spectrum and tilt theorem.
 \end{abstract}
+
+\input{tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex}
 
 \section*{What This Paper Contributes}
 
 The rest of the OPH stack talks about observer patches, records, repairs, and screen cuts. This
 paper gives those words a finite carrier. It separates the abstract observer patch from its
-geometric support chart and from any physical or digital implementation. That distinction is what
-prevents the theory from depending on a particular piece of hardware or a convenient drawing of a
-sphere.
+geometric support chart and from its physical or digital implementation. The separation removes
+dependence on hidden coordinates, labels, materials, and wiring choices only when the complete
+observer-visible carrier signature is preserved. OPH is therefore presentation-invariant rather
+than carrier-neutral: quotient-visible port incidence, orientation, response, repair, clock, and
+refinement data can change the physical branch.
 
 The concrete contribution is the regulated screen architecture. Echosahedral carriers supply a
 twelve-port reference interface, edge sectors supply the heat-kernel/Casimir weights used by the
 quantitative branch, central records give the Born--L\"uders event surface, Bell/CHSH records give
 the Tsirelson bound, and checkpoint restoration states what it means for an observer to continue
-after repair. Hardware claims are kept behind a public evidence rule: manifests, hashes,
+after repair. The finite modular-gearing package keeps strict-descent normalization separate from
+reversible proposal rates, tests whether the oriented \(24\)-slot register is an invariant channel
+space, and fixes only symmetry-protected degeneracies rather than numerical gaps or clock units.
+The finite echosahedral selector separately closes the unit-splitting and
+proper-\(A_5\) source receipts on the declared carrier lineage, without using
+downstream particle or gauge targets.
+Hardware claims are kept behind a public evidence rule: manifests, hashes,
 calibration records, raw or reduced traces, and exact verifier receipts carry the weight.
 
 \tableofcontents
@@ -129,7 +150,8 @@ The echosahedral body used below is a reference carrier architecture. It is a fi
 surface for twelve-port interfaces, records, repair channels, and recurrent subchannels. The
 observer identity lives in the quotient data exposed by \(\mathsf O_i\), so a change of hidden
 coordinates, port labels, or substrate presentation is physically silent when it preserves the
-visible interface and record process.
+visible interface, oriented incidence where declared, response, record, repair, checkpoint, and
+refinement processes.
 
 \begin{definition}[Algebraic audit instrument]
 An algebraic audit instrument is an exact computable map on finite quotient-visible representation
@@ -154,15 +176,20 @@ fixed-capacity elementary carriers would need extra hypotheses: homogeneous UV c
 isomorphic local cell algebras, equivariant overlaps, refinement preservation of the cell type, and a
 proof that one cell or a fixed block of cells is the primitive carrier.
 
-\begin{claim}[Implementation-invariance target]\label{claim:implementation-invariance}
-Two carrier patches that induce isomorphic visible interface algebras, record statistics, repair
-maps, and checkpoint continuation are physically equivalent for all OPH observables in the declared
-quotient.
+\begin{claim}[Presentation invariance and carrier sensitivity]\label{claim:implementation-invariance}
+Two carrier patches are physically equivalent for the declared OPH observables when a
+quotient-visible isomorphism preserves their accessible algebras and states, interface algebras,
+record statistics, repair maps, checkpoint continuation, response laws, and refinement lineage.
+On the Echosahedral branch it must also preserve the twelve-port oriented incidence and its
+antipodal pairing. A material, coordinate, or wiring change satisfying this contract is silent. A
+change of the preserved carrier signature is outside the equivalence claim and may change the
+physical branch.
 \end{claim}
 
 This claim is theorem-level only on a branch that supplies the required quotient isomorphism and
 error bound. It fails if a predicted OPH observable depends on hidden carrier coordinates after the
-visible algebra, record statistics, repair maps, and checkpoint data have been held fixed.
+full visible signature has been held fixed. It says nothing about a cube and an icosahedron whose
+visible incidence structures differ.
 
 \begin{definition}[Operational observer test]\label{def:operational-observer-test}
 A candidate physical system realizes an observer patch when it supplies a bounded accessible
@@ -254,6 +281,61 @@ Each patch has:
 \item a checkpoint interface that exposes enough observer-accessible data to define continuation.
 \end{enumerate}
 
+The abstract observer patch and its carrier realization are separate typed objects. Write
+\[
+\mathsf O_i=
+\left(
+\mathcal A_i,\rho_i,\mathcal R_i,
+\{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
+\mathcal U_i,\mathsf{Chk}_i
+\right),
+\qquad
+\operatorname{Realize}_{\varepsilon}(H_i)\longrightarrow\mathsf O_i.
+\]
+The elementary carrier \(H_i\) may be an Echosahedron on the homogeneous reference branch. Its
+port names, body coordinates, and hardware details are absent from the abstract observer whenever
+they disappear under the physical quotient. A fixed-cutoff simulator is therefore typed as
+\[
+\mathsf{Sim}_r=
+\bigl(
+G_r,\{\mathsf O_{i,r}\},\Sigma_r,\Gamma_r,Q_r,
+\mathsf{Prop}_r,\to_r^{\rm acc},\operatorname{Rep}_r,
+\pi_r^{\rm eq},L_r^{\rm eq},\mathsf{Chk}_r,c_{sr}
+\bigr).
+\]
+Here \(\mathsf{Prop}_r\) is a reversible proposal menu,
+\(\to_r^{\rm acc}\) is the strict-descent accepted-repair relation,
+\(\operatorname{Rep}_r\) is its normalizer, and
+\((\pi_r^{\rm eq},L_r^{\rm eq})\) is a separate equilibrium law and reversible or Euclidean
+generator. The refinement maps are \(c_{sr}\).
+
+\begin{definition}[Typed simulator ledger]
+\label{def:typed-simulator-ledger}
+A simulator run has one immutable root manifest and seven typed ledgers:
+\begin{enumerate}[label=\textup{\Alph*.},leftmargin=2em]
+\item the quotient/normalizer ledger owns presentation states, hidden-representative quotient,
+accepted transactions, semantic histories, normal forms, and checkpoint continuation;
+\item the source-ensemble ledger owns the base measure, source action, MaxEnt constraints,
+proposal and acceptance rates, stationary law, detailed balance, and cycle affinities;
+\item the quantum/modular ledger owns the noncommutative algebra, density matrices, spectral
+support, modular Hamiltonians, frequency-resolved jumps, conditional expectations, and mixed-GNS
+comparison data;
+\item the geometry/BW ledger owns support incidence, cap normals, held-out cross-ratios, geometric
+dilation, wrong-temperature controls, event-chart complexes, quadratic cones, and tetrads;
+\item the operational-history ledger owns semantic event identities, the observer registry
+groupoid, worldlines, event correspondences, instrument readings, and affine synchronization;
+\item the physical-current ledger owns reversible port perturbations, unitary response,
+commutators, \(A_5\)-equivariance, and determinant, spin, and deck descent;
+\item the transport ledger owns free and collision kernels, first and second conditional moments,
+mass-shell data, phase-space measure, and stress transfer.
+\end{enumerate}
+The ledgers share source hashes and refinement identifiers through the root manifest.  Their typed
+objects remain distinct. In particular, the accepted strict-descent relation is not reused as the
+equilibrium generator, a central register density emits trivial modular action, a finite register
+operator is not a physical current, and a deterministic transport claim requires a vanishing
+second-moment receipt.
+\end{definition}
+
 \begin{definition}[Sphere fold]\label{def:sphere-fold}
 Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
 federation, let \(\Gamma_r\) be the presentation-redundancy groupoid, and let
@@ -298,9 +380,9 @@ On the exact analytic round-cap branch,
 n_{C,r}=(\cot\alpha_r,\csc\alpha_r\,\mathbf c_r).
 \]
 On a finite fitted branch the output is labeled
-\(\mathrm{APPROXIMATE\_ROUND\_CAP\_CHART}\). A global bound requires a separate
+\(\text{approximate round cap chart}\). A global bound requires a separate
 round-cap rigidity/convergence certificate; if the fit is not round it
-emits \(\mathrm{CAP\_NOT\_ROUND}\). The normal \(n_{C,r}\) is support-chart data derived from the
+emits \(\text{cap not round}\). The normal \(n_{C,r}\) is support-chart data derived from the
 repaired quotient. It is not a microscopic carrier coordinate, hidden port label, or new local
 degree of freedom. A cap normal determines a geodesic plane and half-space in \(H^3\); selecting
 a particular observer point \(u\in H^3\) requires a separate observer-frame, tetrad, or clock
@@ -309,10 +391,384 @@ support-visible incidence complex of the repaired normal form under the spherica
 mesh, cross-ratio, and \(2\pi\)-normalization receipts, and the continuation from frame
 kinematics to an event base is the compact paper's conditional event-manifold packet.
 
+\begin{definition}[Carrier-to-support screen bridge]\label{def:carrier-support-screen-bridge}
+A carrier-to-support screen bridge at cutoff \(r\) consists of a source-bound map from routed
+carrier ports and seams to the support projections of the repaired observer-patch net, together
+with: (i) unital interface-algebra homomorphisms on every seam; (ii) coherent recovery maps on
+higher overlaps; (iii) a quotient-visible nerve whose support incidence is computed from the
+normal form; and (iv) refinement maps commuting with routing, quotienting, incidence, records,
+and support projection. A spherical bridge additionally certifies that the global nerve satisfies
+the spherical-incidence, cap-mesh, oriented cross-ratio, and normalization receipts consumed by
+the compact paper. Local carrier coordinates are excluded from the support output unless this map
+derives them as quotient-visible data.
+\end{definition}
+
+\begin{proposition}[Local Icosahedral incidence does not select the global support]
+The certified twelve-port incidence of every local carrier does not determine the topology or
+conformal structure of the federation support.
+\end{proposition}
+
+\begin{proof}
+Fix one certified local carrier and make one copy at every vertex of an arbitrary finite graph.
+Route selected port pairs along that graph while leaving each local port algebra, oriented
+incidence, antipode, and \(A_5\) action unchanged. A path, a cycle, a tree, and a cellulation of a
+closed surface therefore have identical local carrier certificates and different federation
+nerves. The local certificate cannot distinguish them. Full interface maps, higher-overlap
+coherence, and the global incidence/refinement receipt are necessary parents of a support-screen
+claim.
+\end{proof}
+
 The fold adds no independent dynamics. Repair is the finite patch operation that compares
 overlaps, updates records, and reaches the accepted normal form. Folding names the spherical
 chart presentation of that repaired quotient state. In plain language, sphere folding is what
 overlap repair looks like on the observer-facing screen.
+
+Strict descent prevents the accepted relation from serving as a reversible equilibrium law. If
+\(x\to_r^{\rm acc}y\) lowers the well-founded repair measure, the reverse move cannot be another
+accepted descending step. The simulator consequently keeps three operators distinct:
+\[
+\operatorname{Rep}_r,
+\qquad
+e^{-tL_r^{\rm eq}},
+\qquad
+\sigma_t^{\rho}.
+\]
+They are, respectively, the irreversible normal-form map, an equilibrium or Euclidean relaxation,
+and the reversible modular automorphism group. A common local proposal menu may contribute data to
+all three constructions. This shared input does not identify the operators.
+
+\begin{theorem}[Finite rate reconstruction on the reversible layer]
+Let \(G=(X,E)\) be a connected finite state graph with positive rates
+\(q_{u\to v}^{\rm eq}\) in both directions of every edge. Define
+\[
+a_{u\to v}:=\log\frac{q_{v\to u}^{\rm eq}}{q_{u\to v}^{\rm eq}}.
+\]
+The following conditions are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item every oriented cycle has zero affinity;
+\item there is a potential \(K:X\to\mathbb R\), unique up to an additive constant, with
+\(a_{u\to v}=K_v-K_u\);
+\item \(\pi_x\propto e^{-K_x}\) satisfies detailed balance
+\(\pi_uq_{u\to v}^{\rm eq}=\pi_vq_{v\to u}^{\rm eq}\).
+\end{enumerate}
+The rates belong to the reversible equilibrium layer. They are not rates of the accepted
+strict-descent relation.
+\end{theorem}
+
+\begin{proof}
+Condition \textup{(ii)} telescopes around every cycle. Under \textup{(i)}, fix a root and define
+\(K_x\) by summing \(a\) along any path from the root to \(x\); zero cycle affinity gives path
+independence. Exponentiating \(K_v-K_u=a_{u\to v}\) gives detailed balance, and taking logarithms
+of detailed balance gives \textup{(ii)}.
+\end{proof}
+
+\(K\) in this theorem is a classical Gibbs potential.  On the commutative state algebra its
+modular automorphism is trivial, so rate reconstruction does not create a nontrivial modular
+clock.
+
+\subsection{Finite modular and register theorems}
+\label{sec:finite-modular-register-theorems}
+
+The finite equilibrium layer supports several exact statements before any continuum or physical
+current interpretation is made.  They also fix which information a simulator has to produce.
+
+\begin{theorem}[Exact modular coarse graining]
+\label{thm:exact-modular-coarse-graining}
+Let \(c:X_s\to X_r\) be a surjective coarse-graining map between finite sets and let
+\(\mu_s(x)>0\).  The pushed-forward law and its modular potential are
+\[
+ \mu_r(y)=\sum_{c(x)=y}\mu_s(x),
+ \qquad
+ K_r(y)=-\log\!\left(\sum_{c(x)=y}e^{-K_s(x)}\right),
+ \qquad K_s=-\log\mu_s .
+\]
+Thus modular potentials coarse-grain by a log-sum-exp rule, up to the common additive
+normalization convention.  More generally, if
+\(\mu_s(x)=Z_s^{-1}m_s(x)e^{-S_s(x)}\) and \(m_r(y)>0\) is the declared coarse reference
+weight, then
+\[
+ S_r^{\rm eff}(y)
+ =-\log\!\left(\sum_{c(x)=y}m_s(x)e^{-S_s(x)}\right)+\log m_r(y)
+\]
+gives the exact pushed-forward law.  For a finite quantum channel \(\Phi_{sr}\), the corresponding
+statement is \(\rho_r=\Phi_{sr}(\rho_s)\) and \(K_r=-\log\rho_r\) whenever the output is faithful.
+An arithmetic average of \(K_s\) is not the coarse modular potential in general.
+\end{theorem}
+
+\begin{proof}
+Both classical formulas follow by substituting \(\mu_s=e^{-K_s}\) or
+\(\mu_s=Z_s^{-1}m_se^{-S_s}\) into the definition of the pushforward.  The quantum formula is
+the definition of the modular Hamiltonian of the pushed-forward faithful state.
+\end{proof}
+
+\begin{proposition}[A faithful equilibrium law does not select its generator]
+\label{prop:generator-underdetermination}
+Let \(G=(X,E)\) be a connected finite graph and let \(\mu_x>0\).  For every collection of
+positive symmetric edge conductances \(c_{xy}=c_{yx}\),
+\[
+ q_{x\to y}=\frac{c_{xy}}{\mu_x}
+\]
+defines a continuous-time Markov generator that is reversible with stationary law \(\mu\).
+Distinct conductance families give distinct generators with the same state.  A geometry,
+MaxEnt state, or repair normal form therefore selects no equilibrium dynamics unless an additional
+rate or conductance rule is supplied.
+\end{proposition}
+
+\begin{proof}
+The identity \(\mu_xq_{x\to y}=c_{xy}=\mu_yq_{y\to x}\) is detailed balance.  The diagonal
+entries are fixed by row-sum zero.  Varying any conductance varies the generator while preserving
+the same stationary law.
+\end{proof}
+
+\begin{theorem}[Weighted graph Hodge split and entropy production]
+\label{thm:weighted-hodge-entropy}
+Choose an orientation of a connected finite graph, positive vertex and edge weights, and let
+\(D\) be the vertex-to-edge coboundary.  Every real edge one-cochain has the unique orthogonal
+decomposition
+\[
+ a=DK+h,
+ \qquad D^{*}h=0,
+\]
+with \(K\) unique up to an additive constant.  For an irreducible stationary Markov law \(\pi\),
+define on each chosen edge
+\[
+ J_{xy}=\pi_xq_{x\to y}-\pi_yq_{y\to x},
+ \qquad
+ F_{xy}=\log\frac{\pi_xq_{x\to y}}{\pi_yq_{y\to x}} .
+\]
+Then the steady entropy-production rate is
+\[
+ \sigma=\sum_{\{x,y\}\in E}J_{xy}F_{xy}\ge 0,
+\]
+and it vanishes exactly when detailed balance holds on every edge.  The bare logarithmic rate
+ratio omits the stationary weights and is therefore not, by itself, the thermodynamic force.
+\end{theorem}
+
+\begin{proof}
+Finite-dimensional orthogonal projection gives the Hodge split, since
+\((\operatorname{im}D)^{\perp}=\ker D^{*}\).  Each entropy-production summand has the form
+\((A-B)\log(A/B)\ge0\) for positive \(A,B\).  Equality holds exactly when \(A=B\) edge by edge.
+\end{proof}
+
+\begin{theorem}[Finite KMS-symmetric jump generator]
+\label{thm:finite-kms-jump-generator}
+Let \(\rho=Z^{-1}e^{-K}\) be faithful on a finite matrix algebra.  Suppose a Heisenberg-picture
+Lindblad generator has jump operators \(V_{\omega,a}\) satisfying
+\[
+ [K,V_{\omega,a}]=-\omega V_{\omega,a},
+ \qquad V_{-\omega,a}=V_{\omega,a}^{*},
+ \qquad \gamma_a(-\omega)=e^{-\omega}\gamma_a(\omega),
+\]
+with positive Kossakowski matrices in every frequency sector.  Suppose also that its Lamb-shift
+Hamiltonian commutes with \(K\), and that the generator is self-adjoint for the declared symmetric
+GNS inner product
+\[
+ \langle A,B\rangle_{\rho,1/2}
+ =\operatorname{Tr}(\rho^{1/2}A^{*}\rho^{1/2}B).
+\]
+Then the semigroup is completely positive and unital, preserves \(\rho\), commutes with the modular
+flow \(A\mapsto e^{itK}Ae^{-itK}\), and respects the displayed frequency-sector decomposition.
+The sign in the KMS rate relation is tied to the displayed commutator convention.
+\end{theorem}
+
+\begin{proof}
+Positive Kossakowski matrices give complete positivity.  Unitality and GNS self-adjointness imply
+\(\operatorname{Tr}(\rho L(A))=\langle\mathbf1,L(A)\rangle_{\rho,1/2}
+=\langle L(\mathbf1),A\rangle_{\rho,1/2}=0\), hence stationarity.  The eigenoperator relation,
+the paired KMS rates, and \([K,H_{\rm LS}]=0\) make every term modular covariant and preserve its
+frequency sector.
+\end{proof}
+
+\begin{remark}[Finite modular receipt boundary]
+The source-ensemble ledger reports the pushed-forward laws or channels, independent conductances
+and rates, stationary weights, cycle-affinity residual, and the weighted Hodge remainder.  The
+quantum/modular ledger reports the faithful density, modular spectrum, frequency projectors,
+Kossakowski positivity, KMS-pair residuals, GNS-symmetry residual, and modular-covariance residual.
+These finite data instantiate Theorems~\ref{thm:exact-modular-coarse-graining}--
+\ref{thm:finite-kms-jump-generator}; the theorems do not manufacture those data.
+\end{remark}
+
+\begin{theorem}[Exact \(A_5\times\mathbb Z_2\) register commutant]
+\label{thm:a5-register-commutant}
+For the twelve-port permutation module,
+\[
+ \mathbb R[\mathsf P_{12}]
+ \cong \mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5
+\]
+is multiplicity-free.  The icosahedral adjacency operator has the four distinct eigenvalues
+\(5,\sqrt5,-\sqrt5,-1\) on these summands.  Consequently its real \(A_5\)-commutant is
+\(\mathbb R[A_{\rm ico}]\), represented by polynomials of degree at most three.  On the oriented
+register
+\(\mathsf R_{24}=\mathbb R[\mathsf P_{12}]\otimes\mathbb R[\mathbb Z_2]\), every self-adjoint
+operator commuting with \(A_5\) and orientation reversal is specified by one real scalar on each
+irreducible summand in each parity sector, eight scalars in total.
+\end{theorem}
+
+\begin{proof}
+Schur's lemma gives one scalar on each real irreducible summand.  The four distinct adjacency
+eigenvalues make the spectral projectors degree-three interpolation polynomials in
+\(A_{\rm ico}\).  Diagonalizing the commuting reversal involution gives two parity copies of the
+same multiplicity-free decomposition.
+\end{proof}
+
+\begin{proposition}[No equivariant directed 24-cycle]
+\label{prop:no-equivariant-24-cycle}
+Regard the oriented register as the transitive
+\((A_5\times\mathbb Z_2)/(C_5\times\{1\})\)-set.  It has no
+\(A_5\times\mathbb Z_2\)-equivariant successor permutation that is a single directed 24-cycle.
+\end{proposition}
+
+\begin{proof}
+Its equivariant automorphism group is
+\[
+ N_{A_5\times\mathbb Z_2}(C_5\times\{1\})/(C_5\times\{1\})
+ \cong\mathbb Z_2\times\mathbb Z_2,
+\]
+because \(N_{A_5}(C_5)\cong D_{10}\).  Every equivariant permutation therefore has order at most
+two, whereas a 24-cycle has order 24.
+\end{proof}
+
+\begin{definition}[Source-derived oriented-channel realization]
+\label{def:source-derived-channel-realization}
+Let \(E^{\rm or}\) be the oriented transitions of the reversible quotient-state
+layer and set
+\[
+ \mathcal H_E=\ell^2(E^{\rm or}),
+ \qquad F_E|e\rangle=a_e|e\rangle,
+ \qquad a_e=\log\frac{q_{\bar e}^{\rm eq}}{q_e^{\rm eq}}.
+\]
+A source-derived \(24\)-channel realization is a full-rank map
+\[
+ C:\mathcal H_{24}:=
+ \mathbb C[\mathsf P_{12}]\otimes\mathbb C^2_{\rm or}
+ \longrightarrow\mathcal H_E
+\]
+whose coefficients, aggregation rule, and provenance are emitted by the
+physical proposal ledger.  After replacing \(C\) by
+\(C(C^*C)^{-1/2}\), assume \(C^*C=\mathbf1\).  Edge reversal is denoted
+\(R_E|e\rangle=|\bar e\rangle\), and register reversal by \(R_{24}\).
+The state set \(X\), transition set \(E^{\rm or}\), and label map into the
+\(24\) channel types remain distinct objects.
+\end{definition}
+
+\begin{theorem}[Oriented-register modular compression]
+\label{thm:oriented-register-modular-compression}
+For a source-derived realization \(C\), the register is invariant under the
+edge modular grading exactly when
+\[
+ \epsilon_{\rm ch}
+ :=\bigl\|(\mathbf1-CC^*)F_EC\bigr\|_{\rm HS}=0.
+\]
+Equivalently, there is a unique operator \(\Omega_{24}\) with
+\[
+ F_EC=C\Omega_{24},
+ \qquad
+ \Omega_{24}=C^*F_EC.
+\]
+Suppose in addition that the edge rates are \(A_5\)-equivariant, \(C\)
+intertwines the edge and register actions of \(A_5\) and reversal, and hence
+\(R_EF_ER_E=-F_E\).  Then
+\[
+ \Omega_{24}
+ \cong
+ \bigoplus_{\lambda\in\{1,3,3',5\}}
+ \mathbf1_{V_\lambda}\otimes M_\lambda,
+ \qquad
+ \operatorname{spec}(M_\lambda)=\{-\omega_\lambda,+\omega_\lambda\},
+\]
+for four nonnegative source-derived values \(\omega_1,\omega_3,\omega_{3'},
+\omega_5\).  Thus the paired frequencies have degeneracies \(1,3,3,5\).
+The symmetry fixes this block pattern and these degeneracies, but not the four
+numerical values.
+\end{theorem}
+
+\begin{proof}
+The residual vanishes precisely when \(F_E\operatorname{im}C\subseteq
+\operatorname{im}C\).  Since \(C\) is isometric, restriction to this invariant
+subspace gives the unique compression \(\Omega_{24}=C^*F_EC\).
+\(A_5\)-equivariance and Schur's lemma give one Hermitian \(2\times2\)
+orientation matrix \(M_\lambda\) on each of the multiplicity-free summands
+\(1,3,3',5\).  Reversal covariance gives
+\(R_{24}\Omega_{24}R_{24}=-\Omega_{24}\), so each orientation block is
+traceless and has eigenvalues \(\pm\omega_\lambda\).  Tensoring with
+\(V_\lambda\) gives the displayed degeneracies.
+\end{proof}
+
+\begin{corollary}[Raw labels are modular eigenchannels only at equal affinity]
+\label{cor:raw-label-modular-eigenchannel}
+If each raw register slot is realized as a normalized sum of transitions with
+that label and distinct labels have disjoint edge support, exact channel
+closure requires
+\[
+ a_e=a_{e'}
+ \quad\text{whenever \(e\) and \(e'\) carry the same raw label.}
+\]
+Otherwise the raw slot basis is not a modular eigenbasis; any invariant
+\(24\)-channel space must instead use source-derived linear combinations.
+\end{corollary}
+
+\begin{proposition}[Operator-frame identification boundary]
+\label{prop:operator-frame-identification}
+Let \(V_a\in\mathcal A\subseteq B(\mathcal H)\) be realized transition
+operators and let \(\omega_a\) be source-derived frequencies.  If self-adjoint
+\(K\) and \(K'\) both solve
+\[
+ [K,V_a]=\omega_aV_a,
+ \qquad
+ [K',V_a]=\omega_aV_a
+ \quad\text{for every \(a\)},
+\]
+then \(K-K'\) lies in the commutant of the algebra generated by the \(V_a\).
+Hence the channel frame identifies a noncommutative modular Hamiltonian only
+modulo that commutant, and modulo the center when the operators generate the
+declared finite algebra.
+\end{proposition}
+
+\begin{proof}
+Subtracting the two commutator equations gives
+\([K-K',V_a]=0\) for every \(a\); the generated-algebra statement follows.
+\end{proof}
+
+\begin{remark}[Rate scale, clock scale, and BW promotion]
+Multiplying every equilibrium rate by one constant leaves every affinity,
+the reconstructed stationary law, \(K\), and \(\Omega_{24}\) unchanged, while
+rescaling the relaxation generator.  Rate ratios therefore determine a
+dimensionless potential; rate magnitudes determine kinetics.  Neither fixes a
+frequency in hertz.  Operational time requires the independent clock
+instrument and affine calibration used later in this paper.  Physical BW
+promotion further requires a refinement-natural comparison showing that the
+gear-derived state is the same support-visible cap state used by the geometric
+modular theorem, the independently complete \(\mathsf{MGNS\text{-}1}\) package
+on that same tower, its regularized cutoff schedule, and the independent
+\(2\pi\)-normalization receipt.
+\end{remark}
+
+The register receipt reports the character-projector multiplicities, equivariance residual,
+within-irrep spectral spread, orientation-parity leakage, adjacency-polynomial residual, and the
+equivariant-permutation order.  The modular-gearing receipt additionally reports the oriented
+rate ledger, quotient lumpability defect, fundamental-cycle affinities, stationary-law and
+detailed-balance residuals, \(C^*C\), \(\epsilon_{\rm ch}\), the four paired gaps, and the
+commutant dimension of any operator-valued lift.  Exact data give
+Theorems~\ref{thm:a5-register-commutant} and
+\ref{thm:oriented-register-modular-compression} and
+Proposition~\ref{prop:no-equivariant-24-cycle}; approximate data remain diagnostics with declared
+tolerances.
+
+These theorems classify finite register states and operators.  They do not construct a physical
+gauge-current algebra.  That step requires the separate full-rank, compact skew-adjoint,
+commutator-closed current lift, its inner \(A_5\) action, and refinement-natural physical descent
+used by the compact and particle-sector papers.
+
+On the literal transitive twelve-port set \(\mathsf P_{12}=A_5/C_5\), an irreducible
+\(A_5\)-equivariant rate law has a unique invariant equilibrium distribution, hence
+\(\pi_p=1/12\) and constant \(K_p\). On
+\(\mathsf P_{12}\times\{+,-\}\), with \(A_5\) acting on the port coordinate, an invariant
+potential has at most two values \(K_+\) and \(K_-\). The geometry can therefore carry one
+orientation gap \(\Delta K=K_--K_+\). It cannot supply twenty-four independent energy levels.
+The state set \(X\), oriented transition set \(E^{\rm or}\), and channel label map
+\(\lambda:E^{\rm or}\to\mathsf R_{24}\) are separate objects; \(\lambda\) need not be a
+bijection. In particular, twenty-four oriented edge instances contain only twelve unoriented
+edges and cannot connect a graph on twenty-four states.
 
 The finite carrier vocabulary is compatible with the layered functional carrier of the consensus
 paper: the carrier is a quotient-visible finite implementation surface, and hidden port labels or
@@ -874,7 +1330,7 @@ is that product.
 \begin{theorem}[Coherent-matter same-channel forcing]
 \label{thm:coherent-matter-same-channel-forcing}
 Assume Scalar Edge-Center Exhaustion
-\(\mathrm{SCALAR\_EDGE\_CENTER\_EXHAUSTION}\),
+\(\text{scalar edge center exhaustion}\),
 Theorem~\ref{thm:scalar-channel-exhaustion}.  For every nondegenerate
 OPH-coherent material subfederation on a collar \(C\), the source
 \[
@@ -971,6 +1427,21 @@ The corresponding oriented slot algebra is
 The oriented register is a bookkeeping refinement of the same quotient-edge cut
 surface. It does not create an independent scalar carrier.
 \end{definition}
+
+\begin{proposition}[The oriented register carries no modular clock]
+Every faithful state on
+\(\mathcal R^{\rm or}_{24,r,C}=\ell^\infty(\mathsf R_{24,r,C})\) is tracial, so its modular
+automorphism group is trivial. The twenty-four slots can carry channel names, orientations,
+central event projectors, and orbit counts. They do not determine a modular Hamiltonian, a set of
+clock ticks, or a frequency. A nontrivial modular lift requires a noncommutative transition
+algebra, for example \(B(\ell^2X)\) with operators
+\(V_{u\to v}=|v\rangle\langle u|\), together with a faithful physical state on that algebra.
+\end{proposition}
+
+\begin{proof}
+The algebra is finite and commutative. Its density operator is central in every faithful
+representation, hence \(\rho^{it}a\rho^{-it}=a\) for all \(a\) and \(t\).
+\end{proof}
 
 The shared-edge protected-reserve branch carries two named branch inputs: the shared cut entropy
 density \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution stated in
@@ -1564,8 +2035,8 @@ quotient-visible maps
 \mathsf{AngularProjectorRead}_r,\\
 \mathsf{FreezeoutMapRead}_r,\quad
 \mathsf{FreezeoutSurfaceRead}_r,\quad
-\mathsf{ReleaseSurfaceRead}_r,\quad
-\mathsf{HomogeneousProjectorRead}_r,\\
+\mathsf{ReleaseSurfaceRead}_r,\\
+\mathsf{HomogeneousProjectorRead}_r,\quad
 \mathsf{AnomalyLoadRead}_r,\quad
 \mathsf{LoadNoDataLedgerRead}_r .
 \end{gathered}
@@ -1589,7 +2060,7 @@ For anomaly abundance selection, the added release maps supply the release
 hypersurface, tetrad normal and physical cell volumes, FLRW zero-mode
 projector, finite anomaly load observable \(\mathsf L_{A,r}\), and
 no-data-use manifest used by
-\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
+\emph{anomaly abundance source receipt}.
 The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
 screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
 freeze-out, geometric-screen-scalar, scalar-precision, primitive-collar-law,
@@ -1809,13 +2280,15 @@ regulator-chart result.
 A finite cosmological run that claims FLRW spatial curvature must export the clock and spatial
 geometry readouts separately from screen/collar defect bookkeeping:
 \[
+\begin{gathered}
 \mathsf{SpatialMetricRead}_r,\quad
 \mathsf{SpatialFrameRead}_r,\quad
-\mathsf{SpatialConnectionRead}_r,\quad
+\mathsf{SpatialConnectionRead}_r,\\
 \mathsf{SpatialTransportRead}_r,\quad
-\mathsf{CurvatureHolonomyRead}_r,\quad
+\mathsf{CurvatureHolonomyRead}_r,\\
 \mathsf{ProperRadiusRead}_r,\quad
 \mathsf{NestedCapacityRead}_r .
+\end{gathered}
 \]
 The transport readout uses the spatial Levi--Civita connection on the clock slice. Finite
 permutation holonomy of an \(S^2\) screen triangulation or \(S_3\) collar defect is a repair/sieve
@@ -1847,7 +2320,86 @@ the port arrangement.
 \end{enumerate}
 \end{definition}
 
-\begin{theorem}[Icosahedral screen-sieve theorem]\label{thm:icosahedral-screen-sieve}
+\begin{definition}[Certified echosahedral carrier lineage]
+\label{def:certified-echosahedral-lineage}
+A certified local lineage augments the quotient-visible echosahedral patch by:
+\begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
+\item twelve primitive orthogonal port-center atoms \(e_{r,p}\), each of
+normalized trace \(1/12\);
+\item the oriented \(12\)-vertex, \(30\)-edge, \(20\)-face triangular
+incidence packet, with degree-five vertices and five-cycle links;
+\item the integer total-charge fiber
+\(\mathcal Q_r=\{q\in\mathbb Z^{12}:\sum_pq_p=12\}\) and the central
+readback cost \(H_r(q)=\sum_pq_p^2\);
+\item orientation-preserving incidence isomorphisms along refinement that
+preserve the port-center/readback packet and obey the refinement cocycle; and
+\item a source manifest that rejects Standard Model, product-adjoint, gauge,
+coupling, particle, measured-target, and fitted-coordinate fields.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Echosahedral source-selector theorem]
+\label{thm:echosahedral-source-selector-microphysics}
+On every lineage of
+Definition~\ref{def:certified-echosahedral-lineage}, the source packet
+canonically determines:
+\begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
+\item the twelve coefficient lines \(\mathbb R e_{r,p}\) and the unique
+all-one defect allocation, with \(H_{\min}=12\), next floor \(14\), and exact
+gap \(2\);
+\item the unique fixed-point-free inverse pairing by graph distance three and
+the resulting six axes;
+\item the full incidence group \(A_5\times C_2\) and its
+orientation-preserving subgroup \(A_5\);
+\item the exact incidence Gram matrix
+\[
+G_{pq}\in\{1,1/\sqrt5,-1/\sqrt5,-1\}
+\quad\text{at distances }0,1,2,3,
+\]
+with
+\[
+G^2=4G,\qquad \operatorname{tr}G=12,\qquad \operatorname{rank}G=3,
+\]
+whose oriented factorization is the regular six-axis icosahedral frame up to
+\(SO(3)\); and
+\item refinement naturality and arbitrary simultaneous port-relabeling
+equivariance of all these objects.
+\end{enumerate}
+Thus the finite \(\mathrm{UD12}\) and \(\mathrm{RP\text{-}A5}\) source
+receipts are closed on this carrier branch.
+\end{theorem}
+
+\begin{proof}
+Primitive central atoms give the intrinsic line family.  On the total-charge
+fiber,
+\[
+H(q)=12+\sum_p(q_p-1)^2,
+\]
+so the all-one allocation is unique and the least nonzero integral zero-sum
+deviation has squared norm two.  The exact incidence distance profile is
+\((1,5,5,1)\), giving a unique distance-three involution.  Enumeration gives
+\(120\) incidence automorphisms and \(60\) orientation-preserving ones;
+conjugation on the five Klein-four subgroups identifies the latter faithfully
+with all even permutations of five objects, hence with \(A_5\).  Exact
+multiplication in \(\mathbb Q(\sqrt5)\) gives \(G^2=4G\), and the trace fixes
+rank three.  Every declared refinement or complete relabeling preserves the
+source formulas.  The exact implementation and countermodels are carried by the echosahedral
+selector certificate and its accompanying analysis.
+\end{proof}
+
+\begin{remark}[Load-bearing hypotheses]
+Without primitive atoms the line split is continuous; without equal trace or
+total charge twelve the all-unit minimizer is not unique; a linear cost has
+\(\binom{23}{11}\) minimizers; twelve labels without incidence have
+\(10{,}395\) fixed-point-free pairings; without orientation the selected group
+is \(A_5\times C_2\); and non-incidence or noncocyclic refinement maps fail
+naturality.  The theorem derives the selector from the declared
+echosahedral-carrier packet.  It does not prove that bare Euler incidence or
+every possible OPH carrier selects that packet, and it does not construct a
+physical gauge-current algebra.
+\end{remark}
+
+\begin{theorem}[Alternative variational icosahedral screen sieve]\label{thm:icosahedral-screen-sieve}
 Assume the fixed-cutoff OPH screen branch is represented by a quantum-link
 triangulation of \(S^2\), with finite Hilbert spaces on links, Gauss constraints
 at vertices, boundary-gauge-invariant physical algebras, and a refinement-stable
@@ -1911,11 +2463,13 @@ twelve ports.
 \end{remark}
 
 \begin{remark}[Source-selector boundary]
-The D-optimal vector/quadrupole functional is a branch premise. Its production
-from finite mismatch, readback, and repair is work in progress. A
-source-derived strictly completely monotonic pair cost is an alternative
-selector by universal optimality. Only the twelve-port load normalization
-follows from unit splitting and placement. The cell value
+For Theorem~\ref{thm:icosahedral-screen-sieve}, the D-optimal
+vector/quadrupole functional remains a branch premise, and a source-derived
+strictly completely monotonic pair cost is another sufficient selector by
+universal optimality.  Neither is needed on the certified lineage of
+Theorem~\ref{thm:echosahedral-source-selector-microphysics}, where oriented
+incidence and central readback supply the selector directly. Only the
+twelve-port load normalization follows from unit splitting and placement. The cell value
 \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution of
 Theorem~\ref{thm:z6-reserve-trace} have separate premises; the port and slot
 counts do not imply either statement.
@@ -2005,8 +2559,23 @@ readout. It therefore adds a precise downstream
 certificate format without deriving either attachment from this screen model.
 \end{remark}
 
-On its declared cost and selector branch, the screen-sieve theorem fixes the
-twelve-port carrier. It gives the reference patch enough boundary structure to support nontrivial overlap
+\begin{remark}[Hardware-to-QFT export boundary]
+A screen or hardware evidence bundle exports only the bounded observer-like
+object it actually instantiates: local state, ports and boundaries, readback,
+records, repair or feedback moves, and public evidence. Even a complete
+echosahedral selector receipt does not thereby export a source-selected
+\(G_6\) action, chiral measure or constrained Hamiltonian, BV/ST restoration
+transcript, dressed-current amplitude, nonperturbative observable tower, or
+resonance sheet. The quantization-step implications for those typed inputs are
+proved in the compact and particle papers; construction of the inputs remains
+a separate producer problem.
+\end{remark}
+
+On the certified echosahedral lineage, the source-selector theorem derives the
+unit lines, inverse pairs, proper \(A_5\) action, and rank-three frame. On
+other declared cost/selector branches, the variational screen-sieve theorem
+provides a sufficient alternative. These results give the reference patch
+enough boundary structure to support nontrivial overlap
 comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
 while remaining small enough for explicit evidence records.
 The theorem selects the exposed interface architecture. The dimension of the observer's internal
@@ -2037,6 +2606,27 @@ should include:
 \item matched controls that distinguish chamber-mediated dynamics from host-side filtering;
 \item exact-verifier receipts for task-level claims.
 \end{enumerate}
+
+\begin{proposition}[Conditional phase-lock synchronization bridge]
+For every routed interface \(e=((i,a),(j,b))\), suppose a source-produced phase process provides
+an independently calibrated time parameter, frequency entrainment, a stable declared phase offset,
+and held-out controls. Suppose further that the locked phase selects a commensurability map for
+the exposed port packets and that every resulting write enters the consensus ledger through
+semantic-dependency-complete read sets, atomic revalidation, coherent union-collar payloads, and
+the quotient local-diamond and repair-completeness checks. Then the phase process supplies a
+physical synchronization parent for the federated consensus theorem.
+\end{proposition}
+
+\begin{proof}
+The phase certificate fixes when the two port readouts are commensurable. The remaining hypotheses
+are exactly the premises under which the accepted transaction relation terminates and has the
+declared schedule-independent quotient normal form. The phase process supplies the interface
+timing and comparison map; the consensus theorem supplies public agreement.
+\end{proof}
+
+Phase locking without the transaction, record, and clock packet is compatible with two oscillators
+that entrain while reporting different semantic records. It is therefore neither an observer test
+nor a consensus theorem by itself. No physical phase-lock receipt is asserted in this paper.
 
 The OPH interpretation is simple: toroidal recurrence supplies local memory and mode competition
 inside the patch federation. Echosahedral symmetry supplies a reference and consensus geometry.
@@ -2076,8 +2666,9 @@ Suppose a finite patch federation has a declared mismatch functional \(\Phi\), a
 menu, and an accepted-repair rule such that every accepted repair lowers \(\Phi\) unless the
 touched visible datum is locally repaired. Then every repair sequence terminates at a visible
 local normal form. If the union-collar gluing and repair-completeness hypotheses of the OPH
-consensus theorem hold on the quotient-local carrier, the terminal physical observable state is
-schedule-independent on that carrier. The carrier is thereby a finite constraint-code
+consensus theorem hold together with protected-support-complete transactions,
+protected-conflict-complete dependencies, and an independently checked quotient local diamond,
+the terminal physical observable state is schedule-independent on that carrier. The carrier is thereby a finite constraint-code
 implementation surface; no QECC distance, min-cut formula, spectral mixing rate, or wall-clock
 liveness bound follows unless the corresponding extra certificate is supplied.
 \end{proposition}
@@ -2085,9 +2676,9 @@ liveness bound follows unless the corresponding extra certificate is supplied.
 \begin{proof}
 The first sentence is the finite Lyapunov argument: \(\Phi\) takes values in a finite ordered set
 of declared mismatch scores and strictly decreases on nontrivial accepted repairs. The second
-sentence is not reproved here; it is exactly the quotient-local confluence package supplied by the
-OPH consensus theorem. This paper supplies the federated carrier and visible interface on which
-that theorem is read.
+sentence consumes the quotient-local confluence package of the OPH consensus theorem. Atomic
+commits alone do not supply its protected-support, coherent-payload, or local-diamond receipts.
+This paper supplies the federated carrier and visible interface on which that theorem is read.
 \end{proof}
 
 The schedule-independent conclusion above is a same-source statement.  Equality of endpoints
@@ -2223,7 +2814,10 @@ The theorem is the standard finite-dimensional central-record argument. Because 
 record events commute and belong to the observer-accessible center for the completed slice, they
 define an ordinary finite classical event algebra. Probabilities are Born traces on that event
 algebra, and conditioning on an event is the L\"uders update. After conditioning on \(E\), the
-same central projector \(E\) is true with probability one.
+same central projector \(E\) is true with probability one. Each finite-matrix step of this
+argument (commutativity and centrality of the record span, Born traces, the L\"uders update with
+its fixed-point law, and the collapse of record conditioning to the normalized projector) is
+machine-checked in the companion Lean~4 event-algebra development \cite{eventalgebraLean}.
 \end{proof}
 
 \subsection{Record-conditioned modular cap responses}\label{subsec:record-conditioned-modular-cap-responses}
@@ -2244,7 +2838,7 @@ For a cap \(C\), let \(M_{C,0,O}\) be the declared cap-response probe observable
 M_{C,t,O}:=\sigma_t^{C,O}(M_{C,0,O}),\qquad
 R_i(C,t,O):=\omega_{i,O}(M_{C,t,O}).
 \]
-On the support-visible geometric branch, the modular-clock convention is the same
+On the support-visible geometric branch, the dimensionless modular-parameter convention is the same
 \(2\pi\)-normalized cap flow used by the compact paper:
 \[
 \sigma_t^{C,O}=\alpha_{\lambda_C(2\pi t)}.
@@ -2267,7 +2861,7 @@ single localization error norm \(\sigma_{\mathrm{record}}\) used by the compact 
 theorem.
 
 Two carrier presentations that induce the same quotient-visible record token, conditioned record
-state, cap probe, cap geometry, modular-clock calibration, and response calibration must produce
+state, cap probe, cap geometry, modular-parameter normalization, and response calibration must produce
 the same calibrated response vector and the same \(H^3\) localization ball. A fitted point that
 does not clear held-out cap residuals, mixture controls, and the declared error bound is a failed
 or approximate point-source branch, not a populated-\(H^3\) theorem receipt.
@@ -2432,6 +3026,15 @@ data. Toroidal subchannels supply local recurrence and winding-sensitive dynamic
 exports are fixed-cutoff patch-net embedding, edge-sector Casimir handoff, central-record
 measurement, Bell/CHSH event surfaces, and checkpoint/restoration.
 
+The carrier architecture is physical data up to its declared quotient. Hidden labels and material
+presentations may vary, while the visible incidence, response, repair, record, clock, and
+refinement signature may not be discarded. The local twelve-port theorem constrains the
+\(A_5\)-current branch. A separate carrier-to-support bridge constrains the spherical
+Lorentz/Einstein branch. The consensus normal form is their common finite hinge. Operational
+observer promotion requires readback, durable records, feedback or repair,
+prediction/control, and checkpoint continuation. The physical support and
+current bridges are open.
+
 The claim discipline is the main point. Hardware can guide the architecture and supply public
 evidence through hash-stable evidence bundles. The theorem surface stands on finite algebras and
 declared OPH branch assumptions.
@@ -2503,25 +3106,37 @@ and Rewrite Systems},
 2026.\\
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
 
+\bibitem{eventalgebraLean}
+B.\ M\"uller,
+\emph{Verified Projection-Event Calculus in Lean~4: Bundled Arbitrary-Partition Pinching,
+L\"uders Retractions, and CHSH Interoperability},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/machine_checked_finite_event_algebras.pdf}.
+
 \bibitem{ophconsensus}
 B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}.
 
 \bibitem{ophcompact}
 B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}.
 
 \bibitem{ophsynthesis}
 B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ Visser, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Observers Are All You Need}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
 
 \bibitem{ophparticles}
 B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{ophym}
 B.\ M\"uller,
 \emph{Explaining the Yang--Mills Mass Gap with Observer-Patch Repair Dynamics: A Support-Visible OPH Route to the Clay Problem}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/yang_mills_gap_clay_problem.pdf}.
 
 \end{thebibliography}
 

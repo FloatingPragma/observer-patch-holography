@@ -1,5 +1,17 @@
 # Proof-to-Paper Index
 
+For the corrected typed Einstein composition theorem (GitHub #578), see the
+current statement-by-statement and premise audit in
+[`EINSTEIN_BRANCH_INDEX.md`](EINSTEIN_BRANCH_INDEX.md). That development is
+sorry-free and formalizes the algebraic/compositional implication while
+leaving continuum, asymptotic, physical-identification, and tower-nonemptiness
+premises explicit.
+
+The cross-paper confluence, collar, icosahedral, and event-geometry boundaries
+are mapped in [`BRIDGE_BOUNDARY_INDEX.md`](BRIDGE_BOUNDARY_INDEX.md). The
+finite counterexamples are imported by the umbrella source library, and the
+Screen algebra modules are part of the default Lake build.
+
 Mapping between Lean 4 theorems in this project and statements in
 *Paradise as Fixed-Point Consensus* (B. Müller, 2026; source in
 `paper/paradise_as_fixed_point_consensus.tex`).
@@ -22,6 +34,47 @@ Mapping between Lean 4 theorems in this project and statements in
   (algebraic layer of the coupling theorem only; no physical-derivation
   content, the physical identities I1/I2 are outside the formalised set;
   does **not** bear on the Prop 4.2 / Def 4.1 counts)
+- Physical A5-to-SM reduct boundary
+  (`Screen/PhysicalA5ForcingNoGo.lean`): 6 / 6 declarations, sorry-free.
+  The finite theorems prove non-reconstruction of defect, current, and matter
+  completions from their stated forgetful reducts, plus the settlement and
+  pairing controls. They do not prove nonexistence of a selector from a richer
+  operational source packet and do not instantiate any physical producer.
+- Icosahedral port-frame Gram identity (`Screen/PortFrameGram.lean`, #568):
+  12 / 12 declarations, sorry-free, kernel `decide` only, standard axioms
+  (`propext`, `Classical.choice`, `Quot.sound`). Proves on the explicit
+  twelve-port icosahedral incidence: 5-regularity, symmetric irreflexive
+  adjacency, fixed-point-free antipodal involution, the distance profile
+  witnesses (common neighbor for every distance-two pair, no common neighbor
+  across an antipodal pair), and the exact Gram identities `G² = 4·G` and
+  `tr G = 12` in the integer-scaled `ℤ(√5)` normalization `5·G`. The
+  rank-three conclusion (idempotent `G/4` with trace 3) is the one on-paper
+  step. It does **not** derive the icosahedral carrier from OPH axioms,
+  construct the `A5` action, or bear on the Prop 4.2 / Def 4.1 counts.
+- Icosahedral port action (`Screen/A5PortAction.lean`, #568): 9 / 9
+  declarations, sorry-free, kernel `decide`, axioms `propext`/`Quot.sound`
+  only. Exhibits the sixty proper icosahedral rotations as explicit port
+  permutations and proves the listed set is a group of order sixty (closed,
+  identity, two-sided inverses in the list, pairwise distinct, each row a
+  genuine permutation), that every element preserves the port incidence and
+  commutes with the antipode, and that the action is transitive on ports.
+  The identification of this order-sixty incidence-automorphism group with
+  the abstract `A5` (simplicity or classification) stays on paper; no
+  physical current or descent content.
+- Universal cap coupling from icosahedral symmetry
+  (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
+  sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to
+  caps under all sixty rotations, the composition law, the right-translation
+  bijection of the group list, transitivity on ports); the quantified
+  statements are symbolic over arbitrary rational port data: `A5`-invariant
+  readouts have equal cap sums at every port, group-averaged cap sums are
+  port-independent for every data assignment, and hence the per-cap ratio of
+  any two averaged readouts (entropy over stress flux) is universal with
+  zero spread. This converts the Einstein-branch universality clause from a
+  measurement into a theorem whose one remaining hypothesis is
+  `A5`-equivariance of the source law; checking that hypothesis on an
+  implemented law is a finite simulator check. No physical coupling value or
+  promotion is implied.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear

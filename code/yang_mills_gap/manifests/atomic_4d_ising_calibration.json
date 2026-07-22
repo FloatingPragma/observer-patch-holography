@@ -1,0 +1,20 @@
+{
+  "schema": "oph.yang_mills.collar_gap_certificate.v1",
+  "scope": "calibration",
+  "claim_boundary": "This is a deterministic finite Ising calibration of the certificate interface, not a physical compact-simple-gauge OPH source receipt.",
+  "cofinal_family": {"dimension": 4, "linear_size": "N_r=3*2^r", "boundaries": ["periodic", "free", "fixed-plus", "fixed-minus"]},
+  "calibration_type_family": {
+    "count": 244,
+    "id_prefix": "atomic-4d-ising-",
+    "template": {
+      "rooted_neighborhood": "declared radius-one atomic four-dimensional Ising collar",
+      "boundary_sector_flags": ["calibration", "all-listed-boundaries"],
+      "local_alphabets": ["binary-root", "binary-neighbor"],
+      "potential_templates": ["nearest-neighbor Ising calibration kernel"],
+      "complete_repaired_readback": "all active registers outside the root",
+      "conditional_kernel": "exact atomic single-root heat bath",
+      "rate_lower": "1",
+      "influences": [{"multiplicity": 1, "upper": "1/2", "conditional_rows": [["1/4", "3/4"], ["3/4", "1/4"]]}]
+    }
+  }
+}

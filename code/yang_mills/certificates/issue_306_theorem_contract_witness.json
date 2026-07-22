@@ -1,0 +1,50 @@
+{
+  "schema": "oph.yang_mills.collar_gap.v1",
+  "scope": "theorem_contract_witness",
+  "claim_boundary": "This exact-rational finite example tests the issue-306 certificate contract. It is not a physical OPH/Yang-Mills source receipt and does not discharge the Clay continuum assumptions.",
+  "types": [
+    {
+      "id": "interior_binary_radius_1",
+      "rooted_neighborhood": "radius-1 rooted path star",
+      "boundary_sector_flags": ["interior", "ordinary_zero_obstruction"],
+      "local_alphabets": ["binary_root", "binary_neighbors"],
+      "potential_templates": ["nearest_neighbor_pair"],
+      "complete_repaired_readback": "all registers except the root",
+      "conditional_kernel": "single-root exact Gibbs heat bath",
+      "rate_lower": "1",
+      "influences": [
+        {
+          "target_type": "interior_binary_radius_1",
+          "multiplicity": 2,
+          "upper": "1/8",
+          "conditional_rows": [["7/16", "9/16"], ["9/16", "7/16"]]
+        }
+      ],
+      "refinement_targets": ["interior_binary_radius_1", "boundary_binary_radius_1"]
+    },
+    {
+      "id": "boundary_binary_radius_1",
+      "rooted_neighborhood": "truncated radius-1 rooted path star",
+      "boundary_sector_flags": ["physical_boundary", "ordinary_zero_obstruction"],
+      "local_alphabets": ["binary_root", "binary_neighbor", "fixed_boundary_flag"],
+      "potential_templates": ["nearest_neighbor_pair", "fixed_boundary_term"],
+      "complete_repaired_readback": "all registers except the root plus the boundary flag",
+      "conditional_kernel": "single-root exact Gibbs heat bath",
+      "rate_lower": "3/4",
+      "influences": [
+        {
+          "target_type": "interior_binary_radius_1",
+          "multiplicity": 1,
+          "upper": "1/2",
+          "conditional_rows": [["1/4", "3/4"], ["3/4", "1/4"]]
+        }
+      ],
+      "refinement_targets": ["boundary_binary_radius_1"]
+    }
+  ],
+  "expected": {
+    "c_floor": "3/4",
+    "eta_upper": "1/2",
+    "gap_lower": "3/8"
+  }
+}

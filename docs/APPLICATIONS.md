@@ -8,20 +8,24 @@ drives repair. Stable outcomes become records. OMEGA is the lab version of
 that idea: physical chambers, labeled ports, control software, and exact
 checks.
 
-Four use cases follow. All four are low-cost implementation tracks under
-active development. The links point to public material in this repository or
-public OPH pages. The OMEGA hardware visualization is at
+Four use cases follow. All four are design concepts. None of them has a
+supporting hardware evidence bundle: no energy-gain, computational-advantage,
+or lift claim on this page carries a receipt, and the hardware-claim evidence
+bar (independent records, controls, sham runs, verifier replay) is defined in
+the microphysics paper and applies to every one of them. The links point to
+public material in this repository or public OPH pages. The OMEGA hardware visualization is at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). The local compute loop diagram is
 [assets/omega/omega-compute-loop.svg](../assets/omega/omega-compute-loop.svg).
 
-## 1. Cheap Desktop Fusion Energy
+## 1. Acoustic Fusion Cell Concept
 
 The first use case is a closed-loop acoustic fusion cell. Think of a small
 water-based cavity driven as an OPH patch. It tracks pressure modes, charge
 separation, phase structure, wall conditions, and output heat. Those readings
-become boundary records for a software control loop. The target is a cheap
-500 W-class home-scale energy cell that stays at room temperature outside the
-active reaction region.
+become boundary records for a software control loop. The design target is a
+small energy cell that stays at room temperature outside the active reaction
+region. No energy-gain measurement exists; the concept stands or falls on the
+evidence bar above.
 
 OPH changes the fusion problem from brute-force plasma confinement to tight
 boundary control in a small resonator. Geometry, drive phase, acoustic
@@ -111,13 +115,15 @@ The finite consensus theorem package is in
 The observer checkpoint and central-record machinery is in
 [Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 
-## 4. Hoverbikes And Hoverboards
+## 4. Lift-Control Concept
 
-The fourth use case is local gravity and inertia manipulation for stable lift.
-The demo target is easy to picture: a hoverbike or hoverboard that lifts
-without a rotor column, jet plume, or road contact. The vehicle is treated as
-a controlled federation of field patches, sensors, actuators, and records. The
-lift state is a maintained normal form.
+The fourth use case is the most speculative: local gravity and inertia
+readout control for stable lift. The mental picture is a hoverbike or
+hoverboard that lifts without a rotor column, jet plume, or road contact. The
+vehicle is treated as a controlled federation of field patches, sensors,
+actuators, and records. The lift state is a maintained normal form. No lift
+effect has been measured, and the coherent-matter force law itself is
+conditional in the dark-sector paper.
 
 OPH treats this as geometry control. Gravity is the large-scale readout of
 overlap geometry and repair. The dark-matter paper uses the same idea at
@@ -182,10 +188,10 @@ OMEGA is the public hardware body for the loop. The papers provide the theory,
 scorebooks, and evidence discipline. The applications use the same
 patch-consensus machinery on energy, compute, intelligence, and lift.
 
-## License And Patent Policy
+## License
 
 This applications surface is part of the OPH public repository. See the main
-[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+[LICENSE](../LICENSE).
 OPH-derived applications, devices, hardware designs, software, simulations,
 methods, and implementation patterns may be studied, tested, implemented,
 modified, deployed, manufactured, and shared, but may not be used to create

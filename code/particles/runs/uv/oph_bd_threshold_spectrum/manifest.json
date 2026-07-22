@@ -6,8 +6,8 @@
       "sha256": "f0675be1502d1ef394505f02fa15240bbddc5722b8d8d0a91cb049f2f6c9df50"
     },
     "moduli_locking_certificate.json": {
-      "byte_count": 1130,
-      "sha256": "3d81eac276c91eade4c5802adbc86e26cbb16f0d8321165ff80dfed75d3bca17"
+      "byte_count": 10043,
+      "sha256": "48c5807d733317dc2ec7c83deae183f1a3d024d6f6322e0bb0808e0eda1ddc73"
     },
     "proxy_targets.json": {
       "byte_count": 10511,
@@ -18,23 +18,27 @@
       "sha256": "577349aaeb53ceddeac4cca50006dc0c59008002758cc06b273302fdcf8226d0"
     },
     "source_dag.json": {
-      "byte_count": 7009,
-      "sha256": "1ef4b67c249c8b2e961e73256b18d415250e3d72a40383b415dad48e9d141c17"
+      "byte_count": 7274,
+      "sha256": "df84736d60b68dbe7a54ef22b7f1ce944360d4155faab7ffe4e225fc50f1e685"
     },
     "threshold_spectrum_certificate.json": {
-      "byte_count": 1927,
-      "sha256": "b80b599f8c0877880fc30078d7fa0f69062d56d38aab8b6983293a3acc5302aa"
+      "byte_count": 2198,
+      "sha256": "e3f210ff9c45777b7bd7192395b7152696c65d8cadd16dd7bfc976942542c15d"
     }
   },
   "generator": {
     "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
-    "sha256": "bd5db1789d813f55cea4c2ddc1775969dd3c1a78f4448408fb607a2bcee1a3c6"
+    "sha256": "6cc5c4f2453d8dfbd474d31e1add21891d8046b84986ded454b3bc03055aae98"
   },
   "input_packet": {
     "path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-    "sha256": "a7a6c247b23dba12232f22e3eea2d89afb1b02043c150f8acda6b2c72d3f00a3"
+    "sha256": "1ef33af8daace68df0a66e636db8fcfd4c7ac0d1c89f8aeeaf20990f661d9806"
   },
   "issue": 368,
+  "issues": [
+    368,
+    369
+  ],
   "numeric_backend": "python_decimal_base10",
   "precision_digits": 80,
   "reproduction_command": "python3 code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py --check",

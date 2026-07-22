@@ -1,6 +1,7 @@
 # OPH Book Source
 
-This directory contains the canonical Markdown source for the OPH book:
+This directory contains the canonical Markdown source for *Reverse Engineering
+Reality*, the OPH book:
 
 - `prologue.md`
 - `chapter-01-*.md` through `chapter-20-*.md`
@@ -8,6 +9,8 @@ This directory contains the canonical Markdown source for the OPH book:
 - `epilogue.md`
 
 ## Contents
+
+- [Prologue](prologue.md)
 
 1. [Consistency](chapter-01-consistency.md)
 2. [Lineage](chapter-02-lineage.md)
@@ -30,10 +33,15 @@ This directory contains the canonical Markdown source for the OPH book:
 19. [Synthesis](chapter-19-synthesis.md)
 20. [Metaphysics](chapter-20-metaphysics.md)
 
-The book begins with the [prologue](prologue.md) and closes with the
-[epilogue](epilogue.md). The reader-facing appendices contain the
-[concept glossary](appendix-concept-glossary.md) and
-[extended interludes](appendix-extended-interludes.md). The technical
+- [Appendix: Concept Glossary](appendix-concept-glossary.md)
+- [Appendix: Extended Interludes](appendix-extended-interludes.md)
+- [Epilogue](epilogue.md)
+
+The list above follows the build order: prologue, numbered chapters,
+appendices, epilogue. Narration exports for the audiobook are generated from
+these files and live in
+[`../../book/audiobook-chapters/`](../../book/audiobook-chapters/).
+The technical
 [chapter ledger](../docs/BOOK_CHAPTER_LEDGER.md) lives with the project docs and
 is not included in the reader-facing book build.
 
@@ -92,8 +100,7 @@ Current output style:
 - `book/reverse-engineering-reality-book.pdf` is a release artifact. Rebuild it before publishing
   whenever book chapters or public release materials change.
 
-## License And Patent Policy
+## License
 
 The OPH book source and generated book artifact are part of the OPH public
-repository. See the main [LICENSE](../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+repository. See the main [LICENSE](../LICENSE).

@@ -1,5 +1,8 @@
 {
   "artifact": "oph_bd_threshold_spectrum_source_dag",
+  "continuation_issues": [
+    369
+  ],
   "decoupling_routes": {
     "bd_equivalent_non_susy_uv_deformation": [
       "bd_equivalent_non_susy_uv_deformation_receipt"
@@ -58,15 +61,18 @@
     "proxy_target_coordinates -> proxy_targets_only",
     "BD_UV_inputs -> threshold_and_low_energy_forward_map",
     "threshold_and_low_energy_forward_map -> OPH_target_comparison",
-    "physical_moduli_jacobian -> moduli_locking_rank_test"
+    "physical_quotient_and_completion_constraints -> augmented_selector_map",
+    "physical_moduli_jacobian -> augmented_selector_map",
+    "augmented_selector_map -> interval_existence_and_isolation_test",
+    "branch_coverage_and_candidate_catalogue -> comparative_uniqueness_test"
   ],
   "forbidden_edge": "proxy_targets -> BD_threshold_compatibility_or_full_witness_promotion",
   "issue": 368,
   "local_dependencies": [
     {
-      "byte_count": 7748,
+      "byte_count": 9299,
       "path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-      "sha256": "a7a6c247b23dba12232f22e3eea2d89afb1b02043c150f8acda6b2c72d3f00a3"
+      "sha256": "1ef33af8daace68df0a66e636db8fcfd4c7ac0d1c89f8aeeaf20990f661d9806"
     },
     {
       "byte_count": 19731,
@@ -76,22 +82,22 @@
     {
       "byte_count": 3460,
       "path": "code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json",
-      "sha256": "c57713570daea8b29a26abab63d68de2d2449cb31d1a5ae03bed7ed88d8fe0a7"
+      "sha256": "33594c5f2c08f5cb3eb4be773409915f3bcf41958ddc970a5e9da1adfdd1867b"
     },
     {
       "byte_count": 6586,
       "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "sha256": "16ecfaf128c164c92fd7454efef42162f4b2e9748728784bda89874d3e701958"
+      "sha256": "3e586b4675868819cbeca07d2e9b31455d2e983ac01c616f0b3a9478c86b4b45"
     },
     {
-      "byte_count": 36834,
+      "byte_count": 52881,
       "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
-      "sha256": "bd5db1789d813f55cea4c2ddc1775969dd3c1a78f4448408fb607a2bcee1a3c6"
+      "sha256": "6cc5c4f2453d8dfbd474d31e1add21891d8046b84986ded454b3bc03055aae98"
     },
     {
-      "byte_count": 11361,
+      "byte_count": 14769,
       "path": "code/particles/uv/oph_bd_threshold_spectrum_inputs.schema.json",
-      "sha256": "accc8a2ad83282caf980522000cf955d0b68bb6a800c385a8955433d76b1d7b3"
+      "sha256": "69cf41d1168ee9246412201381ab63618170189d1987a561035ebc6f6e0474d9"
     }
   ],
   "numeric_selectors": [

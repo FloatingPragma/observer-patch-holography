@@ -1,0 +1,56 @@
+{
+  "created": "2026-07-20",
+  "file_count": 12,
+  "files": {
+    "AGENT_INSTRUCTIONS.md": {
+      "bytes": 6657,
+      "sha256": "10d40d71885f301cbb193acbf1a58d0e8aaf4efcc71d139156878ff4da38b96b"
+    },
+    "PATCH_NOTES.md": {
+      "bytes": 1196,
+      "sha256": "e75766f51b0a3da670ec708e2635bf8306b642bce95c96111fdb0e520be0feb8"
+    },
+    "README.md": {
+      "bytes": 4373,
+      "sha256": "d816a816e04fc58c0905cb321f003f05b937d6baa085c80f4d47f6bb39b919df"
+    },
+    "checker/check_receipt.py": {
+      "bytes": 5512,
+      "sha256": "961d02cfceb656c6a9864d97877fba77d2ba865d70f02cb494619ddd9622c642"
+    },
+    "data/conditional_smdr_order1_fixture.json": {
+      "bytes": 3280,
+      "sha256": "d17be283996d4dbd9923f5849f2b88b339e709ff474dcbf6492a2c850aecae47"
+    },
+    "data/oph_fj_input_template.json": {
+      "bytes": 2410,
+      "sha256": "73d248952553cefd9ee7d47509dcf49f1be0cddc600ac95d3a3efb37df4d6ad5"
+    },
+    "outputs/conditional_strict_1l_pole_map_receipt.json": {
+      "bytes": 6058,
+      "sha256": "57754a9b36763e00cac90db00dc97dbda9bade815eabf9af137056d5d0eaf2a7"
+    },
+    "outputs/validation.log": {
+      "bytes": 3501,
+      "sha256": "7c7a4c649bb9dc920fc2db33216389112d7c455c2d21ec0bf3c9fb90d7557ff8"
+    },
+    "run_all.py": {
+      "bytes": 1209,
+      "sha256": "b3e48547191bf0c7dcda2e8d1f808005cb9923c0f672c22e8a03aeae91c43831"
+    },
+    "schemas/physical_wz_strict_1l_pole_map_receipt.schema.json": {
+      "bytes": 5119,
+      "sha256": "d830804fe36812576e75420d55480c83ddb2f4b83e5d5f15dd29b5082079c479"
+    },
+    "src/wz_pole_map.py": {
+      "bytes": 13568,
+      "sha256": "0cd48799d5f5396e6be57c55eb8f47ec57fd80fd3f31b5ea9acf82b17231c2b3"
+    },
+    "tests/test_wz_pole_map.py": {
+      "bytes": 4162,
+      "sha256": "3357f5c511843735240ae5d51a1547f11a31b323a35ef05c16a8a429e99e335f"
+    }
+  },
+  "package_id": "physical_wz_strict_one_loop_pole_map_2026-07-20",
+  "schema": "physical_wz_strict_one_loop_pole_map_package_manifest_v1"
+}

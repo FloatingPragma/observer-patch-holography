@@ -1,0 +1,128 @@
+import Mathlib.Util.AssertNoSorry
+import ObserverPatchHolography.EinsteinBranch.Composition
+
+/-!
+# Einstein-branch theorem audit
+
+This file is the machine-checked counterpart of `EINSTEIN_BRANCH_INDEX.md`.
+Every public result in the corrected Einstein-branch kernel is checked for
+`sorryAx`, and the per-theorem `#print axioms` receipts below expose any
+remaining logical dependencies to CI and human review.
+-/
+
+namespace OPH.EinsteinBranch
+
+/-! ## Finite tower, non-entailment, and boundary composition -/
+
+assert_no_sorry not_boundaryFiber_of_witness
+assert_no_sorry demoTower_nondegenerate
+assert_no_sorry demoTower_boundaryFiber
+assert_no_sorry counterextensions_share_reduct
+assert_no_sorry einsteinEq_demoEinsteinExtension
+assert_no_sorry not_einsteinEq_demoNonEinsteinExtension
+assert_no_sorry bare_consensus_not_einstein_complete
+assert_no_sorry boundary_fiber_readout_composition
+
+/-! ## Direct-sum entropy, finite first law, and MaxEnt envelope -/
+
+assert_no_sorry directSumEntropy_eq_bulk_add_edge
+assert_no_sorry centralVariation_eq_edgeEntropyVariation
+assert_no_sorry central_edge_normalization_defect
+assert_no_sorry finite_bulk_edge_central_first_law
+assert_no_sorry passingFirstLawData_passes
+assert_no_sorry failingFirstLawData_fails
+assert_no_sorry maxEnt_envelope_identity
+assert_no_sorry passingMaxEntTangent_passes
+assert_no_sorry failingMaxEntTangent_fails
+
+/-! ## Exact small-ball arithmetic and a negative asymptotic receipt -/
+
+assert_no_sorry diamondKernelIntegral_eq
+assert_no_sorry bulkSmallBallCoefficient
+assert_no_sorry fixedVolumeAreaCoefficient
+assert_no_sorry constantRadiusData_fails
+assert_no_sorry restFrameEinsteinRelation
+
+/-! ## Strict manifests and deletion failures -/
+
+assert_no_sorry strictManifest_dependency
+assert_no_sorry strictManifest_erase_required_fails
+assert_no_sorry nonzero_defect_fails_entropy
+assert_no_sorry extra_scale_stabilizer_fails
+
+/-! The tensor/tomography assertions are kept next to the implementation and
+are repeated here once the public API is imported. -/
+
+assert_no_sorry bilinOf_add_left
+assert_no_sorry bilinOf_add_right
+assert_no_sorry bilinOf_smul_left
+assert_no_sorry bilinOf_smul_right
+assert_no_sorry bilinOf_single_single
+assert_no_sorry quadOf_sub_smul
+assert_no_sorry quadOf_smul
+assert_no_sorry quadOf_double
+assert_no_sorry quadOf_triple
+assert_no_sorry eta_symm
+assert_no_sorry eta_zero_zero
+assert_no_sorry eta_diag_spatial
+assert_no_sorry eta_off_diag
+assert_no_sorry e_zero_at_zero
+assert_no_sorry double_at_zero
+assert_no_sorry triple_at_zero
+assert_no_sorry tomographyDirections_null
+assert_no_sorry tomographyCharge_eq_design
+assert_no_sorry tomographyDecoder_design
+assert_no_sorry tomographyDecoder_charge
+assert_no_sorry tomographyDecoder_zero
+assert_no_sorry tomographyCharge_injective
+assert_no_sorry traceFreeMat_symm
+assert_no_sorry invSqrtThree_sq
+assert_no_sorry traceFree_decomposition
+assert_no_sorry nine_null_directions_determine_mod_metric
+assert_no_sorry nine_charge_metric_ambiguity
+assert_no_sorry unit_timelike_determines
+assert_no_sorry null_cone_determines
+assert_no_sorry tensor_upgrade
+assert_no_sorry jacobson_step
+assert_no_sorry ddiv_lam_eta
+assert_no_sorry row_eta_cancel
+assert_no_sorry step_invariant_of_divergence_free
+assert_no_sorry lam_eq_of_symmReachable
+assert_no_sorry lambda_constant_symm
+assert_no_sorry einstein_equation_with_constant_symm
+
+/-! ## End-to-end conditional composition -/
+
+assert_no_sorry continuumEinstein_from_explicit_premises
+assert_no_sorry composedEinsteinBranch
+assert_no_sorry composedEinsteinAdmissibleTower
+
+/-! Human-readable per-theorem reports are emitted into the build receipt. -/
+
+#print axioms bare_consensus_not_einstein_complete
+#print axioms boundary_fiber_readout_composition
+#print axioms directSumEntropy_eq_bulk_add_edge
+#print axioms finite_bulk_edge_central_first_law
+#print axioms maxEnt_envelope_identity
+#print axioms diamondKernelIntegral_eq
+#print axioms restFrameEinsteinRelation
+#print axioms tomographyDirections_null
+#print axioms tomographyDecoder_design
+#print axioms tomographyDecoder_charge
+#print axioms tomographyCharge_injective
+#print axioms nine_null_directions_determine_mod_metric
+#print axioms nine_charge_metric_ambiguity
+#print axioms unit_timelike_determines
+#print axioms null_cone_determines
+#print axioms tensor_upgrade
+#print axioms jacobson_step
+#print axioms ddiv_lam_eta
+#print axioms step_invariant_of_divergence_free
+#print axioms lambda_constant_symm
+#print axioms einstein_equation_with_constant_symm
+#print axioms strictManifest_erase_required_fails
+#print axioms continuumEinstein_from_explicit_premises
+#print axioms composedEinsteinBranch
+#print axioms composedEinsteinAdmissibleTower
+
+end OPH.EinsteinBranch

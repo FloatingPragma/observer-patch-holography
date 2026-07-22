@@ -15,7 +15,7 @@ The arrow of time feels fundamental in this picture. We remember yesterday. We d
 
 General relativity and quantum theory broke that picture.
 
-![Known constraints select a least-biased state, and the restricted algebra-state pair carries an internal modular clock.](../assets/book_diagrams/maxent-clock.svg){width=78%}
+![Known constraints select a least-biased state, and the restricted algebra-state pair carries an intrinsic modular ordering.](../assets/book_diagrams/maxent-clock.svg){width=78%}
 
 ## 11.2 The Surprising Hint: Time Is Not Fundamental
 
@@ -23,9 +23,9 @@ General relativity and quantum theory broke that picture.
 
 Physics has a scandal.
 
-Almost all our fundamental laws are time-reversible. Newton's F = ma works the same forward and backward. Maxwell's equations are reversible. Schrödinger's equation is reversible. Einstein's General Relativity is reversible.
+Almost all our fundamental laws are time-reversible. Newton's F = ma works the same forward and backward, Maxwell's equations run happily in either direction, and so do Schrödinger's equation and Einstein's general relativity.
 
-Film a planet orbiting a star and play it backward-it looks perfectly physical. But film an egg breaking and play it backward? Absurd.
+Film a planet orbiting a star and play it backward; it looks perfectly physical. Film an egg breaking and play it backward, and the result is absurd.
 
 This is the **Arrow of Time**. Where does it come from? The microscopic laws
 are the wrong place to look.
@@ -34,7 +34,7 @@ are the wrong place to look.
 
 In general relativity, there's no preferred time coordinate. Different observers slice spacetime differently; none is privileged.
 
-The Wheeler-DeWitt equation-the analog of Schrödinger's equation for the universe-is:
+The Wheeler-DeWitt equation, the analog of Schrödinger's equation for the universe, is:
 
 $$H\Psi = 0$$
 
@@ -50,31 +50,33 @@ This is the **problem of time** in quantum gravity. If the fundamental descripti
 
 Time enters this story without a fundamental external clock. The microscopic laws are time-symmetric. Something else must generate the arrow of time we experience.
 
-## 11.3 The First-Principles Reframing: Time Emerges from Modular Flow
+## 11.3 The First-Principles Reframing: From Modular Flow to Physical Time
 
 The deeper question is why we experience time at all if the fundamental
 description has no preferred clock.
 
 ### The Thermal Time principle
 
-In the 1990s, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
+In 1994, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
 read from incomplete knowledge. Start with the observer's limited state
 $\rho$. At finite cutoff, or in a special type-I representation, one writes a
 modular Hamiltonian $K=-\ln\rho$. In the general operator-algebraic setting the
 more fundamental object is the modular automorphism group itself; an inner
 density-matrix generator need not exist. The thermal-time proposal reads that
-flow as the time the observer actually experiences.
+flow as time. OPH treats it first as intrinsic ordering.
 
 Here $\rho$ is the observer's density matrix, the quantum bookkeeping object for
-what the observer can know. The modular Hamiltonian is not necessarily the
-ordinary energy of the whole universe but the operator that generates the
-natural evolution of the restricted state the observer actually has access to
-when such an operator representative exists.
+what the observer can know. When an operator representative exists, the
+modular Hamiltonian generates the natural evolution of the restricted state
+available to the observer. It need not equal the ordinary energy of the whole
+universe.
 
 This is a strange move the first time one sees it. In ordinary mechanics, the
 Hamiltonian is given first and time evolution follows. Here the restricted
-state itself furnishes the clock. Time is tied to access, ignorance, and coarse
-graining.
+state furnishes a preferred dimensionless ordering. A physical clock requires
+an observer-readable transition, an event correspondence, and a calibration to
+turn that ordering into a duration. Time is therefore tied to access and
+coarse graining without being reduced to mere ignorance.
 
 ### Tomita-Takesaki Theory
 
@@ -89,16 +91,14 @@ algebraic rules. Modular flow is a continuous family of such reshufflings,
 indexed by a parameter that behaves like time. The concrete content is that the
 observer's restricted state tells the question menu how to move.
 
-An observer with partial access does not sit in a timeless fog. The
-restriction itself orders experience into before and after. The flow depends on
-the algebra-state pair, which is why different observers can inherit different
-clocks from different access conditions. It also carries the thermal
-equilibrium structure that makes temperature and time appear together in the
-same move.
+An observer with partial access does not sit in an algebraic fog. The
+restriction supplies an order of possible changes. The flow depends on the
+algebra-state pair, which is why different observers can inherit different
+modular orderings from different access conditions. It also carries the thermal
+equilibrium structure that links temperature to the flow parameter.
 
-Modular flow matters here because it turns time from a background stage into
-something earned by an observer's horizon and state. Partial knowledge has its
-own dynamics.
+Modular flow matters here because it supplies an internal candidate for temporal
+ordering. The observer's horizon and state determine that flow.
 
 ### The Rindler Wedge
 
@@ -117,30 +117,51 @@ generates changes of inertial frame. A steadily accelerating observer can be
 thought of as passing through a sequence of nearby inertial frames. Step by
 step, their time evolution is built from tiny Lorentz boosts.
 
-An observer accelerating uniformly sees only the **Rindler wedge**, the part of
-spacetime from which signals can reach that observer. A horizon forms
-behind them. For the vacuum state restricted to this wedge, the
-Bisognano-Wichmann theorem shows that the modular Hamiltonian is exactly the
-generator of Lorentz boosts.
+In 1976, William Unruh discovered that an accelerating observer sees the
+vacuum differently. An observer accelerating through empty space sees a
+thermal bath at temperature:
 
-For an accelerating observer, a Lorentz boost *is* time translation. The modular flow equals ordinary time evolution.
+$$T_U = \frac{\hbar a}{2\pi c k_B}$$
 
-The modular temperature works out to:
-
-$$T_{Unruh} = \frac{\hbar a}{2\pi k_B c}$$
-
-The Unruh effect is Tomita-Takesaki theory applied to spacetime. The "time"
-experienced by an observer is determined by their restricted access to the
-quantum state.
-
-$T_{Unruh}$ is the temperature seen by the accelerating observer. $a$ is the
+$T_U$ is the temperature seen by the accelerating observer. $a$ is the
 observer's proper acceleration. The constants are the same ones used in the
 black-hole temperature formulas. The larger the acceleration, the hotter the
-restricted vacuum appears.
+restricted vacuum appears. An inertial observer sees vacuum. An accelerating
+observer sees heat. This is an exact result of quantum field theory: the
+vacuum looks different depending on your state of motion.
 
-This is the first major payoff of the chapter. The mathematics does not stay abstract. Restrict the vacuum to what one observer can access, and the restriction behaves like a thermal state with its own clock.
+Acceleration creates a **Rindler horizon**, a boundary beyond which signals
+can never reach the accelerating observer. The region visible to that
+observer is the **Rindler wedge**. The horizon has thermodynamic properties
+identical to a black hole horizon, and the temperature comes from quantum
+fluctuations near it.
 
-This is also the point where modular theory stops sounding like rarefied operator algebra and starts sounding like lived physics. Restriction generates both a temperature and a time flow. Losing access to part of the state has thermodynamic and temporal consequences.
+In 1975-1976, Bisognano and Wichmann proved something deeper about this
+wedge. For the vacuum state restricted to the wedge, the modular automorphism
+is geometric. In a cutoff or pedagogical type-I representation this is often
+written as a thermal density matrix:
+
+$$\rho_R = \frac{e^{-2\pi K}}{Z}$$
+
+where $K$ is the Lorentz boost generator. In that representation the modular
+Hamiltonian, which generates "time evolution" within the wedge, is
+proportional to the boost:
+
+$$H_{mod} = 2\pi K$$
+
+For a uniformly accelerating observer, boost motion supplies the relevant
+time translation, and under the theorem's relativistic hypotheses the modular
+flow follows that motion. In this wedge case, **the modular automorphism
+group is the Lorentz boost flow**.
+
+The Unruh effect is Tomita-Takesaki theory applied inside relativistic
+spacetime. The restricted vacuum state carries the boost flow seen by the
+accelerating observer.
+
+Restricting the vacuum to what one accelerating observer can access produces a
+thermal state and a modular flow. The modular parameter orders the algebraic
+evolution. Limited access therefore has thermodynamic consequences and
+supplies the ordering used by the clock construction.
 
 ## 11.4 The Arrow of Time
 
@@ -159,7 +180,7 @@ matter spread almost uniformly. That uniformity is low gravitational entropy.
 Why is that side low entropy? Standard physics treats this as an unexplained
 boundary condition. OPH gives the condition a role in record formation.
 
-**The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients-you can only write information by pushing entropy elsewhere. A universe in thermal equilibrium contains no observers, no records, no consistency-checking.
+**The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients; writing information pushes entropy elsewhere. A universe in thermal equilibrium contains no observers and no records for them to compare.
 
 The MaxEnt principle says: assign the maximum-entropy state consistent with your constraints. But one constraint is that someone must exist to apply MaxEnt. This rules out equilibrium. The very existence of observers selecting MaxEnt states presupposes a universe far from equilibrium.
 
@@ -172,7 +193,7 @@ allows records to be made.
 
 Edwin Jaynes rewrote statistical mechanics in information-theoretic terms.
 
-**Entropy is not a property of the gas. Entropy is a property of our knowledge about the gas.**
+**Entropy measures our knowledge about the gas. The gas itself carries no such number.**
 
 ### The Maximum Entropy Principle
 
@@ -182,16 +203,17 @@ Choose the distribution that maximizes Shannon entropy subject to your constrain
 
 $$S = -\sum_i p_i \ln p_i$$
 
+Here $p_i$ is the probability of outcome $i$.
+
 MaxEnt gives the Boltzmann distribution:
 
 $$P(x) = \frac{1}{Z} e^{-\beta E(x)}$$
 
 Thermal states are ubiquitous because they're the unique states of maximum ignorance given energy constraints.
 
-In the entropy formula, $p_i$ is the probability of outcome $i$. In the
-Boltzmann distribution, $P(x)$ is the probability of state $x$, $E(x)$ is its
-energy, $\beta$ is inverse temperature, and $Z$ is the partition function that
-normalizes all probabilities so they add to 1.
+In the Boltzmann distribution, $P(x)$ is the probability of state $x$, $E(x)$
+is its energy, $\beta$ is inverse temperature, and $Z$ is the partition
+function that normalizes all probabilities so they add to 1.
 
 ## 11.6 Time on the Holographic Screen
 
@@ -205,7 +227,7 @@ This density matrix defines a modular Hamiltonian:
 $$K_P = -\ln \rho_P$$
 
 which generates the finite modular flow labeled by $t_P$. That flow supplies
-the observer's internal time.
+an intrinsic ordering parameter for the observer's accessible algebra.
 
 $\bar P$ means the complement of support region $P$, everything outside the
 region in this finite illustration. The trace over $\bar P$ discards
@@ -214,45 +236,45 @@ The logarithm then turns that restricted state into the modular generator.
 
 This density-matrix formula is the finite illustration. The general observer
 patch is described by its accessible algebra-state pair. That pair carries a
-modular automorphism group, which supplies the internal clock even when no
-density matrix lives inside the continuum algebra.
+modular automorphism group even when no density matrix lives inside the
+continuum algebra. The automorphism orders algebraic change; the clock
+construction turns that order into time.
 
 ### Consistency of Clocks
 
-For a shared clock, two overlapping observers have compatible modular actions
-on their shared operational content. That compatibility supports a common
-causal structure.
+For a shared clock, two overlapping observers need compatible modular actions
+on their shared operational content, calibrated instrument readings, and an
+explicit correspondence between their events. The clock transports must also
+close around overlap cycles. Those conditions support a common causal
+structure; overlap repair by itself does not.
 
 ### Cosmic Time
 
 Why do we all agree on a "cosmic time"?
 
-As local modular flows synchronize across accessible records, a shared
-coarse-grained cosmic time emerges as their collective clock rather than a
-second fundamental time parameter. It is the time read by the reconstructed
-world from within.
+On a cosmological branch where those clock conditions hold across observers,
+local modular flows can support a shared coarse-grained cosmic time. It is a
+collective clock read by the reconstructed world from within, rather than a
+second fundamental time parameter.
 
 ### From Modular Time to Gravity
 
-The chain is clean once the pieces are visible. Recovery structure from Chapter
-7 makes the time generator local near patch boundaries. The order and
-orientation of the finite caps, their modular convergence, and their thermal
-normalization turn that local flow into a standard geometric motion on the
-sphere. Geometric time flow gives Lorentz kinematics on the screen. Fixed-cap
-variation, local energy, the small-ball area identity, and the
-scalar-to-tensor upgrade then turn entanglement equilibrium into Einstein's
-equation.
-
-The internal clock feeds into gravity through this chain of compatible
-readouts.
+The full argument is a chain of cross-checks. The finite record structure
+must independently hand over its geometry, its flow, and its energy
+bookkeeping, and a single theorem then consumes all three and identifies the
+internal flow with a motion on the sphere. From there the path to Einstein's
+equation runs exactly as Jacobson mapped it.
 
 ## 11.7 Jacobson's Derivation
 
-In 1995, Ted Jacobson performed one of the most beautiful derivations in theoretical physics.
+In 1995, Ted Jacobson published a short paper whose title gives the game away: "Thermodynamics of Spacetime: The Einstein Equation of State." It contains one of the most beautiful derivations in theoretical physics.
 
-He started with thermodynamics-the first law:
+He started with the first law of thermodynamics:
 
 $$\delta Q = T \, dS$$
+
+In words, the heat flowing in equals temperature times the entropy change it
+buys.
 
 He then made three linked identifications. Entropy scaled with boundary area.
 Heat became energy flux across a local horizon. Temperature became Unruh
@@ -264,16 +286,20 @@ Einstein's field equations are the geometric form of that requirement:
 
 $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 
-This displayed version omits the cosmological-constant term. In OPH, the local
-Einstein relation fixes the curvature response to stress, while global screen
-capacity supplies the metric-proportional cosmological term.
+The left side is curvature, the right side is matter and energy; the equation
+says one is the ledger of the other.
 
-Finite repair first gives quotient normal forms. One common family of repaired
-records then supplies the geometric readout of caps and diamonds, modular flow,
-null stress, bounded-interval response, fixed-cap stationarity, small-ball area
-variation, continuum control, and the tensor upgrade across local observer
-directions. These linked steps turn local thermodynamic agreement into
-spacetime dynamics.
+This displayed version omits the cosmological-constant term. In OPH, the local
+first-variation relation fixes the curvature response to stress. A vacuum
+reference evaluates the metric residue, and global screen capacity separately
+proposes a numerical value for the resulting cosmological term.
+
+In the OPH version, one common family of repaired records has to supply every
+readout the argument needs: the geometry of caps and diamonds, the modular
+flow, the energy bookkeeping, and the checks that survive refinement. When
+that family also carries a universal coupling and a vacuum reference, local
+thermodynamic agreement turns into spacetime dynamics. Building and
+certifying one inhabited family with all these readouts is work in progress.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 
@@ -288,81 +314,52 @@ bookkeeping closes. Curvature is the public face of that accounting rule.
 
 ## 11.8 Complexity and the Growth of Interiors
 
-For an eternal black hole in AdS/CFT, the boundary state is thermal and time-independent. But the bulk geometry is not static-the wormhole interior keeps growing.
-
-What dual quantity is growing?
-
-Leonard Susskind proposed: **computational complexity**.
-
-Entropy measures how many states are consistent with observations. Complexity measures how hard it is to prepare a state-how many quantum gates you need.
-
-Complexity keeps growing long after entropy saturates. This gives the interior-growth story a computational reading: the hidden work of preparing the state can keep increasing even when coarse entropy has stopped changing.
+For an eternal black hole in AdS/CFT, the boundary state is thermal and
+time-independent, yet the bulk geometry keeps changing as the wormhole
+interior grows. What dual quantity is growing? Leonard Susskind proposed
+computational complexity, the number of quantum gates needed to prepare the
+state. Complexity keeps growing long after entropy saturates. In record
+terms, the hidden work of preparing a state can keep accumulating even when
+its coarse ledger has stopped changing, which is what the cost of
+record-making looks like from the inside.
 
 ## 11.9 Special Relativity from Modular Structure
 
-The Bisognano-Wichmann theorem contains a stunning implication: Lorentz symmetry-the foundation of special relativity-can be tied to the modular structure of the vacuum.
+The Bisognano-Wichmann theorem contains a stunning implication: Lorentz
+symmetry, the foundation of special relativity, can be tied to the modular
+structure of the vacuum.
 
-### The Unruh Effect: Where It Begins
+Section 11.3 laid out the wedge result. The natural modular evolution of the
+vacuum restricted to a Rindler wedge is exactly a Lorentz transformation. The
+wedge example shows an exact meeting point between modular flow and a
+familiar geometric transformation from relativity. In ordinary quantum field
+theory the Bisognano-Wichmann theorem is proved inside a relativistic theory,
+so it cannot be used as a circular derivation of relativity. OPH instead asks a
+finite cap state, produced without the target geometry, to pass the analogous
+modular and normalization tests. Ordinary local clocks then require calibrated
+transports across overlapping observer regions.
 
-In 1976, William Unruh discovered that an accelerating observer sees the vacuum differently. An observer accelerating through empty space sees thermal radiation-a bath of particles at temperature:
-
-$$T_U = \frac{\hbar a}{2\pi c k_B}$$
-
-where a is the acceleration. An inertial observer sees vacuum. An accelerating observer sees heat.
-
-This is an exact result of quantum field theory. The vacuum looks different depending on your state of motion.
-
-Why? Acceleration creates a **Rindler horizon**-a boundary beyond which signals can never reach the accelerating observer. This horizon has thermodynamic properties identical to a black hole horizon. The temperature comes from quantum fluctuations near this horizon.
-
-### The Bisognano-Wichmann Theorem
-
-In 1975-1976, Bisognano and Wichmann proved something deeper. Consider the vacuum state of a quantum field theory. Restrict attention to a Rindler wedge-the region accessible to a forever-accelerating observer.
-
-The wedge modular automorphism is geometric. In a cutoff or pedagogical
-type-I representation this is often written as a thermal density matrix:
-
-$$\rho_R = \frac{e^{-2\pi K}}{Z}$$
-
-where K is the Lorentz boost generator. In that representation the modular
-Hamiltonian-which generates "time evolution" within the wedge-is proportional
-to the boost:
-
-$$H_{mod} = 2\pi K$$
-
-In this wedge case, **the modular automorphism group is the Lorentz boost
-flow**.
-
-The wedge example shows how an abstract modular flow becomes a familiar
-geometric transformation from relativity. Ordinary local clocks arise by
-synchronizing this algebraic ordering across overlapping observer regions; the
-theorem supplies the bridge between operator algebra and spacetime motion.
-
-$$\Delta^{it} = e^{-2\pi i K t}$$
-
-The natural modular evolution of the wedge state is exactly a Lorentz
-transformation.
-
-That means the same structure that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together. Thermal language and relativistic geometry are two descriptions of one modular fact.
-
-One structure is doing two jobs at once. Read algebraically, it is the modular evolution of a restricted state. Read geometrically, it is the boost symmetry of the wedge. The two readings agree because the observer's horizon cuts the vacuum in exactly the right way.
+One structure is doing two jobs at once. Read algebraically, it is the modular evolution of a restricted state; read geometrically, it is the boost symmetry of the wedge. The same fact that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together, because the horizon cuts the vacuum in exactly the right way.
 
 ### Boosts from Thermal Structure
 
 Start with thermal structure. Ask: what is the natural notion of time evolution? In the wedge setting, the answer is Lorentz boosts.
 
-This reverses the usual logic in QFT. We do not postulate Lorentz symmetry and then discover thermal horizons; the Bisognano-Wichmann theorem shows the boost structure is encoded in modular flow.
-
-That modular-boost link recovers Lorentz kinematics and a universal causal
-speed on the screen.
+The ordinary theorem shows that boost structure is encoded in modular flow once
+its relativistic hypotheses hold. The OPH reconstruction reverses that reading
+only on a target-independent cap tower whose support, normalization, and
+wrong-geometry controls pass. On that branch the modular-boost link supplies
+Lorentz kinematics and a universal causal structure on the screen.
 
 ### Connection to OPH
 
 A support cap carries the relevant thermal modular data. Finite screen cells
 regulate that chart, while the finite patch federation remains the carrier.
-The construction extracts the geometric cap pair, transports its modular data,
-and preserves the support behavior and thermal normalization. The cap modular
-automorphism becomes geometric on the sphere, and that geometric action gives
-the Lorentz symmetry.
+When the source independently supplies the cap state and passes the full
+comparison tests, the construction extracts the geometric cap pair, transports its
+modular data, and preserves the support behavior and thermal normalization.
+The cap modular automorphism then becomes geometric on the sphere, and that
+geometric action gives the Lorentz symmetry.
 
 ### The Speed of Light
 
@@ -379,70 +376,65 @@ outside the light cone.
 
 ### The Causal Structure
 
-The light-cone structure of spacetime, the question of which events can
-influence which, emerges from entanglement. Spacelike-separated regions can be
-correlated without signaling. Timelike-separated events can have causal
-influence. Null separation marks the dividing line between those two regimes.
+The light-cone structure of spacetime answers which events can influence which.
+In established relativistic theory, spacelike-separated regions can be
+correlated without signaling, timelike-separated events can have causal
+influence, and null separation marks the boundary. OPH has to reconstruct that
+cone rather than borrow it.
 
-The modular flow provides the time direction. Entanglement provides
-correlations. No-signaling prevents faster-than-light communication. Together
-they reproduce Minkowski causal structure.
+On the certified geometric branch, the matched modular flow supplies an
+oriented cap motion. Entanglement supplies correlations, and no-signaling
+forbids faster-than-light communication. With the separate event and cone
+construction, these ingredients support Minkowski causal structure.
 
 ### Why This Matters
 
 Einstein discovered special relativity in 1905 by thinking about light and
 motion. QFT gives the same structure another reading: Lorentz boosts are tied
-to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the
-Lorentz group appears as the geometry of modular automorphisms on extracted
-caps.
+to horizon thermodynamics via the Bisognano-Wichmann theorem. On the certified
+OPH cap branch, the Lorentz group appears as the geometry of matched modular
+automorphisms on the refined sphere.
 
-The laws of physics look the same to all inertial observers because thermal
-states on wedge-shaped regions naturally evolve via boosts. Carrying that
-modular-boost structure over to the screen and reading it back into bulk
-kinematics gives the universal speed.
+Inside established quantum field theory, the restricted vacuum on a wedge has
+the boost flow required by relativity. On a target-independent OPH cap tower,
+matching that modular-boost structure and reconstructing the event cone support
+one universal causal speed.
 
-## 11.10 What Time Predicts
-
-The thermal-time picture is anchored in physics. Tomita-Takesaki says an
-algebra-state pair carries its own flow. The KMS condition gives that flow the
-structure of thermal equilibrium. Bisognano-Wichmann turns modular time into a
-Lorentz boost, and the corresponding cap flow gives the screen its geometric
-Lorentz action. Boltzmann explains why irreversible records emerge out of
-reversible microscopic laws.
-
-The physical world fits this picture with surprising loyalty. Accelerating
-observers inherit Unruh temperature from the same horizon logic that produces
-Hawking radiation. Jacobson's thermodynamic route points toward Einstein's
-equation. The microscopic laws are largely time-symmetric, while the arrow of
-time rides on a low-entropy record boundary and the thermodynamics of record
-making.
-
----
-
-## 11.11 Memory and Records
+## 11.10 Memory and Records
 
 Why do we remember the past but not the future?
 
-A **memory** is a physical record-a low-entropy structure correlated with a past event. Creating a record requires work-you must push entropy somewhere else.
+A **memory** is a physical record, a low-entropy structure correlated with a past event. Creating a record requires work and pushes entropy somewhere else.
 
 When you remember something, you're consulting a present record created at the cost of increasing entropy elsewhere. The record only makes sense if entropy was lower when the recorded event happened.
 
 The arrow of time is the arrow of record-keeping. Time flows in the direction we can make and preserve consistent records.
 
-## 11.12 Reverse Engineering Summary
+A record, once made, is a thing in its own right. It can outlast everything
+about the moment that wrote it.
+
+## 11.11 Reverse Engineering Summary
 
 Time need not be laid down as a primitive external river. General relativity
 removes any preferred slicing. Quantum gravity sharpens that loss.
-OPH reads time from the inside, through the modular flow attached to a
-restricted state. The arrow points in the direction records can be made and
-kept. Boltzmann explains why entropy rises. Jaynes explains why ignorance has
-structure. Tomita-Takesaki supplies the clock. Bisognano-Wichmann ties that
-clock to relativity. Jacobson turns the same thermodynamic language into
-gravity.
+OPH builds time from the inside. Tomita-Takesaki supplies an intrinsic flow,
+and the KMS condition, the algebraic signature of thermal equilibrium, gives
+that flow a temperature. The clock construction turns the flow into physical
+time. The arrow points in the direction records can be made and kept.
+Boltzmann explains why entropy rises. Jaynes explains why ignorance has
+structure. Bisognano-Wichmann supplies the model for matching modular flow to
+Lorentz motion, and Jacobson connects the same thermodynamic language to
+gravity under its stated premises. The physical world fits this picture with
+surprising loyalty: accelerating observers inherit Unruh temperature from the
+same horizon logic that produces Hawking radiation.
 
 ---
 
-We have located a source of time without putting time in by hand. Incomplete knowledge, restricted access, and record-building are enough to generate clocks and an arrow.
+We have located an internal ordering without putting an external time parameter
+in by hand. Restricted access and record-building can orient that ordering and
+support an arrow. They are not enough to generate a physical clock: the
+observer-readable transition, event correspondence, and calibration are work
+in progress.
 
 The harder question concerns translation. Different observers inherit different local clocks, different horizons, and different cuts through the state. Why do the conversion rules between their descriptions lock into the rigid form of symmetry and conservation law, with no case-by-case negotiation?
 

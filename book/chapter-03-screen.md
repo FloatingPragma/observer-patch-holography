@@ -4,7 +4,7 @@
 
 The ordinary intuition says more space should hold more data.
 
-A bigger hard drive stores more files. A bigger warehouse holds more boxes. A bigger brain should hold more memories. The amount of stuff you can fit into a container should scale with its volume.
+A bigger hard drive stores more files, a bigger warehouse holds more boxes, and a bigger brain, presumably, holds more memories. The amount of stuff you can fit into a container should scale with its volume.
 
 This is the **intuitive picture**: information content scales with volume.
 
@@ -26,16 +26,17 @@ black holes.
 
 ## 3.2 The Teacup Problem: The Hint
 
-In 1972, a graduate student named Jacob Bekenstein walked into John Wheeler's office at Princeton with a simple thought experiment.
+In 1972, John Wheeler put a simple thought experiment to his Princeton graduate student Jacob Bekenstein.
 
 Imagine a cup of hot tea. The tea has entropy: it is hot and messy, with many
 microscopic arrangements of molecules that produce the same macroscopic state.
 
-Lower the cup into a black hole.
+Lower the cup into a black hole. This is, among other things, a terrible
+thing to do to a cup of tea.
 
 The tea crosses the event horizon and vanishes. No one outside can ever see it again. If the tea is gone, so is its entropy. The total entropy of the observable universe has decreased.
 
-But wait. The Second Law of Thermodynamics says total entropy never decreases. The Second Law is the rule that makes time flow in a direction. It tells you why broken glasses don't unbreak, why scrambled eggs don't unscramble, why we remember the past but not the future.
+But wait. The Second Law of Thermodynamics says total entropy never decreases. The Second Law is the rule that gives time its direction.
 
 If a black hole can erase entropy, the Second Law is wrong.
 
@@ -78,6 +79,12 @@ Hawking calculated the temperature:
 
 $$T_H = \frac{\hbar c^3}{8\pi G M k_B}$$
 
+In Hawking's temperature formula, $T_H$ is the black-hole temperature, $M$ is
+the black-hole mass, $G$ is Newton's gravitational constant, $c$ is the speed
+of light, $\hbar$ is Planck's constant divided by $2\pi$, and $k_B$ is
+Boltzmann's constant. Larger black holes are colder because $M$ sits in the
+denominator.
+
 Once a black hole has temperature, it must have entropy. From thermodynamics, Hawking derived:
 
 $$S_{BH} = \frac{A}{4 \ell_P^2}$$
@@ -85,12 +92,6 @@ $$S_{BH} = \frac{A}{4 \ell_P^2}$$
 where $\ell_P = \sqrt{\hbar G/c^3} \approx 1.6 \times 10^{-35}$ m is the Planck length.
 
 The entropy of a black hole is proportional to its surface area, measured in Planck units.
-
-In Hawking's temperature formula, $T_H$ is the black-hole temperature, $M$ is
-the black-hole mass, $G$ is Newton's gravitational constant, $c$ is the speed
-of light, $\hbar$ is Planck's constant divided by $2\pi$, and $k_B$ is
-Boltzmann's constant. Larger black holes are colder because $M$ sits in the
-denominator.
 
 ### The Surprising Conclusion
 
@@ -110,15 +111,19 @@ For black holes, the entropy is set by horizon area:
 
 $$S_{BH} = \frac{A}{4 \ell_P^2}.$$
 
-That is the surprise. The natural counting measure for the most extreme gravitating objects is area, not volume. Once that is true, any observer-centered account of accessible information has to take boundaries seriously.
+The surprise is that area supplies the natural counting measure for the most
+extreme gravitating objects. Any observer-centered account of accessible
+information must therefore take boundaries seriously.
 
 Bekenstein sharpened the point further. Pack enough energy into a region and the region becomes a black hole. The black hole then supplies the maximum entropy compatible with that size. Area becomes the natural ceiling for accessible information in gravitational settings.
 
 ## 3.4 From Area Scaling to Holography
 
-This is the jump from thermodynamics to geometry.
-
-If the largest possible entropy in a region is controlled by its boundary, a boundary-first description stops looking like a metaphor. It becomes the natural bookkeeping choice. The bulk may be the world we experience, but the independent data is organized more economically on the boundary.
+The jump from thermodynamics to geometry begins when the largest possible
+entropy in a region is controlled by its boundary. A boundary-first description
+then becomes the natural bookkeeping choice. The bulk may be the world we
+experience, while the independent data is organized more economically on the
+boundary.
 
 This is the holographic idea in its simplest form. A two-dimensional surface can encode a three-dimensional description, just as a hologram stores depth information on a film.
 
@@ -180,15 +185,18 @@ This is a deep shift in perspective. Space is not a fixed container. Each observ
 
 ## 3.6 Why a Sphere?
 
-In the symmetric cases motivating this construction, the screen is naturally modeled as (approximately) spherical. This choice follows from causal light-cone geometry in those cases.
+The order matters here. OPH is not allowed to assume a light cone and then
+discover a sphere; that would smuggle in the answer. Instead the framework
+asks the patches themselves to certify their own geometry: do the repaired
+pieces knit into one closed surface with no holes and no twists in its
+stitching? When they do, the surface is a sphere and the sphere is round.
+Without that certificate, repair consensus alone can just as well settle on a
+torus or another support. Whether the twelve-port machinery delivers the
+certificate is work in progress.
 
-Light travels at the same speed in all directions. If you stand at a point and wait, the light that can reach you from a time $t$ ago forms a sphere of radius $ct$ around you.
-
-Your past light cone, the set of events that could have influenced you, has
-spherical cross-sections. Your future light cone also has spherical
-cross-sections.
-
-In those symmetric light-cone constructions, the sphere is a consequence of the geometry of causality.
+Only after the sphere has been certified does its symmetry group hand back
+Lorentz kinematics. Light cones come out of that construction; they do not go
+into it.
 
 ### The Cosmic Microwave Background
 
@@ -204,7 +212,8 @@ The CMB sphere is a useful cosmological proxy for thinking about an observer-cen
 
 ## 3.7 The Geometry of the 2-Sphere
 
-The mathematical object describing the screen is the 2-sphere, $S^2$.
+On the certified global-support branch, the mathematical object describing the
+support screen is the 2-sphere, $S^2$.
 
 $$S^2 = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = 1\}$$
 
@@ -217,12 +226,12 @@ The metric is:
 $$ds^2 = d\theta^2 + \sin^2\theta \, d\phi^2$$
 
 $S^2$ means the two-dimensional surface of a unit sphere, not the solid ball
-inside it. In OPH it is also a chart, not a hardware blueprint. The set
-notation says: take all points $(x,y,z)$ in ordinary three-dimensional real
-space whose distance from the origin is 1. The metric $ds^2$ then tells you how
-to measure tiny distances along that curved surface. The real physical content
-is the patch algebra, the local state, the records, and the overlap data carried
-by that chart.
+inside it. The set notation says: take all points $(x,y,z)$ in ordinary
+three-dimensional real space whose distance from the origin is 1. The metric
+$ds^2$ then tells you how to measure tiny distances along that curved surface.
+The $\sin^2\theta$ factor records a familiar fact about globes: circles of
+latitude shrink toward the poles, so a step in $\phi$ covers less ground the
+closer you stand to either pole.
 
 ### Spherical Harmonics
 
@@ -240,7 +249,8 @@ mode $\ell$:
 
 $$\ell_{max} \sim \frac{R}{\ell_P}$$
 
-The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$-proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
+Here $R$ is the radius of the region under discussion. The total number of
+independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$, proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
 
 Our experience of a continuous world is the large-scale limit of this finite
 screen description.
@@ -250,30 +260,41 @@ screen description.
 Three objects are easy to confuse. The **abstract observer patch** is the
 operational package: what it can read, which state it carries, which records it
 can consult, which boundary data it exposes, and which repairs it can perform.
-The **support patch** is the cap, collar, or other geometric region used to
-display those operations on a sphere. The **carrier patch** is the physical or
+The **support patch** is the cap, collar, or other geometric region that
+displays those operations on a sphere. The **carrier patch** is the physical or
 digital machine that realizes them. The observer is identified with this
-visible operational package. A different hidden circuit, material, or port
-labeling is physically silent when it preserves the same readouts, records,
-repairs, and checkpoint continuation.
+visible operational package. A hidden circuit or material change is physically
+silent only when it preserves the complete exposed structure: port incidence
+and orientation, readouts, records, dynamics, repairs, refinement behavior,
+and checkpoint continuation. Presentation labels can wash out. Architecture
+cannot.
 
-The reference carrier is called **echosahedral**. It has a finite internal
-algebra and state, twelve overlap ports, a readout at each port, an
+The reference carrier is called **echosahedral**, echo crossed with
+icosahedral, a carrier that echoes its reads back through icosahedrally
+arranged ports. It has a finite internal algebra and state, twelve overlap
+ports, a readout at each port, an
 observer-readable central record register, a finite mismatch score, a finite
 menu of update and repair moves, and checkpoint data. In the icosahedral
 screen sieve, the ports sit at the vertices of a regular icosahedron and
 opposite ports form six axes. The twenty
 triangular faces and thirty edges organize incidence, edge-sector, and collar
 bookkeeping. Recurrent loops inside a patch or a small group of ports can
-supply local memory and winding-sensitive behavior. They are local subchannels,
-not a claim that the whole universe is a torus.
+supply local memory and winding-sensitive behavior. With physical phase data
+and a coupling law, they can also expose phase-lock-sensitive observables.
+They are local subchannels, not a claim that the whole universe is a torus or
+that every federation has proved phase locking.
 
-The choice of twelve follows in two steps. For a triangular cellulation of a
-sphere, Euler's relation fixes the total coordination defect to twelve. The
-screen's strict spreading cost resolves that total into twelve equal unit
-defects, and its isotropic tomography rule places the resulting six antipodal
-axes in the unique regular icosahedral arrangement. Its proper rotation group
-is the sixty-element group $A_5$.
+There is a precise sense in which this arrangement, twelve ports at the
+corners of an icosahedron with each paired against the one directly opposite,
+is the cheapest one the bookkeeping allows, and the symmetry group of the
+arrangement falls out for free. The details live in the technical papers. The
+arrangement theorem does not by itself supply physical currents; attaching
+those currents to the ports is work in progress.
+
+The body is also not an observer by geometry alone. It becomes an elementary
+observer only when its readback, records, feedback, predictions, and checkpoint
+continuation pass the operational tests. A connected subfederation can satisfy
+the same contract and function as a larger observer.
 
 At one interface, the machine performs a short cycle:
 
@@ -292,12 +313,14 @@ checkpoint and read again
 ```
 
 A federation routes many such ports into shared interfaces. Accepted repairs
-lower a declared mismatch score, and compatible repair orders reach the same
-public normal form.
-Nested icosahedral subdivisions provide one convenient finite regulator for the
-spherical chart. This does not say that smooth spacetime is a pile of tiny
-icosahedra. The polyhedral carrier sits at finite cutoff. The smooth sphere is
-the observer-facing limit of its repaired quotient data.
+lower a declared mismatch score. Different compatible repair orders reach the
+same public normal form only when the protected dependencies are complete,
+conflicting updates have one coherent combined payload, the local-diamond test
+passes, and the repair menu is complete.
+Nested icosahedral subdivisions provide one convenient finite regulator for
+the spherical support chart. They are not the twelve-port carrier federation,
+and the map connecting repaired carrier data to the certified smooth sphere is
+work in progress.
 
 ## 3.8 Patches and Overlaps
 
@@ -320,7 +343,7 @@ those descriptions that agrees on $P_i \cap P_j$.
 
 ### A Concrete Example
 
-Consider two astronomers on opposite sides of Earth. During the night, they see different parts of the sky. But some stars are visible to both-stars near the horizon for each observer.
+Consider two astronomers on opposite sides of Earth. During the night, they see different parts of the sky. But some stars are visible to both, the ones near the horizon for each observer.
 
 These shared stars provide a link. The astronomers can calibrate by comparing their observations of the overlap region. Once they agree on the overlap, they can combine their observations into a consistent map of the whole sky.
 
@@ -340,11 +363,11 @@ Physics is the art of finding descriptions that work in many charts and have con
 
 ## 3.9 What Is an Observer?
 
-We've talked about "observers" and their "patches." But what exactly IS an observer in this model?
+We've talked about "observers" and their "patches." But what exactly *is* an observer in this model?
 
 ### Not External Watchers
 
-In classical physics, observers are implicitly outside the system-disembodied measurers who don't affect what they measure. This won't work here. Observers must be part of the system they observe.
+In classical physics, observers are implicitly outside the system: disembodied measurers who don't affect what they measure. This won't work here. Observers must be part of the system they observe.
 
 ### Observers as Patterns in the Data
 
@@ -378,12 +401,14 @@ Not in a simple sense. The support region can change from one record slice to
 the next. Records, external interfaces, and checkpoint continuation carry the
 operational identity while the spherical chart displays that change as motion.
 
-What creates the sense of time? The internal structure of the quantum state provides a natural flow: the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution, and the thermal time principle provides an important interpretive-organizational guide.
+What creates the sense of time? The internal structure of a quantum state
+provides a natural algebraic ordering through **modular flow**. On the certified
+geometric branch, an independent clock instrument calibrates that ordering as
+physical duration. The thermal time principle supplies the guide; the state by
+itself does not supply a wristwatch.
 
-Here, "flow" only means an internal rule for ordering changes. Think of it
-as the clock a subsystem inherits from its own state, not a clock imposed from
-outside. Chapter 11 returns to this slowly and gives the physics behind the
-phrase.
+Chapter 11 explains the extra geometry, event correspondence, and calibration
+needed before that parameter becomes the clock read by an observer.
 
 ### Why This Matters
 
@@ -393,10 +418,10 @@ This definition of observers resolves several puzzles:
 
 **Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data and stable records are created. That record formation captures the main physical content behind textbook collapse language.
 
-**Consistency follows from structure**: Two observers may be restrictions of
+**Consistency can follow from a verified structure**: Two observers may be restrictions of
 one underlying state or begin from independently presented local data. In both
-cases, translation, comparison, and repair make their shared descriptions agree
-on overlaps.
+cases, translation, comparison, and certified repair can make their shared
+descriptions agree on overlaps.
 
 ### Reality from Computation
 
@@ -404,9 +429,7 @@ A concrete screen picture looks like this.
 
 Represent the screen chart by a **gauge-invariant quantum system** on the
 2-sphere, something like a quantum cellular automaton with additional
-structure. This is a regulator picture for the observer-facing data, not a
-claim that the world is built as one smooth spherical shell. Triangulate the
-chart into tiny cells. At each edge of the triangulation sits a
+structure. Triangulate the chart into tiny cells. At each edge of the triangulation sits a
 finite-dimensional quantum system (a qudit). At each vertex, a gauge constraint
 (Gauss's law) restricts which configurations are physical. Not all states
 survive; only those satisfying the constraint at every vertex.
@@ -427,20 +450,25 @@ commute with the boundary gauge transformations.
 **Overlap consistency** becomes a physical interface test. Two patches expose
 their gauge-invariant boundary packets, translate them into a common frame, and
 compare the shared observables. A mismatch triggers one of the allowed local
-repair moves and writes the accepted result to the record layer. A model in
-which both patches are restrictions of one global state is one easy special
-case. The general architecture earns a public state by making independently
-presented local data agree. Gauge
-redundancy at the boundary makes that gluing non-trivial and gives rise to the
+repair moves and writes the accepted result to the record layer. Gauge
+redundancy at the boundary makes the gluing non-trivial and gives rise to the
 edge modes that carry geometric information.
 
 **State selection and repair play different roles.** Maximum entropy selects
 the realized state within a declared constraint family. At fixed cutoff this is
 modeled by a Gibbs-like state $\rho \propto e^{-H}$, where $H$ is a sum of local
-terms. The patch update and repair instruments perform the synchronization
-work when exposed records disagree. Refinement keeps both structures aligned.
+terms and $\rho$ is a quantum probability table, unpacked properly next
+chapter. The patch update and repair instruments perform the synchronization
+work when exposed records disagree. Evidence that both layers come from one
+source and remain compatible under refinement is needed to keep state selection
+and repair aligned across scales.
 
-**The 4D bulk isn't on the sphere.** It emerges from the entanglement structure between patches. When you look around and see three-dimensional space, you're experiencing a compressed encoding of how your patch is entangled with others. In the constructions emphasized later, bulk distance is read from boundary entanglement structure.
+**The 4D bulk is not painted on the sphere.** On the successful geometric
+branch, event spacetime is reconstructed from refined overlap records and their
+entanglement structure. When you look around and see three-dimensional space,
+you are seeing the effective geometry encoded by those relations. In the
+constructions emphasized later, bulk distance is read from boundary
+entanglement structure.
 
 *The patch federation does the work. The screen is the chart. Reality is what observer patches agree on.*
 
@@ -450,29 +478,21 @@ settle to a quotient normal form. The spherical screen chart displays that
 settled state as caps, collars, cuts, edge sectors, and boundary records.
 Folding is the screen-facing presentation of repair.
 
-One concrete model is a finite quantum machine. The specialist literature gives
-that family of pictures names such as quantum link models, but the image itself
-has to be handled carefully. The sphere is a working chart for what an
-observer-facing cut exposes. The physical picture is a federation of finite
-patches with shared boundary data.
-
 This chart does real work. Caps and collars on the sphere identify the local
-questions an observer can ask. Overlaps between caps identify the data two
-observers can compare. The conformal symmetries of the same sphere become the
-Lorentz symmetries of the shared spacetime description in the smooth regime.
-The same chart therefore carries Lorentz meaning: sky directions and cap sides
-transform together. A cap has Lorentzian meaning as well as its screen-picture
-meaning.
-The finite patch federation supplies the machine underneath that chart.
+questions an observer can ask, and overlaps between caps identify the data two
+observers can compare. On the certified smooth branch, the conformal
+symmetries of the same sphere become the Lorentz symmetries of the shared
+spacetime description, so sky directions and cap sides transform together. The
+finite patch federation supplies the machine underneath that chart.
 
 ### A Physical or Digital Realization
 
 The carrier can be built from quantum registers, optical channels, software
-state machines, or another bounded substrate. The echosahedral body is the
-reference interface rather than one mandatory material or wiring diagram. A
-realization exposes the same local state, twelve-port readback, records, repair
-behavior, and checkpoint continuation within its operating tolerance. More
-general observer patches can have other bounded interface counts.
+state machines, or another bounded material. Such implementations count as the
+same echosahedral carrier only when they preserve the full exposed structure
+listed earlier, from port incidence to checkpoint continuation, within their
+operating tolerance. More general observer patches can have other bounded interface counts, and
+their downstream symmetry and geometry need not match this branch.
 
 A bench device makes the self-reading loop visible through its wiring,
 calibration, raw readouts, controls, repair log, and repeatable checks. Those
@@ -507,9 +527,9 @@ This ladder is a teaching map, with the full particle taxonomy carried by the
 later chapters. The photon belongs to the unbroken electromagnetic sector, gluons to color gauge
 transport, the graviton to emergent geometry and diffeomorphism structure,
 $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
-composites. The ladder explains how OPH moves from seed, to loop, to screen,
-to bulk. Lorentz symmetry, gauge structure, and the field equations fix the
-particle labels.
+composites. The ladder explains how OPH moves from seed, to loop, to screen, to
+observer-frame geometry. Event spacetime, physical gauge currents, and particle
+fields enter through their separate later constructions.
 
 ## 3.12 The Reverse Engineering
 
@@ -531,36 +551,32 @@ thermodynamic and geometric facts.
 
 The numbers are small enough to state directly.
 
-The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
+The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters, about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The de Sitter horizon**: The OPH scale conversion gives the radius
-$R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is
-$N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding
-Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx
-3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits.
-Other cosmological horizon conventions stay in the band from $10^{122}$ to
-$10^{123}$.
-
-This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
+**The de Sitter horizon**: Add up the capacity of the horizon and you get
+about $10^{122}$ bits, give or take a convention. The number is enormous, and
+it is finite. The observable universe contains a finite amount of information.
+It is a number worth remembering.
 
 **A solar-mass black hole**: Schwarzschild radius $R_s \approx 3$ km. Number of bits: $N \approx 10^{77}$.
 
 This is huge, but much smaller than the observable universe. Yet it's far more than the entropy of the Sun as a normal star (about $10^{58}$). Collapse increases entropy because the horizon has vastly more microstates than ordinary matter.
 
-In the finite-resolution picture used here, continuous space is an effective
-approximation. The microscopic descriptive layer is the observer-visible
-quotient of patch states, interfaces, and records. The spherical screen is the
-chart in which that repaired data is displayed.
+One reminder before leaving the numbers. Continuous space is an effective
+large-scale approximation, and the spherical screen is the chart on which the
+repaired patch data is displayed.
 
 ## 3.14 Where We Go Next
 
-We have established four linked facts. Gravitational entropy bounds and
-holographic arguments push away from naive volume counting and toward
-horizon-sensitive information organization. In the symmetric light-cone
-constructions used here, the effective screens are spherical as a consequence
-of causality. The amount of information is finite and bounded by area.
-Entanglement patterns on the screen create the emergent three-dimensional
-geometry.
+We have assembled four linked statements, each carrying its own load.
+Gravitational
+entropy bounds and holographic arguments push away from naive volume counting
+and toward horizon-sensitive information organization. Separately, the
+declared incidence, mesh, and cross-ratio receipts select a spherical support
+on the certified branch. Lorentzian causal structure comes after that support
+reconstruction, not before it. Area bounds constrain accessible information,
+and entanglement patterns are the candidate data from which the effective
+three-dimensional geometry must be recovered.
 
 This chapter has separated the screen geometry from the synchronization cycle.
 What gives the surviving records a direction? What creates the arrow of time?

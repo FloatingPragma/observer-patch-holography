@@ -9,7 +9,7 @@ The main reading route lives in [`paper/`](../paper/). This directory contains t
 ## Mathematical Foundations
 
 - [Observation-Determined Normal Forms](observable_normal_forms.pdf) ([source](observable_normal_forms.tex), [bibliography](observable_normal_forms.bib)) develops stability, obstructions, and refinement for constraint and rewrite systems.
-- [Machine-Checked Finite Quantum Event Algebras](machine_checked_finite_event_algebras.pdf) ([source](machine_checked_finite_event_algebras.tex), [bibliography](machine_checked_finite_event_algebras.bib)) connects the finite event surface to its Lean artifact.
+- [Finite Quantum Event Algebras](machine_checked_finite_event_algebras.pdf) ([source](machine_checked_finite_event_algebras.tex), [bibliography](machine_checked_finite_event_algebras.bib)) develops the finite event surface.
 - [Explaining the Yang–Mills Mass Gap with Observer-Patch Repair Dynamics](yang_mills_gap_clay_problem.pdf) ([source](yang_mills_gap_clay_problem.tex)) develops the fixed-cutoff gap and continuum-transfer program.
 
 ## Quantitative And Physical Branches

@@ -31,8 +31,7 @@ https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt
 Use these only as local comparison inputs. Re-download and verify before any
 paper-facing or release-facing claim.
 
-## License And Patent Policy
+## License
 
 This data index is part of the OPH public repository. See the main
-[LICENSE](../../../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../../../PATENTS.md).
+[LICENSE](../../../../LICENSE).

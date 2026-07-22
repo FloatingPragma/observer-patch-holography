@@ -24,7 +24,7 @@ diagnostic overlays are read.
 
 **Status:** conditional finite-MaxEnt result plus an open physical source
 problem. Existence and uniqueness of coefficients follow under the stated
-finite-support assumptions. OPH does not yet derive the compact-engine loads,
+finite-support assumptions. OPH does not derive the compact-engine loads,
 feature map, or astrophysical baseline needed to turn that result into a
 source-only physical prediction. The result is not a detected-source claim and
 not a UHE event fit.
@@ -153,12 +153,12 @@ L_{\alpha,r}^{\rm CE}(Q;g)
 \right].
 ```
 
-This is a modeling bridge, not yet an OPH derivation. The normalization
+This is a modeling bridge and carries no OPH derivation status. The normalization
 $N_{\alpha,r}$ must state units and map the load vector to the same
 dimensionless feature-moment coordinates as $F_r$; the resulting
 $c_r(g)$ must lie in $\operatorname{relint}\operatorname{conv}F_r(U_{r,g})$.
 Changing $N$, the gates, or the source-cell definition changes the physical
-hypothesis and requires a new frozen artifact.
+hypothesis and requires a separately frozen artifact.
 
 No simulator output, likelihood value, observed event target, tuned diagnostic,
 or human-selected event pattern may enter this source law or constraint ledger.

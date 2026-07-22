@@ -46,6 +46,8 @@ A Mathematical Model of Neural Consensus Computation}
 \date{}
 \input{../paper/release_info}
 
+% #542 typesetting hardening (layout only, no claim change)
+\usepackage{microtype}
 \begin{document}
 \maketitle
 \begin{center}
@@ -172,8 +174,8 @@ The identity
 \[
 \Delta_P=P-\varphi=\alpha\sqrt{\pi}
 \]
-is definitional: it is the declared detuning law for \(P\) in the strange-loop
-principle set. The theorem-grade statement is that finite self-reading patch
+is definitional: it is the declared detuning law for \(P\) in the OPH closure
+program. The theorem-grade statement is that finite self-reading patch
 federations with accepted mismatch-decreasing repair converge under the OPH
 consensus hypotheses. The model-grade statement is that the brain is a nested
 biological approximation to that machine. The empirical-grade conjecture is
@@ -773,7 +775,7 @@ Parameter count measures storage scale. Competence measures repair. A huge syste
 +
 \text{speed}
 +
-\text{robustness}
+\text{stability}
 +
 \text{transfer}
 +
@@ -884,7 +886,7 @@ e^{-\lambda_E E_D(u)}
 \right].
 }
 \]
-Here \(\tau_D(u)\) is convergence time, \(E_D(u)\) is metabolic or attentional cost, and \(\rho_D(u)\) is robustness under perturbation, sleep loss, noise, stress, novelty, or distraction. Competence means reaching good fixed points quickly, cheaply, robustly, and repeatedly.
+Here \(\tau_D(u)\) is convergence time, \(E_D(u)\) is metabolic or attentional cost, and \(\rho_D(u)\) is stability under perturbation, sleep loss, noise, stress, novelty, or distraction. Competence means reaching good fixed points quickly, cheaply, robustly, and repeatedly.
 
 \subsection{Basin Coverage}
 
@@ -1115,7 +1117,7 @@ The answer in one line is:
 \end{gathered}
 }
 \]
-The formal reason is dependency order. OPH starts with patch, boundary, local algebra, record, readout, overlap, and repair. The public world is reconstructed from successful overlap repair among such records. A self-reading observer therefore sits at the primitive level used to assemble the public world.
+The formal reason is dependency order. OPH starts with patch, boundary, local algebra, record, readout, overlap, and repair. The public world is reconstructed from successful overlap repair among such records. A self-reading observer therefore sits at the primitive level from which the public world is assembled.
 
 For a bounded patch \(O\), write the record-conditioned self-update as
 \[
@@ -1476,7 +1478,7 @@ and the distinction conditions self-update:
 
 This is the OPH identification that replaces the standard production problem with a self-read identity claim.
 
-The SEP neuroscience entry frames the scientific challenge as connecting brain activity to conscious experience while respecting that consciousness is essentially subjective and often tracked through introspective report~\cite{SEPNeuroscienceConsciousness}. OPH uses an identity claim:
+The SEP neuroscience entry frames the scientific challenge as connecting brain activity to conscious experience while respecting that consciousness is intrinsically subjective and often tracked through introspective report~\cite{SEPNeuroscienceConsciousness}. OPH uses an identity claim:
 \[
 \boxed{
 q\text{ feels like something to }O
@@ -2292,13 +2294,9 @@ The minimal paper-level interface is therefore
 \]
 The reference firmware caps the LED count at \(12\), maps one PIO state machine per LED when the board has enough PIO capacity, clamps drive time by a duty-cycle budget, and reserves a tail-of-flash region for host-owned records. On small Pico-class boards the reference region is \(64\) sectors of \(4\,\mathrm{KiB}\), i.e. \(256\,\mathrm{KiB}\); larger boards can reserve more when the firmware slot and blob region are kept disjoint. This flash-boundary rule is the firmware analogue of OPH's boundary discipline: the substrate exposes records while record writes leave the substrate intact.
 
-The detailed build files live in \texttt{karma-is-all-you-need/}:
-\begin{flushleft}
-\texttt{papers/hardware.html} for the narrative hardware spec;\\
-\texttt{hardware/README.md} for print guidance;\\
-\texttt{optical-compute/firmware/waveio\_core/} for WaveIO Core sources;\\
-\texttt{firmware/waveio\_core/README.md} for built UF2 release notes.
-\end{flushleft}
+The accompanying build documentation covers the narrative hardware
+specification, print guidance, the WaveIO Core firmware sources, and the built
+firmware release notes.
 
 \subsection{The Coupling Scan}
 

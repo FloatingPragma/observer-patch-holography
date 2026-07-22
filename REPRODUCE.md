@@ -65,15 +65,29 @@ The compact exact evidence route is:
 ```bash
 python3 -m pytest -q \
   code/a5_closure/test_audit.py \
+  code/particles/calibration/test_wz_experimental_convention.py \
+  code/particles/calibration/test_wz_survival_boundaries.py \
   code/capacity_readback/test_correctable_public_record_capacity.py \
   code/capacity_readback/test_reversible_public_checkpoint_packet.py \
   code/consensus/test_reference_architecture_benchmark_suite.py \
   code/consensus/test_verified_tree_packet_net.py
 ```
 
-These checks cover the twelve-port algebra audit, exact public-record capacity,
-the reversible reference packet, and the finite consensus packets. They do not
-claim the missing physical $N$ packet or the continuum Einstein tower.
+Run the independent strict-one-loop W/Z receipt package separately:
+
+```bash
+python3 code/particles/calibration/strict_one_loop_pole_map/run_all.py
+```
+
+This regenerates the conditional fixture receipt, runs the adversarial suite,
+validates both JSON Schemas, checks the receipt without importing the producer,
+and verifies the package manifest.
+
+These checks cover the twelve-port algebra audit, exact physical-boundary
+controls for the A5/SM and W/Z lanes, exact public-record capacity, the
+reversible reference packet, and the finite consensus packets. They do not
+claim a physical three-family attachment, an OPH-native W/Z pole, the missing
+physical $N$ packet, or the continuum Einstein tower.
 
 ## Paper Build
 

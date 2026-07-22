@@ -1,0 +1,77 @@
+{
+  "claim_class": "CONDITIONAL_POST_EXPOSURE_DIAGNOSTIC",
+  "contribution_mask": {
+    "backend_mask": "SMDR_v1.3_order_1",
+    "coupling_monomials": "opaque_backend_mask_not_independently_recomputed",
+    "forbidden_in_strict_1L_root": [
+      "Delta_ZA_1L*Delta_AZ_1L/s",
+      "pole-iteration derivative terms",
+      "order_1.5_QCD",
+      "order_2",
+      "order_2.5"
+    ],
+    "loop_factor_convention": "included in each Delta coefficient",
+    "maximum_loop_power": 1,
+    "one_loop_complete_for_declared_backend": true
+  },
+  "evidence_gates": {
+    "complete_FJ_tadpole_conversion_checked": false,
+    "finite_order_BRST_ST_Ward_Nielsen_receipt": false,
+    "independent_self_energy_engine": false,
+    "no_target_ancestry": false,
+    "physical_clock_closed": false,
+    "renormalized_FJ_vev_selected": false,
+    "source_law_or_deterministic_exactness_receipt": false,
+    "target_clean_source_matching": false
+  },
+  "inverse_propagator_convention": "Gamma=s-m2-Delta; s_pole=m2+Delta_at_tree",
+  "loop_factor_included_in_delta": true,
+  "perturbative_order": "strict_one_loop",
+  "receipt_id": "conditional-smdr-v1.3-order1-archived-zero-selector-Q160",
+  "renormalized_one_loop_self_energy": {
+    "Delta_AA_at_z_GeV2": null,
+    "Delta_AZ_at_z_GeV2": null,
+    "Delta_WW_at_w_GeV2": [
+      64.72322786968198,
+      -160.5327527730451
+    ],
+    "Delta_ZA_at_z_GeV2": null,
+    "Delta_ZZ_at_z_GeV2": [
+      -33.37572257933425,
+      -218.29276180643907
+    ],
+    "independent_of_primary_backend": false,
+    "note": "The fixture permits an exact regression test of the pole-map algebra. It is not an independent self-energy calculation and lacks the complete neutral matrix.",
+    "producer": "difference between SMDR v1.3 order-1 and order-0 complex energy poles at Q=160 GeV"
+  },
+  "renormalized_parameters": {
+    "Q_GeV": 160.0,
+    "g": 0.6485582500629765,
+    "g3": 1.175588085188019,
+    "gp": 0.34987154016670396,
+    "lambda": 0.1287588577994706,
+    "scheme": "SMDR_v1.3_tadpole_free_pure_MSbar_with_Landau_effective_potential_vev",
+    "v_F_GeV": 246.60695217805235,
+    "v_F_field_semantics": "placeholder_name_only; actual fixture value is the SMDR Landau effective-potential vev, not an FJ-selected OPH vev",
+    "yt": 0.9319797600497048
+  },
+  "schema": "physical_wz_strict_1l_input_fixture_v1",
+  "source": {
+    "target_ancestry_result": "FAIL: D11 lambda/yt values are target-ancestral and the physical GeV clock is open",
+    "upstream_archive": "physical_wz_promotion_pro_handover_2026-07-20.zip",
+    "upstream_file": "survival-proof-3/outputs/scale_order_grid_archived_zero_selector.json",
+    "upstream_file_sha256": "fe472c145df94f80b0e9c61fb9c9b9e9a2c36b060742df4c133f5497ec7ad54e",
+    "upstream_row": "evaluation_Q_GeV=160, orders 0 and 1"
+  },
+  "source_covariance": {
+    "C_z": null,
+    "reason": "D10/D11 source exactness and target-free uniqueness are not established; intervals are not converted into a probability law.",
+    "status": "not_licensed"
+  },
+  "tolerances": {
+    "absolute_GeV": 5e-12,
+    "absolute_GeV2": 5e-10,
+    "basis": "The checker recomputes only elementary double-precision algebra; these bounds are far looser than roundoff and far tighter than any physics uncertainty.",
+    "relative": 5e-14
+  }
+}

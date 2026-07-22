@@ -46,9 +46,8 @@ P_{\mathrm{fwd}}
 \]
 It is interval-certified unique on its interval and, by the domain-global certificate, the only fixed point of its
 readout map on the declared physical domain \(\alpha^{-1}\in[100,200]\)
-(the interval contraction certificate of 2026-07-14,
-\texttt{p\_global\_uniqueness\_certificate\_2026-07-14.json};
-closure row certified source-root row, closed).
+(the interval contraction certificate of 2026-07-14, whose closure row is a
+certified source-root row).
 The finite heat-kernel cutoffs are
 \[
 N_2=128,\qquad N_3=64.
@@ -67,14 +66,16 @@ recovered OPH core.
 \begin{definition}[No-hidden-free-variable rule for \(\mathcal R_U\)]
 The following objects must be fixed before comparison with electroweak or gravity data:
 \[
+\begin{gathered}
 (b_1,b_2,b_3),\quad
 N_2,\quad
 N_3,\quad
 M_U(P),\quad
-E_{\mathrm{cell}}(P),\quad
+E_{\mathrm{cell}}(P),\\
 \beta_{\mathrm{EW}},\quad
 \hbox{Casimir normalization},\quad
 \hbox{matching scheme}.
+\end{gathered}
 \]
 Changing any of them after comparison with \(M_W\), \(M_Z\), \(\alpha_s(M_Z)\), low-energy
 electroweak couplings, or \(G_{\mathrm{exp}}\) demotes the row to calibration.
@@ -428,25 +429,25 @@ and tie-breaking.
 \(\eta_{sr}\), and a contracted-graph isomorphism check. The coarse gap must satisfy
 \(\Delta_r>2\eta_{sr}\).
 \item \textbf{Interaction firewall.} A free-propagation slab is required. If an interaction marker
-is present, the terminal label is \(\mathrm{H3\_INTERACTION\_REQUIRED}\) and the event is handed
+is present, the terminal label is \(\text{H3 interaction required}\) and the event is handed
 to the interaction solver.
 \end{enumerate}
 
 The allowed terminal statuses are
 \[
 \begin{gathered}
-\mathrm{H3\_STITCH\_CERTIFIED},\quad
-\mathrm{H3\_STITCH\_AMBIGUOUS},\quad
-\mathrm{H3\_STITCH\_REJECTED},\\
-\mathrm{H3\_INTERACTION\_REQUIRED},\quad
-\mathrm{H3\_ATLAS\_INVALID},\quad
-\mathrm{H3\_CERTIFICATE\_INCOMPLETE}.
+\text{H3 stitch certified},\quad
+\text{H3 stitch ambiguous},\quad
+\text{H3 stitch rejected},\\
+\text{H3 interaction required},\quad
+\text{H3 atlas invalid},\quad
+\text{H3 certificate incomplete}.
 \end{gathered}
 \]
-\(\mathrm{H3\_STITCH\_CERTIFIED}\) is emitted only when every block above passes and the robust
+\(\text{H3 stitch certified}\) is emitted only when every block above passes and the stable
 assignment gap is positive. Equal-cost matchings, preserved nontrivial permutations of the visible
-data, or coarse/fine gaps below margin force \(\mathrm{H3\_STITCH\_AMBIGUOUS}\). Missing fields
-force \(\mathrm{H3\_CERTIFICATE\_INCOMPLETE}\). Failed atlas, interface, metric, or transport gates
+data, or coarse/fine gaps below margin force \(\text{H3 stitch ambiguous}\). Missing fields
+force \(\text{H3 certificate incomplete}\). Failed atlas, interface, metric, or transport gates
 force rejection or atlas invalidity. In particular, Euclidean distances on
 \(\texttt{h3SpatialPoint}\) coordinates are not certificate distances; the certificate distance is
 the hyperboloid geodesic \(d_H\) from Section~\ref{sec:h3-record-worldlines}.

@@ -16,7 +16,7 @@ The technical term for this intuition is **local realism**. "Local" means that
 nothing influences distant events faster than light. "Realism" means that
 properties exist independently of observation.
 
-Local realism is so natural that questioning it seems absurd. Of course the moon exists when nobody's looking. Of course a particle has a definite spin before you measure it. Of course distant correlations require either a shared cause or a connecting signal.
+Local realism is so natural that questioning it seems absurd. Of course the moon exists when nobody's looking. A particle surely has a definite spin before anyone measures it, and distant correlations need either a shared cause or a connecting signal.
 
 Bell's theorem broke that picture.
 
@@ -26,15 +26,15 @@ Bell's theorem broke that picture.
 
 To understand why quantum consistency is hard, we need to visit 1935.
 
-Albert Einstein was sixty-two years old and deeply troubled. He had helped create quantum mechanics-his 1905 paper on the photoelectric effect was one of the founding documents-but he never accepted its implications. "God does not play dice," he famously declared.
+Albert Einstein was fifty-six years old and deeply troubled. He had helped create quantum mechanics (his 1905 paper on the photoelectric effect was one of the founding documents), but he never accepted its implications. "God does not play dice," he famously declared.
 
-In May 1935, Einstein, Boris Podolsky, and Nathan Rosen published what became known as the EPR paper. Its title was dry: "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?" Its content was explosive.
+In May 1935, Einstein, Boris Podolsky, and Nathan Rosen published what became known as the EPR paper. Its title was dry: "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?" The New York Times was less restrained, announcing the work under the headline "Einstein Attacks Quantum Theory."
 
-EPR constructed a thought experiment. Take two particles created together and let them fly apart. Quantum mechanics says they can be *entangled*-correlated in a way that has no classical analog. Measure a property of one particle, and you instantly know the corresponding property of the other, even if they're light-years apart.
+EPR constructed a thought experiment. Take two particles created together and let them fly apart. Quantum mechanics says they can be *entangled*, with correlations that have no classical analog. Measure a property of one particle, and you instantly know the corresponding property of the other, even if they're light-years apart.
 
-The puzzle is sharp. According to quantum mechanics, the particles don't have definite values until measured. But if I measure particle A and find it has spin-up, I instantly know particle B has spin-down-without ever touching particle B. Did my measurement somehow affect particle B instantaneously? Einstein called this "spooky action at a distance" and found it absurd.
+The puzzle is sharp. According to quantum mechanics, the particles don't have definite values until measured. But if I measure particle A and find it has spin-up, I instantly know particle B has spin-down, without ever touching particle B. Did my measurement somehow affect particle B instantaneously? Einstein called this "spooky action at a distance" and found it absurd.
 
-EPR concluded that quantum mechanics must be incomplete. The particles must have had definite values all along-values we just didn't know. There must be "hidden variables" underneath the quantum description.
+EPR concluded that quantum mechanics must be incomplete. The particles must have had definite values all along, values we just didn't know. There must be "hidden variables" underneath the quantum description.
 
 Most physicists shrugged and went back to calculating. Niels Bohr wrote an impenetrable response. The debate seemed philosophical, not scientific.
 
@@ -42,9 +42,11 @@ For nearly thirty years, everyone assumed it couldn't be settled by experiment. 
 
 ### Bell's Breakthrough
 
-John Stewart Bell was an Irish physicist working at CERN in the 1960s. He was quiet, precise, and deeply troubled by the foundations of quantum mechanics. In his spare time, between designing particle accelerators, he worked on a problem everyone else had abandoned.
+John Stewart Bell was an Irish physicist working at CERN in the 1960s. He was quiet, precise, and privately dissatisfied with the foundations of quantum mechanics. In his spare time, between designing particle accelerators, he worked on a problem everyone else had abandoned.
 
-In 1964, Bell published a short paper that changed everything. He proved that the question wasn't philosophical at all-it was empirical. There was an experiment that could distinguish quantum mechanics from the relevant class of local hidden-variable theories.
+In 1964, Bell published a short paper that changed everything. He proved that
+the question was empirical and designed an experiment that could distinguish
+quantum mechanics from the relevant class of local hidden-variable theories.
 
 The key was correlation. When two observers measure entangled particles, their results are correlated. Bell showed that local hidden-variable theories set a ceiling on how correlated the results can be. This ceiling is called the Bell inequality:
 
@@ -52,50 +54,50 @@ $$|S| \leq 2$$
 
 The quantity S combines correlations from four different measurement settings. Local hidden-variable models of Einstein's "reasonable" picture cannot produce correlations stronger than 2.
 
-Quantum mechanics predicts something stronger:
-
-$$S = 2\sqrt{2} \approx 2.83$$
-
-That's a 41% violation. Not subtle. Testable.
-
 This $S$ is the Bell-CHSH correlation score, not entropy. The vertical bars
 mean absolute value. A local hidden-variable model can arrange many patterns,
 but it cannot push this score above 2. Quantum mechanics can reach
 $2\sqrt{2}$ for the right entangled state and measurement angles.
 
+Quantum mechanics predicts something stronger:
+
+$$S = 2\sqrt{2} \approx 2.83$$
+
+That's a 41% violation, large enough to test.
+
 ### What Makes This So Strange
 
-Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart-on different continents, different planets, it doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
+Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart: different continents, different planets, it doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
 
-In the hidden variable picture, each particle carries a tiny instruction manual: "If measured at angle A1, give result +1. If measured at B2, give result -1." And so on. The instruction manual was written when the particles were created. The particles are like correlated coins-maybe both were programmed to give the same answers.
+In the hidden variable picture, each particle carries a tiny instruction manual: "If measured at angle A1, give result +1. If measured at B2, give result -1." And so on. The instruction manual was written when the particles were created. The particles are like correlated coins. Maybe both were programmed to give the same answers.
 
-Bell's genius was realizing you could test this. Run the experiment thousands of times. Calculate the correlations. If the world is described by a local hidden-variable model of this Bell type, S <= 2. Period.
+Bell's genius was realizing you could test this. Run the experiment thousands of times. Calculate the correlations. If the world is described by a local hidden-variable model of this Bell type, S <= 2, however the instruction manuals were written.
 
-But quantum mechanics can. When Alice and Bob choose the right measurement angles, quantum entanglement produces correlations of 2 times the square root of 2.
+Quantum mechanics can beat that ceiling. When Alice and Bob choose the right measurement angles, entanglement produces correlations of 2 times the square root of 2.
 
 ### The Experiments
 
 For two decades after Bell's paper, experimentalists raced to test it. The challenges were enormous. You needed to create entangled pairs reliably, separate them, measure them independently, and collect enough data to beat statistical noise.
 
-Alain Aspect in Paris performed the definitive early tests in 1981-82. His team used pairs of entangled photons created by exciting calcium atoms. They measured polarizations and found S approximately equal to 2.70, well above 2 and consistent with quantum predictions.
+Alain Aspect performed the definitive early tests at Orsay, outside Paris, in 1981-82. His team used pairs of entangled photons created by exciting calcium atoms. They measured polarizations and found S approximately equal to 2.70, well above 2 and consistent with quantum predictions.
 
-But there were loopholes. What if the particles somehow communicated with each other? (Communication loophole.) What if only certain particles got detected? (Detection loophole.) What if the measurement choices weren't truly random? (Freedom-of-choice loophole.)
+But there were loopholes. What if the particles somehow communicated with each other? (The locality loophole.) What if only certain particles got detected? (Detection loophole.) What if the measurement choices weren't truly random? (Freedom-of-choice loophole.)
 
 Over the following decades, experimenters closed the major loopholes one by one. The 2015 "loophole-free" Bell tests by teams in Delft, Vienna, and Colorado closed the locality and detection loopholes simultaneously, while using fast random setting choices that strongly constrained freedom-of-choice concerns. The particles were separated by large distances, the measurements were completed before any signal could travel between them, and the detection efficiency was high enough to rule out selection effects.
 
-**The result: suitable entangled Bell experiments violate Bell inequalities repeatedly.**
+**Experiments have violated Bell's inequality, repeatedly and cleanly.**
 
-This means at least one ingredient in the classical Bell-assumption set must
-fail. The pressure falls on locality, realism, or the assumption that
-measurement settings are not secretly pre-coordinated with hidden variables.
-
-Many physicists read the Bell results as strong pressure against naive local realism, but the exact interpretive lesson remains contested. The alternative is to accept a deeper nonlocal structure or preferred causal bookkeeping, which many physicists regard as a high explanatory cost.
-
-Quantum correlations exceed what any local hidden variable theory permits. The intuitive picture of pre-existing properties carried from a common past is experimentally contradicted.
+At least one ingredient in the classical assumption set has to fail, and the
+pressure falls on locality, on realism, or on the independence of measurement
+settings from hidden variables. Physicists disagree over which one gives way, and
+every option carries an explanatory cost. What the experiments settle is that
+quantum correlations exceed what any local hidden-variable theory permits, and
+that the picture of pre-existing properties carried from a common past is
+contradicted.
 
 ## 6.3 The First-Principles Reframing: Consistency and Nonlocal Correlations
 
-The reverse-engineering question is simple: why does nature behave this way? What principle would make such nonclassical correlations structurally natural?
+The reverse-engineering question is why nature behaves this way. What principle would make such nonclassical correlations structurally natural?
 
 ### Objectivity Is Agreement
 
@@ -116,28 +118,30 @@ If Bob walked up to you and said, "That's a nice blue elephant," you would have 
 
 **Objectivity is simply the process of checking for agreement.**
 
-If all three of you agree on the overlap of your visual fields-"Red Car"-then you conclude the car is real. The "object" emerges from the intersection of your views. Reality is the consensus arrived at by a network of observers.
+If all three of you agree on the overlap of your visual fields and report "Red
+Car," you conclude the car is real. The "object" emerges from the intersection
+of your views. Reality is the consensus reached by a network of observers.
 
 ### Why Classical Consistency Is Easy
 
 In classical physics, checking consistency is much simpler on basic overlap structures than in the quantum case.
 
-The state of a classical system is a point in phase space-a list of all positions and momenta. If Alice knows the full state, so does Bob. They're reading from the same book.
+The state of a classical system is a point in phase space, a list of all positions and momenta. If Alice knows the full state, so does Bob. They're reading from the same book.
 
 When information is partial, we use probability distributions. Let rho_A be Alice's distribution, rho_B be Bob's. If they both measure observable O, their expected values must agree:
 
 $$\langle O \rangle_A = \int O(s)\rho_A(s)ds = \int O(s)\rho_B(s)ds = \langle O \rangle_B$$
-
-For tree-like overlap structures, agreeing marginals can be glued into a joint
-distribution. If Alice's distribution over variable X matches Bob's marginal
-over X, and Bob's distribution over variable Y matches Carol's marginal over Y,
-there is a joint distribution P(X,Y,Z) that reproduces all the marginals.
 
 The angle brackets mean expectation value, the average result predicted for
 observable $O$. The variable $s$ labels a classical state, and $\rho_A(s)$ and
 $\rho_B(s)$ are Alice's and Bob's probability distributions over those states.
 The integrals add the observable's value over all possible states, weighted by
 the probabilities each observer assigns.
+
+For tree-like overlap structures, agreeing marginals can be glued into a joint
+distribution. If Alice's distribution over variable X matches Bob's marginal
+over X, and Bob's distribution over variable Y matches Carol's marginal over Y,
+there is a joint distribution P(X,Y,Z) that reproduces all the marginals.
 
 In general overlap graphs, the classical marginal problem can fail and is computationally hard; agreement on pairwise overlaps is not always sufficient.
 
@@ -158,26 +162,26 @@ One standard qubit monogamy relation is the Coffman-Kundu-Wootters inequality:
 
 $$\tau_{A:B} + \tau_{A:C} \leq \tau_{A:BC}$$
 
-In this qubit setting, A's pairwise entanglement budget with B and C cannot exceed its total entanglement with BC together.
+Here $\tau$ is the tangle, an entanglement measure. In this qubit setting, A's pairwise entanglement budget with B and C cannot exceed its total entanglement with BC together.
 
 Think of it like attention. If you're having a deeply intimate conversation with one person, you can't simultaneously have an equally deep conversation with someone else. Quantum correlations work the same way.
 
 ### The Consistency Filter
 
-**Bell-violating correlations are treated here as a structural feature that may help an observer-consistency framework remain viable.**
+**Bell violations are what agreement looks like when the bookkeeping is quantum.**
 
-Imagine the space of all possible local states-all assignments of density matrices to patches. This space is enormous. Most assignments are inconsistent; different patches disagree on overlaps.
+Imagine the space of all possible local states, all assignments of density matrices to patches. This space is enormous. Most assignments are inconsistent; different patches disagree on overlaps.
 
 Apply the overlap consistency condition. Any assignment where patches disagree gets filtered out. The consistent assignments form a tiny subset.
 
 **Reality is the collection of local states that survives the consistency filter.**
 
-The hardness of the Quantum Marginal Problem tells us the filter is doing real work. The constraints are genuinely restrictive. This helps explain why overlap consistency is a nontrivial structural requirement, with real content. It also suggests that the allowed state-space is highly structured.
-
-Overlap conditions favor allowing correlations that exceed classical bounds.
-Bell-violating correlations can then be read as part of the quantum structure
-available to an observer-consistency framework, without appealing to a large
-hidden-variable overhead.
+The hardness of the Quantum Marginal Problem tells us the filter is doing real
+work. The constraints are genuinely restrictive, and the state-space that
+survives them is highly structured. Bell-violating correlations can then be
+read as part of the bookkeeping that keeps many local perspectives compatible
+without a large hidden-variable overhead. That reading is a framework choice;
+the experiments allow it without forcing it.
 
 In a universe built on observer agreement, the nonlocal correlations that so troubled Einstein are not inexplicable. They become part of the consistency structure, with no unexplained add-on.
 
@@ -223,7 +227,7 @@ A density matrix is quantum mechanics' way of describing partial knowledge. If y
 
 $$\rho = p_1|\psi_1\rangle\langle\psi_1| + p_2|\psi_2\rangle\langle\psi_2|$$
 
-The "trace" operation (Tr) is how you marginalize-how you focus on one part of a system while ignoring the rest. If Alice has access to particles A and B but Bob only has access to B, then "Tr_A" traces out particle A, leaving just the description of B.
+The "trace" operation (Tr) is how you marginalize, the way you focus on one part of a system while ignoring the rest. If Alice has access to particles A and B but Bob only has access to B, then "Tr_A" traces out particle A, leaving just the description of B.
 
 In this density matrix, $p_1$ and $p_2$ are probabilities. The kets
 $|\psi_1\rangle$ and $|\psi_2\rangle$ are possible pure states. The paired bra
@@ -234,25 +238,22 @@ The consistency condition says: when Alice traces out everything Bob can't see, 
 
 ### Overlap Is a Protocol
 
-In practice, overlap requires more than spatial coincidence. Two astronomers
-looking at the same star from different continents need a shared reference
-frame, synchronized clocks, and calibration conventions for their
-instruments.
+In 1665 Christiaan Huygens watched two pendulum clocks mounted on one support
+settle into a shared rhythm. He called the effect an “odd sympathy.” The clocks
+had not exchanged philosophical arguments. Their common beam carried the
+coupling.
 
-The overlap becomes useful only when they agree on the translation between their frames. Agreement always includes some shared dictionary.
+An observer overlap also needs a physical coupling. Two astronomers looking at
+the same star from different continents need a shared reference frame,
+synchronized clocks, and calibration conventions for their instruments. The
+overlap becomes useful only when they agree on the translation between their
+frames. Agreement always includes some shared dictionary.
 
 Physics uses standardized units, coordinate systems, and calibration procedures because they are the protocols that make overlap possible.
 
-The finite patch architecture turns that dictionary into a port protocol. A
-patch does not hand its entire private state to its neighbor. It exposes one
-boundary packet, receives the packet routed to the same interface, and compares
-the two after the declared translation. A checkable mismatch selects an
-allowed local repair. The patch then writes the result into a rereadable record
-and exposes the boundary again. On the icosahedral screen-sieve branch, twelve
-ports cover the icosahedral directions and $A_5$ symmetry keeps any one port
-from being privileged by its label. The same protocol can be realized by
-another carrier when its visible readout, repair, and checkpoint behavior
-agrees.
+A patch does the same thing on a smaller budget. It shows its neighbor one
+agreed-on sliver, compares notes through an agreed-on dictionary, fixes what
+disagrees, and writes down the result where it can be read again.
 
 ### Overlap Has a Cost
 
@@ -260,7 +261,7 @@ Sharing observations isn't free. You need energy to send signals and memory to s
 
 An observer has finite capacity. If you want to make your patch more consistent with others, you spend resources exchanging data. Agreement is work.
 
-This cost will become important later when we discuss how classical reality emerges. The facts that get widely shared are the ones that can be copied cheaply-and quantum mechanics places fundamental limits on what can be copied.
+This cost will become important later when we discuss how classical reality emerges. The facts that get widely shared are the ones that can be copied cheaply, and quantum mechanics places fundamental limits on what can be copied.
 
 ## 6.5 The Quantum Marginal Problem Is QMA-Complete
 
@@ -280,7 +281,7 @@ handle.
 In classical physics, local data often determine global data on simple overlap structures, and compatibility checking is much easier than in the quantum case.
 
 In quantum physics, local data constrain but don't determine global data. In
-the worst case, checking consistency is computationally hard-there is no known
+the worst case, checking consistency is computationally hard: there is no known
 efficient general algorithm to decide whether quantum marginals are compatible.
 
 This shows that quantum mechanics hides global structure in a deeply complex
@@ -294,7 +295,7 @@ Consider three qubits $A$, $B$, and $C$. Suppose every pair were maximally
 entangled: $A$ with $B$, $B$ with $C$, and $A$ with $C$. Each pair looks
 harmless on its own.
 
-Each pair being maximally entangled seems fine. The reduced state of any single qubit is maximally mixed-equal probability of spin-up or spin-down. That's consistent.
+Each pair being maximally entangled seems fine. The reduced state of any single qubit is maximally mixed, equal probability of spin-up or spin-down. That's consistent.
 
 Try to find a state |psi>_ABC that produces all three Bell pairs. You can't.
 
@@ -315,7 +316,7 @@ So S(rho_BC) = 1 bit.
 
 But if BC is maximally entangled, then rho_BC is pure, so S(rho_BC) = 0.
 
-**Contradiction!** The marginals are individually valid but globally incompatible. Monogamy strikes again.
+Contradiction. The marginals are individually valid but globally incompatible. Monogamy strikes again.
 
 ### GHZ and W: Two Ways to Share
 
@@ -324,7 +325,7 @@ There are different ways to distribute entanglement among three particles.
 The **GHZ state**:
 $$|\text{GHZ}\rangle = \frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)$$
 
-Look at any pair-say, qubits A and B. Trace out C. The reduced state shows no entanglement at all. AB looks completely classical. But when all three particles are measured together, perfect correlations emerge. It's an all-or-nothing state.
+Look at any pair, say qubits A and B. Trace out C. The reduced state shows no entanglement at all. AB looks completely classical. But when all three particles are measured together, perfect correlations emerge. It's an all-or-nothing state.
 
 The **W state**:
 $$|W\rangle = \frac{1}{\sqrt{3}}(|001\rangle + |010\rangle + |100\rangle)$$
@@ -347,16 +348,13 @@ In 1967, Simon Kochen and Ernst Specker proved a theorem with a hard consequence
 
 ### What Does This Mean?
 
-Imagine trying to create a "cheat sheet" for a quantum system-a list saying "if you measure observable A, you'll get value a; if you measure observable B, you'll get value b; ..." and so on for every possible measurement.
+Imagine trying to create a "cheat sheet" for a quantum system, a list saying "if you measure observable A, you'll get value a; if you measure observable B, you'll get value b; ..." and so on for every possible measurement.
 
-Kochen-Specker says: no such cheat sheet exists.
-
-The sharp lesson is narrower and more precise: there is no single noncontextual cheat sheet assigning pre-existing values to all observables at once. Any viable hidden-variable picture must therefore be contextual, and the measurement setting cannot be treated as irrelevant bookkeeping.
-
-Kochen-Specker closes one of the most attractive escape routes from quantum
-strangeness. A system cannot carry a full secret list of answers, with
-measurement merely revealing whichever answer belongs to the question an
-experimenter happened to ask. The question itself belongs to the physics.
+Kochen-Specker proves that no such noncontextual cheat sheet exists. A system
+cannot carry a full secret list of answers, with measurement merely revealing
+whichever answer belongs to the question an experimenter happened to ask. Any
+viable hidden-variable picture must be contextual. The question itself belongs
+to the physics.
 
 The practical consequence is easy to state. Quantum systems do not come with a sealed answer key that every possible experiment simply reads out. A measuring setup selects a compatible family of questions, and the consistency conditions live inside that family. Change the family, and the bookkeeping changes with it. OPH leans on exactly that point. What observers can stably compare depends on the overlap algebra they actually share.
 
@@ -377,17 +375,12 @@ But each observable appears once in a row and once in a column. So the product o
 
 +1 does not equal -1. Contradiction.
 
-No single noncontextual value assignment exists that satisfies these
-constraints. Any viable account must therefore treat value assignment as
-context-dependent. This is **contextuality** in the sense highlighted by the
-theorem.
-
 That is exactly why this theorem fits OPH so well. Observer overlap happens
 between actual measurement contexts, actual accessible observables, and actual
 records, not between perfect God's-eye inventories. Context belongs to the
 structure.
 
-That gives the theorem a direct narrative role in the book. The world does not stay coherent because every observer secretly samples one master spreadsheet. It stays coherent because local contexts can be glued where they genuinely overlap. Kochen-Specker tells you why the stronger fantasy fails.
+The world does not stay coherent because every observer secretly samples one master spreadsheet. It stays coherent because local contexts can be glued where they genuinely overlap. Kochen-Specker tells you why the stronger fantasy fails.
 
 ## 6.8 Wigner's Friend: Consistency Between Nested Observers
 
@@ -396,7 +389,7 @@ of the system.
 
 In 1961, Eugene Wigner proposed a thought experiment that puts the observer inside the measurement problem.
 
-Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record-say, spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
+Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record, say spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
 
 But Wigner is outside the lab. He describes the entire lab-including his friend-using quantum mechanics. From Wigner's perspective, the lab is in a superposition: (friend sees spin-up and atom is spin-up) + (friend sees spin-down and atom is spin-down).
 
@@ -405,26 +398,22 @@ Who's right?
 From the friend's view: the measurement record is definite.
 From Wigner's view: the isolated lab can be described by a superposed quantum state until he interacts with it.
 
-Both descriptions are internally consistent. The problem arises at the overlap-when Wigner opens the door and compares notes with his friend.
+Both descriptions are internally consistent. The problem arises at the overlap, when Wigner opens the door and compares notes with his friend.
 
-This is the nested-observer version of the whole book. One observer can carry a
-finished record while another treats that record as part of a larger
-superposed description, provided they have not compared notes. The tension
-appears when communication begins and the two descriptions have to settle into
-one common account.
-
-Wigner's friend matters beyond foundations theater because it is the simplest
-clean model of nested access. One observer inhabits a definite record, another
-treats that record as part of a larger quantum state, and both
-descriptions remain admissible until communication forces a common restriction.
-The whole OPH project keeps asking how such restrictions line up without
+This is the nested-observer version of the whole book, and it matters beyond
+foundations theater because it is the simplest clean model of nested access.
+One observer carries a finished record while another treats that record as
+part of a larger superposed description, and both descriptions remain
+admissible until they compare notes. In the overlap framework, the central
+question is how such descriptions settle into one common account without
 contradiction.
 
 At that moment, their descriptions must agree. The consistency condition forces a resolution. Before the door opens, they can maintain different descriptions. After it opens, they share an overlap, and quantum mechanics demands their states match on that overlap.
 
-This is observer-relativity, but with teeth. The "facts" depend on who's asking, but not arbitrarily-the overlap conditions constrain what facts can coexist.
+This is observer-relativity with constraints. The "facts" depend on who's
+asking, and the overlap conditions determine which facts can coexist.
 
-No-go arguments and related experimental discussions show that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
+Frauchiger and Renner's 2018 no-go theorem, and the Wigner's-friend experiments that followed it, show that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
 
 ## 6.9 Quantum Darwinism: How Overlaps Build Objectivity
 
@@ -434,7 +423,7 @@ The answer involves a concept called **quantum Darwinism**, developed by Wojciec
 
 The mechanism is environmental copying. A quantum system interacts with air molecules, photons, and everything around it. Some information about the system gets copied into the environment. Quantum mechanics forbids perfect copying of arbitrary unknown states, so the useful information is redundantly encoded in stable records.
 
-Consider Schrödinger's cat. If the cat is alive, air molecules bounce off it in a certain way. Light reflects off it in a certain way. Heat radiates from it in a certain way. Each of these environmental fragments carries partial information about the cat's state.
+Consider Schrödinger's cat. If the cat is alive, air molecules bounce off it in a way that depends on that fact. So does the light it reflects, and so does the heat it radiates. Each of these environmental fragments carries partial information about the cat's state.
 
 When you look at the cat, you are reading information from environmental
 fragments. Many observers can read different fragments and agree.
@@ -469,7 +458,9 @@ rules conflict around a loop, no single map exists.
 
 Think of the internet. There's no single file called "The Internet" stored somewhere. There are billions of computers, each with its own memory. They communicate via protocols. When my computer sends a packet to yours, we "agree" on the content. The "internet" is the emergent consistency of all these local interactions.
 
-Reality need not be organized for us as a single quantum state observed from a God's-eye view. It can instead be treated as a collection of local states-one for each observer-constrained to agree on overlaps.
+Reality can be treated as a collection of local states, one for each observer,
+constrained to agree on overlaps. No single observer occupies a God's-eye view
+of one global state.
 
 When a global state exists, that is useful. But we do not require one. Local states satisfying consistency conditions are enough for physics.
 
@@ -480,7 +471,8 @@ the Copenhagen refusal to assign one wavefunction to the universe as a whole.
 The distinctive move here is to make the overlap conditions explicit and let
 them carry real mathematical weight.
 
-What we're adding is a precise mathematical model. The consistency conditions are not meant here as vague metaphors-they can be written explicitly, even though the global gluing problem remains nontrivial.
+The framework adds a precise mathematical model. Its consistency conditions
+can be written explicitly, and the global gluing problem is nontrivial.
 
 ### Transitivity and Networks
 
@@ -488,9 +480,14 @@ With many observers, each pair of overlapping patches must agree on their inters
 
 If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their overlap (BC), then Bob can mediate indirect compatibility between them on simple tree-like covers. Local pairwise consistency can help enforce global structure there, but loops or more general covers can produce frustration unless higher-order constraints are satisfied.
 
-But beware of loops. Go from Alice to Bob to Carol and back to Alice-you should return with the same state on shared overlaps. If not, you have **frustration**: local assignments can't all be true simultaneously.
+Loops add another condition. Go from Alice to Bob to Carol and back to Alice;
+you should return with the same state on shared overlaps. Otherwise the system
+has **frustration**: the local assignments cannot all hold simultaneously.
 
 This is analogous to gauge theory and geometry. Move a vector around a loop; if it comes back rotated, there is nontrivial holonomy. Holonomy is the leftover mismatch that appears after a full circuit. Likewise, a loop that does not close cleanly signals an obstruction to global gluing, with no simple globally consistent assignment.
+
+A structure that has to close on itself is a demanding thing. It leaves
+surprisingly little freedom about what it can be made of.
 
 ## 6.11 Formal Statement
 
@@ -533,16 +530,18 @@ The topology of this graph determines what kind of global structure can emerge. 
 
 ## 6.12 What Overlap Predicts
 
-If overlap consistency is real, the world should look Bell-like, Markov-like,
-and Darwinian all at once. Bell experiments should obey the quantum bound and
-violate the classical one. Structured states separated by a good intermediary
-region should show small CMI. A genuine global
-state, when it exists, should automatically induce matching reduced states on
-every overlap. Public facts should appear only where information has been
-copied redundantly into the environment.
+If overlap consistency is real, the world should look Bell-like and Darwinian
+at once, with good separators screening distant regions from each other. Bell
+experiments should obey the quantum bound and violate the classical one.
+Structured states separated by a good intermediary region should show small
+conditional mutual information, a leakage measure the next chapter builds. A
+genuine global state, when it exists, should automatically induce matching
+reduced states on every overlap. Public facts should appear only where
+information has been copied redundantly into the environment.
 
 That is exactly the pattern physics presents. Bell stays within the Tsirelson
-limit. Overlaps induced from explicit global states match by construction.
+limit, the quantum ceiling that plays the role Bell's 2 played classically.
+Overlaps induced from explicit global states match by construction.
 Redundancy is what turns a private quantum state into something many observers
 can check. No experiment has revealed a stable public world without
 environmental redundancy, and no experiment has pushed Bell beyond the quantum
@@ -571,7 +570,3 @@ But what if the web gets torn? What if I measure something here, and you measure
 That tension is sharper here. Overlap is contextual, entanglement is limited,
 and global compatibility can be brutally hard to check. A world built from such
 ingredients should feel fragile. The next chapter explains why it does not.
-
-That is where the next chapter picks up. If overlap is contextual, limited, and sometimes globally hard, why does the world feel stable at all? Why do broken traces, partial records, and scrambled signals so often lead back to one shared history?
-
-That brings us to **Recovery**-the discovery that the universe has built-in mechanisms to recover missing information, ensuring the web of consistency holds together even when individual links appear broken.

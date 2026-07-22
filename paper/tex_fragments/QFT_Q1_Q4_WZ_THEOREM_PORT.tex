@@ -1,0 +1,344 @@
+\subsubsection*{Quantization steps and the \(W/Z\) landing}
+
+The table below names the Standard-Model field-theory steps used in this
+section, together with what each one implies, what its construction requires,
+and its present status. The labels \(\mathrm{QFT}\text{-}\mathrm{Q0}\) through
+\(\mathrm{QFT}\text{-}\mathrm{Q4}\) are local to this section and stay distinct
+from the particle-receipt clauses \((Q1)\)--\((Q3)\). Their dependency
+structure is a graph rather than a single ordered ladder:
+\begingroup\small
+\[
+\begin{array}{rcl}
+\mathsf{declared\ finite\ action}&\longrightarrow&\mathsf{QFT\!-\!Q1}
+ \longrightarrow
+ \left\{\begin{array}{l}
+ \mathsf{QFT\!-\!Q2E/QFT\!-\!Q2H},\\
+ \mathsf{QFT\!-\!Q3\ BV/ST}\longrightarrow
+ \mathsf{strict\ finite\!-\!order\ }W/Z;
+ \end{array}\right.\\[3pt]
+\mathsf{nonperturbative\ observable\ tower}&\longrightarrow&
+\mathsf{QFT\!-\!Q4\ OS}\\
+&&\longrightarrow\mathsf{QFT\!-\!Q4\ resonance}.
+\end{array}
+\]
+\endgroup
+Native provenance on QFT-Q1 additionally requires QFT-Q0 and a
+source/action-identity receipt.  No QFT-Q2-to-QFT-Q3,
+QFT-Q3-to-QFT-Q2, or QFT-Q3-\(W/Z\)-to-QFT-Q4 arrow is automatic.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.10\textwidth}p{0.31\textwidth}p{0.25\textwidth}p{0.24\textwidth}@{}}
+\toprule
+Tier & Mathematical implication & Required construction & Present status \\
+\midrule
+QFT-Q0 & finite representation, charge, anomaly, lattice, and selector consequences on the declared packet
+& physical source selection and attachment
+& conditional finite pass; producer incomplete \\
+QFT-Q1 & finite local classical \(G_6\) action is gauge invariant and local; the standard tree kernel also needs canonical continuum normalization
+& source-selected action, coefficients, regulator, normalization, and ancestry
+& implication specified; producer open \\
+QFT-Q2-E/H & an equivariant determinant-line section or a noncollapsing constrained Hamiltonian supplies an exact finite quantum object
+& full operator, measure/current or Hamiltonian/nonvacuum packet, and refinement controls
+& criteria specified; constructions open \\
+QFT-Q3 & stable anomaly-free BV/ST theory is formally restorable order by order; strict \(W/Z\) poles land here
+& counterterm basis, matching and Faddeev--Jackiw (FJ) engines, identities, currents, and numerical freeze
+& implication specified; imported validation possible; OPH producer open \\
+QFT-Q4 & OS reconstruction and a separate continued-sheet resonance theorem
+& reflection-positive tower and analytic-continuation packet
+& implications specified; constructions open \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{theorem}[Finite local classical \(G_6\) action at QFT-Q1]
+\label{thm:qft-q1-finite-local-g6}
+Let \(K_r\) be a finite oriented spin four-complex with bounded incidence,
+positive cell weights, declared boundary conditions, paired edge orientations,
+and declared spin transports. Put \(U_e\in
+G_6=S(U(3)\times U(2))\) on oriented edges and the declared Higgs and
+left-handed matter variables on vertices. Require every matter action to
+descend to a well-defined representation of \(G_6\), every plaquette term to be a
+declared class function of its \(G_6\) holonomy, and every finite difference
+to be gauge covariant with defined endpoint data. Then a finite sum of these
+plaquette, Higgs, fermion, and invariant Yukawa terms is local and exactly
+gauge invariant.
+\end{theorem}
+
+\begin{proof}
+Plaquette holonomies transform by conjugation, covariant edge differences
+transform at their endpoints, and class functions and invariant contractions
+remove those transformations. In integer hypercharge normalization the three
+Yukawa sums are
+\[
+1+3-4=0,\qquad 1-3+2=0,\qquad -3-3+6=0.
+\]
+Every term has bounded cell support.
+\end{proof}
+
+\begin{corollary}[Canonically normalized electroweak tree kernel]
+\label{cor:qft-q1-ew-tree-kernel}
+If, in addition, the long-wavelength map sends the finite Higgs kinetic form
+to \((D_\mu H)^\dagger D^\mu H\) with canonical generator normalization and
+broken background \(H_0=2^{-1/2}(0,v)^T\), then
+\[
+w=\frac{g^2v^2}{4},\qquad
+\mathcal M_N^2=\frac{v^2}{4}
+\begin{pmatrix}g^2&-gg'\\-gg'&g'^2\end{pmatrix},
+\qquad z=\frac{(g^2+g'^2)v^2}{4},
+\]
+and the other neutral eigenvalue is zero.
+\end{corollary}
+
+\begin{remark}[QFT-Q1 boundary]
+This is a classical existence template after the complex, fields,
+coefficients, boundary data, and normalization bridge are supplied. It does
+not show that OPH selects them, construct a chiral measure, remove mirrors or
+doublers, or produce a complex pole.
+\end{remark}
+
+\begin{theorem}[QFT-Q2-E equivariant determinant-line criterion]
+\label{thm:qft-q2e-determinant-line}
+At a fixed finite stage, let \(D_r(U)\) be a local gauge-covariant,
+\(\gamma_5\)-Hermitian Ginsparg--Wilson operator on a connected admissible
+gauge-field component on which the chiral-projector rank is constant, with
+the declared spectral gap and locality bounds. A basis-independent,
+gauge-invariant finite chiral measure exists precisely when the determinant
+line admits a nowhere-zero gauge-equivariant section in the required locality
+and smoothness class. For a nonfree gauge action this is an equivariant
+statement over the action groupoid, including stabilizer actions. In local
+connection form the measure current must reproduce the projector curvature
+and obey global loop integrability. Flatness with trivial holonomy is only a
+sufficient special case.
+\end{theorem}
+
+\begin{proof}
+Changes of Weyl basis are transition functions of the determinant line. A
+nowhere-zero equivariant section cancels them and descends to the gauge
+quotient; conversely a basis-independent gauge-invariant phase supplies
+compatible nonzero fiber vectors. The curvature equation and loop condition
+are the local and global integrability conditions for that section.
+\end{proof}
+
+\begin{theorem}[QFT-Q2-H finite Hamiltonian soundness]
+\label{thm:qft-q2h-hamiltonian-soundness}
+Let \(\mathcal H_{\rm kin}\) be finite dimensional and let local Gauss
+generators exponentiate to the complete local \(G_6\) action. Define
+\[
+C_G=\sum_{x,a}(G_x^a)^\dagger G_x^a,\qquad
+P_{\rm phys}=\mathbf1_{\{0\}}(C_G),
+\qquad
+1<\operatorname{rank}P_{\rm phys}<\dim\mathcal H_{\rm kin}.
+\]
+Suppose a bounded-range self-adjoint \(H_r\) commutes with this action and has
+a unique certified physical ground state \(\Omega_r\) with a positive gap.
+If a bounded self-adjoint gauge-invariant observable \(O_r\) has strictly
+positive variance in \(\Omega_r\), and the packet also supplies its claimed
+chiral index, positive mirror gap, primitive completeness, and
+complement-complete refinement controls, then
+\(P_{\rm phys}\mathcal H_{\rm kin}\) is a nonvacuous finite unitary gauge
+theory with a positive-energy nonvacuum physical excitation and the declared
+chiral/mirror properties.
+\end{theorem}
+
+\begin{proof}
+The vector
+\[
+(O_r-\langle\Omega_r,O_r\Omega_r\rangle)\Omega_r
+\]
+is physical, orthogonal to the ground state, and nonzero by the variance
+condition. The remaining conclusions are exactly the separately supplied
+index, gap, completeness, and refinement clauses. Thus neither an identity
+projector nor a vacuum-only physical sector passes.
+\end{proof}
+
+\begin{remark}[QFT-Q2 boundary]
+The QFT-Q2-E and QFT-Q2-H results are criteria and soundness theorems. The
+current OPH corpus supplies neither full-\(G_6\) construction. Anomaly
+arithmetic alone instantiates neither theorem.
+\end{remark}
+
+\begin{theorem}[Formal QFT-Q3 Slavnov--Taylor restoration]
+\label{thm:qft-q3-formal-st-restoration}
+Let \(S_0\) be the complete canonically normalized Standard-Model BV action,
+including the gauge-fixing and antifield sectors, and suppose
+\((S_0,S_0)=0\). Fix a regulator/scheme satisfying the quantum action
+principle, locality, and the declared power counting. Assume stability under
+renormalization in a complete permitted counterterm basis with fixed
+normalization conditions, classification of the applicable local
+ghost-number-one BRST cohomology, vanishing of the declared perturbative
+anomaly class, and a separate check of all applicable global anomalies. Then
+finite local counterterms may be chosen recursively so that the formal series
+\[
+\Gamma=S_0+\sum_{n\ge1}\kappa^n\Gamma_n,\qquad
+\kappa=(16\pi^2)^{-1},
+\]
+satisfies the renormalized Slavnov--Taylor identity order by order.
+\end{theorem}
+
+\begin{proof}
+At order \(n\), the quantum action principle makes the breaking a local
+ghost-number-one functional \(\Delta_n\). Wess--Zumino consistency makes it
+closed under the linearized Slavnov--Taylor operator. The cohomology
+classification splits it into an anomaly representative plus an exact term.
+Anomaly clearance removes the first, and an allowed finite counterterm
+cancels the second. Stability and the normalization conditions fix the
+remaining invariant freedom, so induction proves the formal statement.
+\end{proof}
+
+\begin{remark}[QFT-Q3 boundary]
+This is a formal power-series theorem, not a convergence theorem, QFT-Q2
+construction, or QFT-Q4 Wightman construction. A numerical implementation
+must produce its regulator-specific restoration transcript and verify
+the Ward, Slavnov--Taylor, and Nielsen identities.
+\end{remark}
+
+\begin{lemma}[Conditional first-order FJ coordinate change]
+\label{lem:qft-q3-fj-reparametrization}
+Freeze the potential normalization, bare VEV shift, tadpole prescription,
+field and parameter counterterms, mass arguments, mixing coordinates, and
+gauge-fixing convention. If the complete finite change is
+\[
+p_L=p_F+\kappa\,\delta p^{(1)}+O(\kappa^2)
+\]
+and \(s(p)=s_0(p)+\kappa s_1(p)+O(\kappa^2)\), equality of the exact pole in
+the two coordinates implies
+\[
+s_{1,F}=s_{1,L}+\delta p^{a(1)}\partial_as_0.
+\]
+\end{lemma}
+
+\begin{proof}
+Substitute \(p_L(p_F)\) and Taylor expand through first order. The sum must
+include every transformed parameter, normalization, mass argument,
+counterterm, and mixing coordinate; a VEV-only substitution is insufficient.
+\end{proof}
+
+\begin{theorem}[Strict charged and neutral pole coefficients]
+\label{thm:qft-q3-strict-wz-coefficients}
+On one scheme, contribution mask, and resonance sheet, write
+\[
+\Gamma_W^T=s-w+\kappa\Pi_{WW}^{(1)}
++\kappa^2\Pi_{WW}^{(2)}+O(\kappa^3).
+\]
+For \(s_W=w+\kappa s_{W,1}+\kappa^2s_{W,2}+O(\kappa^3)\),
+\[
+s_{W,1}=-\Pi_{WW}^{(1)}(w),\qquad
+s_{W,2}=\Pi_{WW}^{(1)}(w)\Pi_{WW}^{(1)\prime}(w)
+-\Pi_{WW}^{(2)}(w).
+\]
+For the massive root of the full photon--\(Z\) matrix with tree value
+\(z\ne0\),
+\[
+s_{Z,1}=-\Pi_{ZZ}^{(1)}(z),
+\]
+\[
+s_{Z,2}=\Pi_{ZZ}^{(1)}(z)\Pi_{ZZ}^{(1)\prime}(z)
+-\Pi_{ZZ}^{(2)}(z)
++\frac{\Pi_{ZA}^{(1)}(z)\Pi_{AZ}^{(1)}(z)}{z}.
+\]
+Thus the one-loop-squared neutral mixing product is excluded at strict one
+loop and is one mandatory term of the complete strict-two-loop mask.
+\end{theorem}
+
+\begin{proof}
+Insert the root series and compare powers of \(\kappa\). In the neutral
+sector use the Schur complement of the photon block; both off-diagonal
+entries begin at order \(\kappa\).
+\end{proof}
+
+\begin{theorem}[Nielsen control and physical current pole at QFT-Q3]
+\label{thm:qft-q3-nielsen-current-pole}
+Suppose the inverse matrix and Nielsen insertions are holomorphic near a
+simple massive root on the frozen sheet and, through retained order \(N\),
+\[
+\partial_\eta\Gamma^T
+=\Lambda_\eta\Gamma^T+\Gamma^T\widetilde\Lambda_\eta
++O(\kappa^{N+1}).
+\]
+Then
+\[
+\partial_\eta\det\Gamma^T
+=\operatorname{tr}(\Lambda_\eta+\widetilde\Lambda_\eta)
+\det\Gamma^T+O(\kappa^{N+1}),
+\qquad
+\partial_\eta s_p=O(\kappa^{N+1}).
+\]
+If the simple left/right kernel vectors \(\ell,r\) have
+\(\ell^\dagger\Gamma^{T\prime}(s_p)r\ne0\), and the dressed renormalized
+BRST-invariant current vertices obey
+\(J_L^\dagger r\ne0\) and \(\ell^\dagger J_R\ne0\), then the
+gauge-invariant current amplitude has Laurent residue
+\[
+\frac{(J_L^\dagger r)(\ell^\dagger J_R)}
+{\ell^\dagger\Gamma^{T\prime}(s_p)r}.
+\]
+\end{theorem}
+
+\begin{proof}
+Use
+\(\partial_\eta\det\Gamma
+=\operatorname{tr}(\operatorname{adj}\Gamma\,\partial_\eta\Gamma)\);
+the adjugate identity remains valid at a singular matrix and avoids dividing
+by the determinant. The simple-root implicit equation gives the
+omitted-order gauge variation. The rank-one Laurent expansion of
+\(\Gamma^{-1}\), contracted with the dressed current vertices, gives the
+amplitude pole. This is not a positivity claim for an unstable elementary
+field.
+\end{proof}
+
+\begin{theorem}[Gauge-invariant QFT-Q4 reconstruction]
+\label{thm:qft-q4-gauge-invariant-os}
+A compatible cofinal Schwinger family for a complete declared
+gauge-invariant observable algebra that satisfies distributional convergence,
+Euclidean covariance, graded symmetry/locality, reflection positivity,
+clustering, growth/regularity, noncollapse, and refinement Cauchy control
+reconstructs a positive Hilbert space, cyclic vacuum, positive-energy
+translations, and the corresponding observable-sector Wightman distributions
+and local graded net.
+\end{theorem}
+
+\begin{remark}
+This observable-sector implication does not by itself construct colored local
+fields, charged infrared sectors, confinement, asymptotic completeness, an
+\(S\)-matrix, or a second-sheet resonance.
+\end{remark}
+
+\begin{theorem}[QFT-Q4 resonance and residue stability]
+\label{thm:qft-q4-resonance-stability}
+On one common continued sheet, write
+\[
+G_r(s)=\frac{N_r(s)}{D_r(s)}+G_{r,\rm reg}(s).
+\]
+Let a Jordan contour and its interior lie in a common domain on which
+\(D_r,N_r,G_{r,\rm reg}\) and their limits are holomorphic. Assume locally
+uniform convergence of these data and \(D_r'\), one simple enclosed zero
+\(s_r\), uniform nonzero contour and derivative bounds, and the Rouch\'e
+inequality
+\[
+\sup_C|D-D_r|<\inf_C|D_r|.
+\]
+Then the limiting denominator has one simple zero \(s_*\), \(s_r\to s_*\),
+and, if \(N(s_*)\ne0\),
+\[
+\operatorname*{Res}_{s=s_r}G_r(s)
+=\frac{N_r(s_r)}{D_r'(s_r)}
+\longrightarrow
+\frac{N(s_*)}{D'(s_*)}\ne0.
+\]
+\end{theorem}
+
+\begin{proof}
+Rouch\'e preserves the zero count for the holomorphic denominators.
+Compactness and uniqueness give root convergence. Uniform numerator and
+derivative convergence with the lower derivative bound gives residue
+convergence. Ordinary uniform convergence of the meromorphic quotient through
+its own poles is neither assumed nor valid.
+\end{proof}
+
+\begin{remark}[Producer boundary]
+These results specify conditional implications only. The current corpus does
+not instantiate the source-selected QFT-Q1 action, either full QFT-Q2 object,
+the QFT-Q3 matching/FJ/two-engine/current and uncertainty packet, or the
+QFT-Q4 tower and continued-sheet data.
+\end{remark}

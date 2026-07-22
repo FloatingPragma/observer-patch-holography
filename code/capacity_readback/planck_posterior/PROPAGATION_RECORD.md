@@ -1,6 +1,6 @@
 # Planck posterior propagated through the Λ→N map
 
-Executes the pending item named in GAP-A5 (CL-3/CL-4): "the joint cosmological
+Executes the pending item named in GAP-A5 (issues #589/#547): "the joint cosmological
 posterior propagated through the same map." Artifact:
 [planck_lambda_to_N_propagation.json](planck_lambda_to_N_propagation.json),
 generator [propagate.py](propagate.py).
@@ -36,9 +36,9 @@ repo; the spread across routes and sweeps bounds the model error at ±0.05 in z.
    that assumption is now stated rather than silent.
 2. The likelihood-combination choice is material: +BAO moves the comparison to
    ≈3.9σ. Per the program's own anti-fitting rules the combination must be
-   frozen before CL-3 becomes evaluable; the defensible default is the one the
+   frozen before the capacity comparison (#589) becomes evaluable; the defensible default is the one the
    ledger already consumed (TT,TE,EE+lowE+lensing).
-3. Everything here is conditional on CP-1–CP-3 and the readback map F (CL-7).
+3. Everything here is conditional on CP-1–CP-3 and the readback map F (N-closure issue #505).
    This artifact upgrades the *measurement-side* uncertainty of the comparison
    from prose to computation; it does not promote the row.
 

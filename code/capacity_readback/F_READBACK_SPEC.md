@@ -293,8 +293,11 @@ saturation rigidity, whole-fiber scalarization, finite support-semigroup
 closure, approximate TV robustness, greatest-fixed-point order theorem,
 refinement stabilization, and the countermodels.
 
-Open physical work: emit a source-only packet over the complete terminal
-fiber, prove no-new-confusability extension/refinement receipts, derive the
-exact finite-size slack law with one regulator-stable zero, and then test the
-horizon and common-EW identifications. No cosmic prediction is promoted before
-those receipts exist.
+Issue #548 supplies the first source-only fixed-`D` packet at `D=24` over
+its complete declared one-fault terminal fiber, together with separate
+no-new-confusability capacity-extension and fixed-`D` refinement receipts.
+
+Open physical work: extend the packet to the declared capacity-indexed regulator
+family, derive the exact finite-size slack law with one regulator-stable zero,
+and then test the horizon and common-EW identifications. No cosmic prediction is
+promoted before those receipts exist.
