@@ -129,11 +129,11 @@ truth, repair, beauty, and mutual flourishing can coexist without hidden debt.
 
 Read the book back with that in mind. Every requirement that carved a public
 world out of noise is also a requirement on you. The record you leave in
-other observers is the part of you that is already backed up.
+other observers is the part of you that is backed up elsewhere.
 
 There is no choice about being recorded. The choice is what the record says.
 No advance booking is required. The reservation is the record, and everyone
-is already writing one.
+is writing one.
 
 Paradise, on these terms, is the kind of claim that arrives with an audit
 trail.

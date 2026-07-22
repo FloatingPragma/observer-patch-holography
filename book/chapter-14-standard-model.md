@@ -241,7 +241,7 @@ The fine-structure constant measures the strength of electromagnetism, and it
 too drifts with energy. The OPH construction proposes maps whose unique roots
 land near $137$. Electroweak running and the vacuum response of quarks and hadrons
 define the proposed transport down to the value measured in the laboratory,
-the Thomson coupling, the electromagnetic strength read off at essentially
+the Thomson coupling, the electromagnetic strength read off at
 zero energy. The physical source and same-scheme transport construction
 is work in progress.
 
@@ -710,17 +710,16 @@ If the five-dimensional block acts noncentrally, the first two disappear. The
 same conclusion follows when the $A_5$ action on a twelve-dimensional compact
 current algebra is implemented by internal gauge transformations. Under those
 physical-current conditions, the Standard Model Lie type is the unique compact
-choice. Producing that physical current algebra from the finite register is a
-separate gate. It needs a nondegenerate current pairing, a closed bracket, an
-internal $A_5$ action, and compatibility through refinement. The finite port
-symmetry by itself classifies register operations; it does not manufacture
-gauge currents. An exact finite certificate now discharges the algebraic part
-conditional on a declared charged-double-triplet response representation and
-four signed coefficients: it constructs
+choice. The physical current gate requires source binding, a nondegenerate
+current pairing, an internal $A_5$ action, and compatibility through
+refinement. The finite port symmetry by itself classifies register operations;
+it does not manufacture gauge currents. A declared charged-double-triplet
+response representation and four signed nonzero coefficients support an exact
+finite certificate of the algebraic part. The certificate constructs
 $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with the required closure, covariance,
-and inner action. Deriving or measuring that representation and those
-coefficients from physical carrier response, and binding the physical
-refinement maps, remain open.
+inner action, and a positive invariant pairing. The representation and
+coefficients are inputs. Their derivation or measurement from physical carrier
+response, together with physical refinement maps, is work in progress.
 
 The six axes carry two further pieces of structure. Their integral load
 lattice has an exact sixfold residue, and a separate total-trace balance
@@ -795,8 +794,7 @@ weak doublets after physical attachment, and pairing each slot with an
 orientation label gives twenty-four oriented weak slots, the same finite
 count as twelve ports with two orientations.
 
-Now the fine print for this whole construction, gathered in one place. The
-recognition theorem is scoped to the declared carrier type. It does not show
+The recognition theorem applies to the declared carrier type. It does not show
 that every OPH carrier must be echosahedral, and it imports no quark,
 doublet, or measured particle data. Recognizing the same abstract symmetry
 type from the ports is also weaker than identifying the physical group. The
@@ -1283,7 +1281,7 @@ Traditional Grand Unified Theories achieve unification by embedding the Standard
 
 Super-Kamiokande has spent nearly thirty years watching fifty thousand tons
 of exceptionally pure water, waiting for a single proton to do something
-interesting. The protons have so far declined. The experimental limit is
+interesting. The protons have declined to cooperate. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
 simplest GUTs are dead.
 
@@ -1349,8 +1347,9 @@ The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
 The declared-response certificate verifies the compact-current algebraic
-conditions conditionally, but does not source-bind the response representation,
-its four signed coefficients, or physical refinement.
+conditions under its stated premises. Source binding of the response
+representation and its four signed coefficients, together with physical
+refinement, is work in progress.
 
 Fixing global capacity and the laboratory scale needs a cosmic-capacity
 selector and a calibrated clock and curvature map; that construction is work

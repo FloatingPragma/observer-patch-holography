@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_id": "r1573",
+  "release_id": "r1574",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -867,7 +867,7 @@
         "Rodrigues_rotation_normal_form",
         "Burnside_orbit_counting"
       ],
-      "oph_specific_delta": "The conditional current lift is computed from the certified carrier packet plus a declared charged-double-triplet construction, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). It proves the exact algebraic PORT-CURRENT-INNER target under that representation premise without importing rotation tables, Standard Model currents, particle assignments, or measured couplings. Physical source binding remains open.",
+      "oph_specific_delta": "The conditional current lift is computed from the certified carrier packet plus a declared charged-double-triplet construction, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). It proves the exact algebraic PORT-CURRENT-INNER target under that representation premise without importing rotation tables, Standard Model currents, particle assignments, or measured couplings. Physical source binding is open.",
       "novelty_type": "conditional_finite_current_lift_certificate",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -879,7 +879,7 @@
         "code/a5_closure/tests/test_port_current_inner_certificate.py"
       ],
       "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate.",
-      "scope_if_false": "The conditional port-current algebra construction falls back to the coefficient-level trichotomy. The physical source-binding receipt is already open independently; the echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
+      "scope_if_false": "The conditional port-current algebra construction falls back to the coefficient-level trichotomy. The physical source-binding receipt is an independent open gate; the echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
       "status": "proved_conditional_on_declared_response_representation"
     },
     {

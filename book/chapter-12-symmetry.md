@@ -309,7 +309,7 @@ realization is the separate bridge into the gauge sector.
 
 $A_5$ is a finite regulator symmetry, neither the Standard Model gauge group
 nor the Lorentz group; continuous Lorentz symmetry and the physical matter
-package arrive by the separate routes already described. Tying the antipodal
+package arrive by the separate routes described above. Tying the antipodal
 $\mathbb Z_6$ residue to its action on matter is work in progress.
 
 ### Yang-Mills and the Gap
@@ -348,8 +348,8 @@ one uniform influence bound below the instability threshold, the theorem
 gives one positive gap that works at every location, size, boundary, and
 refinement stage. Locality or mixing alone cannot do this; small finite
 counterexamples show why both controls matter. The actual compact-gauge
-source still has to produce that list and those bounds, and the finite
-dynamics still has to survive as a nontrivial four-dimensional quantum
+source must produce that list and those bounds, and the finite
+dynamics must survive as a nontrivial four-dimensional quantum
 theory, before the accounting becomes literal.
 
 A single finite Ising test case calibrates the arithmetic of that argument;

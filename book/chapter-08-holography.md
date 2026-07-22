@@ -505,7 +505,7 @@ This avoids the boundary-at-infinity problem by changing the primitive object.
 OPH builds local patch descriptions that must agree on overlaps, and the bulk
 emerges from that agreement.
 
-For now, take the horizon's capacity as a brute fact about our universe.
+This chapter treats the horizon's capacity as a brute fact about our universe.
 Whether anything obliges it to have the value it has is a different kind of
 question.
 

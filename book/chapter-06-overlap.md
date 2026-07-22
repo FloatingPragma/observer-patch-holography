@@ -89,7 +89,7 @@ Over the following decades, experimenters closed the major loopholes one by one.
 
 At least one ingredient in the classical assumption set has to fail, and the
 pressure falls on locality, on realism, or on the independence of measurement
-settings from hidden variables. Which one gives way is still argued about, and
+settings from hidden variables. Physicists disagree over which one gives way, and
 every option carries an explanatory cost. What the experiments settle is that
 quantum correlations exceed what any local hidden-variable theory permits, and
 that the picture of pre-existing properties carried from a common past is

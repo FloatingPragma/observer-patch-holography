@@ -266,7 +266,7 @@ The global equation identifies two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
 world it is the correctable public record reconstructed by observers. A
 separate consistency check asks whether the screen's record load and the weak
-sector's load are one and the same carrier; the two readings currently differ
+sector's load are one and the same carrier; the two readings differ
 by about $6.6$ percent, and reconciling them is work in progress.
 
 If both equations land, OPH is a fully zero-parameter theory, with both
