@@ -2,7 +2,7 @@
 
 > La réalité est le monde public stable reconstruit par des observateurs finis et auto-lecteurs qui comparent leurs recouvrements et réparent leurs désaccords.
 
-[Read in English](README.md) · [Site OPH](https://floatingpragma.io/oph/) · [Livre](https://oph-book.floatingpragma.io/) · [Étude guidée](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
+[Read in English](README.md) · [Livre](https://oph-book.floatingpragma.io/) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
 L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout
 sans boutons de réglage, construite sur une thèse centrale : **les
@@ -18,6 +18,35 @@ la mesure quantique, l’espace-temps lorentzien, la branche conditionnelle
 d’Einstein, les symétries de jauge et la matière sont des relectures d’un
 seul système fini de cohérence entre observateurs, sous leurs prémisses
 déclarées.
+
+## Commencer ici
+
+La physique a déjà révisé son idée de ce qui est fondamental. L’espace fut
+absolu jusqu’à devenir relatif ; la matière fut continue jusqu’à être
+quantifiée. Chaque révision paraissait scandaleuse depuis l’intérieur de
+l’ancien tableau et évidente depuis l’intérieur du suivant. OPH opère la
+révision suivante. L’observateur, traité pendant un siècle comme une gêne aux
+marges de la mécanique quantique, passe au fondement, et l’espace-temps, la
+matière et les constantes en sortent comme des résultats. Le matériel
+ci-dessous vous fait traverser ce basculement sans prérequis.
+
+- **Le livre.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/),
+  aussi disponible en [PDF qualité impression](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf),
+  raconte toute l’histoire : ce que dit la théorie, comment elle a été
+  découverte, et pourquoi le tournant observateur-d’abord est celui que la
+  physique contourne depuis un siècle. Il est écrit pour divertir et la
+  science y reste exacte.
+- **Les manuels.** Les [manuels OPH](https://learn.floatingpragma.io/)
+  enseignent la théorie par le chemin long. Chaque dérivation de base y est
+  développée en entier, avec les mathématiques nécessaires construites au fur
+  et à mesure. Des volumes couvrent la gravité, le Modèle Standard et
+  l’unification, chacun lisible en ligne ou en PDF.
+- **La simulation.** Les [visualisations interactives](https://simulation.floatingpragma.io/)
+  affichent des données réelles de la dynamique de réparation. Vous regardez
+  l’espace-temps et la matière émerger à l’écran au lieu de croire les
+  articles sur parole.
+
+La suite de ce README est l’entrée technique du dépôt.
 
 ## Trois reçus qu’aucun autre programme ne possède
 
@@ -558,11 +587,11 @@ Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) est volon
 
 ## Explorer OPH
 
-- [Présentation de la théorie](https://floatingpragma.io/oph/theory-of-everything)
+- [Le livre, édition web](https://oph-book.floatingpragma.io)
+- [Le livre, PDF d’impression](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf)
+- [Manuels](https://learn.floatingpragma.io)
 - [Simulation interactive](https://simulation.floatingpragma.io)
 - [Applications et matériel OMEGA](https://omega.floatingpragma.io)
-- [Livre](https://oph-book.floatingpragma.io)
-- [Étude guidée](https://learn.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - OPH Sage sur [Telegram](https://t.me/HoloObserverBot) et [X](https://x.com/OphSage)
 

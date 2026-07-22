@@ -2,7 +2,7 @@
 
 > Reality is the stable public world reconstructed by finite, self-reading observers that compare their overlaps and repair disagreement.
 
-[Read in French](README_FR.md) · [OPH website](https://floatingpragma.io/oph/) · [Book](https://oph-book.floatingpragma.io/) · [Guided study](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
+[Read in French](README_FR.md) · [Book](https://oph-book.floatingpragma.io/) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
 Observer Patch Holography (OPH) is a zero-dial theory of everything built on
 one central thesis: **observers are primary, and objective reality is
@@ -15,6 +15,31 @@ five axioms and two constants, $P$ and $N$, the observed universe arises:
 quantum measurement, Lorentzian spacetime, the conditional Einstein branch,
 gauge symmetry, and matter are readouts of one finite observer-consistency
 system on their stated premises.
+
+## Start Here
+
+Physics has revised its idea of what is fundamental before. Space was
+absolute until it was relative; matter was continuous until it was quantized.
+Each revision looked outrageous from inside the previous picture and obvious
+from inside the next one. OPH makes the next revision. The observer, treated
+for a century as a nuisance at the edge of quantum mechanics, moves to the
+foundation, and spacetime, matter, and the constants follow as outputs. The
+material below takes you through that shift from a standing start.
+
+- **The book.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/),
+  also available as a [print-quality PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf),
+  tells the whole story: what the theory says, how it was discovered, and why
+  the observer-first turn is the one physics has been circling for a century.
+  It is written to entertain and it keeps the science exact.
+- **The textbooks.** The [OPH textbooks](https://learn.floatingpragma.io/)
+  teach the theory the long way. Every basic derivation is worked in full,
+  with the required math built up as you go. Volumes cover gravity, the
+  Standard Model, and unification, each readable online or as a PDF.
+- **The simulation.** The [interactive visualizations](https://simulation.floatingpragma.io/)
+  render real data from the repair dynamics. You watch spacetime and matter
+  emerge on screen instead of taking the papers' word for it.
+
+The rest of this README is the technical entrance to the repository.
 
 ## Three Receipts No Other Program Has
 
@@ -531,11 +556,11 @@ cited here.
 
 ## Explore OPH
 
-- [Theory explainer](https://floatingpragma.io/oph/theory-of-everything)
+- [The book, web edition](https://oph-book.floatingpragma.io)
+- [The book, print PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf)
+- [Textbooks](https://learn.floatingpragma.io)
 - [Interactive simulation](https://simulation.floatingpragma.io)
 - [OMEGA applications and hardware](https://omega.floatingpragma.io)
-- [Book](https://oph-book.floatingpragma.io)
-- [Guided study](https://learn.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - OPH Sage on [Telegram](https://t.me/HoloObserverBot) and [X](https://x.com/OphSage)
 

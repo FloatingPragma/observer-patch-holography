@@ -1,5 +1,10 @@
 # OPH Book Source
 
+*Reverse Engineering Reality* is the reader-facing account of OPH: the
+theory, its discovery, and the case for it. The published editions are the
+[web edition](https://oph-book.floatingpragma.io/) and the
+[print PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf).
+
 This directory contains the canonical Markdown source for *Reverse Engineering
 Reality*, the OPH book:
 
