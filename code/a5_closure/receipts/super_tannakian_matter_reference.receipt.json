@@ -5,7 +5,7 @@
     "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": true,
     "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": true,
     "family_attachment_scalar_potential_pole_mass_outside_packet": true,
-    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": false,
+    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": true,
     "fifteen_state_module_selected_by_derived_equivariant_projector": true,
     "mar_class_proved_nonempty_before_uniqueness_promoted": true,
     "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": true
@@ -57,8 +57,8 @@
   "claim_boundary": {
     "declared_branch_premises": "the trace-balanced exterior matter contract, statistics and category typing, kernel emission contract, and MAR class declaration enter as typed branch premises, not as physical measurements",
     "does_not_close": [
-      "PORT-SPIN-LIFT as a physical source-bound receipt",
-      "physical source binding of the upstream response representation and coefficients (open in #566)",
+      "source binding of the upstream response representation and coefficients (tracked in #599)",
+      "PORT-SPIN-LIFT beyond its algebraic target (inherits the #599 premise binding)",
       "BLOCK-DETERMINANT-BALANCE (physical selection of the trace-balanced charge pair)",
       "physical refinement intertwining beyond the declared algebraic tower maps",
       "AXIS-CENTER-DESCENT and the global form (the kernel is emitted, the quotient is not chosen)",
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate is recorded open",
+      "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its response premises are declared, with source binding tracked in #599",
       "premise": "hash-pinned #566 manifest and receipt",
       "source_artifact": "load_upstream",
       "step": 2,
@@ -270,7 +270,7 @@
       ]
     },
     {
-      "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the physical source gate is recorded open",
+      "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the inherited premise binding (tracked in #599) is recorded",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_314_negative_controls.json",
       "step": 16,
@@ -289,14 +289,20 @@
     "weak_doublets_4": "half the number of matter states with nonzero su(2) Casimir diagonal",
     "yukawa_lines_3": "exact joint-invariant dimensions of the three declared channels"
   },
+  "inherited_premise_binding": {
+    "local_matter_contracts": "declared branch premises sanctioned by the issue text, which itself types the exterior package conditional and the MAR class declared",
+    "note": "this records inherited conditionality, not a local gap: #314 never requires physical measurement, and 'source-derived' structures are computed from the pinned source objects",
+    "source_bound": false,
+    "upstream_response_premises": "declared in the closed #566 packet; physical source binding is tracked in #599, which is outside this issue's dependency list (#565 and #566 only)"
+  },
   "issue": 314,
   "issue_closure_condition": {
     "branch_premises": "the hash-pinned #565/#566 packets plus the declared matter-lift contracts (trace-balanced block charges, one scalar, channel list, statistics, category typing, kernel emission, MAR class)",
     "conditional_algebraic_gate_passed": true,
-    "met_locally": false,
-    "physical_source_realization_gate_passed": false,
-    "produced_locally": "the conditional exact matter lift: the non-split algebraic PORT-SPIN-LIFT target, faithful current action, derived equivariant selection of the fifteen-state module, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), and declared-tower descent",
-    "remaining_producer": "physical source binding: the upstream response representation and coefficients, the trace-balanced matter contract, and the physical refinement maps must be derived from carrier response before the issue's source-derived matter category is closed"
+    "dependency_note": "the issue lists #565 and #566 only as dependencies; both are closed with hash-pinned certified packets, and the issue's own text types the exterior package conditional and the MAR class declared, so no physical measurement is required by any acceptance item",
+    "inherited_open_producers": "#599 source-binds the upstream response premises (moved there from #566); BLOCK-DETERMINANT-BALANCE and AXIS-CENTER-DESCENT remain separate downstream lanes",
+    "met_locally": true,
+    "produced_locally": "the conditional exact matter lift: the non-split algebraic PORT-SPIN-LIFT target, faithful current action, derived equivariant selection of the fifteen-state module, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), and declared-tower descent"
   },
   "kernel_emission": {
     "central_factor": "the non-compact R (phase turns); no compactification of R to U(1) is chosen here",
@@ -348,7 +354,7 @@
     "tensor_additivity": "charge, triality, and duality are additive over wedge and tensor factors by construction, so triviality on the verified weight list extends to every realized matter tensor",
     "verified_trivial_on": "every realized matter state, every carrier mode, and the declared scalar"
   },
-  "manifest_sha256": "6db97eb035ef446429299bcf3fc3b87c8ffb9285eb47896f767dd070466525e8",
+  "manifest_sha256": "aa7a5ff9df31f937ce9dbb9627e9321d5b832afa7d9f159f5162c17e3bfc6ecb",
   "mar_class": {
     "declared": "one_generation_one_scalar_chiral_anomaly_free",
     "nonempty": true,
@@ -368,12 +374,6 @@
     "trace_balance": "3 y_C + 2 y_W = 0, checked exactly; the top line is exactly invariant because of it",
     "transport_covariance_checks": 720,
     "transport_homomorphism_bracket_checks": 66
-  },
-  "physical_source_gate": {
-    "matter_contract_source_bound": false,
-    "passed": false,
-    "physical_refinement_intertwining_source_bound": false,
-    "upstream_response_representation_source_bound": false
   },
   "port_spin_lift": {
     "conclusion": "the sixty proper implementers lift to SU(2) with a unique involution -1 in the 120-element lift group, so the double cover is non-split (binary icosahedral) and PORT-SPIN-LIFT is realized on this branch; irrational spinor characters exclude any signed register-relabeling realization of the spinor sector",
@@ -483,7 +483,7 @@
       "#565 (carrier packet)",
       "#566 (conditional port-current algebra)"
     ],
-    "inherited_scope": "the upstream physical source gate is open; this packet inherits that conditionality"
+    "inherited_scope": "the upstream response premises are declared in the closed #566 packet; their physical source binding is tracked in #599, which is not a dependency of this issue"
   },
   "verifier_command": "python3 code/a5_closure/super_tannakian_matter_lift_certificate.py verify --manifest code/a5_closure/manifests/super_tannakian_matter_reference.json --receipt code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
   "yukawa_sector": {

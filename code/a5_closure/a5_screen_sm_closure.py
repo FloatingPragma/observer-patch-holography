@@ -197,7 +197,7 @@ payload = {
         "physical_gates": [
             "the echosahedral source-selector certificate closes UD12 and RP-A5 only on the declared quotient-visible carrier lineage",
             "the conditional PORT-CURRENT-INNER algebraic construction is verified by port_current_inner_certificate.py for a declared charged-double-triplet representation and four signed coefficients; physical response source binding and physical refinement intertwining remain open",
-            "the conditional super-Tannakian matter lift is verified by super_tannakian_matter_lift_certificate.py for the declared matter-lift contracts: the exact non-split SU(2) double cover (the algebraic PORT-SPIN-LIFT target), the projector-realized fifteen-state chiral module on the auxiliary CAR/Fock space, realized anomaly and Yukawa checks, the emitted action kernel (infinite cyclic on the cover, residual order six modulo the pure deck translations), and the MAR nonemptiness witness; physical source binding of the matter contract and the upstream response premises remains open",
+            "the conditional super-Tannakian matter lift is verified by super_tannakian_matter_lift_certificate.py for the declared matter-lift contracts, meeting the #314 acceptance criteria: the exact non-split SU(2) double cover (the algebraic PORT-SPIN-LIFT target), the projector-realized fifteen-state chiral module on the auxiliary CAR/Fock space, realized anomaly and Yukawa checks, the emitted action kernel (infinite cyclic on the cover, residual order six modulo the pure deck translations), and the MAR nonemptiness witness; source binding of the inherited upstream response premises is tracked in #599",
             "BLOCK-DETERMINANT-BALANCE and AXIS-CENTER-DESCENT identify the physical group and quotient, consuming the emitted action kernel",
             "MAR uniqueness and family attachment remain in their own lanes",
         ],
@@ -205,7 +205,7 @@ payload = {
     "claim_boundary": {
         "proved_here": "finite A5 arithmetic and conditional coefficient-algebra classification",
         "work_in_progress": [
-            "physical source binding of the conditional current and matter-lift packets",
+            "source binding of the upstream response premises (#599)",
             "physical block/axis descent from the emitted action kernel",
             "face-phase family attachment and gauge kinetic operator",
         ],

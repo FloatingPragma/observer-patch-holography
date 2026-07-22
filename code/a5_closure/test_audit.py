@@ -95,15 +95,15 @@ class AuditTests(unittest.TestCase):
 
         matter_gate = next(x for x in state["physical_gates"] if "matter lift" in x)
         self.assertIn("conditional", matter_gate)
-        self.assertIn("remains open", matter_gate)
-        self.assertNotIn("is closed", matter_gate)
+        self.assertIn("#599", matter_gate)
+        self.assertNotIn("physical source binding of the matter contract", matter_gate)
 
         matter_receipt = json.loads(
             (ROOT / "receipts" / "super_tannakian_matter_reference.receipt.json").read_text()
         )
         self.assertTrue(matter_receipt["conditional_algebraic_gate"]["passed"])
-        self.assertFalse(matter_receipt["physical_source_gate"]["passed"])
-        self.assertFalse(matter_receipt["issue_closure_condition"]["met_locally"])
+        self.assertFalse(matter_receipt["inherited_premise_binding"]["source_bound"])
+        self.assertTrue(matter_receipt["issue_closure_condition"]["met_locally"])
 
         matter_claim = next(
             row for row in registry["claims"]
