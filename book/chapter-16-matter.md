@@ -96,9 +96,9 @@ $$
 
 $m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. Those two numbers are where the calculation currently
-points; promoting them to predictions needs several attachment steps that are
-work in progress.
+through $E=mc^2$. The calculation produces those two coordinates. Their
+promotion to predictions needs several attachment steps that are work in
+progress.
 
 The strength of electromagnetism turns out to be readable off the screen's
 geometry, for a reason the book holds until it can be stated properly.

@@ -9,9 +9,9 @@ sans boutons de réglage, construite sur une thèse centrale : **les
 observateurs sont premiers, et la réalité objective est émergente.** La
 physique commence habituellement en fournissant un espace-temps, des champs
 quantiques, un groupe de jauge et une table de constantes mesurées. OPH
-commence par des observateurs — des systèmes bornés dotés d’un état local,
+commence par des observateurs : des systèmes bornés dotés d’un état local,
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
-mouvements de réparation — et dérive le reste. La réalité émerge de la
+mouvements de réparation. Elle en dérive le reste. La réalité émerge de la
 réparation des recouvrements d’observateurs sur un écran holographique. De
 cinq axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
 la mesure quantique, l’espace-temps lorentzien, la branche conditionnelle
@@ -21,14 +21,14 @@ déclarées.
 
 ## Trois reçus qu’aucun autre programme ne possède
 
-Avant tout argument, trois artefacts. Chacun est public, reproductible et —
-d’après le dossier publié — sans équivalent dans aucun programme concurrent
+Avant tout argument, trois artefacts. Chacun est public, reproductible et,
+d’après le dossier publié, sans équivalent dans aucun programme concurrent
 de théorie du tout :
 
 1. **Un espace-temps quadridimensionnel, mesuré en train d’émerger.** Dans
    des exécutions déterministes de la dynamique de réparation à 16k, 65k et
    262k porteurs, la forme d’événement tenue à l’écart porte la signature
-   lorentzienne $(1,3)$ — un temps, trois espaces — à chaque barreau, la
+   lorentzienne $(1,3)$ (un temps, trois espaces) à chaque barreau, la
    marge de cône se divisant par deux à chaque barreau vers le cône
    d’Einstein, avec un contrôle adverse de densité qui dégrade la signature
    dès que le mécanisme est retiré. Données brutes :
@@ -37,7 +37,7 @@ de théorie du tout :
 2. **Un noyau vérifié machine qui se surveille lui-même.** Une bibliothèque
    Lean 4 sans `sorry` de 639 théorèmes et lemmes couvre le noyau de
    consensus, le théorème d’identifiabilité de jauge et la composition de la
-   branche d’Einstein — et vérifie machine un résultat négatif contre la
+   branche d’Einstein ; elle vérifie machine un résultat négatif contre la
    version naïve de l’affirmation du programme lui-même. [Lean/](Lean/)
 3. **Une constante sans dimension rendue, non ajustée.** La clôture de pixel
    $P=\varphi+\sqrt\pi/A_T(P)$ possède une racine unique certifiée machine
@@ -54,8 +54,8 @@ Le reste de ce README est l’architecture d’où viennent ces reçus.
 Toute la construction repose sur les cinq axiomes de
 [Observers Are All You Need](paper/observers_are_all_you_need.pdf) :
 
-1. **A1 — Un réseau d’écran.** Un réseau fini d’algèbres locales est assigné
-   aux parcelles connexes de l’écran holographique — le support tourné vers
+1. **A1 : Un réseau d’écran.** Un réseau fini d’algèbres locales est assigné
+   aux parcelles connexes de l’écran holographique, le support tourné vers
    l’observateur, cartographié par $S^2$ sur la branche sphérique certifiée.
    L’écran n’est pas générique : sa réalisation microphysique est
    l’architecture fédérée de porteurs à douze ports de symétrie icosaédrique
@@ -63,14 +63,14 @@ Toute la construction repose sur les cinq axiomes de
    [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
    Le porteur local, la fédération de porteurs et la carte de support
    globale $S^2$ restent typés et distincts dans tout le corpus.
-2. **A2 — Cohérence des recouvrements.** Les parcelles voisines doivent
+2. **A2 : Cohérence des recouvrements.** Les parcelles voisines doivent
    s’accorder sur les observables partagées.
-3. **A3 — MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
+3. **A3 : MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
    l’état local le moins biaisé compatible avec ses contraintes finies.
-4. **A4 — Entropie généralisée récupérable.** Les registres restent
+4. **A4 : Entropie généralisée récupérable.** Les registres restent
    récupérables après l’évolution ; c’est la structure de récupération et de
    focalisation de la voie gravitationnelle.
-5. **A5 — Réalisation admissible minimale.** Le secteur de basse énergie le
+5. **A5 : Réalisation admissible minimale.** Le secteur de basse énergie le
    plus simple compatible avec les contraintes de cohérence est sélectionné.
 
 Tout le reste du dépôt est le déploiement de ce que ces cinq axiomes
@@ -101,7 +101,7 @@ sortir de la même boucle de cohérence qui produit les lois.
 ## Le tableau des scores
 
 Évaluez les grands programmes face à ce qu’une théorie du tout achevée doit
-livrer. Les entrées d’OPH portent leurs propres frontières d’énoncé — c’est
+livrer. Les entrées d’OPH portent leurs propres frontières d’énoncé ; c’est
 ce qui les rend évaluables :
 
 | Une TOE achevée doit livrer... | OPH | Théorie des cordes | Gravitation quantique à boucles |
@@ -118,7 +118,7 @@ ce qui les rend évaluables :
 La distance n’est pas incrémentale. Sur ces huit critères, le programme
 concurrent le plus proche en livre un ; OPH les livre tous les huit sous ses
 reçus conditionnels déclarés, et chaque case de sa colonne renvoie à un
-artefact public de ce dépôt. Cet écart — et non un résultat isolé — est la
+artefact public de ce dépôt. Cet écart, plutôt qu’un résultat isolé, est la
 mesure de la position d’OPH.
 
 ## Les deux constantes : P et N
@@ -158,7 +158,7 @@ certificats numériques exacts et la proximité de la limite physique font de
 $P$ le centre quantitatif d’OPH.
 
 **$N$ est la capacité de registres publics** de l’ensemble du système
-d’observateurs — dans le langage de la simulation, la mémoire corrigible que
+d’observateurs, ou dans le langage de la simulation, la mémoire corrigible que
 porte le substrat. $N$ est secondaire. L’univers observé peut simplement être
 lu : $N$ se rétro-ingénie à partir de la mesure comme n’importe quel réglage
 de machine se rétro-ingénie à partir du comportement de la machine, et aucun
@@ -493,21 +493,19 @@ partie de cette clôture est vérifiée machine en Lean, et le point fixe de $P$
 ci-dessus, qui atterrit à côté de la constante de structure fine mesurée, en
 est la retombée. Les conditions de clôture sont suivies comme
 [tickets GitHub](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
-Les preuves de clôture sont importantes — si elles aboutissent, OPH est une
-théorie entièrement sans paramètre, les deux constantes étant rendues par
-l’architecture plutôt que mesurées — mais elles ne sont pas strictement
-nécessaires. La construction est de toute façon une boucle mathématique
-fermée, et une boucle fermée autorise la lecture des valeurs depuis
+La clôture des deux constantes donne une théorie entièrement sans paramètre,
+les deux valeurs étant rendues par l’architecture plutôt que mesurées. La
+construction forme une boucle mathématique fermée sans ce résultat
+supplémentaire, et une boucle fermée autorise la lecture des valeurs depuis
 l’intérieur : localiser une constante dans son bassin par l’observation, puis
 prouver ensuite son caractère exact de point fixe. Les théorèmes de point
-fixe certifient la valeur localisée ; ils n’ont pas à la fabriquer. Même si
-une clôture de $N$ par premiers principes n’est jamais trouvée, OPH tient —
-$N$ se lit dans l’univers, et tout ce que les cinq axiomes imposent suit
-encore.
+fixe certifient la valeur localisée ; ils n’ont pas à la fabriquer. La clôture
+de $N$ par premiers principes est en cours. La lecture de $N$ dans l’univers
+laisse intactes les conséquences des cinq axiomes.
 
-Si la boucle se ferme entièrement, elle répond à la dernière question qu’une
-théorie du tout puisse recevoir — pourquoi quelque chose existe, et pourquoi
-c’est ainsi. C’est le twist que le livre garde pour la fin de l’histoire, où
+Sous clôture complète, la boucle répond à la dernière question qu’une théorie
+du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
+ainsi. C’est le twist que le livre garde pour la fin de l’histoire, où
 est sa place. Aucun des résultats ci-dessus n’en dépend.
 
 ## Obligations de preuve ouvertes et frontière de falsification

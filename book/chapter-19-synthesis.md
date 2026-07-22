@@ -1,8 +1,8 @@
 # Chapter 19: Synthesis
 
 Chapter 18 ended with a universe that writes itself down. This chapter reads
-the whole book back through that ending. Some of what follows is theorem, some
-is construction still underway, and the text says which is which as it goes.
+the whole book back through that ending. Some of what follows is theorem. The
+unclosed constructions are identified as work in progress where they appear.
 
 ## 19.1 The Picture That Gives Way
 
@@ -67,7 +67,7 @@ frames and, after an event and gravity construction, spacetime. Its twelve-port
 incidence also carries the $A_5$ blocks used by the compact-current theorem and
 the conditional Standard Model recognition. The compact-current algebra is
 verified exactly for a declared charged-double-triplet response representation
-and four signed coefficients; physical response source binding remains open.
+and four signed coefficients; physical response source binding is open.
 Consensus is the hinge. It supplies public records to both branches. It
 supplies neither a clock nor a gauge current.
 

@@ -300,7 +300,7 @@ Part B gaps:
   signed coefficients, an injective full-rank lift onto
   $\mathfrak u(3)\oplus\mathfrak{so}(3)$ with compact skew-adjoint closure,
   inner A5 action, declared-tower naturality, and a register-relabeling no-go.
-  PORT-CURRENT-INNER remains open as a physical receipt until the response
+  PORT-CURRENT-INNER is open as a physical receipt until the response
   representation, coefficients, and physical refinement maps are source-bound.
   The remaining producer gates are block determinant balance and
   PORT-SPIN-LIFT; physical $\mathbb Z_6$ deck/line descent; selection of the

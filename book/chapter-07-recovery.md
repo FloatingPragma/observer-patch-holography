@@ -241,7 +241,7 @@ $\lambda_i$ are the weights of the independent quantum alternatives after the
 density matrix is diagonalized. The trace expression is the coordinate-free way
 to compute the same uncertainty without choosing a favorite basis.
 
-The quantum CMI is the same formula as before, now built from quantum entropies:
+The quantum CMI uses the same formula, built from quantum entropies:
 
 $$I(A:C|B) = S(AB) + S(BC) - S(B) - S(ABC)$$
 
@@ -397,7 +397,7 @@ boundary supplies more places for a residual correlation to cross.
 
 In the finite-dimensional code-subspace setting, the arena of the
 error-correcting codes below, Axiom 4 yields a clean constructive result for
-patch families arranged like a tree. Each new patch touches the already-glued
+patch families arranged like a tree. Each new patch touches the glued
 union only through a single separator $B$, the induced $A$-$B$-$C$ split is a
 genuine tensor product at each step, and recovery maps glue the patches into
 a global state.
@@ -534,7 +534,7 @@ nothing is simply deleted from the full quantum description.
 If the universe is unitary and holographic encoding is stable, information is
 redistributed into increasingly nonlocal correlations of the full quantum state.
 
-The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles. You would have to wait a while for the answer, and then check whether you still remembered the question.
+The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles. You would have to wait a while for the answer, assuming the question survived the wait.
 
 Paleontology and astronomy use weak versions of this. Fossils preserve information about creatures from millions of years ago. Astronomy records light that has traveled for billions of years before reaching our telescopes. The cosmic microwave background is one vivid example of very old information preserved in radiation.
 

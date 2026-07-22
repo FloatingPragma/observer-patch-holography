@@ -94,7 +94,7 @@ The working idea is simple: non-commutativity is part of what makes overlap
 consistency nontrivial.
 
 Imagine three surveyors, each pair of whom agrees on their shared boundary,
-whose three maps still cannot be pasted into one map. Quantum states can do
+whose three maps cannot be pasted into one map. Quantum states can do
 this. The quantum marginal problem, the study of when local descriptions fit
 together into one global state, shows that pairwise agreement does not
 guarantee a single global state, and non-commutativity makes the failure
