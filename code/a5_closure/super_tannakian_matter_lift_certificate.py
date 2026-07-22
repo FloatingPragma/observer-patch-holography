@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Exact certificate for GitHub issue #314: the super-Tannakian matter lift.
+"""Exact certificate for GitHub issue #314: the conditional super-Tannakian matter lift.
 
 The input is a matter-lift manifest.  It declares only:
 
-* the certified port-current response manifest of issue #566 (by path and
-  hash) together with its stored receipt hash - the physical current
-  algebra u(3) (+) so(3) on the charged response space is strictly
-  upstream;
-* the trace-balanced conditional exterior matter contract: the exact
-  charge pair on the color and weak blocks, the one-scalar choice (the
-  weak block itself), and the declared invariant Yukawa channel list;
+* the conditional port-current response manifest of issue #566 (by path
+  and hash) together with its stored receipt hash - the conditional
+  current algebra u(3) (+) so(3) on the charged response space is
+  strictly upstream, and its physical source binding is open there;
+* the trace-balanced exterior matter contract: the exact charge pair on
+  the color and weak blocks, the one-scalar choice (the weak block
+  itself), and the declared invariant Yukawa channel list - a typed
+  branch premise, not a physical measurement;
 * the fermionic statistics contract, the Spin/odd-Weyl category typing
   with a genuine double-cover spin lift, the operator-projector
   realization contract, the kernel emission contract, and the declared
@@ -17,25 +18,32 @@ The input is a matter-lift manifest.  It declares only:
 
 From that packet the verifier derives, rather than assumes:
 
-* an exact PORT-SPIN-LIFT: special-unitary lifts of all sixty proper
-  implementers whose 120-element lift group has a unique involution, so
-  the double cover is genuinely non-split (binary icosahedral);
+* the exact algebraic PORT-SPIN-LIFT target: special-unitary lifts of all
+  sixty proper implementers whose 120-element lift group has a unique
+  involution, so the double cover is genuinely non-split (binary
+  icosahedral);
 * a faithful skew-adjoint Lie-algebra homomorphism from the twelve
   dimensional current algebra to the matter carrier V = C (+) W;
-* the auxiliary CAR/Fock space Lambda^* V with source-derived fermionic
-  parity, super tensor structure (wedge with Koszul signs), and
-  conjugation through the pairing into the top line, which is exactly
-  trivial because of the declared trace balance;
-* the source-derived equivariant projector (parity projector minus the
-  derived invariant line) of exact rank fifteen whose image realizes the
-  exterior package Lambda^2 V (+) Lambda^4 V;
+* the auxiliary CAR/Fock space Lambda^* V with derived fermionic parity,
+  super tensor structure (wedge with Koszul signs), and conjugation
+  through the pairing into the top line, which is exactly trivial because
+  of the declared trace balance;
+* the derived equivariant projector (parity projector minus the derived
+  invariant line) of exact rank fifteen whose image realizes the exterior
+  package Lambda^2 V (+) Lambda^4 V;
 * exact chirality (disjoint charge spectra force a zero intertwiner
   space), realized perturbative anomaly traces, the even Witten parity,
   and exactly one invariant line per declared Yukawa channel;
 * the common action kernel on the simply connected cover, emitted as data
   (derived integrality normalization, generator, exact order six) without
   forming the global quotient;
-* refinement descent along the declared carrier tower.
+* descent along the declared algebraic carrier tower maps.
+
+This is a conditional exact algebraic theorem.  It does not source-bind
+the matter contract or the upstream response representation to physical
+carrier response; that remains a separate source-binding gate, so the
+receipt separates the verified conditional algebraic gate from the open
+physical source gate.
 
 Vec-typed, split-sVec, opposite-Weyl, bosonic-statistics, truncated
 selection, full-even-module, empty-Gauss, assumed-quotient,
@@ -65,9 +73,9 @@ if str(MODULE_DIR) not in sys.path:
 import echosahedral_selector_certificate as e565  # noqa: E402
 import port_current_inner_certificate as p566  # noqa: E402
 
-SCHEMA = "oph.super_tannakian_matter_manifest.v1"
-RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v1"
-NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v1"
+SCHEMA = "oph.super_tannakian_matter_manifest.v2"
+RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v2"
+NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v2"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -282,7 +290,11 @@ FIELD_LABELS = ("Q", "u_c", "e_c", "d_c", "L")
 SCALAR_LABELS = ("S", "Sbar")
 
 
-def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
+def validate_manifest(
+    manifest: Mapping[str, Any],
+    *,
+    allow_control_contracts: bool = False,
+) -> dict[str, Any]:
     enforce_matter_firewall(manifest)
     require(manifest.get("schema") == SCHEMA, "SCHEMA", f"expected {SCHEMA}")
 
@@ -292,11 +304,8 @@ def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
     require(isinstance(charges, Mapping), "EXTERIOR_CONTRACT", "block_trace_charges is missing")
     y_color = parse_rational(charges.get("color_block"), "EXTERIOR_CONTRACT")
     y_weak = parse_rational(charges.get("weak_block"), "EXTERIOR_CONTRACT")
-    require(
-        exterior.get("trace_balanced") is True,
-        "EXTERIOR_CONTRACT",
-        "the exterior matter contract must be typed trace-balanced",
-    )
+    # Trace balance is checked arithmetically from the declared charge pair;
+    # a redundant declared balance flag is not accepted.
     require(
         3 * y_color + 2 * y_weak == 0,
         "TRACE_BALANCE",
@@ -342,10 +351,13 @@ def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
     statistics = manifest.get("statistics_contract")
     require(isinstance(statistics, Mapping), "STATISTICS_TYPING", "statistics_contract is missing")
     matter_statistics = statistics.get("matter_statistics")
+    allowed_statistics = (
+        ("fermionic_odd", "bosonic_even") if allow_control_contracts else ("fermionic_odd",)
+    )
     require(
-        matter_statistics in ("fermionic_odd", "bosonic_even"),
+        matter_statistics in allowed_statistics,
         "STATISTICS_TYPING",
-        "matter_statistics must be 'fermionic_odd' or 'bosonic_even'",
+        "the production packet must declare fermionic_odd matter statistics",
     )
     require(
         statistics.get("distinct_from_bosonic_records") is True,
@@ -356,20 +368,31 @@ def validate_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
     category = manifest.get("category_contract")
     require(isinstance(category, Mapping), "CATEGORY_TYPING", "category_contract is missing")
     typing = category.get("typing")
+    allowed_typings = (
+        ("spin_odd_weyl_super", "svec", "vec") if allow_control_contracts else ("spin_odd_weyl_super",)
+    )
     require(
-        typing in ("spin_odd_weyl_super", "svec", "vec"),
+        typing in allowed_typings,
         "CATEGORY_TYPING",
-        "category typing must be 'spin_odd_weyl_super', 'svec', or 'vec'",
+        "the production packet must declare the spin_odd_weyl_super category typing",
     )
     spin = category.get("spin_lift")
     require(isinstance(spin, Mapping), "CATEGORY_TYPING", "spin_lift contract is missing")
     double_cover = spin.get("double_cover")
     require(double_cover in (True, False), "CATEGORY_TYPING", "spin_lift.double_cover must be boolean")
-    selection_rule = category.get("selection_rule")
     require(
-        selection_rule in SELECTION_RULES,
+        allow_control_contracts or double_cover is True,
+        "CATEGORY_TYPING",
+        "the production packet must declare the genuine double-cover spin lift",
+    )
+    selection_rule = category.get("selection_rule")
+    allowed_rules = (
+        SELECTION_RULES if allow_control_contracts else ("parity_even_minus_derived_invariants",)
+    )
+    require(
+        selection_rule in allowed_rules,
         "SELECTION_RULE",
-        f"selection_rule must be one of {SELECTION_RULES}",
+        "the production packet must declare the parity_even_minus_derived_invariants selection rule",
     )
     realization = category.get("realization")
     require(
@@ -456,11 +479,17 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
         "UPSTREAM_RECEIPT",
         "the pinned upstream receipt does not certify the pinned current manifest",
     )
-    gate = current_receipt.get("physical_current_gate")
+    gate = current_receipt.get("conditional_algebraic_gate")
     require(
         isinstance(gate, Mapping) and gate.get("passed") is True,
         "UPSTREAM_RECEIPT",
-        "the pinned upstream receipt did not pass the physical-current gate",
+        "the pinned upstream receipt did not pass the conditional algebraic gate",
+    )
+    physical_gate = current_receipt.get("physical_source_gate")
+    require(
+        isinstance(physical_gate, Mapping) and physical_gate.get("passed") is False,
+        "UPSTREAM_RECEIPT",
+        "the upstream physical source gate status must be recorded and open; this packet inherits that scope",
     )
     return {
         "current_manifest": current_manifest,
@@ -960,9 +989,14 @@ def frac_text(value: Fraction) -> str:
     return f"{value.numerator}/{value.denominator}"
 
 
-def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
+def certificate_payload(
+    manifest: Mapping[str, Any],
+    base_dir: Path | None = None,
+    *,
+    allow_control_contracts: bool = False,
+) -> dict[str, Any]:
     base = base_dir or MODULE_DIR
-    params = validate_manifest(manifest)
+    params = validate_manifest(manifest, allow_control_contracts=allow_control_contracts)
     upstream = load_upstream(manifest, base)
 
     algebra = CurrentAlgebra(upstream["current_manifest"], base)
@@ -1595,21 +1629,20 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
     # --- Gate ------------------------------------------------------------------------
     require(matter_dimension == 15, "PACKAGE_REALIZATION", f"expected fifteen matter states, got {matter_dimension}")
     gate = {
-        "source_defined_structures": True,
         "port_spin_lift_nonsplit_double_cover": True,
         "faithful_current_action_on_matter_tensors": True,
         "fifteen_state_module_from_equivariant_projector": True,
         "exterior_package_realized_on_cover": True,
         "listed_anomalies_and_witten_parity_checked": True,
         "chiral_no_common_summand_with_dual": True,
-        "conjugation_and_super_tensor_source_derived": True,
-        "nonzero_physical_invariant_sector": True,
+        "conjugation_and_super_tensor_derived": True,
+        "nonzero_invariant_sector": True,
         "common_action_kernel_emitted_not_assumed": True,
         "mar_class_nonempty_witnessed": True,
-        "refinement_descent": True,
+        "declared_tower_descent": True,
         "family_and_potential_and_mass_firewalled": True,
     }
-    require(all(gate.values()), "GATE", "matter-lift gate did not pass")
+    require(all(gate.values()), "GATE", "conditional algebraic matter-lift gate did not pass")
 
     weight_spectrum = {
         frac_text(value): count for value, count in sorted(weight_multiset.items())
@@ -1623,15 +1656,16 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "current_manifest_sha256": upstream["current_manifest_sha256"],
             "current_receipt_sha256": upstream["current_receipt_sha256"],
             "carrier_manifest_sha256": upstream["carrier_manifest_sha256"],
-            "dependencies": ["#565 (carrier packet)", "#566 (physical port-current algebra)"],
+            "dependencies": ["#565 (carrier packet)", "#566 (conditional port-current algebra)"],
+            "inherited_scope": "the upstream physical source gate is open; this packet inherits that conditionality",
         },
         "source_firewall": {
             "forbidden_dependency_hits": [],
             "uses_only": [
-                "hash-pinned #566 current packet (manifest and receipt)",
-                "declared trace-balanced exterior matter contract",
-                "declared fermionic statistics and Spin/odd-Weyl category contracts",
-                "declared kernel emission contract and MAR class declaration",
+                "hash-pinned #566 conditional current packet (manifest and receipt)",
+                "declared trace-balanced exterior matter contract (branch premise)",
+                "declared fermionic statistics and Spin/odd-Weyl category contracts (branch premises)",
+                "declared kernel emission contract and MAR class declaration (branch premises)",
             ],
         },
         "port_spin_lift": {
@@ -1713,10 +1747,14 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "channels": yukawa_rows,
             "forbidden_channel_control": {"channel": ["Q", "S", "d_c"], "invariant_dimension": 0},
             "invariant_sector_dimension": len(yukawa_rows),
-            "statement": "the physical invariant sector is nonzero: one exact invariant line per declared channel",
+            "statement": "the invariant Gauss sector is nonzero: one exact invariant line per declared channel",
         },
         "kernel_emission": kernel_payload,
-        "refinement": {"natural": True, "maps": refinement_rows},
+        "refinement": {
+            "natural": True,
+            "maps": refinement_rows,
+            "scope": "naturality along the declared algebraic tower maps; physical refinement intertwining is not source-bound here",
+        },
         "mar_class": {
             "declared": "one_generation_one_scalar_chiral_anomaly_free",
             "nonempty": True,
@@ -1730,13 +1768,19 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "category": {
             "typing": "spin_odd_weyl_super",
             "objects": "subquotients of tensor powers of V and its dual, realized on the auxiliary CAR/Fock space",
-            "parity": "source-derived from the CAR grading",
-            "spin": "source-derived PORT-SPIN-LIFT with non-split double cover",
+            "parity": "derived from the CAR grading",
+            "spin": "the derived algebraic PORT-SPIN-LIFT target with non-split double cover",
             "tensor": "wedge product with Koszul braiding; the CAR-derivation identity is the exact Leibniz rule",
             "conjugation": "wedge pairing into the invariant top line",
             "nonempty": "the odd matter object is nonzero (fifteen states) with a faithful current action",
         },
-        "matter_lift_gate": gate,
+        "conditional_algebraic_gate": {**gate, "passed": True},
+        "physical_source_gate": {
+            "matter_contract_source_bound": False,
+            "upstream_response_representation_source_bound": False,
+            "physical_refinement_intertwining_source_bound": False,
+            "passed": False,
+        },
         "derivation_chain": [
             {
                 "step": 1,
@@ -1750,7 +1794,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "hash-pinned #566 manifest and receipt",
                 "uses": ["sha256 pins", "gate check on the stored receipt"],
                 "source_artifact": "load_upstream",
-                "conclusion": "the physical current algebra u(3) (+) so(3) with its charged response space is strictly upstream",
+                "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate is recorded open",
             },
             {
                 "step": 3,
@@ -1778,7 +1822,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "the auxiliary CAR algebra over V",
                 "uses": ["50 CAR relation checks", "vacuum cyclicity rank 32", "parity grading"],
                 "source_artifact": "FockSpace",
-                "conclusion": "the 32-state auxiliary Fock space with source-derived fermionic parity and Koszul super structure",
+                "conclusion": "the 32-state auxiliary Fock space with derived fermionic parity and Koszul super structure",
             },
             {
                 "step": 7,
@@ -1799,7 +1843,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "parity projector minus the derived invariant line",
                 "uses": ["idempotence", "self-adjointness", "12 equivariance checks", "rank 15"],
                 "source_artifact": "certificate_payload",
-                "conclusion": "the source-derived equivariant projector selects the fifteen-state matter module from the full auxiliary Fock space",
+                "conclusion": "the derived equivariant projector selects the fifteen-state matter module from the full auxiliary Fock space",
             },
             {
                 "step": 10,
@@ -1827,7 +1871,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "declared Yukawa channels on realized blocks",
                 "uses": ["exact joint invariants per channel", "forbidden-channel control"],
                 "source_artifact": "kron_sum_invariants",
-                "conclusion": "the physical invariant sector is nonzero: exactly one invariant line per declared channel",
+                "conclusion": "the invariant Gauss sector is nonzero: exactly one invariant line per declared channel",
             },
             {
                 "step": 14,
@@ -1841,14 +1885,14 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "premise": "declared refinement tower",
                 "uses": ["exterior lifts", "projector commutation", "generator intertwining"],
                 "source_artifact": "certificate_payload",
-                "conclusion": "the matter lift descends naturally along the declared refinement tower",
+                "conclusion": "the matter lift descends naturally along the declared algebraic tower maps",
             },
             {
                 "step": 16,
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_314_negative_controls.json",
-                "conclusion": "the matter-lift gate passes on the reference packet and fails closed on every countermodel",
+                "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the physical source gate is recorded open",
             },
         ],
         "factor_origins": {
@@ -1863,20 +1907,21 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         },
         "branch_scope": {
             "branch": "declared echosahedral response branch",
-            "upstream_packets": "the certified #565 carrier and the #566 physical current algebra, both hash-pinned",
-            "declared_source_data": (
+            "upstream_packets": "the certified #565 carrier and the conditional #566 current algebra, both hash-pinned",
+            "declared_branch_premises": (
                 "the trace-balanced exterior matter contract (block trace charges, the one-scalar choice, the "
                 "Yukawa channel list), the fermionic statistics contract, the Spin/odd-Weyl category typing, "
-                "the kernel emission contract, and the MAR class declaration"
+                "the kernel emission contract, and the MAR class declaration - typed premises, not measurements"
             ),
             "not_claimed": (
+                "no physical source binding of the matter contract or the upstream response representation, "
                 "no derivation of trace balance from source dynamics (BLOCK-DETERMINANT-BALANCE open), no global-form "
                 "choice (AXIS-CENTER-DESCENT open), no family attachment, no MAR uniqueness, no scalar potential, no "
                 "pole mass, no continuum spin-statistics theorem, no identification with physical particle content"
             ),
         },
         "acceptance_criteria_status": {
-            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": True,
+            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": False,
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
@@ -1884,23 +1929,26 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "family_attachment_scalar_potential_pole_mass_outside_packet": True,
             "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": True,
             "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": True,
-            "fifteen_state_module_selected_by_source_derived_equivariant_projector": True,
+            "fifteen_state_module_selected_by_derived_equivariant_projector": True,
         },
         "issue_closure_condition": {
             "produced_locally": (
-                "the exact super-Tannakian matter lift: non-split PORT-SPIN-LIFT, faithful current action, "
-                "source-derived equivariant selection of the fifteen-state module, realized anomaly and Witten "
-                "checks, chirality, conjugation, Yukawa invariant lines, emitted order-six action kernel, and "
-                "refinement descent"
+                "the conditional exact matter lift: the non-split algebraic PORT-SPIN-LIFT target, faithful "
+                "current action, derived equivariant selection of the fifteen-state module, realized anomaly "
+                "and Witten checks, chirality, conjugation, Yukawa invariant lines, emitted order-six action "
+                "kernel, and declared-tower descent"
             ),
-            "source_data": (
+            "branch_premises": (
                 "the hash-pinned #565/#566 packets plus the declared matter-lift contracts (trace-balanced "
                 "block charges, one scalar, channel list, statistics, category typing, kernel emission, MAR class)"
             ),
-            "met_locally": True,
-            "optional_strengthening": (
-                "deriving the trace-balanced charge pair from source dynamics would close "
-                "BLOCK-DETERMINANT-BALANCE; the issue's acceptance criteria do not require it"
+            "conditional_algebraic_gate_passed": True,
+            "physical_source_realization_gate_passed": False,
+            "met_locally": False,
+            "remaining_producer": (
+                "physical source binding: the upstream response representation and coefficients, the "
+                "trace-balanced matter contract, and the physical refinement maps must be derived from "
+                "carrier response before the issue's source-derived matter category is closed"
             ),
         },
         "dependency_acyclicity_note": {
@@ -1919,14 +1967,17 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "--receipt code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
         ),
         "claim_boundary": {
-            "closes": "SUPER-TANNAKIAN-MATTER-LIFT on the declared echosahedral response branch, including the PORT-SPIN-LIFT construction on that branch",
-            "declared_source_data": (
+            "proves": "the conditional exact super-Tannakian matter lift for the declared matter contracts over the pinned conditional current packet, including the algebraic PORT-SPIN-LIFT target",
+            "status": "proved_conditional_on_declared_matter_contracts",
+            "declared_branch_premises": (
                 "the trace-balanced exterior matter contract, statistics and category typing, kernel emission "
-                "contract, and MAR class declaration enter as declared source data with the same epistemic status "
-                "as the pinned carrier and response manifests"
+                "contract, and MAR class declaration enter as typed branch premises, not as physical measurements"
             ),
             "does_not_close": [
+                "PORT-SPIN-LIFT as a physical source-bound receipt",
+                "physical source binding of the upstream response representation and coefficients (open in #566)",
                 "BLOCK-DETERMINANT-BALANCE (physical selection of the trace-balanced charge pair)",
+                "physical refinement intertwining beyond the declared algebraic tower maps",
                 "AXIS-CENTER-DESCENT and the global form (the kernel is emitted, the quotient is not chosen)",
                 "MAR uniqueness (only nonemptiness is discharged here)",
                 "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim",
@@ -2019,7 +2070,7 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
     for name, mutant, expected_code in negative_control_cases(manifest):
         actual_code = "ACCEPTED"
         try:
-            certificate_payload(mutant, base_dir)
+            certificate_payload(mutant, base_dir, allow_control_contracts=True)
         except CertificateError as exc:
             actual_code = exc.code
         require(

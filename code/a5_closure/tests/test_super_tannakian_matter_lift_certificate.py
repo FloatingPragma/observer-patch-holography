@@ -32,10 +32,14 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_gate_passes_with_all_rows_true(self) -> None:
-        gate = self.expected["matter_lift_gate"]
+    def test_conditional_gate_passes_and_physical_gate_is_open(self) -> None:
+        gate = self.expected["conditional_algebraic_gate"]
         self.assertEqual(set(gate.values()), {True})
         self.assertEqual(len(gate), 13)
+        self.assertTrue(gate["passed"])
+        physical_gate = self.expected["physical_source_gate"]
+        self.assertEqual(set(physical_gate.values()), {False})
+        self.assertFalse(physical_gate["passed"])
 
     def test_upstream_pins_match_stored_packets(self) -> None:
         upstream = self.expected["upstream"]
@@ -171,7 +175,15 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
     def test_acceptance_criteria_chain_and_scope(self) -> None:
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 9)
-        self.assertEqual(set(status.values()), {True})
+        # The source-derivation criterion is honestly False: the structures
+        # are derived exactly, but from declared branch premises that are not
+        # yet source-bound (mirroring the #566 conditional scoping).
+        self.assertIs(
+            status["fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived"],
+            False,
+        )
+        algebraic_rows = {k: v for k, v in status.items() if not k.endswith("source_derived")}
+        self.assertEqual(set(algebraic_rows.values()), {True})
         chain = self.expected["derivation_chain"]
         self.assertEqual([row["step"] for row in chain], list(range(1, 17)))
         for row in chain:
@@ -183,11 +195,46 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertIn("factor_origins", self.expected)
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
+
+    def test_matter_lift_is_conditional_not_source_bound(self) -> None:
         closure_condition = self.expected["issue_closure_condition"]
-        self.assertIs(closure_condition["met_locally"], True)
+        self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
+        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
+        self.assertFalse(closure_condition["met_locally"])
+        self.assertIn("source binding", closure_condition["remaining_producer"])
         boundary = self.expected["claim_boundary"]
-        self.assertIn("BLOCK-DETERMINANT-BALANCE", boundary["does_not_close"][0])
-        self.assertIn("AXIS-CENTER-DESCENT", boundary["does_not_close"][1])
+        self.assertEqual(boundary["status"], "proved_conditional_on_declared_matter_contracts")
+        self.assertIn("PORT-SPIN-LIFT as a physical source-bound receipt", boundary["does_not_close"][0])
+        self.assertTrue(any("BLOCK-DETERMINANT-BALANCE" in row for row in boundary["does_not_close"]))
+        self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))
+
+    def test_control_contracts_are_not_valid_production_manifests(self) -> None:
+        for path, value, code in (
+            (("category_contract", "typing"), "vec", "CATEGORY_TYPING"),
+            (("category_contract", "typing"), "svec", "CATEGORY_TYPING"),
+            (("category_contract", "selection_rule"), "lambda2_only", "SELECTION_RULE"),
+            (("statistics_contract", "matter_statistics"), "bosonic_even", "STATISTICS_TYPING"),
+        ):
+            mutant = copy.deepcopy(self.manifest)
+            mutant[path[0]][path[1]] = value
+            with self.assertRaises(cert.CertificateError) as caught:
+                cert.validate_manifest(mutant)
+            self.assertEqual(caught.exception.code, code)
+        split = copy.deepcopy(self.manifest)
+        split["category_contract"]["spin_lift"]["double_cover"] = False
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.validate_manifest(split)
+        self.assertEqual(caught.exception.code, "CATEGORY_TYPING")
+
+    def test_redundant_trace_balance_flag_is_not_required(self) -> None:
+        # Trace balance is an arithmetic consequence of the declared charge
+        # pair; the manifest carries no redundant declared balance flag.
+        self.assertNotIn("trace_balanced", self.manifest["exterior_matter_contract"])
+        unbalanced = copy.deepcopy(self.manifest)
+        unbalanced["exterior_matter_contract"]["block_trace_charges"]["weak_block"] = "1/3"
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.validate_manifest(unbalanced)
+        self.assertEqual(caught.exception.code, "TRACE_BALANCE")
 
     def test_all_finite_negative_controls_fail_closed(self) -> None:
         payload = cert.negative_control_payload(self.manifest)
@@ -231,7 +278,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
     def test_tampered_upstream_receipt_is_rejected(self) -> None:
         receipt = cert.load_json(MODULE_DIR / "receipts" / "port_current_inner_reference.receipt.json")
         tampered = copy.deepcopy(receipt)
-        tampered["physical_current_gate"]["passed"] = False
+        tampered["conditional_algebraic_gate"]["passed"] = False
         with tempfile.TemporaryDirectory() as tmp:
             tampered_path = Path(tmp) / "tampered_receipt.json"
             cert.write_json(tampered_path, tampered)
@@ -287,7 +334,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
     def test_issue_566_receipt_schema_is_pinned(self) -> None:
         # The upstream gate check relies on the #566 schema constant; make the
         # cross-module coupling explicit so schema drift fails loudly here.
-        self.assertEqual(p566.RECEIPT_SCHEMA, "oph.port_current_inner_receipt.v1")
+        self.assertEqual(p566.RECEIPT_SCHEMA, "oph.port_current_inner_receipt.v2")
 
 
 if __name__ == "__main__":

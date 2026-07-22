@@ -1,16 +1,15 @@
 {
-  "schema": "oph.super_tannakian_matter_manifest.v1",
-  "description": "Reference source packet for the super-Tannakian matter lift (issue #314). The physical current algebra is strictly upstream through the hash-pinned #566 packet; this manifest declares only the trace-balanced exterior matter contract, the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration.",
+  "schema": "oph.super_tannakian_matter_manifest.v2",
+  "description": "Reference source packet for the conditional super-Tannakian matter lift (issue #314). The conditional current algebra is strictly upstream through the hash-pinned #566 packet, whose physical source gate is open; this manifest declares only the trace-balanced exterior matter contract, the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration, all typed branch premises rather than measurements.",
   "current_manifest_path": "manifests/port_current_response_reference.json",
-  "current_manifest_sha256": "c167c52646d352ebb910ebf653e61190ee47c6b81d09ff336fd472bc99e3e3d6",
+  "current_manifest_sha256": "4285344be88495c335b6784bd19be8992a9b532c2df9588baca389f1079e7684",
   "current_receipt_path": "receipts/port_current_inner_reference.receipt.json",
-  "current_receipt_sha256": "05ef5e561b8b7799a7f974fa26d1650e4b9c138e4cd978afb3cc4a6ac321edb6",
+  "current_receipt_sha256": "e64599ba7eef603f27a652c6d2173cf3a358a47be828b2b67a51aaed4d3a7d73",
   "exterior_matter_contract": {
     "block_trace_charges": {
       "color_block": "-1/3",
       "weak_block": "1/2"
     },
-    "trace_balanced": true,
     "one_scalar": "weak_block",
     "yukawa_channels": [
       ["Q", "S", "u_c"],
@@ -18,7 +17,7 @@
       ["L", "Sbar", "e_c"]
     ],
     "extra_scalars": [],
-    "note": "the exact block trace charges satisfy 3*(-1/3) + 2*(1/2) = 0; the balance itself is a declared contract of the conditional exterior lane, not derived here"
+    "note": "trace balance 3*y_C + 2*y_W = 0 is checked arithmetically from the declared charge pair, not declared as a separate flag; the pair itself is a branch premise of the conditional exterior lane, not derived here"
   },
   "statistics_contract": {
     "matter_statistics": "fermionic_odd",
@@ -34,7 +33,7 @@
     },
     "selection_rule": "parity_even_minus_derived_invariants",
     "realization": "operator_projector",
-    "note": "the fifteen-state module must be selected from the full auxiliary CAR/Fock space by the source-derived equivariant projector; representation arithmetic alone is not physical realization"
+    "note": "the fifteen-state module must be selected from the full auxiliary CAR/Fock space by the derived equivariant projector; representation arithmetic alone is not realization"
   },
   "kernel_emission_contract": {
     "emit": true,
