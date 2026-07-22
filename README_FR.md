@@ -568,4 +568,4 @@ Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) est volon
 
 ## Licence
 
-Les contenus sont publiés sous [CC BY-NC-SA 4.0](LICENSE). Le [pacte OPH d’usage ouvert et anti-brevet](PATENTS.md) maintient les idées, logiciels, méthodes, dispositifs, simulations et matériels dérivés d’OPH ouverts à l’étude, à l’implémentation, à la modification et au partage, sans monopoles privés par brevet.
+Le dépôt utilise des licences séparées par type d’artefact. Tout le logiciel, y compris la bibliothèque Lean, [`code/`](code) et [`tools/`](tools), est publié sous [Apache-2.0](code/LICENSE). Les articles, le livre, la documentation, les figures et les données sont publiés sous [CC BY-NC-SA 4.0](LICENSE). Les fichiers de conception matérielle utilisent la CERN-OHL-W 2.0. Le fichier [LICENSE](LICENSE) donne la carte par répertoire.

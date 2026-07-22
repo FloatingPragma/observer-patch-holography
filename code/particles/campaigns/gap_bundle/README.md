@@ -27,8 +27,7 @@ The script intentionally reuses the established Oracle runner in
 `automation/oph_completion/` and the established worker homes under
 `~/.oracle-oph/`.
 
-## License And Patent Policy
+## License
 
 This particle campaign surface is part of the OPH public repository. See the
-main [LICENSE](../../../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../../../PATENTS.md).
+main [LICENSE](../../../../LICENSE).

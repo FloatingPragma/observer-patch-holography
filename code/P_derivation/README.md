@@ -517,8 +517,7 @@ The certificate JSON additionally records:
 - the explicit alpha interval and endpoint residuals
 - the maximum sampled contraction slope and per-sample contraction margins
 
-## License And Patent Policy
+## License
 
 This code surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

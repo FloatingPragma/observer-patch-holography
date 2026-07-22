@@ -1,8 +1,35 @@
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Observer Patch Holography Licensing
+===================================
 
-Copyright (c) 2026 Bernhard Mueller
+Copyright (c) 2026 Bernhard Mueller and the Observer Patch Holography
+contributors
 
-This work is licensed under the Creative Commons
+This repository uses split licensing by artifact type.
+
+Software: Apache License 2.0
+----------------------------
+
+All software in this repository is licensed under the Apache License,
+Version 2.0. This covers the Lean library (Lean/), the certificate,
+simulation, particle, and experiment code (code/), the build and audit
+tooling (tools/), and every other script, test suite, notebook, build
+file, and requirements file in the repository, regardless of directory.
+
+The full license text is at code/LICENSE, Lean/LICENSE, and tools/LICENSE
+(identical copies), and at:
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+The Apache License 2.0 includes an express patent grant from each
+contributor covering their contributions.
+
+Papers, book, documentation, figures, and data: CC BY-NC-SA 4.0
+---------------------------------------------------------------
+
+The authored non-software material, including the papers (paper/, extra/,
+cosmology/), the book (book/), the documentation (docs/, README files,
+physics-problems/ writeups, claims/), the figures (assets/), and the
+evidence data (evidence/), is licensed under the Creative Commons
 Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 You are free to:
@@ -31,6 +58,17 @@ anything the license permits.
 Full license text available at:
 https://creativecommons.org/licenses/by-nc-sa/4.0/
 
+Hardware designs: CERN-OHL-W 2.0
+--------------------------------
+
+Hardware design files published in this repository are licensed under the
+CERN Open Hardware Licence Version 2, Weakly Reciprocal (CERN-OHL-W):
+
+https://cern-ohl.web.cern.ch/
+
+No Warranty
+-----------
+
 THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
@@ -38,86 +76,3 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE WORK
 OR THE USE OR OTHER DEALINGS IN THE WORK.
-
-OPH Open Use And Anti-Patent Covenant
--------------------------------------
-
-This repository also carries the OPH Open Use And Anti-Patent Covenant below.
-The Creative Commons license above governs copying, redistribution, and
-adaptation of authored material in this repository. The covenant below states
-the project's patent policy and open-use intent for OPH-derived mathematics,
-software, applications, devices, methods, systems, simulations, hardware
-designs, engineering practice, and experimental implementations.
-
-This is not legal advice. Formal legal review should harmonize this covenant
-with any future software, hardware, publication-specific, or website-specific
-license language.
-
-Open Implementation Rule
-------------------------
-
-Subject to the repository's copyright licenses for text, figures, code, data,
-and other authored files, OPH material may be studied, implemented,
-reproduced, modified, tested, deployed, manufactured, and shared.
-
-This open implementation rule covers OPH-derived mathematics, algorithms,
-software, simulations, hardware designs, experimental apparatus, control
-methods, verification procedures, real-world applications, devices, and
-engineering patterns described in this repository, the associated OPH papers,
-and linked OPH publication and web surfaces.
-
-Anti-Patent Covenant
---------------------
-
-By using, adapting, implementing, distributing, deploying, manufacturing,
-commercializing, or building on OPH material, you covenant not to file,
-prosecute, maintain, acquire, assert, sell, license, threaten, or assist any
-patent or patent claim whose claimed subject matter is OPH-derived.
-
-A patent claim is OPH-derived if it depends on, incorporates, generalizes,
-implements, applies, operationalizes, or would restrict others from practicing
-OPH concepts, mathematics, algorithms, software, device architectures,
-hardware methods, experimental methods, real-world applications, or
-implementation patterns described in this repository, the associated OPH
-papers, or linked OPH publication and web surfaces.
-
-This covenant forbids using patents to create private monopolies over
-OPH-derived ideas, devices, methods, systems, applications, software,
-simulations, or engineering practice.
-
-Defensive Publications
-----------------------
-
-This covenant does not forbid defensive publication, prior-art publication, or
-other defensive steps whose sole purpose is to prevent patent enclosure of
-OPH-derived subject matter, provided the defensive action irrevocably preserves
-public freedom to study, implement, modify, manufacture, deploy, and share the
-OPH-derived work.
-
-Loss Of Permission
-------------------
-
-Any person or entity that violates this covenant loses any repository-granted
-permission to use, adapt, implement, distribute, deploy, manufacture,
-commercialize, or build on OPH material to the maximum extent allowed by law.
-That loss of permission applies to the violating person or entity and to any
-affiliate, successor, assignee, patent holding company, or agent acting for the
-same patent-enclosure purpose.
-
-No Warranty
------------
-
-OPH material is provided as-is, without warranty of any kind. No contributor
-promises that OPH material is correct, safe, complete, fit for a particular
-purpose, non-infringing, regulatory-approved, or suitable for deployment in any
-device, experiment, product, service, or real-world system.
-
-Relationship To Other Licenses
-------------------------------
-
-Existing copyright licenses govern copying, redistribution, and adaptation of
-authored files such as text, figures, code, datasets, and generated artifacts.
-This covenant states the project's patent policy and open-use intent for
-OPH-derived work. If a file-specific license grants broader rights, those
-rights still carry this anti-patent covenant unless that file explicitly says
-otherwise.

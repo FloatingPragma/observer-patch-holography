@@ -177,7 +177,8 @@ the per-theorem axiom audit.
   Cassie, Dula, Jonathan Hill). Cross-audit between auditors is required before
   PRs are merged.
 
-## License And Patent Policy
+## License
 
-This formalisation surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+This formalisation surface is part of the OPH public repository and is
+licensed under [Apache-2.0](../LICENSE). The main [LICENSE](../../LICENSE)
+gives the repository-wide licensing map.

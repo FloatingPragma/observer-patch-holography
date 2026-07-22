@@ -578,8 +578,7 @@ python3 code/ibm_quantum_cloud/programs/s3_diagnostic_bundle.py \
   journals, the blind packet and report, and everything needed for exact
   public replay.
 
-## License And Patent Policy
+## License
 
 This code and data bundle is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

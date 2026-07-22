@@ -129,6 +129,13 @@ exactly what is left.
    Thomson transport contribution. An independent QED/QCD bound on that term,
    in either direction, moves the claim.
 
+## Licensing
+
+All software, including the Lean library, `code/`, and `tools/`, is licensed
+under [Apache-2.0](../code/LICENSE). Papers, the book, documentation,
+figures, and data are [CC BY-NC-SA 4.0](../LICENSE). Commercial use, forks,
+and derived libraries of the software are welcome under the Apache terms.
+
 ## Find An Error
 
 The fastest way to contribute is to falsify something. The

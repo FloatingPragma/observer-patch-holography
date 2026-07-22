@@ -100,8 +100,7 @@ Current output style:
 - `book/reverse-engineering-reality-book.pdf` is a release artifact. Rebuild it before publishing
   whenever book chapters or public release materials change.
 
-## License And Patent Policy
+## License
 
 The OPH book source and generated book artifact are part of the OPH public
-repository. See the main [LICENSE](../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+repository. See the main [LICENSE](../LICENSE).

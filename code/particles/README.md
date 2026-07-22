@@ -475,8 +475,7 @@ The code here feeds the particle paper:
 - [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex)
 - [deriving_the_particle_zoo_from_observer_consistency.pdf](../../paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
 
-## License And Patent Policy
+## License
 
 This particle code surface is part of the OPH public repository. See the main
-[LICENSE](../../LICENSE) and
-[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
+[LICENSE](../../LICENSE).

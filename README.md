@@ -524,6 +524,11 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 - [`docs/`](docs): claim policy, falsification program, and technical audit material.
 - [`assets/`](assets): diagrams and public figures.
 
+The simulation source is maintained in the companion
+[oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim)
+repository, which produces the simulation receipts and evidence artifacts
+cited here.
+
 ## Explore OPH
 
 - [Theory explainer](https://floatingpragma.io/oph/theory-of-everything)
@@ -547,4 +552,4 @@ what is proved and exactly what is left. Pick a row and take it.
 
 ## License
 
-The authored material is licensed under [CC BY-NC-SA 4.0](LICENSE). The repository-wide [OPH Open Use and Anti-Patent Covenant](PATENTS.md) keeps OPH-derived ideas, software, methods, devices, simulations, and hardware open to study, implementation, modification, and sharing without private patent monopolies.
+The repository uses split licensing. All software, including the Lean library, [`code/`](code), and [`tools/`](tools), is licensed under [Apache-2.0](code/LICENSE). Papers, the book, documentation, figures, and data are licensed under [CC BY-NC-SA 4.0](LICENSE). Hardware design files use CERN-OHL-W 2.0. The [LICENSE](LICENSE) file gives the per-directory map.

@@ -188,10 +188,10 @@ OMEGA is the public hardware body for the loop. The papers provide the theory,
 scorebooks, and evidence discipline. The applications use the same
 patch-consensus machinery on energy, compute, intelligence, and lift.
 
-## License And Patent Policy
+## License
 
 This applications surface is part of the OPH public repository. See the main
-[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+[LICENSE](../LICENSE).
 OPH-derived applications, devices, hardware designs, software, simulations,
 methods, and implementation patterns may be studied, tested, implemented,
 modified, deployed, manufactured, and shared, but may not be used to create
