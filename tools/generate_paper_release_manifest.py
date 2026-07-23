@@ -31,6 +31,16 @@ RELEASE_TRACKED_PDFS = {
 }
 SUPPLEMENTAL_RELEASE_PDFS = {}
 
+# Release-surface PDFs whose source is not a sibling .tex file. Each entry
+# maps the PDF to the source that implies it; the stray check verifies the
+# source exists. These PDFs are deliberately outside the hashed manifest
+# sections (they carry no release line).
+NON_TEX_SOURCE_PDFS = {
+    Path("extra/hacking-the-simulation-anti-gravity-exploit.pdf"): Path(
+        "extra/hacking-the-simulation-anti-gravity-exploit/build_book_pdf.sh"
+    ),
+}
+
 
 def main() -> int:
     args = parse_args()
@@ -55,6 +65,7 @@ def main() -> int:
     output_path = repo_root / OUTPUT_RELATIVE
     previous_manifest = load_existing_manifest(output_path)
     enforce_release_bump(previous_manifest, manifest, args.allow_same_release)
+    verify_no_stray_pdfs(repo_root, manifest)
     verify_pdf_release_lines(repo_root, manifest, args.skip_pdf_release_check)
     output_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(output_path)
@@ -84,6 +95,39 @@ def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
             )
         discovered[tex_path.stem] = pdf_path.relative_to(repo_root)
     return discovered
+
+
+def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
+    """Reject release-surface PDFs that no source implies.
+
+    Membership is derived from the sources: the curated release set for
+    ``paper/`` and the ``extra/*.tex`` glob for ``extra/``. Any other PDF in
+    those directories would ship unhashed and unaudited, so its presence
+    fails the manifest build (issue #514).
+    """
+    expected = {
+        str(Path(payload["pdf_path"]))
+        for payload in manifest_pdf_entries(manifest).values()
+    }
+    for pdf, source in NON_TEX_SOURCE_PDFS.items():
+        if not (repo_root / source).is_file():
+            raise SystemExit(
+                f"registered source for {pdf} is missing: {source}. "
+                "Fix the NON_TEX_SOURCE_PDFS registry."
+            )
+        expected.add(str(pdf))
+    actual = {
+        str(pdf.relative_to(repo_root))
+        for directory in ("paper", "extra")
+        for pdf in (repo_root / directory).glob("*.pdf")
+    }
+    strays = sorted(actual - expected)
+    if strays:
+        raise SystemExit(
+            "stray PDFs on the release surface are not implied by any source: "
+            f"{', '.join(strays)}. Remove them or register their source before "
+            "regenerating the manifest."
+        )
 
 
 def fill_section(repo_root: Path, section: dict, pdfs: dict[str, Path]) -> None:
