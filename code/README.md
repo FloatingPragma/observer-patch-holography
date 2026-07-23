@@ -34,7 +34,6 @@ the theorem or physical carrier named by that branch.
 | [`collar_alignment/`](collar_alignment/) | Boundary-collar alignment checks |
 | [`maxent/`](maxent/) | Finite maximum-entropy reconstruction |
 | [`edge_sectors/`](edge_sectors/) | Edge-sector and transport calculations |
-| [`cmb_end_to_end/`](cmb_end_to_end/) | Cosmology diagnostic and transfer scaffolding |
 | [`e8_triality_claim_statement/`](e8_triality_claim_statement/) | Exact exceptional-symmetry certificate specification |
 | [`precision_ledgers/`](precision_ledgers/) | Machine-readable numerical provenance ledgers |
 

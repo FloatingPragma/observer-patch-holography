@@ -6,7 +6,7 @@ disagreement.
 
 This repository contains:
 
-- a sorry-free Lean 4 library of 639 checked theorems and lemmas, each public
+- a sorry-free Lean 4 library of more than 700 checked theorems and lemmas, each public
   theorem carrying a per-theorem axiom report;
 - reproducible finite simulations with an adversarial negative control;
 - machine-certified interval and uniqueness certificates for the declared
@@ -94,7 +94,7 @@ repository.
 
 | Status | Contents |
 | --- | --- |
-| Proved, machine-checked | 639 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
+| Proved, machine-checked | More than 700 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
 | Proved, certified numerics | Fixed-point existence and uniqueness for each declared $P$ map on the declared domain, via interval contraction and adaptive subdivision certificates |
 | Measured | The Einstein-cone convergence ladder above, with its adversarial density control |
 | Conditional | The strict one-loop W/Z pole map (proved and machine checked, fixture is a post-exposure regression), the $N$ extension, the $N$–Higgs bridge, and the $N_g=3$ selection; each conditional branch names its open producer |

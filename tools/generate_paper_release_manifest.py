@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -34,6 +35,7 @@ SUPPLEMENTAL_RELEASE_PDFS = {}
 def main() -> int:
     args = parse_args()
     repo_root = Path(__file__).resolve().parent.parent
+    verify_lean_theorem_count(repo_root)
     release_info = (repo_root / RELEASE_INFO_RELATIVE).read_text(encoding="utf-8")
     release_id = extract_macro(release_info, "OPHPaperReleaseID")
     release_date = extract_macro(release_info, "OPHPaperReleaseDate")
@@ -57,6 +59,17 @@ def main() -> int:
     output_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(output_path)
     return 0
+
+
+def verify_lean_theorem_count(repo_root: Path) -> None:
+    """Refuse to build the manifest while a stated Lean theorem-count floor drifts."""
+    check = repo_root / "tools" / "check_lean_theorem_count.py"
+    result = subprocess.run([sys.executable, str(check)], cwd=repo_root)
+    if result.returncode != 0:
+        raise SystemExit(
+            "Lean theorem-count floor drifted; run "
+            "`python3 tools/check_lean_theorem_count.py --fix` and re-run"
+        )
 
 
 def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
