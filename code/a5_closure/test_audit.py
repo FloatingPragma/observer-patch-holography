@@ -93,6 +93,27 @@ class AuditTests(unittest.TestCase):
             receipt["claim_boundary"]["status"],
         )
 
+        matter_gate = next(x for x in state["physical_gates"] if "matter lift" in x)
+        self.assertIn("conditional", matter_gate)
+        self.assertIn("remains open", matter_gate)
+        self.assertNotIn("meeting the #314 acceptance criteria", matter_gate)
+
+        matter_receipt = json.loads(
+            (ROOT / "receipts" / "super_tannakian_matter_reference.receipt.json").read_text()
+        )
+        self.assertTrue(matter_receipt["conditional_algebraic_gate"]["passed"])
+        self.assertFalse(matter_receipt["physical_source_gate"]["passed"])
+        self.assertFalse(matter_receipt["issue_closure_condition"]["met_locally"])
+
+        matter_claim = next(
+            row for row in registry["claims"]
+            if row["claim_id"] == "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
+        )
+        self.assertEqual(
+            matter_claim["status"],
+            matter_receipt["claim_boundary"]["status"],
+        )
+
     def test_exterior_sm_completion(self):
         m = load("exterior_sm_completion")
         p = m.payload

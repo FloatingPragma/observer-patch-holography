@@ -1,0 +1,122 @@
+{
+  "countermodel_witnesses": {
+    "kernel": {
+      "assumed_quotient": "assuming the global quotient violates the emission contract",
+      "kernel_killing_scalar": "an extra integral-charge singlet collapses the kernel to the pure full-turn deck translations; a trivial residual cannot satisfy the packet"
+    },
+    "opposite_weyl": {
+      "failure": "every declared one-scalar Yukawa channel then has charge sum away from zero, so the Gauss sector is empty",
+      "same_reduct": "the odd-parity selection realizes the conjugate module"
+    },
+    "selection": {
+      "even_including_vacuum": "the full even Clifford module keeps the trivial vacuum line inside matter",
+      "lambda2_only": "ten states with three weak doublets: odd Witten parity"
+    },
+    "typing": {
+      "bosonic_matter": "the derived matter-building operators anticommute; bosonic typing fails closed",
+      "charge_dead": "a charge-dead contract annihilates the central lane, so the current action is unfaithful",
+      "representation_arithmetic": "representation arithmetic without the operator projector is not physical realization",
+      "uniqueness_promotion": "promoting MAR uniqueness inside this packet is rejected; only nonemptiness is discharged"
+    },
+    "vec_and_svec": {
+      "conclusion": "the Vec and sVec same-reduct typings fail against derived facts, not by fiat",
+      "svec_split": "a split lift would give the 120-element group more than one involution; the derived group has exactly one",
+      "vec": "an ungraded category cannot carry the derived nontrivial parity and non-split spin cocycle"
+    }
+  },
+  "finite_controls": [
+    {
+      "actual_error": "VEC_TYPING",
+      "expected_error": "VEC_TYPING",
+      "name": "vec_typing",
+      "passed": true
+    },
+    {
+      "actual_error": "SPIN_LIFT_SPLIT",
+      "expected_error": "SPIN_LIFT_SPLIT",
+      "name": "svec_split_spin",
+      "passed": true
+    },
+    {
+      "actual_error": "YUKAWA_CHANNEL_EMPTY",
+      "expected_error": "YUKAWA_CHANNEL_EMPTY",
+      "name": "opposite_weyl_selection",
+      "passed": true
+    },
+    {
+      "actual_error": "STATISTICS_TYPING",
+      "expected_error": "STATISTICS_TYPING",
+      "name": "bosonic_matter_statistics",
+      "passed": true
+    },
+    {
+      "actual_error": "WITTEN_PARITY",
+      "expected_error": "WITTEN_PARITY",
+      "name": "truncated_lambda2_selection",
+      "passed": true
+    },
+    {
+      "actual_error": "TRIVIAL_LINE_IN_MATTER",
+      "expected_error": "TRIVIAL_LINE_IN_MATTER",
+      "name": "full_even_clifford_module",
+      "passed": true
+    },
+    {
+      "actual_error": "GAUSS_DATA_EMPTY",
+      "expected_error": "GAUSS_DATA_EMPTY",
+      "name": "empty_gauss_data",
+      "passed": true
+    },
+    {
+      "actual_error": "KERNEL_EMISSION_CONTRACT",
+      "expected_error": "KERNEL_EMISSION_CONTRACT",
+      "name": "assumed_global_quotient",
+      "passed": true
+    },
+    {
+      "actual_error": "KERNEL_TRIVIAL",
+      "expected_error": "KERNEL_TRIVIAL",
+      "name": "kernel_killing_extra_scalar",
+      "passed": true
+    },
+    {
+      "actual_error": "REALIZATION_NOT_OPERATOR",
+      "expected_error": "REALIZATION_NOT_OPERATOR",
+      "name": "representation_arithmetic_only",
+      "passed": true
+    },
+    {
+      "actual_error": "CURRENT_ACTION_NOT_FAITHFUL",
+      "expected_error": "CURRENT_ACTION_NOT_FAITHFUL",
+      "name": "charge_dead_package",
+      "passed": true
+    },
+    {
+      "actual_error": "TRACE_BALANCE",
+      "expected_error": "TRACE_BALANCE",
+      "name": "unbalanced_trace_charges",
+      "passed": true
+    },
+    {
+      "actual_error": "MAR_UNIQUENESS_PROMOTION",
+      "expected_error": "MAR_UNIQUENESS_PROMOTION",
+      "name": "mar_uniqueness_promoted",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "family_attachment_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "scalar_potential_injection",
+      "passed": true
+    }
+  ],
+  "issue": 314,
+  "manifest_sha256": "aa7a5ff9df31f937ce9dbb9627e9321d5b832afa7d9f159f5162c17e3bfc6ecb",
+  "schema": "oph.super_tannakian_matter_negative_controls.v2"
+}
