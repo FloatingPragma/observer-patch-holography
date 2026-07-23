@@ -67,10 +67,10 @@ continuous integration recreates it as a real directory.
 
 ## Documentation
 
-- `docs/PROOF_INDEX.md` — proof-to-paper mapping and formalisation status
-- `docs/LIBRARY_GUIDE.md` — scope and module guide for the main library
-- `docs/EINSTEIN_BRANCH_INDEX.md` — Einstein-branch statement audit
-- `docs/BRIDGE_BOUNDARY_INDEX.md` — cross-paper boundary map
-- `docs/BOUNDARY_FIBER_APPLICATION.md` — #304 application note
-- `ObservableNormalForms/README.md` and its `PROOF_INDEX.md` — manuscript
+- `docs/PROOF_INDEX.md`: proof-to-paper mapping and formalisation status
+- `docs/LIBRARY_GUIDE.md`: scope and module guide for the main library
+- `docs/EINSTEIN_BRANCH_INDEX.md`: Einstein-branch statement audit
+- `docs/BRIDGE_BOUNDARY_INDEX.md`: cross-paper boundary map
+- `docs/BOUNDARY_FIBER_APPLICATION.md`: #304 application note
+- `ObservableNormalForms/README.md` and its `PROOF_INDEX.md`: manuscript
   coverage of the neutral submission package

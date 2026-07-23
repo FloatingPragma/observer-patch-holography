@@ -3,7 +3,7 @@
 ## Result
 
 This artifact proves the exact algebraic **SUPER-TANNAKIAN-MATTER-LIFT**
-construction — including the exact algebraic **PORT-SPIN-LIFT** target —
+construction, including the exact algebraic **PORT-SPIN-LIFT** target,
 conditional on the pinned conditional #566 current packet and the declared
 matter-lift contracts. It does not close #314 or PORT-SPIN-LIFT as physical
 source-bound receipts:
@@ -15,7 +15,7 @@ source-bound receipts:
 > trace-balanced exterior matter contract, the fermionic statistics
 > contract, and the Spin/odd-Weyl category typing, the source packet
 > derives: an exact non-split SU(2) double cover of the sixty proper
-> implementers (binary icosahedral, unique involution — the algebraic
+> implementers (binary icosahedral, unique involution: the algebraic
 > PORT-SPIN-LIFT target); a faithful skew-adjoint Lie-algebra
 > homomorphism of the twelve-dimensional current algebra onto the matter
 > carrier `V = C (+) W`; a 32-state auxiliary CAR/Fock space with
@@ -25,11 +25,11 @@ source-bound receipts:
 > `M1 = Lambda^2 V (+) Lambda^4 V` from that space; exact chirality,
 > vanishing realized perturbative anomaly traces, even Witten parity, and
 > exactly one invariant line per declared Yukawa channel; and the common
-> action kernel on the simply connected cover `R x SU(3) x SU(2)` —
+> action kernel on the simply connected cover `R x SU(3) x SU(2)`,
 > infinite cyclic with generator `(zeta_6, omega, -1)`, whose sixth power
 > is the unit deck translation (one full central turn, not the identity
 > on the cover), of residual order exactly six modulo the pure deck
-> translations — emitted as data for the downstream global-form descent
+> translations, emitted as data for the downstream global-form descent
 > without forming either the central compactification or the quotient.
 > The construction
 > descends naturally along the declared algebraic tower maps, and the
@@ -38,10 +38,10 @@ source-bound receipts:
 
 The algebraic properties are machine-checked. The conditional current
 algebra is strictly upstream through the hash-pinned #566 packet, whose
-physical source gate remains open in issue #599. The matter-lift contracts — the
+physical source gate is open in issue #599. The matter-lift contracts (the
 trace-balanced block charge pair, the one-scalar choice, the Yukawa
 channel list, the statistics and category typing, the kernel emission
-contract, and the MAR class declaration — enter as explicit typed branch
+contract, and the MAR class declaration) enter as explicit typed branch
 premises, not as measurements or physically source-bound data. The receipt
 therefore records a passing conditional algebraic gate and an open physical
 source-realization gate; `issue_closure_condition.met_locally` remains false.
@@ -139,7 +139,7 @@ tokens (`FORBIDDEN_DEPENDENCY`).
 
 ## 2. Derived objects
 
-### D1. The upstream current algebra
+### 2.1 The upstream current algebra
 
 From the pinned #566 packet the verifier re-derives the oriented frame,
 the generators `K_p` on `C^3_E (+) C^3_W`, the sixty rotations `R_g`, and
@@ -147,7 +147,7 @@ the exact structure constants. The kernel block transforms in the
 Galois-conjugate rotation family `sigma(R_g)`, exactly as in the #566
 covariance.
 
-### D2. PORT-SPIN-LIFT
+### 2.2 PORT-SPIN-LIFT
 
 For each proper implementer the verifier solves exactly, in `Q(sqrt5)`,
 for a special-unitary `U_g` with
@@ -164,7 +164,7 @@ involution** (`-1`), the binary icosahedral order profile
 `{1:1, 2:1, 3:20, 4:30, 5:24, 6:20, 10:24}`, order-four lifts of all
 involutions, and irrational order-five spinor characters.
 
-### D3. Matter carrier and transport
+### 2.3 Matter carrier and transport
 
 \[
 V=C\oplus W=\mathbb C^3\oplus\mathbb C^2 ,
@@ -179,7 +179,7 @@ central term is the declared trace-balanced redistribution. `T` is
 verified skew-adjoint, a Lie-algebra homomorphism on all 66 brackets, and
 faithful (rank 12 on the 5-dimensional carrier).
 
-### D4. Auxiliary CAR/Fock space
+### 2.4 Auxiliary CAR/Fock space
 
 `F = Lambda^* V` (32 states) with exact creation operators `a_i^dagger`.
 The verifier checks all 50 CAR relations, vacuum cyclicity (rank 32), the
@@ -191,7 +191,7 @@ Lie-homomorphic extension. The wedge product with Koszul signs is the
 super tensor structure; the CAR-derivation identity is its exact Leibniz
 rule.
 
-### D5. Derived equivariant projector
+### 2.5 Derived equivariant projector
 
 The joint kernel of the twelve second-quantized currents is computed
 exactly: complex dimension `2`, spanned by the Fock vacuum and the top
@@ -260,8 +260,8 @@ opposite parity sector through the top-line pairing.
 On the realized operators, the traces `tr(Y)`, `tr(Y^3)`,
 `tr(Y T_a T_b)` (all 64 su(3) pairs), `tr(Y S_i S_j)` (all 9 su(2)
 pairs), and the 120 symmetrized `su(3)` d-symbol traces vanish exactly.
-The realized weak-doublet count is `4` — even Witten parity (the finite
-mod-2 surrogate the exterior packet lists).
+The realized weak-doublet count is `4`, hence even Witten parity (the
+finite mod-2 surrogate the exterior packet lists).
 
 #### (g) Nonzero invariant Gauss sector
 
@@ -271,10 +271,10 @@ channel `(Q S d_c)` carries dimension `0`.
 
 #### (h) Emitted common action kernel
 
-On the simply connected cover `R x SU(3) x SU(2)` — with the central
-factor the non-compact `R`, not `U(1)` — the set of `(central turn,
+On the simply connected cover `R x SU(3) x SU(2)` (with the central
+factor the non-compact `R`, not `U(1)`) the set of `(central turn,
 su(3) center, su(2) center)` triples acting trivially on every realized
-weight — matter states, carrier modes, and the declared scalar — is
+weight (matter states, carrier modes, and the declared scalar) is
 computed by exact congruence enumeration with a derived denominator
 bound and periodicity argument. The kernel is **infinite cyclic**,
 generated by `g = (zeta_6, omega, -1)`; its sixth power is
@@ -285,8 +285,8 @@ kernel's intersection with the central `R` factor, and the residual
 modulo them has order exactly **6**. Closure, torsion-freeness over the
 translations, and the deck relation are verified element by element.
 Charge, triality, and duality are additive over tensor factors, so
-triviality extends to every realized matter tensor. The kernel —
-generator, deck relation, and residual — is **emitted as data**; neither
+triviality extends to every realized matter tensor. The kernel
+(generator, deck relation, and residual) is **emitted as data**; neither
 the compactification of the central `R` nor the global quotient is
 formed (AXIS-CENTER-DESCENT consumes the data downstream, and the
 emitted generator and relation determine the kernel image in every
@@ -301,8 +301,8 @@ realization. Physical refinement intertwining is not source-bound here.
 
 #### (j) MAR nonemptiness without uniqueness
 
-The realized packet — fifteen multiplicity-free states, one declared
-scalar, exact chirality, vanishing realized anomaly traces — witnesses the
+The realized packet (fifteen multiplicity-free states, one declared
+scalar, exact chirality, vanishing realized anomaly traces) witnesses the
 declared MAR class nonempty. Uniqueness is not promoted; the contract
 rejects promotion inside this packet.
 
@@ -431,8 +431,8 @@ charges, and membership depends on the numerator `k = 6g·r` only through
 the exact enumeration over one fundamental window of residues is
 exhaustive for the full non-compact `R` coordinate.
 
-The unit deck translation `(1, 1, 1)` — one full central turn with
-trivial center components — always lies in the kernel, since `r = 1`
+The unit deck translation `(1, 1, 1)` (one full central turn with
+trivial center components) always lies in the kernel, since `r = 1`
 times an integral charge is an integer; on the cover it is **not** the
 identity, so the kernel is infinite. The enumeration finds exactly six
 residues, one per numerator residue class, with no torsion residue
@@ -487,7 +487,7 @@ scope (#599). ∎
 | refinement maps intertwined | all declared (`3` in the reference tower) |
 | MAR class | nonempty witnessed, uniqueness not promoted |
 | conditional algebraic gate | `passed: true` |
-| physical source-realization gate | `passed: false`; source binding remains open |
+| physical source-realization gate | `passed: false`; source binding is open |
 | issue closure condition | `met_locally: false` |
 
 The receipt also records a sixteen-step `derivation_chain`,
@@ -523,8 +523,8 @@ fails closed (`STATISTICS_TYPING`).
 
 ### N5-N6. Truncated and over-full selections
 
-`lambda2_only` yields ten states with three weak doublets — odd Witten
-parity (`WITTEN_PARITY`). `even_including_vacuum` is the full even
+`lambda2_only` yields ten states with three weak doublets, hence odd
+Witten parity (`WITTEN_PARITY`). `even_including_vacuum` is the full even
 Clifford module, which keeps the trivial vacuum line inside matter
 (`TRIVIAL_LINE_IN_MATTER`); this is exactly the exterior lane's
 "non-vacuum even package, not the full even Clifford module" boundary.
@@ -640,12 +640,12 @@ as a Lean theorem.
 | Issue acceptance item | Discharge |
 |---|---|
 | fermionic parity, spin lift, chirality, conjugation, tensor product source-derived | open physically: each structure is derived exactly on the declared branch, while the upstream response representation and matter contract remain typed premises rather than source-bound data |
-| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the conditional #566 current algebra acts with rank 12 on the carrier and selected module; its physical source binding remains open in #599 |
+| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the conditional #566 current algebra acts with rank 12 on the carrier and selected module; its physical source binding is open in #599 |
 | conditional exterior package realized on the cover; listed perturbative anomalies and Witten parity checked | the package is realized as operators on the cover data (SU(3)-valued even implementers, the SU(2) spin lift, the R-central lane); all listed anomaly traces vanish exactly on the realized operators and the Witten parity is even (Lemma 314.10) |
 | common action kernel emitted rather than assumed as a Z6 quotient | the kernel is computed by exact congruence enumeration on the genuine cover `R x SU(3) x SU(2)`: infinite cyclic with generator `(zeta_6, omega, -1)`, sixth power the unit deck translation (not the identity on the cover), residual order six modulo the pure deck translations; verified trivial on every realized weight and emitted as data; `assume_global_quotient` is contractually false, and neither the central compactification nor the quotient is ever formed (Lemma 314.11) |
 | declared MAR class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
 | family attachment and scalar-potential or pole-mass claims outside | firewall M7 plus controls N14-N15; the claim boundary lists them as not closed |
-| Spin/odd-Weyl category nonempty and source-produced; Vec/sVec and opposite-Weyl same-reduct controls do not both pass | the realized category carries the nonzero fifteen-state odd matter object with faithful action on the conditional branch; physical source production remains open; N1-N3 fail against derived facts |
+| Spin/odd-Weyl category nonempty and source-produced; Vec/sVec and opposite-Weyl same-reduct controls do not both pass | the realized category carries the nonzero fifteen-state odd matter object with faithful action on the conditional branch; physical source production is open; N1-N3 fail against derived facts |
 | nontrivial faithful current action and nonzero physical invariant sector; empty Gauss data or zero common kernel cannot satisfy | rank-12 faithfulness plus three exact invariant Yukawa lines; `GAUSS_DATA_EMPTY` and `KERNEL_TRIVIAL` controls N7, N9 |
 | 15-state module selected from the full auxiliary CAR/Fock space by a source-derived equivariant projector; representation arithmetic is not realization | `Pi = P_even - P_vac` is derived, not declared, on the 32-state space: equivariant, rank 15 (Lemma 314.6); `REALIZATION_NOT_OPERATOR` control N10 |
 
@@ -662,12 +662,12 @@ descent. It does not close **SUPER-TANNAKIAN-MATTER-LIFT** or
 **PORT-SPIN-LIFT** as physical source-bound receipts;
 `issue_closure_condition.met_locally` is therefore `false`.
 
-The matter-lift contracts — the trace-balanced block charge pair, the
+The matter-lift contracts (the trace-balanced block charge pair, the
 one-scalar choice, the Yukawa channel list, the statistics and category
-typing, the kernel emission contract, and the MAR class declaration —
+typing, the kernel emission contract, and the MAR class declaration)
 enter as typed branch premises, not as measurements. The upstream #566
 packet is conditional on a declared response representation whose physical
-source binding remains open in #599, and this packet inherits that
+source binding is open in #599, and this packet inherits that
 conditionality.
 
 It does not derive the trace balance from source dynamics

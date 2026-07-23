@@ -25,6 +25,17 @@ python -m pytest --collect-only code
 them declared, the mandatory command above collects the repository test set
 and exits 0.
 
+CI (`.github/workflows/mandatory-suite.yml`) runs the same commands on every
+push, plus the release-manifest validation and the exact certificate suites:
+
+```bash
+python tools/validate_paper_release_manifest.py
+python -m pytest -q tools/test_paper_release_manifest.py
+python -m pytest -q code/a5_closure/tests/test_port_current_inner_certificate.py
+python -m pytest -q code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py
+python code/a5_closure/test_audit.py
+```
+
 ## Optional lanes (opt-in extras)
 
 Each optional lane keeps its own requirements file and stays out of the
@@ -89,14 +100,39 @@ reversible reference packet, and the finite consensus packets. They do not
 claim a physical three-family attachment, an OPH-native W/Z pole, the missing
 physical $N$ packet, or the continuum Einstein tower.
 
+## Lean proofs
+
+The Lean 4 / Mathlib workspace under `Lean/` holds four libraries
+(`ObserverPatchHolography`, `EventAlgebra`, `OPHScreen` in `Screen/`, and the
+standalone `ObservableNormalForms` package), each sorry-free with standard
+axioms only. Rebuild everything with:
+
+```bash
+cd Lean
+lake exe cache get
+lake build
+cd ObservableNormalForms
+lake exe cache get
+lake build
+```
+
+CI (`.github/workflows/lean-ci.yml`) runs both builds with a resumable cache,
+rejects any `sorry`/`admit`/global-axiom regression, and replays the
+Einstein-branch axiom audit. `Lean/README.md` documents the layout;
+`Lean/docs/PROOF_INDEX.md` maps theorems to paper statements.
+
 ## Paper Build
 
 With [Tectonic](https://tectonic-typesetting.github.io/) installed, rebuild the
-complete paper stack from the repository root:
+complete paper stack, warnings gate, and release manifest in one pass from the
+repository root:
 
 ```bash
-python3 tools/build_tex_papers.py
+python3 tools/refresh_paper_release.py
 ```
 
-Every generated paper displays the shared release identifier from
-`paper/release_info.tex`. The manifest records the corresponding PDF hashes.
+This chains `tools/build_tex_papers.py`, the build-warnings gate, manifest
+regeneration, and manifest validation, so a rebuilt PDF can never be committed
+with stale manifest hashes. Every generated paper displays the shared release
+identifier from `paper/release_info.tex`; bumping that identifier
+(`tools/bump_paper_release.py`) is a separate, deliberate release step.
