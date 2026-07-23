@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Export the canonical OPH paper set to local Markdown copies."""
+"""Export OPH TeX papers to local Markdown copies.
+
+The release-tracked paper and extra sets share the public release banner. Cosmology
+sources are exported for local research use only and remain outside every public
+release, PDF, and website publication set.
+"""
 
 from __future__ import annotations
 
@@ -15,6 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
+COSMOLOGY_DIR = REPO_ROOT / "cosmology"
 DEFAULT_OUT = WORKSPACE_ROOT / "markdown"
 NON_PAPER_TEX = {
     "appendix_B_bft_qecc_extensions.tex",
@@ -26,10 +32,12 @@ DEFAULT_CORE_PAPERS = sorted(
 DEFAULT_SUPPLEMENTAL_PAPERS = [
 ]
 DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
+DEFAULT_COSMOLOGY_PAPERS = sorted(COSMOLOGY_DIR.glob("*.tex"))
 DEFAULT_SOURCES = [
     *DEFAULT_CORE_PAPERS,
     *DEFAULT_SUPPLEMENTAL_PAPERS,
     *DEFAULT_EXTRA_PAPERS,
+    *DEFAULT_COSMOLOGY_PAPERS,
 ]
 BUILD_INFO_NAME = "_build_info.json"
 MARKDOWN_SOURCE_OVERRIDES: dict[Path, Path] = {}
@@ -171,7 +179,9 @@ def postprocess_markdown(text: str) -> str:
     return text
 
 
-def ensure_release_banner(text: str, release_tag: str, release_date: str) -> str:
+def ensure_release_banner(
+    text: str, release_tag: str, release_date: str, *, unpublished: bool
+) -> str:
     lines = text.lstrip().splitlines()
     cleaned: list[str] = []
     for index, line in enumerate(lines):
@@ -187,7 +197,13 @@ def ensure_release_banner(text: str, release_tag: str, release_date: str) -> str
             continue
         cleaned.append(line)
     text = "\n".join(cleaned).lstrip()
-    banner = f"**Paper release:** `{release_tag}`\n**Released:** {release_date}\n\n"
+    if unpublished:
+        banner = (
+            "**Research status:** Unpublished cosmology working paper.\n"
+            f"**Source snapshot:** `{release_tag}` ({release_date})\n\n"
+        )
+    else:
+        banner = f"**Paper release:** `{release_tag}`\n**Released:** {release_date}\n\n"
     return banner + text
 
 
@@ -220,7 +236,12 @@ def export_one(src: Path, dest: Path, pandoc_bin: str, release_tag: str, release
         cwd=pandoc_cwd,
     )
     text = postprocess_markdown(dest.read_text(encoding="utf-8"))
-    text = ensure_release_banner(text, release_tag, release_date)
+    text = ensure_release_banner(
+        text,
+        release_tag,
+        release_date,
+        unpublished=src.is_relative_to(COSMOLOGY_DIR),
+    )
     dest.write_text(strip_trailing_whitespace(text), encoding="utf-8")
     if not dest.read_text(encoding="utf-8").strip():
         raise SystemExit(f"empty markdown export for {src}")
@@ -237,11 +258,18 @@ def current_release_metadata() -> tuple[str, str]:
     return id_match.group(1), date_match.group(1)
 
 
-def write_build_info(out_dir: Path, generated: list[str], release_tag: str) -> None:
+def write_build_info(
+    out_dir: Path, generated: list[str], cosmology_exports: list[str], release_tag: str
+) -> None:
     payload = {
         "release_tag": release_tag,
-        "source_snapshot": "reverse-engineering-reality/paper and reverse-engineering-reality/extra",
+        "source_snapshot": (
+            "release-tracked papers from reverse-engineering-reality/paper and "
+            "reverse-engineering-reality/extra; unpublished research sources from "
+            "reverse-engineering-reality/cosmology"
+        ),
         "generated_files": generated,
+        "unpublished_cosmology_exports": cosmology_exports,
     }
     (out_dir / BUILD_INFO_NAME).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
@@ -255,7 +283,7 @@ def resolve_source(name_or_path: str) -> Path:
             return candidate
 
     basename = candidate.stem if candidate.suffix else name_or_path
-    for directory in (PAPER_DIR, EXTRA_DIR):
+    for directory in (PAPER_DIR, EXTRA_DIR, COSMOLOGY_DIR):
         source = directory / f"{basename}.tex"
         if source.is_file():
             return source
@@ -292,13 +320,16 @@ def main() -> int:
 
     release_tag, release_date = current_release_metadata()
     generated: list[str] = []
+    cosmology_exports: list[str] = []
     for src in sources:
         dest = out_dir / f"{src.stem}.md"
         export_one(src, dest, pandoc_bin, release_tag, release_date)
         generated.append(dest.name)
+        if src.is_relative_to(COSMOLOGY_DIR):
+            cosmology_exports.append(dest.name)
         print(dest)
 
-    write_build_info(out_dir, generated, release_tag)
+    write_build_info(out_dir, generated, cosmology_exports, release_tag)
     print(out_dir / BUILD_INFO_NAME)
     return 0
 
