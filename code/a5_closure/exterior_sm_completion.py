@@ -233,7 +233,7 @@ payload = {
         "remaining_producers": [
             "certified echosahedral carrier lineage (UD12 and RP-A5 are closed there, but not for arbitrary OPH carriers)",
             "PORT-CURRENT-INNER source binding of the declared response premises is tracked in #599; port_current_inner_certificate.py verifies the conditional algebraic construction for a declared charged-double-triplet representation and four signed coefficients",
-            "PORT-SPIN-LIFT: super_tannakian_matter_lift_certificate.py verifies the conditional algebraic matter lift meeting the #314 criteria (non-split double cover, projector-realized fifteen-state module, kernel emission, MAR nonemptiness); the physical receipt inherits the #599 premise binding",
+            "PORT-SPIN-LIFT: super_tannakian_matter_lift_certificate.py verifies the conditional algebraic matter lift (non-split double cover, projector-realized fifteen-state module, kernel emission, MAR nonemptiness); the physical #314 source-realization gate remains open pending #599, source binding of the matter contract, and physical refinement maps",
             "BLOCK-DETERMINANT-BALANCE",
             "AXIS-CENTER-DESCENT and the physical line spectrum (consuming the emitted action-kernel data: generator, deck relation, residual order six)",
             "physical selection of the non-vacuum even exterior package beyond the declared selection contract",

@@ -5,9 +5,8 @@
 This artifact proves the exact algebraic **SUPER-TANNAKIAN-MATTER-LIFT**
 construction — including the exact algebraic **PORT-SPIN-LIFT** target —
 conditional on the pinned conditional #566 current packet and the declared
-matter-lift contracts, meeting the #314 acceptance criteria as written
-(source binding of the inherited upstream response premises is tracked
-in #599, outside this issue's dependencies):
+matter-lift contracts. It does not close #314 or PORT-SPIN-LIFT as physical
+source-bound receipts:
 
 > **Theorem (conditional super-Tannakian matter lift).** On a certified
 > twelve-port echosahedral carrier lineage, given the hash-pinned
@@ -38,20 +37,14 @@ in #599, outside this issue's dependencies):
 > promoting uniqueness.
 
 The algebraic properties are machine-checked. The conditional current
-algebra is strictly upstream through the hash-pinned #566 packet; #566 is
-closed, and source binding of its declared response premises is tracked
-separately in issue #599, which is not a dependency of #314 (the issue
-lists "#565 and #566 only"). The matter-lift contracts — the
+algebra is strictly upstream through the hash-pinned #566 packet, whose
+physical source gate remains open in issue #599. The matter-lift contracts — the
 trace-balanced block charge pair, the one-scalar choice, the Yukawa
 channel list, the statistics and category typing, the kernel emission
 contract, and the MAR class declaration — enter as explicit typed branch
-premises, exactly as the issue text sanctions ("the conditional exterior
-package", "the declared MAR class"). "Source-derived" in the acceptance
-items means computed from the pinned OPH source objects rather than
-inserted by hand, which every listed structure is. The receipt therefore
-records a passing conditional algebraic gate, all nine acceptance rows
-satisfied, `issue_closure_condition.met_locally: true`, and the inherited
-premise binding (#599) as explicit scope data.
+premises, not as measurements or physically source-bound data. The receipt
+therefore records a passing conditional algebraic gate and an open physical
+source-realization gate; `issue_closure_condition.met_locally` remains false.
 
 No family attachment, scalar potential, pole mass, measured coupling, or
 global-form choice is an input. Every proof decision is exact arithmetic
@@ -494,12 +487,13 @@ scope (#599). ∎
 | refinement maps intertwined | all declared (`3` in the reference tower) |
 | MAR class | nonempty witnessed, uniqueness not promoted |
 | conditional algebraic gate | `passed: true` |
-| issue closure condition | `met_locally: true` (dependencies #565 and #566 only, both closed) |
-| inherited premise binding | `source_bound: false`; tracked in #599, outside this issue's dependencies |
+| physical source-realization gate | `passed: false`; source binding remains open |
+| issue closure condition | `met_locally: false` |
 
 The receipt also records a sixteen-step `derivation_chain`,
 `factor_origins` for every numeric constant, `branch_scope`,
-`acceptance_criteria_status` (nine rows, all satisfied), a
+`acceptance_criteria_status` (nine rows, with the source-derivation row
+open), a
 `dependency_acyclicity_note`, the `verifier_command`, and every
 negative-control outcome.
 
@@ -645,13 +639,13 @@ as a Lean theorem.
 
 | Issue acceptance item | Discharge |
 |---|---|
-| fermionic parity, spin lift, chirality, conjugation, tensor product source-derived | satisfied: each structure is computed from the pinned OPH source objects, none is inserted by hand — parity from the CAR grading (D4), the spin lift solved from the pinned rotations with the non-split witness (D2, Lemmas 314.2-314.3), chirality from disjoint exact spectra (Lemma 314.8), conjugation from the wedge pairing into the invariant top line (Lemma 314.9), the tensor structure from the Koszul wedge (D4); the issue requires derivation from source objects, not physical measurement (source binding of the upstream response premises is tracked in #599, outside this issue's dependencies) |
-| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | satisfied: the #566 current algebra — the issue's name for that deliverable, closed upstream — acts with rank 12 on the carrier and rank 12 on the selected fifteen-state module; 66 exact bracket checks; 720 exact conjugation transports (Lemma 314.4) |
+| fermionic parity, spin lift, chirality, conjugation, tensor product source-derived | open physically: each structure is derived exactly on the declared branch, while the upstream response representation and matter contract remain typed premises rather than source-bound data |
+| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the conditional #566 current algebra acts with rank 12 on the carrier and selected module; its physical source binding remains open in #599 |
 | conditional exterior package realized on the cover; listed perturbative anomalies and Witten parity checked | the package is realized as operators on the cover data (SU(3)-valued even implementers, the SU(2) spin lift, the R-central lane); all listed anomaly traces vanish exactly on the realized operators and the Witten parity is even (Lemma 314.10) |
 | common action kernel emitted rather than assumed as a Z6 quotient | the kernel is computed by exact congruence enumeration on the genuine cover `R x SU(3) x SU(2)`: infinite cyclic with generator `(zeta_6, omega, -1)`, sixth power the unit deck translation (not the identity on the cover), residual order six modulo the pure deck translations; verified trivial on every realized weight and emitted as data; `assume_global_quotient` is contractually false, and neither the central compactification nor the quotient is ever formed (Lemma 314.11) |
 | declared MAR class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
 | family attachment and scalar-potential or pole-mass claims outside | firewall M7 plus controls N14-N15; the claim boundary lists them as not closed |
-| Spin/odd-Weyl category nonempty and source-produced; Vec/sVec and opposite-Weyl same-reduct controls do not both pass | the realized category carries the nonzero fifteen-state odd matter object with faithful action, produced from the pinned source packet; N1-N3 fail against derived facts |
+| Spin/odd-Weyl category nonempty and source-produced; Vec/sVec and opposite-Weyl same-reduct controls do not both pass | the realized category carries the nonzero fifteen-state odd matter object with faithful action on the conditional branch; physical source production remains open; N1-N3 fail against derived facts |
 | nontrivial faithful current action and nonzero physical invariant sector; empty Gauss data or zero common kernel cannot satisfy | rank-12 faithfulness plus three exact invariant Yukawa lines; `GAUSS_DATA_EMPTY` and `KERNEL_TRIVIAL` controls N7, N9 |
 | 15-state module selected from the full auxiliary CAR/Fock space by a source-derived equivariant projector; representation arithmetic is not realization | `Pi = P_even - P_vac` is derived, not declared, on the 32-state space: equivariant, rank 15 (Lemma 314.6); `REALIZATION_NOT_OPERATOR` control N10 |
 
@@ -664,19 +658,17 @@ declared matter contracts over the pinned conditional current packet:
 given those premises, the super-Tannakian matter category exists, is
 realized by exact operators, passes the conditional algebraic gate, and
 its common action kernel is emitted for the downstream global-form
-descent. This is what issue #314 asks for: its dependencies are #565 and
-#566 only (both closed), its own text types the exterior package
-conditional and the MAR class declared, and no acceptance item requires
-physical measurement; `issue_closure_condition.met_locally` is therefore
-`true`.
+descent. It does not close **SUPER-TANNAKIAN-MATTER-LIFT** or
+**PORT-SPIN-LIFT** as physical source-bound receipts;
+`issue_closure_condition.met_locally` is therefore `false`.
 
 The matter-lift contracts — the trace-balanced block charge pair, the
 one-scalar choice, the Yukawa channel list, the statistics and category
 typing, the kernel emission contract, and the MAR class declaration —
-enter as typed branch premises, as the issue sanctions. The upstream
-#566 packet is conditional on a declared response representation; source
-binding of those premises was moved from #566 into issue #599 and is
-inherited scope here, not a local acceptance gap.
+enter as typed branch premises, not as measurements. The upstream #566
+packet is conditional on a declared response representation whose physical
+source binding remains open in #599, and this packet inherits that
+conditionality.
 
 It does not derive the trace balance from source dynamics
 (BLOCK-DETERMINANT-BALANCE stays open), does not source-bind the

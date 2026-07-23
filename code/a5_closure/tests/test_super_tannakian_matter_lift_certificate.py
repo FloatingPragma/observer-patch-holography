@@ -32,15 +32,14 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_conditional_gate_passes_and_inherited_binding_is_recorded(self) -> None:
+    def test_conditional_gate_passes_and_physical_gate_is_open(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertEqual(set(gate.values()), {True})
         self.assertEqual(len(gate), 13)
         self.assertTrue(gate["passed"])
-        binding = self.expected["inherited_premise_binding"]
-        self.assertFalse(binding["source_bound"])
-        self.assertIn("#599", binding["upstream_response_premises"])
-        self.assertIn("not a local gap", binding["note"])
+        physical_gate = self.expected["physical_source_gate"]
+        self.assertEqual(set(physical_gate.values()), {False})
+        self.assertFalse(physical_gate["passed"])
 
     def test_upstream_pins_match_stored_packets(self) -> None:
         upstream = self.expected["upstream"]
@@ -195,12 +194,8 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
     def test_acceptance_criteria_chain_and_scope(self) -> None:
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 9)
-        # All nine acceptance rows of #314 are satisfied: "source-derived"
-        # in the issue text means computed from the pinned OPH source
-        # objects rather than inserted by hand, which every listed
-        # structure is; the issue itself types the exterior package
-        # conditional and the MAR class declared.
-        self.assertEqual(set(status.values()), {True})
+        self.assertFalse(status["fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived"])
+        self.assertTrue(all(value for key, value in status.items() if "source_derived" not in key))
         chain = self.expected["derivation_chain"]
         self.assertEqual([row["step"] for row in chain], list(range(1, 17)))
         for row in chain:
@@ -213,18 +208,16 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_issue_criteria_met_with_inherited_conditionality(self) -> None:
+    def test_matter_lift_is_conditional_not_source_bound(self) -> None:
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        # The issue's dependencies are #565 and #566 only, both closed;
-        # physical source binding was moved to #599 and is inherited scope,
-        # not a local acceptance gap.
-        self.assertTrue(closure_condition["met_locally"])
-        self.assertIn("#565 and #566 only", closure_condition["dependency_note"])
-        self.assertIn("#599", closure_condition["inherited_open_producers"])
+        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
+        self.assertFalse(closure_condition["met_locally"])
+        self.assertIn("#599", closure_condition["remaining_producer"])
+        self.assertIn("source binding", closure_condition["remaining_producer"])
         boundary = self.expected["claim_boundary"]
         self.assertEqual(boundary["status"], "proved_conditional_on_declared_matter_contracts")
-        self.assertIn("#599", boundary["does_not_close"][0])
+        self.assertTrue(any("#599" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("PORT-SPIN-LIFT" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("BLOCK-DETERMINANT-BALANCE" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))

@@ -6,9 +6,7 @@ The input is a matter-lift manifest.  It declares only:
 * the conditional port-current response manifest of issue #566 (by path
   and hash) together with its stored receipt hash - the conditional
   current algebra u(3) (+) so(3) on the charged response space is
-  strictly upstream; #566 is closed, and source binding of its declared
-  response premises is tracked separately in issue #599, which is not a
-  dependency of this issue (#314 lists #565 and #566 only);
+  strictly upstream, and its physical source binding is open in #599;
 * the trace-balanced exterior matter contract: the exact charge pair on
   the color and weak blocks, the one-scalar choice (the weak block
   itself), and the declared invariant Yukawa channel list - a typed
@@ -44,17 +42,12 @@ From that packet the verifier derives, rather than assumes:
   global quotient is formed;
 * descent along the declared algebraic carrier tower maps.
 
-This is a conditional exact algebraic theorem, which is exactly what
-issue #314 asks for: its own text types the exterior package
-"conditional" and the MAR class "declared", and "source-derived" means
-computed from OPH source objects (the pinned packets and carrier data)
-rather than inserted by hand - which every listed structure is.  The
-acceptance criteria of #314 are therefore met on this branch
-(issue_closure_condition.met_locally is true).  The receipt still
-records the inherited premise binding honestly: the upstream response
-premises are declared in the closed #566 packet, and their physical
-source binding is tracked in issue #599, outside this issue's
-dependency list.
+This is a conditional exact algebraic theorem.  It does not source-bind
+the matter contract or the upstream response representation to physical
+carrier response; those remain separate source-binding gates.  The
+receipt therefore separates the verified conditional algebraic gate
+from the open physical source-realization gate, and issue #314 remains
+open at that physical boundary.
 
 Vec-typed, split-sVec, opposite-Weyl, bosonic-statistics, truncated
 selection, full-even-module, empty-Gauss, assumed-quotient,
@@ -1853,20 +1846,11 @@ def certificate_payload(
             "nonempty": "the odd matter object is nonzero (fifteen states) with a faithful current action",
         },
         "conditional_algebraic_gate": {**gate, "passed": True},
-        "inherited_premise_binding": {
-            "upstream_response_premises": (
-                "declared in the closed #566 packet; physical source binding is tracked in #599, "
-                "which is outside this issue's dependency list (#565 and #566 only)"
-            ),
-            "local_matter_contracts": (
-                "declared branch premises sanctioned by the issue text, which itself types the exterior "
-                "package conditional and the MAR class declared"
-            ),
-            "source_bound": False,
-            "note": (
-                "this records inherited conditionality, not a local gap: #314 never requires physical "
-                "measurement, and 'source-derived' structures are computed from the pinned source objects"
-            ),
+        "physical_source_gate": {
+            "matter_contract_source_bound": False,
+            "upstream_response_representation_source_bound": False,
+            "physical_refinement_intertwining_source_bound": False,
+            "passed": False,
         },
         "derivation_chain": [
             {
@@ -1881,7 +1865,7 @@ def certificate_payload(
                 "premise": "hash-pinned #566 manifest and receipt",
                 "uses": ["sha256 pins", "gate check on the stored receipt"],
                 "source_artifact": "load_upstream",
-                "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its response premises are declared, with source binding tracked in #599",
+                "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate is recorded open in #599",
             },
             {
                 "step": 3,
@@ -1979,7 +1963,7 @@ def certificate_payload(
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_314_negative_controls.json",
-                "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the inherited premise binding (tracked in #599) is recorded",
+                "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the physical source gate is recorded open",
             },
         ],
         "factor_origins": {
@@ -2008,7 +1992,7 @@ def certificate_payload(
             ),
         },
         "acceptance_criteria_status": {
-            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": True,
+            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": False,
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
@@ -2030,15 +2014,12 @@ def certificate_payload(
                 "block charges, one scalar, channel list, statistics, category typing, kernel emission, MAR class)"
             ),
             "conditional_algebraic_gate_passed": True,
-            "met_locally": True,
-            "dependency_note": (
-                "the issue lists #565 and #566 only as dependencies; both are closed with hash-pinned "
-                "certified packets, and the issue's own text types the exterior package conditional and "
-                "the MAR class declared, so no physical measurement is required by any acceptance item"
-            ),
-            "inherited_open_producers": (
-                "#599 source-binds the upstream response premises (moved there from #566); "
-                "BLOCK-DETERMINANT-BALANCE and AXIS-CENTER-DESCENT remain separate downstream lanes"
+            "physical_source_realization_gate_passed": False,
+            "met_locally": False,
+            "remaining_producer": (
+                "physical source binding: #599 must source-bind the upstream response representation, "
+                "the trace-balanced matter contract must be physically selected, and the physical refinement "
+                "maps must be derived from carrier response before the issue's source-derived matter category closes"
             ),
         },
         "dependency_acyclicity_note": {
