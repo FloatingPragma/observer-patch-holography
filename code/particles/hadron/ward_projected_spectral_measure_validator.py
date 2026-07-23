@@ -100,8 +100,9 @@ root); hashes are computed over LF-normalized bytes so the pin is invariant
 under platform line-ending conversion. The committed gate specimens under
 code/particles/runs/hadron/gate_specimens/ declare
 specimen_for_gate_testing: true; the gate accepts them (contract testing),
-but the physical availability verdict in the verifier rejects
-specimen-backed payloads.
+but the physical availability verdict in the verifier requires every premise
+certificate to declare both specimen_for_gate_testing: false and
+promotion_allowed: true.
 
 The gate is downstream-compatible by construction: an accepted payload
 embeds as `source_measure` into the source-transport payload contract of
@@ -591,15 +592,16 @@ def source_artifact_specimen_flags(
     return flags
 
 
-def premise_certificate_specimen_flags(
+def premise_certificate_physical_readiness_flags(
     payload: dict[str, Any], base_dir: Path | None = None
 ) -> dict[str, bool]:
-    """Which premise certificates of a payload are gate-testing specimens.
+    """Which premise certificates are not ready for physical availability.
 
-    Fails closed: unresolvable references count as specimen (True), so a
-    payload can only be treated as non-specimen-backed when every reference
-    resolves to a readable certificate with specimen_for_gate_testing
-    exactly False.
+    Fails closed: unresolvable references, specimens, and certificates whose
+    own promotion gate is not literally true all return True.  Merely changing
+    ``specimen_for_gate_testing`` to false must not promote a specimen that
+    still declares ``promotion_allowed: false`` or carries no physical
+    certificate content.
     """
     base = base_dir if base_dir is not None else REPO_ROOT
     block = payload.get("premise_certificates")
@@ -619,6 +621,7 @@ def premise_certificate_specimen_flags(
         flags[key] = (
             not isinstance(content, dict)
             or content.get("specimen_for_gate_testing") is not False
+            or content.get("promotion_allowed") is not True
         )
     return flags
 

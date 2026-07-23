@@ -313,29 +313,29 @@
     "n_sweeps": 6,
     "cg_tol": 1e-12,
     "rng_seed": 3170,
-    "plaquette": 0.5888100477481721
+    "plaquette": 0.5888100477481752
    },
    "local_current_gauge_invariance": {
     "observable": "local-local transverse correlator sum_x <psibar gamma_k psi(x) psibar gamma_k psi(0)>, k = 1..3",
     "statement": "the local-local transverse U(1) vector correlator and the plaquette are invariant under U_mu(x) -> g(x) U_mu(x) g(x+mu)^dag for random SU(3) g",
-    "correlator_relative_defect": 4.286208758886105e-14,
-    "plaquette_absolute_defect": 3.3306690738754696e-16,
+    "correlator_relative_defect": 4.4136093135203677e-14,
+    "plaquette_absolute_defect": 2.220446049250313e-16,
     "tolerance": 1e-08,
     "passed": true
    },
    "conserved_current_gauge_invariance": {
     "observable": "conserved(sink)-local(source) transverse correlator C_CL(t): the sink operator is the actual link-inserted point-split conserved current V_mu(x) = kappa [psibar(x+mu)(1+gamma_mu) U_mu(x)^dag psi(x) - psibar(x)(1-gamma_mu) U_mu(x) psi(x+mu)], mu = 1..3",
     "statement": "the correlator containing the link-inserted point-split conserved current is invariant under the same random SU(3) gauge rotation; this is the observable whose gauge invariance conclusion C1 asserts",
-    "correlator_relative_defect": 2.4341102119962233e-13,
+    "correlator_relative_defect": 2.4511862402688707e-13,
     "tolerance": 1e-08,
     "passed": true
    },
    "ward_identity": {
     "observable": "backward-difference divergence of <V_mu^cons(x) J_nu^loc(0)> over all off-source sites",
     "statement": "the conserved point-split current V_mu satisfies the exact backward-difference Ward identity sum_mu [V_mu(x) - V_mu(x-mu)] = 0 off the contact point",
-    "max_offsource_divergence": 1.2069425320282434e-13,
-    "correlator_scale": 0.10425234291367895,
-    "relative_defect": 1.1577126214109098e-12,
+    "max_offsource_divergence": 1.1990582138299288e-13,
+    "correlator_scale": 0.10425234291359937,
+    "relative_defect": 1.1501498962221555e-12,
     "tolerance": 1e-09,
     "passed": true
    }
@@ -355,12 +355,12 @@
     7
    ],
    "window_values": [
-    0.9999477983422049,
-    0.9999936887110695,
-    0.9999993095850981,
-    0.9999999263299884
+    0.9999477983422015,
+    0.9999936887110679,
+    0.9999993095850979,
+    0.9999999263299889
    ],
-   "max_abs_deviation_from_one": 5.220165779507013e-05,
+   "max_abs_deviation_from_one": 5.2201657798511825e-05,
    "tolerance": 0.005,
    "passed": true
   },
@@ -396,9 +396,9 @@
        "level_id": "vector_ground_A",
        "s": 2.048681584077855,
        "energy": 1.4313216214666273,
-       "energy_jackknife_error": 0.6576894420893482,
+       "energy_jackknife_error": 0.6576894420893481,
        "weight": 36.18772938483569,
-       "weight_jackknife_error": 119.8380115867316
+       "weight_jackknife_error": 119.83801158673161
       }
      ]
     }
@@ -575,18 +575,18 @@
      ],
      [
       -0.0001170580582470392,
-      -3.5962023505763456e-05,
-      -2.167823041707699e-05,
-      -1.3503131430211508e-05,
+      -3.596202350576344e-05,
+      -2.1678230417076998e-05,
+      -1.3503131430211511e-05,
       -7.573763494663247e-06,
-      -1.0623235964888284e-07,
-      4.094310490110403e-06,
-      1.1719286924698902e-05,
+      -1.062323596488829e-07,
+      4.0943104901104045e-06,
+      1.17192869246989e-05,
       1.0893738467739958e-05
      ]
     ],
-    "min_eigenvalue": 2.097976113453257e-09,
-    "max_eigenvalue": 0.0035595247688286875,
+    "min_eigenvalue": 2.097976113455539e-09,
+    "max_eigenvalue": 0.003559524768828687,
     "positive_semidefinite": true
    },
    "joint_extraction_covariance": {
@@ -600,42 +600,42 @@
     "dimension": 4,
     "matrix": [
      [
-      0.432555402235798,
+      0.4325554022357979,
       0.26855161111094256,
-      4.799135240857926,
+      4.799135240857927,
       56.30663085470413
      ],
      [
       0.26855161111094256,
       0.1774215976522861,
       3.480484637297749,
-      43.245112836347325
+      43.245112836347346
      ],
      [
-      4.799135240857926,
-      3.480484637297749,
-      79.74456622302229,
-      1055.4186595310127
+      4.799135240857927,
+      3.4804846372977494,
+      79.74456622302228,
+      1055.418659531013
      ],
      [
-      56.306630854704125,
-      43.245112836347325,
-      1055.4186595310127,
-      14361.149021061616
+      56.30663085470413,
+      43.245112836347346,
+      1055.418659531013,
+      14361.149021061621
      ]
     ],
-    "min_eigenvalue": 0.0003794609061373484,
-    "max_eigenvalue": 14439.076268315937,
+    "min_eigenvalue": 0.0003794609061839196,
+    "max_eigenvalue": 14439.076268315954,
     "positive_semidefinite": true
    },
    "extraction": {
     "am_vector": 1.4313216214666273,
-    "am_vector_jackknife_error": 0.6576894420893482,
+    "am_vector_jackknife_error": 0.6576894420893481,
     "z_v": 0.7556688181970018,
     "z_v_jackknife_error": 0.4212144319135873,
     "amplitude_hop": 4.254828556104056,
     "weight_physical_units": 36.18772938483569,
-    "weight_jackknife_error": 119.8380115867316,
+    "weight_jackknife_error": 119.83801158673161,
     "window_rule": "cosh effective mass over the positive decaying window from t = 3; Z_V from the windowed average of Z_V^eff(t) over the same range (not a validated plateau)"
    },
    "diagnostic_limitations": [
@@ -650,7 +650,7 @@
     "statistical_budget": {
      "method": "leave-one-out jackknife through the full constructor",
      "relative_error_weight": 3.3115648211116886,
-     "relative_error_energy": 0.45949801374161864
+     "relative_error_energy": 0.4594980137416186
     },
     "quadrature_budget": {
      "method": "extraction-window start shifted by +1",
@@ -1540,7 +1540,7 @@
    "passed": true
   },
   "fail_closed_probes": {
-   "statement": "the availability predicate is executed on unknown, renamed, missing, None, blocked, and contradictory status combinations and must report unavailable on every one; success requires literal allowlist membership plus an existing gate-approved payload whose premise certificates are real (non-specimen) certificates",
+   "statement": "the availability predicate is executed on unknown, renamed, missing, None, blocked, and contradictory status combinations and must report unavailable on every one; success requires literal allowlist membership plus an existing gate-approved payload whose premise certificates are physical-ready (non-specimen and promotion_allowed exactly true)",
    "probes": [
     {
      "probe_id": "status_blocked",
@@ -1618,20 +1618,20 @@
      "probe_id": "gate_approved_but_specimen_backed_payload",
      "reported_unavailable": true,
      "reasons": [
-      "premise_certificate_is_specimen_or_unresolvable:conserved_current_or_matching",
-      "premise_certificate_is_specimen_or_unresolvable:gauge_quotient_ensemble",
-      "premise_certificate_is_specimen_or_unresolvable:reflection_positivity_transfer",
-      "premise_certificate_is_specimen_or_unresolvable:ward_identity"
+      "premise_certificate_not_physical_ready:conserved_current_or_matching",
+      "premise_certificate_not_physical_ready:gauge_quotient_ensemble",
+      "premise_certificate_not_physical_ready:reflection_positivity_transfer",
+      "premise_certificate_not_physical_ready:ward_identity"
      ]
     },
     {
      "probe_id": "gate_approved_but_specimen_source_artifact_provenance",
      "reported_unavailable": true,
      "reasons": [
-      "premise_certificate_is_specimen_or_unresolvable:conserved_current_or_matching",
-      "premise_certificate_is_specimen_or_unresolvable:gauge_quotient_ensemble",
-      "premise_certificate_is_specimen_or_unresolvable:reflection_positivity_transfer",
-      "premise_certificate_is_specimen_or_unresolvable:ward_identity",
+      "premise_certificate_not_physical_ready:conserved_current_or_matching",
+      "premise_certificate_not_physical_ready:gauge_quotient_ensemble",
+      "premise_certificate_not_physical_ready:reflection_positivity_transfer",
+      "premise_certificate_not_physical_ready:ward_identity",
       "source_artifact_reference_is_gate_specimen:code/particles/runs/hadron/gate_specimens/specimen_source_artifact.json"
      ]
     }
@@ -1689,7 +1689,7 @@
     "additional_positive_requirements": [
      "public_unsuppression_ready is exactly true",
      "a production payload exists at code/particles/runs/hadron/ward_projected_spectral_measure.production.json and passes the strict production gate",
-     "every premise-certificate reference of the payload resolves to a non-specimen certificate (specimen_for_gate_testing exactly false); gate-testing specimens never make the physical lane available",
+     "every premise-certificate reference resolves to a physical-ready certificate (specimen_for_gate_testing exactly false and promotion_allowed exactly true); relabeled or non-promoting specimens never make the physical lane available",
      "no oph_source_artifact provenance reference is a gate specimen (under the gate-specimens root or declaring specimen_for_gate_testing true)"
     ],
     "live_status_snapshot": {
@@ -1839,7 +1839,7 @@
  ],
  "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
  "volatile": {
-  "generated_utc": "2026-07-22T13:47:59Z",
+  "generated_utc": "2026-07-23T00:38:58Z",
   "note": "timestamp only; excluded from acceptance logic"
  }
 }

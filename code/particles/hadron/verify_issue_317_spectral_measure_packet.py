@@ -678,11 +678,11 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
                     "production_payload_rejected_by_strict_gate:"
                     + ";".join(result.reasons[:5])
                 )
-            specimen_flags = strict_validator.premise_certificate_specimen_flags(
+            readiness_flags = strict_validator.premise_certificate_physical_readiness_flags(
                 payload, base_dir=certificate_base_dir
             )
-            for key in sorted(k for k, is_specimen in specimen_flags.items() if is_specimen):
-                reasons.append(f"premise_certificate_is_specimen_or_unresolvable:{key}")
+            for key in sorted(k for k, blocked in readiness_flags.items() if blocked):
+                reasons.append(f"premise_certificate_not_physical_ready:{key}")
             source_flags = strict_validator.source_artifact_specimen_flags(
                 payload, base_dir=certificate_base_dir
             )
@@ -699,9 +699,10 @@ def physical_source_payload_verdict(state: dict[str, Any] | None = None) -> dict
             "a production payload exists at "
             + PRODUCTION_PAYLOAD_PATH.relative_to(ROOT.parent).as_posix()
             + " and passes the strict production gate",
-            "every premise-certificate reference of the payload resolves to a "
-            "non-specimen certificate (specimen_for_gate_testing exactly false); "
-            "gate-testing specimens never make the physical lane available",
+            "every premise-certificate reference resolves to a physical-ready "
+            "certificate (specimen_for_gate_testing exactly false and "
+            "promotion_allowed exactly true); relabeled or non-promoting "
+            "specimens never make the physical lane available",
             "no oph_source_artifact provenance reference is a gate specimen "
             "(under the gate-specimens root or declaring "
             "specimen_for_gate_testing true)",
@@ -839,7 +840,7 @@ def fail_closed_probe_battery() -> dict[str, Any]:
             "None, blocked, and contradictory status combinations and must report "
             "unavailable on every one; success requires literal allowlist membership "
             "plus an existing gate-approved payload whose premise certificates are "
-            "real (non-specimen) certificates"
+            "physical-ready (non-specimen and promotion_allowed exactly true)"
         ),
         "probes": rows,
         "passed": bool(all_failed_closed),

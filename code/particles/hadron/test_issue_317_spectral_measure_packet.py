@@ -741,6 +741,7 @@ def _non_specimen_certificates(tmp_path) -> dict:
                 {
                     "artifact": artifact,
                     "specimen_for_gate_testing": False,
+                    "promotion_allowed": True,
                     "external_targets_used": [],
                 }
             ),
@@ -803,9 +804,42 @@ def test_availability_rejects_specimen_backed_payload(tmp_path):
     assert sorted(
         r
         for r in verdict["reasons"]
-        if r.startswith("premise_certificate_is_specimen_or_unresolvable:")
+        if r.startswith("premise_certificate_not_physical_ready:")
     ) == [
-        f"premise_certificate_is_specimen_or_unresolvable:{key}"
+        f"premise_certificate_not_physical_ready:{key}"
+        for key in sorted(strict_validator.PREMISE_CERTIFICATE_TYPES)
+    ]
+
+
+def test_availability_rejects_relabelled_nonpromoting_certificates(tmp_path):
+    """Changing only the specimen label cannot turn a non-promoting premise
+    certificate into physical evidence."""
+    references = _non_specimen_certificates(tmp_path)
+    for reference in references.values():
+        cert_path = tmp_path / reference["path"]
+        certificate = json.loads(cert_path.read_text(encoding="utf-8"))
+        certificate["promotion_allowed"] = False
+        certificate["content"] = "carries no physical certificate content"
+        cert_path.write_text(json.dumps(certificate), encoding="utf-8")
+        reference["sha256"] = strict_validator.lf_sha256(cert_path)
+
+    payload = packet_mod.build_conformant_payload()
+    payload["premise_certificates"] = references
+    payload_path = tmp_path / "relabelled_nonpromoting.production.json"
+    payload_path.write_text(json.dumps(payload), encoding="utf-8")
+    state = {
+        "export_bundle_status": "complete",
+        "closure_grade": "execution_complete",
+        "public_unsuppression_ready": True,
+        "base_measure_status": "POPULATED",
+        "ward_current_status": "SOURCE_CERTIFICATE_VERIFIED",
+        "production_payload_path": payload_path,
+        "certificate_base_dir": tmp_path,
+    }
+    verdict = packet_mod.physical_source_payload_verdict(state)
+    assert verdict["available"] is False
+    assert sorted(verdict["reasons"]) == [
+        f"premise_certificate_not_physical_ready:{key}"
         for key in sorted(strict_validator.PREMISE_CERTIFICATE_TYPES)
     ]
 
