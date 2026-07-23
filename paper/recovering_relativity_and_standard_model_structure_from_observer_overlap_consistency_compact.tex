@@ -12593,10 +12593,24 @@ unique-involution obstruction \(A_5\not\subset SU(2)\), the noncentrality
 witness \([iS,iT]=-2(E_{12}-E_{21})\neq0\) exhibited below, and the screen
 gluing-class quotient
 \(\Lambda_+/(\Lambda_1\oplus\Lambda_5)\cong\mathbb Z/6\mathbb Z\) with
-proper-rotation invariance and antipodal sign reversal. The classification of
-compact simple Lie algebras, the reductive decomposition, exponential
-surjectivity, the dimension-six module argument, and the rationality lemma
-remain declared classical inputs, and no physical receipt is formalized.
+proper-rotation invariance and antipodal sign reversal. Two companion modules
+carry the branch receipts.
+\texttt{Screen/\allowbreak A5CharacterField.lean} proves the Galois-stability
+half of the rationality lemma over \(\mathbb Q(\sqrt5)\): the conjugation
+swaps the two three-dimensional characters, a Galois-stable combined
+character carries them with equal multiplicity, and a rational centre inside
+\(P_{12}\) has dimension in \(\{0,1,5,6,7,11,12\}\), excluding dimension two;
+the torus/cocharacter step of the lemma stays a declared hypothesis.
+\texttt{Screen/\allowbreak A5SixAxes.lean} lists the sixty elements of the
+six-axis action of \(A_5\cong\mathrm{PSL}(2,\mathbb F_5)\), kernel-checks
+distinctness, product and inverse closure, and 2-transitivity, and proves the
+dimension count of the dimension-six branch: given irreducibility of the
+five-dimensional summand, \(\mathbf1\oplus\mathbf5\) has no three-dimensional
+invariant subspace, so no splitting into two three-dimensional invariant
+summands exists. The classification of compact simple Lie algebras, the
+reductive decomposition, exponential surjectivity, the irreducibility of the
+five-dimensional summand, and the torus/cocharacter step remain declared
+classical inputs, and no physical receipt is formalized.
 
 \subsubsection*{The bracket constructed from the oriented screen}
 
