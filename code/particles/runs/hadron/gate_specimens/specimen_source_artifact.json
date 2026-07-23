@@ -1,0 +1,9 @@
+{
+ "artifact": "oph_qcd_source_backend_artifact_specimen",
+ "specimen_for_gate_testing": true,
+ "promotion_allowed": false,
+ "external_targets_used": [],
+ "guards": {"source_only": true},
+ "content": "typed specimen source artifact exercising the positive source-only certification of oph_source_artifact provenance references (source-lane location, JSON object, typed artifact identifier, explicitly empty external_targets_used); carries no physical content",
+ "production_note": "production source artifacts must live in the source-backend lane and positively certify themselves (typed artifact identifier, external_targets_used: []); the physical availability verdict rejects gate-specimen provenance references"
+}
