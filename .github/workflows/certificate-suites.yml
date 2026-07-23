@@ -1,0 +1,64 @@
+name: Certificate Suites
+
+# Splits the two long-running exact-arithmetic certificate replay suites (#314
+# matter-lift, #566 port-current) out of the Mandatory Suite so they only re-run
+# when their inputs change. Both suites are deterministic replays against pinned
+# manifests/receipts under code/a5_closure/, so a paper edit, ledger refresh, or
+# markdown export can never affect their result — the path filter below skips
+# those pushes.
+#
+# Fail-closed property is preserved by the nightly schedule: the full suite runs
+# on both platforms every night, so environment or dependency drift is still
+# caught within a day even on pushes the path filter skips.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "code/a5_closure/**"
+      - "requirements.txt"
+      - ".github/workflows/certificate-suites.yml"
+  pull_request:
+    paths:
+      - "code/a5_closure/**"
+      - "requirements.txt"
+      - ".github/workflows/certificate-suites.yml"
+  schedule:
+    # Nightly full run (both platforms) guards against silent drift behind the
+    # path filter. 06:17 UTC picks an off-peak, non-round minute.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  certificates:
+    name: certificate suites (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Push/PR runs verify on ubuntu only (the certificates are
+        # platform-independent exact arithmetic, and windows runner minutes bill
+        # at 2x). The nightly/dispatch runs add windows for full coverage.
+        os: >-
+          ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+              && fromJSON('["ubuntu-latest", "windows-latest"]')
+              || fromJSON('["ubuntu-latest"]') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute the conditional port-current certificate suite
+        run: python -m pytest -q code/a5_closure/tests/test_port_current_inner_certificate.py
+
+      - name: Execute the conditional matter-lift certificate suite
+        run: python -m pytest -q code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py
