@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-18T05:32:25Z`
+Generated: `2026-07-23T06:39:46Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 

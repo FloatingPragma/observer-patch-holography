@@ -27,7 +27,7 @@ Every named open object of the particle program with its class, plus the closure
 |---|---|---|---|
 | CARRIER_MODEL_FAITHFULNESS | Higgs/top | research_open | export the pre-repair observer-patch carrier, frozen without the desired coefficients, and show that its readout graph is the frozen equation registry of the census; this transfers CF1 and CF2 from the model level to the carrier level and completes the Higgs selection theorem |
 | CRITICALITY_BOUNDARY_SCALE_SELECTION | Higgs/top | awaiting_discriminating_test | four frozen candidates; the three-loop implied scale discriminates |
-| FROZEN_THREE_LOOP_RG_MATCHING_PACKET | Higgs/top | closable_by_standard_computation | three-loop running plus full NNLO matching, source-only; standard published mathematics, implementation-bound |
+| FROZEN_THREE_LOOP_RG_MATCHING_PACKET | Higgs/top | closable_by_standard_computation | three-loop running plus full NNLO matching, frozen target-free; standard published mathematics, implementation-bound |
 | D10_DISCRETE_LAW_SELECTION | W/Z | research_open | select between the zero-selector law and the carrier value law; the QME mechanism applies once the electroweak moment vector is emitted |
 | SM_MOMENT_VECTOR_EMISSION | cross-cutting | research_open | the complete quotient-local operator basis and moment vector c_r(P, N) for the source-action rigidity mechanism |
 | W5_ORBIT_EFFECTIVE_ACTION | charged leptons | research_open | SOURCE_W5_COEFFICIENT_EMISSION: the charge-conditioned repair branch must emit the invariant coefficient packet (h5, a, b, c, e); the decision geometry and harness are closed, so emission alone completes the charged family shape |

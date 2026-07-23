@@ -200,6 +200,19 @@ def closed_entries() -> list[dict[str, Any]]:
             ),
             "artifact": "runs/status/theorem_gap_register.json",
         },
+        {
+            "id": "SM_QFT_Q1_Q4_CONDITIONAL_IMPLICATIONS",
+            "family": "W/Z and quantum-field landing",
+            "class": "closed",
+            "statement": (
+                "the finite local G6 action implication, two exact finite "
+                "QFT-Q2 criteria, formal QFT-Q3 BV/ST restoration, strict "
+                "finite-order W/Z algebra, and separate QFT-Q4 OS/resonance "
+                "implications are stated and checked without promoting their "
+                "antecedents"
+            ),
+            "artifact": "calibration/q1_q4_wz_theorem_oracle/",
+        },
     ]
 
 
@@ -330,6 +343,19 @@ def open_entries() -> list[dict[str, Any]]:
                 "BRST-complete two-point kernels with sheets, residues, and "
                 "widths; every mass above is a tree/chart or threshold "
                 "coordinate until this closes"
+            ),
+        },
+        {
+            "id": "SM_QFT_NATIVE_PRODUCER_STACK",
+            "family": "W/Z and quantum-field landing",
+            "class": "research_open",
+            "statement": (
+                "construct the source-selected action/normalization, a "
+                "QFT-Q2-E measure or QFT-Q2-H Hamiltonian, the "
+                "regulator-specific QFT-Q3 restoration/matching/identity "
+                "packet with dressed current amplitudes and numerical freeze, "
+                "and the separate QFT-Q4 observable tower and resonance-sheet "
+                "continuation packet"
             ),
         },
         {

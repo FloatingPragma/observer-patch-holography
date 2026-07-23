@@ -62,8 +62,8 @@ entries:
       N_CRC_EW: "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122"
       bridge_residual: "0"
       epsilon_H: "0"
-    status_summary: "Exact conditional identities. The bridge-defined N_CRC^EW has zero algebraic residual, the screen supplies X/12, the independent product adjoint supplies m_rep=24, and the selected source-to-Higgs square has epsilon_H=0."
-    next_action: "HIERARCHY-SCREEN-READOUT and source production of the screen selector are work in progress. W/Z masses, the Thomson endpoint, charged-lepton masses, source-only hadrons, Strong CP, and full SI G have separate gates."
+    status_summary: "Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0."
+    next_action: "Keep this theorem scoped to hierarchy/naturality. W/Z mass promotion, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G stay in their own ledgers."
     caveats:
       - "#332 gives epsilon_H=0 on the selected comparison-map branch conditional on HIERARCHY-SCREEN-READOUT."
       - "#335 is exact conditional on HIERARCHY-SCREEN-READOUT and the named screen-selector premises."

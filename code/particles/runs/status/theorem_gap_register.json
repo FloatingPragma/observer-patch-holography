@@ -91,16 +91,23 @@
       "family": "massless carriers",
       "id": "GLUON_CARRIER_MASSLESSNESS_RECEIPT",
       "statement": "unbroken color forces carrier-level gluon masslessness; confinement removes asymptotic gluon states, so the statement concerns the gauge field, never a physical pole"
+    },
+    {
+      "artifact": "calibration/q1_q4_wz_theorem_oracle/",
+      "class": "closed",
+      "family": "W/Z and quantum-field landing",
+      "id": "SM_QFT_Q1_Q4_CONDITIONAL_IMPLICATIONS",
+      "statement": "the finite local G6 action implication, two exact finite QFT-Q2 criteria, formal QFT-Q3 BV/ST restoration, strict finite-order W/Z algebra, and separate QFT-Q4 OS/resonance implications are stated and checked without promoting their antecedents"
     }
   ],
   "counts": {
     "awaiting_discriminating_test": 1,
     "closable_by_standard_computation": 1,
-    "closed": 13,
+    "closed": 14,
     "computationally_blocked": 2,
-    "research_open": 8
+    "research_open": 9
   },
-  "generated_utc": "2026-07-23T02:19:48Z",
+  "generated_utc": "2026-07-23T06:41:36Z",
   "open_register": [
     {
       "class": "research_open",
@@ -174,6 +181,12 @@
       "family": "cross-cutting",
       "id": "BRST_POLE_KERNEL_PACKET",
       "statement": "BRST-complete two-point kernels with sheets, residues, and widths; every mass above is a tree/chart or threshold coordinate until this closes"
+    },
+    {
+      "class": "research_open",
+      "family": "W/Z and quantum-field landing",
+      "id": "SM_QFT_NATIVE_PRODUCER_STACK",
+      "statement": "construct the source-selected action/normalization, a QFT-Q2-E measure or QFT-Q2-H Hamiltonian, the regulator-specific QFT-Q3 restoration/matching/identity packet with dressed current amplitudes and numerical freeze, and the separate QFT-Q4 observable tower and resonance-sheet continuation packet"
     },
     {
       "class": "computationally_blocked",

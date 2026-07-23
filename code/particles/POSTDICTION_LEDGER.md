@@ -1,6 +1,6 @@
 # Postdiction Ledger
 
-Generated: `2026-07-23T04:03:42Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
+Generated: `2026-07-23T06:40:02Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
 
 Every value and every measured reference on this page is read live from the cited certified artifact. The ledger promotes nothing, changes no solve path, and introduces no number of its own. Interval rows report containment of the compare-only witness; conditional rows carry their declared premises; chart coordinates keep their NOT_EVALUABLE physical-comparison status.
 

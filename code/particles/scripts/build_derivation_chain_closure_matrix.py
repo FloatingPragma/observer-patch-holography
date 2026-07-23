@@ -351,6 +351,13 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"Chrome Pro workers needed: `{payload['worker_policy']['chrome_pro_workers_needed_now']}`",
         f"Reason: {payload['worker_policy']['reason']}",
         "",
+        "QFT status is orthogonal to this numeric closure matrix. The namespaced",
+        "`SM_QFT_*` oracle proves conditional implications and exact strict W/Z algebra,",
+        "but QFT-Q2 and QFT-Q3 remain parallel and QFT-Q4 consumes a separate",
+        "nonperturbative tower. None of those theorem checks supplies the source action,",
+        "physical-current amplitude, numerical freeze, or resonance sheet required to",
+        "promote `electroweak_massive_bosons`.",
+        "",
         "| Chain | Status | Promotable | Open gates | Outputs | Next artifact |",
         "| --- | --- | --- | --- | --- | --- |",
     ]

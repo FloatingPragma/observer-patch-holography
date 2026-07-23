@@ -1,6 +1,6 @@
 # Conditional Candidate Outputs
 
-Generated: `2026-07-18T05:01:49Z`
+Generated: `2026-07-23T06:40:02Z`
 
 This surface renders the numeric conditional candidates that the strict
 source-only promotion policy withholds from the public OPH-value columns.

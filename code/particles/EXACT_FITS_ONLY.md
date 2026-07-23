@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-07-12T03:22:10Z`
+Generated: `2026-07-23T06:40:02Z`
 
 This surface lists exact target matches on declared audit carriers. An exact target match is not, by itself, a source-only prediction.
 For quarks, the selected-class target audit matches its chosen mixed-convention packet. Its GeV-valued matrices are mass textures, not physical dimensionless Yukawas.
