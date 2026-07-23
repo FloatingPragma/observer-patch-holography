@@ -1,0 +1,370 @@
+{
+  "aggregation_policy": "every value and every measured reference is read live from the cited parent artifact; a missing parent aborts the build",
+  "artifact": "oph_postdiction_ledger",
+  "generated_utc": "2026-07-23T03:54:07Z",
+  "guards": {
+    "changes_any_solve_path": false,
+    "compare_only": true,
+    "hand_typed_measured_values": false,
+    "new_axiom_introduced": false,
+    "public_promotion_allowed": false
+  },
+  "row_class": "compare_only_postdiction_ledger",
+  "schema_version": 1,
+  "sections": {
+    "alpha": [
+      {
+        "anchor_gap_interval": [
+          0.6198609040759308,
+          0.6505569678915788
+        ],
+        "artifact_refs": [
+          "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+          "code/P_derivation/runtime/anchor_scheme_bridge_current.json"
+        ],
+        "blocking_issues": [
+          425,
+          545
+        ],
+        "id": "alpha_inv_thomson_endpoint",
+        "measured": 137.035999177,
+        "measured_source": "CODATA 2022 via the endpoint artifact, compare-only",
+        "payload_release": "knt19_pinned_v1",
+        "reading": "the endpoint carries the full measured deficit into the certified same-scheme anchor gap; the standard reference deficit sits inside the certified interval, so the residual is the one-loop anchor running deficit, not a payload or solve defect",
+        "reference_deficit_inside_certified_gap": true,
+        "row_class": "oph_plus_empirical_hadron_closure",
+        "tier": "T1_empirical_closure",
+        "value_central": 136.38275481749466,
+        "value_interval": [
+          136.3670480602512,
+          136.39846519336368
+        ]
+      }
+    ],
+    "charged_leptons": [
+      {
+        "artifact_ref": "runs/leptons/charged_mcpr_completion_conditional.json",
+        "blocking_objects": [
+          "A5_FAM",
+          "DET_CAN",
+          "PROV",
+          "QFT_POLE",
+          "SCALE",
+          "W5_ORB"
+        ],
+        "explanation": "The eight-register architecture reproduces the charged triple at 84 ppm with zero runtime charged reference, and the architecture itself is a declared model input. The source-only completion is the A5/W5 orbit program; the homogeneous branch is proven shape-silent.",
+        "id": "charged_leptons_mcpr_conditional",
+        "measured_gev": [
+          0.0005109989506900001,
+          0.10565837550000001,
+          1.7769299999999995
+        ],
+        "measured_source": "PDG witness triple embedded in the kappa lane, compare-only",
+        "particles": [
+          "electron",
+          "muon",
+          "tau"
+        ],
+        "relative_deltas": [
+          -8.410341929177001e-05,
+          -8.401692048642939e-05,
+          -8.402443231347867e-05
+        ],
+        "row_class": "conditional_on_declared_mcpr_response_architecture",
+        "tier": "T2",
+        "values_gev": [
+          0.0005109559739309925,
+          0.1056494984086669,
+          1.7767806944654887
+        ]
+      },
+      {
+        "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+        "blocking_issues": [
+          425,
+          545
+        ],
+        "centrals_gev": [
+          0.0005088574871435145,
+          0.1052155887600104,
+          1.76948334905381
+        ],
+        "id": "charged_leptons_kappa_rectangle",
+        "intervals_gev": [
+          [
+            0.00047657714307519004,
+            0.0005433242990866062
+          ],
+          [
+            0.09854103745176451,
+            0.11234223227591915
+          ],
+          [
+            1.657232801948234,
+            1.8893370435933756
+          ]
+        ],
+        "measured_gev": [
+          0.0005109989506900001,
+          0.10565837550000001,
+          1.7769299999999995
+        ],
+        "measured_source": "PDG witness triple embedded in the lane, compare-only",
+        "particles": [
+          "electron",
+          "muon",
+          "tau"
+        ],
+        "relative_half_widths": [
+          0.0655853138627311,
+          0.06558531386273103,
+          0.06558531386273114
+        ],
+        "row_class": "target_shape_plus_empirical_transport",
+        "tier": "T1_empirical_closure",
+        "witness_inside_all_intervals": true
+      },
+      {
+        "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
+        "blocking_issues": [
+          425,
+          545
+        ],
+        "centrals_gev": [
+          0.0005088574871435262,
+          0.10521558876001283,
+          1.7694833490538506
+        ],
+        "id": "charged_leptons_kappa_coherent",
+        "intervals_gev": [
+          [
+            0.0005001193992768244,
+            0.0005177482469115311
+          ],
+          [
+            0.10340882933765921,
+            0.10705391588921673
+          ],
+          [
+            1.7390978258506966,
+            1.8003997682230655
+          ]
+        ],
+        "measured_gev": [
+          0.0005109989506900001,
+          0.10565837550000001,
+          1.7769299999999995
+        ],
+        "measured_source": "PDG witness triple embedded in the lane, compare-only",
+        "particles": [
+          "electron",
+          "muon",
+          "tau"
+        ],
+        "premise": "payload-coherent anchor-gap premise, declared",
+        "relative_half_widths": [
+          0.017321989044188277,
+          0.017321989044188232,
+          0.017321989044188302
+        ],
+        "row_class": "target_shape_plus_empirical_transport_coherent_closure",
+        "tier": "T1_empirical_closure",
+        "width_reduction_factor": 3.783726175951906,
+        "witness_inside_all_intervals": true
+      }
+    ],
+    "electroweak": [
+      {
+        "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+        "delta": 0.07747557670501237,
+        "delta_over_sigma": 0.7043234245910216,
+        "envelope_overlaps_one_sigma_band": true,
+        "id": "ew_mH_gev",
+        "measured": 125.13,
+        "measured_sigma": 0.11,
+        "measured_source": "PDG 2025",
+        "physical_comparison_status": "COMPARE_ONLY",
+        "row_class": "conditional_on_P_and_repair_selection",
+        "tier": "T2_conditional",
+        "value_central": 125.20747557670501,
+        "value_envelope": [
+          125.18328541107648,
+          125.23166574233353
+        ]
+      },
+      {
+        "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+        "delta": 0.21492450651575723,
+        "delta_over_sigma": 0.3582075108595954,
+        "envelope_overlaps_one_sigma_band": true,
+        "id": "ew_mt_pole_gev",
+        "measured": 172.1,
+        "measured_sigma": 0.6,
+        "measured_source": "PDG 2025 direct-average context row",
+        "physical_comparison_status": "COMPARE_ONLY",
+        "row_class": "conditional_on_P_and_repair_selection",
+        "tier": "T2_conditional",
+        "value_central": 172.31492450651575,
+        "value_envelope": [
+          172.27749368420027,
+          172.3523553288312
+        ]
+      },
+      {
+        "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+        "id": "ew_MW_chart_gev",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "reason": "the emitted value is a running/tree chart coordinate; no complete renormalized-vev, tadpole, threshold, finite-order, uncertainty, and complex-pole map places it in the reference coordinate",
+        "row_class": "conditional_on_P_and_repair_selection",
+        "tier": "T2_conditional",
+        "value_central": 80.3733146428161,
+        "value_envelope": [
+          80.36921677537332,
+          80.37741251025889
+        ]
+      },
+      {
+        "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+        "id": "ew_MZ_chart_gev",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "reason": "the emitted value is a running/tree chart coordinate; no complete renormalized-vev, tadpole, threshold, finite-order, uncertainty, and complex-pole map places it in the reference coordinate",
+        "row_class": "conditional_on_P_and_repair_selection",
+        "tier": "T2_conditional",
+        "value_central": 91.19312369279186,
+        "value_envelope": [
+          91.18797807794321,
+          91.19826930764052
+        ]
+      }
+    ],
+    "forced_structure": [
+      {
+        "hypothesis_boundary": "the compact-simple classification, the torus/cocharacter step of the rationality lemma, and irreducibility of the five-dimensional summand stay declared classical inputs on paper; the physical inner current action is the open premise of issues 567 and 599",
+        "id": "gauge_lie_algebra",
+        "lean_receipts": [
+          "Lean/Screen/A5OPH.lean",
+          "Lean/Screen/A5CharacterField.lean",
+          "Lean/Screen/A5SixAxes.lean"
+        ],
+        "machine_checked_steps": "triviality of A5-actions on at most four objects; unique partitions 11 = 8+3 and 12 = 3+3+3+3 over the compact-simple dimension list {3, 8, 10}; no compact semisimple algebra in dimensions 1, 2, 4, 5, 7; the characteristic-centre step; A5 not a subgroup of SU(2); the noncentrality witness [iS, iT] != 0; Galois stability of the two three-dimensional characters over Q(sqrt 5) with the centre-dimension list {0, 1, 5, 6, 7, 11, 12}; six-axis 2-transitivity and the dimension count of the dimension-six branch",
+        "match": "exact",
+        "observed_counterpart": "Standard Model gauge Lie algebra su(3)+su(2)+u(1)",
+        "paper_ref": "compact paper, Compact-Lie trichotomy section",
+        "statement": "Compact-Lie trichotomy on the twelve-port screen: a compact connected group with a group-level A5 action equivalent to P12 has Lie algebra u(1)^12, su(2)^2+u(1)^6, or su(3)+su(2)+u(1); the noncentral quintet and the inner-action closure each select su(3)+su(2)+u(1)"
+      },
+      {
+        "hypothesis_boundary": "the quotient isomorphism and both invariance clauses are machine checked; the identification with the physical global form rides on the same inner current action premise as the Lie-algebra row",
+        "id": "global_form_z6",
+        "lean_receipts": [
+          "Lean/Screen/Z6Exact.lean",
+          "Lean/Screen/A5OPH.lean"
+        ],
+        "match": "exact",
+        "observed_counterpart": "Standard Model global gauge-group form and its charge quantization pattern",
+        "paper_ref": "compact paper, Z6 global-form section",
+        "statement": "The screen gluing-class quotient Lambda_+/(Lambda_1 + Lambda_5) is Z/6 with proper-rotation invariance and antipodal sign reversal, matching the global form (SU(3) x SU(2) x U(1))/Z6"
+      },
+      {
+        "artifact_ref": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "hypothesis_boundary": "conditional on the declared super-Tannakian lift premises recorded in the receipt claim boundary (issue 314); the generation count is an input, not a consequence",
+        "id": "hypercharge_spectrum",
+        "match": "exact",
+        "observed_counterpart": "Standard Model one-generation hypercharge assignment",
+        "paper_ref": "zoo paper, matter lift section",
+        "realized_spectrum": {
+          "-1/2": 2,
+          "-2/3": 3,
+          "1": 1,
+          "1/3": 3,
+          "1/6": 6
+        },
+        "statement": "The super-Tannakian matter lift realizes the one-generation left-chiral hypercharge multiset {Q: 1/6 x6, u_c: -2/3 x3, d_c: 1/3 x3, L: -1/2 x2, e_c: 1 x1}"
+      },
+      {
+        "hypothesis_boundary": "reduces the universality clause to A5-equivariance of the implemented source law; no coupling value is implied",
+        "id": "coupling_universality",
+        "lean_receipts": [
+          "Lean/Screen/A5CouplingSymmetry.lean",
+          "Lean/Screen/A5PortAction.lean",
+          "Lean/Screen/PortFrameGram.lean"
+        ],
+        "match": "structural",
+        "observed_counterpart": "universality clause of the Einstein-branch coupling law",
+        "paper_ref": "compact paper, coupling symmetry section",
+        "statement": "A5-invariant readouts have port-independent group-averaged cap sums, so the per-cap ratio of any two averaged readouts is universal with zero spread"
+      }
+    ],
+    "hadrons": [
+      {
+        "artifact_ref": "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json",
+        "delta_alpha_had_5_MZ": 0.027609,
+        "id": "hadronic_correction_engine",
+        "pin_factor": 1.0317603861495885,
+        "policy": "The published-compilation payload is the correction engine of the fine-structure lane; source-only hadron rows stay suppressed pending the source spectral measure (issue 425).",
+        "source_compilation": "knt19_pinned_piecewise_v1",
+        "uncertainty_total": 0.000112
+      },
+      {
+        "artifact_ref": "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/solver_on_standby.json",
+        "id": "qcd_solver_on_standby",
+        "invocation_gate": [
+          "source-side emission of the quark spread pair (blocked by the (R>0)^2 non-identifiability obstruction; runs/flavor/quark_spread_fiber_structure_transport_obstruction.json)",
+          "source-side bare-parameter rule with no experimental hadron target (schema requires target_calibration_present false)",
+          "production schema branch.flavors const 2+1 (hadron/ward_projected_spectral_measure.schema.json)"
+        ],
+        "status": "SOLVER_COMPILED_AND_SMOKE_BLOCKED_INVOCATION_GATED_ON_SOURCE_PARAMETERS"
+      }
+    ],
+    "neutrinos": [
+      {
+        "artifact_ref": "code/particles/RESULTS_STATUS.md",
+        "id": "neutrino_dimensionless_pointer",
+        "statement": "dimensionless PMNS and mass-splitting-ratio comparisons live on the results status surface; the absolute attachment stays compare-only"
+      }
+    ],
+    "quarks": [
+      {
+        "artifact_ref": "code/particles/runs/flavor/quark_spread_fiber_structure_transport_obstruction.json",
+        "blocking_issues": [
+          591
+        ],
+        "fiber_cut_detected": false,
+        "fork": "ii_fiber_survives",
+        "id": "quark_absolute_masses_obstruction",
+        "statement": "No absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus, by theorem rather than by omission",
+        "tier": "source_only_nonidentifiability_obstruction_transport"
+      },
+      {
+        "artifact_ref": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "id": "quark_down_type_texture_conditional",
+        "measured_references": {
+          "cabibbo": 0.225,
+          "mb_mb_gev": 4.18,
+          "md_2gev_gev": 0.0047,
+          "ms_2gev_gev": 0.0935,
+          "ms_over_md": 19.9
+        },
+        "premise": "generation register order (issue 569); pairing and weight set selected by the Clebsch selection artifact",
+        "reading": "Conditional texture rows: the register order premise is open and the recorded tensions stay in the normalization_tension block of the parent.",
+        "relative_deltas": {
+          "cabibbo_relative": -0.07275023280364601,
+          "mb_relative": 0.4421030807192965,
+          "md_relative": 0.30110953336809776,
+          "ms_over_md_relative": 0.15448533722193103,
+          "ms_relative": 0.5025938394236382
+        },
+        "row_class": "conditional_on_mcpr_leptons_and_register_clebsch",
+        "selection_artifact_ref": "code/particles/runs/flavor/clebsch_register_pairing_selection.json",
+        "selection_status": "pairing_and_weight_set_selected_order_open",
+        "tier": "T2_conditional",
+        "values": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.20863119761917964,
+          "mb_mb_gev": 6.027990877406659,
+          "md_2gev_gev": 0.00611521480683006,
+          "ms_2gev_gev": 0.14049252398611017,
+          "ms_over_md": 22.974258210716425
+        }
+      }
+    ]
+  }
+}
