@@ -10,15 +10,11 @@ from __future__ import annotations
 import csv
 import json
 import re
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CLAIMS = ROOT / "claims" / "claim_registry.yaml"
-NOVELTY = ROOT / "claims" / "novelty_matrix.csv"
-FALSIFICATION = ROOT / "claims" / "falsification_matrix.csv"
-GRAPH = ROOT / "claims" / "dependency_graph.json"
-RELEASE_INFO = ROOT / "paper" / "release_info.tex"
 
 PAPER_EXTERNAL_REGISTRY_PATTERNS = [
     "claims/claim_registry",
@@ -58,33 +54,40 @@ def require(condition: bool, message: str) -> None:
         raise SystemExit(message)
 
 
-def release_id_from_tex() -> str:
-    text = RELEASE_INFO.read_text(encoding="utf-8")
+def release_id_from_tex(root: Path) -> str:
+    text = (root / "paper" / "release_info.tex").read_text(encoding="utf-8")
     match = re.search(r"\\newcommand\{\\OPHPaperReleaseID\}\{([^}]+)\}", text)
     require(match is not None, "paper/release_info.tex does not define OPHPaperReleaseID")
     return match.group(1)
 
 
-def check_standalone_papers() -> None:
+def check_standalone_papers(root: Path) -> None:
     for folder in ["paper", "extra"]:
-        for path in (ROOT / folder).glob("*.tex"):
+        for path in (root / folder).glob("*.tex"):
             text = path.read_text(encoding="utf-8")
             for pattern in PAPER_EXTERNAL_REGISTRY_PATTERNS:
                 require(
                     pattern not in text,
-                    f"{path.relative_to(ROOT)} references the external claim registry; papers must remain standalone",
+                    f"{path.relative_to(root)} references the external claim registry; papers must remain standalone",
                 )
 
 
-def main() -> None:
-    registry = load_json(CLAIMS)
+def dictionary_tokens(root: Path) -> set[str]:
+    """Assumption tokens with a canonical dictionary row (backtick-quoted)."""
+    text = (root / "claims" / "assumption_dictionary.md").read_text(encoding="utf-8")
+    return set(re.findall(r"^\|\s*`([^`]+)`", text, re.MULTILINE))
+
+
+def main(root: Path = ROOT) -> None:
+    registry = load_json(root / "claims" / "claim_registry.yaml")
     require(
-        registry.get("release_id") == release_id_from_tex(),
+        registry.get("release_id") == release_id_from_tex(root),
         f"registry release_id {registry.get('release_id')!r} does not match paper/release_info.tex",
     )
     claims = registry.get("claims", [])
     require(isinstance(claims, list) and claims, "claim registry has no claims")
-    check_standalone_papers()
+    check_standalone_papers(root)
+    defined_tokens = dictionary_tokens(root)
 
     seen: set[str] = set()
     owner_paths: set[str] = set()
@@ -99,14 +102,25 @@ def main() -> None:
         require(claim["imported_results"], f"{claim_id}: empty imported_results")
         require(claim["oph_specific_delta"].strip(), f"{claim_id}: empty OPH delta")
         require(claim["falsifier"].strip(), f"{claim_id}: empty falsifier")
-        owner = ROOT / claim["owner_paper"]
+        owner = root / claim["owner_paper"]
         require(owner.exists(), f"{claim_id}: owner paper does not exist: {claim['owner_paper']}")
         owner_paths.add(claim["owner_paper"])
+        undefined = sorted(set(claim["assumptions"]) - defined_tokens)
+        require(
+            not undefined,
+            f"{claim_id}: assumption tokens without a canonical dictionary row: {undefined}",
+        )
+        for evidence in claim["evidence"]:
+            require(
+                (root / evidence).exists(),
+                f"{claim_id}: evidence path does not exist: {evidence}",
+            )
 
-    for matrix_path, required_columns in [
-        (NOVELTY, {"claim_id", "closest_prior_work", "oph_specific_delta", "novelty_type", "falsifier"}),
-        (FALSIFICATION, {"claim_id", "mathematical_falsifier", "physical_identification_falsifier", "phenomenological_falsifier", "scope_if_false"}),
+    for matrix_name, required_columns in [
+        ("novelty_matrix.csv", {"claim_id", "closest_prior_work", "oph_specific_delta", "novelty_type", "falsifier"}),
+        ("falsification_matrix.csv", {"claim_id", "mathematical_falsifier", "physical_identification_falsifier", "phenomenological_falsifier", "scope_if_false"}),
     ]:
+        matrix_path = root / "claims" / matrix_name
         rows = load_csv(matrix_path)
         require(rows, f"{matrix_path}: no rows")
         require(required_columns.issubset(rows[0].keys()), f"{matrix_path}: missing required columns")
@@ -114,7 +128,7 @@ def main() -> None:
             claim_id = row["claim_id"]
             require(claim_id in seen, f"{matrix_path}: unknown claim_id {claim_id}")
 
-    graph = load_json(GRAPH)
+    graph = load_json(root / "claims" / "dependency_graph.json")
     nodes = set(graph.get("nodes", []))
     require(nodes <= seen, f"dependency graph has unknown nodes: {sorted(nodes - seen)}")
     for edge in graph.get("edges", []):
@@ -126,4 +140,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main(Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT)

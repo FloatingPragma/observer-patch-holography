@@ -95,3 +95,128 @@ This dictionary gives stable names to the assumptions used in the claim registry
 | `PORT_load_trace_and_weak_intertwiner` | Legacy decomposition of `COMMON_EW_LOAD_CARRIER`: a physical screen invariant is intertwined with the four weak-doublet copies per generation and its normalized additive load is the electroweak readout. | Compact SM/GR paper, particle paper |
 | `source_derived_24_clock_line` | The 24-stage register carries an operationally selected clock line with a calibrated nonzero gap whose normalization is invariant under allowed presentation changes. | Particle paper |
 | `charged_determinant_clock_attachment` | A natural norm-preserving map from the cube of the 24-clock line to the charged-lepton determinant line is constructed, including any normalization factor. | Particle paper |
+
+## Registry completion, 2026-07-23
+
+Entries added when dictionary closure became a fail-closed validator check (issue #512): every assumption token in `claim_registry.yaml` now has one canonical row here. The owner paper stays the legal source for each theorem statement.
+
+| Assumption | Meaning | Primary owner |
+|---|---|---|
+| `A5_and_reversal_covariance_for_paired_spectrum` | The paired-channel gearing spectrum assumes covariance under the icosahedral action and orientation reversal. | Screen microphysics |
+| `D10_source_transmutation_relation` | The electroweak hierarchy witness assumes the D10 transmutation relation linking the unified width coordinate to the weak scale on the declared branch. | Particle paper |
+| `Einstein_branch_D5` | The horizon-record identification assumes the composed Einstein-branch D5 entropy-stationarity clause on its declared tower. | Observers synthesis |
+| `MAR_economy_axiom` | The realized matter package assumes the Minimal Admissible Realization economy rule as an axiom, not a derived selector. | Compact SM/GR paper |
+| `Maxwell_endpoint_lane` | The pixel fixed point assumes the declared Maxwell endpoint lane for the electromagnetic readback chain. | Fine-structure note |
+| `OPHProofChain Lean audit provenance` | The finite audit claim assumes the declared build and audit provenance of the OPHProofChain Lean artifact. | Compact SM/GR paper |
+| `OPH_recovered_core_target_vector` | The string-vacuum selector assumes the OPH recovered-core target vector as the comparison object for candidate vacua. | String-selector note |
+| `all_directions_tensor_upgrade` | The Einstein composition assumes the upgrade from null-direction charges to a full local stress tensor in all directions. | Compact SM/GR paper |
+| `all_receipt_families_of_D3h_D4_D4b_D4c_D4d_D5a` | Branch entry assumes every named receipt family of the listed Einstein-branch clauses green on one common tower. | Compact SM/GR paper |
+| `all_reversible_left_action_continuations` | The finite A5 control assumes the reversible left-action continuation family over the declared machine. | Observers synthesis |
+| `biological_instantiation` | The thinking-patch continuation assumes biological cognition instantiates the patch-net interfaces it models. | Thinking note |
+| `blinded_routes` | Hardware protocols assume execution routes blinded to the target statistic. | BLINDED_GENERATIVE_REPAIR_KERNEL, Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work |
+| `bounded_interfaces` | The thinking-patch model assumes bounded observer interfaces. | Thinking note |
+| `bounded_observer_patch_federation` | The typed spine assumes a bounded federation of observer patches as the common carrier. | Compact SM/GR paper |
+| `branch_and_catalogue_coverage_gate` | The selector audit assumes the declared branch and catalogue coverage gate for the candidate class. | String-selector note |
+| `canonical_dark_sector_scalar_channel` | Chi-nu bounds assume the canonical scalar coupling channel for the dark-sector response. | Chi-nu note |
+| `canonical_one_doublet_field_normalization` | The strict one-loop pole map assumes canonical normalization of the single Higgs doublet field. | Compact SM/GR paper |
+| `coherent_matter_source_branch` | Chi-nu assumes the coherent matter source branch for the repair-charge response. | Chi-nu note |
+| `common_manifest_without_ledger_retyping` | The typed spine assumes one common manifest whose entries are consumed without retyping their ledger classes. | Compact SM/GR paper |
+| `common_source_bound_refinement_tower` | Route identification assumes both routes are instantiated on one common source-bound refinement tower. | Compact SM/GR paper |
+| `complete_contribution_mask_with_counterterms_and_tadpoles` | The one-loop pole map assumes the complete diagram contribution mask, counterterms and tadpoles included. | Compact SM/GR paper |
+| `complete_declared_strict_one_loop_renormalized_packet` | The pole map assumes the complete declared strict one-loop renormalized input packet. | Compact SM/GR paper |
+| `complete_serialized_public_packet` | The finite control assumes the complete serialized public packet of the machine run. | Observers synthesis |
+| `completed_vacuum_stability_gate` | The string selector assumes the vacuum-stability gate completed for surviving candidates. | String-selector note |
+| `constraint_augmented_moduli_locking_gate` | The string selector assumes the constraint-augmented moduli-locking gate. | String-selector note |
+| `constructor_access_to_capacity_or_bridge_target` | The readback no-go assumes the constructor can access the capacity value or bridge target it is asked to reproduce. | Observers synthesis |
+| `dark_sector_collar_remainder` | The dark-matter continuation assumes the collar remainder as the dark-sector carrier. | oph_dark_matter_paper |
+| `declared_bounded_A5_software_machine` | The finite control assumes the declared bounded software machine carrying the A5 action. | Observers synthesis |
+| `declared_charged_double_triplet_algebraic_construction` | Port-current innerness assumes the declared charged double-triplet algebraic construction. | Compact SM/GR paper |
+| `declared_determinant_balance_cover_and_exterior_packet_for_global_and_matter_conclusions` | Global-form and matter conclusions assume the declared determinant-balance cover and exterior packet. | Compact SM/GR paper |
+| `declared_fermionic_statistics_contract` | The matter lift assumes the declared fermionic statistics contract. | Compact SM/GR paper |
+| `declared_local_echosahedral_carrier_boundary` | The carrier bridge assumes the declared local echosahedral carrier boundary. | Screen microphysics |
+| `declared_mar_class_without_uniqueness` | The matter lift assumes the declared MAR candidate class without assuming a unique minimum. | Compact SM/GR paper |
+| `declared_realized_one_generation_one_Higgs_matter_package` | The D7-D9 chain assumes the declared realized one-generation, one-Higgs matter package. | Compact SM/GR paper |
+| `declared_spin_odd_weyl_category_typing` | The matter lift assumes the declared spin-odd Weyl category typing. | Compact SM/GR paper |
+| `declared_trace_balanced_exterior_matter_contract` | The matter lift assumes the declared trace-balanced exterior matter contract. | Compact SM/GR paper |
+| `deflationary_active_capacity_map` | The readback no-go assumes the deflationary active capacity map class. | Observers synthesis |
+| `destination_environment_model` | The paradise continuation assumes the declared destination-environment model. | Paradise paper |
+| `direct_public_record_fixed_point` | Assumes the direct public-record capacity fixed point rather than a proxy readback. | Observers synthesis, Particle paper |
+| `durable_records` | Assumes records persist unmodified across the protocol window. | BLINDED_GENERATIVE_REPAIR_KERNEL, Thinking note |
+| `engineering_chart_capacity_factor` | Chi-nu assumes the engineering-chart capacity factor linking device and screen coordinates. | Chi-nu note |
+| `equivalence_maps_preserve_visible_algebras_records_repairs_clocks_and_refinement` | Presentation invariance assumes equivalence maps preserving visible algebras, records, repairs, clocks, and refinement. | Screen microphysics |
+| `ethical_record_reading` | The paradise continuation assumes record reading under the declared ethical constraints. | Paradise paper |
+| `exact_SHA256d_verifier` | The photonic proof-of-work protocol assumes an exact SHA256d verifier. | Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work |
+| `exact_channel_closure` | Modular gearing assumes exact closure of the declared channels. | Screen microphysics |
+| `exact_local_repair` | The Yang-Mills gap argument assumes exact local repair moves on the declared lattice class. | Yang-Mills note |
+| `family_load_normalization` | The hierarchy witness assumes the family normalization of the weak load line. | Particle paper |
+| `finite_cap_BW_certificate` | The cap H3 chart assumes the finite-cap Bisognano-Wichmann certificate on the declared tower. | Compact SM/GR paper |
+| `finite_cap_BW_certificate_and_independent_MGNS1_on_the_same_tower` | Branch entry assumes the finite-cap BW certificate and an independent MGNS1 certificate on the same tower. | Compact SM/GR paper |
+| `finite_cutoff_or_regulated_branch` | The observer-patch definition assumes a finite-cutoff or regulated branch. | Screen microphysics |
+| `finite_or_regulated_branch` | The finite audit assumes a finite or regulated branch. | Compact SM/GR paper |
+| `finite_patch_net` | Assumes a finite net of patches with declared overlaps. | BLINDED_GENERATIVE_REPAIR_KERNEL, Consensus paper |
+| `finite_source_defined_atomic_collar_types` | The Yang-Mills gap assumes finitely many source-defined atomic collar types. | Yang-Mills note |
+| `four_signed_nonzero_response_coefficients` | Port-current innerness assumes four signed nonzero response coefficients. | Compact SM/GR paper |
+| `full_collar_reserve_generator_density_P_over_24` | The cosmological spectrum assumes the full collar-reserve generator density P/24. | SCREEN_SPECTRUM_THEOREMS |
+| `full_observer_signature_is_declared` | Presentation invariance assumes the full observer signature is declared. | Screen microphysics |
+| `full_rank_commutator_closed_physical_current` | Standard-Model recognition assumes a full-rank, commutator-closed physical current lift. | Compact SM/GR paper |
+| `galaxy_equilibrium_limit` | The dark-matter continuation assumes the galaxy equilibrium limit. | oph_dark_matter_paper |
+| `hash_pinned_conditional_port_current_packet` | The matter lift assumes the hash-pinned conditional port-current packet. | Compact SM/GR paper |
+| `heterotic_critical_edge_certificate` | The string selector assumes the heterotic critical-edge certificate. | String-selector note |
+| `independent_complete_MGNS1_certificate_on_the_same_tower` | The cap chart assumes an independent complete MGNS1 certificate on the same tower. | Compact SM/GR paper |
+| `independently_typed_federation_and_support_screens` | The carrier bridge assumes independently typed federation and support screens. | Screen microphysics |
+| `inhabited_D7_D9_tannaka_mar_branch` | Route identification assumes the D7-D9 Tannaka-MAR branch is inhabited. | Compact SM/GR paper |
+| `inhabited_physical_A5_screen_current_branch` | Route identification assumes the physical A5 screen-current branch is inhabited. | Compact SM/GR paper |
+| `inner_action_or_physical_noncentral_five_band` | Standard-Model recognition assumes an inner icosahedral action or a physically noncentral five-band. | Compact SM/GR paper |
+| `joint_likelihood_contract` | The dark-matter continuation assumes the declared joint likelihood contract. | oph_dark_matter_paper |
+| `kernel_emission_without_global_quotient_choice` | The matter lift assumes matter-kernel emission without a prior global-quotient choice. | Compact SM/GR paper |
+| `label_shuffle_controls` | Hardware protocols assume label-shuffle negative controls. | BLINDED_GENERATIVE_REPAIR_KERNEL, Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work |
+| `mesh_and_coherent_complex_crossratio_receipts` | The geometry producer assumes mesh and coherent complex cross-ratio receipts. | Compact SM/GR paper |
+| `mismatch_repair` | Assumes declared mismatch-repair moves between overlapping patches. | BLINDED_GENERATIVE_REPAIR_KERNEL, Thinking note |
+| `observer_record_continuation` | The paradise continuation assumes observer-record continuation across the transition. | Paradise paper |
+| `one_Higgs_Bouchard_Donagi_massless_cohomology_candidate` | The string selector assumes the one-Higgs Bouchard-Donagi massless cohomology candidate. | String-selector note |
+| `operator_safety_realization_gate` | The string selector assumes the operator-safety realization gate. | String-selector note |
+| `orientation_half_identity` | The cosmological spectrum assumes the orientation half identity. | SCREEN_SPECTRUM_THEOREMS |
+| `physical_quotient_and_public_normal_form` | The typed spine assumes the physical quotient and its public normal form. | Compact SM/GR paper |
+| `physical_scale_and_mode_basis` | The cosmological spectrum assumes the declared physical scale and mode basis. | SCREEN_SPECTRUM_THEOREMS |
+| `positive_conformal_precision_and_refinement_limit` | The cosmological spectrum assumes positive conformal precision with a refinement limit. | SCREEN_SPECTRUM_THEOREMS |
+| `preserved_boundary_sector_map_for_same_boundary_uniqueness` | Consensus same-boundary uniqueness assumes the preserved boundary-sector map. | Consensus paper |
+| `primitive_collar_MaxEnt_release_law` | The cosmological spectrum assumes the primitive collar MaxEnt release law. | SCREEN_SPECTRUM_THEOREMS |
+| `protected_outputs_factor_through_the_declared_quotient` | Presentation invariance assumes protected outputs factor through the declared quotient. | Screen microphysics |
+| `public_receipts` | Hardware protocols assume public, hash-committed receipts. | BLINDED_GENERATIVE_REPAIR_KERNEL, Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work |
+| `quotient_visible_uniform_density_volume_readout` | The cosmological spectrum assumes a quotient-visible uniform-density volume readout. | SCREEN_SPECTRUM_THEOREMS |
+| `radial_null_window_and_forward_residual_receipts` | The cosmological spectrum assumes radial null-window and forward-residual receipts. | SCREEN_SPECTRUM_THEOREMS |
+| `raw_carrier_family_H_k` | The finite control assumes the raw carrier family H_k of the declared machine. | Observers synthesis |
+| `refinement_natural_intertwining_group_isomorphism` | Route identification assumes a refinement-natural intertwining group isomorphism. | Compact SM/GR paper |
+| `reflection_positive_vacuum` | The Yang-Mills package assumes a reflection-positive vacuum on the declared transfer branch. | Yang-Mills note |
+| `same_scheme_hadronic_transport_boundary` | The alpha pixel claim assumes the same-scheme hadronic transport boundary; its production route is open and tracked. | Fine-structure note |
+| `same_terminal_normal_form_with_distinct_checkpoint_channels` | The readback no-go assumes one terminal normal form reachable through distinct checkpoint channels. | Observers synthesis |
+| `scale_natural_source_embedding_and_physical_dilation_or_radial_tomography` | The cosmological spectrum assumes a scale-natural source embedding with physical dilation or radial tomography. | SCREEN_SPECTRUM_THEOREMS |
+| `screen_sieve_readout_receipt` | The hierarchy witness assumes the screen sieve readout receipt. | Particle paper |
+| `selected_H_equals_W_scalar_doublet` | The exterior witness assumes the identification of the Higgs carrier with the weak block, H = W. | Compact SM/GR paper |
+| `selected_no_G_scale_certificate` | The Newton closure assumes the selected no-G-scale certificate. | Observers synthesis |
+| `selected_nonvacuum_even_exterior_package` | The exterior witness assumes selection of the non-vacuum even exterior package. | Compact SM/GR paper |
+| `selected_public_endpoint_branch` | The hierarchy witness assumes the selected public endpoint branch. | Particle paper |
+| `self_read` | Assumes patches read their own state through the declared interface. | BLINDED_GENERATIVE_REPAIR_KERNEL, Thinking note |
+| `separate_geometry_and_physical_current_readouts` | The typed spine assumes geometry and physical-current readouts stay separate typed surfaces. | Compact SM/GR paper |
+| `simple_tree_roots_and_frozen_analytic_sheet` | The pole map assumes simple tree-level roots and the frozen analytic-sheet choice. | Compact SM/GR paper |
+| `source_bound_cap_flow_and_KMS_normalization_receipts` | The geometry producer assumes source-bound cap-flow and KMS normalization receipts. | Compact SM/GR paper |
+| `source_bound_refinement_natural_tower` | The typed spine assumes one source-bound refinement-natural tower. | Compact SM/GR paper |
+| `source_bound_refinement_required_for_physical_promotion` | The carrier bridge assumes physical promotion requires source-bound refinement. | Screen microphysics |
+| `source_derived_full_rank_24_channel_realization` | Modular gearing assumes a source-derived full-rank 24-channel realization. | Screen microphysics |
+| `source_derived_positive_bidirectional_equilibrium_rates` | Modular gearing assumes source-derived positive bidirectional equilibrium rates. | Screen microphysics |
+| `source_stress_single_clock_and_freezeout` | The cosmological spectrum assumes source stress with a single clock and freezeout. | SCREEN_SPECTRUM_THEOREMS |
+| `standard Lean and Mathlib axioms` | The finite audit assumes only propext, Classical.choice, and Quot.sound through the pinned Lean and Mathlib toolchain. | Compact SM/GR paper |
+| `strengthened_oriented_A5_current_packet` | Standard-Model recognition assumes the strengthened oriented A5 current packet. | Compact SM/GR paper |
+| `support_visible_compact_gauge_extraction` | The Yang-Mills package assumes support-visible compact gauge extraction. | Yang-Mills note |
+| `threshold_defined_scale_readback_family` | The readback no-go assumes the threshold-defined scale readback family. | Observers synthesis |
+| `threshold_spectrum_and_decoupling_gate` | The string selector assumes the threshold-spectrum and decoupling gate. | String-selector note |
+| `trace_balanced_C3_W2_carrier` | The exterior witness assumes the trace-balanced block carrier V = C + W with dimensions 3 + 2. | Compact SM/GR paper |
+| `transfer_vacuum_OS_noncollapse_receipts` | The Yang-Mills package assumes transfer-vacuum Osterwalder-Schrader non-collapse receipts. | Yang-Mills note |
+| `translation_rotation_covariance` | The cosmological spectrum assumes translation and rotation covariance of the declared kernels. | SCREEN_SPECTRUM_THEOREMS |
+| `transported_stress_dynamics` | The dark-matter continuation assumes transported stress dynamics. | oph_dark_matter_paper |
+| `typed_local_federation_and_global_support_screens` | The typed spine assumes typed local federation and global support screens. | Compact SM/GR paper |
+| `uniform_L2_approximate_tensorization` | The Yang-Mills gap assumes uniform L2 approximate tensorization across collars. | Yang-Mills note |
+| `uniform_local_repair_rate_floor` | The Yang-Mills gap assumes a uniform local repair-rate floor. | Yang-Mills note |
+| `uniqueness_certificate` | The Newton closure assumes the interval uniqueness certificate for the declared map. | Observers synthesis |
+| `visible_interface_statistics` | The observer-patch definition assumes statistics collected only on visible interfaces. | Screen microphysics |
+| `zero_cycle_affinity` | Modular gearing assumes zero cycle affinity in the gearing graph. | Screen microphysics |
