@@ -44,8 +44,6 @@ mandatory collection unless explicitly enabled:
 - IBM / Qiskit hardware lane:
   `pip install -r code/ibm_quantum_cloud/requirements-ibm.txt`, then
   `OPH_RUN_IBM=1 python -m pytest code/ibm_quantum_cloud`.
-- CAMB / Boltzmann cosmology:
-  `pip install -r code/dark_matter/requirements-boltzmann.txt`.
 - Legacy particle helpers: set `OPH_RUN_LEGACY_D10=1` and
   `OPH_LEGACY_PARTICLE_DIR` (see `code/particles/conftest.py`).
 

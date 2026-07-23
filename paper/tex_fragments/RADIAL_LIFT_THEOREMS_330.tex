@@ -1,5 +1,5 @@
 % Issue #330 radial-lift integration fragment.
-% Full proofs and simulator receipts: RADIAL_LIFT_THEOREMS_330.tex.
+% Executable receipt contract: code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md.
 
 \paragraph{Complete radial-lift theorem packet.}
 \label{par:oph330-complete-radial-lift}
@@ -78,6 +78,9 @@ Thus the source and physical operator residuals have equal norm.  If the finite
 covariances converge strongly with a uniform norm bound, the finite dilation maps
 and their inverses converge strongly, $u_r(s)\to u(s)$, and this residual tends to
 zero, then $D_s^{-1}C_\zeta D_s=u(s)C_\zeta$ in the continuum.
+The commuting square states that source refinement followed by the physical
+embedding agrees with physical embedding followed by wavelength dilation, and
+it transfers the source covariance error exactly to the physical covariance.
 
 \textit{Proof.}
 Conjugate the source covariance by $U_r$ and use the commuting square; unitary
@@ -149,6 +152,11 @@ apply the Weber--Schafheitlin square integral.  The convergence strip follows
 from $j_\ell(x)\sim x^\ell/(2\ell+1)!!$ at zero and $j_\ell(x)=O(x^{-1})$ at
 infinity.  \hfill$\square$
 
+At the source-native pivot $k_\star R_\star=1$ with $Z_q=1$ and the
+source-law tilt $\theta$, the conversion factor evaluates to approximately
+$0.16080676$.  It is an arithmetic consequence of the symbolic relation and
+supplies no source amplitude by itself.
+
 \textbf{Corollary (source-family injectivity and multipole consistency).}
 \label{cor:oph330-source-family-injectivity}
 Fix \(\theta,Z_q,k_\star\), and a source window for which the forward
@@ -163,7 +171,8 @@ A_\zeta^{(\ell,W)}
 \]
 Every \(A_\zeta^{(\ell,W)}\) must agree. A disagreement falsifies the declared
 window/dilation packet and cannot be repaired with an \(\ell\)-dependent
-amplitude.
+amplitude. Once the source law fixes \(\theta\), the screen has one amplitude
+left to determine, and the unused multipoles become consistency checks.
 
 \textbf{Theorem (finite-window bound).}
 \label{thm:oph330-finite-window-bound}
@@ -226,6 +235,7 @@ Thus a complete radial cross-covariance operator determines $P_\zeta$ uniquely
 almost everywhere.  Fixing one radius $r_0$, the family $C_\ell(r,r_0)$ known for
 all $r$ suffices: its spherical-Hankel transform is
 $\sqrt{2/\pi}\,P_\zeta(k)j_\ell(kr_0)$, and the Bessel zeros are discrete.
+A finite collection of auto-spectra does not supply this tomography theorem.
 
 \textit{Proof.}
 Apply spherical-Hankel inversion in the first radial variable.  Unitary

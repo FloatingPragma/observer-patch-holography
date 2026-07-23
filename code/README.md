@@ -24,7 +24,6 @@ the theorem or physical carrier named by that branch.
 | [`P_derivation/`](P_derivation/) | Pixel fixed-point maps, interval contraction, uniqueness, and provenance |
 | [`capacity_readback/`](capacity_readback/) | Finite record-capacity readback and conditional global closure |
 | [`regulator_gluing/`](regulator_gluing/) | Regulator compatibility and refinement evidence |
-| [`dark_matter/`](dark_matter/) | Dark-gravity action diagnostics and pre-likelihood simulation support |
 | [`ibm_quantum_cloud/`](ibm_quantum_cloud/) | Redacted hardware runs and reproducible benchmark analysis |
 
 ## Supporting Modules
