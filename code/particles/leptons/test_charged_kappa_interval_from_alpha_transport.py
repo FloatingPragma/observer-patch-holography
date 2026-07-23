@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import math
 
 import pytest
@@ -91,3 +92,59 @@ def test_blind_route_starts_with_source_only_ratios(result):
     assert route["stage_1_shape"]["current_status"] == "open_target_anchored_shape_only"
     assert route["stage_2_normalization"]["current_status"] == "open_empirical_transport_only"
     assert route["stage_3_freeze_then_compare"]["current_status"] == "not_ready"
+
+
+def test_hadronic_contract_parent_cited(result):
+    parent = result["inputs"]["hadronic_contract_parent"]
+    assert parent["issue"] == 317
+    assert parent["artifact"] == "oph_ward_projected_spectral_measure_proof_packet"
+    assert parent["contract_certified"] is True
+    assert parent["physical_source_payload_available"] is False
+    assert parent["verifier_command"]
+    assert "hadronic_contract_parent" in (
+        result["interval_width_attribution_kappa_units"]["reduction"]
+    )
+
+
+def _doctored_packet(tmp_path, mutate):
+    packet = json.loads(
+        lane.HADRONIC_PROOF_PACKET_JSON.read_text(encoding="utf-8")
+    )
+    mutate(packet)
+    doctored = tmp_path / "doctored_packet.json"
+    doctored.write_text(json.dumps(packet), encoding="utf-8")
+    return doctored
+
+
+def test_fail_closed_on_missing_packet(tmp_path):
+    with pytest.raises(SystemExit, match="proof packet missing"):
+        lane.build(
+            tmp_path / "out.json",
+            hadronic_packet_path=tmp_path / "absent_packet.json",
+        )
+
+
+def test_fail_closed_on_unaccepted_packet(tmp_path):
+    doctored = _doctored_packet(
+        tmp_path, lambda p: p.update({"accepted": False})
+    )
+    with pytest.raises(SystemExit, match="not accepted"):
+        lane.build(tmp_path / "out.json", hadronic_packet_path=doctored)
+
+
+def test_fail_closed_on_uncertified_contract(tmp_path):
+    def mutate(p):
+        p["verdicts"]["contract_certified"]["value"] = False
+
+    doctored = _doctored_packet(tmp_path, mutate)
+    with pytest.raises(SystemExit, match="contract_certified"):
+        lane.build(tmp_path / "out.json", hadronic_packet_path=doctored)
+
+
+def test_fail_closed_once_source_payload_reported_available(tmp_path):
+    def mutate(p):
+        p["verdicts"]["physical_source_payload_available"]["value"] = True
+
+    doctored = _doctored_packet(tmp_path, mutate)
+    with pytest.raises(SystemExit, match="re-derive this lane"):
+        lane.build(tmp_path / "out.json", hadronic_packet_path=doctored)

@@ -47,6 +47,9 @@ EXACT_READOUT_JSON = RUNS / "leptons" / "lepton_current_family_exact_readout.jso
 TRACE_LIFT_JSON = RUNS / "leptons" / "charged_trace_lift_theorem.json"
 ENDPOINT_JSON = RUNTIME / "empirical_thomson_endpoint_current.json"
 ANCHOR_BRIDGE_JSON = RUNTIME / "anchor_scheme_bridge_current.json"
+HADRONIC_PROOF_PACKET_JSON = (
+    RUNS / "hadron" / "ward_projected_spectral_measure_proof_packet.json"
+)
 DEFAULT_OUT = RUNS / "leptons" / "charged_kappa_interval_from_alpha_transport.json"
 
 # PDG Z pole mass; identical to particles/hadron/ingest_empirical_ee_hadrons.py.
@@ -100,10 +103,76 @@ def required_delta_lep(
     return 1.0 - delta_had5 - delta_top - (a0 + gap) / alpha_inv_0
 
 
-def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
+def load_hadronic_contract_parent(
+    packet_path: Path = HADRONIC_PROOF_PACKET_JSON,
+) -> dict[str, Any]:
+    """Gate and cite the issue-#317 spectral-measure proof packet, fail closed.
+
+    The packet certifies the acceptance contract that the production
+    ``constructive_next_artifact`` of this lane must satisfy.  It carries no
+    numeric payload: ``Delta_had5`` consumed by the solve remains the
+    declared-empirical companion of that contract.  If the physical source
+    payload ever becomes available, this loader refuses to run so that the
+    lane cannot silently keep the empirical payload past that point.
+    """
+
+    if not packet_path.exists():
+        raise SystemExit(
+            "fail closed: issue-317 proof packet missing at "
+            f"{packet_path}; run its verifier before this lane"
+        )
+    packet = _load_json(packet_path)
+    if packet.get("artifact") != "oph_ward_projected_spectral_measure_proof_packet":
+        raise SystemExit(
+            "fail closed: unexpected artifact in issue-317 proof packet: "
+            f"{packet.get('artifact')!r}"
+        )
+    if packet.get("accepted") is not True:
+        raise SystemExit(
+            "fail closed: issue-317 proof packet is not accepted; the "
+            "theorem-and-contract layer must certify before this lane cites it"
+        )
+    verdicts = packet.get("verdicts", {})
+    if verdicts.get("contract_certified", {}).get("value") is not True:
+        raise SystemExit(
+            "fail closed: issue-317 contract_certified verdict is not true"
+        )
+    if verdicts.get("physical_source_payload_available", {}).get("value") is True:
+        raise SystemExit(
+            "fail closed: the physical source payload is reported available; "
+            "re-derive this lane against the source-emitted spectral measure "
+            "instead of the empirical payload before emitting any interval"
+        )
+    return {
+        "artifact_ref": _artifact_ref(packet_path),
+        "artifact": packet["artifact"],
+        "issue": 317,
+        "contract_certified": verdicts["contract_certified"]["value"],
+        "physical_source_payload_available": verdicts[
+            "physical_source_payload_available"
+        ]["value"],
+        "physical_promotion_allowed": verdicts.get(
+            "physical_promotion_allowed", {}
+        ).get("value"),
+        "verifier_command": packet.get("verifier_command"),
+        "reading": (
+            "the production constructive_next_artifact of this lane carries a "
+            "machine-certified acceptance contract (issue #317); the Delta_had5 "
+            "payload consumed here remains the declared-empirical companion of "
+            "that contract, and the certified reduction target of the interval "
+            "width is unchanged (#425, #545)"
+        ),
+    }
+
+
+def build(
+    out_path: Path = DEFAULT_OUT,
+    hadronic_packet_path: Path = HADRONIC_PROOF_PACKET_JSON,
+) -> dict[str, Any]:
     readout = _load_json(EXACT_READOUT_JSON)
     endpoint = _load_json(ENDPOINT_JSON)
     bridge = _load_json(ANCHOR_BRIDGE_JSON)
+    hadronic_contract_parent = load_hadronic_contract_parent(hadronic_packet_path)
 
     centered = [float(v) for v in readout["centered_log_shape_exact"]]
     ratios = (
@@ -194,7 +263,9 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
         "one_loop_kernel_truncation": kernel_truncation_packet * dk_dpacket,
         "reduction": (
             "every dominant term reduces to the source hadronic spectral measure "
-            "(#425, hadron backend / lattice lane) and the a0 scheme bridge (#545)"
+            "(#425, hadron backend / lattice lane; its acceptance contract is "
+            "certified by the issue-317 proof packet cited in "
+            "inputs.hadronic_contract_parent) and the a0 scheme bridge (#545)"
         ),
     }
 
@@ -251,6 +322,7 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
             "mz_provenance": "PDG, identical to particles/hadron/ingest_empirical_ee_hadrons.py",
         },
         "inputs": {
+            "hadronic_contract_parent": hadronic_contract_parent,
             "a0_anchor_inv_alpha": a0,
             "a0_ref": _artifact_ref(ENDPOINT_JSON),
             "anchor_gap_interval": gap_interval,
