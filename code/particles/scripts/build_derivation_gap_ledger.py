@@ -597,36 +597,50 @@ def build_gap_rows() -> list[dict[str, Any]]:
                 "code/particles/calibration",
             ],
         },
-        {
-            "id": "d10.same-scheme-anchor-bridge",
-            "lane": "P closure / D10 electromagnetic endpoint",
-            "status": "structure_resolved_reduces_to_source_hadron_backend",
-            "github_issue": 545,
-            "title": "Source-side electroweak scheme bridge for the anchor a0(P)",
-            "current_boundary": (
-                "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) "
-                "identifies the certified anchor gap as the hadronic and higher-order running "
-                "deficit of the OPH one-loop unification anchor: the standard reference value "
-                "alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 "
-                "is 0.631, at the lower edge of the certified interval [0.649, 0.855]. The "
-                "anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an "
-                "understood deficit, not a source-chain failure. A same-scheme bridge (route A) that "
-                "fills the deficit needs the measured hadronic running (empirical class, "
-                "carried by the payload) or the OPH source hadronic spectral measure."
-            ),
-            "next_action": (
-                "A source-only anchor bridge reduces to the OPH hadronic spectral measure, blocked on "
-                "the hadron backend (#425). No source-only scheme-bridge theorem exists on the current "
-                "corpus; #545 stays open as that reduction. The empirical-class bridge is the built "
-                "payload/endpoint pair."
-            ),
-            "target_surfaces": [
-                "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
-                "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
-                "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
-            ],
-        },
+        _anchor_bridge_gate(),
     ]
+
+
+def _anchor_bridge_gate() -> dict[str, Any]:
+    endpoint = ROOT / "P_derivation" / "runtime" / "empirical_thomson_endpoint_current.json"
+    gap_text = "recorded by the endpoint artifact"
+    if endpoint.exists():
+        data = json.loads(endpoint.read_text(encoding="utf-8"))
+        lo, hi = (
+            float(x)
+            for x in data["compare_only"]["same_scheme_anchor_gap_interval_inv_alpha"]
+        )
+        containment = "inside" if lo <= 0.631 <= hi else "outside"
+        gap_text = f"{containment} the certified interval [{lo:.3f}, {hi:.3f}]"
+    return {
+        "id": "d10.same-scheme-anchor-bridge",
+        "lane": "P closure / D10 electromagnetic endpoint",
+        "status": "structure_resolved_reduces_to_source_hadron_backend",
+        "github_issue": 545,
+        "title": "Source-side electroweak scheme bridge for the anchor a0(P)",
+        "current_boundary": (
+            "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) "
+            "identifies the certified anchor gap as the hadronic and higher-order running "
+            "deficit of the OPH one-loop unification anchor: the standard reference value "
+            "alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 "
+            f"is 0.631, {gap_text}. The "
+            "anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an "
+            "understood deficit, not a source-chain failure. A same-scheme bridge (route A) that "
+            "fills the deficit needs the measured hadronic running (empirical class, "
+            "carried by the payload) or the OPH source hadronic spectral measure."
+        ),
+        "next_action": (
+            "A source-only anchor bridge reduces to the OPH hadronic spectral measure, blocked on "
+            "the hadron backend (#425). No source-only scheme-bridge theorem exists on the current "
+            "corpus; #545 stays open as that reduction. The empirical-class bridge is the built "
+            "payload/endpoint pair."
+        ),
+        "target_surfaces": [
+            "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
+            "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+            "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
+        ],
+    }
 
 
 def _empirical_ee_gate() -> dict[str, Any]:

@@ -19,12 +19,14 @@ def test_no_measured_value_in_solve_path_and_no_source_bridge_claimed() -> None:
     assert report["guards"]["public_promotion_allowed"] is False
 
 
-def test_reference_deficit_matches_certified_gap_lower_edge() -> None:
+def test_reference_deficit_inside_certified_gap() -> None:
     report = build()
     ref = report["reference_decomposition_compare_only"]
     gap = report["certified_gap_from_endpoint"]["same_scheme_anchor_gap_interval"]
-    # the standard hadronic+HO deficit sits at the lower edge of the interval
-    assert gap[0] - 0.02 <= ref["gap_phys_minus_oph"] <= gap[1]
+    # with the published-compilation payload the standard hadronic+HO deficit
+    # sits strictly inside the certified interval
+    assert gap[0] <= ref["gap_phys_minus_oph"] <= gap[1]
+    assert report["verdict"]["reference_deficit_inside_certified_gap"] is True
 
 
 def test_verdict_is_route_B_false_and_reduces_to_425() -> None:

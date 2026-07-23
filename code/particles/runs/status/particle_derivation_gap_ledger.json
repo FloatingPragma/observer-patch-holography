@@ -128,7 +128,7 @@
       "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
     ]
   },
-  "generated_utc": "2026-07-23T02:19:48Z",
+  "generated_utc": "2026-07-23T03:45:42Z",
   "p_trunk": {
     "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
     "alpha_inv": "136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341",
@@ -417,7 +417,7 @@
       "title": "Repair-tuple selection beneath the free quadratic family"
     },
     {
-      "current_boundary": "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) identifies the certified anchor gap as the hadronic and higher-order running deficit of the OPH one-loop unification anchor: the standard reference value alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 is 0.631, at the lower edge of the certified interval [0.649, 0.855]. The anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an understood deficit, not a source-chain failure. A same-scheme bridge (route A) that fills the deficit needs the measured hadronic running (empirical class, carried by the payload) or the OPH source hadronic spectral measure.",
+      "current_boundary": "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) identifies the certified anchor gap as the hadronic and higher-order running deficit of the OPH one-loop unification anchor: the standard reference value alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 is 0.631, inside the certified interval [0.620, 0.651]. The anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an understood deficit, not a source-chain failure. A same-scheme bridge (route A) that fills the deficit needs the measured hadronic running (empirical class, carried by the payload) or the OPH source hadronic spectral measure.",
       "github_issue": 545,
       "id": "d10.same-scheme-anchor-bridge",
       "lane": "P closure / D10 electromagnetic endpoint",

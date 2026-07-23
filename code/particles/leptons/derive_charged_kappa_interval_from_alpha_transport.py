@@ -354,9 +354,10 @@ def build(
                 "gap": reference_gap,
                 "kappa": kappa_reference_deficit,
                 "reading": (
-                    "at the physical on-shell anchor the residual equals the ee-payload "
-                    "hadronic undershoot against the KNT19 reference; the miss is carried "
-                    "entirely by the open hadron backend (#425)"
+                    "with the payload pinned to the published KNT19 compilation the "
+                    "physical on-shell anchor requirement sits inside the certified "
+                    "interval; the residual kappa at that point is carried by the "
+                    "payload width and the anchor-bridge source branch (#425, #545)"
                 ),
             },
         },

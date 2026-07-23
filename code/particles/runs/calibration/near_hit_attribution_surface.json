@@ -1,6 +1,6 @@
 {
   "artifact": "oph_near_hit_attribution_surface",
-  "generated_utc": "2026-07-16T09:07:15Z",
+  "generated_utc": "2026-07-23T03:45:42Z",
   "guards": {
     "changes_any_solve_path": false,
     "compare_only": true,
@@ -21,8 +21,8 @@
           "executed_utc": "2026-07-12",
           "naive_coupling_injection": {
             "delta_mz_mev_over_gap_interval": [
-              -66.3603801969117,
-              -87.29158666619696
+              -63.441784234811394,
+              -66.56404595162257
             ],
             "proportional_scheme_delta_mz_mev": "approximately -230 to -302, and moves MW by a comparable amount",
             "reading": "the one-loop couplings at calibration P already give MZ to +0.4 MeV; injecting on-shell hadronic running into them is scheme-inconsistent and moves the chart coordinate by the displayed amount; this does not establish a physical excess or exclusion",
@@ -31,12 +31,12 @@
           },
           "p_channel": {
             "dmz_dp_gev_per_unit_p": 123.04683336044852,
-            "dp_d_alpha_inv_thomson": -9.545855226710942e-05,
-            "mz_residual_after_correction_mev": -0.05112907463454917,
+            "dp_d_alpha_inv_thomson": -9.529190721125918e-05,
+            "mz_residual_after_correction_mev": -0.03651263087709494,
             "p_calibration": 1.630968209403959,
-            "p_corrected_endpoint_to_measured": 1.6309677938786404,
-            "p_empirical_central": 1.6310415203592243,
-            "p_residual_after_correction": -4.1552531859778696e-07,
+            "p_corrected_endpoint_to_measured": 1.630967912666287,
+            "p_empirical_central": 1.6310301615671794,
+            "p_residual_after_correction": -2.967376719897885e-07,
             "reading": "moving the Thomson endpoint to the measured alpha_inv(0) shifts the empirical pixel onto the calibration pixel to within 4.2e-07, i.e. -0.05 MeV in the internal MZ chart.  Without the missing physical readout map, this does not identify the cause of a measured mass residual",
             "verdict": "LEGACY_DIAGNOSTIC_ONLY"
           },
@@ -130,7 +130,7 @@
       "measured_source": "PDG 2024 on-shell decomposition",
       "missing_correction_hypothesis": {
         "falsification_test": "emit the source hadronic spectral measure and the a0 scheme bridge; the corrected anchor must land inside the certified gap",
-        "mechanism": "the anchor is a one-loop unification-run value with no nonperturbative hadronic running; the certified same-scheme gap interval brackets the standard reference deficit 0.631 at its lower edge, confirming a running deficit rather than an anchor error",
+        "mechanism": "the anchor is a one-loop unification-run value with no nonperturbative hadronic running; the certified same-scheme gap interval contains the standard reference deficit 0.631 in its interior, confirming a running deficit rather than an anchor error",
         "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
       },
       "oph_value": 128.30796547328626,
@@ -139,7 +139,7 @@
     },
     {
       "artifact_ref": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
-      "delta": -0.7723402338798929,
+      "delta": -0.6532443595053377,
       "measured": 137.035999177,
       "measured_source": "CODATA 2022 via NIST, compare-only",
       "missing_correction_hypothesis": {
@@ -148,10 +148,10 @@
         "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
       },
       "oph_envelope": [
-        136.15838328342667,
-        136.36909752396568
+        136.3670480602512,
+        136.39846519336368
       ],
-      "oph_value": 136.2636589431201,
+      "oph_value": 136.38275481749466,
       "quantity": "alpha_inv_thomson_endpoint",
       "row_class": "oph_plus_empirical_hadron_closure"
     },
@@ -171,64 +171,64 @@
     },
     {
       "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
-      "delta": -2.1414635464738754e-06,
+      "delta": -2.1414635464855848e-06,
       "measured": 0.0005109989506900001,
       "measured_source": "PDG witness triple, compare-only",
       "missing_correction_hypothesis": {
         "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
-        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "mechanism": "kappa-interval width is carried by the published-compilation payload uncertainty and the independent lepton-transport budgets; the physical on-shell anchor requirement sits inside the certified anchor-gap interval, so the central offset is a position within the certified band, not a payload deficit",
         "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
       },
       "oph_envelope": [
-        0.00036172673339749013,
-        0.0007158330261907456
+        0.00047657714307519004,
+        0.0005433242990866062
       ],
-      "oph_value": 0.0005088574871435262,
+      "oph_value": 0.0005088574871435145,
       "quantity": "m_electron_gev",
-      "relative_delta": -0.00419073961616212,
+      "relative_delta": -0.004190739616185102,
       "row_class": "target_shape_plus_empirical_transport"
     },
     {
       "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
-      "delta": -0.0004427867399871832,
+      "delta": -0.0004427867399896118,
       "measured": 0.10565837550000001,
       "measured_source": "PDG witness triple, compare-only",
       "missing_correction_hypothesis": {
         "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
-        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "mechanism": "kappa-interval width is carried by the published-compilation payload uncertainty and the independent lepton-transport budgets; the physical on-shell anchor requirement sits inside the certified anchor-gap interval, so the central offset is a position within the certified band, not a payload deficit",
         "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
       },
       "oph_envelope": [
-        0.07479361547434257,
-        0.1480115655314657
+        0.09854103745176451,
+        0.11234223227591915
       ],
-      "oph_value": 0.10521558876001283,
+      "oph_value": 0.1052155887600104,
       "quantity": "m_muon_gev",
-      "relative_delta": -0.00419073961616212,
+      "relative_delta": -0.004190739616185102,
       "row_class": "target_shape_plus_empirical_transport"
     },
     {
       "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
-      "delta": -0.007446650946148825,
+      "delta": -0.007446650946189459,
       "measured": 1.7769299999999995,
       "measured_source": "PDG witness triple, compare-only",
       "missing_correction_hypothesis": {
         "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
-        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "mechanism": "kappa-interval width is carried by the published-compilation payload uncertainty and the independent lepton-transport budgets; the physical on-shell anchor requirement sits inside the certified anchor-gap interval, so the central offset is a position within the certified band, not a payload deficit",
         "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
       },
       "oph_envelope": [
-        1.2578559770192885,
-        2.489212898600991
+        1.657232801948234,
+        1.8893370435933756
       ],
-      "oph_value": 1.7694833490538506,
+      "oph_value": 1.76948334905381,
       "quantity": "m_tau_gev",
-      "relative_delta": -0.004190739616163119,
+      "relative_delta": -0.00419073961618599,
       "row_class": "target_shape_plus_empirical_transport"
     }
   ],
   "synthesis": {
-    "coherence_check": "the standard reference deficit 0.631 sits at the lower edge of the certified anchor-gap interval, and the lepton-lane residual at the physical anchor equals the ee-payload undershoot; both signs and magnitudes are mutually consistent",
+    "coherence_check": "the standard reference deficit 0.631 sits inside the certified anchor-gap interval, and the lepton-lane reference-deficit kappa sits inside the certified kappa interval; both containments are read from the same endpoint artifact and are mutually consistent",
     "dominant_reduction": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)",
     "secondary_reduction": "selection-axiom source derivation (#521)",
     "statement": "The displayed residuals do not establish one dominant missing physical correction.  W/Z rows are not evaluable until their common-observable scheme map exists.  The alpha and lepton rows retain their declared hadronic/same-scheme hypotheses, while H/top retain their separate selection-axiom dependency.",

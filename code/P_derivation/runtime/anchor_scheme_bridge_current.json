@@ -1,6 +1,6 @@
 {
  "artifact": "oph_anchor_scheme_bridge",
- "generated_utc": "2026-07-23T03:18:25Z",
+ "generated_utc": "2026-07-23T03:45:32Z",
  "object_id": "AnchorSchemeBridge",
  "row_class": "compare_only_scheme_analysis",
  "guards": {
@@ -45,7 +45,8 @@
   "route_B_anchor_exact_no_go": "false",
   "route_B_detail": "the OPH anchor is a one-loop unification value with a physical, understood hadronic and higher-order running deficit; it is not scheme-exact, and the gap is not a source-chain failure",
   "source_only_reduction": "a source-only anchor bridge reduces to the OPH hadronic spectral measure, which is blocked on the hadron backend (#425)",
-  "gap_consistency": "the standard reference deficit 0.631 sits at the lower edge of the certified interval, confirming the gap is the hadronic-plus-higher-order running deficit rather than an anchor error",
+  "reference_deficit_inside_certified_gap": true,
+  "gap_consistency": "the standard reference deficit 0.631 sits inside the certified interval [0.620, 0.651], confirming the gap is the hadronic-plus-higher-order running deficit rather than an anchor error",
   "issue_545_status": "structure_resolved_reduces_to_425_source_bridge_open"
  }
 }

@@ -270,8 +270,8 @@ def _alpha_rows(
                 "mechanism": (
                     "the anchor is a one-loop unification-run value with no "
                     "nonperturbative hadronic running; the certified same-scheme gap "
-                    "interval brackets the standard reference deficit 0.631 at its "
-                    "lower edge, confirming a running deficit rather than an anchor error"
+                    "interval contains the standard reference deficit 0.631 in its "
+                    "interior, confirming a running deficit rather than an anchor error"
                 ),
                 "falsification_test": (
                     "emit the source hadronic spectral measure and the a0 scheme "
@@ -352,10 +352,11 @@ def _lepton_rows(kappa_lane: dict[str, Any]) -> list[dict[str, Any]]:
                 "row_class": kappa_lane["row_class"],
                 "missing_correction_hypothesis": {
                     "mechanism": (
-                        "kappa-interval width and central offset are carried by the "
-                        "ee-payload hadronic undershoot against KNT19 and the anchor "
-                        "scheme remainder; at the physical on-shell anchor the miss "
-                        "equals the payload undershoot exactly"
+                        "kappa-interval width is carried by the published-compilation "
+                        "payload uncertainty and the independent lepton-transport "
+                        "budgets; the physical on-shell anchor requirement sits inside "
+                        "the certified anchor-gap interval, so the central offset is a "
+                        "position within the certified band, not a payload deficit"
                     ),
                     "falsification_test": (
                         "replace the empirical payload with the source hadronic "
@@ -406,10 +407,10 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
             "secondary_reduction": "selection-axiom source derivation (#521)",
             "wz_reduction": "complete W/Z common-observable scheme map",
             "coherence_check": (
-                "the standard reference deficit 0.631 sits at the lower edge of the "
-                "certified anchor-gap interval, and the lepton-lane residual at the "
-                "physical anchor equals the ee-payload undershoot; both signs and "
-                "magnitudes are mutually consistent"
+                "the standard reference deficit 0.631 sits inside the certified "
+                "anchor-gap interval, and the lepton-lane reference-deficit kappa "
+                "sits inside the certified kappa interval; both containments are "
+                "read from the same endpoint artifact and are mutually consistent"
             ),
         },
     }

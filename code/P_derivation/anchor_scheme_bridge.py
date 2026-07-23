@@ -6,7 +6,7 @@ endpoint into named, standard, compare-only reference terms and emits the
 verdict on the two closure routes of #545:
 
   Route A (scheme-bridge theorem): delta_scheme(P) landing in the certified
-          gap [0.649, 0.855] inverse-alpha units.
+          anchor-gap interval recorded by the endpoint artifact.
   Route B (anchor-exactness no-go): the OPH anchor is already scheme-exact,
           so the gap is a genuine source-chain failure.
 
@@ -21,9 +21,9 @@ the physical on-shell value is
      = alpha^-1(0) (1 - Delta_lep - Delta_had5 - Delta_top)
      = 128.939   (5-flavor on-shell)
 
-against the OPH one-loop anchor 128.308, a difference of 0.631, essentially
-the lower edge of the certified gap. The whole gap is the hadronic and
-higher-order running deficit of the one-loop scheme.
+against the OPH one-loop anchor 128.308, a difference of 0.631, inside the
+certified gap interval. The whole gap is the hadronic and higher-order
+running deficit of the one-loop scheme.
 
 Verdict. Route B is false: the anchor is not scheme-exact; it is a one-loop
 unification value with a physical, understood deficit, so the certified gap
@@ -72,6 +72,7 @@ def build() -> dict:
 
     alpha_inv_mz_phys = ALPHA_INV_0 * (1.0 - DELTA_LEP - DELTA_HAD5 - DELTA_TOP)
     gap_phys = alpha_inv_mz_phys - A0_OPH
+    gap_inside = gap_lo <= gap_phys <= gap_hi
 
     # inverse-alpha-unit contributions to the anchor deficit
     had_term = ALPHA_INV_0 * DELTA_HAD5
@@ -136,11 +137,18 @@ def build() -> dict:
             "source_only_reduction": "a source-only anchor bridge reduces to "
                                      "the OPH hadronic spectral measure, which "
                                      "is blocked on the hadron backend (#425)",
-            "gap_consistency": "the standard reference deficit "
-                               f"{gap_phys:.3f} sits at the lower edge of the "
-                               "certified interval, confirming the gap is the "
-                               "hadronic-plus-higher-order running deficit "
-                               "rather than an anchor error",
+            "reference_deficit_inside_certified_gap": gap_inside,
+            "gap_consistency": (
+                f"the standard reference deficit {gap_phys:.3f} sits inside "
+                f"the certified interval [{gap_lo:.3f}, {gap_hi:.3f}], "
+                "confirming the gap is the hadronic-plus-higher-order running "
+                "deficit rather than an anchor error"
+            ) if gap_inside else (
+                f"the standard reference deficit {gap_phys:.3f} falls outside "
+                f"the certified interval [{gap_lo:.3f}, {gap_hi:.3f}]; the "
+                "running-deficit reading is not confirmed and the mismatch is "
+                "an open defect of this analysis"
+            ),
             "issue_545_status": "structure_resolved_reduces_to_425_source_bridge_open",
         },
     }
