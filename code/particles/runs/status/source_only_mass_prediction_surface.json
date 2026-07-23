@@ -45,26 +45,26 @@
           "lane": "alpha-transport kappa interval (empirical closure)",
           "mass_rows_GeV": [
             {
-              "central": 0.0005088574871435262,
+              "central": 0.0005088574871435145,
               "interval": [
-                0.00036172673339749013,
-                0.0007158330261907456
+                0.00047657714307519004,
+                0.0005433242990866062
               ],
               "particle": "electron"
             },
             {
-              "central": 0.10521558876001283,
+              "central": 0.1052155887600104,
               "interval": [
-                0.07479361547434257,
-                0.1480115655314657
+                0.09854103745176451,
+                0.11234223227591915
               ],
               "particle": "muon"
             },
             {
-              "central": 1.7694833490538506,
+              "central": 1.76948334905381,
               "interval": [
-                1.2578559770192885,
-                2.489212898600991
+                1.657232801948234,
+                1.8893370435933756
               ],
               "particle": "tau"
             }
@@ -109,7 +109,7 @@
           ],
           "row_class": "target_shape_plus_empirical_transport_coherent_closure",
           "tier": "T1",
-          "width_reduction_factor": 19.70304964878769
+          "width_reduction_factor": 3.783726175951906
         },
         {
           "artifact": "runs/leptons/charged_ward_determinant_line.json",
@@ -456,7 +456,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-23T02:21:02Z",
+  "generated_utc": "2026-07-23T03:16:18Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [

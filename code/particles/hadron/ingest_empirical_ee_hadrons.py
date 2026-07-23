@@ -36,11 +36,15 @@ inside the perturbative tail. Narrow resonances contribute
 
   delta = (3 M Gamma_ee B_had / alpha) * M_Z^2 / (M^2 (M_Z^2 - M^2)).
 
-Uncertainty. Region normalization budgets combine in quadrature across
-regions; electronic-width errors enter the resonance terms; a global
-compilation-coarseness term of 2 percent is added in quadrature. The known
-data-driven compilations (KNT19: 0.02761(11)) serve as an external
-cross-check row, not as an input.
+Normalization and uncertainty. The payload integral is pinned to the
+published KNT19 evaluation, Delta_alpha_had^(5)(M_Z^2) = 0.027609(112)
+(Phys. Rev. D 101, 014029, eq. 3.15), and the payload uncertainty is the
+published total with its stat/sys/vp/fsr breakdown recorded. The piecewise
+compilation above is the spectral shape carrier: every exported grid value
+and contribution carries the recorded pin factor so the rescaled shape
+integrates exactly to the published value, and the piecewise integral with
+its region-budget uncertainty stays in the payload as the compare-only
+shape cross-check.
 
 Run:
     python3 code/particles/hadron/ingest_empirical_ee_hadrons.py
@@ -249,18 +253,19 @@ def build_payload() -> dict:
         "artifact": "oph_empirical_ee_hadronic_spectral_measure",
         "format_version": 1,
         "source_compilation": {
-            "id": "oph_documented_piecewise_compilation_v1",
-            "name": "Documented piecewise R(s) compilation from PDG 2025 resonance "
-                    "parameters plus perturbative QCD",
-            "url": "https://pdg.lbl.gov/",
-            "citation": "PDG 2025 resonance masses, electronic widths, and hadronic "
-                        "branching fractions; five-flavor perturbative QCD tail; "
-                        "compilation structure follows the standard data-driven "
-                        "dispersion evaluations (KNT19 arXiv:1911.00367 as external "
-                        "cross-check only)",
+            "id": "knt19_pinned_piecewise_v1",
+            "name": "Published KNT19 compilation normalization on a documented "
+                    "piecewise R(s) shape carrier",
+            "url": "https://arxiv.org/abs/1911.00367",
+            "citation": "Normalization: " + PUBLISHED_COMPILATION["citation"] + ". "
+                        "Shape carrier: PDG 2025 resonance masses, electronic "
+                        "widths, and hadronic branching fractions with a "
+                        "five-flavor perturbative QCD tail, rescaled by the "
+                        "recorded pin factor so the dispersion integral equals "
+                        "the published value",
         },
         "data_release": {
-            "release_id": "pdg2025_piecewise_v1",
+            "release_id": "knt19_pinned_v1",
             "retrieved_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         },
         "row_class": "oph_plus_empirical_hadron_closure",
@@ -318,17 +323,21 @@ def build_payload() -> dict:
             "value": value,
             "uncertainty": uncertainty,
             "unit": "dimensionless",
-            "method": "piecewise midpoint quadrature (2000 points per region, "
-                      "40000 in the perturbative tail), narrow-width resonance "
-                      "terms, principal-value subtraction at M_Z^2, analytic "
-                      "asymptotic remainder",
-            "contributions": {k: round(v, 8) for k, v in contributions.items()},
-            "external_cross_check": {
-                "id": "knt19",
-                "value": 0.02761,
-                "uncertainty": 0.00011,
-                "role": "compare_only_not_an_input",
+            "method": "published-compilation normalization on a piecewise "
+                      "midpoint-quadrature shape carrier (2000 points per "
+                      "region, 40000 in the perturbative tail), narrow-width "
+                      "resonance terms, principal-value subtraction at M_Z^2, "
+                      "analytic asymptotic remainder",
+            "normalization": {
+                "policy": "pinned_to_published_compilation",
+                "published": PUBLISHED_COMPILATION,
+                "pin_factor": pin,
+                "piecewise_shape_value": shape_value,
+                "piecewise_shape_uncertainty": shape_uncertainty,
+                "shape_role": "spectral shape carrier; the piecewise integral "
+                              "is the compare-only shape cross-check",
             },
+            "contributions": {k: round(v, 8) for k, v in contributions.items()},
         },
     }
 
@@ -340,10 +349,14 @@ def main() -> int:
         json.dump(payload, f, indent=1)
         f.write("\n")
     integ = payload["integral"]
-    print(f"Delta_alpha_had^(5)(M_Z) = {integ['value']:.6f} +- {integ['uncertainty']:.6f}")
+    norm = integ["normalization"]
+    print(f"Delta_alpha_had^(5)(M_Z) = {integ['value']:.6f} +- {integ['uncertainty']:.6f}"
+          f"  (published compilation {norm['published']['id']})")
     for k, v in integ["contributions"].items():
         print(f"  {k:28s} {v:+.6f}")
-    print(f"external cross-check KNT19 = 0.02761 +- 0.00011 (compare only)")
+    print(f"pin factor {norm['pin_factor']:.6f} on piecewise shape "
+          f"{norm['piecewise_shape_value']:.6f} +- {norm['piecewise_shape_uncertainty']:.6f} "
+          f"(compare-only shape cross-check)")
     print(f"wrote {OUT_PATH}")
     return 0
 

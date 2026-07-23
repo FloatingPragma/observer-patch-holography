@@ -111,13 +111,18 @@ def test_transport_moments_reintegrate_from_exported_objects() -> None:
     s_hi = tail_spec["numeric_end_sqrt_s"] ** 2
     r_mz = r_pqcd(M_Z2)
     n = 30001
+    tail_total = 0.0
     for i in range(n):
         s = s_lo + (s_hi - s_lo) * (i + 0.5) / n
-        total += (r_pqcd(s) - r_mz) * kernel(s) * (s_hi - s_lo) / n
-    total += r_mz * (math.log(s_hi / abs(M_Z2 - s_hi)) - math.log(s_lo / abs(M_Z2 - s_lo)))
+        tail_total += (r_pqcd(s) - r_mz) * kernel(s) * (s_hi - s_lo) / n
+    tail_total += r_mz * (math.log(s_hi / abs(M_Z2 - s_hi))
+                          - math.log(s_lo / abs(M_Z2 - s_lo)))
     a_end = 12.0 / (23.0 * math.log(s_hi / lam2))
     r_end = (11.0 / 3.0) * (1.0 + a_end)
-    total += -r_end * math.log(1.0 / (1.0 - M_Z2 / s_hi))
+    tail_total += -r_end * math.log(1.0 / (1.0 - M_Z2 / s_hi))
+    # the tail parametric form is stated at shape normalization; every
+    # exported moment carries the declared published-compilation pin
+    total += tail_total * payload["normalization"]["pin_factor"]
 
     reconstructed = ALPHA0 / (3.0 * math.pi) * total
     reported = payload["transport_moments"]["timelike_on_shell_mz"]["value"]

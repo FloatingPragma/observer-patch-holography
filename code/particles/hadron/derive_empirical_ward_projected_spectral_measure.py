@@ -62,6 +62,7 @@ from ingest_empirical_ee_hadrons import (  # noqa: E402
     PQCD_BUDGET,
     PQCD_NUMERIC_END,
     PQCD_START,
+    PUBLISHED_COMPILATION,
     REGIONS,
     TWO_PI_BUDGET,
     alpha_s_one_loop,
@@ -76,10 +77,14 @@ OUT_PATH = HERE.parent / "runs" / "hadron" / "empirical_ward_projected_spectral_
 TWO_PION_POINTS = 293
 REGION_POINTS = 65
 TAIL_POINTS = 60000
-# Requadrature must agree with the upstream midpoint integral to this absolute
-# tolerance (observed cross-rule difference is ~1.5e-07; the physics budget is
-# ~7.5e-04, so the gate is ~37x below the budget with >100x observed headroom).
-CONSISTENCY_TOLERANCE = 2.0e-05
+# Two consistency gates. The shape gate compares this file's requadrature of
+# the piecewise shape against the upstream shape integral (observed cross-rule
+# difference ~1.5e-07). The pinned gate compares the exported on-shell moment
+# against the upstream payload integral; both carry the published-compilation
+# normalization, so the difference is float-level and the tolerance sits far
+# below a tenth of the published uncertainty (1.12e-04).
+SHAPE_CONSISTENCY_TOLERANCE = 2.0e-05
+CONSISTENCY_TOLERANCE = 1.0e-06
 
 PREFACTOR = ALPHA0 / (3.0 * math.pi)
 
@@ -322,28 +327,64 @@ def build_export() -> dict[str, Any]:
     assert upstream["guards"]["promotable_as_oph_source_theorem"] is False
     upstream_value = float(upstream["integral"]["value"])
     upstream_uncertainty = float(upstream["integral"]["uncertainty"])
+    upstream_norm = upstream["integral"]["normalization"]
+    assert upstream_norm["policy"] == "pinned_to_published_compilation"
+    assert upstream_value == PUBLISHED_COMPILATION["value"]
+    upstream_shape_value = float(upstream_norm["piecewise_shape_value"])
 
     segments = [build_two_pion_segment()] + build_region_segments()
     atoms = build_atoms()
 
-    timelike = _moment(segments, atoms, kernel_timelike, _tail_moment_timelike)
-    spacelike = _moment(segments, atoms, kernel_spacelike, _tail_moment_spacelike)
-    timelike_unc = _moment_uncertainty(
-        segments, atoms, kernel_timelike, _tail_moment_timelike, timelike)
-    spacelike_unc = _moment_uncertainty(
-        segments, atoms, kernel_spacelike, _tail_moment_spacelike, spacelike)
+    # raw shape moments and budgets from the piecewise carrier
+    timelike_shape = _moment(segments, atoms, kernel_timelike, _tail_moment_timelike)
+    spacelike_shape = _moment(segments, atoms, kernel_spacelike, _tail_moment_spacelike)
+    timelike_shape_unc = _moment_uncertainty(
+        segments, atoms, kernel_timelike, _tail_moment_timelike, timelike_shape)
+    spacelike_shape_unc = _moment_uncertainty(
+        segments, atoms, kernel_spacelike, _tail_moment_spacelike, spacelike_shape)
+
+    # shape gate: this file's requadrature against the upstream shape integral
+    shape_abs_difference = abs(timelike_shape - upstream_shape_value)
+    if shape_abs_difference > SHAPE_CONSISTENCY_TOLERANCE:
+        raise RuntimeError(
+            f"requadrature disagrees with the upstream shape integral: "
+            f"|{timelike_shape:.8f} - {upstream_shape_value:.8f}| = "
+            f"{shape_abs_difference:.2e} > tolerance {SHAPE_CONSISTENCY_TOLERANCE:.1e}")
+
+    quadrature = _quadrature_budget(segments, atoms, timelike_shape, upstream_shape_value)
+    matching = _matching_budget(segments)
+    remainder = _endpoint_remainder_budget()
+
+    # published-compilation pin: every exported spectral quantity carries the
+    # factor that makes the on-shell moment equal the published value
+    pin = PUBLISHED_COMPILATION["value"] / timelike_shape
+    for seg in segments:
+        seg["R_values"] = [rv * pin for rv in seg["R_values"]]
+    for atom in atoms:
+        atom["weight"] *= pin
+        atom["weight_uncertainty"] *= pin
+    for budget, keys in (
+        (quadrature, ("cross_rule_abs_difference", "two_pion_grid_doubling_shift", "bound")),
+        (matching, ("bound",)),
+        (remainder, ("remainder_timelike", "remainder_spacelike",
+                     "bound_timelike", "bound_spacelike")),
+    ):
+        for key in keys:
+            budget[key] = budget[key] * pin
+        budget["normalization_pin_applied"] = True
+
+    timelike = PUBLISHED_COMPILATION["value"]
+    spacelike = spacelike_shape * pin
+    timelike_unc = PUBLISHED_COMPILATION["uncertainty_total"]
+    spacelike_unc = timelike_unc * (spacelike / timelike)
 
     abs_difference = abs(timelike - upstream_value)
     within = abs_difference <= CONSISTENCY_TOLERANCE
     if not within:
         raise RuntimeError(
-            f"requadrature disagrees with the upstream integral: "
+            f"pinned moment disagrees with the upstream payload integral: "
             f"|{timelike:.8f} - {upstream_value:.8f}| = {abs_difference:.2e} "
             f"> tolerance {CONSISTENCY_TOLERANCE:.1e}")
-
-    quadrature = _quadrature_budget(segments, atoms, timelike, upstream_value)
-    matching = _matching_budget(segments)
-    remainder = _endpoint_remainder_budget()
 
     packet_value = spacelike / ALPHA0
     packet_uncertainty = spacelike_unc / ALPHA0
@@ -352,8 +393,18 @@ def build_export() -> dict[str, Any]:
         "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
         "format_version": 1,
         "generated_utc": _now_utc(),
-        "profile_id": "empirical_pdg2025_piecewise_v1_ward_projected_export",
+        "profile_id": "empirical_knt19_pinned_piecewise_ward_projected_export",
         "row_class": "oph_plus_empirical_hadron_closure",
+        "normalization": {
+            "policy": "pinned_to_published_compilation",
+            "published": PUBLISHED_COMPILATION,
+            "pin_factor": pin,
+            "scope": "exported grid densities, atom weights, transport moments, "
+                     "and absolute budget bounds all carry the pin factor; the "
+                     "perturbative-tail model function is stated at shape "
+                     "normalization and enters every exported moment with the "
+                     "pin applied",
+        },
         "projection": {
             "lane": "U(1)_Q",
             "ward_projected": True,
@@ -400,12 +451,17 @@ def build_export() -> dict[str, Any]:
                           "prefactor alpha/(3 pi); target Delta_alpha_had^(5)(M_Z^2)",
                 "value": timelike,
                 "uncertainty": timelike_unc,
+                "uncertainty_source": "published compilation total",
+                "shape_budget_uncertainty_compare_only": timelike_shape_unc,
             },
             "spacelike_mz": {
                 "kernel": "M_Z^2 / (s (s + M_Z^2)), prefactor alpha/(3 pi); "
                           "target Delta_alpha_had^(5)(-M_Z^2)",
                 "value": spacelike,
                 "uncertainty": spacelike_unc,
+                "uncertainty_source": "published compilation total scaled by the "
+                                      "moment ratio (common-mode normalization)",
+                "shape_budget_uncertainty_compare_only": spacelike_shape_unc,
             },
             "inverse_alpha_packet_spacelike": {
                 "definition": "(1/(3 pi)) Int R(s) M_Z^2/(s (s + M_Z^2)) ds; the "
@@ -422,9 +478,17 @@ def build_export() -> dict[str, Any]:
             "abs_difference": abs_difference,
             "tolerance": CONSISTENCY_TOLERANCE,
             "within_tolerance": within,
+            "shape_requadrature_value": timelike_shape,
+            "upstream_shape_value": upstream_shape_value,
+            "shape_abs_difference": shape_abs_difference,
+            "shape_tolerance": SHAPE_CONSISTENCY_TOLERANCE,
+            "shape_within_tolerance": shape_abs_difference <= SHAPE_CONSISTENCY_TOLERANCE,
             "requadrature_rule": "composite trapezoid on the exported grids, analytic "
                                  "atoms, trapezoid tail with principal-value "
-                                 "subtraction; independent of the upstream midpoint rule",
+                                 "subtraction; independent of the upstream midpoint "
+                                 "rule; the shape gate compares the two quadratures at "
+                                 "shape normalization, the pinned gate compares the "
+                                 "published-normalized moment to the payload integral",
         },
         "systematics": {
             "statistical_budget": {

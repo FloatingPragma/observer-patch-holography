@@ -1,0 +1,44 @@
+{
+  "artifact": "qcd_solver_on_standby_receipt",
+  "claim_tier": "H2",
+  "status": "SOLVER_COMPILED_AND_SMOKE_BLOCKED_INVOCATION_GATED_ON_SOURCE_PARAMETERS",
+  "date": "2026-07-23",
+  "policy": {
+    "statement": "QCD simulation is a solver the theory earns the right to invoke once its parameters come out of the source side. The empirical published-compilation payload is the correction engine of the fine-structure lane; no simulated hadronic number enters any surface.",
+    "invocation_gate": [
+      "source-side emission of the quark spread pair (blocked by the (R>0)^2 non-identifiability obstruction; runs/flavor/quark_spread_fiber_structure_transport_obstruction.json)",
+      "source-side bare-parameter rule with no experimental hadron target (schema requires target_calibration_present false)",
+      "production schema branch.flavors const 2+1 (hadron/ward_projected_spectral_measure.schema.json)"
+    ]
+  },
+  "solver": {
+    "name": "openQCD",
+    "version": "2.4",
+    "family": "industry_standard_lattice_qcd",
+    "author_distribution": "https://luscher.web.cern.ch/luscher/openQCD/",
+    "location": "oph-meta root, qcd_backend_engine/openQCD-2.4 (outside this repository)",
+    "build": {
+      "machine": "Apple M4, 10 cores, macOS arm64",
+      "toolchain": "gcc-16 via open-mpi mpicc wrapper, portable flags (x86 intrinsics defines removed)",
+      "patches": [
+        "modules/update/chrono.c: local typedef stack_t renamed oqcd_stack_t (macOS SDK collision)",
+        "modules/utils/error.c: static helper wait renamed oqcd_wait (POSIX collision)"
+      ],
+      "executables_built": ["ym1", "qcd1", "ms1"],
+      "geometry_compiled": "16x8x8x8 on 8 ranks (NPROC 2,2,2,1; local lattice 8,4,4,8)"
+    },
+    "smoke_status": "pure-gauge launch blocked by the sandboxed MPI runtime (PRRTE init); no trajectory was generated and no simulated number exists",
+    "reflection_positivity_note": "the unimproved Wilson action (csw = 0, plaquette gauge) is the declared target formulation because reflection positivity is a theorem there (Osterwalder-Seiler), discharging contract premise P4 by citation once invocation is earned"
+  },
+  "external_targets_used": [],
+  "forbidden_targets": [
+    "CODATA_ALPHA",
+    "MUON_G_MINUS_2",
+    "EE_TO_HADRONS",
+    "RARE_DECAY_DATA",
+    "HADRON_MASS_TARGETS",
+    "PDG_QCD_FITS"
+  ],
+  "promotion_allowed": false,
+  "claim_boundary": "This receipt records solver availability and the invocation gate. It produces no hadronic number, populates no production premise, and leaves every backend status field unchanged."
+}

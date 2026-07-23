@@ -58,7 +58,7 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-23T02:08:38Z",
+  "generated_utc": "2026-07-23T03:16:04Z",
   "guards": {
     "blind_normalization_prediction": false,
     "charged_mass_information_in_solve_path": true,
@@ -130,9 +130,9 @@
   "kappa_interval": {
     "central": -0.0041995453758020915,
     "central_match": {
-      "defect": 0.0,
+      "defect": 2.3078761124395442e-14,
       "reading": "the rectangle gap midpoint is the affine image of the payload central, so the two centrals coincide; the coherent solve removes width only",
-      "rectangle_central": -0.0041995453758020915
+      "rectangle_central": -0.00419954537582517
     },
     "definition": "kappa = ln(m_e / m_e_witness)",
     "interval": [
@@ -140,10 +140,10 @@
       0.013121577537760613
     ],
     "rectangle_interval": [
-      -0.34547849011449383,
-      0.33707939936286824
+      -0.06973793154072808,
+      0.0613388407891274
     ],
-    "width_reduction_factor": 19.70304964878769
+    "width_reduction_factor": 3.783726175951906
   },
   "proof_status": "certified_empirical_closure_interval_coherent_kappa_identified",
   "row_class": "target_shape_plus_empirical_transport_coherent_closure"

@@ -34,10 +34,10 @@
   "conditional_mass_rows": [
     {
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
-      "mass_central": 0.0005088574871435262,
+      "mass_central": 0.0005088574871435145,
       "mass_interval": [
-        0.00036172673339749013,
-        0.0007158330261907456
+        0.00047657714307519004,
+        0.0005433242990866062
       ],
       "particle": "electron",
       "status": "certified_empirical_closure_interval",
@@ -45,10 +45,10 @@
     },
     {
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
-      "mass_central": 0.10521558876001283,
+      "mass_central": 0.1052155887600104,
       "mass_interval": [
-        0.07479361547434257,
-        0.1480115655314657
+        0.09854103745176451,
+        0.11234223227591915
       ],
       "particle": "muon",
       "status": "certified_empirical_closure_interval",
@@ -56,10 +56,10 @@
     },
     {
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
-      "mass_central": 1.7694833490538506,
+      "mass_central": 1.76948334905381,
       "mass_interval": [
-        1.2578559770192885,
-        2.489212898600991
+        1.657232801948234,
+        1.8893370435933756
       ],
       "particle": "tau",
       "status": "certified_empirical_closure_interval",
@@ -67,7 +67,7 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-23T02:05:13Z",
+  "generated_utc": "2026-07-23T03:16:04Z",
   "guards": {
     "blind_normalization_prediction": false,
     "charged_mass_information_in_solve_path": true,
@@ -90,13 +90,13 @@
     "alpha_inv_0": 137.035999177,
     "alpha_inv_0_role": "declared empirical closure input inside this solve path (CODATA 2022)",
     "anchor_gap_interval": [
-      0.648554111145163,
-      0.8547920665925625
+      0.6198609040759308,
+      0.6505569678915788
     ],
     "anchor_gap_ref": "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
     "delta_alpha_had_5_MZ": [
-      0.026006624478767892,
-      0.027511615551814445
+      0.027497,
+      0.027721000000000003
     ],
     "delta_top": -7e-05,
     "hadronic_contract_parent": {
@@ -128,8 +128,8 @@
     }
   },
   "interval_width_attribution_kappa_units": {
-    "anchor_gap_half_width": 0.16197891143123228,
-    "hadronic_payload_uncertainty": 0.16197891143123233,
+    "anchor_gap_half_width": 0.024108632144340843,
+    "hadronic_payload_uncertainty": 0.024108632144340808,
     "higher_order_lepton_budget": 0.016535723712825502,
     "one_loop_kernel_truncation": 0.0007853981633974483,
     "reduction": "every dominant term reduces to the source hadronic spectral measure (#425, hadron backend / lattice lane; its acceptance contract is certified by the issue-317 proof packet cited in inputs.hadronic_contract_parent) and the a0 scheme bridge (#545)"
@@ -144,20 +144,20 @@
   },
   "issue": 546,
   "kappa_interval": {
-    "central_gap_midpoint": -0.0041995453758020915,
+    "central_gap_midpoint": -0.00419954537582517,
     "definition": "kappa = ln(m_e / m_e_witness)",
     "interval": [
-      -0.34547849011449383,
-      0.33707939936286824
+      -0.06973793154072808,
+      0.0613388407891274
     ],
     "reference_deficit_point": {
       "gap": 0.6308936136469185,
-      "kappa": -0.19391950140664435,
+      "kappa": -0.010978037851429208,
       "reading": "at the physical on-shell anchor the residual equals the ee-payload hadronic undershoot against the KNT19 reference; the miss is carried entirely by the open hadron backend (#425)"
     }
   },
   "kappa_symmetry_breaking_lemma": {
-    "fixed_point_stiffness_dP_dkappa": 6.077080181482607e-05,
+    "fixed_point_stiffness_dP_dkappa": 6.066471227730451e-05,
     "packet_derivative_in_kappa": -0.6366197723675814,
     "source_only_no_go_status": "unchanged",
     "statement": "The one-parameter countermodel Y_e -> exp(kappa) Y_e of the charged trace-lift theorem does not extend to the declared electromagnetic transport: the lepton vacuum-polarization packet satisfies d(packet)/d(kappa) = -2/pi, so the emitted Thomson endpoint and the fixed point P = phi + sqrt(pi)/A_Th(P) move with kappa. The no-go's antecedent list omits this closure; source-only the system is the stiff curve (P(kappa), kappa), and on the empirical closure surface kappa is identified up to certified interval width."
