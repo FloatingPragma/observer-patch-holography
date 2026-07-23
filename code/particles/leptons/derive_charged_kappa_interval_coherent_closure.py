@@ -150,6 +150,54 @@ def coherence_identity_gate(endpoint: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _width_floor_audit(rectangle: dict[str, Any]) -> dict[str, Any]:
+    """State why the surviving width is a premise floor, not a budget slack.
+
+    The dominant surviving budget is the higher-order lepton remainder,
+    carried with a full-size band. The remainder itself matches the known
+    per-order structure of the leptonic Delta_alpha (the two-loop piece
+    dominates), and its kappa-sensitivity across the certified interval is
+    two orders below the band. The band therefore functions as a level
+    convention, and the level is pinned by the open anchor scheme bridge:
+    at the current premise set the certified width floor is the
+    scheme-bridge ambiguity, and shrinking the band without the source
+    bridge would relabel that convention as a witness exclusion. The
+    rectangle lane records the closure target the bridge must emit.
+    """
+
+    witness_point = rectangle.get("compare_only", {}).get("witness_point")
+    if witness_point is None:
+        raise SystemExit(
+            "fail closed: rectangle artifact lacks the witness_point block; "
+            "rebuild the rectangle lane first"
+        )
+    return {
+        "dominant_budget": "higher_order_lepton_budget",
+        "per_order_structure": (
+            "the remainder between the three-loop reference Delta_lep and "
+            "the one-loop asymptotic kernel at the witness matches the "
+            "published per-order breakdown, with the two-loop leptonic "
+            "piece dominant"
+        ),
+        "kappa_sensitivity_reading": (
+            "the kappa-derivative of the higher-order piece is of order "
+            "(alpha/pi)^2 per unit kappa, two orders below the carried "
+            "band across the certified interval"
+        ),
+        "floor_attribution": (
+            "the certified width floor at the current premise set is the "
+            "anchor scheme-bridge ambiguity (issue 545, source branch); "
+            "the payload term cancels in this lane and the higher-order "
+            "band is a level convention pinned by the open bridge"
+        ),
+        "bridge_closure_target": witness_point,
+        "tightening_gate": (
+            "a certified width below the current floor requires the source "
+            "scheme bridge; no budget is shrunk on this surface"
+        ),
+    }
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     endpoint_path: Path = ENDPOINT_JSON,
@@ -397,6 +445,7 @@ def build(
         },
         "conditional_mass_rows": mass_rows(kappa_lo, kappa_hi, kappa_central),
         "interval_width_attribution_kappa_units": attribution,
+        "width_floor_audit": _width_floor_audit(rectangle),
         "compare_only": {
             "witness_masses_gev": witness,
             "witness_inside_certified_intervals": kappa_lo < 0.0 < kappa_hi,

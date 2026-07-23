@@ -148,3 +148,15 @@ def test_fail_closed_once_source_payload_reported_available(tmp_path):
     doctored = _doctored_packet(tmp_path, mutate)
     with pytest.raises(SystemExit, match="re-derive this lane"):
         lane.build(tmp_path / "out.json", hadronic_packet_path=doctored)
+
+
+def test_witness_point_states_bridge_closure_target(result):
+    wp = result["compare_only"]["witness_point"]
+    assert wp["inside_certified_interval"] is True
+    required = wp["required_anchor_gap_at_witness_inv_alpha"]
+    assert wp["scheme_term_difference_inv_alpha"] == pytest.approx(
+        required - wp["reference_deficit_inv_alpha"]
+    )
+    # kappa(required gap) = 0 by the recorded inversion check, and 0 is
+    # inside the certified interval, so containment holds for the target too
+    assert result["kappa_interval"]["interval"][0] < 0.0 < result["kappa_interval"]["interval"][1]

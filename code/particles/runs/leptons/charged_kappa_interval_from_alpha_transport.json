@@ -29,7 +29,14 @@
       0.0005109989506900001,
       0.10565837550000001,
       1.7769299999999995
-    ]
+    ],
+    "witness_point": {
+      "inside_certified_interval": true,
+      "reading": "the anchor-gap value at which the certified solve lands exactly on the witness triple, at the payload central; a source scheme bridge (#545) that emits this value closes the lane on the witness, and the difference to the standard on-shell reference deficit is the live scheme term of the bridge",
+      "reference_deficit_inv_alpha": 0.6308936136469185,
+      "required_anchor_gap_at_witness_inv_alpha": 0.6378824496049447,
+      "scheme_term_difference_inv_alpha": 0.0069888359580261294
+    }
   },
   "conditional_mass_rows": [
     {
@@ -67,7 +74,7 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-23T03:45:42Z",
+  "generated_utc": "2026-07-23T04:02:15Z",
   "guards": {
     "blind_normalization_prediction": false,
     "charged_mass_information_in_solve_path": true,

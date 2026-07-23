@@ -231,6 +231,20 @@ def build(
     gap_mid = 0.5 * (gap_interval[0] + gap_interval[1])
     kappa_central = solve_kappa(gap_mid, delta_had5, ho_remainder, 0.0)
     kappa_reference_deficit = solve_kappa(reference_gap, delta_had5, ho_remainder, 0.0)
+    # The anchor-gap value at which the solve lands exactly on the witness
+    # triple (kappa = 0), at the payload central: the closure target a source
+    # scheme bridge must emit.
+    witness_required_gap = (
+        alpha_inv_0 * (1.0 - delta_had5 - delta_top - ho_remainder)
+        - packet_witness
+        - a0
+    )
+    witness_closure_defect = solve_kappa(witness_required_gap, delta_had5, ho_remainder, 0.0)
+    if abs(witness_closure_defect) > 1.0e-12:
+        raise SystemExit(
+            "fail closed: the witness-gap inversion does not close "
+            f"(defect {witness_closure_defect})"
+        )
 
     if not kappa_lo < kappa_central < kappa_hi:
         raise SystemExit("fail closed: kappa interval endpoints are not ordered")
@@ -376,6 +390,22 @@ def build(
         "compare_only": {
             "witness_masses_gev": witness,
             "witness_inside_certified_intervals": kappa_lo < 0.0 < kappa_hi,
+            "witness_point": {
+                "required_anchor_gap_at_witness_inv_alpha": witness_required_gap,
+                "reference_deficit_inv_alpha": reference_gap,
+                "scheme_term_difference_inv_alpha": witness_required_gap - reference_gap,
+                "inside_certified_interval": (
+                    gap_interval[0] <= witness_required_gap <= gap_interval[1]
+                ),
+                "reading": (
+                    "the anchor-gap value at which the certified solve lands "
+                    "exactly on the witness triple, at the payload central; a "
+                    "source scheme bridge (#545) that emits this value closes "
+                    "the lane on the witness, and the difference to the "
+                    "standard on-shell reference deficit is the live scheme "
+                    "term of the bridge"
+                ),
+            },
         },
         "claim_boundary": (
             "Absolute charged-lepton masses carry certified intervals on the empirical "

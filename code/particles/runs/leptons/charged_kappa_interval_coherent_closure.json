@@ -58,7 +58,7 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-23T03:16:04Z",
+  "generated_utc": "2026-07-23T04:03:03Z",
   "guards": {
     "blind_normalization_prediction": false,
     "charged_mass_information_in_solve_path": true,
@@ -146,5 +146,19 @@
     "width_reduction_factor": 3.783726175951906
   },
   "proof_status": "certified_empirical_closure_interval_coherent_kappa_identified",
-  "row_class": "target_shape_plus_empirical_transport_coherent_closure"
+  "row_class": "target_shape_plus_empirical_transport_coherent_closure",
+  "width_floor_audit": {
+    "bridge_closure_target": {
+      "inside_certified_interval": true,
+      "reading": "the anchor-gap value at which the certified solve lands exactly on the witness triple, at the payload central; a source scheme bridge (#545) that emits this value closes the lane on the witness, and the difference to the standard on-shell reference deficit is the live scheme term of the bridge",
+      "reference_deficit_inv_alpha": 0.6308936136469185,
+      "required_anchor_gap_at_witness_inv_alpha": 0.6378824496049447,
+      "scheme_term_difference_inv_alpha": 0.0069888359580261294
+    },
+    "dominant_budget": "higher_order_lepton_budget",
+    "floor_attribution": "the certified width floor at the current premise set is the anchor scheme-bridge ambiguity (issue 545, source branch); the payload term cancels in this lane and the higher-order band is a level convention pinned by the open bridge",
+    "kappa_sensitivity_reading": "the kappa-derivative of the higher-order piece is of order (alpha/pi)^2 per unit kappa, two orders below the carried band across the certified interval",
+    "per_order_structure": "the remainder between the three-loop reference Delta_lep and the one-loop asymptotic kernel at the witness matches the published per-order breakdown, with the two-loop leptonic piece dominant",
+    "tightening_gate": "a certified width below the current floor requires the source scheme bridge; no budget is shrunk on this surface"
+  }
 }

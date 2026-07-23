@@ -129,3 +129,12 @@ def test_fail_closed_on_doctored_hadronic_packet(tmp_path):
     doctored.write_text(json.dumps(packet), encoding="utf-8")
     with pytest.raises(SystemExit, match="not accepted"):
         lane.build(tmp_path / "out.json", hadronic_packet_path=doctored)
+
+
+def test_width_floor_audit_names_the_bridge_gate(result):
+    audit = result["width_floor_audit"]
+    assert audit["dominant_budget"] == "higher_order_lepton_budget"
+    assert "545" in audit["floor_attribution"]
+    target = audit["bridge_closure_target"]
+    assert target["inside_certified_interval"] is True
+    assert "no budget is shrunk" in audit["tightening_gate"]
