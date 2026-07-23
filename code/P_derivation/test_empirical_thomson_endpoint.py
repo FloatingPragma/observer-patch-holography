@@ -37,15 +37,19 @@ def test_payload_satisfies_schema_required_fields() -> None:
     assert len(grid) == len(r_vals) and len(grid) > 10
 
 
-def test_payload_integral_is_sane_and_cross_checked() -> None:
+def test_payload_integral_is_sane_and_pinned() -> None:
     integ = _payload()["integral"]
     value, unc = integ["value"], integ["uncertainty"]
     assert 0.024 < value < 0.030
     assert 0.0 < unc < 0.15 * value
-    xc = integ["external_cross_check"]
-    assert xc["role"] == "compare_only_not_an_input"
-    # payload agrees with the external compilation within two payload sigmas
-    assert abs(value - xc["value"]) < 2.0 * unc
+    norm = integ["normalization"]
+    assert norm["policy"] == "pinned_to_published_compilation"
+    assert norm["published"]["id"] == "knt19"
+    # the integral equals the published compilation value, and the recorded
+    # pin factor reproduces it from the piecewise shape
+    assert value == norm["published"]["value"]
+    assert unc == norm["published"]["uncertainty_total"]
+    assert abs(norm["piecewise_shape_value"] * norm["pin_factor"] - value) < 1.0e-12
 
 
 def test_endpoint_guards_and_solve_path() -> None:
