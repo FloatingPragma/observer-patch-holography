@@ -12595,7 +12595,7 @@ unique-involution obstruction \(A_5\not\subset SU(2)\), the noncentrality
 witness \([iS,iT]=-2(E_{12}-E_{21})\neq0\) exhibited below, and the screen
 gluing-class quotient
 \(\Lambda_+/(\Lambda_1\oplus\Lambda_5)\cong\mathbb Z/6\mathbb Z\) with
-proper-rotation invariance and antipodal sign reversal. Three companion modules
+proper-rotation invariance and antipodal sign reversal. Companion modules
 carry the branch receipts.
 \texttt{Screen/\allowbreak A5CharacterField.lean} proves the Galois-stability
 half of the rationality lemma over \(\mathbb Q(\sqrt5)\): the conjugation
@@ -12616,10 +12616,32 @@ splitting into two three-dimensional invariant summands exists.
 receipt on the twelve-port module: the sixty port rotations, row-for-row
 identical to the vetted incidence-automorphism list, fix exactly the constant
 line, so a centrally trivial submodule --- in particular the centre under an
-inner action --- has dimension at most one. The classification of compact
-simple Lie algebras, the reductive decomposition, exponential surjectivity,
-and the torus/cocharacter step remain declared classical inputs, and no
-physical receipt is formalized.
+inner action --- has dimension at most one.
+\texttt{Screen/\allowbreak A5Commutant.lean} closes the
+equivariant-endomorphism layer: the ordered port pairs fall into four
+kernel-checked orbits, so the commutant of the port action is exactly the
+four-dimensional span of the identity, adjacency, distance-two, and antipode
+orbitals --- matching the rational isotypic structure
+\(\mathbf1\oplus\mathbf5\oplus(\mathbf3\oplus\mathbf3')\) --- and entry
+invariance is proven equivalent to commutation with the linear action.
+\texttt{Screen/\allowbreak TraceBalancedKernel.lean} checks the exact kernel
+arithmetic of the trace-balanced cover on central parameters: six elements,
+cyclic with generator \((\omega_3I_3,-I_2,e^{i\pi/3})\), the \(U(1)\)
+coordinate bijective onto the sixth roots, negation reversing the generator.
+\texttt{Screen/\allowbreak TrichotomyCases.lean} assembles the enumeration
+with every hypothesis explicit in the theorem signature: the rational-centre
+dimension list, the declared compact-simple dimension list, and the
+twelve-port total return exactly four arithmetic survivors, which the
+dimension-six elimination and the centre receipts reduce to the trichotomy.
+\texttt{Screen/\allowbreak UnitSplit12.lean} carries removability controls:
+dropping integrality, positivity, or the twelve-slot domain each admits an
+explicit non-unit witness. An independent finite computation
+(\texttt{code/a5\_closure/independent\_lane\_check.py}) rebuilds the rotation
+group from golden-ratio coordinates alone and reproduces the orbit,
+commutant, fiber-count, spectrum, and kernel data. The classification of
+compact simple Lie algebras, the reductive decomposition, exponential
+surjectivity, and the torus/cocharacter step remain declared classical
+inputs, and no physical receipt is formalized.
 
 \subsubsection*{The bracket constructed from the oriented screen}
 

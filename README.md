@@ -56,7 +56,7 @@ theory-of-everything program:
    [evidence/einstein_convergence](evidence/einstein_convergence/); every
    number regenerates bit for bit.
 2. **A machine-checked core that polices itself.** A sorry-free Lean 4
-   library of more than 700 theorems and lemmas covers the consensus core, the gauge
+   library of more than 800 theorems and lemmas covers the consensus core, the gauge
    identifiability theorem and the Einstein-branch composition; it
    machine-checks a negative result against the naive version of the
    program's own claim. Every public theorem carries a per-theorem axiom
@@ -318,7 +318,7 @@ what makes them scoreable at all:
 | Einstein equations | Conditional composition with every clause proved or instrumented | Recovered on assumed backgrounds | Open |
 | Dimensionless constants | $\alpha^{-1}$ returned by a certified unique fixed point, $2.5\times10^{-6}$ from measurement, zero dials | Environmentally selected on the landscape | Not addressed |
 | How many universes | One exact universe | $\sim10^{500}$ vacua | Not addressed |
-| Machine-verified derivation chain | More than 700 sorry-free Lean theorems, including a self-critical negative result | None | None |
+| Machine-verified derivation chain | More than 800 sorry-free Lean theorems, including a self-critical negative result | None | None |
 | Falsification conditions declared in advance | Public kill conditions and tracked closure issues | None operative | Few |
 
 The distance is not incremental. On these eight criteria the nearest

@@ -28,7 +28,8 @@ lean_lib «OPHScreen» where
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,
     `TopThreeKernelFix, `UnitSplit12, `Z6Exact, `PhysicalA5ForcingNoGo,
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,
-    `A5CharacterField, `A5SixAxes, `A5PortModule]
+    `A5CharacterField, `A5SixAxes, `A5PortModule, `A5Commutant,
+    `TraceBalancedKernel, `TrichotomyCases]
 
 lean_exe «oph» where
   root := `Main

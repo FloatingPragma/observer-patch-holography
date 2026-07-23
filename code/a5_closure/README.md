@@ -235,7 +235,19 @@ three-dimensional invariant subspace and no `3 + 3` invariant splitting.
 the twelve-port module: the sixty port rotations (row-for-row identical to
 `A5PortAction.perms`) fix exactly the constant line, so a centrally trivial
 submodule — the centre under an inner action — has dimension at most
-one. The issue-#565 artifact supplies an exact executable finite
+one. `A5Commutant.lean` (#568, closed) proves the four-orbit structure of
+ordered port pairs and the exact four-dimensional orbital commutant of the
+port action, with entry invariance equivalent to commutation;
+`TraceBalancedKernel.lean` (#568, closed) checks the six-element cyclic
+kernel of the trace-balanced cover on central parameters with bijective
+`U(1)` coordinate; `TrichotomyCases.lean` (#568, closed) assembles the
+centre-versus-semisimple enumeration with every hypothesis in the theorem
+signature; `UnitSplit12.lean` carries removability witnesses for each
+unit-splitting premise. The independent cross-check
+`independent_lane_check.py` (this directory) rebuilds the rotation group
+from golden-ratio coordinates alone and reproduces the orbit, commutant,
+fiber-count, spectrum, kernel, and enumeration data (22 checks, all
+passing 2026-07-23). The issue-#565 artifact supplies an exact executable finite
 proof of the source integer domain, strict readback cost, antipode, `A5`
 action, frame, refinement, relabelling, and countermodels. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and

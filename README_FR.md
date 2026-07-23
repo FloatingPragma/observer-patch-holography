@@ -64,7 +64,7 @@ de théorie du tout :
    [evidence/einstein_convergence](evidence/einstein_convergence/) ; chaque
    nombre se régénère bit à bit.
 2. **Un noyau vérifié machine qui se surveille lui-même.** Une bibliothèque
-   Lean 4 sans `sorry` de plus de 700 théorèmes et lemmes couvre le noyau de
+   Lean 4 sans `sorry` de plus de 800 théorèmes et lemmes couvre le noyau de
    consensus, le théorème d’identifiabilité de jauge et la composition de la
    branche d’Einstein ; elle vérifie machine un résultat négatif contre la
    version naïve de l’affirmation du programme lui-même. [Lean/](Lean/)
@@ -141,7 +141,7 @@ ce qui les rend évaluables :
 | Les équations d’Einstein | Composition conditionnelle, chaque clause prouvée ou instrumentée | Retrouvées sur des arrière-plans supposés | Ouvertes |
 | Les constantes sans dimension | $\alpha^{-1}$ rendue par un point fixe unique certifié, à $2{,}5\times10^{-6}$ de la mesure, zéro bouton | Sélection environnementale sur le paysage | Non traitées |
 | Combien d’univers | Un univers exact | $\sim10^{500}$ vides | Non traité |
-| Une chaîne de dérivation vérifiée machine | Plus de 700 théorèmes Lean sans `sorry`, dont un résultat négatif autocritique | Aucune | Aucune |
+| Une chaîne de dérivation vérifiée machine | Plus de 800 théorèmes Lean sans `sorry`, dont un résultat négatif autocritique | Aucune | Aucune |
 | Des conditions de falsification déclarées à l’avance | Conditions d’élimination publiques et clôtures suivies par tickets | Aucune opérante | Rares |
 
 La distance n’est pas incrémentale. Sur ces huit critères, le programme

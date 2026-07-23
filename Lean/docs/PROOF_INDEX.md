@@ -116,6 +116,27 @@ Mapping between Lean 4 theorems in this project and statements in
   `Screen/A5CharacterField.lean`. All sorry-free, standard axioms, no
   `native_decide`. No physical receipt is formalized. Does **not** bear on
   the Prop 4.2 / Def 4.1 counts.
+- #568 icosahedral-lane completion (`Screen/A5Commutant.lean`,
+  `Screen/TraceBalancedKernel.lean`, `Screen/TrichotomyCases.lean`, plus
+  removability controls in `Screen/UnitSplit12.lean`): the ordered port
+  pairs fall into four kernel-checked orbits (diagonal, adjacent,
+  distance-two, antipodal), so the commutant of the port action is exactly
+  the four-dimensional span of the four orbital matrices, with entry
+  invariance proven equivalent to commutation with the linear action;
+  the trace-balanced cover kernel is checked exactly on central
+  parameters — six elements, cyclic with generator `(ω₃I₃, -I₂, e^{iπ/3})`,
+  `U(1)` coordinate bijective, negation reversing the generator; the
+  trichotomy enumeration is assembled with every hypothesis in the theorem
+  signature (rational-centre dimension list, declared compact-simple list,
+  twelve-port total → four arithmetic survivors → trichotomy under the
+  dimension-six elimination, → Standard-Model data under the centre
+  receipts); and the unit-splitting premises each carry an explicit
+  removal witness (rational, non-positive, eleven-slot). All sorry-free,
+  standard axioms, no `native_decide`. Independent finite cross-check:
+  `code/a5_closure/independent_lane_check.py` rebuilds the rotation group
+  from golden-ratio coordinates and reproduces the orbit, commutant,
+  fiber-count, spectrum, kernel, and enumeration data (22 checks). Does
+  **not** bear on the Prop 4.2 / Def 4.1 counts.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
