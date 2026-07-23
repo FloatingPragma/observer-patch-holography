@@ -112,6 +112,8 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/status/derivation_chain_closure_matrix.json"),
     Path("runs/leptons/charged_end_to_end_impossibility_theorem.json"),
     Path("runs/leptons/charged_trace_lift_theorem.json"),
+    Path("runs/leptons/charged_kappa_interval_from_alpha_transport.json"),
+    Path("runs/leptons/charged_kappa_interval_coherent_closure.json"),
 )
 
 RUNTIME_EXTERNAL_OUTPUTS = (
