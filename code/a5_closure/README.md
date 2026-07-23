@@ -214,7 +214,16 @@ not a forward test.
 noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
 `S2DesignSignature.lean` formalizes the `11/25` arithmetic, and
 `UnitSplit12.lean` proves only that twelve positive integer weights summing to
-twelve are all one. The issue-#565 artifact supplies an exact executable finite
+twelve are all one. `A5OPH.lean` (merged 2026-07-23 from the external
+cross-audit lane, rebuilt under the project toolchain) formalizes the finite
+core of the compact-Lie trichotomy — triviality of every `A5`-action on at
+most four objects, the unique partitions `11 = 3+8` and `12 = 3+3+3+3` over
+the compact-simple dimension list, the excluded semisimple dimensions
+`1, 2, 4, 5, 7`, the characteristic-centre step — plus the paper's
+noncentral-quintet witness, the gluing-class quotient with both invariance
+clauses, the `A5 ⊄ SU(2)` unique-involution obstruction, and the absence of
+`ℤ/6` in `A5`. The dimension-six branch module argument and the `Q(sqrt 5)`
+rationality lemma remain on paper and are tracked as #604 and #605. The issue-#565 artifact supplies an exact executable finite
 proof of the source integer domain, strict readback cost, antipode, `A5`
 action, frame, refinement, relabelling, and countermodels. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
@@ -223,9 +232,10 @@ supplies the exact executable spin lift, matter transport, CAR/Fock
 selection, chirality, anomaly, kernel-emission, and declared-tower descent
 proofs on top of that packet. A Lean port of those
 complete finite packets remains available work; the Python receipts are not
-being relabelled as Lean theorems. `Phi`, `Theta`, the compact-Lie
-trichotomy, trace-balanced group, and physical descent retain their
-separate support boundaries; only the conditional current algebra and the
+being relabelled as Lean theorems. `Phi`, `Theta`, the trace-balanced group,
+and physical descent retain their separate support boundaries (the
+compact-Lie trichotomy's finite steps are now Lean-checked in `A5OPH.lean`,
+with the two remaining paper steps tracked as #604/#605); only the conditional current algebra and the
 conditional matter lift are certified here, while source binding of the
 inherited upstream response premises is tracked in #599.
 

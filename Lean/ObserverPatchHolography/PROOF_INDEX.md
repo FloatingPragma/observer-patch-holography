@@ -75,6 +75,36 @@ Mapping between Lean 4 theorems in this project and statements in
   `A5`-equivariance of the source law; checking that hypothesis on an
   implemented law is a finite simulator check. No physical coupling value or
   promotion is implied.
+- A5 group/trichotomy receipt corpus (`Screen/A5OPH.lean`, external
+  cross-audit contribution, merged 2026-07-23): 18 / 18 audited
+  declarations, sorry-free, standard axioms (`propext`, `Classical.choice`,
+  `Quot.sound`), no `native_decide`. Six namespaces: `A5Order6` (order-six
+  subgroups of `A5`, nonabelian hence `≅ S3`), `A5NoZ6` (no element of
+  order six, hence no `ℤ/6`; the odd order-six `S5` element exhibited as
+  the sharpness control), `OPHGap` (negative control: a `G`-equivariant
+  linear isomorphism does not determine a Lie bracket — guards the
+  module-decomposition step against over-reading; no corpus surface makes
+  the guarded claim), `OPHSelection` (finite core of the compact-Lie
+  trichotomy: every `A5`-action on at most four objects is trivial;
+  `11 = 3+8` and `12 = 3+3+3+3` uniquely over the compact-simple dimension
+  list `{3,8,10}`), `OPHInner` (the centre is characteristic; the
+  inner-action reduction (H2) ⇒ (H*) stated modulo two declared classical
+  inputs — exponential surjectivity and `Ad(G) = Inn` on compact connected
+  groups; `A5` embeds in no group with a unique involution, hence
+  `A5 ⊄ SU(2)`), `OPHTrichotomy` (no compact semisimple algebra in
+  dimensions 1, 2, 4, 5, 7; the paper's noncentral-quintet witness
+  `[iS, iT] = -2(E₁₂ - E₂₁) ≠ 0`; the screen gluing class
+  `Λ₊/(Λ₁ ⊕ Λ₅) ≅ ℤ/6` with proper-rotation invariance and antipodal sign
+  reversal — the bare quotient isomorphism is also in `Z6Exact.lean`; this
+  module adds the two invariance clauses and the trichotomy context).
+  Provenance: authored in the external cross-audit lane (Aristotle build,
+  Lean/Mathlib v4.28.0), rebuilt verbatim under this project's toolchain
+  (v4.29.1); rebuild record in `DULA/VERIFICATION.md` at the meta-repo
+  root. Declared classical inputs stay on paper: compact-simple
+  classification, reductive decomposition, exponential surjectivity, the
+  dimension-six branch module argument (#604), and the `ℚ(√5)` rationality
+  lemma (#605). No physical receipt is formalized. Does **not** bear on the
+  Prop 4.2 / Def 4.1 counts.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
