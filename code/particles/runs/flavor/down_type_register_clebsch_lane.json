@@ -1,13 +1,13 @@
 {
   "artifact": "oph_down_type_register_clebsch_lane",
   "boundary_values_at_mu_U": {
-    "y_b": 0.009545960940113325,
-    "y_d": 8.235248695252971e-06,
-    "y_e": 2.745082898417657e-06,
-    "y_mu": 0.0005675961898605445,
-    "y_s": 0.0001891987299535148,
-    "y_t": 0.4054593870481957,
-    "y_tau": 0.009545960940113325
+    "y_b": 0.009545960940330799,
+    "y_d": 8.23524869541306e-06,
+    "y_e": 2.74508289847102e-06,
+    "y_mu": 0.0005675961898736558,
+    "y_s": 0.00018919872995788527,
+    "y_t": 0.4054593870480353,
+    "y_tau": 0.009545960940330799
   },
   "checks": {
     "clebsch_factors_declared": true,
@@ -19,20 +19,21 @@
   "checks_pass": true,
   "claim_boundary": "Conditional on the MCPR lepton triple and the declared register Clebsch pattern. Ratios are the sharp outputs; the absolute normalization carries a named open tension. Nothing here is a promoted source-only prediction.",
   "clebsch_boundary": {
-    "candidate_register_origin": "3 = N_c and 1/3 = invariant color measure of the transitive C3 action; the selection theorem for the pairing and the factors is the open premise",
+    "candidate_register_origin": "3 = N_c and 1/3 = invariant color measure of the transitive C3 action; the pairing and the unordered weight set are selected conditionally by runs/flavor/clebsch_register_pairing_selection.json, and the generation-order assignment is the open premise",
     "factors": {
       "b_over_tau": 1.0,
       "d_over_e": 3.0,
       "s_over_mu": 0.3333333333333333
     },
-    "register_scale": "mu_U"
+    "register_scale": "mu_U",
+    "selection_artifact": "runs/flavor/clebsch_register_pairing_selection.json"
   },
   "compare_only": {
-    "cabibbo_relative": -0.07275023280194914,
-    "mb_relative": 0.4421030852539245,
-    "md_relative": 0.30110953799467643,
-    "ms_over_md_relative": 0.15448533721770552,
-    "ms_relative": 0.5025938447611695,
+    "cabibbo_relative": -0.07275023280364601,
+    "mb_relative": 0.4421030807192965,
+    "md_relative": 0.30110953336809776,
+    "ms_over_md_relative": 0.15448533722193103,
+    "ms_relative": 0.5025938394236382,
     "references": {
       "cabibbo": 0.225,
       "mb_mb_gev": 4.18,
@@ -49,18 +50,19 @@
   },
   "normalization_tension": {
     "open_objects": [
-      "CLEBSCH_REGISTER_SELECTION_THEOREM",
+      "GENERATION_REGISTER_ORDER",
       "THIRD_GENERATION_REGISTER_FACTOR",
       "FROZEN_RG_THRESHOLD_MATCHING_PACKET"
     ],
+    "premise_reduction": "CLEBSCH_REGISTER_SELECTION_THEOREM is split by the selection artifact: pairing and unordered weight set closed conditionally, generation order open",
     "statement": "the third-generation relation y_b = y_tau at one loop in this branch overshoots the down-type normalization by tens of percent while the intra-sector ratios and the Gatto-Sartori-Tonin angle land at the ten-percent scale; the deficit is carried openly and attributed to the third-generation register factor and the threshold packet, both open"
   },
   "predictions": {
-    "cabibbo_gst_sqrt_md_over_ms": 0.20863119761956145,
-    "mb_mb_gev": 6.027990896361404,
-    "md_2gev_gev": 0.006115214828574979,
-    "ms_2gev_gev": 0.14049252448516936,
-    "ms_over_md": 22.97425821063234
+    "cabibbo_gst_sqrt_md_over_ms": 0.20863119761917964,
+    "mb_mb_gev": 6.027990877406659,
+    "md_2gev_gev": 0.00611521480683006,
+    "ms_2gev_gev": 0.14049252398611017,
+    "ms_over_md": 22.974258210716425
   },
   "promotion_allowed": false,
   "row_class": "conditional_on_mcpr_leptons_and_register_clebsch",

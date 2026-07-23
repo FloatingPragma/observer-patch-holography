@@ -463,7 +463,10 @@ def _down_type_rows(clebsch: dict, up_scan: dict) -> dict[str, Any]:
         "rows": [
             {
                 "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
-                "tier": "T2, conditional on the Clebsch selection theorem",
+                "tier": (
+                    "T2, conditional on the generation register order; pairing "
+                    "and weight set selected by the Clebsch selection artifact"
+                ),
                 "explanation": (
                     "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land "
                     "at the ten-percent scale; the absolute normalization "

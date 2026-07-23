@@ -14,8 +14,12 @@ conditional MCPR charged-lepton triple with no further input:
 
 The candidate register origin of the factors is declared: ``3 = N_c`` and
 ``1/3`` is the invariant color measure of the transitive C3 action, the two
-weights the corpus emits everywhere.  The Clebsch selection theorem is an
-open premise gate.
+weights the corpus emits everywhere.  The selection artifact
+(``clebsch_register_pairing_selection.json``) closes the pairing part
+conditional on the #314 exterior matter contract and the unordered weight
+set conditional on the frozen constraints F1/F2; the generation-order
+assignment of the weights, ``GENERATION_REGISTER_ORDER``, remains the open
+premise gate of this lane.
 
 The lane runs the full one-loop seven-Yukawa system (top trace included,
 top from the criticality boundary), applies the Clebsch boundary at
@@ -238,8 +242,13 @@ def build_artifact(mcpr: dict[str, Any]) -> dict[str, Any]:
             "register_scale": "mu_U",
             "candidate_register_origin": (
                 "3 = N_c and 1/3 = invariant color measure of the transitive "
-                "C3 action; the selection theorem for the pairing and the "
-                "factors is the open premise"
+                "C3 action; the pairing and the unordered weight set are "
+                "selected conditionally by "
+                "runs/flavor/clebsch_register_pairing_selection.json, and the "
+                "generation-order assignment is the open premise"
+            ),
+            "selection_artifact": (
+                "runs/flavor/clebsch_register_pairing_selection.json"
             ),
         },
         "inputs": {
@@ -277,10 +286,15 @@ def build_artifact(mcpr: dict[str, Any]) -> dict[str, Any]:
                 "both open"
             ),
             "open_objects": [
-                "CLEBSCH_REGISTER_SELECTION_THEOREM",
+                "GENERATION_REGISTER_ORDER",
                 "THIRD_GENERATION_REGISTER_FACTOR",
                 "FROZEN_RG_THRESHOLD_MATCHING_PACKET",
             ],
+            "premise_reduction": (
+                "CLEBSCH_REGISTER_SELECTION_THEOREM is split by the selection "
+                "artifact: pairing and unordered weight set closed "
+                "conditionally, generation order open"
+            ),
         },
         "claim_boundary": (
             "Conditional on the MCPR lepton triple and the declared register "

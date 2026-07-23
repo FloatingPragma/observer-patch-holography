@@ -344,18 +344,18 @@
         {
           "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
           "blocking_objects": [
-            "CLEBSCH_REGISTER_SELECTION_THEOREM",
+            "GENERATION_REGISTER_ORDER",
             "THIRD_GENERATION_REGISTER_FACTOR",
             "FROZEN_RG_THRESHOLD_MATCHING_PACKET"
           ],
-          "cabibbo_gst": 0.20863119761956145,
-          "cabibbo_relative_compare_only": -0.07275023280194914,
+          "cabibbo_gst": 0.20863119761917964,
+          "cabibbo_relative_compare_only": -0.07275023280364601,
           "explanation": "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.",
           "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
-          "mb_mb_GeV": 6.027990896361404,
-          "md_2GeV_GeV": 0.006115214828574979,
-          "ms_2GeV_GeV": 0.14049252448516936,
-          "tier": "T2, conditional on the Clebsch selection theorem"
+          "mb_mb_GeV": 6.027990877406659,
+          "md_2GeV_GeV": 0.00611521480683006,
+          "ms_2GeV_GeV": 0.14049252398611017,
+          "tier": "T2, conditional on the generation register order; pairing and weight set selected by the Clebsch selection artifact"
         },
         {
           "artifact": "runs/flavor/up_type_register_exponent_scan.json",
@@ -456,7 +456,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-23T02:10:34Z",
+  "generated_utc": "2026-07-23T02:21:02Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [

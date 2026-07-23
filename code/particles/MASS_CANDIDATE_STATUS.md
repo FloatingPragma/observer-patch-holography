@@ -151,15 +151,15 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 ## quarks, conditional lanes
 
 - Lane: down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)
-  - Tier: T2, conditional on the Clebsch selection theorem
+  - Tier: T2, conditional on the generation register order; pairing and weight set selected by the Clebsch selection artifact
   - explanation: Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.
-  - mb_mb_GeV: 6.027990896361404
-  - ms_2GeV_GeV: 0.14049252448516936
-  - md_2GeV_GeV: 0.006115214828574979
-  - cabibbo_gst: 0.20863119761956145
-  - cabibbo_relative_compare_only: -0.07275023280194914
+  - mb_mb_GeV: 6.027990877406659
+  - ms_2GeV_GeV: 0.14049252398611017
+  - md_2GeV_GeV: 0.00611521480683006
+  - cabibbo_gst: 0.20863119761917964
+  - cabibbo_relative_compare_only: -0.07275023280364601
   - Artifact: `runs/flavor/down_type_register_clebsch_lane.json`
-  - Blocking objects: CLEBSCH_REGISTER_SELECTION_THEOREM, THIRD_GENERATION_REGISTER_FACTOR, FROZEN_RG_THRESHOLD_MATCHING_PACKET
+  - Blocking objects: GENERATION_REGISTER_ORDER, THIRD_GENERATION_REGISTER_FACTOR, FROZEN_RG_THRESHOLD_MATCHING_PACKET
 
 - Lane: up-type integer exponent scan (archived negative result)
   - Tier: compare-only scan; law family removed
