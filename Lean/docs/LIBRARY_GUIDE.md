@@ -12,8 +12,8 @@ surface for the OPH consensus layer. Contents:
 - Lake project with pinned `leanprover/lean4:v4.29.1` and Mathlib `v4.29.1`.
 - An abstract-rewriting skeleton (Newman's lemma, normal-form uniqueness,
   descent termination, fixed-point zero-potential corollary) in
-  `Source/ObserverPatchHolography/AbstractRewriting.lean`.
-- A concrete OPH carrier layer in `Source/ObserverPatchHolography/Primitives.lean`
+  `ObserverPatchHolography/AbstractRewriting.lean`.
+- A concrete OPH carrier layer in `ObserverPatchHolography/Primitives.lean`
   for records, patch/interface data, observable overlap maps, the mismatch
   potential `Φ`, gauge equivalence, edge-consistency, and non-vacuity witnesses.
 - Machine-checked proof-audit material for the consensus/reconstruction layer,
@@ -21,7 +21,7 @@ surface for the OPH consensus layer. Contents:
   concrete countermodels separating confluence from observer-facing uniqueness,
   and axiom audits for the discharged reconstruction statements.
 - A sorry-free bridge-boundary module
-  `Source/ObserverPatchHolography/BridgeBoundaries.lean`: disjoint writes that
+  `ObserverPatchHolography/BridgeBoundaries.lean`: disjoint writes that
   separately preserve a nonlinear protected observable can fail under
   composition, and the even/odd three-bit laws are distinct despite identical
   one- and two-bit marginals. These theorems keep the local-diamond and
@@ -32,24 +32,24 @@ surface for the OPH consensus layer. Contents:
   termination, reachability, and normal-form receipts. Confluence and
   completeness remain explicit carrier properties and are not universal.
 - A sorry-free **#304 boundary-fiber carrier witness** in
-  `Source/ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
+  `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
   information-set boundary, with a bad-boundary counterexample, a non-trivial
   gauge, and a local-repair no-go (`H1`–`H3` route only). A carrier-level
   witness; it does **not** advance the Prop 4.2 target. See `PROOF_INDEX.md`.
 - A sorry-free **Part-A coupling-algebra layer** (13 lemmas, standard axioms
-  only): `Source/ObserverPatchHolography/BridgeEquivalence.lean` (bridge
+  only): `ObserverPatchHolography/BridgeEquivalence.lean` (bridge
   count/tick equivalence, 5 lemmas),
-  `Source/ObserverPatchHolography/CapacityFixedPoint.lean` (capacity
+  `ObserverPatchHolography/CapacityFixedPoint.lean` (capacity
   fixed-point uniqueness schema, 4 lemmas), and
-  `Source/ObserverPatchHolography/SeedPi.lean` (CAP-P seed statement,
+  `ObserverPatchHolography/SeedPi.lean` (CAP-P seed statement,
   4 lemmas). These formalise the ALGEBRAIC layer of the coupling theorem and
   carry no physical-derivation content; the physical identities I1/I2 are
   outside the formalised set. Numeric interval enclosures stay in the Python
   certificates (`code/capacity_readback/`, `code/P_derivation/`); no
   floating-point numerics enter Lean. See `PROOF_INDEX.md`.
 - A sorry-free **#578 corrected Einstein-branch kernel** under
-  `Source/ObserverPatchHolography/EinsteinBranch/`: bare finite-tower
+  `ObserverPatchHolography/EinsteinBranch/`: bare finite-tower
   non-entailment, typed common-domain and boundary-fibre composition,
   explicit nine-direction null tomography, finite bulk/edge entropy and
   MaxEnt algebra, exact small-ball coefficient arithmetic, timelike/null
@@ -57,14 +57,14 @@ surface for the OPH consensus layer. Contents:
   logic. Continuum, asymptotic, UC, VR, scale, and tower-nonemptiness inputs
   stay explicit in the main theorem type. See `EINSTEIN_BRANCH_INDEX.md`.
 - A standalone, application-neutral proof package in
-  `Proofs/ObservableNormalForms/`.  Its generic endpoint theorem is connected
+  `ObservableNormalForms/`.  Its generic endpoint theorem is connected
   to the concrete local-repair interface by
-  `Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`.  This
+  `ObserverPatchHolography/Bridges/ObservableNormalForms.lean`.  This
   bridge characterizes the #304 application premise for arbitrary carriers;
   the premise itself is discharged on the declared domain by the
   `BoundaryFiber` module below.
 - A sorry-free **#304 application theorem**
-  (`Source/ObserverPatchHolography/BoundaryFiber.lean`): the verified
+  (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)
   as an `OPHCarrier` family (`TreePacketNet`), the declared physical
   boundary/sector map `B_OPH` as the concrete root-packet readback
@@ -86,7 +86,7 @@ surface for the OPH consensus layer. Contents:
   a sterile matter completion. These are finite no-go theorems about the
   exposed reduct, not a claim that a richer operational producer packet cannot
   select the physical completion.
-- A sorry-free **finite event algebras** library (`Source/EventAlgebra/`,
+- A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one
   matrices, Born weights (reality, nonnegativity, normalisation,
@@ -103,7 +103,7 @@ surface for the OPH consensus layer. Contents:
   for submission; every lemma is tagged **algebra-only** or **consumes a
   tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
   ("Finite event algebras"); Mathlib friction log in
-  `Source/EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
+  `EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
 
 What is **not** yet present and is the target:
 

@@ -18,7 +18,7 @@ for
 
 | # | Selection | Where it is forced |
 | --- | --- | --- |
-| 1 | Twelve-unit port splitting (all twelve port weights equal one) | Issue #565 closure packet (`code/a5_closure`): unique all-one total-12 allocation with exact floor 12, next floor 14, gap 2. Lean: `Lean/ObserverPatchHolography/Screen/UnitSplit12.lean`, `unit_split_of_positive_sum`. Conditional on row 4. |
+| 1 | Twelve-unit port splitting (all twelve port weights equal one) | Issue #565 closure packet (`code/a5_closure`): unique all-one total-12 allocation with exact floor 12, next floor 14, gap 2. Lean: `Lean/Screen/UnitSplit12.lean`, `unit_split_of_positive_sum`. Conditional on row 4. |
 | 2 | Inverse port pairing and six axes | Issue #565 closure packet: unique distance-3 antipodal pairing and six axes on the port incidence, with negative controls. Conditional on row 4. |
 | 3 | Icosahedral screen selector and port frame ($A_5$ action, rank-3 Gram frame) | Issue #565 closure packet: $\mathrm{Aut}^+\cong A_5$, full $\mathrm{Aut}\cong A_5\times C_2$, Gram identity $G^2=4G$ with trace 12. Lean: `PortFrameGram.lean`, `A5PortAction.lean` (kernel `decide`). Conditional on row 4. |
 

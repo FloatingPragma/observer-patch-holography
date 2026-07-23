@@ -12,19 +12,19 @@ package «ObserverPatchHolography» where
 
 @[default_target]
 lean_lib «ObservableNormalForms» where
-  srcDir := "ObserverPatchHolography/Proofs/ObservableNormalForms"
+  srcDir := "ObservableNormalForms"
 
 @[default_target]
 lean_lib «ObserverPatchHolography» where
-  srcDir := "ObserverPatchHolography/Source"
+  srcDir := "."
 
 @[default_target]
 lean_lib «EventAlgebra» where
-  srcDir := "ObserverPatchHolography/Source"
+  srcDir := "."
 
 @[default_target]
 lean_lib «OPHScreen» where
-  srcDir := "ObserverPatchHolography/Screen"
+  srcDir := "Screen"
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,
     `TopThreeKernelFix, `UnitSplit12, `Z6Exact, `PhysicalA5ForcingNoGo,
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,

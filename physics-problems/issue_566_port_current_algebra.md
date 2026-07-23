@@ -624,7 +624,7 @@ theorem equivariant_moduli ... :
   finrank ℝ (P12 →ₗ[A5] u3 × so3) = 4 := ...
 ```
 
-`Lean/ObserverPatchHolography/Screen/Compact12.lean` formalizes the
+`Lean/Screen/Compact12.lean` formalizes the
 abstract `u(3) (+) so(3)` bracket, Lie laws, dimension twelve, and a
 noncentrality witness; the Python receipt supplies the exact rotation
 tables, structure constants, and normal forms needed to instantiate the

@@ -40,7 +40,7 @@ Consensus Protocol* (Definition `def:tree-packet-domain`):
 
 `TreePacketNet.BOPH_boundaryIdentifiesModulo` restates the theorem as the
 `BoundaryIdentifiesModulo` premise of the substrate-neutral package under
-`Proofs/ObservableNormalForms/`. The two generic hypotheses of the neutral
+`ObservableNormalForms/`. The two generic hypotheses of the neutral
 endpoint theorem are then discharged for the domain's own repair law
 (`treeRepairAt`, the paper's `T_i`):
 

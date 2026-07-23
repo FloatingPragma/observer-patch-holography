@@ -21,7 +21,7 @@ READER_GLOBS = [
     "README_FR.md",
     "REPRODUCE.md",
     "Lean/README.md",
-    "Lean/ObserverPatchHolography/README.md",
+    "Lean/docs/LIBRARY_GUIDE.md",
     "code/README.md",
     "docs/README.md",
     "docs/APPLICATIONS.md",

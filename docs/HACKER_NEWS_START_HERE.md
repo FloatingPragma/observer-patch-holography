@@ -39,7 +39,7 @@ lake build
 ```
 
 The library build is the proof receipt. Coverage and premises are indexed in
-[Lean/ObserverPatchHolography/PROOF_INDEX.md](../Lean/ObserverPatchHolography/PROOF_INDEX.md).
+[Lean/docs/PROOF_INDEX.md](../Lean/docs/PROOF_INDEX.md).
 Continuum geometry, asymptotic tails, and physical identification are explicit
 premises, stated as such in [Lean/README.md](../Lean/README.md).
 
@@ -118,7 +118,7 @@ exactly what is left.
    against the program.
 3. **Shrink a Lean premise.** Pick any public theorem, read its axiom report,
    and remove or weaken a premise; or formalize one of the named open lemmas
-   in the [proof index](../Lean/ObserverPatchHolography/PROOF_INDEX.md).
+   in the [proof index](../Lean/docs/PROOF_INDEX.md).
 4. **Extend the convergence ladder.** Reproduce the $(2,2)$ density control,
    or run a rung above 262k carriers in
    [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim). The

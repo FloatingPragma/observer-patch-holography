@@ -44,10 +44,10 @@ jobs:
         with:
           path: |
             Lean/.lake
-            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
-          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
+            Lean/ObservableNormalForms/.lake
+          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}
           restore-keys: |
-            lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
+            lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}
             lake2-${{ runner.os }}-
 
       - name: Verify pinned dependency inputs
@@ -84,7 +84,7 @@ jobs:
 
       - name: Fetch Mathlib olean cache for the neutral submission artifact
         if: steps.budget_build.outputs.status == '0'
-        working-directory: Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
+        working-directory: Lean/ObservableNormalForms
         # The nested project pins the same Mathlib revision as the umbrella
         # project; without this fetch it compiles Mathlib from source and
         # exhausts its budget.
@@ -99,7 +99,7 @@ jobs:
       - name: Build neutral submission artifact
         id: onf_build
         if: steps.budget_build.outputs.status == '0'
-        working-directory: Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
+        working-directory: Lean/ObservableNormalForms
         run: |
           set -euo pipefail
           status=0
@@ -115,8 +115,8 @@ jobs:
         with:
           path: |
             Lean/.lake
-            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
-          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}
+            Lean/ObservableNormalForms/.lake
+          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}
 
       - name: Fail when the time budget expired before completion
         if: steps.budget_build.outputs.status != '0'
@@ -144,14 +144,14 @@ jobs:
           fi
 
           if rg -n '^\s*axiom\b|\bby\s+native_decide\b' \
-              ObserverPatchHolography/Source/ObserverPatchHolography/EinsteinBranch \
+              ObserverPatchHolography/EinsteinBranch \
               --glob '*.lean'; then
             echo "Unexpected global axiom or native_decide in the Einstein branch." >&2
             exit 1
           fi
 
           if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
-              ObserverPatchHolography/Proofs/ObservableNormalForms/ObservableNormalForms \
+              ObservableNormalForms/ObservableNormalForms \
               --glob '*.lean'; then
             echo "Unexpected admission in neutral submission artifact." >&2
             exit 1
@@ -174,7 +174,7 @@ jobs:
         run: |
           set -euo pipefail
           lake env lean \
-            ObserverPatchHolography/Source/ObserverPatchHolography/EinsteinBranch/AxiomAudit.lean \
+            ObserverPatchHolography/EinsteinBranch/AxiomAudit.lean \
             2>&1 | tee axiom-audit.log
           grep -F "bare_consensus_not_einstein_complete' depends on axioms" axiom-audit.log
           grep -F "composedEinsteinBranch' depends on axioms" axiom-audit.log

@@ -241,7 +241,7 @@ Instantiated on a linear (Rule 90) two-patch carrier, the first case where the
 `#304` `Hfib` binder is non-degenerate (a proper, failable information set + a
 non-trivial gauge), unlike `demoCarrier`'s seed tautology. A carrier-level
 witness, **not** a Prop 4.2 / Def 4.1 item. Module:
-`Source/ObserverPatchHolography/Rule90.lean` (PR #385). Sorry-free, standard axioms
+`ObserverPatchHolography/Rule90.lean` (PR #385). Sorry-free, standard axioms
 only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 
 | Lean name | Module | Status | Notes |
@@ -264,9 +264,9 @@ enclosures stay in the Python certificates (`code/capacity_readback/`,
 are sorry-free with standard axioms only (`propext`, `Classical.choice`,
 `Quot.sound`). Not a Prop 4.2 / Def 4.1 item.
 
-Modules: `Source/ObserverPatchHolography/BridgeEquivalence.lean`,
-`Source/ObserverPatchHolography/CapacityFixedPoint.lean`,
-`Source/ObserverPatchHolography/SeedPi.lean`. Status marks refer to the
+Modules: `ObserverPatchHolography/BridgeEquivalence.lean`,
+`ObserverPatchHolography/CapacityFixedPoint.lean`,
+`ObserverPatchHolography/SeedPi.lean`. Status marks refer to the
 coupling-algebra statements, not to *Paradise* anchors.
 
 | Lean name | Module | Status | Notes |
@@ -287,7 +287,7 @@ coupling-algebra statements, not to *Paradise* anchors.
 
 ## #304: Generic theorem and concrete bridge
 
-The standalone proof package at `Proofs/ObservableNormalForms/` proves the
+The standalone proof package at `ObservableNormalForms/` proves the
 exact substrate-neutral equivalence
 
 ```text
@@ -296,7 +296,7 @@ boundary identification on consistent states modulo E
 ```
 
 `OPH.boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR` in
-`Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`
+`ObserverPatchHolography/Bridges/ObservableNormalForms.lean`
 machine-checks that Jonathan's H1--H3 completeness theorem and boundary
 preservation instantiate that equivalence for `acceptedStepLR`.
 
@@ -312,7 +312,7 @@ The concrete #304 gate on the verified rooted-tree packet-net domain
 (*Reality as a Consensus Protocol*, Definition `def:tree-packet-domain`):
 `TreePacketNet` realises the domain as an `OPHCarrier` family, `B_OPH` is the
 root-packet readback, and injectivity modulo gauge holds class-wide. Module:
-`Source/ObserverPatchHolography/BoundaryFiber.lean`. Sorry-free, standard
+`ObserverPatchHolography/BoundaryFiber.lean`. Sorry-free, standard
 axioms only. Companion note: `BOUNDARY_FIBER_APPLICATION.md`. Outside the
 declared class the identifiability premise is named and can fail
 (`demoCarrier_Hfib_fails`, `rule90_Hfib_bad_fails`). Not a Prop 4.2 /
@@ -342,8 +342,8 @@ lemma's doc comment carries a scope tag : **algebra-only** (pure
 `*`-algebra content) or **consumes a tracial state** (content passing
 through the trace pairing `(ρ, P) ↦ Tr(ρ P)`), so the split between the
 algebraic layer and the state layer is machine-visible. Modules live in
-`Source/EventAlgebra/` with umbrella `Source/EventAlgebra.lean`; Mathlib
-friction log in `Source/EventAlgebra/MATHLIB_NOTES.md`. All 64 audited
+`EventAlgebra/` with umbrella `EventAlgebra.lean`; Mathlib
+friction log in `EventAlgebra/MATHLIB_NOTES.md`. All 64 audited
 declarations report `[propext, Classical.choice, Quot.sound]` (the ring
 identity `chsh_mul_self` even avoids `Classical.choice`).
 
@@ -401,7 +401,7 @@ Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
 `CenterExpectation.lean` : conditional expectation onto a commutative
 center (16 lemmas). This is the quantum-native counterpart of the
 classical contractive conditional-resampling projector package in
-`Proofs/ObservableNormalForms/ObservableNormalForms/ConditionalResampling.lean`
+`ObservableNormalForms/ObservableNormalForms/ConditionalResampling.lean`
 (fixes-the-fiber-constants / idempotent / selfadjoint-for-the-weighted-inner-product /
 Pythagoras / squared-`L²` contraction); the statements were re-proved from
 scratch in the matrix event-algebra setting rather than wrapped, so the

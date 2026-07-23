@@ -1,10 +1,10 @@
 # Boundary-fiber identifiability: the OPH application bridge (issue #304)
 
 This note connects the substrate-neutral identifiability theorem in
-`Proofs/ObservableNormalForms/` to the concrete OPH objects, hypothesis by
+`ObservableNormalForms/` to the concrete OPH objects, hypothesis by
 hypothesis, and records exactly what is proved, on which domain, and what
 stays a named premise. The machine-checked side lives in
-`Source/ObserverPatchHolography/BoundaryFiber.lean`.
+`ObserverPatchHolography/BoundaryFiber.lean`.
 
 ## The gate statement
 

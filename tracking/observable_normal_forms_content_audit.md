@@ -26,7 +26,7 @@ The physical $\chi_\nu$ hypothesis is explicitly out of scope. This report does 
 | Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `ce9d9dda9febec0ee9cfedc6797724b01767f5c198be94720ff7a9e8a3371817` |
 | Bibliography | `extra/observable_normal_forms.bib`, SHA-256 `a183a981f984a2c1674bca7fddbbda356cea05dca467ee0102ae853b3a1e2ad3` |
 | Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `1bf54d9a189f1e876ae67737a4d943c4ecb386cdf1c33e08efbd10617de888ed`; rebuilt from the audited TeX/BibTeX sources with visible global release `r1527` |
-| Standalone Lean artifact | `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
+| Standalone Lean artifact | `Lean/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
 | Independent Lean build in this audit | standalone build succeeded through target 8259; the merged parent build succeeded through target 8265; all new-paper and bridge theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
@@ -351,7 +351,7 @@ This is substantial partial formalization, not complete mechanization of the pap
 ## Relationship to Jonathan Hill's existing Lean development
 
 The dedicated artifact does **not** supersede
-`Lean/ObserverPatchHolography/Source/` as a whole.  The two developments have
+`Lean/ObserverPatchHolography/` as a whole.  The two developments have
 different roles:
 
 - `ObserverPatchHolography` supplies the concrete carrier interface
@@ -380,7 +380,7 @@ same-input confluence machinery remains useful for repair-law questions.
 
 The merged hierarchy now records that correspondence explicitly in
 `OPH.boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR`, under
-`Lean/ObserverPatchHolography/Source/ObserverPatchHolography/Bridges/`.
+`Lean/ObserverPatchHolography/Bridges/`.
 Its axiom audit contains only standard axioms.  The bridge deliberately leaves
 the actual boundary map and its consistent-quotient injectivity as inputs, so
 it clarifies rather than hides the remaining live #304 obligation.
@@ -404,7 +404,7 @@ artifact rather than the obsolete three-file snapshot. They record:
 - the independently successful parent and standalone builds;
 - the theorem-level axiom audit and absence of `sorryAx`;
 - the exact, partial, and unformalized coverage boundary from
-  `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/PROOF_INDEX.md`;
+  `Lean/ObservableNormalForms/PROOF_INDEX.md`;
 - the build receipt, submission manifest, and relative hashes.
 
 The manuscript does not claim complete mechanization. Its formalization table

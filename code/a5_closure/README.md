@@ -91,7 +91,7 @@ ten-Majorana rank-15 projector, the distinction between a composite response
 cubic and a fundamental 1PI cubic, complement-complete refinement with a
 hidden-zero-mode counterexample, and a finite exhaustive settlement fixture.
 The matching sorry-free logical no-go is
-`../../Lean/ObserverPatchHolography/Screen/PhysicalA5ForcingNoGo.lean`.
+`../../Lean/Screen/PhysicalA5ForcingNoGo.lean`.
 These are diagnostic Q0 certificates. They do not emit a
 physical screen current, a Spin/locality lift, three chiral families, a scalar
 field, or a refinement-stable quantum theory.
@@ -209,7 +209,7 @@ not a forward test.
 
 ## Formal status
 
-`Lean/ObserverPatchHolography/Screen/Compact12.lean` formalizes the abstract
+`Lean/Screen/Compact12.lean` formalizes the abstract
 `u(3) + so(3)` matrix commutator, Lie laws, dimension, and a matrix
 noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
 `S2DesignSignature.lean` formalizes the `11/25` arithmetic, and

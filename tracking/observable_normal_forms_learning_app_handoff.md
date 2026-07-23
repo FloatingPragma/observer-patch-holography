@@ -12,7 +12,7 @@ Canonical source:
 [observable_normal_forms.tex](../extra/observable_normal_forms.tex)
 
 Formal artifact:
-[ObservableNormalForms](../Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/)
+[ObservableNormalForms](../Lean/ObservableNormalForms/)
 
 ## Purpose
 
@@ -490,7 +490,7 @@ available:
 - TeX:
   `https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.tex`
 - Lean artifact:
-  `https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean/ObserverPatchHolography/Proofs/ObservableNormalForms`
+  `https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean/ObservableNormalForms`
 - Application discussion:
   `https://github.com/FloatingPragma/observer-patch-holography/issues/304`
 
