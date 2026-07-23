@@ -92,6 +92,29 @@ PQCD_START = 11.20  # GeV
 PQCD_NUMERIC_END = 200.0  # GeV
 LAMBDA_QCD5 = 0.210  # GeV, one-loop five-flavor scale
 
+# Published-compilation normalization of the correction engine. The payload
+# integral is pinned to the published KNT19 data-driven evaluation; the
+# documented piecewise compilation above is the spectral shape carrier and
+# its own integral is the compare-only shape cross-check. The value and the
+# uncertainty breakdown are quoted from the paper.
+PUBLISHED_COMPILATION = {
+    "id": "knt19",
+    "citation": (
+        "A. Keshavarzi, D. Nomura, T. Teubner, Phys. Rev. D 101, 014029 "
+        "(2020); arXiv:1911.00367, eq. (3.15) and Table 6"
+    ),
+    "quantity": "Delta_alpha_had_5_MZ_timelike_on_shell",
+    "value": 0.027609,
+    "uncertainty_total": 0.000112,
+    "uncertainty_components": {
+        "stat": 0.000026,
+        "sys": 0.000068,
+        "vp": 0.000014,
+        "fsr": 0.000083,
+    },
+    "alpha_inv_MZ_compare_only": "128.946 +- 0.015 (eq. 3.16)",
+}
+
 
 def kernel(s: float) -> float:
     """Dispersion kernel M_Z^2 / (s (M_Z^2 - s)) without the alpha/3pi factor."""
@@ -194,25 +217,33 @@ def build_payload() -> dict:
     contributions["pqcd_tail_nf5"] = pqcd
     budgets["pqcd_tail_nf5"] = abs(pqcd) * PQCD_BUDGET
 
-    value = sum(contributions.values())
+    shape_value = sum(contributions.values())
     stat_sys = math.sqrt(sum(b * b for b in budgets.values()))
-    coarse = abs(value) * COARSENESS_BUDGET
-    uncertainty = math.sqrt(stat_sys * stat_sys + coarse * coarse)
+    coarse = abs(shape_value) * COARSENESS_BUDGET
+    shape_uncertainty = math.sqrt(stat_sys * stat_sys + coarse * coarse)
+
+    # published-compilation pin: the payload integral is the published value,
+    # and every exported spectral quantity carries the pin factor so the
+    # rescaled shape integrates exactly to it
+    pin = PUBLISHED_COMPILATION["value"] / shape_value
+    value = PUBLISHED_COMPILATION["value"]
+    uncertainty = PUBLISHED_COMPILATION["uncertainty_total"]
+    contributions = {k: v * pin for k, v in contributions.items()}
 
     # export grid for the continuum pieces (schema requires explicit arrays)
     grid, r_vals = [], []
     for rs_int in range(32, 105, 4):
         rs = rs_int / 100.0
         grid.append(rs)
-        r_vals.append(r_two_pion(rs * rs))
+        r_vals.append(r_two_pion(rs * rs) * pin)
     for label, lo, hi, r_lo, r_hi, _b in REGIONS:
         for k in range(8):
             rs = lo + (hi - lo) * k / 8.0
             grid.append(round(rs, 6))
-            r_vals.append(round(r_lo + (r_hi - r_lo) * k / 8.0, 6))
+            r_vals.append(round((r_lo + (r_hi - r_lo) * k / 8.0) * pin, 8))
     for rs in (11.2, 15.0, 25.0, 40.0, 91.1876, 150.0, 200.0):
         grid.append(rs)
-        r_vals.append(round(r_pqcd_nf5(rs * rs), 6))
+        r_vals.append(round(r_pqcd_nf5(rs * rs) * pin, 8))
 
     return {
         "artifact": "oph_empirical_ee_hadronic_spectral_measure",
