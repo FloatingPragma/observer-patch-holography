@@ -1,0 +1,150 @@
+{
+  "artifact": "oph_charged_kappa_interval_coherent_closure",
+  "claim_boundary": "Absolute charged-lepton masses carry a certified coherent-closure interval on the empirical closure surface, conditional on the payload-coherent anchor-gap premise. The rectangle row is retained unchanged as the premise-free certified statement. No source-only absolute mass is emitted; the trace-lift no-go and its gate remain in force unchanged.",
+  "coherence_premise": {
+    "identity_gate": {
+      "breaking_term": null,
+      "operation_order": "required_anchor = codata * (1 - (X +- u)) - A_lep; anchor_gap = required_anchor - a0; 90-digit decimal context",
+      "passed": true,
+      "residual_bound": "1E-50",
+      "residual_lower_endpoint": "0E-85",
+      "residual_upper_endpoint": "0E-85",
+      "statement": "the certified same-scheme anchor-gap interval is the exact affine image g(X) = alpha_inv_0 * (1 - X) - A_lep - a0 of the empirical payload interval; gap and payload carry one uncertainty, not two"
+    },
+    "rectangle_reading": "the rectangle lane remains the robust statement against any future source-emitted bridge value g inside its certified interval, independent of the payload",
+    "statement": "the same-scheme anchor gap takes exactly the value required by the recorded empirical payload, g(X) = alpha_inv_0 * (1 - X) - A_lep - a0, evaluated at the same payload value X as the hadronic term of the decomposition"
+  },
+  "compare_only": {
+    "witness_inside_certified_intervals": true,
+    "witness_masses_gev": [
+      0.0005109989506900001,
+      0.10565837550000001,
+      1.7769299999999995
+    ]
+  },
+  "conditional_mass_rows": [
+    {
+      "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from the payload-coherent transport inversion",
+      "mass_central": 0.0005088574871435262,
+      "mass_interval": [
+        0.0005001193992768244,
+        0.0005177482469115311
+      ],
+      "particle": "electron",
+      "status": "certified_empirical_closure_interval_coherent",
+      "unit": "GeV"
+    },
+    {
+      "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from the payload-coherent transport inversion",
+      "mass_central": 0.10521558876001283,
+      "mass_interval": [
+        0.10340882933765921,
+        0.10705391588921673
+      ],
+      "particle": "muon",
+      "status": "certified_empirical_closure_interval_coherent",
+      "unit": "GeV"
+    },
+    {
+      "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from the payload-coherent transport inversion",
+      "mass_central": 1.7694833490538506,
+      "mass_interval": [
+        1.7390978258506966,
+        1.8003997682230655
+      ],
+      "particle": "tau",
+      "status": "certified_empirical_closure_interval_coherent",
+      "unit": "GeV"
+    }
+  ],
+  "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
+  "generated_utc": "2026-07-23T02:08:38Z",
+  "guards": {
+    "blind_normalization_prediction": false,
+    "charged_mass_information_in_solve_path": true,
+    "conditional_on_payload_coherent_anchor_gap": true,
+    "empirical_hadron_closure": true,
+    "external_cross_section_data_used": true,
+    "measured_alpha_in_solve_path": true,
+    "measured_lepton_masses_directly_supplied_to_inversion": false,
+    "measured_lepton_triple_used_to_calibrate_higher_order_remainder": true,
+    "new_axiom_introduced": false,
+    "payload_double_count_removed": true,
+    "promotable_as_oph_source_theorem": false,
+    "satisfies_production_constructive_next_artifact": false,
+    "source_only": false,
+    "target_anchored_lepton_ratios_in_solve_path": true,
+    "usable_as_diagnostic_route_finder": true,
+    "usable_for_public_final_values": false
+  },
+  "inputs": {
+    "alpha_inv_0": 137.035999177,
+    "alpha_inv_0_uncertainty": 2.1e-08,
+    "anchor_bridge_ref": "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
+    "delta_top": -7e-05,
+    "endpoint_ref": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+    "hadronic_contract_parent": {
+      "artifact": "oph_ward_projected_spectral_measure_proof_packet",
+      "artifact_ref": "code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
+      "contract_certified": true,
+      "issue": 317,
+      "physical_promotion_allowed": false,
+      "physical_source_payload_available": false,
+      "reading": "the production constructive_next_artifact of this lane carries a machine-certified acceptance contract (issue #317); the Delta_had5 payload consumed here remains the declared-empirical companion of that contract, and the certified reduction target of the interval width is unchanged (#425, #545)",
+      "verifier_command": "python3 code/particles/hadron/verify_issue_317_spectral_measure_packet.py --check --output code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json"
+    },
+    "higher_order_lepton_remainder": {
+      "budget": [
+        0.0,
+        0.00015363800357882929
+      ],
+      "central": 7.681900178941464e-05,
+      "definition": "3-loop reference Delta_lep minus one-loop asymptotic kernel at witness; identical to the rectangle lane"
+    },
+    "kernel_truncation_packet_budget": 0.0005,
+    "lepton_transport_delta_inv_alpha": 4.309397866452204,
+    "ratio_provenance": {
+      "artifact_ref": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "ratios_mu_over_e_tau_over_e": [
+        206.76828270846718,
+        3477.3652619063414
+      ],
+      "scope": "centered charged family functional; target-anchored checksum, declared as such in this row class"
+    },
+    "rectangle_lane_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json"
+  },
+  "interval_width_attribution_kappa_units": {
+    "alpha_inv_0_input_width": 1.0373399251252908e-09,
+    "anchor_gap_half_width": 0.0,
+    "hadronic_payload_uncertainty": 0.0,
+    "higher_order_lepton_budget": 0.016535723712825502,
+    "one_loop_kernel_truncation": 0.0007853981633974483,
+    "reduction": "the payload and anchor-gap terms cancel identically under the coherence premise; the surviving width is the higher-order lepton remainder and the one-loop kernel truncation, both closable by standard perturbative computation; the premise itself reduces to the source hadronic spectral measure (#425) and the a0 scheme bridge (#545), unchanged"
+  },
+  "inversion_equation": {
+    "decomposition": "a0 + g(X) = alpha_inv_0 * (1 - Delta_lep(kappa) - X - Delta_top)",
+    "monotonicity": "packet strictly decreasing in kappa; unique solution",
+    "payload_cancellation": "substituting g(X) removes X exactly: required Delta_lep = A_lep / alpha_inv_0 - Delta_top"
+  },
+  "issue": 546,
+  "kappa_interval": {
+    "central": -0.0041995453758020915,
+    "central_match": {
+      "defect": 0.0,
+      "reading": "the rectangle gap midpoint is the affine image of the payload central, so the two centrals coincide; the coherent solve removes width only",
+      "rectangle_central": -0.0041995453758020915
+    },
+    "definition": "kappa = ln(m_e / m_e_witness)",
+    "interval": [
+      -0.021520668289364893,
+      0.013121577537760613
+    ],
+    "rectangle_interval": [
+      -0.34547849011449383,
+      0.33707939936286824
+    ],
+    "width_reduction_factor": 19.70304964878769
+  },
+  "proof_status": "certified_empirical_closure_interval_coherent_kappa_identified",
+  "row_class": "target_shape_plus_empirical_transport_coherent_closure"
+}

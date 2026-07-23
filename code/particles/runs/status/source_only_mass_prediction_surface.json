@@ -73,6 +73,45 @@
           "tier": "T1"
         },
         {
+          "artifact": "runs/leptons/charged_kappa_interval_coherent_closure.json",
+          "blocking_objects": [
+            "source hadronic spectral measure (issue 425)",
+            "anchor scheme bridge source branch (issue 545)",
+            "payload-coherent anchor-gap premise (declared)"
+          ],
+          "explanation": "The certified anchor-gap interval is the exact affine image of the hadronic payload interval, so the payload cancels from the payload-coherent solve and the certified width shrinks by the recorded factor; the surviving width is the higher-order lepton remainder and the kernel truncation. Conditional on the declared payload-coherent anchor-gap premise; the rectangle row above stays as the premise-free statement.",
+          "lane": "alpha-transport kappa interval (coherent closure)",
+          "mass_rows_GeV": [
+            {
+              "central": 0.0005088574871435262,
+              "interval": [
+                0.0005001193992768244,
+                0.0005177482469115311
+              ],
+              "particle": "electron"
+            },
+            {
+              "central": 0.10521558876001283,
+              "interval": [
+                0.10340882933765921,
+                0.10705391588921673
+              ],
+              "particle": "muon"
+            },
+            {
+              "central": 1.7694833490538506,
+              "interval": [
+                1.7390978258506966,
+                1.8003997682230655
+              ],
+              "particle": "tau"
+            }
+          ],
+          "row_class": "target_shape_plus_empirical_transport_coherent_closure",
+          "tier": "T1",
+          "width_reduction_factor": 19.70304964878769
+        },
+        {
           "artifact": "runs/leptons/charged_ward_determinant_line.json",
           "blocking_objects": [
             "R_CHARGED_CENTERED_SHAPE",
@@ -417,7 +456,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-18T06:41:24Z",
+  "generated_utc": "2026-07-23T02:10:34Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [
@@ -466,6 +505,10 @@
     "kappa": {
       "exists": true,
       "path": "runs/leptons/charged_kappa_interval_from_alpha_transport.json"
+    },
+    "kappa_coherent": {
+      "exists": true,
+      "path": "runs/leptons/charged_kappa_interval_coherent_closure.json"
     },
     "lambda_qcd": {
       "exists": true,

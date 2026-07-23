@@ -32,6 +32,15 @@ GeV/MeV displays use the unclosed clock candidate; the clock audit classifies th
   - Artifact: `runs/leptons/charged_kappa_interval_from_alpha_transport.json`
   - Blocking objects: source hadronic spectral measure (issue 425), anchor scheme bridge source branch (issue 545)
 
+- Lane: alpha-transport kappa interval (coherent closure)
+  - Tier: T1
+  - explanation: The certified anchor-gap interval is the exact affine image of the hadronic payload interval, so the payload cancels from the payload-coherent solve and the certified width shrinks by the recorded factor; the surviving width is the higher-order lepton remainder and the kernel truncation. Conditional on the declared payload-coherent anchor-gap premise; the rectangle row above stays as the premise-free statement.
+  - row_class: target_shape_plus_empirical_transport_coherent_closure
+  - mass_rows_GeV: `[{"particle": "electron", "central": 0.0005088574871435262, "interval": [0.0005001193992768244, 0.0005177482469115311]}, {"particle": "muon", "central": 0.10521558876001283, "interval": [0.10340882933765921, 0.10705391588921673]}, {"particle": "tau", "central": 1.7694833490538506, "interval": [1.7390978258506966, 1.8003997682230655]}]`
+  - width_reduction_factor: 19.70304964878769
+  - Artifact: `runs/leptons/charged_kappa_interval_coherent_closure.json`
+  - Blocking objects: source hadronic spectral measure (issue 425), anchor scheme bridge source branch (issue 545), payload-coherent anchor-gap premise (declared)
+
 - Lane: Ward determinant-line inversion (affine-scale producer)
   - Tier: theorem complete, physical parents open
   - row_class: fail_closed_source_packet_gate

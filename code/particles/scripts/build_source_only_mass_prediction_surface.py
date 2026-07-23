@@ -39,6 +39,7 @@ RUNS = PARTICLES / "runs"
 INPUTS = {
     "mcpr": RUNS / "leptons" / "charged_mcpr_completion_conditional.json",
     "kappa": RUNS / "leptons" / "charged_kappa_interval_from_alpha_transport.json",
+    "kappa_coherent": RUNS / "leptons" / "charged_kappa_interval_coherent_closure.json",
     "ward": RUNS / "leptons" / "charged_ward_determinant_line.json",
     "wzh": RUNS / "calibration" / "wzh_residual_elimination_boundary.json",
     "ew": RUNS / "calibration" / "conditional_ew_predictions_current.json",
@@ -67,10 +68,13 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _lepton_rows(mcpr: dict, kappa: dict, ward: dict) -> dict[str, Any]:
+def _lepton_rows(
+    mcpr: dict, kappa: dict, kappa_coherent: dict, ward: dict
+) -> dict[str, Any]:
     pred = mcpr["conditional_prediction"]
     display = mcpr["optional_scale_display"]
     interval_rows = kappa["conditional_mass_rows"]
+    coherent_rows = kappa_coherent["conditional_mass_rows"]
     return {
         "family": "charged leptons",
         "rows": [
@@ -116,6 +120,40 @@ def _lepton_rows(mcpr: dict, kappa: dict, ward: dict) -> dict[str, Any]:
                 "blocking_objects": [
                     "source hadronic spectral measure (issue 425)",
                     "anchor scheme bridge source branch (issue 545)",
+                ],
+            },
+            {
+                "lane": "alpha-transport kappa interval (coherent closure)",
+                "tier": "T1",
+                "explanation": (
+                    "The certified anchor-gap interval is the exact affine "
+                    "image of the hadronic payload interval, so the payload "
+                    "cancels from the payload-coherent solve and the "
+                    "certified width shrinks by the recorded factor; the "
+                    "surviving width is the higher-order lepton remainder "
+                    "and the kernel truncation. Conditional on the declared "
+                    "payload-coherent anchor-gap premise; the rectangle row "
+                    "above stays as the premise-free statement."
+                ),
+                "row_class": kappa_coherent["row_class"],
+                "mass_rows_GeV": [
+                    {
+                        "particle": row["particle"],
+                        "central": row["mass_central"],
+                        "interval": row["mass_interval"],
+                    }
+                    for row in coherent_rows
+                ],
+                "width_reduction_factor": kappa_coherent["kappa_interval"][
+                    "width_reduction_factor"
+                ],
+                "artifact": (
+                    "runs/leptons/charged_kappa_interval_coherent_closure.json"
+                ),
+                "blocking_objects": [
+                    "source hadronic spectral measure (issue 425)",
+                    "anchor scheme bridge source branch (issue 545)",
+                    "payload-coherent anchor-gap premise (declared)",
                 ],
             },
             {
@@ -555,7 +593,9 @@ def build() -> dict[str, Any]:
     status_rows = _load(PARTICLES / "results_status.json")["rows"]
 
     families = [
-        _lepton_rows(data["mcpr"], data["kappa"], data["ward"]),
+        _lepton_rows(
+            data["mcpr"], data["kappa"], data["kappa_coherent"], data["ward"]
+        ),
         _boson_rows(data["wzh"], data["ew"]),
         _higgs_top_rows(
             data["wzh"],
