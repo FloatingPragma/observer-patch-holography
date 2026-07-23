@@ -223,11 +223,45 @@ def _lepton_rows(
     rectangle: dict[str, Any],
     coherent: dict[str, Any],
 ) -> list[dict[str, Any]]:
+    witness_point = rectangle["compare_only"].get("witness_point")
+    if witness_point is None:
+        raise SystemExit(
+            "rectangle artifact lacks the witness_point block; rebuild the "
+            "rectangle lane first"
+        )
+    width_floor = coherent.get("width_floor_audit")
+    if width_floor is None:
+        raise SystemExit(
+            "coherent artifact lacks the width_floor_audit block; rebuild "
+            "the coherent lane first"
+        )
     witnesses = rectangle["compare_only"]["witness_masses_gev"]
     particles = [r["particle"] for r in rectangle["conditional_mass_rows"]]
     family = next(f for f in surface["families"] if f["family"] == "charged leptons")
     mcpr = next(r for r in family["rows"] if r["lane"].startswith("MCPR"))
     rows: list[dict[str, Any]] = []
+    rows.append(
+        {
+            "id": "charged_leptons_closure_target",
+            "statement": (
+                "The certified solve inverts exactly at the measured triple: "
+                "one anchor-gap value closes the charged-lepton lane on the "
+                "witness, that value lies inside the certified band, and its "
+                "distance to the standard on-shell reference deficit is the "
+                "live scheme term of the open anchor bridge. The lepton "
+                "scale is localized to the width of the scheme band, and a "
+                "source-emitted bridge value is a sharp falsification "
+                "target: landing on the closure value closes the lane on "
+                "the witness, landing outside the certified band refutes "
+                "the decomposition."
+            ),
+            "witness_point": witness_point,
+            "width_floor": width_floor["floor_attribution"],
+            "tier": "T1_empirical_closure",
+            "artifact_refs": [_rel("kappa_rectangle"), _rel("kappa_coherent")],
+            "blocking_issues": [545, 425],
+        }
+    )
     mcpr_masses = [float(m) / 1000.0 for m in mcpr["masses_MeV_display"]]
     rows.append(
         {
@@ -387,6 +421,75 @@ def _hadron_rows(payload: dict[str, Any], standby: dict[str, Any]) -> list[dict[
     ]
 
 
+def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
+    """Digest the four strongest rows into the leading section, data-driven."""
+
+    leptons = {r["id"]: r for r in sections["charged_leptons"]}
+    target = leptons["charged_leptons_closure_target"]
+    coherent = leptons["charged_leptons_kappa_coherent"]
+    mcpr = leptons["charged_leptons_mcpr_conditional"]
+    ew = {r["id"]: r for r in sections["electroweak"]}
+    alpha = sections["alpha"][0]
+    wp = target["witness_point"]
+    glo, ghi = alpha["anchor_gap_interval"]
+    hw = coherent["relative_half_widths"][0]
+    ppm = abs(mcpr["relative_deltas"][0]) * 1.0e6
+    mh, mt = ew["ew_mH_gev"], ew["ew_mt_pole_gev"]
+    return [
+        {
+            "id": "lepton_closure_target",
+            "statement": (
+                "The anchor-gap value "
+                f"{wp['required_anchor_gap_at_witness_inv_alpha']:.4f} closes "
+                "the charged-lepton lane exactly on the measured triple, "
+                f"inside the certified band [{glo:.4f}, {ghi:.4f}]; the "
+                f"distance {wp['scheme_term_difference_inv_alpha']:+.4f} to "
+                "the standard on-shell reference deficit "
+                f"{wp['reference_deficit_inv_alpha']:.4f} is the live scheme "
+                "term of the open anchor bridge (issue 545). The lepton "
+                "scale is localized to the width of the scheme band, and a "
+                "source-emitted bridge value is a falsification target: the "
+                "closure value confirms, a value outside the band refutes."
+            ),
+        },
+        {
+            "id": "lepton_certified_intervals",
+            "statement": (
+                "The measured charged-lepton triple lies inside every "
+                "certified interval; the payload-coherent half-width is "
+                f"{hw * 100.0:.2f} percent per lepton, and the conditional "
+                f"eight-register triple sits {ppm:.0f} ppm from measurement "
+                "with the architecture declared."
+            ),
+        },
+        {
+            "id": "higgs_top_envelopes",
+            "statement": (
+                f"The conditional Higgs envelope [{mh['value_envelope'][0]:.3f}, "
+                f"{mh['value_envelope'][1]:.3f}] GeV sits "
+                f"{mh['delta_over_sigma']:.2f} sigma from the measured "
+                f"{mh['measured']} +- {mh['measured_sigma']} GeV, and the top "
+                f"envelope [{mt['value_envelope'][0]:.2f}, "
+                f"{mt['value_envelope'][1]:.2f}] GeV sits "
+                f"{mt['delta_over_sigma']:.2f} sigma from "
+                f"{mt['measured']} +- {mt['measured_sigma']} GeV, "
+                "compare-only, conditional on the declared selection axioms."
+            ),
+        },
+        {
+            "id": "forced_gauge_structure",
+            "statement": (
+                "The gauge sector is pinned before any numeric lane runs: "
+                "the twelve-port trichotomy forces su(3)+su(2)+u(1), the "
+                "gluing-class quotient gives the Z6 global form, and the "
+                "matter lift realizes the exact one-generation hypercharge "
+                "multiset, with the finite steps machine checked in "
+                "Lean/Screen and the hypothesis boundaries recorded below."
+            ),
+        },
+    ]
+
+
 def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> dict[str, Any]:
     surface = _load("mass_surface")
     conditional = _load("conditional_ew")
@@ -401,6 +504,25 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
 
+    sections = {
+        "forced_structure": _forced_structure(matter),
+        "alpha": _alpha_rows(endpoint, bridge),
+        "charged_leptons": _lepton_rows(surface, rectangle, coherent),
+        "electroweak": _ew_rows(conditional),
+        "quarks": _quark_rows(obstruction, clebsch, selection),
+        "hadrons": _hadron_rows(payload, standby),
+        "neutrinos": [
+            {
+                "id": "neutrino_dimensionless_pointer",
+                "statement": (
+                    "dimensionless PMNS and mass-splitting-ratio "
+                    "comparisons live on the results status surface; the "
+                    "absolute attachment stays compare-only"
+                ),
+                "artifact_ref": "code/particles/RESULTS_STATUS.md",
+            }
+        ],
+    }
     result = {
         "artifact": "oph_postdiction_ledger",
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -417,25 +539,8 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
             "every value and every measured reference is read live from the "
             "cited parent artifact; a missing parent aborts the build"
         ),
-        "sections": {
-            "forced_structure": _forced_structure(matter),
-            "alpha": _alpha_rows(endpoint, bridge),
-            "charged_leptons": _lepton_rows(surface, rectangle, coherent),
-            "electroweak": _ew_rows(conditional),
-            "quarks": _quark_rows(obstruction, clebsch, selection),
-            "hadrons": _hadron_rows(payload, standby),
-            "neutrinos": [
-                {
-                    "id": "neutrino_dimensionless_pointer",
-                    "statement": (
-                        "dimensionless PMNS and mass-splitting-ratio "
-                        "comparisons live on the results status surface; the "
-                        "absolute attachment stays compare-only"
-                    ),
-                    "artifact_ref": "code/particles/RESULTS_STATUS.md",
-                }
-            ],
-        },
+        "principal_results": _principal_results(sections),
+        "sections": sections,
     }
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -463,6 +568,11 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "containment of the compare-only witness; conditional rows carry their "
         "declared premises; chart coordinates keep their NOT_EVALUABLE "
         "physical-comparison status.")
+    add("")
+    add("## Principal results")
+    add("")
+    for entry in ledger["principal_results"]:
+        add(f"- {entry['statement']}")
     add("")
     add("## Forced structure")
     add("")
@@ -503,6 +613,17 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("## Charged leptons")
     add("")
     for row in s["charged_leptons"]:
+        if row["id"].endswith("closure_target"):
+            wp = row["witness_point"]
+            add(f"- Closure target ({row['tier']}): the anchor-gap value "
+                f"`{wp['required_anchor_gap_at_witness_inv_alpha']:.4f}` closes the "
+                "lane exactly on the measured triple (inversion machine-checked); "
+                f"the distance `{wp['scheme_term_difference_inv_alpha']:+.4f}` to the "
+                f"on-shell reference deficit `{wp['reference_deficit_inv_alpha']:.4f}` "
+                "is the live scheme term of the bridge. The certified width floor "
+                "is the scheme-band ambiguity; no budget is shrunk without the "
+                "source bridge.")
+            continue
         if row["id"].endswith("mcpr_conditional"):
             deltas = ", ".join(
                 f"{p} `{_fmt(d * 1e6, 3)} ppm`"

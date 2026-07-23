@@ -1,7 +1,7 @@
 {
   "aggregation_policy": "every value and every measured reference is read live from the cited parent artifact; a missing parent aborts the build",
   "artifact": "oph_postdiction_ledger",
-  "generated_utc": "2026-07-23T06:40:02Z",
+  "generated_utc": "2026-07-23T06:54:31Z",
   "guards": {
     "changes_any_solve_path": false,
     "compare_only": true,
@@ -9,6 +9,24 @@
     "new_axiom_introduced": false,
     "public_promotion_allowed": false
   },
+  "principal_results": [
+    {
+      "id": "lepton_closure_target",
+      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the certified band [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the live scheme term of the open anchor bridge (issue 545). The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a falsification target: the closure value confirms, a value outside the band refutes."
+    },
+    {
+      "id": "lepton_certified_intervals",
+      "statement": "The measured charged-lepton triple lies inside every certified interval; the payload-coherent half-width is 1.73 percent per lepton, and the conditional eight-register triple sits 84 ppm from measurement with the architecture declared."
+    },
+    {
+      "id": "higgs_top_envelopes",
+      "statement": "The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection axioms."
+    },
+    {
+      "id": "forced_gauge_structure",
+      "statement": "The gauge sector is pinned before any numeric lane runs: the twelve-port trichotomy forces su(3)+su(2)+u(1), the gluing-class quotient gives the Z6 global form, and the matter lift realizes the exact one-generation hypercharge multiset, with the finite steps machine checked in Lean/Screen and the hypothesis boundaries recorded below."
+    }
+  ],
   "row_class": "compare_only_postdiction_ledger",
   "schema_version": 1,
   "sections": {
@@ -42,6 +60,27 @@
       }
     ],
     "charged_leptons": [
+      {
+        "artifact_refs": [
+          "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+          "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json"
+        ],
+        "blocking_issues": [
+          545,
+          425
+        ],
+        "id": "charged_leptons_closure_target",
+        "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the certified band, and its distance to the standard on-shell reference deficit is the live scheme term of the open anchor bridge. The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a sharp falsification target: landing on the closure value closes the lane on the witness, landing outside the certified band refutes the decomposition.",
+        "tier": "T1_empirical_closure",
+        "width_floor": "the certified width floor at the current premise set is the anchor scheme-bridge ambiguity (issue 545, source branch); the payload term cancels in this lane and the higher-order band is a level convention pinned by the open bridge",
+        "witness_point": {
+          "inside_certified_interval": true,
+          "reading": "the anchor-gap value at which the certified solve lands exactly on the witness triple, at the payload central; a source scheme bridge (#545) that emits this value closes the lane on the witness, and the difference to the standard on-shell reference deficit is the live scheme term of the bridge",
+          "reference_deficit_inv_alpha": 0.6308936136469185,
+          "required_anchor_gap_at_witness_inv_alpha": 0.6378824496049447,
+          "scheme_term_difference_inv_alpha": 0.0069888359580261294
+        }
+      },
       {
         "artifact_ref": "runs/leptons/charged_mcpr_completion_conditional.json",
         "blocking_objects": [

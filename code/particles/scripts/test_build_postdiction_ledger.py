@@ -128,3 +128,31 @@ def test_markdown_rendered(tmp_path):
     assert "# Postdiction Ledger" in text
     assert "## Forced structure" in text
     assert "NOT_EVALUABLE" in text
+
+
+def test_principal_results_lead_with_closure_target(result):
+    principal = result["principal_results"]
+    assert principal[0]["id"] == "lepton_closure_target"
+    assert {p["id"] for p in principal} == {
+        "lepton_closure_target",
+        "lepton_certified_intervals",
+        "higgs_top_envelopes",
+        "forced_gauge_structure",
+    }
+    wp = next(
+        r
+        for r in result["sections"]["charged_leptons"]
+        if r["id"] == "charged_leptons_closure_target"
+    )["witness_point"]
+    assert f"{wp['required_anchor_gap_at_witness_inv_alpha']:.4f}" in principal[0]["statement"]
+
+
+def test_closure_target_row_reads_lane_artifacts(result):
+    row = next(
+        r
+        for r in result["sections"]["charged_leptons"]
+        if r["id"] == "charged_leptons_closure_target"
+    )
+    parent = json.loads(ledger.PARENTS["kappa_rectangle"].read_text(encoding="utf-8"))
+    assert row["witness_point"] == parent["compare_only"]["witness_point"]
+    assert "545" in row["width_floor"]

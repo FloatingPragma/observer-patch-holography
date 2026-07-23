@@ -41,9 +41,9 @@ material below takes you through that shift from a standing start.
 
 The rest of this README is the technical entrance to the repository.
 
-## Three Receipts No Other Program Has
+## Four Receipts No Other Program Has
 
-Before any argument, three artifacts. Each is public, reproducible and, as
+Before any argument, four artifacts. Each is public, reproducible and, as
 far as the published record shows, without counterpart in any competing
 theory-of-everything program:
 
@@ -67,6 +67,17 @@ theory-of-everything program:
    sits $2.5\times10^{-6}$ from the measured $\alpha^{-1}=137.035999177(21)$
    with the remaining gap's address stated (the open hadronic transport).
    No other framework computes a value of $\alpha$ at all.
+4. **Charged-lepton masses boxed by certified intervals, with a declared
+   closure test.** On the empirical closure surface the measured electron,
+   muon, and tau masses sit inside certified intervals of $1.7\%$
+   half-width, the conditional register triple lands $84$ ppm from
+   measurement, and the lane inverts exactly: one anchor-gap value,
+   $0.6379$ inverse-alpha units, closes all three masses on the measured
+   triple at once. That value lies inside the certified band, so the open
+   scheme bridge carries a declared confirm-or-refute target instead of a
+   free parameter. The full comparison table, forced gauge structure
+   included, is the
+   [postdiction ledger](code/particles/POSTDICTION_LEDGER.md).
 
 The rest of this README is the architecture those receipts come from.
 

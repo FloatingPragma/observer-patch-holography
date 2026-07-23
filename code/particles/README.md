@@ -3,6 +3,15 @@
 This directory is the canonical particle-spectrum code path for OPH inside
 `reverse-engineering-reality`.
 
+The single entry point for results is the
+[postdiction ledger](POSTDICTION_LEDGER.md): the forced gauge structure with
+its Lean receipts, the charged-lepton closure target (one anchor-gap value
+closes the lane exactly on the measured triple, inside the certified band),
+the certified lepton intervals with the measured triple inside every one,
+the conditional Higgs/top envelopes within one experimental sigma, and the
+quark obstruction and conditional texture rows, each read live from its
+certified artifact.
+
 ## Scope
 
 The goal is to keep one auditable derivation surface from the OPH inputs

@@ -1,8 +1,15 @@
 # Postdiction Ledger
 
-Generated: `2026-07-23T06:40:02Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
+Generated: `2026-07-23T06:54:31Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
 
 Every value and every measured reference on this page is read live from the cited certified artifact. The ledger promotes nothing, changes no solve path, and introduces no number of its own. Interval rows report containment of the compare-only witness; conditional rows carry their declared premises; chart coordinates keep their NOT_EVALUABLE physical-comparison status.
+
+## Principal results
+
+- The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the certified band [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the live scheme term of the open anchor bridge (issue 545). The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a falsification target: the closure value confirms, a value outside the band refutes.
+- The measured charged-lepton triple lies inside every certified interval; the payload-coherent half-width is 1.73 percent per lepton, and the conditional eight-register triple sits 84 ppm from measurement with the architecture declared.
+- The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection axioms.
+- The gauge sector is pinned before any numeric lane runs: the twelve-port trichotomy forces su(3)+su(2)+u(1), the gluing-class quotient gives the Z6 global form, and the matter lift realizes the exact one-generation hypercharge multiset, with the finite steps machine checked in Lean/Screen and the hypothesis boundaries recorded below.
 
 ## Forced structure
 
@@ -31,6 +38,7 @@ Hypothesis boundaries:
 
 ## Charged leptons
 
+- Closure target (T1_empirical_closure): the anchor-gap value `0.6379` closes the lane exactly on the measured triple (inversion machine-checked); the distance `+0.0070` to the on-shell reference deficit `0.6309` is the live scheme term of the bridge. The certified width floor is the scheme-band ambiguity; no budget is shrunk without the source bridge.
 - MCPR conditional triple (T2): electron `-84.1 ppm`, muon `-84 ppm`, tau `-84 ppm` against the PDG witness triple; the eight-register architecture is a declared model input.
 - Kappa interval, rectangle (T1_empirical_closure): certified relative half-widths electron `6.56%`, muon `6.56%`, tau `6.56%`; the witness triple lies inside every interval.
 - Kappa interval, coherent closure (T1_empirical_closure): certified relative half-widths electron `1.73%`, muon `1.73%`, tau `1.73%`; the witness triple lies inside every interval.
