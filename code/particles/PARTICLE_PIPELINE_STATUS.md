@@ -1,6 +1,6 @@
 # Particle Pipeline Status
 
-Generated: `2026-07-18T06:39:59Z`
+Generated: `2026-07-23T03:55:55Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
@@ -67,6 +67,22 @@ These rows are retained in audit surfaces but are not numeric predictions.
 | `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
 | `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
 | `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
+
+## Charged-Lepton Certified Intervals
+
+Empirical-closure interval rows; the compare-only witness triple lies inside every certified interval. The coherent row is conditional on the declared payload-coherent anchor-gap premise.
+
+| Lane | Particle | Interval (GeV) | Witness inside |
+| --- | --- | --- | --- |
+| rectangle | `electron` | `[0.000476577, 0.000543324]` | `True` |
+| rectangle | `muon` | `[0.098541, 0.112342]` | `True` |
+| rectangle | `tau` | `[1.65723, 1.88934]` | `True` |
+| coherent | `electron` | `[0.000500119, 0.000517748]` | `True` |
+| coherent | `muon` | `[0.103409, 0.107054]` | `True` |
+| coherent | `tau` | `[1.7391, 1.8004]` | `True` |
+
+- Coherent width reduction over the rectangle: `3.78x`
+- Blocking issues: #425, #545
 
 ## Charged-Lepton Anchor Boundary
 

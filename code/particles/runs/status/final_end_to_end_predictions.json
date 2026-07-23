@@ -37,6 +37,83 @@
     "required_identity": "3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))",
     "status": "missing_theorem"
   },
+  "charged_lepton_certified_intervals": {
+    "blocking_issues": [
+      425,
+      545
+    ],
+    "coherent": {
+      "artifact": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
+      "kappa_interval": [
+        -0.021520668289364893,
+        0.013121577537760613
+      ],
+      "mass_rows_gev": [
+        {
+          "central": 0.0005088574871435262,
+          "interval": [
+            0.0005001193992768244,
+            0.0005177482469115311
+          ],
+          "particle": "electron"
+        },
+        {
+          "central": 0.10521558876001283,
+          "interval": [
+            0.10340882933765921,
+            0.10705391588921673
+          ],
+          "particle": "muon"
+        },
+        {
+          "central": 1.7694833490538506,
+          "interval": [
+            1.7390978258506966,
+            1.8003997682230655
+          ],
+          "particle": "tau"
+        }
+      ],
+      "row_class": "target_shape_plus_empirical_transport_coherent_closure",
+      "width_reduction_factor": 3.783726175951906,
+      "witness_inside": true
+    },
+    "rectangle": {
+      "artifact": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+      "kappa_interval": [
+        -0.06973793154072808,
+        0.0613388407891274
+      ],
+      "mass_rows_gev": [
+        {
+          "central": 0.0005088574871435145,
+          "interval": [
+            0.00047657714307519004,
+            0.0005433242990866062
+          ],
+          "particle": "electron"
+        },
+        {
+          "central": 0.1052155887600104,
+          "interval": [
+            0.09854103745176451,
+            0.11234223227591915
+          ],
+          "particle": "muon"
+        },
+        {
+          "central": 1.76948334905381,
+          "interval": [
+            1.657232801948234,
+            1.8893370435933756
+          ],
+          "particle": "tau"
+        }
+      ],
+      "row_class": "target_shape_plus_empirical_transport",
+      "witness_inside": true
+    }
+  },
   "claim_status": "final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated",
   "classical_carrier_modes": [
     {
@@ -207,7 +284,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-18T06:39:59Z",
+  "generated_utc": "2026-07-23T03:55:55Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",

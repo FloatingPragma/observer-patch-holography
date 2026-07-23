@@ -23,6 +23,12 @@ DIRECT_TOP = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contra
 CHARGED_TRACE_LIFT_REQUIRED = (
     PARTICLES_ROOT / "runs" / "leptons" / "charged_determinant_trace_lift_attachment_required.json"
 )
+KAPPA_RECTANGLE = (
+    PARTICLES_ROOT / "runs" / "leptons" / "charged_kappa_interval_from_alpha_transport.json"
+)
+KAPPA_COHERENT = (
+    PARTICLES_ROOT / "runs" / "leptons" / "charged_kappa_interval_coherent_closure.json"
+)
 QUARK_SIGMA_REQUIRED = PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
 QUARK_SIGMA_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
@@ -307,6 +313,8 @@ def build_payload() -> dict[str, Any]:
     results = _load_json(RESULTS_STATUS)
     direct_top = _load_json(DIRECT_TOP)
     charged_trace_required = _load_optional_json(CHARGED_TRACE_LIFT_REQUIRED) or {}
+    kappa_rectangle = _load_json(KAPPA_RECTANGLE)
+    kappa_coherent = _load_json(KAPPA_COHERENT)
     quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED) or {}
     quark_sigma_obstruction = _load_optional_json(QUARK_SIGMA_OBSTRUCTION) or {}
     quark_axiom_level_obstruction = _load_optional_json(QUARK_AXIOM_LEVEL_OBSTRUCTION) or {}
@@ -388,6 +396,44 @@ def build_payload() -> dict[str, Any]:
         ],
         "withheld_non_prediction_rows": exact.get("withheld_entries", []),
         "classical_carrier_modes": exact.get("classical_carrier_modes", []),
+        "charged_lepton_certified_intervals": {
+            "rectangle": {
+                "row_class": kappa_rectangle["row_class"],
+                "kappa_interval": kappa_rectangle["kappa_interval"]["interval"],
+                "mass_rows_gev": [
+                    {
+                        "particle": row["particle"],
+                        "interval": row["mass_interval"],
+                        "central": row["mass_central"],
+                    }
+                    for row in kappa_rectangle["conditional_mass_rows"]
+                ],
+                "witness_inside": kappa_rectangle["compare_only"][
+                    "witness_inside_certified_intervals"
+                ],
+                "artifact": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+            },
+            "coherent": {
+                "row_class": kappa_coherent["row_class"],
+                "kappa_interval": kappa_coherent["kappa_interval"]["interval"],
+                "width_reduction_factor": kappa_coherent["kappa_interval"][
+                    "width_reduction_factor"
+                ],
+                "mass_rows_gev": [
+                    {
+                        "particle": row["particle"],
+                        "interval": row["mass_interval"],
+                        "central": row["mass_central"],
+                    }
+                    for row in kappa_coherent["conditional_mass_rows"]
+                ],
+                "witness_inside": kappa_coherent["compare_only"][
+                    "witness_inside_certified_intervals"
+                ],
+                "artifact": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
+            },
+            "blocking_issues": [425, 545],
+        },
         "charged_lepton_anchor_boundary": {
             "artifact": charged_trace_required.get("artifact"),
             "status": charged_trace_required.get("status"),
@@ -584,6 +630,38 @@ def render_markdown(payload: dict[str, Any]) -> str:
             lines.append(
                 f"| `{row['particle_id']}` | `{claim_label}` | {row['reason']} | {missing_gate} |"
             )
+    certified = payload.get("charged_lepton_certified_intervals") or {}
+    if certified:
+        lines.extend(
+            [
+                "",
+                "## Charged-Lepton Certified Intervals",
+                "",
+                "Empirical-closure interval rows; the compare-only witness triple "
+                "lies inside every certified interval. The coherent row is "
+                "conditional on the declared payload-coherent anchor-gap premise.",
+                "",
+                "| Lane | Particle | Interval (GeV) | Witness inside |",
+                "| --- | --- | --- | --- |",
+            ]
+        )
+        for lane_key in ("rectangle", "coherent"):
+            lane = certified[lane_key]
+            for row in lane["mass_rows_gev"]:
+                lo, hi = row["interval"]
+                lines.append(
+                    f"| {lane_key} | `{row['particle']}` | "
+                    f"`[{lo:.6g}, {hi:.6g}]` | `{lane['witness_inside']}` |"
+                )
+        lines.append("")
+        lines.append(
+            f"- Coherent width reduction over the rectangle: "
+            f"`{certified['coherent']['width_reduction_factor']:.3g}x`"
+        )
+        lines.append(
+            "- Blocking issues: "
+            + ", ".join(f"#{i}" for i in certified["blocking_issues"])
+        )
     charged_boundary = payload.get("charged_lepton_anchor_boundary") or {}
     if charged_boundary.get("artifact"):
         lines.extend(
