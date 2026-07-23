@@ -300,7 +300,7 @@ LANES: List[Dict[str, Any]] = [
         "key": "hadrons",
         "title": "Hadrons",
         "summary": "The source-only hadron lane lacks a production OPH backend. A separate measured e+e- hadron payload supplies an empirical fine-structure endpoint.",
-        "takeaway": "Empirical closure gives alpha inverse 136.2636589431 on [136.1583832834, 136.3690975240], with a same-scheme anchor gap [0.6485541111, 0.8547920666].",
+        "takeaway": "Empirical closure gives alpha inverse 136.3827548175 on [136.3670480603, 136.3984651934], with a same-scheme anchor gap [0.6198609041, 0.6505569679] that contains the standard on-shell reference deficit 0.631.",
         "logic": (
             "The hadron path steps down from the electroweak and local quark masses into the strong scale, seeds the "
             "unquenched ensemble family, realizes deterministic cfg/source payload identifiers, attaches a fixed "
@@ -310,7 +310,7 @@ LANES: List[Dict[str, Any]] = [
             "The surrogate execution bridge is only a diagnostic proof that the schema closes; it is not a promotable hadron output surface."
         ),
         "frontier_text": "Source-only scope requires real correlator arrays and declared statistical, continuum, volume, and chiral systematics. The empirical endpoint is data-driven and does not close the source-only hadron backend.",
-        "prediction_surface": "Four fine-structure coordinates stay separate: certified source root 136.9948351774, source-root-plus-public-width diagnostic 137.0359595136, empirical endpoint 136.2636589431, and measured endpoint 137.035999177. No nonzero source-only hadron mass is emitted.",
+        "prediction_surface": "Four fine-structure coordinates stay separate: certified source root 136.9948351774, source-root-plus-public-width diagnostic 137.0359595136, empirical endpoint 136.3827548175, and measured endpoint 137.035999177. No nonzero source-only hadron mass is emitted.",
         "particles": ["proton", "neutron", "neutral_pion", "rho_770_0"],
     },
 ]
