@@ -1,0 +1,406 @@
+{
+  "artifact": "oph_quark_spread_fiber_structure_transport_obstruction",
+  "checks": {
+    "axiom_level_theorem_intact": true,
+    "base_fiber_intact": true,
+    "family_attachment_outside_matter_packet": true,
+    "matter_documents_coefficient_blind": true,
+    "port_documents_coefficient_blind": true,
+    "port_receipt_closes_no_mass": true,
+    "selector_menu_exhausted_without_selection": true,
+    "yukawa_invariant_lines_one_dimensional": true
+  },
+  "claim_boundary_quotes": {
+    "matter_receipt_not_claimed": "no physical source binding of the matter contract or the upstream response representation, no derivation of trace balance from source dynamics (BLOCK-DETERMINANT-BALANCE open), no global-form choice (AXIS-CENTER-DESCENT open), no family attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum spin-statistics theorem, no identification with physical particle content",
+    "port_receipt_does_not_close": [
+      "PORT-CURRENT-INNER as a physical source-bound receipt",
+      "derivation or measurement of the response representation and coefficients from physical carrier response",
+      "physical refinement intertwining beyond the declared algebraic tower maps",
+      "block determinant balance and PORT-SPIN-LIFT",
+      "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
+      "matter attachment, family structure, and exterior package selection",
+      "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
+    ]
+  },
+  "claim_tier": "source_only_nonidentifiability_obstruction_transport",
+  "coefficient_blindness_scans": [
+    {
+      "coefficient_blind": true,
+      "document": "super_tannakian_matter_manifest",
+      "matched_leaf_count": 9,
+      "matched_leaves": [
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[0][0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[0][1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[0][2]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[1][0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[1][1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[1][2]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[2][0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[2][1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/exterior_matter_contract/yukawa_channels[2][2]"
+        }
+      ],
+      "needles": [
+        "yukawa",
+        "sigma_u",
+        "sigma_d",
+        "quark_mass",
+        "pole_mass",
+        "mass_gev",
+        "pdg",
+        "codata",
+        "fitted",
+        "spread_modulus",
+        "vev"
+      ],
+      "violations": []
+    },
+    {
+      "coefficient_blind": true,
+      "document": "super_tannakian_matter_receipt",
+      "matched_leaf_count": 20,
+      "matched_leaves": [
+        {
+          "json_type": "bool",
+          "path": "/acceptance_criteria_status/family_attachment_scalar_potential_pole_mass_outside_packet"
+        },
+        {
+          "json_type": "str",
+          "path": "/factor_origins/yukawa_lines_3"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[0]/channel[0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[0]/channel[1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[0]/channel[2]"
+        },
+        {
+          "json_type": "int",
+          "path": "/yukawa_sector/channels[0]/invariant_dimension"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[1]/channel[0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[1]/channel[1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[1]/channel[2]"
+        },
+        {
+          "json_type": "int",
+          "path": "/yukawa_sector/channels[1]/invariant_dimension"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[2]/channel[0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[2]/channel[1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/channels[2]/channel[2]"
+        },
+        {
+          "json_type": "int",
+          "path": "/yukawa_sector/channels[2]/invariant_dimension"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/forbidden_channel_control/channel[0]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/forbidden_channel_control/channel[1]"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/forbidden_channel_control/channel[2]"
+        },
+        {
+          "json_type": "int",
+          "path": "/yukawa_sector/forbidden_channel_control/invariant_dimension"
+        },
+        {
+          "json_type": "int",
+          "path": "/yukawa_sector/invariant_sector_dimension"
+        },
+        {
+          "json_type": "str",
+          "path": "/yukawa_sector/statement"
+        }
+      ],
+      "needles": [
+        "yukawa",
+        "sigma_u",
+        "sigma_d",
+        "quark_mass",
+        "pole_mass",
+        "mass_gev",
+        "pdg",
+        "codata",
+        "fitted",
+        "spread_modulus",
+        "vev"
+      ],
+      "violations": []
+    },
+    {
+      "coefficient_blind": true,
+      "document": "port_current_manifest",
+      "matched_leaf_count": 0,
+      "matched_leaves": [],
+      "needles": [
+        "yukawa",
+        "sigma_u",
+        "sigma_d",
+        "quark_mass",
+        "pole_mass",
+        "mass_gev",
+        "pdg",
+        "codata",
+        "fitted",
+        "spread_modulus",
+        "vev"
+      ],
+      "violations": []
+    },
+    {
+      "coefficient_blind": true,
+      "document": "port_current_receipt",
+      "matched_leaf_count": 0,
+      "matched_leaves": [],
+      "needles": [
+        "yukawa",
+        "sigma_u",
+        "sigma_d",
+        "quark_mass",
+        "pole_mass",
+        "mass_gev",
+        "pdg",
+        "codata",
+        "fitted",
+        "spread_modulus",
+        "vev"
+      ],
+      "violations": []
+    }
+  ],
+  "coefficient_blindness_violations": [],
+  "dependency_audit": {
+    "direct_input_paths": [
+      "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
+      "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json",
+      "a5_closure/manifests/super_tannakian_matter_reference.json",
+      "a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "a5_closure/manifests/port_current_response_reference.json",
+      "a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "particles/flavor_selector/runtime/candidates_evaluated.json"
+    ],
+    "emits_target_sigma_values": false,
+    "forbidden_ancestors": [
+      "particle_reference_values",
+      "quark_current_family_exact_readout",
+      "quark_current_family_exact_sigma_target",
+      "quark_current_family_exact_pdg_theorem",
+      "quark_current_family_end_to_end_exact_pdg_derivation_chain",
+      "quark_selected_class_public_exact_evaluator",
+      "quark_public_physical_sigma_datum_descent",
+      "quark_public_exact_yukawa_end_to_end_theorem",
+      "quark_exact_pdg_end_to_end_theorem",
+      "target_centered_log_u",
+      "target_centered_log_d",
+      "reference_targets_u",
+      "reference_targets_d",
+      "exact_fit_residuals",
+      "fitted_sigma_values",
+      "PDG_API_quark_rows",
+      "CODATA"
+    ],
+    "input_sha256": {
+      "axiom": "7741d87fa927b8ca7fe10751767cf1d02176a49ed1bfdfad69769ece36dafdc5",
+      "base": "81a407e9ac8a674c2397f0abfbfaed75b9a49eba813a03ae8e4f33b86757e4c0",
+      "candidates": "7b79bf2abecdd497fceed8b73102d9434ba0d992a0e5e083cfdcb15d34d7b01d",
+      "matter_manifest": "857c4075212115f7ba2a82cad5dcc3f7f621c0b603d81fd5c49822eee7436877",
+      "matter_receipt": "8f0ff518419a5578a096dae4592c48de4f10584cc931bc9563915e66a87402bf",
+      "port_manifest": "6dd1a9e0a57b1865efdbfbd758f87f0b15f55e12496ace24b55deef80ad56576",
+      "port_receipt": "bd8aecb31e0316e715dc053026fabaed1f08fdfa4341beba51020b96153c4100"
+    },
+    "loads_fitted_sigma_values": false,
+    "loads_running_quark_reference_rows": false,
+    "no_target_leak": true
+  },
+  "failed_checks": [],
+  "fiber_cut_detected": false,
+  "fork": "ii_fiber_survives",
+  "free_action_certificate": {
+    "action": "(lambda_u, lambda_d).(Y_u, Y_d) = (lambda_u Y_u, lambda_d Y_d) along the one-dimensional invariant lines of [Q,S,u_c] and [Q,Sbar,d_c]",
+    "action_free": true,
+    "base_fiber_reference": {
+      "artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
+      "fiber": "(R_{>0})^2",
+      "independent_coordinates": [
+        "sigma_u",
+        "sigma_d"
+      ]
+    },
+    "fixed_certified_data": [
+      {
+        "datum": "chiral one-generation charge spectrum and zero-intertwiner chirality certificate",
+        "source": "super_tannakian_matter_receipt",
+        "why_fixed": "the fiber action rescales channel coefficients; the module, its dual, and their charge spectra are untouched"
+      },
+      {
+        "datum": "anomaly traces (SU3^3, SU3^2-U1, SU2^2-U1, U1^3, grav^2-U1) and Witten parity",
+        "source": "super_tannakian_matter_receipt",
+        "why_fixed": "operator traces on the matter module do not read Yukawa coefficients"
+      },
+      {
+        "datum": "the three Yukawa invariant-line dimensions and the forbidden-channel zero",
+        "source": "super_tannakian_matter_receipt",
+        "why_fixed": "scalar rescaling maps each line onto itself; dimensions are invariant"
+      },
+      {
+        "datum": "the emitted common action kernel and the fifteen-state module selection",
+        "source": "super_tannakian_matter_receipt",
+        "why_fixed": "kernel emission precedes any coefficient choice along the lines"
+      },
+      {
+        "datum": "port-current algebra dimension, centre, inner A5 action, and the four signed response coefficients",
+        "source": "port_current_receipt",
+        "why_fixed": "the response construction carries no Yukawa-adjacent field; its claim boundary excludes masses and couplings"
+      },
+      {
+        "datum": "the twelve frozen selector candidates and their blind evaluations",
+        "source": "candidates_evaluated",
+        "why_fixed": "the menu reads screen combinatorics only; every candidate is excluded on the comparison surface"
+      }
+    ],
+    "formal_countermodels": [
+      {
+        "action": "identity representative of the fiber action on the two hadronic invariant lines",
+        "changes_requested_sextet_coordinates": true,
+        "fixes_every_certified_datum": true,
+        "lambda_d": 1.0,
+        "lambda_u": 1.0,
+        "name": "unit_coefficient_pair",
+        "role": "formal_nonidentifiability_witness_not_a_prediction"
+      },
+      {
+        "action": "Y_u -> 2 Y_u along span[Q,S,u_c], Y_d -> 3 Y_d along span[Q,Sbar,d_c]",
+        "changes_requested_sextet_coordinates": true,
+        "fixes_every_certified_datum": true,
+        "lambda_d": 3.0,
+        "lambda_u": 2.0,
+        "name": "independently_rescaled_pair",
+        "role": "formal_nonidentifiability_witness_not_a_prediction"
+      }
+    ],
+    "group": "(R_{>0})^2"
+  },
+  "generated_utc": "2026-07-23T02:15:19Z",
+  "github_issues": [
+    591
+  ],
+  "invariant_line_transport": {
+    "channels": {
+      "L/Sbar/e_c": 1,
+      "Q/S/u_c": 1,
+      "Q/Sbar/d_c": 1
+    },
+    "forbidden_channel_carries_no_line": true,
+    "forbidden_channel_control": {
+      "channel": [
+        "Q",
+        "S",
+        "d_c"
+      ],
+      "invariant_dimension": 0
+    },
+    "hadronic_lines_one_dimensional": true,
+    "lepton_line_one_dimensional": true,
+    "passed": true,
+    "reading": "a one-dimensional invariant line is stable under scalar rescaling of its coefficient: the certified datum is the dimension, and the fiber action rescales the coefficient along the line without moving the line, the charge spectrum, or any anomaly trace"
+  },
+  "issue_591_claim_boundary": {
+    "carrier_bullets_remaining_open": [
+      "source-defined flavor carriers",
+      "flavor quotient and orbit selector",
+      "CKM interval emission"
+    ],
+    "disjunct_discharged": "prove_non_identifiable_at_2026_07_corpus_level",
+    "gating_parents": [
+      "#569 family attachment",
+      "#567 physical Z6 descent",
+      "#599 response source-binding"
+    ],
+    "quoted_disjunction": "emit, or prove non-identifiable, the six"
+  },
+  "minimal_future_cut": {
+    "inherited_requirement": {
+      "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "must_break_free_action": true,
+      "must_replace_template_ancestry": true,
+      "required_independent_scalar_count": 2
+    },
+    "must_break_free_action": true,
+    "routes": [
+      "physical source binding of the response representation (#599) followed by physical Z6 descent (#567)",
+      "source-derived attachment of the icosahedral screen action to three physical families (#569)",
+      "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline"
+    ]
+  },
+  "notes": [
+    "The fork is computed from the receipts on every run; a receipt that grows a Yukawa-magnitude field flips it.",
+    "This certificate does not prove that no future OPH extension can emit the spread pair.",
+    "Conditionality is inherited: #314 and #566 are conditional on their declared branch premises, and this transport is conditional on the same set."
+  ],
+  "numeric_quark_rows_allowed": false,
+  "proof_status": "closed_exact_current_corpus_obstruction",
+  "public_prediction_policy": {
+    "forward_yukawa_numeric_promotion": "withheld",
+    "reason": "the spread fiber survives the 2026-07 structure set",
+    "running_quark_numeric_rows": "withheld"
+  },
+  "public_promotion_allowed": false,
+  "source_only_sigma_emitted": false,
+  "theorem_grade_obstruction": true,
+  "theorem_statement": "The 2026-07 certified structure set - the conditional super-Tannakian matter lift (#314), the conditional port-current algebra (#566), and the twelve frozen flavor-orbit selector candidates - does not cut the (R_{>0})^2 quark spread fiber. Every certified datum of that set is invariant under the fiber action (Y_u, Y_d) -> (lambda_u Y_u, lambda_d Y_d) along the two one-dimensional hadronic Yukawa invariant lines, so the fiber coordinates are exactly the free scalar coefficients along those lines. Any future cut must pass through the physical bindings (#599, #567), the family attachment (#569), or a new selector under the frozen SELECTOR_SPEC discipline, and must break the free action."
+}
