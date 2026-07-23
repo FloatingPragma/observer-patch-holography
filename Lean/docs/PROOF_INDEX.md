@@ -101,10 +101,21 @@ Mapping between Lean 4 theorems in this project and statements in
   Lean/Mathlib v4.28.0), rebuilt verbatim under this project's toolchain
   (v4.29.1); rebuild record in `DULA/VERIFICATION.md` at the meta-repo
   root. Declared classical inputs stay on paper: compact-simple
-  classification, reductive decomposition, exponential surjectivity, the
-  dimension-six branch module argument (#604), and the `ℚ(√5)` rationality
-  lemma (#605). No physical receipt is formalized. Does **not** bear on the
-  Prop 4.2 / Def 4.1 counts.
+  classification, reductive decomposition, exponential surjectivity, and
+  the torus/cocharacter step. The former paper steps are discharged in
+  companion modules: the dimension-six branch module argument (#604,
+  closed) in `Screen/A5SixAxes.lean` — sixty-element six-axis
+  `PSL(2, F5)` list, kernel-checked closure/2-transitivity/sharp fiber
+  counts, `ℚ`-irreducibility of the five-dimensional summand by
+  stabilizer-coset averaging, no three-dimensional invariant subspace and
+  no `3 + 3` invariant splitting of `1 ⊕ 5` — and its S5 centre half in
+  `Screen/A5PortModule.lean` — the sixty port rotations (row-for-row
+  identical to `A5PortAction.perms`) fix exactly the constant line, so a
+  centrally trivial submodule has dimension at most one; the `ℚ(√5)`
+  rationality lemma's Galois-stability half (#605, closed) in
+  `Screen/A5CharacterField.lean`. All sorry-free, standard axioms, no
+  `native_decide`. No physical receipt is formalized. Does **not** bear on
+  the Prop 4.2 / Def 4.1 counts.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear

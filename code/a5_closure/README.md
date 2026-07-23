@@ -222,8 +222,20 @@ the compact-simple dimension list, the excluded semisimple dimensions
 `1, 2, 4, 5, 7`, the characteristic-centre step — plus the paper's
 noncentral-quintet witness, the gluing-class quotient with both invariance
 clauses, the `A5 ⊄ SU(2)` unique-involution obstruction, and the absence of
-`ℤ/6` in `A5`. The dimension-six branch module argument and the `Q(sqrt 5)`
-rationality lemma remain on paper and are tracked as #604 and #605. The issue-#565 artifact supplies an exact executable finite
+`ℤ/6` in `A5`. `A5CharacterField.lean` (#605, closed) proves the
+Galois-stability half of the `Q(sqrt 5)` rationality lemma via the doubled
+character table over `ℤ[√5]`, with the torus/cocharacter step a declared
+hypothesis. `A5SixAxes.lean` (#604, closed) lists the sixty elements of the
+six-axis `PSL(2, F5)` action, kernel-checks distinctness, closure,
+2-transitivity, and the sharp stabilizer-coset fiber counts, proves the
+five-dimensional summand irreducible over `ℚ` by stabilizer-coset averaging,
+and closes the dimension-six branch unconditionally: `1 ⊕ 5` has no
+three-dimensional invariant subspace and no `3 + 3` invariant splitting.
+`A5PortModule.lean` (#604, closed) carries the matching S5 centre receipt on
+the twelve-port module: the sixty port rotations (row-for-row identical to
+`A5PortAction.perms`) fix exactly the constant line, so a centrally trivial
+submodule — the centre under an inner action — has dimension at most
+one. The issue-#565 artifact supplies an exact executable finite
 proof of the source integer domain, strict readback cost, antipode, `A5`
 action, frame, refinement, relabelling, and countermodels. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
@@ -235,7 +247,11 @@ complete finite packets remains available work; the Python receipts are not
 being relabelled as Lean theorems. `Phi`, `Theta`, the trace-balanced group,
 and physical descent retain their separate support boundaries (the
 compact-Lie trichotomy's finite steps are now Lean-checked in `A5OPH.lean`,
-with the two remaining paper steps tracked as #604/#605); only the conditional current algebra and the
+with the former paper steps #604/#605 discharged in `A5SixAxes.lean`,
+`A5PortModule.lean`, and `A5CharacterField.lean`, leaving the Lie-theoretic
+classical inputs — compact-simple classification, reductive decomposition,
+exponential surjectivity, torus/cocharacter step — as the declared
+remainder); only the conditional current algebra and the
 conditional matter lift are certified here, while source binding of the
 inherited upstream response premises is tracked in #599.
 
