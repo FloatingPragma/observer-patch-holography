@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "release_id": "r1577",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
@@ -25,7 +25,9 @@
       ],
       "falsifier": "A top-level OPH theorem requires hidden carrier coordinates that are not expressible through the declared observer-facing quotient.",
       "scope_if_false": "The synthesis ontology falls; branch-local theorem statements must be restated in the hidden-coordinate theory that replaces the formal basis.",
-      "status": "declared_basis"
+      "status": "declared_basis",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-OBS-PATCH-DEF",
@@ -48,7 +50,9 @@
       ],
       "falsifier": "A claimed observer lacks one of the declared operational clauses, or two systems identified as the same observer patch disagree on a protected output while preserving the full declared observer-facing signature.",
       "scope_if_false": "The observer identification or quotient-equivalence claim falls on the affected branch; finite carrier geometry by itself is a separate object.",
-      "status": "typed_definition_with_operational_observer_gate"
+      "status": "typed_definition_with_operational_observer_gate",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-CARRIER-PRESENTATION-INVARIANCE",
@@ -75,7 +79,9 @@
       ],
       "falsifier": "A protected OPH output changes under an isomorphism preserving the full declared observer signature, or an argument treats two carriers with different visible incidence, response, repair, clock, or refinement data as physically equivalent without a verified map.",
       "scope_if_false": "The affected invariance or architecture-sensitivity claim falls. Branch-local theorems stated directly on either carrier retain their own statuses.",
-      "status": "declared_cross_paper_contract_with_branch_local_tests"
+      "status": "declared_cross_paper_contract_with_branch_local_tests",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
@@ -107,7 +113,9 @@
       ],
       "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, carrier, federation, and support screens are silently identified, phase synchronization is promoted to confluence without an accepted-repair bridge, two gauge routes are identified without an independently verified commuting square, or the gravity and current branches cannot descend from one source-bound refinement tower.",
       "scope_if_false": "The unified composition fails at that interface. Branch-local finite theorems retain their own statuses.",
-      "status": "typed_composition_defined_physical_common_tower_open"
+      "status": "typed_composition_defined_physical_common_tower_open",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-CONS-D1",
@@ -132,7 +140,9 @@
       ],
       "falsifier": "A nonconfluent terminal pair exists under the declared local-diamond and repair-completeness clauses.",
       "scope_if_false": "The consensus implementation theorem falls; Lorentz, gauge, and quantitative branches that import only weaker finite-cutoff ingredients must be audited separately.",
-      "status": "proved_on_branch"
+      "status": "proved_on_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D2-COLLAR-RECOVERY",
@@ -160,7 +170,9 @@
       ],
       "falsifier": "A faithful regulator family satisfying the stated finite-range and uniform matrix-mixing hypotheses violates the displayed boundary-prefactored CMI bound, or the recovery error fails to vanish under the full rate condition.",
       "scope_if_false": "The conditional nonexact collar-recovery and collar-remainder route reopens; exact central-interface Markovity survives if its separate clause holds, and no scalar CMI result by itself supplies a stress tensor or dark-sector source.",
-      "status": "proved_on_conditional_mixing_branch_with_exact_central_specialization"
+      "status": "proved_on_conditional_mixing_branch_with_exact_central_specialization",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
@@ -191,7 +203,9 @@
       ],
       "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or discharges a physical or scaling-limit hypothesis it only assumes.",
       "scope_if_false": "The corresponding finite receipt is reopened; physical branch hypotheses and unrelated fixed-cutoff results must be assessed separately.",
-      "status": "finite_audit_imported_with_physics_residues"
+      "status": "finite_audit_imported_with_physics_residues",
+      "claim_class": "emitted_artifact",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D5",
@@ -221,7 +235,9 @@
       ],
       "falsifier": "No physically realizable support-visible modular limit exists, the collar remainder fails to vanish on the branch, or the all-directions tensor upgrade fails.",
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
-      "status": "proved_on_branch"
+      "status": "proved_on_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D3-CAP-H3",
@@ -249,7 +265,9 @@
       ],
       "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, BW is invoked without FiniteCapBWCertificate and independent MGNS-1 on the same tower, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
       "scope_if_false": "The OPH Lorentz/H3 chart claim falls or must be weakened; finite consensus, compact-gauge reconstruction, and unrelated fixed-cutoff results do not automatically fall.",
-      "status": "proved_on_branch"
+      "status": "proved_on_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D3-H3-LOCALIZATION",
@@ -280,7 +298,9 @@
       ],
       "falsifier": "A localization receipt uses a noncompact domain without truncation, lacks alpha>0, promotes qualitative separation to a noisy inverse bound, ignores calibration/model error, or reports a unique finite point when Delta_loc <= 0.",
       "scope_if_false": "Record-populated observer-facing H3 localization is weakened or reopened; the cap-normal chart theorem, gauge reconstruction, and Einstein branch do not automatically fall.",
-      "status": "conditional_theorem"
+      "status": "conditional_theorem",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
@@ -308,7 +328,9 @@
       ],
       "falsifier": "A receipt-carrying tower fails to produce a FiniteCapBWCertificate clause with the stated envelope, an incidence readout depends on schedule/gauge/refinement presentation, BW is claimed without independent same-tower MGNS-1, or a countermodel is shown to violate a D1 clause it claims to satisfy.",
       "scope_if_false": "The producer branch reopens and the certificate reverts to a declared hypothesis; the conditional BW/Lorentz theorems and unrelated branches survive on their declared forms.",
-      "status": "proved_on_receipt_branch"
+      "status": "proved_on_receipt_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D4-NULLNET-STANDARDNESS",
@@ -337,7 +359,9 @@
       ],
       "falsifier": "A Borchers-Wiesbrock invocation is found whose standardness input is neither proved nor carried as a receipt, the Markov modular-locality theorem fails on the central-interface branch, or the assembly relations fail on a tower carrying the modular-intersection receipts.",
       "scope_if_false": "The null bridge loses its standardness conclusion; the Einstein branch inherits that boundary.",
-      "status": "proved_on_receipt_branch"
+      "status": "proved_on_receipt_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
@@ -367,7 +391,9 @@
       ],
       "falsifier": "A receipt-carrying region fails Hausdorffness/dimension/signature as constructed, the event classes depend on schedule/gauge/refinement presentation, H3 is identified with a spatial slice, or a global causality claim is made beyond the named assumptions.",
       "scope_if_false": "The event-manifold continuation reopens and all corpus surfaces revert to Lorentz-group and observer-frame kinematics language; the kinematic chart and localization theorems survive.",
-      "status": "conditional_theorem"
+      "status": "conditional_theorem",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
@@ -393,7 +419,9 @@
       ],
       "falsifier": "A consistent charge family fails reconstruction, the Ward identity fails on a receipt region, or a corpus surface identifies the abstract generator with a local density without the tomography step.",
       "scope_if_false": "The stress arrow reopens; the null bridge and event manifold survive on their own receipts.",
-      "status": "proved_on_receipt_branch"
+      "status": "proved_on_receipt_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
@@ -417,7 +445,9 @@
       ],
       "falsifier": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family.",
       "scope_if_false": "The entropy bridge and its Axiom-4 support fail.",
-      "status": "proved_finite_plus_receipt_branch"
+      "status": "proved_finite_plus_receipt_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
@@ -452,7 +482,9 @@
       ],
       "falsifier": "A receipt family fails the full boundary-aware collar rate or downstream o(ell^4) remainder bound, coverage fails on a populated region, or an absolute equation is asserted without VR.",
       "scope_if_false": "The absolute form degrades to per-component constancy; the first-variation identity survives.",
-      "status": "proved_on_receipt_branch"
+      "status": "proved_on_receipt_branch",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
@@ -497,7 +529,11 @@
       ],
       "falsifier": "An arrow of the composition fails on its stated inputs, a target quantity enters the source graph, or a claimed tower fails a common-domain, tail, coupling, vacuum, or scale premise.",
       "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",
-      "status": "conditional_composed_theorem_nonemptiness_open"
+      "status": "conditional_composed_theorem_nonemptiness_open",
+      "claim_class": "branch_entry",
+      "gates": [
+        595
+      ]
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",
@@ -533,7 +569,11 @@
       ],
       "falsifier": "A finite packet satisfying the stated receipts violates M_0=alpha(G_q), admits a correctable code larger than D, saturates without a complete rank-one carrier code, violates TV robustness, loses a code under a no-new-confusability injection, or a monotone deflationary finite map fails to reach its greatest fixed point from the top.",
       "scope_if_false": "The corresponding finite direct-capacity implication reopens. Independent consensus, gravity, exterior matter, and geometric-estimator statements survive unless they import that step.",
-      "status": "conditional_finite_theorems_closed_physical_direct_map_and_receipts_open"
+      "status": "conditional_finite_theorems_closed_physical_direct_map_and_receipts_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        505
+      ]
     },
     {
       "claim_id": "OPH-GR-D6-READBACK-NOGO",
@@ -565,7 +605,9 @@
       ],
       "falsifier": "The parity and independent joint channels with identical local marginals have the same capacity, a reversible cyclic channel has only its fixed-projector capacity, a deflationary map reaches a larger positive fixed point from below, identity and erasure fail as countermodels, or a target-derived estimator fails to return its inserted target.",
       "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map requires the complete public checkpoint and code receipt.",
-      "status": "proved_no_go"
+      "status": "proved_no_go",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D6-A5-FINITE-CONTROL",
@@ -592,7 +634,9 @@
       ],
       "falsifier": "Independent replay of the declared packet finds a nonempty confusability graph, M_0 differs from 60, the raw defect formula fails, or the multiplicity changes a public readout.",
       "scope_if_false": "The finite A5 control reopens. The D=24 fixed-cutoff packet and the general conditional capacity theorems are separate.",
-      "status": "finite_control_closed_physical_N_closure_false_for_this_packet"
+      "status": "finite_control_closed_physical_N_closure_false_for_this_packet",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D6-HORIZON-RECORD",
@@ -617,7 +661,11 @@
       ],
       "falsifier": "A branch satisfying direct record closure and the stated horizon-record saturation receipt violates the displayed de Sitter capacity relation, or the record and area limits fail to commute on the declared refinement family.",
       "scope_if_false": "The D6 cosmological identification falls; the direct finite public-record map and local Einstein branch remain separate.",
-      "status": "conditional_theorem_horizon_record_saturation_open"
+      "status": "conditional_theorem_horizon_record_saturation_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        589
+      ]
     },
     {
       "claim_id": "OPH-COSMO-SCREEN-SPECTRUM",
@@ -656,7 +704,11 @@
       ],
       "falsifier": "A source DAG satisfying every premise fails the gamma-ratio covariance or thin-shell amplitude relation, the reserve generator does not give P over 48 on the source-facing half, the physical dilation or tomography receipt fails, or the promoted source has a measurement-aware ancestor.",
       "scope_if_false": "The conditional inflation-free screen-spectrum branch falls; the recovered consensus, Einstein, and Standard Model branches are independent.",
-      "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress"
+      "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress",
+      "claim_class": "conditional_implication",
+      "gates": [
+        579
+      ]
     },
     {
       "claim_id": "OPH-WZ-STRICT-1L-POLE-MAP",
@@ -687,7 +739,12 @@
       ],
       "falsifier": "Under the stated complete strict-one-loop input contract, the charged or neutral coefficient differs from the displayed root expansion, neutral one-loop-squared mixing contributes at order one, the lower-sheet mass/width formulas fail, or the independent checker accepts a subject-unbound or self-promoted receipt.",
       "scope_if_false": "The strict-one-loop pole-map kernel or its receipt implementation falls. The finite A5 recognition result, the open OPH-native source problem, and unrelated consensus or gravity branches are assessed independently.",
-      "status": "SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER__CONDITIONAL_ALGEBRA_NOT_OPH_NATIVE_PHYSICAL"
+      "status": "SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER__CONDITIONAL_ALGEBRA_NOT_OPH_NATIVE_PHYSICAL",
+      "claim_class": "conditional_implication",
+      "gates": [
+        593,
+        594
+      ]
     },
     {
       "claim_id": "OPH-SM-Q1-LOCAL-G6",
@@ -709,7 +766,9 @@
       ],
       "falsifier": "A term satisfying every declared covariance and invariant-contraction premise changes under a finite G6 gauge transformation, or has support outside its bounded cell neighborhood.",
       "scope_if_false": "The QFT-Q1 implication falls; the finite Q0 representation witness and other QFT criteria remain separate.",
-      "status": "conditional_implication_defined__oph_source_action_open"
+      "status": "conditional_implication_defined__oph_source_action_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
@@ -731,7 +790,9 @@
       ],
       "falsifier": "A measure satisfying the stated basis-independent equivariance exists without the section, or the section exists with all stated regularity and equivariance but no such measure can be defined.",
       "scope_if_false": "The QFT-Q2-E equivalence falls; QFT-Q2-H and perturbative QFT-Q3 remain separate.",
-      "status": "conditional_criterion_defined__full_G6_measure_construction_open"
+      "status": "conditional_criterion_defined__full_G6_measure_construction_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
@@ -753,7 +814,9 @@
       ],
       "falsifier": "All stated projector, commutation, gap, and positive-variance premises hold but the constructed orthogonal physical excitation is zero or has no positive excitation energy.",
       "scope_if_false": "The QFT-Q2-H soundness route falls; QFT-Q2-E and QFT-Q3 remain separate.",
-      "status": "conditional_soundness_defined__full_G6_hamiltonian_construction_open"
+      "status": "conditional_soundness_defined__full_G6_hamiltonian_construction_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SM-Q3-BV-RESTORATION",
@@ -775,7 +838,9 @@
       ],
       "falsifier": "The declared local cohomology and anomaly-clearance premises hold at every order but an uncancellable Slavnov-Taylor breaking remains.",
       "scope_if_false": "The formal QFT-Q3 restoration theorem falls; no conclusion follows for QFT-Q2 or QFT-Q4.",
-      "status": "conditional_formal_theorem_defined__oph_restoration_and_validation_open"
+      "status": "conditional_formal_theorem_defined__oph_restoration_and_validation_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
@@ -797,7 +862,9 @@
       ],
       "falsifier": "A tower satisfying the complete stated OS hypotheses fails to reconstruct the declared positive-energy observable sector.",
       "scope_if_false": "The QFT-Q4 OS implication falls; the bosonic compact-gauge theorem and QFT-Q3 remain separately scoped.",
-      "status": "conditional_implication_defined__nonperturbative_G6_tower_open"
+      "status": "conditional_implication_defined__nonperturbative_G6_tower_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SM-Q4-RESONANCE-CONTINUATION",
@@ -820,7 +887,9 @@
       ],
       "falsifier": "All declared holomorphy, simple-zero, nonzero-numerator, and sheet premises hold but the amplitude lacks the stated stable Laurent pole.",
       "scope_if_false": "The QFT-Q4 resonance implication falls; OS reconstruction and the strict QFT-Q3 coefficient algebra remain separate.",
-      "status": "conditional_implication_defined__analytic_sheet_and_current_amplitude_open"
+      "status": "conditional_implication_defined__analytic_sheet_and_current_amplitude_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -849,7 +918,11 @@
       ],
       "falsifier": "Under the declared source packet, the cost has another minimum or a different next floor, a port lacks a unique distance-three inverse, the positive incidence automorphism group is not A5, the exact Gram matrix is not positive rank three with G squared equal to 4G, or a valid relabeling/refinement fails naturality.",
       "scope_if_false": "The echosahedral source-selector theorem and its use in the finite A5 branch fall. Generic observer-patch, consensus, relativity, and independently assumed icosahedral calculations are assessed separately.",
-      "status": "proved_on_declared_echosahedral_carrier_lineage"
+      "status": "proved_on_declared_echosahedral_carrier_lineage",
+      "claim_class": "conditional_implication",
+      "gates": [
+        554
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
@@ -880,7 +953,11 @@
       ],
       "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate.",
       "scope_if_false": "The conditional port-current algebra construction falls back to the coefficient-level trichotomy. The physical source-binding receipt is an independent open gate; the echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
-      "status": "proved_conditional_on_declared_response_representation"
+      "status": "proved_conditional_on_declared_response_representation",
+      "claim_class": "conditional_implication",
+      "gates": [
+        599
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
@@ -915,7 +992,11 @@
       ],
       "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
       "scope_if_false": "The conditional matter-lift construction falls back to the representation-arithmetic exterior witness. The upstream response-premise binding is tracked independently in #599; the port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
-      "status": "proved_conditional_on_declared_matter_contracts"
+      "status": "proved_conditional_on_declared_matter_contracts",
+      "claim_class": "conditional_implication",
+      "gates": [
+        314
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
@@ -942,7 +1023,11 @@
       ],
       "falsifier": "The declared local twelve-port packet alone determines a unique global S2 support and BW normalization without routing or refinement data, or a proposed physical bridge fails incidence preservation, source binding, or refinement naturality.",
       "scope_if_false": "The screen-separation no-go or proposed positive bridge must be revised. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
-      "status": "local_to_global_no_go_established__physical_bridge_open"
+      "status": "local_to_global_no_go_established__physical_bridge_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        596
+      ]
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
@@ -972,7 +1057,12 @@
       ],
       "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the declared realized packet, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
       "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
-      "status": "conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open"
+      "status": "conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        567,
+        569
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
@@ -1006,7 +1096,12 @@
       ],
       "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, or exterior witness fails under its exact stated premises, or a promoted physical conclusion omits its current, selection, attachment, or refinement receipt.",
       "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 Tannaka/MAR route and unrelated consensus or gravity branches are separately assessable.",
-      "status": "exact_finite_implications_on_strengthened_packet__physical_current_selection_and_family_attachment_open"
+      "status": "exact_finite_implications_on_strengthened_packet__physical_current_selection_and_family_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        569,
+        599
+      ]
     },
     {
       "claim_id": "OPH-SM-ROUTE-IDENTIFICATION",
@@ -1033,7 +1128,9 @@
       ],
       "falsifier": "A proposed identification fails to intertwine the two group actions, quotient kernels, current normalizations, matter representations, or refinement maps on the same source tower; conversely, an explicit target-free receipt satisfying all clauses would close the open status.",
       "scope_if_false": "No unified physical identity follows. Each conditional route keeps its own branch-local theorem status.",
-      "status": "open_no_source_bound_commuting_square"
+      "status": "open_no_source_bound_commuting_square",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
@@ -1060,7 +1157,9 @@
       ],
       "falsifier": "The exterior decomposition, any displayed hypercharge sum, any listed anomaly coefficient, any one-Higgs singlet multiplicity, or the weak-doublet count differs from the certificate under the stated carrier assumptions.",
       "scope_if_false": "The exterior representation route falls. The abstract A5 coefficient bracket and unrelated consensus or gravity branches survive.",
-      "status": "proved_conditional_representation_witness"
+      "status": "proved_conditional_representation_witness",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
@@ -1089,7 +1188,11 @@
       ],
       "falsifier": "A completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
-      "status": "declared_maps_with_physical_closure_open"
+      "status": "declared_maps_with_physical_closure_open",
+      "claim_class": "declared_structure",
+      "gates": [
+        551
+      ]
     },
     {
       "claim_id": "OPH-HIER-EW",
@@ -1117,7 +1220,11 @@
       ],
       "falsifier": "The weak-doublet multiplicity certificate fails, a branch satisfying direct record closure and every common-load premise violates the displayed bridge, or the load carrier imports the electroweak or cosmic target.",
       "scope_if_false": "The electroweak hierarchy comparison falls; the exterior field branching and cosmological capacity branch are separate unless they import the failed step.",
-      "status": "weak_multiplicity_closed_common_load_and_direct_capacity_open"
+      "status": "weak_multiplicity_closed_common_load_and_direct_capacity_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        547
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-24-CLOCK-DETERMINANT",
@@ -1141,7 +1248,12 @@
       ],
       "falsifier": "A Hamiltonian rescaling changes the 24-stage register structure, or the stated norm-preserving determinant-line map exists while the induced determinant scale differs from the calibrated clock gap after the declared normalization is applied.",
       "scope_if_false": "The register-rate no-go or conditional charged determinant attachment reopens. The exterior Standard Model representation witness and charged-lepton shape relations remain separate.",
-      "status": "rate_no_go_proved_physical_clock_attachment_open"
+      "status": "rate_no_go_proved_physical_clock_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        334,
+        522
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-MODULAR-GEARING",
@@ -1169,7 +1281,9 @@
       ],
       "falsifier": "A supplied exact receipt has vanishing cycle and channel-closure residuals but no reconstructed potential or compressed grading, or an A5- and reversal-covariant exact realization violates the sign-paired 1,3,3,5 multiplicity pattern.",
       "scope_if_false": "The finite modular-gearing carrier theorem falls. The independent finite modular-flow core, BW certificate theorem, screen-register combinatorics, and gauge-current classification require separate audits.",
-      "status": "theorem_proved_source_derived_realization_open"
+      "status": "theorem_proved_source_derived_realization_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",
@@ -1192,7 +1306,11 @@
       ],
       "falsifier": "The source map imports the Thomson target, the fixed point is nonunique, or the hadronic endpoint gap cannot be represented in the stated scheme.",
       "scope_if_false": "The fine-structure endpoint claim is downgraded; the structural OPH core and separate hierarchy branch are not automatically affected.",
-      "status": "source_branch_with_endpoint_boundary"
+      "status": "source_branch_with_endpoint_boundary",
+      "claim_class": "empirical_implementation",
+      "gates": [
+        545
+      ]
     },
     {
       "claim_id": "OPH-DM-CONT",
@@ -1217,7 +1335,11 @@
       ],
       "falsifier": "No binding falsifier exists while the source law, constants, relativistic completion, and joint likelihood are open. After those objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
-      "status": "work_in_progress"
+      "status": "work_in_progress",
+      "claim_class": "declared_structure",
+      "gates": [
+        564
+      ]
     },
     {
       "claim_id": "OPH-YM-GAP",
@@ -1247,7 +1369,12 @@
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
-      "status": "proved_on_branch"
+      "status": "proved_on_branch",
+      "claim_class": "conditional_implication",
+      "gates": [
+        294,
+        295
+      ]
     },
     {
       "claim_id": "OPH-CHI-NU",
@@ -1269,7 +1396,11 @@
       ],
       "falsifier": "No binding force falsifier exists until the coherent-source receipt, dimensional coupling, ambient repair field, and momentum ledger are operational. Once those objects are fixed, repeated receipt-complete null force results retire the coherent-matter force continuation.",
       "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
-      "status": "work_in_progress"
+      "status": "work_in_progress",
+      "claim_class": "empirical_implementation",
+      "gates": [
+        560
+      ]
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
@@ -1300,7 +1431,12 @@
       ],
       "falsifier": "Failure of the critical edge, OPH comparison registry, safety layer, stable completion, thresholds, decoupling, augmented isolation, or branch coverage retracts the BD witness. Its five-row proxy has rank zero on the published pre-completion slice, while the completed constraints, stable point, physical forward map, augmented Jacobian, and interval box are absent.",
       "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
-      "status": "rank_gate_failed_structural_benchmark_only"
+      "status": "rank_gate_failed_structural_benchmark_only",
+      "claim_class": "emitted_artifact",
+      "gates": [
+        364,
+        365
+      ]
     },
     {
       "claim_id": "OPH-POW-PHOTONIC",
@@ -1325,7 +1461,9 @@
       ],
       "falsifier": "Blinded verifier receipts show no enrichment beyond controls, or controls reveal route leakage or operator alignment.",
       "scope_if_false": "The hardware enrichment branch falls; no cryptographic break or OPH core theorem is implied.",
-      "status": "experimental_protocol"
+      "status": "experimental_protocol",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-IBM-GENERATIVE-REPAIR",
@@ -1358,6 +1496,8 @@
       "falsifier": "A replay failure or a valid repeat that favors a frozen null would falsify the archived implementation claim only; no result from this circuit family distinguishes OPH from standard quantum mechanics.",
       "scope_if_false": "Only the reduced-sector self-reading hardware implementation falls; no OPH core theorem, Einstein, Standard Model, cosmology branch, or OPH-versus-QM comparison is decided.",
       "status": "completed_and_frozen_non_discriminating_engineering_archive",
+      "claim_class": "emitted_artifact",
+      "gates": [],
       "github_gates": [
         509,
         325,
@@ -1389,7 +1529,9 @@
       ],
       "falsifier": "Biological cognition cannot be mapped to bounded interfaces, self-read, records, and repair toward stable normal forms under the stated model.",
       "scope_if_false": "The cognitive continuation falls; physical OPH branches are independent.",
-      "status": "interpretive_model"
+      "status": "interpretive_model",
+      "claim_class": "declared_structure",
+      "gates": []
     },
     {
       "claim_id": "OPH-PARADISE",
@@ -1411,7 +1553,9 @@
       ],
       "falsifier": "The OPH record-continuation framework cannot support identity preservation or destination assignment even as an interpretation.",
       "scope_if_false": "The meaning-layer essay falls; physics theorem surfaces are unaffected.",
-      "status": "speculative_interpretation"
+      "status": "speculative_interpretation",
+      "claim_class": "declared_structure",
+      "gates": []
     }
   ]
 }

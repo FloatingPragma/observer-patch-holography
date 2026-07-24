@@ -26,6 +26,19 @@ def write_fixture_repo(root: Path) -> None:
     (root / "claims").mkdir()
     (root / "extra").mkdir()
     (root / "code").mkdir()
+    (root / "tracking" / "open_issues").mkdir(parents=True)
+    (root / "tracking" / "open_issues" / "open_problem_ledger.json").write_text(
+        json.dumps(
+            {
+                "open_issue_count": 1,
+                "rows": [{"number": 42, "title": "open fixture gate"}],
+                "closed_out_of_scope_records": [
+                    {"number": 7, "title": "closed fixture issue"}
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
     (root / "paper" / "release_info.tex").write_text(
         "\\newcommand{\\OPHPaperReleaseID}{r-test}\n", encoding="utf-8"
     )
@@ -53,6 +66,8 @@ def write_fixture_repo(root: Path) -> None:
                 "falsifier": "Fixture falsifier.",
                 "scope_if_false": "Fixture scope.",
                 "status": "declared_basis",
+                "claim_class": "conditional_implication",
+                "gates": [42],
             }
         ],
     }
@@ -122,6 +137,76 @@ def test_release_id_drift_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
     edit_registry(tmp_path, lambda r: r.update(release_id="r-stale"))
     with pytest.raises(SystemExit, match="does not match"):
+        checker.main(tmp_path)
+
+
+def edit_snapshot(root: Path, mutate) -> None:
+    path = root / "tracking" / "open_issues" / "open_problem_ledger.json"
+    snapshot = json.loads(path.read_text(encoding="utf-8"))
+    mutate(snapshot)
+    path.write_text(json.dumps(snapshot), encoding="utf-8")
+
+
+def test_closed_issue_referenced_as_open_gate_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(7))
+    with pytest.raises(SystemExit, match="closed on GitHub but still referenced"):
+        checker.main(tmp_path)
+
+
+def test_gate_missing_from_github_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(999))
+    with pytest.raises(SystemExit, match="missing from the GitHub issue snapshot"):
+        checker.main(tmp_path)
+
+
+def test_claim_promoted_while_gate_open_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0].update(claim_class="physical_establishment"),
+    )
+    with pytest.raises(SystemExit, match="while gates .* are still open"):
+        checker.main(tmp_path)
+
+
+def test_uncontrolled_claim_class_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0].update(claim_class="basically_proved"),
+    )
+    with pytest.raises(SystemExit, match="not in the controlled vocabulary"):
+        checker.main(tmp_path)
+
+
+def test_wording_stronger_than_class_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0].update(
+            statement="This branch result is physically established."
+        ),
+    )
+    with pytest.raises(SystemExit, match="asserts establishment but claim_class"):
+        checker.main(tmp_path)
+
+
+def test_stale_snapshot_count_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_snapshot(tmp_path, lambda s: s.update(open_issue_count=58))
+    with pytest.raises(SystemExit, match="hard-coded or stale count"):
+        checker.main(tmp_path)
+
+
+def test_snapshot_citing_unknown_claim_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_snapshot(
+        tmp_path,
+        lambda s: s["rows"][0].update(blocker="Blocked on OPH-GHOST-CLAIM."),
+    )
+    with pytest.raises(SystemExit, match="cites unknown claim id"):
         checker.main(tmp_path)
 
 
