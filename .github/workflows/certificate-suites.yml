@@ -57,8 +57,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Execute the conditional port-current certificate suite
-        run: python -m pytest -q code/a5_closure/tests/test_port_current_inner_certificate.py
-
-      - name: Execute the conditional matter-lift certificate suite
-        run: python -m pytest -q code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py
+      # Same runner as the Mandatory Suite (#507), certificate legs only.
+      - name: Execute the exact certificate suites
+        run: python tools/run_mandatory_suite.py --certificates-only

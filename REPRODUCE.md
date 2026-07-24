@@ -16,24 +16,27 @@ then have their own theorem, certificate, or experimental acceptance rule.
 python -m venv .venv
 . .venv/bin/activate            # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python tools/check_claim_registry.py
-python -m pytest --collect-only code
+python tools/run_mandatory_suite.py
 ```
 
-`requirements.txt` pins the core dependencies. Two of them, `mpmath` and
-`sympy`, are imported across `code/` and require explicit declarations. With
-them declared, the mandatory command above collects the repository test set
-and exits 0.
+`requirements.txt` pins the core dependencies. The runner is the single
+documented mandatory command, and it is the exact command CI
+(`.github/workflows/mandatory-suite.yml`) enforces on every push and PR. It
+both collects and executes: claim-registry validation (including live-gate
+and wording checks), release-manifest validation and its regression tests,
+the generated claims-scoreboard drift check, a clean `--collect-only` pass
+over `code/`, the audit fixture suite in `code/audit/` (which includes the
+scope guard proving no cloud or hardware lane is silently collected), and
+the A5 closure ledger audit.
 
-CI (`.github/workflows/mandatory-suite.yml`) runs the same commands on every
-push, plus the release-manifest validation and the exact certificate suites:
+The exact certificate suites (#566 port-current, #314 matter-lift, ~26
+minutes) run through the same runner in their own CI workflow
+(`.github/workflows/certificate-suites.yml`) whenever `code/a5_closure/`
+changes and nightly on both platforms:
 
 ```bash
-python tools/validate_paper_release_manifest.py
-python -m pytest -q tools/test_paper_release_manifest.py
-python -m pytest -q code/a5_closure/tests/test_port_current_inner_certificate.py
-python -m pytest -q code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py
-python code/a5_closure/test_audit.py
+python tools/run_mandatory_suite.py --certificates    # mandatory + certificates
+python tools/run_mandatory_suite.py --certificates-only
 ```
 
 ## Optional lanes (opt-in extras)
@@ -49,9 +52,10 @@ mandatory collection unless explicitly enabled:
 
 ## Scope
 
-The mandatory suite is **collectable** from a clean clone. The acceptance bar
-for this path is a green claim registry plus a clean `--collect-only` run with
-zero import errors.
+The mandatory suite is **collectable and executable** from a clean clone. The
+acceptance bar for this path is a green `python tools/run_mandatory_suite.py`:
+claim registry, release manifest, scoreboard sync, a clean `--collect-only`
+run with zero import errors, and the executed audit fixtures.
 
 Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. Individual scientific

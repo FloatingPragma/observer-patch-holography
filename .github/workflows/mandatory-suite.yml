@@ -46,22 +46,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Validate claim registry
-        run: python tools/check_claim_registry.py
-
-      # #514: release-manifest membership is derived from the source set, and every
-      # listed PDF must match its recorded sha256 + size_bytes. Runs unconditionally
-      # here (every push/PR) so a manifest drift, a swapped/truncated artifact, or an
-      # added/removed paper is rejected — a superset of manifest/validator/source-set/
-      # PDF path triggers, so the check can never be bypassed by a path-filter miss.
-      - name: Validate paper release manifest
-        run: python tools/validate_paper_release_manifest.py
-
-      - name: Regression-test the manifest validator
-        run: python -m pytest -q tools/test_paper_release_manifest.py
-
-      - name: Collect the mandatory scientific suite
-        run: python -m pytest --collect-only code
-
-      - name: Audit A5 closure ledgers
-        run: python code/a5_closure/test_audit.py
+      # #507: the mandatory suite is one documented command, identical here and
+      # in REPRODUCE.md. It validates the claim registry (incl. live gates,
+      # #512) and the release manifest (#514, unconditional on every push/PR so
+      # manifest drift can never be bypassed by a path-filter miss), checks the
+      # generated claims scoreboard, collects the full scientific suite, and
+      # executes the fast audit fixtures.
+      - name: Run the mandatory suite
+        run: python tools/run_mandatory_suite.py

@@ -40,7 +40,11 @@ def pytest_configure(config: pytest.Config) -> None:
 def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
     if _legacy_d10_enabled():
         return
-    root = Path(config.rootpath)
+    # Anchor on this conftest's directory, not config.rootpath: the repo-root
+    # pytest.ini makes rootpath the repository root, under which the
+    # LEGACY_D10_TESTS entries (relative to code/particles/) would never match
+    # and the opt-in gate would be silently inert.
+    root = Path(__file__).resolve().parent
     skip_legacy = pytest.mark.skip(
         reason="legacy arXiv D10 helper is opt-in; set OPH_RUN_LEGACY_D10=1 and OPH_LEGACY_PARTICLE_DIR"
     )
