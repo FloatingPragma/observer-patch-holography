@@ -703,18 +703,29 @@ and its Newton--Poisson limit with the observer-cell ratio
 \[
   G_{\rm geom}=\frac{a_{\rm cell}}{4\bar\ell_{\rm shared}}.
 \]
-The local pixel branch supplies
-\(a_{\rm cell}=P_{\rm fwd}\ell_\star^2\) and
-\(\bar\ell_{\rm shared}=P_{\rm fwd}/4\). Substitution gives
+The two inputs have separate provenance. The cell-geometry reading is
+\(a_{\rm cell}=P_{\rm fwd}\ell_\star^2\), the cell area in pixel units. The
+cell-entropy reading is computed, not defined: the collar edge-center entropy
+of a cut sector is \(\log d_R\), the \(\mathrm U(1)\) factor contributes
+\(\log 1=0\), and the shared-edge entropy is the sum of the same
+\(SU(2)/SU(3)\) heat-kernel edge terms that build the pixel fixed point; the
+D10 pixel law identifies that sum with \(P_{\rm fwd}/4\) at the running times
+[O4]. Substitution gives
 \[
   \frac{G_{\rm geom}}{\ell_\star^2}
   =\frac{P_{\rm fwd}}{4(P_{\rm fwd}/4)}=1,
   \qquad
   \boxed{G_{\rm geom}=\ell_\star^2}.
 \]
-The pixel number cancels because it counts both cell area and shared edge
-entropy. The factor \(4\) follows from the ratio between the structural
-Einstein coefficient and the Newton--Poisson convention [O4].
+The cancellation of the pixel number is therefore a derived consistency
+between the entropy and geometry readings of one cell, conditional on the
+D10 pixel law: the same edge-mode count that fixes the fine-structure fixed
+point fixes the area-law coefficient at exactly \(1/4\), leaving no
+independent Newton coupling. An edge sum landing anywhere off
+\(P_{\rm fwd}/4\) would shift the coefficient off \(1/4\) and falsify the
+normalization. The factor \(4\) in the denominator follows from the ratio
+between the structural Einstein coefficient and the Newton--Poisson
+convention [O4].
 
 \infobox{Newton coupling and the SI clock readout}{
 A cesium clock translates the geometric identity into SI units:
@@ -777,7 +788,10 @@ rung with the cone margin halving toward the Einstein cone [E1]. & 4\\
 
 Why gravity knows about quantum information &
 The edge-entropy/area law fixes the Einstein and Newton coefficient:
-\(G_{\rm geom}=a_{\rm cell}/(4\bar\ell_{\rm shared})=\ell_\star^2\). & 4\\
+\(G_{\rm geom}=a_{\rm cell}/(4\bar\ell_{\rm shared})=\ell_\star^2\). The
+shared-edge entropy is the same \(SU(2)/SU(3)\) edge sum as the pixel fixed
+point, identified with \(P/4\) by the D10 pixel law, so the coupling carries
+no independent dial. & 4\\
 
 Standard Model gauge structure &
 The twelve-port holographic screen gives an exact conditional
