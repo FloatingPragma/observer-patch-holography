@@ -1,0 +1,10 @@
+{
+  "artifact": "issue_518_dark_sector_calibration_negative_control",
+  "negative_control": true,
+  "active_theorem_bundle": false,
+  "receipt_class": "comparison",
+  "input_role": "target-informed observational comparison",
+  "forbidden_use": "theorem premise, producer receipt, prediction receipt, or promotion gate",
+  "target": "observed_rotation_curve",
+  "claim_boundary": "This fixture demonstrates the forbidden target-calibration shape. It emits no source-derived reserve law and cannot support a dark-sector theorem."
+}

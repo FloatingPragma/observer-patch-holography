@@ -4,17 +4,18 @@
 The producer is not the verifier.  This module validates the public v1 JSON
 Schema, reads and hashes every referenced artifact itself, recomputes the
 canonical bundle binding, and evaluates evidentiary predicates.  Values under
-``producer_assertions`` are deliberately ignored.
+``producer_assertions`` are deliberately ignored.  Physical promotion also
+requires operator-pinned external evidence: real Ed25519 signatures, signed
+pre-run commitments, a signed replay-registry assignment, deterministic
+analysis replay, and an independently administered witness.
 
 Verdicts:
 
 * ``INVALID``: malformed schema, unsafe/missing artifacts, or hash/root drift.
 * ``INSUFFICIENT``: integrity-valid packet missing an evidentiary predicate.
-Version 1 is deliberately non-promoting.  It has no implementation for
-verifying a cryptographic trust root/signature, independently replaying a
-fresh reproduction bundle, or executing the analysis to bind its output to
-the structured ``(E, M, U)`` claim.  Those named gates remain open for every
-v1 packet, so this verifier can return only ``INVALID`` or ``INSUFFICIENT``.
+* ``SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL``: every internal predicate
+  and every applicable operator-pinned external gate passed.  This is an
+  evidence-policy result, not proof that nature produced the claimed effect.
 """
 
 from __future__ import annotations
@@ -28,6 +29,11 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from jsonschema import Draft202012Validator, FormatChecker
+
+try:
+    from tools.hardware_evidence_external import verify_external_evidence
+except ModuleNotFoundError:  # Direct execution from tools/.
+    from hardware_evidence_external import verify_external_evidence
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCHEMA = REPO_ROOT / "schemas" / "hardware_evidence_bundle_h_v1.schema.json"
@@ -140,6 +146,8 @@ def verify_bundle(
     *,
     schema_path: Path = DEFAULT_SCHEMA,
     replay_registry_path: Path | None = None,
+    trust_policy_path: Path | None = None,
+    external_evidence_path: Path | None = None,
 ) -> dict[str, Any]:
     """Verify a class-H bundle and return a deterministic machine report."""
     try:
@@ -675,53 +683,51 @@ def verify_bundle(
             "attestation",
         )
 
-    # V1 is an integrity/coverage scaffold, not a physical-sufficiency oracle.
-    # These operations must be independently implemented before any class-H
-    # packet can be promoted.  Declared signer, independence, freshness, and
-    # replay-command fields are data to audit; they are not their own proofs.
-    open_gates = [
-        "TRUST_ROOT_SIGNATURE_VERIFICATION_OPEN",
-        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
-        "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
-        "EXTERNAL_RUN_SCHEDULE_COMMITMENT_OPEN",
-        "DEVICE_CUSTODY_PROVENANCE_VERIFICATION_OPEN",
-        "REPLAY_REGISTRY_AUTHORITY_OPEN",
-    ]
-    insufficient(
-        "TRUST_ROOT_SIGNATURE_VERIFICATION_OPEN",
-        "v1 does not verify signature bytes, key validity, revocation, or an independent trust root",
-        "attestation",
-    )
-    insufficient(
-        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
-        "v1 does not resolve and verify a separate fresh-device or fresh-run reproduction bundle",
-        "attestation",
-    )
-    insufficient(
-        "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
-        "v1 hashes analysis bytes but does not execute them and compare the result with structured E, M, and U",
-        "analysis_binding",
-    )
-    insufficient(
-        "EXTERNAL_RUN_SCHEDULE_COMMITMENT_OPEN",
-        "v1 checks internal schedule/report equality but does not verify an externally preregistered schedule commitment",
-        "completeness",
-    )
-    insufficient(
-        "DEVICE_CUSTODY_PROVENANCE_VERIFICATION_OPEN",
-        "v1 cross-checks bound ids and intervals but does not authenticate device, calibration, control, or custody issuers",
-        "device_identity",
-    )
-    insufficient(
-        "REPLAY_REGISTRY_AUTHORITY_OPEN",
-        "v1 checks an identified registry snapshot but does not authenticate or update the registry authority",
-        "replay_protection",
-    )
+    try:
+        external = verify_external_evidence(
+            bundle=bundle,
+            artifacts=artifacts,
+            artifact_paths=artifact_paths,
+            replay_registry_path=replay_registry_path,
+            trust_policy_path=trust_policy_path,
+            external_evidence_path=external_evidence_path,
+        )
+    except Exception as exc:
+        # Trust/evidence files are untrusted inputs. Any parser or type failure
+        # is an INVALID report, never a traceback or an INSUFFICIENT exit code.
+        external = {
+            "invalid_codes": {"EXTERNAL_EVIDENCE_VERIFICATION_EXCEPTION"},
+            "insufficient_codes": set(),
+            "details": [
+                (
+                    "EXTERNAL_EVIDENCE_VERIFICATION_EXCEPTION: "
+                    f"{type(exc).__name__}: {exc}"
+                )
+            ],
+            "predicate_failures": {"attestation"},
+            "open_gates": [
+                "TRUST_ROOT_SIGNATURE_VERIFICATION_OPEN",
+                "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
+                "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
+                "EXTERNAL_RUN_SCHEDULE_COMMITMENT_OPEN",
+                "DEVICE_CUSTODY_PROVENANCE_VERIFICATION_OPEN",
+                "REPLAY_REGISTRY_AUTHORITY_OPEN",
+            ],
+            "verified_anchor_ids": [],
+        }
+    invalid_codes.update(external["invalid_codes"])
+    insufficient_codes.update(external["insufficient_codes"])
+    details.extend(external["details"])
+    for predicate in external["predicate_failures"]:
+        predicates[predicate] = False
+    open_gates = external["open_gates"]
 
     if invalid_codes:
         verdict = "INVALID"
-    else:
+    elif insufficient_codes:
         verdict = "INSUFFICIENT"
+    else:
+        verdict = "SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL"
 
     return {
         "schema": "oph.hardware_evidence_bundle_h.verification.v1",
@@ -735,10 +741,12 @@ def verify_bundle(
         "ignored_producer_assertions": ignored,
         "open_gates": open_gates,
         "claim_boundary": bundle["claim_boundary"],
+        "verified_external_anchor_ids": external["verified_anchor_ids"],
         "verifier_boundary": (
-            "V1 checks schema, hashes, binding coverage, replay, custody, "
-            "calibration, and declared attestation structure. It cannot promote "
-            "a physical claim while its external-verification gates are open."
+            "The verdict evaluates evidence sufficiency relative to the "
+            "operator-pinned trust policy and declared threat model. It does "
+            "not prove the physical truth of the claim or protect against "
+            "collusion by every independent authority."
         ),
     }
 
@@ -752,6 +760,16 @@ def main(argv: Iterable[str] | None = None) -> int:
         type=Path,
         help="identified {registry_id, seen_nonces} JSON object maintained independently",
     )
+    parser.add_argument(
+        "--trust-policy",
+        type=Path,
+        help="operator-pinned Ed25519 trust roots; never read from the producer bundle",
+    )
+    parser.add_argument(
+        "--external-evidence",
+        type=Path,
+        help="signature, preregistration, witness, and replay-authority evidence",
+    )
     parser.add_argument("--json-out", type=Path)
     args = parser.parse_args(argv)
 
@@ -759,6 +777,8 @@ def main(argv: Iterable[str] | None = None) -> int:
         args.bundle,
         schema_path=args.schema,
         replay_registry_path=args.replay_registry,
+        trust_policy_path=args.trust_policy,
+        external_evidence_path=args.external_evidence,
     )
     encoded = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.json_out:

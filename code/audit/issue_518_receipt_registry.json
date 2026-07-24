@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "issue": 518,
+  "receipt_classes": [
+    "identity",
+    "schema",
+    "producer",
+    "recomputation",
+    "prediction",
+    "comparison"
+  ],
+  "promotion_policy": {
+    "eligible_classes": [
+      "producer",
+      "recomputation",
+      "prediction"
+    ],
+    "never_sufficient_classes": [
+      "identity",
+      "schema",
+      "comparison"
+    ],
+    "requirements": [
+      "receipt class is declared in this independent registry, never inferred from the subject artifact",
+      "antecedent artifacts and target artifacts are disjoint",
+      "no open gate is attached to the row",
+      "the literal checker recomputes the advertised property",
+      "every defining-antecedent mutation control fails closed"
+    ]
+  },
+  "a5_role_classes": {
+    "coefficient_algebra": "recomputation",
+    "physical_currents": "producer",
+    "global_descent": "identity",
+    "matter_realization": "schema"
+  },
+  "rows": [
+    {
+      "receipt_id": "hierarchy-ru-independent-interval",
+      "role": "hierarchy_root_interval",
+      "receipt_class": "recomputation",
+      "artifact": "code/particles/hierarchy/certificates/independent_interval_witness_receipt.json",
+      "json_pointer": "",
+      "promoted": true,
+      "literal_check": "hierarchy_interval",
+      "antecedent_artifacts": [
+        "code/particles/hierarchy/computations/hierarchy_interval_witness.py",
+        "code/particles/hierarchy/tools/ru_formula_stack.py"
+      ],
+      "target_artifacts": [],
+      "open_gates": [],
+      "mutation_controls": [
+        "beta2_perturbation_breaks_bracket",
+        "weak_multiplicity_perturbation_breaks_bracket",
+        "pixel_perturbation_breaks_bracket"
+      ]
+    },
+    {
+      "receipt_id": "petz-classical-recovery",
+      "role": "petz_cptp",
+      "receipt_class": "recomputation",
+      "artifact": "code/consensus/runs/verified_tree_packet_net_domain.json",
+      "json_pointer": "/petz_domain",
+      "promoted": true,
+      "literal_check": "petz",
+      "antecedent_artifacts": [
+        "code/consensus/export_verified_tree_packet_net.py"
+      ],
+      "target_artifacts": [],
+      "open_gates": [],
+      "mutation_controls": [
+        "broken_column_normalization",
+        "negative_choi_entry",
+        "zero_reference_support"
+      ]
+    },
+    {
+      "receipt_id": "thomson-endpoint-blocker",
+      "role": "thomson_endpoint",
+      "receipt_class": "comparison",
+      "artifact": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
+      "json_pointer": "",
+      "supporting_artifacts": [
+        "code/P_derivation/runtime/fine_structure_interval_certificate_current.json"
+      ],
+      "promoted": false,
+      "literal_check": "thomson",
+      "antecedent_artifacts": [
+        "code/P_derivation/runtime/full_p_alpha_report_current.json"
+      ],
+      "target_artifacts": [
+        "CODATA_2022_ALPHA_INV"
+      ],
+      "open_gates": [
+        "source-emitted same-scheme Ward-projected R_Q(P)",
+        "directed-rounding interval proof for the complete source map"
+      ],
+      "mutation_controls": [
+        "theorem_grade_boolean_does_not_promote",
+        "endpoint_component_perturbation_fails_literal_check",
+        "missing_source_map_blocks_promotion"
+      ]
+    },
+    {
+      "receipt_id": "hierarchy-ew-capacity-identity",
+      "role": "hierarchy_capacity",
+      "receipt_class": "identity",
+      "artifact": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "quarantined_identity",
+      "antecedent_artifacts": [
+        "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json",
+        "code/particles/hierarchy/certificates/R_U_krawczyk_certificate.json"
+      ],
+      "target_artifacts": [
+        "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json#/exact_capacity_fixed_point/N_CRC_EW"
+      ],
+      "open_gates": [
+        "antecedent-only physical capacity producer"
+      ],
+      "mutation_controls": [
+        "identity_class_cannot_promote"
+      ]
+    },
+    {
+      "receipt_id": "higgs-naturality-selected-identity",
+      "role": "higgs_naturality",
+      "receipt_class": "identity",
+      "artifact": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "quarantined_identity",
+      "antecedent_artifacts": [
+        "code/particles/hierarchy/verify_issue_332_rg_naturality.py"
+      ],
+      "target_artifacts": [
+        "code/particles/hierarchy/issue_332_rg_naturality_certificate.json#/epsilon_H"
+      ],
+      "open_gates": [
+        "antecedent-only naturality producer with an independently evaluated commuting square"
+      ],
+      "mutation_controls": [
+        "identity_class_cannot_promote"
+      ]
+    },
+    {
+      "receipt_id": "dark-sector-calibration-negative-control",
+      "role": "dark_sector",
+      "receipt_class": "comparison",
+      "artifact": "code/audit/fixtures/issue_518/dark_sector_calibration_negative.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "dark_negative_control",
+      "antecedent_artifacts": [],
+      "target_artifacts": [
+        "observed_rotation_curve"
+      ],
+      "open_gates": [
+        "preregistered source-derived reserve law"
+      ],
+      "mutation_controls": [
+        "active_theorem_bundle_reference_is_rejected",
+        "negative_control_marker_is_required"
+      ]
+    },
+    {
+      "receipt_id": "planck-posterior-capacity-comparison",
+      "role": "planck_comparison",
+      "receipt_class": "comparison",
+      "artifact": "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "planck_separation",
+      "planck_input_pointer": "/inputs",
+      "planck_output_pointer": "/combos",
+      "antecedent_artifacts": [
+        "Planck_2018_VI_base_LCDM_marginals",
+        "CODATA_2022_G"
+      ],
+      "target_artifacts": [
+        "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json#/combos"
+      ],
+      "open_gates": [
+        "frozen full-chain Planck likelihood input",
+        "CP-1 through CP-3 and source readback map F"
+      ],
+      "mutation_controls": [
+        "input_output_pointer_overlap_is_rejected",
+        "derived_gap_perturbation_fails_recomputation"
+      ]
+    },
+    {
+      "receipt_id": "a5-coefficient-algebra",
+      "role": "coefficient_algebra",
+      "receipt_class": "recomputation",
+      "artifact": "code/a5_closure/a5_screen_sm_closure.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "a5_coefficient",
+      "antecedent_artifacts": [
+        "code/a5_closure/a5_screen_sm_closure.py"
+      ],
+      "target_artifacts": [],
+      "open_gates": [
+        "coefficient classification is not a physical current producer"
+      ],
+      "mutation_controls": [
+        "coefficient_role_cannot_alias_current_role"
+      ]
+    },
+    {
+      "receipt_id": "a5-physical-currents",
+      "role": "physical_currents",
+      "receipt_class": "producer",
+      "artifact": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "a5_current",
+      "antecedent_artifacts": [
+        "code/a5_closure/manifests/port_current_response_reference.json"
+      ],
+      "target_artifacts": [],
+      "open_gates": [
+        "physical response model, coefficients, and refinement maps are not source-bound"
+      ],
+      "mutation_controls": [
+        "physical_source_gate_false_blocks_promotion",
+        "abelian_and_rank_deficient_controls_fail"
+      ]
+    },
+    {
+      "receipt_id": "a5-global-descent",
+      "role": "global_descent",
+      "receipt_class": "identity",
+      "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "json_pointer": "/kernel_emission",
+      "promoted": false,
+      "literal_check": "a5_global_descent",
+      "antecedent_artifacts": [
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
+      ],
+      "target_artifacts": [
+        "physical_Z6_quotient_and_line_spectrum"
+      ],
+      "open_gates": [
+        "GitHub issue #567 physical Z6 descent"
+      ],
+      "mutation_controls": [
+        "cover_kernel_identity_cannot_promote_global_quotient"
+      ]
+    },
+    {
+      "receipt_id": "a5-matter-realization",
+      "role": "matter_realization",
+      "receipt_class": "schema",
+      "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "json_pointer": "",
+      "promoted": false,
+      "literal_check": "a5_matter",
+      "antecedent_artifacts": [
+        "code/a5_closure/manifests/super_tannakian_matter_reference.json"
+      ],
+      "target_artifacts": [
+        "three_physical_families"
+      ],
+      "open_gates": [
+        "GitHub issue #569 source-derived family attachment"
+      ],
+      "mutation_controls": [
+        "schema_nonemptiness_cannot_promote_physical_family_realization"
+      ]
+    }
+  ]
+}

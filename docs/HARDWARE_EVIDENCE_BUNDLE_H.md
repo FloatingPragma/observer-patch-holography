@@ -107,6 +107,8 @@ The machine-readable scaffold consists of:
 - `schemas/hardware_evidence_bundle_h_v1.schema.json`, the closed v1 type;
 - `tools/verify_hardware_evidence_bundle_h.py`, an independent fail-closed
   verifier;
+- `tools/hardware_evidence_external.py`, the operator-pinned trust,
+  provenance, preregistration, analysis-replay, and attestation verifier;
 - `code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/`, a
   tiny schema-valid fixture that explicitly says no physical device or
   measurement exists; and
@@ -136,48 +138,71 @@ result: this fixture tests the contract and makes no class-H claim. The suite
 also rejects a seen replay nonce, omitted scheduled run, stale calibration,
 device substitution, custody break, changed analysis or claim text,
 compromised signer, and multiple signatures over one capture masquerading as
-independent attestation. Its strongest control gives an attacker every
-self-authored declaration, lets the attacker rename itself as an independent
-party, fabricate a Moon-levitation claim, and recompute all hashes. The packet
-cannot promote.
+independent attestation. Another control gives an attacker every self-authored
+declaration, lets the attacker rename itself as an independent party,
+fabricate a Moon-levitation claim, and recompute all hashes. The packet cannot
+promote without roots pinned by the verifier operator.
 
-### V1 is deliberately non-promoting
+### Authenticated decision path
 
-Schema validity and internal hash consistency cannot establish the truth of
-the records they bind. V1 therefore has no successful physical verdict. It
-always keeps these external-verification gates open:
+The producer bundle cannot nominate its own trust roots. The verifier operator
+supplies two separate inputs:
 
-- `TRUST_ROOT_SIGNATURE_VERIFICATION_OPEN`: verify actual signature bytes,
-  certificate/key validity, revocation and an independently administered
-  trust root;
-- `FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN`: resolve and verify a separate
-  fresh-device or fresh-run bundle rather than accepting a self-declared
-  freshness Boolean;
-- `ANALYSIS_TO_CLAIM_EXECUTION_OPEN`: execute the frozen analysis in a pinned
-  environment and compare its output with the structured effect, magnitude
-  and uncertainty `(E, M, U)`;
-- `EXTERNAL_RUN_SCHEDULE_COMMITMENT_OPEN`: establish the run population from
-  an externally preregistered commitment, not only a self-authored schedule;
-- `DEVICE_CUSTODY_PROVENANCE_VERIFICATION_OPEN`: authenticate the issuers of
-  device identity, calibration, controls and custody records; and
-- `REPLAY_REGISTRY_AUTHORITY_OPEN`: authenticate and atomically update the
-  independent nonce-registry authority.
+1. a closed trust policy containing Ed25519 public keys, party and
+   organization identities, roles, validity intervals, and revocation state;
+2. an external-evidence packet containing signatures over the bundle root and
+   artifact hashes, signed pre-run commitments, and a signed replay-registry
+   snapshot.
 
-Accordingly, the verifier returns only `INVALID` or `INSUFFICIENT` in v1.
-`INVALID` means the schema or integrity layer failed. `INSUFFICIENT` means the
-packet may be internally consistent but cannot establish a physical claim.
-The CLI exits `2` and `1`, respectively. Exit `0` is reserved for an
-implementation that closes every external gate.
+The verifier checks actual Ed25519 signature bytes. It requires role-separated
+provenance for raw captures, controls, calibration, device identity, custody,
+analysis, protocol, claim text, and attestation. The run schedule and analysis
+recipe must be signed by the preregistration authority before the first
+capture. Those commitments bind the policy, bundle, claimant, device, and
+protocol, so they cannot be transplanted to another claim. Every nonce must
+have one signed pre-run assignment and post-capture consume receipt for the
+same bundle and canonical root. The replay authority signs the complete
+registry state, including prior seen nonces. An end-to-end witness must belong
+to a different party and organization from the claimant and must sign both the
+attestation artifact and the canonical bundle root.
+
+Analysis replay uses a closed declarative recipe rather than executing
+producer-supplied code. The implemented
+`mean_max_deviation.v1` operation reads the bound raw samples and recomputes
+the effect statement, unit, magnitude, and maximum-deviation uncertainty
+exactly with rational arithmetic. A mismatch fails the analysis predicate.
+Additional analysis operations require separately reviewed verifier code.
+
+`test_authenticated_contract_has_a_nonvacuous_sufficient_path` constructs
+independent ephemeral keys and a synthetic decision-procedure packet. The
+verifier returns `SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL` and the CLI
+exits zero. The fixture makes no claim about an actual device; it proves that
+the policy is satisfiable rather than rejecting every input. Mutation tests
+reject a bad signature, witness reuse after bundle rebinding, a witness
+administered by the claimant's organization, a cross-bundle or post-capture
+schedule commitment, unsigned replay-state drift, a nonce consumed for another
+bundle, stale authority snapshots, malformed nested inputs, and a fully
+re-signed raw mutation that disagrees with deterministic analysis replay.
+
+The six named external gates remain machine-visible whenever their evidence
+is absent or fails. They close per bundle when the operator-pinned trust,
+independent witness, deterministic analysis, preregistration, provenance, and
+replay-authority checks pass. `INVALID` has exit code `2`, `INSUFFICIENT` has
+exit code `1`, and `SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL` has exit code
+`0`.
 
 ## 7. Exact claim boundary
 
-No class-H bundle satisfying Section 4 exists in this repository. The issue
-#509 IBM bundle remains a strong, independently replayable engineering
-specimen against its frozen controller nulls, but this v1 schema does not bind
-or promote it, and its programmed circuit is non-discriminating between OPH
-and standard quantum mechanics. The application concepts in
-[APPLICATIONS.md](APPLICATIONS.md) remain design documents.
+The test suite constructs a synthetic satisfiability fixture. The repository
+ships no promoted physical claim. The issue #509 IBM bundle is an independently
+replayable engineering specimen against its frozen controller nulls, but this
+verifier does not bind or promote it, and its programmed circuit is
+non-discriminating between OPH and standard quantum mechanics. The application
+concepts in [APPLICATIONS.md](APPLICATIONS.md) are design documents.
 
-The executable packet covers typed fields, internal cryptographic coverage and
-negative controls. It does not establish hardware-evidence sufficiency. A
-public hardware claim requires all six external gates listed above.
+A sufficient verifier result establishes that the named evidence predicates
+hold relative to the operator's pinned trust policy and the declared threat
+model. It does not prove the physical truth of the effect, protect against
+collusion by every independent authority, or convert a generic hardware
+result into an OPH result. OPH attribution additionally requires the
+observer-like self-reading structure stated in Section 1.

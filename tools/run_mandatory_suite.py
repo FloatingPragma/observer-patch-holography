@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     ("Validate claim registry", [sys.executable, "tools/check_claim_registry.py"]),
+    ("Audit issue-518 receipt promotion", [sys.executable, "tools/audit_issue_518_receipts.py"]),
     ("Validate paper release manifest", [sys.executable, "tools/validate_paper_release_manifest.py"]),
     ("Regression-test the manifest validator", [sys.executable, "-m", "pytest", "-q", "tools/test_paper_release_manifest.py"]),
     ("Check the claims scoreboard is regenerated", [sys.executable, "tools/build_scoreboard.py", "--check"]),
