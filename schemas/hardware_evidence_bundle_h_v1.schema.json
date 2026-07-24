@@ -1,0 +1,698 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/hardware_evidence_bundle_h_v1.schema.json",
+  "title": "OPH hardware evidence bundle class H v1",
+  "description": "Typed evidence contract for a physical-device claim. Schema validity is necessary but never sufficient: tools/verify_hardware_evidence_bundle_h.py recomputes hashes, coverage, custody, replay, calibration, and attestation predicates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "created_utc",
+    "claimant_id",
+    "claim",
+    "claim_boundary",
+    "threat_model",
+    "replay_protection",
+    "artifacts",
+    "run_schedule",
+    "runs",
+    "calibrations",
+    "custody",
+    "controls",
+    "analysis_binding",
+    "attestation",
+    "signers",
+    "bundle_binding",
+    "producer_assertions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "oph.hardware_evidence_bundle_h.v1"
+    },
+    "bundle_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_utc": {
+      "$ref": "#/$defs/dateTime"
+    },
+    "claimant_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "claim": {
+      "$ref": "#/$defs/claim"
+    },
+    "claim_boundary": {
+      "$ref": "#/$defs/claimBoundary"
+    },
+    "threat_model": {
+      "$ref": "#/$defs/threatModel"
+    },
+    "replay_protection": {
+      "$ref": "#/$defs/replayProtection"
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "run_schedule": {
+      "$ref": "#/$defs/runSchedule"
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/run"
+      }
+    },
+    "calibrations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/calibration"
+      }
+    },
+    "custody": {
+      "$ref": "#/$defs/custody"
+    },
+    "controls": {
+      "$ref": "#/$defs/controls"
+    },
+    "analysis_binding": {
+      "$ref": "#/$defs/analysisBinding"
+    },
+    "attestation": {
+      "$ref": "#/$defs/attestation"
+    },
+    "signers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/signer"
+      }
+    },
+    "bundle_binding": {
+      "$ref": "#/$defs/bundleBinding"
+    },
+    "producer_assertions": {
+      "description": "Untrusted hints retained for audit. The independent verifier reports their keys and never consumes their values as evidence.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "claim_boundary": {
+            "properties": {
+              "fixture_kind": {
+                "const": "synthetic_nonphysical"
+              }
+            },
+            "required": [
+              "fixture_kind"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "claim_boundary": {
+            "properties": {
+              "physical_claim": {
+                "const": false
+              },
+              "theory_discriminating": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "device_id",
+        "protocol_id",
+        "conditions",
+        "effect_statement",
+        "magnitude",
+        "uncertainty",
+        "extraordinary_effect"
+      ],
+      "properties": {
+        "class": {
+          "const": "H"
+        },
+        "device_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "protocol_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "conditions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effect_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "magnitude": {
+          "$ref": "#/$defs/quantity"
+        },
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value",
+            "unit"
+          ],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "minLength": 1
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "extraordinary_effect": {
+          "type": "boolean"
+        }
+      }
+    },
+    "quantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "claimBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixture_kind",
+        "physical_claim",
+        "theory_discriminating",
+        "allowed_conclusion"
+      ],
+      "properties": {
+        "fixture_kind": {
+          "enum": [
+            "physical_bundle",
+            "engineering_implementation",
+            "synthetic_nonphysical"
+          ]
+        },
+        "physical_claim": {
+          "type": "boolean"
+        },
+        "theory_discriminating": {
+          "type": "boolean"
+        },
+        "allowed_conclusion": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "threat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "in_scope",
+        "mitigation"
+      ],
+      "properties": {
+        "in_scope": {
+          "type": "boolean"
+        },
+        "mitigation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "threatModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signer_compromise",
+        "replay",
+        "selective_reporting",
+        "device_substitution",
+        "analysis_degrees_of_freedom"
+      ],
+      "properties": {
+        "signer_compromise": {
+          "$ref": "#/$defs/threat"
+        },
+        "replay": {
+          "$ref": "#/$defs/threat"
+        },
+        "selective_reporting": {
+          "$ref": "#/$defs/threat"
+        },
+        "device_substitution": {
+          "$ref": "#/$defs/threat"
+        },
+        "analysis_degrees_of_freedom": {
+          "$ref": "#/$defs/threat"
+        }
+      }
+    },
+    "replayProtection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_id",
+        "nonce_scope"
+      ],
+      "properties": {
+        "registry_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "nonce_scope": {
+          "const": "global_per_device"
+        }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "role",
+        "path",
+        "sha256",
+        "media_type"
+      ],
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "role": {
+          "enum": [
+            "raw_measurement",
+            "calibration",
+            "custody",
+            "control",
+            "analysis_code",
+            "claim_text",
+            "protocol",
+            "run_schedule",
+            "device_identity",
+            "attestation"
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "runSchedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "run_ids"
+      ],
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "run_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "outcome",
+        "device_id",
+        "captured_utc",
+        "capture_nonce",
+        "raw_artifact_ids",
+        "calibration_id",
+        "control_artifact_ids",
+        "device_identity_artifact_id"
+      ],
+      "properties": {
+        "run_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "outcome": {
+          "enum": [
+            "success",
+            "failed",
+            "aborted"
+          ]
+        },
+        "device_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "captured_utc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "capture_nonce": {
+          "$ref": "#/$defs/identifier"
+        },
+        "raw_artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "calibration_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "control_artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "device_identity_artifact_id": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "calibration_id",
+        "artifact_id",
+        "device_id",
+        "reference_id",
+        "valid_from_utc",
+        "valid_until_utc"
+      ],
+      "properties": {
+        "calibration_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "device_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "reference_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "valid_from_utc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "valid_until_utc": {
+          "$ref": "#/$defs/dateTime"
+        }
+      }
+    },
+    "custodySegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "holder_id",
+        "start_utc",
+        "end_utc"
+      ],
+      "properties": {
+        "device_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "holder_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "start_utc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "end_utc": {
+          "$ref": "#/$defs/dateTime"
+        }
+      }
+    },
+    "custody": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "continuous_declared",
+        "segments"
+      ],
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "continuous_declared": {
+          "type": "boolean"
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/custodySegment"
+          }
+        }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_ids"
+      ],
+      "properties": {
+        "artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "analysisBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "analysis_artifact_id",
+        "claim_text_artifact_id",
+        "protocol_artifact_id",
+        "input_artifact_ids",
+        "frozen_before_unblinding",
+        "replay_command"
+      ],
+      "properties": {
+        "analysis_artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "claim_text_artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "protocol_artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "input_artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "frozen_before_unblinding": {
+          "type": "boolean"
+        },
+        "replay_command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "artifact_ids",
+        "party_ids",
+        "independent_of_claimant",
+        "fresh_device_or_run_series",
+        "witnessed_end_to_end",
+        "signer_ids"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "none",
+            "independent_reproduction",
+            "independent_end_to_end_witness",
+            "threat_model_argument",
+            "same_capture_multi_signature"
+          ]
+        },
+        "artifact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "party_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "independent_of_claimant": {
+          "type": "boolean"
+        },
+        "fresh_device_or_run_series": {
+          "type": "boolean"
+        },
+        "witnessed_end_to_end": {
+          "type": "boolean"
+        },
+        "signer_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "signer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signer_id",
+        "party_id",
+        "key_id",
+        "compromised",
+        "signed_artifact_ids"
+      ],
+      "properties": {
+        "signer_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "party_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "key_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "compromised": {
+          "type": "boolean"
+        },
+        "signed_artifact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "bundleBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "covered_artifact_ids",
+        "binding_sha256"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha256-canonical-json-v1"
+        },
+        "covered_artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "binding_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

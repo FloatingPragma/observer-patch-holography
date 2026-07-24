@@ -1,0 +1,237 @@
+{
+  "schema_version": "oph.hardware_evidence_bundle_h.v1",
+  "bundle_id": "class-h-reference-nonphysical-v1",
+  "created_utc": "2026-07-20T12:30:00Z",
+  "claimant_id": "synthetic-claimant",
+  "claim": {
+    "class": "H",
+    "device_id": "synthetic-device-001",
+    "protocol_id": "protocol-synthetic-001",
+    "conditions": "Synthetic bytes only; no device, laboratory, or physical measurement exists.",
+    "effect_statement": "Synthetic fixture reports a zero response in a non-physical contract test.",
+    "magnitude": {
+      "value": 0.0,
+      "unit": "synthetic_unit"
+    },
+    "uncertainty": {
+      "kind": "synthetic_exact",
+      "value": 0.0,
+      "unit": "synthetic_unit"
+    },
+    "extraordinary_effect": false
+  },
+  "claim_boundary": {
+    "fixture_kind": "synthetic_nonphysical",
+    "physical_claim": false,
+    "theory_discriminating": false,
+    "allowed_conclusion": "The v1 schema and verifier can be exercised without making a hardware or OPH claim."
+  },
+  "threat_model": {
+    "signer_compromise": {
+      "in_scope": true,
+      "mitigation": "A signature is never accepted as independent reproduction or witnessing."
+    },
+    "replay": {
+      "in_scope": true,
+      "mitigation": "Per-capture nonces are checked against an independently maintained registry."
+    },
+    "selective_reporting": {
+      "in_scope": true,
+      "mitigation": "The bound preregistered run schedule must equal the reported success, failure, and abort population."
+    },
+    "device_substitution": {
+      "in_scope": true,
+      "mitigation": "Run, raw capture, calibration, identity, and continuous custody records bind one device id."
+    },
+    "analysis_degrees_of_freedom": {
+      "in_scope": true,
+      "mitigation": "Analysis code and inputs are content-addressed and declared frozen before unblinding."
+    }
+  },
+  "replay_protection": {
+    "registry_id": "class-h-fixture-registry",
+    "nonce_scope": "global_per_device"
+  },
+  "artifacts": [
+    {
+      "artifact_id": "raw-001",
+      "role": "raw_measurement",
+      "path": "raw_measurements.json",
+      "sha256": "66d8fc506c656533875f4414a7860ad8d08be36070322d6e996ad72f5049a63f",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "calibration-001",
+      "role": "calibration",
+      "path": "calibration.json",
+      "sha256": "f5d21eae02c15257a699cef741db9f9d52341e5b7698468a029a5687793fd55b",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "custody-001",
+      "role": "custody",
+      "path": "custody.json",
+      "sha256": "06eed6725d52df1ee3bb9330fa97164ac19dfae8476bc1de6ce4fe1713ea4b86",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "control-001",
+      "role": "control",
+      "path": "control.json",
+      "sha256": "315dc87d40e5f13716de741cc21ff00775a7d44b83a9fa74a1f27f2616260a41",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "analysis-001",
+      "role": "analysis_code",
+      "path": "analysis.py",
+      "sha256": "b67d9ee11a8507f8e6a5f0351f45f3fea587a75c3f0870fc00dc32e40c47a218",
+      "media_type": "text/x-python"
+    },
+    {
+      "artifact_id": "claim-text-001",
+      "role": "claim_text",
+      "path": "claim.txt",
+      "sha256": "e70be352181050e4dd229b088a2255c9a4e766163bde746b2ce3f6bf6b4b0ee8",
+      "media_type": "text/plain"
+    },
+    {
+      "artifact_id": "protocol-001",
+      "role": "protocol",
+      "path": "protocol.json",
+      "sha256": "1853d08e2a8e1afd7af8e918afad58a3375f1f2afe472a971e9f3d18c97fad9a",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "schedule-001",
+      "role": "run_schedule",
+      "path": "run_schedule.json",
+      "sha256": "7dd4d5a59545a6fe5631bba2ec08bebec8956a386fbdc2e15eacaacb7e7fcf52",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "device-identity-001",
+      "role": "device_identity",
+      "path": "device_identity.json",
+      "sha256": "95470cde0f17fbc49ade179f05b39c6031c5cadb451e6293a406890b56f15a98",
+      "media_type": "application/json"
+    },
+    {
+      "artifact_id": "attestation-001",
+      "role": "attestation",
+      "path": "attestation.json",
+      "sha256": "338ae88525c517de931a25ca98933b5b24840c1d2755c0e8973899cd0dfb6fe3",
+      "media_type": "application/json"
+    }
+  ],
+  "run_schedule": {
+    "artifact_id": "schedule-001",
+    "run_ids": [
+      "run-synthetic-001"
+    ]
+  },
+  "runs": [
+    {
+      "run_id": "run-synthetic-001",
+      "outcome": "success",
+      "device_id": "synthetic-device-001",
+      "captured_utc": "2026-07-20T12:00:00Z",
+      "capture_nonce": "nonce-synthetic-001",
+      "raw_artifact_ids": [
+        "raw-001"
+      ],
+      "calibration_id": "cal-synthetic-001",
+      "control_artifact_ids": [
+        "control-001"
+      ],
+      "device_identity_artifact_id": "device-identity-001"
+    }
+  ],
+  "calibrations": [
+    {
+      "calibration_id": "cal-synthetic-001",
+      "artifact_id": "calibration-001",
+      "device_id": "synthetic-device-001",
+      "reference_id": "synthetic-reference-001",
+      "valid_from_utc": "2026-07-20T00:00:00Z",
+      "valid_until_utc": "2026-07-21T00:00:00Z"
+    }
+  ],
+  "custody": {
+    "artifact_id": "custody-001",
+    "continuous_declared": true,
+    "segments": [
+      {
+        "device_id": "synthetic-device-001",
+        "holder_id": "synthetic-holder-001",
+        "start_utc": "2026-07-20T11:00:00Z",
+        "end_utc": "2026-07-20T13:00:00Z"
+      }
+    ]
+  },
+  "controls": {
+    "artifact_ids": [
+      "control-001"
+    ]
+  },
+  "analysis_binding": {
+    "analysis_artifact_id": "analysis-001",
+    "claim_text_artifact_id": "claim-text-001",
+    "protocol_artifact_id": "protocol-001",
+    "input_artifact_ids": [
+      "raw-001",
+      "calibration-001",
+      "custody-001",
+      "control-001",
+      "protocol-001",
+      "schedule-001",
+      "device-identity-001"
+    ],
+    "frozen_before_unblinding": true,
+    "replay_command": [
+      "python3",
+      "analysis.py"
+    ]
+  },
+  "attestation": {
+    "mode": "none",
+    "artifact_ids": [
+      "attestation-001"
+    ],
+    "party_ids": [],
+    "independent_of_claimant": false,
+    "fresh_device_or_run_series": false,
+    "witnessed_end_to_end": false,
+    "signer_ids": []
+  },
+  "signers": [
+    {
+      "signer_id": "synthetic-claimant-signer",
+      "party_id": "synthetic-claimant",
+      "key_id": "synthetic-key",
+      "compromised": false,
+      "signed_artifact_ids": []
+    }
+  ],
+  "bundle_binding": {
+    "algorithm": "sha256-canonical-json-v1",
+    "covered_artifact_ids": [
+      "raw-001",
+      "calibration-001",
+      "custody-001",
+      "control-001",
+      "analysis-001",
+      "claim-text-001",
+      "protocol-001",
+      "schedule-001",
+      "device-identity-001",
+      "attestation-001"
+    ],
+    "binding_sha256": "0411d5b2586a92377253b10d42d4d6443486829d4223ead909033fe318647ddb"
+  },
+  "producer_assertions": {
+    "analysis_passed": true,
+    "calibration_passed": true,
+    "physical_effect_established": true
+  }
+}

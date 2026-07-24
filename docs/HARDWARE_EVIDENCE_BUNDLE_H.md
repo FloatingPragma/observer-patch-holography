@@ -21,6 +21,13 @@ resonator cell, a candidate-enrichment claim for an optical sampler, a lift or
 effective-weight claim for a driven frame. Non-examples: simulation outputs,
 design targets, and theory-side theorems; those live in other claim classes.
 
+An OPH technology claim has an additional subject boundary. It concerns an
+observer-like self-reading system: a bounded physical or software patch with
+local state, ports or boundaries, readback, durable records, feedback or repair
+moves, and a public evidence bundle. A generic optics, vibration, artificial
+intelligence, mining, or engineering result does not become an OPH result by
+using the same hardware.
+
 ## 2. Evidentiary predicates
 
 A bundle `B` for a class-H claim consists of typed records. Each predicate
@@ -93,10 +100,84 @@ is rejected by a named predicate.
 - A reproducible simulation matching the claimed effect: simulations are not
   class H; the bundle proves the model, not the device.
 
-## 6. Status in this repository
+## 6. Executable v1 contract
 
-No class-H bundle satisfying Section 4 exists in this repository. The
-application concepts in [APPLICATIONS.md](APPLICATIONS.md) are design
-documents and carry no bundle. Any future hardware claim must cite its bundle
-identifier and the attestation rule it satisfies before it can appear on a
-public claim surface.
+The machine-readable scaffold consists of:
+
+- `schemas/hardware_evidence_bundle_h_v1.schema.json`, the closed v1 type;
+- `tools/verify_hardware_evidence_bundle_h.py`, an independent fail-closed
+  verifier;
+- `code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/`, a
+  tiny schema-valid fixture that explicitly says no physical device or
+  measurement exists; and
+- `code/audit/test_hardware_evidence_bundle_h.py`, the fast adversarial suite
+  executed by the normal mandatory audit lane.
+
+The verifier recomputes every artifact SHA-256, requires the canonical root to
+cover every artifact, rejects unsafe paths, and cross-checks the bound run
+schedule, successes, failures and aborts, raw run/device/nonce records,
+calibration validity windows, control coverage, device identity, custody
+intervals, analysis inputs, protocol and claim text. When replay is in scope,
+an identified external nonce-registry snapshot is mandatory. Values in
+`producer_assertions` are reported as ignored keys and never authorize a
+predicate.
+
+Run the reference fixture from the repository root:
+
+```bash
+python3 tools/verify_hardware_evidence_bundle_h.py \
+  code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/bundle.json \
+  --replay-registry \
+  code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/replay_registry.json
+```
+
+The command returns `INSUFFICIENT` and exits nonzero. That is the required
+result: this fixture tests the contract and makes no class-H claim. The suite
+also rejects a seen replay nonce, omitted scheduled run, stale calibration,
+device substitution, custody break, changed analysis or claim text,
+compromised signer, and multiple signatures over one capture masquerading as
+independent attestation. Its strongest control gives an attacker every
+self-authored declaration, lets the attacker rename itself as an independent
+party, fabricate a Moon-levitation claim, and recompute all hashes. The packet
+cannot promote.
+
+### V1 is deliberately non-promoting
+
+Schema validity and internal hash consistency cannot establish the truth of
+the records they bind. V1 therefore has no successful physical verdict. It
+always keeps these external-verification gates open:
+
+- `TRUST_ROOT_SIGNATURE_VERIFICATION_OPEN`: verify actual signature bytes,
+  certificate/key validity, revocation and an independently administered
+  trust root;
+- `FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN`: resolve and verify a separate
+  fresh-device or fresh-run bundle rather than accepting a self-declared
+  freshness Boolean;
+- `ANALYSIS_TO_CLAIM_EXECUTION_OPEN`: execute the frozen analysis in a pinned
+  environment and compare its output with the structured effect, magnitude
+  and uncertainty `(E, M, U)`;
+- `EXTERNAL_RUN_SCHEDULE_COMMITMENT_OPEN`: establish the run population from
+  an externally preregistered commitment, not only a self-authored schedule;
+- `DEVICE_CUSTODY_PROVENANCE_VERIFICATION_OPEN`: authenticate the issuers of
+  device identity, calibration, controls and custody records; and
+- `REPLAY_REGISTRY_AUTHORITY_OPEN`: authenticate and atomically update the
+  independent nonce-registry authority.
+
+Accordingly, the verifier returns only `INVALID` or `INSUFFICIENT` in v1.
+`INVALID` means the schema or integrity layer failed. `INSUFFICIENT` means the
+packet may be internally consistent but cannot establish a physical claim.
+The CLI exits `2` and `1`, respectively. Exit `0` is reserved for an
+implementation that closes every external gate.
+
+## 7. Exact claim boundary
+
+No class-H bundle satisfying Section 4 exists in this repository. The issue
+#509 IBM bundle remains a strong, independently replayable engineering
+specimen against its frozen controller nulls, but this v1 schema does not bind
+or promote it, and its programmed circuit is non-discriminating between OPH
+and standard quantum mechanics. The application concepts in
+[APPLICATIONS.md](APPLICATIONS.md) remain design documents.
+
+The executable packet covers typed fields, internal cryptographic coverage and
+negative controls. It does not establish hardware-evidence sufficiency. A
+public hardware claim requires all six external gates listed above.

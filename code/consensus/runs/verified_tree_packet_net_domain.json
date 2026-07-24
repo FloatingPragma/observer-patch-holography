@@ -42,20 +42,166 @@
     "packet-closure failure prevents a microscopic instrument from pushing forward to autonomous packet dynamics",
     "Petz recovery without full support requires an explicit support-domain restriction"
   ],
-  "generated_utc": "2026-05-03T01:15:44Z",
+  "generated_utc": "2026-07-24T18:39:19Z",
   "issue": 238,
   "object_id": "ConsensusTreePacketRepairDomain_Issue238",
   "petz_domain": {
+    "absolute_column_sums_exact": {
+      "0": "1",
+      "1": "1",
+      "2": "1"
+    },
+    "arithmetic": "fractions.Fraction exact rational arithmetic",
+    "audit_issue": 518,
+    "basis_marginal_recovery_identity": true,
+    "basis_marginal_recovery_matrix": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
     "channel": "classical_full_support_petz_for_trace_D",
+    "claim_boundary": {
+      "closed_here": "CPTP, basis marginal recovery, full-support domain, and induced l1 contractivity for this explicit classical diagonal channel",
+      "not_closed_here": [
+        "a noncommutative Petz recovery theorem for arbitrary packet algebras",
+        "a physical quantum channel or hardware realization",
+        "the remaining receipt-class, Thomson, hierarchy, dark-sector, or Planck-in/out work in issue #518"
+      ]
+    },
+    "classical_choi_diagonal": [
+      "1/2",
+      "1/4",
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4",
+      "1/2",
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    "classical_choi_diagonal_nonnegative": true,
+    "column_residuals_exact": {
+      "0": "0",
+      "1": "0",
+      "2": "0"
+    },
+    "column_sums_exact": {
+      "0": "1",
+      "1": "1",
+      "2": "1"
+    },
     "cptp": true,
+    "failures": [],
     "formula": "R(mu_B)(b,d)=mu_B(b) sigma(d|b)",
+    "full_support": true,
+    "induced_l1_norm": "1",
+    "input_basis": [
+      "b=0",
+      "b=1",
+      "b=2"
+    ],
     "input_domain": "all diagonal B-packet distributions because gamma_sigma > 0",
     "inverse_sqrt_bound": 1.7320508075688774,
+    "minimum_choi_diagonal": "0",
+    "output_basis": [
+      "(b=0,d=0)",
+      "(b=0,d=1)",
+      "(b=0,d=2)",
+      "(b=1,d=0)",
+      "(b=1,d=1)",
+      "(b=1,d=2)",
+      "(b=2,d=0)",
+      "(b=2,d=1)",
+      "(b=2,d=2)"
+    ],
+    "pass": true,
+    "recovery_matrix": [
+      [
+        "1/2",
+        "0",
+        "0"
+      ],
+      [
+        "1/4",
+        "0",
+        "0"
+      ],
+      [
+        "1/4",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/4",
+        "0"
+      ],
+      [
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "1/4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/4"
+      ],
+      [
+        "0",
+        "0",
+        "1/4"
+      ],
+      [
+        "0",
+        "0",
+        "1/2"
+      ]
+    ],
+    "recovery_matrix_shape": [
+      9,
+      3
+    ],
     "reference_sigma_B": {
-      "0": 0.3333333333333333,
-      "1": 0.3333333333333333,
-      "2": 0.3333333333333333
+      "0": "1/3",
+      "1": "1/3",
+      "2": "1/3"
     },
+    "reference_state_normalized": true,
     "sample_column_sums": {
       "0": 1.0,
       "1": 1.0,
@@ -63,24 +209,27 @@
     },
     "sample_conditional": {
       "0": {
-        "0": 0.5,
-        "1": 0.25,
-        "2": 0.25
+        "0": "1/2",
+        "1": "1/4",
+        "2": "1/4"
       },
       "1": {
-        "0": 0.25,
-        "1": 0.5,
-        "2": 0.25
+        "0": "1/4",
+        "1": "1/2",
+        "2": "1/4"
       },
       "2": {
-        "0": 0.25,
-        "1": 0.25,
-        "2": 0.5
+        "0": "1/4",
+        "1": "1/4",
+        "2": "1/2"
       }
     },
+    "support_gap_exact": "1/3",
     "support_gap_gamma_sigma": 0.3333333333333333,
     "support_obstruction": "sigma_B(b)=0 with input mass at b makes the inverse sigma_B^{-1/2} undefined unless the domain is restricted",
-    "trace_norm_contractive": true
+    "trace_norm_contractive": true,
+    "trace_preserving": true,
+    "witness_kind": "independently_computed_classical_recovery_channel"
   },
   "quotient_compatibility": {
     "descends_to_quotient": true,
@@ -88,7 +237,7 @@
     "physical_law_use": "gauge-invariant observables factor through the quotient normal form on this verified branch",
     "reason": "interface projections, potentials, enabled sites, and repairs depend only on packet labels x_i"
   },
-  "role": "Nontrivial exported packet-net domain where repair completeness, Petz-domain control, and quotient compatibility are theorem-grade.",
+  "role": "Nontrivial exported packet-net fixture with exhaustively checked repair mechanics, an exact classical diagonal Petz recovery witness, and quotient compatibility.",
   "theorem_checks": {
     "max_terminal_count_seen": 1,
     "potential_step_bound": 7,
