@@ -1,0 +1,178 @@
+{
+  "artifact": "oph_w5_stabiliser_spectrum_bound",
+  "canonical_rotation_checks": {
+    "C2": {
+      "canonical_axis": "(0,0,1)",
+      "fixed_block_determinants": {
+        "planar_spin2_det_R2_minus_I": {
+          "exact": "0",
+          "formula": "2*(1-cos(2*theta))",
+          "numeric": 0.0
+        },
+        "transverse_vector_det_R_minus_I": {
+          "exact": "4",
+          "formula": "2*(1-cos(theta))",
+          "numeric": 4.0
+        }
+      },
+      "fixed_locus_dimension": 3,
+      "free_coordinates": [
+        "a",
+        "b",
+        "d"
+      ],
+      "general_invariant_form": "[[a,b,0],[b,d,0],[0,0,-a-d]]",
+      "linear_constraint_rank_in_W5": 2,
+      "nonzero_projective_dimension": 2,
+      "rotation_angle_degrees": 180.0,
+      "rotation_order": 2,
+      "simple_spectrum_possible": true,
+      "simple_spectrum_witness": {
+        "matrix": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            -3
+          ]
+        ],
+        "spectrum": [
+          1,
+          2,
+          -3
+        ]
+      }
+    },
+    "C3": {
+      "canonical_axis": "(0,0,1)",
+      "canonical_matrix": "diag(-alpha/3,-alpha/3,2*alpha/3)",
+      "eigenvalue_multiplicities": [
+        1,
+        2
+      ],
+      "fixed_block_determinants": {
+        "planar_spin2_det_R2_minus_I": {
+          "exact": "3",
+          "formula": "2*(1-cos(2*theta))",
+          "numeric": 3.0
+        },
+        "transverse_vector_det_R_minus_I": {
+          "exact": "3",
+          "formula": "2*(1-cos(theta))",
+          "numeric": 3.0
+        }
+      },
+      "fixed_locus_dimension": 1,
+      "general_invariant_form": "alpha*(n*n^T-I/3)",
+      "linear_constraint_rank_in_W5": 4,
+      "nonzero_projective_dimension": 0,
+      "rotation_angle_degrees": 120.0,
+      "rotation_order": 3,
+      "simple_spectrum_possible": false,
+      "spectrum": [
+        "2*alpha/3",
+        "-alpha/3",
+        "-alpha/3"
+      ]
+    },
+    "C5": {
+      "canonical_axis": "(0,0,1)",
+      "canonical_matrix": "diag(-alpha/3,-alpha/3,2*alpha/3)",
+      "eigenvalue_multiplicities": [
+        1,
+        2
+      ],
+      "fixed_block_determinants": {
+        "planar_spin2_det_R2_minus_I": {
+          "exact": "(5 + sqrt(5))/2",
+          "formula": "2*(1-cos(2*theta))",
+          "numeric": 3.61803398875
+        },
+        "transverse_vector_det_R_minus_I": {
+          "exact": "(5 - sqrt(5))/2",
+          "formula": "2*(1-cos(theta))",
+          "numeric": 1.38196601125
+        }
+      },
+      "fixed_locus_dimension": 1,
+      "general_invariant_form": "alpha*(n*n^T-I/3)",
+      "linear_constraint_rank_in_W5": 4,
+      "nonzero_projective_dimension": 0,
+      "rotation_angle_degrees": 72.0,
+      "rotation_order": 5,
+      "simple_spectrum_possible": false,
+      "spectrum": [
+        "2*alpha/3",
+        "-alpha/3",
+        "-alpha/3"
+      ]
+    }
+  },
+  "determinism": {
+    "external_measured_inputs": [],
+    "timestamp_omitted": true
+  },
+  "hard_self_tests": {
+    "order_2_constraint_rank": 2,
+    "order_2_fixed_dimension": 3,
+    "order_2_projective_dimension": 2,
+    "order_2_simple_spectrum_witness_max_residual": 0.0,
+    "orders_3_and_5_axial_witness_max_residual": 0.0,
+    "orders_3_and_5_constraint_rank": 4,
+    "orders_3_and_5_fixed_dimension": 1,
+    "passed": true
+  },
+  "representation": {
+    "ambient_dimension": 5,
+    "group_action": "A -> R*A*R^T",
+    "name": "W5",
+    "realisation": "Symmetric traceless real 3x3 matrices"
+  },
+  "schema_version": 1,
+  "scope": {
+    "literature_claims_used": false,
+    "not_excluded": [
+      "simple_spectrum_points_with_C2_or_trivial_stabiliser",
+      "selection_by_a_specific_screen_derived_A5_invariant_potential",
+      "predictive_models_with_additional_dynamical_input"
+    ],
+    "universal_impossibility_claimed": false
+  },
+  "symbolic_fixed_space_argument": {
+    "block_coordinates": {
+      "axial_entry": "-2*t by tracelessness",
+      "planar_scalar": "t",
+      "planar_spin2_anisotropy": [
+        "p",
+        "q"
+      ],
+      "transverse_vector": [
+        "u",
+        "v"
+      ]
+    },
+    "canonical_axis_reduction": "Every real three-dimensional rotation axis is conjugate to the z axis.",
+    "consequence_for_order_at_least_3": "For canonical orders 3 and 5 both non-scalar fixed blocks vanish, leaving alpha*(n*n^T-I/3) with a double eigenvalue.",
+    "rotation_actions": {
+      "planar_scalar": "fixed",
+      "planar_spin2_anisotropy": "rotation by 2*theta",
+      "transverse_vector": "rotation by theta"
+    }
+  },
+  "w5_orb_reclassification": {
+    "current_gap_type": "screen_derived_potential_selection_required",
+    "previous_gap_type_rejected": "symmetry_geometry_alone_selects_unique_simple_spectrum_orbit",
+    "reason": "C3 and C5 invariance force a double eigenvalue. C2 invariance leaves a three-dimensional linear locus, hence two parameters after scaling, which is exactly enough freedom to carry two mass ratios without predicting them from symmetry alone.",
+    "screen_derived_potential_required": true,
+    "symmetry_alone_sufficient": false
+  }
+}

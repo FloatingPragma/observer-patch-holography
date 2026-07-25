@@ -32,6 +32,9 @@ def test_lepton_block_carries_both_lanes_and_open_routes():
     assert mcpr_row["tier"] == "T2"
     assert "W5_ORB" in mcpr_row["blocking_objects"]
     assert len(mcpr_row["masses_MeV_display"]) == 3
+    koide_row = next(row for row in leptons["rows"] if "Koide" in row["lane"])
+    assert koide_row["source_only_physical_prediction"] is False
+    assert "physical chiral recovery attachment" in koide_row["blocking_objects"]
 
 
 def test_boson_block_carries_the_discrete_two_law_pair():
@@ -58,3 +61,15 @@ def test_markdown_renders_with_tier_ladder_and_all_families():
 def test_every_input_artifact_exists():
     surface = lane.build()
     assert all(entry["exists"] for entry in surface["inputs"].values())
+
+
+def test_down_type_clebsch_route_is_recorded_as_rejected():
+    surface = lane.build()
+    family = next(
+        row for row in surface["families"] if row["family"] == "quarks, conditional lanes"
+    )
+    clebsch = family["rows"][0]
+    assert "rejected conditional candidate" in clebsch["tier"]
+    assert clebsch["promotion_allowed"] is False
+    assert clebsch["all_six_assignments_rejected"] is True
+    assert "sqrt_md_over_ms_texture_diagnostic" in clebsch

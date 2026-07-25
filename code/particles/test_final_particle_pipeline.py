@@ -41,6 +41,18 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert ids.index("quark_running_mass_scheme_convention_obstruction") < ids.index(
         "quark_public_mass_texture_yukawa_boundary"
     )
+    assert ids.index("clebsch_register_pairing_selection") < ids.index(
+        "down_type_register_clebsch_lane"
+    )
+    assert ids.index("charged_mcpr_completion_conditional") < ids.index(
+        "koide_circulant_identity"
+    )
+    assert ids.index("down_type_register_clebsch_lane") < ids.index(
+        "icosahedral_axis_angle_spectrum"
+    )
+    assert ids.index("down_type_register_clebsch_lane") < ids.index(
+        "w5_stabiliser_spectrum_bound"
+    )
     assert ids.index("quark_s3_transposition_heat_shape_theorem") < ids.index(
         "quark_s3_d12_template_postdiction"
     )
@@ -100,6 +112,13 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py" in scripts
     assert "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py" in scripts
     assert "particles/flavor/derive_quark_running_mass_scheme_convention_obstruction.py" in scripts
+    assert (
+        "particles/flavor/derive_clebsch_register_pairing_selection.py"
+        in scripts
+    )
+    assert "particles/leptons/derive_koide_circulant_identity.py" in scripts
+    assert "particles/flavor/derive_icosahedral_axis_angle_spectrum.py" in scripts
+    assert "particles/flavor/derive_w5_stabiliser_spectrum_bound.py" in scripts
     assert "particles/flavor/verify_s3_transposition_heat_shape.py" in scripts
     assert "particles/flavor/quark_s3_d12_template_postdiction.py" in scripts
     assert "particles/flavor/audit_quark_s3_d12_template_postdiction.py" in scripts

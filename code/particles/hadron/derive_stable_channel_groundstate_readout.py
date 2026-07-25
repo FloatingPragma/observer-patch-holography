@@ -18,11 +18,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 DEFAULT_AUDIT = ROOT / "particles" / "runs" / "hadron" / "current_hadron_lane_audit.json"
 DEFAULT_CONTRACTION_PLAN = ROOT / "particles" / "runs" / "hadron" / "proton_contraction_plan.json"
 DEFAULT_FULL_UNQUENCHED = ROOT / "particles" / "runs" / "hadron" / "full_unquenched_correlator.json"
@@ -323,7 +328,15 @@ def main() -> int:
     full_unquenched = _load(full_unquenched_path) if full_unquenched_path.exists() else None
     sequence_population = _load(sequence_population_path) if sequence_population_path.exists() else None
     sequence_evaluation = _load(sequence_evaluation_path) if sequence_evaluation_path.exists() else None
-    artifact = build_artifact(_load(audit_path), contraction_plan, full_unquenched, sequence_population, sequence_evaluation)
+    artifact = canonicalize_artifact_paths(
+        build_artifact(
+            _load(audit_path),
+            contraction_plan,
+            full_unquenched,
+            sequence_population,
+            sequence_evaluation,
+        )
+    )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"saved: {out_path}")

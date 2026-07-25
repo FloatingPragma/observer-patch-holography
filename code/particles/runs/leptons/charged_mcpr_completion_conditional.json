@@ -35,6 +35,7 @@
     "verdict": "SOURCE_ONLY_PHYSICAL_PREDICTION_OPEN"
   },
   "charged_reference_data_consumed": false,
+  "charged_reference_data_consumed_scope": "runtime_execution_only",
   "checks": {
     "determinant_identity_in_v_units": true,
     "fixed_point_residual_below_1e_100": true,
@@ -50,9 +51,11 @@
   "claim_class": {
     "conditional_on_declared_architecture_unique": true,
     "current_OPH5_alone_unique": false,
+    "declared_architecture_contains_stipulated_continuous_choices": true,
+    "historical_target_informed_architecture": true,
     "historically_blind_prospective_prediction": false,
-    "new_continuous_or_fitted_parameters": 0,
-    "runtime_charged_reference_consumed": false
+    "runtime_charged_reference_consumed": false,
+    "runtime_continuous_fit_parameter_count": 0
   },
   "conditional_prediction": {
     "masses_over_E_star": [
@@ -87,7 +90,6 @@
     "unique": true,
     "valence": 5
   },
-  "no_target_dependency_statement": "No electron, muon, tau, square-root-mass-invariant, pole-mass, or charged-Yukawa numerical reference is read by this module.",
   "optional_scale_display": {
     "E_star_GeV": "1.220890e19",
     "display_scale_status": "downstream unit display only; the decimal is classified by the clock lane as a calibration checksum and enters no solve path",
@@ -95,6 +97,46 @@
       "0.510955973930992429677202687890766774071029599541393032595821",
       "105.649498408666895078002739698533982952112713317946458801723",
       "1776.78069446548882083374727052244155166821044100608205917544"
+    ]
+  },
+  "provenance_boundary": {
+    "conditional_result": "Given the stipulated architecture, the affine map has the checked fixed point and the displayed algebraic readout.",
+    "historical_selection": {
+      "architecture_target_informed": true,
+      "charged_target_exposure": true,
+      "classification": "retrospective_target_informed_declared_model_coordinate",
+      "evidence": [
+        {
+          "path": "runs/leptons/charged_icosahedral_completion_v1_review.json",
+          "pointer": "/three_coordinate_inverse_audit/conclusion",
+          "sha256": "e6b0cf440192124d405cad4974b73ec7988b23f030c3734b2b02828ce8626c13"
+        },
+        {
+          "path": "runs/leptons/charged_face_incidence_conditional_theorem.json",
+          "pointer": "/historical_charged_target_informed",
+          "sha256": "22e78a303f0aaa50532050002b8dfbbb1384fe73e906afff235f89655376044a"
+        }
+      ],
+      "prospective_freeze_before_charged_evaluation": false,
+      "statement": "The runtime-separated formula was selected and refined in a historical process exposed to the charged spectrum. Its near-hit is therefore diagnostic, not prospective evidence."
+    },
+    "physical_promotion": "Open until source selection, physical attachment, interacting kernel, scale, pole scheme, and prospective provenance close.",
+    "runtime_reference_separation": {
+      "charged_reference_packet_consumed": false,
+      "charged_reference_values_consumed": [],
+      "runtime_continuous_fit_parameter_count": 0,
+      "statement": "This execution reads no charged target and performs no continuous target fit."
+    },
+    "stipulated_architecture_inputs": [
+      "eight_register_architecture_and_dimensions",
+      "primitive_path_table_and_signs",
+      "source_monomials_and_unit_multipliers",
+      "public_block_amplitude_prescription",
+      "oriented_phase_offset_delta0_equals_2_over_9",
+      "endpoint_phase_and_amplitude_repairs",
+      "determinant_exponent_and_positive_path_weight",
+      "mapping_of_sorted_roots_to_charged_families",
+      "physical_response_and_mass_readout"
     ]
   },
   "public_charged_mass_promotion_allowed": false,
@@ -144,6 +186,7 @@
     "zeta_2_anchor_star": 5
   },
   "row_class": "conditional_on_declared_mcpr_response_architecture",
+  "runtime_no_target_dependency_statement": "This module reads no electron, muon, tau, square-root-mass-invariant, pole-mass, or charged-Yukawa numerical reference at runtime. This statement does not erase historical charged-target exposure in architecture selection.",
   "schema_version": 1,
   "source_input": {
     "P": "1.63097209585889737696451390350695562847912625",

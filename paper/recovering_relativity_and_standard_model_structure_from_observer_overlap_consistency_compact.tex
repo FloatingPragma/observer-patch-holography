@@ -58,6 +58,11 @@ Model quotient, exact charges, a three-color carrier, a rank-three candidate
 family band, one scalar-doublet channel, and the classical Maxwell sector under
 its action premises. The physical family attachment is open, and \(N_g=3\) is
 selected only inside the declared economy class.
+A separate finite flavor theorem gives
+\(Q=1/3+(2/3)(|b|/a)^2\) for a positive Hermitian \(C_3\) face circulant and
+gives \(Q=2/3\) exactly when \(|b|/a=1/\sqrt2\). A conditional tracial
+Gelfand--Naimark--Segal (GNS) packet supplies that balance, while the physical family attachment, phase,
+and numerical mass ratios are open.
 A conditional chain of quantization steps
 places a strict finite-order \(W/Z\) complex-pole calculation on the formal
 perturbative step, while the exact finite-quantization and nonperturbative continuum
@@ -1322,7 +1327,7 @@ Gauge group & model input & construction of the refinement-limit bosonic edge-se
 Hypercharge lattice & matter-assignment input & solved from anomaly cancellation and Yukawa invariance on the realized one-generation chiral matter plus one-Higgs package \\
 Color and generation count & empirical input & color triplet fixed on the D8 conditional matter packet; \(3\le N_g\le5\) from the declared CKM/UV clauses and \(N_g=3\) from the MAR economy axiom; physical rank-45 family attachment is open; Witten parity is a consistency check \\
 Flavor hierarchy unit & model-dependent small parameter & phenomenological ansatz \(\varepsilon=1/6\) motivated by a uniform \(\mathbb Z_6\) center-label ensemble \\
-Charged-lepton continuation & empirical Koide relation & The charged-lepton masses empirically satisfy \(Q=2/3\). For the positive Hermitian \(C_3\) carrier, \(Q=[1+2(\rho/a)^2]/3\). The minimal orientation record gives \(S_c-S_0=\ln2\); the connected \(M_6(\mathbb C)\) event has equal rank-two blocks, so Born--L\"uders conditioning and the tracial-GNS map give \(|b|/a=1/\sqrt2\) and \(Q=2/3\). Given MAR selection of an accepted three-family chiral sector, reversible checkpoint recovery forces \(\Phi=\operatorname{Ad}_{J_L\oplus J_E}\), \(\widehat Y_e=(\sqrt2/v)J_LM_FJ_E^\dagger\), and \(\mathcal M_L=J_LM_FJ_L^\dagger\). The extended \(\mathrm{OPH}^{+}_{\rm ch}\) branch adds graded physical completion, quotient source-law selection, and a source-closed QFT fixed-point certificate. Its dressed readout gives \(Q=2/3\) on the balanced \(C_3\) fixed point and \(Q=[1+e^{-2\chi_\star}]/3\) on the attenuated \(C_3\) branch; off-plane response uses the full operator. These are additional branch conditions beyond OPH5. The \(2/9\) phase and numerical mass ratios are compare-only \\
+Charged-lepton continuation & empirical Koide relation & The PDG 2026 central masses give \(Q=0.6666644634026367\). For the positive Hermitian \(C_3\) carrier, \(Q=[1+2(\rho/a)^2]/3\). Within the declared finite packet, the orientation record gives \(S_c-S_0=\ln2\); the connected \(M_6(\mathbb C)\) event has equal rank-two blocks, so Born--L\"uders conditioning and the tracial-GNS map give \(|b|/a=1/\sqrt2\) and \(Q=2/3\). Given MAR selection of an accepted three-family chiral sector, reversible checkpoint recovery forces \(\Phi=\operatorname{Ad}_{J_L\oplus J_E}\), \(\widehat Y_e=(\sqrt2/v)J_LM_FJ_E^\dagger\), and \(\mathcal M_L=J_LM_FJ_L^\dagger\). The extended \(\mathrm{OPH}^{+}_{\rm ch}\) branch adds graded physical completion, quotient source-law selection, and a source-closed QFT fixed-point certificate. Its dressed readout gives \(Q=2/3\) on the balanced \(C_3\) fixed point and \(Q=[1+e^{-2\chi_\star}]/3\) on the attenuated \(C_3\) branch; off-plane response uses the full operator. These are additional branch conditions beyond OPH5. The \(2/9\) phase and numerical mass ratios are compare-only \\
 Cosmological constant & local vacuum-energy puzzle & conditional stable correctable-record target \(\mathfrak F_{r,0}(D_{\mathrm{CRC}})=\{D_{\mathrm{CRC}}\}\), \(N_{\mathrm{CRC}}=\log D_{\mathrm{CRC}}\), with its physical packet, carrier representation, finite-size selector, and horizon--record identification open; under those hypotheses \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), with the SI display supplied by the selected scale certificate \\
 \bottomrule
 \end{longtable}
@@ -1336,7 +1341,83 @@ of each outward-oriented face.  This gives an exact bundle of local geometric
 equivariant Hermitian circulant.  It does not by itself give one global
 three-dimensional physical generation space: the sixty face-corner flags form
 the regular \(A_5\) torsor, so a quotient-visible charged-family attachment is
-work in progress.  The declared three-coordinate affine map is contractive and
+work in progress.
+
+\begin{proposition}[Positive-chamber face-circulant Koide identity]
+\label{prop:compact-positive-circulant-koide}
+Let
+\[
+ C=aI+bR+\overline bR^2,\qquad R^3=I,\qquad a>0,
+\]
+be Hermitian on the regular \(C_3\) fiber. Write \(b=|b|e^{i\delta}\), so its
+eigenvalues are
+\[
+ \lambda_k=a+2|b|\cos\!\left(\delta+\frac{2\pi k}{3}\right),
+ \qquad k=0,1,2.
+\]
+Suppose all three eigenvalues are nonnegative and
+\(\sqrt{m_k}=\sqrt{s}\lambda_k\) for one \(s>0\). Then
+\[
+ Q:=\frac{\sum_km_k}{(\sum_k\sqrt{m_k})^2}
+ =\frac13+\frac23\left(\frac{|b|}{a}\right)^2.
+\]
+Consequently,
+\[
+ Q=\frac23\quad\Longleftrightarrow\quad\frac{|b|}{a}=\frac1{\sqrt2}.
+\]
+The phase is absent from \(Q\) inside this chamber and remains the open
+coordinate controlling the two numerical mass ratios jointly.
+\end{proposition}
+
+\begin{proof}
+The three shifted cosines sum to zero and their squares sum to \(3/2\).
+Therefore \(\sum_k\lambda_k=3a\) and
+\(\sum_k\lambda_k^2=3a^2+6|b|^2\). The common scale \(s\) cancels from
+\(Q\). Positivity is required because physical square roots are
+\(|\lambda_k|\) outside this chamber.
+\end{proof}
+
+The finite tracial-GNS packet makes the balance condition an exact conditional
+consequence. Its equal rank-two event blocks give \(p_0=p_c=1/2\), and the
+canonical square-root map gives
+\[
+ a=\sqrt{p_0},\qquad |b|=\sqrt{p_c/2},\qquad |b|/a=1/\sqrt2.
+\]
+This is a finite conditional theorem. No physical charged-family prediction
+follows until the face fiber is attached to the physical chiral response.
+The PDG 2026 central masses give
+\(Q=0.6666644634026367\), while the historically target-informed minimal
+complete public response (MCPR) coordinate gives \(0.6666644634090389\) and
+\(|b|/a=0.7071044442750720\), \(3.30\) ppm below \(1/\sqrt2\)
+in relative modulus. Their proximity is a retrospective diagnostic rather
+than prospective evidence~\cite{pdg2026}.
+
+\begin{proposition}[Residual-symmetry boundary in the five-dimensional family space]
+Realize \(W_5\) as the real traceless symmetric \(3\times3\) matrices with
+rotation action \(A\mapsto RAR^T\). Invariance under a threefold or fivefold
+rotation about \(n\) forces
+\[
+ A=\alpha(nn^T-I/3),
+\]
+whose spectrum has a double eigenvalue. A twofold rotation has the
+three-dimensional fixed locus
+\[
+ \left\{
+ \begin{pmatrix}
+ u&v&0\\ v&w&0\\0&0&-u-w
+ \end{pmatrix}:u,v,w\in\mathbb R
+ \right\},
+\]
+which has two projective parameters and admits simple spectrum.
+\end{proposition}
+
+Thus threefold and fivefold fixed points cannot supply three distinct masses.
+The twofold locus leaves exactly two scale-free coordinates, enough to carry
+two mass ratios without predicting them. A specific source-derived
+\(A_5\)-invariant potential, rather than residual symmetry alone, must select
+a physical simple-spectrum orbit.
+
+The declared three-coordinate affine map is contractive and
 has one stable fixed point, but source-multiplier countermodels with the same
 symmetry and contraction give different fixed points. A stipulated eight-register
 charged packet, denoted CFQ, and an engineered finite model realize that map with noncentral
@@ -1475,7 +1556,7 @@ receipt, with final supports \(R_K,W_K\) satisfying
 conflicts are recomputed on the final aggregate supports and components are merged again to a
 fixed point, so distinct final aggregates are pairwise nonconflicting. The resulting source
 components form a prepared batch: after one commits, another aggregate whose snapshot remains
-current and whose acceptance data revalidate remains admissible before newly enabled proposals
+current and whose acceptance data revalidate remains admissible before later-enabled proposals
 are batched. An immediate-recompute implementation may instead certify this
 surviving-component property directly. Primitive members of \(K\) do not commit separately. Write
 \(x\Rightarrow y\) for a successful aggregate commit.
@@ -1569,7 +1650,7 @@ Two steps in one conflict component use its single canonical aggregate, so they 
 distinct peak. Steps from distinct fixed-point components have disjoint writes, and neither write meets the
 other transaction's read set. Semantic dependency closure therefore preserves the other
 transaction's enablement, payload, descent comparison, protected data, semantic parents, and
-checkpoint continuation. The surviving-component rule prevents a newly enabled primitive from
+checkpoint continuation. The surviving-component rule prevents a later-enabled primitive from
 absorbing an old prepared component before its second commit. Both second commits remain legal.
 Their snapshot-determined payloads
 act on disjoint writes, so the two commit orders give the same quotient state \(w\).
@@ -13443,6 +13524,50 @@ source-carrier, response, scale, and RG contract may enforce that condition, but
 is physically instantiated by the repository. RSCC is a formula-level specification for parts of
 that contract; every physical receipt is work in progress.
 
+A separate conditional down-type comparison lane adopts the unification-scale register relations
+\[
+  (y_b/y_\tau,\;y_s/y_\mu,\;y_d/y_e)=(1,\;1/3,\;3).
+\]
+The declared color-orbit constraints select the unordered weight set
+\(\{1/3,1,3\}\) without mass data.  A comparison-only audit of all six generation
+assignments ranks the adopted ordering as uniquely least discrepant; this ranking does not derive
+the ordering from Axioms~1--5.  On the declared one-loop lane, the common down-sector running
+cancels exactly from the light-quark ratio, giving the RG-protected relation
+\[
+  \frac{m_s}{m_d}=\frac{1}{9}
+  \left.\frac{m_\mu}{m_e}\right|_{\mu_U}=22.9743.
+\]
+FLAG 2024 Tables~11--12 give \(m_s/m_{ud}=27.227(81)\) and
+\(m_u/m_d=0.465(24)\) for \(N_f=2+1+1\), and \(27.42(12)\) and \(0.485(19)\)
+for \(N_f=2+1\)~\cite{flag2024}.  Their derived central ratios
+\(m_s/m_d=19.9438\) and \(20.3594\) put the lane \(15.2\%\) and \(12.8\%\)
+high, respectively.  No significance is assigned without the covariance of the two FLAG inputs.
+This discrepancy rejects the present conditional register-Clebsch route on its declared
+comparison surface.  The matter receipt separately proves one invariant line on each declared
+\(Q\overline S d^c\) and \(L\overline S e^c\) channel and zero on
+\(QSd^c\), conditional on its representation packet; it does not equate the two surviving
+Yukawa coefficients.  The F1/F2 unordered-weight result is target-free conditional on its
+declared alphabet and constraints.  The MCPR charged-lepton calculation is unaffected, but its
+model was historically stipulated: runtime reference-freedom does not make it blind or
+source-only.  The absolute outputs are conditional and disagree with their comparison
+coordinates by roughly \(30\)--\(50\%\).  The generation order and absolute normalization have
+no source-only promotion.
+
+The associated \(\sqrt{m_d/m_s}=0.2086\) display is an algebraic relabeling
+of the same rejected mass ratio, not a derived Cabibbo angle. No up/down
+Yukawa-matrix pair or relative left-handed eigenbasis is supplied. A separate
+exact enumeration of the six fivefold, ten threefold, and fifteen twofold
+unoriented axes of the real icosahedral representation finds a smallest
+nonzero acute angle of \(20.9052^\circ\). The compare-only PDG 2024
+\(K_{\mu2}\) coordinate \(|V_{us}|=0.2250(4)\) gives the central angle
+\(\arcsin(0.2250)=13.0029^\circ\), which is absent~\cite{pdg2024ckm}. This excludes only direct
+identification of the Cabibbo angle with an acute angle between two of those
+real three-dimensional residual axes. Spinorial representations, higher-order breaking,
+additional dynamics, and general overlap constructions are outside the
+no-go. Hermitian circulants on the same \(C_3\) fiber commute and share the
+Fourier eigenbasis, so that direct same-fiber residual construction gives
+identity mixing.
+
 \paragraph{Local unification surface and exact-release frontier.}
 The local quantitative bridge can be stated without inflating the recovered-core claim. On the
 bosonic side, the declared pixel input \(P\) fixes the D10/D11 trunk
@@ -13633,6 +13758,25 @@ I.~Esteban, M.~C.~Gonzalez-Garcia, M.~Maltoni, I.~Martinez-Soler, J.~P.~Pinheiro
 \emph{NuFit-6.0: Updated global analysis of three-flavor neutrino oscillations},
 JHEP \textbf{12} (2024) 216, arXiv:2410.05380,
 with the NuFIT 6.1 (2025) profile-table release at \url{https://www.nu-fit.org/?q=node/309}.
+
+\bibitem{flag2024}
+Y.~Aoki et al. (Flavour Lattice Averaging Group),
+\emph{FLAG Review 2024},
+arXiv:2411.04268, 2024,
+Tables~11--12.
+\url{https://arxiv.org/abs/2411.04268}
+
+\bibitem{pdg2024ckm}
+S.~Navas et al. (Particle Data Group),
+\emph{CKM Quark-Mixing Matrix},
+Review of Particle Physics 2024, Sec.~12.2.2, revised May 31, 2024.
+\url{https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf}
+
+\bibitem{pdg2026}
+Particle Data Group,
+\emph{Review of Particle Physics: 2026 particle listings},
+2026.
+\url{https://pdg.lbl.gov/2026/listings/particle_properties.html}
 
 \input{tex_fragments/FOUNDATIONAL_REFERENCES.tex}
 \end{thebibliography}

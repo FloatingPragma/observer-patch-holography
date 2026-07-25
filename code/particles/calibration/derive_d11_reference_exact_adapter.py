@@ -19,11 +19,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 D11_SURFACE_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_declared_calibration_surface.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
@@ -116,7 +121,7 @@ def main() -> int:
 
     d11_surface = json.loads(Path(args.d11_surface).read_text(encoding="utf-8"))
     references = json.loads(REFERENCE_JSON.read_text(encoding="utf-8"))["entries"]
-    artifact = build_artifact(d11_surface, references)
+    artifact = canonicalize_artifact_paths(build_artifact(d11_surface, references))
 
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

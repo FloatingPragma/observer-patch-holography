@@ -7,11 +7,13 @@ This is the one command REPRODUCE.md documents and CI enforces:
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
 
 The mandatory suite validates the claim registry against its live gates,
-validates the paper release manifest, proves the full scientific collection
-imports cleanly (which is what keeps the optional cloud/hardware lanes
-fail-closed), and executes the fast fixture suites. The exact certificate
-suites (#566 port-current, #314 matter-lift) run in their own CI workflow on
-their own triggers; `--certificates` runs them here with the same commands.
+validates external inputs, public quantitative surfaces, null-model controls,
+and the paper release manifest, then proves those gates reject isolated
+false-green mutations. It also proves the full scientific collection imports
+cleanly (which is what keeps the optional cloud/hardware lanes fail-closed)
+and executes the fast fixture suites. The exact certificate suites (#566
+port-current, #314 matter-lift) run in their own CI workflow on their own
+triggers; `--certificates` runs them here with the same commands.
 """
 
 from __future__ import annotations
@@ -33,6 +35,18 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         "Validate external-data provenance pins and declared source gaps",
         [sys.executable, "tools/check_external_data_provenance.py"],
     ),
+    (
+        "Validate clean-clone receipt path portability",
+        [sys.executable, "tools/check_receipt_portability.py"],
+    ),
+    (
+        "Validate public quantitative claim surfaces",
+        [sys.executable, "tools/check_public_surface_claims.py"],
+    ),
+    (
+        "Validate the null-model scorecard",
+        [sys.executable, "tools/check_null_models.py", "--check"],
+    ),
     ("Audit issue-518 receipt promotion", [sys.executable, "tools/audit_issue_518_receipts.py"]),
     (
         "Validate source-bound canonical book PDF assets",
@@ -44,6 +58,20 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     ),
     ("Validate paper release manifest", [sys.executable, "tools/validate_paper_release_manifest.py"]),
     ("Regression-test the manifest validator", [sys.executable, "-m", "pytest", "-q", "tools/test_paper_release_manifest.py"]),
+    (
+        "Regression-test offline Phase-0 scientific gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_public_surface_claims.py",
+            "tools/test_null_models.py",
+            "tools/test_receipt_portability.py",
+            "tools/test_github_release_channel.py",
+            "tools/test_gates_actually_fail.py",
+        ],
+    ),
     (
         "Regression-test the deterministic publication gates",
         [

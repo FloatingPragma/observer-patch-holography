@@ -508,7 +508,7 @@ If aggregation or collar completion expands either support, conflicts are recomp
 final aggregate supports and components are merged again until a fixed point is reached; distinct
 fixed-point aggregates are pairwise nonconflicting.  These fixed-point components form a prepared
 source batch.  After one component commits, another source-batch aggregate whose snapshot remains
-current and whose acceptance functionals revalidate remains admissible before newly enabled
+current and whose acceptance functionals revalidate remains admissible before later-enabled
 proposals are batched.  Equivalently, an implementation may recompute immediately only if it
 certifies this surviving-component property.  Primitive members of \(K\) never commit separately.
 Write \(x\to y\) for a successful aggregate transaction commit, and
@@ -1026,7 +1026,7 @@ functional can change under \(\tau\), semantic dependency closure puts its suppo
 \(R_\tau\); hence \(\sigma\) leaves that functional's input unchanged.  Thus \(\tau\)'s
 enablement, descent comparison, protected-data check, semantic parents, checkpoint continuation,
 and payload remain valid after \(\sigma\), and conversely.  The surviving prepared-component
-rule prevents a newly enabled proposal from absorbing either old component before its second
+rule prevents a later-enabled proposal from absorbing either old component before its second
 commit.  Both second commits are legal.  Since
 their writes are disjoint and their payloads are determined by unchanged snapshots,
 \[

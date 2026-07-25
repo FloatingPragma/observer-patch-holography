@@ -33,7 +33,7 @@
     "epsilon_role": "calibration_checksum_reproducing_displayed_G",
     "formula_if_closed": "G_SI = c^5/(4*pi^2*hbar*nu_Cs^2) * epsilon_Cs^2",
     "interpretation": "The stored epsilon_Cs algebraically reproduces the displayed G coordinate through the certificate identity G_SI = c^5/(4*pi^2*hbar*nu_Cs^2) * epsilon_Cs^2.  Independent R_alpha, R_e_abs, R_QCD_nuc_133Cs, and R_atom_133Cs producers are absent, so the stored decimal functions as a calibration checksum.",
-    "path": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+    "path": "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
     "relative_difference_from_displayed_G": "6.1271914343095816001e-10",
     "reproduces_displayed_G_within_1e_6": true,
     "status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates"

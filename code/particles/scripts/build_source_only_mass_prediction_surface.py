@@ -38,6 +38,7 @@ RUNS = PARTICLES / "runs"
 
 INPUTS = {
     "mcpr": RUNS / "leptons" / "charged_mcpr_completion_conditional.json",
+    "koide": RUNS / "leptons" / "koide_circulant_identity.json",
     "kappa": RUNS / "leptons" / "charged_kappa_interval_from_alpha_transport.json",
     "kappa_coherent": RUNS / "leptons" / "charged_kappa_interval_coherent_closure.json",
     "ward": RUNS / "leptons" / "charged_ward_determinant_line.json",
@@ -69,7 +70,7 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def _lepton_rows(
-    mcpr: dict, kappa: dict, kappa_coherent: dict, ward: dict
+    mcpr: dict, koide: dict, kappa: dict, kappa_coherent: dict, ward: dict
 ) -> dict[str, Any]:
     pred = mcpr["conditional_prediction"]
     display = mcpr["optional_scale_display"]
@@ -96,6 +97,29 @@ def _lepton_rows(
                 "blocking_objects": sorted(
                     mcpr["audit_boundary"]["completion_route"].keys()
                 ),
+            },
+            {
+                "lane": "positive-chamber C3-circulant Koide identity",
+                "tier": "exact identity plus conditional finite-GNS implication",
+                "explanation": (
+                    "The exact identity Q = 1/3 + (2/3)(|b|/a)^2 is "
+                    "phase-independent only inside the positive-eigenvalue "
+                    "chamber, and Q = 2/3 iff |b|/a = 1/sqrt(2). The finite "
+                    "tracial-GNS lane supplies that balance under explicit "
+                    "premises; the physical attachment, phase, and two mass "
+                    "ratios remain open. The MCPR/PDG proximity is "
+                    "retrospective and is not promoted."
+                ),
+                "status": koide["status"],
+                "source_only_physical_prediction": koide[
+                    "source_only_physical_prediction"
+                ],
+                "artifact": "runs/leptons/koide_circulant_identity.json",
+                "blocking_objects": [
+                    "physical chiral recovery attachment",
+                    "source-selected phase law",
+                    "running and pole-mass bridge",
+                ],
             },
             {
                 "lane": "alpha-transport kappa interval (empirical closure)",
@@ -462,20 +486,35 @@ def _down_type_rows(clebsch: dict, up_scan: dict) -> dict[str, Any]:
         "family": "quarks, conditional lanes",
         "rows": [
             {
-                "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
+                "lane": (
+                    "rejected down-type register-Clebsch candidate from MCPR "
+                    "leptons (1, 1/3, 3)"
+                ),
                 "tier": (
-                    "T2, conditional on the generation register order; pairing "
-                    "and weight set selected by the Clebsch selection artifact"
+                    "T2 rejected conditional candidate; channel compatibility "
+                    "and unordered weight-set lemma only"
                 ),
                 "explanation": (
-                    "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land "
-                    "at the ten-percent scale; the absolute normalization "
-                    "carries the named third-generation tension."
+                    "All six generation assignments of the conditional "
+                    "{1/3,1,3} weight multiset fail the retrospective "
+                    "conservative FLAG gate. The uniquely least-discrepant "
+                    "assignment is target-informed and does not select a "
+                    "physical order. Its sqrt(md/ms) value is a GST texture "
+                    "diagnostic, not a derived CKM angle."
                 ),
+                "status": clebsch["status"],
+                "promotion_allowed": clebsch["promotion_allowed"],
                 "mb_mb_GeV": predictions["mb_mb_gev"],
                 "ms_2GeV_GeV": predictions["ms_2gev_gev"],
                 "md_2GeV_GeV": predictions["md_2gev_gev"],
-                "cabibbo_gst": predictions["cabibbo_gst_sqrt_md_over_ms"],
+                "sqrt_md_over_ms_texture_diagnostic": predictions[
+                    "cabibbo_gst_sqrt_md_over_ms"
+                ],
+                "ms_over_md": predictions["ms_over_md"],
+                "flag_2024_compare_only": compare["flag_2024"],
+                "all_six_assignments_rejected": clebsch[
+                    "retrospective_flag_rejection"
+                ]["all_six_permutations_rejected"],
                 "cabibbo_relative_compare_only": compare["cabibbo_relative"],
                 "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
                 "blocking_objects": clebsch["normalization_tension"]["open_objects"],
@@ -597,7 +636,11 @@ def build() -> dict[str, Any]:
 
     families = [
         _lepton_rows(
-            data["mcpr"], data["kappa"], data["kappa_coherent"], data["ward"]
+            data["mcpr"],
+            data["koide"],
+            data["kappa"],
+            data["kappa_coherent"],
+            data["ward"],
         ),
         _boson_rows(data["wzh"], data["ew"]),
         _higgs_top_rows(

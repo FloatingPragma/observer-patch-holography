@@ -11,13 +11,18 @@
     },
     "no_target_leak": true
   },
-  "generated_utc": "2026-07-23T02:18:41Z",
+  "determinism": {
+    "json_key_order": "sorted",
+    "line_endings": "LF",
+    "timestamp_omitted": true
+  },
   "github_issues": [
     591,
     546
   ],
   "notes": [
-    "F1 and F2 are declared constraints with stated source rationale; the selection is conditional on them and says so.",
+    "F1 and F2 are declared conditional constraints, not source-derived physical laws.",
+    "The matter receipt constrains available channel lines but does not equate their independent Yukawa coefficients.",
     "The scan enumerates the full 27-triple candidate space and records survivors at each stage.",
     "Exactly one unordered multiset surviving is the landing condition; any other count downgrades this artifact to an exclusion record on the next run."
   ],
@@ -35,6 +40,7 @@
       "one_scalar_package": true,
       "up_couples_through_S": true
     },
+    "classification": "conditional_channel_compatibility_only",
     "conditional_on": "the declared exterior matter contract and branch premises of the conditional super-Tannakian matter lift (#314)",
     "forbidden_channel_control": {
       "channel": [
@@ -44,15 +50,19 @@
       ],
       "invariant_dimension": 0
     },
+    "independent_yukawa_coefficients_equated": false,
     "passed": true,
-    "statement": "in the declared one-scalar exterior package, d_c and e_c couple through the same scalar Sbar and u_c couples through S, while the channel [Q, S, d_c] carries a certified zero invariant line; therefore every register relation at mu_U tying a quark Yukawa to a lepton Yukawa through a shared scalar pairs down-type with charged leptons, and no register relation pairs down-type through the up scalar"
+    "register_relation_existence_proved": false,
+    "statement": "in the declared one-scalar exterior package, d_c and e_c couple through the same scalar Sbar and u_c couples through S, while the channel [Q, S, d_c] carries a certified zero invariant line; therefore, if a cross-sector register relation is supplied separately, the receipt constrains its compatible scalar channels. It neither proves existence of that relation nor equates the independent Yukawa coefficients on the Q/Sbar/d_c and L/Sbar/e_c invariant lines"
   },
   "premise_bookkeeping": {
     "closed_parts": [
-      "pairing (conditional on #314 contract)",
-      "unordered weight set (conditional on F1, F2)"
+      "candidate channel compatibility (conditional on #314 contract)",
+      "unordered weight-set lemma (conditional on declared F1, F2)"
     ],
     "remaining_open_parts": [
+      "REGISTER_RELATION_EXISTENCE",
+      "INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION",
       "GENERATION_REGISTER_ORDER"
     ],
     "replaced_premise": "CLEBSCH_REGISTER_SELECTION_THEOREM",
@@ -62,7 +72,7 @@
     ]
   },
   "promotion_allowed": false,
-  "proof_status": "closed_conditional_selection_theorem",
+  "proof_status": "conditional_lemma_open_physical_relation",
   "solve_path_discipline": {
     "forbidden_inputs": [
       "m_d_measured",
@@ -78,8 +88,8 @@
     "reads_measured_masses": false,
     "reads_measured_ratios": false
   },
-  "status": "pairing_and_weight_set_selected_order_open",
-  "theorem_statement": "Conditional on the declared exterior matter contract (#314) and the two frozen constraints F1 and F2, the register relation at mu_U pairs the down-type quarks with the charged leptons and its unordered weight set is exactly {1/3, 1, 3}. The generation-order assignment of the weights is not selected and remains the open premise GENERATION_REGISTER_ORDER.",
+  "status": "channel_compatibility_and_weight_set_lemma_order_open",
+  "theorem_statement": "Conditional on the declared exterior matter contract (#314) and the two frozen constraints F1 and F2, the matter receipt permits the down-type and charged-lepton channels through separate Sbar invariant lines, and the declared F1/F2 scan has unordered survivor {1/3, 1, 3}. Register-relation existence, equality of the independent Yukawa coefficients, and generation-order assignment are not selected.",
   "tier_consequence": "the down-type lane stays T2: the MCPR architecture premise alone forbids promotion; this artifact shrinks the lane's register premise, it does not lift the lane",
   "weight_generators": {
     "N_c": 3,
@@ -118,6 +128,7 @@
       "F1_measure_balance",
       "F2_register_faithfulness"
     ],
+    "constraint_status": "conditional declared F1/F2 algebra inside the emitted alphabet; not a source-derived physical selection law",
     "frozen_constraints": {
       "F1_measure_balance": "the three register weights multiply to one: counting measure N_c, invariant probability measure 1/N_c, and unit total measure compose to the identity on the transitive C3 orbit",
       "F2_register_faithfulness": "the weight map is injective on the three generation registers; a collapsed map factors through a proper quotient of the transitive orbit and carries no register"

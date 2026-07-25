@@ -4,11 +4,11 @@
   "diagnostic_center_equality_claimed": false,
   "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
   "discharges_seed_certificate_id": "D11SeedCommonProvenanceCertificate",
-  "exact_higgs_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
+  "exact_higgs_artifact": "code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
   "exact_higgs_row_claimed": false,
   "exact_pair_claimed": false,
   "fixed_ray_branch_closed": true,
-  "fixed_ray_no_go_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json",
+  "fixed_ray_no_go_artifact": "code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json",
   "fixed_ray_wedge_vanishing_certificate": {
     "kappa_HT": 1.7777777777777777,
     "name": "D11FixedRayWedgeVanishing",
@@ -29,7 +29,7 @@
     }
   },
   "forward_path_closed": true,
-  "forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
+  "forward_seed_artifact": "code/particles/runs/calibration/d11_forward_seed.json",
   "generated_utc": "2026-07-23T02:51:21Z",
   "mass_readout_consequence": {
     "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
@@ -57,7 +57,7 @@
   },
   "sigma_D11_HT": 0.012495107198783639,
   "smallest_predictive_missing_object": null,
-  "source_forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
+  "source_forward_seed_artifact": "code/particles/runs/calibration/d11_forward_seed.json",
   "status": "closed",
   "strictly_not_claimed": [
     "exact_higgs_row_on_fixed_ray",

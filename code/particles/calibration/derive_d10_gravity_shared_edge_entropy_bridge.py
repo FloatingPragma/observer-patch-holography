@@ -92,6 +92,24 @@ def build_artifact(forward_certificate: dict) -> dict:
             "P": p_value,
             "ellbar_shared": ellbar_shared,
         },
+        "pixel_cancellation": {
+            "pixel_area_law": "a_cell = P * ell_star^2",
+            "shared_edge_law": "ellbar_shared = P / 4",
+            "gravity_law": "G_geom = a_cell / (4 * ellbar_shared)",
+            "G_geom_over_ell_star_squared": 1.0,
+            "checks": {
+                "shared_edge_equals_P_over_4": (
+                    abs(ellbar_shared - p_value / 4.0) < 1.0e-15
+                ),
+                "pixel_factor_cancels": True,
+            },
+            "claim_boundary": (
+                "This exact natural-unit ratio is a branch-conditional "
+                "geometric identity. It does not emit an SI value of G; the "
+                "independent operational clock and physical-scale packet "
+                "remain required."
+            ),
+        },
         "proof": [
             "For R = R_3 boxtimes R_2 boxtimes q one has d_R = d_R3 * d_R2 * d_q.",
             "Every irreducible U(1) representation is one-dimensional, so d_q = 1 and log d_q = 0.",

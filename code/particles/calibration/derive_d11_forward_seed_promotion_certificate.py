@@ -17,11 +17,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 DEFAULT_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
 EXACT_HIGGS_ARTIFACT = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
 FIXED_RAY_NO_GO_ARTIFACT = ROOT / "particles" / "runs" / "calibration" / "d11_fixed_ray_no_go_theorem.json"
@@ -129,7 +134,7 @@ def main() -> int:
     args = parser.parse_args()
 
     forward_seed = json.loads(Path(args.forward_seed).read_text(encoding="utf-8"))
-    artifact = build_artifact(forward_seed)
+    artifact = canonicalize_artifact_paths(build_artifact(forward_seed))
 
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

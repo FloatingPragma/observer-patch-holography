@@ -5,11 +5,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_critical_surface_readout.json"
 DEFAULT_D10_SOURCE = ROOT / "particles" / "runs" / "calibration" / "d10_ew_observable_family.json"
 DEFAULT_DECLARED_SURFACE = ROOT / "particles" / "runs" / "calibration" / "d11_declared_calibration_surface.json"
@@ -267,7 +272,14 @@ def main() -> int:
         if certificate_path.exists()
         else None
     )
-    artifact = build_artifact(declared_surface, Path(args.d10_source), Path(args.results_status), certificate)
+    artifact = canonicalize_artifact_paths(
+        build_artifact(
+            declared_surface,
+            Path(args.d10_source),
+            Path(args.results_status),
+            certificate,
+        )
+    )
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")

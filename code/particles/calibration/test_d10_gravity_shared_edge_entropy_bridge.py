@@ -32,3 +32,8 @@ def test_d10_gravity_shared_edge_entropy_bridge_closes_product_branch_identity()
     )
     assert payload["downstream_consequences"]["gravity_nat"] == "G_nat = a_cell / P"
     assert payload["downstream_consequences"]["gravity_si"] == "G_SI = c^3 * a_cell / (hbar * P)"
+    assert payload["pixel_cancellation"]["G_geom_over_ell_star_squared"] == 1.0
+    assert all(payload["pixel_cancellation"]["checks"].values())
+    assert "does not emit an SI value" in payload["pixel_cancellation"][
+        "claim_boundary"
+    ]

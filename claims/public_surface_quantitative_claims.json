@@ -1,0 +1,480 @@
+{
+  "schema": "oph.public_surface_quantitative_claims.v1",
+  "scope_policy": {
+    "governed_content": "Generated quantitative comparison blocks and every Markdown table that presents an OPH value against an external reference.",
+    "nonclaim_numeric_contexts": [
+      "calendar dates",
+      "GitHub issue numbers",
+      "theorem and lemma counts",
+      "file paths and URLs",
+      "equation labels and representation dimensions",
+      "numbers in prose that do not present an OPH-versus-external quantitative comparison"
+    ],
+    "unmanaged_oph_comparison_tables_allowed": false
+  },
+  "surfaces": [
+    {
+      "path": "README.md",
+      "locale": "en"
+    },
+    {
+      "path": "README_FR.md",
+      "locale": "fr"
+    }
+  ],
+  "rows": [
+    {
+      "row_id": "alpha_gauge_width_diagnostic",
+      "claim_id": "OPH-ALPHA-PIXEL",
+      "claim_class": "empirical_implementation",
+      "role": "diagnostic",
+      "producer": {
+        "script": "code/P_derivation/interval_contraction_certificate.py",
+        "artifact": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+        "artifact_id": "oph_p_interval_contraction_certificate",
+        "value_pointer": "/modes/thomson_structured_running_plus_gauge_width/fixed_point_point_estimate_display_only/alpha_inv",
+        "guards": {
+          "/promotion_allowed": false,
+          "/exact_alpha_promoted": false
+        }
+      },
+      "reference": {
+        "artifact": "code/P_derivation/codata_2022_alpha_fixture.json",
+        "value_pointer": "/inverse_fine_structure_constant/value",
+        "uncertainty_pointer": "/inverse_fine_structure_constant/standard_uncertainty",
+        "label": {
+          "en": "CODATA 2022",
+          "fr": "CODATA 2022"
+        }
+      },
+      "supporting_artifacts": [
+        {
+          "artifact": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
+          "artifact_id": "oph_measured_fine_structure_endpoint_calibration",
+          "guards": {
+            "/calibrated_values/definition": "P = phi + sqrt(pi)/alpha_inv_0",
+            "/empirical_hadron_closure/measured_thomson_endpoint_used": true,
+            "/promotion_allowed": false
+          }
+        },
+        {
+          "artifact": "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
+          "artifact_id": "oph_anchor_scheme_bridge",
+          "contains": {
+            "/verdict/source_only_reduction": "#425"
+          }
+        }
+      ],
+      "display": {
+        "value_decimals": 15,
+        "reference_decimals": 9,
+        "unit": "",
+        "reference_style": "parenthetical_uncertainty"
+      },
+      "label": {
+        "en": "$\\alpha^{-1}$, gauge-width map",
+        "fr": "$\\alpha^{-1}$, application de largeur de jauge"
+      },
+      "status": {
+        "en": "Certified root of the declared map. $P_C$ is defined from the measured endpoint. The relative gap is {relative_gap_scientific}, about {sigma_scientific} measurement standard uncertainties. Same-scheme hadronic transport is blocked under #425, which permanently caps this row at diagnostic status.",
+        "fr": "Racine certifiée de l’application déclarée. $P_C$ est défini à partir de la limite mesurée. L’écart relatif vaut {relative_gap_scientific}, soit environ {sigma_scientific} écarts-types de mesure. Le transport hadronique dans le même schéma est bloqué par le ticket #425, ce qui plafonne définitivement cette ligne au statut de diagnostic."
+      }
+    },
+    {
+      "row_id": "gravity_pixel_cancellation",
+      "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
+      "claim_class": "conditional_implication",
+      "role": "conditional_branch",
+      "producer": {
+        "script": "code/particles/calibration/derive_d10_gravity_shared_edge_entropy_bridge.py",
+        "artifact": "code/particles/runs/calibration/d10_gravity_shared_edge_entropy_bridge.json",
+        "artifact_id": "oph_d10_gravity_shared_edge_entropy_bridge",
+        "value_pointer": "/pixel_cancellation/G_geom_over_ell_star_squared",
+        "guards": {
+          "/status": "closed",
+          "/proof_gate": "branch_preserving_nonabelian_edge_entropy_identity",
+          "/pixel_cancellation/checks/shared_edge_equals_P_over_4": true,
+          "/pixel_cancellation/checks/pixel_factor_cancels": true
+        }
+      },
+      "supporting_artifacts": [
+        {
+          "artifact": "code/particles/runs/clock/clock_source_energy_closure_audit.json",
+          "artifact_id": "oph_clock_source_energy_closure_audit",
+          "guards": {
+            "/promotion_allowed": false,
+            "/final_packet_ready": false,
+            "/application_status": "OPEN_BECAUSE_EPSILON_CS_IS_NOT_SOURCE_EMITTED",
+            "/clock_certificate_receipt/displayed_G_comparison_role": "taint_diagnosis_never_a_prediction"
+          }
+        }
+      ],
+      "display": {
+        "value_decimals": 0,
+        "unit": ""
+      },
+      "label": {
+        "en": "$G_{\\rm geom}/\\ell_\\star^2$",
+        "fr": "$G_{\\rm géom}/\\ell_\\star^2$"
+      },
+      "status": {
+        "en": "Exact pixel cancellation on the declared local extension branch: $a_{{\\rm cell}}=P\\ell_\\star^2$ and $\\bar\\ell_{{\\rm shared}}=P/4$ give $G_{{\\rm geom}}=\\ell_\\star^2$. This is a unit-bookkeeping identity, not an SI prediction. The stored clock coordinate is a back-solve checksum and four clock components remain absent under #334; therefore no $G_{{\\rm SI}}$ value or sigma distance is rendered.",
+        "fr": "Annulation exacte du pixel sur la branche d’extension locale déclarée : $a_{{\\rm cell}}=P\\ell_\\star^2$ et $\\bar\\ell_{{\\rm shared}}=P/4$ donnent $G_{{\\rm géom}}=\\ell_\\star^2$. Il s’agit d’une identité de comptabilité des unités, non d’une prédiction dans le SI. La coordonnée d’horloge enregistrée est une somme de contrôle résolue à rebours et quatre composantes d’horloge restent absentes dans le ticket #334 ; aucune valeur de $G_{{\\rm SI}}$ ni distance en sigma n’est donc affichée."
+      }
+    },
+    {
+      "row_id": "bottom_quark_clebsch",
+      "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
+      "claim_class": "conditional_implication",
+      "role": "rejected_candidate",
+      "producer": {
+        "script": "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "artifact_id": "oph_down_type_register_clebsch_lane",
+        "value_pointer": "/predictions/mb_mb_gev",
+        "guards": {
+          "/promotion_allowed": false,
+          "/checks_pass": true,
+          "/status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED",
+          "/retrospective_flag_rejection/all_six_permutations_rejected": true
+        }
+      },
+      "supporting_artifacts": [
+        {
+          "artifact": "code/particles/runs/flavor/clebsch_register_pairing_selection.json",
+          "artifact_id": "oph_clebsch_register_pairing_selection",
+          "guards": {
+            "/weight_set_scan/survivors_after_F2/count": 6,
+            "/weight_set_scan/order_assignment/status": "open"
+          }
+        }
+      ],
+      "reference": {
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "value_pointer": "/compare_only/references/mb_mb_gev",
+        "label": {
+          "en": "comparison coordinate",
+          "fr": "coordonnée de comparaison"
+        }
+      },
+      "display": {
+        "value_decimals": 2,
+        "reference_decimals": 2,
+        "unit": "GeV",
+        "reference_style": "plain"
+      },
+      "label": {
+        "en": "$m_b$, Clebsch lane",
+        "fr": "$m_b$, branche de Clebsch"
+      },
+      "status": {
+        "en": "Rejected conditional register-Clebsch route, {percent_gap} high. Its adopted assignment is uniquely least-discrepant among six comparison permutations, without becoming a source-derived order.",
+        "fr": "Branche conditionnelle de Clebsch des registres rejetée, supérieure de {percent_gap}. Son affectation adoptée est la moins divergente de façon unique parmi six permutations de comparaison, sans devenir un ordre dérivé de la source."
+      }
+    },
+    {
+      "row_id": "strange_quark_clebsch",
+      "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
+      "claim_class": "conditional_implication",
+      "role": "rejected_candidate",
+      "producer": {
+        "script": "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "artifact_id": "oph_down_type_register_clebsch_lane",
+        "value_pointer": "/predictions/ms_2gev_gev",
+        "guards": {
+          "/promotion_allowed": false,
+          "/checks_pass": true,
+          "/status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED",
+          "/retrospective_flag_rejection/all_six_permutations_rejected": true
+        }
+      },
+      "reference": {
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "value_pointer": "/compare_only/references/ms_2gev_gev",
+        "label": {
+          "en": "comparison coordinate",
+          "fr": "coordonnée de comparaison"
+        }
+      },
+      "display": {
+        "value_decimals": 0,
+        "reference_decimals": 1,
+        "scale": "1000",
+        "unit": "MeV",
+        "reference_style": "plain"
+      },
+      "label": {
+        "en": "$m_s$, Clebsch lane",
+        "fr": "$m_s$, branche de Clebsch"
+      },
+      "status": {
+        "en": "Rejected conditional register-Clebsch route, {percent_gap} high. The absolute-normalization discrepancy is part of the result.",
+        "fr": "Branche conditionnelle de Clebsch des registres rejetée, supérieure de {percent_gap}. L’écart de normalisation absolue fait partie du résultat."
+      }
+    },
+    {
+      "row_id": "down_quark_clebsch",
+      "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
+      "claim_class": "conditional_implication",
+      "role": "rejected_candidate",
+      "producer": {
+        "script": "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "artifact_id": "oph_down_type_register_clebsch_lane",
+        "value_pointer": "/predictions/md_2gev_gev",
+        "guards": {
+          "/promotion_allowed": false,
+          "/checks_pass": true,
+          "/status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED",
+          "/retrospective_flag_rejection/all_six_permutations_rejected": true
+        }
+      },
+      "reference": {
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "value_pointer": "/compare_only/references/md_2gev_gev",
+        "label": {
+          "en": "comparison coordinate",
+          "fr": "coordonnée de comparaison"
+        }
+      },
+      "display": {
+        "value_decimals": 1,
+        "reference_decimals": 1,
+        "scale": "1000",
+        "unit": "MeV",
+        "reference_style": "plain"
+      },
+      "label": {
+        "en": "$m_d$, Clebsch lane",
+        "fr": "$m_d$, branche de Clebsch"
+      },
+      "status": {
+        "en": "Rejected conditional register-Clebsch route, {percent_gap} high. The absolute-normalization discrepancy is part of the result.",
+        "fr": "Branche conditionnelle de Clebsch des registres rejetée, supérieure de {percent_gap}. L’écart de normalisation absolue fait partie du résultat."
+      }
+    },
+    {
+      "row_id": "strange_down_register_clebsch_ratio",
+      "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
+      "claim_class": "conditional_implication",
+      "role": "rejected_candidate",
+      "producer": {
+        "script": "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "artifact": "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "artifact_id": "oph_down_type_register_clebsch_lane",
+        "value_pointer": "/predictions/ms_over_md",
+        "guards": {
+          "/promotion_allowed": false,
+          "/checks_pass": true,
+          "/status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED",
+          "/retrospective_flag_rejection/all_six_permutations_rejected": true
+        }
+      },
+      "reference": {
+        "artifact": "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+        "value_pointer": "/averages/0/derived_ms_over_md/value",
+        "label": {
+          "en": "FLAG 2024, $N_f=2+1+1$ derived central",
+          "fr": "FLAG 2024, centre dérivé pour $N_f=2+1+1$"
+        }
+      },
+      "supporting_artifacts": [
+        {
+          "artifact": "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+          "artifact_id": "oph_flag_2024_light_quark_ratio_fixture",
+          "guards": {
+            "/averages/1/derived_ms_over_md/value": "20.35935",
+            "/averages/0/ms_over_mud/value": "27.227",
+            "/averages/0/mu_over_md/value": "0.465",
+            "/averages/1/ms_over_mud/value": "27.42",
+            "/averages/1/mu_over_md/value": "0.485",
+            "/claim_boundary/comparison_only": true,
+            "/claim_boundary/oph_fit_or_selection_input": false
+          }
+        }
+      ],
+      "display": {
+        "value_decimals": 4,
+        "reference_decimals": 4,
+        "unit": "",
+        "reference_style": "plain"
+      },
+      "label": {
+        "en": "$m_s/m_d$, register-Clebsch ratio",
+        "fr": "$m_s/m_d$, rapport de Clebsch des registres"
+      },
+      "status": {
+        "en": "Exact at the $\\mu_U$ boundary and protected by the lane’s common one-loop multiplicative transport. It is {percent_gap} high here and 12.8% high against the FLAG $N_f=2+1$ derived central value, so this conditional route is rejected. The separate channel receipt does not equate Yukawa coefficients; the unordered weight set is target-free only under its declared alphabet and rules; the charged-lepton model was historically stipulated and is neither blind nor source-only. No covariance-aware significance is claimed.",
+        "fr": "Exact à la frontière $\\mu_U$ et protégé par le transport multiplicatif commun à une boucle de la branche. Il est supérieur de {percent_gap} ici et de 12,8% au centre dérivé FLAG pour $N_f=2+1$ ; cette branche conditionnelle est donc rejetée. Le reçu de canaux séparé n’identifie pas les coefficients de Yukawa ; l’ensemble non ordonné des poids est indépendant de la cible uniquement sous son alphabet et ses règles déclarés ; le modèle des leptons chargés a été stipulé historiquement et n’est ni aveugle ni issu de la source. Aucune significativité tenant compte de la covariance n’est revendiquée."
+      }
+    },
+    {
+      "row_id": "top_target_anchored",
+      "claim_id": "OPH-HIER-EW",
+      "claim_class": "conditional_implication",
+      "role": "target_anchored_backsolve",
+      "producer": {
+        "script": "code/particles/calibration/derive_d11_live_exact_split_pair_theorem.py",
+        "artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+        "artifact_id": "oph_d11_live_exact_split_pair_theorem",
+        "value_pointer": "/exact_split_pair/mt_pole_gev",
+        "guards": {
+          "/prediction_promotion_allowed": false,
+          "/non_circularity_status/target_derived_or_candidate_upstream_used": true
+        }
+      },
+      "reference": {
+        "artifact": "code/particles/data/particle_reference_values.json",
+        "value_pointer": "/entries/top_quark/raw_value",
+        "uncertainty_pointer": "/entries/top_quark/api_error_positive",
+        "label": {
+          "en": "PDG 2026",
+          "fr": "PDG 2026"
+        }
+      },
+      "display": {
+        "value_decimals": 13,
+        "reference_decimals": 1,
+        "uncertainty_decimals": 1,
+        "unit": "GeV",
+        "reference_style": "plus_minus"
+      },
+      "label": {
+        "en": "$m_t$, target-anchored fit",
+        "fr": "$m_t$, ajustement ancré sur la cible"
+      },
+      "status": {
+        "en": "Back-solved from the measured Higgs/top pair; never a prediction.",
+        "fr": "Résolu à rebours à partir de la paire Higgs/top mesurée ; jamais une prédiction."
+      }
+    },
+    {
+      "row_id": "higgs_target_anchored",
+      "claim_id": "OPH-HIER-EW",
+      "claim_class": "conditional_implication",
+      "role": "target_anchored_backsolve",
+      "producer": {
+        "script": "code/particles/calibration/derive_d11_live_exact_split_pair_theorem.py",
+        "artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+        "artifact_id": "oph_d11_live_exact_split_pair_theorem",
+        "value_pointer": "/exact_split_pair/mH_gev",
+        "guards": {
+          "/prediction_promotion_allowed": false,
+          "/non_circularity_status/target_derived_or_candidate_upstream_used": true
+        }
+      },
+      "reference": {
+        "artifact": "code/particles/data/particle_reference_values.json",
+        "value_pointer": "/entries/higgs/raw_value",
+        "uncertainty_pointer": "/entries/higgs/error_plus_gev",
+        "label": {
+          "en": "PDG 2026",
+          "fr": "PDG 2026"
+        }
+      },
+      "display": {
+        "value_decimals": 13,
+        "reference_decimals": 2,
+        "uncertainty_decimals": 2,
+        "unit": "GeV",
+        "reference_style": "plus_minus"
+      },
+      "label": {
+        "en": "$m_H$, target-anchored fit",
+        "fr": "$m_H$, ajustement ancré sur la cible"
+      },
+      "status": {
+        "en": "Back-solved from the measured Higgs/top pair; never a prediction.",
+        "fr": "Résolu à rebours à partir de la paire Higgs/top mesurée ; jamais une prédiction."
+      }
+    },
+    {
+      "row_id": "photon_structural_zero",
+      "claim_id": "OPH-SM-Q1-LOCAL-G6",
+      "claim_class": "conditional_implication",
+      "role": "structural_non_discriminating",
+      "producer": {
+        "script": "code/particles/scripts/build_carrier_mode_acceptance.py",
+        "artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "artifact_id": "oph_massless_carrier_mode_acceptance",
+        "value_pointer": "/carriers/0/hard_quadratic_mass_parameter_squared",
+        "guards": {
+          "/carriers/0/particle_promotion_allowed": false,
+          "/carriers/0/classical_carrier_gate/passed": true,
+          "/carriers/0/quantum_particle_gate/passed": false
+        }
+      },
+      "display": {
+        "value_decimals": 0,
+        "unit": ""
+      },
+      "label": {
+        "en": "Photon carrier",
+        "fr": "Porteur photonique"
+      },
+      "status": {
+        "en": "Structural, non-discriminating hard quadratic mass parameter. No quantum-particle mass prediction.",
+        "fr": "Paramètre structurel et non discriminant de masse quadratique dure. Aucune prédiction de masse pour une particule quantique."
+      }
+    },
+    {
+      "row_id": "gluon_structural_zero",
+      "claim_id": "OPH-SM-Q1-LOCAL-G6",
+      "claim_class": "conditional_implication",
+      "role": "structural_non_discriminating",
+      "producer": {
+        "script": "code/particles/scripts/build_carrier_mode_acceptance.py",
+        "artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "artifact_id": "oph_massless_carrier_mode_acceptance",
+        "value_pointer": "/carriers/1/hard_quadratic_mass_parameter_squared",
+        "guards": {
+          "/carriers/1/particle_promotion_allowed": false,
+          "/carriers/1/classical_carrier_gate/passed": true,
+          "/carriers/1/quantum_particle_gate/passed": false
+        }
+      },
+      "display": {
+        "value_decimals": 0,
+        "unit": ""
+      },
+      "label": {
+        "en": "Gluon carrier",
+        "fr": "Porteur gluonique"
+      },
+      "status": {
+        "en": "Structural, non-discriminating hard quadratic mass parameter on the pre-confinement branch. No free-particle mass comparison.",
+        "fr": "Paramètre structurel et non discriminant de masse quadratique dure sur la branche antérieure au confinement. Aucune comparaison de masse pour une particule libre."
+      }
+    },
+    {
+      "row_id": "graviton_structural_zero",
+      "claim_id": "OPH-GR-D5",
+      "claim_class": "conditional_implication",
+      "role": "structural_non_discriminating",
+      "producer": {
+        "script": "code/particles/scripts/build_carrier_mode_acceptance.py",
+        "artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "artifact_id": "oph_massless_carrier_mode_acceptance",
+        "value_pointer": "/carriers/2/hard_quadratic_mass_parameter_squared",
+        "guards": {
+          "/carriers/2/particle_promotion_allowed": false,
+          "/carriers/2/classical_carrier_gate/passed": true,
+          "/carriers/2/quantum_particle_gate/passed": false
+        }
+      },
+      "display": {
+        "value_decimals": 0,
+        "unit": ""
+      },
+      "label": {
+        "en": "Einstein tensor carrier",
+        "fr": "Porteur tensoriel d’Einstein"
+      },
+      "status": {
+        "en": "Structural, non-discriminating hard quadratic mass parameter on the linearized branch. No graviton-particle mass prediction.",
+        "fr": "Paramètre structurel et non discriminant de masse quadratique dure sur la branche linéarisée. Aucune prédiction de masse pour une particule graviton."
+      }
+    }
+  ]
+}

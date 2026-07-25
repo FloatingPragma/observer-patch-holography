@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
-"""Clebsch register selection: pairing theorem and frozen weight-set scan.
+"""Clebsch register channel compatibility and conditional weight-set scan.
 
 The down-type Clebsch lane (``derive_down_type_register_clebsch_lane.py``)
 consumes the register pattern ``(b/tau, s/mu, d/e) = (1, 1/3, 3)`` under the
 open premise gate ``CLEBSCH_REGISTER_SELECTION_THEOREM``.  This builder
 splits that premise into its three parts and decides each on the corpus:
 
-1. Pairing (theorem, conditional on the declared exterior matter contract of
-   the super-Tannakian lift, issue #314).  The certified Yukawa sector
+1. Channel compatibility (conditional on the declared exterior matter
+   contract of the super-Tannakian lift, issue #314). The certified Yukawa sector
    couples ``d_c`` and ``e_c`` through the same scalar ``Sbar`` while ``u_c``
    couples through ``S``, and the forbidden channel ``[Q, S, d_c]`` carries a
    certified zero invariant line.  In the one-scalar package every register
-   relation at ``mu_U`` that ties a quark Yukawa to a lepton Yukawa through a
-   shared scalar therefore pairs down-type with charged leptons, and no
-   register relation can pair down-type through the up scalar.
+   relation at ``mu_U`` that is supplied separately and ties a quark Yukawa
+   to a lepton Yukawa through a shared scalar has down-type/charged-lepton
+   channels available, while the down-type/up-scalar candidate is excluded.
+   The receipt does not prove that such a register relation exists and does
+   not equate the independent Yukawa coefficients on the two allowed lines.
 
 2. Weight set (conditional selection under two frozen constraints).  The
    weight alphabet is the multiplicative closure ``{1/3, 1, 3}`` of the two
@@ -30,18 +32,19 @@ splits that premise into its three parts and decides each on the corpus:
       quotient of the transitive orbit and carries no register.
 
    The scan enumerates all 27 ordered triples.  Exactly one unordered
-   multiset survives F1 and F2, and the theorem is emitted conditional on F1
-   and F2; if the count were ever different, the builder emits the exclusion
-   record instead and the premise stays open.
+   multiset survives F1 and F2. This is a conditional combinatorial lemma
+   inside the declared alphabet, not a source-derived physical selection law;
+   if the count were ever different, the builder emits the exclusion record.
 
 3. Generation-order assignment: open.  Which weight attaches to which
    generation requires the family attachment (#569); no source argument for
    the third-generation-weight-one assignment exists in the corpus, so the
    assignment stays a declared premise of the down-type lane.
 
-Consequence: the open premise of the down-type lane shrinks from the full
-selection theorem to ``GENERATION_REGISTER_ORDER`` (plus the unchanged MCPR
-architecture condition).  The lane keeps tier T2; nothing here promotes.
+Consequence: the receipt constrains candidate channels and the F1/F2 lemma
+enumerates a conditional unordered set. Register-relation existence,
+coefficient identification, and generation-order assignment remain open. The
+lane keeps tier T2; nothing here promotes.
 """
 
 from __future__ import annotations
@@ -50,7 +53,6 @@ import argparse
 import hashlib
 import itertools
 import json
-from datetime import datetime, timezone
 from fractions import Fraction
 from pathlib import Path
 from typing import Any
@@ -91,10 +93,6 @@ FORBIDDEN_SOLVE_PATH_INPUTS = [
     "CODATA",
     "down_type_lane_predictions",
 ]
-
-
-def _timestamp() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _load_json(path: Path) -> dict[str, Any]:
@@ -170,11 +168,15 @@ def pairing_theorem(receipt: dict[str, Any], manifest: dict[str, Any]) -> dict[s
             "in the declared one-scalar exterior package, d_c and e_c couple "
             "through the same scalar Sbar and u_c couples through S, while the "
             "channel [Q, S, d_c] carries a certified zero invariant line; "
-            "therefore every register relation at mu_U tying a quark Yukawa to "
-            "a lepton Yukawa through a shared scalar pairs down-type with "
-            "charged leptons, and no register relation pairs down-type through "
-            "the up scalar"
+            "therefore, if a cross-sector register relation is supplied "
+            "separately, the receipt constrains its compatible scalar channels. "
+            "It neither proves existence of that relation nor equates the "
+            "independent Yukawa coefficients on the Q/Sbar/d_c and "
+            "L/Sbar/e_c invariant lines"
         ),
+        "classification": "conditional_channel_compatibility_only",
+        "register_relation_existence_proved": False,
+        "independent_yukawa_coefficients_equated": False,
         "conditional_on": (
             "the declared exterior matter contract and branch premises of the "
             "conditional super-Tannakian matter lift (#314)"
@@ -226,6 +228,10 @@ def weight_set_scan(generators: dict[str, Any]) -> dict[str, Any]:
             ),
             "remaining_premise": "GENERATION_REGISTER_ORDER",
         },
+        "constraint_status": (
+            "conditional declared F1/F2 algebra inside the emitted alphabet; "
+            "not a source-derived physical selection law"
+        ),
     }
 
 
@@ -242,8 +248,8 @@ def build_artifact(
     weight_set_closed = scan["unique_unordered_survivor"]
 
     if pairing_closed and weight_set_closed:
-        status = "pairing_and_weight_set_selected_order_open"
-        proof_status = "closed_conditional_selection_theorem"
+        status = "channel_compatibility_and_weight_set_lemma_order_open"
+        proof_status = "conditional_lemma_open_physical_relation"
     elif pairing_closed:
         status = "pairing_selected_weight_set_exclusion_record"
         proof_status = "partial_selection_exclusion_record"
@@ -253,7 +259,11 @@ def build_artifact(
 
     return {
         "artifact": "oph_clebsch_register_pairing_selection",
-        "generated_utc": _timestamp(),
+        "determinism": {
+            "timestamp_omitted": True,
+            "json_key_order": "sorted",
+            "line_endings": "LF",
+        },
         "github_issues": [591, 546],
         "status": status,
         "proof_status": proof_status,
@@ -265,11 +275,12 @@ def build_artifact(
         ),
         "theorem_statement": (
             "Conditional on the declared exterior matter contract (#314) and "
-            "the two frozen constraints F1 and F2, the register relation at "
-            "mu_U pairs the down-type quarks with the charged leptons and its "
-            "unordered weight set is exactly {1/3, 1, 3}. The generation-order "
-            "assignment of the weights is not selected and remains the open "
-            "premise GENERATION_REGISTER_ORDER."
+            "the two frozen constraints F1 and F2, the matter receipt permits "
+            "the down-type and charged-lepton channels through separate Sbar "
+            "invariant lines, and the declared F1/F2 scan has unordered "
+            "survivor {1/3, 1, 3}. Register-relation existence, equality of "
+            "the independent Yukawa coefficients, and generation-order "
+            "assignment are not selected."
             if pairing_closed and weight_set_closed
             else "The corpus does not select the declared register pattern; "
             "the exclusion record below is the deliverable and the full "
@@ -281,13 +292,20 @@ def build_artifact(
         "premise_bookkeeping": {
             "replaced_premise": "CLEBSCH_REGISTER_SELECTION_THEOREM",
             "closed_parts": (
-                ["pairing (conditional on #314 contract)", "unordered weight set (conditional on F1, F2)"]
+                [
+                    "candidate channel compatibility (conditional on #314 contract)",
+                    "unordered weight-set lemma (conditional on declared F1, F2)",
+                ]
                 if pairing_closed and weight_set_closed
                 else ["pairing (conditional on #314 contract)"]
                 if pairing_closed
                 else []
             ),
-            "remaining_open_parts": ["GENERATION_REGISTER_ORDER"]
+            "remaining_open_parts": [
+                "REGISTER_RELATION_EXISTENCE",
+                "INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION",
+                "GENERATION_REGISTER_ORDER",
+            ]
             + ([] if weight_set_closed else ["CLEBSCH_WEIGHT_SET"])
             + ([] if pairing_closed else ["CLEBSCH_PAIRING"]),
             "unchanged_conditions": [
@@ -313,7 +331,8 @@ def build_artifact(
             "no_target_leak": True,
         },
         "notes": [
-            "F1 and F2 are declared constraints with stated source rationale; the selection is conditional on them and says so.",
+            "F1 and F2 are declared conditional constraints, not source-derived physical laws.",
+            "The matter receipt constrains available channel lines but does not equate their independent Yukawa coefficients.",
             "The scan enumerates the full 27-triple candidate space and records survivors at each stage.",
             "Exactly one unordered multiset surviving is the landing condition; any other count downgrades this artifact to an exclusion record on the next run.",
         ],
@@ -340,13 +359,19 @@ def main() -> int:
         },
     )
     output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    _write_json_lf(output, payload)
     print(f"saved: {output}")
     print(f"status: {payload['status']}")
     if payload["status"] == "selection_failed_premise_unchanged":
         return 1
     return 0
+
+
+def _write_json_lf(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        json.dump(payload, handle, indent=2, sort_keys=True)
+        handle.write("\n")
 
 
 if __name__ == "__main__":

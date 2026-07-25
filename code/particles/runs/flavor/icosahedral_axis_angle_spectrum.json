@@ -1,0 +1,299 @@
+{
+  "artifact": "oph_icosahedral_axis_angle_spectrum",
+  "compare_only_cabibbo_readback": {
+    "angle_degrees_at_one_standard_uncertainty_bounds": [
+      12.97935784669,
+      13.026400708951
+    ],
+    "angle_degrees_from_arcsin": 13.002878162914,
+    "direct_match_available_at_plus_five_standard_uncertainties": false,
+    "input": {
+      "determination": "Kmu2_decay_constant_ratio",
+      "display_value": "0.2250",
+      "fixture_path": "code/particles/data/pdg_2024_vus_kmu2_fixture.json",
+      "fixture_sha256": "2d000ccbad9c0540f9f192e2302d193798820923a973c3ecd5f25f312cf225c4",
+      "name": "abs_Vus",
+      "published_notation": "0.2250 +/- 0.0004",
+      "role": "compare_only_not_used_to_construct_or_select_axes",
+      "source": {
+        "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024), Sec. 12.2.2: the K -> mu nu(gamma) over pi -> mu nu(gamma) determination using the lattice-QCD decay-constant ratio",
+        "edition": "Review of Particle Physics 2024, CKM Quark-Mixing Matrix, revised April 2024; PDF dated 31 May 2024",
+        "publisher": "Particle Data Group",
+        "transcription_note": "The published central value and quoted uncertainty are transcribed into this deterministic fixture. The source PDF is not vendored or assigned an invented raw-payload hash.",
+        "url": "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf"
+      },
+      "standard_uncertainty": 0.0004,
+      "value": 0.225
+    },
+    "minimum_axis_angle_margin_degrees": 7.902279284975,
+    "minimum_axis_sine_minus_abs_Vus": 0.131822089773,
+    "minimum_axis_sine_minus_plus_five_standard_uncertainties": 0.129822089773,
+    "minimum_axis_sine_relative_excess": 0.585875954547,
+    "one_standard_uncertainty_interval_abs_Vus": [
+      0.2246,
+      0.2254
+    ],
+    "plus_five_standard_uncertainties_abs_Vus": 0.227,
+    "residual_mismatch_cabibbo_available": false
+  },
+  "conclusion": {
+    "excluded_claim": "The Cabibbo angle is directly equal to an acute angle between two real three-dimensional icosahedral residual axes.",
+    "external_comparison_coordinate_used": true,
+    "literature_claims_used_to_construct_axis_spectrum": false,
+    "not_excluded": [
+      "all_A5_flavor_models",
+      "spinorial_or_other_representations",
+      "higher_order_symmetry_breaking",
+      "arbitrary_overlap_geometry"
+    ],
+    "scope_is_narrow": true,
+    "status": "direct_real_3d_residual_axis_identification_excluded"
+  },
+  "construction": {
+    "antipodes_collapsed": true,
+    "oriented_object_counts": {
+      "edges": 30,
+      "triangular_faces": 20,
+      "vertices": 12
+    },
+    "unoriented_axis_counts": {
+      "fivefold_vertex_axes": 6,
+      "threefold_face_axes": 10,
+      "total": 31,
+      "twofold_edge_axes": 15
+    }
+  },
+  "determinism": {
+    "construction_field": "Q(sqrt(5))",
+    "exact_spectrum_coordinate": "cosine_squared",
+    "timestamp_omitted": true
+  },
+  "method_self_test": {
+    "cosine_squared_exact": {
+      "expression": "(1/2) + (1/10)*sqrt(5)",
+      "rational_coefficient": "1/2",
+      "sqrt5_coefficient": "1/10"
+    },
+    "expected_angle_degrees": 31.717474411461,
+    "expected_family_pair": "fivefold_x_twofold",
+    "hard_assertion_passed": true,
+    "identity": "angle = arctan(1/phi)",
+    "present": true
+  },
+  "minimum_nonzero_axis_angle": {
+    "angle_degrees": 20.905157447889,
+    "family_pair": "threefold_x_twofold",
+    "sine": 0.356822089773
+  },
+  "pairwise_acute_angle_spectra": {
+    "fivefold_x_fivefold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 63.434948822922,
+          "acute_angle_exact": "acos(sqrt((1/5) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/5) + (0)*sqrt(5)",
+            "rational_coefficient": "1/5",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 15
+        }
+      ],
+      "distinct_acute_angle_count": 1,
+      "left_family": "fivefold",
+      "right_family": "fivefold",
+      "unoriented_pair_count": 15
+    },
+    "fivefold_x_threefold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 37.37736814065,
+          "acute_angle_exact": "acos(sqrt((1/3) + (2/15)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/3) + (2/15)*sqrt(5)",
+            "rational_coefficient": "1/3",
+            "sqrt5_coefficient": "2/15"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 79.187683036428,
+          "acute_angle_exact": "acos(sqrt((1/3) + (-2/15)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/3) + (-2/15)*sqrt(5)",
+            "rational_coefficient": "1/3",
+            "sqrt5_coefficient": "-2/15"
+          },
+          "multiplicity": 30
+        }
+      ],
+      "distinct_acute_angle_count": 2,
+      "left_family": "fivefold",
+      "right_family": "threefold",
+      "unoriented_pair_count": 60
+    },
+    "fivefold_x_twofold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 31.717474411461,
+          "acute_angle_exact": "acos(sqrt((1/2) + (1/10)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/2) + (1/10)*sqrt(5)",
+            "rational_coefficient": "1/2",
+            "sqrt5_coefficient": "1/10"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 58.282525588539,
+          "acute_angle_exact": "acos(sqrt((1/2) + (-1/10)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/2) + (-1/10)*sqrt(5)",
+            "rational_coefficient": "1/2",
+            "sqrt5_coefficient": "-1/10"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 90.0,
+          "acute_angle_exact": "acos(sqrt((0) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(0) + (0)*sqrt(5)",
+            "rational_coefficient": "0",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 30
+        }
+      ],
+      "distinct_acute_angle_count": 3,
+      "left_family": "fivefold",
+      "right_family": "twofold",
+      "unoriented_pair_count": 90
+    },
+    "threefold_x_threefold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 41.810314895779,
+          "acute_angle_exact": "acos(sqrt((5/9) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(5/9) + (0)*sqrt(5)",
+            "rational_coefficient": "5/9",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 15
+        },
+        {
+          "acute_angle_degrees": 70.528779365509,
+          "acute_angle_exact": "acos(sqrt((1/9) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/9) + (0)*sqrt(5)",
+            "rational_coefficient": "1/9",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 30
+        }
+      ],
+      "distinct_acute_angle_count": 2,
+      "left_family": "threefold",
+      "right_family": "threefold",
+      "unoriented_pair_count": 45
+    },
+    "threefold_x_twofold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 20.905157447889,
+          "acute_angle_exact": "acos(sqrt((1/2) + (1/6)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/2) + (1/6)*sqrt(5)",
+            "rational_coefficient": "1/2",
+            "sqrt5_coefficient": "1/6"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 54.735610317245,
+          "acute_angle_exact": "acos(sqrt((1/3) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/3) + (0)*sqrt(5)",
+            "rational_coefficient": "1/3",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 60
+        },
+        {
+          "acute_angle_degrees": 69.094842552111,
+          "acute_angle_exact": "acos(sqrt((1/2) + (-1/6)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/2) + (-1/6)*sqrt(5)",
+            "rational_coefficient": "1/2",
+            "sqrt5_coefficient": "-1/6"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 90.0,
+          "acute_angle_exact": "acos(sqrt((0) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(0) + (0)*sqrt(5)",
+            "rational_coefficient": "0",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 30
+        }
+      ],
+      "distinct_acute_angle_count": 4,
+      "left_family": "threefold",
+      "right_family": "twofold",
+      "unoriented_pair_count": 150
+    },
+    "twofold_x_twofold": {
+      "angles": [
+        {
+          "acute_angle_degrees": 36.0,
+          "acute_angle_exact": "acos(sqrt((3/8) + (1/8)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(3/8) + (1/8)*sqrt(5)",
+            "rational_coefficient": "3/8",
+            "sqrt5_coefficient": "1/8"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 60.0,
+          "acute_angle_exact": "acos(sqrt((1/4) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(1/4) + (0)*sqrt(5)",
+            "rational_coefficient": "1/4",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 72.0,
+          "acute_angle_exact": "acos(sqrt((3/8) + (-1/8)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(3/8) + (-1/8)*sqrt(5)",
+            "rational_coefficient": "3/8",
+            "sqrt5_coefficient": "-1/8"
+          },
+          "multiplicity": 30
+        },
+        {
+          "acute_angle_degrees": 90.0,
+          "acute_angle_exact": "acos(sqrt((0) + (0)*sqrt(5)))",
+          "cosine_squared_exact": {
+            "expression": "(0) + (0)*sqrt(5)",
+            "rational_coefficient": "0",
+            "sqrt5_coefficient": "0"
+          },
+          "multiplicity": 15
+        }
+      ],
+      "distinct_acute_angle_count": 4,
+      "left_family": "twofold",
+      "right_family": "twofold",
+      "unoriented_pair_count": 105
+    }
+  },
+  "schema_version": 1
+}

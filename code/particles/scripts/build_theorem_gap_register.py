@@ -114,19 +114,46 @@ def closed_entries() -> list[dict[str, Any]]:
             "artifact": "runs/leptons/charged_entropic_branch_no_go.json",
         },
         {
-            "id": "W5_ORBIT_DECISION_GEOMETRY",
+            "id": "KOIDE_CIRCULANT_IDENTITY",
             "family": "charged leptons",
             "class": "closed",
             "statement": (
-                "stratum classification certified (C5 and C3 axes exactly "
-                "degenerate, C2 simple: three distinct masses force the "
-                "orbit off the symmetry axes); the MCPR target shape lies "
-                "inside the simple-spectrum region, witnessed by a frozen "
-                "coefficient point with minimizing-orbit gap ratio within "
-                "0.006 of the target; the harness maps any coefficient "
-                "packet to the family shape with no further choices"
+                "inside the positive-eigenvalue chamber, the Hermitian C3 "
+                "circulant has Q = 1/3 + (2/3)(|b|/a)^2 and hence Q = 2/3 "
+                "iff |b|/a = 1/sqrt(2); the finite tracial-GNS result fixes "
+                "that modulus only under its declared attachment premises, "
+                "while the phase, two mass ratios, and physical attachment "
+                "remain open"
             ),
-            "artifact": "runs/leptons/charged_w5_orbit_decision_geometry.json",
+            "artifact": "runs/leptons/koide_circulant_identity.json",
+        },
+        {
+            "id": "W5_STABILISER_SPECTRUM_BOUND",
+            "family": "charged leptons",
+            "class": "closed",
+            "statement": (
+                "in W5 = Sym^2_0(R^3), C3 and C5 fixed loci are "
+                "one-dimensional and force a double eigenvalue, whereas the "
+                "C2 fixed locus is three-dimensional (projective dimension "
+                "two) and admits a simple spectrum; stabilizer geometry "
+                "therefore does not select the two charged-lepton mass "
+                "ratios, which require a screen-derived potential"
+            ),
+            "artifact": "runs/flavor/w5_stabiliser_spectrum_bound.json",
+        },
+        {
+            "id": "ICOSAHEDRAL_DIRECT_AXIS_CABIBBO_NO_GO",
+            "family": "quark mixing",
+            "class": "closed",
+            "statement": (
+                "the exhaustive exact spectrum of the 31 unoriented real "
+                "three-dimensional icosahedral residual axes has minimum "
+                "nonzero acute angle 20.905157 degrees, excluding only a "
+                "direct identification of the Cabibbo angle with one such "
+                "axis-pair angle; other A5 representations, symmetry "
+                "breaking, and general overlap geometry are not excluded"
+            ),
+            "artifact": "runs/flavor/icosahedral_axis_angle_spectrum.json",
         },
         {
             "id": "UP_TYPE_INTEGER_POWER_LAW_REMOVED",
@@ -140,15 +167,16 @@ def closed_entries() -> list[dict[str, Any]]:
             "artifact": "runs/flavor/up_type_register_exponent_scan.json",
         },
         {
-            "id": "DOWN_TYPE_CLEBSCH_CONDITIONAL_SECTOR",
+            "id": "DOWN_TYPE_REGISTER_CLEBSCH_ROUTE_REJECTED",
             "family": "quarks",
             "class": "closed",
             "statement": (
-                "conditional on the MCPR leptons and the register Clebsch "
-                "pattern (1, 1/3, 3), the down-type sector is emitted: "
-                "ratios and the Gatto-Sartori-Tonin angle land at the "
-                "ten-percent scale, the absolute normalization carries the "
-                "named third-generation tension"
+                "the channel-compatibility theorem and target-free F1/F2 "
+                "enumeration leave the conditional unordered multiset "
+                "{1/3, 1, 3}, but every one of its six generation "
+                "assignments is retrospectively rejected by the conservative "
+                "FLAG gate; the least-discrepant assignment is target-informed "
+                "and does not select a physical generation order"
             ),
             "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
         },
@@ -275,11 +303,11 @@ def open_entries() -> list[dict[str, Any]]:
             "family": "charged leptons",
             "class": "research_open",
             "statement": (
-                "SOURCE_W5_COEFFICIENT_EMISSION: the charge-conditioned "
-                "repair branch must emit the invariant coefficient packet "
-                "(h5, a, b, c, e); the decision geometry and harness are "
-                "closed, so emission alone completes the charged family "
-                "shape"
+                "derive a screen-selected A5-invariant potential and prove "
+                "that its global orbit selection emits the charged-family "
+                "shape. Stabilizer symmetry alone cannot do this: C3/C5 "
+                "force degeneracy and the C2 fixed locus retains exactly two "
+                "projective shape parameters"
             ),
         },
         {
@@ -298,11 +326,12 @@ def open_entries() -> list[dict[str, Any]]:
             "class": "research_open",
             "statement": (
                 "the physical flavor carrier certificate and per-sector "
-                "spread-fiber elimination; after the Clebsch lane the open "
-                "quark objects are the Clebsch selection theorem, the "
-                "third-generation register factor, and the charm/up "
-                "selectors (the integer power-law family is removed by a "
-                "negative frozen scan)"
+                "spread-fiber elimination. The direct register-Clebsch route "
+                "and the direct real-axis Cabibbo identification are removed; "
+                "channel compatibility and the conditional F1/F2 unordered "
+                "multiset survive but do not equate Yukawa coefficients or "
+                "select a generation order. A new source-derived mass and "
+                "mixing mechanism, including charm/up selectors, is required"
             ),
         },
         {

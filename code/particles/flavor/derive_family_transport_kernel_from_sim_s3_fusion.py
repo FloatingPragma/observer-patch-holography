@@ -75,6 +75,9 @@ VERDICT_OUT = RUNS / "family_transport_kernel_sim_s3_fusion_verdict.json"
 SCAN_PATH = RUNS / "quark_common_scheme_shape_law_scan.json"
 
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(RER_ROOT / "code"))
+from particles.artifact_paths import canonicalize_artifact_paths  # noqa: E402
+
 from derive_generation_bundle_branch_generator import (  # noqa: E402
     build_artifact as build_generator,
 )
@@ -323,8 +326,13 @@ def main() -> int:
     parser.add_argument("--verdict-out", default=str(VERDICT_OUT))
     args = parser.parse_args()
 
-    payload, verdict, generator = build(pathlib.Path(args.level0_dir),
-                                        pathlib.Path(args.level1_dir))
+    payload, verdict, generator = build(
+        pathlib.Path(args.level0_dir),
+        pathlib.Path(args.level1_dir),
+    )
+    payload = canonicalize_artifact_paths(payload)
+    verdict = canonicalize_artifact_paths(verdict)
+    generator = canonicalize_artifact_paths(generator)
     for path, blob in ((pathlib.Path(args.payload_out), payload),
                        (pathlib.Path(args.verdict_out), verdict)):
         path.parent.mkdir(parents=True, exist_ok=True)

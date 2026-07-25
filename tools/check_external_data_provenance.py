@@ -33,6 +33,10 @@ REQUIRED_DATASET_ARTIFACTS = {
         "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json",
     "nufit-6.1-profile-source-manifest":
         "code/particles/neutrino/nufit61_sources.json",
+    "flag-2024-light-quark-ratio-fixture":
+        "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+    "pdg-2024-vus-kmu2-compare-only-fixture":
+        "code/particles/data/pdg_2024_vus_kmu2_fixture.json",
     "codata-2022-inverse-fine-structure-constant":
         "code/P_derivation/codata_2022_alpha_fixture.json",
     "pdg-2026-wz-running-width-target-fixture":
@@ -317,6 +321,97 @@ def _validate_content_boundary(entry: Mapping[str, Any], artifact_path: Path) ->
         _require(
             payload.get("source", {}).get("edition") == "CODATA 2022",
             "CODATA alpha fixture edition drifted",
+        )
+    elif dataset_id == "flag-2024-light-quark-ratio-fixture":
+        payload = json.loads(artifact_path.read_text(encoding="utf-8"))
+        _require(
+            payload.get("artifact")
+            == "oph_flag_2024_light_quark_ratio_fixture"
+            and payload.get("status")
+            == "COMPARE_ONLY_HAND_TRANSCRIBED_REFERENCE",
+            "FLAG light-quark fixture must remain compare-only",
+        )
+        _require(
+            payload.get("derived_quantity", {}).get(
+                "input_covariance_available"
+            )
+            is False,
+            "FLAG light-quark fixture must not invent a covariance",
+        )
+        _require(
+            payload.get("claim_boundary", {}).get(
+                "oph_theory_uncertainty_supplied"
+            )
+            is False
+            and payload.get("claim_boundary", {}).get(
+                "oph_fit_or_selection_input"
+            )
+            is False
+            and payload.get("claim_boundary", {}).get(
+                "prediction_preexisted_audit"
+            )
+            is True
+            and payload.get("claim_boundary", {}).get(
+                "significance_gate_preregistered"
+            )
+            is False,
+            "FLAG fixture crossed its no-theory-uncertainty/no-fit boundary",
+        )
+        rows = payload.get("averages", [])
+        _require(
+            {
+                (
+                    row.get("nf"),
+                    row.get("ms_over_mud", {}).get("published_notation"),
+                    row.get("mu_over_md", {}).get("published_notation"),
+                )
+                for row in rows
+            }
+            == {
+                ("2+1+1", "27.227(81)", "0.465(24)"),
+                ("2+1", "27.42(12)", "0.485(19)"),
+            },
+            "FLAG light-quark transcriptions drifted",
+        )
+        derived = {
+            row["nf"]: row.get("derived_ms_over_md", {})
+            for row in rows
+        }
+        _require(
+            derived.get("2+1+1", {}).get("value") == "19.9437775"
+            and derived.get("2+1", {}).get("value") == "20.35935",
+            "FLAG derived ms/md central values drifted",
+        )
+    elif dataset_id == "pdg-2024-vus-kmu2-compare-only-fixture":
+        payload = json.loads(artifact_path.read_text(encoding="utf-8"))
+        coordinate = payload.get("coordinate", {})
+        boundary = payload.get("claim_boundary", {})
+        source = payload.get("source", {})
+        _require(
+            payload.get("artifact") == "oph_pdg_2024_vus_kmu2_fixture"
+            and payload.get("status")
+            == "COMPARE_ONLY_HAND_TRANSCRIBED_REFERENCE",
+            "PDG |V_us| fixture must remain a compare-only transcription",
+        )
+        _require(
+            coordinate.get("determination") == "Kmu2_decay_constant_ratio"
+            and coordinate.get("value") == "0.2250"
+            and coordinate.get("standard_uncertainty") == "0.0004"
+            and coordinate.get("published_notation") == "0.2250 +/- 0.0004",
+            "PDG Kmu2 |V_us| coordinate or uncertainty drifted",
+        )
+        _require(
+            "revised April 2024; PDF dated 31 May 2024"
+            in source.get("edition", "")
+            and source.get("publisher") == "Particle Data Group",
+            "PDG Kmu2 |V_us| source edition drifted",
+        )
+        _require(
+            boundary.get("comparison_only") is True
+            and boundary.get("used_to_construct_or_select_axes") is False
+            and boundary.get("global_ckm_fit_value") is False
+            and boundary.get("oph_fit_or_selection_input") is False,
+            "PDG Kmu2 |V_us| fixture crossed its compare-only boundary",
         )
     elif dataset_id == "pdg-2026-wz-running-width-target-fixture":
         target = json.loads(artifact_path.read_text(encoding="utf-8")).get(

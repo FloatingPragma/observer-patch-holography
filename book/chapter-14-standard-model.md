@@ -1332,6 +1332,65 @@ hadrons are bound states. Most of the proton's mass comes from confinement
 rather than from the bare quark masses, so the OPH hadron story has to pass
 through the strong-binding layer.
 
+The local three-corner face carrier gives one exact flavor identity. In its
+positive-eigenvalue chamber, a Hermitian three-cycle response obeys
+
+$$
+Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2,
+\qquad
+Q=\frac23\Longleftrightarrow\frac{|b|}{a}=\frac1{\sqrt2}.
+$$
+
+Equal event-block weights in the declared finite tracial model give the
+balanced modulus as a conditional theorem. The phase, numerical mass ratios,
+and physical charged-family attachment are open. Threefold and fivefold
+residual symmetry in the associated five-dimensional family space forces a
+double eigenvalue. Twofold symmetry allows distinct eigenvalues while leaving
+two free ratios after scale is removed, so a screen-derived potential must
+select a numerical spectrum.
+
+A separate conditional comparison links the bottom, strange, and down
+families to the tau, muon, and electron with the weights $1$, $1/3$, and $3$.
+Of the six ways to attach those three weights, this ordering gives the unique
+smallest disagreement with the comparison data. That comparison ranks an
+adopted ordering; it does not derive the ordering from the observer-patch
+axioms. On the declared one-loop chart, the strange and down quarks acquire
+the same running factor, leaving the exact relation
+
+$$
+\frac{m_s}{m_d}
+=\frac{1}{9}\left.\frac{m_\mu}{m_e}\right|_{\mu_U}
+=22.9743.
+$$
+
+The [FLAG Review 2024](https://arxiv.org/abs/2411.04268) gives two applicable
+lattice averages. Combining its light-quark ratios produces central values
+$m_s/m_d=19.9438$ with four active sea-quark flavors and $20.3594$ with
+three. The conditional result is therefore 15.2% and 12.8% high. A
+covariance-aware significance cannot be inferred from the two summary-table
+errors alone. This comparison rejects the present conditional
+register-weight route. The matter calculation separately says which declared
+quark and lepton channels can share the same scalar, but it does not make their
+two coupling strengths equal. The unordered weight set is target-free only
+under its declared alphabet and two selection rules. The charged-lepton model
+calculation is unaffected; its historical model choice means that
+runtime-reference-free is not the same as blind or source-derived.
+
+The same rejected lane gives conditional absolute values of $6.03$ GeV for
+the bottom quark, $140$ MeV for the strange quark, and $6.1$ MeV for the down
+quark. Those values are about 44%, 50%, and 30% high, respectively, so the
+absolute-mass discrepancy is part of the result.
+
+The real icosahedral residual axes also give a narrow no-go. The smallest
+nonzero acute angle among all 31 fivefold, threefold, and twofold axes is
+$20.9052^\circ$, while the Cabibbo comparison angle is
+$13.0029^\circ$. This excludes direct equality between the Cabibbo angle and
+one of those real three-dimensional axis angles. Spinorial constructions,
+higher-order breaking, additional dynamics, and general overlap models lie
+outside the result. The $0.2086$ display from the register-weight lane is
+$\sqrt{m_d/m_s}$ formed from the same rejected ratio, without the quark
+matrices needed for a mixing prediction.
+
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
 dimensionless electroweak hierarchy, the low-energy electromagnetic endpoint,

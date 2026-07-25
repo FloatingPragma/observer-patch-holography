@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,10 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import portable_json_dumps
 DEFAULT_INPUT = ROOT / "particles" / "runs" / "neutrino" / "realized_same_label_gap_defect_readback.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "same_label_scalar_certificate.json"
 EDGE_ORDER = ("psi12", "psi23", "psi31")
@@ -43,7 +48,7 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 def _save_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    path.write_text(portable_json_dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def _parse_matrix(obj: Any) -> np.ndarray:

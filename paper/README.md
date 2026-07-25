@@ -8,6 +8,10 @@ Need* for the observer interpretation and the two quantitative closures, then
 use the technical recovery paper for the relativity, gravity, and Standard
 Model proofs. The consensus, particle, and screen papers provide the finite
 repair theorem, numerical continuations, and physical carrier architecture.
+The focused [positive-chamber Koide paper](../extra/koide_identity_from_positive_c3_face_circulants.pdf)
+isolates the exact face-circulant identity and conditional finite tracial
+Gelfand--Naimark--Segal balance from the open physical family attachment,
+phase, and numerical ratios.
 
 | Paper | Role |
 | --- | --- |
@@ -18,7 +22,10 @@ repair theorem, numerical continuations, and physical carrier architecture.
 | [Federated Echosahedral Screen Microphysics](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Twelve-port source selector, central records, and observer synchronization |
 | [Paradise as Fixed-Point Consensus](paradise_as_fixed_point_consensus.pdf) ([source](paradise_as_fixed_point_consensus.tex)) | Observer continuation and interpretation |
 
-The shortest informal introduction is [A Compact Case for OPH](../extra/compact_proof_of_oph.pdf). Focused papers are listed in the [supplement index](../extra/).
+The shortest informal introduction is [A Compact Case for OPH](../extra/compact_proof_of_oph.pdf).
+The flavor theorem is developed in [The Positive-Chamber Koide Identity for
+Icosahedral Face Circulants](../extra/koide_identity_from_positive_c3_face_circulants.pdf).
+Focused papers are listed in the [supplement index](../extra/).
 
 Shared TeX lives in [`tex_fragments/`](tex_fragments/). The [BFT/QECC appendix](appendix_B_bft_qecc_extensions.tex) is included by *Reality as a Consensus Protocol*.
 

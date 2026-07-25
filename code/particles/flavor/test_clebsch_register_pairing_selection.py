@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -29,9 +32,37 @@ def result(documents):
 
 
 def test_selection_lands_on_live_corpus(result):
-    assert result["status"] == "pairing_and_weight_set_selected_order_open"
-    assert result["proof_status"] == "closed_conditional_selection_theorem"
+    assert (
+        result["status"]
+        == "channel_compatibility_and_weight_set_lemma_order_open"
+    )
+    assert result["proof_status"] == "conditional_lemma_open_physical_relation"
     assert result["promotion_allowed"] is False
+    assert result["determinism"] == {
+        "timestamp_omitted": True,
+        "json_key_order": "sorted",
+        "line_endings": "LF",
+    }
+    assert "generated_utc" not in result
+
+
+def test_committed_receipt_is_byte_exact(tmp_path: Path):
+    rebuilt = tmp_path / lane.DEFAULT_OUT.name
+    subprocess.run(
+        [
+            sys.executable,
+            str(Path(lane.__file__).resolve()),
+            "--output",
+            str(rebuilt),
+        ],
+        check=True,
+        cwd=lane.ROOT,
+        capture_output=True,
+        text=True,
+    )
+    rebuilt_bytes = rebuilt.read_bytes()
+    assert b"\r\n" not in rebuilt_bytes
+    assert rebuilt_bytes == lane.DEFAULT_OUT.read_bytes()
 
 
 def test_pairing_theorem_checks(result):
@@ -40,6 +71,9 @@ def test_pairing_theorem_checks(result):
     assert pairing["checks"]["down_couples_through_Sbar"] is True
     assert pairing["checks"]["lepton_couples_through_Sbar"] is True
     assert pairing["checks"]["down_through_up_scalar_has_no_line"] is True
+    assert pairing["classification"] == "conditional_channel_compatibility_only"
+    assert pairing["register_relation_existence_proved"] is False
+    assert pairing["independent_yukawa_coefficients_equated"] is False
     assert "#314" in pairing["conditional_on"]
 
 
@@ -68,6 +102,9 @@ def test_constraints_frozen_before_evaluation(result):
         "F2_register_faithfulness",
     ]
     assert set(scan["frozen_constraints"]) == set(lane.FROZEN_CONSTRAINTS)
+    assert "not a source-derived physical selection law" in scan[
+        "constraint_status"
+    ]
 
 
 def test_solve_path_reads_no_measured_values(result):
@@ -81,7 +118,11 @@ def test_solve_path_reads_no_measured_values(result):
 def test_premise_bookkeeping(result):
     bookkeeping = result["premise_bookkeeping"]
     assert bookkeeping["replaced_premise"] == "CLEBSCH_REGISTER_SELECTION_THEOREM"
-    assert bookkeeping["remaining_open_parts"] == ["GENERATION_REGISTER_ORDER"]
+    assert bookkeeping["remaining_open_parts"] == [
+        "REGISTER_RELATION_EXISTENCE",
+        "INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION",
+        "GENERATION_REGISTER_ORDER",
+    ]
     assert any("MCPR" in item for item in bookkeeping["unchanged_conditions"])
 
 

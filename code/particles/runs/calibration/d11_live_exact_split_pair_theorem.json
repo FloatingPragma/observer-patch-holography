@@ -61,10 +61,10 @@
     "value": -0.00023118902229730438
   },
   "source_artifacts": {
-    "d10_source_pair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_source_transport_pair.json",
-    "d10_target_free_repair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
-    "d11_declared_surface": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
-    "fixed_ray_no_go": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json"
+    "d10_source_pair": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+    "d10_target_free_repair": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+    "d11_declared_surface": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+    "fixed_ray_no_go": "code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json"
   },
   "source_only_exactifier_functions": {
     "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",

@@ -1,0 +1,70 @@
+{
+  "artifact": "oph_flag_2024_light_quark_ratio_fixture",
+  "schema": "oph.flag_2024_light_quark_ratio_fixture.v1",
+  "status": "COMPARE_ONLY_HAND_TRANSCRIBED_REFERENCE",
+  "source": {
+    "publisher": "Flavour Lattice Averaging Group (FLAG)",
+    "edition": "FLAG Review 2024, arXiv:2411.04268v3",
+    "citation": "Y. Aoki et al., FLAG Review 2024, arXiv:2411.04268; light-quark averages summarized in Tables 11 and 12, with the higher-precision Nf=2+1+1 ms/mud recommendation in Eq. (37).",
+    "url": "https://arxiv.org/abs/2411.04268",
+    "transcription_note": "Values are transcribed from the published review. The repository does not vendor the source PDF or claim a raw table-payload hash."
+  },
+  "derived_quantity": {
+    "name": "ms_over_md",
+    "identity": "ms/md = (ms/mud) * (1 + mu/md) / 2",
+    "input_covariance_available": false,
+    "uncertainty_policy": {
+      "independent": "Propagate the two quoted marginal standard uncertainties in quadrature.",
+      "maximally_positive_correlation": "Propagate with rho=+1 by adding the two absolute first-order contributions.",
+      "conservative_rejection_gate": "Use the larger rho=+1 propagated uncertainty. This is a conservative compare-only gate, not a reconstructed FLAG covariance.",
+      "conservative_rejection_threshold_sigma": 5.0
+    }
+  },
+  "averages": [
+    {
+      "nf": "2+1+1",
+      "ms_over_mud": {
+        "value": "27.227",
+        "standard_uncertainty": "0.081",
+        "published_notation": "27.227(81)"
+      },
+      "mu_over_md": {
+        "value": "0.465",
+        "standard_uncertainty": "0.024",
+        "published_notation": "0.465(24)"
+      },
+      "derived_ms_over_md": {
+        "value": "19.9437775",
+        "independent_standard_uncertainty": "0.332067640296747373384442091962701498301810002803780586821039",
+        "rho_plus_one_standard_uncertainty": "0.3860565"
+      }
+    },
+    {
+      "nf": "2+1",
+      "ms_over_mud": {
+        "value": "27.42",
+        "standard_uncertainty": "0.12",
+        "published_notation": "27.42(12)"
+      },
+      "mu_over_md": {
+        "value": "0.485",
+        "standard_uncertainty": "0.019",
+        "published_notation": "0.485(19)"
+      },
+      "derived_ms_over_md": {
+        "value": "20.35935",
+        "independent_standard_uncertainty": "0.275306829010832929610842758346627366377832896540005008453062",
+        "rho_plus_one_standard_uncertainty": "0.349590"
+      }
+    }
+  ],
+  "claim_boundary": {
+    "comparison_only": true,
+    "oph_fit_or_selection_input": false,
+    "oph_theory_uncertainty_supplied": false,
+    "prediction_preexisted_audit": true,
+    "significance_gate_preregistered": false,
+    "comparison_is_retrospective": true,
+    "note": "These external values may falsify a conditional lane output; they do not select its Clebsch assignment or supply an OPH theory uncertainty."
+  }
+}

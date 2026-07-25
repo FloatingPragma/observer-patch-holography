@@ -23,11 +23,16 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 D10_SOURCE_PAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_pair.json"
 D10_REPAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_free_repair_value_law.json"
@@ -183,7 +188,15 @@ def main() -> int:
         else None
     )
 
-    artifact = build_artifact(references, d10_source_pair, d10_repair, d11_surface, quark_public_exact)
+    artifact = canonicalize_artifact_paths(
+        build_artifact(
+            references,
+            d10_source_pair,
+            d10_repair,
+            d11_surface,
+            quark_public_exact,
+        )
+    )
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")

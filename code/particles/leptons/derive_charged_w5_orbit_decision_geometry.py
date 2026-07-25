@@ -1,36 +1,34 @@
 #!/usr/bin/env python3
-"""W5 orbit decision geometry for the charged-lepton family shape.
+"""Archived target-shaped W5 potential harness for charged-lepton shape.
 
-The shape-silence theorem forces charged family structure through a selected
-A5 orbit in W5.  This lane closes the mathematical superstructure around the
-one object that stays open (the source emission of the invariant
-coefficients):
+This module is retained as a negative-control and optimization harness.  It
+does not close W5 orbit selection.  The exact stabilizer result now lives in
+``flavor/derive_w5_stabiliser_spectrum_bound.py``: C3/C5 fixed loci force a
+double eigenvalue, while the C2 fixed locus has two projective shape
+parameters.  Consequently the predictive content is the derivation of a
+specific screen potential, not symmetry geometry by itself.
 
-1. Stratum classification theorem, certified numerically: on the C5-axis and
-   C3-axis strata of W5 the quadrupole spectrum is exactly doubly
-   degenerate, so a minimizing orbit on either axis gives two equal charged
-   masses; the C2 stratum and the generic stratum carry simple spectra.
-   Three distinct charged masses therefore require the minimizing orbit off
-   the high-symmetry axes.
+The code below performs three narrower tasks:
 
-2. Target locus: the MCPR conditional shape fixes the centered logarithmic
+1. It checks representative C3/C5 degeneracies and exhibits one simple C2
+   witness.  These numerical witnesses are not the general theorem.
+
+2. The historically target-informed MCPR conditional shape fixes the centered logarithmic
    triple and hence one scale-free shape number, the sorted-gap ratio of the
-   quadrupole spectrum.  The lane emits the target and certifies that the
-   simple-spectrum region of the quartic invariant family contains it, by
-   locating a coefficient point whose minimizing orbit reproduces the target
-   ratio.
+   quadrupole spectrum.  A coefficient search then fits that target.  This
+   demonstrates flexibility of the potential family and has no predictive
+   evidential weight.
 
 3. Harness: given any source-emitted coefficient packet
    ``(h5, a, b, c, e)`` for the invariant potential
    ``V = h5/2 I2 + a trQ^3 + b S3 + c (trQ^2)^2 + e S4``
    (with ``S_k = sum_i (p_i^T Q p_i)^k``), the lane minimizes over W5,
-   classifies the orbit, checks the simple-spectrum gate, and emits the
-   centered family coordinates.  The source coefficient emission is the
-   open gate; the located locus point is a demonstration certificate, never
-   a source claim.
+   classifies the orbit, checks the simple-spectrum gate, and emits centered
+   family coordinates.  A target-independent derivation and uniqueness proof
+   for that packet remain open.
 
-No measured lepton mass is read; the target shape comes from the MCPR
-conditional artifact.
+No measured lepton mass is read at runtime, but the MCPR architecture used as
+the target was historically target-informed.
 """
 
 from __future__ import annotations
@@ -193,10 +191,10 @@ def stratum_theorem_certificates() -> dict[str, Any]:
 
     return {
         "statement": (
-            "on the C5-axis and C3-axis strata the quadrupole spectrum is "
-            "exactly doubly degenerate; the C2 stratum is simple; three "
-            "distinct charged masses require the minimizing orbit off the "
-            "high-symmetry axes"
+            "the selected C5 and C3 representatives have doubly degenerate "
+            "quadrupole spectra, while the selected C2 representative is a "
+            "simple-spectrum witness; the general fixed-locus theorem and "
+            "parameter count live in w5_stabiliser_spectrum_bound.json"
         ),
         "c5_min_gap": degeneracy(w_c5),
         "c3_min_gap": degeneracy(w_c3),
@@ -289,9 +287,10 @@ def locate_locus_point(target_ratio: float) -> dict[str, Any]:
         "target_ratio": target_ratio,
         "locus_nonempty_certified": bool(achieved),
         "classification": (
-            "demonstration certificate: the simple-spectrum region contains "
-            "the target shape; the located point is a harness witness, "
-            "never a source claim"
+            "retrospective target-shaped fit: the flexible simple-spectrum "
+            "potential family contains the MCPR diagnostic shape; the "
+            "located coefficient point was selected using that target and "
+            "has no predictive evidential role"
         ),
     }
 
@@ -312,9 +311,9 @@ def build_artifact(mcpr: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "artifact": "oph_charged_w5_orbit_decision_geometry",
-        "schema_version": 1,
-        "status": "DECISION_GEOMETRY_CLOSED_COEFFICIENT_EMISSION_OPEN",
-        "row_class": "orbit_geometry_harness_with_open_source_gate",
+        "schema_version": 2,
+        "status": "RETROSPECTIVE_TARGET_SHAPED_HARNESS_NOT_PREDICTIVE",
+        "row_class": "negative_control_target_informed_potential_fit",
         "promotion_allowed": False,
         "stratum_classification_theorem": strata,
         "mcpr_target_shape": target,
@@ -323,10 +322,11 @@ def build_artifact(mcpr: dict[str, Any]) -> dict[str, Any]:
             "id": "SOURCE_W5_COEFFICIENT_EMISSION",
             "status": "open",
             "statement": (
-                "the conditioned charged-sector repair functional must emit "
-                "the invariant coefficient packet (h5, a, b, c, e); the "
-                "harness then produces the family shape with no further "
-                "choices"
+                "a target-independent conditioned charged-sector repair "
+                "functional must emit the complete invariant coefficient "
+                "packet (h5, a, b, c, e), and a global uniqueness theorem "
+                "must select its orbit before this harness has predictive "
+                "content"
             ),
             "route": (
                 "compute the W5-restricted Hessian of the charge-conditioned "
@@ -336,12 +336,15 @@ def build_artifact(mcpr: dict[str, Any]) -> dict[str, Any]:
             ),
         },
         "claim_boundary": (
-            "The stratum theorem, the target shape, and the nonempty locus "
-            "are closed mathematics. The located coefficient point is a "
-            "demonstration witness. The charged-lepton shape becomes a "
-            "source consequence exactly when the coefficient packet is "
-            "emitted by the conditioned branch."
+            "This artifact is not a W5 selection theorem. Its target locus is "
+            "constructed retrospectively from the historically target-informed "
+            "MCPR coordinate and demonstrates model flexibility only. The "
+            "separate stabilizer receipt proves the fixed-locus boundary; a "
+            "screen-derived target-independent potential and orbit-uniqueness "
+            "proof remain open."
         ),
+        "target_informed": True,
+        "predictive_evidence": False,
         "checks": checks,
         "checks_pass": all(bool(v) for v in checks.values()),
     }

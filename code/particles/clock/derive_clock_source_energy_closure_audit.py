@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from decimal import Decimal, localcontext
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,10 @@ WORKING_PREC = 80
 WORKING_DPS = 80
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 CERTIFICATES_DIR = ROOT / "particles" / "hierarchy" / "certificates"
 CLOCK_CERTIFICATE = CERTIFICATES_DIR / "R_gamma_noG_DAG_certificate.json"
 DEFAULT_OUT = (
@@ -261,10 +266,12 @@ def main() -> int:
     parser.add_argument("--certificates-dir", type=Path, default=CERTIFICATES_DIR)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
-    artifact = build_artifact(
-        json.loads(args.certificate.read_text(encoding="utf-8")),
-        certificates_dir=args.certificates_dir,
-        certificate_path=str(args.certificate),
+    artifact = canonicalize_artifact_paths(
+        build_artifact(
+            json.loads(args.certificate.read_text(encoding="utf-8")),
+            certificates_dir=args.certificates_dir,
+            certificate_path=str(args.certificate),
+        )
     )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")

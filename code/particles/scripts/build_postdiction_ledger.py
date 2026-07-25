@@ -371,25 +371,35 @@ def _quark_rows(
             "blocking_issues": obstruction["github_issues"],
         },
         {
-            "id": "quark_down_type_texture_conditional",
+            "id": "quark_down_type_clebsch_route_rejected",
             "values": predictions,
             "measured_references": compare["references"],
             "relative_deltas": {
                 k: v for k, v in compare.items() if k.endswith("_relative")
             },
-            "tier": "T2_conditional",
+            "flag_2024_compare_only": compare["flag_2024"],
+            "retrospective_flag_rejection": clebsch[
+                "retrospective_flag_rejection"
+            ],
+            "permutation_scan": clebsch["permutation_scan"],
+            "promotion_allowed": clebsch["promotion_allowed"],
+            "status": clebsch["status"],
+            "tier": "T2_conditional_rejected_candidate",
             "row_class": clebsch["row_class"],
             "premise": (
-                "generation register order (issue 569); pairing and weight set "
-                "selected by the Clebsch selection artifact"
+                "a cross-sector register relation, independent Yukawa "
+                "coefficient identification, and a physical generation order; "
+                "the pairing receipt supplies channel compatibility only"
             ),
             "selection_artifact_ref": _rel("clebsch_selection"),
             "selection_status": selection["status"],
             "artifact_ref": _rel("clebsch_lane"),
             "reading": (
-                "Conditional texture rows: the register order premise is open "
-                "and the recorded tensions stay in the normalization_tension "
-                "block of the parent."
+                "The target-free F1/F2 scan fixes only the unordered multiset. "
+                "All six assignments fail the retrospective conservative FLAG "
+                "gate. The displayed GST value is sqrt(md/ms) under an assumed "
+                "texture, not a derived CKM angle; a simultaneous diagonal "
+                "mass ansatz would instead give the identity CKM matrix."
             ),
         },
     ]
@@ -674,11 +684,21 @@ def _render_md(ledger: dict[str, Any]) -> str:
         else:
             vals = row["values"]
             refs = row["measured_references"]
-            add(f"- Down-type texture, conditional ({row['tier']}): "
-                f"Cabibbo `{_fmt(vals['cabibbo_gst_sqrt_md_over_ms'], 4)}` against "
-                f"`{refs['cabibbo']}`; `ms/md = {_fmt(vals['ms_over_md'], 4)}` against "
-                f"`{refs['ms_over_md']}`. Premise: {row['premise']}. "
-                f"{row['reading']}")
+            flag = row["flag_2024_compare_only"]
+            flag_refs = ", ".join(
+                f"Nf={entry['nf']}: {_fmt(entry['reference_ms_over_md'], 4)}"
+                for entry in flag
+            )
+            add(
+                f"- Down-type register-Clebsch route, rejected "
+                f"({row['tier']}): `ms/md = {_fmt(vals['ms_over_md'], 4)}` "
+                f"against FLAG 2024 ({flag_refs}); all six generation "
+                f"assignments are rejected by the retrospective conservative "
+                f"gate. The diagnostic `sqrt(md/ms) = "
+                f"{_fmt(vals['cabibbo_gst_sqrt_md_over_ms'], 4)}` is not a "
+                f"derived Cabibbo angle. Premise: {row['premise']}. "
+                f"{row['reading']}"
+            )
     add("")
     add("## Hadrons")
     add("")

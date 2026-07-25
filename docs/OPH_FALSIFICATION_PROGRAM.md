@@ -78,6 +78,37 @@ work in progress:
 Diagnostic comparisons, simulator outputs, known-data checks, and engineering
 benchmarks carry no falsification verdict.
 
+The down-type register-Clebsch comparison supplies a recorded negative result
+inside this ineligible class. Its exact declared-lane ratio
+$m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$ exceeds the two central ratios derived
+from FLAG 2024 by 15.2% and 12.8%. This rejects that conditional route without
+altering the matter receipt's conditional channel boundary. That receipt does
+not equate independent Yukawa coefficients. The F1/F2 unordered-weight result
+is target-free under its declared alphabet and constraints. The historically
+stipulated charged-lepton model calculation is unaffected and carries no
+blind or source-only standing.
+
+The positive-chamber charged-family identity has a different status. A
+Hermitian `C3` face circulant satisfies
+$Q=1/3+(2/3)(|b|/a)^2$, and $Q=2/3$ is equivalent to
+$|b|/a=1/\sqrt2$ while all eigenvalues are nonnegative. Equal rank-two event
+blocks and the finite tracial Gelfand-Naimark-Segal map supply that modulus
+under the declared packet premises. This is an exact conditional theorem.
+The physical family attachment, phase, and mass ratios are open. The
+historically target-informed charged response coordinate is a retrospective
+diagnostic and supplies no confirmation event.
+
+Two exact no-go receipts delimit replacement searches. In the real
+five-dimensional traceless-symmetric family representation, threefold and
+fivefold fixed points have a double eigenvalue; the twofold fixed locus has
+two parameters after scale. Symmetry alone is nonpredictive, so a numerical
+spectrum requires a screen-derived invariant potential. Separately, the 31
+real three-dimensional icosahedral residual axes have no
+$13.0029^\circ$ acute angle; their smallest nonzero angle is
+$20.9052^\circ$. This excludes direct equality between the Cabibbo angle and
+one of those axis angles. Spinorial representations, higher-order breaking,
+additional dynamics, and general overlap models lie outside that result.
+
 ## Operational Use
 
 Each proposed falsifier must identify the claim row, the owner paper, and the

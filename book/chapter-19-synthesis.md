@@ -499,8 +499,16 @@ Symmetry determines the available roles. The dynamics within those roles
 determines masses, mixing, binding, and decay.
 
 The local ruler carries the conditional comparison surface into numbers. The
-charged-lepton three-cycle has one attracting repair fixed point, and the
-square-root-mass geometry gives a Koide relation under its attachment premises.
+charged-lepton face carrier has an exact positive-chamber identity,
+$Q=1/3+(2/3)(|b|/a)^2$. Equal blocks in the finite tracial event model give
+$|b|/a=1/\sqrt2$ and hence $Q=2/3$ under the model premises. The physical
+family attachment, phase, and numerical ratios are open. The historically
+target-informed eight-register coordinate sits close to the charged-lepton
+comparison value only as a retrospective diagnostic. Threefold and fivefold
+residual symmetry in the five-dimensional family space forces a double
+eigenvalue; twofold symmetry leaves two free ratios after scale is removed.
+Numerical ratios therefore require a potential derived from the screen
+dynamics.
 The displayed W/Z and Higgs/top values are prescription or declared-surface
 checks, not OPH-native complex-pole predictions. The strict finite-order W/Z
 algebra is a conditional theorem: complete renormalized inputs determine the
@@ -511,7 +519,27 @@ gauge-invariant measurable current, complete source ancestry, uncertainties,
 and a clock.
 Six family-sensitive Yukawa
 coordinates organize conditional quark and neutrino comparisons after a common
-physical family attachment is supplied.
+physical family attachment is supplied. On the down-type comparison lane, the
+adopted $(b/\tau,s/\mu,d/e)=(1,1/3,3)$ assignment is uniquely least
+discrepant among the six permutations, without being source-derived. The
+declared one-loop transport gives the exact conditional ratio
+$m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. It is 15.2% and 12.8% above the two
+central light-quark ratios derived from
+[FLAG 2024](https://arxiv.org/abs/2411.04268). The absolute down-type values
+disagree by 30–50%. These comparisons reject the conditional
+register-weight route. The separate matter receipt gives a conditional
+shared-scalar channel boundary without equating independent coupling
+strengths. The unordered weight set is target-free under its declared
+alphabet and rules. The historically stipulated charged-lepton model is
+unaffected, but it is neither blind nor source-derived.
+
+The real-axis mixing route also has a precise boundary. The smallest nonzero
+acute angle among the 31 real icosahedral residual axes is
+$20.9052^\circ$, while the Cabibbo comparison angle is $13.0029^\circ$.
+This rules out direct equality between those quantities and leaves spinorial,
+higher-order, dynamical, and general overlap routes outside the no-go. The
+$0.2086$ register-weight display is $\sqrt{m_d/m_s}$ formed from the same
+rejected ratio; it is not an independently derived mixing angle.
 
 The finite diagnostic calculations are reproducible. Exact enumeration checks
 the declared discrete choices, interval arithmetic encloses stated fixed

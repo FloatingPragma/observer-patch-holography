@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import sys
 from datetime import datetime, timezone
 from typing import Any
 
@@ -27,6 +28,10 @@ import numpy as np
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import portable_json_dumps
 DEFAULT_SECTOR = ROOT / "particles" / "runs" / "flavor" / "sector_transport_pushforward.json"
 DEFAULT_SCALE_ANCHOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_scale_anchor.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "family_response_tensor.json"
@@ -171,7 +176,7 @@ def main() -> int:
             "Unique-edge amplitudes and the weighted edge norm are exported for the residual-envelope theorem burden.",
         ],
     }
-    out_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    out_path.write_text(portable_json_dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(out_path)
     return 0
 

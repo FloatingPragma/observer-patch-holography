@@ -28,6 +28,10 @@
     "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
     "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
     "OPH-GAUGE-D7-D9",
+    "OPH-QUARK-REGISTER-CLEBSCH",
+    "OPH-KOIDE-CIRCULANT-IDENTITY",
+    "OPH-A5-REAL-AXIS-CABIBBO-NOGO",
+    "OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
     "OPH-SCREEN-A5-SM-RECOGNITION",
     "OPH-SM-ROUTE-IDENTIFICATION",
     "OPH-WZ-STRICT-1L-POLE-MAP",
@@ -83,6 +87,10 @@
     {"from": "OPH-SCREEN-PORT-CURRENT-INNER", "to": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT", "role": "supplies the hash-pinned conditional current packet; the trace-balanced matter, statistics, super-category, kernel-emission, and MAR contracts remain declared premises"},
     {"from": "OPH-SCREEN-PORT-CURRENT-INNER", "to": "OPH-SCREEN-A5-SM-RECOGNITION", "role": "supplies the exact conditional full-rank current and inner A5 action while leaving physical response binding and downstream selection gates open"},
     {"from": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT", "to": "OPH-SCREEN-A5-SM-RECOGNITION", "role": "supplies one exact conditional matter realization and emitted kernel; it does not select the physical matter contract, global quotient, or family attachment"},
+    {"from": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT", "to": "OPH-QUARK-REGISTER-CLEBSCH", "role": "supplies the conditional channel-invariant dimensions and color multiplicity only; it neither equates independent Yukawa coefficients nor supplies generation order, physical MCPR attachment, or scale"},
+    {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-KOIDE-CIRCULANT-IDENTITY", "role": "supplies the geometric regular-C3 face carrier only; positive-chamber square-root-mass identification, finite-GNS balance, physical chiral recovery, phase, ratios, and running remain separately typed"},
+    {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-A5-REAL-AXIS-CABIBBO-NOGO", "role": "supplies the canonical real three-dimensional icosahedral geometry whose 31 unoriented residual axes form the finite no-go menu; it does not identify physical quark residuals or exclude other representations and breaking schemes"},
+    {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY", "role": "supplies the real A5 rotation action used on W5; it does not emit the screen-derived invariant potential or physical family attachment required for ratio selection"},
     {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE", "role": "supplies the local twelve-port boundary and A5 incidence object; it does not supply the federation nerve, S2 support, or BW normalization"},
     {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-SCREEN-A5-SM-RECOGNITION", "role": "closes the unit-port, inverse-pairing, proper-A5, rank-three-frame, and naturality inputs; a physical full-rank current and selection packet are explicit premises"},
     {"from": "OPH-GAUGE-EXTERIOR-SM-WITNESS", "to": "OPH-SCREEN-A5-SM-RECOGNITION", "role": "supplies the exact conditional rank-15 one-generation representation witness after the trace-balanced 3+2 carrier is selected; it does not supply a physical current or family attachment"},
@@ -136,6 +144,10 @@
     {"from": "OPH-GAUGE-D7-D9", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "supplies the independent conditional Tannaka/MAR route to the Standard Model packet"},
     {"from": "OPH-SCREEN-A5-SM-RECOGNITION", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "supplies the independent conditional A5 screen-current recognition route"},
     {"from": "OPH-SM-ROUTE-IDENTIFICATION", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "marks the open source-bound commuting square required to identify the two compatible gauge outputs as one physical group"},
+    {"from": "OPH-QUARK-REGISTER-CLEBSCH", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records the retained conditional channel/enumeration boundary and the rejected target-informed assumed-order flavor route without retracting gauge/matter reconstruction or conditional charged-lepton algebra"},
+    {"from": "OPH-KOIDE-CIRCULANT-IDENTITY", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records the exact positive-chamber circulant identity and conditional finite-GNS balance while leaving physical chiral attachment, phase, ratios, and running unresolved"},
+    {"from": "OPH-A5-REAL-AXIS-CABIBBO-NOGO", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records only the finite no-go for direct Cabibbo identification with an acute angle between two canonical real three-dimensional icosahedral residual axes"},
+    {"from": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records the exact stabilizer boundary and the unresolved need for a source-derived invariant potential before any physical flavor-ratio prediction"},
     {"from": "OPH-GR-D6-READBACK-NOGO", "to": "OPH-GR-D6-A5-FINITE-CONTROL", "role": "supplies the implementation-invariance boundary tested by the publicly inert A5 multiplicity"}
   ]
 }

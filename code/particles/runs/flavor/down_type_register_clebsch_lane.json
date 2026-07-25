@@ -1,4 +1,19 @@
 {
+  "absolute_output_provenance": {
+    "calibration_producer_sha256": "1511d1e041d41338cfd935acc396005b1a62a1979880ebfb775b61ec7f36373c",
+    "depends_on_declared_boundary_calibration": true,
+    "depends_on_mcpr_optional_scale_display": true,
+    "status": "absolute masses are calibration-dependent diagnostics, not source-only predictions"
+  },
+  "arithmetic_checks": {
+    "all_permutation_arithmetic_checks_pass": true,
+    "current_assumed_order_present_once": true,
+    "distinct_factor_ratio_set_is_exact": true,
+    "flag_fixture_validated": true,
+    "selection_artifact_validated": true,
+    "six_permutations_executed": true
+  },
+  "arithmetic_checks_pass": true,
   "artifact": "oph_down_type_register_clebsch_lane",
   "boundary_values_at_mu_U": {
     "y_b": 0.009545960940330799,
@@ -10,53 +25,680 @@
     "y_tau": 0.009545960940330799
   },
   "checks": {
-    "clebsch_factors_declared": true,
-    "masses_positive": true,
-    "premise_gates_open": true,
-    "ratio_outputs_finite": true,
-    "third_generation_boundary_is_pure_b_tau": true
+    "all_permutation_arithmetic_checks_pass": true,
+    "current_assumed_order_present_once": true,
+    "distinct_factor_ratio_set_is_exact": true,
+    "flag_fixture_validated": true,
+    "selection_artifact_validated": true,
+    "six_permutations_executed": true
   },
   "checks_pass": true,
-  "claim_boundary": "Conditional on the MCPR lepton triple and the declared register Clebsch pattern. Ratios are the sharp outputs; the absolute normalization carries a named open tension. Nothing here is a promoted source-only prediction.",
+  "claim_boundary": "This is a conditional, declared-model diagnostic. Arithmetic reproduction does not discharge any physical premise. The retrospective FLAG gate rejects all six declared assignments; the uniquely least-discrepant current order is target-informed and selects no physical generation order.",
   "clebsch_boundary": {
-    "candidate_register_origin": "3 = N_c and 1/3 = invariant color measure of the transitive C3 action; the pairing and the unordered weight set are selected conditionally by runs/flavor/clebsch_register_pairing_selection.json, and the generation-order assignment is the open premise",
+    "conditional_origin": "The matter receipt supplies channel compatibility only. F1/F2 give a conditional unordered-set lemma; existence of the cross-sector relation, coefficient identification, and generation order remain open.",
+    "current_order_status": "assumed open-premise assignment; not source-selected",
     "factors": {
       "b_over_tau": 1.0,
       "d_over_e": 3.0,
       "s_over_mu": 0.3333333333333333
     },
     "register_scale": "mu_U",
+    "register_scale_status": "declared boundary scale",
     "selection_artifact": "runs/flavor/clebsch_register_pairing_selection.json"
+  },
+  "common_transport": {
+    "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+    "common_light_down_factor": 2.676282572248979,
+    "factor_ratio_s_over_d": "1/9",
+    "generation_dependent_light_threshold_present": false,
+    "register_scale_ratio_identity_rhs": 22.97425821071643,
+    "relative_identity_gap": 3.3306690738754696e-16,
+    "same_scale_qcd_factor": 1.591221457788483,
+    "transported_ms_over_md": 22.974258210716425
   },
   "compare_only": {
     "cabibbo_relative": -0.07275023280364601,
+    "depends_on_declared_boundary_calibration": true,
+    "depends_on_optional_scale_display": true,
+    "flag_2024": [
+      {
+        "absolute_relative_error": 0.15195118932290663,
+        "conservative_rejection_threshold_sigma": 5.0,
+        "conservative_rejection_triggered": true,
+        "independent_gap_sigma": 9.126094635443192,
+        "independent_standard_uncertainty": 0.33206764029674735,
+        "nf": "2+1+1",
+        "reference_ms_over_md": 19.9437775,
+        "rho_plus_one_gap_sigma": 7.849837292511394,
+        "rho_plus_one_standard_uncertainty": 0.3860565
+      },
+      {
+        "absolute_relative_error": 0.12843770605232607,
+        "conservative_rejection_threshold_sigma": 5.0,
+        "conservative_rejection_triggered": true,
+        "independent_gap_sigma": 9.498159635602546,
+        "independent_standard_uncertainty": 0.2753068290108329,
+        "nf": "2+1",
+        "reference_ms_over_md": 20.35935,
+        "rho_plus_one_gap_sigma": 7.479928518311237,
+        "rho_plus_one_standard_uncertainty": 0.34959
+      }
+    ],
     "mb_relative": 0.4421030807192965,
     "md_relative": 0.30110953336809776,
-    "ms_over_md_relative": 0.15448533722193103,
+    "ms_over_md_relative": 0.15195118932290663,
     "ms_relative": 0.5025938394236382,
     "references": {
       "cabibbo": 0.225,
+      "flag_ms_over_md_nf_2+1+1": 19.9437775,
       "mb_mb_gev": 4.18,
       "md_2gev_gev": 0.0047,
-      "ms_2gev_gev": 0.0935,
-      "ms_over_md": 19.9
+      "ms_2gev_gev": 0.0935
     },
-    "role": "comparison only, outside the prediction ancestry"
+    "role": "retrospective comparison only, outside prediction ancestry; no OPH theory uncertainty supplied",
+    "status": "calibration-dependent diagnostic, not ratio-only core",
+    "worst_absolute_mass_relative_error": 0.5025938394236382
+  },
+  "dependency_audit": {
+    "direct_input_paths": [
+      "particles/runs/leptons/charged_mcpr_completion_conditional.json",
+      "particles/runs/flavor/clebsch_register_pairing_selection.json",
+      "particles/data/flag_2024_light_quark_ratio_fixture.json",
+      "particles/calibration/derive_d11_criticality_boundary_scan.py"
+    ],
+    "flag_is_compare_only_not_prediction_ancestor": true,
+    "input_sha256": {
+      "clebsch_selection": "9fb91e6cceed07c96ff0c6ca72f35a86274e2ed4d54e8ba201bcab10c560a64c",
+      "declared_boundary_calibration_producer": "1511d1e041d41338cfd935acc396005b1a62a1979880ebfb775b61ec7f36373c",
+      "flag_2024_fixture": "82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78",
+      "mcpr": "8e98af7c39121ed10694779d4fefb43020196653dd403a77888679b7831c0936"
+    }
   },
   "inputs": {
-    "lepton_triple_source": "runs/leptons/charged_mcpr_completion_conditional.json",
-    "loop_order": "one_loop_yukawa_system_one_loop_qcd_mass_running",
-    "top_trajectory": "criticality boundary at the adopted branch"
+    "lepton_shape_source": "runs/leptons/charged_mcpr_completion_conditional.json",
+    "top_trajectory": "declared criticality boundary; calibration-dependent",
+    "transport_approximation": "five-Yukawa one-loop system plus common light-down transport and one-loop flavor-banded QCD mass running"
   },
   "normalization_tension": {
     "open_objects": [
+      "REGISTER_RELATION_EXISTENCE",
+      "INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION",
       "GENERATION_REGISTER_ORDER",
       "THIRD_GENERATION_REGISTER_FACTOR",
       "FROZEN_RG_THRESHOLD_MATCHING_PACKET"
     ],
-    "premise_reduction": "CLEBSCH_REGISTER_SELECTION_THEOREM is split by the selection artifact: pairing and unordered weight set closed conditionally, generation order open",
-    "statement": "the third-generation relation y_b = y_tau at one loop in this branch overshoots the down-type normalization by tens of percent while the intra-sector ratios and the Gatto-Sartori-Tonin angle land at the ten-percent scale; the deficit is carried openly and attributed to the third-generation register factor and the threshold packet, both open"
+    "statement": "The current assumed order carries large retrospective absolute-mass residuals. They are reported, not accepted by a proximity criterion."
   },
+  "permutation_scan": {
+    "all_permutations_rejected_by_conservative_flag_gate": true,
+    "assignment_slots": [
+      "b_over_tau",
+      "s_over_mu",
+      "d_over_e"
+    ],
+    "exhaustive": true,
+    "factor_set": [
+      "1/3",
+      "1",
+      "3"
+    ],
+    "permutation_count": 6,
+    "retrospective_metric": {
+      "current_assumed_order_uniquely_least_discrepant": true,
+      "order": [
+        "minimize worst absolute-mass relative error",
+        "then minimize light-ratio relative error vs FLAG Nf=2+1+1"
+      ],
+      "physical_order_selected": false,
+      "preregistered": false,
+      "target_informed": true
+    },
+    "rows": [
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": 0.4421030807192965,
+          "md_relative": 0.30110953336809776,
+          "ms_relative": 0.5025938394236382,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 0.5025938394236382
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 1.0,
+          "d_over_e": 3.0,
+          "s_over_mu": 0.3333333333333333
+        },
+        "assignment_labels": {
+          "b_over_tau": "1",
+          "d_over_e": "3",
+          "s_over_mu": "1/3"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.009545960940330799,
+          "y_d": 8.23524869541306e-06,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.00018919872995788527,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.676282572248979,
+          "factor_ratio_s_over_d": "1/9",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 22.97425821071643,
+          "relative_identity_gap": 3.3306690738754696e-16,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 22.974258210716425
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 0.15195118932290663,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 9.126094635443192,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 7.849837292511394,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 0.12843770605232607,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 9.498159635602546,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 7.479928518311237,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": true,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.20863119761917964,
+          "mb_mb_gev": 6.027990877406659,
+          "md_2gev_gev": 0.00611521480683006,
+          "ms_2gev_gev": 0.14049252398611017,
+          "ms_over_md": 22.974258210716425
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 22.97425562168677,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 0.15195118932290663,
+          "worst_absolute_mass_relative_error": 0.5025938394236382
+        },
+        "retrospective_unique_least_discrepant": true
+      },
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": 0.4421030807192965,
+          "md_relative": -0.8554322740702114,
+          "ms_relative": 12.523344554812747,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 12.523344554812747
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 1.0,
+          "d_over_e": 0.3333333333333333,
+          "s_over_mu": 3.0
+        },
+        "assignment_labels": {
+          "b_over_tau": "1",
+          "d_over_e": "1/3",
+          "s_over_mu": "3"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.009545960940330799,
+          "y_d": 9.150276328236733e-07,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.0017027885696209674,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.676282572248979,
+          "factor_ratio_s_over_d": "9",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 1860.914915068031,
+          "relative_identity_gap": 0.0,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 1860.914915068031
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 92.30804633515547,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 5543.9642836708645,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 4768.657275730446,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 90.40345419023845,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 6685.470068726874,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 5264.897637426789,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": false,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.02318124417990885,
+          "mb_mb_gev": 6.027990877406659,
+          "md_2gev_gev": 0.0006794683118700066,
+          "ms_2gev_gev": 1.2644327158749917,
+          "ms_over_md": 1860.914915068031
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 1860.9147053566285,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 92.30804633515547,
+          "worst_absolute_mass_relative_error": 12.523344554812747
+        },
+        "retrospective_unique_least_discrepant": false
+      },
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": -0.44817851836824496,
+          "md_relative": 0.30134833164367825,
+          "ms_relative": 3.5086088509632436,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 3.5086088509632436
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 0.3333333333333333,
+          "d_over_e": 3.0,
+          "s_over_mu": 1.0
+        },
+        "assignment_labels": {
+          "b_over_tau": "1/3",
+          "d_over_e": "3",
+          "s_over_mu": "1"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.003181986980110266,
+          "y_d": 8.23524869541306e-06,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.0005675961898736558,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.6767737619965204,
+          "factor_ratio_s_over_d": "1/3",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 68.9227746321493,
+          "relative_identity_gap": 4.440892098500626e-16,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 68.92277463214927
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 2.4558535679687195,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 147.49704936132866,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 126.87002325345972,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 2.385313118156978,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 176.39745736288427,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 138.9153712410231,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": false,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.12045327810678738,
+          "mb_mb_gev": 2.306613793220736,
+          "md_2gev_gev": 0.0061163371587252885,
+          "ms_2gev_gev": 0.4215549275650633,
+          "ms_over_md": 68.92277463214927
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 68.92276686506031,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 2.4558535679687195,
+          "worst_absolute_mass_relative_error": 3.5086088509632436
+        },
+        "retrospective_unique_least_discrepant": false
+      },
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": -0.44817851836824496,
+          "md_relative": -0.5662172227854405,
+          "ms_relative": 12.525826552889733,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 12.525826552889733
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 0.3333333333333333,
+          "d_over_e": 1.0,
+          "s_over_mu": 3.0
+        },
+        "assignment_labels": {
+          "b_over_tau": "1/3",
+          "d_over_e": "1",
+          "s_over_mu": "3"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.003181986980110266,
+          "y_d": 2.74508289847102e-06,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.0017027885696209674,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.6767737619965204,
+          "factor_ratio_s_over_d": "3",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 620.3049716893436,
+          "relative_identity_gap": 0.0,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 620.3049716893436
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 30.102682111718483,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 1807.9485060719546,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 1555.11225478484,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 29.46781806341281,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 2179.1890300902655,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 1716.1406839135661,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": false,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.04015109270226246,
+          "mb_mb_gev": 2.306613793220736,
+          "md_2gev_gev": 0.0020387790529084295,
+          "ms_2gev_gev": 1.26466478269519,
+          "ms_over_md": 620.3049716893436
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 620.3049017855429,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 30.102682111718483,
+          "worst_absolute_mass_relative_error": 12.525826552889733
+        },
+        "retrospective_unique_least_discrepant": false
+      },
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": 2.865276285855734,
+          "md_relative": -0.8556704115845912,
+          "ms_relative": 3.500356127304677,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 3.500356127304677
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 3.0,
+          "d_over_e": 0.3333333333333333,
+          "s_over_mu": 1.0
+        },
+        "assignment_labels": {
+          "b_over_tau": "3",
+          "d_over_e": "1/3",
+          "s_over_mu": "1"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.028637882820992396,
+          "y_d": 9.150276328236733e-07,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.0005675961898736558,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.671874096737348,
+          "factor_ratio_s_over_d": "3",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 620.3049716893436,
+          "relative_identity_gap": 4.440892098500626e-16,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 620.3049716893438
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 30.102682111718497,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 1807.9485060719553,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 1555.1122547848404,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 29.46781806341282,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 2179.1890300902664,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 1716.1406839135668,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": false,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.04015109270226245,
+          "mb_mb_gev": 16.156854874876966,
+          "md_2gev_gev": 0.000678349065552421,
+          "ms_2gev_gev": 0.4207832979029873,
+          "ms_over_md": 620.3049716893438
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 620.3049017855429,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 30.102682111718497,
+          "worst_absolute_mass_relative_error": 3.500356127304677
+        },
+        "retrospective_unique_least_discrepant": false
+      },
+      {
+        "absolute_output_diagnostics": {
+          "depends_on_declared_boundary_calibration": true,
+          "depends_on_optional_scale_display": true,
+          "mb_relative": 2.865276285855734,
+          "md_relative": -0.5670112347537738,
+          "ms_relative": 0.5001187091015589,
+          "status": "calibration-dependent diagnostic, not ratio-only core",
+          "worst_absolute_mass_relative_error": 2.865276285855734
+        },
+        "arithmetic_checks": {
+          "common_transport_ratio_identity": true,
+          "flag_comparisons_finite": true,
+          "masses_positive": true,
+          "outputs_finite": true
+        },
+        "assignment": {
+          "b_over_tau": 3.0,
+          "d_over_e": 1.0,
+          "s_over_mu": 0.3333333333333333
+        },
+        "assignment_labels": {
+          "b_over_tau": "3",
+          "d_over_e": "1",
+          "s_over_mu": "1/3"
+        },
+        "boundary_values_at_mu_U": {
+          "y_b": 0.028637882820992396,
+          "y_d": 2.74508289847102e-06,
+          "y_e": 2.74508289847102e-06,
+          "y_mu": 0.0005675961898736558,
+          "y_s": 0.00018919872995788527,
+          "y_t": 0.4054593870480353,
+          "y_tau": 0.009545960940330799
+        },
+        "common_transport": {
+          "approximation": "five-Yukawa one-loop system [yt,yb,ytau,ymu,ye]; ys and yd share the computed bottom transport factor",
+          "common_light_down_factor": 2.671874096737348,
+          "factor_ratio_s_over_d": "1/3",
+          "generation_dependent_light_threshold_present": false,
+          "register_scale_ratio_identity_rhs": 68.9227746321493,
+          "relative_identity_gap": 2.220446049250313e-16,
+          "same_scale_qcd_factor": 1.591221457788483,
+          "transported_ms_over_md": 68.92277463214928
+        },
+        "conservative_flag_rejected_for_all_nf_rows": true,
+        "flag_2024_compare_only": [
+          {
+            "absolute_relative_error": 2.4558535679687203,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 147.4970493613287,
+            "independent_standard_uncertainty": 0.33206764029674735,
+            "nf": "2+1+1",
+            "reference_ms_over_md": 19.9437775,
+            "rho_plus_one_gap_sigma": 126.87002325345975,
+            "rho_plus_one_standard_uncertainty": 0.3860565
+          },
+          {
+            "absolute_relative_error": 2.385313118156979,
+            "conservative_rejection_threshold_sigma": 5.0,
+            "conservative_rejection_triggered": true,
+            "independent_gap_sigma": 176.39745736288432,
+            "independent_standard_uncertainty": 0.2753068290108329,
+            "nf": "2+1",
+            "reference_ms_over_md": 20.35935,
+            "rho_plus_one_gap_sigma": 138.91537124102314,
+            "rho_plus_one_standard_uncertainty": 0.34959
+          }
+        ],
+        "is_current_assumed_order": false,
+        "predictions": {
+          "cabibbo_gst_sqrt_md_over_ms": 0.12045327810678737,
+          "mb_mb_gev": 16.156854874876966,
+          "md_2gev_gev": 0.0020350471966572633,
+          "ms_2gev_gev": 0.14026109930099576,
+          "ms_over_md": 68.92277463214928
+        },
+        "ratio_only_shape_core": {
+          "independent_of_optional_scale_display": true,
+          "ms_over_md_at_declared_clebsch_boundary_without_running": 68.92276686506031,
+          "source": "MCPR /regular_C3_shape/root_squares_sorted"
+        },
+        "retrospective_metric": {
+          "light_ratio_absolute_relative_error_vs_flag_nf_2+1+1": 2.4558535679687203,
+          "worst_absolute_mass_relative_error": 2.865276285855734
+        },
+        "retrospective_unique_least_discrepant": false
+      }
+    ]
+  },
+  "physical_premises": {
+    "full_rg_threshold_matching_packet_supplied": false,
+    "generation_register_order_selected": false,
+    "independent_yukawa_coefficient_identification_discharged": false,
+    "mcpr_physical_family_attachment_discharged": false,
+    "register_relation_existence_discharged": false,
+    "third_generation_register_factor_selected": false
+  },
+  "physical_premises_discharged": false,
   "predictions": {
     "cabibbo_gst_sqrt_md_over_ms": 0.20863119761917964,
     "mb_mb_gev": 6.027990877406659,
@@ -65,7 +707,52 @@
     "ms_over_md": 22.974258210716425
   },
   "promotion_allowed": false,
-  "row_class": "conditional_on_mcpr_leptons_and_register_clebsch",
-  "schema_version": 1,
-  "status": "CONDITIONAL_DOWN_TYPE_SECTOR_RATIOS_SHARP_NORMALIZATION_TENSE"
+  "quantization_audit": {
+    "diagonal_ansatz_ckm_consequence": {
+      "ckm_matrix": "identity",
+      "nonzero_cabibbo_angle_derived": false,
+      "simultaneously_diagonal_mass_matrices": true
+    },
+    "excluded_values_from_prior_informal_note": [
+      "1",
+      "27",
+      "1/27"
+    ],
+    "gst_compare_only": {
+      "cabibbo_reference": 0.225,
+      "implied_ms_over_md": 19.753086419753085,
+      "predicted_over_implied": 1.1630718219175191,
+      "status": "sqrt(md/ms) is a texture diagnostic restatement, not a derived CKM angle"
+    },
+    "lepton_register_ratio": 206.7683238964479,
+    "nearest_permitted_factor_ratio": "1/9",
+    "permitted_distinct_assignment_factor_ratios": [
+      "1/9",
+      "1/3",
+      "3",
+      "9"
+    ],
+    "predicted_over_flag_nf_2+1+1": 1.1519511893229066,
+    "required_factor_ratio_for_flag_nf_2+1+1": 0.09645470410636055,
+    "status": "retrospective_compare_only"
+  },
+  "ratio_only_core": {
+    "current_assumed_order_value": 22.97425562168677,
+    "independent_of_optional_scale_display": true,
+    "source_json_pointer": "/regular_C3_shape/root_squares_sorted"
+  },
+  "retrospective_flag_rejection": {
+    "all_six_permutations_rejected": true,
+    "comparison_is_retrospective": true,
+    "current_assumed_order_rejected_for_all_flag_nf_rows": true,
+    "input_covariance_available": false,
+    "interpretation": "The conservative FLAG comparison rejects this current declared-model route. It is not a prospective selection test and does not exclude a modified generation-dependent threshold lane.",
+    "oph_theory_uncertainty_supplied": false,
+    "prediction_preexisted_audit": true,
+    "rho_plus_one_conservative_gate_used": true,
+    "significance_gate_preregistered": false
+  },
+  "row_class": "conditional_on_mcpr_leptons_and_open_register_relation",
+  "schema_version": 2,
+  "status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED"
 }

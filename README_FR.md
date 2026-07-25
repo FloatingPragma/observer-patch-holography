@@ -48,9 +48,9 @@ ci-dessous vous fait traverser ce basculement sans prérequis.
 
 La suite de ce README est l’entrée technique du dépôt.
 
-## Trois reçus qu’aucun autre programme ne possède
+## Cinq reçus qu’aucun autre programme ne possède
 
-Avant tout argument, trois artefacts. Chacun est public, reproductible et,
+Avant tout argument, cinq artefacts. Chacun est public, reproductible et,
 d’après le dossier publié, sans équivalent dans aucun programme concurrent
 de théorie du tout :
 
@@ -68,13 +68,29 @@ de théorie du tout :
    consensus, le théorème d’identifiabilité de jauge et la composition de la
    branche d’Einstein ; elle vérifie machine un résultat négatif contre la
    version naïve de l’affirmation du programme lui-même. [Lean/](Lean/)
-3. **Une constante sans dimension rendue, non ajustée.** La clôture de pixel
-   $P=\varphi+\sqrt\pi/A_T(P)$ possède une racine unique certifiée machine
-   pour chaque application déclarée, sans aucune valeur continue ajustée ; la
-   racine de largeur de jauge se situe à $2{,}5\times10^{-6}$ de la mesure
-   $\alpha^{-1}=137{,}035999177(21)$, l’adresse de l’écart restant étant
-   énoncée (le transport hadronique ouvert). Aucun autre cadre ne calcule la
-   moindre valeur de $\alpha$.
+3. **Une clôture sans dimension avec un statut arithmétique certifié.** La
+   clôture de pixel $P=\varphi+\sqrt\pi/A_T(P)$ possède une racine unique
+   certifiée machine pour chaque application déclarée, sans valeur continue
+   ajustée. Son identification physique à la limite de Thomson exige un
+   transport hadronique issu de la source. La comparaison enregistrée est un
+   diagnostic, comme l’indique le
+   [tableau des énoncés quantitatifs](#statut-des-énoncés-quantitatifs).
+4. **Un diagnostic des leptons chargés avec un test de clôture déclaré.** La
+   surface de clôture empirique porte une cible de confirmation ou de rejet et
+   une ascendance explicite des entrées. Elle n’établit aucune prédiction de
+   masse issue de la source. Le [registre des postdictions](code/particles/POSTDICTION_LEDGER.md)
+   donne la table complète.
+5. **Un théorème exact de Koide dans la chambre positive.** Une réponse
+   hermitienne $C_3$ sur la fibre d’une face icosaédrique obéit à
+   $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut exactement à
+   $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non négatives. Des
+   blocs de rang deux égaux et l’application finie de
+   Gelfand–Naimark–Segal traciale donnent cet équilibre sous les prémisses du
+   paquet d’événements déclaré. L’attachement physique aux familles chirales,
+   la phase et les rapports numériques sont ouverts. L’[article autonome sur
+   l’identité de Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf)
+   expose le théorème, sa preuve, la frontière de formalisation et la
+   provenance du diagnostic numérique informé par la cible.
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 
@@ -139,16 +155,37 @@ ce qui les rend évaluables :
 | Le contenu en matière (générations, hypercharges, anomalies) | Témoin exact à quinze états d’une génération ; sélection d’économie $N_g=3$ ; portes ouvertes nommées | Dépendant du paysage | Non traité |
 | L’espace-temps lorentzien 4D | Émergent et mesuré : signature $(1,3)$ à chaque barreau, marge de cône divisée par deux | Supposé comme arrière-plan | Limite semi-classique ouverte |
 | Les équations d’Einstein | Composition conditionnelle, chaque clause prouvée ou instrumentée | Retrouvées sur des arrière-plans supposés | Ouvertes |
-| Les constantes sans dimension | $\alpha^{-1}$ rendue par un point fixe unique certifié, à $2{,}5\times10^{-6}$ de la mesure, zéro bouton | Sélection environnementale sur le paysage | Non traitées |
+| Les constantes sans dimension | Racines arithmétiques uniques des applications déclarées de $P$ ; l’identification physique à la limite de Thomson est un diagnostic bloqué par le transport hadronique issu de la source | Sélection environnementale sur le paysage | Non traitées |
 | Combien d’univers | Un univers exact | $\sim10^{500}$ vides | Non traité |
 | Une chaîne de dérivation vérifiée machine | Plus de 800 théorèmes Lean sans `sorry`, dont un résultat négatif autocritique | Aucune | Aucune |
 | Des conditions de falsification déclarées à l’avance | Conditions d’élimination publiques et clôtures suivies par tickets | Aucune opérante | Rares |
 
-La distance n’est pas incrémentale. Sur ces huit critères, le programme
-concurrent le plus proche en livre un ; OPH les livre tous les huit sous ses
-reçus conditionnels déclarés, et chaque case de sa colonne renvoie à un
-artefact public de ce dépôt. Cet écart, plutôt qu’un résultat isolé, est la
-mesure de la position d’OPH.
+Ce tableau compare des artefacts mathématiques, empiriques et conditionnels
+typés. Il n’affirme pas huit résultats établis physiquement. La classification
+canonique ci-dessous régit chaque ligne quantitative.
+
+<!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
+<!-- Generated by tools/build_public_quantitative_section.py; do not edit. -->
+## Statut des énoncés quantitatifs
+
+Le registre canonique contient **0 énoncé de classe `physical_establishment`**. Les lignes ci-dessous sont produites à partir d’[annotations lisibles par machine](claims/public_surface_quantitative_claims.json). Les candidats rejetés, les diagnostics, les résolutions à rebours ancrées sur une cible et les zéros structurels conservent des rôles distincts.
+
+| Quantité | Valeur de la branche enregistrée | Comparaison externe | Statut |
+| --- | ---: | ---: | --- |
+| $\alpha^{-1}$, application de largeur de jauge | `137,035660136946577` | `137,035999177(21)` (CODATA 2022) | Racine certifiée de l’application déclarée. $P_C$ est défini à partir de la limite mesurée. L’écart relatif vaut $2,5\times10^{-6}$, soit environ $1,6\times10^{4}$ écarts-types de mesure. Le transport hadronique dans le même schéma est bloqué par le ticket #425, ce qui plafonne définitivement cette ligne au statut de diagnostic. (classe: `empirical_implementation`) |
+| $G_{\rm géom}/\ell_\star^2$ | `1` | aucune | Annulation exacte du pixel sur la branche d’extension locale déclarée : $a_{\rm cell}=P\ell_\star^2$ et $\bar\ell_{\rm shared}=P/4$ donnent $G_{\rm géom}=\ell_\star^2$. Il s’agit d’une identité de comptabilité des unités, non d’une prédiction dans le SI. La coordonnée d’horloge enregistrée est une somme de contrôle résolue à rebours et quatre composantes d’horloge restent absentes dans le ticket #334 ; aucune valeur de $G_{\rm SI}$ ni distance en sigma n’est donc affichée. (classe: `conditional_implication`) |
+| $m_b$, branche de Clebsch | `6,03 GeV` | `4,18 GeV` (coordonnée de comparaison) | Branche conditionnelle de Clebsch des registres rejetée, supérieure de 44,2%. Son affectation adoptée est la moins divergente de façon unique parmi six permutations de comparaison, sans devenir un ordre dérivé de la source. (classe: `conditional_implication`) |
+| $m_s$, branche de Clebsch | `140 MeV` | `93,5 MeV` (coordonnée de comparaison) | Branche conditionnelle de Clebsch des registres rejetée, supérieure de 50,3%. L’écart de normalisation absolue fait partie du résultat. (classe: `conditional_implication`) |
+| $m_d$, branche de Clebsch | `6,1 MeV` | `4,7 MeV` (coordonnée de comparaison) | Branche conditionnelle de Clebsch des registres rejetée, supérieure de 30,1%. L’écart de normalisation absolue fait partie du résultat. (classe: `conditional_implication`) |
+| $m_s/m_d$, rapport de Clebsch des registres | `22,9743` | `19,9438` (FLAG 2024, centre dérivé pour $N_f=2+1+1$) | Exact à la frontière $\mu_U$ et protégé par le transport multiplicatif commun à une boucle de la branche. Il est supérieur de 15,2% ici et de 12,8% au centre dérivé FLAG pour $N_f=2+1$ ; cette branche conditionnelle est donc rejetée. Le reçu de canaux séparé n’identifie pas les coefficients de Yukawa ; l’ensemble non ordonné des poids est indépendant de la cible uniquement sous son alphabet et ses règles déclarés ; le modèle des leptons chargés a été stipulé historiquement et n’est ni aveugle ni issu de la source. Aucune significativité tenant compte de la covariance n’est revendiquée. (classe: `conditional_implication`) |
+| $m_t$, ajustement ancré sur la cible | `172,3523553288312 GeV` | `172,1 ± 0,6 GeV` (PDG 2026) | Résolu à rebours à partir de la paire Higgs/top mesurée ; jamais une prédiction. (classe: `conditional_implication`) |
+| $m_H$, ajustement ancré sur la cible | `125,1995304097179 GeV` | `125,13 ± 0,11 GeV` (PDG 2026) | Résolu à rebours à partir de la paire Higgs/top mesurée ; jamais une prédiction. (classe: `conditional_implication`) |
+| Porteur photonique | `0` | aucune | Paramètre structurel et non discriminant de masse quadratique dure. Aucune prédiction de masse pour une particule quantique. (classe: `conditional_implication`) |
+| Porteur gluonique | `0` | aucune | Paramètre structurel et non discriminant de masse quadratique dure sur la branche antérieure au confinement. Aucune comparaison de masse pour une particule libre. (classe: `conditional_implication`) |
+| Porteur tensoriel d’Einstein | `0` | aucune | Paramètre structurel et non discriminant de masse quadratique dure sur la branche linéarisée. Aucune prédiction de masse pour une particule graviton. (classe: `conditional_implication`) |
+
+`m_u` et `m_c` sont absents, car la branche de Clebsch ne les émet pas. `c` est absent, car sa valeur dans le Système international est une définition. L’identité géométrique pour $G$ est affichée, mais aucune valeur dans le SI ne l’est, car le paquet d’horloge opérationnel n’est pas clos à partir de la source.
+<!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
 ## Les deux constantes : P et N
 
@@ -177,14 +214,11 @@ analytique complet. L’identification avec la limite physique de Thomson exige
 le transport hadronique issu de la source dans le même schéma. Sa construction
 est en cours.
 
-L’application déclarée de la source se ferme à
-$\alpha^{-1}=136.994835177413\ldots$. L’application de largeur de jauge se
-ferme à $137.035660136946577\ldots$. Ce sont les sorties uniques de leurs
-applications déclarées, sans valeur continue ajustée. La limite de Thomson
-mesurée vaut $137.035999177(21)$. La différence correspond précisément au
-transport hadronique issu de la source, dont la construction est en cours. Le théorème formel d’unicité, les
-certificats numériques exacts et la proximité de la limite physique font de
-$P$ le centre quantitatif d’OPH.
+Le tableau produit ci-dessus donne la racine, la comparaison externe, le
+résidu et la classe de l’énoncé. La comparaison emploie $P_C$, défini à partir
+de la limite mesurée. Le transport hadronique issu de la source dans le même
+schéma est bloqué par le ticket #425. Cette branche conserve donc un statut de
+diagnostic et n’établit pas la constante de structure fine physique.
 
 **$N$ est la capacité de registres publics** de l’ensemble du système
 d’observateurs, ou dans le langage de la simulation, la mémoire corrigible que
@@ -458,6 +492,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | La synthèse complète | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | La construction des particules | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| L’identité exacte de Koide dans la chambre positive et l’équilibre tracial fini | [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](extra/koide_identity_from_positive_c3_face_circulants.pdf) |
 | L’architecture de l’écran à douze ports et le théorème fini d’engrenage modulaire | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Les preuves exécutables | [`code/`](code) et le [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues) |
 | L’interprétation et la continuation des observateurs | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
@@ -518,19 +553,18 @@ réparation accessible aux observateurs.
 
 Le bonus est quantitatif : si la boucle se ferme, $P$ et $N$ ne peuvent pas
 être arbitraires. Ils doivent satisfaire des clôtures autoréférentielles. Une
-partie de cette clôture est vérifiée machine en Lean, et le point fixe de $P$
-ci-dessus, qui atterrit à côté de la constante de structure fine mesurée, en
-est la retombée. Les conditions de clôture sont suivies comme
+partie de cette clôture est vérifiée machine en Lean. L’application déclarée
+de $P$ possède un point fixe certifié, tandis que sa comparaison à la
+constante de structure fine physique conserve un statut de diagnostic. Les
+conditions de clôture sont suivies comme
 [tickets GitHub](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
-La clôture des deux constantes donne une théorie entièrement sans paramètre,
-les deux valeurs étant rendues par l’architecture plutôt que mesurées. La
-construction forme une boucle mathématique fermée sans ce résultat
-supplémentaire, et une boucle fermée autorise la lecture des valeurs depuis
-l’intérieur : localiser une constante dans son bassin par l’observation, puis
-prouver ensuite son caractère exact de point fixe. Les théorèmes de point
-fixe certifient la valeur localisée ; ils n’ont pas à la fabriquer. La clôture
-de $N$ par premiers principes est en cours. La lecture de $N$ dans l’univers
-laisse intactes les conséquences des cinq axiomes.
+Une clôture physique des deux constantes donnerait une branche sans paramètre
+continu, les deux valeurs étant rendues par l’architecture. Cet attachement
+physique est ouvert. Les théorèmes de point fixe certifient les racines des
+applications déclarées ; ils ne transforment pas un bassin observé ou une
+coordonnée définie par la cible en dérivation physique. La clôture de $N$ par
+premiers principes est en cours. La lecture de $N$ dans l’univers laisse
+intactes les conséquences des cinq axiomes.
 
 Sous clôture complète, la boucle répond à la dernière question qu’une théorie
 du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est

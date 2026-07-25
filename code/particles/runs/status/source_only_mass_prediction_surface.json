@@ -36,6 +36,19 @@
           "tier": "T2"
         },
         {
+          "artifact": "runs/leptons/koide_circulant_identity.json",
+          "blocking_objects": [
+            "physical chiral recovery attachment",
+            "source-selected phase law",
+            "running and pole-mass bridge"
+          ],
+          "explanation": "The exact identity Q = 1/3 + (2/3)(|b|/a)^2 is phase-independent only inside the positive-eigenvalue chamber, and Q = 2/3 iff |b|/a = 1/sqrt(2). The finite tracial-GNS lane supplies that balance under explicit premises; the physical attachment, phase, and two mass ratios remain open. The MCPR/PDG proximity is retrospective and is not promoted.",
+          "lane": "positive-chamber C3-circulant Koide identity",
+          "source_only_physical_prediction": false,
+          "status": "CLOSED_CIRCULANT_IDENTITY__FINITE_GNS_BALANCE_CONDITIONAL__PHYSICAL_ATTACHMENT_OPEN",
+          "tier": "exact identity plus conditional finite-GNS implication"
+        },
+        {
           "artifact": "runs/leptons/charged_kappa_interval_from_alpha_transport.json",
           "blocking_objects": [
             "source hadronic spectral measure (issue 425)",
@@ -342,20 +355,50 @@
       "family": "quarks, conditional lanes",
       "rows": [
         {
+          "all_six_assignments_rejected": true,
           "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
           "blocking_objects": [
+            "REGISTER_RELATION_EXISTENCE",
+            "INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION",
             "GENERATION_REGISTER_ORDER",
             "THIRD_GENERATION_REGISTER_FACTOR",
             "FROZEN_RG_THRESHOLD_MATCHING_PACKET"
           ],
-          "cabibbo_gst": 0.20863119761917964,
           "cabibbo_relative_compare_only": -0.07275023280364601,
-          "explanation": "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.",
-          "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
+          "explanation": "All six generation assignments of the conditional {1/3,1,3} weight multiset fail the retrospective conservative FLAG gate. The uniquely least-discrepant assignment is target-informed and does not select a physical order. Its sqrt(md/ms) value is a GST texture diagnostic, not a derived CKM angle.",
+          "flag_2024_compare_only": [
+            {
+              "absolute_relative_error": 0.15195118932290663,
+              "conservative_rejection_threshold_sigma": 5.0,
+              "conservative_rejection_triggered": true,
+              "independent_gap_sigma": 9.126094635443192,
+              "independent_standard_uncertainty": 0.33206764029674735,
+              "nf": "2+1+1",
+              "reference_ms_over_md": 19.9437775,
+              "rho_plus_one_gap_sigma": 7.849837292511394,
+              "rho_plus_one_standard_uncertainty": 0.3860565
+            },
+            {
+              "absolute_relative_error": 0.12843770605232607,
+              "conservative_rejection_threshold_sigma": 5.0,
+              "conservative_rejection_triggered": true,
+              "independent_gap_sigma": 9.498159635602546,
+              "independent_standard_uncertainty": 0.2753068290108329,
+              "nf": "2+1",
+              "reference_ms_over_md": 20.35935,
+              "rho_plus_one_gap_sigma": 7.479928518311237,
+              "rho_plus_one_standard_uncertainty": 0.34959
+            }
+          ],
+          "lane": "rejected down-type register-Clebsch candidate from MCPR leptons (1, 1/3, 3)",
           "mb_mb_GeV": 6.027990877406659,
           "md_2GeV_GeV": 0.00611521480683006,
           "ms_2GeV_GeV": 0.14049252398611017,
-          "tier": "T2, conditional on the generation register order; pairing and weight set selected by the Clebsch selection artifact"
+          "ms_over_md": 22.974258210716425,
+          "promotion_allowed": false,
+          "sqrt_md_over_ms_texture_diagnostic": 0.20863119761917964,
+          "status": "CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED",
+          "tier": "T2 rejected conditional candidate; channel compatibility and unordered weight-set lemma only"
         },
         {
           "artifact": "runs/flavor/up_type_register_exponent_scan.json",
@@ -456,7 +499,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-23T04:03:42Z",
+  "generated_utc": "2026-07-25T09:09:28Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [
@@ -509,6 +552,10 @@
     "kappa_coherent": {
       "exists": true,
       "path": "runs/leptons/charged_kappa_interval_coherent_closure.json"
+    },
+    "koide": {
+      "exists": true,
+      "path": "runs/leptons/koide_circulant_identity.json"
     },
     "lambda_qcd": {
       "exists": true,

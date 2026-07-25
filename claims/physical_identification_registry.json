@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "physical_identifications": [
+    {
+      "identification_id": "alpha_in_thomson",
+      "label": "alpha_in / Thomson endpoint",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-ALPHA-PIXEL"
+      ],
+      "source_anchors": [
+        "physical Thomson readback contract"
+      ],
+      "blocking_issues": [
+        {
+          "number": 318,
+          "disposition": "open_work_item",
+          "role": "same-scheme hadronic endpoint transport packet"
+        },
+        {
+          "number": 545,
+          "disposition": "open_work_item",
+          "role": "physical pixel readback and unique physical-map root"
+        },
+        {
+          "number": 425,
+          "disposition": "parked_computational_blocker",
+          "role": "source-only QCD spectral and mass backend"
+        }
+      ]
+    },
+    {
+      "identification_id": "beta_ew_common_load_carrier",
+      "label": "beta_EW = 4 / common screen-electroweak load carrier",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-HIER-EW"
+      ],
+      "source_anchors": [
+        "common electroweak load-carrier contract"
+      ],
+      "blocking_issues": [
+        {
+          "number": 547,
+          "disposition": "open_work_item",
+          "role": "source-bound common screen-electroweak load carrier"
+        }
+      ]
+    },
+    {
+      "identification_id": "capacity_horizon",
+      "label": "correctable public-record capacity / horizon area",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
+      ],
+      "source_anchors": [
+        "horizon-record saturation contract"
+      ],
+      "blocking_issues": [
+        {
+          "number": 589,
+          "disposition": "open_work_item",
+          "role": "physical horizon-record identification"
+        }
+      ]
+    },
+    {
+      "identification_id": "port_bracket_physical_current",
+      "label": "twelve-port bracket / physical gauge current",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-SCREEN-PORT-CURRENT-INNER"
+      ],
+      "source_anchors": [
+        "physical port-current source-binding contract"
+      ],
+      "blocking_issues": [
+        {
+          "number": 599,
+          "disposition": "open_work_item",
+          "role": "charged-response source binding and physical refinement"
+        }
+      ]
+    },
+    {
+      "identification_id": "repair_generator_yang_mills_hamiltonian",
+      "label": "repair generator / Yang-Mills Hamiltonian",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-YM-GAP"
+      ],
+      "source_anchors": [
+        "Assumption 20"
+      ],
+      "blocking_issues": [
+        {
+          "number": 294,
+          "disposition": "open_work_item",
+          "role": "Osterwalder-Schrader reconstruction and nontriviality"
+        },
+        {
+          "number": 295,
+          "disposition": "open_work_item",
+          "role": "finite repair-gap floor"
+        }
+      ]
+    },
+    {
+      "identification_id": "g_si_clock",
+      "label": "G_SI / source-derived physical clock",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-SCREEN-24-CLOCK-DETERMINANT"
+      ],
+      "source_anchors": [
+        "G_SI clock chain"
+      ],
+      "blocking_issues": [
+        {
+          "number": 334,
+          "disposition": "open_work_item",
+          "role": "source-derived clock stack for the Newton constant"
+        },
+        {
+          "number": 522,
+          "disposition": "open_work_item",
+          "role": "finite edge-center generator and clock certificate"
+        }
+      ]
+    }
+  ],
+  "selector_menus": [
+    {
+      "selector_id": "complete_discrete_selector_inventory",
+      "label": "complete menu inventory for every discrete selector consumed by a compression calculation",
+      "source": "docs/SELECTION_LEDGER.md",
+      "status": "undeclared",
+      "menu_size": null,
+      "blocking_issues": [
+        554
+      ]
+    }
+  ],
+  "compression_bound": {
+    "status": "not_computable",
+    "reason": "menu_sizes_undeclared",
+    "blocking_issues": [
+      554
+    ],
+    "p_acc_upper_bound": null
+  }
+}

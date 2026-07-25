@@ -134,23 +134,54 @@ number three comes from different parts of the architecture.
 
 In 1981 Yoshio Koide wrote down a formula tying together the masses of the
 electron, muon, and tau. It fit the tau mass before precision measurements
-confirmed it, and nobody knew why it should hold. The face geometry offers an
-answer. Read the three eigenvalues as square roots of the charged-lepton
-masses, let the record balance fix how much the three share against how much
-they differ, and the resulting angle gives
-the Koide value
+confirmed it, and nobody knew why it should hold. The face geometry supplies
+an exact conditional identity. Write $b=|b|e^{i\delta}$. The three
+eigenvalues are
+
+$$
+\lambda_k=a+2|b|\cos\left(\delta+\frac{2\pi k}{3}\right).
+$$
+
+In the chamber where all three eigenvalues are nonnegative, read them as
+square roots of the charged-lepton masses, up to one common scale. The three
+cosines add to zero and their squares add to $3/2$, which gives
 
 $$
 Q=\frac{m_e+m_\mu+m_\tau}
         {(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2}
-=\frac23.
+=\frac13+\frac23\left(\frac{|b|}{a}\right)^2.
 $$
 
-An eight-register finite model realizes this write-and-verify cycle with
-bounded local state, ports, readback, repair moves, and durable accepted or
-rejected records. It is
-an observer-like self-reading charged-family control. The geometry supplies the
-three-cycle and the record layer selects a stable response.
+The Koide value $Q=2/3$ is therefore exactly equivalent to
+$|b|/a=1/\sqrt2$ inside that positive chamber. The phase $\delta$ drops out
+of $Q$, so the identity does not fix the electron-to-muon or muon-to-tau
+ratios. Outside the positive chamber, physical square roots use absolute
+eigenvalues and the displayed identity does not apply.
+
+A finite tracial model gives a second exact conditional step. Equal
+rank-two event blocks assign half the conditioned weight to the common mode
+and half to the two-dimensional charged plane. Its square-root
+representation then gives $|b|/a=1/\sqrt2$. This is a theorem about the
+declared finite event model. A physical mass statement requires a map from
+the local face fiber to the chiral charged-lepton response, and that map is
+open.
+
+Using the central charged-lepton masses gives $Q=0.6666644634026367$; the
+values are listed by the [Particle Data Group
+2026](https://pdg.lbl.gov/2026/listings/particle_properties.html). The finite eight-register response
+coordinate gives $0.6666644634090389$, with $|b|/a$ 3.30 parts per million
+below $1/\sqrt2$. The architecture and phase of that response model were
+chosen with knowledge of the charged-lepton target. Its near-match is a
+retrospective diagnostic, while the face-circulant identity and the
+conditional finite tracial theorem are exact results.
+
+The five-dimensional family space also exposes what symmetry cannot do. A
+response fixed by a threefold or fivefold rotation has two equal eigenvalues.
+A response fixed by a twofold rotation can have three distinct eigenvalues,
+but its fixed set retains two free parameters after overall scale is removed.
+Those two parameters can carry the two mass ratios without predicting them.
+Numerical family ratios therefore require a specific potential derived from
+the screen dynamics.
 
 If the physical construction selects the same global family triplet, it
 carries the quarks and neutrinos. The six quark flavors, up, down, strange,
@@ -163,6 +194,36 @@ probed. This is normal in quantum field theory. It is why a quark mass in a
 short-distance table is not the same kind of number as a proton mass measured in
 the lab: the proton is a bound state, and most of its mass is the confinement
 energy of the quarks and gluons inside it.
+
+One conditional down-type test assigns the three color weights $1$, $1/3$,
+and $3$ to the bottom/tau, strange/muon, and down/electron pairs. This
+assignment has the smallest comparison discrepancy among all six
+permutations, without making the family order a source-derived theorem. The
+declared one-loop transport preserves the exact ratio
+$m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. Against the two central light-quark
+ratios derived from [FLAG 2024](https://arxiv.org/abs/2411.04268), it is 15.2%
+and 12.8% high. Its absolute quark masses are discrepant by 30–50%. These
+comparisons reject this conditional register-weight route. The separate
+matter receipt identifies allowed and forbidden shared-scalar channels; it
+does not equate independent coupling strengths. The unordered weight set is
+target-free under its declared alphabet and selection rules. The
+charged-lepton model calculation is unaffected, although its historically
+stipulated model is neither blind nor source-derived.
+
+A separate exact enumeration tests a direct geometric route to quark mixing.
+The real icosahedral representation has six fivefold, ten threefold, and
+fifteen twofold unoriented axes. The smallest nonzero acute angle between
+them is $20.9052^\circ$, while the compare-only
+[PDG 2024 $K_{\mu2}$ coordinate](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf)
+$|V_{us}|=0.2250(4)$ gives the central angle
+$\arcsin(0.2250)=13.0029^\circ$. This excludes direct equality between the
+Cabibbo angle and an acute angle between two of those 31 real residual axes. It says nothing
+about spinorial representations, higher-order symmetry breaking, additional
+dynamics, or general overlap models. Two circulants on the same three-cycle
+share one Fourier basis and give identity mixing. The $0.2086$ value attached
+to the rejected register-weight lane is only $\sqrt{m_d/m_s}$, a texture
+estimate formed from the same failed mass ratio; no quark mixing matrix is
+derived.
 
 On that conditional attachment, neutrinos use the same three-family space in
 a different basis: electron, muon, and tau name flavor directions,

@@ -44,11 +44,25 @@
       "statement": "the parameter-free entropic conditioned branch selects the C5-axis orbit with an exactly degenerate spectrum: two equal charged masses; the second of the three candidate mechanisms is closed, and the surviving route is a source-emitted charged interaction off the entropic ray"
     },
     {
-      "artifact": "runs/leptons/charged_w5_orbit_decision_geometry.json",
+      "artifact": "runs/leptons/koide_circulant_identity.json",
       "class": "closed",
       "family": "charged leptons",
-      "id": "W5_ORBIT_DECISION_GEOMETRY",
-      "statement": "stratum classification certified (C5 and C3 axes exactly degenerate, C2 simple: three distinct masses force the orbit off the symmetry axes); the MCPR target shape lies inside the simple-spectrum region, witnessed by a frozen coefficient point with minimizing-orbit gap ratio within 0.006 of the target; the harness maps any coefficient packet to the family shape with no further choices"
+      "id": "KOIDE_CIRCULANT_IDENTITY",
+      "statement": "inside the positive-eigenvalue chamber, the Hermitian C3 circulant has Q = 1/3 + (2/3)(|b|/a)^2 and hence Q = 2/3 iff |b|/a = 1/sqrt(2); the finite tracial-GNS result fixes that modulus only under its declared attachment premises, while the phase, two mass ratios, and physical attachment remain open"
+    },
+    {
+      "artifact": "runs/flavor/w5_stabiliser_spectrum_bound.json",
+      "class": "closed",
+      "family": "charged leptons",
+      "id": "W5_STABILISER_SPECTRUM_BOUND",
+      "statement": "in W5 = Sym^2_0(R^3), C3 and C5 fixed loci are one-dimensional and force a double eigenvalue, whereas the C2 fixed locus is three-dimensional (projective dimension two) and admits a simple spectrum; stabilizer geometry therefore does not select the two charged-lepton mass ratios, which require a screen-derived potential"
+    },
+    {
+      "artifact": "runs/flavor/icosahedral_axis_angle_spectrum.json",
+      "class": "closed",
+      "family": "quark mixing",
+      "id": "ICOSAHEDRAL_DIRECT_AXIS_CABIBBO_NO_GO",
+      "statement": "the exhaustive exact spectrum of the 31 unoriented real three-dimensional icosahedral residual axes has minimum nonzero acute angle 20.905157 degrees, excluding only a direct identification of the Cabibbo angle with one such axis-pair angle; other A5 representations, symmetry breaking, and general overlap geometry are not excluded"
     },
     {
       "artifact": "runs/flavor/up_type_register_exponent_scan.json",
@@ -61,8 +75,8 @@
       "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
       "class": "closed",
       "family": "quarks",
-      "id": "DOWN_TYPE_CLEBSCH_CONDITIONAL_SECTOR",
-      "statement": "conditional on the MCPR leptons and the register Clebsch pattern (1, 1/3, 3), the down-type sector is emitted: ratios and the Gatto-Sartori-Tonin angle land at the ten-percent scale, the absolute normalization carries the named third-generation tension"
+      "id": "DOWN_TYPE_REGISTER_CLEBSCH_ROUTE_REJECTED",
+      "statement": "the channel-compatibility theorem and target-free F1/F2 enumeration leave the conditional unordered multiset {1/3, 1, 3}, but every one of its six generation assignments is retrospectively rejected by the conservative FLAG gate; the least-discrepant assignment is target-informed and does not select a physical generation order"
     },
     {
       "artifact": "runs/calibration/d11_carrier_census.json",
@@ -103,11 +117,11 @@
   "counts": {
     "awaiting_discriminating_test": 1,
     "closable_by_standard_computation": 1,
-    "closed": 14,
+    "closed": 16,
     "computationally_blocked": 2,
     "research_open": 9
   },
-  "generated_utc": "2026-07-23T06:41:36Z",
+  "generated_utc": "2026-07-25T09:04:14Z",
   "open_register": [
     {
       "class": "research_open",
@@ -144,7 +158,7 @@
       "class": "research_open",
       "family": "charged leptons",
       "id": "W5_ORBIT_EFFECTIVE_ACTION",
-      "statement": "SOURCE_W5_COEFFICIENT_EMISSION: the charge-conditioned repair branch must emit the invariant coefficient packet (h5, a, b, c, e); the decision geometry and harness are closed, so emission alone completes the charged family shape"
+      "statement": "derive a screen-selected A5-invariant potential and prove that its global orbit selection emits the charged-family shape. Stabilizer symmetry alone cannot do this: C3/C5 force degeneracy and the C2 fixed locus retains exactly two projective shape parameters"
     },
     {
       "class": "research_open",
@@ -156,7 +170,7 @@
       "class": "research_open",
       "family": "quarks",
       "id": "QF1_QF9_FLAVOR_CARRIER",
-      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination; after the Clebsch lane the open quark objects are the Clebsch selection theorem, the third-generation register factor, and the charm/up selectors (the integer power-law family is removed by a negative frozen scan)"
+      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination. The direct register-Clebsch route and the direct real-axis Cabibbo identification are removed; channel compatibility and the conditional F1/F2 unordered multiset survive but do not equate Yukawa coefficients or select a generation order. A new source-derived mass and mixing mechanism, including charm/up selectors, is required"
     },
     {
       "class": "research_open",

@@ -54,7 +54,26 @@ def test_artifact_reproduces_conditional_triple_and_stays_fail_closed():
     assert artifact["source_only"] is False
     assert artifact["public_charged_mass_promotion_allowed"] is False
     assert artifact["charged_reference_data_consumed"] is False
+    assert artifact["charged_reference_data_consumed_scope"] == "runtime_execution_only"
     assert artifact["row_class"] == "conditional_on_declared_mcpr_response_architecture"
+    claim_class = artifact["claim_class"]
+    assert claim_class["runtime_continuous_fit_parameter_count"] == 0
+    assert claim_class["declared_architecture_contains_stipulated_continuous_choices"] is True
+    assert claim_class["historical_target_informed_architecture"] is True
+    assert claim_class["historically_blind_prospective_prediction"] is False
+
+    provenance = artifact["provenance_boundary"]
+    assert provenance["runtime_reference_separation"]["charged_reference_packet_consumed"] is False
+    assert provenance["historical_selection"]["charged_target_exposure"] is True
+    assert provenance["historical_selection"]["architecture_target_informed"] is True
+    assert (
+        provenance["historical_selection"]["prospective_freeze_before_charged_evaluation"]
+        is False
+    )
+    assert len(provenance["historical_selection"]["evidence"]) == 2
+    assert len(provenance["stipulated_architecture_inputs"]) >= 8
+    assert "at runtime" in artifact["runtime_no_target_dependency_statement"]
+    assert "historical" in artifact["runtime_no_target_dependency_statement"]
 
     ratios = artifact["conditional_prediction"]["ratios"]
     assert abs(mp.mpf(ratios["m_mu_over_m_e"]) - mp.mpf("206.76830059518097174")) < mp.mpf("1e-12")

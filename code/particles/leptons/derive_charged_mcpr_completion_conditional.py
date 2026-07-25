@@ -8,7 +8,9 @@ registers, eight primitive path classes, normalized rank-one trace weights, a
 public-block amplitude normalization, an oriented process phase, and a Z6
 determinant character.  Conditional on that architecture, the response map has
 a unique globally attracting fixed point and emits one dimensionless charged
-triple with zero runtime charged reference input.
+triple with zero runtime charged reference input.  The architecture was
+historically selected after exposure to the charged spectrum, so runtime
+reference separation is not prospective blindness.
 
 This module recomputes the entire chain from the source-audit pixel
 certificate and freezes the result as a conditional completed-model candidate.
@@ -68,6 +70,20 @@ DEFAULT_OUT = (
     / "runs"
     / "leptons"
     / "charged_mcpr_completion_conditional.json"
+)
+HISTORICAL_REVIEW = (
+    CODE_ROOT
+    / "particles"
+    / "runs"
+    / "leptons"
+    / "charged_icosahedral_completion_v1_review.json"
+)
+CONDITIONAL_THEOREM = (
+    CODE_ROOT
+    / "particles"
+    / "runs"
+    / "leptons"
+    / "charged_face_incidence_conditional_theorem.json"
 )
 
 # Display constant for the optional MeV column.  The clock lane classifies
@@ -336,6 +352,72 @@ def audit_boundary() -> dict[str, Any]:
     }
 
 
+def provenance_boundary() -> dict[str, Any]:
+    """Separate runtime inputs from the historically target-informed design."""
+
+    return {
+        "runtime_reference_separation": {
+            "charged_reference_packet_consumed": False,
+            "charged_reference_values_consumed": [],
+            "runtime_continuous_fit_parameter_count": 0,
+            "statement": (
+                "This execution reads no charged target and performs no "
+                "continuous target fit."
+            ),
+        },
+        "historical_selection": {
+            "charged_target_exposure": True,
+            "architecture_target_informed": True,
+            "prospective_freeze_before_charged_evaluation": False,
+            "classification": (
+                "retrospective_target_informed_declared_model_coordinate"
+            ),
+            "statement": (
+                "The runtime-separated formula was selected and refined in a "
+                "historical process exposed to the charged spectrum. Its "
+                "near-hit is therefore diagnostic, not prospective evidence."
+            ),
+            "evidence": [
+                {
+                    "path": (
+                        "runs/leptons/"
+                        "charged_icosahedral_completion_v1_review.json"
+                    ),
+                    "sha256": sha256_file(HISTORICAL_REVIEW),
+                    "pointer": "/three_coordinate_inverse_audit/conclusion",
+                },
+                {
+                    "path": (
+                        "runs/leptons/"
+                        "charged_face_incidence_conditional_theorem.json"
+                    ),
+                    "sha256": sha256_file(CONDITIONAL_THEOREM),
+                    "pointer": "/historical_charged_target_informed",
+                },
+            ],
+        },
+        "stipulated_architecture_inputs": [
+            "eight_register_architecture_and_dimensions",
+            "primitive_path_table_and_signs",
+            "source_monomials_and_unit_multipliers",
+            "public_block_amplitude_prescription",
+            "oriented_phase_offset_delta0_equals_2_over_9",
+            "endpoint_phase_and_amplitude_repairs",
+            "determinant_exponent_and_positive_path_weight",
+            "mapping_of_sorted_roots_to_charged_families",
+            "physical_response_and_mass_readout",
+        ],
+        "conditional_result": (
+            "Given the stipulated architecture, the affine map has the checked "
+            "fixed point and the displayed algebraic readout."
+        ),
+        "physical_promotion": (
+            "Open until source selection, physical attachment, interacting "
+            "kernel, scale, pole scheme, and prospective provenance close."
+        ),
+    }
+
+
 @_scoped_dps
 def build_artifact(source: dict[str, Any], source_meta: dict[str, Any]) -> dict[str, Any]:
     p_value = mp.mpf(str(source["P_cand"]))
@@ -404,14 +486,18 @@ def build_artifact(source: dict[str, Any], source_meta: dict[str, Any]) -> dict[
         "row_class": "conditional_on_declared_mcpr_response_architecture",
         "source_only": False,
         "charged_reference_data_consumed": False,
+        "charged_reference_data_consumed_scope": "runtime_execution_only",
         "public_charged_mass_promotion_allowed": False,
         "claim_class": {
             "current_OPH5_alone_unique": False,
             "conditional_on_declared_architecture_unique": True,
-            "new_continuous_or_fitted_parameters": 0,
+            "runtime_continuous_fit_parameter_count": 0,
+            "declared_architecture_contains_stipulated_continuous_choices": True,
+            "historical_target_informed_architecture": True,
             "historically_blind_prospective_prediction": False,
             "runtime_charged_reference_consumed": False,
         },
+        "provenance_boundary": provenance_boundary(),
         "source_input": {
             "path": str(source_meta.get("path", "")),
             "sha256": source_meta.get("sha256", ""),
@@ -461,9 +547,11 @@ def build_artifact(source: dict[str, Any], source_meta: dict[str, Any]) -> dict[
         "audit_boundary": audit_boundary(),
         "checks": {k: bool(v) for k, v in checks.items()},
         "checks_pass": checks_pass,
-        "no_target_dependency_statement": (
-            "No electron, muon, tau, square-root-mass-invariant, pole-mass, "
-            "or charged-Yukawa numerical reference is read by this module."
+        "runtime_no_target_dependency_statement": (
+            "This module reads no electron, muon, tau, "
+            "square-root-mass-invariant, pole-mass, or charged-Yukawa "
+            "numerical reference at runtime. This statement does not erase "
+            "historical charged-target exposure in architecture selection."
         ),
     }
 

@@ -24,6 +24,14 @@ GeV/MeV displays use the unclosed clock candidate; the clock audit classifies th
   - Artifact: `runs/leptons/charged_mcpr_completion_conditional.json`
   - Blocking objects: A5_FAM, DET_CAN, PROV, QFT_POLE, SCALE, W5_ORB
 
+- Lane: positive-chamber C3-circulant Koide identity
+  - Tier: exact identity plus conditional finite-GNS implication
+  - explanation: The exact identity Q = 1/3 + (2/3)(|b|/a)^2 is phase-independent only inside the positive-eigenvalue chamber, and Q = 2/3 iff |b|/a = 1/sqrt(2). The finite tracial-GNS lane supplies that balance under explicit premises; the physical attachment, phase, and two mass ratios remain open. The MCPR/PDG proximity is retrospective and is not promoted.
+  - status: CLOSED_CIRCULANT_IDENTITY__FINITE_GNS_BALANCE_CONDITIONAL__PHYSICAL_ATTACHMENT_OPEN
+  - source_only_physical_prediction: False
+  - Artifact: `runs/leptons/koide_circulant_identity.json`
+  - Blocking objects: physical chiral recovery attachment, source-selected phase law, running and pole-mass bridge
+
 - Lane: alpha-transport kappa interval (empirical closure)
   - Tier: T1
   - explanation: Certified intervals contain the physical triple; the width reduces to the open hadronic transport and the anchor bridge.
@@ -150,16 +158,21 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 
 ## quarks, conditional lanes
 
-- Lane: down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)
-  - Tier: T2, conditional on the generation register order; pairing and weight set selected by the Clebsch selection artifact
-  - explanation: Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.
+- Lane: rejected down-type register-Clebsch candidate from MCPR leptons (1, 1/3, 3)
+  - Tier: T2 rejected conditional candidate; channel compatibility and unordered weight-set lemma only
+  - explanation: All six generation assignments of the conditional {1/3,1,3} weight multiset fail the retrospective conservative FLAG gate. The uniquely least-discrepant assignment is target-informed and does not select a physical order. Its sqrt(md/ms) value is a GST texture diagnostic, not a derived CKM angle.
+  - status: CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED
+  - promotion_allowed: False
   - mb_mb_GeV: 6.027990877406659
   - ms_2GeV_GeV: 0.14049252398611017
   - md_2GeV_GeV: 0.00611521480683006
-  - cabibbo_gst: 0.20863119761917964
+  - sqrt_md_over_ms_texture_diagnostic: 0.20863119761917964
+  - ms_over_md: 22.974258210716425
+  - flag_2024_compare_only: `[{"absolute_relative_error": 0.15195118932290663, "conservative_rejection_threshold_sigma": 5.0, "conservative_rejection_triggered": true, "independent_gap_sigma": 9.126094635443192, "independent_standard_uncertainty": 0.33206764029674735, "nf": "2+1+1", "reference_ms_over_md": 19.9437775, "rho_plus_one_gap_sigma": 7.849837292511394, "rho_plus_one_standard_uncertainty": 0.3860565}, {"absolute_relative_error": 0.12843770605232607, "conservative_rejection_threshold_sigma": 5.0, "conservative_rejection_triggered": true, "independent_gap_sigma": 9.498159635602546, "independent_standard_uncertainty": 0.2753068290108329, "nf": "2+1", "reference_ms_over_md": 20.35935, "rho_plus_one_gap_sigma": 7.479928518311237, "rho_plus_one_standard_uncertainty": 0.34959}]`
+  - all_six_assignments_rejected: True
   - cabibbo_relative_compare_only: -0.07275023280364601
   - Artifact: `runs/flavor/down_type_register_clebsch_lane.json`
-  - Blocking objects: GENERATION_REGISTER_ORDER, THIRD_GENERATION_REGISTER_FACTOR, FROZEN_RG_THRESHOLD_MATCHING_PACKET
+  - Blocking objects: REGISTER_RELATION_EXISTENCE, INDEPENDENT_YUKAWA_COEFFICIENT_IDENTIFICATION, GENERATION_REGISTER_ORDER, THIRD_GENERATION_REGISTER_FACTOR, FROZEN_RG_THRESHOLD_MATCHING_PACKET
 
 - Lane: up-type integer exponent scan (archived negative result)
   - Tier: compare-only scan; law family removed

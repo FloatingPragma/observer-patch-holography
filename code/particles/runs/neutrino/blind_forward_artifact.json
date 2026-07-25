@@ -30,10 +30,10 @@
       ]
     },
     "inputs": {
-      "family_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/family_response_tensor.json",
-      "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json",
-      "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
-      "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json"
+      "family_artifact": "code/particles/runs/neutrino/family_response_tensor.json",
+      "lift_artifact": "code/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "majorana_artifact": "code/particles/runs/neutrino/forward_majorana_matrix.json",
+      "scale_anchor_artifact": "code/particles/runs/neutrino/neutrino_scale_anchor.json"
     },
     "mass_bounds_gev": [
       {
@@ -259,8 +259,8 @@
     "public_surface_candidate_allowed": false,
     "rank_lower_bound": 3,
     "source_artifacts": {
-      "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json",
-      "sector_response": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/sector_transport_pushforward.json"
+      "scale_anchor": "code/particles/runs/neutrino/neutrino_scale_anchor.json",
+      "sector_response": "code/particles/runs/flavor/sector_transport_pushforward.json"
     },
     "source_closure_status": {
       "closed": false,
@@ -512,11 +512,11 @@
     "eigenvalues_raw_gev": null,
     "envelope_used": null,
     "inputs": {
-      "envelope_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_phase_envelope.json",
-      "family_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/family_response_tensor.json",
-      "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json",
-      "pullback_metric_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
-      "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json"
+      "envelope_artifact": "code/particles/runs/neutrino/majorana_phase_envelope.json",
+      "family_artifact": "code/particles/runs/neutrino/family_response_tensor.json",
+      "lift_artifact": "code/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "pullback_metric_artifact": "code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+      "scale_anchor_artifact": "code/particles/runs/neutrino/neutrino_scale_anchor.json"
     },
     "invariants": {
       "det_abs": 1.490198351739679e-35,
@@ -648,7 +648,7 @@
       ]
     ]
   },
-  "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+  "phase_certificate_source": "code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
   "phase_mode": "canonical_selector",
   "pmns": {
     "basis_labels": [
@@ -656,7 +656,7 @@
       "f2",
       "f3"
     ],
-    "charged_left_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/shared_charged_lepton_left_basis.json",
+    "charged_left_artifact": "code/particles/runs/neutrino/shared_charged_lepton_left_basis.json",
     "diagnostic_only": {
       "pmns_abs": [
         [
@@ -718,7 +718,7 @@
       },
       "status": "conditional_on_open_charged_basis"
     },
-    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
+    "majorana_artifact": "code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
     "notes": [
       "Refusing PMNS because the charged-lepton artifact does not close a stable physical left basis.",
       "The neutrino scalar input is also not source-closed."
@@ -778,10 +778,10 @@
     "selector_equivalence_class": "principal_equal_split",
     "selector_law_certified": true,
     "source_artifacts": {
-      "deformation_form": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_deformation_bilinear_form.json",
-      "family": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/family_response_tensor.json",
-      "lift": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json",
-      "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json"
+      "deformation_form": "code/particles/runs/neutrino/majorana_deformation_bilinear_form.json",
+      "family": "code/particles/runs/neutrino/family_response_tensor.json",
+      "lift": "code/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "scale_anchor": "code/particles/runs/neutrino/neutrino_scale_anchor.json"
     },
     "source_closure_status": {
       "ambient_metric_source_derived": false,
@@ -906,7 +906,7 @@
         1.9142920601118741e-13
       ]
     },
-    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
+    "majorana_artifact": "code/particles/runs/neutrino/forward_majorana_matrix.json",
     "mass_bounds_gev": [
       {
         "max": 2.448310491895263e-12,
@@ -940,11 +940,11 @@
     "ordering_phase_certified": null,
     "ordering_real_seed": "unresolved_without_mass_eigenstate_label_rule",
     "ordering_theorem_status": "not_established_mass_label_rule_absent",
-    "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
-    "phase_law_certificate_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+    "phase_certificate_source": "code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+    "phase_law_certificate_source": "code/particles/runs/neutrino/majorana_phase_pullback_metric.json",
     "phase_mode": "canonical_selector",
     "physical_mass_label_assignment": null,
-    "projector_certificate_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "projector_certificate_source": "code/particles/runs/neutrino/majorana_holonomy_lift.json",
     "proof_scope": "ascending_spectral_algebra_conditional_on_declared_majorana_matrix",
     "public_surface_candidate_allowed": false,
     "selector_law_certified": true,

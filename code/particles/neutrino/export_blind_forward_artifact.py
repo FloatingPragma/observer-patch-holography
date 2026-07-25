@@ -6,10 +6,15 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import sys
 from typing import Any
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.artifact_paths import portable_json_dumps
 
 
 def load_json(path: pathlib.Path) -> dict[str, Any]:
@@ -65,7 +70,7 @@ def main() -> int:
         "certification_status": majorana.get("certification_status"),
         "phase_certificate_source": splittings.get("phase_certificate_source"),
     }
-    out_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    out_path.write_text(portable_json_dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(out_path)
     return 0
 

@@ -131,7 +131,7 @@ entries:
       bottom_target_witness_GeV: 4.186
       top_pole_target_witness_GeV: 172.09999999999965
     caveats:
-      - "The top mass lives in the D11 criticality family (adopted branch 172.629 GeV, conditional). The down-type sector carries a conditional Clebsch lane from the MCPR leptons: ratios and the Gatto-Sartori-Tonin angle at the ten-percent scale, absolute normalization with the named third-generation tension (runs/flavor/down_type_register_clebsch_lane.json). The up-type integer power-law family is removed by a negative frozen scan (runs/flavor/up_type_register_exponent_scan.json); charm and up selectors are open."
+      - "The top mass lives in the D11 criticality family (adopted branch 172.629 GeV, conditional). The old down-type register-Clebsch route is now a rejected conditional candidate: all six assignments of the target-free F1/F2 unordered multiset fail the retrospective conservative FLAG gate, while the uniquely least-discrepant order is target-informed. Its sqrt(md/ms) value is a GST texture diagnostic, not a derived CKM angle (runs/flavor/down_type_register_clebsch_lane.json). Channel compatibility and the unordered-set lemma survive; relation existence, coefficient identification, generation order, and a new mass/mixing mechanism remain open. The up-type integer power-law family is also removed by a negative frozen scan (runs/flavor/up_type_register_exponent_scan.json)."
     blocked_by:
       - "source map into the free (R_{>0})^2 spread fiber"
       - "RG-covariant mass trajectory and common-scale dimensionless Yukawa conversion"

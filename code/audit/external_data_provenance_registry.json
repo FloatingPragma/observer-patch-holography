@@ -65,6 +65,45 @@
       }
     },
     {
+      "dataset_id": "pdg-2024-vus-kmu2-compare-only-fixture",
+      "artifact_path": "code/particles/data/pdg_2024_vus_kmu2_fixture.json",
+      "artifact_sha256": "2d000ccbad9c0540f9f192e2302d193798820923a973c3ecd5f25f312cf225c4",
+      "artifact_bytes": 1519,
+      "artifact_role": "compare_only_channel_specific_cabibbo_coordinate",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "Particle Data Group",
+        "version": "Review of Particle Physics 2024, CKM Quark-Mixing Matrix, revised April 2024; PDF dated 31 May 2024",
+        "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024), Sec. 12.2.2: Kmu2 decay-constant-ratio determination |Vus| = 0.2250 +/- 0.0004",
+        "urls": [
+          "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf",
+          "https://pdg.lbl.gov/2024/reviews/contents_sports.html"
+        ]
+      },
+      "license": {
+        "expression": "CC-BY-4.0",
+        "note": "The 2024 Review of Particle Physics contents page states that its content is licensed under Creative Commons Attribution 4.0 except where otherwise noted."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The channel-specific central value and quoted uncertainty are hand-transcribed into a deterministic compare-only fixture. The source PDF is not vendored or assigned an invented hash."
+      },
+      "loader": {
+        "path": "code/particles/scripts/generate_pdg_2024_vus_kmu2_fixture.py",
+        "sha256": "6163d85f6e0a0b87283ee01f6a7beeaea47b29619ea0964482cfbf9baab57d9f",
+        "bytes": 3059,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
+    },
+    {
       "dataset_id": "pdg-legacy-particle-masses-json",
       "artifact_path": "pdg_data/particle_masses.json",
       "artifact_sha256": "86e46186889440668eb8631d720fefac0cdda7ba2fd01084563334e6a0b044c1",
@@ -295,6 +334,45 @@
           "Python standard library",
           "xz executable for compressed profile tables",
           "explicitly acquired files matching the registered byte counts and SHA-256 values"
+        ]
+      }
+    },
+    {
+      "dataset_id": "flag-2024-light-quark-ratio-fixture",
+      "artifact_path": "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+      "artifact_sha256": "82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78",
+      "artifact_bytes": 2865,
+      "artifact_role": "compare_only_light_quark_ratio_falsification_fixture",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "Flavour Lattice Averaging Group (FLAG)",
+        "version": "FLAG Review 2024, arXiv:2411.04268v3",
+        "citation": "Y. Aoki et al., FLAG Review 2024, arXiv:2411.04268; light-quark averages summarized in Tables 11 and 12, with the higher-precision Nf=2+1+1 ms/mud recommendation in Eq. (37)",
+        "urls": [
+          "https://arxiv.org/abs/2411.04268",
+          "https://doi.org/10.48550/arXiv.2411.04268"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The repository records four attributed dimensionless numerical transcriptions, not a redistributed FLAG table, source PDF, or terms snapshot."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The published marginal ratios and uncertainties are hand-transcribed into a deterministic compare-only fixture. The source PDF is not vendored or assigned an invented hash, and no covariance between the two inputs is available."
+      },
+      "loader": {
+        "path": "code/particles/scripts/generate_flag_2024_light_quark_ratio_fixture.py",
+        "sha256": "d2a90145837b0e02c98bc5b5af4adb37133a8720202b2ee2e9bde607d4322f25",
+        "bytes": 5459,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
         ]
       }
     },

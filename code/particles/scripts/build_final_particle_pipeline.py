@@ -270,6 +270,14 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the conditional MCPR charged-response completion candidate.",
     ),
     PipelineStep(
+        "koide_circulant_identity",
+        "particles/leptons/derive_koide_circulant_identity.py",
+        (
+            "Refresh the exact positive-chamber C3-circulant identity, "
+            "conditional finite-GNS implication, and physical boundary."
+        ),
+    ),
+    PipelineStep(
         "charged_ward_determinant_line",
         "particles/leptons/derive_charged_ward_determinant_line.py",
         "Refresh the Ward determinant-line inversion theorem receipt.",
@@ -325,14 +333,38 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the model-level D11 carrier census and Higgs derivation trace.",
     ),
     PipelineStep(
-        "down_type_register_clebsch_lane",
-        "particles/flavor/derive_down_type_register_clebsch_lane.py",
-        "Refresh the conditional down-type sector from the register Clebsch pattern.",
+        "clebsch_register_pairing_selection",
+        "particles/flavor/derive_clebsch_register_pairing_selection.py",
+        (
+            "Refresh the conditional channel-compatibility and F1/F2 "
+            "weight-set lemma before the down-type lane consumes it."
+        ),
     ),
     PipelineStep(
-        "charged_w5_orbit_decision_geometry",
+        "down_type_register_clebsch_lane",
+        "particles/flavor/derive_down_type_register_clebsch_lane.py",
+        (
+            "Refresh the exhaustive six-assignment register-Clebsch audit "
+            "and its retrospective FLAG rejection."
+        ),
+    ),
+    PipelineStep(
+        "icosahedral_axis_angle_spectrum",
+        "particles/flavor/derive_icosahedral_axis_angle_spectrum.py",
+        "Refresh the exact narrow no-go for direct real 3D residual-axis Cabibbo identification.",
+    ),
+    PipelineStep(
+        "w5_stabiliser_spectrum_bound",
+        "particles/flavor/derive_w5_stabiliser_spectrum_bound.py",
+        "Refresh the W5 fixed-locus spectrum theorem and potential-selection boundary.",
+    ),
+    PipelineStep(
+        "charged_w5_target_shaped_harness_diagnostic",
         "particles/leptons/derive_charged_w5_orbit_decision_geometry.py",
-        "Refresh the W5 orbit decision geometry and target-locus certificate.",
+        (
+            "Refresh the archived target-shaped W5 potential fit as a "
+            "non-predictive flexibility diagnostic."
+        ),
     ),
     PipelineStep(
         "charged_entropic_branch_no_go",

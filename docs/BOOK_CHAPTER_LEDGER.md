@@ -733,6 +733,40 @@ structure makes the symmetric point unstable so electroweak symmetry breaks.
 Yukawa couplings connect fermions to the Higgs and generate masses after the
 Higgs gets a vacuum expectation value.
 
+The positive-eigenvalue face-circulant result is an exact conditional theorem:
+$Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
+$|b|/a=1/\sqrt2$. Equal rank-two event blocks and the finite tracial-GNS map
+give the balanced modulus under the packet premises. Physical chiral-family
+attachment, phase, and numerical ratios are open. The historically
+target-informed response coordinate is diagnostic. In the
+five-dimensional traceless-symmetric family space, threefold and fivefold
+fixed points have a double eigenvalue, while the twofold fixed locus retains
+two parameters after scale. A specific screen-derived invariant potential is
+required for numerical ratios.
+
+The down-type comparison is recorded as a negative result. The adopted
+bottom/tau, strange/muon, and down/electron weights are uniquely
+least-discrepant among their six permutations, without being source-derived.
+The declared one-loop lane gives
+$m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. The two central light-quark ratios
+derived from [FLAG 2024](https://arxiv.org/abs/2411.04268) are $19.9438$ and
+$20.3594$, making the conditional result 15.2% and 12.8% high. This rejects
+the present register-weight route. The matter receipt separately gives a
+conditional shared-scalar channel boundary and does not equate independent
+Yukawa coefficients. The F1/F2 unordered-weight result is target-free under
+its declared alphabet and constraints. The historically stipulated
+charged-lepton model calculation is unaffected, but it is neither blind nor
+source-only.
+
+The exhaustive real-axis calculation finds a smallest nonzero icosahedral
+residual-axis angle of $20.9052^\circ$, compared with the
+$13.0029^\circ$ Cabibbo coordinate. It excludes only direct equality between
+the Cabibbo angle and one of the 31 real three-dimensional axis angles.
+Spinorial, higher-order, dynamical, and general overlap routes remain outside
+the result. The register lane's $0.2086$ display is
+$\sqrt{m_d/m_s}$ formed from the same rejected mass ratio and has no
+independent mixing status.
+
 The generation-count diagram marks a conditional window: it begins at three
 for intrinsic CP capability and closes above five from the declared
 weak-sector ultraviolet clause. MAR then chooses three because generation
@@ -848,6 +882,18 @@ their support level. A benchmark check tests the framework against known
 values. An empirically anchored witness uses a measured input. A
 first-principles prediction depends only on declared source inputs. A hadron
 calculation also needs QCD binding, which dominates hadron mass.
+
+The charged-family discussion separates an exact structural result from its
+physical use. A positive Hermitian three-cycle gives
+$Q=1/3+(2/3)(|b|/a)^2$ and reaches $Q=2/3$ at
+$|b|/a=1/\sqrt2$. The finite event model supplies that balance conditionally;
+the phase, mass ratios, and physical family attachment are open. The PDG 2026
+[particle-listing](https://pdg.lbl.gov/2026/listings/particle_properties.html)
+central masses give $Q=0.6666644634026367$. The target-informed response
+coordinate gives $0.6666644634090389$, so the numerical proximity is
+retrospective. The stabilizer calculation shows that symmetry alone either
+forces a degeneracy or leaves two free scale-free ratios, placing the missing
+input in a screen-derived family potential.
 
 The hierarchy normalization $m_{\rm rep}=2(8+3+1)=24$ comes independently from
 the product adjoint. The unit-split icosahedral screen separately has twelve

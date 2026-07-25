@@ -100,8 +100,15 @@ def test_quark_section_is_obstruction_plus_conditional_texture(result):
     obstruction = rows["quark_absolute_masses_obstruction"]
     assert obstruction["fork"] == "ii_fiber_survives"
     assert obstruction["fiber_cut_detected"] is False
-    texture = rows["quark_down_type_texture_conditional"]
-    assert texture["tier"] == "T2_conditional"
+    texture = rows["quark_down_type_clebsch_route_rejected"]
+    assert texture["tier"] == "T2_conditional_rejected_candidate"
+    assert texture["promotion_allowed"] is False
+    assert texture["retrospective_flag_rejection"][
+        "all_six_permutations_rejected"
+    ] is True
+    assert texture["permutation_scan"]["retrospective_metric"][
+        "target_informed"
+    ] is True
     assert "cabibbo_gst_sqrt_md_over_ms" in texture["values"]
 
 

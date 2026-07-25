@@ -44,7 +44,7 @@ def test_gradient_matches_finite_difference():
         assert abs((lane.P5 @ np.eye(12)[k]) @ g / max(abs(fd), 1e-12) - fd / max(abs(fd), 1e-12)) < 2e-2 or abs(g[k] - fd) < 1e-4
 
 
-def test_artifact_on_disk_certifies_the_locus():
+def test_artifact_on_disk_retypes_the_locus_as_target_shaped_diagnostic():
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     assert artifact["checks_pass"] is True
     assert artifact["target_locus"]["locus_nonempty_certified"] is True
@@ -52,3 +52,10 @@ def test_artifact_on_disk_certifies_the_locus():
     assert abs(point["ratio"] - artifact["mcpr_target_shape"]["sorted_gap_ratio"]) < 0.05
     assert artifact["source_coefficient_gate"]["status"] == "open"
     assert artifact["promotion_allowed"] is False
+    assert artifact["target_informed"] is True
+    assert artifact["predictive_evidence"] is False
+    assert (
+        artifact["status"]
+        == "RETROSPECTIVE_TARGET_SHAPED_HARNESS_NOT_PREDICTIVE"
+    )
+    assert "not a W5 selection theorem" in artifact["claim_boundary"]

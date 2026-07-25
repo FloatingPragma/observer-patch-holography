@@ -14,6 +14,7 @@ The main reading route lives in [`paper/`](../paper/). This directory contains t
 
 ## Quantitative And Physical Branches
 
+- [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](koide_identity_from_positive_c3_face_circulants.pdf) ([source](koide_identity_from_positive_c3_face_circulants.tex)) proves the exact positive-eigenvalue identity \(Q=1/3+(2/3)(|b|/a)^2\) and the conditional finite tracial-GNS balance. Physical charged-family attachment, phase, and numerical mass ratios are open; the target-informed numerical near-match is diagnostic.
 - [The Fine-Structure Constant as an OPH Pixel Fixed Point](fine_structure_constant_derivation.pdf) ([source](fine_structure_constant_derivation.tex)) develops the local closure calculation and its certificates.
 - [Theoretical Bounds on $\chi_\nu$](chi_nu_susceptibility_bounds.pdf) ([source](chi_nu_susceptibility_bounds.tex), [collar-survival correction](chi_nu_collar_survival_presence_correction.md)) develops the coherent-matter susceptibility bounds and evidence conditions.
 - [Photonic Fixed-Point Consensus for SHA-256d Proof of Work](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf) ([source](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex)) develops the optical constraint-and-repair architecture.

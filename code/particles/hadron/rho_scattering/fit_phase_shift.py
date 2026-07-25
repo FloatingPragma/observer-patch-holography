@@ -6,7 +6,14 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import sys
 from typing import Any
+
+CODE_ROOT = pathlib.Path(__file__).resolve().parents[3]
+if str(CODE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CODE_ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 
 
 def load_json(path: pathlib.Path) -> dict[str, Any]:
@@ -38,7 +45,7 @@ def main() -> int:
     basis = load_json(basis_path)
     levels = load_json(levels_path)
     stable = load_json(stable_path)
-    payload = {
+    payload = canonicalize_artifact_paths({
         "artifact": "oph_hadron_rho_scattering_readout",
         "status": "candidate_only",
         "basis_source": str(basis_path),
@@ -102,7 +109,7 @@ def main() -> int:
             "The current local-rho effective mass is not the closure observable.",
             "This artifact consumes the operator basis, finite-volume levels, and the pion stable-channel input without promoting any local rho effective mass.",
         ],
-    }
+    })
     out_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(out_path)
     return 0

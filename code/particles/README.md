@@ -177,13 +177,41 @@ source-only prediction.
 | `m_H` (criticality, adopted branch) | `125.771 GeV` | `125.13 +- 0.11 GeV` | same branch and gates; tree readout inside the declared matching band |
 | `m_H` at measured `m_t` (relation test) | `125.72 GeV` | `125.13 +- 0.11 GeV` | fit-free curve of the criticality family; tests the m_t to m_H relation independently of the boundary-scale selection |
 | `M_W`, `M_Z` (strict source-audit branch) | `80.3301, 91.1191 GeV` | stale Breit--Wigner coordinates `80.3692, 91.1880 GeV` | zero-selector chart on the source branch; the renormalized-vev, tadpole, threshold, running, finite-order, uncertainty, and complex-pole maps are open, so this row is not a physical mass comparison |
-| `m_e, m_mu, m_tau` (MCPR conditional) | `0.510956, 105.649, 1776.78 MeV` | `0.51100, 105.658, 1776.93 MeV` | declared MCPR response architecture (84 ppm coherent offset); source-only completion is the A5/W5 orbit program |
-| `m_b, m_s, m_d` (Clebsch lane) | `6.03 GeV, 140 MeV, 6.1 MeV` | `4.18 GeV, 93.5 MeV, 4.7 MeV` | conditional on MCPR leptons and the register Clebsch pattern (1, 1/3, 3); ratios and the Cabibbo angle land at the ten-percent scale, normalization carries the named third-generation tension |
-| `theta_C` (Gatto-Sartori-Tonin) | `0.2086` | `0.2250` | same Clebsch lane; `sqrt(m_d/m_s)` |
+| positive-chamber `C3` Koide identity | `Q = 1/3 + (2/3)(abs(b)/a)^2`; `Q = 2/3` iff `abs(b)/a = 1/sqrt(2)` | PDG 2026 central masses give `Q = 0.6666644634026367` | exact circulant identity; the finite tracial-GNS packet conditionally gives the balanced modulus; physical family attachment, phase, and ratios are open |
+| `m_e, m_mu, m_tau` (MCPR conditional) | `0.510956, 105.649, 1776.78 MeV`; `Q = 0.6666644634090389` | `0.51100, 105.658, 1776.93 MeV`; `Q = 0.6666644634026367` | historically target-informed declared architecture; runtime-reference-free evaluation and the 84 ppm mass offset are retrospective diagnostics, neither blind nor source-only |
+| `m_b, m_s, m_d` (Clebsch lane) | `6.03 GeV, 140 MeV, 6.1 MeV` | `4.18 GeV, 93.5 MeV, 4.7 MeV` | rejected conditional register-Clebsch route; the adopted `(b/tau, s/mu, d/e) = (1, 1/3, 3)` assignment is uniquely least-discrepant among six permutations without being source-derived; the absolute values are `44.2%`, `50.3%`, and `30.1%` high |
+| `m_s/m_d` (Clebsch lane) | `22.9743` | FLAG 2024 derived central ratios `19.9438` (`N_f=2+1+1`) and `20.3594` (`N_f=2+1`) | exact at the `mu_U` boundary and protected by common one-loop multiplicative transport; `15.2%` and `12.8%` high, so the declared conditional route is rejected; the matter receipt gives a conditional channel boundary without equating Yukawa coefficients; the unordered weight set is target-free under its declared alphabet and rules; the historically stipulated MCPR model is neither blind nor source-only; no covariance-aware significance is claimed |
+| `sqrt(m_d/m_s)` (Gatto-Sartori-Tonin diagnostic) | `0.2086` | `0.2250` | restatement of the same rejected ratio, not a derived Cabibbo angle; no relative left-handed eigenbasis is supplied, and the simultaneous diagonal register ansatz itself gives the identity CKM matrix |
 | `Lambda_QCD^(3)` | `0.3348 GeV [0.319, 0.350]` | `0.338 +- 0.012 GeV (published)` | dimensional transmutation of the source strong coupling; declared threshold inputs bracket-swept |
 | `m_N` (nucleon) | `0.929 GeV [0.823, 1.043]` | `0.9383 GeV` | source `Lambda_QCD` times a published lattice-theory ratio (`oph_plus_external_qcd_theory`) |
 | `alpha^-1` (root plus public width diagnostic) | `137.035959513608567790...` | `137.035999177` | certified source root plus `alpha_U(P_public)`; physical Thomson transport is work in progress |
 | `v / E_star` | `2.0199803239725553e-17` | dimensionless | public-endpoint hierarchy packet; the physical normalization of `E_star` is work in progress |
+
+### Exact flavor boundaries
+
+The Koide receipt separates three statements. The positive-chamber
+face-circulant identity is exact. Equal rank-two event blocks and the finite
+tracial Gelfand-Naimark-Segal map give `abs(b)/a = 1/sqrt(2)` under the
+declared finite packet. A physical charged-lepton statement additionally
+needs the face-to-chiral-family attachment. The phase remains free and carries
+the two mass ratios jointly. The MCPR modulus is 3.30 ppm below exact balance,
+but the MCPR architecture was historically target-informed.
+
+The `W5` stabilizer calculation reclassifies the family-orbit gap. `C3` and
+`C5` fixed points have a double eigenvalue. The `C2` fixed locus has linear
+dimension three, hence two projective parameters, and admits simple spectrum.
+Symmetry alone leaves enough freedom to carry both independent ratios. A
+specific screen-derived invariant potential is required for a numerical
+spectrum.
+
+The real-axis receipt enumerates all six fivefold, ten threefold, and fifteen
+twofold unoriented icosahedral axes. Its smallest nonzero acute angle is
+`20.905157447889 deg`, while `asin(0.2250) = 13.002878162914 deg`. This
+excludes direct equality between the Cabibbo angle and one of those 31 real
+three-dimensional residual-axis angles. It does not exclude spinorial
+representations, higher-order symmetry breaking, additional dynamics, or
+general overlap models. The `31.717474411461 deg = atan(1/phi)` entry is the
+geometry self-check.
 
 The source-root-plus-public-width diagnostic is not a fixed point of one map.
 Its difference from the measured endpoint is

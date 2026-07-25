@@ -1,0 +1,128 @@
+{
+  "artifact": "oph_koide_circulant_identity",
+  "schema": "oph.koide_circulant_identity.v1",
+  "status": "CLOSED_CIRCULANT_IDENTITY__FINITE_GNS_BALANCE_CONDITIONAL__PHYSICAL_ATTACHMENT_OPEN",
+  "claim_class": "conditional_implication",
+  "source_only_physical_prediction": false,
+  "public_physical_promotion_allowed": false,
+  "identity": {
+    "carrier": "C = a I + b R + conjugate(b) R^2, R^3 = I",
+    "eigenvalues": "lambda_k = a + 2 |b| cos(arg(b) + 2 pi k/3)",
+    "domain": "a>0 and all three eigenvalues nonnegative, so physical sqrt(m_k)=lambda_k",
+    "cosine_sum": "0",
+    "cosine_square_sum": "3/2",
+    "Q_formula": "Q = 1/3 + (2/3) (|b|/a)^2",
+    "equivalence": "Q = 2/3 iff |b|/a = 1/sqrt(2)",
+    "phase_content": "Q is phase-independent inside the positive chamber; the phase remains free and carries the two independent ratios.",
+    "outside_chamber_boundary": "When an eigenvalue is negative, physical square roots use absolute eigenvalues and the signed formula is not physical Q."
+  },
+  "conditional_finite_GNS_result": {
+    "artifact": "oph_charged_koide_orientation_isometry",
+    "status": "CLOSED_FINITE_TRACIAL_GNS_KOIDE_THEOREM_PHYSICAL_CHIRAL_RECOVERY_ATTACHMENT_OPEN",
+    "abs_b_over_a": "0.7071067811865475244008443621048490392848359376884740365883398689953665",
+    "Q": "0.6666666666666666666666666666666666666666666666666666666666666666666667",
+    "physical_attachment_open": true
+  },
+  "current_MCPR_coordinate": {
+    "a": "1",
+    "abs_b": "0.707104444275072003075755939496228549000312877091299790190395",
+    "arg_b": "0.222224763427524420299358777606514807365010171718643065568712",
+    "abs_b_over_a": "0.707104444275072003075755939496228549000312877091299790190395",
+    "Q": "0.666664463409038938443574662553643561009382495847282275225786",
+    "abs_b_over_a_minus_exact_balance": "-0.000002336911475521325088422608620",
+    "relative_modulus_defect_ppm": "-3.304891902747579061263000000",
+    "Q_minus_two_thirds": "-0.000002203257627728223092004113023",
+    "m_mu_over_m_e": "206.768300595180971740336250438069337267297486181700623840391",
+    "provenance": "retrospective historically target-informed declared-model coordinate; zero charged targets are read at runtime"
+  },
+  "compare_only_PDG_2026_central_coordinate": {
+    "masses_MeV": {
+      "electron": "0.51099895069",
+      "muon": "105.6583755",
+      "tau": "1776.93"
+    },
+    "Q": "0.6666644634026367029382786248892424584933042461962970542137359728464935",
+    "Q_minus_two_thirds": "-0.000002203264029963728388041777424",
+    "inferred_abs_b_over_a": "0.7071044442682813844226405654623032180291266189518775576251946815458548",
+    "m_mu_over_m_e": "206.7682827084671796902080640552322774868514476087915663034803090115911",
+    "MCPR_Q_minus_measured_central": "0.000000000006402235505296037664401102516",
+    "MCPR_m_mu_over_m_e_minus_measured_central": "0.00001788671379205012818638283706",
+    "significance_claimed": false,
+    "note": "The current PDG central masses give Q near the MCPR coordinate, not 0.666660511. The MCPR architecture was historically target-informed, so this near-equality is a diagnostic and not prospective evidence."
+  },
+  "phase_controls": {
+    "positive_samples": [
+      {
+        "phase": "0",
+        "roots": [
+          "2.4142135623730949",
+          "0.29289321881345265",
+          "0.29289321881345176"
+        ],
+        "all_roots_nonnegative": true,
+        "physical_Q": "0.66666666666666696"
+      },
+      {
+        "phase": "0.10000000000000001",
+        "roots": [
+          "2.4071483851539046",
+          "0.17415534239134522",
+          "0.41869627245474905"
+        ],
+        "all_roots_nonnegative": true,
+        "physical_Q": "0.66666666666666696"
+      },
+      {
+        "phase": "0.22222476342752442",
+        "roots": [
+          "2.3794373795618475",
+          "0.040347268459505647",
+          "0.58021535197864638"
+        ],
+        "all_roots_nonnegative": true,
+        "physical_Q": "0.66666666666666685"
+      }
+    ],
+    "outside_sample": {
+      "phase": "0.40000000000000002",
+      "roots": [
+        "2.3025769494917241",
+        "-0.12822659231419586",
+        "0.82564964282247177"
+      ],
+      "physical_Q": "0.56579821405302388"
+    }
+  },
+  "provenance": {
+    "mcpr": {
+      "path": "particles/runs/leptons/charged_mcpr_completion_conditional.json",
+      "sha256": "8e98af7c39121ed10694779d4fefb43020196653dd403a77888679b7831c0936"
+    },
+    "finite_GNS": {
+      "path": "particles/runs/leptons/charged_koide_orientation_isometry.json",
+      "sha256": "cab8f240e4909d61a4e79559a756e29728ee8f0ded219b3d666e34847dfb5a4d"
+    },
+    "face_carrier": {
+      "path": "particles/runs/leptons/charged_icosahedral_face_carrier_frontier.json",
+      "sha256": "06f6a69f33c3203ba473fc15f7ecb9596fdd0f5535a822a731e07ddb6c55dcbe"
+    },
+    "PDG_reference_fixture": {
+      "path": "particles/data/particle_reference_values.json",
+      "sha256": "1c47e0ebf7f02d41a29c4ea133336de02ddc1064c1992ccd91580de44eb408d2",
+      "role": "compare_only"
+    }
+  },
+  "checks": {
+    "face_carrier_has_C3_stabilizer": true,
+    "face_carrier_physical_attachment_open": true,
+    "finite_GNS_theorem_is_conditional": true,
+    "MCPR_is_historically_target_informed": true,
+    "circulant_identity_matches_MCPR": true,
+    "MCPR_roots_are_in_positive_chamber": true,
+    "balanced_positive_phase_samples_have_Q_two_thirds": true,
+    "outside_phase_signed_formula_is_not_physical_Q": true,
+    "PDG_2026_mass_coordinate_is_exact": true,
+    "current_PDG_central_Q_recomputed": true
+  },
+  "checks_pass": true
+}

@@ -4,7 +4,7 @@
     "f2",
     "f3"
   ],
-  "charged_left_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/shared_charged_lepton_left_basis.json",
+  "charged_left_artifact": "code/particles/runs/neutrino/shared_charged_lepton_left_basis.json",
   "diagnostic_only": {
     "pmns_abs": [
       [
@@ -66,7 +66,7 @@
     },
     "status": "conditional_on_open_charged_basis"
   },
-  "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
+  "majorana_artifact": "code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
   "notes": [
     "Refusing PMNS because the charged-lepton artifact does not close a stable physical left basis.",
     "The neutrino scalar input is also not source-closed."

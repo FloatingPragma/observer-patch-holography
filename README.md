@@ -41,9 +41,9 @@ material below takes you through that shift from a standing start.
 
 The rest of this README is the technical entrance to the repository.
 
-## Four Receipts No Other Program Has
+## Five Receipts No Other Program Has
 
-Before any argument, four artifacts. Each is public, reproducible and, as
+Before any argument, five artifacts. Each is public, reproducible and, as
 far as the published record shows, without counterpart in any competing
 theory-of-everything program:
 
@@ -61,23 +61,27 @@ theory-of-everything program:
    machine-checks a negative result against the naive version of the
    program's own claim. Every public theorem carries a per-theorem axiom
    report. [Lean/](Lean/)
-3. **A dimensionless constant returned, not fitted.** The pixel closure
-   $P=\varphi+\sqrt\pi/A_T(P)$ has a machine-certified unique root for each
-   declared map, with zero fitted continuous values; the gauge-width root
-   sits $2.5\times10^{-6}$ from the measured $\alpha^{-1}=137.035999177(21)$
-   with the remaining gap's address stated (the open hadronic transport).
-   No other framework computes a value of $\alpha$ at all.
-4. **Charged-lepton masses boxed by certified intervals, with a declared
-   closure test.** On the empirical closure surface the measured electron,
-   muon, and tau masses sit inside certified intervals of $1.7\%$
-   half-width, the conditional register triple lands $84$ ppm from
-   measurement, and the lane inverts exactly: one anchor-gap value,
-   $0.6379$ inverse-alpha units, closes all three masses on the measured
-   triple at once. That value lies inside the certified band, so the open
-   scheme bridge carries a declared confirm-or-refute target instead of a
-   free parameter. The full comparison table, forced gauge structure
-   included, is the
+3. **A dimensionless closure with a certified arithmetic status.** The pixel
+   closure $P=\varphi+\sqrt\pi/A_T(P)$ has a machine-certified unique root for
+   each declared map, with zero fitted continuous values. Its physical
+   Thomson identification requires source-derived hadronic transport. The
+   registered comparison is diagnostic, as recorded in the
+   [quantitative claim table](#quantitative-claim-status).
+4. **A charged-lepton diagnostic with a declared closure test.** The
+   empirical closure surface carries a confirm-or-refute target and explicit
+   input ancestry. It does not establish a source-only mass prediction. The
+   full comparison table, forced gauge structure included, is the
    [postdiction ledger](code/particles/POSTDICTION_LEDGER.md).
+5. **An exact positive-chamber Koide theorem.** A Hermitian $C_3$ response on
+   an icosahedral face fiber obeys
+   $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
+   $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Equal rank-two
+   blocks and the finite tracial Gelfand–Naimark–Segal map supply that balance
+   under the declared event-packet premises. Physical chiral-family
+   attachment, phase, and numerical ratios are open. The standalone
+   [positive-chamber Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf)
+   states the theorem, proof, formalization boundary, and provenance of the
+   target-informed numerical diagnostic.
 
 The rest of this README is the architecture those receipts come from.
 
@@ -316,16 +320,37 @@ what makes them scoreable at all:
 | Matter content (generations, hypercharges, anomalies) | Exact fifteen-state one-generation witness; $N_g=3$ economy selection; open gates named | Landscape-dependent | Not addressed |
 | 4D Lorentzian spacetime | Emergent and measured: $(1,3)$ signature at every rung, cone margin halving | Assumed as background | Semiclassical limit open |
 | Einstein equations | Conditional composition with every clause proved or instrumented | Recovered on assumed backgrounds | Open |
-| Dimensionless constants | $\alpha^{-1}$ returned by a certified unique fixed point, $2.5\times10^{-6}$ from measurement, zero dials | Environmentally selected on the landscape | Not addressed |
+| Dimensionless constants | Unique arithmetic roots for declared $P$ maps; physical Thomson identification is diagnostic and blocked on source-derived hadronic transport | Environmentally selected on the landscape | Not addressed |
 | How many universes | One exact universe | $\sim10^{500}$ vacua | Not addressed |
 | Machine-verified derivation chain | More than 800 sorry-free Lean theorems, including a self-critical negative result | None | None |
 | Falsification conditions declared in advance | Public kill conditions and tracked closure issues | None operative | Few |
 
-The distance is not incremental. On these eight criteria the nearest
-competing program delivers one; OPH delivers on all eight under its stated
-conditional receipts, and every cell in its column links to a public
-artifact in this repository. That gap, rather than any single result, is the
-measure of where OPH stands.
+This table compares typed mathematical, empirical, and conditional artifacts.
+It does not assert eight physically established results. The canonical
+registry classification below is binding for every quantitative row.
+
+<!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
+<!-- Generated by tools/build_public_quantitative_section.py; do not edit. -->
+## Quantitative Claim Status
+
+The canonical claim registry contains **0 claims of class `physical_establishment`**. The rows below are generated from [machine-readable claim annotations](claims/public_surface_quantitative_claims.json). Rejected candidates, diagnostics, target-anchored back-solves, and structural zeros retain their separate roles.
+
+| Quantity | Registered branch value | External comparison | Status |
+| --- | ---: | ---: | --- |
+| $\alpha^{-1}$, gauge-width map | `137.035660136946577` | `137.035999177(21)` (CODATA 2022) | Certified root of the declared map. $P_C$ is defined from the measured endpoint. The relative gap is $2.5\times10^{-6}$, about $1.6\times10^{4}$ measurement standard uncertainties. Same-scheme hadronic transport is blocked under #425, which permanently caps this row at diagnostic status. (class: `empirical_implementation`) |
+| $G_{\rm geom}/\ell_\star^2$ | `1` | none | Exact pixel cancellation on the declared local extension branch: $a_{\rm cell}=P\ell_\star^2$ and $\bar\ell_{\rm shared}=P/4$ give $G_{\rm geom}=\ell_\star^2$. This is a unit-bookkeeping identity, not an SI prediction. The stored clock coordinate is a back-solve checksum and four clock components remain absent under #334; therefore no $G_{\rm SI}$ value or sigma distance is rendered. (class: `conditional_implication`) |
+| $m_b$, Clebsch lane | `6.03 GeV` | `4.18 GeV` (comparison coordinate) | Rejected conditional register-Clebsch route, 44.2% high. Its adopted assignment is uniquely least-discrepant among six comparison permutations, without becoming a source-derived order. (class: `conditional_implication`) |
+| $m_s$, Clebsch lane | `140 MeV` | `93.5 MeV` (comparison coordinate) | Rejected conditional register-Clebsch route, 50.3% high. The absolute-normalization discrepancy is part of the result. (class: `conditional_implication`) |
+| $m_d$, Clebsch lane | `6.1 MeV` | `4.7 MeV` (comparison coordinate) | Rejected conditional register-Clebsch route, 30.1% high. The absolute-normalization discrepancy is part of the result. (class: `conditional_implication`) |
+| $m_s/m_d$, register-Clebsch ratio | `22.9743` | `19.9438` (FLAG 2024, $N_f=2+1+1$ derived central) | Exact at the $\mu_U$ boundary and protected by the lane’s common one-loop multiplicative transport. It is 15.2% high here and 12.8% high against the FLAG $N_f=2+1$ derived central value, so this conditional route is rejected. The separate channel receipt does not equate Yukawa coefficients; the unordered weight set is target-free only under its declared alphabet and rules; the charged-lepton model was historically stipulated and is neither blind nor source-only. No covariance-aware significance is claimed. (class: `conditional_implication`) |
+| $m_t$, target-anchored fit | `172.3523553288312 GeV` | `172.1 ± 0.6 GeV` (PDG 2026) | Back-solved from the measured Higgs/top pair; never a prediction. (class: `conditional_implication`) |
+| $m_H$, target-anchored fit | `125.1995304097179 GeV` | `125.13 ± 0.11 GeV` (PDG 2026) | Back-solved from the measured Higgs/top pair; never a prediction. (class: `conditional_implication`) |
+| Photon carrier | `0` | none | Structural, non-discriminating hard quadratic mass parameter. No quantum-particle mass prediction. (class: `conditional_implication`) |
+| Gluon carrier | `0` | none | Structural, non-discriminating hard quadratic mass parameter on the pre-confinement branch. No free-particle mass comparison. (class: `conditional_implication`) |
+| Einstein tensor carrier | `0` | none | Structural, non-discriminating hard quadratic mass parameter on the linearized branch. No graviton-particle mass prediction. (class: `conditional_implication`) |
+
+`m_u` and `m_c` are absent because the Clebsch lane does not emit them. `c` is absent because its SI value is definitional. The geometric $G$ identity is shown, but an SI value is omitted because the operational clock packet is not source-closed.
+<!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
 ## The Two Constants: P and N
 
@@ -347,13 +372,11 @@ architecture. The fixed-point theorem used by the calculation states that a
 self-map of the physical interval with contraction constant below one has
 exactly one fixed point. Outward-rounded interval certificates verify those
 hypotheses for each declared $P$ map and exclude a second root across its
-full analytic domain. The declared source map closes at
-$\alpha^{-1}=136.994835177413\ldots$; the gauge-width map closes at
-$137.035660136946577\ldots$; the measured Thomson endpoint is
-$137.035999177(21)$. The difference has a precise address in the
-source-derived hadronic transport, which is work in progress. This
-combination of a formal uniqueness theorem, exact numerical certificates, and
-a near physical endpoint makes $P$ the quantitative center of the OPH case.
+full analytic domain. The generated table above gives the root, external
+comparison, residual, and claim class. The comparison uses $P_C$, which is
+defined from the measured endpoint. Source-derived same-scheme hadronic
+transport is blocked under #425, so this branch has diagnostic status and does
+not establish the physical fine-structure constant.
 
 **$N$ is the public-record capacity** of the whole observer system, or in
 simulation language, how much correctable memory the substrate carries. It is
@@ -458,22 +481,21 @@ The bonus is quantitative: if the loop closes, $P$ and $N$ cannot be
 arbitrary. They must satisfy self-referential closure conditions: the cell
 must agree with the observation process it supports, and the record capacity
 must agree with the records the system keeps about itself. Part of that
-closure is machine-checked in Lean, and the $P$ fixed point above, landing
-next to the measured fine-structure constant, is what falls out. Closure
-conditions are tracked as
+closure is machine-checked in Lean. The declared $P$ map has a certified fixed
+point, while its comparison with the physical fine-structure constant has
+diagnostic status. Closure conditions are tracked as
 [GitHub issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure)
 with their evaluation boundaries and required completions stated, and the
 mature falsification surface is collected in the
 [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 
-Closure of both constants gives a fully zero-parameter theory, with both
-values returned by the architecture rather than measured. The construction
-is a closed mathematical loop without that additional result, and a closed
-loop licenses reading values off from the inside: locate a constant in its basin by observation,
-then prove exact fixed-point-ness afterward. The fixed-point theorems certify
-the located value; they do not have to manufacture it. The first-principles
-$N$ closure is work in progress. Reading $N$ from the universe leaves every
-consequence of the five axioms intact.
+A physical closure of both constants would give a zero-continuous-parameter
+branch with both values returned by the architecture. That physical
+attachment is open. The fixed-point theorems certify roots of declared maps;
+they do not turn an observed basin or target-defined coordinate into a
+physical derivation. The first-principles $N$ closure is work in progress.
+Reading $N$ from the universe leaves every consequence of the five axioms
+intact.
 
 Under full closure, the loop answers the last question a theory of
 everything can be asked: why anything exists, and why it is the way it is.
@@ -533,6 +555,7 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 | The full observer-first synthesis | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| The exact positive-chamber Koide identity and finite tracial balance | [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](extra/koide_identity_from_positive_c3_face_circulants.pdf) |
 | The twelve-port screen architecture and finite modular-gearing theorem | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Supporting evidence | [`code/`](code) and the [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues) |
 | Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |

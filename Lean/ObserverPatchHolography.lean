@@ -5,6 +5,10 @@ import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.SeedPi
+import ObserverPatchHolography.ClebschRatio
+import ObserverPatchHolography.KoideCirculant
+import ObserverPatchHolography.W5Stabilizer
+import ObserverPatchHolography.IcosahedralAxisNoGo
 import ObserverPatchHolography.CollarClause
 import ObserverPatchHolography.CollarLayer
 import ObserverPatchHolography.CollarStates

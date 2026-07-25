@@ -1,0 +1,26 @@
+name: Release Channel Integrity
+
+# Publication is a manual maintainer action. This manually dispatched,
+# read-only audit compares the local manifest bundle with the bytes exposed by
+# the latest public GitHub Release; it never creates or uploads a release.
+on:
+  workflow_dispatch:
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check latest public release assets
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/check_github_release_channel.py

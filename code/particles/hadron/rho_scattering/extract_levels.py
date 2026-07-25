@@ -6,7 +6,14 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import sys
 from typing import Any
+
+CODE_ROOT = pathlib.Path(__file__).resolve().parents[3]
+if str(CODE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CODE_ROOT))
+
+from particles.artifact_paths import canonicalize_artifact_paths
 
 
 def load_json(path: pathlib.Path) -> dict[str, Any]:
@@ -28,7 +35,7 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     basis = load_json(basis_path)
-    payload = {
+    payload = canonicalize_artifact_paths({
         "artifact": "oph_hadron_rho_scattering_levels",
         "status": "candidate_only",
         "basis_source": str(basis_path),
@@ -63,7 +70,7 @@ def main() -> int:
             "local_rho_effective_mass_promoted": False,
             "measured_rho_mass_used_as_input": False,
         },
-    }
+    })
     out_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(out_path)
     return 0

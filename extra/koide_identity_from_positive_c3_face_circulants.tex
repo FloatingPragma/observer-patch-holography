@@ -1,0 +1,377 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+\input{../paper/release_info}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={The Positive-Chamber Koide Identity for Icosahedral Face Circulants},
+  pdfauthor={Bernhard Mueller}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Tr}{\operatorname{Tr}}
+
+\title{\textbf{The Positive-Chamber Koide Identity\\
+for Icosahedral Face Circulants}}
+\author{Bernhard Mueller\thanks{Corresponding author:
+\href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}}\\
+Pragma Research Inc., Washington, United States}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+The stabilizer of an oriented icosahedral face acts regularly on its three
+corners. Every Hermitian response commuting with this cyclic action is a
+circulant
+\(C=aI+bR+\overline bR^2\), \(R^3=I\). In the chamber where all three
+eigenvalues are nonnegative and may be read as square-root masses, its Koide
+invariant is
+\[
+Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2.
+\]
+Thus \(Q=2/3\) is exactly equivalent to the single balance condition
+\(|b|/a=1/\sqrt2\). The phase of \(b\) drops out of \(Q\) and continues to
+control the two mass ratios jointly. A finite tracial
+Gelfand--Naimark--Segal construction with equal rank-two event blocks gives
+the balanced modulus as a conditional theorem. The local face fiber has no
+constructed physical chiral-family attachment, so the result is a
+representation-theoretic identity and a finite conditional implication,
+without a charged-lepton mass prediction. The numerical response model
+associated with this construction was historically target-informed; its
+near-equality with the Particle Data Group central Koide coordinate is
+therefore a retrospective diagnostic.
+\end{abstract}
+
+\noindent\textbf{Keywords:} Koide relation, circulant matrices, cyclic
+symmetry, icosahedral symmetry, finite event algebra, GNS representation
+
+\section{The face-corner carrier}
+
+Koide's charged-lepton relation~\cite{koide1983} is usually written in terms
+of the three positive square-root masses. The construction below identifies
+the exact condition it imposes on a cyclic Hermitian response.
+
+Let \(G=A_5\) act by proper rotations on the icosahedron. The twenty outward
+oriented faces form the transitive orbit \(G/C_3\). The stabilizer of one face
+cyclically permutes its three corners, so every face carries a local copy of
+the regular \(C_3\) representation. If \(R\) denotes the cyclic shift, then
+\[
+R^3=I,\qquad R^\dagger=R^2.
+\]
+The commutant of this regular action is the three-dimensional circulant
+algebra
+\[
+\{x_0I+x_1R+x_2R^2:x_j\in\C\}.
+\]
+Hermiticity restricts a response to
+\begin{equation}
+C=aI+bR+\overline bR^2,\qquad a\in\R,\quad b\in\C.
+\label{eq:circulant}
+\end{equation}
+Write \(b=\rho e^{i\delta}\), with \(\rho=|b|\geq0\). Fourier
+diagonalization gives
+\begin{equation}
+\lambda_k=a+2\rho\cos\left(\delta+\frac{2\pi k}{3}\right),
+\qquad k=0,1,2.
+\label{eq:eigenvalues}
+\end{equation}
+The unordered spectrum is independent of the chosen face representative.
+This is a local bundle statement. The sixty face-corner flags form the
+regular \(A_5\) torsor; the geometry alone supplies no canonical global
+three-dimensional physical family space.
+
+\section{The positive-chamber identity}
+
+\begin{theorem}[Positive-chamber Koide identity]
+\label{thm:koide}
+Let \(C\) be the Hermitian circulant in
+Eq.~\eqref{eq:circulant}, with \(a>0\). Suppose its three eigenvalues in
+Eq.~\eqref{eq:eigenvalues} are nonnegative and, for one \(s>0\),
+\[
+\sqrt{m_k}=\sqrt{s}\lambda_k.
+\]
+Then
+\begin{equation}
+Q:=\frac{\sum_{k=0}^2m_k}
+{\left(\sum_{k=0}^2\sqrt{m_k}\right)^2}
+=\frac13+\frac23\left(\frac{\rho}{a}\right)^2.
+\label{eq:koideformula}
+\end{equation}
+Consequently,
+\begin{equation}
+Q=\frac23
+\quad\Longleftrightarrow\quad
+\frac{\rho}{a}=\frac1{\sqrt2}.
+\label{eq:balance}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Set \(c_k=\cos(\delta+2\pi k/3)\). The roots-of-unity identities give
+\[
+\sum_{k=0}^2c_k=0,
+\qquad
+\sum_{k=0}^2c_k^2=\frac32.
+\]
+It follows that
+\[
+\sum_k\lambda_k=3a,
+\qquad
+\sum_k\lambda_k^2=3a^2+6\rho^2.
+\]
+The scale \(s\) cancels from \(Q\), yielding
+Eq.~\eqref{eq:koideformula}. Since \(\rho/a\geq0\),
+Eq.~\eqref{eq:koideformula} equals \(2/3\) exactly at
+\(\rho/a=1/\sqrt2\).
+\end{proof}
+
+\begin{remark}[The chamber is part of the theorem]
+The signed trace calculation holds algebraically for every \(\delta\).
+Physical square roots use \(|\lambda_k|\) when an eigenvalue is negative, and
+then the denominator is not the signed trace. At
+\(\rho/a=1/\sqrt2\), the positive chamber is
+\[
+|\delta|\leq\frac{\pi}{12}\pmod{\frac{2\pi}{3}}.
+\]
+Theorem~\ref{thm:koide} makes no physical Koide statement outside that
+chamber.
+\end{remark}
+
+\begin{remark}[What the phase contains]
+Inside the positive chamber, \(Q\) is independent of \(\delta\). The three
+eigenvalues, and hence the two reported mass ratios, vary with \(\delta\).
+The balance condition removes one scale-free degree of freedom from a
+three-mass spectrum. It does not determine the ratios.
+\end{remark}
+
+\section{Conditional finite tracial balance}
+
+The balance condition in Eq.~\eqref{eq:balance} can arise exactly from a
+finite event packet. This subsection states the packet as an independent
+conditional theorem.
+
+Let
+\[
+\mathcal V=\one\oplus\chi\oplus\overline\chi,
+\qquad
+\mathcal H_{\mathrm{or}}=\C^2,
+\qquad
+\mathcal A=B(\mathcal V\otimes\mathcal H_{\mathrm{or}})
+\simeq M_6(\C).
+\]
+Here \(\one\) is the neutral cyclic mode, \(\chi\oplus\overline\chi\) is the
+two-dimensional charged plane, and \(\mathcal H_{\mathrm{or}}\) is a
+two-state orientation record. Let \(P_0\) and \(P_c\) project onto the neutral
+line and charged plane. For a rank-one oriented event \(q_+\), define
+\[
+Z_0=P_0\otimes I_{\mathrm{or}},
+\qquad
+Z_c=P_c\otimes q_+,
+\qquad
+E_+=Z_0+Z_c.
+\]
+Both \(Z_0\) and \(Z_c\) have rank two.
+
+\begin{theorem}[Conditional finite tracial-GNS balance]
+\label{thm:gns}
+Condition the normalized trace state \(I_6/6\) on \(E_+\). Map the orthonormal
+cyclic basis of the resulting square-root amplitude to
+\((I,R,R^2)\) in \(L^2(M_3(\C),\tau_3)\). Then
+\[
+p_0=p_c=\frac12,
+\qquad
+a=\sqrt{p_0},
+\qquad
+\rho=\sqrt{\frac{p_c}{2}},
+\]
+and therefore
+\[
+\frac{\rho}{a}=\frac1{\sqrt2},
+\qquad
+Q=\frac23
+\]
+whenever the positive square-root-mass reading of
+Theorem~\ref{thm:koide} is supplied.
+\end{theorem}
+
+\begin{proof}
+Normalized-trace conditioning assigns probability proportional to block
+rank. Both accepted blocks have rank two, so \(p_0=p_c=1/2\). In
+\(L^2(M_3(\C),\tau_3)\), the operators \(I,R,R^2\) are orthonormal. The
+canonical square-root vector therefore has neutral coefficient
+\(\sqrt{p_0}\) and two charged coefficients of modulus
+\(\sqrt{p_c/2}\). Their ratio is \(1/\sqrt2\). Theorem~\ref{thm:koide}
+then gives \(Q=2/3\) on the positive chamber.
+\end{proof}
+
+Theorem~\ref{thm:gns} is finite and exact. Its event algebra, block choice,
+conditioned trace, and cyclic response map are premises. A physical
+charged-lepton statement additionally requires a quotient-visible map from
+the local face bundle to one chiral three-family response, preservation of
+the relevant block powers, and a mass readout. Those objects are absent from
+the theorem.
+
+\section{Numerical diagnostic and provenance}
+
+Using the Particle Data Group 2026 central masses
+\cite{pdg2026},
+\[
+(m_e,m_\mu,m_\tau)
+=(0.51099895069,\ 105.6583755,\ 1776.93)\ {\rm MeV},
+\]
+gives
+\[
+Q_{\mathrm{PDG}}=0.6666644634026367.
+\]
+The declared minimal complete public response model gives
+\[
+\begin{aligned}
+Q_{\mathrm{MCPR}}&=0.6666644634090389,\\
+\rho/a&=0.7071044442750720,\\
+\frac{\rho/a-1/\sqrt2}{1/\sqrt2}
+&=-3.3049\times10^{-6}.
+\end{aligned}
+\]
+The response dimensions, path table, amplitude, phase, and determinant
+exponent were historically selected with knowledge of the charged-lepton
+target. The executable evaluation reads no charged target at runtime, yet
+that runtime separation does not make the model blind or source-derived. No
+significance or prospective evidence claim follows from the proximity of the
+two displayed \(Q\) values.
+
+\begin{center}
+\begin{tabular}{@{}p{0.30\textwidth}p{0.58\textwidth}@{}}
+\toprule
+Statement & Status \\
+\midrule
+Eq.~\eqref{eq:koideformula} & exact algebra in the nonnegative-eigenvalue chamber \\
+Theorem~\ref{thm:gns} & exact implication conditional on the declared finite event packet \\
+Icosahedral face fiber & exact local \(A_5/C_3\) bundle and unordered spectrum \\
+Physical family attachment & open \\
+Phase and numerical ratios & open \\
+MCPR numerical proximity & historically target-informed retrospective diagnostic \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Why residual symmetry does not finish the ratios}
+
+The remaining family-shape problem can be stated in the real
+five-dimensional representation
+\[
+W_5\simeq\operatorname{Sym}^2_0(\R^3),
+\]
+the traceless symmetric \(3\times3\) matrices with action
+\(A\mapsto gAg^T\).
+
+\begin{proposition}[Residual-stabilizer boundary]
+Invariance under a threefold or fivefold rotation about an axis \(n\) forces
+\[
+A=\alpha(nn^T-I/3),
+\]
+which has a double eigenvalue. Invariance under a twofold rotation has a
+three-dimensional linear fixed locus, hence two projective parameters, and
+that locus admits simple spectrum.
+\end{proposition}
+
+\begin{proof}
+Choose the rotation axis as the third coordinate. Decompose a traceless
+symmetric matrix into a planar scalar, planar spin-two anisotropy, transverse
+vector, and axial entry. Rotation by \(\theta\) acts on the anisotropy by
+\(2\theta\) and on the transverse vector by \(\theta\). For
+\(\theta=2\pi/3\) or \(2\pi/5\), neither block has a nonzero fixed vector, so
+only the axial combination remains. For \(\theta=\pi\), the planar symmetric
+block survives:
+\[
+A=\begin{pmatrix}
+u&v&0\\
+v&w&0\\
+0&0&-u-w
+\end{pmatrix}.
+\]
+This space has dimension three and contains matrices with three distinct
+eigenvalues.
+\end{proof}
+
+Threefold and fivefold symmetry cannot produce three distinct masses.
+Twofold symmetry leaves two scale-free coordinates, exactly enough to carry
+the two mass ratios without selecting them. A numerical spectrum therefore
+requires a specific invariant potential derived from the screen dynamics.
+This proposition locates the missing input; it supplies no replacement fit.
+
+\section{Formal proof boundary}
+
+The algebraic core has a Lean~4 formalization. It proves the root sum, square
+sum, quotient formula, reciprocal-square-root identity, and the
+nonnegative-modulus equivalence
+\[
+\frac13+\frac23r^2=\frac23
+\quad\Longleftrightarrow\quad
+r=\frac1{\sqrt2}.
+\]
+The formal module deliberately does not identify signed eigenvalues with
+physical square roots. Positivity of all three eigenvalues, the phase
+selection, and the source-to-charged-family attachment remain outside its
+statement. This division matches Theorem~\ref{thm:koide}: the checked algebra
+is exact, and the physical reading is a separate premise.
+
+\section{Conclusion}
+
+The regular three-corner face carrier turns the Koide relation into one
+transparent modulus condition. In the positive chamber,
+\[
+Q=\frac23
+\quad\Longleftrightarrow\quad
+\rho/a=\frac1{\sqrt2}.
+\]
+The finite tracial event packet supplies this balance conditionally through
+equal block weights and the canonical square-root representation. The result
+does not determine the phase or mass ratios and does not attach the local
+face fiber to physical charged leptons. Its durable content is an exact
+circulant identity, an exact finite conditional balance theorem, and a sharp
+statement of the remaining physical work.
+
+\begin{thebibliography}{9}
+
+\bibitem{koide1983}
+Y.~Koide,
+\emph{New View of Quark and Lepton Mass Hierarchy},
+Physical Review D \textbf{28}, 252 (1983).
+\url{https://doi.org/10.1103/PhysRevD.28.252}
+
+\bibitem{pdg2026}
+Particle Data Group,
+\emph{Review of Particle Physics: 2026 particle listings},
+2026.
+\url{https://pdg.lbl.gov/2026/listings/particle_properties.html}
+
+\end{thebibliography}
+
+\end{document}

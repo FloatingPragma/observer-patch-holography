@@ -34,6 +34,56 @@ Mapping between Lean 4 theorems in this project and statements in
   (algebraic layer of the coupling theorem only; no physical-derivation
   content, the physical identities I1/I2 are outside the formalised set;
   does **not** bear on the Prop 4.2 / Def 4.1 counts)
+- Down-type register-Clebsch ratio boundary
+  (`ObserverPatchHolography/ClebschRatio.lean`): 6 / 6 declarations,
+  sorry-free. The module proves the exact boundary identity
+  `y_s/y_d = (y_mu/y_e)/9`, proves invariance under a shared nonzero
+  multiplicative transport factor, proves that the declared six-row assignment
+  table is duplicate-free and exhausts the permutations of its three distinct
+  weights, and evaluates the light-family factor for
+  all six assignments of the conditionally selected, runtime-target-free
+  weight set `{1/3, 1, 3}`. It does not formalize the empirical FLAG
+  comparison or derive the declared weight alphabet and constraints.
+  Flavor-dependent matching would define a modified lane outside the theorem.
+- Positive-chamber C3-circulant Koide identity
+  (`ObserverPatchHolography/KoideCirculant.lean`): 5 / 5 declarations,
+  sorry-free. From the two cosine-sum identities it proves the signed-root
+  sum and square-sum formulas, derives
+  `Q = 1/3 + (2/3)(|b|/a)^2`, and proves on the nonnegative modulus branch
+  that `Q = 2/3` exactly when `|b|/a = 1/sqrt(2)`. The physical reading also
+  requires all three circulant eigenvalues to be nonnegative. The module does
+  not select the phase, derive the physical charged-family attachment, or
+  promote the historically target-informed MCPR coordinate.
+- W5 residual-stabilizer boundary
+  (`ObserverPatchHolography/W5Stabilizer.lean`): 10 / 10 theorems,
+  sorry-free. In symmetric-traceless three-by-three coordinates it proves
+  that a form fixed by a non-half-turn axial generator is exactly
+  `diag(t,t,-2t)`, and gives an explicit equivalence of that fixed locus with
+  one real coordinate. The canonical `C3` and `C5` generators satisfy the
+  module's nonzero-sine contract; their finite-order determinant checks remain
+  in the byte-exact machine receipt. For the canonical `C2` half-turn, the
+  module proves the exact three-coordinate form
+  `[[a,b,0],[b,d,0],[0,0,-a-d]]`, gives an equivalence of the fixed locus with
+  `ℝ × ℝ × ℝ`, and checks the pairwise-distinct diagonal witness
+  `diag(1,2,-3)`. Projectivization, a screen-derived invariant potential,
+  orbit selection, and any physical family attachment remain outside the
+  Lean theorem.
+- Narrow real-three-dimensional icosahedral residual-axis no-go
+  (`ObserverPatchHolography/IcosahedralAxisNoGo.lean`): 6 / 6 public
+  theorems, sorry-free. The module records the exact sixteen-row
+  `cos² ∈ ℚ(√5)` spectrum emitted by the independent coordinate receipt,
+  retains the multiplicity of every fivefold/threefold/twofold pair-family
+  row, checks that those multiplicities account for all 465 pairs among the
+  declared `6 + 10 + 15 = 31` unoriented axes, and proves by exact algebraic
+  inequalities that every emitted acute sine-square coordinate strictly
+  exceeds `(9/40)²`, the compare-only `|V_us| = 0.2250` coordinate. The
+  coordinate construction of the axes remains in the byte-exact Python
+  receipt; Lean checks the finite spectrum certificate and comparison, not
+  that geometric construction. This excludes only direct equality between
+  the Cabibbo angle and an acute Euclidean angle in the canonical real
+  three-dimensional 31-axis menu. Spinorial or other representations,
+  symmetry-breaking corrections, general overlap geometry, and a physical
+  flavor attachment are outside the theorem.
 - Physical A5-to-SM reduct boundary
   (`Screen/PhysicalA5ForcingNoGo.lean`): 6 / 6 declarations, sorry-free.
   The finite theorems prove non-reconstruction of defect, current, and matter

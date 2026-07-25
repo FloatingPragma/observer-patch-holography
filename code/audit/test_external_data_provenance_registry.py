@@ -32,6 +32,22 @@ PLANCK_ARTIFACT = (
     / "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json"
 )
 PLANCK_LOADER = ROOT / "code/capacity_readback/planck_posterior/propagate.py"
+FLAG_ARTIFACT = (
+    ROOT / "code/particles/data/flag_2024_light_quark_ratio_fixture.json"
+)
+FLAG_LOADER = (
+    ROOT
+    / "code/particles/scripts/"
+    "generate_flag_2024_light_quark_ratio_fixture.py"
+)
+VUS_ARTIFACT = (
+    ROOT / "code/particles/data/pdg_2024_vus_kmu2_fixture.json"
+)
+VUS_LOADER = (
+    ROOT
+    / "code/particles/scripts/"
+    "generate_pdg_2024_vus_kmu2_fixture.py"
+)
 
 
 @pytest.fixture
@@ -59,11 +75,11 @@ def _load_module(path: Path, name: str):
 def test_registry_pins_every_local_artifact_loader_and_license(registry: dict) -> None:
     summary = provenance.validate_registry(registry)
     assert summary["pass"] is True
-    assert summary["entries"] == 9
-    assert summary["artifact_pins_checked"] == 9
-    assert summary["loader_pins_checked"] == 9
+    assert summary["entries"] == 11
+    assert summary["artifact_pins_checked"] == 11
+    assert summary["loader_pins_checked"] == 11
     assert summary["upstream_file_pins_checked"] == 10
-    assert summary["license_noassertion_entries"] == 9
+    assert summary["license_noassertion_entries"] == 10
 
 
 def test_mandatory_external_dataset_cannot_disappear(registry: dict) -> None:
@@ -162,3 +178,122 @@ def test_planck_gaussian_approximation_loader_is_byte_exact(
     rebuilt_bytes = rebuilt.read_bytes()
     assert b"\r\n" not in rebuilt_bytes
     assert rebuilt_bytes == PLANCK_ARTIFACT.read_bytes()
+
+
+def test_flag_loader_is_byte_exact_and_derived_fields_are_stable(
+    tmp_path: Path,
+    registry: dict,
+) -> None:
+    entry = _entry(registry, "flag-2024-light-quark-ratio-fixture")
+    assert entry["loader"]["declared_variable_metadata_json_pointers"] == []
+    copied_loader = (
+        tmp_path
+        / "code/particles/scripts"
+        / FLAG_LOADER.name
+    )
+    copied_loader.parent.mkdir(parents=True)
+    shutil.copy2(FLAG_LOADER, copied_loader)
+    environment = os.environ.copy()
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    subprocess.run(
+        [sys.executable, str(copied_loader)],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=environment,
+    )
+    rebuilt = (
+        tmp_path
+        / "code/particles/data"
+        / FLAG_ARTIFACT.name
+    )
+    rebuilt_bytes = rebuilt.read_bytes()
+    assert b"\r\n" not in rebuilt_bytes
+    assert rebuilt_bytes == FLAG_ARTIFACT.read_bytes()
+    payload = json.loads(rebuilt_bytes)
+    assert payload["averages"][0]["derived_ms_over_md"]["value"] == "19.9437775"
+    assert payload["averages"][1]["derived_ms_over_md"]["value"] == "20.35935"
+
+
+def test_flag_fixture_cannot_invent_covariance_or_preregistration(
+    tmp_path: Path,
+    registry: dict,
+) -> None:
+    flag = _entry(registry, "flag-2024-light-quark-ratio-fixture")
+    fixture = json.loads(FLAG_ARTIFACT.read_text(encoding="utf-8"))
+    mutant_path = tmp_path / FLAG_ARTIFACT.name
+    fixture["derived_quantity"]["input_covariance_available"] = True
+    mutant_path.write_text(json.dumps(fixture), encoding="utf-8")
+    with pytest.raises(
+        provenance.ProvenanceError,
+        match="must not invent a covariance",
+    ):
+        provenance._validate_content_boundary(flag, mutant_path)
+
+    fixture["derived_quantity"]["input_covariance_available"] = False
+    fixture["claim_boundary"]["significance_gate_preregistered"] = True
+    mutant_path.write_text(json.dumps(fixture), encoding="utf-8")
+    with pytest.raises(
+        provenance.ProvenanceError,
+        match="no-theory-uncertainty/no-fit boundary",
+    ):
+        provenance._validate_content_boundary(flag, mutant_path)
+
+
+def test_vus_fixture_loader_is_byte_exact_and_uncertainty_is_pinned(
+    tmp_path: Path,
+    registry: dict,
+) -> None:
+    entry = _entry(
+        registry,
+        "pdg-2024-vus-kmu2-compare-only-fixture",
+    )
+    assert entry["loader"]["declared_variable_metadata_json_pointers"] == []
+    copied_loader = (
+        tmp_path
+        / "code/particles/scripts"
+        / VUS_LOADER.name
+    )
+    copied_loader.parent.mkdir(parents=True)
+    shutil.copy2(VUS_LOADER, copied_loader)
+    environment = os.environ.copy()
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    subprocess.run(
+        [sys.executable, str(copied_loader)],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=environment,
+    )
+    rebuilt = (
+        tmp_path
+        / "code/particles/data"
+        / VUS_ARTIFACT.name
+    )
+    rebuilt_bytes = rebuilt.read_bytes()
+    assert b"\r\n" not in rebuilt_bytes
+    assert rebuilt_bytes == VUS_ARTIFACT.read_bytes()
+    payload = json.loads(rebuilt_bytes)
+    assert payload["coordinate"]["value"] == "0.2250"
+    assert payload["coordinate"]["standard_uncertainty"] == "0.0004"
+
+
+def test_vus_fixture_cannot_be_retyped_as_a_global_fit(
+    tmp_path: Path,
+    registry: dict,
+) -> None:
+    entry = _entry(
+        registry,
+        "pdg-2024-vus-kmu2-compare-only-fixture",
+    )
+    payload = json.loads(VUS_ARTIFACT.read_text(encoding="utf-8"))
+    payload["claim_boundary"]["global_ckm_fit_value"] = True
+    mutant_path = tmp_path / VUS_ARTIFACT.name
+    mutant_path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(
+        provenance.ProvenanceError,
+        match="crossed its compare-only boundary",
+    ):
+        provenance._validate_content_boundary(entry, mutant_path)

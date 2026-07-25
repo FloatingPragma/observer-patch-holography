@@ -512,7 +512,7 @@
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
-      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms.",
+      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
@@ -528,7 +528,10 @@
       "novelty_type": "first_law_repair_with_countermodels",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-        "code/geometry/einstein_closure_receipts.py"
+        "code/geometry/einstein_closure_receipts.py",
+        "code/particles/calibration/derive_d10_gravity_shared_edge_entropy_bridge.py",
+        "code/particles/runs/calibration/d10_gravity_shared_edge_entropy_bridge.json",
+        "code/particles/runs/clock/clock_source_energy_closure_audit.json"
       ],
       "falsifier": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family.",
       "scope_if_false": "The entropy bridge and its Axiom-4 support fail.",
@@ -1149,6 +1152,140 @@
       "gates": [
         567,
         569
+      ]
+    },
+    {
+      "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
+      "statement": "On the declared exterior-matter contract, the certified channel receipt establishes only compatibility: the down-type and charged-lepton channels each have one invariant line through Sbar, the up-type channel has one through S, and the forbidden down-type channel through S has none. It does not identify or equate the independent Yukawa coefficient lines. Given the declared alphabet {1/3, 1, 3}, F1 measure balance, and F2 register faithfulness, exhaustive enumeration uniquely selects that unordered weight multiset. Given the separately assumed and retrospectively target-informed generation assignment (y_b/y_tau, y_s/y_mu, y_d/y_e) = (1, 1/3, 3), the historically stipulated conditional MCPR charged-lepton coordinate, and common down-type multiplicative transport, exact arithmetic gives y_b=y_tau, y_s=y_mu/3, y_d=3y_e, m_s/m_d=(m_mu/m_e)|_{mu_U}/9=22.974258, and the corresponding GST coordinate. The canonical compare-only FLAG 2024 fixture gives derived central ratios 19.943778 and 20.359350, so the current target-informed assumed-order declared-model route is 15.2 percent and 12.8 percent high and is rejected. No physical Yukawa-coefficient relation, source-derived generation order, physical or source-only MCPR attachment, absolute scale, or covariance-aware significance follows; the gauge/matter reconstruction and conditional charged-lepton algebra are unaffected.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_channel_and_enumeration_theorems__rejected_target_informed_assumed_order_route",
+      "assumptions": [
+        "declared_trace_balanced_exterior_matter_contract",
+        "declared_register_weight_alphabet",
+        "F1_clebsch_measure_balance",
+        "F2_clebsch_register_faithfulness",
+        "assumed_clebsch_generation_assignment",
+        "conditional_MCPR_charged_lepton_coordinate",
+        "common_down_type_multiplicative_transport",
+        "FLAG_2024_compare_only_light_quark_ratios"
+      ],
+      "imported_results": [
+        "finite_exhaustive_enumeration",
+        "one_loop_standard_model_yukawa_running",
+        "common_multiplicative_ratio_cancellation",
+        "FLAG_2024_light_quark_mass_ratios"
+      ],
+      "oph_specific_delta": "OPH separates the conditional channel-typing receipt, the target-free F1/F2 unordered-weight enumeration, and the target-informed assumed-order MCPR arithmetic into distinct auditable layers. The physical coefficient relation, generation order, charged-lepton source attachment, and scale stay fail-closed, while the canonical FLAG comparison records rejection of the current declared-model route without retracting the upstream gauge/matter construction or the conditional lepton algebra.",
+      "novelty_type": "conditional_flavor_texture_audit",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/particles/flavor/derive_clebsch_register_pairing_selection.py",
+        "code/particles/runs/flavor/clebsch_register_pairing_selection.json",
+        "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "code/particles/runs/flavor/down_type_register_clebsch_lane.json",
+        "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+        "Lean/ObserverPatchHolography/ClebschRatio.lean"
+      ],
+      "falsifier": "Under the declared premises, a certified channel dimension differs, the F1/F2 scan has any unordered survivor other than exactly {1/3, 1, 3}, the target-informed assumed-order ratio or common-transport identity fails, or recomputation from the canonical FLAG fixture does not reproduce the stated central ratios and discrepancies. A source-derived coefficient relation, generation order replacing the present target-informed ranking, MCPR attachment, and scale packet together with a scheme-consistent comparison that accepts the route would overturn its present rejection status.",
+      "scope_if_false": "Only the affected conditional register-Clebsch layer or its current target-informed assumed-order declared-model rejection is revised. The upstream gauge/matter reconstruction, its conditional channel counts, and the conditional MCPR charged-lepton algebra remain separately assessable.",
+      "status": "conditional_channel_and_F1_F2_enumeration_retained__current_target_informed_assumed_order_route_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-KOIDE-CIRCULANT-IDENTITY",
+      "statement": "For a positive-chamber Hermitian regular-C3 circulant C=a I+b R+conjugate(b) R^2 with R^3=I and square-root masses identified with its nonnegative eigenvalues, exact algebra gives Q=1/3+(2/3)(|b|/a)^2. Thus Q=2/3 if and only if |b|/a=1/sqrt(2). The invariant is independent of arg(b), so the identity does not determine either independent charged-family mass ratio. On the separately declared finite connected-register, Born-Lueders, and tracial-GNS balance contract, the source model conditionally fixes |b|/a=1/sqrt(2). A physical chiral regular-C3 carrier, a recoverable source-to-mass-response attachment, the phase, the individual ratios, and the running-to-pole bridge are unresolved. The current MCPR architecture is historically target-informed, and its near agreement with the current PDG central coordinate is a retrospective diagnostic rather than prospective evidence.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_positive_chamber_C3_circulant_identity__conditional_finite_GNS_balance__physical_attachment_open",
+      "assumptions": [
+        "positive_chamber_C3_circulant_square_root_mass_carrier",
+        "finite_connected_register_Born_Lueders_tracial_GNS_balance_contract",
+        "historically_target_informed_MCPR_diagnostic_coordinate"
+      ],
+      "imported_results": [
+        "finite_cyclic_representation_theory",
+        "Hermitian_circulant_spectral_theory",
+        "Born_Lueders_conditioning",
+        "finite_tracial_GNS_construction"
+      ],
+      "oph_specific_delta": "OPH isolates an exact positive-chamber C3-circulant characterization of the Koide invariant and a separate finite-GNS balance implication, while keeping the physical chiral attachment, phase, two mass ratios, running bridge, and historically target-informed MCPR comparison outside the theorem.",
+      "novelty_type": "conditional_finite_flavor_identity_and_GNS_balance",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "extra/koide_identity_from_positive_c3_face_circulants.tex",
+        "code/particles/leptons/derive_koide_circulant_identity.py",
+        "code/particles/runs/leptons/koide_circulant_identity.json",
+        "code/particles/runs/leptons/charged_koide_orientation_isometry.json",
+        "Lean/ObserverPatchHolography/KoideCirculant.lean"
+      ],
+      "falsifier": "Inside the declared positive chamber, the circulant eigenvalues fail to imply Q=1/3+(2/3)(|b|/a)^2 or its exact Q=2/3 equivalence, or the finite connected-register Born-Lueders/tracial-GNS receipt fails to produce the balanced modulus under its stated premises. A physical promotion without the open chiral recovery attachment, phase and ratio selection, running bridge, and target-free ancestry would violate rather than complete this claim.",
+      "scope_if_false": "Failure of the exact identity retracts the C3-circulant Koide theorem. Failure of the finite-GNS balance retracts only that conditional normalization route. Neither outcome changes the independent pairing and F1/F2 enumeration, gauge/matter reconstruction, or the rejected register-Clebsch quark route.",
+      "status": "exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic",
+      "claim_class": "conditional_implication",
+      "gates": [
+        546
+      ]
+    },
+    {
+      "claim_id": "OPH-A5-REAL-AXIS-CABIBBO-NOGO",
+      "statement": "Exhaustive construction of the 31 antipode-identified real three-dimensional icosahedral residual axes gives six five-fold, ten three-fold, and fifteen two-fold axes. Their complete acute pairwise spectrum has minimum nonzero angle 20.905157 degrees, with sine 0.356822, while the compare-only |V_us|=0.2250 coordinate corresponds to 13.002878 degrees. Therefore the narrowly defined hypothesis that the Cabibbo angle is directly an acute Euclidean angle between two axes in this menu is excluded. The receipt does not exclude all A5 flavor models, spinorial or other representations, higher-order symmetry breaking, or arbitrary overlap geometry.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_finite_no_go_for_direct_real_3d_icosahedral_axis_Cabibbo_identification",
+      "assumptions": [
+        "canonical_unoriented_real_3d_icosahedral_residual_axis_menu",
+        "direct_Cabibbo_acute_axis_angle_identification",
+        "compare_only_Cabibbo_abs_Vus_coordinate"
+      ],
+      "imported_results": [
+        "regular_icosahedron_coordinate_geometry",
+        "finite_residual_symmetry_axis_enumeration",
+        "Euclidean_principal_angle_calculus"
+      ],
+      "oph_specific_delta": "OPH turns the direct real-3D residual-axis proposal into an exhaustive exact finite menu with antipodes collapsed, angle multiplicities retained, and the known arctan(1/phi) five-fold by two-fold angle as a hard method self-test before comparing the Cabibbo coordinate.",
+      "novelty_type": "narrow_finite_residual_axis_no_go",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/particles/flavor/derive_icosahedral_axis_angle_spectrum.py",
+        "code/particles/flavor/test_icosahedral_axis_angle_spectrum.py",
+        "code/particles/runs/flavor/icosahedral_axis_angle_spectrum.json",
+        "Lean/ObserverPatchHolography/IcosahedralAxisNoGo.lean"
+      ],
+      "falsifier": "The exact construction does not contain 6+10+15 unoriented axes, omits a pair, assigns a wrong exact cosine-squared value or multiplicity, fails its arctan(1/phi) self-test, or contains an acute axis angle compatible with the declared Cabibbo comparison coordinate. A construction in another representation or with symmetry-breaking corrections lies outside the claim and does not falsify it.",
+      "scope_if_false": "Only the direct identification of Cabibbo with an acute angle between the canonical 31 real three-dimensional icosahedral residual axes is reopened. No conclusion follows for all A5 flavor models, spinorial representations, higher-order breaking, or general overlap geometry.",
+      "status": "proved_narrow_no_go_for_direct_Cabibbo_identification_with_31_real_3d_icosahedral_residual_axes",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
+      "statement": "In W5=Sym^2_0(R^3) with the real A5 rotation action, the C3- and C5-fixed loci are one-dimensional and every nonzero fixed point has a doubly degenerate spectrum. The C2-fixed locus is three-dimensional, hence projective dimension two after overall scaling, and admits simple-spectrum points. Thus stabilizer symmetry alone does not select two charged-family mass ratios: a predictive simple-spectrum orbit requires a specific screen-derived A5-invariant potential or other independently fixed dynamical input. This is a potential-derivation boundary, not a universal impossibility theorem.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_W5_stabiliser_fixed_locus_boundary__screen_derived_potential_open",
+      "assumptions": [
+        "W5_real_symmetric_traceless_A5_representation",
+        "simple_spectrum_W5_orbit_requirement"
+      ],
+      "imported_results": [
+        "real_A5_representation_W5",
+        "symmetric_matrix_spectral_theorem",
+        "finite_rotation_fixed_space_linear_algebra"
+      ],
+      "oph_specific_delta": "OPH makes the W5 orbit-selector gap executable: it separates the exact C3/C5 degeneracy and C2 projective-two-parameter fixed-locus result from the unresolved screen-derived invariant potential, preventing symmetry geometry alone from being counted as a flavor prediction.",
+      "novelty_type": "conditional_flavor_orbit_potential_boundary",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "extra/koide_identity_from_positive_c3_face_circulants.tex",
+        "code/particles/flavor/derive_w5_stabiliser_spectrum_bound.py",
+        "code/particles/flavor/test_w5_stabiliser_spectrum_bound.py",
+        "code/particles/runs/flavor/w5_stabiliser_spectrum_bound.json",
+        "Lean/ObserverPatchHolography/W5Stabilizer.lean"
+      ],
+      "falsifier": "For the declared W5 action, a C3- or C5-fixed point has simple spectrum, the corresponding fixed locus is not one-dimensional, the C2-fixed locus is not three-dimensional/projective dimension two, or no C2-fixed simple-spectrum witness exists. A specific source-derived potential selecting an isolated orbit would close the open dynamical gate without falsifying the fixed-locus boundary.",
+      "scope_if_false": "Only the stated W5 stabilizer and potential-derivation boundary is revised. The result neither excludes simple-spectrum points with C2 or trivial stabilizer nor rules out a predictive screen-derived A5-invariant potential, additional dynamics, or other flavor representations.",
+      "status": "exact_C3_C5_double_degeneracy_and_C2_projective_two_parameter_boundary_closed__screen_derived_A5_invariant_potential_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        591
       ]
     },
     {

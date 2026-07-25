@@ -1,6 +1,6 @@
 # Postdiction Ledger
 
-Generated: `2026-07-23T06:54:31Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
+Generated: `2026-07-25T09:09:28Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
 
 Every value and every measured reference on this page is read live from the cited certified artifact. The ledger promotes nothing, changes no solve path, and introduces no number of its own. Interval rows report containment of the compare-only witness; conditional rows carry their declared premises; chart coordinates keep their NOT_EVALUABLE physical-comparison status.
 
@@ -58,7 +58,7 @@ W/Z rows are running/tree chart coordinates; no physical comparison is defined u
 ## Quarks
 
 - Absolute masses (source_only_nonidentifiability_obstruction_transport): No absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus, by theorem rather than by omission (issues #591).
-- Down-type texture, conditional (T2_conditional): Cabibbo `0.2086` against `0.225`; `ms/md = 22.97` against `19.9`. Premise: generation register order (issue 569); pairing and weight set selected by the Clebsch selection artifact. Conditional texture rows: the register order premise is open and the recorded tensions stay in the normalization_tension block of the parent.
+- Down-type register-Clebsch route, rejected (T2_conditional_rejected_candidate): `ms/md = 22.97` against FLAG 2024 (Nf=2+1+1: 19.94, Nf=2+1: 20.36); all six generation assignments are rejected by the retrospective conservative gate. The diagnostic `sqrt(md/ms) = 0.2086` is not a derived Cabibbo angle. Premise: a cross-sector register relation, independent Yukawa coefficient identification, and a physical generation order; the pairing receipt supplies channel compatibility only. The target-free F1/F2 scan fixes only the unordered multiset. All six assignments fail the retrospective conservative FLAG gate. The displayed GST value is sqrt(md/ms) under an assumed texture, not a derived CKM angle; a simultaneous diagonal mass ansatz would instead give the identity CKM matrix.
 
 ## Hadrons
 
