@@ -34,6 +34,14 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/check_external_data_provenance.py"],
     ),
     ("Audit issue-518 receipt promotion", [sys.executable, "tools/audit_issue_518_receipts.py"]),
+    (
+        "Validate source-bound canonical book PDF assets",
+        [sys.executable, "tools/book_pdf_assets.py"],
+    ),
+    (
+        "Regression-test canonical book PDF assets",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_book_pdf_assets.py"],
+    ),
     ("Validate paper release manifest", [sys.executable, "tools/validate_paper_release_manifest.py"]),
     ("Regression-test the manifest validator", [sys.executable, "-m", "pytest", "-q", "tools/test_paper_release_manifest.py"]),
     (

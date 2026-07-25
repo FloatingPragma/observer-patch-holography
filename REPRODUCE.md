@@ -158,6 +158,21 @@ twice on a clean Ubuntu runner and rejects any paper or book PDF whose SHA-256
 changes on the second pass. A local audit can make the same comparison with
 `sha256sum` (or `shasum -a 256` on macOS).
 
+The book's SVGs have source-bound canonical PDF renderings under
+`assets/book_pdf_renderings/`. A normal build validates the exact SVG and PDF
+inventory plus both SHA-256 digests, then stages those committed bytes. This
+keeps librsvg, Pango, Cairo, and host-font differences outside the clean-clone
+build boundary. After editing a book SVG, regenerate and validate the
+renderings explicitly:
+
+```bash
+python3 tools/generate_book_pdf_assets.py
+python3 tools/book_pdf_assets.py
+```
+
+The regeneration command requires `rsvg-convert` and Ghostscript. The normal
+book build requires neither tool.
+
 A clean clone must also retain no tracked publication drift after the first
 rebuild:
 

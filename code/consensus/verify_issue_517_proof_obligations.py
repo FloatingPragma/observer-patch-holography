@@ -55,6 +55,12 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def repo_relpath(path: Path) -> str:
+    """Return a platform-independent repository-relative receipt path."""
+
+    return path.relative_to(ROOT).as_posix()
+
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -2783,15 +2789,15 @@ def selector_receipt() -> dict[str, Any]:
 
     return {
         "receipt_id": "ECHOSAHEDRAL-SELECTOR-1",
-        "manifest": str(manifest_path.relative_to(ROOT)),
-        "receipt": str(stored_receipt_path.relative_to(ROOT)),
-        "negative_controls": str(negative_path.relative_to(ROOT)),
+        "manifest": repo_relpath(manifest_path),
+        "receipt": repo_relpath(stored_receipt_path),
+        "negative_controls": repo_relpath(negative_path),
         "manifest_sha256": sha256_json(manifest),
         "receipt_sha256": sha256_json(computed),
         "negative_controls_sha256": sha256_json(negatives),
         "finite_negative_control_count": len(negatives["finite_controls"]),
         "separate_conditional_variational_sieve": {
-            "artifact": str(legacy_path.relative_to(ROOT)),
+            "artifact": repo_relpath(legacy_path),
             "artifact_sha256": sha256_json(legacy_stored),
             "status": legacy_stored["status"],
             "hierarchy_readout_gate": legacy_stored["hierarchy_screen_readout_gate"],
@@ -2892,7 +2898,7 @@ def separation_receipt() -> dict[str, Any]:
     )
     return {
         "receipt_id": "A5-LAYER-SEPARATION-1",
-        "registry": str(registry_path.relative_to(ROOT)),
+        "registry": repo_relpath(registry_path),
         "registry_sha256": sha256_json(registry),
         "layers": {
             role: {

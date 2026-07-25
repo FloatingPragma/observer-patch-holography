@@ -30,6 +30,20 @@ def test_stored_receipt_is_exactly_recomputable(receipt: dict) -> None:
     audit.verify_receipt(receipt)
 
 
+def test_receipt_paths_are_platform_independent(receipt: dict) -> None:
+    paths = [
+        receipt["selector"]["manifest"],
+        receipt["selector"]["receipt"],
+        receipt["selector"]["negative_controls"],
+        receipt["selector"]["separate_conditional_variational_sieve"]["artifact"],
+        receipt["a5_layer_separation"]["registry"],
+    ]
+    assert all("\\" not in path for path in paths)
+    assert audit.repo_relpath(audit.ROOT / "code" / "consensus").startswith(
+        "code/consensus"
+    )
+
+
 def test_transactional_receipt_checks_every_finite_peak(receipt: dict) -> None:
     row = receipt["transactional_confluence"]
     assert row["receipt_id"] == "TXN-DIAMOND-1"

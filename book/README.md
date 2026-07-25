@@ -73,7 +73,11 @@ The builder expects these tools to be available in `PATH`:
 
 - `pandoc`
 - `tectonic`
+
+The SVG-to-PDF regeneration command also requires:
+
 - `rsvg-convert`
+- Ghostscript (`gs`)
 
 ## Layout And Styling
 
@@ -100,7 +104,13 @@ Current output style:
 
 - The builder automatically combines the prologue, numbered chapters, appendices, and epilogue in order.
 - Unnumbered front/back matter gets corrected running heads (`Prologue`, `Epilogue`).
-- SVG assets referenced by the book are converted to PDF during the build.
+- The build validates and embeds the exact PDF renderings under
+  `assets/book_pdf_renderings/`. Their manifest binds every rendering to its
+  source SVG by path and SHA-256 digest, so host font and librsvg differences
+  cannot change the book PDF.
+- After editing a book SVG, regenerate the canonical renderings with
+  `python3 tools/generate_book_pdf_assets.py` and commit the changed PDF plus
+  `assets/book_pdf_renderings/manifest.json`.
 - A few long inline scientific expressions are normalized into TeX-safe forms before compilation.
 - `book/reverse-engineering-reality-book.pdf` is a release artifact. Rebuild it before publishing
   whenever book chapters or public release materials change.

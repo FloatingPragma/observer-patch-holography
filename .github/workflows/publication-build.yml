@@ -14,6 +14,8 @@ on:
       - "assets/**"
       - "tools/build_tex_papers.py"
       - "tools/build_book_pdf.py"
+      - "tools/book_pdf_assets.py"
+      - "tools/generate_book_pdf_assets.py"
       - "tools/book_pdf_header.tex"
       - "tools/reproducible_build_env.py"
       - "tools/refresh_paper_release.py"
@@ -27,6 +29,8 @@ on:
       - "assets/**"
       - "tools/build_tex_papers.py"
       - "tools/build_book_pdf.py"
+      - "tools/book_pdf_assets.py"
+      - "tools/generate_book_pdf_assets.py"
       - "tools/book_pdf_header.tex"
       - "tools/reproducible_build_env.py"
       - "tools/refresh_paper_release.py"
@@ -60,7 +64,10 @@ jobs:
       - name: Install publication tools
         run: |
           sudo apt-get update
-          sudo apt-get install --yes ghostscript librsvg2-bin poppler-utils
+          sudo apt-get install --yes poppler-utils
+
+      - name: Validate source-bound canonical book PDF assets
+        run: python tools/book_pdf_assets.py
 
       - name: Build every paper and enforce its warning budget
         run: python tools/refresh_paper_release.py

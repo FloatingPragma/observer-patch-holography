@@ -10,6 +10,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from book_pdf_assets import stage_book_pdf_assets
 from reproducible_build_env import build_environment
 
 
@@ -19,7 +20,6 @@ BOOK_DIR = REPO_ROOT / "book"
 HEADER_FILE = REPO_ROOT / "tools" / "book_pdf_header.tex"
 DEFAULT_OUTPUT = REPO_ROOT / "book" / "reverse-engineering-reality-book.pdf"
 BUILD_DIR = WORKSPACE_ROOT / "temp" / "book_pdf_build"
-BOOK_COVER_ASSET = REPO_ROOT / "assets" / "book-cover.svg"
 
 TITLE = "Reverse Engineering Reality"
 SUBTITLE = "Observer Patch Holography as a Theory of Everything"
@@ -129,52 +129,6 @@ def run(cmd: list[str], cwd: Path | None = None) -> None:
         check=True,
         env=build_environment(REPO_ROOT),
     )
-
-
-def convert_svg_assets(out_dir: Path) -> dict[str, Path]:
-    assets = [
-        BOOK_COVER_ASSET,
-        REPO_ROOT / "assets" / "pixel-constant.svg",
-        REPO_ROOT / "assets" / "OPH_Unification_Diagram.svg",
-        *sorted((REPO_ROOT / "assets" / "book_diagrams").glob("*.svg")),
-    ]
-    out_dir.mkdir(parents=True, exist_ok=True)
-    converted: dict[str, Path] = {}
-    for source_path in assets:
-        relative_path = source_path.relative_to(REPO_ROOT)
-        original_ref = f"../{relative_path.as_posix()}"
-        output_path = out_dir / relative_path.with_suffix(".pdf").relative_to("assets")
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        raw_output_path = output_path.with_name(f"{output_path.stem}.raw.pdf")
-        run(
-            [
-                "rsvg-convert",
-                "-f",
-                "pdf",
-                "-o",
-                str(raw_output_path),
-                str(source_path),
-            ]
-        )
-        run(
-            [
-                "gs",
-                "-q",
-                "-dSAFER",
-                "-dBATCH",
-                "-dNOPAUSE",
-                "-sDEVICE=pdfwrite",
-                "-dCompatibilityLevel=1.5",
-                f"-sOutputFile={output_path}",
-                str(raw_output_path),
-            ]
-        )
-        raw_output_path.unlink()
-        # Keep TeX asset references relative to BUILD_DIR. Absolute temporary
-        # paths are machine-specific inputs and Tectonic correctly warns that
-        # a document which embeds them is not reproducible elsewhere.
-        converted[original_ref] = output_path.relative_to(BUILD_DIR)
-    return converted
 
 
 def rewrite_heading(line: str, unnumbered: bool) -> str:
@@ -302,12 +256,17 @@ geometry:
 def build(output: Path) -> None:
     ensure_tool("pandoc")
     ensure_tool("tectonic")
-    ensure_tool("rsvg-convert")
-    ensure_tool("gs")
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     asset_dir = BUILD_DIR / "assets"
-    asset_map = convert_svg_assets(asset_dir)
+    staged_assets = stage_book_pdf_assets(asset_dir)
+    # Keep TeX asset references relative to BUILD_DIR. Absolute temporary
+    # paths are machine-specific inputs and Tectonic correctly warns that a
+    # document which embeds them is not reproducible elsewhere.
+    asset_map = {
+        source_ref: output_path.relative_to(BUILD_DIR)
+        for source_ref, output_path in staged_assets.items()
+    }
 
     manuscript_path = BUILD_DIR / "book_manuscript.md"
     tex_path = BUILD_DIR / "book_manuscript.tex"
