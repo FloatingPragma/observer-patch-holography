@@ -5,6 +5,7 @@ This is the one command REPRODUCE.md documents and CI enforces:
 
     python tools/run_mandatory_suite.py                # mandatory suite
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
+    python tools/run_mandatory_suite.py --certificate-smoke-only
 
 The mandatory suite validates the claim registry against its live gates,
 validates external inputs, public quantitative surfaces, null-model controls,
@@ -107,6 +108,31 @@ CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [
     ("Execute the conditional matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
 ]
 
+CERTIFICATE_SMOKE_STEPS: list[tuple[str, list[str]]] = [
+    (
+        "Recompute and verify the canonical port-current certificate",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_port_current_inner_certificate.py"
+            "::PortCurrentInnerCertificateTests::test_reference_receipt_is_exactly_recomputable",
+        ],
+    ),
+    (
+        "Recompute and verify the canonical matter-lift certificate",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"
+            "::SuperTannakianMatterLiftTests::test_reference_receipt_is_exactly_recomputable",
+        ],
+    ),
+]
+
 
 def run_steps(steps: list[tuple[str, list[str]]]) -> None:
     for title, command in steps:
@@ -128,13 +154,28 @@ def main() -> None:
         action="store_true",
         help="execute only the exact certificate suites",
     )
+    parser.add_argument(
+        "--certificate-smoke-only",
+        action="store_true",
+        help="recompute and verify only the two canonical exact certificate receipts",
+    )
     args = parser.parse_args()
 
-    steps = [] if args.certificates_only else list(MANDATORY_STEPS)
+    if args.certificates_only and args.certificate_smoke_only:
+        parser.error("--certificates-only and --certificate-smoke-only are mutually exclusive")
+
+    steps = [] if args.certificates_only or args.certificate_smoke_only else list(MANDATORY_STEPS)
     if args.certificates or args.certificates_only:
         steps += CERTIFICATE_STEPS
+    if args.certificate_smoke_only:
+        steps += CERTIFICATE_SMOKE_STEPS
     run_steps(steps)
-    print("mandatory suite OK" if not args.certificates_only else "certificate suites OK")
+    if args.certificates_only:
+        print("certificate suites OK")
+    elif args.certificate_smoke_only:
+        print("certificate smoke suite OK")
+    else:
+        print("mandatory suite OK")
 
 
 if __name__ == "__main__":

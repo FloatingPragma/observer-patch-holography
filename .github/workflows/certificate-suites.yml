@@ -1,15 +1,13 @@
 name: Certificate Suites
 
-# Splits the two long-running exact-arithmetic certificate replay suites (#314
-# matter-lift, #566 port-current) out of the Mandatory Suite so they only re-run
-# when their inputs change. Both suites are deterministic replays against pinned
-# manifests/receipts under code/a5_closure/, so a paper edit, ledger refresh, or
-# markdown export can never affect their result — the path filter below skips
-# those pushes.
+# Keeps the release critical path below ten minutes. Push and pull-request runs
+# recompute and verify both canonical exact certificates. The exhaustive
+# mutation and negative-control matrix runs nightly and on manual dispatch.
+# Both modes use pinned manifests/receipts under code/a5_closure/, so paper,
+# ledger, and Markdown-only pushes are skipped by the path filter.
 #
-# Fail-closed property is preserved by the nightly schedule: the full suite runs
-# on both platforms every night, so environment or dependency drift is still
-# caught within a day even on pushes the path filter skips.
+# The nightly full suite runs on both platforms, so environment, dependency,
+# adversarial-control, and verifier-CLI drift is caught within a day.
 
 on:
   push:
@@ -57,6 +55,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Same runner as the Mandatory Suite (#507), certificate legs only.
-      - name: Execute the exact certificate suites
+      - name: Recompute the canonical exact certificates
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        run: python tools/run_mandatory_suite.py --certificate-smoke-only
+
+      - name: Execute the exhaustive exact certificate suites
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python tools/run_mandatory_suite.py --certificates-only
