@@ -159,4 +159,6 @@ def test_planck_gaussian_approximation_loader_is_byte_exact(
         env=environment,
     )
     rebuilt = tmp_path / PLANCK_ARTIFACT.name
-    assert rebuilt.read_bytes() == PLANCK_ARTIFACT.read_bytes()
+    rebuilt_bytes = rebuilt.read_bytes()
+    assert b"\r\n" not in rebuilt_bytes
+    assert rebuilt_bytes == PLANCK_ARTIFACT.read_bytes()

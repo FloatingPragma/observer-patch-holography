@@ -128,6 +128,10 @@ for name, r in results["combos"].items():
         print(f"    {row['route']:26s} rho={rho}  rel_sigma={row['rel_sigma_OLh2']:.4%}"
               f"  z={row['z']:.3f}")
 
-with open(__file__.replace("propagate.py", "planck_lambda_to_N_propagation.json"), "w") as f:
-    json.dump(results, f, indent=2)
+artifact_bytes = json.dumps(results, indent=2).encode("utf-8")
+with open(
+    __file__.replace("propagate.py", "planck_lambda_to_N_propagation.json"),
+    "wb",
+) as f:
+    f.write(artifact_bytes)
 print("\nartifact written: planck_lambda_to_N_propagation.json")
