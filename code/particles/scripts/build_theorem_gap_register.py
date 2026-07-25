@@ -326,11 +326,14 @@ def open_entries() -> list[dict[str, Any]]:
             "class": "research_open",
             "statement": (
                 "the physical flavor carrier certificate and per-sector "
-                "spread-fiber elimination. The direct register-Clebsch route "
-                "and the direct real-axis Cabibbo identification are removed; "
+                "spread-fiber elimination. The complete declared "
+                "register-Clebsch common-transport assignment family is "
+                "retrospectively rejected inside its tested class. Direct "
+                "Cabibbo identification with the canonical real-axis menu is "
+                "excluded inside that separate finite class. "
                 "channel compatibility and the conditional F1/F2 unordered "
-                "multiset survive but do not equate Yukawa coefficients or "
-                "select a generation order. A new source-derived mass and "
+                "multiset do not equate Yukawa coefficients or select a "
+                "generation order. A source-derived mass and "
                 "mixing mechanism, including charm/up selectors, is required"
             ),
         },

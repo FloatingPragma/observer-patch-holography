@@ -502,9 +502,9 @@ The local ruler carries the conditional comparison surface into numbers. The
 charged-lepton face carrier has an exact positive-chamber identity,
 $Q=1/3+(2/3)(|b|/a)^2$. Equal blocks in the finite tracial event model give
 $|b|/a=1/\sqrt2$ and hence $Q=2/3$ under the model premises. The physical
-family attachment, phase, and numerical ratios are open. The historically
-target-informed eight-register coordinate sits close to the charged-lepton
-comparison value only as a retrospective diagnostic. Threefold and fivefold
+family attachment, phase, and numerical ratios are open. The target-informed
+eight-register coordinate sits close to the charged-lepton comparison value
+only as a diagnostic. Threefold and fivefold
 residual symmetry in the five-dimensional family space forces a double
 eigenvalue; twofold symmetry leaves two free ratios after scale is removed.
 Numerical ratios therefore require a potential derived from the screen
@@ -520,18 +520,27 @@ and a clock.
 Six family-sensitive Yukawa
 coordinates organize conditional quark and neutrino comparisons after a common
 physical family attachment is supplied. On the down-type comparison lane, the
-adopted $(b/\tau,s/\mu,d/e)=(1,1/3,3)$ assignment is uniquely least
-discrepant among the six permutations, without being source-derived. The
+declared alphabet and two selection rules produce six assignments and the
+distinct light-family coefficient-ratio menu $\{1/9,1/3,3,9\}$. The adopted
+$(b/\tau,s/\mu,d/e)=(1,1/3,3)$ assignment is target-informed and uniquely least
+discrepant; the source supplies no generation order. The
 declared one-loop transport gives the exact conditional ratio
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. It is 15.2% and 12.8% above the two
 central light-quark ratios derived from
 [FLAG 2024](https://arxiv.org/abs/2411.04268). The absolute down-type values
-disagree by 30–50%. These comparisons reject the conditional
-register-weight route. The separate matter receipt gives a conditional
-shared-scalar channel boundary without equating independent coupling
-strengths. The unordered weight set is target-free under its declared
-alphabet and rules. The historically stipulated charged-lepton model is
-unaffected, but it is neither blind nor source-derived.
+disagree by 30–50%. A non-preregistered conservative comparison gate using experimental
+errors alone rejects every assignment against both FLAG rows. The unavailable
+covariance and absent theory uncertainty preclude a covariance-aware
+significance, and the gate has no preregistered theory-wide falsification
+status. This closes
+only the common-transport assignment family. Other coefficient relations,
+alphabets, physical charged-family attachments, and generation-dependent
+threshold transport define different classes. The retained results are the
+conditional pairing of separate quark and lepton channels, the target-free
+unordered weight set under the declared rules, and the exact positive-chamber
+Koide identity. The pairing result supplies no physical coefficient equality.
+The stipulated charged-lepton model carries neither blind nor source-derived
+standing.
 
 The real-axis mixing route also has a precise boundary. The smallest nonzero
 acute angle among the 31 real icosahedral residual axes is

@@ -24,6 +24,9 @@ REGISTRY_RELATIVE = Path("claims/claim_registry.yaml")
 
 BLOCK_START = "<!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->"
 BLOCK_END = "<!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->"
+README_TABLE_CONDITION = (
+    "render_only_when_physical_establishment_count_is_positive"
+)
 
 CLASS_VOCABULARY = {
     "physical_establishment",
@@ -140,6 +143,15 @@ def validate_manifest(
 
     if manifest.get("schema") != "oph.public_surface_quantitative_claims.v1":
         issues.append("manifest: unsupported or missing schema")
+
+    scope_policy = manifest.get("scope_policy")
+    if not isinstance(scope_policy, dict):
+        issues.append("manifest: scope_policy must be an object")
+    elif scope_policy.get("readme_table_condition") != README_TABLE_CONDITION:
+        issues.append(
+            "manifest: readme_table_condition must be "
+            f"{README_TABLE_CONDITION!r}"
+        )
 
     surfaces = manifest.get("surfaces")
     expected_surfaces = {
@@ -493,6 +505,14 @@ def render_section(
     locale: str,
 ) -> str:
     cache: dict[str, dict[str, Any]] = {}
+    if physical_count == 0:
+        return "\n".join(
+            [
+                BLOCK_START,
+                "<!-- Quantitative table suppressed while physical_establishment count is zero. -->",
+                BLOCK_END,
+            ]
+        )
     if locale == "en":
         heading = "## Quantitative Claim Status"
         intro = (
@@ -683,6 +703,15 @@ def _table_bounds(lines: list[str], header_index: int) -> tuple[int, int]:
     return start, end
 
 
+def _is_markdown_table_separator(line: str) -> bool:
+    if not line.lstrip().startswith("|"):
+        return False
+    cells = line.strip().strip("|").split("|")
+    return len(cells) >= 2 and all(
+        re.fullmatch(r"\s*:?-{3,}:?\s*", cell) is not None for cell in cells
+    )
+
+
 def unmanaged_oph_comparison_tables(root: Path = ROOT) -> list[str]:
     """Reject hand-written OPH-versus-external numeric tables.
 
@@ -704,6 +733,10 @@ def unmanaged_oph_comparison_tables(root: Path = ROOT) -> list[str]:
         seen_bounds: set[tuple[int, int]] = set()
         for index, line in enumerate(lines):
             if not line.lstrip().startswith("|"):
+                continue
+            if index + 1 >= len(lines) or not _is_markdown_table_separator(
+                lines[index + 1]
+            ):
                 continue
             if not OPH_HEADER_TERM.search(line) or not EXTERNAL_HEADER_TERMS.search(line):
                 continue

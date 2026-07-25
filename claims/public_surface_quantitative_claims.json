@@ -2,6 +2,7 @@
   "schema": "oph.public_surface_quantitative_claims.v1",
   "scope_policy": {
     "governed_content": "Generated quantitative comparison blocks and every Markdown table that presents an OPH value against an external reference.",
+    "readme_table_condition": "render_only_when_physical_establishment_count_is_positive",
     "nonclaim_numeric_contexts": [
       "calendar dates",
       "GitHub issue numbers",
@@ -305,8 +306,8 @@
         "fr": "$m_s/m_d$, rapport de Clebsch des registres"
       },
       "status": {
-        "en": "Exact at the $\\mu_U$ boundary and protected by the lane’s common one-loop multiplicative transport. It is {percent_gap} high here and 12.8% high against the FLAG $N_f=2+1$ derived central value, so this conditional route is rejected. The separate channel receipt does not equate Yukawa coefficients; the unordered weight set is target-free only under its declared alphabet and rules; the charged-lepton model was historically stipulated and is neither blind nor source-only. No covariance-aware significance is claimed.",
-        "fr": "Exact à la frontière $\\mu_U$ et protégé par le transport multiplicatif commun à une boucle de la branche. Il est supérieur de {percent_gap} ici et de 12,8% au centre dérivé FLAG pour $N_f=2+1$ ; cette branche conditionnelle est donc rejetée. Le reçu de canaux séparé n’identifie pas les coefficients de Yukawa ; l’ensemble non ordonné des poids est indépendant de la cible uniquement sous son alphabet et ses règles déclarés ; le modèle des leptons chargés a été stipulé historiquement et n’est ni aveugle ni issu de la source. Aucune significativité tenant compte de la covariance n’est revendiquée."
+      "en": "Exact at the $\\mu_U$ boundary and protected by the lane’s common one-loop multiplicative transport. It is {percent_gap} high here and 12.8% high against the FLAG $N_f=2+1$ derived central value, so this conditional route is rejected. The separate channel receipt does not equate Yukawa coefficients; the unordered weight set is target-free only under its declared alphabet and rules; the charged-lepton model is stipulated and has neither blind nor source-only standing. No covariance-aware significance is claimed.",
+      "fr": "Exact à la frontière $\\mu_U$ et protégé par le transport multiplicatif commun à une boucle de la branche. Il est supérieur de {percent_gap} ici et de 12,8% au centre dérivé FLAG pour $N_f=2+1$ ; cette branche conditionnelle est donc rejetée. Le reçu de canaux séparé n’identifie pas les coefficients de Yukawa ; l’ensemble non ordonné des poids est indépendant de la cible uniquement sous son alphabet et ses règles déclarés ; le modèle des leptons chargés est stipulé, sans statut aveugle ni issu de la source. Aucune significativité tenant compte de la covariance n’est revendiquée."
       }
     },
     {

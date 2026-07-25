@@ -758,6 +758,151 @@
       ]
     },
     {
+      "claim_id": "OPH-GR-DS-MU2-IDENTITY",
+      "statement": "On the pure de Sitter Killing-horizon shock equation in spacetime dimension d and radius r_c, with kappa=1/r_c, exact cancellation gives mu^2=(d-2) kappa r_c=d-2. This equals the ell=1 scalar-Laplacian eigenvalue on S^(d-2) and is independent of Lambda and r_c. The identity does not attach the shock coefficient or kinetic operator to an OPH physical screen.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "exact_pure_de_Sitter_algebraic_identity",
+      "assumptions": [
+        "pure_de_Sitter_Killing_horizon_shock_equation"
+      ],
+      "imported_results": [
+        "standard_pure_de_Sitter_static_patch_geometry",
+        "scalar_spherical_Laplacian_spectrum"
+      ],
+      "oph_specific_delta": "The OPH shock audit isolates the radius-independent pure de Sitter identity as an exact algebraic baseline and prevents that identity from supplying the separate screen operator, coefficient, gauge, or Einstein-branch attachment.",
+      "novelty_type": "exact_de_Sitter_shock_mass_boundary_identity",
+      "evidence": [
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "code/geometry/derive_screen_shock_spectrum.py",
+        "code/geometry/test_screen_shock_spectrum.py",
+        "code/geometry/runs/screen_shock_spectrum.json",
+        "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean"
+      ],
+      "falsifier": "The pure de Sitter shock equation with kappa=1/r_c fails to reduce mu^2 to d-2, or d-2 differs from the ell=1 scalar-Laplacian eigenvalue on S^(d-2).",
+      "scope_if_false": "Only the standard pure de Sitter Killing-horizon class and downstream statements importing this identity are reopened. Non-pure-de-Sitter backgrounds and modified shock operators lie outside the tested class. The finite entropy and capacity-transfer algebra remain separate.",
+      "status": "exact_pure_de_Sitter_mu_squared_equals_lambda_one_identity",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-GR-DS-CAPACITY-TRANSFER",
+      "statement": "For positive integer sector dimensions d_i, total capacity M=sum_i d_i, and p_i=d_i/M, the generalized entropy has maximum ln M at the declared finite distribution. In the positive-real analytic relaxation, A(d)=sum_i (d_i/M) ln d_i has gradient g_i=(ln d_i+1-A)/M and symmetric-point Hessian (n d^2)^(-1)[I-(2/n)J]. The Hessian is positive on fixed-M tangents and negative only in the homogeneous direction, while the symmetric-point gradient is nonzero, so the calculus supplies no unconstrained interior maximum. Every admissible uniform integer depletion M_h=M_0-c_obs gives the exact finite change Delta S=Delta A=ln(1-c_obs/M_0)<0. Its positive-real interpolation is strictly decreasing for 0<c_obs<M_0 and places the maximum at the one-sided boundary c_obs=0.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "exact_finite_entropy_and_analytic_relaxation_identities",
+      "assumptions": [
+        "finite_positive_screen_capacity_partition",
+        "analytic_relaxation_of_integer_screen_dimensions"
+      ],
+      "imported_results": [
+        "finite_Shannon_entropy_inequality",
+        "multivariable_logarithmic_calculus"
+      ],
+      "oph_specific_delta": "The finite screen model separates the exact simplex maximum, the analytic relaxation used only for derivatives, and the one-sided capacity-transfer maximum. This typing blocks an interior-extremum claim from being inferred from the relaxed Hessian.",
+      "novelty_type": "exact_fixed_capacity_entropy_transfer_audit",
+      "evidence": [
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "code/geometry/derive_screen_shock_spectrum.py",
+        "code/geometry/test_screen_shock_spectrum.py",
+        "code/geometry/runs/screen_shock_spectrum.json",
+        "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean"
+      ],
+      "falsifier": "A positive finite integer partition violates the ln M entropy maximum, the displayed gradient or Hessian fails in the positive-real relaxation, a fixed-M tangent has the wrong Hessian sign, the symmetric point is stationary, an admissible integer depletion violates the logarithmic loss, or the positive-real interpolation ceases to be strictly decreasing on 0<c_obs<M_0.",
+      "scope_if_false": "The affected finite positive-sector, positive-real relaxation, or uniform-transfer identity is retracted. Nonuniform transfer laws, alternative entropy functionals, and dimension-changing carrier dynamics lie outside the tested class. The pure de Sitter mass identity and graph spectrum remain separately assessable.",
+      "status": "exact_finite_entropy_and_admissible_transfer__exact_analytic_gradient_Hessian_and_monotone_interpolation__no_unconstrained_interior_maximum",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT",
+      "statement": "Conditional on fixed total screen and observer capacity, the horizon-area dictionary, an inhabited source-bound Einstein branch, and an independently fixed physical scale and coefficient, the exact one-sided decrease ln(1-c_obs/M_0) has the negative-shock or time-advance sign. The finite entropy identities alone establish no gravitational coefficient, physical shock source, Einstein attachment, or static-patch trace representation.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "conditional_physical_de_Sitter_shock_sign_identification",
+      "assumptions": [
+        "de_Sitter_fixed_total_capacity_horizon_dictionary",
+        "capacity_ledger_to_observer_mass_dictionary",
+        "de_Sitter_shock_coefficient_scale_dictionary",
+        "Einstein_branch_D5",
+        "independent_physical_scale_receipt"
+      ],
+      "imported_results": [
+        "Gibbons_Hawking_de_Sitter_entropy",
+        "standard_horizon_shock_sign_convention"
+      ],
+      "oph_specific_delta": "OPH maps a source-independent finite capacity-transfer sign to the de Sitter shock diagnostic through explicit capacity, horizon, observer-mass, Einstein, coefficient, and scale dictionaries. Each physical dictionary is a named gate and is not a consequence of the finite logarithmic identity.",
+      "novelty_type": "conditional_fixed_capacity_shock_sign_bridge",
+      "evidence": [
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "code/geometry/derive_screen_shock_spectrum.py",
+        "code/geometry/test_screen_shock_spectrum.py",
+        "code/geometry/runs/screen_shock_spectrum.json"
+      ],
+      "falsifier": "A source-bound branch satisfying the fixed total capacity, horizon-area, Einstein, scale, and coefficient dictionaries maps positive transferred capacity to the opposite physical shock sign, or no common branch realizes those dictionaries.",
+      "scope_if_false": "The fixed-total-capacity and horizon-area route to the physical de Sitter shock sign falls. Other shock sources, capacity dictionaries, and gravitational attachments lie outside the tested bridge. The pure de Sitter mass identity and finite entropy and transfer identities retain their mathematical status.",
+      "status": "conditional_time_advance_sign__capacity_horizon_Einstein_scale_and_coefficient_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        334,
+        505,
+        589,
+        595,
+        608
+      ]
+    },
+    {
+      "claim_id": "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM",
+      "statement": "The exact regular line-graph calculation preserves the declared low port spectrum. Conditional on DS-GAUGE and DS-LAPLACIAN, gauge reduction and the scaled nearest-neighbour kinetic identification give the normalized discrete shock spectrum {-2, 0, 1+3/sqrt(5), 1+sqrt(5)} on the declared icosahedral port and edge carrier. The finite graph spectrum does not establish either physical premise, a gravitational coefficient, or an Einstein-branch attachment.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "exact_finite_graph_spectrum_plus_conditional_physical_normalization",
+      "assumptions": [
+        "DS-GAUGE",
+        "DS-LAPLACIAN"
+      ],
+      "imported_results": [
+        "regular_graph_line_graph_spectrum_theorem",
+        "exact_icosahedral_graph_spectrum"
+      ],
+      "oph_specific_delta": "OPH retains the exact port and edge graph calculation while typing gauge removal and kinetic normalization as two independent physical identifications. The normalized set is a conditional diagnostic until both premises have source-bound certificates.",
+      "novelty_type": "conditional_icosahedral_de_Sitter_shock_spectrum",
+      "evidence": [
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "code/geometry/derive_screen_shock_spectrum.py",
+        "code/geometry/test_screen_shock_spectrum.py",
+        "code/geometry/runs/screen_shock_spectrum.json"
+      ],
+      "falsifier": "The exact port or edge graph spectrum or line-graph multiplicity relation fails, or a source-bound realization satisfying DS-GAUGE and DS-LAPLACIAN produces a different normalized spectrum.",
+      "scope_if_false": "The normalized spectrum on the declared icosahedral nearest-neighbour port or edge operator is retracted or retyped. Other carriers, kinetic operators, gauge reductions, and symmetry-breaking deformations lie outside the tested class. The pure de Sitter mass and finite capacity-transfer identities remain separate.",
+      "status": "exact_graph_spectrum__normalized_discrete_spectrum_conditional_on_DS_GAUGE_and_DS_LAPLACIAN__physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        608
+      ]
+    },
+    {
+      "claim_id": "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
+      "statement": "The declared repair generator L_rep acts on a fixed-sector state space X_r. A shock that changes the sector dimensions changes the carrier domain and is not generated by L_rep without a separately constructed dimension-changing extension. This is a domain boundary and makes no universal nonexistence claim for extended repair dynamics.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "typed_repair_generator_domain_boundary",
+      "assumptions": [
+        "repair_generator_fixed_sector_domain"
+      ],
+      "imported_results": [
+        "typed_operator_domain_semantics"
+      ],
+      "oph_specific_delta": "The OPH audit prevents a fixed-sector repair operator from being reused as a dimension-changing shock generator by notation alone. Any such generator requires a separately typed source construction.",
+      "novelty_type": "repair_operator_domain_separation",
+      "evidence": [
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "code/geometry/derive_screen_shock_spectrum.py",
+        "code/geometry/test_screen_shock_spectrum.py",
+        "code/geometry/runs/screen_shock_spectrum.json"
+      ],
+      "falsifier": "The declared L_rep has a typed action on dimension-changing sector carriers, or a purported extension is definitionally the same fixed-domain operator.",
+      "scope_if_false": "Only the stated fixed-sector domain boundary is revised. Separately typed dimension-changing repair or shock generators remain admissible escape routes. No entropy, pure de Sitter mass, or graph-spectrum identity follows from that revision.",
+      "status": "fixed_sector_repair_generator_excludes_dimension_changing_shocks_without_typed_extension",
+      "claim_class": "declared_structure",
+      "gates": []
+    },
+    {
       "claim_id": "OPH-COSMO-SCREEN-SPECTRUM",
       "statement": "Conditional on one source DAG carrying the geometric screen scalar, primitive collar release law, conformal precision, infinitesimal edge-center reserve generator, source-stress, clock, freezeout, physical scale, and radial receipts, OPH gives an exact gamma-ratio screen covariance. The radial packet proves one-shell non-identifiability and gives physical source dilation and complete radial cross-covariance tomography as separate uniqueness routes.",
       "owner_paper": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
@@ -1156,7 +1301,7 @@
     },
     {
       "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
-      "statement": "On the declared exterior-matter contract, the certified channel receipt establishes only compatibility: the down-type and charged-lepton channels each have one invariant line through Sbar, the up-type channel has one through S, and the forbidden down-type channel through S has none. It does not identify or equate the independent Yukawa coefficient lines. Given the declared alphabet {1/3, 1, 3}, F1 measure balance, and F2 register faithfulness, exhaustive enumeration uniquely selects that unordered weight multiset. Given the separately assumed and retrospectively target-informed generation assignment (y_b/y_tau, y_s/y_mu, y_d/y_e) = (1, 1/3, 3), the historically stipulated conditional MCPR charged-lepton coordinate, and common down-type multiplicative transport, exact arithmetic gives y_b=y_tau, y_s=y_mu/3, y_d=3y_e, m_s/m_d=(m_mu/m_e)|_{mu_U}/9=22.974258, and the corresponding GST coordinate. The canonical compare-only FLAG 2024 fixture gives derived central ratios 19.943778 and 20.359350, so the current target-informed assumed-order declared-model route is 15.2 percent and 12.8 percent high and is rejected. No physical Yukawa-coefficient relation, source-derived generation order, physical or source-only MCPR attachment, absolute scale, or covariance-aware significance follows; the gauge/matter reconstruction and conditional charged-lepton algebra are unaffected.",
+      "statement": "On the declared exterior-matter contract, the certified channel receipt establishes only compatibility: the down-type and charged-lepton channels each have one invariant line through Sbar, the up-type channel has one through S, and the forbidden down-type channel through S has none. It does not identify or equate the independent Yukawa coefficient lines. Given the declared alphabet {1/3, 1, 3}, F1 measure balance, and F2 register faithfulness, exhaustive enumeration uniquely selects that unordered weight multiset. The six assignments exhaust the generation-order menu and give the four distinct light-family factor ratios {1/9, 1/3, 3, 9}. Given the historically stipulated conditional MCPR charged-lepton coordinate and common down-type multiplicative transport, every assignment is retrospectively rejected by both canonical FLAG 2024 rows under the conservative experimental-only gate. The target-informed assignment (y_b/y_tau, y_s/y_mu, y_d/y_e) = (1, 1/3, 3) is uniquely least discrepant and gives m_s/m_d=(m_mu/m_e)|_{mu_U}/9=22.974258, which is 15.2 percent and 12.8 percent high against the derived FLAG central ratios 19.943778 and 20.359350. This closes the complete declared common-transport assignment family, with no preregistered theory-wide falsification claim. A different coefficient relation, alphabet, charged-family attachment, or generation-dependent threshold transport defines another class. No physical Yukawa-coefficient relation, source-derived generation order, physical or source-only MCPR attachment, absolute scale, or covariance-aware significance follows; the gauge/matter reconstruction and conditional charged-lepton algebra are unaffected.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "conditional_channel_and_enumeration_theorems__rejected_target_informed_assumed_order_route",
       "assumptions": [
@@ -1186,9 +1331,9 @@
         "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
         "Lean/ObserverPatchHolography/ClebschRatio.lean"
       ],
-      "falsifier": "Under the declared premises, a certified channel dimension differs, the F1/F2 scan has any unordered survivor other than exactly {1/3, 1, 3}, the target-informed assumed-order ratio or common-transport identity fails, or recomputation from the canonical FLAG fixture does not reproduce the stated central ratios and discrepancies. A source-derived coefficient relation, generation order replacing the present target-informed ranking, MCPR attachment, and scale packet together with a scheme-consistent comparison that accepts the route would overturn its present rejection status.",
-      "scope_if_false": "Only the affected conditional register-Clebsch layer or its current target-informed assumed-order declared-model rejection is revised. The upstream gauge/matter reconstruction, its conditional channel counts, and the conditional MCPR charged-lepton algebra remain separately assessable.",
-      "status": "conditional_channel_and_F1_F2_enumeration_retained__current_target_informed_assumed_order_route_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent",
+      "falsifier": "Under the declared premises, a certified channel dimension differs, the F1/F2 scan has any unordered survivor other than exactly {1/3, 1, 3}, the six assignments fail to exhaust the menu {1/9, 1/3, 3, 9}, a declared common-transport ratio identity fails, or recomputation from the canonical FLAG fixture does not reject every assignment under the stated retrospective conservative experimental-only gate. A different coefficient relation, alphabet, physical charged-family attachment, or generation-dependent threshold lane lies outside this closed class.",
+      "scope_if_false": "Only the affected conditional register-Clebsch layer or the permutation-complete declared common-transport family rejection is revised. The upstream gauge/matter reconstruction, its conditional channel counts, and the conditional MCPR charged-lepton algebra remain separately assessable.",
+      "status": "conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent",
       "claim_class": "conditional_implication",
       "gates": []
     },

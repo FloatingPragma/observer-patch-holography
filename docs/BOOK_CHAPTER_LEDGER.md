@@ -737,26 +737,34 @@ The positive-eigenvalue face-circulant result is an exact conditional theorem:
 $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
 $|b|/a=1/\sqrt2$. Equal rank-two event blocks and the finite tracial-GNS map
 give the balanced modulus under the packet premises. Physical chiral-family
-attachment, phase, and numerical ratios are open. The historically
-target-informed response coordinate is diagnostic. In the
+attachment, phase, and numerical ratios are open. The target-informed
+response coordinate is diagnostic. In the
 five-dimensional traceless-symmetric family space, threefold and fivefold
 fixed points have a double eigenvalue, while the twofold fixed locus retains
 two parameters after scale. A specific screen-derived invariant potential is
 required for numerical ratios.
 
 The down-type comparison is recorded as a negative result. The adopted
-bottom/tau, strange/muon, and down/electron weights are uniquely
-least-discrepant among their six permutations, without being source-derived.
+bottom/tau, strange/muon, and down/electron weights are target-informed and
+uniquely least-discrepant. The declared alphabet and F1/F2 rules produce six
+assignments and the distinct light-family coefficient-ratio menu
+$\{1/9,1/3,3,9\}$; the source supplies no generation order.
 The declared one-loop lane gives
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. The two central light-quark ratios
 derived from [FLAG 2024](https://arxiv.org/abs/2411.04268) are $19.9438$ and
-$20.3594$, making the conditional result 15.2% and 12.8% high. This rejects
-the present register-weight route. The matter receipt separately gives a
-conditional shared-scalar channel boundary and does not equate independent
-Yukawa coefficients. The F1/F2 unordered-weight result is target-free under
-its declared alphabet and constraints. The historically stipulated
-charged-lepton model calculation is unaffected, but it is neither blind nor
-source-only.
+$20.3594$, making the conditional result 15.2% and 12.8% high. Both FLAG rows
+reject every assignment under the non-preregistered conservative
+experimental-only comparison gate. The unavailable input covariance and absent OPH theory uncertainty
+preclude a covariance-aware significance, and the gate has no preregistered
+theory-wide falsification status. This closes only the declared
+common-transport assignment family. Different coefficient relations,
+alphabets, physical charged-family attachments, or generation-dependent
+threshold transport define other classes. The retained results are the
+conditional channel-pairing theorem, the target-free unordered multiset under
+the declared rules, and the exact positive-chamber Koide identity. The pairing
+result supplies neither a physical equality between independent Yukawa
+coefficients nor a source-derived order. The stipulated charged-lepton model
+carries neither blind nor source-only standing.
 
 The exhaustive real-axis calculation finds a smallest nonzero icosahedral
 residual-axis angle of $20.9052^\circ$, compared with the

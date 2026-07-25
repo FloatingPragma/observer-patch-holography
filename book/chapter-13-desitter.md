@@ -159,6 +159,62 @@ An observer's accessible patch therefore has a finite information capacity.
 The smooth continuum starts to look like an effective description laid over a
 screen with a hard budget.
 
+### A Finite-Screen Calculation of the Shock Sign
+
+Pure de Sitter space supplies an exact normalization for a horizon shock. In
+$D$ spacetime dimensions, the coefficient in the smooth shock equation is
+
+$$\mu^2=(D-2)\kappa r_H,$$
+
+where $r_H$ is the horizon radius and $\kappa$ is its surface gravity. Pure
+de Sitter has $r_H=L$ and $\kappa=1/L$ in natural units and the unit-sphere
+convention, so the radius cancels:
+
+$$\mu^2=D-2.$$
+
+This is exactly the $\ell=1$ eigenvalue of the scalar Laplacian on the horizon
+sphere $S^{D-2}$. In four spacetime dimensions, the three $\ell=1$ harmonics
+form the rotation triplet at the zero of the smooth shock operator.
+
+For a finite screen, split the available states into sectors of positive
+dimensions $d_i$, with total dimension $M=\sum_i d_i$. Maximizing
+the generalized entropy over the probability of occupying each sector gives
+$p_i=d_i/M$ and
+
+$$S_{\mathrm{gen}}^{\max}=\log M.$$
+
+Suppose an observer ledger receives a fraction $f$ of a uniformly distributed
+screen capacity. The remaining screen sectors have dimension
+$(1-f)d_i$. Both the extremal entropy and the uniformly normalized area
+change by
+
+$$\Delta S_{\mathrm{gen}}=\Delta A_{\mathrm{uniform}}=\log(1-f)<0.$$
+
+The undepleted screen is a one-sided maximum along this transfer path. Its
+path-specific character appears in the curvature: at the symmetric point,
+fixed-total reshufflings have positive transverse curvature, uniform
+rescalings have negative curvature, and the gradient of the relaxed area is
+nonzero.
+
+Reading this finite result as a physical shock uses a declared dictionary.
+Screen capacity is identified with cosmological horizon area. Transferred
+capacity is identified with observer mass and gravitational backreaction. The
+logarithmic area loss is identified with the negative shock source, with the
+Einstein coefficient and scale restored. On a finite icosahedral screen, the
+rotation triplet is required to give exact gauge zero modes, and the
+nearest-neighbor graph Laplacian is required to equal the physical shock
+kinetic operator up to the declared scale. Under these premises, the finite
+capacity loss carries the time-advance sign.
+
+A separate static-patch proposal treats a Euclidean gravitational path
+integral with an observer worldline as a Hilbert-space trace.
+[Chen, Stanford, Tang, and Yang](https://arxiv.org/abs/2607.14042) find that
+its negative-shock correlator conflicts with cyclicity and positivity. Their
+result constrains that trace proposal. The finite-screen calculation supplies
+a conditional source for the sign and supplies no static-patch trace. The
+focused [de Sitter capacity paper](../extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+gives the proof and the precise physical boundary.
+
 There is one naming trap. The cap-normal theorem in the papers also uses the
 phrase "de Sitter," but there it names a bookkeeping space for oriented round
 caps and circles. It is not the cosmological de Sitter spacetime whose static
@@ -452,8 +508,11 @@ The supernova data and the standard late-time fit point toward de Sitter
 behavior, and de Sitter fits the observer-first picture with almost suspicious
 neatness. Each observer has a static patch, a horizon, a temperature, an
 entropy budget, and finite accessible information. The cosmological horizon is
-the natural screen in this reading. The dark sector joins the same ledger as a
-repair-charge medium that dilutes like matter and flattens rotation curves
+the natural screen in this reading. The finite screen gives an exact entropy
+maximum, an exact logarithmic capacity-transfer law, and the radius-independent
+pure-de-Sitter shock normalization. Its physical time-advance reading uses the
+declared horizon and shock dictionary. The dark sector joins the same ledger
+as a repair-charge medium that dilutes like matter and flattens rotation curves
 where accelerations run low.
 
 ---

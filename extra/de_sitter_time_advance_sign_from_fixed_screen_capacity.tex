@@ -1,0 +1,552 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+\input{../paper/release_info}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={The de Sitter Time-Advance Sign from a Finite Screen with Fixed Capacity},
+  pdfauthor={Bernhard Mueller}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+
+\title{\textbf{The de Sitter Time-Advance Sign\\
+from a Finite Screen with Fixed Capacity}}
+\author{Bernhard Mueller\thanks{Corresponding author:
+\href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}}\\
+Pragma Research Inc., Washington, United States}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+Negative de Sitter shocks produce a time advance and an increasing
+regularized out-of-time-ordered correlator. This sign conflicts with the
+positivity and cyclicity required by a proposed static-patch trace. Under a
+horizon-capacity dictionary, an exact fixed-budget law on a finite screen
+supplies a conditional sign mechanism. Maximizing generalized entropy over sector probabilities gives
+\(S_{\mathrm{gen}}^{\max}=\log M\). Uniform transfer of a fraction \(f\) of
+the horizon capacity to an observer changes both this maximum and the
+uniformly normalized area observable by \(\log(1-f)<0\). The unperturbed
+horizon is therefore a one-sided boundary maximum along the transfer
+direction. The exact gradient and Hessian show that this statement cannot be
+replaced by an interior-maximum claim: at fixed horizon capacity the tangent
+Hessian is positive, while the homogeneous curvature is negative. For an
+icosahedral screen, a normalized finite shock spectrum follows conditionally
+from exact gauge transport of the rotation triplet and a nearest-neighbour
+Laplacian identification. The coefficient and gravitational attachment are
+open. The exact outputs are the pure-de-Sitter normalization, finite entropy
+maximum, transfer law, analytic curvature, and line-graph spectrum identity.
+The argument supplies no static-patch trace.
+\end{abstract}
+
+\noindent\textbf{Keywords:} de Sitter horizon, shock wave, static patch,
+finite screen, generalized entropy, icosahedral graph
+
+\section{The sign problem}
+
+Chen, Stanford, Tang, and Yang study a static-patch proposal in which a
+Euclidean gravitational path integral with an observer worldline computes a
+Hilbert-space trace~\cite{chenStanfordTangYang2026}. Their shock-wave
+calculation includes observer recoil and gravitational backreaction. The
+resulting out-of-time-ordered correlator conflicts with cyclicity and
+positivity: its leading regularized contribution increases. Geometrically,
+the negative shock advances the signal.
+
+The finite-screen calculation below isolates a capacity mechanism for this
+sign. Three levels remain separate throughout:
+\begin{enumerate}
+\item exact entropy and graph identities for a finite sector model;
+\item an analytic relaxation of integer sector dimensions for stating
+gradients and curvatures;
+\item the physical dictionary identifying screen capacity transfer with a
+gravitational horizon shock.
+\end{enumerate}
+The first two levels are mathematical statements. The third is a conditional
+attachment. In particular, a finite capacity premise does not evade the trace
+obstruction in Ref.~\cite{chenStanfordTangYang2026}. Finite-dimensionality is
+part of the premise tested there.
+
+\section{The smooth de Sitter normalization}
+
+Write the horizon shock equation in spacetime dimension \(d\) as
+\begin{equation}
+\left(-\nabla^2_{S^{d-2}}-\mu^2\right)X^+
+=8\pi G\,T^-,
+\qquad
+\mu^2=\frac{d-2}{2}|f'(r_c)|r_c=(d-2)\kappa r_c .
+\label{eq:shock}
+\end{equation}
+For pure de Sitter space of radius \(L\),
+\[
+f(r)=1-\frac{r^2}{L^2},
+\qquad
+r_c=L,
+\qquad
+\kappa=\frac1L.
+\]
+
+\begin{lemma}[Radius-independent shock mass]
+\label{lem:mu2}
+For pure de Sitter space,
+\[
+\mu^2=d-2=\lambda_{\ell=1}\!\left(S^{d-2}\right).
+\]
+Consequently, \(\mu^2\) is independent of \(L\) and of the cosmological
+constant.
+\end{lemma}
+
+\begin{proof}
+The product \(\kappa r_c\) equals one. Equation~\eqref{eq:shock} therefore
+gives \(\mu^2=d-2\). Scalar spherical harmonics on \(S^{d-2}\) have
+\[
+\lambda_\ell=\ell(\ell+d-3),
+\]
+so \(\lambda_1=d-2\).
+\end{proof}
+
+The smooth \(\ell=1\) shock is generated by a de Sitter isometry and is pure
+gauge, with the corresponding source component removed by the gravitational
+constraint~\cite{chenStanfordTangYang2026}. This explains the zero of the
+operator in Eq.~\eqref{eq:shock}. Transferring that normalization to a
+discrete screen requires a separate premise, stated in
+Section~\ref{sec:spectrum}.
+
+\section{Finite entropy and the capacity-transfer direction}
+
+\subsection{The exact entropy maximum}
+
+Let a finite screen have positive integer sector dimensions
+\(d_1,\ldots,d_n\), and let \(p_i\) be a probability distribution over the
+sectors. Set
+\[
+M=\sum_{i=1}^n d_i,
+\qquad
+S_{\mathrm{gen}}(p,d)
+=-\sum_{i=1}^n p_i\log p_i+\sum_{i=1}^n p_i\log d_i.
+\]
+
+\begin{proposition}[Finite sector entropy maximum]
+\label{prop:entropymax}
+For fixed \(d_i\),
+\[
+p_i^\star=\frac{d_i}{M},
+\qquad
+\max_p S_{\mathrm{gen}}(p,d)=\log M.
+\]
+\end{proposition}
+
+\begin{proof}
+With \(q_i=d_i/M\),
+\[
+S_{\mathrm{gen}}(p,d)
+=\log M-\sum_i p_i\log\frac{p_i}{q_i}
+=\log M-\KL(p\Vert q).
+\]
+Nonnegativity of relative entropy proves the result.
+\end{proof}
+
+Thus a logarithmic capacity \(N=\log M_0\) agrees exactly with the extremal
+generalized entropy when the closed screen carries total dimension \(M_0\).
+This is a maximization over \(p\), with the sector dimensions held fixed. It
+does not classify extrema with respect to the \(d_i\).
+
+\subsection{Exact gradient and Hessian}
+
+At the maximizing distribution, the expectation of the logarithmic sector
+operator is
+\begin{equation}
+\mathcal A(d)
+:=\sum_{i=1}^n\frac{d_i}{M}\log d_i .
+\label{eq:areaobservable}
+\end{equation}
+The dimensions are integers in the finite model. Extend them to positive
+real variables solely for the following differential calculation.
+
+\begin{proposition}[Analytic curvature of the sector observable]
+\label{prop:hessian}
+The exact gradient of Eq.~\eqref{eq:areaobservable} is
+\begin{equation}
+\frac{\partial\mathcal A}{\partial d_i}
+=\frac{\log d_i+1-\mathcal A}{M}.
+\label{eq:gradient}
+\end{equation}
+Writing \(g_i=\partial_i\mathcal A\), its Hessian is
+\begin{equation}
+\frac{\partial^2\mathcal A}{\partial d_i\partial d_j}
+=\frac{\delta_{ij}}{M d_i}-\frac{g_i+g_j}{M}.
+\label{eq:hessiangeneral}
+\end{equation}
+At the symmetric point \(d_i=d\),
+\begin{equation}
+\Hess\mathcal A
+=\frac1{n d^2}\left(I-\frac2nJ\right),
+\label{eq:hessiansymmetric}
+\end{equation}
+where \(J=\one\one^T\). Its eigenvalue on \(\one\) is
+\(-1/(nd^2)\), and every vector orthogonal to \(\one\) has eigenvalue
+\(+1/(nd^2)\).
+\end{proposition}
+
+\begin{proof}
+Differentiate \(\mathcal A=M^{-1}\sum_i d_i\log d_i\) to obtain
+Eq.~\eqref{eq:gradient}. A second derivative gives
+Eq.~\eqref{eq:hessiangeneral}. At \(d_i=d\), one has
+\(M=nd\), \(\mathcal A=\log d\), and \(g_i=1/(nd)\), which yields
+Eq.~\eqref{eq:hessiansymmetric}.
+\end{proof}
+
+Two consequences prevent a false extremum statement. First,
+\(\nabla\mathcal A=\one/(nd)\) at the symmetric point, so the point is not
+stationary in the full positive orthant. Second, a fixed-horizon-capacity
+variation obeys \(\one^T\delta d=0\), and hence
+\[
+\delta d^T(\Hess\mathcal A)\delta d
+=\frac{\|\delta d\|^2}{nd^2}>0
+\]
+for every nonzero tangent variation. The symmetric point is locally
+minimizing along the fixed-\(M\) redistribution directions. The negative
+eigenvalue belongs to the homogeneous direction, which changes \(M\).
+
+\subsection{The one-sided budget maximum}
+
+The de Sitter sign concerns transfer between the horizon and the observer,
+rather than redistribution among horizon sectors. Let the closed total
+capacity be \(M_0\). Assign \(c_{\mathrm{obs}}\geq0\) units in the finite
+capacity ledger to the observer, leaving
+\[
+M_h=M_0-c_{\mathrm{obs}}
+\]
+on the horizon. Suppose the transfer depletes every horizon sector by the
+same factor \(1-f\), where \(f=c_{\mathrm{obs}}/M_0\). For integer dimensions, restrict to
+values for which the depleted dimensions remain integers. Then
+\begin{equation}
+S_{\mathrm{gen},h}^{\max}(f)-S_{\mathrm{gen},h}^{\max}(0)
+=\log(1-f),
+\label{eq:entropydrop}
+\end{equation}
+and
+\begin{equation}
+\mathcal A((1-f)d)-\mathcal A(d)
+=\log(1-f).
+\label{eq:areadrop}
+\end{equation}
+Both relations are exact.
+
+\begin{theorem}[Finite transfer law and analytic one-sided maximum]
+\label{thm:transfersign}
+Every admissible positive integer transfer has a smaller horizon entropy
+maximum and uniformly depleted area observable than the zero-transfer
+allocation. On the positive-real interpolation
+\(0\leq c_{\mathrm{obs}}<M_0\), the change is strictly decreasing and concave:
+\[
+\frac{d}{dc_{\mathrm{obs}}}\log(M_0-c_{\mathrm{obs}})
+=-\frac1{M_0-c_{\mathrm{obs}}}<0,
+\qquad
+\frac{d^2}{dc_{\mathrm{obs}}^2}\log(M_0-c_{\mathrm{obs}})
+=-\frac1{(M_0-c_{\mathrm{obs}})^2}<0.
+\]
+The allocation \(c_{\mathrm{obs}}=0\) is a one-sided boundary maximum on both
+the admissible finite transfers and the analytic transfer path.
+\end{theorem}
+
+For transfers of \(2\%\), \(5\%\), and \(10\%\),
+\[
+\log(0.98)=-0.020203\ldots,\qquad
+\log(0.95)=-0.051293\ldots,\qquad
+\log(0.90)=-0.105361\ldots.
+\]
+The exact finite order and its analytic interpolation are the budget statements
+relevant to the shock sign. Proposition~\ref{prop:hessian} supplies compatible
+negative homogeneous curvature, while also showing why the transfer result
+cannot be described as an interior maximum at fixed horizon \(M\).
+
+\subsection{Conditional gravitational interpretation}
+
+In the horizon coordinates used in
+Ref.~\cite{chenStanfordTangYang2026}, the constant term of the shock operator
+carries the sign of \(B'(0)/B(0)=2r'(0)/r_c\). For a cosmological horizon,
+the transverse area decreases from the horizon toward the observer, and the
+shock has the time-advance sign. Under the two physical identifications
+\[
+\text{closed screen capacity}=\text{fixed horizon--observer budget},
+\qquad
+\mathcal A=\frac{A_{\mathrm{horizon}}}{4G},
+\]
+Theorem~\ref{thm:transfersign} supplies the corresponding conditional sign
+mechanism. Identifying the ledger coordinate \(c_{\mathrm{obs}}\) with the
+observer mass used in the gravitational shock calculation is an additional
+physical dictionary. The finite entropy theorem and transfer law establish
+none of these identifications.
+
+\section{Conditional icosahedral spectrum}
+\label{sec:spectrum}
+
+Consider the graph Laplacian of the twelve vertices of the icosahedron. Its
+eigenspaces decompose under \(A_5\) as
+\[
+\R^{12}\simeq\mathbf1\oplus\mathbf3\oplus\mathbf5\oplus\mathbf3',
+\]
+with raw Laplacian eigenvalues
+\[
+0,\qquad 5-\sqrt5,\qquad 6,\qquad 5+\sqrt5,
+\]
+respectively.
+
+\begin{assumption}[Discrete gauge transport
+\(\mathsf{DS\text{-}GAUGE}\)]
+\label{ass:dsgauge}
+The \(\mathbf3\) generated by the screen isometries consists of exact gauge
+zero modes of the discrete shock operator, in direct analogy with the smooth
+\(\ell=1\) isometry modes.
+\end{assumption}
+
+\begin{assumption}[Nearest-neighbour kinetic identification
+\(\mathsf{DS\text{-}LAPLACIAN}\)]
+\label{ass:dslaplacian}
+The discrete shock kinetic operator is the nearest-neighbour combinatorial
+Laplacian on the port graph, or its edge-sector line graph, with one positive
+overall scale.
+\end{assumption}
+
+These two assumptions are independent. Assumption~\ref{ass:dsgauge} fixes the
+scale by placing the \(\mathbf3\) at the smooth value \(2\).
+Assumption~\ref{ass:dslaplacian} selects the finite operator whose remaining
+eigenvalues are being compared.
+
+\begin{proposition}[Conditional normalized shock spectrum]
+\label{prop:spectrum}
+Under Assumptions~\ref{ass:dsgauge} and \ref{ass:dslaplacian}, the normalized
+port Laplacian and shock spectra are
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+A_5\text{ block} & \text{multiplicity} &
+\lambda_{\mathrm{norm}} & \lambda_{\mathrm{shock}}\\
+\hline
+\mathbf1 & 1 & 0 & -2\\
+\mathbf3 & 3 & 2 & 0\\
+\mathbf5 & 5 & 3+\dfrac3{\sqrt5} & 1+\dfrac3{\sqrt5}\\[3pt]
+\mathbf3' & 3 & 3+\sqrt5 & 1+\sqrt5
+\end{array}
+\]
+The invariant mode agrees exactly with the smooth value \(-2\). The
+\(\mathbf5\) shock eigenvalue is \(1+3/\sqrt5=2.341640\ldots\), and the
+additional \(\mathbf3'\) triplet lies at
+\(1+\sqrt5=2\varphi=3.236067\ldots\).
+\end{proposition}
+
+\begin{proof}
+Multiply the graph Laplacian by \(2/(5-\sqrt5)\), then subtract
+\(\mu^2=2\). Direct simplification gives the displayed values.
+\end{proof}
+
+The value \(-2\) carries no enhancement relative to the continuum invariant
+mode. Any different comparison obtained by leaving the graph scale unfixed
+is a normalization artifact.
+
+\subsection{Ports and edge sectors}
+
+The logarithmic sector operator naturally suggests an edge carrier. The
+low-lying spectrum is unchanged by this choice.
+
+\begin{lemma}[Regular line-graph spectrum]
+\label{lem:linegraph}
+Let \(G\) be a \(k\)-regular graph with \(k\geq2\), \(n\) vertices, and \(m\)
+edges. The
+line graph \(L(G)\) has the Laplacian spectrum of \(G\), together with the
+eigenvalue \(2k\) repeated \(m-n\) times.
+\end{lemma}
+
+\begin{proof}
+Let \(B\) be the unoriented vertex-edge incidence matrix. Then
+\[
+BB^T=A_G+kI,
+\qquad
+B^TB=A_{L(G)}+2I.
+\]
+The nonzero spectra of \(BB^T\) and \(B^TB\) agree, and the spectrum of the
+\(m\times m\) matrix \(B^TB\) contains \(m-n\) additional zeros relative to
+the spectrum of the \(n\times n\) matrix \(BB^T\), counted with
+multiplicity. Since \(L(G)\) is \((2k-2)\)-regular, converting adjacency
+eigenvalues to Laplacian eigenvalues gives the claim.
+\end{proof}
+
+For the icosahedron, \(k=5\), \(n=12\), and \(m=30\). The edge-sector
+spectrum is therefore
+\[
+\{0^1,(5-\sqrt5)^3,6^5,(5+\sqrt5)^3,10^{18}\}.
+\]
+It contains the full port spectrum plus a high block at \(10\). In
+particular, the normalization-free ratio between the \(\mathbf5\) and
+rotation-triplet Laplacian eigenvalues is
+\[
+\frac{\lambda_{\mathbf5}}{\lambda_{\mathbf3}}
+=\frac6{5-\sqrt5}
+=\frac{3(5+\sqrt5)}{10}
+=2.170820\ldots
+\]
+on both carriers. The dodecahedral face graph gives
+\(\varphi^2=2.618033\ldots\), while the smooth
+\(\lambda_{\ell=2}/\lambda_{\ell=1}\) ratio is \(3\).
+
+Lemma~\ref{lem:linegraph} closes the port-versus-edge ambiguity once the
+nearest-neighbour Laplacian premise is accepted. It does not establish that
+premise.
+
+\section{The repair generator has a different domain}
+
+Let \(X_r\) be the configuration space at fixed sector structure, with
+measure \(\pi_r\), and let \(P_v\) be the single-site heat-bath conditional
+expectation. The repair generator
+\[
+L^{\mathrm{rep}}=\sum_v(I-P_v)
+\]
+acts on
+\[
+K_r=L^2(X_r,\pi_r).
+\]
+Since each \(P_v\) is an orthogonal projection,
+\[
+\langle f,L^{\mathrm{rep}}f\rangle
+=\sum_v\|(I-P_v)f\|^2.
+\]
+Consequently,
+\[
+\ker L^{\mathrm{rep}}=\bigcap_v\operatorname{Ran}P_v.
+\]
+Reducing this intersection to the constants requires a separate
+irreducibility or intersection proof and is unnecessary for the scope
+statement here.
+
+A horizon shock changes the sector dimensions \(d_\alpha\) in
+\[
+L_C=\sum_\alpha(\log d_\alpha)P_\alpha .
+\]
+Such a change deforms the configuration space and lies outside
+\(L^2(X_r,\pi_r)\) at fixed sector structure. The repair generator therefore
+does not act on the sector-dimension shock. Its spectral gap neither excludes
+nor supplies the time-advance mode. The capacity-transfer law in
+Theorem~\ref{thm:transfersign} is a response input on the enlarged
+sector-dimension space; a dynamical generator on that space is open.
+
+\section{Claim boundary}
+
+\begin{center}
+\begin{tabular}{@{}p{0.39\textwidth}p{0.52\textwidth}@{}}
+\toprule
+Statement & Status \\
+\midrule
+\(\mu^2=d-2=\lambda_{\ell=1}\) in pure de Sitter &
+exact smooth-geometry identity \\
+\(S_{\mathrm{gen}}^{\max}=\log M\) &
+exact finite entropy maximum over sector probabilities \\
+Uniform-depletion drop \(\log(1-f)\) &
+exact finite law for admissible integer dimensions \\
+Gradient and Hessian of \(\mathcal A(d)\) &
+exact analytic-relaxation identity \\
+One-sided horizon-budget maximum &
+exact order on admissible finite transfers and exact analytic interpolation;
+gravitational reading conditional \\
+Port/edge low-spectrum equality &
+exact regular line-graph theorem \\
+Normalized icosahedral shock spectrum &
+conditional on exact discrete gauge transport and the scaled
+nearest-neighbour Laplacian identification \\
+Shock coefficient and physical screen attachment &
+open \\
+Static-patch trace representation &
+excluded from the claim; the cited trace obstruction remains \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The coefficient multiplying the shock response requires a generalized-entropy
+normalization and a physical horizon-area dictionary on one common domain.
+The finite calculation fixes neither. It also gives no Hilbert-space trace
+whose correlators satisfy the conditions tested in
+Ref.~\cite{chenStanfordTangYang2026}.
+
+\subsection*{Closed tested classes and surviving alternatives}
+
+The external trace obstruction concerns the proposal tested in
+Ref.~\cite{chenStanfordTangYang2026}: a Euclidean static-patch path integral
+with an observer worldline interpreted as a positive cyclic Hilbert-space
+trace for the stated correlators. Horizon-screen descriptions without that
+trace interpretation remain outside the tested class.
+
+The repair-domain statement concerns the declared fixed-sector
+\(L^{\mathrm{rep}}\) on \(L^2(X_r,\pi_r)\). A separately constructed
+dimension-changing generator remains possible. The graph-spectrum statement
+concerns the scaled nearest-neighbour icosahedral port Laplacian and its line
+graph under exact gauge transport. Weighted, longer-range, refinement-limit,
+and other source-derived kinetic operators remain possible and require their
+own spectra.
+
+None of these boundaries disproves Observer-Patch Holography. They delimit
+one trace interpretation, one fixed-sector generator, and one conditional
+finite kinetic operator. The exact finite entropy, transfer, and line-graph
+identities survive independently of those physical attachments.
+
+\section{Conclusion}
+
+A closed capacity budget has a distinguished transfer direction. Moving
+capacity from a horizon screen to its observer changes the extremal entropy
+and the uniformly normalized logarithmic area observable by
+\(\log(1-f)\). The sign is negative for every allowed positive finite
+transfer and throughout the positive-real interpolation, so the zero-observer
+allocation is a one-sided boundary maximum. The analytic Hessian supports a
+negative homogeneous curvature and a positive fixed-horizon-capacity tangent
+curvature. Keeping both facts visible avoids an incorrect interior-maximum
+argument.
+
+The pure de Sitter normalization \(\mu^2=\lambda_{\ell=1}\) is exact. An
+icosahedral spectrum follows only after exact discrete gauge transport and a
+nearest-neighbour kinetic operator are assumed. The regular line-graph
+identity then makes its low spectrum independent of choosing ports or edge
+sectors. These results supply a conditional finite-screen mechanism for the
+time-advance sign, with the ledger-to-mass map, coefficient, gravitational
+attachment, and sector-dimension dynamics left as separate obligations.
+The exact identities remain valid if those attachments fail; such a failure
+would reject the corresponding physical interpretation inside its stated
+class.
+
+\begin{thebibliography}{9}
+
+\bibitem{chenStanfordTangYang2026}
+Y.~Chen, D.~Stanford, H.~Tang, and Z.~Yang,
+\emph{Negative shocks versus static patch holography},
+arXiv:2607.14042 [hep-th], 2026.
+\url{https://arxiv.org/abs/2607.14042}
+
+\end{thebibliography}
+
+\end{document}

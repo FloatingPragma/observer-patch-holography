@@ -27,21 +27,23 @@ without rerunning the simulation. `manifest.json` binds every file by sha256.
 | 262,144 | 512 | 96 | 312 | (2,2) | -2.49 | 0.1766 |
 | 262,144 | 512 | 384 | 1,062 | (1,3) | -1.41 | 0.1766 |
 
-At constant coupling density the held-out signature is Lorentzian (1,3) at
-every rung and the cone margin halves per rung (-5.62, -3.22, -1.41):
-geometric convergence toward the Einstein cone, with the coupling spread
-decreasing monotonically beside it. The unscaled-support 256k row is the
-density control: with cross-observer edges stagnant while observers double,
-the signature degrades to (2,2), isolating coupling density as the mechanism
-of cone merging. Extrapolating the measured halving, the margin crosses zero
-in the low millions of carriers; that extrapolation is a stated projection,
-not a measurement.
+The support-adjusted path selects the first, second, and fourth rows. Its
+held-out signature is Lorentzian (1,3), its cone margins are -5.62, -3.22,
+and -1.41, and its coupling spread decreases from 0.1875 to 0.1766. The path
+does not hold observer density, support width, or cross-edge density fixed.
+
+The two 262k rows form the direct control. At fixed carrier count, observer
+count, chain depth, and seed, increasing support width from 96 to 384 changes
+the recorded cross-observer edges from 312 to 1,062 and the held-out inertia
+from (2,2) to (1,3). This measures sensitivity to the support and cross-read
+structure. It does not isolate a unique density variable, establish an
+invariant-density convergence law, or determine an infinite-scale limit.
 
 ## Claim boundary
 
 These are finite measurements of the declared repair dynamics under frozen
-instruments with adversarial controls (see the simulator's Einstein-branch
-guide). They license the statements the papers make about measured signature
-emergence and monotone convergence; they do not by themselves construct the
-continuum Einstein equation, whose remaining named receipts are tracked in
-the open program ledger.
+instruments with a same-size support-width control (see the simulator's
+Einstein-branch guide). They license statements about the measured event
+forms on the four archived configurations. They do not by themselves
+construct the continuum Einstein equation, whose named receipts are tracked
+in the open program ledger.

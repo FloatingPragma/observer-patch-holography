@@ -189,6 +189,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         "alpha_in_thomson",
         "beta_ew_common_load_carrier",
         "capacity_horizon",
+        "de_sitter_capacity_transfer_shock_sign",
         "port_bracket_physical_current",
         "repair_generator_yang_mills_hamiltonian",
         "g_si_clock",
@@ -207,6 +208,61 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         by_id["repair_generator_yang_mills_hamiltonian"]["source_anchors"]
         == ["Assumption 20"]
     )
+    de_sitter_blockers = {
+        row["number"]: row["disposition"]
+        for row in by_id["de_sitter_capacity_transfer_shock_sign"][
+            "blocking_issues"
+        ]
+    }
+    assert de_sitter_blockers == {
+        334: "open_work_item",
+        505: "open_work_item",
+        589: "open_work_item",
+        595: "open_work_item",
+        608: "open_work_item",
+    }
+    assert set(
+        by_id["de_sitter_capacity_transfer_shock_sign"]["source_anchors"]
+    ) == {
+        "de_Sitter_fixed_total_capacity_horizon_dictionary",
+        "capacity_ledger_to_observer_mass_dictionary",
+        "de_Sitter_shock_coefficient_scale_dictionary",
+        "Einstein_branch_D5",
+        "independent_physical_scale_receipt",
+    }
+
+
+def test_de_sitter_claim_split_preserves_status_boundaries():
+    registry, _, _ = scoreboard.source_documents()
+    by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
+    expected_classes = {
+        "OPH-GR-DS-MU2-IDENTITY": "conditional_implication",
+        "OPH-GR-DS-CAPACITY-TRANSFER": "conditional_implication",
+        "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT": "conditional_implication",
+        "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM": "conditional_implication",
+        "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY": "declared_structure",
+    }
+    assert {
+        claim_id: by_id[claim_id]["claim_class"]
+        for claim_id in expected_classes
+    } == expected_classes
+    assert not any(
+        claim["claim_class"] == "physical_establishment"
+        for claim in registry["claims"]
+    )
+    assert {
+        "DS-GAUGE",
+        "DS-LAPLACIAN",
+    } == set(
+        by_id["OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM"]["assumptions"]
+    )
+    assert (
+        "no unconstrained interior maximum"
+        in by_id["OPH-GR-DS-CAPACITY-TRANSFER"]["statement"]
+    )
+    discrete = by_id["OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM"]
+    assert discrete["gates"] == [608]
+    assert "draft_only_no_live_gate" not in discrete["status"]
 
 
 def test_numeric_p_acc_is_forbidden_while_any_menu_is_undeclared():

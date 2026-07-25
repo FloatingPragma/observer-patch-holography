@@ -1,0 +1,453 @@
+{
+  "artifact": "oph_finite_screen_de_sitter_shock_receipt",
+  "assumptions": {
+    "DS-GAUGE": {
+      "discharged": false,
+      "statement": "the geometric A5 rotation triplet is an exact gauge zero mode on the declared screen carrier"
+    },
+    "DS-LAPLACIAN": {
+      "discharged": false,
+      "statement": "the shock kinetic operator is the scaled nearest-neighbour combinatorial Laplacian on the port or edge-sector carrier"
+    }
+  },
+  "claim_boundary": {
+    "all_required_premises_discharged": false,
+    "assumption_tokens": [
+      "DS-GAUGE",
+      "DS-LAPLACIAN"
+    ],
+    "conditional_calculation": "normalized_icosahedral_port_shock_spectrum",
+    "exact_calculations": [
+      "pure_de_sitter_mu_squared_equals_lambda_l1",
+      "finite_generalized_entropy_simplex_maximum",
+      "logarithmic_coordinate_gradient_and_hessian_in_positive_real_dimension_relaxation",
+      "uniform_capacity_transfer_logarithmic_coordinate_loss_on_admissible_integer_depletions",
+      "icosahedron_port_edge_face_graph_spectra",
+      "exact_unsigned_incidence_line_graph_identity",
+      "repair_generator_domain_separation"
+    ],
+    "physical_coefficient_established": false,
+    "physical_shock_spectrum_established": false,
+    "promotion_allowed": false,
+    "static_patch_trace_conjecture_rescued": false
+  },
+  "determinism": {
+    "json_key_order": "lexicographic",
+    "newline": "LF",
+    "randomness_used": false,
+    "timestamp_omitted": true
+  },
+  "entropy_and_capacity": {
+    "area_analytic_relaxation": {
+      "classification": "nonstationary_symmetric_point_with_positive_fixed-M_tangent_curvature_and_negative_homogeneous_curvature",
+      "domain": "positive-real relaxation of integer sector dimensions d_i",
+      "fixed_M_tangent_classification": "strict_local_minimum",
+      "fixed_M_tangent_eigenvalue": 0.001700680272,
+      "fixed_M_tangent_eigenvalue_exact": "+1/(n*d^2)",
+      "gradient_component": 0.011904761905,
+      "gradient_component_exact": "1/(n*d)",
+      "hessian_exact": "(1/(n*d^2))*(I-(2/n)*J)",
+      "homogeneous_curvature_negative": true,
+      "homogeneous_directional_second_derivative": -0.020408163265,
+      "homogeneous_directional_second_derivative_exact": "-1/d^2",
+      "homogeneous_eigenvalue": -0.001700680272,
+      "homogeneous_eigenvalue_exact": "-1/(n*d^2)",
+      "logarithmic_area_coordinate": "F(d)=sum_i d_i*log(d_i)/M",
+      "signature": "(-,+^(n-1))",
+      "symmetric_point": {
+        "d": 7,
+        "n": 12
+      },
+      "unconstrained_stationary": false
+    },
+    "finite_generalized_entropy_maximum": {
+      "M_definition": "M=sum_i d_i",
+      "capacity_closure_identity": "N=log(M_0)=max_p S_gen",
+      "finite_example_dimensions": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "finite_example_maximum": 2.833213344056,
+      "finite_example_probabilities_exact": [
+        "2/17",
+        "3/17",
+        "5/17",
+        "7/17"
+      ],
+      "identity": "S_gen(p,d)=log(M)-D_KL(p || d/M)",
+      "maximizer": "p_i=d_i/M",
+      "maximum_value": "log(M)",
+      "simplex_tangent_hessian_negative": true,
+      "unique_simplex_maximum": true
+    },
+    "one_sided_capacity_transfer": {
+      "finite_integer_statement": {
+        "budget_checks": [
+          {
+            "coordinate_change": -0.020202707318,
+            "coordinate_change_exact": "log(0.98)",
+            "coordinate_loss": 0.020202707318,
+            "depleted_integer_sector_dimension": 98,
+            "initial_integer_sector_dimension": 100,
+            "observer_capacity_fraction": 0.02
+          },
+          {
+            "coordinate_change": -0.051293294388,
+            "coordinate_change_exact": "log(0.95)",
+            "coordinate_loss": 0.051293294388,
+            "depleted_integer_sector_dimension": 95,
+            "initial_integer_sector_dimension": 100,
+            "observer_capacity_fraction": 0.05
+          },
+          {
+            "coordinate_change": -0.105360515658,
+            "coordinate_change_exact": "log(0.90)",
+            "coordinate_loss": 0.105360515658,
+            "depleted_integer_sector_dimension": 90,
+            "initial_integer_sector_dimension": 100,
+            "observer_capacity_fraction": 0.1
+          }
+        ],
+        "coordinate_change_exact": "F(f)-F(0)=log(1-f)",
+        "domain": "uniform integer d_i with f such that (1-f)*d_i is a positive integer",
+        "f_equals_zero_boundary_maximum": true,
+        "monotone_on_admissible_depletions": true,
+        "uniform_horizon_capacity": "M_h(f)=(1-f)*M_0"
+      },
+      "positive_real_analytic_interpolation": {
+        "derivative_exact": "dF/df=-1/(1-f)<0",
+        "domain": "0 <= f < 1",
+        "f_equals_zero_one_sided_boundary_maximum": true,
+        "monotone_coordinate_loss": true,
+        "right_derivative_at_zero": -1.0
+      }
+    }
+  },
+  "exact_successes": [
+    "pure_de_sitter_mu_squared_equals_lambda_l1_for_d3_through_d6",
+    "finite_generalized_entropy_equals_log_M_at_its_simplex_maximum",
+    "exact_uniform_capacity_transfer_coordinate_change_on_admissible_integer_depletions",
+    "exact_logarithmic_coordinate_hessian_split_in_the_positive_real_relaxation",
+    "exact_port_edge_low_spectrum_equality_by_unsigned_incidence"
+  ],
+  "graph_spectra": {
+    "conditional_normalized_port_shock_spectrum": {
+      "extra_3_prime_between_smooth_l2_and_l3": true,
+      "fivefold_softening_relative_to_smooth_l2": 0.414589803375,
+      "invariant_minus_two_guard": {
+        "expected_exact": "-2",
+        "observed": -2.0,
+        "passed": true
+      },
+      "normalization": "scale lambda_3=5-sqrt(5) to mu^2=2",
+      "operator": "scaled graph Laplacian minus 2*I",
+      "scale_factor": 0.72360679775,
+      "scale_factor_exact": "2/(5-sqrt(5))",
+      "scope_boundary": {
+        "closed_calculation_class": "nearest-neighbour port graph with the stated normalization",
+        "escape_routes": [
+          "a shock kinetic operator outside DS-LAPLACIAN",
+          "failure of the exact triplet gauge identification DS-GAUGE",
+          "a refined, weighted, nonlocal, or different carrier"
+        ],
+        "physical_prediction": false
+      },
+      "spectrum": [
+        {
+          "block": "1",
+          "multiplicity": 1,
+          "normalized_laplacian_eigenvalue": 0.0,
+          "normalized_laplacian_eigenvalue_exact": "0",
+          "shock_eigenvalue": -2.0,
+          "shock_eigenvalue_exact": "-2"
+        },
+        {
+          "block": "3",
+          "multiplicity": 3,
+          "normalized_laplacian_eigenvalue": 2.0,
+          "normalized_laplacian_eigenvalue_exact": "2",
+          "shock_eigenvalue": 0.0,
+          "shock_eigenvalue_exact": "0"
+        },
+        {
+          "block": "5",
+          "multiplicity": 5,
+          "normalized_laplacian_eigenvalue": 4.3416407865,
+          "normalized_laplacian_eigenvalue_exact": "3 + 3/sqrt(5)",
+          "shock_eigenvalue": 2.3416407865,
+          "shock_eigenvalue_exact": "1 + 3/sqrt(5)"
+        },
+        {
+          "block": "3_prime",
+          "multiplicity": 3,
+          "normalized_laplacian_eigenvalue": 5.2360679775,
+          "normalized_laplacian_eigenvalue_exact": "3 + sqrt(5)",
+          "shock_eigenvalue": 3.2360679775,
+          "shock_eigenvalue_exact": "1 + sqrt(5)"
+        }
+      ],
+      "status": "DERIVED_CONDITIONAL_ON_DS-GAUGE_AND_DS-LAPLACIAN"
+    },
+    "graph_construction": {
+      "edge_distance_squared": 4.0,
+      "edge_sector_count": 30,
+      "edge_sector_degree": 8,
+      "edge_sector_graph": "line_graph_of_port_graph",
+      "face_count": 20,
+      "face_degree": 3,
+      "face_graph": "icosahedron_face_adjacency_graph",
+      "port_count": 12,
+      "port_degree": 5,
+      "port_graph": "icosahedron_vertex_graph"
+    },
+    "line_graph_theorem": {
+      "edge_identity_max_integer_residual": 0,
+      "extra_eigenvalue_exact": "2k=10",
+      "extra_multiplicity_exact": "m-n=18",
+      "hard_check_passed": true,
+      "incidence_rank": 12,
+      "port_edge_low_spectra_identical": true,
+      "port_identity_max_integer_residual": 0,
+      "statement": "Spec(L_line)=Spec(L_port) union {2k repeated m-n times} for this connected nonbipartite k-regular graph",
+      "unsigned_incidence_edge_identity": "B^T*B=A_line+2*I",
+      "unsigned_incidence_port_identity": "B*B^T=A_port+k*I"
+    },
+    "normalization_free_ratios": {
+      "edge_lambda5_over_lambda3": 2.17082039325,
+      "edge_lambda5_over_lambda3_exact": "6/(5-sqrt(5))",
+      "face_lambda5_over_lambda3": 2.61803398875,
+      "face_lambda5_over_lambda3_exact": "2/(3-sqrt(5))=phi^2",
+      "port_lambda5_over_lambda3": 2.17082039325,
+      "port_lambda5_over_lambda3_exact": "6/(5-sqrt(5))",
+      "smooth_S2_lambda2_over_lambda1": 3.0
+    },
+    "raw_laplacian_spectra": {
+      "edge_sectors": [
+        {
+          "block": "1",
+          "multiplicity": 1,
+          "raw_laplacian_eigenvalue": 0.0,
+          "raw_laplacian_eigenvalue_exact": "0"
+        },
+        {
+          "block": "3",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 2.7639320225,
+          "raw_laplacian_eigenvalue_exact": "5 - sqrt(5)"
+        },
+        {
+          "block": "5",
+          "multiplicity": 5,
+          "raw_laplacian_eigenvalue": 6.0,
+          "raw_laplacian_eigenvalue_exact": "6"
+        },
+        {
+          "block": "3_prime",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 7.2360679775,
+          "raw_laplacian_eigenvalue_exact": "5 + sqrt(5)"
+        },
+        {
+          "block": "line_graph_kernel",
+          "multiplicity": 18,
+          "raw_laplacian_eigenvalue": 10.0,
+          "raw_laplacian_eigenvalue_exact": "10"
+        }
+      ],
+      "faces": [
+        {
+          "block": "1",
+          "multiplicity": 1,
+          "raw_laplacian_eigenvalue": 0.0,
+          "raw_laplacian_eigenvalue_exact": "0"
+        },
+        {
+          "block": "3",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 0.7639320225,
+          "raw_laplacian_eigenvalue_exact": "3 - sqrt(5)"
+        },
+        {
+          "block": "5",
+          "multiplicity": 5,
+          "raw_laplacian_eigenvalue": 2.0,
+          "raw_laplacian_eigenvalue_exact": "2"
+        },
+        {
+          "block": "4_a",
+          "multiplicity": 4,
+          "raw_laplacian_eigenvalue": 3.0,
+          "raw_laplacian_eigenvalue_exact": "3"
+        },
+        {
+          "block": "4_b",
+          "multiplicity": 4,
+          "raw_laplacian_eigenvalue": 5.0,
+          "raw_laplacian_eigenvalue_exact": "5"
+        },
+        {
+          "block": "3_prime",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 5.2360679775,
+          "raw_laplacian_eigenvalue_exact": "3 + sqrt(5)"
+        }
+      ],
+      "ports": [
+        {
+          "block": "1",
+          "multiplicity": 1,
+          "raw_laplacian_eigenvalue": 0.0,
+          "raw_laplacian_eigenvalue_exact": "0"
+        },
+        {
+          "block": "3",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 2.7639320225,
+          "raw_laplacian_eigenvalue_exact": "5 - sqrt(5)"
+        },
+        {
+          "block": "5",
+          "multiplicity": 5,
+          "raw_laplacian_eigenvalue": 6.0,
+          "raw_laplacian_eigenvalue_exact": "6"
+        },
+        {
+          "block": "3_prime",
+          "multiplicity": 3,
+          "raw_laplacian_eigenvalue": 7.2360679775,
+          "raw_laplacian_eigenvalue_exact": "5 + sqrt(5)"
+        }
+      ]
+    }
+  },
+  "physical_interpretation": {
+    "all_premises_discharged": false,
+    "physical_time_advance_explained": false,
+    "premise_tokens": [
+      "capacity_to_horizon_area",
+      "capacity_ledger_to_observer_mass",
+      "einstein_branch_realization",
+      "coefficient_and_physical_scale"
+    ],
+    "premises": {
+      "capacity_ledger_to_observer_mass": {
+        "discharged": false,
+        "statement": "capacity transferred out of the horizon ledger maps monotonically to positive observer mass"
+      },
+      "capacity_to_horizon_area": {
+        "discharged": false,
+        "statement": "the finite-screen logarithmic coordinate F(d) equals the physical cosmological-horizon area divided by 4G"
+      },
+      "coefficient_and_physical_scale": {
+        "discharged": false,
+        "statement": "the generalized-entropy coefficient and source-derived physical scale match the shock normalization"
+      },
+      "einstein_branch_realization": {
+        "discharged": false,
+        "statement": "the declared carrier realizes the Einstein branch with cosmological-horizon orientation"
+      }
+    },
+    "promotion_allowed": false,
+    "scope_boundary": {
+      "escape_routes": [
+        "failure of the capacity-to-area map",
+        "failure of the capacity-ledger-to-mass map",
+        "a non-Einstein branch or reversed horizon orientation",
+        "a different coefficient, physical scale, or shock operator"
+      ],
+      "excluded_claim": "unconditional derivation of the physical de Sitter shock sign or coefficient from the finite calculation alone"
+    },
+    "statement": "the one-sided capacity-transfer coordinate loss carries the cosmological-horizon time-advance sign if every listed physical premise holds",
+    "status": "CONDITIONAL_INTERPRETATION_WITH_OPEN_PHYSICAL_PREMISES"
+  },
+  "primary_source": {
+    "arxiv_id": "2607.14042v1",
+    "arxiv_url": "https://arxiv.org/abs/2607.14042v1",
+    "authors": [
+      "Yiming Chen",
+      "Douglas Stanford",
+      "Haifeng Tang",
+      "Zhenbin Yang"
+    ],
+    "equation_map": {
+      "gauge_zero_mode_statement": "Sec. 2.2 and the paragraph following Eq. (2.10): the pure-de Sitter l=1 shock is generated by an isometry",
+      "higher_dimensional_shock_operator": [
+        "Eq. (C.8): [-Laplacian_{S^(d-2)}-mu^2] X^+ = source",
+        "Eq. (C.9): mu^2=((d-2)/2)*|f'(r_c)|*r_c",
+        "Eqs. (C.10)-(C.11): spherical spectrum parameter j"
+      ],
+      "observer_mass_area_and_entropy": [
+        "introductory A=4*pi-8*pi*G*m+O(G^2*m^2)",
+        "Eq. (1.4): Z_sphere proportional to exp(S_dS-2*pi*m)"
+      ],
+      "shock_geometry_sign_data": [
+        "Eq. (2.6): shock Ricci tensor contains B'(0)/B(0)",
+        "Eqs. (C.5)-(C.6): B(z)=r(z)^2 and B'(0)=2*r_c*r'(0)"
+      ]
+    },
+    "title": "Negative shocks versus static patch holography"
+  },
+  "producer": "code/geometry/derive_screen_shock_spectrum.py",
+  "pure_de_sitter_identity": {
+    "checks": [
+      {
+        "horizon_sphere": "S^1",
+        "identity_passed": true,
+        "kappa_times_r_c_exact": "1",
+        "lambda_l1_exact": "1",
+        "mu_squared_exact": "1",
+        "spacetime_dimension": 3
+      },
+      {
+        "horizon_sphere": "S^2",
+        "identity_passed": true,
+        "kappa_times_r_c_exact": "1",
+        "lambda_l1_exact": "2",
+        "mu_squared_exact": "2",
+        "spacetime_dimension": 4
+      },
+      {
+        "horizon_sphere": "S^3",
+        "identity_passed": true,
+        "kappa_times_r_c_exact": "1",
+        "lambda_l1_exact": "3",
+        "mu_squared_exact": "3",
+        "spacetime_dimension": 5
+      },
+      {
+        "horizon_sphere": "S^4",
+        "identity_passed": true,
+        "kappa_times_r_c_exact": "1",
+        "lambda_l1_exact": "4",
+        "mu_squared_exact": "4",
+        "spacetime_dimension": 6
+      }
+    ],
+    "formula": "mu^2=((d-2)/2)*|f'(r_c)|*r_c=(d-2)*kappa*r_c",
+    "lambda_cancels": true,
+    "pure_de_sitter_substitution": "f(r)=1-r^2/L^2, r_c=L, |f'(r_c)|=2/L, kappa=1/L"
+  },
+  "repair_generator_domain_boundary": {
+    "classification": "domain_separation_with_shock_generator_open",
+    "repair_domain": "K_r=L^2(X_r,pi_r) at fixed sector structure",
+    "repair_gap_constrains_shock_mode": false,
+    "repair_gap_forbids_shock_mode": false,
+    "repair_gap_protects_shock_mode": false,
+    "repair_generator": "L_rep=sum_v(I-P_v)",
+    "repair_kernel_exactness_established_by_this_receipt": false,
+    "scope_boundary": {
+      "escape_routes": [
+        "an extended generator acting on sector dimensions",
+        "a coupled carrier-refinement dynamics"
+      ],
+      "excluded_claim": "the declared fixed-sector repair gap determines the sector-dimension shock deformation"
+    },
+    "shock_deformation": "varies sector dimensions d_alpha and therefore changes X_r",
+    "shock_deformation_in_repair_domain": false,
+    "shock_generator_supplied_by_repair_operator": false
+  },
+  "schema": "oph.finite_screen_shock_receipt.v1",
+  "status": "MACHINE_CHECKED_FINITE_AND_CONDITIONAL_RECEIPT"
+}

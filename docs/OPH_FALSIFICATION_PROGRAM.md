@@ -79,14 +79,23 @@ Diagnostic comparisons, simulator outputs, known-data checks, and engineering
 benchmarks carry no falsification verdict.
 
 The down-type register-Clebsch comparison supplies a recorded negative result
-inside this ineligible class. Its exact declared-lane ratio
+inside this ineligible class. The declared alphabet and F1/F2 rules produce
+six assignments and the distinct light-family coefficient-ratio menu
+$\{1/9,1/3,3,9\}$. The adopted ordering is target-informed and uniquely least
+discrepant. Its exact declared-lane ratio
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$ exceeds the two central ratios derived
-from FLAG 2024 by 15.2% and 12.8%. This rejects that conditional route without
-altering the matter receipt's conditional channel boundary. That receipt does
-not equate independent Yukawa coefficients. The F1/F2 unordered-weight result
-is target-free under its declared alphabet and constraints. The historically
-stipulated charged-lepton model calculation is unaffected and carries no
-blind or source-only standing.
+from FLAG 2024 by 15.2% and 12.8%. Both FLAG rows reject every assignment under
+the non-preregistered conservative experimental-only comparison gate. The unavailable input
+covariance and absent OPH theory uncertainty preclude a covariance-aware
+significance, and the gate has no preregistered theory-wide falsification
+status. This closes only the declared common-transport assignment family.
+Different coefficient relations, alphabets, physical charged-family
+attachments, or generation-dependent threshold transport define other
+classes. The retained results are the conditional channel-pairing theorem,
+the target-free unordered multiset under the declared rules, and the exact
+positive-chamber Koide identity. The pairing result supplies neither a physical
+coefficient equality nor a source-derived order. The stipulated charged-lepton
+model carries no blind or source-only standing.
 
 The positive-chamber charged-family identity has a different status. A
 Hermitian `C3` face circulant satisfies
@@ -95,8 +104,8 @@ $|b|/a=1/\sqrt2$ while all eigenvalues are nonnegative. Equal rank-two event
 blocks and the finite tracial Gelfand-Naimark-Segal map supply that modulus
 under the declared packet premises. This is an exact conditional theorem.
 The physical family attachment, phase, and mass ratios are open. The
-historically target-informed charged response coordinate is a retrospective
-diagnostic and supplies no confirmation event.
+target-informed charged response coordinate is a diagnostic and supplies no
+confirmation event.
 
 Two exact no-go receipts delimit replacement searches. In the real
 five-dimensional traceless-symmetric family representation, threefold and

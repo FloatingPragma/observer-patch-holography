@@ -291,6 +291,14 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "falsification": "A source RG trajectory, threshold map, top conversion, and same-scheme running Higgs normalization emit dimensionless physical Yukawas.",
         "chrome_policy": "No workers needed until a concrete RG/threshold packet exists.",
     },
+    608: {
+        "phase": "de-sitter-physical-attachment",
+        "claim_level": "physical identification gap",
+        "blocker": "The finite capacity, shock operator, and exact graph spectrum lack source-derived gauge, kinetic, response-coefficient, and physical-scale attachments.",
+        "closure": "One source-derived packet fixes the de Sitter gauge mode, Laplacian normalization, ledger-to-source dictionary, response coefficient, and physical length scale.",
+        "falsification": "The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum.",
+        "chrome_policy": "Use for independent audit only after a local attachment packet exists.",
+    },
 }
 
 

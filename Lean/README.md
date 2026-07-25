@@ -3,10 +3,13 @@
 This is the umbrella Lean 4 / Mathlib project for the repository. It contains
 a sorry-free proof subset covering finite observer consensus, public records,
 normal forms, coupling algebra, the screen/trichotomy arithmetic, and the
-exact algebraic/compositional kernel of the corrected Einstein branch. Lean
-checks those formal statements exactly. Continuum geometry, asymptotic tails,
-physical identification, and existence of an Einstein-admissible source tower
-remain explicit premises rather than proved facts.
+exact algebraic/compositional kernel of the typed Einstein branch. It also
+checks the finite de Sitter capacity-transfer identities, the eigenvalue signs
+of the declared analytic Hessian action, and the pure-de-Sitter shock
+normalization. Lean checks those formal statements exactly. Continuum geometry,
+asymptotic tails, physical identification, and existence of an
+Einstein-admissible source tower are explicit premises rather than proved
+facts.
 
 ## Layout
 

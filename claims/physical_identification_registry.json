@@ -66,6 +66,48 @@
       ]
     },
     {
+      "identification_id": "de_sitter_capacity_transfer_shock_sign",
+      "label": "finite screen-capacity transfer / gravitational de Sitter shock sign",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT"
+      ],
+      "source_anchors": [
+        "de_Sitter_fixed_total_capacity_horizon_dictionary",
+        "capacity_ledger_to_observer_mass_dictionary",
+        "de_Sitter_shock_coefficient_scale_dictionary",
+        "Einstein_branch_D5",
+        "independent_physical_scale_receipt"
+      ],
+      "blocking_issues": [
+        {
+          "number": 334,
+          "disposition": "open_work_item",
+          "role": "source-derived physical scale and clock stack"
+        },
+        {
+          "number": 505,
+          "disposition": "open_work_item",
+          "role": "source-only correctable public-record capacity"
+        },
+        {
+          "number": 589,
+          "disposition": "open_work_item",
+          "role": "fixed total screen-capacity and horizon-area identification"
+        },
+        {
+          "number": 595,
+          "disposition": "open_work_item",
+          "role": "source-bound Einstein-branch clause realization"
+        },
+        {
+          "number": 608,
+          "disposition": "open_work_item",
+          "role": "de Sitter gauge, kinetic, ledger-to-source, and response-coefficient attachments"
+        }
+      ]
+    },
+    {
       "identification_id": "port_bracket_physical_current",
       "label": "twelve-port bracket / physical gauge current",
       "status": "undischarged",

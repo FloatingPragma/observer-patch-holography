@@ -54,6 +54,21 @@ Mapping between Lean 4 theorems in this project and statements in
   requires all three circulant eigenvalues to be nonnegative. The module does
   not select the phase, derive the physical charged-family attachment, or
   promote the historically target-informed MCPR coordinate.
+- Finite de Sitter capacity and smooth shock normalization
+  (`ObserverPatchHolography/DeSitterCapacityShock.lean`): 9 / 9 theorem
+  declarations, sorry-free. The module proves that dimension-proportional
+  sector weights evaluate the declared generalized entropy to `log M`; checks
+  the stated analytic Hessian action on fixed-sum and homogeneous directions,
+  including the opposite signs of their eigenvalues; proves the declared
+  symmetric-point gradient component is nonzero; proves the exact
+  `log(1-f)` capacity-transfer identity and strict decrease for `0 < f < 1`;
+  and proves that the pure-de-Sitter shock coefficient reduces to `D-2`, the
+  declared spherical `ℓ = 1` eigenvalue. The finite entropy maximization
+  inequality, the derivation of the gradient and Hessian from the area
+  functional, the physical horizon and observer-mass dictionary, the
+  gravitational coefficient, the discrete graph kinetic operator, and the
+  gauge interpretation of the rotation triplet stay outside the Lean
+  theorem set.
 - W5 residual-stabilizer boundary
   (`ObserverPatchHolography/W5Stabilizer.lean`): 10 / 10 theorems,
   sorry-free. In symmetric-traceless three-by-three coordinates it proves

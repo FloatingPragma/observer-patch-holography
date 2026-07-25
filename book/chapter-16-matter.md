@@ -197,18 +197,27 @@ energy of the quarks and gluons inside it.
 
 One conditional down-type test assigns the three color weights $1$, $1/3$,
 and $3$ to the bottom/tau, strange/muon, and down/electron pairs. This
-assignment has the smallest comparison discrepancy among all six
-permutations, without making the family order a source-derived theorem. The
+declared construction produces all six assignments and the distinct
+light-family coefficient-ratio menu $\{1/9,1/3,3,9\}$. The adopted assignment
+is target-informed and has the unique smallest comparison discrepancy; the
+family order has no source derivation. The
 declared one-loop transport preserves the exact ratio
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. Against the two central light-quark
 ratios derived from [FLAG 2024](https://arxiv.org/abs/2411.04268), it is 15.2%
-and 12.8% high. Its absolute quark masses are discrepant by 30–50%. These
-comparisons reject this conditional register-weight route. The separate
-matter receipt identifies allowed and forbidden shared-scalar channels; it
-does not equate independent coupling strengths. The unordered weight set is
-target-free under its declared alphabet and selection rules. The
-charged-lepton model calculation is unaffected, although its historically
-stipulated model is neither blind nor source-derived.
+and 12.8% high. A non-preregistered conservative comparison gate using experimental errors
+alone rejects every assignment against both FLAG rows. The unavailable
+covariance and absent theory uncertainty preclude a covariance-aware
+significance, and the gate has no preregistered theory-wide falsification
+status. The result
+closes only this common-transport assignment family. Other coefficient
+relations, alphabets, physical charged-family attachments, and
+generation-dependent threshold transport define different classes. The
+retained results are the conditional pairing of separate quark and lepton
+channels, the target-free unordered weight set under the declared rules, and
+the exact positive-chamber Koide identity. The pairing result supplies no
+physical coefficient equality. The charged-lepton model is stipulated and
+carries neither blind nor source-derived standing. The
+conditional absolute quark masses are discrepant by 30–50%.
 
 A separate exact enumeration tests a direct geometric route to quark mixing.
 The real icosahedral representation has six fivefold, ten threefold, and

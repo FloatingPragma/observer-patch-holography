@@ -1351,10 +1351,11 @@ select a numerical spectrum.
 
 A separate conditional comparison links the bottom, strange, and down
 families to the tau, muon, and electron with the weights $1$, $1/3$, and $3$.
-Of the six ways to attach those three weights, this ordering gives the unique
-smallest disagreement with the comparison data. That comparison ranks an
-adopted ordering; it does not derive the ordering from the observer-patch
-axioms. On the declared one-loop chart, the strange and down quarks acquire
+The declared alphabet and two selection rules produce an unordered weight
+set and six assignments. Their distinct light-family coefficient-ratio menu
+is $\{1/9,1/3,3,9\}$. The adopted ordering is target-informed and has the
+unique smallest disagreement with the comparison data; the observer-patch
+axioms supply no generation order. On the declared one-loop chart, the strange and down quarks acquire
 the same running factor, leaving the exact relation
 
 $$
@@ -1367,14 +1368,18 @@ The [FLAG Review 2024](https://arxiv.org/abs/2411.04268) gives two applicable
 lattice averages. Combining its light-quark ratios produces central values
 $m_s/m_d=19.9438$ with four active sea-quark flavors and $20.3594$ with
 three. The conditional result is therefore 15.2% and 12.8% high. A
-covariance-aware significance cannot be inferred from the two summary-table
-errors alone. This comparison rejects the present conditional
-register-weight route. The matter calculation separately says which declared
-quark and lepton channels can share the same scalar, but it does not make their
-two coupling strengths equal. The unordered weight set is target-free only
-under its declared alphabet and two selection rules. The charged-lepton model
-calculation is unaffected; its historical model choice means that
-runtime-reference-free is not the same as blind or source-derived.
+non-preregistered conservative comparison gate using experimental errors alone rejects all
+six assignments against both FLAG rows. The unavailable covariance and absent
+theory uncertainty preclude a covariance-aware significance, and the gate has
+no preregistered theory-wide falsification status. The result closes only this
+common-transport assignment family. Other coefficient relations, alphabets,
+physical charged-family attachments, and generation-dependent threshold
+transport define different classes. The retained results are the conditional
+pairing of separate quark and lepton channels, the target-free unordered
+weight set under the declared rules, and the exact positive-chamber Koide
+identity. The pairing result supplies no physical equality between the two
+coupling strengths. The charged-lepton model is stipulated and carries neither
+blind nor source-derived standing.
 
 The same rejected lane gives conditional absolute values of $6.03$ GeV for
 the bottom quark, $140$ MeV for the strange quark, and $6.1$ MeV for the down

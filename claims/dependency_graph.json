@@ -22,6 +22,11 @@
     "OPH-GR-D6-CAPACITY",
     "OPH-GR-D6-READBACK-NOGO",
     "OPH-GR-D6-HORIZON-RECORD",
+    "OPH-GR-DS-MU2-IDENTITY",
+    "OPH-GR-DS-CAPACITY-TRANSFER",
+    "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT",
+    "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM",
+    "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
     "OPH-COSMO-SCREEN-SPECTRUM",
     "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
     "OPH-SCREEN-PORT-CURRENT-INNER",
@@ -148,6 +153,14 @@
     {"from": "OPH-KOIDE-CIRCULANT-IDENTITY", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records the exact positive-chamber circulant identity and conditional finite-GNS balance while leaving physical chiral attachment, phase, ratios, and running unresolved"},
     {"from": "OPH-A5-REAL-AXIS-CABIBBO-NOGO", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records only the finite no-go for direct Cabibbo identification with an acute angle between two canonical real three-dimensional icosahedral residual axes"},
     {"from": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY", "to": "OPH-UNIFIED-TYPED-SPINE", "role": "records the exact stabilizer boundary and the unresolved need for a source-derived invariant potential before any physical flavor-ratio prediction"},
-    {"from": "OPH-GR-D6-READBACK-NOGO", "to": "OPH-GR-D6-A5-FINITE-CONTROL", "role": "supplies the implementation-invariance boundary tested by the publicly inert A5 multiplicity"}
+    {"from": "OPH-GR-D6-READBACK-NOGO", "to": "OPH-GR-D6-A5-FINITE-CONTROL", "role": "supplies the implementation-invariance boundary tested by the publicly inert A5 multiplicity"},
+    {"from": "OPH-GR-D5", "to": "OPH-GR-DS-MU2-IDENTITY", "role": "supplies the conditional pure de Sitter geometry; the radius cancellation and first spherical-harmonic equality are exact on that branch"},
+    {"from": "OPH-GR-DS-MU2-IDENTITY", "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT", "role": "supplies the exact pure de Sitter mass baseline without supplying the physical screen operator or coefficient"},
+    {"from": "OPH-GR-DS-CAPACITY-TRANSFER", "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT", "role": "supplies the exact one-sided logarithmic transfer sign; the gravitational reading requires separate physical dictionaries"},
+    {"from": "OPH-GR-D6-HORIZON-RECORD", "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT", "role": "supplies the conditional horizon-record dictionary after direct public-record capacity closure"},
+    {"from": "OPH-GR-E2E-BRANCH-ENTRY", "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT", "role": "supplies the source-bound Einstein-branch nonemptiness obligation; the shock coefficient and physical scale remain separate gates"},
+    {"from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR", "to": "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM", "role": "supplies the finite icosahedral port and edge carrier; exact gauge removal and the physical kinetic-operator identification remain DS-GAUGE and DS-LAPLACIAN"},
+    {"from": "OPH-GR-DS-MU2-IDENTITY", "to": "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM", "role": "supplies the pure de Sitter normalization baseline without selecting a discrete carrier operator"},
+    {"from": "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY", "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT", "role": "prevents the fixed-sector repair generator from supplying a dimension-changing physical shock source without a typed extension"}
   ]
 }

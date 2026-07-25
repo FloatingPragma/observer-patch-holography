@@ -100,6 +100,18 @@ def test_unknown_claim_and_class_drift_fail_closed(tmp_path) -> None:
     assert any("does not match registry class" in issue for issue in issues)
 
 
+def test_readme_table_policy_drift_fails_closed(tmp_path) -> None:
+    root = _fixture_root(tmp_path)
+    _edit_manifest(
+        root,
+        lambda manifest: manifest["scope_policy"].update(
+            {"readme_table_condition": "always_render"}
+        ),
+    )
+    issues = claims.check_repository(root)
+    assert any("readme_table_condition must be" in issue for issue in issues)
+
+
 def test_missing_emitter_and_unresolved_artifact_pointer_fail_closed(
     tmp_path,
 ) -> None:
@@ -252,13 +264,29 @@ def test_prose_numerals_are_not_false_positive_claims(tmp_path) -> None:
     assert claims.check_repository(root) == []
 
 
+def test_audit_table_rows_are_not_misread_as_headers(tmp_path) -> None:
+    root = _fixture_root(tmp_path)
+    audit = root / "docs" / "two_sided_audit.md"
+    audit.parent.mkdir(parents=True)
+    audit.write_text(
+        "# Audit\n\n"
+        "| Source statement | Finding |\n"
+        "| --- | --- |\n"
+        "| OPH predicts a measured value of 24 | The external comparison is "
+        "diagnostic and supplies no physical claim. |\n",
+        encoding="utf-8",
+    )
+    assert claims.check_repository(root) == []
+
+
 def test_manual_generated_block_edit_is_detected(tmp_path) -> None:
     root = _fixture_root(tmp_path)
     path = root / "README.md"
+    marker = claims.BLOCK_END
     path.write_text(
         path.read_text(encoding="utf-8").replace(
-            "`6.03 GeV`",
-            "`4.18 GeV`",
+            marker,
+            "unregistered comparison result\n" + marker,
             1,
         ),
         encoding="utf-8",
@@ -270,10 +298,11 @@ def test_manual_generated_block_edit_is_detected(tmp_path) -> None:
 def test_root_cli_rejects_mutated_fixture(tmp_path) -> None:
     root = _fixture_root(tmp_path)
     path = root / "README_FR.md"
+    marker = claims.BLOCK_END
     path.write_text(
         path.read_text(encoding="utf-8").replace(
-            "`140 MeV`",
-            "`93,5 MeV`",
+            marker,
+            "résultat de comparaison non enregistré\n" + marker,
             1,
         ),
         encoding="utf-8",
@@ -292,24 +321,18 @@ def test_root_cli_rejects_mutated_fixture(tmp_path) -> None:
     assert "generated quantitative claim block is stale" in result.stdout
 
 
-def test_generated_block_has_required_boundaries(tmp_path) -> None:
+def test_zero_physical_establishment_suppresses_readme_tables(tmp_path) -> None:
     root = _fixture_root(tmp_path)
     english = (root / "README.md").read_text(encoding="utf-8")
     french = (root / "README_FR.md").read_text(encoding="utf-8")
     for text in (english, french):
-        assert "0 claims of class `physical_establishment`" in text or (
-            "0 énoncé de classe `physical_establishment`" in text
-        )
+        assert "physical_establishment count is zero" in text
+        assert "Quantitative Claim Status" not in text
+        assert "Statut des énoncés quantitatifs" not in text
+        assert "| Quantity | Registered branch value" not in text
+        assert "| Quantité | Valeur de la branche" not in text
         assert "6.6742999959" not in text
         assert "299792458" not in text
-    assert "target-anchored fit" in english
-    assert "never a prediction" in english
-    assert "structural" in english.lower()
-    assert "non-discriminating" in english.lower()
-    assert "1.6\\times10^{4}" in english
-    assert "$G_{\\rm geom}/\\ell_\\star^2$" in english
-    assert "unit-bookkeeping identity, not an SI prediction" in english
-    assert "no $G_{\\rm SI}$ value or sigma distance" in english
 
 
 def test_rejected_clebsch_rows_carry_rejected_candidate_role() -> None:

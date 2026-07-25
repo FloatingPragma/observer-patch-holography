@@ -21,6 +21,7 @@ import ObserverPatchHolography.IcosahedralAntibridge
 import ObserverPatchHolography.IcosahedralOrbitStabilizer
 import ObserverPatchHolography.BridgeBoundaries
 import ObserverPatchHolography.EinsteinBranch
+import ObserverPatchHolography.DeSitterCapacityShock
 import EventAlgebra
 
 /-!
