@@ -2,13 +2,13 @@
 """Rebuild the paper stack and its release manifest in one deterministic pass.
 
 The recurring CI failure mode this tool removes: a paper PDF is rebuilt and
-committed while ``paper/paper_release_manifest.json`` still records the old
+committed while ``paper/paper_release_manifest.json`` records different
 hashes, so ``tools/validate_paper_release_manifest.py`` rejects the tree on
 the next push. Building and manifest regeneration are one command here, in
 the order the release pipeline requires:
 
   1. ``tools/build_tex_papers.py``            (tectonic, all registered papers)
-  2. ``paper/tools/check_build_warnings.py``  (overfull/underfull gate)
+  2. ``paper/tools/check_build_warnings.py``  (complete warning gate)
   3. ``tools/generate_paper_release_manifest.py --allow-same-release``
   4. ``tools/validate_paper_release_manifest.py``
 
@@ -29,6 +29,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT / "tools"))
+import build_tex_papers as paper_sources  # noqa: E402
 
 
 def run(description: str, argv: list[str]) -> None:
@@ -56,8 +58,18 @@ def main() -> int:
     run("build all registered papers", [python, "tools/build_tex_papers.py"])
 
     if not args.no_gate:
-        logs = sorted(str(p) for p in REPO_ROOT.glob("paper/*.log"))
-        logs += sorted(str(p) for p in REPO_ROOT.glob("extra/*.log"))
+        logs = [
+            str(tex_path.with_suffix(".log"))
+            for tex_path in paper_sources.ALL_PAPERS.values()
+        ]
+        missing_logs = [path for path in logs if not Path(path).is_file()]
+        if missing_logs:
+            print(
+                "refresh_paper_release: the current build did not emit every "
+                "source-derived log:\n  " + "\n  ".join(missing_logs),
+                file=sys.stderr,
+            )
+            return 1
         run(
             "check build warnings against the allowlist",
             [python, "paper/tools/check_build_warnings.py", *logs],

@@ -11,12 +11,14 @@ shift with engine/font drift and some boxes have empty excerpts, whereas the
 source line-range is stable across rebuilds. Overfull boxes are never budgeted.
 
 Usage:
-  1. Build each release root with logs, e.g.:
-       tectonic -X compile paper/<root>.tex --keep-logs -o <logdir>
-  2. python3 paper/tools/gen_warning_allowlist.py <logdir> [<logdir> ...]
+  1. Build all source-derived papers and the book with the canonical builders.
+  2. Pass the two paper directories plus the current book log:
+       python3 paper/tools/gen_warning_allowlist.py \
+         paper extra temp/book_pdf_build/book_manuscript.log
 
-The logs whose basenames match the existing allowlist's ``log`` fields are used;
-pass the directory (or directories) containing the freshly built .log files.
+Every supplied log is used. The canonical warning budget therefore includes all
+six core paper logs, all nine ``extra/*.tex`` logs, and the book log; it never
+silently inherits the membership of an older allowlist.
 """
 from __future__ import annotations
 
@@ -59,7 +61,8 @@ def build(log_paths: list[Path]) -> dict:
             }
         )
     return {
-        "_comment": "Underfull-box warning budget for issue #542. Each entry anchors ONE known "
+        "_comment": "Underfull-box warning budget for issue #542 across all source-derived "
+        "paper roots and the reader-facing book. Each entry anchors ONE known "
         "underfull to its stable source line-range and observed badness band (not a per-file blanket "
         "count). A new underfull at a different location or badness is UNEXPLAINED and fails the gate. "
         "Regenerate with paper/tools/gen_warning_allowlist.py after a clean tectonic build "

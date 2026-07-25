@@ -770,11 +770,13 @@ a Weyl state being the smallest chiral building block a relativistic fermion
 can be made from:
 
 $$
-Q=(\mathbf3,\mathbf2)_{1/6},\quad
-u^c=(\overline{\mathbf3},\mathbf1)_{-2/3},\quad
-d^c=(\overline{\mathbf3},\mathbf1)_{1/3},\quad
-L=(\mathbf1,\mathbf2)_{-1/2},\quad
-e^c=(\mathbf1,\mathbf1)_1.
+\begin{aligned}
+Q&=(\mathbf3,\mathbf2)_{1/6},&
+u^c&=(\overline{\mathbf3},\mathbf1)_{-2/3},&
+d^c&=(\overline{\mathbf3},\mathbf1)_{1/3},\\
+L&=(\mathbf1,\mathbf2)_{-1/2},&
+e^c&=(\mathbf1,\mathbf1)_1.
+\end{aligned}
 $$
 
 Here an overbar marks the anticolor version of a charge, and a superscript

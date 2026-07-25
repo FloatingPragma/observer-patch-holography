@@ -9,6 +9,13 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 - CPython 3.12 or newer (verified on 3.12 and 3.13).
 - A clean virtual environment.
+- Tectonic 0.15.0 and Pandoc 3.8.3 for the publication artifacts.
+- Ghostscript, `rsvg-convert`, and `pdftotext` on `PATH` for the book and
+  publication audit. On Ubuntu these are supplied by `ghostscript`,
+  `librsvg2-bin`, and `poppler-utils`.
+- `xz` only for the optional NuFIT 6.1 profile replay described below. The
+  profile files are external inputs and are not required by the mandatory
+  clean-clone suite.
 
 ## Mandatory suite
 
@@ -23,11 +30,13 @@ python tools/run_mandatory_suite.py
 documented mandatory command, and it is the exact command CI
 (`.github/workflows/mandatory-suite.yml`) enforces on every push and PR. It
 both collects and executes: claim-registry validation (including live-gate
-and wording checks), release-manifest validation and its regression tests,
-the generated claims-scoreboard drift check, a clean `--collect-only` pass
-over `code/`, the audit fixture suite in `code/audit/` (which includes the
-scope guard proving no cloud or hardware lane is silently collected), and
-the A5 closure ledger audit.
+and wording checks), offline validation of the committed issue ledger,
+external-data provenance/hash/license-boundary validation, release-manifest
+validation and its regression tests, the generated claims-scoreboard drift
+check, a clean `--collect-only` pass over `code/`, the audit fixture suite in
+`code/audit/` (which includes the scope guard proving no cloud or hardware
+lane is silently collected), the A5 closure ledger audit, and the Phase-0
+proof/non-identifiability receipts.
 
 The exact certificate suites (#566 port-current, #314 matter-lift, ~26
 minutes) run through the same runner in their own CI workflow
@@ -123,14 +132,15 @@ rejects any `sorry`/`admit`/global-axiom regression, and replays the
 Einstein-branch axiom audit. `Lean/README.md` documents the layout;
 `Lean/docs/PROOF_INDEX.md` maps theorems to paper statements.
 
-## Paper Build
+## Publication build
 
-With [Tectonic](https://tectonic-typesetting.github.io/) installed, rebuild the
-complete paper stack, warnings gate, and release manifest in one pass from the
-repository root:
+With the pinned publication tools above installed, rebuild every registered
+paper, the warnings gate, the release manifest, and the reader-facing book
+from the repository root:
 
 ```bash
 python3 tools/refresh_paper_release.py
+python3 tools/build_book_pdf.py
 ```
 
 This chains `tools/build_tex_papers.py`, the build-warnings gate, manifest
@@ -138,3 +148,64 @@ regeneration, and manifest validation, so a rebuilt PDF can never be committed
 with stale manifest hashes. Every generated paper displays the shared release
 identifier from `paper/release_info.tex`; bumping that identifier
 (`tools/bump_paper_release.py`) is a separate, deliberate release step.
+
+Both builders derive `SOURCE_DATE_EPOCH` from the visible date in
+`paper/release_info.tex`, force UTC, avoid host-font selection, and retain the
+logs consumed by the warning gate. The publication CI performs the sequence
+twice on a clean Ubuntu runner and rejects any paper or book PDF whose SHA-256
+changes on the second pass. A local audit can make the same comparison with
+`sha256sum` (or `shasum -a 256` on macOS).
+
+The issue ledger has two modes. The clean-clone/CI command above uses:
+
+```bash
+python3 tools/build_open_problem_ledger.py --check
+```
+
+That mode is entirely offline and checks the committed snapshot without GitHub
+credentials. Maintainers regenerate the snapshot from live GitHub state before
+a release; network access is intentionally not a scientific build input. The
+separate claim-registry workflow runs
+`python3 tools/build_open_problem_ledger.py --check-live` on relevant pushes
+and daily with the repository's read-only GitHub token, so a changed open/closed
+gate cannot remain silently hidden behind a structurally valid old snapshot.
+
+## External comparison data
+
+The mandatory suite validates
+`code/audit/external_data_provenance_registry.json` with:
+
+```bash
+python3 tools/check_external_data_provenance.py
+```
+
+The registry pins each retained local artifact and loader by repository path,
+byte count, and SHA-256; records its publisher, version, HTTPS source, and
+license status; and distinguishes three boundaries:
+
+- deterministic generators from hand-transcribed published constants
+  (KNT19/PDG, the Planck Table 2 plus CODATA-G Gaussian approximation,
+  the CODATA-2022 inverse-alpha comparison fixture, and the PDG-2026 W/Z
+  running-width fixture);
+- live PDG API snapshots whose normalized local artifacts are frozen but whose
+  raw response bodies were not archived; and
+- hash-pinned external NuFIT tables and the five-source Bouchard--Donagi
+  literature packet, which are deliberately not vendored because their
+  redistribution licenses are `NOASSERTION`.
+
+The validator requires the complete nine-artifact inventory; deleting a
+dataset entry is itself a gate failure. Those declared gaps are data lineage,
+not hidden build inputs. The paper and book build does not consume them. To
+replay the optional NuFIT score, obtain the profile files listed in
+`code/particles/neutrino/nufit61_sources.json`, keep their `.xz` bytes
+unchanged, and pass the normal-ordering files to:
+
+```bash
+python3 code/particles/neutrino/score_neutrino_nufit61.py \
+  --tb-off-no /path/to/v61.release-TBoff-NO.txt.xz \
+  --tb-yes-no /path/to/v61.release-TByes-NO.txt.xz
+```
+
+The scorer checks the registered byte counts and SHA-256 values before parsing.
+No credential, cloud cache, or untracked fixture is accepted as a mandatory
+scientific input.

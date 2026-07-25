@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 from pathlib import Path
@@ -38,7 +39,7 @@ def _audit(registry: dict, overrides: dict[str, dict] | None = None) -> dict:
     return auditor.audit_registry(registry, root=ROOT, overrides=overrides)
 
 
-def test_live_registry_passes_and_promotes_only_two_literal_recomputations() -> None:
+def test_live_registry_passes_and_promotes_only_literal_recomputations() -> None:
     report = _audit(_registry())
 
     assert report["pass"] is True
@@ -47,6 +48,8 @@ def test_live_registry_passes_and_promotes_only_two_literal_recomputations() -> 
     assert report["promoted_receipts"] == [
         "hierarchy-ru-independent-interval",
         "petz-classical-recovery",
+        "hierarchy-capacity-antecedent-only-nogo",
+        "higgs-naturality-antecedent-only-nogo",
     ]
 
 
@@ -122,6 +125,27 @@ def test_backsolved_identity_cannot_reenter_hierarchy_closed_bundle() -> None:
 
     assert report["pass"] is False
     assert "backsolved_capacity_identity_present_in_closed_bundle" in report[
+        "global_failures"
+    ]
+
+
+def test_nogo_results_cannot_disappear_from_hierarchy_closed_bundle() -> None:
+    registry = _registry()
+    path = "code/particles/hierarchy/manifest.json"
+    artifact = _artifact(path)
+    artifact["claim_boundary"]["closed_by_bundle"] = [
+        item
+        for item in artifact["claim_boundary"]["closed_by_bundle"]
+        if "non-identifiability theorem" not in item
+    ]
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert "capacity_nonidentifiability_missing_from_closed_bundle" in report[
+        "global_failures"
+    ]
+    assert "naturality_nonidentifiability_missing_from_closed_bundle" in report[
         "global_failures"
     ]
 
@@ -213,6 +237,187 @@ def test_hierarchy_mutation_control_boolean_is_not_trusted_if_false() -> None:
     assert report["pass"] is False
     assert any(
         "hierarchy_mutation_controls_not_all_fail_closed" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_capacity_nogo_requires_same_antecedent_fingerprint() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["capacity_nonidentifiability"]["countermodels"][1][
+        "antecedent_fingerprint"
+    ] = "0" * 64
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "capacity_nogo_antecedent_mismatch" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_capacity_nogo_requires_distinct_fixed_points() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["capacity_nonidentifiability"]["countermodels"][1][
+        "fixed_log_capacity"
+    ] = "1"
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "capacity_nogo_outputs_not_distinct" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_capacity_nogo_recomputes_contraction_instead_of_trusting_boolean() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["capacity_nonidentifiability"]["countermodels"][0][
+        "strict_contraction"
+    ] = False
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "capacity_nogo_literal_mismatch" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_antecedent_only_nogo_rejects_target_consumption() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["target_artifacts_consumed"] = [
+        "R_EW_global_capacity_certificate.json"
+    ]
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "nogo_consumes_target_artifact" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_naturality_nogo_recomputes_defects_from_finite_maps() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["naturality_nonidentifiability"]["countermodels"][1][
+        "evaluated_defects"
+    ] = {"epsilon_n": 0, "epsilon_h": 0, "epsilon_H": 0}
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "naturality_nogo_defect_recomputation_failed" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_naturality_nogo_requires_commuting_and_noncommuting_completions() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    block = artifact["naturality_nonidentifiability"]
+    commuting_maps = copy.deepcopy(block["countermodels"][0]["maps"])
+    for model in block["countermodels"]:
+        model["maps"] = copy.deepcopy(commuting_maps)
+        model["evaluated_defects"] = {
+            "epsilon_n": 0,
+            "epsilon_h": 0,
+            "epsilon_H": 0,
+        }
+    block["evaluated_epsilon_H_values"] = [0, 0, 0]
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "naturality_nogo_does_not_exhibit_distinct_defects" in failure
+        for failure in report["failures"]
+    )
+    assert any(
+        "naturality_nogo_normal_square_countermodel_missing" in failure
+        for failure in report["failures"]
+    )
+    assert any(
+        "naturality_nogo_obstruction_square_countermodel_missing" in failure
+        for failure in report["failures"]
+    )
+
+
+def test_nogo_source_packet_mutation_breaks_every_antecedent_binding() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["source_packet"]["P"] = "2"
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert "capacity_nogo_source_packet_hash_mismatch" in " ".join(
+        report["failures"]
+    )
+    assert "naturality_nogo_source_packet_hash_mismatch" in " ".join(
+        report["failures"]
+    )
+
+
+def test_nogo_source_schema_rejects_hidden_target_even_after_rehash() -> None:
+    registry = _registry()
+    path = (
+        "code/particles/hierarchy/certificates/"
+        "antecedent_only_nonidentifiability_receipt.json"
+    )
+    artifact = _artifact(path)
+    artifact["source_packet"]["capacity_target"] = "281.0326"
+    forged_hash = auditor._canonical_hash(artifact["source_packet"])
+    artifact["source_packet_sha256"] = forged_hash
+    for block_name in (
+        "capacity_nonidentifiability",
+        "naturality_nonidentifiability",
+    ):
+        for model in artifact[block_name]["countermodels"]:
+            model["antecedent_fingerprint"] = forged_hash
+
+    report = _audit(registry, {path: artifact})
+
+    assert report["pass"] is False
+    assert any(
+        "nogo_source_packet_schema_mismatch" in failure
         for failure in report["failures"]
     )
 

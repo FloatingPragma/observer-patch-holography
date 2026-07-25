@@ -26,8 +26,15 @@ python3 tools/check_claim_registry.py
 ```
 
 It checks that the registry release ID matches `paper/release_info.tex`, that every claim has an
-owner paper and falsifier, that the novelty/falsification matrices and dependency graph use known
-claim IDs, and that paper sources do not depend on direct paths to this registry.
+owner paper and falsifier, that the novelty/falsification matrices and dependency graph contain
+every canonical claim ID with no unknown IDs, that the one-row-per-claim novelty and DAG node
+projections have no duplicates, and that paper sources do not depend on direct paths to this
+registry. The falsification matrix may keep several independently scoped rows for one claim.
+
+`python3 tools/build_scoreboard.py` regenerates the row-by-row claims scoreboard and the identical
+checksummed claim-status blocks embedded in `docs/PROOF_SPINE.md` and
+`docs/COMPRESSION_SCORECARD.md`. Its `--check` mode fails if any of those three surfaces drifts
+from the registry or the complete open-issue-number set in the committed GitHub ledger.
 
 The GitHub workflow runs the validator on registry changes and on public claim-surface changes.
 When a pull request changes paper TeX or the README claim narrative, it must also touch this

@@ -1,0 +1,283 @@
+{
+  "arithmetic": "fractions.Fraction and exhaustive finite-map evaluation",
+  "artifact": "oph_issue_518_antecedent_only_nonidentifiability",
+  "capacity_nonidentifiability": {
+    "candidate_family_cardinality": "continuum: every c in the domain interior",
+    "countermodels": [
+      {
+        "antecedent_fingerprint": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+        "averaging_weight_lambda": "1/2",
+        "completion_id": "capacity_completion_c1",
+        "derivative": "1/2",
+        "domain_log_capacity": [
+          "0",
+          "4"
+        ],
+        "fixed_log_capacity": "1",
+        "fixed_point_residual": "0",
+        "image_log_capacity": [
+          "1/2",
+          "5/2"
+        ],
+        "map_family": "F_c(x)=(1-lambda)*x+lambda*c",
+        "monotone": true,
+        "self_map": true,
+        "strict_contraction": true,
+        "unique_fixed_point": true
+      },
+      {
+        "antecedent_fingerprint": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+        "averaging_weight_lambda": "1/2",
+        "completion_id": "capacity_completion_c3",
+        "derivative": "1/2",
+        "domain_log_capacity": [
+          "0",
+          "4"
+        ],
+        "fixed_log_capacity": "3",
+        "fixed_point_residual": "0",
+        "image_log_capacity": [
+          "3/2",
+          "7/2"
+        ],
+        "map_family": "F_c(x)=(1-lambda)*x+lambda*c",
+        "monotone": true,
+        "self_map": true,
+        "strict_contraction": true,
+        "unique_fixed_point": true
+      }
+    ],
+    "distinct_fixed_log_capacities": true,
+    "minimal_missing_object": "a source-derived public-record/readback map F with physical semantics and an independently computed fixed point; a separate theorem may then test, rather than impose, B_EW=0",
+    "not_claimed": [
+      "either finite countermodel is the physical capacity",
+      "the source-derived readback map cannot exist",
+      "the EW bridge residual is false"
+    ],
+    "result": "NO_UNIQUE_CAPACITY_PRODUCER_FROM_DECLARED_ANTECEDENTS",
+    "same_antecedents": true,
+    "theorem": "The target-free scalar packet and generic Banach/readback conditions do not identify a physical capacity."
+  },
+  "issue": 518,
+  "naturality_nonidentifiability": {
+    "countermodels": [
+      {
+        "antecedent_fingerprint": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+        "completion_id": "commuting_completion",
+        "evaluated_defects": {
+          "epsilon_H": 0,
+          "epsilon_h": 0,
+          "epsilon_n": 0
+        },
+        "maps": {
+          "chi_sH": {
+            "os0": "oh0",
+            "os1": "oh1"
+          },
+          "h_H": {
+            "h0": "oh0",
+            "h1": "oh1"
+          },
+          "h_s": {
+            "s0": "os0",
+            "s1": "os1"
+          },
+          "n_H": {
+            "h0": "h0",
+            "h1": "h1"
+          },
+          "n_s": {
+            "s0": "s0",
+            "s1": "s1"
+          },
+          "rho_sH": {
+            "s0": "h0",
+            "s1": "h1"
+          }
+        },
+        "metric": "discrete metric on finite codomains",
+        "sets": {
+          "O_H": [
+            "oh0",
+            "oh1"
+          ],
+          "O_s": [
+            "os0",
+            "os1"
+          ],
+          "Q_H": [
+            "h0",
+            "h1"
+          ],
+          "Q_s": [
+            "s0",
+            "s1"
+          ]
+        }
+      },
+      {
+        "antecedent_fingerprint": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+        "completion_id": "normal_form_noncommuting_completion",
+        "evaluated_defects": {
+          "epsilon_H": 1,
+          "epsilon_h": 0,
+          "epsilon_n": 1
+        },
+        "maps": {
+          "chi_sH": {
+            "os0": "oh0",
+            "os1": "oh1"
+          },
+          "h_H": {
+            "h0": "oh0",
+            "h1": "oh1"
+          },
+          "h_s": {
+            "s0": "os0",
+            "s1": "os1"
+          },
+          "n_H": {
+            "h0": "h1",
+            "h1": "h0"
+          },
+          "n_s": {
+            "s0": "s0",
+            "s1": "s1"
+          },
+          "rho_sH": {
+            "s0": "h0",
+            "s1": "h1"
+          }
+        },
+        "metric": "discrete metric on finite codomains",
+        "sets": {
+          "O_H": [
+            "oh0",
+            "oh1"
+          ],
+          "O_s": [
+            "os0",
+            "os1"
+          ],
+          "Q_H": [
+            "h0",
+            "h1"
+          ],
+          "Q_s": [
+            "s0",
+            "s1"
+          ]
+        }
+      },
+      {
+        "antecedent_fingerprint": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+        "completion_id": "obstruction_noncommuting_completion",
+        "evaluated_defects": {
+          "epsilon_H": 1,
+          "epsilon_h": 1,
+          "epsilon_n": 0
+        },
+        "maps": {
+          "chi_sH": {
+            "os0": "oh0",
+            "os1": "oh1"
+          },
+          "h_H": {
+            "h0": "oh1",
+            "h1": "oh0"
+          },
+          "h_s": {
+            "s0": "os0",
+            "s1": "os1"
+          },
+          "n_H": {
+            "h0": "h0",
+            "h1": "h1"
+          },
+          "n_s": {
+            "s0": "s0",
+            "s1": "s1"
+          },
+          "rho_sH": {
+            "s0": "h0",
+            "s1": "h1"
+          }
+        },
+        "metric": "discrete metric on finite codomains",
+        "sets": {
+          "O_H": [
+            "oh0",
+            "oh1"
+          ],
+          "O_s": [
+            "os0",
+            "os1"
+          ],
+          "Q_H": [
+            "h0",
+            "h1"
+          ],
+          "Q_s": [
+            "s0",
+            "s1"
+          ]
+        }
+      }
+    ],
+    "evaluated_epsilon_H_values": [
+      0,
+      1,
+      1
+    ],
+    "minimal_missing_object": "source-derived finite or symbolic definitions of rho_sH, n_s, n_H, h_s, chi_sH, and h_H on a common domain, followed by an independent evaluation of both commuting-square residuals",
+    "not_claimed": [
+      "the physical comparison square has nonzero defect",
+      "an exact naturality theorem is impossible after the maps exist",
+      "the two-point completions are physical Higgs models"
+    ],
+    "result": "NO_UNIQUE_NATURALITY_DEFECT_FROM_DECLARED_ANTECEDENTS",
+    "same_antecedents": true,
+    "theorem": "The scalar hierarchy packet and map type signatures do not identify epsilon_H without executable source-derived maps."
+  },
+  "pass": true,
+  "promotion_boundary": {
+    "not_promotable": [
+      "N_CRC^EW as a physical capacity",
+      "epsilon_H=0 as a physical naturality result"
+    ],
+    "promotable_result": "non-identifiability of the two targets from the present target-free premise packet"
+  },
+  "source_packet": {
+    "P": "1.63097209585889737696451390350695562847912625483895268486516",
+    "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
+    "beta_EW": 4,
+    "branch": "source_audit_pixel_branch",
+    "capacity_structural_axioms": [
+      "finite log-coordinate interval",
+      "total monotone self-map",
+      "strict contraction",
+      "unique fixed point"
+    ],
+    "excluded_target_conditions": [
+      "B_EW(P,N)=0",
+      "Pi_EW(P,N)=4P",
+      "N_CRC^EW",
+      "epsilon_n",
+      "epsilon_h",
+      "epsilon_H",
+      "measured weak scale",
+      "measured Lambda or Planck capacity"
+    ],
+    "m_rep": 24,
+    "naturality_type_signatures": {
+      "chi_sH": "O_s -> O_H",
+      "h_H": "Q_H -> O_H",
+      "h_s": "Q_s -> O_s",
+      "n_H": "Q_H -> Q_H",
+      "n_s": "Q_s -> Q_s",
+      "rho_sH": "Q_s -> Q_H"
+    }
+  },
+  "source_packet_sha256": "c5c26013b9130f5067521c1a443285332274f06a69d0a8e7e24f282e91fc6d51",
+  "target_artifacts_consumed": []
+}

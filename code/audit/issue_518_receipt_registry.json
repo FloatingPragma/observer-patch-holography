@@ -145,6 +145,55 @@
       ]
     },
     {
+      "receipt_id": "hierarchy-capacity-antecedent-only-nogo",
+      "role": "hierarchy_capacity_nonidentifiability",
+      "receipt_class": "recomputation",
+      "artifact": "code/particles/hierarchy/certificates/antecedent_only_nonidentifiability_receipt.json",
+      "json_pointer": "",
+      "promoted": true,
+      "literal_check": "capacity_nonidentifiability",
+      "antecedent_artifacts": [
+        "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+        "code/particles/hierarchy/certificates/R_U_krawczyk_certificate.json",
+        "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+        "code/particles/hierarchy/computations/antecedent_only_nonidentifiability.py"
+      ],
+      "target_artifacts": [
+        "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json"
+      ],
+      "open_gates": [],
+      "mutation_controls": [
+        "countermodels_must_share_one_antecedent_fingerprint",
+        "countermodel_fixed_points_must_be_distinct",
+        "every_readback_map_is_recomputed_as_a_strict_self_contraction",
+        "target_artifact_consumption_is_rejected"
+      ]
+    },
+    {
+      "receipt_id": "higgs-naturality-antecedent-only-nogo",
+      "role": "higgs_naturality_nonidentifiability",
+      "receipt_class": "recomputation",
+      "artifact": "code/particles/hierarchy/certificates/antecedent_only_nonidentifiability_receipt.json",
+      "json_pointer": "",
+      "promoted": true,
+      "literal_check": "naturality_nonidentifiability",
+      "antecedent_artifacts": [
+        "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+        "code/particles/hierarchy/certificates/R_U_krawczyk_certificate.json",
+        "code/particles/hierarchy/computations/antecedent_only_nonidentifiability.py"
+      ],
+      "target_artifacts": [
+        "code/particles/hierarchy/issue_332_rg_naturality_certificate.json"
+      ],
+      "open_gates": [],
+      "mutation_controls": [
+        "finite_map_tables_are_evaluated_instead_of_trusting_epsilon_flags",
+        "commuting_and_noncommuting_completions_share_one_antecedent_fingerprint",
+        "normal_and_obstruction_square_countermodels_are_both_required",
+        "target_artifact_consumption_is_rejected"
+      ]
+    },
+    {
       "receipt_id": "dark-sector-calibration-negative-control",
       "role": "dark_sector",
       "receipt_class": "comparison",

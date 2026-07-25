@@ -5,6 +5,7 @@ antecedent, and requires the validator to fail closed. The unperturbed
 tree must pass, so a fixture cannot pass vacuously.
 """
 
+import csv
 import importlib.util
 import json
 import sys
@@ -129,7 +130,136 @@ def test_unknown_dependency_node_fails_closed(tmp_path):
         json.dumps({"nodes": ["FIX-1", "FIX-GHOST"], "edges": []}),
         encoding="utf-8",
     )
-    with pytest.raises(SystemExit, match="unknown nodes"):
+    with pytest.raises(SystemExit, match="do not exactly match"):
+        checker.main(tmp_path)
+
+
+@pytest.mark.parametrize("matrix_name", ["novelty_matrix.csv", "falsification_matrix.csv"])
+def test_registry_claim_missing_from_matrix_fails_closed(tmp_path, matrix_name):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"].append(
+            {
+                **r["claims"][0],
+                "claim_id": "FIX-2",
+                "statement": "Second canonical fixture claim.",
+            }
+        ),
+    )
+    # Deliberately leave the selected matrix with only FIX-1.  Make the other
+    # projections complete so the selected omission is the first failure.
+    other = (
+        "falsification_matrix.csv"
+        if matrix_name == "novelty_matrix.csv"
+        else "novelty_matrix.csv"
+    )
+    path = tmp_path / "claims" / other
+    rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+    rows.append({**rows[0], "claim_id": "FIX-2"})
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    graph = tmp_path / "claims" / "dependency_graph.json"
+    graph.write_text(
+        json.dumps({"nodes": ["FIX-1", "FIX-2"], "edges": []}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        SystemExit,
+        match=rf"{matrix_name}: claim ids do not exactly match.*FIX-2",
+    ):
+        checker.main(tmp_path)
+
+
+def test_registry_claim_missing_from_dependency_graph_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"].append(
+            {
+                **r["claims"][0],
+                "claim_id": "FIX-2",
+                "statement": "Second canonical fixture claim.",
+            }
+        ),
+    )
+    for matrix_name in ["novelty_matrix.csv", "falsification_matrix.csv"]:
+        path = tmp_path / "claims" / matrix_name
+        rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+        rows.append({**rows[0], "claim_id": "FIX-2"})
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+
+    with pytest.raises(
+        SystemExit,
+        match=r"dependency_graph.json nodes: claim ids do not exactly match.*FIX-2",
+    ):
+        checker.main(tmp_path)
+
+
+def test_duplicate_novelty_claim_id_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    matrix_name = "novelty_matrix.csv"
+    path = tmp_path / "claims" / matrix_name
+    rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+    rows.append(dict(rows[0]))
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    with pytest.raises(SystemExit, match=rf"{matrix_name}: duplicate claim ids.*FIX-1"):
+        checker.main(tmp_path)
+
+
+def test_multiple_falsification_rows_for_one_claim_are_permitted(tmp_path):
+    write_fixture_repo(tmp_path)
+    path = tmp_path / "claims" / "falsification_matrix.csv"
+    rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+    rows.append(
+        {
+            **rows[0],
+            "mathematical_falsifier": "independent second mathematical falsifier",
+        }
+    )
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    checker.main(tmp_path)
+
+
+def test_duplicate_dependency_node_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    graph = tmp_path / "claims" / "dependency_graph.json"
+    graph.write_text(
+        json.dumps({"nodes": ["FIX-1", "FIX-1"], "edges": []}),
+        encoding="utf-8",
+    )
+    with pytest.raises(SystemExit, match="duplicate claim ids.*FIX-1"):
+        checker.main(tmp_path)
+
+
+def test_dependency_edge_endpoint_must_be_a_declared_node(tmp_path):
+    write_fixture_repo(tmp_path)
+    # An edge cannot smuggle in an endpoint omitted from the declared node list.
+    graph = tmp_path / "claims" / "dependency_graph.json"
+    graph.write_text(
+        json.dumps(
+            {
+                "nodes": ["FIX-1"],
+                "edges": [{"from": "FIX-1", "to": "FIX-GHOST", "role": "fixture"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(SystemExit, match="edge target is not a declared node"):
         checker.main(tmp_path)
 
 
@@ -150,7 +280,7 @@ def edit_snapshot(root: Path, mutate) -> None:
 def test_closed_issue_referenced_as_open_gate_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
     edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(7))
-    with pytest.raises(SystemExit, match="closed on GitHub but still referenced"):
+    with pytest.raises(SystemExit, match="closed on GitHub but referenced"):
         checker.main(tmp_path)
 
 
@@ -167,7 +297,7 @@ def test_claim_promoted_while_gate_open_fails_closed(tmp_path):
         tmp_path,
         lambda r: r["claims"][0].update(claim_class="physical_establishment"),
     )
-    with pytest.raises(SystemExit, match="while gates .* are still open"):
+    with pytest.raises(SystemExit, match="while gates .* are open"):
         checker.main(tmp_path)
 
 

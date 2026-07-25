@@ -15,8 +15,10 @@
 \usepackage{xurl}
 
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\setmainfont{STIX Two Text}
-\setmathfont{STIX Two Math}
+% Pandoc's generated preamble loads the Tectonic-bundled Latin Modern package.
+% Do not replace it through the host font registry: that made the canonical
+% build depend on different macOS/Linux installations and triggered silent
+% bold-face substitutions.
 
 \definecolor{Ink}{HTML}{1F2430}
 \definecolor{Accent}{HTML}{3D6578}

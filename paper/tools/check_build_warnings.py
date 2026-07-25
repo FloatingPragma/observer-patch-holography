@@ -5,11 +5,13 @@ Parses a LaTeX/tectonic .log file and extracts:
   - underfull \\hbox / \\vbox warnings (with source file, line range, badness),
   - overfull \\hbox / \\vbox warnings,
   - undefined references, undefined citations, multiply defined labels.
+  - missing glyphs and font-shape substitutions.
 
 Underfull warnings are matched against paper/build_warning_allowlist.json.
 The script exits nonzero when any warning falls outside the allowlist, when
 any overfull box is present, or when any reference/citation/label problem is
-present. The allowlist applies to underfull boxes only.
+present. Missing glyphs and font substitutions also fail. The allowlist applies
+to underfull boxes only.
 
 Usage (from repo root or anywhere):
   python3 paper/tools/check_build_warnings.py paper/observers_are_all_you_need.log \\
@@ -43,6 +45,14 @@ REF_WARNING_RES = (
     re.compile(r"LaTeX Warning: Label `([^']+)' multiply defined"),
     re.compile(r"LaTeX Warning: There were undefined (references|citations)"),
     re.compile(r"LaTeX Warning: There were multiply-defined labels"),
+)
+GLYPH_FONT_WARNING_RES = (
+    re.compile(r"Missing character:", re.IGNORECASE),
+    re.compile(
+        r"(?:LaTeX|Package [^ ]+) Font Warning:.*"
+        r"(?:undefined|not available|substitut)",
+        re.IGNORECASE,
+    ),
 )
 FONT_SPEC_RE = re.compile(r"\\(?:T1|OT1|OML|OMS|OMX|U)/[\w-]+/[\w]+/[\w]+/[\d.]+ ?")
 
@@ -157,8 +167,8 @@ def parse_log(log_path: Path) -> tuple[list[BoxWarning], list[str]]:
             )
             i = j
             continue
-        for ref_re in REF_WARNING_RES:
-            if ref_re.search(line):
+        for problem_re in (*REF_WARNING_RES, *GLYPH_FONT_WARNING_RES):
+            if problem_re.search(line):
                 ref_problems.append(line.strip())
                 break
         tracker.feed(line)
@@ -222,7 +232,7 @@ def main() -> int:
         unexplained = [w for w in underfull if w.allowed_by is None]
 
         if args.list:
-            print(f"== {log_path.name}: {len(underfull)} underfull, {len(overfull)} overfull, {len(ref_problems)} ref/cite/label problems")
+            print(f"== {log_path.name}: {len(underfull)} underfull, {len(overfull)} overfull, {len(ref_problems)} ref/cite/glyph/font problems")
             for w in warnings:
                 tag = f" [allowed: {w.allowed_by}]" if w.allowed_by else ""
                 extra = f"badness {w.badness}" if w.badness is not None else f"{w.overwidth}pt"
@@ -233,7 +243,7 @@ def main() -> int:
 
         ok = not unexplained and not overfull and not ref_problems
         status = "OK  " if ok else "FAIL"
-        print(f"{status} {log_path.name}: {len(underfull)} underfull ({len(unexplained)} unexplained), {len(overfull)} overfull, {len(ref_problems)} ref/cite/label problems")
+        print(f"{status} {log_path.name}: {len(underfull)} underfull ({len(unexplained)} unexplained), {len(overfull)} overfull, {len(ref_problems)} ref/cite/glyph/font problems")
         for w in unexplained:
             print(f"  UNEXPLAINED {w.kind} at {w.location()} (badness {w.badness}): {w.excerpt[:120]}")
         for w in overfull:

@@ -24,10 +24,42 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 MANDATORY_STEPS: list[tuple[str, list[str]]] = [
+    (
+        "Validate the committed open-problem ledger offline",
+        [sys.executable, "tools/build_open_problem_ledger.py", "--check"],
+    ),
     ("Validate claim registry", [sys.executable, "tools/check_claim_registry.py"]),
+    (
+        "Validate external-data provenance pins and declared source gaps",
+        [sys.executable, "tools/check_external_data_provenance.py"],
+    ),
     ("Audit issue-518 receipt promotion", [sys.executable, "tools/audit_issue_518_receipts.py"]),
     ("Validate paper release manifest", [sys.executable, "tools/validate_paper_release_manifest.py"]),
     ("Regression-test the manifest validator", [sys.executable, "-m", "pytest", "-q", "tools/test_paper_release_manifest.py"]),
+    (
+        "Regression-test the deterministic publication gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "paper/tools/test_check_build_warnings.py",
+            "tools/test_reproducible_build_env.py",
+            "tools/test_open_problem_ledger.py",
+        ],
+    ),
+    (
+        "Execute the Phase-0 proof and non-identifiability receipts",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/consensus/test_issue_517_proof_obligations.py",
+            "code/particles/hierarchy/test_antecedent_only_nonidentifiability.py",
+            "code/particles/hierarchy/test_hierarchy_bundle.py",
+        ],
+    ),
     ("Check the claims scoreboard is regenerated", [sys.executable, "tools/build_scoreboard.py", "--check"]),
     ("Collect the mandatory scientific suite", [sys.executable, "-m", "pytest", "--collect-only", "-q", "code"]),
     ("Execute the audit fixture suite", [sys.executable, "-m", "pytest", "-q", "code/audit"]),

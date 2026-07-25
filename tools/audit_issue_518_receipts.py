@@ -200,6 +200,238 @@ def _check_quarantined_identity(
     return []
 
 
+def _canonical_hash(payload: Mapping[str, Any]) -> str:
+    encoded = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    import hashlib
+
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _check_nogo_source_packet(source_packet: Mapping[str, Any]) -> list[str]:
+    expected_keys = {
+        "branch",
+        "P",
+        "alpha_U",
+        "beta_EW",
+        "m_rep",
+        "capacity_structural_axioms",
+        "naturality_type_signatures",
+        "excluded_target_conditions",
+    }
+    failures: list[str] = []
+    if set(source_packet) != expected_keys:
+        failures.append("nogo_source_packet_schema_mismatch")
+    if source_packet.get("branch") != "source_audit_pixel_branch":
+        failures.append("nogo_source_packet_not_on_source_audit_branch")
+    exclusions = set(source_packet.get("excluded_target_conditions", []))
+    required_exclusions = {
+        "B_EW(P,N)=0",
+        "Pi_EW(P,N)=4P",
+        "N_CRC^EW",
+        "epsilon_n",
+        "epsilon_h",
+        "epsilon_H",
+        "measured weak scale",
+        "measured Lambda or Planck capacity",
+    }
+    if exclusions != required_exclusions:
+        failures.append("nogo_target_exclusion_set_mismatch")
+    return failures
+
+
+def _check_capacity_nonidentifiability(
+    payload: Mapping[str, Any],
+    _row: Mapping[str, Any],
+) -> list[str]:
+    failures: list[str] = []
+    source_packet = payload.get("source_packet", {})
+    failures.extend(_check_nogo_source_packet(source_packet))
+    source_hash = _canonical_hash(source_packet)
+    if payload.get("source_packet_sha256") != source_hash:
+        failures.append("capacity_nogo_source_packet_hash_mismatch")
+    if payload.get("target_artifacts_consumed") != []:
+        failures.append("capacity_nogo_consumes_target_artifact")
+    block = payload.get("capacity_nonidentifiability", {})
+    models = block.get("countermodels", [])
+    if len(models) < 2:
+        return failures + ["capacity_nogo_requires_two_countermodels"]
+
+    fixed_points: list[Fraction] = []
+    for model in models:
+        try:
+            lo, hi = [Fraction(value) for value in model["domain_log_capacity"]]
+            image_lo, image_hi = [
+                Fraction(value) for value in model["image_log_capacity"]
+            ]
+            fixed = Fraction(model["fixed_log_capacity"])
+            weight = Fraction(model["averaging_weight_lambda"])
+            derivative = 1 - weight
+            expected_image = (
+                derivative * lo + weight * fixed,
+                derivative * hi + weight * fixed,
+            )
+            computed = {
+                "derivative": str(derivative),
+                "monotone": derivative >= 0,
+                "strict_contraction": abs(derivative) < 1,
+                "self_map": lo <= expected_image[0] <= expected_image[1] <= hi,
+                "unique_fixed_point": 0 < weight <= 1 and lo < fixed < hi,
+            }
+            if model.get("antecedent_fingerprint") != source_hash:
+                failures.append(
+                    f"capacity_nogo_antecedent_mismatch:{model.get('completion_id')}"
+                )
+            if (image_lo, image_hi) != expected_image:
+                failures.append(
+                    f"capacity_nogo_image_recomputation_failed:{model.get('completion_id')}"
+                )
+            for key, value in computed.items():
+                displayed = model.get(key)
+                if key == "derivative":
+                    displayed = str(Fraction(str(displayed)))
+                if displayed != value:
+                    failures.append(
+                        f"capacity_nogo_literal_mismatch:{model.get('completion_id')}:{key}"
+                    )
+            if Fraction(model.get("fixed_point_residual", "1")) != 0:
+                failures.append(
+                    f"capacity_nogo_fixed_point_residual_nonzero:{model.get('completion_id')}"
+                )
+            fixed_points.append(fixed)
+        except (KeyError, TypeError, ValueError, ZeroDivisionError) as exc:
+            failures.append(
+                "capacity_nogo_countermodel_exception:"
+                f"{model.get('completion_id')}:{type(exc).__name__}:{exc}"
+            )
+
+    if len(set(fixed_points)) < 2:
+        failures.append("capacity_nogo_outputs_not_distinct")
+    if block.get("same_antecedents") is not True:
+        failures.append("capacity_nogo_same_antecedents_not_recorded")
+    if block.get("distinct_fixed_log_capacities") is not True:
+        failures.append("capacity_nogo_distinct_outputs_not_recorded")
+    if block.get("result") != (
+        "NO_UNIQUE_CAPACITY_PRODUCER_FROM_DECLARED_ANTECEDENTS"
+    ):
+        failures.append("capacity_nogo_result_mismatch")
+    return failures
+
+
+def _finite_square_defects(completion: Mapping[str, Any]) -> dict[str, int]:
+    sets = completion["sets"]
+    maps = completion["maps"]
+    q_source = list(sets["Q_s"])
+    q_higgs = set(sets["Q_H"])
+    o_source = set(sets["O_s"])
+    o_higgs = set(sets["O_H"])
+
+    expected_domains = {
+        "rho_sH": set(q_source),
+        "n_s": set(q_source),
+        "n_H": q_higgs,
+        "h_s": set(q_source),
+        "chi_sH": o_source,
+        "h_H": q_higgs,
+    }
+    expected_codomains = {
+        "rho_sH": q_higgs,
+        "n_s": set(q_source),
+        "n_H": q_higgs,
+        "h_s": o_source,
+        "chi_sH": o_higgs,
+        "h_H": o_higgs,
+    }
+    for name, domain in expected_domains.items():
+        if set(maps[name]) != domain:
+            raise ValueError(f"{name} is not total on its declared domain")
+        if not set(maps[name].values()).issubset(expected_codomains[name]):
+            raise ValueError(f"{name} leaves its declared codomain")
+
+    rho = maps["rho_sH"]
+    n_s = maps["n_s"]
+    n_h = maps["n_H"]
+    h_s = maps["h_s"]
+    chi = maps["chi_sH"]
+    h_h = maps["h_H"]
+    epsilon_n = max(
+        (
+            int(rho[n_s[x]] != n_h[rho[x]])
+            for x in q_source
+        ),
+        default=0,
+    )
+    epsilon_h = max(
+        (
+            int(chi[h_s[x]] != h_h[rho[x]])
+            for x in q_source
+        ),
+        default=0,
+    )
+    return {
+        "epsilon_n": epsilon_n,
+        "epsilon_h": epsilon_h,
+        "epsilon_H": max(epsilon_n, epsilon_h),
+    }
+
+
+def _check_naturality_nonidentifiability(
+    payload: Mapping[str, Any],
+    _row: Mapping[str, Any],
+) -> list[str]:
+    failures: list[str] = []
+    source_packet = payload.get("source_packet", {})
+    failures.extend(_check_nogo_source_packet(source_packet))
+    source_hash = _canonical_hash(source_packet)
+    if payload.get("source_packet_sha256") != source_hash:
+        failures.append("naturality_nogo_source_packet_hash_mismatch")
+    if payload.get("target_artifacts_consumed") != []:
+        failures.append("naturality_nogo_consumes_target_artifact")
+    block = payload.get("naturality_nonidentifiability", {})
+    models = block.get("countermodels", [])
+    if len(models) < 3:
+        return failures + ["naturality_nogo_requires_three_countermodels"]
+
+    defects: list[dict[str, int]] = []
+    for model in models:
+        try:
+            computed = _finite_square_defects(model)
+            if model.get("antecedent_fingerprint") != source_hash:
+                failures.append(
+                    f"naturality_nogo_antecedent_mismatch:{model.get('completion_id')}"
+                )
+            if model.get("evaluated_defects") != computed:
+                failures.append(
+                    f"naturality_nogo_defect_recomputation_failed:{model.get('completion_id')}"
+                )
+            defects.append(computed)
+        except (KeyError, TypeError, ValueError) as exc:
+            failures.append(
+                "naturality_nogo_countermodel_exception:"
+                f"{model.get('completion_id')}:{type(exc).__name__}:{exc}"
+            )
+
+    epsilon_h_values = [item["epsilon_H"] for item in defects]
+    if 0 not in epsilon_h_values or not any(value > 0 for value in epsilon_h_values):
+        failures.append("naturality_nogo_does_not_exhibit_distinct_defects")
+    if not any(item["epsilon_n"] > 0 for item in defects):
+        failures.append("naturality_nogo_normal_square_countermodel_missing")
+    if not any(item["epsilon_h"] > 0 for item in defects):
+        failures.append("naturality_nogo_obstruction_square_countermodel_missing")
+    if block.get("evaluated_epsilon_H_values") != epsilon_h_values:
+        failures.append("naturality_nogo_epsilon_summary_mismatch")
+    if block.get("same_antecedents") is not True:
+        failures.append("naturality_nogo_same_antecedents_not_recorded")
+    if block.get("result") != (
+        "NO_UNIQUE_NATURALITY_DEFECT_FROM_DECLARED_ANTECEDENTS"
+    ):
+        failures.append("naturality_nogo_result_mismatch")
+    return failures
+
+
 def _check_dark_negative(
     payload: Mapping[str, Any],
     _row: Mapping[str, Any],
@@ -320,9 +552,67 @@ def audit_registry(
             global_failures.append("backsolved_capacity_identity_present_in_closed_bundle")
         if "RG/Higgs naturality defect epsilon_H=0" in closed_text:
             global_failures.append("selected_naturality_identity_present_in_closed_bundle")
+        if (
+            "target-free scalar packet and generic Banach/readback conditions "
+            "admit distinct capacity fixed points"
+        ) not in closed_text:
+            global_failures.append("capacity_nonidentifiability_missing_from_closed_bundle")
+        if (
+            "map type signatures admit both commuting and noncommuting "
+            "comparison-square completions"
+        ) not in closed_text:
+            global_failures.append("naturality_nonidentifiability_missing_from_closed_bundle")
+        open_text = "\n".join(
+            hierarchy_manifest.get("claim_boundary", {}).get(
+                "not_closed_by_bundle",
+                [],
+            )
+        )
+        if "source-derived public-record/readback map F" not in open_text:
+            global_failures.append("physical_capacity_producer_blocker_missing")
+        if "source-derived definitions of rho_sH" not in open_text:
+            global_failures.append("physical_naturality_map_blocker_missing")
     except (KeyError, ValueError, TypeError, OSError, json.JSONDecodeError) as exc:
         global_failures.append(
             f"hierarchy_manifest_audit_exception:{type(exc).__name__}:{exc}"
+        )
+    try:
+        nogo = _load_json(
+            (
+                "code/particles/hierarchy/certificates/"
+                "antecedent_only_nonidentifiability_receipt.json"
+            ),
+            root=root,
+            overrides=overrides,
+        )
+        source = nogo["source_packet"]
+        pixel = _load_json(
+            (
+                "code/particles/hierarchy/certificates/"
+                "R_P_source_audit_pixel_certificate.json"
+            ),
+            root=root,
+            overrides=overrides,
+        )
+        rounds = _load_json(
+            (
+                "code/particles/hierarchy/certificates/"
+                "R_m_rep_24_certificate.json"
+            ),
+            root=root,
+            overrides=overrides,
+        )
+        if source.get("P") != pixel.get("P_cand"):
+            global_failures.append("nogo_source_P_not_bound_to_source_audit_receipt")
+        if source.get("alpha_U") != pixel.get("alpha_U_P_cand"):
+            global_failures.append(
+                "nogo_source_alpha_U_not_bound_to_source_audit_receipt"
+            )
+        if source.get("m_rep") != rounds.get("result", {}).get("m_rep"):
+            global_failures.append("nogo_m_rep_not_bound_to_round_count_receipt")
+    except (KeyError, ValueError, TypeError, OSError, json.JSONDecodeError) as exc:
+        global_failures.append(
+            f"nogo_source_binding_exception:{type(exc).__name__}:{exc}"
         )
 
     row_reports: list[dict[str, Any]] = []
@@ -367,6 +657,10 @@ def audit_registry(
                 )
             elif kind == "quarantined_identity":
                 failures.extend(_check_quarantined_identity(payload, row))
+            elif kind == "capacity_nonidentifiability":
+                failures.extend(_check_capacity_nonidentifiability(payload, row))
+            elif kind == "naturality_nonidentifiability":
+                failures.extend(_check_naturality_nonidentifiability(payload, row))
             elif kind == "dark_negative_control":
                 failures.extend(_check_dark_negative(payload, row, root=root))
             elif kind == "planck_separation":

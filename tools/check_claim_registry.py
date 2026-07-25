@@ -11,6 +11,7 @@ import csv
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 
@@ -85,6 +86,39 @@ def load_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def check_exact_claim_id_projection(
+    *,
+    surface: str,
+    projected_ids: list[str],
+    canonical_ids: set[str],
+    one_row_per_claim: bool,
+) -> None:
+    """Require exact ID coverage by a projection of the canonical registry.
+
+    Checking only ``projected_ids <= canonical_ids`` is not bidirectional: a
+    newly registered claim can silently disappear from a matrix or DAG while
+    every remaining row still names a valid ID. Surfaces defined to have one
+    row per claim also reject duplicates. The falsification matrix may retain
+    several independently scoped falsification rows for one canonical claim.
+    """
+    duplicates = sorted(
+        claim_id for claim_id, count in Counter(projected_ids).items() if count > 1
+    )
+    require(
+        not one_row_per_claim or not duplicates,
+        f"{surface}: duplicate claim ids: {duplicates}",
+    )
+
+    projected = set(projected_ids)
+    missing = sorted(canonical_ids - projected)
+    extra = sorted(projected - canonical_ids)
+    require(
+        not missing and not extra,
+        f"{surface}: claim ids do not exactly match the canonical registry; "
+        f"missing={missing}, extra={extra}",
+    )
+
+
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise SystemExit(message)
@@ -119,7 +153,7 @@ def load_issue_snapshot(root: Path) -> tuple[set[int], set[int], dict]:
 
     The snapshot is the fail-closed stand-in for live GitHub state: gates are
     validated against it, and CI regenerating it against the live repository is
-    what keeps it honest. The snapshot itself must be internally consistent —
+    what keeps it synchronized. The snapshot itself must be internally consistent:
     a hard-coded or stale `open_issue_count` is rejected here.
     """
     snapshot = load_json(root / ISSUE_SNAPSHOT_RELATIVE)
@@ -154,7 +188,7 @@ def check_gates(claim: dict, open_issues: set[int], closed_issues: set[int]) -> 
     for gate in gates:
         require(
             gate not in closed_issues,
-            f"{claim_id}: gate #{gate} is closed on GitHub but still referenced "
+            f"{claim_id}: gate #{gate} is closed on GitHub but referenced "
             "as an open dependency",
         )
         require(
@@ -166,7 +200,7 @@ def check_gates(claim: dict, open_issues: set[int], closed_issues: set[int]) -> 
         require(
             not gates,
             f"{claim_id}: claim_class {claim['claim_class']!r} asserts physical "
-            f"establishment while gates {gates} are still open",
+            f"establishment while gates {gates} are open",
         )
 
 
@@ -244,24 +278,37 @@ def main(root: Path = ROOT) -> None:
 
     check_snapshot_claim_tokens(snapshot, seen)
 
-    for matrix_name, required_columns in [
-        ("novelty_matrix.csv", {"claim_id", "closest_prior_work", "oph_specific_delta", "novelty_type", "falsifier"}),
-        ("falsification_matrix.csv", {"claim_id", "mathematical_falsifier", "physical_identification_falsifier", "phenomenological_falsifier", "scope_if_false"}),
+    for matrix_name, required_columns, one_row_per_claim in [
+        ("novelty_matrix.csv", {"claim_id", "closest_prior_work", "oph_specific_delta", "novelty_type", "falsifier"}, True),
+        ("falsification_matrix.csv", {"claim_id", "mathematical_falsifier", "physical_identification_falsifier", "phenomenological_falsifier", "scope_if_false"}, False),
     ]:
         matrix_path = root / "claims" / matrix_name
         rows = load_csv(matrix_path)
         require(rows, f"{matrix_path}: no rows")
         require(required_columns.issubset(rows[0].keys()), f"{matrix_path}: missing required columns")
-        for row in rows:
-            claim_id = row["claim_id"]
-            require(claim_id in seen, f"{matrix_path}: unknown claim_id {claim_id}")
+        check_exact_claim_id_projection(
+            surface=str(matrix_path.relative_to(root)),
+            projected_ids=[row["claim_id"] for row in rows],
+            canonical_ids=seen,
+            one_row_per_claim=one_row_per_claim,
+        )
 
     graph = load_json(root / "claims" / "dependency_graph.json")
-    nodes = set(graph.get("nodes", []))
-    require(nodes <= seen, f"dependency graph has unknown nodes: {sorted(nodes - seen)}")
+    raw_nodes = graph.get("nodes", [])
+    require(
+        isinstance(raw_nodes, list) and all(isinstance(node, str) for node in raw_nodes),
+        "claims/dependency_graph.json: nodes must be a list of claim ids",
+    )
+    check_exact_claim_id_projection(
+        surface="claims/dependency_graph.json nodes",
+        projected_ids=raw_nodes,
+        canonical_ids=seen,
+        one_row_per_claim=True,
+    )
+    nodes = set(raw_nodes)
     for edge in graph.get("edges", []):
-        require(edge.get("from") in seen, f"dependency graph has unknown edge source: {edge}")
-        require(edge.get("to") in seen, f"dependency graph has unknown edge target: {edge}")
+        require(edge.get("from") in nodes, f"dependency graph edge source is not a declared node: {edge}")
+        require(edge.get("to") in nodes, f"dependency graph edge target is not a declared node: {edge}")
         require(edge.get("role"), f"dependency graph edge lacks role: {edge}")
 
     gated = [claim for claim in claims if claim["gates"]]

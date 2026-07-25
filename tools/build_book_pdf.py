@@ -7,7 +7,10 @@ import argparse
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
+
+from reproducible_build_env import build_environment
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -120,7 +123,12 @@ def ensure_tool(name: str) -> None:
 
 
 def run(cmd: list[str], cwd: Path | None = None) -> None:
-    subprocess.run(cmd, cwd=cwd, check=True)
+    subprocess.run(
+        cmd,
+        cwd=cwd,
+        check=True,
+        env=build_environment(REPO_ROOT),
+    )
 
 
 def convert_svg_assets(out_dir: Path) -> dict[str, Path]:
@@ -162,7 +170,10 @@ def convert_svg_assets(out_dir: Path) -> dict[str, Path]:
             ]
         )
         raw_output_path.unlink()
-        converted[original_ref] = output_path.resolve()
+        # Keep TeX asset references relative to BUILD_DIR. Absolute temporary
+        # paths are machine-specific inputs and Tectonic correctly warns that
+        # a document which embeds them is not reproducible elsewhere.
+        converted[original_ref] = output_path.relative_to(BUILD_DIR)
     return converted
 
 
@@ -332,6 +343,19 @@ def build(output: Path) -> None:
             f"--outdir={BUILD_DIR}",
         ],
         cwd=BUILD_DIR,
+    )
+
+    # The reader-facing book is part of the same publication warning contract
+    # as the theorem papers. Its known underfulls are anchored in the narrow
+    # issue-542 allowlist; every overfull, missing glyph, font substitution, or
+    # new/unbudgeted underfull remains a hard failure.
+    run(
+        [
+            sys.executable,
+            str(REPO_ROOT / "paper" / "tools" / "check_build_warnings.py"),
+            str(BUILD_DIR / f"{tex_path.stem}.log"),
+        ],
+        cwd=REPO_ROOT,
     )
 
     built_pdf = BUILD_DIR / f"{tex_path.stem}.pdf"

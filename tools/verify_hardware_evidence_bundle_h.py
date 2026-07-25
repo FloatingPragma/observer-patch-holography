@@ -65,6 +65,13 @@ ROLE_PREDICATE = {
 
 REQUIRED_ROLES = frozenset(ROLE_PREDICATE)
 
+PROTOCOL_SCHEMA = "oph.hardware_evidence_bundle_h.protocol.v1"
+RAW_CAPTURE_SCHEMA = "oph.hardware_evidence_bundle_h.raw_capture.v1"
+CONTROL_CAPTURE_SCHEMA = "oph.hardware_evidence_bundle_h.control_capture.v1"
+DEVICE_IDENTITY_SCHEMA = "oph.hardware_evidence_bundle_h.device_identity.v1"
+CLAIM_TEXT_SCHEMA = "oph.hardware_evidence_bundle_h.structured_claim.v1"
+CONTROL_KINDS = frozenset({"blank", "detuned_twin", "sham", "synthetic_blank"})
+
 
 def _canonical_bytes(value: Any) -> bytes:
     return json.dumps(
@@ -280,6 +287,88 @@ def verify_bundle(
             )
             return None
 
+    def closed_artifact(
+        value: Any,
+        *,
+        required: set[str],
+        label: str,
+        code: str,
+        predicate: str,
+    ) -> bool:
+        if not isinstance(value, dict):
+            insufficient(code, f"{label} must be a JSON object", predicate)
+            return False
+        actual = set(value)
+        if actual != required:
+            insufficient(
+                code,
+                (
+                    f"{label} has missing keys {sorted(required - actual)} "
+                    f"and extra keys {sorted(actual - required)}"
+                ),
+                predicate,
+            )
+            return False
+        return True
+
+    def is_sha256(value: Any) -> bool:
+        return (
+            isinstance(value, str)
+            and len(value) == 64
+            and all(character in "0123456789abcdef" for character in value)
+        )
+
+    analysis = bundle["analysis_binding"]
+    protocol_id = analysis["protocol_artifact_id"]
+    protocol_ok = require_artifact(
+        protocol_id,
+        "protocol",
+        predicate="analysis_binding",
+        code="PROTOCOL_ARTIFACT_INVALID",
+    )
+    protocol = (
+        json_artifact(protocol_id, "analysis_binding")
+        if protocol_ok
+        else None
+    )
+    protocol_keys = {
+        "schema",
+        "protocol_id",
+        "device_id",
+        "measurement_channel",
+        "raw_unit",
+        "reported_unit",
+        "firmware_sha256",
+        "control_policy",
+    }
+    if not closed_artifact(
+        protocol,
+        required=protocol_keys,
+        label="protocol artifact",
+        code="PROTOCOL_ARTIFACT_FORMAT_INVALID",
+        predicate="analysis_binding",
+    ):
+        protocol = None
+    elif (
+        protocol["schema"] != PROTOCOL_SCHEMA
+        or protocol["protocol_id"] != bundle["claim"]["protocol_id"]
+        or protocol["device_id"] != bundle["claim"]["device_id"]
+        or not isinstance(protocol["measurement_channel"], str)
+        or not protocol["measurement_channel"]
+        or not isinstance(protocol["raw_unit"], str)
+        or not protocol["raw_unit"]
+        or not isinstance(protocol["reported_unit"], str)
+        or not protocol["reported_unit"]
+        or not is_sha256(protocol["firmware_sha256"])
+        or protocol["control_policy"] != "paired_preceding_same_protocol.v1"
+    ):
+        insufficient(
+            "PROTOCOL_ARTIFACT_FORMAT_INVALID",
+            "protocol does not define the closed channel, units, firmware, and paired-control policy",
+            "analysis_binding",
+        )
+        protocol = None
+
     schedule = bundle["run_schedule"]
     schedule_ok = require_artifact(
         schedule["artifact_id"],
@@ -300,12 +389,12 @@ def verify_bundle(
     run_ids = [row["run_id"] for row in runs]
     if len(set(run_ids)) != len(run_ids):
         insufficient("DUPLICATE_RUN_ID", "run ids are not unique", "completeness")
-    if set(run_ids) != set(schedule["run_ids"]):
+    if run_ids != schedule["run_ids"]:
         insufficient(
             "SELECTIVE_REPORTING",
             (
-                f"scheduled={sorted(schedule['run_ids'])}, "
-                f"reported={sorted(set(run_ids))}"
+                f"scheduled order={schedule['run_ids']}, "
+                f"reported order={run_ids}"
             ),
             "completeness",
         )
@@ -330,7 +419,10 @@ def verify_bundle(
         )
 
     nonces: list[str] = []
-    for run in runs:
+    previous_live_capture: datetime | None = None
+    used_raw_ids: set[str] = set()
+    used_control_ids: set[str] = set()
+    for run_index, run in enumerate(runs):
         run_id = run["run_id"]
         nonces.append(run["capture_nonce"])
         if run["device_id"] != claim_device:
@@ -340,21 +432,56 @@ def verify_bundle(
                 "device_identity",
             )
         identity_id = run["device_identity_artifact_id"]
+        identity: dict[str, Any] | None = None
         if require_artifact(
             identity_id,
             "device_identity",
             predicate="device_identity",
             code="DEVICE_IDENTITY_ARTIFACT_INVALID",
         ):
-            identity = json_artifact(identity_id, "device_identity")
-            if not isinstance(identity, dict) or identity.get("device_id") != claim_device:
+            identity_payload = json_artifact(identity_id, "device_identity")
+            identity_keys = {
+                "schema",
+                "device_id",
+                "hardware_serial_hash",
+                "firmware_sha256",
+            }
+            if closed_artifact(
+                identity_payload,
+                required=identity_keys,
+                label=f"device identity {identity_id}",
+                code="DEVICE_IDENTITY_ARTIFACT_FORMAT_INVALID",
+                predicate="device_identity",
+            ):
+                identity = identity_payload
+            if (
+                identity is None
+                or identity["schema"] != DEVICE_IDENTITY_SCHEMA
+                or identity["device_id"] != claim_device
+                or not is_sha256(identity["hardware_serial_hash"])
+                or not is_sha256(identity["firmware_sha256"])
+                or (
+                    protocol is not None
+                    and identity["firmware_sha256"] != protocol["firmware_sha256"]
+                )
+            ):
                 insufficient(
                     "DEVICE_SUBSTITUTION",
-                    f"identity artifact {identity_id} does not bind {claim_device}",
+                    (
+                        f"identity artifact {identity_id} does not bind the "
+                        "declared device, physical mark, and protocol firmware"
+                    ),
                     "device_identity",
                 )
 
+        if len(run["raw_artifact_ids"]) != 1:
+            insufficient(
+                "RAW_CHANNEL_COVERAGE_INCOMPLETE",
+                f"run {run_id} must carry exactly the one channel supported by v1",
+                "raw_capture",
+            )
         for raw_id in run["raw_artifact_ids"]:
+            used_raw_ids.add(raw_id)
             if not require_artifact(
                 raw_id,
                 "raw_measurement",
@@ -363,28 +490,67 @@ def verify_bundle(
             ):
                 continue
             raw = json_artifact(raw_id, "raw_capture")
-            expected_raw = {
-                "capture_nonce": run["capture_nonce"],
-                "device_id": run["device_id"],
-                "run_id": run_id,
+            raw_keys = {
+                "schema",
+                "capture_nonce",
+                "channel",
+                "raw_unit",
+                "device_id",
+                "firmware_sha256",
+                "hardware_serial_hash",
+                "protocol_id",
+                "run_id",
+                "sequence_index",
+                "captured_utc",
+                "samples",
             }
-            if not isinstance(raw, dict) or any(
-                raw.get(key) != value for key, value in expected_raw.items()
+            if not closed_artifact(
+                raw,
+                required=raw_keys,
+                label=f"raw capture {raw_id}",
+                code="RAW_CAPTURE_FORMAT_INVALID",
+                predicate="raw_capture",
             ):
+                continue
+            raw_matches = (
+                raw["schema"] == RAW_CAPTURE_SCHEMA
+                and raw["capture_nonce"] == run["capture_nonce"]
+                and raw["device_id"] == run["device_id"]
+                and raw["protocol_id"] == claim_protocol
+                and raw["run_id"] == run_id
+                and raw["sequence_index"] == 2 * run_index + 1
+                and raw["captured_utc"] == run["captured_utc"]
+                and isinstance(raw["samples"], list)
+                and bool(raw["samples"])
+                and protocol is not None
+                and raw["channel"] == protocol["measurement_channel"]
+                and raw["raw_unit"] == protocol["raw_unit"]
+                and raw["firmware_sha256"] == protocol["firmware_sha256"]
+                and identity is not None
+                and raw["hardware_serial_hash"] == identity["hardware_serial_hash"]
+            )
+            if not raw_matches:
                 insufficient(
                     "RAW_CAPTURE_BINDING_MISMATCH",
-                    f"{raw_id} does not bind run/device/nonce",
+                    (
+                        f"{raw_id} does not bind the scheduled run, device mark, "
+                        "firmware, protocol channel, units, nonce, and capture time"
+                    ),
                     "raw_capture",
                 )
 
         run_controls = set(run["control_artifact_ids"])
-        if not run_controls or not run_controls.issubset(declared_controls):
+        if (
+            len(run["control_artifact_ids"]) != 1
+            or not run_controls.issubset(declared_controls)
+        ):
             insufficient(
                 "CONTROL_COVERAGE_INCOMPLETE",
-                f"run {run_id} lacks declared controls",
+                f"run {run_id} must have exactly one declared paired control in v1",
                 "controls",
             )
         for control_id in run_controls:
+            used_control_ids.add(control_id)
             if require_artifact(
                 control_id,
                 "control",
@@ -392,12 +558,68 @@ def verify_bundle(
                 code="CONTROL_ARTIFACT_INVALID",
             ):
                 control = json_artifact(control_id, "controls")
-                if not isinstance(control, dict) or control.get("run_id") != run_id:
+                control_keys = {
+                    "schema",
+                    "control_kind",
+                    "channel",
+                    "raw_unit",
+                    "device_id",
+                    "firmware_sha256",
+                    "hardware_serial_hash",
+                    "protocol_id",
+                    "run_id",
+                    "sequence_index",
+                    "captured_utc",
+                    "samples",
+                }
+                if not closed_artifact(
+                    control,
+                    required=control_keys,
+                    label=f"control capture {control_id}",
+                    code="CONTROL_CAPTURE_FORMAT_INVALID",
+                    predicate="controls",
+                ):
+                    continue
+                try:
+                    control_capture = _parse_utc(control["captured_utc"])
+                    live_capture = _parse_utc(run["captured_utc"])
+                except (TypeError, ValueError):
+                    control_capture = None
+                    live_capture = None
+                control_matches = (
+                    control["schema"] == CONTROL_CAPTURE_SCHEMA
+                    and control["control_kind"] in CONTROL_KINDS
+                    and control["run_id"] == run_id
+                    and control["device_id"] == claim_device
+                    and control["protocol_id"] == claim_protocol
+                    and control["sequence_index"] == 2 * run_index
+                    and isinstance(control["samples"], list)
+                    and bool(control["samples"])
+                    and control_capture is not None
+                    and live_capture is not None
+                    and control_capture < live_capture
+                    and (
+                        previous_live_capture is None
+                        or previous_live_capture < control_capture
+                    )
+                    and protocol is not None
+                    and control["channel"] == protocol["measurement_channel"]
+                    and control["raw_unit"] == protocol["raw_unit"]
+                    and control["firmware_sha256"] == protocol["firmware_sha256"]
+                    and identity is not None
+                    and control["hardware_serial_hash"]
+                    == identity["hardware_serial_hash"]
+                )
+                if not control_matches:
                     insufficient(
                         "CONTROL_BINDING_MISMATCH",
-                        f"{control_id} does not bind run {run_id}",
+                        (
+                            f"{control_id} is not the immediately preceding, "
+                            "same-device, same-firmware, same-protocol control for {run_id}"
+                        ),
                         "controls",
                     )
+        previous_live_capture = _parse_utc(run["captured_utc"])
 
         calibration = calibrations.get(run["calibration_id"])
         if calibration is None:
@@ -416,11 +638,20 @@ def verify_bundle(
         ):
             stored_calibration = json_artifact(calibration_id, "calibration_chain")
             expected_calibration = {
-                "calibration_id": calibration["calibration_id"],
-                "device_id": calibration["device_id"],
-                "reference_id": calibration["reference_id"],
-                "valid_from_utc": calibration["valid_from_utc"],
-                "valid_until_utc": calibration["valid_until_utc"],
+                key: calibration[key]
+                for key in (
+                    "calibration_id",
+                    "device_id",
+                    "reference_id",
+                    "reference_uri",
+                    "reference_certificate_sha256",
+                    "channel_id",
+                    "raw_unit",
+                    "reported_unit",
+                    "transformation",
+                    "valid_from_utc",
+                    "valid_until_utc",
+                )
             }
             if stored_calibration != expected_calibration:
                 insufficient(
@@ -434,6 +665,16 @@ def verify_bundle(
                 f"run {run_id} and calibration device differ",
                 "calibration_chain",
             )
+        if protocol is not None and (
+            calibration["channel_id"] != protocol["measurement_channel"]
+            or calibration["raw_unit"] != protocol["raw_unit"]
+            or calibration["reported_unit"] != protocol["reported_unit"]
+        ):
+            insufficient(
+                "CALIBRATION_PROTOCOL_MISMATCH",
+                f"run {run_id} calibration does not transform the protocol channel and units",
+                "calibration_chain",
+            )
         captured = _parse_utc(run["captured_utc"])
         valid_from = _parse_utc(calibration["valid_from_utc"])
         valid_until = _parse_utc(calibration["valid_until_utc"])
@@ -443,6 +684,24 @@ def verify_bundle(
                 f"run {run_id} capture is outside calibration validity",
                 "calibration_chain",
             )
+
+    declared_raw_ids = {
+        artifact_id
+        for artifact_id, row in artifacts.items()
+        if row["role"] == "raw_measurement"
+    }
+    if used_raw_ids != declared_raw_ids:
+        insufficient(
+            "RAW_CHANNEL_COVERAGE_INCOMPLETE",
+            "declared raw captures differ from the scheduled run population",
+            "raw_capture",
+        )
+    if used_control_ids != declared_controls:
+        insufficient(
+            "CONTROL_COVERAGE_INCOMPLETE",
+            "declared controls differ from the interleaved scheduled controls",
+            "controls",
+        )
 
     if len(set(nonces)) != len(nonces):
         insufficient(
@@ -481,6 +740,7 @@ def verify_bundle(
         stored_custody = json_artifact(custody["artifact_id"], "custody")
         expected_custody = {
             "continuous_declared": custody["continuous_declared"],
+            "data_artifact_ids": custody["data_artifact_ids"],
             "segments": custody["segments"],
         }
         if stored_custody != expected_custody:
@@ -491,6 +751,17 @@ def verify_bundle(
             )
     if not custody["continuous_declared"]:
         insufficient("CUSTODY_BREAK", "custody is not declared continuous", "custody")
+    custody_data = set(custody["data_artifact_ids"])
+    required_custody_data = artifact_ids - {custody["artifact_id"]}
+    if custody_data != required_custody_data:
+        insufficient(
+            "CUSTODY_DATA_COVERAGE_INCOMPLETE",
+            (
+                f"custody data={sorted(custody_data)}, "
+                f"required={sorted(required_custody_data)}"
+            ),
+            "custody",
+        )
     segments: list[tuple[datetime, datetime]] = []
     for segment in custody["segments"]:
         if segment["device_id"] != claim_device:
@@ -525,7 +796,6 @@ def verify_bundle(
                 "custody",
             )
 
-    analysis = bundle["analysis_binding"]
     for field, role in (
         ("analysis_artifact_id", "analysis_code"),
         ("claim_text_artifact_id", "claim_text"),
@@ -563,20 +833,20 @@ def verify_bundle(
             "analysis inputs omit raw, calibration, custody, control, protocol, schedule, or device evidence",
             "analysis_binding",
         )
-    claim_path = artifact_paths.get(analysis["claim_text_artifact_id"])
-    if claim_path and claim_path.is_file():
-        claim_text = claim_path.read_text(encoding="utf-8")
-        if bundle["claim"]["effect_statement"] not in claim_text:
-            insufficient(
-                "CLAIM_TEXT_MISMATCH",
-                "structured effect statement is absent from bound claim text",
-                "analysis_binding",
-            )
-    protocol_payload = json_artifact(analysis["protocol_artifact_id"], "analysis_binding")
-    if not isinstance(protocol_payload, dict) or protocol_payload.get("protocol_id") != claim_protocol:
+    claim_payload = json_artifact(
+        analysis["claim_text_artifact_id"],
+        "analysis_binding",
+    )
+    if claim_payload != {
+        "schema": CLAIM_TEXT_SCHEMA,
+        "claim": bundle["claim"],
+    }:
         insufficient(
-            "PROTOCOL_BINDING_MISMATCH",
-            "protocol artifact does not bind the structured protocol id",
+            "CLAIM_TEXT_MISMATCH",
+            (
+                "bound claim text must be the closed structured claim and "
+                "match E, M, U, device, protocol, conditions, and boundary flags exactly"
+            ),
             "analysis_binding",
         )
 

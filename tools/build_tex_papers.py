@@ -6,6 +6,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from reproducible_build_env import build_environment
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
@@ -57,7 +59,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--supplemental-only",
         action="store_true",
-        help="Build only supplemental papers that are not yet release-tracked.",
+        help="Build only supplemental papers outside the release-tracked set.",
     )
     parser.add_argument(
         "--extra-only",
@@ -108,8 +110,17 @@ def build_one(paper_id: str) -> None:
     if not tex_path.exists():
         raise SystemExit(f"missing TeX source: {tex_path}")
 
-    cmd = ["tectonic", "-X", "compile", tex_path.name]
-    result = subprocess.run(cmd, cwd=tex_path.parent, text=True, capture_output=True)
+    # Keep the log from this exact build.  The publication warning gate consumes
+    # one log per discovered source; without --keep-logs an old ignored log can
+    # make a clean-looking gate report describe a previous build instead.
+    cmd = ["tectonic", "-X", "compile", tex_path.name, "--keep-logs"]
+    result = subprocess.run(
+        cmd,
+        cwd=tex_path.parent,
+        text=True,
+        capture_output=True,
+        env=build_environment(REPO_ROOT),
+    )
     if result.returncode != 0:
         if result.stdout.strip():
             print(result.stdout[-8000:])

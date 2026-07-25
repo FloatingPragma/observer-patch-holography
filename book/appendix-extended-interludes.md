@@ -485,8 +485,8 @@ project sound too personal. A synthesis can accidentally look like a lone
 author declaring a world from scratch. That is not the intended posture. OPH
 is a map drawn across territory surveyed by generations.
 
-The thermodynamic territory was surveyed by engineers, chemists, statistical
-mechanicians, and information theorists. The quantum territory was surveyed by
+Engineers, chemists, statistical mechanicians, and information theorists
+surveyed thermodynamics. The quantum territory was surveyed by
 spectroscopists, atomic physicists, mathematical physicists, and generations
 of experimentalists. The relativistic territory was surveyed by astronomers,
 geometers, clock builders, gravitational-wave teams, and cosmologists. The

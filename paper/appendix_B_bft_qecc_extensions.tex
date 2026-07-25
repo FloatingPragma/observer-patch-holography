@@ -14,37 +14,78 @@
 \begin{definition}[QBFT-style protocol]
 \label{def:qbft-style}
 A consensus protocol is \emph{QBFT-style} in this analysis if it satisfies
-the following three structural properties.
-The safety proof of Theorem~\ref{thm:qbft-safety} uses all three;
-the theorem does not hold for protocols lacking any of them without a
-compensating change to the argument.
+the following five structural properties.  Same-view safety uses
+(P1)--(P2), cross-view safety additionally uses the lock and monotone-view
+parts of (P1) and (P4), and the liveness clause uses (P3)--(P5) together
+with the timing and connectivity assumptions below.
 \begin{enumerate}[(P1)]
   \item \textbf{One-vote-per-view.}
-        Each nonfaulty node casts at most one vote per view number.
-        A node that has voted in view~$v$ ignores any later request
-        to vote in view~$v$.
+        Each nonfaulty node supports at most one value per view number.
+        If the protocol has prepare and commit phases, its messages in both
+        phases refer to that same value.  A node that has supported a value in
+        view~$v$ ignores any later conflicting request in view~$v$.
+        View participation is monotone: after entering view \(w\), a
+        nonfaulty node never signs a prepare or commit message for \(v<w\).
   \item \textbf{Certificate semantics.}
-        A decision requires a valid quorum certificate: in the classical
-        exact-size case used below, $q=2f+1$ distinct, unforgeable,
-        authenticated votes for the same value in the same view.  For
-        larger validator sets at fixed fault budget, the quorum threshold must
-        be scaled so that the overlap condition in (A6) remains true.
+        A prepared certificate
+        \(\operatorname{PC}(v,x)\) contains \(q\) distinct, unforgeable,
+        authenticated prepare votes for value \(x\) in view \(v\).  A decision
+        certificate contains \(q\) distinct authenticated commit votes, each
+        referring to the same valid \(\operatorname{PC}(v,x)\).  In the
+        classical exact-size case \(q=2f+1\).  For larger validator sets at
+        fixed fault budget, the threshold must scale so that (A6) holds.
+        A nonfaulty observer finalises a value only after accepting such a
+        valid decision certificate.
   \item \textbf{DLS-style view-change.}
         If no certificate is produced within a timeout, every nonfaulty node
         increments the view number by one and a new leader is selected by a
-        fixed deterministic rule.  At \textrm{GST}, timeouts fire correctly
-        and the view-change terminates in bounded rounds.
+        fixed fair deterministic rule.  Once the post-\textrm{GST} timeout
+        bound of (A1) is active, the pacemaker brings all nonfaulty nodes
+        through successive views and reaches a nonfaulty leader within at
+        most \(f+1\) consecutive views.
+  \item \textbf{Prepared-certificate lock and justified new view.}
+        On accepting \(\operatorname{PC}(v,x)\), and before signing a commit
+        vote for it, a nonfaulty validator records the lock \((v,x)\).
+        Its authenticated view-change message carries its highest valid
+        prepared certificate, if any.  A new leader collects \(q\) such
+        messages.  If it issues a proposal, that proposal carries the value
+        of their highest-view prepared certificate; it may carry a fresh
+        value only if none is present.  The proposal carries the complete
+        new-view justification.
+        Every nonfaulty validator verifies the signatures, quorum size, and
+        highest-certificate selection.  An unlocked validator may support a
+        fresh proposal only when the verified justification contains no
+        prepared certificate.  Otherwise it votes only for its current lock
+        value or for the value of a valid prepared certificate in a strictly
+        higher view than its lock and a lower view than the current proposal,
+        updating its lock monotonically before committing.
+  \item \textbf{Post-\textrm{GST} nonfaulty progress.}
+        In a sufficiently long post-\textrm{GST} view led by a nonfaulty
+        node, that leader collects the required new-view messages and emits
+        the proposal selected by (P4).  Every nonfaulty validator that
+        receives a valid proposal promptly sends its prepare vote; after
+        accepting a valid prepared certificate it records its lock and sends
+        its commit vote; after accepting a valid decision certificate it
+        finalises and relays that certificate.  Each of these fixed protocol
+        phases completes within \(O(\Theta)\), with \(\Theta\) defined in
+        (A1).
 \end{enumerate}
-The Istanbul BFT / QBFT protocol family
-\cite{Moniz2020,Saltini}
-satisfies (P1)--(P3) and is the intended instance.
+The Istanbul BFT / QBFT protocol family \cite{Moniz2020,Saltini} motivates
+this pattern; (P1)--(P5), including their exact certificate, pacemaker, lock,
+and progress semantics, must be checked against an implementation rather
+than inferred from the family name.
 \end{definition}
 
 \paragraph{Assumptions A1--A6.}
 \begin{enumerate}[(A1)]
   \item \textbf{Partial synchrony (DLS).}
-        Fixed but initially unknown bounds $\Delta$ (message delay) and
-        $\Phi$ (processing rates).
+        Fixed but initially unknown bounds $\Delta$ (per-edge message delay)
+        and $\Phi$ (local processing time) hold after \textrm{GST}. Together
+        with the certified routes of (A4), they supply an effective
+        end-to-end protocol-phase bound \(\Theta\) that includes route length,
+        processing, and the fixed number of message steps in one phase.
+        Pacemaker timeouts eventually exceed the corresponding per-view
+        bound.
         \emph{Safety} holds without extra timing assumptions;
         \emph{liveness} holds after the Global Stabilisation Time (\textrm{GST}).
   \item \textbf{Byzantine fault model.}
@@ -70,7 +111,9 @@ satisfies (P1)--(P3) and is the intended instance.
         $|Q_a\cap Q_b|\geq f+1$.  For $q=2f+1$ this is guaranteed by the
         exact sizing $n=3f+1$ in (A3); for general $n$ it is the separate
         threshold condition $2q\ge n+f+1$, not a consequence of
-        $n\ge3f+1$ alone.
+        $n\ge3f+1$ alone.  The liveness clause additionally requires
+        \(q\le n-f\), so a certificate can be formed without Byzantine
+        participation.
 \end{enumerate}
 
 D.\ Matscheko's review of this appendix covers the finite quorum-overlap
@@ -78,55 +121,132 @@ core and records the same boundary caveat: at fixed \(q=2f+1\), the overlap
 step is exact-size \(n=3f+1\) logic unless (A6) is imposed separately.
 
 \begin{theorem}[QBFT Safety Bound
-  {\normalfont\small [Same-view case established under A1--A6;
-  cross-view safety conditional on a (P4) locking rule]}]
+  {\normalfont\small [Cross-view safety established under the stated
+  certificate, overlap, authentication, and lock rules]}]
 \label{thm:qbft-safety}
-Under assumptions (A1)--(A6), any consensus protocol satisfying
-(P1)--(P3) of Definition~\ref{def:qbft-style} and run over the
+Under (A1), (A2), and (A4)--(A6), any consensus protocol satisfying
+(P1)--(P5) of Definition~\ref{def:qbft-style} and run over the
 \textrm{OPH} observer graph satisfies:
 \begin{enumerate}[(i)]
-  \item \textbf{Same-view safety.} No two nonfaulty observers finalise
-        conflicting patch states in the same view.
-  \item \textbf{Liveness.} After \textrm{GST}, every nonfaulty observer
-        finalises within $O(f\cdot\Delta)$ wall-clock time.
-  \item \textbf{Optimality.} The bound $f<n/3$ is tight.
+  \item \textbf{Cross-view safety.} No two nonfaulty observers finalise
+        conflicting patch states, whether in the same view or in different
+        views.
+  \item \textbf{Liveness.} From the first post-\textrm{GST} view in which the
+        pacemaker timeout bound is active, every nonfaulty observer finalises
+        within $O((f+1)\Theta)$ wall-clock time, provided \(q\le n-f\).
+        No bound from \textrm{GST} to timeout activation is claimed.
+  \item \textbf{Certificate-contract threshold.} Joint feasibility of the
+        safety threshold \(2q\ge n+f+1\) and Byzantine-independent liveness
+        threshold \(q\le n-f\) forces \(n\ge3f+1\); the exact-size choice
+        \(n=3f+1,q=2f+1\) attains both.
 \end{enumerate}
 \end{theorem}
 
-\paragraph{Cross-view boundary.}
-Clause (i) is stated for same-view finalisation because the argument below
-covers exactly that case. Cross-view safety in the IBFT/QBFT protocol family
-uses an additional prepared-certificate locking property, an explicit
-(P4) hypothesis under which a nonfaulty node votes in a later view only for
-a value carried by the highest prepared certificate it has received.
-(P1)--(P3) alone do not exclude finalisation of conflicting values across
-views; a cross-view extension of this theorem requires (P4) and its
-accompanying view-change justification argument.
-On its stated assumptions, this finalisation theorem gives record permanence:
-no two nonfaulty observers finalise conflicting patch states. Record
-permanence enters as a consistency requirement on the observer net, not as an
-added postulate.
+\paragraph{Sizing and status boundary.}
+Assumption (A3) is the classical exact-size way to discharge (A6), not an
+additional independent premise: when \(n=3f+1\) and \(q=2f+1\), the required
+overlap is automatic.  For general \(n\), (A6) must instead be checked
+directly.  The prepared-lock rule proves safety only for the protocol just
+defined; it is not inferred from the word ``QBFT.''  On those stated
+assumptions the theorem gives record permanence: no two nonfaulty observers
+finalise conflicting patch states.  Record permanence enters as a consistency
+requirement on the observer net, not as an added postulate.
 
-\begin{proof}[Proof sketch]
-\textit{Safety.}
-Suppose $O_a$ and $O_b$ finalise $s_a\neq s_b$ in the same view.
+\begin{proof}
+\textit{Same-view safety.}
+Suppose $O_a$ and $O_b$ finalise $s_a\neq s_b$ in one view.
 By (P2), each required a certificate of $q$ votes: sets $Q_a,Q_b$.
 By (A6), $|Q_a\cap Q_b|\geq f+1$.  In the classical exact-size case this is
 the inclusion-exclusion calculation
 $|Q_a\cap Q_b|\geq(2f+1)+(2f+1)-(3f+1)=f+1$.
 By (A2), at most $f$ are Byzantine, so $Q_a\cap Q_b$ contains a
 nonfaulty $O^*$.
-By (A4), $O^*$'s signed vote is path-reachable within both quorums.
 By (P1), $O^*$ voted for at most one value. Contradiction.
+The identical overlap argument applies to two prepared certificates in the
+same view, using their prepare-vote quorums.
 
-\textit{Liveness and Optimality}
-follow from \cite{DLS88} (Thm.~4.4) and \cite{Lamport1982}, cited directly.
+\textit{Cross-view safety.}
+Suppose \(\operatorname{DC}(v,x)\) and
+\(\operatorname{DC}(w,y)\) are conflicting decision certificates with
+\(v<w\). Every nonfaulty signer in the commit quorum \(Q_x\) accepted
+\(\operatorname{PC}(v,x)\), locked \(x\), and then committed. Hence its
+nonfaulty subset \(H_x\) has size at least \(q-f\). Every size-\(q\)
+prepare quorum \(P\) intersects that set because
+\[
+ |H_x\cap P|
+ \ge (q-f)+q-n
+ =2q-n-f
+ \ge1
+\]
+by (A6).
+
+Assume for contradiction that a prepared certificate for a value different
+from \(x\) exists above view \(v\), and choose one with least view \(r>v\).
+Let \(O^*\in H_x\) be a nonfaulty member of its prepare quorum. If \(O^*\)
+prepared the view-\(r\) value before its view-\(v\) commit, monotone view
+participation in (P1) forbids that later lower-view commit. If it prepared
+after the commit, it was locked on \(x\). Rule (P4) permits a different value
+only when justified by a valid conflicting prepared certificate whose view
+lies strictly between \(v\) and \(r\), contradicting the minimality of \(r\).
+Thus no higher conflicting prepared certificate exists, and (P2) excludes
+the alleged \(\operatorname{DC}(w,y)\).
+
+\textit{Liveness and certificate threshold.}
+From the first post-\textrm{GST} view whose pacemaker timeout is active,
+(A1) makes every failed-view timeout and every fixed protocol phase
+\(O(\Theta)\). Rule (P3) reaches a nonfaulty leader within at most \(f+1\)
+consecutive views. Since \(q\le n-f\), nonfaulty validators can
+supply all \(q\) new-view, prepare, and commit messages without Byzantine
+participation. The highest valid certificate selected by (P4) is compatible
+with every nonfaulty lock by the safety invariant. Rule (P5) therefore
+executes the proposal, prepare, commit, and decision-relay phases, so every
+nonfaulty observer finalises within \(O((f+1)\Theta)\) from that activation
+point. Eventual timeout activation yields eventual liveness, but the theorem
+does not bound its delay after \textrm{GST}.
+
+Finally, \(q\le n-f\) and \(2q\ge n+f+1\) imply
+\[
+ 2(n-f)\ge n+f+1,
+\]
+hence \(n\ge3f+1\) (with the integer convention already present in (A6)).
+At \(n=3f+1\), \(q=2f+1\) attains both inequalities. This is a threshold
+statement for the declared certificate contract, not a universal resilience
+claim for every authenticated protocol model.
 
 \textit{Note on FLP.}
 Fischer, Lynch, Paterson~\cite{FLP85} is an impossibility result for
 fully asynchronous systems; it does not bear on achievability under
 partial synchrony (A1).
 \end{proof}
+
+\paragraph{Executable receipt and negative controls.}
+The finite \(\mathsf{BFT\text{-}LOCK\text{-}1}\) receipt in
+\path{code/consensus/runs/issue_517_proof_obligations.json}, generated by
+\path{code/consensus/verify_issue_517_proof_obligations.py}, exhausts
+all certificate and new-view quorum pairs for
+\((n,f,q)=(1,0,1),(4,1,3),(7,2,5)\).  It checks both the nonfaulty
+certificate-overlap witness and transfer of at least one nonfaulty prepared
+lock into every new-view quorum.  It also executes the next-view lock
+transition against every candidate prepare quorum at those parameter points,
+parses actual certificate records before selecting the highest valid report,
+and runs finite post-\textrm{GST} proposal/prepare/commit/relay traces for
+every nonfaulty reference leader.  The arbitrary-view induction and
+wall-clock proof remain the mathematical argument above; the receipt is not
+a general protocol-model checker.
+
+Separate finite traces remove one-vote, monotone-view participation,
+finalise-only-on-valid-certificate semantics, quorum overlap, the fault
+bound, authentication, prepared locking, highest-certificate leader
+selection, partial synchrony, quorum availability, quorum connectivity,
+terminating view change, nonfaulty-leader proposal progress, and
+nonfaulty-validator prepare/commit/relay progress.  Validator
+justification checking has a separate malformed-proof conformance witness;
+with the retained lock rule it is defence in depth rather than an
+independent safety premise.  The lock-free
+\(n=4,f=1,q=3\) trace decides \(x\)
+from \(\{B,H_1,H_2\}\) in view zero and \(y\ne x\) from
+\(\{B,H_2,H_3\}\) in view one while respecting one-value-per-validator in
+each individual view.
 
 % ------------------------------------------------------------
 \subsection*{B.2\quad Theorem 2: Convergence of the OPH Repair Map}
@@ -397,12 +517,15 @@ Theorem~\ref{thm:exp-convergence}. Bounded wall-clock liveness requires partial 
 quorum assumptions. The \textrm{FLP} impossibility result~\cite{FLP85} confirms that fairness is
 insufficient for bounded-time consensus in a fully asynchronous system.
 
-\paragraph{Additional assumptions for a quantitative bound.}
+\paragraph{A commonly used shorthand is insufficient.}
 \begin{enumerate}[(B1)]
   \item Finite known bound $\Delta$ on message delay after \textrm{GST}.
   \item Finite bound $\Phi$ on processing rates.
   \item $f < n/3$.
 \end{enumerate}
+These three facts alone do not define a protocol that proposes, votes,
+forms certificates, changes views, or relays a decision.  Consequently they
+do not imply a wall-clock consensus bound.
 
 \begin{theorem}[Eventual finite repair termination
   {\normalfont\small [Finite-descent branch]}]
@@ -418,15 +541,15 @@ Petz channel, not probability-one convergence over random schedules, not exponen
 and not a wall-clock liveness theorem.
 \end{theorem}
 
-\begin{theorem}[Quantitative Convergence
-  {\normalfont\small [Assuming (B1)--(B3)]}]
+\begin{theorem}[Quantitative BFT liveness
+  {\normalfont\small [Restatement under the complete B.1 contract]}]
 \label{thm:quantitative-convergence}
-In a partially synchronous \textrm{OPH} observer network satisfying
-(B1)--(B3), after \textrm{GST} every nonfaulty observer reaches consensus
-within $T=O(f\cdot\Delta)$ wall-clock time
-(by applying the \textrm{DLS} framework~\cite{DLS88}, Thm.~4.4,
-to the \textrm{OPH} repair protocol;
-requires (B1) and (B2) explicitly and does not follow from fairness alone).
+Under (A1), (A2), (A4)--(A6), \(q\le n-f\), and protocol rules
+(P1)--(P5) of Definition~\ref{def:qbft-style}, every nonfaulty observer
+finalises within \(O((f+1)\Theta)\) wall-clock time measured from the first
+post-\textrm{GST} view whose pacemaker timeout bound is active.
+This is exactly the liveness clause proved in
+Theorem~\ref{thm:qbft-safety}; it does not follow from (B1)--(B3).
 \end{theorem}
 
 % ------------------------------------------------------------

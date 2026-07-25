@@ -1,0 +1,92 @@
+name: Publication Build Gate
+
+# Issue #542: compile every source-derived TeX root plus the reader-facing
+# book, then enforce the anchored warning budget from the logs emitted by
+# those exact builds.  The Tectonic version is pinned to the documented local
+# environment so a moving engine release cannot silently redefine the budget.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "paper/**"
+      - "extra/**"
+      - "book/**"
+      - "assets/**"
+      - "tools/build_tex_papers.py"
+      - "tools/build_book_pdf.py"
+      - "tools/book_pdf_header.tex"
+      - "tools/reproducible_build_env.py"
+      - "tools/refresh_paper_release.py"
+      - "REPRODUCE.md"
+      - ".github/workflows/publication-build.yml"
+  pull_request:
+    paths:
+      - "paper/**"
+      - "extra/**"
+      - "book/**"
+      - "assets/**"
+      - "tools/build_tex_papers.py"
+      - "tools/build_book_pdf.py"
+      - "tools/book_pdf_header.tex"
+      - "tools/reproducible_build_env.py"
+      - "tools/refresh_paper_release.py"
+      - "REPRODUCE.md"
+      - ".github/workflows/publication-build.yml"
+  workflow_dispatch:
+
+jobs:
+  publication-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned Tectonic
+        uses: wtfjoke/setup-tectonic@v4
+        with:
+          tectonic-version: "0.15.0"
+
+      - name: Install pinned Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: "3.8.3"
+
+      - name: Install publication tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ghostscript librsvg2-bin poppler-utils
+
+      - name: Build every paper and enforce its warning budget
+        run: python tools/refresh_paper_release.py
+
+      - name: Build the book and enforce its warning budget
+        run: python tools/build_book_pdf.py --output "${RUNNER_TEMP}/reverse-engineering-reality-book.pdf"
+
+      - name: Record first-pass publication hashes
+        run: |
+          find paper extra -maxdepth 1 -type f -name '*.pdf' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-first.sha256"
+          sha256sum "${RUNNER_TEMP}/reverse-engineering-reality-book.pdf" \
+            > "${RUNNER_TEMP}/book-first.sha256"
+
+      - name: Rebuild every publication artifact
+        run: |
+          python tools/refresh_paper_release.py
+          python tools/build_book_pdf.py --output "${RUNNER_TEMP}/reverse-engineering-reality-book.pdf"
+
+      - name: Require byte-identical second pass
+        run: |
+          find paper extra -maxdepth 1 -type f -name '*.pdf' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-second.sha256"
+          sha256sum "${RUNNER_TEMP}/reverse-engineering-reality-book.pdf" \
+            > "${RUNNER_TEMP}/book-second.sha256"
+          diff -u "${RUNNER_TEMP}/papers-first.sha256" "${RUNNER_TEMP}/papers-second.sha256"
+          diff -u "${RUNNER_TEMP}/book-first.sha256" "${RUNNER_TEMP}/book-second.sha256"

@@ -10,6 +10,34 @@ This dictionary gives stable names to the assumptions used in the claim registry
 | `checkpoint_continuation_contract` | A patch exposes enough record data to define branch-local continuation within an error bound. | Screen microphysics |
 | `repair_completeness` | The declared repair moves can close every local mismatch covered by the theorem. | Consensus paper |
 | `local_diamond` | Overlapping local repair moves commute or complete to a common local diamond on the quotient. | Consensus paper |
+| `strict_well_founded_transactional_descent` | Every accepted nontrivial aggregate transaction strictly lowers one declared well-founded exact measure. | Consensus paper |
+| `semantic_dependency_complete_reads_and_revalidation` | Transaction read sets contain every finite support whose acceptance value can change under the write, and those values are revalidated at commit. | Consensus paper |
+| `atomic_conflict_component_commits` | Enabled primitive repairs in one connected read/write conflict component are replaced by one aggregate commit and never commit separately. | Consensus paper |
+| `coherent_canonical_union_collar_payload` | Every conflict component has one restriction-compatible, parenthesization-independent aggregate payload on its union collar. | Consensus paper |
+| `aggregate_support_fixed_point_reclosure` | Final aggregate read/write supports are semantically closed; any support expansion triggers conflict recomputation and merging until distinct aggregates are pairwise nonconflicting. | Consensus paper |
+| `prepared_source_component_survival` | A source-batch aggregate with a current snapshot and successful revalidation remains admissible after a disjoint source component commits, before newly enabled proposals are rebatted, or an equivalent dynamic-stability certificate is supplied. | Consensus paper |
+| `payload_determined_by_declared_read_snapshot` | An accepted transaction payload is a function only of its declared current read snapshot, with no undeclared schedule-sensitive input. | Consensus paper |
+| `authenticated_prepared_and_decision_certificates` | Prepared and decision certificates contain the declared quorum of distinct authenticated votes for one value and view, with decisions referring to a valid prepared certificate. | Consensus BFT appendix |
+| `valid_decision_certificate_required_for_finalization` | A nonfaulty observer finalises only after accepting a valid decision certificate referring to a valid prepared certificate. | Consensus BFT appendix |
+| `one_supported_value_per_validator_per_view` | A nonfaulty validator's prepare and commit messages in one view support at most one value. | Consensus BFT appendix |
+| `monotone_view_participation` | After entering a higher view, a nonfaulty validator never signs a prepare or commit message for a lower view. | Consensus BFT appendix |
+| `at_most_f_Byzantine_validators` | No more than the declared fault budget \(f\) validators behave Byzantine. | Consensus BFT appendix |
+| `quorum_threshold_2q_ge_n_plus_f_plus_1` | The quorum threshold satisfies \(2q\ge n+f+1\), ensuring a nonfaulty overlap witness. | Consensus BFT appendix |
+| `quorum_availability_q_le_n_minus_f_for_liveness` | The quorum threshold satisfies \(q\le n-f\), so nonfaulty validators can form a certificate even if every Byzantine validator withholds. | Consensus BFT appendix |
+| `monotone_prepared_certificate_locks` | A nonfaulty validator locks a valid prepared certificate before committing and changes that lock only for a strictly higher valid certificate. | Consensus BFT appendix |
+| `highest_prepared_certificate_new_view_selection` | A new leader collects \(q\) view-change messages and proposes the value of their highest valid prepared certificate. | Consensus BFT appendix |
+| `validator_new_view_justification_check` | Nonfaulty validators verify the new-view quorum, signatures, and highest-certificate selection before voting. | Consensus BFT appendix |
+| `partial_synchrony_and_fair_view_change_for_liveness` | After GST, the effective phase bound holds; once the pacemaker timeout bound is active, its deterministic schedule reaches a nonfaulty leader in bounded consecutive views. No GST-to-activation bound is implicit. | Consensus BFT appendix |
+| `effective_post_GST_phase_bound` | One declared bound \(\Theta\) absorbs certified route length, per-edge delay, local processing, and the fixed message steps of a protocol phase. | Consensus BFT appendix |
+| `post_GST_nonfaulty_protocol_progress` | In a nonfaulty-led post-GST view after timeout-bound activation, the leader proposes the P4-selected value and nonfaulty validators send prepare/commit votes and relay a valid decision certificate. | Consensus BFT appendix |
+| `declared_Lipschitz_restriction_maps` | Every refinement restriction used in a quantitative comparison carries the displayed Lipschitz bound. | Observable normal-forms paper |
+| `family_uniform_observation_Lipschitz_bound` | The observation maps in a uniform family share one finite Lipschitz bound; stagewise finite constants alone are insufficient. | Observable normal-forms paper |
+| `family_uniform_residual_modulus` | The residual-to-consistency moduli are bounded by one family function tending to zero at zero. | Observable normal-forms paper |
+| `family_uniform_inverse_observation_modulus` | The inverse-observation moduli on consistent sets are bounded by one family function tending to zero at zero. | Observable normal-forms paper |
+| `cofinally_vanishing_or_summable_refinement_tail` | The Lipschitz-amplified normalizer-defect tail vanishes cofinally; summability is a sufficient special case. | Observable normal-forms paper |
+| `complete_coordinate_spaces_for_projective_limits` | Each coordinate metric space used to turn the Cauchy refinement estimate into a projective limit is complete. | Observable normal-forms paper |
+| `compatible_projective_input` | The input family obeys every inverse-system restriction equation before a common projective output is asserted. | Observable normal-forms paper |
+| `vanishing_solver_receipt_errors` | The run-specific residual/observation error bound tends to zero along the refinement sequence used for the projective limit. | Observable normal-forms paper |
 | `support_visible_BW_scaling` | The cap modular flow has a support-visible geometric scaling limit on the prime geometric subnet. | Compact SM/GR paper |
 | `oriented_round_cap_rigidity` | The support-visible geometric branch emits nondegenerate oriented round caps rather than arbitrary subsets or only noisy fitted boundaries. | Compact SM/GR paper |
 | `consistent_orientation_and_time_orientation` | The geometric branch carries one sphere orientation and one preserved future null cone, so conformal transitions lift to the proper orthochronous Lorentz group. | Compact SM/GR paper |
@@ -98,7 +126,7 @@ This dictionary gives stable names to the assumptions used in the claim registry
 
 ## Registry completion, 2026-07-23
 
-Entries added when dictionary closure became a fail-closed validator check (issue #512): every assumption token in `claim_registry.yaml` now has one canonical row here. The owner paper stays the legal source for each theorem statement.
+Dictionary closure is a fail-closed validator check (issue #512): every assumption token in `claim_registry.yaml` has one canonical row here. The owner paper stays the legal source for each theorem statement.
 
 | Assumption | Meaning | Primary owner |
 |---|---|---|

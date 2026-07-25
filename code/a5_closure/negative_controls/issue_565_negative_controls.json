@@ -53,6 +53,12 @@
       "passed": true
     },
     {
+      "actual_error": "PORT_ATOM_NOT_PRIMITIVE",
+      "expected_error": "PORT_ATOM_NOT_PRIMITIVE",
+      "name": "remove_primitive_atom_status",
+      "passed": true
+    },
+    {
       "actual_error": "PORT_TRACE_NOT_UNIFORM",
       "expected_error": "PORT_TRACE_NOT_UNIFORM",
       "name": "remove_equal_port_trace",
@@ -71,9 +77,33 @@
       "passed": true
     },
     {
+      "actual_error": "COST_NOT_SOURCE_DEFINED",
+      "expected_error": "COST_NOT_SOURCE_DEFINED",
+      "name": "remove_source_readback_cost_origin",
+      "passed": true
+    },
+    {
+      "actual_error": "PORT_ATOMS_NOT_ORTHOGONAL",
+      "expected_error": "PORT_ATOMS_NOT_ORTHOGONAL",
+      "name": "remove_pairwise_orthogonal_port_atoms",
+      "passed": true
+    },
+    {
+      "actual_error": "PORT_ATOMS_NOT_COMPLETE",
+      "expected_error": "PORT_ATOMS_NOT_COMPLETE",
+      "name": "remove_port_atom_completeness",
+      "passed": true
+    },
+    {
       "actual_error": "EDGE_COUNT",
       "expected_error": "EDGE_COUNT",
       "name": "remove_icosahedral_incidence",
+      "passed": true
+    },
+    {
+      "actual_error": "FACE_ORIENTATION",
+      "expected_error": "FACE_ORIENTATION",
+      "name": "remove_coherent_face_orientation",
       "passed": true
     },
     {
@@ -98,6 +128,36 @@
       "actual_error": "FORBIDDEN_DEPENDENCY",
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "inject_downstream_target",
+      "passed": true
+    },
+    {
+      "actual_error": "SCHEMA_FIELDS",
+      "expected_error": "SCHEMA_FIELDS",
+      "name": "inject_undeclared_opaque_numeric_input",
+      "passed": true
+    },
+    {
+      "actual_error": "TRACE_WEIGHT_FORMAT",
+      "expected_error": "TRACE_WEIGHT_FORMAT",
+      "name": "inject_float_trace_fraction",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_LEVEL_FORMAT",
+      "expected_error": "REFINEMENT_LEVEL_FORMAT",
+      "name": "inject_numeric_refinement_levels",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_MAP_LEVEL_FORMAT",
+      "expected_error": "REFINEMENT_MAP_LEVEL_FORMAT",
+      "name": "inject_numeric_refinement_map_endpoint",
+      "passed": true
+    },
+    {
+      "actual_error": "REFINEMENT_MAP_FORMAT",
+      "expected_error": "REFINEMENT_MAP_FORMAT",
+      "name": "inject_numeric_port_map_entry",
       "passed": true
     }
   ],

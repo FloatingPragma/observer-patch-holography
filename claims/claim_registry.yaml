@@ -124,6 +124,13 @@
       "tier": "fixed_cutoff_structural_theorem",
       "assumptions": [
         "finite_patch_net",
+        "strict_well_founded_transactional_descent",
+        "semantic_dependency_complete_reads_and_revalidation",
+        "atomic_conflict_component_commits",
+        "coherent_canonical_union_collar_payload",
+        "aggregate_support_fixed_point_reclosure",
+        "prepared_source_component_survival",
+        "payload_determined_by_declared_read_snapshot",
         "repair_completeness",
         "local_diamond",
         "preserved_boundary_sector_map_for_same_boundary_uniqueness"
@@ -136,11 +143,89 @@
       "oph_specific_delta": "The repair relation is recovery-derived and acts on visible overlaps with holonomy obstruction and refinement compatibility.",
       "novelty_type": "theorem_package",
       "evidence": [
-        "paper/reality_as_consensus_protocol.tex"
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/consensus/verify_issue_517_proof_obligations.py",
+        "code/consensus/runs/issue_517_proof_obligations.json",
+        "code/consensus/test_issue_517_proof_obligations.py"
       ],
       "falsifier": "A nonconfluent terminal pair exists under the declared local-diamond and repair-completeness clauses.",
       "scope_if_false": "The consensus implementation theorem falls; Lorentz, gauge, and quantitative branches that import only weaker finite-cutoff ingredients must be audited separately.",
-      "status": "proved_on_branch",
+      "status": "paper_proved_on_declared_branch__finite_reference_engine_exhausted__general_theorem_not_Lean_or_TLA_formalized",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-CONS-BFT-PREPARED-LOCK",
+      "statement": "For the declared two-certificate QBFT-style protocol, finalisation only on an authenticated prepared-backed q-vote decision certificate, one supported value per validator per view, monotone view participation, nonfaulty prepared-certificate locks, at most f Byzantine validators, and 2q >= n+f+1 imply safety across all views. Liveness additionally requires q <= n-f, an effective post-GST phase bound, fair terminating view change, highest-certificate proposal selection, and explicit nonfaulty proposal/prepare/commit/relay progress.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "assumption_dependent_distributed_consensus_theorem",
+      "assumptions": [
+        "authenticated_prepared_and_decision_certificates",
+        "valid_decision_certificate_required_for_finalization",
+        "one_supported_value_per_validator_per_view",
+        "monotone_view_participation",
+        "at_most_f_Byzantine_validators",
+        "quorum_threshold_2q_ge_n_plus_f_plus_1",
+        "quorum_availability_q_le_n_minus_f_for_liveness",
+        "monotone_prepared_certificate_locks",
+        "highest_prepared_certificate_new_view_selection",
+        "validator_new_view_justification_check",
+        "partial_synchrony_and_fair_view_change_for_liveness",
+        "effective_post_GST_phase_bound",
+        "post_GST_nonfaulty_protocol_progress"
+      ],
+      "imported_results": [
+        "partial_synchrony_model"
+      ],
+      "oph_specific_delta": "The OPH appendix now types the exact prepared/lock/view-change contract instead of inferring cross-view safety from same-view quorum overlap. The finite receipt exhausts certificate and lock-transfer intersections at three exact-size parameter points and carries separate negative traces for every load-bearing safety or liveness premise.",
+      "novelty_type": "typed_protocol_extension_and_finite_receipt",
+      "evidence": [
+        "paper/appendix_B_bft_qecc_extensions.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "code/consensus/verify_issue_517_proof_obligations.py",
+        "code/consensus/runs/issue_517_proof_obligations.json",
+        "code/consensus/test_issue_517_proof_obligations.py"
+      ],
+      "falsifier": "Two conflicting valid decision certificates exist under the complete prepared-lock and highest-justified-new-view contract, or one finite negative trace is accepted after its corresponding premise is removed.",
+      "scope_if_false": "The assumption-dependent BFT extension falls; the core finite OPH repair-confluence theorem is independent.",
+      "status": "paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-CONS-REFINEMENT-MODULI",
+      "statement": "One-step normalizer defects telescope through arbitrary refinement depth with the displayed Lipschitz-amplified sum. Uniform settled-output and projective-limit conclusions require family-uniform residual and inverse-observation moduli plus a cofinally vanishing or summable tail; stagewise injectivity or stagewise error bounds alone are insufficient.",
+      "owner_paper": "extra/observable_normal_forms.tex",
+      "tier": "quantitative_refinement_theorem",
+      "assumptions": [
+        "declared_Lipschitz_restriction_maps",
+        "family_uniform_observation_Lipschitz_bound",
+        "family_uniform_residual_modulus",
+        "family_uniform_inverse_observation_modulus",
+        "cofinally_vanishing_or_summable_refinement_tail",
+        "complete_coordinate_spaces_for_projective_limits",
+        "compatible_projective_input",
+        "vanishing_solver_receipt_errors"
+      ],
+      "imported_results": [
+        "metric_triangle_inequality",
+        "Cauchy_completeness"
+      ],
+      "oph_specific_delta": "The receipt architecture distinguishes finite-stage exact naturality, run-specific solver error, family-uniform moduli, and the projective tail instead of treating more refinement levels as automatic convergence.",
+      "novelty_type": "quantitative_certificate_architecture",
+      "evidence": [
+        "extra/observable_normal_forms.tex",
+        "Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean",
+        "Lean/ObservableNormalForms/ObservableNormalForms/Stability.lean",
+        "Lean/ObservableNormalForms/README.md",
+        "code/consensus/verify_issue_517_proof_obligations.py",
+        "code/consensus/runs/issue_517_proof_obligations.json",
+        "code/consensus/test_issue_517_proof_obligations.py"
+      ],
+      "falsifier": "A declared Lipschitz refinement tower violates the telescope, or one of the family-uniform or cofinal conclusions survives the finite description of its parametric counterfamily after the corresponding modulus, tail, completeness, compatibility, or vanishing-error premise is removed.",
+      "scope_if_false": "The quantitative refinement-limit conclusions fall; fixed-cutoff finite normal-form uniqueness remains separate.",
+      "status": "telescope_Lean_proved__uniform_family_and_cofinal_theorems_paper_proved__parametric_counterfamily_schemas_executable",
       "claim_class": "conditional_implication",
       "gates": []
     },

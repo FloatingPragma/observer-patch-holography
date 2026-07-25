@@ -231,7 +231,7 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "publication-ledger",
         "claim_level": "ledger artifact",
         "blocker": "Keep this ledger synchronized across README, papers, book, and public summaries.",
-        "closure": "Public OPH surfaces point to the same open-problem ledger and no longer imply hidden closure.",
+        "closure": "Public OPH surfaces point to the same open-problem ledger and do not imply hidden closure.",
         "falsification": "A public surface claims a branch is closed while this ledger or its issue says open.",
         "chrome_policy": "Not needed unless a downstream claim-hygiene audit is ambiguous.",
     },
@@ -461,24 +461,179 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     return "\n".join(lines).rstrip()
 
 
+def validate_committed_ledger(json_path: Path, markdown_path: Path) -> list[str]:
+    """Validate the tracked ledger offline, without GitHub credentials."""
+    problems: list[str] = []
+    try:
+        ledger = json.loads(json_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"cannot read ledger JSON: {exc}"]
+    if ledger.get("artifact") != "oph_open_problem_ledger":
+        problems.append("unexpected ledger artifact identifier")
+    if ledger.get("repo") != REPO:
+        problems.append("unexpected ledger repository")
+
+    rows = ledger.get("rows")
+    if not isinstance(rows, list):
+        return problems + ["ledger rows must be a list"]
+    required = {
+        "number",
+        "title",
+        "url",
+        "labels",
+        "updated_at",
+        "phase",
+        "claim_level",
+        "blocker",
+        "closure",
+        "falsification",
+        "chrome_policy",
+    }
+    numbers: list[int] = []
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            problems.append(f"row {index} is not an object")
+            continue
+        missing = sorted(required - set(row))
+        if missing:
+            problems.append(f"row {index} is missing fields: {', '.join(missing)}")
+        number = row.get("number")
+        if not isinstance(number, int):
+            problems.append(f"row {index} has a non-integer issue number")
+        else:
+            numbers.append(number)
+    if len(numbers) != len(set(numbers)):
+        problems.append("ledger has duplicate issue numbers")
+    if numbers != sorted(numbers):
+        problems.append("ledger rows are not sorted by issue number")
+    if ledger.get("open_issue_count") != len(rows):
+        problems.append("open_issue_count does not equal the number of rows")
+
+    closed = ledger.get("closed_out_of_scope_records")
+    if not isinstance(closed, list):
+        problems.append("closed_out_of_scope_records must be a list")
+    elif ledger.get("closed_out_of_scope_count") != len(closed):
+        problems.append(
+            "closed_out_of_scope_count does not equal the number of records"
+        )
+
+    # Some release branches publish only the canonical JSON snapshot. If the
+    # optional human-readable mirror exists, require exact synchronization;
+    # its absence is not a hidden-input requirement.
+    if markdown_path.exists():
+        try:
+            expected_markdown = render_markdown(ledger) + "\n"
+            actual_markdown = markdown_path.read_text(encoding="utf-8")
+        except (OSError, KeyError, TypeError) as exc:
+            problems.append(f"cannot render/read ledger Markdown: {exc}")
+        else:
+            if actual_markdown != expected_markdown:
+                problems.append(
+                    "OPEN_PROBLEMS.md is out of sync with the ledger JSON"
+                )
+    return problems
+
+
+def compare_committed_to_live(
+    json_path: Path,
+    live_issues: list[dict[str, Any]],
+) -> list[str]:
+    """Fail when the committed gate snapshot differs from live GitHub state.
+
+    ``generated_utc`` is build metadata and is deliberately ignored. Every
+    scientific field -- including open issue membership, title, labels,
+    ``updated_at``, closure policy, and closed out-of-scope records -- must
+    match the ledger rebuilt from the live issue list.
+    """
+    try:
+        committed = json.loads(json_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"cannot read committed ledger JSON: {exc}"]
+    live = build_ledger(live_issues)
+    committed.pop("generated_utc", None)
+    live.pop("generated_utc", None)
+    if committed == live:
+        return []
+
+    committed_open = {
+        row.get("number")
+        for row in committed.get("rows", [])
+        if isinstance(row, dict)
+    }
+    live_open = {
+        row.get("number")
+        for row in live.get("rows", [])
+        if isinstance(row, dict)
+    }
+    problems = []
+    if committed_open != live_open:
+        problems.append(
+            "open issue membership differs from live GitHub: "
+            f"missing={sorted(live_open - committed_open)}, "
+            f"stale={sorted(committed_open - live_open)}"
+        )
+    else:
+        problems.append(
+            "committed ledger rows or policy fields differ from live GitHub"
+        )
+    return problems
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the OPH open-problem ledger from GitHub issues.")
     parser.add_argument("--json-out", default=str(DEFAULT_JSON_OUT))
     parser.add_argument("--markdown-out", default=str(DEFAULT_MD_OUT))
     parser.add_argument("--print-json", action="store_true")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="validate the committed JSON and Markdown offline; do not call GitHub",
+    )
+    parser.add_argument(
+        "--check-live",
+        action="store_true",
+        help=(
+            "compare the committed JSON with a fresh public GitHub issue query; "
+            "requires gh authentication and ignores generated_utc only"
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    json_out = Path(args.json_out)
+    markdown_out = Path(args.markdown_out)
+    if args.check and args.check_live:
+        raise SystemExit("choose at most one of --check and --check-live")
+    if args.check:
+        problems = validate_committed_ledger(json_out, markdown_out)
+        if problems:
+            print("open-problem ledger FAILED:")
+            for problem in problems:
+                print(f"  - {problem}")
+            return 1
+        print(
+            "open-problem ledger OK: committed JSON is valid "
+            "(Markdown mirror checked when present)"
+        )
+        return 0
+    if args.check_live:
+        problems = compare_committed_to_live(json_out, _run_gh())
+        if problems:
+            print("open-problem ledger LIVE CHECK FAILED:")
+            for problem in problems:
+                print(f"  - {problem}")
+            return 1
+        print("open-problem ledger OK: committed gate snapshot matches live GitHub")
+        return 0
+
     ledger = build_ledger(_run_gh())
     json_text = json.dumps(ledger, indent=2, sort_keys=True, ensure_ascii=True) + "\n"
 
-    json_out = Path(args.json_out)
     json_out.parent.mkdir(parents=True, exist_ok=True)
     json_out.write_text(json_text, encoding="utf-8")
 
-    markdown_out = Path(args.markdown_out)
     markdown_out.write_text(render_markdown(ledger) + "\n", encoding="utf-8")
 
     if args.print_json:

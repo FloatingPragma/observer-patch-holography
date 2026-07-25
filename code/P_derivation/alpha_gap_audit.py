@@ -16,8 +16,34 @@ DEFAULT_INTERVAL_CERTIFICATE = (
     / "runtime"
     / "p_interval_contraction_certificate_2026-07-14.json"
 )
-CODATA_2022_ALPHA_INV = Decimal("137.035999177")
-CODATA_2022_ALPHA_INV_UNCERTAINTY = Decimal("0.000000021")
+CODATA_2022_FIXTURE = Path(__file__).resolve().parent / "codata_2022_alpha_fixture.json"
+
+
+def _load_codata_2022_fixture() -> tuple[Decimal, Decimal]:
+    """Load the pinned compare-only CODATA values from their data artifact."""
+
+    payload = json.loads(CODATA_2022_FIXTURE.read_text(encoding="utf-8"))
+    if set(payload) != {
+        "artifact",
+        "claim_status",
+        "inverse_fine_structure_constant",
+        "license",
+        "source",
+    }:
+        raise ValueError("CODATA alpha fixture has an unexpected top-level shape")
+    if payload["artifact"] != "codata_2022_fine_structure_compare_fixture":
+        raise ValueError("CODATA alpha fixture identity drifted")
+    if payload["claim_status"] != "compare_only_empirical_input":
+        raise ValueError("CODATA alpha fixture must remain compare-only")
+    if payload["source"].get("edition") != "CODATA 2022":
+        raise ValueError("CODATA alpha fixture edition drifted")
+    values = payload["inverse_fine_structure_constant"]
+    return Decimal(values["value"]), Decimal(values["standard_uncertainty"])
+
+
+CODATA_2022_ALPHA_INV, CODATA_2022_ALPHA_INV_UNCERTAINTY = (
+    _load_codata_2022_fixture()
+)
 
 
 def _dec(value: Any) -> Decimal:

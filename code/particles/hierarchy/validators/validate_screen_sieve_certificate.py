@@ -4,20 +4,40 @@
 from __future__ import annotations
 
 import json
+import importlib.util
 import pathlib
 import sys
 from typing import Any
 
 
+def load_builder() -> Any:
+    builder_path = pathlib.Path(__file__).resolve().parents[1] / "verify_screen_sieve_theorem.py"
+    spec = importlib.util.spec_from_file_location(
+        "screen_sieve_exact_builder",
+        builder_path,
+    )
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot import {builder_path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
 def validate(certificate: dict[str, Any]) -> dict[str, bool]:
+    # Rebuild every enumerable/arithmetic field from the antecedent code.
+    # The stored ``checks`` object is diagnostic output, never an authority.
+    expected = load_builder().build_certificate()
     poly = {item["name"]: item for item in certificate.get("polyhedral_comparison", [])}
     seidel = certificate.get("d_optimal_tomography", {}).get("seidel_uniqueness", {})
     graph_class = seidel.get("normalized_negative_graph_class", {})
     arithmetic = certificate.get("screen_load_arithmetic", {})
     readout_gate = certificate.get("hierarchy_screen_readout_gate", {})
-    checks = dict(certificate.get("checks", {}))
-    checks.update(
-        {
+    checks = {
+            "certificate_exactly_matches_recomputation": certificate == expected,
+            "embedded_check_booleans_match_recomputation": (
+                certificate.get("checks") == expected.get("checks")
+            ),
             "status_is_conditional": certificate.get("status")
             == "conditional_finite_selector_theorem",
             "all_examples_have_total_charge_12": all(
@@ -72,7 +92,6 @@ def validate(certificate: dict[str, Any]) -> dict[str, bool]:
                 and "B_EW" not in arithmetic
             ),
         }
-    )
     return checks
 
 

@@ -1,0 +1,454 @@
+{
+  "schema": "oph.external_data_provenance_registry.v1",
+  "issue": 553,
+  "status": "machine_checked_local_artifacts_with_declared_upstream_gaps",
+  "policy": {
+    "artifact_rule": "Every registered local comparison artifact and loader is pinned by repository-relative path, SHA-256, and byte count.",
+    "license_rule": "Every source has an SPDX-style expression or NOASSERTION with a non-empty explanation.",
+    "raw_input_rule": "Absent raw payloads are recorded as absent. A citation, edition, or manually transcribed value is never represented as a raw-file hash.",
+    "determinism_rule": "Loader classifications distinguish deterministic local generators, live-network refreshers, and hash-verifying scorers whose external inputs are not vendored.",
+    "allowed_loader_classifications": [
+      "deterministic_hand_transcribed_gaussian_approximation",
+      "deterministic_transcribed_constants_generator",
+      "hash_verifying_external_table_scorer",
+      "legacy_optional_live_api_refresh",
+      "live_api_refresh_snapshot"
+    ],
+    "allowed_raw_input_classifications": [
+      "hand_transcribed_published_constants_no_raw_payload",
+      "hash_pinned_external_files_not_vendored",
+      "live_api_snapshot_raw_responses_not_archived"
+    ]
+  },
+  "entries": [
+    {
+      "dataset_id": "pdg-2026-particle-reference-values",
+      "artifact_path": "code/particles/data/particle_reference_values.json",
+      "artifact_sha256": "1c47e0ebf7f02d41a29c4ea133336de02ddc1064c1992ccd91580de44eb408d2",
+      "artifact_bytes": 19731,
+      "artifact_role": "compare_only_particle_reference_snapshot",
+      "provenance_status": "local_artifact_hash_pinned_upstream_raw_gap_declared",
+      "source": {
+        "publisher": "Particle Data Group",
+        "version": "PDG 2026 API edition",
+        "citation": "Official Particle Data Group machine-readable summary API",
+        "urls": [
+          "https://pdg.lbl.gov/api",
+          "https://pdgapi.lbl.gov/summaries"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The snapshot records PDG attribution and edition, but the repository does not currently record an explicit data-redistribution license or terms snapshot for the API responses."
+      },
+      "raw_inputs": {
+        "classification": "live_api_snapshot_raw_responses_not_archived",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The normalized local JSON is frozen, but the individual raw PDG API response bodies were not archived or hash-pinned at retrieval."
+      },
+      "loader": {
+        "path": "code/particles/scripts/refresh_reference_values_from_pdg.py",
+        "sha256": "28bff0f46b73052bd916ad78a2820978182cf8c081b6d1f8f29058f30acf4219",
+        "bytes": 9874,
+        "classification": "live_api_refresh_snapshot",
+        "network_required": true,
+        "deterministic_from_declared_inputs": false,
+        "declared_variable_metadata_json_pointers": [
+          "/generated_utc",
+          "/entries/*/source/request_timestamp"
+        ],
+        "requirements": [
+          "Python standard library",
+          "network access to the declared PDG API endpoints"
+        ]
+      }
+    },
+    {
+      "dataset_id": "pdg-legacy-particle-masses-json",
+      "artifact_path": "pdg_data/particle_masses.json",
+      "artifact_sha256": "86e46186889440668eb8631d720fefac0cdda7ba2fd01084563334e6a0b044c1",
+      "artifact_bytes": 3103,
+      "artifact_role": "legacy_duplicate_particle_reference_snapshot",
+      "provenance_status": "local_artifact_hash_pinned_upstream_raw_gap_declared",
+      "source": {
+        "publisher": "Particle Data Group",
+        "version": "legacy snapshot; upstream PDG edition was not recorded in the artifact",
+        "citation": "Legacy export produced through the PDG Python package",
+        "urls": [
+          "https://pdg.lbl.gov/api"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The legacy export contains no embedded license or terms record; it is retained as a pinned duplicate, not treated as the canonical provenance surface."
+      },
+      "raw_inputs": {
+        "classification": "live_api_snapshot_raw_responses_not_archived",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "Neither the raw API/database payload nor the precise upstream PDG edition was retained with this legacy export."
+      },
+      "loader": {
+        "path": "tools/fetch_pdg_data.py",
+        "sha256": "a582d0c2b1cb373ae770c320cebff066da42ec4a3c53e1a87a9c1954a3929b36",
+        "bytes": 4388,
+        "classification": "legacy_optional_live_api_refresh",
+        "network_required": true,
+        "deterministic_from_declared_inputs": false,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "pdg Python package (legacy script does not pin a version)",
+          "pandas (legacy script does not pin a version)",
+          "network access to the PDG database"
+        ]
+      }
+    },
+    {
+      "dataset_id": "pdg-legacy-particle-masses-csv",
+      "artifact_path": "pdg_data/particle_masses.csv",
+      "artifact_sha256": "ad09a27294d96b386d3a94abe98886efed6655ea2bc55b70bb6090d1abd33639",
+      "artifact_bytes": 1141,
+      "artifact_role": "legacy_duplicate_particle_reference_snapshot",
+      "provenance_status": "local_artifact_hash_pinned_upstream_raw_gap_declared",
+      "source": {
+        "publisher": "Particle Data Group",
+        "version": "legacy snapshot; upstream PDG edition was not recorded in the artifact",
+        "citation": "Legacy export produced through the PDG Python package",
+        "urls": [
+          "https://pdg.lbl.gov/api"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The legacy export contains no embedded license or terms record; it is retained as a pinned duplicate, not treated as the canonical provenance surface."
+      },
+      "raw_inputs": {
+        "classification": "live_api_snapshot_raw_responses_not_archived",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "Neither the raw API/database payload nor the precise upstream PDG edition was retained with this legacy export."
+      },
+      "loader": {
+        "path": "tools/fetch_pdg_data.py",
+        "sha256": "a582d0c2b1cb373ae770c320cebff066da42ec4a3c53e1a87a9c1954a3929b36",
+        "bytes": 4388,
+        "classification": "legacy_optional_live_api_refresh",
+        "network_required": true,
+        "deterministic_from_declared_inputs": false,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "pdg Python package (legacy script does not pin a version)",
+          "pandas (legacy script does not pin a version)",
+          "network access to the PDG database"
+        ]
+      }
+    },
+    {
+      "dataset_id": "knt19-pdg2025-hadronic-spectral-shape",
+      "artifact_path": "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json",
+      "artifact_sha256": "dee2f5d161b5f09493965d67e3a5a7806d4b91ab71987f43cf6f4a4678463b9f",
+      "artifact_bytes": 6472,
+      "artifact_role": "oph_plus_empirical_hadron_closure_input",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "KNT19 authors and Particle Data Group",
+        "version": "KNT19 published normalization with PDG 2025 hand-transcribed resonance constants",
+        "citation": "A. Keshavarzi, D. Nomura, T. Teubner, Phys. Rev. D 101, 014029 (2020), arXiv:1911.00367, equation 3.15 and Table 6; PDG 2025 resonance listings",
+        "urls": [
+          "https://arxiv.org/abs/1911.00367",
+          "https://pdg.lbl.gov/listings/particle_properties.html"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The artifact uses manually transcribed published numerical constants and a citation, not a redistributed raw KNT19 or PDG dataset. No explicit data license was recorded for those transcriptions."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The KNT19 normalization and PDG resonance constants are embedded in the loader with equation/table citations; no raw table payload is claimed or assigned an invented hash."
+      },
+      "loader": {
+        "path": "code/particles/hadron/ingest_empirical_ee_hadrons.py",
+        "sha256": "3b1966ead5b752f754f28a4c96560b1ba796de996a669152810c9cbeeb294817",
+        "bytes": 15538,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [
+          "/data_release/retrieved_utc"
+        ],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
+    },
+    {
+      "dataset_id": "planck2018-table2-lambda-to-N-gaussian-approximation",
+      "artifact_path": "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json",
+      "artifact_sha256": "70357bb5100974d14b8c3291ccfcc2385f165a5181143c5c62acd27f812eb00f",
+      "artifact_bytes": 5281,
+      "artifact_role": "compare_only_measurement_side_gaussian_approximation",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "Planck Collaboration and NIST CODATA",
+        "version": "Planck 2018 results VI, Table 2; CODATA 2022 G; repository Gaussian/correlation-sweep approximation v1",
+        "citation": "Planck Collaboration VI, Cosmological Parameters, Table 2, with the 2022 CODATA Newtonian gravitational constant uncertainty",
+        "urls": [
+          "https://arxiv.org/abs/1807.06209",
+          "https://physics.nist.gov/cgi-bin/cuu/Value?bg"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The repository transcribes published Planck marginals and a CODATA constant and does not vendor the Planck Legacy Archive chains. No upstream data-redistribution license is asserted here."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The Planck table marginals and CODATA G uncertainty are hand-transcribed and the full PLA chains are explicitly absent; this artifact is a deterministic Gaussian approximation, not a replay of a frozen posterior chain."
+      },
+      "loader": {
+        "path": "code/capacity_readback/planck_posterior/propagate.py",
+        "sha256": "dc33195a38239961741c4a147a172d03ecfeb1ddbc6dd12cfabbd6743ff49976",
+        "bytes": 5106,
+        "classification": "deterministic_hand_transcribed_gaussian_approximation",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
+    },
+    {
+      "dataset_id": "nufit-6.1-profile-source-manifest",
+      "artifact_path": "code/particles/neutrino/nufit61_sources.json",
+      "artifact_sha256": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
+      "artifact_bytes": 2455,
+      "artifact_role": "hash_pinned_external_source_manifest",
+      "provenance_status": "local_manifest_and_upstream_hashes_pinned",
+      "source": {
+        "publisher": "NuFIT collaboration",
+        "version": "NuFIT 6.1 (2025), data cutoff November 2025",
+        "citation": "I. Esteban et al., NuFit-6.0, JHEP 12 (2024) 216, with the NuFIT 6.1 profile release",
+        "urls": [
+          "https://www.nu-fit.org/?q=node/309",
+          "https://doi.org/10.1007/JHEP12(2024)216"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "NuFIT publishes the tables and requests citation, but the repository found no explicit redistribution license. The tables are therefore hash-pinned and not vendored."
+      },
+      "raw_inputs": {
+        "classification": "hash_pinned_external_files_not_vendored",
+        "raw_payloads_vendored": false,
+        "upstream_files": [
+          {
+            "id": "TBoff-IO",
+            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-IO.txt.xz",
+            "sha256": "6e14ce52503d053ce4d8d0171ffecae24c2dd3dc41be99c3c5c952f321331f16",
+            "bytes": 4083980
+          },
+          {
+            "id": "TBoff-NO",
+            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-NO.txt.xz",
+            "sha256": "58b113927c13f55925558e1ef0a598b357a237cde5c466b9f660cc08569970f6",
+            "bytes": 3996028
+          },
+          {
+            "id": "TByes-IO",
+            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-IO.txt.xz",
+            "sha256": "d92fbd1886a85738080a394a6af513ec1ac49d5e474a6517cada0c2c6f3b96b2",
+            "bytes": 4087336
+          },
+          {
+            "id": "TByes-NO",
+            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-NO.txt.xz",
+            "sha256": "c74bd6df84297a8429cd3b9e1239751cd0762756f1ec0c2a31248d78570b26e4",
+            "bytes": 3996408
+          },
+          {
+            "id": "release-notes",
+            "url": "https://www.nu-fit.org/sites/default/files/v61.release-notes.pdf",
+            "sha256": "b809159c6b03360a2c7d7e06ada3516ebb62356d718682b0c1b901dd67397aa6",
+            "bytes": 400835
+          }
+        ],
+        "provenance_gap": "The raw tables are not vendored because their redistribution license is NOASSERTION. Reproduction must acquire them explicitly and the scorer rejects any byte/hash mismatch."
+      },
+      "loader": {
+        "path": "code/particles/neutrino/score_neutrino_nufit61.py",
+        "sha256": "339ab9726164ba2304bb9116b8e47d0c76cad0133621f805578d514f3694a9d2",
+        "bytes": 17531,
+        "classification": "hash_verifying_external_table_scorer",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [
+          "/generated_utc"
+        ],
+        "requirements": [
+          "Python standard library",
+          "xz executable for compressed profile tables",
+          "explicitly acquired files matching the registered byte counts and SHA-256 values"
+        ]
+      }
+    },
+    {
+      "dataset_id": "codata-2022-inverse-fine-structure-constant",
+      "artifact_path": "code/P_derivation/codata_2022_alpha_fixture.json",
+      "artifact_sha256": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930",
+      "artifact_bytes": 636,
+      "artifact_role": "compare_only_fundamental_constant_fixture",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "NIST",
+        "version": "CODATA 2022",
+        "citation": "2022 CODATA recommended value: inverse fine-structure constant",
+        "urls": [
+          "https://physics.nist.gov/cgi-bin/cuu/Value?alphinv"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The repository records an attributed numerical transcription, not a redistributed CODATA raw dataset or terms snapshot."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The official displayed value and uncertainty are transcribed into a compare-only JSON fixture; no raw NIST response body or terms snapshot was archived."
+      },
+      "loader": {
+        "path": "code/P_derivation/alpha_gap_audit.py",
+        "sha256": "ddb6af92735a6a3916102fd2c3a8f7acda1e16017487bb585c869ef03d931445",
+        "bytes": 8137,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
+    },
+    {
+      "dataset_id": "pdg-2026-wz-running-width-target-fixture",
+      "artifact_path": "code/particles/calibration/wz_pdg_2026_target_fixture.json",
+      "artifact_sha256": "25ecaade15003f0862789e049be555552a87d7a2e145432eb3ec49a3ffdb49f4",
+      "artifact_bytes": 973,
+      "artifact_role": "compare_only_wz_target_and_declared_covariance_approximation",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "Particle Data Group",
+        "version": "PDG 2026 release 2026-06-01",
+        "citation": "PDG 2026 W-boson and Z-boson mass and width listings",
+        "urls": [
+          "https://pdg.lbl.gov/2026/reviews/rpp2026-rev-w-mass.pdf",
+          "https://pdg.lbl.gov/encoder_listings/s043.pdf",
+          "https://pdg.lbl.gov/encoder_listings/s044.pdf"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The repository records transcribed marginal values and a declared block-diagonal covariance approximation; no PDG raw likelihood or redistribution terms snapshot is retained."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "PDG publishes the listed marginals but not the mixed four-variable joint covariance used here; zero off-diagonal entries are explicit modeling assumptions, not measured data."
+      },
+      "loader": {
+        "path": "code/particles/calibration/wz_experimental_convention.py",
+        "sha256": "84ef0fdf2d7655e16ad6ebb050365a58e201bfcc5a2ddb73bdf7c581189ec76b",
+        "bytes": 7306,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
+    },
+    {
+      "dataset_id": "bouchard-donagi-threshold-spectrum-literature-packet",
+      "artifact_path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
+      "artifact_sha256": "1ef33af8daace68df0a66e636db8fcfd4c7ac0d1c89f8aeeaf20990f661d9806",
+      "artifact_bytes": 9299,
+      "artifact_role": "literature_derived_string_candidate_source_packet",
+      "provenance_status": "local_manifest_and_upstream_hashes_pinned",
+      "source": {
+        "publisher": "arXiv authors and Particle Data Group",
+        "version": "hep-th/0512149v1, hep-th/0602096v2, 0804.2096v1, hep-th/0411156v1, and PDG 2025 QCD review",
+        "citation": "Bouchard-Donagi visible branch and related cohomology/hidden-sector sources, plus the compare-only PDG 2025 alpha_s world average",
+        "urls": [
+          "https://export.arxiv.org/e-print/hep-th/0512149v1",
+          "https://export.arxiv.org/e-print/hep-th/0602096v2",
+          "https://export.arxiv.org/e-print/0804.2096v1",
+          "https://export.arxiv.org/e-print/hep-th/0411156v1",
+          "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The cited source archives are hash-pinned but not vendored, and the repository does not assert redistribution rights for the arXiv source bundles or PDG review."
+      },
+      "raw_inputs": {
+        "classification": "hash_pinned_external_files_not_vendored",
+        "raw_payloads_vendored": false,
+        "upstream_files": [
+          {
+            "id": "bd2005",
+            "url": "https://export.arxiv.org/e-print/hep-th/0512149v1",
+            "sha256": "a617437d667ff3d4ca298c56293ff55b11a5447eb88484edfcb03f077a9e783f",
+            "bytes": 15223
+          },
+          {
+            "id": "bcd2006",
+            "url": "https://export.arxiv.org/e-print/hep-th/0602096v2",
+            "sha256": "9e5ceee9a88a89c7b41f8b02ae740b7400aa1041e32d5323ecfbd6c590542be9",
+            "bytes": 23582
+          },
+          {
+            "id": "bd2008",
+            "url": "https://export.arxiv.org/e-print/0804.2096v1",
+            "sha256": "26c4f8732f2f32163d2a3a7525231920fe84d386a929db802a0a99d8f5d22473",
+            "bytes": 32702
+          },
+          {
+            "id": "dh_or2004",
+            "url": "https://export.arxiv.org/e-print/hep-th/0411156v1",
+            "sha256": "eb8c3fa62e53179bc519f940f075f3afe3bf4e06f96b811dc1cb0e4ef6461817",
+            "bytes": 47795
+          },
+          {
+            "id": "pdg2025_qcd",
+            "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf",
+            "sha256": "7cbb5c5ef1d217fd0a13544db36d031e600f4e4df7309af6c859a0b988ed6ada",
+            "bytes": 1071930
+          }
+        ],
+        "provenance_gap": "The upstream source archives are not vendored. Reproduction may acquire the exact public bytes and must verify all registered sizes and SHA-256 values before treating the literature packet as pinned."
+      },
+      "loader": {
+        "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
+        "sha256": "6cc5c4f2453d8dfbd474d31e1add21891d8046b84986ded454b3bc03055aae98",
+        "bytes": 52881,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library",
+          "jsonschema from the pinned root requirements"
+        ]
+      }
+    }
+  ]
+}

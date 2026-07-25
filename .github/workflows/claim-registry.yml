@@ -1,6 +1,8 @@
 name: Claim Registry
 
 on:
+  schedule:
+    - cron: "17 4 * * *"
   push:
     branches: [main]
     paths:
@@ -10,6 +12,8 @@ on:
       - "README.md"
       - "README_FR.md"
       - "tools/check_claim_registry.py"
+      - "tools/build_open_problem_ledger.py"
+      - "tracking/open_issues/**"
       - "tools/bump_paper_release.py"
       - "code/particles/calibration/q1_q4_wz_theorem_oracle/**"
       - ".github/workflows/claim-registry.yml"
@@ -21,6 +25,8 @@ on:
       - "README.md"
       - "README_FR.md"
       - "tools/check_claim_registry.py"
+      - "tools/build_open_problem_ledger.py"
+      - "tracking/open_issues/**"
       - "tools/bump_paper_release.py"
       - "code/particles/calibration/q1_q4_wz_theorem_oracle/**"
       - ".github/workflows/claim-registry.yml"
@@ -52,6 +58,11 @@ jobs:
 
       - name: Validate registry
         run: python3 tools/check_claim_registry.py
+
+      - name: Require the committed gate snapshot to match live GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/build_open_problem_ledger.py --check-live
 
       - name: Validate QFT/WZ theorem oracle
         working-directory: code/particles/calibration/q1_q4_wz_theorem_oracle

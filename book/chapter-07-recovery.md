@@ -340,7 +340,7 @@ three systems to see it.
 
 You cannot recover C from B alone. The GHZ state is non-Markov.
 
-## 7.9 The Fourth Axiom: Local Markov/Recoverability
+## 7.9 The Fourth Axiom: Local Markov and Recoverability
 
 We can state the recovery rule as a physical principle. One piece of
 vocabulary first: a **collar** is a thin buffer strip wrapped around a region,

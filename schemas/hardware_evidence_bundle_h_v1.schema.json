@@ -452,6 +452,12 @@
         "artifact_id",
         "device_id",
         "reference_id",
+        "reference_uri",
+        "reference_certificate_sha256",
+        "channel_id",
+        "raw_unit",
+        "reported_unit",
+        "transformation",
         "valid_from_utc",
         "valid_until_utc"
       ],
@@ -468,11 +474,66 @@
         "reference_id": {
           "$ref": "#/$defs/identifier"
         },
+        "reference_uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "reference_certificate_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "channel_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "raw_unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reported_unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transformation": {
+          "$ref": "#/$defs/affineRationalTransformation"
+        },
         "valid_from_utc": {
           "$ref": "#/$defs/dateTime"
         },
         "valid_until_utc": {
           "$ref": "#/$defs/dateTime"
+        }
+      }
+    },
+    "affineRationalTransformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "scale_numerator",
+        "scale_denominator",
+        "offset_numerator",
+        "offset_denominator"
+      ],
+      "properties": {
+        "kind": {
+          "const": "affine_rational.v1"
+        },
+        "scale_numerator": {
+          "type": "integer"
+        },
+        "scale_denominator": {
+          "type": "integer",
+          "not": {
+            "const": 0
+          }
+        },
+        "offset_numerator": {
+          "type": "integer"
+        },
+        "offset_denominator": {
+          "type": "integer",
+          "not": {
+            "const": 0
+          }
         }
       }
     },
@@ -506,6 +567,7 @@
       "required": [
         "artifact_id",
         "continuous_declared",
+        "data_artifact_ids",
         "segments"
       ],
       "properties": {
@@ -514,6 +576,14 @@
         },
         "continuous_declared": {
           "type": "boolean"
+        },
+        "data_artifact_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
         },
         "segments": {
           "type": "array",

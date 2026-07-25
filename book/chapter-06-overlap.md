@@ -209,11 +209,12 @@ intersection. $R$ is the part both patches contain.
 
 In a simple finite-dimensional toy model, Alice describes her patch with density matrix rho_A and Bob describes his with rho_B. Then consistency on the overlap can be pictured as equality of the reduced descriptions on region R:
 
-$$\text{Tr}_{A \setminus R}(\rho_A) = \text{Tr}_{B \setminus R}(\rho_B)$$
+$$\text{Tr}_{A \mathbin{\backslash} R}(\rho_A) =
+\text{Tr}_{B \mathbin{\backslash} R}(\rho_B)$$
 
 This is only the toy-model picture. More generally, the right statement is that the two restricted states agree on the shared overlap algebra.
 
-The set-minus symbol $\setminus$ means "remove this part." Alice traces out
+The set-minus symbol $\mathbin{\backslash}$ means "remove this part." Alice traces out
 the part of her patch outside the overlap, and Bob does the same. If the two
 reduced density matrices match, their descriptions agree on the shared region.
 

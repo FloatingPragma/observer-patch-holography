@@ -54,6 +54,11 @@ ARTIFACT_AUTHORITY = {
     "attestation": "independent_attestor",
 }
 
+ANALYSIS_SCHEMA = (
+    "oph.hardware_evidence_bundle_h.analysis."
+    "paired_calibrated_mean_max_deviation.v1"
+)
+
 
 def canonical_bytes(value: Any) -> bytes:
     return json.dumps(
@@ -203,65 +208,158 @@ def _analysis_result(
         required={
             "schema",
             "raw_artifact_ids",
+            "control_artifact_ids",
             "sample_field",
+            "channel_id",
+            "calibration_id",
             "effect_statement",
-            "unit",
+            "raw_unit",
+            "reported_unit",
             "uncertainty_kind",
         },
         label="analysis recipe",
     )
     if error:
         return False, error
-    if recipe["schema"] != "oph.hardware_evidence_bundle_h.analysis.mean_max_deviation.v1":
+    if recipe["schema"] != ANALYSIS_SCHEMA:
         return False, "analysis recipe schema is unsupported"
     if recipe["uncertainty_kind"] != "max_absolute_deviation":
         return False, "analysis uncertainty rule is unsupported"
     raw_ids = recipe["raw_artifact_ids"]
-    if (
-        not isinstance(raw_ids, list)
-        or not raw_ids
-        or len(set(raw_ids)) != len(raw_ids)
-        or not all(isinstance(item, str) for item in raw_ids)
+    control_ids = recipe["control_artifact_ids"]
+    for label, values in (
+        ("raw_artifact_ids", raw_ids),
+        ("control_artifact_ids", control_ids),
     ):
-        return False, "analysis raw_artifact_ids must be a nonempty unique string list"
+        if (
+            not isinstance(values, list)
+            or not values
+            or len(set(values)) != len(values)
+            or not all(isinstance(item, str) for item in values)
+        ):
+            return False, f"analysis {label} must be a nonempty unique string list"
     declared_raw_ids = {
         artifact_id
         for artifact_id, row in artifacts.items()
         if row["role"] == "raw_measurement"
+    }
+    declared_control_ids = {
+        artifact_id
+        for artifact_id, row in artifacts.items()
+        if row["role"] == "control"
     }
     scheduled_raw_ids = {
         artifact_id
         for run in bundle["runs"]
         for artifact_id in run["raw_artifact_ids"]
     }
+    scheduled_control_ids = {
+        artifact_id
+        for run in bundle["runs"]
+        for artifact_id in run["control_artifact_ids"]
+    }
     if set(raw_ids) != declared_raw_ids or set(raw_ids) != scheduled_raw_ids:
         return False, (
             "analysis recipe must consume every and only the raw artifacts "
             "bound to the reported run population"
         )
-    if not set(raw_ids).issubset(set(bundle["analysis_binding"]["input_artifact_ids"])):
+    if (
+        set(control_ids) != declared_control_ids
+        or set(control_ids) != scheduled_control_ids
+    ):
+        return False, (
+            "analysis recipe must consume every and only the paired controls "
+            "bound to the reported run population"
+        )
+    if not (set(raw_ids) | set(control_ids)).issubset(
+        set(bundle["analysis_binding"]["input_artifact_ids"])
+    ):
         return False, "analysis recipe consumes an undeclared input artifact"
-    samples: list[Fraction] = []
+
     sample_field = recipe["sample_field"]
     if not isinstance(sample_field, str) or not sample_field:
         return False, "analysis sample_field must be a nonempty string"
-    for artifact_id in raw_ids:
-        raw_path = artifact_paths.get(artifact_id)
-        if raw_path is None:
-            return False, f"analysis raw artifact {artifact_id} is unavailable"
+
+    calibrations = {
+        row["calibration_id"]: row for row in bundle["calibrations"]
+    }
+    calibration = calibrations.get(recipe["calibration_id"])
+    if calibration is None:
+        return False, "analysis names an unavailable calibration"
+    if any(
+        run["calibration_id"] != recipe["calibration_id"]
+        for run in bundle["runs"]
+    ):
+        return False, "closed v1 analysis requires one declared calibration"
+    if (
+        calibration["channel_id"] != recipe["channel_id"]
+        or calibration["raw_unit"] != recipe["raw_unit"]
+        or calibration["reported_unit"] != recipe["reported_unit"]
+    ):
+        return False, "analysis channel and units differ from the calibration"
+    transform = calibration["transformation"]
+    try:
+        scale = Fraction(
+            transform["scale_numerator"],
+            transform["scale_denominator"],
+        )
+        offset = Fraction(
+            transform["offset_numerator"],
+            transform["offset_denominator"],
+        )
+    except (KeyError, TypeError, ValueError, ZeroDivisionError):
+        return False, "analysis calibration transform is malformed"
+    if transform.get("kind") != "affine_rational.v1":
+        return False, "analysis calibration transform is unsupported"
+
+    payloads: dict[str, dict[str, Any]] = {}
+    for artifact_id in set(raw_ids) | set(control_ids):
+        capture_path = artifact_paths.get(artifact_id)
+        if capture_path is None:
+            return False, f"analysis capture artifact {artifact_id} is unavailable"
         try:
-            raw = _read_json(raw_path)
+            capture = _read_json(capture_path)
         except (OSError, json.JSONDecodeError) as exc:
-            return False, f"analysis raw artifact {artifact_id} is invalid: {exc}"
-        values = raw.get(sample_field) if isinstance(raw, dict) else None
-        if not isinstance(values, list) or not values:
-            return False, f"analysis raw artifact {artifact_id} has no samples"
+            return False, f"analysis capture artifact {artifact_id} is invalid: {exc}"
+        if not isinstance(capture, dict):
+            return False, f"analysis capture artifact {artifact_id} is not an object"
+        payloads[artifact_id] = capture
+
+    paired_differences: list[Fraction] = []
+    for run in bundle["runs"]:
+        if len(run["raw_artifact_ids"]) != 1 or len(run["control_artifact_ids"]) != 1:
+            return False, "closed v1 analysis requires one raw/control pair per run"
+        raw = payloads.get(run["raw_artifact_ids"][0])
+        control = payloads.get(run["control_artifact_ids"][0])
+        if raw is None or control is None:
+            return False, f"run {run['run_id']} lacks its analysis pair"
+        if (
+            raw.get("run_id") != run["run_id"]
+            or control.get("run_id") != run["run_id"]
+            or raw.get("channel") != recipe["channel_id"]
+            or control.get("channel") != recipe["channel_id"]
+            or raw.get("raw_unit") != recipe["raw_unit"]
+            or control.get("raw_unit") != recipe["raw_unit"]
+        ):
+            return False, f"run {run['run_id']} analysis pair metadata differs"
+        raw_values = raw.get(sample_field)
+        control_values = control.get(sample_field)
+        if (
+            not isinstance(raw_values, list)
+            or not raw_values
+            or not isinstance(control_values, list)
+            or len(raw_values) != len(control_values)
+        ):
+            return False, f"run {run['run_id']} has an unpaired sample population"
         try:
-            samples.extend(Fraction(str(value)) for value in values)
+            for raw_value, control_value in zip(raw_values, control_values):
+                calibrated_raw = scale * Fraction(str(raw_value)) + offset
+                calibrated_control = scale * Fraction(str(control_value)) + offset
+                paired_differences.append(calibrated_raw - calibrated_control)
         except (ValueError, ZeroDivisionError):
-            return False, f"analysis raw artifact {artifact_id} has a nonnumeric sample"
-    mean = sum(samples, Fraction(0)) / len(samples)
-    uncertainty = max(abs(value - mean) for value in samples)
+            return False, f"run {run['run_id']} has a nonnumeric sample"
+    mean = sum(paired_differences, Fraction(0)) / len(paired_differences)
+    uncertainty = max(abs(value - mean) for value in paired_differences)
     claim = bundle["claim"]
     try:
         claimed_mean = Fraction(str(claim["magnitude"]["value"]))
@@ -270,7 +368,7 @@ def _analysis_result(
         return False, "structured claim has a nonnumeric magnitude or uncertainty"
     expected = (
         recipe["effect_statement"],
-        recipe["unit"],
+        recipe["reported_unit"],
         recipe["uncertainty_kind"],
         mean,
         uncertainty,
@@ -282,14 +380,17 @@ def _analysis_result(
         claimed_mean,
         claimed_uncertainty,
     )
-    if actual != expected or claim["uncertainty"]["unit"] != recipe["unit"]:
+    if (
+        actual != expected
+        or claim["uncertainty"]["unit"] != recipe["reported_unit"]
+    ):
         return False, (
             "executed analysis result does not equal the structured "
             "effect, magnitude, unit, and uncertainty"
         )
     return True, (
-        f"declarative analysis reproduced mean={mean} and "
-        f"max_absolute_deviation={uncertainty}"
+        f"declarative paired calibrated analysis reproduced mean={mean} and "
+        f"max_absolute_deviation={uncertainty} {recipe['reported_unit']}"
     )
 
 
@@ -555,8 +656,24 @@ def verify_external_evidence(
             "device_identity",
         )
 
-    claimant_organizations = {
-        anchor["organization_id"] for anchor in claimant_roots
+    evidence_authority_roles = {
+        "claimant",
+        "measurement_authority",
+        "calibration_authority",
+        "device_authority",
+        "custody_authority",
+        "preregistration_authority",
+        "replay_authority",
+    }
+    evidence_authority_parties = {
+        anchor["party_id"]
+        for anchor in anchors.values()
+        if anchor["role"] in evidence_authority_roles
+    }
+    evidence_authority_organizations = {
+        anchor["organization_id"]
+        for anchor in anchors.values()
+        if anchor["role"] in evidence_authority_roles
     }
     signer_index = {
         row["signer_id"]: row
@@ -569,36 +686,94 @@ def verify_external_evidence(
         and row["party_id"] in bundle["attestation"]["party_ids"]
         and not row["compromised"]
     }
-    independent_attestors = [
-        anchor
+    independent_attestor_artifact_keys = {
+        anchor["key_id"]
         for _, anchor in attestor_matches
         if anchor["key_id"] in declared_attestor_keys
-        and anchor["party_id"] != bundle["claimant_id"]
-        and anchor["organization_id"] not in claimant_organizations
-    ]
-    witness_root_signatures = [
-        anchor
+        and anchor["party_id"] not in evidence_authority_parties
+        and anchor["organization_id"] not in evidence_authority_organizations
+    }
+    independent_attestor_root_keys = {
+        anchor["key_id"]
         for _, anchor in matching_signatures(
             "bundle_binding",
             bundle["bundle_id"],
             "independent_attestor",
         )
         if anchor["key_id"] in declared_attestor_keys
-        and anchor["party_id"] != bundle["claimant_id"]
-        and anchor["organization_id"] not in claimant_organizations
-    ]
+        and anchor["party_id"] not in evidence_authority_parties
+        and anchor["organization_id"] not in evidence_authority_organizations
+    }
+    end_to_end_witness_keys = (
+        independent_attestor_artifact_keys & independent_attestor_root_keys
+    )
+    witnessed_scope = {
+        "run_schedule",
+        "device_identity",
+        "raw_capture",
+        "calibration",
+        "controls",
+        "custody",
+        "analysis_freeze",
+        "claim",
+    }
+    semantically_valid_witness_keys: set[str] = set()
+    for key_id in end_to_end_witness_keys:
+        anchor = anchors[key_id]
+        for artifact_id in bundle["attestation"]["artifact_ids"]:
+            if not any(
+                row["key_id"] == key_id
+                for row, _ in matching_signatures(
+                    "artifact",
+                    artifact_id,
+                    "independent_attestor",
+                )
+            ):
+                continue
+            path = artifact_paths.get(artifact_id)
+            try:
+                payload = _read_json(path) if path is not None else None
+            except (OSError, json.JSONDecodeError):
+                payload = None
+            required_keys = {
+                "schema",
+                "bundle_id",
+                "mode",
+                "claimant_id",
+                "witness_party_id",
+                "witness_organization_id",
+                "witnessed_end_to_end",
+                "witnessed_scope",
+            }
+            if (
+                isinstance(payload, dict)
+                and set(payload) == required_keys
+                and payload["schema"]
+                == "oph.hardware_evidence_bundle_h.end_to_end_attestation.v1"
+                and payload["bundle_id"] == bundle["bundle_id"]
+                and payload["mode"] == "independent_end_to_end_witness"
+                and payload["claimant_id"] == bundle["claimant_id"]
+                and payload["witness_party_id"] == anchor["party_id"]
+                and payload["witness_organization_id"]
+                == anchor["organization_id"]
+                and payload["witnessed_end_to_end"] is True
+                and isinstance(payload["witnessed_scope"], list)
+                and set(payload["witnessed_scope"]) == witnessed_scope
+                and len(payload["witnessed_scope"]) == len(witnessed_scope)
+            ):
+                semantically_valid_witness_keys.add(key_id)
     attestation_mode = bundle["attestation"]["mode"]
     if attestation_mode == "independent_end_to_end_witness":
         if (
-            not independent_attestors
-            or not witness_root_signatures
+            not semantically_valid_witness_keys
             or not bundle["attestation"]["witnessed_end_to_end"]
         ):
             insufficient(
                 OPEN_GATES[1],
                 (
-                    "no independently administered witness signs both the "
-                    "attestation artifact and the canonical bundle root"
+                    "no one independently administered witness signs both the "
+                    "closed end-to-end attestation and canonical bundle root; "
+                    "the witness must be separate from every evidence authority"
                 ),
                 "attestation",
             )
@@ -634,6 +809,7 @@ def verify_external_evidence(
     expected_commitments = {
         "run_schedule": bundle["run_schedule"]["artifact_id"],
         "analysis": bundle["analysis_binding"]["analysis_artifact_id"],
+        "protocol": bundle["analysis_binding"]["protocol_artifact_id"],
     }
     verified_commitment_kinds: set[str] = set()
     verified_commitment_anchor_ids: set[str] = set()
@@ -714,7 +890,7 @@ def verify_external_evidence(
     if verified_commitment_kinds != set(expected_commitments):
         insufficient(
             OPEN_GATES[3],
-            "run schedule and analysis require signed pre-run commitments",
+            "run schedule, protocol, and analysis require signed pre-run commitments",
             "completeness",
         )
 

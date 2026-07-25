@@ -79,3 +79,36 @@ def test_same_location_but_worse_badness_is_unexplained(tmp_path: Path) -> None:
     by_lines = _match(tmp_path, finite["log"], body)
     w = by_lines[finite["lines"]]
     assert w.allowed_by is None, "badness outside the anchored band must be unexplained"
+
+
+def test_missing_glyph_is_a_hard_problem(tmp_path: Path) -> None:
+    log = tmp_path / "missing-glyph.log"
+    log.write_text(
+        "Missing character: There is no Ω (U+03A9) in font LatinModernRoman!\n",
+        encoding="utf-8",
+    )
+    _, problems = chk.parse_log(log)
+    assert problems == [
+        "Missing character: There is no Ω (U+03A9) in font LatinModernRoman!"
+    ]
+
+
+def test_font_shape_substitution_is_a_hard_problem(tmp_path: Path) -> None:
+    log = tmp_path / "font-substitution.log"
+    log.write_text(
+        "LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined\n"
+        "(Font) using `T1/lmr/m/scsl' instead on input line 42.\n",
+        encoding="utf-8",
+    )
+    _, problems = chk.parse_log(log)
+    assert problems == ["LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined"]
+
+
+def test_non_font_package_substitution_is_not_misclassified(tmp_path: Path) -> None:
+    log = tmp_path / "xcolor-info.log"
+    log.write_text(
+        "Package xcolor Info: Model `HTML' substituted by `rgb' on input line 10.\n",
+        encoding="utf-8",
+    )
+    _, problems = chk.parse_log(log)
+    assert problems == []

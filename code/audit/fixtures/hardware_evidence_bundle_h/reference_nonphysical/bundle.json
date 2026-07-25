@@ -57,28 +57,28 @@
       "artifact_id": "raw-001",
       "role": "raw_measurement",
       "path": "raw_measurements.json",
-      "sha256": "66d8fc506c656533875f4414a7860ad8d08be36070322d6e996ad72f5049a63f",
+      "sha256": "745909a2aec586c0b2123aa2b41a16aabdd389c7446b404dd98722d9a06a1e79",
       "media_type": "application/json"
     },
     {
       "artifact_id": "calibration-001",
       "role": "calibration",
       "path": "calibration.json",
-      "sha256": "f5d21eae02c15257a699cef741db9f9d52341e5b7698468a029a5687793fd55b",
+      "sha256": "f52f3651a7afdb875351e31c3037e4dc2b63e4a925815ffadd2a06a340a243fa",
       "media_type": "application/json"
     },
     {
       "artifact_id": "custody-001",
       "role": "custody",
       "path": "custody.json",
-      "sha256": "06eed6725d52df1ee3bb9330fa97164ac19dfae8476bc1de6ce4fe1713ea4b86",
+      "sha256": "3965b282bdc9430677c97357757df658fb81e8b176fec48d5186de8d2ff814f1",
       "media_type": "application/json"
     },
     {
       "artifact_id": "control-001",
       "role": "control",
       "path": "control.json",
-      "sha256": "315dc87d40e5f13716de741cc21ff00775a7d44b83a9fa74a1f27f2616260a41",
+      "sha256": "341fcc8f2b39fb8868c32fd42937c5799eba987e6860d752844661f43e5cbff3",
       "media_type": "application/json"
     },
     {
@@ -92,14 +92,14 @@
       "artifact_id": "claim-text-001",
       "role": "claim_text",
       "path": "claim.txt",
-      "sha256": "e70be352181050e4dd229b088a2255c9a4e766163bde746b2ce3f6bf6b4b0ee8",
+      "sha256": "ae65248671959553ad1f7e8eda4b6ef53bf1053bd4edd71f707d21dc6c5adec0",
       "media_type": "text/plain"
     },
     {
       "artifact_id": "protocol-001",
       "role": "protocol",
       "path": "protocol.json",
-      "sha256": "1853d08e2a8e1afd7af8e918afad58a3375f1f2afe472a971e9f3d18c97fad9a",
+      "sha256": "fde0838474d61505edd11c02efcbab0b6ef4500b62a886f600095fa91fda9ca4",
       "media_type": "application/json"
     },
     {
@@ -113,7 +113,7 @@
       "artifact_id": "device-identity-001",
       "role": "device_identity",
       "path": "device_identity.json",
-      "sha256": "95470cde0f17fbc49ade179f05b39c6031c5cadb451e6293a406890b56f15a98",
+      "sha256": "451f287a6d2a95876ec14ab4bf4467bd62035292aeb63216398c2bdc5a7a64df",
       "media_type": "application/json"
     },
     {
@@ -153,6 +153,18 @@
       "artifact_id": "calibration-001",
       "device_id": "synthetic-device-001",
       "reference_id": "synthetic-reference-001",
+      "reference_uri": "urn:oph:synthetic-reference-001",
+      "reference_certificate_sha256": "a0d8985ce41314e29a7247bea1658ac66c4c8b2a8e9e95f53e88850f7cce78b6",
+      "channel_id": "synthetic_voltage",
+      "raw_unit": "synthetic_adc_count",
+      "reported_unit": "synthetic_unit",
+      "transformation": {
+        "kind": "affine_rational.v1",
+        "scale_numerator": 1,
+        "scale_denominator": 1,
+        "offset_numerator": 0,
+        "offset_denominator": 1
+      },
       "valid_from_utc": "2026-07-20T00:00:00Z",
       "valid_until_utc": "2026-07-21T00:00:00Z"
     }
@@ -160,6 +172,17 @@
   "custody": {
     "artifact_id": "custody-001",
     "continuous_declared": true,
+    "data_artifact_ids": [
+      "analysis-001",
+      "attestation-001",
+      "calibration-001",
+      "claim-text-001",
+      "control-001",
+      "device-identity-001",
+      "protocol-001",
+      "raw-001",
+      "schedule-001"
+    ],
     "segments": [
       {
         "device_id": "synthetic-device-001",
@@ -227,7 +250,7 @@
       "device-identity-001",
       "attestation-001"
     ],
-    "binding_sha256": "0411d5b2586a92377253b10d42d4d6443486829d4223ead909033fe318647ddb"
+    "binding_sha256": "41471fdc0210ed59b01a15c0b28a26c0f481597a5ec79a35bcece8c41bdda9d2"
   },
   "producer_assertions": {
     "analysis_passed": true,

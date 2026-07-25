@@ -1,6 +1,6 @@
 {
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
-  "generated_utc": "2026-07-18T06:09:44Z",
+  "generated_utc": "2026-07-25T02:56:22Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
   "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy artifacts, plus the icosahedral screen-sieve theorem. Promotion authority belongs to the independent issue-518 receipt registry, not to status booleans inside these subject artifacts.",
   "promotion_authority": {
@@ -23,7 +23,9 @@
       "conditional icosahedral screen-sieve theorem deriving twelve ports and X/12; its Gamma_screen algebra imports P/4 and beta_EW=4",
       "issue-#342 finite readback-resolution certificate satisfying rho_read(r,N_CRC)->(N_CRC/pi)^(-1/2)",
       "issue-#343 representation-to-spectrum certificate deriving m_rep=2*(8+3+1)=24",
-      "issue-#335 exact local/global hierarchy-resonance identity conditional on HIERARCHY-SCREEN-READOUT"
+      "issue-#335 exact local/global hierarchy-resonance identity conditional on HIERARCHY-SCREEN-READOUT",
+      "antecedent-only non-identifiability theorem: the target-free scalar packet and generic Banach/readback conditions admit distinct capacity fixed points",
+      "antecedent-only non-identifiability theorem: the scalar hierarchy packet and map type signatures admit both commuting and noncommuting comparison-square completions"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
@@ -35,8 +37,8 @@
       "source production of the strict unit cost, inverse pairing, and D-optimal screen selector",
       "independently emitted physical cosmic capacity and its comparison with N_CRC^EW",
       "coupled-map joint fixed-point theorem for source branches with cross-feedback",
-      "antecedent-only capacity producer replacing the bridge-defined N_CRC^EW identity receipt",
-      "antecedent-only naturality producer with an independently evaluated commuting square replacing the selected epsilon_H=0 identity receipt"
+      "source-derived public-record/readback map F with physical semantics and an independently computed capacity fixed point, after which B_EW=0 can be tested rather than imposed",
+      "source-derived definitions of rho_sH, n_s, n_H, h_s, chi_sH, and h_H on one common domain, followed by independent evaluation of both commuting-square residuals"
     ]
   },
   "files": [
@@ -302,8 +304,8 @@
     },
     {
       "path": "validators/validate_screen_sieve_certificate.py",
-      "sha256": "e703df8557bc88a353a3c0c2af324218125cd0eb9c4ba14ad5d315d22a150205",
-      "bytes": 4068
+      "sha256": "96b63b6eb0cba5d83d70d98835a3a24e4b5361dfc892149b531f963ffdc6df21",
+      "bytes": 4937
     },
     {
       "path": "validators/verify_ht_interval_box.py",
@@ -359,6 +361,21 @@
       "path": "verify_screen_sieve_theorem.py",
       "sha256": "0dfe6914bf506934b024ea704989faf70fdb86fd22eda56d6c24f51f1280ac70",
       "bytes": 13312
+    },
+    {
+      "path": "computations/antecedent_only_nonidentifiability.py",
+      "sha256": "e4fb62c0cca70bd27304f537fbcefb19abe3cf0ab7a760736dd097feb736525c",
+      "bytes": 10456
+    },
+    {
+      "path": "certificates/antecedent_only_nonidentifiability_receipt.json",
+      "sha256": "0af6b95b65db6c99c4bb3e2f3d538af9e38f6805b1061db6ea4bfa2f4060878f",
+      "bytes": 7837
+    },
+    {
+      "path": "test_antecedent_only_nonidentifiability.py",
+      "sha256": "9405e6949e680b54fb3dd3378a0304821d833b5edb034c040f975c66cacc9943",
+      "bytes": 4595
     }
   ]
 }

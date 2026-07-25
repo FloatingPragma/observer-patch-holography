@@ -756,6 +756,29 @@ $t>0$ one has $\sup_n\eta_n(t)=1$.  Thus uniform residual control and uniform
 inverse-observation control are independent requirements.
 \end{example}
 
+\paragraph{Executable uniformity controls.}
+The \(\mathsf{REFINEMENT\text{-}MODULUS\text{-}1}\) section of
+\path{code/consensus/runs/issue_517_proof_obligations.json} stores finite
+descriptions of both infinite counterfamilies and an executable witness
+constructor: for every positive integer \(m\), choose stage \(n=m\) and
+radius or residual threshold \(1/m\).  The exact witness has observation or
+residual gap \(1/m\) and state error one.  Since \(1/m\to0\), the quantified
+examples above, rather than any fixed finite prefix, prove that the family
+moduli do not vanish.  The receipt regression-checks exact instances and
+records the cross-multiplied null-sequence proof schema.
+
+Further controls describe the infinite unit-defect tower
+\(p_j=j,a_j=1\), whose tail from \(n\) to \(n+M\) is \(M\), and a restriction
+map that amplifies fine distance \(1/8\) to coarse distance \(1\) when its
+Lipschitz receipt is removed. A three-point parametric family independently
+shows why the observation maps need one common Lipschitz bound: their
+stagewise constants grow like \(n\), while residuals and observation gaps
+vanish and the state gap tends to one. The cofinal-limit corollary has separate
+controls for incomplete coordinate spaces, incompatible inputs, and
+nonvanishing solver errors.  The arbitrary-depth positive telescope is the
+mathematical theorem above and its Lean counterpart; the family-uniform
+modulus and cofinal-limit quantifiers are not claimed as Lean formalizations.
+
 \subsection{Parallel composition and observation design}
 
 \begin{theorem}[Exact product calculus]\label{thm:product-calculus}
@@ -924,11 +947,15 @@ Let
  Q_0\xleftarrow{\rho_{1,0}}Q_1
  \xleftarrow{\rho_{2,1}}Q_2\xleftarrow{}\cdots
 \]
-be an inverse sequence of nonempty finite or compact metric spaces with
-Lipschitz restriction maps, with
+be an inverse sequence of nonempty metric spaces with Lipschitz restriction
+maps, with
 $\rho_{m,n}=\rho_{n+1,n}\circ\cdots\circ\rho_{m,m-1}$.  Let
-$N_n:Q_n\to Q_n$ be normalizers.  The boundedness of each $Q_n$ makes the
-following pathwise and uniform one-step normalization defects finite:
+$N_n:Q_n\to Q_n$ be normalizers.  This subsection deliberately restarts with general metric spaces; the
+finite-or-compact ambient assumption used for the preceding uniform-family
+examples is not retained.  Completeness is imposed only where a Cauchy
+estimate is converted into a coordinate limit.
+Assume the following pathwise and uniform one-step normalization defects are
+finite:
 \[
  \alpha_n(q)
  :=

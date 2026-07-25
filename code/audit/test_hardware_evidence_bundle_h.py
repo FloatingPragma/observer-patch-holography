@@ -115,7 +115,10 @@ def make_declared_physical_attestation(
         bundle_path,
         bundle,
         "claim-text-001",
-        "The synthetic device levitated the Moon.\n",
+        {
+            "schema": verifier.CLAIM_TEXT_SCHEMA,
+            "claim": bundle["claim"],
+        },
     )
     parties = [f"fake-independent-party-{index}" for index in range(signer_count)]
     signer_ids = [f"fake-signer-{index}" for index in range(signer_count)]
@@ -161,11 +164,11 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
         "protocol_id": "protocol-synthetic-001",
         "conditions": "Decision-procedure fixture; no real experiment is asserted.",
         "effect_statement": effect,
-        "magnitude": {"value": 0.0, "unit": "synthetic_volt"},
+        "magnitude": {"value": 0.0, "unit": "synthetic_unit"},
         "uncertainty": {
             "kind": "max_absolute_deviation",
             "value": 0.0,
-            "unit": "synthetic_volt",
+            "unit": "synthetic_unit",
         },
         "extraordinary_effect": False,
     }
@@ -201,30 +204,51 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
         bundle,
         "analysis-001",
         {
-            "schema": "oph.hardware_evidence_bundle_h.analysis.mean_max_deviation.v1",
+            "schema": external.ANALYSIS_SCHEMA,
             "raw_artifact_ids": ["raw-001"],
+            "control_artifact_ids": ["control-001"],
             "sample_field": "samples",
+            "channel_id": "synthetic_voltage",
+            "calibration_id": "cal-synthetic-001",
             "effect_statement": effect,
-            "unit": "synthetic_volt",
+            "raw_unit": "synthetic_adc_count",
+            "reported_unit": "synthetic_unit",
             "uncertainty_kind": "max_absolute_deviation",
         },
     )
     artifact_row(bundle, "analysis-001")["media_type"] = (
         "application/vnd.oph.hardware-analysis+json"
     )
-    write_artifact(bundle_path, bundle, "claim-text-001", effect + "\n")
+    write_artifact(
+        bundle_path,
+        bundle,
+        "claim-text-001",
+        {
+            "schema": verifier.CLAIM_TEXT_SCHEMA,
+            "claim": bundle["claim"],
+        },
+    )
     write_artifact(
         bundle_path,
         bundle,
         "attestation-001",
         {
+            "schema": "oph.hardware_evidence_bundle_h.end_to_end_attestation.v1",
             "bundle_id": bundle["bundle_id"],
             "mode": "independent_end_to_end_witness",
+            "claimant_id": bundle["claimant_id"],
+            "witness_party_id": "independent-witness",
+            "witness_organization_id": "independent-witness-organization",
+            "witnessed_end_to_end": True,
             "witnessed_scope": [
-                "device identity",
-                "capture",
+                "run_schedule",
+                "device_identity",
+                "raw_capture",
+                "calibration",
                 "controls",
                 "custody",
+                "analysis_freeze",
+                "claim",
             ],
         },
     )
@@ -348,6 +372,7 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
     for kind, artifact_id in (
         ("run_schedule", bundle["run_schedule"]["artifact_id"]),
         ("analysis", bundle["analysis_binding"]["analysis_artifact_id"]),
+        ("protocol", bundle["analysis_binding"]["protocol_artifact_id"]),
     ):
         key_id = "key-preregistration-authority"
         payload = external.commitment_payload(
@@ -562,6 +587,14 @@ def test_stale_calibration_is_rejected(tmp_path: Path) -> None:
             "calibration_id": calibration["calibration_id"],
             "device_id": calibration["device_id"],
             "reference_id": calibration["reference_id"],
+            "reference_uri": calibration["reference_uri"],
+            "reference_certificate_sha256": calibration[
+                "reference_certificate_sha256"
+            ],
+            "channel_id": calibration["channel_id"],
+            "raw_unit": calibration["raw_unit"],
+            "reported_unit": calibration["reported_unit"],
+            "transformation": calibration["transformation"],
             "valid_from_utc": calibration["valid_from_utc"],
             "valid_until_utc": calibration["valid_until_utc"],
         },
@@ -979,6 +1012,281 @@ def test_signed_raw_mutation_cannot_bypass_analysis_replay(tmp_path: Path) -> No
     assert_rejected(
         verify_authenticated(context),
         "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
+    )
+
+
+def test_calibration_transform_is_executed_not_merely_hashed(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    raw_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "raw-001"
+    )["path"]
+    raw = json.loads(raw_path.read_text(encoding="utf-8"))
+    raw["samples"] = [1, 1, 1]
+    write_artifact(context["bundle_path"], context["bundle"], "raw-001", raw)
+
+    context["bundle"]["claim"]["magnitude"]["value"] = 1
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "claim-text-001",
+        {
+            "schema": verifier.CLAIM_TEXT_SCHEMA,
+            "claim": context["bundle"]["claim"],
+        },
+    )
+    calibration = context["bundle"]["calibrations"][0]
+    calibration["transformation"]["scale_numerator"] = 2
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "calibration-001",
+        {
+            key: calibration[key]
+            for key in (
+                "calibration_id",
+                "device_id",
+                "reference_id",
+                "reference_uri",
+                "reference_certificate_sha256",
+                "channel_id",
+                "raw_unit",
+                "reported_unit",
+                "transformation",
+                "valid_from_utc",
+                "valid_until_utc",
+            )
+        },
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
+    )
+
+
+def test_signed_control_mutation_is_consumed_by_analysis(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    control_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "control-001"
+    )["path"]
+    control = json.loads(control_path.read_text(encoding="utf-8"))
+    control["samples"] = [1, 1, 1]
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "control-001",
+        control,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "ANALYSIS_TO_CLAIM_EXECUTION_OPEN",
+    )
+
+
+def test_control_must_be_interleaved_before_its_live_capture(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    control_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "control-001"
+    )["path"]
+    control = json.loads(control_path.read_text(encoding="utf-8"))
+    control["captured_utc"] = "2026-07-20T12:01:00Z"
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "control-001",
+        control,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CONTROL_BINDING_MISMATCH",
+    )
+
+
+def test_raw_capture_must_bind_protocol_firmware_and_physical_mark(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    raw_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "raw-001"
+    )["path"]
+    raw = json.loads(raw_path.read_text(encoding="utf-8"))
+    raw["firmware_sha256"] = "0" * 64
+    write_artifact(context["bundle_path"], context["bundle"], "raw-001", raw)
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "RAW_CAPTURE_BINDING_MISMATCH",
+    )
+
+
+def test_structured_claim_text_cannot_disagree_on_magnitude(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    conflicting = copy.deepcopy(context["bundle"]["claim"])
+    conflicting["magnitude"]["value"] = 99
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "claim-text-001",
+        {
+            "schema": verifier.CLAIM_TEXT_SCHEMA,
+            "claim": conflicting,
+        },
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(verify_authenticated(context), "CLAIM_TEXT_MISMATCH")
+
+
+def test_custody_must_cover_the_bound_data_population(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    custody = context["bundle"]["custody"]
+    custody["data_artifact_ids"].remove("raw-001")
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "custody-001",
+        {
+            "continuous_declared": custody["continuous_declared"],
+            "data_artifact_ids": custody["data_artifact_ids"],
+            "segments": custody["segments"],
+        },
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CUSTODY_DATA_COVERAGE_INCOMPLETE",
+    )
+
+
+def test_witness_must_be_separate_from_measurement_authority(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    measurement_org = next(
+        row["organization_id"]
+        for row in context["policy"]["anchors"]
+        if row["role"] == "measurement_authority"
+    )
+    next(
+        row
+        for row in context["policy"]["anchors"]
+        if row["role"] == "independent_attestor"
+    )["organization_id"] = measurement_org
+    write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
+    )
+
+
+def test_one_witness_key_must_sign_attestation_and_root(tmp_path: Path) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    second_key = Ed25519PrivateKey.generate()
+    second_public = second_key.public_key().public_bytes(
+        encoding=serialization.Encoding.Raw,
+        format=serialization.PublicFormat.Raw,
+    )
+    context["policy"]["anchors"].append(
+        {
+            "key_id": "key-independent-attestor-2",
+            "party_id": "independent-witness-2",
+            "organization_id": "independent-witness-organization-2",
+            "role": "independent_attestor",
+            "public_key_ed25519": base64.b64encode(second_public).decode("ascii"),
+            "valid_from_utc": "2026-01-01T00:00:00Z",
+            "valid_until_utc": "2027-01-01T00:00:00Z",
+            "revoked": False,
+        }
+    )
+    context["bundle"]["attestation"]["party_ids"].append("independent-witness-2")
+    context["bundle"]["attestation"]["signer_ids"].append(
+        "independent-witness-signer-2"
+    )
+    context["bundle"]["signers"].append(
+        {
+            "signer_id": "independent-witness-signer-2",
+            "party_id": "independent-witness-2",
+            "key_id": "key-independent-attestor-2",
+            "compromised": False,
+            "signed_artifact_ids": ["attestation-001"],
+        }
+    )
+    refresh_authenticated_signatures(context)
+    context["evidence"]["signatures"] = [
+        row
+        for row in context["evidence"]["signatures"]
+        if not (
+            row["subject_kind"] == "bundle_binding"
+            and row["key_id"] == "key-independent-attestor"
+        )
+    ]
+    payload = external.signature_payload(
+        subject_kind="bundle_binding",
+        subject_id=context["bundle"]["bundle_id"],
+        sha256=context["bundle"]["bundle_binding"]["binding_sha256"],
+        key_id="key-independent-attestor-2",
+    )
+    context["evidence"]["signatures"].append(
+        {
+            **payload,
+            "signature_base64": base64.b64encode(
+                second_key.sign(external.canonical_bytes(payload))
+            ).decode("ascii"),
+        }
+    )
+    write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
+    )
+
+
+def test_protocol_content_cannot_change_after_preregistration(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    old_commitment = copy.deepcopy(
+        next(
+            row
+            for row in context["evidence"]["commitments"]
+            if row["kind"] == "protocol"
+        )
+    )
+    new_firmware = "1" * 64
+    protocol_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "protocol-001"
+    )["path"]
+    protocol = json.loads(protocol_path.read_text(encoding="utf-8"))
+    protocol["firmware_sha256"] = new_firmware
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "protocol-001",
+        protocol,
+    )
+    for artifact_id in ("raw-001", "control-001", "device-identity-001"):
+        path = context["bundle_path"].parent / artifact_row(
+            context["bundle"], artifact_id
+        )["path"]
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["firmware_sha256"] = new_firmware
+        write_artifact(
+            context["bundle_path"],
+            context["bundle"],
+            artifact_id,
+            payload,
+        )
+    refresh_authenticated_signatures(context)
+    context["evidence"]["commitments"] = [
+        old_commitment if row["kind"] == "protocol" else row
+        for row in context["evidence"]["commitments"]
+    ]
+    write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "COMMITMENT_SUBJECT_MISMATCH",
+        verdict="INVALID",
     )
 
 

@@ -9,6 +9,9 @@ import copy
 import json
 from pathlib import Path
 
+import pytest
+
+import generate_paper_release_manifest as generator
 import validate_paper_release_manifest as validator
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -62,8 +65,8 @@ def test_rejects_absent_artifact(tmp_path: Path) -> None:
 
 
 def test_rejects_sha256_mismatch(tmp_path: Path) -> None:
-    # A listed PDF whose content no longer matches its declared digest (silent rebuild /
-    # swap / tamper) must be rejected, not silently accepted because the path still exists.
+    # A listed PDF whose content differs from its declared digest (silent rebuild /
+    # swap / tamper) must be rejected even when the path exists.
     manifest = _base()
     paper_id = next(iter(manifest["papers"]))
     manifest["papers"][paper_id]["sha256"] = "0" * 64
@@ -72,9 +75,65 @@ def test_rejects_sha256_mismatch(tmp_path: Path) -> None:
 
 
 def test_rejects_size_mismatch(tmp_path: Path) -> None:
-    # A truncated / regrown artifact whose byte count no longer matches the manifest is rejected.
+    # A truncated / regrown artifact whose byte count differs from the manifest is rejected.
     manifest = _base()
     paper_id = next(iter(manifest["papers"]))
     manifest["papers"][paper_id]["size_bytes"] = "1"
     problems = validator.validate(_write(tmp_path, manifest))
     assert any("size_bytes mismatch" in p and paper_id in p for p in problems)
+
+
+def test_generator_rejects_pdf_not_implied_by_source(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Exercise the actual release-surface stray-artifact boundary."""
+    paper_dir = tmp_path / "paper"
+    extra_dir = tmp_path / "extra"
+    paper_dir.mkdir()
+    extra_dir.mkdir()
+    expected_pdf = paper_dir / "expected.pdf"
+    expected_pdf.write_bytes(b"%PDF expected")
+    manifest = {
+        "papers": {
+            "expected": {
+                "pdf_path": "paper/expected.pdf",
+                "sha256": "unused-by-this-check",
+                "size_bytes": expected_pdf.stat().st_size,
+            }
+        },
+        "supplemental_papers": {},
+        "extra_papers": {},
+    }
+    monkeypatch.setattr(generator, "NON_TEX_SOURCE_PDFS", {})
+
+    generator.verify_no_stray_pdfs(tmp_path, manifest)
+    (extra_dir / "not_implied_by_any_source.pdf").write_bytes(b"%PDF stray")
+
+    with pytest.raises(SystemExit, match="stray PDFs.*not_implied_by_any_source"):
+        generator.verify_no_stray_pdfs(tmp_path, manifest)
+
+
+def test_generator_rejects_missing_registered_non_tex_source(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    (tmp_path / "paper").mkdir()
+    (tmp_path / "extra").mkdir()
+    monkeypatch.setattr(
+        generator,
+        "NON_TEX_SOURCE_PDFS",
+        {
+            Path("extra/derived.pdf"): Path("extra/derived/build.sh"),
+        },
+    )
+
+    with pytest.raises(SystemExit, match="registered source.*missing"):
+        generator.verify_no_stray_pdfs(
+            tmp_path,
+            {
+                "papers": {},
+                "supplemental_papers": {},
+                "extra_papers": {},
+            },
+        )

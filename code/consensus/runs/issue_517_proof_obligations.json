@@ -1,0 +1,2153 @@
+{
+  "a5_layer_separation": {
+    "checks": {
+      "coefficient_reconstruction_not_promoted_as_physical_current": true,
+      "conditional_refinement_stable_anomaly_subreceipt_checked_separately": true,
+      "conditional_spin_lift_subreceipt_checked_separately": true,
+      "four_registry_roles_have_distinct_receipt_ids": true,
+      "global_descent_not_promoted_from_kernel_identity": true,
+      "matter_schema_not_promoted_as_source_realization": true,
+      "registry_roles_have_distinct_artifact_pointer_locators": true,
+      "subject_artifact_does_not_select_receipt_class": true
+    },
+    "conditional_matter_subreceipts": {
+      "refinement_stable_anomaly_algebra": {
+        "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "exact_checks_pass": true,
+        "json_pointers": [
+          "/anomalies",
+          "/refinement"
+        ],
+        "physical_source_promoted": false,
+        "receipt_id": "a5-conditional-refinement-stable-anomaly-algebra"
+      },
+      "spin_lift": {
+        "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "exact_checks_pass": true,
+        "json_pointer": "/port_spin_lift",
+        "physical_source_promoted": false,
+        "receipt_id": "a5-conditional-spin-lift"
+      }
+    },
+    "layers": {
+      "coefficient_algebra": {
+        "artifact": "code/a5_closure/a5_screen_sm_closure.json",
+        "json_pointer": "",
+        "open_gates": [
+          "coefficient classification is not a physical current producer"
+        ],
+        "promoted": false,
+        "receipt_class": "recomputation",
+        "receipt_id": "a5-coefficient-algebra"
+      },
+      "global_descent": {
+        "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "json_pointer": "/kernel_emission",
+        "open_gates": [
+          "GitHub issue #567 physical Z6 descent"
+        ],
+        "promoted": false,
+        "receipt_class": "identity",
+        "receipt_id": "a5-global-descent"
+      },
+      "matter_realization": {
+        "artifact": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "json_pointer": "",
+        "open_gates": [
+          "GitHub issue #569 source-derived family attachment"
+        ],
+        "promoted": false,
+        "receipt_class": "schema",
+        "receipt_id": "a5-matter-realization"
+      },
+      "physical_currents": {
+        "artifact": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "json_pointer": "",
+        "open_gates": [
+          "physical response model, coefficients, and refinement maps are not source-bound"
+        ],
+        "promoted": false,
+        "receipt_class": "producer",
+        "receipt_id": "a5-physical-currents"
+      }
+    },
+    "receipt_id": "A5-LAYER-SEPARATION-1",
+    "registry": "code/audit/issue_518_receipt_registry.json",
+    "registry_sha256": "28185d4dad8ab91a900fbd3e320cceaec74b8a82df75ceec19a4841c0fba6609",
+    "separate_downstream_gates": {
+      "conditional_subreceipt_enforced_but_physical_source_open": [
+        "spin lift",
+        "refinement-stable anomaly algebra"
+      ],
+      "registry_enforced": [
+        "physical gauge-current construction",
+        "global-form descent",
+        "matter realization"
+      ]
+    }
+  },
+  "checks": {
+    "bft": true,
+    "ell_p": true,
+    "layer_separation": true,
+    "negative_controls": true,
+    "refinement": true,
+    "selector": true,
+    "transactional_confluence": true
+  },
+  "ell_p_guard": {
+    "checks": {
+      "p_equals_one_half_has_exact_triangle_counterexample": true,
+      "p_equals_one_triangle_checked_on_finite_reference_set": true,
+      "paper_guard_required": true
+    },
+    "declared_domain": "p>=1",
+    "negative_control": {
+      "counterexample_verified": true,
+      "d_p_xy_plus_d_p_yz": 2,
+      "d_p_xz": 4,
+      "p": "1/2",
+      "points": {
+        "x": [
+          1,
+          0
+        ],
+        "y": [
+          0,
+          0
+        ],
+        "z": [
+          0,
+          1
+        ]
+      },
+      "removed_hypothesis": "p>=1",
+      "violated_conclusion": "triangle_inequality_and_pseudometric_status"
+    },
+    "positive_finite_check": {
+      "all_ordered_triangles_checked": 64,
+      "p": "1",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "receipt_id": "LP-GUARD-1"
+  },
+  "issue": 517,
+  "negative_controls": {
+    "bft": [
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "byzantine": [
+            0
+          ],
+          "certificate_A": [
+            0,
+            1,
+            2
+          ],
+          "certificate_B": [
+            0,
+            1,
+            3
+          ],
+          "declared_f": 1,
+          "n": 4,
+          "nonfaulty_double_voter": 1,
+          "view": 0
+        },
+        "removed_hypothesis": "P1_one_vote_per_view",
+        "violated_conclusion": "same_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "H2_received_PC_B_before_stale_commit": false,
+          "H2_view_sequence": [
+            1,
+            0,
+            1
+          ],
+          "byzantine": [
+            0
+          ],
+          "commit_A_view_0": [
+            0,
+            1,
+            2
+          ],
+          "commit_B_view_1": [
+            0,
+            2,
+            3
+          ],
+          "prepare_B_view_1": [
+            0,
+            2,
+            3
+          ]
+        },
+        "removed_hypothesis": "P1_monotone_view_participation",
+        "violated_conclusion": "cross_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "decisions_without_certificates": {
+            "H1_decides": "A",
+            "H2_decides": "B"
+          },
+          "f": 1,
+          "n": 4
+        },
+        "removed_hypothesis": "P2_valid_quorum_certificate_required_for_decision",
+        "violated_conclusion": "same_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "byzantine": [
+            0
+          ],
+          "certificate_A": [
+            0,
+            1
+          ],
+          "certificate_B": [
+            0,
+            2
+          ],
+          "f": 1,
+          "intersection": [
+            0
+          ],
+          "invalid_q": 2,
+          "n": 4
+        },
+        "removed_hypothesis": "A6_nonfaulty_quorum_overlap_threshold",
+        "violated_conclusion": "same_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "actual_byzantine": [
+            0,
+            1
+          ],
+          "certificate_A": [
+            0,
+            1,
+            2
+          ],
+          "certificate_B": [
+            0,
+            1,
+            3
+          ],
+          "declared_f": 1,
+          "n": 4
+        },
+        "removed_hypothesis": "A2_at_most_f_Byzantine",
+        "violated_conclusion": "same_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "forged_signer_labels": [
+            "forged_0",
+            "forged_1",
+            "forged_2"
+          ],
+          "n": 4,
+          "q": 3,
+          "real_adversarial_processes": 1
+        },
+        "removed_hypothesis": "A5_unforgeable_authentication",
+        "violated_conclusion": "certificate_semantics_and_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "P1_is_respected_per_view": true,
+          "byzantine": [
+            0
+          ],
+          "f": 1,
+          "n": 4,
+          "view_0_decision_A": [
+            0,
+            1,
+            2
+          ],
+          "view_1_decision_B": [
+            0,
+            2,
+            3
+          ]
+        },
+        "removed_hypothesis": "P4_prepared_certificate_lock",
+        "violated_conclusion": "cross_view_safety"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "available_votes": [
+            0,
+            3
+          ],
+          "decision_certificate": null,
+          "declared_f_plus_one_view_bound": 2,
+          "honest_lock_holder": 1,
+          "leaders": [
+            0,
+            3
+          ],
+          "nonfaulty_leader": 3,
+          "post_GST_views": [
+            1,
+            2
+          ],
+          "q": 3,
+          "reported_certificate": "A@0",
+          "timeout_bound_active": true,
+          "unjustified_leader_proposals": [
+            "B@1",
+            "B@2"
+          ],
+          "view_change_quorum": [
+            0,
+            1,
+            3
+          ]
+        },
+        "removed_hypothesis": "P4_leader_selects_highest_prepared_certificate",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "accepted_without_validation": true,
+          "conflicting_certificate_formed": false,
+          "new_view_messages": [
+            0,
+            3
+          ],
+          "proposal": "B@1",
+          "required_q": 3,
+          "unlocked_validator": 3
+        },
+        "removed_hypothesis": "P4_validator_checks_new_view_justification",
+        "violated_conclusion": "new_view_justification_filtering"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "certificate_threshold": 3,
+          "delivered_messages_per_round": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "rounds": 4
+        },
+        "removed_hypothesis": "A1_partial_synchrony_for_liveness",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "available_nonfaulty_votes": [
+            1,
+            2,
+            3
+          ],
+          "f": 1,
+          "n": 4,
+          "q": 4,
+          "withholding_byzantine": [
+            0
+          ]
+        },
+        "removed_hypothesis": "quorum_availability_q_le_n_minus_f_for_liveness",
+        "violated_conclusion": "liveness"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "directed_components": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "maximum_votes_reachable_by_leader_0": 2,
+          "n": 4,
+          "q": 3
+        },
+        "removed_hypothesis": "A4_strong_quorum_connectivity",
+        "violated_conclusion": "liveness"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "byzantine_leader": 0,
+          "timely_network": true,
+          "trace": [
+            {
+              "leader": 0,
+              "proposal": null,
+              "round": 0,
+              "view": 0
+            },
+            {
+              "leader": 0,
+              "proposal": null,
+              "round": 1,
+              "view": 0
+            },
+            {
+              "leader": 0,
+              "proposal": null,
+              "round": 2,
+              "view": 0
+            },
+            {
+              "leader": 0,
+              "proposal": null,
+              "round": 3,
+              "view": 0
+            }
+          ]
+        },
+        "removed_hypothesis": "P3_terminating_view_change",
+        "violated_conclusion": "liveness"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "decision_certificate": null,
+          "f": 1,
+          "n": 4,
+          "post_GST": true,
+          "q": 3,
+          "timeout_bound_active": true,
+          "trace": [
+            {
+              "leader": 3,
+              "leader_nonfaulty": true,
+              "messages_sent": 0,
+              "phase": "new_view",
+              "timely_network": true
+            },
+            {
+              "leader": 3,
+              "leader_nonfaulty": true,
+              "messages_sent": 0,
+              "phase": "proposal",
+              "timely_network": true
+            },
+            {
+              "leader": 3,
+              "leader_nonfaulty": true,
+              "messages_sent": 0,
+              "phase": "prepare",
+              "timely_network": true
+            },
+            {
+              "leader": 3,
+              "leader_nonfaulty": true,
+              "messages_sent": 0,
+              "phase": "commit",
+              "timely_network": true
+            },
+            {
+              "leader": 3,
+              "leader_nonfaulty": true,
+              "messages_sent": 0,
+              "phase": "relay",
+              "timely_network": true
+            }
+          ],
+          "view": 1
+        },
+        "removed_hypothesis": "P5_post_GST_nonfaulty_leader_emits_justified_proposal",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "decision_certificate": null,
+          "f": 1,
+          "n": 4,
+          "nonfaulty_leader": 3,
+          "post_GST": true,
+          "q": 3,
+          "timeout_bound_active": true,
+          "trace": {
+            "commit_votes": [],
+            "decision_relays": [],
+            "prepare_votes": [],
+            "proposal": {
+              "delivered_to_nonfaulty": [
+                1,
+                2,
+                3
+              ],
+              "valid_new_view_justification": true,
+              "value": "A"
+            }
+          }
+        },
+        "removed_hypothesis": "P5_post_GST_nonfaulty_validators_prepare_commit_and_relay",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      }
+    ],
+    "ell_p": [
+      {
+        "counterexample_verified": true,
+        "d_p_xy_plus_d_p_yz": 2,
+        "d_p_xz": 4,
+        "p": "1/2",
+        "points": {
+          "x": [
+            1,
+            0
+          ],
+          "y": [
+            0,
+            0
+          ],
+          "z": [
+            0,
+            1
+          ]
+        },
+        "removed_hypothesis": "p>=1",
+        "violated_conclusion": "triangle_inequality_and_pseudometric_status"
+      }
+    ],
+    "refinement": [
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "index_domain": "n in positive integers",
+          "null_sequence_proof_schema": {
+            "cross_multiplied_inequality": "k<k+1",
+            "positive_offset": 1,
+            "target_epsilon": "1/k for arbitrary k>=1",
+            "witness_index": "m=k+1"
+          },
+          "observations": "B_n(0)=0, B_n(1)=1/n",
+          "quantified_conclusion": "Omega(1/m)>=1 for every m>=1 while 1/m tends to zero",
+          "sampled_exact_instances": [
+            {
+              "gap_within_radius": true,
+              "index": 1,
+              "observation_gap": "1",
+              "radius": "1",
+              "stage": 1,
+              "stage_map_injective": true,
+              "state_gap": 1
+            },
+            {
+              "gap_within_radius": true,
+              "index": 2,
+              "observation_gap": "1/2",
+              "radius": "1/2",
+              "stage": 2,
+              "stage_map_injective": true,
+              "state_gap": 1
+            },
+            {
+              "gap_within_radius": true,
+              "index": 4,
+              "observation_gap": "1/4",
+              "radius": "1/4",
+              "stage": 4,
+              "stage_map_injective": true,
+              "state_gap": 1
+            },
+            {
+              "gap_within_radius": true,
+              "index": 8,
+              "observation_gap": "1/8",
+              "radius": "1/8",
+              "stage": 8,
+              "stage_map_injective": true,
+              "state_gap": 1
+            },
+            {
+              "gap_within_radius": true,
+              "index": 16,
+              "observation_gap": "1/16",
+              "radius": "1/16",
+              "stage": 16,
+              "stage_map_injective": true,
+              "state_gap": 1
+            },
+            {
+              "gap_within_radius": true,
+              "index": 32,
+              "observation_gap": "1/32",
+              "radius": "1/32",
+              "stage": 32,
+              "stage_map_injective": true,
+              "state_gap": 1
+            }
+          ],
+          "state_spaces": "Q_n=C_n={0,1} with discrete distance",
+          "witness_constructor": "for every positive integer m choose stage n=m and radius r_m=1/m"
+        },
+        "removed_hypothesis": "uniform_inverse_observation_modulus",
+        "violated_conclusion": "stagewise_injectivity_alone_does_not_give_the_claimed_family_modulus"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "consistent_sets": "C_n={0}",
+          "index_domain": "n in positive integers",
+          "null_sequence_proof_schema": {
+            "cross_multiplied_inequality": "k<k+1",
+            "positive_offset": 1,
+            "target_epsilon": "1/k for arbitrary k>=1",
+            "witness_index": "m=k+1"
+          },
+          "quantified_conclusion": "H(1/m)>=1 for every m>=1 while 1/m tends to zero",
+          "residuals": "Phi_n(0)=0, Phi_n(1)=1/n",
+          "sampled_exact_instances": [
+            {
+              "distance_to_consistent_set": 1,
+              "index": 1,
+              "residual_at_inconsistent_state": "1",
+              "residual_within_threshold": true,
+              "stage": 1,
+              "threshold": "1"
+            },
+            {
+              "distance_to_consistent_set": 1,
+              "index": 2,
+              "residual_at_inconsistent_state": "1/2",
+              "residual_within_threshold": true,
+              "stage": 2,
+              "threshold": "1/2"
+            },
+            {
+              "distance_to_consistent_set": 1,
+              "index": 4,
+              "residual_at_inconsistent_state": "1/4",
+              "residual_within_threshold": true,
+              "stage": 4,
+              "threshold": "1/4"
+            },
+            {
+              "distance_to_consistent_set": 1,
+              "index": 8,
+              "residual_at_inconsistent_state": "1/8",
+              "residual_within_threshold": true,
+              "stage": 8,
+              "threshold": "1/8"
+            },
+            {
+              "distance_to_consistent_set": 1,
+              "index": 16,
+              "residual_at_inconsistent_state": "1/16",
+              "residual_within_threshold": true,
+              "stage": 16,
+              "threshold": "1/16"
+            },
+            {
+              "distance_to_consistent_set": 1,
+              "index": 32,
+              "residual_at_inconsistent_state": "1/32",
+              "residual_within_threshold": true,
+              "stage": 32,
+              "threshold": "1/32"
+            }
+          ],
+          "witness_constructor": "for every positive integer m choose stage n=m and threshold t_m=1/m"
+        },
+        "removed_hypothesis": "uniform_residual_error_modulus",
+        "violated_conclusion": "stagewise_error_bounds_alone_do_not_give_uniform_settled_output_control"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "consistent_sets": "C_n={0,1}",
+          "observations": "B_n(0)=0 and B_n(1/n)=B_n(1)=1",
+          "quantified_conclusion": "Lip(B_n)=n is unbounded; x_n=1/n and y_n=1 have vanishing residual, equal observation, and state gap 1-1/n",
+          "residuals": "Phi_n=distance to C_n",
+          "sampled_exact_instances": [
+            {
+              "inconsistent_point": "1/2",
+              "observation_Lipschitz_constant": 2,
+              "observation_gap_to_one": 0,
+              "residual": "1/2",
+              "stage": 2,
+              "state_gap_to_one": "1/2"
+            },
+            {
+              "inconsistent_point": "1/4",
+              "observation_Lipschitz_constant": 4,
+              "observation_gap_to_one": 0,
+              "residual": "1/4",
+              "stage": 4,
+              "state_gap_to_one": "3/4"
+            },
+            {
+              "inconsistent_point": "1/8",
+              "observation_Lipschitz_constant": 8,
+              "observation_gap_to_one": 0,
+              "residual": "1/8",
+              "stage": 8,
+              "state_gap_to_one": "7/8"
+            },
+            {
+              "inconsistent_point": "1/16",
+              "observation_Lipschitz_constant": 16,
+              "observation_gap_to_one": 0,
+              "residual": "1/16",
+              "stage": 16,
+              "state_gap_to_one": "15/16"
+            },
+            {
+              "inconsistent_point": "1/32",
+              "observation_Lipschitz_constant": 32,
+              "observation_gap_to_one": 0,
+              "residual": "1/32",
+              "stage": 32,
+              "state_gap_to_one": "31/32"
+            }
+          ],
+          "state_spaces": "Q_n={0,1/n,1} with Euclidean distance, n>=2"
+        },
+        "removed_hypothesis": "family_uniform_observation_Lipschitz_bound",
+        "violated_conclusion": "uniform_settled_output_stability_with_one_common_bound"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "full_countermodel": {
+            "compatible_input": "q_n=0 for every n",
+            "consistent_sets": "C_n={n}",
+            "coordinate_spaces": "Q_n=R with the Euclidean metric (complete)",
+            "exact_solver_outputs": "xhat_n=n with receipt error e_n=0",
+            "normalizers": "N_n(x)=n",
+            "observations": "B_n is constant",
+            "quantified_failure": "alpha_n=1 for every n, and projected outputs n are not Cauchy",
+            "residuals": "Phi_n(x)=|x-n|",
+            "restriction_maps": "rho_(n+1,n)=identity (nonexpansive)",
+            "sampled_one_step_defects": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "sampled_projected_outputs_at_level_zero": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "infinite_generator": "p_j=j and a_j=1 for every j>=0",
+          "nonvanishing_tail_proof_schema": {
+            "requested_tail": "arbitrary M>=1",
+            "start": "arbitrary n>=0",
+            "unit_defect": 1,
+            "witness_endpoint": "m=n+M"
+          },
+          "quantified_conclusion": "for every n and M choose m=n+M; the amplified tail equals M",
+          "sampled_exact_instances": [
+            {
+              "bound_exact": true,
+              "endpoint_distance": 1,
+              "m": 1,
+              "n": 0,
+              "sum_of_unit_step_defects": 1
+            },
+            {
+              "bound_exact": true,
+              "endpoint_distance": 4,
+              "m": 4,
+              "n": 0,
+              "sum_of_unit_step_defects": 4
+            },
+            {
+              "bound_exact": true,
+              "endpoint_distance": 6,
+              "m": 9,
+              "n": 3,
+              "sum_of_unit_step_defects": 6
+            },
+            {
+              "bound_exact": true,
+              "endpoint_distance": 15,
+              "m": 25,
+              "n": 10,
+              "sum_of_unit_step_defects": 15
+            }
+          ]
+        },
+        "removed_hypothesis": "cofinally_vanishing_or_summable_refinement_tail",
+        "violated_conclusion": "arbitrary_depth_comparisons_need_not_be_uniformly_small"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "claimed_K": "1",
+          "claimed_projected_bound": "1/8",
+          "coarse_two_point_distance_after_restriction": "1",
+          "fine_two_point_distance": "1/8",
+          "full_parametric_model": {
+            "compatible_input": "q_n=0",
+            "consistent_sets": "C_n={0}",
+            "coordinate_spaces": "Q_n=R (complete)",
+            "normalizers": "N_n=0",
+            "observations": "B_n constant",
+            "quantified_failure": "receipt errors tend to zero and alpha_n=0, but rho_(m,0)xhat_m^(+/-)=+/-1",
+            "residuals": "Phi_n(x)=|x|",
+            "restriction_maps": "rho_(n+1,n)(x)=2x",
+            "sampled_exact_instances": [
+              {
+                "level": 1,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 2,
+                "solver_error": "1/2"
+              },
+              {
+                "level": 2,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 4,
+                "solver_error": "1/4"
+              },
+              {
+                "level": 3,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 8,
+                "solver_error": "1/8"
+              },
+              {
+                "level": 4,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 16,
+                "solver_error": "1/16"
+              },
+              {
+                "level": 5,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 32,
+                "solver_error": "1/32"
+              },
+              {
+                "level": 6,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 64,
+                "solver_error": "1/64"
+              },
+              {
+                "level": 7,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 128,
+                "solver_error": "1/128"
+              },
+              {
+                "level": 8,
+                "normalizer_defect": 0,
+                "projected_minus_output_at_level_zero": -1,
+                "projected_plus_output_at_level_zero": 1,
+                "rho_m_0_Lipschitz_constant": 256,
+                "solver_error": "1/256"
+              }
+            ],
+            "solver_outputs": "xhat_m^(+/-)=+/-2^(-m)"
+          }
+        },
+        "removed_hypothesis": "declared_uniform_Lipschitz_restriction_bound",
+        "violated_conclusion": "fine_solver_error_is_not_controlled_after_restriction"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "ambient_limit": 0,
+          "ambient_limit_is_in_Q": false,
+          "cauchy_bound": "for k>=m, |x_k-x_m|<=1/(m+2), which tends to zero",
+          "compatible_input": "q_n=1/2",
+          "consistent_sets": "C_n={1/(n+2)}",
+          "coordinate_spaces": "Q_n=(0,1) with Euclidean distance",
+          "exact_solver_outputs": "xhat_n=1/(n+2), so e_n=0",
+          "normalizer_defects": "alpha_n=1/((n+2)(n+3)), a summable tail",
+          "normalizers": "N_n(x)=1/(n+2)",
+          "restriction_maps": "identity (nonexpansive)",
+          "sampled_exact_terms": [
+            "1/2",
+            "1/3",
+            "1/4",
+            "1/5",
+            "1/6",
+            "1/7",
+            "1/8",
+            "1/9",
+            "1/10",
+            "1/11",
+            "1/12",
+            "1/13",
+            "1/14",
+            "1/15",
+            "1/16",
+            "1/17"
+          ],
+          "sequence": "rho_(m,0)xhat_m=1/(m+2)"
+        },
+        "removed_hypothesis": "complete_coordinate_spaces",
+        "violated_conclusion": "coordinate_limit_exists_in_Q"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "compatibility_equation_holds": false,
+          "consistent_sets": "C_n=Q_n",
+          "coordinate_spaces": "Q_n={0,1} with discrete metric",
+          "declared_input": "q_n=n mod 2",
+          "exact_solver_outputs": "xhat_n=q_n with e_n=0",
+          "normalizer_defects": "alpha_n=0",
+          "normalizers": "N_n=identity",
+          "observations": "B_n=identity",
+          "quantified_failure": "rho_(m,0)xhat_m=m mod 2 has distinct even/odd cofinal limits",
+          "restricted_q_1": 1,
+          "restriction_maps": "identity",
+          "sample_pair": {
+            "q_0": 0,
+            "q_1": 1
+          }
+        },
+        "removed_hypothesis": "compatible_projective_input",
+        "violated_conclusion": "output_family_belongs_to_projective_limit"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "cofinal_subsequences": {
+            "even_levels_limit": 0,
+            "odd_levels_limit": 1
+          },
+          "consistent_sets": "C_n=Q_n",
+          "exact_input": 0,
+          "normalizer_defects": "alpha_n=0",
+          "normalizers": "N_n=identity",
+          "receipt_error": "e_m=m mod 2, so it does not tend to zero",
+          "sampled_outputs": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "sampled_receipt_errors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "solver_output": "x_m=m mod 2",
+          "space": "Q_n={0,1} with identity restrictions"
+        },
+        "removed_hypothesis": "vanishing_solver_receipt_errors",
+        "violated_conclusion": "implementation_independent_cofinal_projective_limit"
+      }
+    ],
+    "transactional_confluence": [
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "accepted_rewrite_edges": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "left_reachable": [
+            [
+              1,
+              0
+            ]
+          ],
+          "measure": "2-x-y",
+          "peak_endpoints": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "protected_function": "B(x,y)=x*y",
+          "rejected_second_commits": [
+            [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          ],
+          "rejection_reason": "the second commit changes B from 0 to 1",
+          "right_reachable": [
+            [
+              0,
+              1
+            ]
+          ],
+          "source": [
+            0,
+            0
+          ],
+          "state_space": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "removed_hypothesis": "semantic_dependency_complete_reads_and_revalidation",
+        "violated_conclusion": "local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "measure": {
+            "left_terminal": 0,
+            "right_terminal": 0,
+            "source": 1
+          },
+          "separately_committed_conflicting_primitives": [
+            [
+              "source",
+              "left_terminal"
+            ],
+            [
+              "source",
+              "right_terminal"
+            ]
+          ],
+          "states": [
+            "source",
+            "left_terminal",
+            "right_terminal"
+          ]
+        },
+        "removed_hypothesis": "atomic_conflict_component_commit",
+        "violated_conclusion": "local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "parenthesized_payloads": {
+            "(tau_1 aggregate tau_2)": "left_terminal",
+            "(tau_2 aggregate tau_1)": "right_terminal"
+          },
+          "single_conflict_component": [
+            "tau_1",
+            "tau_2"
+          ]
+        },
+        "removed_hypothesis": "coherent_canonical_union_collar_payload",
+        "violated_conclusion": "one_payload_per_component_and_local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "accepted_rewrite_edges": [
+            [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          ],
+          "final_aggregate_supports": [
+            {
+              "members": [
+                "tau_x"
+              ],
+              "read": [
+                "x",
+                "c"
+              ],
+              "write": [
+                "x",
+                "c"
+              ]
+            },
+            {
+              "members": [
+                "tau_z"
+              ],
+              "read": [
+                "c",
+                "z"
+              ],
+              "write": [
+                "z"
+              ]
+            }
+          ],
+          "new_cross_conflict": "W_tau_x intersects R_tau_z at c",
+          "primitive_components": [
+            {
+              "members": [
+                "tau_x"
+              ],
+              "read": [
+                "x"
+              ],
+              "write": [
+                "x"
+              ]
+            },
+            {
+              "members": [
+                "tau_z"
+              ],
+              "read": [
+                "c",
+                "z"
+              ],
+              "write": [
+                "z"
+              ]
+            }
+          ],
+          "register_order": [
+            "x",
+            "c",
+            "z"
+          ],
+          "terminal_schedule_results": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        "removed_hypothesis": "aggregate_support_closure_and_fixed_point_remerge",
+        "violated_conclusion": "local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "accepted_rewrite_edges": [
+            [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            [
+              [
+                0
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                2
+              ],
+              [
+                4
+              ]
+            ]
+          ],
+          "after_A_newly_enabled": "C",
+          "new_conflict_component_after_A": [
+            "B",
+            "C"
+          ],
+          "old_B_no_longer_commits_as_source_aggregate": true,
+          "source_enabled_components": [
+            [
+              "A"
+            ],
+            [
+              "B"
+            ]
+          ],
+          "terminal_schedule_results": [
+            [
+              3
+            ],
+            [
+              4
+            ]
+          ]
+        },
+        "removed_hypothesis": "prepared_source_component_stability_or_frozen_batch_admissibility",
+        "violated_conclusion": "local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "register_order": [
+            "x",
+            "y",
+            "done_x",
+            "done_y"
+          ],
+          "source": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tau_x": {
+            "declared_read": [
+              "done_x"
+            ],
+            "declared_write": [
+              "x",
+              "done_x"
+            ],
+            "undeclared_payload_dependency": "x := 1-y"
+          },
+          "tau_y": {
+            "declared_read": [
+              "done_y"
+            ],
+            "declared_write": [
+              "y",
+              "done_y"
+            ],
+            "payload": "y := 1"
+          },
+          "x_then_y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "y_then_x": [
+            0,
+            1,
+            1,
+            1
+          ]
+        },
+        "removed_hypothesis": "payload_determined_by_declared_read_snapshot",
+        "violated_conclusion": "schedule_independent_payload_and_local_confluence"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "prefix": [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "rewrite_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state_space": [
+            0,
+            1
+          ]
+        },
+        "removed_hypothesis": "strict_well_founded_descent",
+        "violated_conclusion": "existence_of_terminal_normal_form"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "declared_consistent_set": [
+            1
+          ],
+          "rewrite_edges": [],
+          "state_space": [
+            0,
+            1
+          ],
+          "terminal": 0
+        },
+        "removed_hypothesis": "repair_completeness",
+        "violated_conclusion": "normal_form_lands_in_C_and_fixed_point_iff_consistent"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "measure": {
+            "source": 1,
+            "terminal": 0
+          },
+          "rewrite_edge": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "removed_hypothesis": "boundary_sector_holonomy_preservation",
+        "violated_conclusion": "normal_form_map_preserves_protected_record"
+      }
+    ]
+  },
+  "prepared_certificate_bft": {
+    "checked_next_view_candidate_prepare_quorums": 194738,
+    "checked_post_GST_progress_traces": 118,
+    "checked_prepared_to_view_change_pairs": 9326,
+    "checked_same_view_certificate_pairs": 9326,
+    "checks": {
+      "every_certificate_pair_has_nonfaulty_overlap": true,
+      "every_new_view_quorum_carries_a_nonfaulty_lock": true,
+      "finalisation_occurs_only_after_a_valid_decision_certificate": true,
+      "finite_next_view_lock_transition_rejects_conflicting_prepare_quorums": true,
+      "highest_prepared_certificate_rule_is_value_preserving": true,
+      "post_GST_honest_progress_trace_reaches_valid_decision_and_relay": true,
+      "reference_quorums_can_form_without_Byzantine_votes": true,
+      "same_view_and_cross_view_induction_base_are_finite_checked": true
+    },
+    "finite_parameter_sweep": [
+      {
+        "base_view_highest_rule_preserves_value": true,
+        "checked_next_view_candidate_prepare_quorums": 1,
+        "checked_post_GST_nonfaulty_leader_progress_traces": 1,
+        "conflicting_next_view_quorums_accepted": 0,
+        "f": 0,
+        "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_lock_transfer_to_view_change": 1,
+        "minimum_quorum_overlap": 1,
+        "n": 1,
+        "q": 1,
+        "threshold_2q_ge_n_plus_f_plus_1": true
+      },
+      {
+        "base_view_highest_rule_preserves_value": true,
+        "checked_next_view_candidate_prepare_quorums": 256,
+        "checked_post_GST_nonfaulty_leader_progress_traces": 12,
+        "conflicting_next_view_quorums_accepted": 0,
+        "f": 1,
+        "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_lock_transfer_to_view_change": 1,
+        "minimum_quorum_overlap": 2,
+        "n": 4,
+        "q": 3,
+        "threshold_2q_ge_n_plus_f_plus_1": true
+      },
+      {
+        "base_view_highest_rule_preserves_value": true,
+        "checked_next_view_candidate_prepare_quorums": 194481,
+        "checked_post_GST_nonfaulty_leader_progress_traces": 105,
+        "conflicting_next_view_quorums_accepted": 0,
+        "f": 2,
+        "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_lock_transfer_to_view_change": 1,
+        "minimum_quorum_overlap": 3,
+        "n": 7,
+        "q": 5,
+        "threshold_2q_ge_n_plus_f_plus_1": true
+      }
+    ],
+    "induction_invariant": "after the first prepared/decision certificate for x at view v, every valid prepared certificate in a later view is for x",
+    "protocol_rule": {
+      "decision_certificate": "q distinct authenticated commit votes referring to the same valid prepared certificate; a nonfaulty observer finalises only after accepting such a valid decision certificate",
+      "lock": "a nonfaulty validator records the value/view after accepting a prepared certificate and before committing, then reports its highest valid prepared certificate in view change",
+      "monotone_view_participation": "after entering view w, a nonfaulty validator never signs a prepare or commit message for any lower view",
+      "new_view": "the leader collects q authenticated view-change messages and proposes the value of their highest-view prepared certificate",
+      "post_GST_timeout_active_honest_progress": "in a post-GST nonfaulty-led view after timeout-bound activation, the leader emits the P4-selected justified proposal; nonfaulty validators promptly send the required prepare and commit messages, accept only valid certificates, and relay the decision certificate so every nonfaulty validator finalises",
+      "prepared_certificate": "q distinct authenticated prepare votes for one value in one view",
+      "vote_rule": "an unlocked nonfaulty validator may support a fresh value only when no prepared certificate is present; otherwise it votes only for its lock value or for the value justified by a strictly higher valid prepared certificate"
+    },
+    "receipt_id": "BFT-LOCK-1"
+  },
+  "receipt_sha256": "b2b5f21d5ac1417568faab2c96caa45a3cb38f19895105f081d43ae479ab1fb3",
+  "refinement_moduli": {
+    "checks": {
+      "arbitrary_depth_telescope_is_exact_on_reference_instances": true,
+      "inverse_witness_schema_has_null_radius_and_unit_lower_bound": true,
+      "parametric_inverse_witness_constructor_exact_on_samples": true,
+      "parametric_residual_witness_constructor_exact_on_samples": true,
+      "residual_witness_schema_has_null_threshold_and_unit_lower_bound": true,
+      "summable_reference_has_exact_vanishing_infinite_tail": true,
+      "unbounded_observation_Lipschitz_counterfamily_exact_on_samples": true,
+      "unit_defect_full_model_retains_other_cofinal_hypotheses": true,
+      "unit_defect_tail_schema_is_nonvanishing": true
+    },
+    "receipt_id": "REFINEMENT-MODULUS-1",
+    "summable_reference": {
+      "exact_tail_formula": "sum_{j=n}^infinity a_j=2^(-n)",
+      "infinite_generator": "a_j=2^(-j-1)",
+      "sampled_exact_instances": [
+        {
+          "exact_infinite_tail": "1/2",
+          "n": 1
+        },
+        {
+          "exact_infinite_tail": "1/4",
+          "n": 2
+        },
+        {
+          "exact_infinite_tail": "1/16",
+          "n": 4
+        },
+        {
+          "exact_infinite_tail": "1/256",
+          "n": 8
+        },
+        {
+          "exact_infinite_tail": "1/65536",
+          "n": 16
+        },
+        {
+          "exact_infinite_tail": "1/4294967296",
+          "n": 32
+        }
+      ]
+    },
+    "tower_telescope": {
+      "full_countermodel": {
+        "compatible_input": "q_n=0 for every n",
+        "consistent_sets": "C_n={n}",
+        "coordinate_spaces": "Q_n=R with the Euclidean metric (complete)",
+        "exact_solver_outputs": "xhat_n=n with receipt error e_n=0",
+        "normalizers": "N_n(x)=n",
+        "observations": "B_n is constant",
+        "quantified_failure": "alpha_n=1 for every n, and projected outputs n are not Cauchy",
+        "residuals": "Phi_n(x)=|x-n|",
+        "restriction_maps": "rho_(n+1,n)=identity (nonexpansive)",
+        "sampled_one_step_defects": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "sampled_projected_outputs_at_level_zero": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "infinite_generator": "p_j=j and a_j=1 for every j>=0",
+      "nonvanishing_tail_proof_schema": {
+        "requested_tail": "arbitrary M>=1",
+        "start": "arbitrary n>=0",
+        "unit_defect": 1,
+        "witness_endpoint": "m=n+M"
+      },
+      "quantified_conclusion": "for every n and M choose m=n+M; the amplified tail equals M",
+      "sampled_exact_instances": [
+        {
+          "bound_exact": true,
+          "endpoint_distance": 1,
+          "m": 1,
+          "n": 0,
+          "sum_of_unit_step_defects": 1
+        },
+        {
+          "bound_exact": true,
+          "endpoint_distance": 4,
+          "m": 4,
+          "n": 0,
+          "sum_of_unit_step_defects": 4
+        },
+        {
+          "bound_exact": true,
+          "endpoint_distance": 6,
+          "m": 9,
+          "n": 3,
+          "sum_of_unit_step_defects": 6
+        },
+        {
+          "bound_exact": true,
+          "endpoint_distance": 15,
+          "m": 25,
+          "n": 10,
+          "sum_of_unit_step_defects": 15
+        }
+      ]
+    },
+    "uniform_inverse_counterfamily": {
+      "index_domain": "n in positive integers",
+      "null_sequence_proof_schema": {
+        "cross_multiplied_inequality": "k<k+1",
+        "positive_offset": 1,
+        "target_epsilon": "1/k for arbitrary k>=1",
+        "witness_index": "m=k+1"
+      },
+      "observations": "B_n(0)=0, B_n(1)=1/n",
+      "quantified_conclusion": "Omega(1/m)>=1 for every m>=1 while 1/m tends to zero",
+      "sampled_exact_instances": [
+        {
+          "gap_within_radius": true,
+          "index": 1,
+          "observation_gap": "1",
+          "radius": "1",
+          "stage": 1,
+          "stage_map_injective": true,
+          "state_gap": 1
+        },
+        {
+          "gap_within_radius": true,
+          "index": 2,
+          "observation_gap": "1/2",
+          "radius": "1/2",
+          "stage": 2,
+          "stage_map_injective": true,
+          "state_gap": 1
+        },
+        {
+          "gap_within_radius": true,
+          "index": 4,
+          "observation_gap": "1/4",
+          "radius": "1/4",
+          "stage": 4,
+          "stage_map_injective": true,
+          "state_gap": 1
+        },
+        {
+          "gap_within_radius": true,
+          "index": 8,
+          "observation_gap": "1/8",
+          "radius": "1/8",
+          "stage": 8,
+          "stage_map_injective": true,
+          "state_gap": 1
+        },
+        {
+          "gap_within_radius": true,
+          "index": 16,
+          "observation_gap": "1/16",
+          "radius": "1/16",
+          "stage": 16,
+          "stage_map_injective": true,
+          "state_gap": 1
+        },
+        {
+          "gap_within_radius": true,
+          "index": 32,
+          "observation_gap": "1/32",
+          "radius": "1/32",
+          "stage": 32,
+          "stage_map_injective": true,
+          "state_gap": 1
+        }
+      ],
+      "state_spaces": "Q_n=C_n={0,1} with discrete distance",
+      "witness_constructor": "for every positive integer m choose stage n=m and radius r_m=1/m"
+    },
+    "uniform_observation_Lipschitz_counterfamily": {
+      "consistent_sets": "C_n={0,1}",
+      "observations": "B_n(0)=0 and B_n(1/n)=B_n(1)=1",
+      "quantified_conclusion": "Lip(B_n)=n is unbounded; x_n=1/n and y_n=1 have vanishing residual, equal observation, and state gap 1-1/n",
+      "residuals": "Phi_n=distance to C_n",
+      "sampled_exact_instances": [
+        {
+          "inconsistent_point": "1/2",
+          "observation_Lipschitz_constant": 2,
+          "observation_gap_to_one": 0,
+          "residual": "1/2",
+          "stage": 2,
+          "state_gap_to_one": "1/2"
+        },
+        {
+          "inconsistent_point": "1/4",
+          "observation_Lipschitz_constant": 4,
+          "observation_gap_to_one": 0,
+          "residual": "1/4",
+          "stage": 4,
+          "state_gap_to_one": "3/4"
+        },
+        {
+          "inconsistent_point": "1/8",
+          "observation_Lipschitz_constant": 8,
+          "observation_gap_to_one": 0,
+          "residual": "1/8",
+          "stage": 8,
+          "state_gap_to_one": "7/8"
+        },
+        {
+          "inconsistent_point": "1/16",
+          "observation_Lipschitz_constant": 16,
+          "observation_gap_to_one": 0,
+          "residual": "1/16",
+          "stage": 16,
+          "state_gap_to_one": "15/16"
+        },
+        {
+          "inconsistent_point": "1/32",
+          "observation_Lipschitz_constant": 32,
+          "observation_gap_to_one": 0,
+          "residual": "1/32",
+          "stage": 32,
+          "state_gap_to_one": "31/32"
+        }
+      ],
+      "state_spaces": "Q_n={0,1/n,1} with Euclidean distance, n>=2"
+    },
+    "uniform_residual_counterfamily": {
+      "consistent_sets": "C_n={0}",
+      "index_domain": "n in positive integers",
+      "null_sequence_proof_schema": {
+        "cross_multiplied_inequality": "k<k+1",
+        "positive_offset": 1,
+        "target_epsilon": "1/k for arbitrary k>=1",
+        "witness_index": "m=k+1"
+      },
+      "quantified_conclusion": "H(1/m)>=1 for every m>=1 while 1/m tends to zero",
+      "residuals": "Phi_n(0)=0, Phi_n(1)=1/n",
+      "sampled_exact_instances": [
+        {
+          "distance_to_consistent_set": 1,
+          "index": 1,
+          "residual_at_inconsistent_state": "1",
+          "residual_within_threshold": true,
+          "stage": 1,
+          "threshold": "1"
+        },
+        {
+          "distance_to_consistent_set": 1,
+          "index": 2,
+          "residual_at_inconsistent_state": "1/2",
+          "residual_within_threshold": true,
+          "stage": 2,
+          "threshold": "1/2"
+        },
+        {
+          "distance_to_consistent_set": 1,
+          "index": 4,
+          "residual_at_inconsistent_state": "1/4",
+          "residual_within_threshold": true,
+          "stage": 4,
+          "threshold": "1/4"
+        },
+        {
+          "distance_to_consistent_set": 1,
+          "index": 8,
+          "residual_at_inconsistent_state": "1/8",
+          "residual_within_threshold": true,
+          "stage": 8,
+          "threshold": "1/8"
+        },
+        {
+          "distance_to_consistent_set": 1,
+          "index": 16,
+          "residual_at_inconsistent_state": "1/16",
+          "residual_within_threshold": true,
+          "stage": 16,
+          "threshold": "1/16"
+        },
+        {
+          "distance_to_consistent_set": 1,
+          "index": 32,
+          "residual_at_inconsistent_state": "1/32",
+          "residual_within_threshold": true,
+          "stage": 32,
+          "threshold": "1/32"
+        }
+      ],
+      "witness_constructor": "for every positive integer m choose stage n=m and threshold t_m=1/m"
+    }
+  },
+  "schema": "oph.issue_517_proof_obligations.v1",
+  "selector": {
+    "checks": {
+      "all_finite_negative_controls_fail_closed": true,
+      "avoids_nonexistent_rotation_group_maximality": true,
+      "conditional_variational_sieve_does_not_supply_hierarchy_readout": true,
+      "conditional_variational_sieve_exactly_recomputed": true,
+      "integer_twelve_port_domain": true,
+      "proper_group_identified_as_A5": true,
+      "refinement_naturality_checked": true,
+      "source_firewall_clear": true,
+      "stored_receipt_exactly_recomputed": true,
+      "strict_unit_split_gap_two": true
+    },
+    "finite_negative_control_count": 19,
+    "manifest": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+    "manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "negative_controls": "code/a5_closure/negative_controls/issue_565_negative_controls.json",
+    "negative_controls_sha256": "f4e13aa4ef17fedde61fd918f4b5479d6da68863d4ab9fcb72e27f87ff35b766",
+    "receipt": "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+    "receipt_id": "ECHOSAHEDRAL-SELECTOR-1",
+    "receipt_sha256": "b3f8bc306471334c0dc75d38b2f9c1b7b1dd4247ff02cbe2980c0caad07b3506",
+    "separate_conditional_variational_sieve": {
+      "artifact": "code/particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json",
+      "artifact_sha256": "ddb8a8818a57aa5d9afaa761ac57dbfe2ac49f0b587a5346b0f45b37f5594069",
+      "hierarchy_readout_gate": {
+        "premise_id": "HIERARCHY-SCREEN-READOUT",
+        "required_for": [
+          "v/E_cell=(N/pi)^(-P/12)",
+          "matching Gamma_screen to the alpha_U transmutation branch",
+          "B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0"
+        ],
+        "required_identification": "log(E_cell/v)=Gamma_screen",
+        "status": "work_in_progress",
+        "supplied_by_screen_sieve": false
+      },
+      "status": "conditional_finite_selector_theorem"
+    }
+  },
+  "support_status": "exact finite theorem-premise receipt; physical downstream producer gates remain separately typed",
+  "transactional_confluence": {
+    "aggregate_support_reclosure": {
+      "reference_fixed_point_reached_without_extra_merge": true,
+      "rule": "recompute conflicts on final aggregate read/write supports until distinct aggregates are pairwise nonconflicting"
+    },
+    "checked_peak_count": 6,
+    "checks": {
+      "aggregate_supports_are_semantically_closed": true,
+      "all_one_step_peaks_join": true,
+      "conflicts_are_connected_components": true,
+      "one_canonical_payload_per_component": true,
+      "prepared_source_components_survive_disjoint_commits": true,
+      "protected_record_preserved": true,
+      "semantic_dependency_complete": true,
+      "strict_integer_descent": true,
+      "support_reclosure_leaves_distinct_aggregates_nonconflicting": true,
+      "terminals_are_exactly_consistent_states": true,
+      "unique_terminal_from_every_state": true
+    },
+    "dependency_closures": {
+      "set_x": [
+        "x",
+        "y"
+      ],
+      "set_y": [
+        "x",
+        "y"
+      ],
+      "set_z": [
+        "z"
+      ]
+    },
+    "finite_state_space": {
+      "cardinality": 16,
+      "consistent_predicate": "x=y=z=1",
+      "measure": "3-x-y-z",
+      "protected_record": "protected",
+      "register_order": [
+        "x",
+        "y",
+        "z",
+        "protected"
+      ]
+    },
+    "functional_supports": {
+      "boundary": [
+        "protected"
+      ],
+      "mu_x": [
+        "x"
+      ],
+      "mu_y": [
+        "y"
+      ],
+      "mu_z": [
+        "z"
+      ]
+    },
+    "initial_conflict_components": [
+      {
+        "members": [
+          "set_x",
+          "set_y"
+        ],
+        "payload_sha256": "931d1776264f9ef691959731f192effa534e6174b64cf773070b3d813aba8748",
+        "read_set": [
+          "x",
+          "y"
+        ],
+        "snapshot": {
+          "x": 0,
+          "y": 0
+        },
+        "write_set": [
+          "x",
+          "y"
+        ],
+        "writes": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      {
+        "members": [
+          "set_z"
+        ],
+        "payload_sha256": "e9526a2455f530237a74d9f74a9ff5ba54994ebd2ea3009d9bebc20b4cc29ff9",
+        "read_set": [
+          "z"
+        ],
+        "snapshot": {
+          "z": 0
+        },
+        "write_set": [
+          "z"
+        ],
+        "writes": {
+          "z": 1
+        }
+      }
+    ],
+    "peak_receipts": [
+      {
+        "join": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "left_component": [
+          "set_x",
+          "set_y"
+        ],
+        "right": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "join": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "left_component": [
+          "set_x",
+          "set_y"
+        ],
+        "right": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "join": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "left_component": [
+          "set_x"
+        ],
+        "right": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "join": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "left_component": [
+          "set_x"
+        ],
+        "right": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "join": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "left_component": [
+          "set_y"
+        ],
+        "right": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "join": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "joined_in_one_step": true,
+        "left": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "left_component": [
+          "set_y"
+        ],
+        "right": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "right_component": [
+          "set_z"
+        ],
+        "source": [
+          1,
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "receipt_id": "TXN-DIAMOND-1"
+  }
+}

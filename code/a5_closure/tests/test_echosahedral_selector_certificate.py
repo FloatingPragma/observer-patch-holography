@@ -108,6 +108,51 @@ class EchosahedralSelectorCertificateTests(unittest.TestCase):
             cert.certificate_payload(mutant)
         self.assertEqual(caught.exception.code, "FORBIDDEN_DEPENDENCY")
 
+    def test_undeclared_numeric_input_is_rejected_by_closed_schema(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        mutant["unlabelled_numeric_input"] = 125.25
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "SCHEMA_FIELDS")
+
+    def test_float_trace_fraction_is_not_truncated_to_integers(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        mutant["carrier"]["central_port_atoms"][0]["normalized_trace"] = {
+            "numerator": 1.9,
+            "denominator": 12.9,
+        }
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "TRACE_WEIGHT_FORMAT")
+
+    def test_numeric_refinement_identifiers_are_not_string_coerced(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        mutant["refinement_tower"]["levels"] = [125.25, 126, 127]
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "REFINEMENT_LEVEL_FORMAT")
+
+        mutant = copy.deepcopy(self.manifest)
+        mutant["refinement_tower"]["maps"][0]["source"] = 125.25
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "REFINEMENT_MAP_LEVEL_FORMAT")
+
+    def test_numeric_port_map_entries_are_not_string_coerced(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        mutant["refinement_tower"]["maps"][0]["port_map"][0] = 125.25
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "REFINEMENT_MAP_FORMAT")
+
+    def test_countermodel_values_are_recomputed_exactly(self) -> None:
+        witnesses = cert.negative_control_payload(self.manifest)["countermodel_witnesses"]
+        self.assertEqual(witnesses["unequal_trace"]["alternative_cost"], "14/15")
+        self.assertEqual(witnesses["wrong_total_13"]["minimizer_count"], 12)
+        self.assertEqual(witnesses["linear_cost_total_12"]["minimizer_count"], 1352078)
+        self.assertEqual(witnesses["missing_incidence"]["fixed_point_free_pairings"], 10395)
+        self.assertEqual(witnesses["missing_orientation"]["order"], 120)
+
     def test_tampered_receipt_is_rejected(self) -> None:
         receipt = copy.deepcopy(self.expected)
         receipt["icosahedral_selector"]["orientation_preserving_order"] = 59
@@ -145,4 +190,3 @@ class EchosahedralSelectorCertificateTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

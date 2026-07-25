@@ -69,5 +69,26 @@ the audit. The artifact machine-checks why they matter:
    `empty_relation_repairMargin_zero`. An alternative would be to formulate
    the result with an extended-real distance.
 
+`Refinement.lean` proves the arbitrary-depth metric telescope and the
+receipt-composition cores.  The manuscript's family-uniform inverse and
+residual moduli are not represented by a separate Lean declaration here.
+Finite descriptions of their parametric infinite counterfamilies are instead
+recomputed by
+`code/consensus/verify_issue_517_proof_obligations.py` in the repository
+root: stagewise injectivity without a family inverse modulus, stagewise error
+bounds without a family residual modulus, an unbounded family of observation
+Lipschitz constants, a nonvanishing tower tail, and a missing Lipschitz
+restriction bound, with additional cofinal-limit controls
+for completeness, input compatibility, and vanishing solver error.  The
+Python artifact checks exact witness constructors and regression instances;
+the quantified family argument remains the manuscript proof. This
+distinction prevents the executable controls from being reported as a Lean
+proof of the infinite-family limit statement.
+
+The issue-517 transactional local-diamond and prepared-lock BFT theorems are
+outside this Lean package. They currently have manuscript proofs and finite
+Python reference receipts under `code/consensus/`; neither general theorem is
+claimed as Lean, TLA+, or protocol-model-checker verified.
+
 The current exact product-calculus theorem likewise uses a nonempty finite
 index family. That theorem is not yet formalized here.

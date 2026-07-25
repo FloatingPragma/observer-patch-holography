@@ -29,6 +29,7 @@ import copy
 import hashlib
 import itertools
 import json
+import math
 from collections import Counter, deque
 from dataclasses import dataclass
 from pathlib import Path
@@ -138,12 +139,114 @@ def require(condition: bool, code: str, message: str) -> None:
         raise CertificateError(code, message)
 
 
+def require_exact_keys(
+    value: Mapping[str, Any],
+    expected: set[str],
+    path: str,
+) -> None:
+    actual = set(value)
+    require(
+        actual == expected,
+        "SCHEMA_FIELDS",
+        (
+            f"{path} fields must be exactly {sorted(expected)}; "
+            f"missing={sorted(expected - actual)}, extra={sorted(actual - expected)}"
+        ),
+    )
+
+
+def validate_closed_manifest_schema(manifest: Mapping[str, Any]) -> None:
+    """Reject undeclared inputs before they can enter a source-only receipt.
+
+    A substring firewall catches named downstream targets, but it cannot make
+    an open JSON object source-only: an opaque numeric target could otherwise
+    be added under an innocuous key.  The selector manifest is therefore a
+    closed schema at every object-bearing level.
+    """
+
+    require_exact_keys(
+        manifest,
+        {"schema", "architecture", "carrier", "source_readback", "refinement_tower"},
+        "$",
+    )
+    carrier = manifest.get("carrier")
+    require(isinstance(carrier, Mapping), "CARRIER", "carrier object is missing")
+    require_exact_keys(
+        carrier,
+        {
+            "ports",
+            "central_port_atoms",
+            "atoms_pairwise_orthogonal",
+            "atoms_sum_to_one",
+            "edges",
+            "oriented_faces",
+        },
+        "$.carrier",
+    )
+    atoms = carrier.get("central_port_atoms")
+    require(isinstance(atoms, list), "PORT_ATOMS", "central_port_atoms must be a list")
+    for index, atom in enumerate(atoms):
+        require(isinstance(atom, Mapping), "PORT_ATOMS", "each atom must be an object")
+        require_exact_keys(
+            atom,
+            {"atom_id", "port", "primitive", "normalized_trace"},
+            f"$.carrier.central_port_atoms[{index}]",
+        )
+        trace = atom.get("normalized_trace")
+        require(
+            isinstance(trace, Mapping),
+            "TRACE_WEIGHT_FORMAT",
+            "normalized_trace must be an object",
+        )
+        require_exact_keys(
+            trace,
+            {"numerator", "denominator"},
+            f"$.carrier.central_port_atoms[{index}].normalized_trace",
+        )
+
+    source = manifest.get("source_readback")
+    require(isinstance(source, Mapping), "SOURCE_READBACK", "source_readback is missing")
+    require_exact_keys(
+        source,
+        {"defect_domain", "total_charge", "mismatch_cost", "cost_origin"},
+        "$.source_readback",
+    )
+
+    refinement = manifest.get("refinement_tower")
+    require(
+        isinstance(refinement, Mapping),
+        "REFINEMENT",
+        "refinement_tower is missing",
+    )
+    require_exact_keys(refinement, {"levels", "maps"}, "$.refinement_tower")
+    maps = refinement.get("maps")
+    require(isinstance(maps, list), "REFINEMENT_MAPS", "refinement maps must be a list")
+    for index, item in enumerate(maps):
+        require(
+            isinstance(item, Mapping),
+            "REFINEMENT_MAP",
+            "each refinement map must be an object",
+        )
+        require_exact_keys(
+            item,
+            {"source", "target", "port_map"},
+            f"$.refinement_tower.maps[{index}]",
+        )
+
+
 def parse_fraction(value: Mapping[str, Any]) -> tuple[int, int]:
     try:
-        numerator = int(value["numerator"])
-        denominator = int(value["denominator"])
-    except (KeyError, TypeError, ValueError) as exc:
+        numerator_raw = value["numerator"]
+        denominator_raw = value["denominator"]
+    except KeyError as exc:
         raise CertificateError("TRACE_WEIGHT_FORMAT", "trace weights must be integer numerator/denominator objects") from exc
+    require(
+        type(numerator_raw) is int and type(denominator_raw) is int,
+        "TRACE_WEIGHT_FORMAT",
+        "trace numerator and denominator must be JSON integers, not booleans, floats, or strings",
+    )
+    numerator = numerator_raw
+    denominator = denominator_raw
     require(denominator > 0, "TRACE_WEIGHT_FORMAT", "trace denominator must be positive")
     return numerator, denominator
 
@@ -167,6 +270,7 @@ def all_pairs_distances(adjacency: Sequence[frozenset[int]]) -> tuple[tuple[int,
 
 
 def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
+    validate_closed_manifest_schema(manifest)
     require(manifest.get("schema") == SCHEMA, "SCHEMA", f"expected {SCHEMA}")
     require(manifest.get("architecture") == "federation_of_12_port_echosahedra", "ARCHITECTURE", "wrong simulator architecture")
 
@@ -174,7 +278,8 @@ def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
     require(isinstance(carrier, Mapping), "CARRIER", "carrier object is missing")
     ports_raw = carrier.get("ports")
     require(isinstance(ports_raw, list), "PORTS", "ports must be a list")
-    ports = tuple(str(p) for p in ports_raw)
+    require(all(type(p) is str for p in ports_raw), "PORT_LABELS", "port identifiers must be strings")
+    ports = tuple(ports_raw)
     require(len(ports) == 12, "PORT_COUNT", "exactly twelve quotient-visible ports are required")
     require(len(set(ports)) == 12, "PORT_LABELS", "port identifiers must be distinct")
     index = {p: i for i, p in enumerate(ports)}
@@ -187,8 +292,10 @@ def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
     weights: list[tuple[int, int]] = []
     for atom in atoms:
         require(isinstance(atom, Mapping), "PORT_ATOMS", "each atom must be an object")
-        port = str(atom.get("port"))
-        atom_id = str(atom.get("atom_id"))
+        require(type(atom.get("port")) is str, "PORT_ATOM_PORT", "atom port must be a string")
+        require(type(atom.get("atom_id")) is str, "PORT_ATOMS", "atom id must be a string")
+        port = atom["port"]
+        atom_id = atom["atom_id"]
         require(port in index, "PORT_ATOM_PORT", f"unknown atom port {port}")
         require(port not in seen_atom_ports, "PORT_ATOM_DUPLICATE", f"duplicate atom for {port}")
         require(atom_id not in seen_atom_ids, "PORT_ATOM_DUPLICATE", f"duplicate atom id {atom_id}")
@@ -205,6 +312,7 @@ def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
     source = manifest.get("source_readback")
     require(isinstance(source, Mapping), "SOURCE_READBACK", "source_readback is missing")
     require(source.get("defect_domain") == "integer_port_charges", "DEFECT_DOMAIN", "defect domain must be integer port charges")
+    require(type(source.get("total_charge")) is int, "TOTAL_CHARGE_FORMAT", "Euler/readback total must be a JSON integer")
     require(source.get("total_charge") == 12, "TOTAL_CHARGE_NOT_12", "Euler/readback total must be exactly 12")
     require(source.get("mismatch_cost") == "sum_of_port_charge_squares", "COST_NOT_STRICT_QUADRATIC", "source cost must be the equal-trace quadratic port norm")
     require(source.get("cost_origin") == "normalized_central_readback_hilbert_schmidt_norm", "COST_NOT_SOURCE_DEFINED", "quadratic cost must be the declared readback norm")
@@ -214,7 +322,8 @@ def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
     edge_set: set[tuple[int, int]] = set()
     for item in edges_raw:
         require(isinstance(item, list) and len(item) == 2, "EDGE_FORMAT", "each edge must contain two ports")
-        a_name, b_name = str(item[0]), str(item[1])
+        require(all(type(name) is str for name in item), "EDGE_PORT", "edge port identifiers must be strings")
+        a_name, b_name = item
         require(a_name in index and b_name in index, "EDGE_PORT", "edge names an unknown port")
         a, b = index[a_name], index[b_name]
         require(a != b, "EDGE_LOOP", "self-edges are forbidden")
@@ -240,7 +349,8 @@ def validate_carrier(manifest: Mapping[str, Any]) -> Carrier:
     edge_face_count: Counter[tuple[int, int]] = Counter()
     for item in faces_raw:
         require(isinstance(item, list) and len(item) == 3, "FACE_FORMAT", "each face must contain three ports")
-        names = tuple(str(x) for x in item)
+        require(all(type(name) is str for name in item), "FACE_PORT", "face port identifiers must be strings")
+        names = tuple(item)
         require(all(name in index for name in names), "FACE_PORT", "face names an unknown port")
         face = tuple(index[name] for name in names)
         require(len(set(face)) == 3, "FACE_DEGENERATE", "face ports must be distinct")
@@ -604,7 +714,12 @@ def canonical_incidence_hash(carrier: Carrier) -> str:
 
 def parse_port_permutation(raw: Sequence[Any], carrier: Carrier) -> Permutation:
     require(isinstance(raw, list) and len(raw) == 12, "REFINEMENT_MAP_FORMAT", "port map must list twelve target ports")
-    names = tuple(str(x) for x in raw)
+    require(
+        all(type(name) is str for name in raw),
+        "REFINEMENT_MAP_FORMAT",
+        "port-map entries must be exact string port identifiers",
+    )
+    names = tuple(raw)
     require(set(names) == set(carrier.ports), "REFINEMENT_MAP_BIJECTION", "port map must be a bijection")
     return tuple(carrier.index[name] for name in names)
 
@@ -614,7 +729,12 @@ def validate_refinement(manifest: Mapping[str, Any], carrier: Carrier, plus_grou
     require(isinstance(tower, Mapping), "REFINEMENT_TOWER", "refinement_tower is missing")
     levels_raw = tower.get("levels")
     require(isinstance(levels_raw, list) and len(levels_raw) >= 2, "REFINEMENT_LEVELS", "at least two refinement levels are required")
-    levels = tuple(str(x) for x in levels_raw)
+    require(
+        all(type(level) is str for level in levels_raw),
+        "REFINEMENT_LEVEL_FORMAT",
+        "refinement-level identifiers must be strings",
+    )
+    levels = tuple(levels_raw)
     require(len(set(levels)) == len(levels), "REFINEMENT_LEVELS", "refinement levels must be distinct")
     level_index = {level: i for i, level in enumerate(levels)}
     maps_raw = tower.get("maps")
@@ -624,8 +744,13 @@ def validate_refinement(manifest: Mapping[str, Any], carrier: Carrier, plus_grou
     identity = tuple(range(12))
     for item in maps_raw:
         require(isinstance(item, Mapping), "REFINEMENT_MAP_FORMAT", "each refinement map must be an object")
-        source = str(item.get("source"))
-        target = str(item.get("target"))
+        require(
+            type(item.get("source")) is str and type(item.get("target")) is str,
+            "REFINEMENT_MAP_LEVEL_FORMAT",
+            "refinement-map source and target identifiers must be strings",
+        )
+        source = item["source"]
+        target = item["target"]
         require(source in level_index and target in level_index, "REFINEMENT_LEVEL_UNKNOWN", "map names an unknown level")
         require(level_index[source] < level_index[target], "REFINEMENT_DIRECTION", "refinement maps must point forward")
         permutation = parse_port_permutation(item.get("port_map"), carrier)
@@ -872,12 +997,61 @@ def relabel_manifest(manifest: Mapping[str, Any], old_to_new: Sequence[int]) -> 
     return out
 
 
+def bounded_integer_quadratic_minimum(
+    total: int,
+    slots: int,
+) -> tuple[int, int]:
+    """Return the exact minimum and multiplicity for the finite witness.
+
+    The search range ``[-abs(total), abs(total)]`` is deliberately much wider
+    than the nonnegative minimizers used here.  Dynamic programming keeps the
+    countermodel machine-checkable without enumerating ``27^12`` tuples.
+    """
+
+    bound = abs(total)
+    table: dict[int, tuple[int, int]] = {0: (0, 1)}
+    for _ in range(slots):
+        next_table: dict[int, tuple[int, int]] = {}
+        for partial_sum, (partial_cost, partial_count) in table.items():
+            for value in range(-bound, bound + 1):
+                new_sum = partial_sum + value
+                new_cost = partial_cost + value * value
+                current = next_table.get(new_sum)
+                if current is None or new_cost < current[0]:
+                    next_table[new_sum] = (new_cost, partial_count)
+                elif new_cost == current[0]:
+                    next_table[new_sum] = (current[0], current[1] + partial_count)
+        table = next_table
+    require(total in table, "COUNTERMODEL_SEARCH", "quadratic countermodel search missed the target sum")
+    return table[total]
+
+
+def recursive_pairing_count(labels: tuple[int, ...]) -> int:
+    if not labels:
+        return 1
+    first = labels[0]
+    total = 0
+    for index in range(1, len(labels)):
+        partner = labels[index]
+        remaining = tuple(
+            label
+            for label in labels
+            if label not in (first, partner)
+        )
+        total += recursive_pairing_count(remaining)
+    return total
+
+
 def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[str, Any], str]]:
     cases: list[tuple[str, dict[str, Any], str]] = []
 
     merged = copy.deepcopy(manifest)
     merged["carrier"]["central_port_atoms"] = merged["carrier"]["central_port_atoms"][:6]
     cases.append(("remove_twelve_primitive_atoms", merged, "PORT_ATOMS_COUNT"))
+
+    nonprimitive = copy.deepcopy(manifest)
+    nonprimitive["carrier"]["central_port_atoms"][0]["primitive"] = False
+    cases.append(("remove_primitive_atom_status", nonprimitive, "PORT_ATOM_NOT_PRIMITIVE"))
 
     unequal = copy.deepcopy(manifest)
     unequal["carrier"]["central_port_atoms"][0]["normalized_trace"] = {"numerator": 1, "denominator": 6}
@@ -891,9 +1065,42 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     linear["source_readback"]["mismatch_cost"] = "sum_of_absolute_port_charges"
     cases.append(("remove_strict_quadratic_cost", linear, "COST_NOT_STRICT_QUADRATIC"))
 
+    wrong_origin = copy.deepcopy(manifest)
+    wrong_origin["source_readback"]["cost_origin"] = "opaque_external_objective"
+    cases.append(("remove_source_readback_cost_origin", wrong_origin, "COST_NOT_SOURCE_DEFINED"))
+
+    nonorthogonal = copy.deepcopy(manifest)
+    nonorthogonal["carrier"]["atoms_pairwise_orthogonal"] = False
+    cases.append(
+        (
+            "remove_pairwise_orthogonal_port_atoms",
+            nonorthogonal,
+            "PORT_ATOMS_NOT_ORTHOGONAL",
+        )
+    )
+
+    incomplete_atoms = copy.deepcopy(manifest)
+    incomplete_atoms["carrier"]["atoms_sum_to_one"] = False
+    cases.append(("remove_port_atom_completeness", incomplete_atoms, "PORT_ATOMS_NOT_COMPLETE"))
+
     broken_edge = copy.deepcopy(manifest)
     broken_edge["carrier"]["edges"] = broken_edge["carrier"]["edges"][:-1]
     cases.append(("remove_icosahedral_incidence", broken_edge, "EDGE_COUNT"))
+
+    bad_face_orientation = copy.deepcopy(manifest)
+    bad_face_orientation["carrier"]["oriented_faces"][0][1], bad_face_orientation[
+        "carrier"
+    ]["oriented_faces"][0][2] = (
+        bad_face_orientation["carrier"]["oriented_faces"][0][2],
+        bad_face_orientation["carrier"]["oriented_faces"][0][1],
+    )
+    cases.append(
+        (
+            "remove_coherent_face_orientation",
+            bad_face_orientation,
+            "FACE_ORIENTATION",
+        )
+    )
 
     reversing = copy.deepcopy(manifest)
     carrier = validate_carrier(manifest)
@@ -915,6 +1122,41 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     forbidden["downstream_hint"] = {"product_adjoint_dimension": 12}
     cases.append(("inject_downstream_target", forbidden, "FORBIDDEN_DEPENDENCY"))
 
+    opaque_numeric = copy.deepcopy(manifest)
+    opaque_numeric["unlabelled_numeric_input"] = 125.25
+    cases.append(("inject_undeclared_opaque_numeric_input", opaque_numeric, "SCHEMA_FIELDS"))
+
+    float_fraction = copy.deepcopy(manifest)
+    float_fraction["carrier"]["central_port_atoms"][0]["normalized_trace"] = {
+        "numerator": 1.9,
+        "denominator": 12.9,
+    }
+    cases.append(("inject_float_trace_fraction", float_fraction, "TRACE_WEIGHT_FORMAT"))
+
+    numeric_levels = copy.deepcopy(manifest)
+    numeric_levels["refinement_tower"]["levels"] = [125.25, 126, 127]
+    numeric_levels["refinement_tower"]["maps"][0]["source"] = 125.25
+    numeric_levels["refinement_tower"]["maps"][0]["target"] = 126
+    numeric_levels["refinement_tower"]["maps"][1]["source"] = 126
+    numeric_levels["refinement_tower"]["maps"][1]["target"] = 127
+    numeric_levels["refinement_tower"]["maps"][2]["source"] = 125.25
+    numeric_levels["refinement_tower"]["maps"][2]["target"] = 127
+    cases.append(("inject_numeric_refinement_levels", numeric_levels, "REFINEMENT_LEVEL_FORMAT"))
+
+    numeric_map_endpoint = copy.deepcopy(manifest)
+    numeric_map_endpoint["refinement_tower"]["maps"][0]["source"] = 125.25
+    cases.append(
+        (
+            "inject_numeric_refinement_map_endpoint",
+            numeric_map_endpoint,
+            "REFINEMENT_MAP_LEVEL_FORMAT",
+        )
+    )
+
+    numeric_port_map = copy.deepcopy(manifest)
+    numeric_port_map["refinement_tower"]["maps"][0]["port_map"][0] = 125.25
+    cases.append(("inject_numeric_port_map_entry", numeric_port_map, "REFINEMENT_MAP_FORMAT"))
+
     return cases
 
 
@@ -928,6 +1170,35 @@ def negative_control_payload(manifest: Mapping[str, Any]) -> dict[str, Any]:
             actual_code = exc.code
         require(actual_code == expected_code, "NEGATIVE_CONTROL_FAILED", f"{name}: expected {expected_code}, got {actual_code}")
         results.append({"name": name, "expected_error": expected_code, "actual_error": actual_code, "passed": True})
+
+    unequal_weights = [sp.Rational(4, 15)] + [sp.Rational(1, 15)] * 11
+    all_one = [1] * 12
+    alternative = [0, 2] + [1] * 10
+    weighted_cost = lambda values: sum(
+        weight * value * value
+        for weight, value in zip(unequal_weights, values, strict=True)
+    )
+    all_one_cost = weighted_cost(all_one)
+    alternative_cost = weighted_cost(alternative)
+    require(
+        alternative_cost < all_one_cost,
+        "COUNTERMODEL_SEARCH",
+        "unequal-trace witness does not beat the all-one split",
+    )
+
+    total13_minimum, total13_count = bounded_integer_quadratic_minimum(13, 12)
+    require(
+        (total13_minimum, total13_count) == (15, 12),
+        "COUNTERMODEL_SEARCH",
+        "total-13 quadratic minimizers were not the twelve expected permutations",
+    )
+    weak_composition_count = math.comb(23, 11)
+    pairing_count = recursive_pairing_count(tuple(range(12)))
+    carrier = validate_carrier(manifest)
+    _, proper, reversing = group_certificate(carrier)
+    full_group_order = len(proper) + len(reversing)
+    require(full_group_order == 120, "COUNTERMODEL_SEARCH", "orientation-forgetting group order changed")
+
     return {
         "schema": NEGATIVE_SCHEMA,
         "issue": 565,
@@ -936,24 +1207,24 @@ def negative_control_payload(manifest: Mapping[str, Any]) -> dict[str, Any]:
         "countermodel_witnesses": {
             "unequal_trace": {
                 "weights": "(4,1,1,1,1,1,1,1,1,1,1,1)/15",
-                "all_one_cost": "1",
-                "alternative_q": [0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                "alternative_cost": "14/15",
+                "all_one_cost": str(all_one_cost),
+                "alternative_q": alternative,
+                "alternative_cost": str(alternative_cost),
             },
             "wrong_total_13": {
-                "minimizer_count": 12,
+                "minimizer_count": total13_count,
                 "form": "one coordinate 2 and eleven coordinates 1",
             },
             "linear_cost_total_12": {
-                "minimizer_count": 1352078,
+                "minimizer_count": weak_composition_count,
                 "form": "all weak compositions of 12 into 12 nonnegative parts",
             },
             "missing_incidence": {
-                "fixed_point_free_pairings": 10395,
+                "fixed_point_free_pairings": pairing_count,
             },
             "missing_orientation": {
                 "surviving_group": "A5 x C2",
-                "order": 120,
+                "order": full_group_order,
             },
             "broken_refinement": {
                 "nonincidence_map": "transposition of ports 0 and 1",
@@ -1029,4 +1300,3 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
