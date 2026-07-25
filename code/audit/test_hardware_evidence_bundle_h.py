@@ -181,6 +181,18 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
             "this synthetic fixture is not evidence of a real device."
         ),
     }
+    control_path = bundle_path.parent / artifact_row(
+        bundle,
+        "control-001",
+    )["path"]
+    physical_control = json.loads(control_path.read_text(encoding="utf-8"))
+    physical_control["control_kind"] = "blank"
+    write_artifact(
+        bundle_path,
+        bundle,
+        "control-001",
+        physical_control,
+    )
     bundle["attestation"] = {
         "mode": "independent_end_to_end_witness",
         "artifact_ids": ["attestation-001"],
@@ -222,6 +234,22 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
     write_artifact(
         bundle_path,
         bundle,
+        "nonce-reservation-001",
+        {
+            "schema": "oph.hardware_evidence_bundle_h.nonce_reservation.v1",
+            "registry_id": bundle["replay_protection"]["registry_id"],
+            "bundle_id": bundle["bundle_id"],
+            "device_id": bundle["claim"]["device_id"],
+            "protocol_id": bundle["claim"]["protocol_id"],
+            "capture_nonces": [
+                bundle["runs"][0]["control_capture_nonce"],
+                bundle["runs"][0]["capture_nonce"],
+            ],
+        },
+    )
+    write_artifact(
+        bundle_path,
+        bundle,
         "claim-text-001",
         {
             "schema": verifier.CLAIM_TEXT_SCHEMA,
@@ -248,7 +276,10 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
                 "controls",
                 "custody",
                 "analysis_freeze",
+                "protocol",
                 "claim",
+                "nonce_reservation",
+                "replay_registry",
             ],
         },
     )
@@ -263,6 +294,14 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
             "registered_utc": "2026-07-20T10:30:00Z",
             "state": "consumed",
             "consumed_utc": "2026-07-20T12:10:00Z",
+        },
+        {
+            "nonce": bundle["runs"][0]["control_capture_nonce"],
+            "bundle_id": bundle["bundle_id"],
+            "binding_sha256": bundle["bundle_binding"]["binding_sha256"],
+            "registered_utc": "2026-07-20T10:30:00Z",
+            "state": "consumed",
+            "consumed_utc": "2026-07-20T11:59:30Z",
         }
     ]
     registry_path.write_text(
@@ -367,12 +406,22 @@ def make_authenticated_contract_fixture(tmp_path: Path) -> dict:
         role = external.ARTIFACT_AUTHORITY.get(row["role"])
         if role is not None:
             add_signature(role, "artifact", row["artifact_id"], row["sha256"])
+    add_signature(
+        "independent_attestor",
+        "replay_registry",
+        bundle["replay_protection"]["registry_id"],
+        verifier.sha256_path(registry_path),
+    )
 
     commitments = []
     for kind, artifact_id in (
         ("run_schedule", bundle["run_schedule"]["artifact_id"]),
         ("analysis", bundle["analysis_binding"]["analysis_artifact_id"]),
         ("protocol", bundle["analysis_binding"]["protocol_artifact_id"]),
+        (
+            "nonce_reservation",
+            bundle["replay_protection"]["reservation_artifact_id"],
+        ),
     ):
         key_id = "key-preregistration-authority"
         payload = external.commitment_payload(
@@ -449,6 +498,25 @@ def write_external(context: dict) -> None:
     )
 
 
+def refresh_registry_witness_signature(context: dict) -> None:
+    row = next(
+        item
+        for item in context["evidence"]["signatures"]
+        if item["subject_kind"] == "replay_registry"
+    )
+    row["sha256"] = verifier.sha256_path(context["registry_path"])
+    payload = {
+        key: value
+        for key, value in row.items()
+        if key != "signature_base64"
+    }
+    row["signature_base64"] = base64.b64encode(
+        context["private_keys"]["independent_attestor"].sign(
+            external.canonical_bytes(payload)
+        )
+    ).decode("ascii")
+
+
 def refresh_authenticated_signatures(context: dict) -> None:
     """Refresh trusted signatures after an intentional test mutation."""
     write_bundle(context["bundle_path"], context["bundle"])
@@ -459,11 +527,13 @@ def refresh_authenticated_signatures(context: dict) -> None:
     for row in context["evidence"]["signatures"]:
         if row["subject_kind"] == "bundle_binding":
             row["sha256"] = context["bundle"]["bundle_binding"]["binding_sha256"]
-        else:
+        elif row["subject_kind"] == "artifact":
             row["sha256"] = artifact_row(
                 context["bundle"],
                 row["subject_id"],
             )["sha256"]
+        elif row["subject_kind"] == "replay_registry":
+            continue
         payload = {key: value for key, value in row.items() if key != "signature_base64"}
         role = role_by_key[row["key_id"]]
         row["signature_base64"] = base64.b64encode(
@@ -503,6 +573,7 @@ def refresh_authenticated_signatures(context: dict) -> None:
         json.dumps(stored_registry, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
+    refresh_registry_witness_signature(context)
     write_external(context)
 
 
@@ -537,14 +608,18 @@ def test_replay_registry_is_required_when_replay_is_in_scope(tmp_path: Path) -> 
     assert report["predicates"]["replay_protection"] is False
 
 
-def test_seen_capture_nonce_is_rejected(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    "nonce",
+    ["nonce-synthetic-001", "nonce-synthetic-control-001"],
+)
+def test_seen_capture_nonce_is_rejected(tmp_path: Path, nonce: str) -> None:
     bundle_path, _ = fixture_copy(tmp_path)
     registry = tmp_path / "seen.json"
     registry.write_text(
         json.dumps(
             {
                 "registry_id": "class-h-fixture-registry",
-                "seen_nonces": ["nonce-synthetic-001"],
+                "seen_nonces": [nonce],
             }
         ),
         encoding="utf-8",
@@ -560,6 +635,47 @@ def test_anonymous_replay_nonce_list_is_not_an_authoritative_registry(
     registry = tmp_path / "anonymous-list.json"
     registry.write_text("[]\n", encoding="utf-8")
     assert_rejected(verify(bundle_path, replay_registry=registry), "REPLAY_REGISTRY_INVALID")
+
+
+def test_authenticated_replay_registry_rejects_unsigned_extra_fields(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    stored = json.loads(context["registry_path"].read_text(encoding="utf-8"))
+    stored["unsigned_operator_override"] = True
+    context["registry_path"].write_text(
+        json.dumps(stored, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    refresh_registry_witness_signature(context)
+    write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "REPLAY_REGISTRY_INVALID",
+        verdict="INVALID",
+    )
+
+
+def test_nonce_reservation_must_cover_raw_and_control_captures(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    reservation_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"], "nonce-reservation-001"
+    )["path"]
+    reservation = json.loads(reservation_path.read_text(encoding="utf-8"))
+    reservation["capture_nonces"] = [context["bundle"]["runs"][0]["capture_nonce"]]
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "nonce-reservation-001",
+        reservation,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "REPLAY_RESERVATION_MISMATCH",
+    )
 
 
 def test_selective_reporting_of_a_scheduled_run_is_rejected(tmp_path: Path) -> None:
@@ -587,6 +703,7 @@ def test_stale_calibration_is_rejected(tmp_path: Path) -> None:
             "calibration_id": calibration["calibration_id"],
             "device_id": calibration["device_id"],
             "reference_id": calibration["reference_id"],
+            "reference_artifact_id": calibration["reference_artifact_id"],
             "reference_uri": calibration["reference_uri"],
             "reference_certificate_sha256": calibration[
                 "reference_certificate_sha256"
@@ -608,6 +725,58 @@ def test_calibration_metadata_cannot_drift_from_bound_artifact(tmp_path: Path) -
     bundle["calibrations"][0]["reference_id"] = "self-authored-different-reference"
     write_bundle(bundle_path, bundle)
     assert_rejected(verify(bundle_path), "CALIBRATION_ARTIFACT_MISMATCH")
+
+
+def test_calibration_reference_bytes_must_match_the_declared_certificate(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "calibration-reference-001",
+        "Different self-authored reference bytes.\n",
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CALIBRATION_REFERENCE_MISMATCH",
+    )
+
+
+def test_calibration_window_must_cover_the_paired_control(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    calibration = context["bundle"]["calibrations"][0]
+    calibration["valid_from_utc"] = "2026-07-20T11:59:30Z"
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "calibration-001",
+        {
+            key: calibration[key]
+            for key in (
+                "calibration_id",
+                "device_id",
+                "reference_id",
+                "reference_artifact_id",
+                "reference_uri",
+                "reference_certificate_sha256",
+                "channel_id",
+                "raw_unit",
+                "reported_unit",
+                "transformation",
+                "valid_from_utc",
+                "valid_until_utc",
+            )
+        },
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CALIBRATION_OUT_OF_WINDOW",
+    )
 
 
 def test_device_substitution_is_rejected_even_when_raw_bytes_are_rebound(tmp_path: Path) -> None:
@@ -716,6 +885,33 @@ def test_producer_pass_booleans_are_ignored(tmp_path: Path) -> None:
     assert before["predicates"] == after["predicates"]
     assert before["rejection_codes"] == after["rejection_codes"]
     assert before["ignored_producer_assertions"] == after["ignored_producer_assertions"]
+
+
+def test_producer_cannot_replace_the_closed_analysis_replay(
+    tmp_path: Path,
+) -> None:
+    bundle_path, bundle = fixture_copy(tmp_path)
+    bundle["analysis_binding"]["replay_command"] = [
+        "python3",
+        "producer_supplied_analysis.py",
+    ]
+    write_bundle(bundle_path, bundle)
+    report = verify(bundle_path)
+    assert report["verdict"] == "INVALID"
+    assert report["schema_valid"] is False
+    assert report["rejection_codes"] == ["SCHEMA_INVALID"]
+
+
+def test_producer_cannot_declare_a_v1_threat_out_of_scope(
+    tmp_path: Path,
+) -> None:
+    bundle_path, bundle = fixture_copy(tmp_path)
+    bundle["threat_model"]["selective_reporting"]["in_scope"] = False
+    write_bundle(bundle_path, bundle)
+    report = verify(bundle_path)
+    assert report["verdict"] == "INVALID"
+    assert report["schema_valid"] is False
+    assert report["rejection_codes"] == ["SCHEMA_INVALID"]
 
 
 def test_cli_exit_codes_fail_closed(tmp_path: Path) -> None:
@@ -930,6 +1126,7 @@ def test_nonce_reserved_for_another_bundle_is_rejected(tmp_path: Path) -> None:
         json.dumps(stored, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
+    refresh_registry_witness_signature(context)
     write_external(context)
     assert_rejected(
         verify_authenticated(context),
@@ -955,6 +1152,7 @@ def test_consumed_nonce_is_bound_to_the_canonical_bundle_root(
         json.dumps(stored, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
+    refresh_registry_witness_signature(context)
     write_external(context)
     assert_rejected(
         verify_authenticated(context),
@@ -1046,6 +1244,7 @@ def test_calibration_transform_is_executed_not_merely_hashed(tmp_path: Path) -> 
                 "calibration_id",
                 "device_id",
                 "reference_id",
+                "reference_artifact_id",
                 "reference_uri",
                 "reference_certificate_sha256",
                 "channel_id",
@@ -1138,6 +1337,20 @@ def test_structured_claim_text_cannot_disagree_on_magnitude(tmp_path: Path) -> N
     assert_rejected(verify_authenticated(context), "CLAIM_TEXT_MISMATCH")
 
 
+def test_analysis_inputs_must_equal_the_bound_evidence_population(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    context["bundle"]["analysis_binding"]["input_artifact_ids"].append(
+        "producer-selected-unused-input"
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "ANALYSIS_INPUT_POPULATION_MISMATCH",
+    )
+
+
 def test_custody_must_cover_the_bound_data_population(tmp_path: Path) -> None:
     context = make_authenticated_contract_fixture(tmp_path)
     custody = context["bundle"]["custody"]
@@ -1159,6 +1372,101 @@ def test_custody_must_cover_the_bound_data_population(tmp_path: Path) -> None:
     )
 
 
+def test_custody_must_begin_before_the_paired_control_capture(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    custody = context["bundle"]["custody"]
+    custody["segments"][0]["start_utc"] = "2026-07-20T11:59:30Z"
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "custody-001",
+        {
+            "continuous_declared": custody["continuous_declared"],
+            "data_artifact_ids": custody["data_artifact_ids"],
+            "segments": custody["segments"],
+        },
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(verify_authenticated(context), "CUSTODY_BREAK")
+
+
+def test_declared_calibrations_must_equal_the_run_population(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    extra = copy.deepcopy(context["bundle"]["calibrations"][0])
+    extra.update(
+        {
+            "calibration_id": "cal-unused-002",
+            "artifact_id": "calibration-unused-002",
+            "reference_id": "reference-unused-002",
+            "reference_artifact_id": "calibration-reference-unused-002",
+            "reference_certificate_sha256": "0" * 64,
+        }
+    )
+    context["bundle"]["calibrations"].append(extra)
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CALIBRATION_POPULATION_MISMATCH",
+    )
+
+
+def test_physical_bundle_rejects_synthetic_only_control_kind(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    control_path = context["bundle_path"].parent / artifact_row(
+        context["bundle"],
+        "control-001",
+    )["path"]
+    control = json.loads(control_path.read_text(encoding="utf-8"))
+    control["control_kind"] = "synthetic_blank"
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "control-001",
+        control,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "CONTROL_KIND_NOT_PHYSICAL",
+    )
+
+
+@pytest.mark.parametrize(
+    ("artifact_id", "sequence_index", "rejection_code"),
+    [
+        ("control-001", False, "CONTROL_BINDING_MISMATCH"),
+        ("raw-001", True, "RAW_CAPTURE_BINDING_MISMATCH"),
+    ],
+)
+def test_capture_sequence_indices_reject_json_booleans(
+    tmp_path: Path,
+    artifact_id: str,
+    sequence_index: bool,
+    rejection_code: str,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    path = context["bundle_path"].parent / artifact_row(
+        context["bundle"],
+        artifact_id,
+    )["path"]
+    capture = json.loads(path.read_text(encoding="utf-8"))
+    capture["sequence_index"] = sequence_index
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        artifact_id,
+        capture,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(verify_authenticated(context), rejection_code)
+
+
 def test_witness_must_be_separate_from_measurement_authority(
     tmp_path: Path,
 ) -> None:
@@ -1174,6 +1482,106 @@ def test_witness_must_be_separate_from_measurement_authority(
         if row["role"] == "independent_attestor"
     )["organization_id"] = measurement_org
     write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
+    )
+
+
+def test_witness_scope_must_explicitly_cover_protocol(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    path = context["bundle_path"].parent / artifact_row(
+        context["bundle"],
+        "attestation-001",
+    )["path"]
+    attestation = json.loads(path.read_text(encoding="utf-8"))
+    attestation["witnessed_scope"].remove("protocol")
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "attestation-001",
+        attestation,
+    )
+    refresh_authenticated_signatures(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",
+    )
+
+
+def test_witness_cannot_relabel_measurement_authority_key_material(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    measurement_anchor = next(
+        row
+        for row in context["policy"]["anchors"]
+        if row["role"] == "measurement_authority"
+    )
+    witness_anchor = next(
+        row
+        for row in context["policy"]["anchors"]
+        if row["role"] == "independent_attestor"
+    )
+    witness_anchor["public_key_ed25519"] = measurement_anchor[
+        "public_key_ed25519"
+    ]
+    context["private_keys"]["independent_attestor"] = context["private_keys"][
+        "measurement_authority"
+    ]
+    refresh_authenticated_signatures(context)
+    report = verify_authenticated(context)
+    assert_rejected(
+        report,
+        "TRUST_ANCHOR_PUBLIC_KEY_REUSED",
+        verdict="INVALID",
+    )
+
+
+def test_trust_anchor_identity_fields_must_be_nonempty(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    witness_anchor = next(
+        row
+        for row in context["policy"]["anchors"]
+        if row["role"] == "independent_attestor"
+    )
+    witness_anchor["party_id"] = ""
+    witness_anchor["organization_id"] = ""
+    write_external(context)
+    assert_rejected(
+        verify_authenticated(context),
+        "TRUST_ANCHOR_INVALID",
+        verdict="INVALID",
+    )
+
+
+def test_declared_witness_signer_party_must_match_anchor_party(
+    tmp_path: Path,
+) -> None:
+    context = make_authenticated_contract_fixture(tmp_path)
+    witness_anchor = next(
+        row
+        for row in context["policy"]["anchors"]
+        if row["role"] == "independent_attestor"
+    )
+    witness_anchor["party_id"] = "renamed-independent-witness"
+    path = context["bundle_path"].parent / artifact_row(
+        context["bundle"],
+        "attestation-001",
+    )["path"]
+    attestation = json.loads(path.read_text(encoding="utf-8"))
+    attestation["witness_party_id"] = witness_anchor["party_id"]
+    write_artifact(
+        context["bundle_path"],
+        context["bundle"],
+        "attestation-001",
+        attestation,
+    )
+    refresh_authenticated_signatures(context)
     assert_rejected(
         verify_authenticated(context),
         "FRESH_REPRODUCTION_BUNDLE_VERIFICATION_OPEN",

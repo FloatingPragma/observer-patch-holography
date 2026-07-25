@@ -8,8 +8,10 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
+
+import build_tex_papers as paper_sources
 
 
 RELEASE_INFO_RELATIVE = Path("paper/release_info.tex")
@@ -31,15 +33,9 @@ RELEASE_TRACKED_PDFS = {
 }
 SUPPLEMENTAL_RELEASE_PDFS = {}
 
-# Release-surface PDFs whose source is not a sibling .tex file. Each entry
-# maps the PDF to the source that implies it; the stray check verifies the
-# source exists. These PDFs are deliberately outside the hashed manifest
-# sections (they carry no release line).
-NON_TEX_SOURCE_PDFS = {
-    Path("extra/hacking-the-simulation-anti-gravity-exploit.pdf"): Path(
-        "extra/hacking-the-simulation-anti-gravity-exploit/build_book_pdf.sh"
-    ),
-}
+# Kept as a module-level alias for the focused regression tests. The canonical
+# registry lives beside the source-derived TeX inventory.
+NON_TEX_SOURCE_PDFS = paper_sources.NON_TEX_SOURCE_PDFS
 
 
 def main() -> int:
@@ -53,7 +49,9 @@ def main() -> int:
     manifest = {
         "release_id": release_id,
         "released_at": release_date,
-        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        # Deterministic release metadata: a clean rebuild must not dirty the
+        # manifest merely because it ran at a different wall-clock time.
+        "generated_at": deterministic_generated_at(release_date),
         "papers": {},
         "supplemental_papers": {},
         "extra_papers": {},
@@ -115,6 +113,11 @@ def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
                 f"registered source for {pdf} is missing: {source}. "
                 "Fix the NON_TEX_SOURCE_PDFS registry."
             )
+        if not (repo_root / pdf).is_file():
+            raise SystemExit(
+                f"registered non-TeX output is missing: {pdf}. "
+                f"Rebuild it from {source} before regenerating the manifest."
+            )
         expected.add(str(pdf))
     actual = {
         str(pdf.relative_to(repo_root))
@@ -165,6 +168,16 @@ def extract_macro(text: str, macro_name: str) -> str:
     if not match:
         raise SystemExit(f"missing macro {macro_name} in release info")
     return match.group(1).strip()
+
+
+def deterministic_generated_at(release_date: str) -> str:
+    try:
+        parsed = datetime.strptime(release_date, "%B %d, %Y")
+    except ValueError as exc:
+        raise SystemExit(
+            f"paper release date must use 'Month D, YYYY': {release_date}"
+        ) from exc
+    return parsed.strftime("%Y-%m-%dT00:00:00Z")
 
 
 def load_existing_manifest(path: Path) -> dict | None:

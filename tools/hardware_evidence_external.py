@@ -45,6 +45,7 @@ ANCHOR_ROLES = {
 ARTIFACT_AUTHORITY = {
     "raw_measurement": "measurement_authority",
     "calibration": "calibration_authority",
+    "calibration_reference": "calibration_authority",
     "custody": "custody_authority",
     "control": "measurement_authority",
     "analysis_code": "claimant",
@@ -478,6 +479,7 @@ def verify_external_evidence(
 
     anchors: dict[str, dict[str, Any]] = {}
     public_keys: dict[str, Ed25519PublicKey] = {}
+    public_key_owners: dict[bytes, str] = {}
     anchor_required = {
         "key_id",
         "party_id",
@@ -504,13 +506,38 @@ def verify_external_evidence(
         if anchor["role"] not in ANCHOR_ROLES or not isinstance(anchor["revoked"], bool):
             invalid("TRUST_ANCHOR_INVALID", f"anchor {key_id} has an invalid role/status", "attestation")
             continue
+        if any(
+            not isinstance(anchor[field], str) or not anchor[field].strip()
+            for field in ("party_id", "organization_id")
+        ):
+            invalid(
+                "TRUST_ANCHOR_INVALID",
+                f"anchor {key_id} requires nonempty party and organization ids",
+                "attestation",
+            )
+            continue
         try:
             valid_from = _parse_utc(anchor["valid_from_utc"])
             valid_until = _parse_utc(anchor["valid_until_utc"])
+            public_key_bytes = base64.b64decode(
+                anchor["public_key_ed25519"],
+                validate=True,
+            )
             key = _decode_public_key(anchor["public_key_ed25519"])
         except (TypeError, ValueError) as exc:
             invalid("TRUST_ANCHOR_INVALID", f"anchor {key_id}: {exc}", "attestation")
             continue
+        if public_key_bytes in public_key_owners:
+            invalid(
+                "TRUST_ANCHOR_PUBLIC_KEY_REUSED",
+                (
+                    f"anchor {key_id} reuses Ed25519 key material from "
+                    f"{public_key_owners[public_key_bytes]}"
+                ),
+                "attestation",
+            )
+            continue
+        public_key_owners[public_key_bytes] = key_id
         evaluation_time = _parse_utc(bundle["created_utc"])
         if anchor["revoked"] or not valid_from <= evaluation_time <= valid_until:
             insufficient(
@@ -637,6 +664,7 @@ def verify_external_evidence(
                 f"{artifact_id} lacks a valid {role} signature",
                 {
                     "calibration": "calibration_chain",
+                    "calibration_reference": "calibration_chain",
                     "custody": "custody",
                     "device_identity": "device_identity",
                     "raw_measurement": "raw_capture",
@@ -685,6 +713,9 @@ def verify_external_evidence(
         if (row := signer_index.get(signer_id)) is not None
         and row["party_id"] in bundle["attestation"]["party_ids"]
         and not row["compromised"]
+        and (anchor := anchors.get(row["key_id"])) is not None
+        and anchor["role"] == "independent_attestor"
+        and anchor["party_id"] == row["party_id"]
     }
     independent_attestor_artifact_keys = {
         anchor["key_id"]
@@ -704,8 +735,21 @@ def verify_external_evidence(
         and anchor["party_id"] not in evidence_authority_parties
         and anchor["organization_id"] not in evidence_authority_organizations
     }
+    independent_attestor_registry_keys = {
+        anchor["key_id"]
+        for _, anchor in matching_signatures(
+            "replay_registry",
+            bundle["replay_protection"]["registry_id"],
+            "independent_attestor",
+        )
+        if anchor["key_id"] in declared_attestor_keys
+        and anchor["party_id"] not in evidence_authority_parties
+        and anchor["organization_id"] not in evidence_authority_organizations
+    }
     end_to_end_witness_keys = (
-        independent_attestor_artifact_keys & independent_attestor_root_keys
+        independent_attestor_artifact_keys
+        & independent_attestor_root_keys
+        & independent_attestor_registry_keys
     )
     witnessed_scope = {
         "run_schedule",
@@ -715,7 +759,10 @@ def verify_external_evidence(
         "controls",
         "custody",
         "analysis_freeze",
+        "protocol",
         "claim",
+        "nonce_reservation",
+        "replay_registry",
     }
     semantically_valid_witness_keys: set[str] = set()
     for key_id in end_to_end_witness_keys:
@@ -772,7 +819,8 @@ def verify_external_evidence(
                 OPEN_GATES[1],
                 (
                     "no one independently administered witness signs both the "
-                    "closed end-to-end attestation and canonical bundle root; "
+                    "closed end-to-end attestation, canonical bundle root, and "
+                    "replay-registry snapshot; "
                     "the witness must be separate from every evidence authority"
                 ),
                 "attestation",
@@ -810,10 +858,22 @@ def verify_external_evidence(
         "run_schedule": bundle["run_schedule"]["artifact_id"],
         "analysis": bundle["analysis_binding"]["analysis_artifact_id"],
         "protocol": bundle["analysis_binding"]["protocol_artifact_id"],
+        "nonce_reservation": bundle["replay_protection"][
+            "reservation_artifact_id"
+        ],
     }
     verified_commitment_kinds: set[str] = set()
     verified_commitment_anchor_ids: set[str] = set()
-    first_capture = min(_parse_utc(run["captured_utc"]) for run in bundle["runs"])
+    capture_times = [
+        _parse_utc(run["captured_utc"]) for run in bundle["runs"]
+    ]
+    for run in bundle["runs"]:
+        for artifact_id in run["control_artifact_ids"]:
+            control_path = artifact_paths.get(artifact_id)
+            control = _read_json(control_path) if control_path is not None else None
+            if isinstance(control, dict):
+                capture_times.append(_parse_utc(control["captured_utc"]))
+    first_capture = min(capture_times)
     for index, row in enumerate(commitments):
         error = _closed_object(
             row,
@@ -890,7 +950,10 @@ def verify_external_evidence(
     if verified_commitment_kinds != set(expected_commitments):
         insufficient(
             OPEN_GATES[3],
-            "run schedule, protocol, and analysis require signed pre-run commitments",
+            (
+                "run schedule, protocol, nonce reservation, and analysis "
+                "require signed pre-run commitments"
+            ),
             "completeness",
         )
 
@@ -965,6 +1028,26 @@ def verify_external_evidence(
                 stored_registry = _read_json(replay_registry_path)
             except (OSError, json.JSONDecodeError) as exc:
                 invalid("REPLAY_REGISTRY_INVALID", str(exc), "replay_protection")
+                stored_registry = None
+            if isinstance(stored_registry, dict):
+                stored_registry_error = _closed_object(
+                    stored_registry,
+                    required={"registry_id", "seen_nonces", "assignments"},
+                    label="supplied replay registry",
+                )
+                if stored_registry_error:
+                    invalid(
+                        "REPLAY_REGISTRY_INVALID",
+                        stored_registry_error,
+                        "replay_protection",
+                    )
+                    stored_registry = None
+            elif stored_registry is not None:
+                invalid(
+                    "REPLAY_REGISTRY_INVALID",
+                    "supplied replay registry must be an object",
+                    "replay_protection",
+                )
                 stored_registry = None
             if isinstance(stored_registry, dict) and (
                 stored_registry.get("registry_id") != registry["registry_id"]
@@ -1041,15 +1124,46 @@ def verify_external_evidence(
                         continue
                     assignments_by_nonce.setdefault(assignment["nonce"], []).append(assignment)
                 registry_ok = snapshot is not None and last_capture < snapshot <= publication
-                for run in bundle["runs"]:
-                    matches = assignments_by_nonce.get(run["capture_nonce"], [])
+                capture_nonces = [
+                    nonce
+                    for run in bundle["runs"]
+                    for nonce in (
+                        run["control_capture_nonce"],
+                        run["capture_nonce"],
+                    )
+                ]
+                for capture_nonce in capture_nonces:
+                    matches = assignments_by_nonce.get(capture_nonce, [])
                     assignment_ok = False
                     if len(matches) == 1:
                         assignment = matches[0]
                         try:
                             registered = _parse_utc(assignment["registered_utc"])
                             consumed = _parse_utc(assignment["consumed_utc"])
-                            captured = _parse_utc(run["captured_utc"])
+                            capture_times = [
+                                _parse_utc(run["captured_utc"])
+                                for run in bundle["runs"]
+                                if capture_nonce == run["capture_nonce"]
+                            ]
+                            for run in bundle["runs"]:
+                                if capture_nonce != run["control_capture_nonce"]:
+                                    continue
+                                for artifact_id in run["control_artifact_ids"]:
+                                    control_path = artifact_paths.get(artifact_id)
+                                    control = (
+                                        _read_json(control_path)
+                                        if control_path is not None
+                                        else None
+                                    )
+                                    if isinstance(control, dict):
+                                        capture_times.append(
+                                            _parse_utc(control["captured_utc"])
+                                        )
+                            if len(capture_times) != 1:
+                                raise ValueError(
+                                    "nonce does not identify exactly one capture"
+                                )
+                            captured = capture_times[0]
                             assignment_ok = (
                                 assignment["bundle_id"] == bundle["bundle_id"]
                                 and assignment["binding_sha256"]
@@ -1066,7 +1180,7 @@ def verify_external_evidence(
                         insufficient(
                             "REPLAY_NONCE_NOT_ATOMICALLY_CONSUMED",
                             (
-                                f"nonce {run['capture_nonce']} lacks one "
+                                f"nonce {capture_nonce} lacks one "
                                 "pre-run reservation and post-capture consume receipt"
                             ),
                             "replay_protection",

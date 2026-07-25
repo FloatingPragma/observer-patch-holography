@@ -14,7 +14,7 @@
       "unit": "synthetic_unit"
     },
     "uncertainty": {
-      "kind": "synthetic_exact",
+      "kind": "max_absolute_deviation",
       "value": 0.0,
       "unit": "synthetic_unit"
     },
@@ -50,7 +50,8 @@
   },
   "replay_protection": {
     "registry_id": "class-h-fixture-registry",
-    "nonce_scope": "global_per_device"
+    "nonce_scope": "global_per_device",
+    "reservation_artifact_id": "nonce-reservation-001"
   },
   "artifacts": [
     {
@@ -64,36 +65,43 @@
       "artifact_id": "calibration-001",
       "role": "calibration",
       "path": "calibration.json",
-      "sha256": "f52f3651a7afdb875351e31c3037e4dc2b63e4a925815ffadd2a06a340a243fa",
+      "sha256": "0ebba52fe234913fe77ae7d8b9d06bc36a7ddb037ee49529641aad94fa28e23b",
       "media_type": "application/json"
+    },
+    {
+      "artifact_id": "calibration-reference-001",
+      "role": "calibration_reference",
+      "path": "calibration_reference.txt",
+      "sha256": "c49cf5ae2f3f42b7b74ef29fae8b05a4a9de497da2ad659693bc76584532182f",
+      "media_type": "text/plain"
     },
     {
       "artifact_id": "custody-001",
       "role": "custody",
       "path": "custody.json",
-      "sha256": "3965b282bdc9430677c97357757df658fb81e8b176fec48d5186de8d2ff814f1",
+      "sha256": "f894c837235fa90a55f176390e42c000a12af0d1260458c65b8a6ef470689614",
       "media_type": "application/json"
     },
     {
       "artifact_id": "control-001",
       "role": "control",
       "path": "control.json",
-      "sha256": "341fcc8f2b39fb8868c32fd42937c5799eba987e6860d752844661f43e5cbff3",
+      "sha256": "2e6b0ed4de2e2c91395f0954f51d30c41a89c2d1b007f1d9c0a936cc416dea77",
       "media_type": "application/json"
     },
     {
       "artifact_id": "analysis-001",
       "role": "analysis_code",
-      "path": "analysis.py",
-      "sha256": "b67d9ee11a8507f8e6a5f0351f45f3fea587a75c3f0870fc00dc32e40c47a218",
-      "media_type": "text/x-python"
+      "path": "analysis.json",
+      "sha256": "4696a30e1cf6a6576bb738bc4aaf3ccec2084d8b32ae62eef62e2279b405024a",
+      "media_type": "application/vnd.oph.hardware-analysis+json"
     },
     {
       "artifact_id": "claim-text-001",
       "role": "claim_text",
-      "path": "claim.txt",
-      "sha256": "ae65248671959553ad1f7e8eda4b6ef53bf1053bd4edd71f707d21dc6c5adec0",
-      "media_type": "text/plain"
+      "path": "claim.json",
+      "sha256": "2082faec0ff170696bbabfa89f5557806c0a8c9e1578402a37ef04c48a395455",
+      "media_type": "application/vnd.oph.hardware-claim+json"
     },
     {
       "artifact_id": "protocol-001",
@@ -117,6 +125,13 @@
       "media_type": "application/json"
     },
     {
+      "artifact_id": "nonce-reservation-001",
+      "role": "nonce_reservation",
+      "path": "nonce_reservation.json",
+      "sha256": "1e02d78047e942207db01903ace89d98413ecd50c5c407aaa1a6d373043d174a",
+      "media_type": "application/json"
+    },
+    {
       "artifact_id": "attestation-001",
       "role": "attestation",
       "path": "attestation.json",
@@ -137,6 +152,7 @@
       "device_id": "synthetic-device-001",
       "captured_utc": "2026-07-20T12:00:00Z",
       "capture_nonce": "nonce-synthetic-001",
+      "control_capture_nonce": "nonce-synthetic-control-001",
       "raw_artifact_ids": [
         "raw-001"
       ],
@@ -153,8 +169,9 @@
       "artifact_id": "calibration-001",
       "device_id": "synthetic-device-001",
       "reference_id": "synthetic-reference-001",
+      "reference_artifact_id": "calibration-reference-001",
       "reference_uri": "urn:oph:synthetic-reference-001",
-      "reference_certificate_sha256": "a0d8985ce41314e29a7247bea1658ac66c4c8b2a8e9e95f53e88850f7cce78b6",
+      "reference_certificate_sha256": "c49cf5ae2f3f42b7b74ef29fae8b05a4a9de497da2ad659693bc76584532182f",
       "channel_id": "synthetic_voltage",
       "raw_unit": "synthetic_adc_count",
       "reported_unit": "synthetic_unit",
@@ -176,9 +193,11 @@
       "analysis-001",
       "attestation-001",
       "calibration-001",
+      "calibration-reference-001",
       "claim-text-001",
       "control-001",
       "device-identity-001",
+      "nonce-reservation-001",
       "protocol-001",
       "raw-001",
       "schedule-001"
@@ -204,6 +223,7 @@
     "input_artifact_ids": [
       "raw-001",
       "calibration-001",
+      "calibration-reference-001",
       "custody-001",
       "control-001",
       "protocol-001",
@@ -212,8 +232,7 @@
     ],
     "frozen_before_unblinding": true,
     "replay_command": [
-      "python3",
-      "analysis.py"
+      "internal:paired_calibrated_mean_max_deviation.v1"
     ]
   },
   "attestation": {
@@ -241,6 +260,7 @@
     "covered_artifact_ids": [
       "raw-001",
       "calibration-001",
+      "calibration-reference-001",
       "custody-001",
       "control-001",
       "analysis-001",
@@ -248,9 +268,10 @@
       "protocol-001",
       "schedule-001",
       "device-identity-001",
+      "nonce-reservation-001",
       "attestation-001"
     ],
-    "binding_sha256": "41471fdc0210ed59b01a15c0b28a26c0f481597a5ec79a35bcece8c41bdda9d2"
+    "binding_sha256": "680f0317739cd468532bd9d7a0b61f7306e7bb9203f84f0bb41ce2004ea90207"
   },
   "producer_assertions": {
     "analysis_passed": true,

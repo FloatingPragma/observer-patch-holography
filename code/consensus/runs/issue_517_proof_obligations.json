@@ -97,35 +97,85 @@
   },
   "ell_p_guard": {
     "checks": {
+      "finite_channel_reference_distances_are_finite": true,
+      "infinite_nonsummable_channel_family_has_exact_divergence_schema": true,
       "p_equals_one_half_has_exact_triangle_counterexample": true,
       "p_equals_one_triangle_checked_on_finite_reference_set": true,
-      "paper_guard_required": true
+      "paper_exponent_and_summability_guards_required": true
     },
-    "declared_domain": "p>=1",
-    "negative_control": {
-      "counterexample_verified": true,
-      "d_p_xy_plus_d_p_yz": 2,
-      "d_p_xz": 4,
-      "p": "1/2",
-      "points": {
-        "x": [
-          1,
-          0
-        ],
-        "y": [
-          0,
-          0
-        ],
-        "z": [
-          0,
-          1
-        ]
+    "declared_domain": "p>=1 with a finite declared channel set or a finite weighted p-sum for every compared pair",
+    "negative_controls": [
+      {
+        "counterexample_verified": true,
+        "d_p_xy_plus_d_p_yz": 2,
+        "d_p_xz": 4,
+        "p": "1/2",
+        "points": {
+          "x": [
+            1,
+            0
+          ],
+          "y": [
+            0,
+            0
+          ],
+          "z": [
+            0,
+            1
+          ]
+        },
+        "removed_hypothesis": "p>=1",
+        "violated_conclusion": "triangle_inequality_and_pseudometric_status"
       },
-      "removed_hypothesis": "p>=1",
-      "violated_conclusion": "triangle_inequality_and_pseudometric_status"
-    },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "channel_distances": "d_c(F_c(x),F_c(y))=1",
+          "channels": "positive integers",
+          "p": "1",
+          "partial_sum_formula": "S_N=N",
+          "points": [
+            "x",
+            "y"
+          ],
+          "sampled_exact_witnesses": [
+            {
+              "partial_sum": 1,
+              "proposed_upper_bound": 0,
+              "witness_cutoff": 1
+            },
+            {
+              "partial_sum": 2,
+              "proposed_upper_bound": 1,
+              "witness_cutoff": 2
+            },
+            {
+              "partial_sum": 3,
+              "proposed_upper_bound": 2,
+              "witness_cutoff": 3
+            },
+            {
+              "partial_sum": 9,
+              "proposed_upper_bound": 8,
+              "witness_cutoff": 9
+            },
+            {
+              "partial_sum": 33,
+              "proposed_upper_bound": 32,
+              "witness_cutoff": 33
+            }
+          ],
+          "unboundedness_constructor": "for every integer bound M>=0 choose N=M+1",
+          "weights": "w_c=1"
+        },
+        "removed_hypothesis": "finite_or_pairwise_summable_declared_channel_family",
+        "violated_conclusion": "finite_valued_pseudometric_status"
+      }
+    ],
     "positive_finite_check": {
+      "all_ordered_pairs_checked_for_finiteness": 16,
       "all_ordered_triangles_checked": 64,
+      "channel_count": 2,
       "p": "1",
       "points": [
         [
@@ -307,18 +357,425 @@
       {
         "counterexample_verified": true,
         "finite_witness": {
+          "evaluation": {
+            "available_voters": [
+              1,
+              2,
+              3
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  0,
+                  1
+                ],
+                "committers": [],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": false,
+                "lock_certificate_recipients": [],
+                "prepare_signers": [
+                  0,
+                  1,
+                  2
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  0,
+                  2
+                ],
+                "committers": [],
+                "decision_certificate_formed": false,
+                "index": 1,
+                "lock_certificate_assembled": false,
+                "lock_certificate_recipients": [],
+                "prepare_signers": [
+                  0,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "deadlocked": true,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 2,
+            "new_view": {
+              "proposal_values": [
+                "A",
+                "B",
+                "C"
+              ],
+              "reports": [
+                {
+                  "report": null,
+                  "sender": 1
+                },
+                {
+                  "report": null,
+                  "sender": 2
+                },
+                {
+                  "report": null,
+                  "sender": 3
+                }
+              ],
+              "selected_report": null,
+              "senders": [
+                1,
+                2,
+                3
+              ]
+            },
+            "recovered": false,
+            "validator_states": {
+              "0": {
+                "certificate_index": 1,
+                "kind": "ack_lock",
+                "value": "B",
+                "view": 1
+              },
+              "1": {
+                "certificate_index": 0,
+                "kind": "ack_lock",
+                "value": "A",
+                "view": 0
+              },
+              "2": {
+                "certificate_index": 1,
+                "kind": "ack_lock",
+                "value": "B",
+                "view": 1
+              },
+              "3": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 2,
+                "eligible_voters": [
+                  1,
+                  3
+                ],
+                "proposal": "A",
+                "quorum_reached": false,
+                "rejected_voters": [
+                  2
+                ]
+              },
+              {
+                "eligible_vote_count": 2,
+                "eligible_voters": [
+                  2,
+                  3
+                ],
+                "proposal": "B",
+                "quorum_reached": false,
+                "rejected_voters": [
+                  1
+                ]
+              },
+              {
+                "eligible_vote_count": 1,
+                "eligible_voters": [
+                  3
+                ],
+                "proposal": "C",
+                "quorum_reached": false,
+                "rejected_voters": [
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "scenario": {
+            "acknowledgements_are_provisional": false,
+            "byzantine": [
+              0
+            ],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  0,
+                  1
+                ],
+                "committers": [],
+                "lock_certificate_recipients": [],
+                "prepare_signers": [
+                  0,
+                  1,
+                  2
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  0,
+                  2
+                ],
+                "committers": [],
+                "lock_certificate_recipients": [],
+                "prepare_signers": [
+                  0,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "fresh_values": [
+              "A",
+              "B",
+              "C"
+            ],
+            "new_view_senders": [
+              1,
+              2,
+              3
+            ],
+            "new_view_supersedes_lc_locks": true,
+            "q": 3,
+            "validators": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        "removed_hypothesis": "P4_pre_lock_certificate_acknowledgements_are_provisional",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
+          "evaluation": {
+            "available_voters": [
+              1,
+              2,
+              3
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  0,
+                  1,
+                  2
+                ],
+                "committers": [
+                  1
+                ],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  0,
+                  1,
+                  2
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  0,
+                  2,
+                  3
+                ],
+                "committers": [
+                  2
+                ],
+                "decision_certificate_formed": false,
+                "index": 1,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  2
+                ],
+                "prepare_signers": [
+                  0,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "deadlocked": true,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 2,
+            "new_view": {
+              "proposal_values": [
+                "B"
+              ],
+              "reports": [
+                {
+                  "report": {
+                    "certificate_index": 0,
+                    "value": "A",
+                    "view": 0
+                  },
+                  "sender": 1
+                },
+                {
+                  "report": {
+                    "certificate_index": 1,
+                    "value": "B",
+                    "view": 1
+                  },
+                  "sender": 2
+                },
+                {
+                  "report": null,
+                  "sender": 3
+                }
+              ],
+              "selected_report": {
+                "certificate_index": 1,
+                "value": "B",
+                "view": 1
+              },
+              "senders": [
+                1,
+                2,
+                3
+              ]
+            },
+            "recovered": false,
+            "validator_states": {
+              "0": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "1": {
+                "certificate_index": 0,
+                "kind": "lc_lock",
+                "value": "A",
+                "view": 0
+              },
+              "2": {
+                "certificate_index": 1,
+                "kind": "lc_lock",
+                "value": "B",
+                "view": 1
+              },
+              "3": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 2,
+                "eligible_voters": [
+                  2,
+                  3
+                ],
+                "proposal": "B",
+                "quorum_reached": false,
+                "rejected_voters": [
+                  1
+                ]
+              }
+            ]
+          },
+          "scenario": {
+            "acknowledgements_are_provisional": true,
+            "byzantine": [
+              0
+            ],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  0,
+                  1,
+                  2
+                ],
+                "committers": [
+                  1
+                ],
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  0,
+                  1,
+                  2
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  0,
+                  2,
+                  3
+                ],
+                "committers": [
+                  2
+                ],
+                "lock_certificate_recipients": [
+                  2
+                ],
+                "prepare_signers": [
+                  0,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "fresh_values": [
+              "C"
+            ],
+            "new_view_senders": [
+              1,
+              2,
+              3
+            ],
+            "new_view_supersedes_lc_locks": false,
+            "q": 3,
+            "validators": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        "removed_hypothesis": "P4_valid_new_view_supersedes_local_predecision_commit_lock",
+        "violated_conclusion": "bounded_liveness_after_timeout_activation"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_witness": {
           "available_votes": [
             0,
             3
           ],
           "decision_certificate": null,
           "declared_f_plus_one_view_bound": 2,
-          "honest_lock_holder": 1,
           "leaders": [
             0,
             3
           ],
           "nonfaulty_leader": 3,
+          "nonfaulty_lock_holder": 1,
           "post_GST_views": [
             1,
             2
@@ -545,6 +1002,50 @@
         },
         "removed_hypothesis": "p>=1",
         "violated_conclusion": "triangle_inequality_and_pseudometric_status"
+      },
+      {
+        "counterexample_verified": true,
+        "finite_description_of_parametric_witness": {
+          "channel_distances": "d_c(F_c(x),F_c(y))=1",
+          "channels": "positive integers",
+          "p": "1",
+          "partial_sum_formula": "S_N=N",
+          "points": [
+            "x",
+            "y"
+          ],
+          "sampled_exact_witnesses": [
+            {
+              "partial_sum": 1,
+              "proposed_upper_bound": 0,
+              "witness_cutoff": 1
+            },
+            {
+              "partial_sum": 2,
+              "proposed_upper_bound": 1,
+              "witness_cutoff": 2
+            },
+            {
+              "partial_sum": 3,
+              "proposed_upper_bound": 2,
+              "witness_cutoff": 3
+            },
+            {
+              "partial_sum": 9,
+              "proposed_upper_bound": 8,
+              "witness_cutoff": 9
+            },
+            {
+              "partial_sum": 33,
+              "proposed_upper_bound": 32,
+              "witness_cutoff": 33
+            }
+          ],
+          "unboundedness_constructor": "for every integer bound M>=0 choose N=M+1",
+          "weights": "w_c=1"
+        },
+        "removed_hypothesis": "finite_or_pairwise_summable_declared_channel_family",
+        "violated_conclusion": "finite_valued_pseudometric_status"
       }
     ],
     "refinement": [
@@ -1442,74 +1943,907 @@
     ]
   },
   "prepared_certificate_bft": {
-    "checked_next_view_candidate_prepare_quorums": 194738,
-    "checked_post_GST_progress_traces": 118,
-    "checked_prepared_to_view_change_pairs": 9326,
-    "checked_same_view_certificate_pairs": 9326,
+    "checked_decision_committer_to_view_change_pairs": 10676,
+    "checked_next_view_candidate_prepare_quorums": 214988,
+    "checked_orphan_lock_new_view_reconciliation_traces": 148,
+    "checked_post_GST_progress_traces": 148,
+    "checked_prepared_signer_acceptor_quorum_pairs": 10676,
+    "checked_provisional_acceptor_committer_quorum_pairs": 10676,
+    "checked_same_view_certificate_pairs": 10676,
     "checks": {
       "every_certificate_pair_has_nonfaulty_overlap": true,
+      "every_decision_certificate_has_q_minus_f_nonfaulty_commit_locks": true,
       "every_new_view_quorum_carries_a_nonfaulty_lock": true,
       "finalisation_occurs_only_after_a_valid_decision_certificate": true,
       "finite_next_view_lock_transition_rejects_conflicting_prepare_quorums": true,
-      "highest_prepared_certificate_rule_is_value_preserving": true,
-      "post_GST_honest_progress_trace_reaches_valid_decision_and_relay": true,
+      "general_threshold_case_with_q_lt_n_minus_f_is_checked": true,
+      "highest_lock_certificate_rule_is_value_preserving": true,
+      "omitted_higher_orphan_lock_is_reconciled_in_general_case": true,
+      "post_GST_nonfaulty_progress_trace_reaches_valid_decision_and_relay": true,
+      "prepare_signers_provisional_acceptors_and_committers_are_separate": true,
       "reference_quorums_can_form_without_Byzantine_votes": true,
-      "same_view_and_cross_view_induction_base_are_finite_checked": true
+      "same_view_and_cross_view_induction_base_are_finite_checked": true,
+      "valid_new_view_selection_supersedes_local_predecision_locks": true
     },
     "finite_parameter_sweep": [
       {
-        "base_view_highest_rule_preserves_value": true,
+        "base_view_highest_lock_certificate_preserves_value": true,
         "checked_next_view_candidate_prepare_quorums": 1,
+        "checked_omitted_higher_orphan_lock_reconciliations": 0,
+        "checked_orphan_lock_new_view_reconciliation_traces": 1,
         "checked_post_GST_nonfaulty_leader_progress_traces": 1,
+        "checked_prepared_signer_acceptor_quorum_pairs": 1,
+        "checked_provisional_acceptor_committer_quorum_pairs": 1,
         "conflicting_next_view_quorums_accepted": 0,
+        "distinct_prepared_signer_acceptor_pairs": 0,
+        "distinct_provisional_acceptor_committer_pairs": 0,
         "f": 0,
         "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_decision_commit_lock_holders": 1,
         "minimum_nonfaulty_lock_transfer_to_view_change": 1,
         "minimum_quorum_overlap": 1,
         "n": 1,
+        "orphan_lock_reconciliation_example": {
+          "evaluation": {
+            "available_voters": [
+              0
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  0
+                ],
+                "committers": [],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  0
+                ],
+                "prepare_signers": [
+                  0
+                ],
+                "value": "A",
+                "view": 0
+              }
+            ],
+            "deadlocked": false,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 1,
+            "new_view": {
+              "proposal_values": [
+                "A"
+              ],
+              "reports": [
+                {
+                  "report": {
+                    "certificate_index": 0,
+                    "value": "A",
+                    "view": 0
+                  },
+                  "sender": 0
+                }
+              ],
+              "selected_report": {
+                "certificate_index": 0,
+                "value": "A",
+                "view": 0
+              },
+              "senders": [
+                0
+              ]
+            },
+            "recovered": true,
+            "validator_states": {
+              "0": {
+                "certificate_index": 0,
+                "kind": "lc_lock",
+                "value": "A",
+                "view": 0
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 1,
+                "eligible_voters": [
+                  0
+                ],
+                "proposal": "A",
+                "quorum_reached": true,
+                "rejected_voters": []
+              }
+            ]
+          },
+          "omitted_higher_lock_holders": [],
+          "scenario": {
+            "acknowledgements_are_provisional": true,
+            "byzantine": [],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  0
+                ],
+                "committers": [],
+                "lock_certificate_recipients": [
+                  0
+                ],
+                "prepare_signers": [
+                  0
+                ],
+                "value": "A",
+                "view": 0
+              }
+            ],
+            "fresh_values": [
+              "A"
+            ],
+            "new_view_senders": [
+              0
+            ],
+            "new_view_supersedes_lc_locks": true,
+            "q": 1,
+            "validators": [
+              0
+            ]
+          }
+        },
         "q": 1,
         "threshold_2q_ge_n_plus_f_plus_1": true
       },
       {
-        "base_view_highest_rule_preserves_value": true,
+        "base_view_highest_lock_certificate_preserves_value": true,
         "checked_next_view_candidate_prepare_quorums": 256,
+        "checked_omitted_higher_orphan_lock_reconciliations": 0,
+        "checked_orphan_lock_new_view_reconciliation_traces": 12,
         "checked_post_GST_nonfaulty_leader_progress_traces": 12,
+        "checked_prepared_signer_acceptor_quorum_pairs": 64,
+        "checked_provisional_acceptor_committer_quorum_pairs": 64,
         "conflicting_next_view_quorums_accepted": 0,
+        "distinct_prepared_signer_acceptor_pairs": 48,
+        "distinct_provisional_acceptor_committer_pairs": 48,
         "f": 1,
         "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_decision_commit_lock_holders": 2,
         "minimum_nonfaulty_lock_transfer_to_view_change": 1,
         "minimum_quorum_overlap": 2,
         "n": 4,
+        "orphan_lock_reconciliation_example": {
+          "evaluation": {
+            "available_voters": [
+              1,
+              2,
+              3
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3
+                ],
+                "committers": [
+                  1
+                ],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3
+                ],
+                "committers": [
+                  3
+                ],
+                "decision_certificate_formed": false,
+                "index": 1,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  3
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "deadlocked": false,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 3,
+            "new_view": {
+              "proposal_values": [
+                "B"
+              ],
+              "reports": [
+                {
+                  "report": {
+                    "certificate_index": 0,
+                    "value": "A",
+                    "view": 0
+                  },
+                  "sender": 1
+                },
+                {
+                  "report": null,
+                  "sender": 2
+                },
+                {
+                  "report": {
+                    "certificate_index": 1,
+                    "value": "B",
+                    "view": 1
+                  },
+                  "sender": 3
+                }
+              ],
+              "selected_report": {
+                "certificate_index": 1,
+                "value": "B",
+                "view": 1
+              },
+              "senders": [
+                1,
+                2,
+                3
+              ]
+            },
+            "recovered": true,
+            "validator_states": {
+              "0": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "1": {
+                "certificate_index": 0,
+                "kind": "lc_lock",
+                "value": "A",
+                "view": 0
+              },
+              "2": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "3": {
+                "certificate_index": 1,
+                "kind": "lc_lock",
+                "value": "B",
+                "view": 1
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 3,
+                "eligible_voters": [
+                  1,
+                  2,
+                  3
+                ],
+                "proposal": "B",
+                "quorum_reached": true,
+                "rejected_voters": []
+              }
+            ]
+          },
+          "omitted_higher_lock_holders": [],
+          "scenario": {
+            "acknowledgements_are_provisional": true,
+            "byzantine": [
+              0
+            ],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3
+                ],
+                "committers": [
+                  1
+                ],
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3
+                ],
+                "committers": [
+                  3
+                ],
+                "lock_certificate_recipients": [
+                  3
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "fresh_values": [
+              "A"
+            ],
+            "new_view_senders": [
+              1,
+              2,
+              3
+            ],
+            "new_view_supersedes_lc_locks": true,
+            "q": 3,
+            "validators": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
         "q": 3,
         "threshold_2q_ge_n_plus_f_plus_1": true
       },
       {
-        "base_view_highest_rule_preserves_value": true,
-        "checked_next_view_candidate_prepare_quorums": 194481,
-        "checked_post_GST_nonfaulty_leader_progress_traces": 105,
+        "base_view_highest_lock_certificate_preserves_value": true,
+        "checked_next_view_candidate_prepare_quorums": 20250,
+        "checked_omitted_higher_orphan_lock_reconciliations": 30,
+        "checked_orphan_lock_new_view_reconciliation_traces": 30,
+        "checked_post_GST_nonfaulty_leader_progress_traces": 30,
+        "checked_prepared_signer_acceptor_quorum_pairs": 1350,
+        "checked_provisional_acceptor_committer_quorum_pairs": 1350,
         "conflicting_next_view_quorums_accepted": 0,
+        "distinct_prepared_signer_acceptor_pairs": 1260,
+        "distinct_provisional_acceptor_committer_pairs": 1260,
+        "f": 1,
+        "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_decision_commit_lock_holders": 3,
+        "minimum_nonfaulty_lock_transfer_to_view_change": 1,
+        "minimum_quorum_overlap": 2,
+        "n": 6,
+        "orphan_lock_reconciliation_example": {
+          "evaluation": {
+            "available_voters": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "committers": [
+                  1
+                ],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "committers": [
+                  5
+                ],
+                "decision_certificate_formed": false,
+                "index": 1,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  5
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "deadlocked": false,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 5,
+            "new_view": {
+              "proposal_values": [
+                "A"
+              ],
+              "reports": [
+                {
+                  "report": {
+                    "certificate_index": 0,
+                    "value": "A",
+                    "view": 0
+                  },
+                  "sender": 1
+                },
+                {
+                  "report": null,
+                  "sender": 2
+                },
+                {
+                  "report": null,
+                  "sender": 3
+                },
+                {
+                  "report": null,
+                  "sender": 4
+                }
+              ],
+              "selected_report": {
+                "certificate_index": 0,
+                "value": "A",
+                "view": 0
+              },
+              "senders": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            "recovered": true,
+            "validator_states": {
+              "0": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "1": {
+                "certificate_index": 0,
+                "kind": "lc_lock",
+                "value": "A",
+                "view": 0
+              },
+              "2": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "3": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "4": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "5": {
+                "certificate_index": 1,
+                "kind": "lc_lock",
+                "value": "B",
+                "view": 1
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 5,
+                "eligible_voters": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "proposal": "A",
+                "quorum_reached": true,
+                "rejected_voters": []
+              }
+            ]
+          },
+          "omitted_higher_lock_holders": [
+            5
+          ],
+          "scenario": {
+            "acknowledgements_are_provisional": true,
+            "byzantine": [
+              0
+            ],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "committers": [
+                  1
+                ],
+                "lock_certificate_recipients": [
+                  1
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "committers": [
+                  5
+                ],
+                "lock_certificate_recipients": [
+                  5
+                ],
+                "prepare_signers": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "fresh_values": [
+              "A"
+            ],
+            "new_view_senders": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "new_view_supersedes_lc_locks": true,
+            "q": 4,
+            "validators": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        "q": 4,
+        "threshold_2q_ge_n_plus_f_plus_1": true
+      },
+      {
+        "base_view_highest_lock_certificate_preserves_value": true,
+        "checked_next_view_candidate_prepare_quorums": 194481,
+        "checked_omitted_higher_orphan_lock_reconciliations": 0,
+        "checked_orphan_lock_new_view_reconciliation_traces": 105,
+        "checked_post_GST_nonfaulty_leader_progress_traces": 105,
+        "checked_prepared_signer_acceptor_quorum_pairs": 9261,
+        "checked_provisional_acceptor_committer_quorum_pairs": 9261,
+        "conflicting_next_view_quorums_accepted": 0,
+        "distinct_prepared_signer_acceptor_pairs": 8820,
+        "distinct_provisional_acceptor_committer_pairs": 8820,
         "f": 2,
         "minimum_nonfaulty_certificate_overlap": 1,
+        "minimum_nonfaulty_decision_commit_lock_holders": 3,
         "minimum_nonfaulty_lock_transfer_to_view_change": 1,
         "minimum_quorum_overlap": 3,
         "n": 7,
+        "orphan_lock_reconciliation_example": {
+          "evaluation": {
+            "available_voters": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "certificate_receipts": [
+              {
+                "acknowledgers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "committers": [
+                  2
+                ],
+                "decision_certificate_formed": false,
+                "index": 0,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  2
+                ],
+                "prepare_signers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "committers": [
+                  6
+                ],
+                "decision_certificate_formed": false,
+                "index": 1,
+                "lock_certificate_assembled": true,
+                "lock_certificate_recipients": [
+                  6
+                ],
+                "prepare_signers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "deadlocked": false,
+            "decision_certificates": [],
+            "maximum_eligible_votes": 5,
+            "new_view": {
+              "proposal_values": [
+                "B"
+              ],
+              "reports": [
+                {
+                  "report": {
+                    "certificate_index": 0,
+                    "value": "A",
+                    "view": 0
+                  },
+                  "sender": 2
+                },
+                {
+                  "report": null,
+                  "sender": 3
+                },
+                {
+                  "report": null,
+                  "sender": 4
+                },
+                {
+                  "report": null,
+                  "sender": 5
+                },
+                {
+                  "report": {
+                    "certificate_index": 1,
+                    "value": "B",
+                    "view": 1
+                  },
+                  "sender": 6
+                }
+              ],
+              "selected_report": {
+                "certificate_index": 1,
+                "value": "B",
+                "view": 1
+              },
+              "senders": [
+                2,
+                3,
+                4,
+                5,
+                6
+              ]
+            },
+            "recovered": true,
+            "validator_states": {
+              "0": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "1": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "2": {
+                "certificate_index": 0,
+                "kind": "lc_lock",
+                "value": "A",
+                "view": 0
+              },
+              "3": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "4": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "5": {
+                "kind": "unlocked",
+                "value": null,
+                "view": null
+              },
+              "6": {
+                "certificate_index": 1,
+                "kind": "lc_lock",
+                "value": "B",
+                "view": 1
+              }
+            },
+            "voting_outcomes": [
+              {
+                "eligible_vote_count": 5,
+                "eligible_voters": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "proposal": "B",
+                "quorum_reached": true,
+                "rejected_voters": []
+              }
+            ]
+          },
+          "omitted_higher_lock_holders": [],
+          "scenario": {
+            "acknowledgements_are_provisional": true,
+            "byzantine": [
+              0,
+              1
+            ],
+            "certificates": [
+              {
+                "acknowledgers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "committers": [
+                  2
+                ],
+                "lock_certificate_recipients": [
+                  2
+                ],
+                "prepare_signers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "value": "A",
+                "view": 0
+              },
+              {
+                "acknowledgers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "committers": [
+                  6
+                ],
+                "lock_certificate_recipients": [
+                  6
+                ],
+                "prepare_signers": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "value": "B",
+                "view": 1
+              }
+            ],
+            "fresh_values": [
+              "A"
+            ],
+            "new_view_senders": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "new_view_supersedes_lc_locks": true,
+            "q": 5,
+            "validators": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        },
         "q": 5,
         "threshold_2q_ge_n_plus_f_plus_1": true
       }
     ],
-    "induction_invariant": "after the first prepared/decision certificate for x at view v, every valid prepared certificate in a later view is for x",
+    "induction_invariant": "after the first valid decision certificate for x at view v, its q-f nonfaulty committer locks intersect every q-message view change and every later q-vote prepare quorum; every later raw prepared certificate, lock certificate, and decision certificate therefore carries x",
     "protocol_rule": {
-      "decision_certificate": "q distinct authenticated commit votes referring to the same valid prepared certificate; a nonfaulty observer finalises only after accepting such a valid decision certificate",
-      "lock": "a nonfaulty validator records the value/view after accepting a prepared certificate and before committing, then reports its highest valid prepared certificate in view change",
-      "monotone_view_participation": "after entering view w, a nonfaulty validator never signs a prepare or commit message for any lower view",
-      "new_view": "the leader collects q authenticated view-change messages and proposes the value of their highest-view prepared certificate",
-      "post_GST_timeout_active_honest_progress": "in a post-GST nonfaulty-led view after timeout-bound activation, the leader emits the P4-selected justified proposal; nonfaulty validators promptly send the required prepare and commit messages, accept only valid certificates, and relay the decision certificate so every nonfaulty validator finalises",
-      "prepared_certificate": "q distinct authenticated prepare votes for one value in one view",
-      "vote_rule": "an unlocked nonfaulty validator may support a fresh value only when no prepared certificate is present; otherwise it votes only for its lock value or for the value justified by a strictly higher valid prepared certificate"
+      "decision_certificate": "q distinct authenticated commit votes referring to the same valid lock certificate; each nonfaulty committer received that assembled certificate and recorded its durable lock before committing, and a nonfaulty observer finalises only after accepting such a valid decision certificate",
+      "lock": "a nonfaulty validator records a durable lock only after receiving an assembled lock certificate and before committing; it reports that certificate in view change and retains the lock until a valid q-message new-view selection authorizes a prepare and the assembled current-view lock certificate replaces it before commit",
+      "lock_certificate": "a valid prepared certificate plus q distinct authenticated provisional acceptance acknowledgements; an acknowledgement does not change the acceptor's voting lock, and a raw prepared certificate alone has no new-view or commit status",
+      "monotone_view_participation": "after entering view w, a nonfaulty validator never signs a prepare, prepared-certificate acceptance, or commit message for any lower view and never adopts a durable lower-view lock",
+      "new_view": "the leader collects q authenticated view-change messages and proposes the value of their highest-view lock certificate; every nonfaulty validator may supersede any local assembled-lock-certificate lock with this valid q-message selection for voting; the current-view lock is recorded only after its assembled certificate arrives, without locally testing whether an earlier commit set reached q",
+      "post_GST_timeout_active_nonfaulty_progress": "in a post-GST nonfaulty-led view after timeout-bound activation, the leader emits the P4-selected justified proposal; nonfaulty validators promptly send prepare votes and provisional prepared-certificate acknowledgements; the leader assembles and disseminates the lock certificate, validators lock and send commit messages, and they relay the decision certificate so every nonfaulty validator finalises",
+      "raw_prepared_certificate": "q distinct authenticated prepare votes for one value in one view",
+      "vote_rule": "an unlocked nonfaulty validator may support a fresh value only when no lock certificate is present; otherwise it votes only for its lock value, except that the value selected by a valid q-message new-view certificate supersedes its local assembled-lock-certificate lock; if a decision certificate exists, quorum intersection forces that selection to be compatible with the decided value"
     },
     "receipt_id": "BFT-LOCK-1"
   },
-  "receipt_sha256": "b2b5f21d5ac1417568faab2c96caa45a3cb38f19895105f081d43ae479ab1fb3",
+  "receipt_sha256": "bd94e1b9dee69c9b61386357429996b0c523266d64ba55dfbd85f439939354aa",
   "refinement_moduli": {
     "checks": {
       "arbitrary_depth_telescope_is_exact_on_reference_instances": true,

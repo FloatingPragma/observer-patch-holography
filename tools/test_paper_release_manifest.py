@@ -36,9 +36,16 @@ def test_committed_manifest_matches_source_set(tmp_path: Path) -> None:
 
 def test_expected_sets_are_derived_not_fixed() -> None:
     sections = validator.expected_sections()
-    assert sections["papers"] == set(validator.source.RELEASE_TRACKED)
-    assert sections["extra_papers"] == set(validator.source.EXTRA_PAPERS)
-    assert sections["supplemental_papers"] == set(validator.source.PAPERS) - set(validator.source.RELEASE_TRACKED)
+    assert set(sections["papers"]) == set(validator.source.RELEASE_TRACKED)
+    assert set(sections["extra_papers"]) == set(validator.source.EXTRA_PAPERS)
+    assert set(sections["supplemental_papers"]) == set(validator.source.PAPERS) - set(validator.source.RELEASE_TRACKED)
+
+
+def test_manifest_generation_timestamp_is_release_derived() -> None:
+    assert (
+        generator.deterministic_generated_at("July 25, 2026")
+        == "2026-07-25T00:00:00Z"
+    )
 
 
 def test_rejects_missing_paper(tmp_path: Path) -> None:
@@ -62,6 +69,15 @@ def test_rejects_absent_artifact(tmp_path: Path) -> None:
     manifest["papers"][paper_id] = {"pdf_path": "paper/DOES_NOT_EXIST.pdf", "sha256": "x", "size_bytes": 1}
     problems = validator.validate(_write(tmp_path, manifest))
     assert any("missing on disk" in p for p in problems)
+
+
+def test_rejects_cross_paper_artifact_mapping(tmp_path: Path) -> None:
+    """A valid digest for the wrong paper cannot satisfy source-derived membership."""
+    manifest = _base()
+    left, right = list(manifest["papers"])[:2]
+    manifest["papers"][left] = copy.deepcopy(manifest["papers"][right])
+    problems = validator.validate(_write(tmp_path, manifest))
+    assert any(left in p and "source derives" in p for p in problems)
 
 
 def test_rejects_sha256_mismatch(tmp_path: Path) -> None:
@@ -137,3 +153,68 @@ def test_generator_rejects_missing_registered_non_tex_source(
                 "extra_papers": {},
             },
         )
+
+
+def test_generator_rejects_missing_registered_non_tex_output(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    (tmp_path / "paper").mkdir()
+    source = tmp_path / "extra" / "derived" / "build.sh"
+    source.parent.mkdir(parents=True)
+    source.write_text("#!/bin/sh\n", encoding="utf-8")
+    monkeypatch.setattr(
+        generator,
+        "NON_TEX_SOURCE_PDFS",
+        {
+            Path("extra/derived.pdf"): Path("extra/derived/build.sh"),
+        },
+    )
+
+    with pytest.raises(SystemExit, match="registered non-TeX output is missing"):
+        generator.verify_no_stray_pdfs(
+            tmp_path,
+            {
+                "papers": {},
+                "supplemental_papers": {},
+                "extra_papers": {},
+            },
+        )
+
+
+def test_validator_rejects_missing_registered_non_tex_output(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    (tmp_path / "paper").mkdir()
+    source_path = tmp_path / "extra" / "derived" / "build.sh"
+    source_path.parent.mkdir(parents=True)
+    source_path.write_text("#!/bin/sh\n", encoding="utf-8")
+    monkeypatch.setattr(validator, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(
+        validator.source,
+        "NON_TEX_SOURCE_PDFS",
+        {
+            Path("extra/derived.pdf"): Path("extra/derived/build.sh"),
+        },
+    )
+    problems: list[str] = []
+    validator.check_release_surface(
+        {
+            "papers": {},
+            "supplemental_papers": {},
+            "extra_papers": {},
+        },
+        problems,
+    )
+    assert any("registered non-TeX output is missing" in p for p in problems)
+
+
+def test_publication_ci_rejects_committed_artifact_drift_after_rebuild() -> None:
+    workflow = (
+        REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
+    ).read_text(encoding="utf-8")
+    assert "git diff --exit-code --" in workflow
+    assert "book/reverse-engineering-reality-book.pdf" in workflow
+    assert "python tools/refresh_paper_release.py" in workflow
+    assert "python tools/build_book_pdf.py" in workflow

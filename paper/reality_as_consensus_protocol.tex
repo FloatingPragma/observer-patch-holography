@@ -2739,21 +2739,30 @@ domain
 \[
 Q_\star=\{x:F_c(x)\ \text{exists for every }c\in\mathcal C_\star\},
 \]
-the product formula
+fix \(p\ge1\) and assume that \(\mathcal C_\star\) is finite. More generally,
+an infinite declared channel set is admitted only if
+\[
+\sum_{c\in\mathcal C_\star}
+w_c\,d_c(F_c(x),F_c(y))^p<\infty
+\qquad\text{for every }x,y\in Q_\star.
+\]
+The product formula
 \[
 d_{\mathrm{neu}}(x,y)
 =
 \left(\sum_{c\in\mathcal C_\star}w_c\,d_c(F_c(x),F_c(y))^p\right)^{1/p}
 \]
-with \(p\ge1\) is a well-defined pseudometric. It is a metric only after quotienting by zero-distance feature
+is then a finite-valued pseudometric. It is a metric only after quotienting by zero-distance feature
 collisions, or after proving that the declared channel family separates points.
 \end{theorem}
 
 \begin{proof}
 Identity, inverse, and cocycle laws give reflexivity, symmetry, and transitivity. The transport
 compatibility of local features is exactly the universal-property condition for descent through
-the quotient. The weighted product distance is then independent of the representative. Its
-triangle inequality is Minkowski's inequality applied to the channel metrics. The only possible
+the quotient. The weighted product distance is independent of the
+representative and finite by the finite-channel or pairwise-summability
+premise. Its triangle inequality is Minkowski's inequality applied to the
+channel metrics. The only possible
 failure of identity of indiscernibles is equality of all declared feature values, which is
 removed by quotienting feature-collision classes or by a joint-separation proof.
 \end{proof}
@@ -2762,7 +2771,9 @@ removed by quotienting feature-collision classes or by a joint-separation proof.
 Pairwise available-channel comparison is not a metric policy: different pairs can share different
 channels and violate the triangle inequality. A neutral-geometry run must therefore use complete
 cases, a fixed missing symbol whose mask is quotient-visible, or train-only imputation labelled
-as an imputed-representation metric. Presentation invariance requires a bijection of
+as an imputed-representation metric. The run also records a finite channel
+list or a pairwise weighted-\(\ell^p\) summability certificate. Presentation
+invariance requires a bijection of
 \(Q_{\mathrm{vis}}\) and channel isometries, so gauge changes, port relabelings, observer order,
 repair schedule, and shard partition changes are checked on distance matrices, not on displayed
 coordinates. Refinement requires a cofinally vanishing tail modulus for the finite-stage

@@ -13,6 +13,15 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
 
+# Release-surface PDFs whose source is not a sibling TeX root. The manifest
+# generator and validator share this registry so a source/output pair cannot
+# disappear from one gate while remaining accepted by the other.
+NON_TEX_SOURCE_PDFS = {
+    Path("extra/hacking-the-simulation-anti-gravity-exploit.pdf"): Path(
+        "extra/hacking-the-simulation-anti-gravity-exploit/build_book_pdf.sh"
+    ),
+}
+
 PAPERS = {
     "deriving_the_particle_zoo_from_observer_consistency": (
         PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex"

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://floatingpragma.io/schemas/hardware_evidence_bundle_h_v1.schema.json",
   "title": "OPH hardware evidence bundle class H v1",
-  "description": "Typed evidence contract for a physical-device claim. Schema validity is necessary but never sufficient: tools/verify_hardware_evidence_bundle_h.py recomputes hashes, coverage, custody, replay, calibration, and attestation predicates.",
+  "description": "Closed evidence contract for a physical-device claim. Schema validity is necessary but never sufficient: the independent verifier checks hashes, ordered raw/control coverage, calibrated replay, structured-claim equality, custody, preregistration, authoritative nonce use, role provenance, and independent attestation.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -273,7 +273,7 @@
       ],
       "properties": {
         "in_scope": {
-          "type": "boolean"
+          "const": true
         },
         "mitigation": {
           "type": "string",
@@ -314,7 +314,8 @@
       "additionalProperties": false,
       "required": [
         "registry_id",
-        "nonce_scope"
+        "nonce_scope",
+        "reservation_artifact_id"
       ],
       "properties": {
         "registry_id": {
@@ -322,6 +323,9 @@
         },
         "nonce_scope": {
           "const": "global_per_device"
+        },
+        "reservation_artifact_id": {
+          "$ref": "#/$defs/identifier"
         }
       }
     },
@@ -343,6 +347,7 @@
           "enum": [
             "raw_measurement",
             "calibration",
+            "calibration_reference",
             "custody",
             "control",
             "analysis_code",
@@ -350,6 +355,7 @@
             "protocol",
             "run_schedule",
             "device_identity",
+            "nonce_reservation",
             "attestation"
           ]
         },
@@ -395,6 +401,7 @@
         "device_id",
         "captured_utc",
         "capture_nonce",
+        "control_capture_nonce",
         "raw_artifact_ids",
         "calibration_id",
         "control_artifact_ids",
@@ -418,6 +425,9 @@
           "$ref": "#/$defs/dateTime"
         },
         "capture_nonce": {
+          "$ref": "#/$defs/identifier"
+        },
+        "control_capture_nonce": {
           "$ref": "#/$defs/identifier"
         },
         "raw_artifact_ids": {
@@ -452,6 +462,7 @@
         "artifact_id",
         "device_id",
         "reference_id",
+        "reference_artifact_id",
         "reference_uri",
         "reference_certificate_sha256",
         "channel_id",
@@ -472,6 +483,9 @@
           "$ref": "#/$defs/identifier"
         },
         "reference_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "reference_artifact_id": {
           "$ref": "#/$defs/identifier"
         },
         "reference_uri": {
@@ -645,11 +659,14 @@
         },
         "replay_command": {
           "type": "array",
+          "prefixItems": [
+            {
+              "const": "internal:paired_calibrated_mean_max_deviation.v1"
+            }
+          ],
+          "items": false,
           "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
+          "maxItems": 1
         }
       }
     },

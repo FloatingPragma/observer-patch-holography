@@ -38,6 +38,9 @@
 \newcommand{\avg}{\mathcal A}
 \newcommand{\lued}{\mathcal L}
 \newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\sourcecommit}{%
+  \href{https://github.com/FloatingPragma/observer-patch-holography/commit/49ee36e01eb245d4d508e82c9b08fd47f7a85243}%
+  {\texttt{49ee36e0}}}
 
 \title{\textbf{Verified Projection-Event Calculus in Lean~4:\\
 Bundled Arbitrary-Partition Pinching, L\"uders Retractions,\\
@@ -229,7 +232,7 @@ Module & Principal interface \\
 weight bounds \\
 \texttt{Lueders} & totalized matrix formula, typed state update, repeatability,
 composition, support, and fixed points \\
-\texttt{PartitionPinching} & projective partitions, bundled commutant,
+\texttt{Partition\allowbreak Pinching} & projective partitions, bundled commutant,
 bundled linear pinching, exact range, geometry, bimodule law, and naturality \\
 \texttt{PartitionAverage} & partition span with closure, commutativity, and
 centrality; bundled averaging expectation with exact range, uniqueness, tower
@@ -412,7 +415,8 @@ Pythagorean identity
 \]
 and hence contracts the squared Hilbert--Schmidt quantity. A
 commutant-valued complex-linear map with the same trace pairings against every
-commutant element equals \texttt{partitionPinchingLinearMap}.
+commutant element equals
+\texttt{partitionPinching\allowbreak LinearMap}.
 \end{theorem}
 
 The corresponding declarations are
@@ -715,7 +719,7 @@ The source is a Lake project. Its toolchain pins
 \end{center}
 The canonical Lean modules are publicly available in the Observer Patch
 Holography repository \cite{observerPatchHolographyRepo} at commit
-\texttt{49ee36e01eb245d4d508e82c9b08fd47f7a85243}. The manuscript
+\sourcecommit. The manuscript
 source accompanies the submission. It includes a standalone archive
 \cite{eventalgebra} with a byte-identical copy of those modules.
 
@@ -801,7 +805,7 @@ L\"uders update & Isabelle projective measurement and general channel
 infrastructure & raw formula plus typed partial state API, support theorem,
 unguarded state fixed-point equivalence, typed naturality with
 arbitrary-partition pinching \\
-CHSH/Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean CHSH
+CHSH/\allowbreak Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean CHSH
 rigidity & complementary norm theorem, event-level client, and
 state-expectation corollary; no tightness claim \\
 Reproducibility & public CI and archived releases are common best practice &
@@ -869,7 +873,7 @@ manuscript and artifact.
 \textbf{Data and code availability.} No empirical data were generated. The
 canonical Lean source is available in the Observer Patch Holography
 repository \cite{observerPatchHolographyRepo} at commit
-\texttt{49ee36e01eb245d4d508e82c9b08fd47f7a85243}. The Lean source, pinned
+\sourcecommit. The Lean source, pinned
 dependency files, build instructions, axiom report, and
 checksums also accompany the submission \cite{eventalgebra}, under a Creative
 Commons BY-NC-SA 4.0 license. No persistent archive identifier is

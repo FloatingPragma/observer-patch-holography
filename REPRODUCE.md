@@ -55,7 +55,9 @@ mandatory collection unless explicitly enabled:
 
 - IBM / Qiskit hardware lane:
   `pip install -r code/ibm_quantum_cloud/requirements-ibm.txt`, then
-  `OPH_RUN_IBM=1 python -m pytest code/ibm_quantum_cloud`.
+  `OPH_RUN_IBM=1 python -m pytest code/ibm_quantum_cloud`. A direct
+  invocation without the opt-in, or with an incomplete extras installation,
+  exits with the missing requirement instead of reporting an empty test run.
 - Legacy particle helpers: set `OPH_RUN_LEGACY_D10=1` and
   `OPH_LEGACY_PARTICLE_DIR` (see `code/particles/conftest.py`).
 
@@ -155,6 +157,17 @@ logs consumed by the warning gate. The publication CI performs the sequence
 twice on a clean Ubuntu runner and rejects any paper or book PDF whose SHA-256
 changes on the second pass. A local audit can make the same comparison with
 `sha256sum` (or `shasum -a 256` on macOS).
+
+A clean clone must also retain no tracked publication drift after the first
+rebuild:
+
+```bash
+git diff --exit-code -- paper extra book/reverse-engineering-reality-book.pdf
+```
+
+The publication workflow enforces this check. A committed PDF and manifest
+pair therefore cannot substitute another paper's bytes at the expected path;
+the source rebuild restores the correct artifact and makes the job fail.
 
 The issue ledger has two modes. The clean-clone/CI command above uses:
 

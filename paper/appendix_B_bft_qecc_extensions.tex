@@ -21,17 +21,28 @@ with the timing and connectivity assumptions below.
 \begin{enumerate}[(P1)]
   \item \textbf{One-vote-per-view.}
         Each nonfaulty node supports at most one value per view number.
-        If the protocol has prepare and commit phases, its messages in both
-        phases refer to that same value.  A node that has supported a value in
+        If the protocol has prepare, prepared-certificate acceptance, and
+        commit phases, its messages in all three phases refer to that same
+        value.  A node that has supported a value in
         view~$v$ ignores any later conflicting request in view~$v$.
         View participation is monotone: after entering view \(w\), a
-        nonfaulty node never signs a prepare or commit message for \(v<w\).
+        nonfaulty node never signs a prepare, prepared-certificate acceptance,
+        or commit message for \(v<w\), and never adopts a durable lower-view
+        lock.
   \item \textbf{Certificate semantics.}
-        A prepared certificate
+        A raw prepared certificate
         \(\operatorname{PC}(v,x)\) contains \(q\) distinct, unforgeable,
-        authenticated prepare votes for value \(x\) in view \(v\).  A decision
+        authenticated prepare votes for value \(x\) in view \(v\).
+        A lock certificate \(\operatorname{LC}(v,x)\) contains that
+        \(\operatorname{PC}(v,x)\) together with \(q\) distinct authenticated
+        acceptance acknowledgements. These acknowledgements are provisional:
+        they do not change the acceptor's voting lock. A raw prepared
+        certificate without \(q\) acceptance acknowledgements cannot justify a
+        new view or a commit vote. A nonfaulty validator that receives the
+        assembled \(\operatorname{LC}(v,x)\) verifies it and records the
+        durable lock \((v,x)\) before signing a commit vote. A decision
         certificate contains \(q\) distinct authenticated commit votes, each
-        referring to the same valid \(\operatorname{PC}(v,x)\).  In the
+        referring to the same valid \(\operatorname{LC}(v,x)\).  In the
         classical exact-size case \(q=2f+1\).  For larger validator sets at
         fixed fault budget, the threshold must scale so that (A6) holds.
         A nonfaulty observer finalises a value only after accepting such a
@@ -43,29 +54,43 @@ with the timing and connectivity assumptions below.
         bound of (A1) is active, the pacemaker brings all nonfaulty nodes
         through successive views and reaches a nonfaulty leader within at
         most \(f+1\) consecutive views.
-  \item \textbf{Prepared-certificate lock and justified new view.}
-        On accepting \(\operatorname{PC}(v,x)\), and before signing a commit
-        vote for it, a nonfaulty validator records the lock \((v,x)\).
-        Its authenticated view-change message carries its highest valid
-        prepared certificate, if any.  A new leader collects \(q\) such
+  \item \textbf{Prepared-certificate dissemination, commit lock, and
+        justified new view.}
+        The assembler disseminates a valid \(\operatorname{PC}(v,x)\) and
+        obtains the \(q\) authenticated acceptance acknowledgements of
+        \(\operatorname{LC}(v,x)\), then disseminates the assembled lock
+        certificate before collecting commits.
+        Each validator's authenticated view-change message carries its highest valid
+        lock certificate, if any.  A new leader collects \(q\) such
         messages.  If it issues a proposal, that proposal carries the value
-        of their highest-view prepared certificate; it may carry a fresh
+        of their highest-view lock certificate; it may carry a fresh
         value only if none is present.  The proposal carries the complete
         new-view justification.
         Every nonfaulty validator verifies the signatures, quorum size, and
         highest-certificate selection.  An unlocked validator may support a
         fresh proposal only when the verified justification contains no
-        prepared certificate.  Otherwise it votes only for its current lock
-        value or for the value of a valid prepared certificate in a strictly
-        higher view than its lock and a lower view than the current proposal,
-        updating its lock monotonically before committing.
+        lock certificate.  Otherwise it votes only for its current lock
+        value, except that the value selected by a valid \(q\)-message new-view
+        justification supersedes its local assembled-lock-certificate lock.
+        This authorizes the prepare vote without adopting a lower-view durable
+        lock; receipt of the assembled current-view lock certificate records
+        the replacement before commit. This rule applies
+        without a local test for whether an earlier commit set reached \(q\):
+        it reconciles every predecision lock, while the proof below shows that
+        quorum intersection makes the selected value compatible whenever a
+        decision certificate exists.
   \item \textbf{Post-\textrm{GST} nonfaulty progress.}
         In a sufficiently long post-\textrm{GST} view led by a nonfaulty
         node, that leader collects the required new-view messages and emits
         the proposal selected by (P4).  Every nonfaulty validator that
-        receives a valid proposal promptly sends its prepare vote; after
-        accepting a valid prepared certificate it records its lock and sends
-        its commit vote; after accepting a valid decision certificate it
+        receives a valid proposal promptly sends its prepare vote.  The
+        nonfaulty leader disseminates the resulting valid prepared
+        certificate; every nonfaulty validator verifies it and returns a
+        provisional acceptance acknowledgement. After assembling the lock
+        certificate, the leader disseminates it; every nonfaulty recipient
+        verifies it, records or advances its durable lock, and sends its
+        commit vote.
+        After accepting a valid decision certificate it
         finalises and relays that certificate.  Each of these fixed protocol
         phases completes within \(O(\Theta)\), with \(\Theta\) defined in
         (A1).
@@ -122,7 +147,7 @@ step is exact-size \(n=3f+1\) logic unless (A6) is imposed separately.
 
 \begin{theorem}[QBFT Safety Bound
   {\normalfont\small [Cross-view safety established under the stated
-  certificate, overlap, authentication, and lock rules]}]
+  certificate, acceptance, overlap, authentication, and lock rules]}]
 \label{thm:qbft-safety}
 Under (A1), (A2), and (A4)--(A6), any consensus protocol satisfying
 (P1)--(P5) of Definition~\ref{def:qbft-style} and run over the
@@ -168,38 +193,72 @@ same view, using their prepare-vote quorums.
 \textit{Cross-view safety.}
 Suppose \(\operatorname{DC}(v,x)\) and
 \(\operatorname{DC}(w,y)\) are conflicting decision certificates with
-\(v<w\). Every nonfaulty signer in the commit quorum \(Q_x\) accepted
-\(\operatorname{PC}(v,x)\), locked \(x\), and then committed. Hence its
-nonfaulty subset \(H_x\) has size at least \(q-f\). Every size-\(q\)
-prepare quorum \(P\) intersects that set because
+\(v<w\). The first certificate refers to a valid
+\(\operatorname{LC}(v,x)\). Let \(C_x\) be its \(q\) committers. The
+nonfaulty subset \(L_x\subseteq C_x\) has size at least \(q-f\), and every
+member of \(L_x\) received the assembled lock certificate and recorded
+\((v,x)\) before committing. Every size-\(q\) prepare or view-change quorum \(P\)
+intersects that actual lock set because
 \[
- |H_x\cap P|
+ |L_x\cap P|
  \ge (q-f)+q-n
  =2q-n-f
  \ge1
 \]
 by (A6).
 
-Assume for contradiction that a prepared certificate for a value different
-from \(x\) exists above view \(v\), and choose one with least view \(r>v\).
-Let \(O^*\in H_x\) be a nonfaulty member of its prepare quorum. If \(O^*\)
-prepared the view-\(r\) value before its view-\(v\) commit, monotone view
-participation in (P1) forbids that later lower-view commit. If it prepared
-after the commit, it was locked on \(x\). Rule (P4) permits a different value
-only when justified by a valid conflicting prepared certificate whose view
-lies strictly between \(v\) and \(r\), contradicting the minimality of \(r\).
+Assume for contradiction that a raw prepared certificate for a value
+different from \(x\) exists above view \(v\), and choose one with least view
+\(r>v\). Its proposal carries a valid \(q\)-message new-view justification
+\(J_r\). Since \(|L_x|\ge q-f\) and \(|J_r|=q\), choose a nonfaulty
+\(O^*\in L_x\cap J_r\). Validator \(O^*\) signed a commit for
+\(\operatorname{LC}(v,x)\), and later sent its authenticated view-\(r\)
+change. Monotone view participation in (P1) orders its view-\(v\) lock and
+commit before that view-\(r\) message: it cannot send a view-\(r\) change and
+subsequently return to commit in view \(v\). Its view-change message therefore
+reports \(\operatorname{LC}(v,x)\), or a later valid lock certificate. By
+minimality of \(r\), every raw prepared certificate underlying such a later
+reported lock certificate below view \(r\) carries \(x\). Hence \(O^*\)'s
+report carries \(x\).
+
+The justification \(J_r\) therefore cannot be certificate-free. It also
+cannot contain a conflicting highest lock certificate, because that
+certificate contains a conflicting raw prepared certificate in a view below
+\(r\), contradicting the minimality of \(r\). Rule (P4) consequently selects
+\(x\), so nonfaulty validators do not prepare the alleged conflicting value
+in view \(r\).
 Thus no higher conflicting prepared certificate exists, and (P2) excludes
 the alleged \(\operatorname{DC}(w,y)\).
+
+This induction is also the lock-transfer invariant for view change. Every
+valid \(q\)-message new-view justification after a decision contains a
+nonfaulty report from the decision's \(q-f\) commit-lock set, and its highest
+valid report carries the decided value.
 
 \textit{Liveness and certificate threshold.}
 From the first post-\textrm{GST} view whose pacemaker timeout is active,
 (A1) makes every failed-view timeout and every fixed protocol phase
 \(O(\Theta)\). Rule (P3) reaches a nonfaulty leader within at most \(f+1\)
 consecutive views. Since \(q\le n-f\), nonfaulty validators can
-supply all \(q\) new-view, prepare, and commit messages without Byzantine
-participation. The highest valid certificate selected by (P4) is compatible
-with every nonfaulty lock by the safety invariant. Rule (P5) therefore
-executes the proposal, prepare, commit, and decision-relay phases, so every
+supply all \(q\) new-view, prepare, prepared-certificate acceptance, and
+commit messages without Byzantine participation.
+
+Consider the valid \(q\)-message justification used by the successful new
+view. If it contains no lock certificate, (P4) selects a fresh value.
+Otherwise it selects its unique highest-view lock certificate; same-view
+uniqueness follows from the prepare-quorum overlap. Every nonfaulty validator
+may replace a local assembled-lock-certificate predecision lock with that
+valid selection, including a
+lock whose local commit set never reached a decision certificate. If a
+decision certificate exists, the \(q-f\) nonfaulty commit-lock set proved
+above intersects the \(q\)-message justification. Its report forces the
+selected lock certificate to carry the decided value, since the safety
+induction excludes a conflicting certificate. Thus at least \(q\) nonfaulty
+validators can support the selected proposal in either case, even when some
+of their orphan locks were omitted from the new-view messages.
+
+Rule (P5) executes the proposal, prepare, provisional acceptance,
+lock-certificate dissemination, commit, and decision-relay phases, so every
 nonfaulty observer finalises within \(O((f+1)\Theta)\) from that activation
 point. Eventual timeout activation yields eventual liveness, but the theorem
 does not bound its delay after \textrm{GST}.
@@ -208,7 +267,7 @@ Finally, \(q\le n-f\) and \(2q\ge n+f+1\) imply
 \[
  2(n-f)\ge n+f+1,
 \]
-hence \(n\ge3f+1\) (with the integer convention already present in (A6)).
+hence \(n\ge3f+1\) (with the integer convention specified in (A6)).
 At \(n=3f+1\), \(q=2f+1\) attains both inequalities. This is a threshold
 statement for the declared certificate contract, not a universal resilience
 claim for every authenticated protocol model.
@@ -224,28 +283,40 @@ The finite \(\mathsf{BFT\text{-}LOCK\text{-}1}\) receipt in
 \path{code/consensus/runs/issue_517_proof_obligations.json}, generated by
 \path{code/consensus/verify_issue_517_proof_obligations.py}, exhausts
 all certificate and new-view quorum pairs for
-\((n,f,q)=(1,0,1),(4,1,3),(7,2,5)\).  It checks both the nonfaulty
-certificate-overlap witness and transfer of at least one nonfaulty prepared
-lock into every new-view quorum.  It also executes the next-view lock
+\((n,f,q)=(1,0,1),(4,1,3),(6,1,4),(7,2,5)\). The first, second,
+and fourth are exact-size points; the third checks the general threshold with
+\(q<n-f\). It checks both the nonfaulty
+certificate-overlap witness, independent prepare-signer, provisional-acceptor,
+and committer quorums, the \(q-f\) lower bound on actual nonfaulty commit
+locks in a decision certificate, and transfer of at least one such lock into
+every new-view quorum. It also executes the
+next-view lock
 transition against every candidate prepare quorum at those parameter points,
-parses actual certificate records before selecting the highest valid report,
-and runs finite post-\textrm{GST} proposal/prepare/commit/relay traces for
+derives local validator states from lock-certificate delivery and partial
+commits, constructs the new-view reports, selects the proposal, computes the
+eligible voters, and determines recovery or deadlock. These traces include an
+omitted higher orphan lock at the general-threshold point. The receipt also
+runs finite post-\textrm{GST}
+proposal/prepare/acceptance/commit/relay traces for
 every nonfaulty reference leader.  The arbitrary-view induction and
 wall-clock proof remain the mathematical argument above; the receipt is not
 a general protocol-model checker.
 
 Separate finite traces remove one-vote, monotone-view participation,
 finalise-only-on-valid-certificate semantics, quorum overlap, the fault
-bound, authentication, prepared locking, highest-certificate leader
-selection, partial synchrony, quorum availability, quorum connectivity,
+bound, authentication, prepared locking, quorum-certified
+prepared-certificate acceptance and dissemination, provisional
+pre-certificate acknowledgements, new-view supersession of local partial-commit
+locks, highest-certificate leader selection, partial synchrony, quorum
+availability, quorum connectivity,
 terminating view change, nonfaulty-leader proposal progress, and
 nonfaulty-validator prepare/commit/relay progress.  Validator
 justification checking has a separate malformed-proof conformance witness;
 with the retained lock rule it is defence in depth rather than an
 independent safety premise.  The lock-free
 \(n=4,f=1,q=3\) trace decides \(x\)
-from \(\{B,H_1,H_2\}\) in view zero and \(y\ne x\) from
-\(\{B,H_2,H_3\}\) in view one while respecting one-value-per-validator in
+from \(\{B,N_1,N_2\}\) in view zero and \(y\ne x\) from
+\(\{B,N_2,N_3\}\) in view one while respecting one-value-per-validator in
 each individual view.
 
 % ------------------------------------------------------------

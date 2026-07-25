@@ -513,11 +513,16 @@ complete declared channel set \(\mathcal C_\star\), the neutral distance is
 d_{\mathrm{neu}}(x,y)=
 \left(\sum_{c\in\mathcal C_\star}w_c\,d_c(F_c(x),F_c(y))^p\right)^{1/p}.
 \]
-Here \(p\ge1\).  This is always stated first as a quotient-visible pseudometric. It becomes a metric only after
+Here \(p\ge1\), and \(\mathcal C_\star\) is finite. An infinite declared
+channel set is allowed only when the displayed weighted \(p\)-sum is finite
+for every compared pair. Under that finite-distance premise this is stated
+first as a quotient-visible pseudometric. It becomes a metric only after
 quotienting zero-distance feature-collision classes or proving that the channels jointly
 separate points. Pairwise available-channel comparison is explicitly excluded: missingness is
 handled only by complete cases, a fixed quotient-visible missing symbol, or a train-only
-imputation map labelled as an imputed-representation metric. Presentation changes (gauge
+imputation map labelled as an imputed-representation metric. The certificate
+records a finite channel list or a pairwise weighted-\(\ell^p\) summability
+witness. Presentation changes (gauge
 representatives, port relabelings, observer order, schedules, and shard partitions) preserve the
 metric only when they induce a bijection of \(Q_{\mathrm{vis}}\) together with channel
 isometries; refinement claims additionally require a cofinally vanishing distance tail modulus.

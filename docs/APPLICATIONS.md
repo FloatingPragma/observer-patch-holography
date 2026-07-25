@@ -10,9 +10,10 @@ checks.
 
 Four use cases follow. All four are design concepts. None of them has a
 supporting hardware evidence bundle: no energy-gain, computational-advantage,
-or lift claim on this page carries a receipt, and the hardware-claim evidence
-bar (independent records, controls, sham runs, verifier replay) is defined in
-the microphysics paper and applies to every one of them. The links point to
+or lift claim on this page carries a receipt. The
+[class-H evidence contract](HARDWARE_EVIDENCE_BUNDLE_H.md) requires independent
+records, controls, sham runs, and verifier replay for every one of them. The
+microphysics paper states the corresponding paper-level rule. The links point to
 public material in this repository or public OPH pages. The OMEGA hardware visualization is at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). The local compute loop diagram is
 [assets/omega/omega-compute-loop.svg](../assets/omega/omega-compute-loop.svg).

@@ -10,11 +10,12 @@ rejects the manifest when membership drifts:
   * supplemental_papers = PAPERS - RELEASE_TRACKED (built but not release-tracked)
   * extra_papers      = EXTRA_PAPERS              (discovered from extra/*.tex)
 
-For every section the manifest key set must equal the derived expected set (no
-missing paper, no unexpected paper), and every listed PDF artifact must exist in
-the checkout. Any mismatch exits non-zero. No fixed counts are hard-coded here;
-add or remove a paper in build_tex_papers.py (or an extra/*.tex file) and the
-expected set moves with it.
+For every section the manifest key set and paper-to-PDF mapping must equal the
+derived source mapping (no missing paper, unexpected paper, or cross-paper
+artifact substitution), and every listed PDF artifact must exist in the
+checkout. Any mismatch exits non-zero. No fixed counts are hard-coded here; add
+or remove a paper in build_tex_papers.py (or an extra/*.tex file) and the
+expected mapping moves with it.
 
 Usage:
   python3 tools/validate_paper_release_manifest.py
@@ -37,14 +38,25 @@ sys.path.insert(0, str(REPO_ROOT / "tools"))
 import build_tex_papers as source  # noqa: E402
 
 
-def expected_sections() -> dict[str, set[str]]:
+def _pdf_relative(tex_path: Path) -> str:
+    return tex_path.with_suffix(".pdf").relative_to(REPO_ROOT).as_posix()
+
+
+def expected_sections() -> dict[str, dict[str, str]]:
     release = set(source.RELEASE_TRACKED)
-    supplemental = set(source.PAPERS) - release
-    extra = set(source.EXTRA_PAPERS)
     return {
-        "papers": release,
-        "supplemental_papers": supplemental,
-        "extra_papers": extra,
+        "papers": {
+            paper_id: _pdf_relative(source.PAPERS[paper_id])
+            for paper_id in sorted(release)
+        },
+        "supplemental_papers": {
+            paper_id: _pdf_relative(source.PAPERS[paper_id])
+            for paper_id in sorted(set(source.PAPERS) - release)
+        },
+        "extra_papers": {
+            paper_id: _pdf_relative(tex_path)
+            for paper_id, tex_path in sorted(source.EXTRA_PAPERS.items())
+        },
     }
 
 
@@ -56,17 +68,32 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def check_section(name: str, expected: set[str], section: dict, problems: list[str]) -> None:
+def check_section(
+    name: str,
+    expected: dict[str, str],
+    section: dict,
+    problems: list[str],
+) -> None:
     got = set(section)
-    for missing in sorted(expected - got):
+    expected_ids = set(expected)
+    for missing in sorted(expected_ids - got):
         problems.append(f"{name}: expected paper '{missing}' is missing from the manifest")
-    for unexpected in sorted(got - expected):
+    for unexpected in sorted(got - expected_ids):
         problems.append(f"{name}: manifest lists unexpected paper '{unexpected}' (not in the source set)")
     for paper_id, payload in section.items():
-        pdf_rel = (payload or {}).get("pdf_path")
+        if not isinstance(payload, dict):
+            problems.append(f"{name}: '{paper_id}' payload must be an object")
+            continue
+        pdf_rel = payload.get("pdf_path")
         if not pdf_rel:
             problems.append(f"{name}: '{paper_id}' has no pdf_path in the manifest")
             continue
+        expected_pdf_rel = expected.get(paper_id)
+        if expected_pdf_rel is not None and pdf_rel != expected_pdf_rel:
+            problems.append(
+                f"{name}: '{paper_id}' maps to {pdf_rel}, but its source "
+                f"derives {expected_pdf_rel}"
+            )
         pdf_abs = REPO_ROOT / pdf_rel
         if not pdf_abs.exists():
             problems.append(f"{name}: artifact for '{paper_id}' is missing on disk: {pdf_rel}")
@@ -100,6 +127,41 @@ def check_section(name: str, expected: set[str], section: dict, problems: list[s
                     )
 
 
+def check_release_surface(manifest: dict, problems: list[str]) -> None:
+    """Require every release-surface PDF to have one registered source route."""
+    expected = {
+        str(Path(payload["pdf_path"]))
+        for section_name in (
+            "papers",
+            "supplemental_papers",
+            "extra_papers",
+        )
+        for payload in (
+            (manifest.get(section_name, {}) or {}).values()
+            if isinstance(manifest.get(section_name, {}) or {}, dict)
+            else ()
+        )
+        if isinstance(payload, dict) and payload.get("pdf_path")
+    }
+    for pdf_rel, source_rel in source.NON_TEX_SOURCE_PDFS.items():
+        if not (REPO_ROOT / source_rel).is_file():
+            problems.append(
+                f"registered source for {pdf_rel} is missing: {source_rel}"
+            )
+        if not (REPO_ROOT / pdf_rel).is_file():
+            problems.append(f"registered non-TeX output is missing: {pdf_rel}")
+        expected.add(str(pdf_rel))
+    actual = {
+        str(pdf.relative_to(REPO_ROOT))
+        for directory in ("paper", "extra")
+        for pdf in (REPO_ROOT / directory).glob("*.pdf")
+    }
+    for stray in sorted(actual - expected):
+        problems.append(
+            f"stray PDF is not implied by a registered source: {stray}"
+        )
+
+
 def validate(manifest_path: Path) -> list[str]:
     problems: list[str] = []
     if not manifest_path.exists():
@@ -108,8 +170,15 @@ def validate(manifest_path: Path) -> list[str]:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         return [f"manifest is not valid JSON: {exc}"]
+    if not isinstance(manifest, dict):
+        return ["manifest root must be an object"]
     for name, expected in expected_sections().items():
-        check_section(name, expected, manifest.get(name, {}) or {}, problems)
+        section = manifest.get(name, {}) or {}
+        if not isinstance(section, dict):
+            problems.append(f"{name}: manifest section must be an object")
+            continue
+        check_section(name, expected, section, problems)
+    check_release_surface(manifest, problems)
     return problems
 
 

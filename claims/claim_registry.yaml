@@ -157,19 +157,21 @@
     },
     {
       "claim_id": "OPH-CONS-BFT-PREPARED-LOCK",
-      "statement": "For the declared two-certificate QBFT-style protocol, finalisation only on an authenticated prepared-backed q-vote decision certificate, one supported value per validator per view, monotone view participation, nonfaulty prepared-certificate locks, at most f Byzantine validators, and 2q >= n+f+1 imply safety across all views. Liveness additionally requires q <= n-f, an effective post-GST phase bound, fair terminating view change, highest-certificate proposal selection, and explicit nonfaulty proposal/prepare/commit/relay progress.",
+      "statement": "For the declared raw-prepared/lock/decision-certificate QBFT-style protocol, finalisation only on an authenticated q-vote decision certificate referring to a q-acceptance lock certificate, one supported value per validator per view, monotone view participation, durable locks recorded by nonfaulty lock-certificate recipients before commit, at most f Byzantine validators, and 2q >= n+f+1 imply safety across all views. Prepared-certificate acknowledgements are provisional and non-locking. Liveness additionally requires q <= n-f, an effective post-GST phase bound, fair terminating view change, highest-lock-certificate proposal selection, valid-new-view supersession of local predecision locks, and explicit nonfaulty proposal/prepare/acceptance/lock-certificate-dissemination/commit/relay progress.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "assumption_dependent_distributed_consensus_theorem",
       "assumptions": [
         "authenticated_prepared_and_decision_certificates",
+        "quorum_certified_prepared_certificate_acceptance_and_lock_propagation",
         "valid_decision_certificate_required_for_finalization",
         "one_supported_value_per_validator_per_view",
         "monotone_view_participation",
         "at_most_f_Byzantine_validators",
         "quorum_threshold_2q_ge_n_plus_f_plus_1",
         "quorum_availability_q_le_n_minus_f_for_liveness",
-        "monotone_prepared_certificate_locks",
+        "durable_lock_only_after_assembled_lock_certificate",
         "highest_prepared_certificate_new_view_selection",
+        "valid_new_view_supersedes_local_predecision_locks",
         "validator_new_view_justification_check",
         "partial_synchrony_and_fair_view_change_for_liveness",
         "effective_post_GST_phase_bound",
@@ -178,7 +180,7 @@
       "imported_results": [
         "partial_synchrony_model"
       ],
-      "oph_specific_delta": "The OPH appendix now types the exact prepared/lock/view-change contract instead of inferring cross-view safety from same-view quorum overlap. The finite receipt exhausts certificate and lock-transfer intersections at three exact-size parameter points and carries separate negative traces for every load-bearing safety or liveness premise.",
+      "oph_specific_delta": "The OPH appendix types the exact raw-prepared/provisional-acceptance/commit-lock/view-change contract instead of inferring cross-view safety from same-view quorum overlap. The finite receipt models prepare signers, provisional acceptors, and committers independently, exhausts decision-supported commit-lock transfer intersections at three exact-size parameter points and one general-threshold point, checks new-view reconciliation of local partial-commit locks including an omitted higher lock, and carries separate negative traces for every load-bearing safety or liveness premise.",
       "novelty_type": "typed_protocol_extension_and_finite_receipt",
       "evidence": [
         "paper/appendix_B_bft_qecc_extensions.tex",
@@ -187,7 +189,7 @@
         "code/consensus/runs/issue_517_proof_obligations.json",
         "code/consensus/test_issue_517_proof_obligations.py"
       ],
-      "falsifier": "Two conflicting valid decision certificates exist under the complete prepared-lock and highest-justified-new-view contract, or one finite negative trace is accepted after its corresponding premise is removed.",
+      "falsifier": "Two conflicting valid decision certificates exist under the complete provisional prepared-acceptance, commit-lock, and highest-justified-new-view contract, a valid decision certificate has fewer than q-f actual nonfaulty commit locks, a q-message view change omits all such locks, local predecision locks cannot reconcile under a valid highest-certificate new view, or one finite negative trace is accepted after its corresponding premise is removed.",
       "scope_if_false": "The assumption-dependent BFT extension falls; the core finite OPH repair-confluence theorem is independent.",
       "status": "paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized",
       "claim_class": "conditional_implication",

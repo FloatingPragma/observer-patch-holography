@@ -2019,7 +2019,15 @@ For a declared complete geometry channel set \(\mathcal C_\star\), let
 \[
 Q_\star=\{x\in Q_{\mathrm{vis}}:F_c(x)\ \hbox{exists for all }c\in\mathcal C_\star\}
 \]
-and, for \(p\ge 1\), define
+and fix \(p\ge 1\). Assume that \(\mathcal C_\star\) is finite. More
+generally, an infinite declared channel set is admitted only under the
+pairwise summability condition
+\[
+\sum_{c\in\mathcal C_\star}
+w_c\,d_c(F_c(x),F_c(y))^p<\infty
+\qquad\text{for every }x,y\in Q_\star.
+\]
+Define
 \[
 d_{\mathrm{neu}}(x,y)
 =
@@ -2028,8 +2036,9 @@ d_{\mathrm{neu}}(x,y)
 w_c\,d_c(F_c(x),F_c(y))^p
 \right]^{1/p}.
 \]
-Then \(d_{\mathrm{neu}}\) is independent of shard representative and is a pseudometric on
-\(Q_\star\). It is a metric on \(Q_\star/\!\equiv_F\), where \(x\equiv_F y\) means all declared
+Then \(d_{\mathrm{neu}}\) is finite, independent of shard representative, and
+is a pseudometric on \(Q_\star\). It is a metric on
+\(Q_\star/\!\equiv_F\), where \(x\equiv_F y\) means all declared
 channels agree, and it is a metric directly on \(Q_\star\) only if those channels jointly
 separate points.
 \end{theorem}
@@ -2040,8 +2049,10 @@ composition atlas laws. The canonical-map identity is the definition of the gene
 If \(\iota_s(x)=\iota_s(y)\), then \(y\) is obtained from \(x\) by a closed path; zero holonomy
 gives \(x=y\). The universal property follows by defining \(G([x])=G_s(x)\) and using interface
 compatibility along a connecting path. Applying this channel by channel gives feature descent.
-The metric formula is well defined by that descent. Nonnegativity and symmetry are channelwise,
-and the triangle inequality is Minkowski's inequality applied to the weighted channel distances.
+The metric formula is representative-independent by that descent and
+finite-valued by the finite-channel or pairwise-summability premise.
+Nonnegativity and symmetry are channelwise, and the triangle inequality is
+Minkowski's inequality applied to the weighted channel distances.
 Zero distance is exactly \(\equiv_F\); quotienting by that relation, or proving joint separation,
 supplies identity of indiscernibles.
 \end{proof}
@@ -2051,7 +2062,9 @@ Pairwise ``compare whatever channels overlap'' is not a metric policy: three poi
 \(d(A,B)=0\), \(d(B,C)=0\), and \(d(A,C)>0\) when each pair shares a different channel. OPH
 therefore permits only complete-case comparison, a fixed missing symbol whose mask is itself
 quotient-visible, or a train-only imputation map labelled as a metric on imputed
-representations. Gauge changes, port relabelings, observer-row permutations, repair schedules,
+representations. The certificate also records a finite channel list or a
+pairwise weighted-\(\ell^p\) summability certificate. Gauge changes, port
+relabelings, observer-row permutations, repair schedules,
 and shard partitions preserve the neutral metric only when they induce a bijection
 \(\Theta\) on \(Q_{\mathrm{vis}}\) and channel isometries \(I_c\) with
 \[

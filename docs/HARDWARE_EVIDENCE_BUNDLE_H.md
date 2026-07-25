@@ -1,10 +1,9 @@
 # Evidence-Bundle Sufficiency for Hardware Claim Class H
 
-Proof packet for issue #325. This document defines when a bundle of receipts
-is sufficient evidence for a hardware claim, and when it is not. Hashes and
-signatures prove identity and integrity relative to a trust root; they never
-prove the physical truth of a claim. This packet defines the additional
-structure that a physical claim requires.
+Proof packet for issue #325. This document defines when a receipt bundle is
+sufficient evidence for a hardware claim. Hashes and signatures establish
+identity and integrity relative to named trust roots. Physical truth requires
+the additional predicates and trust assumptions stated here.
 
 ## 1. Claim class H
 
@@ -15,114 +14,159 @@ under stated conditions. Formally, a class-H claim is a tuple
 H = (device D, protocol Pi, conditions C, effect statement E, magnitude M, uncertainty U)
 ```
 
-where `E` names an observable, `M` a measured value or bound, and `U` a stated
-error model. Examples in this repository: an energy-balance claim for a
-resonator cell, a candidate-enrichment claim for an optical sampler, a lift or
-effective-weight claim for a driven frame. Non-examples: simulation outputs,
-design targets, and theory-side theorems; those live in other claim classes.
+`E` names an observable, `M` gives a measured value or bound, and `U` states
+the error model. Examples include an energy-balance claim for a resonator cell,
+a candidate-enrichment claim for an optical sampler, and a lift or
+effective-weight claim for a driven frame. Simulation outputs, design targets,
+and theory-side theorems belong to other claim classes.
 
 An OPH technology claim has an additional subject boundary. It concerns an
 observer-like self-reading system: a bounded physical or software patch with
 local state, ports or boundaries, readback, durable records, feedback or repair
-moves, and a public evidence bundle. A generic optics, vibration, artificial
-intelligence, mining, or engineering result does not become an OPH result by
-using the same hardware.
+moves, and a public evidence bundle. Shared hardware alone does not turn a
+generic optics, vibration, artificial-intelligence, mining, or engineering
+result into an OPH result.
 
 ## 2. Evidentiary predicates
 
-A bundle `B` for a class-H claim consists of typed records. Each predicate
-below is either satisfied by explicit artifacts in `B` or the bundle is
-insufficient.
+A bundle `B` for a class-H claim consists of typed records. Every predicate
+below must pass.
 
-- **Raw capture.** Unprocessed instrument output for every channel named in
-  `Pi`, captured before any analysis, with device identity and firmware state.
-- **Calibration chain.** For every instrument, a calibration record tracing to
-  a declared reference, dated inside the calibration validity window, with the
-  transformation from raw units to reported units stated explicitly.
-- **Custody.** A continuous record of who or what held the device and data
-  between capture and publication, sufficient to exclude substitution.
-- **Controls.** Sham runs, detuned twins, or blanks executed under the same
-  protocol, interleaved with live runs, with their raw captures included.
-- **Analysis binding.** The analysis code, its inputs, and the claim text are
-  content-addressed, and the published `(E, M, U)` is reproducible from the
-  bundle by an independent party running only bundle contents.
-- **Completeness.** The bundle declares the full population of runs executed
-  under `Pi`, including failures and aborts. A bundle that reports a favorable
-  subset is insufficient regardless of the integrity of each member.
+- **Raw capture.** The executable v1 protocol names one measurement channel,
+  its raw unit, the reported unit, the device, and a firmware hash. Each
+  scheduled run carries exactly one raw artifact with a nonempty sample
+  population. The raw artifact binds the run, device, protocol, capture nonce,
+  capture time, sequence index, channel, raw unit, firmware hash, and hashed
+  physical serial mark. A protocol with several channels requires a separately
+  reviewed operation and schema version.
+- **Calibration chain.** Each calibration names the channel and units, its
+  validity interval, a reference identifier, a reference URI, and the SHA-256
+  digest of the included reference-certificate artifact. The
+  raw-to-reported transformation is an explicit affine map with rational scale
+  and offset. The verifier applies this map to every raw and control sample,
+  and the validity window must cover both captures. The declared calibration
+  identifiers must equal the complete calibration population used by the run
+  schedule; unused calibration rows are rejected.
+- **Custody.** Continuous time segments cover capture through publication for
+  the named device. The signed custody record also lists the complete bound
+  data population, which must equal every bundle artifact other than the
+  custody record itself.
+- **Controls.** Every scheduled run has exactly one blank, sham, or detuned
+  control. Its sequence index immediately precedes the live capture. Its
+  timestamp falls after the preceding live capture, if one exists, and before
+  its paired live capture. Device mark, firmware, protocol, channel, and raw
+  unit must agree across the pair. Raw and control captures carry distinct
+  registry-managed nonces.
+- **Analysis binding.** The protocol, analysis recipe, inputs, and exact
+  structured claim are content-addressed. The declared input population must
+  equal the bound evidence population. The run schedule, protocol, and analysis
+  recipe carry signed pre-run commitments from the pinned preregistration
+  authority. The verifier runs a closed declarative operation;
+  producer-supplied code and producer-selected replay commands cannot promote a
+  bundle.
+- **Completeness.** The ordered preregistered run schedule equals the ordered
+  reported population, including successful, failed, and aborted runs. The
+  declared raw and control artifacts equal the artifacts consumed by those
+  runs and by the analysis.
 
 ## 3. Threat model
 
-Sufficiency is always relative to a threat model. The default model for this
-repository assumes any of the following may occur and must be excluded or
-detected by the bundle:
+Sufficiency is relative to a threat model. The closed v1 schema fixes the
+following modes as in scope; a producer cannot disable one in its bundle:
 
-- **Signer compromise.** A valid signature by a compromised key. Mitigation:
-  independent attestation (Section 4), never signature count.
-- **Replay.** Re-presentation of an old valid bundle for a new claim.
-  Mitigation: per-run nonces or timestamps bound into raw captures.
-- **Selective reporting.** Publishing the runs that succeeded. Mitigation: the
-  completeness predicate plus preregistered run schedules where feasible.
-- **Device substitution.** Measuring a different device than the one named.
-  Mitigation: custody records plus physical identity marks in raw captures.
-- **Analysis degrees of freedom.** Post-hoc analysis choices that manufacture
-  the effect. Mitigation: analysis code frozen before unblinding, recorded in
-  the bundle.
+- **Signer compromise.** A compromised key can produce a valid signature. A
+  physical promotion therefore requires one independently administered
+  witness key to sign the closed attestation, the canonical bundle root, and
+  the replay-registry digest.
+  The witness party and organization must differ from the claimant and every
+  measurement, calibration, device, custody, preregistration, and replay
+  authority.
+- **Replay.** An old valid packet can be presented under a different claim.
+  A signed pre-run reservation artifact lists every ordered raw and control
+  capture nonce. Each nonce has one post-capture consume receipt bound to the
+  bundle identifier and canonical root. The replay authority signs the complete
+  registry snapshot, and the independent witness signs its exact file digest.
+- **Selective reporting.** A favorable subset can hide failed or aborted
+  runs. The preregistered schedule, the typed run population, the raw capture
+  population, and the control population must agree exactly.
+- **Device substitution.** A different device can be measured under the
+  declared identifier. Device-authority records, raw captures, controls,
+  calibration, custody, firmware, and hashed physical marks must agree, and
+  the independent witness covers device identity and capture.
+- **Analysis degrees of freedom.** Post-capture choices can manufacture an
+  effect. The protocol and analysis recipe are committed before capture. A
+  closed verifier operation recomputes the result from every paired sample.
+
+The model assumes the operator selected the trust policy independently of the
+producer. It also assumes that at least one required independent authority
+remains outside a coalition. Cryptographic receipts cannot detect a coalition
+that controls every pinned authority and signs a mutually consistent fiction.
 
 ## 4. Attestation rule
 
-A class-H bundle is **sufficient** only when, in addition to every predicate
-in Section 2, at least one of the following holds:
+A class-H bundle is sufficient only when every predicate in Section 2 passes
+and one of these evidence routes is resolved:
 
-1. an independent party reproduced the effect from a fresh device or a fresh
-   run series, with its own bundle; or
-2. an independent party with no stake in the outcome witnessed the protocol
-   end to end and attests to the custody and control records; or
-3. the threat model for the specific claim is explicitly argued down (for
-   example, a null result or an upper bound), and that argument is part of
-   the bundle.
+1. an independent party reproduces the effect from a fresh device or run
+   series and supplies a separately verified bundle;
+2. an independent party with no stake in the outcome witnesses the protocol
+   end to end and attests to the schedule, identity, capture, calibration,
+   controls, custody, nonce reservation, replay registry, analysis freeze, and
+   claim; or
+3. the claim-specific threat model excludes reproduction and witnessing, as
+   can be appropriate for a null result or upper bound, and the exclusion
+   argument is itself bound and reviewed.
 
-Claims of extraordinary physical effects (energy gain, lift, computational
-advantage beyond classical baselines) always require rule 1 or rule 2.
+Extraordinary-effect claims, including energy gain, lift, and computational
+advantage beyond classical baselines, require route 1 or route 2. The
+executable v1 sufficient path implements route 2. A declared reproduction
+returns `INSUFFICIENT` until a verifier resolves the separate fresh-run bundle.
+The executable contract does not promote route 3.
 
 ## 5. Rejected counterexamples
 
-The following bundles are integrity-valid and evidentially insufficient. Each
-is rejected by a named predicate.
+These packets can have valid internal hashes while remaining evidentially
+insufficient:
 
-- A signed, hashed video of a device operating: fails raw capture and
-  controls.
-- A complete raw dataset with valid hashes whose calibration records are
-  expired: fails the calibration chain.
-- A perfectly bound analysis over five runs selected from forty: fails
-  completeness.
-- Two independent signatures over the same captured dataset: signatures do
-  not compose into attestation; fails Section 4.
-- A reproducible simulation matching the claimed effect: simulations are not
-  class H; the bundle proves the model, not the device.
+- a signed video of a device operating, which lacks raw capture and controls;
+- a complete raw dataset with an expired or transform-free calibration;
+- five favorable runs selected from a preregistered population of forty;
+- two signatures over the same captured dataset, which do not constitute an
+  independent witness or reproduction;
+- a raw mutation with recomputed hashes and trusted signatures whose
+  deterministic replay disagrees with the structured claim;
+- a witness from the measurement organization, or separate witnesses that
+  divide the attestation-artifact and root signatures between two keys;
+- a protocol edited after capture while retaining its pre-run commitment; and
+- a reproducible simulation, which is outside claim class H.
+
+The adversarial suite also constructs a Moon-levitation claim whose producer
+controls every bundle field and recomputes every internal hash. It fails
+because producer-authored keys and independence declarations are not
+operator-pinned evidence.
 
 ## 6. Executable v1 contract
 
-The machine-readable scaffold consists of:
+The machine-readable packet consists of:
 
-- `schemas/hardware_evidence_bundle_h_v1.schema.json`, the closed v1 type;
-- `tools/verify_hardware_evidence_bundle_h.py`, an independent fail-closed
+- `schemas/hardware_evidence_bundle_h_v1.schema.json`, the closed bundle type;
+- `tools/verify_hardware_evidence_bundle_h.py`, the fail-closed bundle
   verifier;
 - `tools/hardware_evidence_external.py`, the operator-pinned trust,
-  provenance, preregistration, analysis-replay, and attestation verifier;
+  provenance, preregistration, deterministic-analysis, replay, and attestation
+  verifier;
 - `code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/`, a
-  tiny schema-valid fixture that explicitly says no physical device or
-  measurement exists; and
-- `code/audit/test_hardware_evidence_bundle_h.py`, the fast adversarial suite
-  executed by the normal mandatory audit lane.
+  schema-valid synthetic fixture with closed JSON protocol, analysis, and
+  structured-claim artifacts; and
+- `code/audit/test_hardware_evidence_bundle_h.py`, the adversarial test suite
+  executed by the mandatory audit lane.
 
-The verifier recomputes every artifact SHA-256, requires the canonical root to
-cover every artifact, rejects unsafe paths, and cross-checks the bound run
-schedule, successes, failures and aborts, raw run/device/nonce records,
-calibration validity windows, control coverage, device identity, custody
-intervals, analysis inputs, protocol and claim text. When replay is in scope,
-an identified external nonce-registry snapshot is mandatory. Values in
-`producer_assertions` are reported as ignored keys and never authorize a
-predicate.
+The verifier reads and hashes every artifact, requires the canonical root to
+cover every artifact, rejects unsafe paths, and treats `producer_assertions` as
+untrusted audit notes. It checks ordered schedule equality, paired captures,
+calibration transforms, custody of the complete data population, exact claim
+equality, protocol and analysis preregistration, role-separated Ed25519
+signatures, witness independence, and authoritative nonce consumption.
 
 Run the reference fixture from the repository root:
 
@@ -133,76 +177,91 @@ python3 tools/verify_hardware_evidence_bundle_h.py \
   code/audit/fixtures/hardware_evidence_bundle_h/reference_nonphysical/replay_registry.json
 ```
 
-The command returns `INSUFFICIENT` and exits nonzero. That is the required
-result: this fixture tests the contract and makes no class-H claim. The suite
-also rejects a seen replay nonce, omitted scheduled run, stale calibration,
-device substitution, custody break, changed analysis or claim text,
-compromised signer, and multiple signatures over one capture masquerading as
-independent attestation. Another control gives an attacker every self-authored
-declaration, lets the attacker rename itself as an independent party,
-fabricate a Moon-levitation claim, and recompute all hashes. The packet cannot
-promote without roots pinned by the verifier operator.
+The command returns `INSUFFICIENT` with exit code `1`. The fixture declares
+that no device or physical measurement exists, and it supplies no
+operator-pinned trust packet.
 
 ### Authenticated decision path
 
-The producer bundle cannot nominate its own trust roots. The verifier operator
-supplies two separate inputs:
+The producer bundle cannot nominate its trust roots. The verifier operator
+supplies a closed Ed25519 trust policy and a separate external-evidence packet.
+The policy binds public keys to party, organization, role, validity interval,
+and revocation state. Every anchor must contain distinct Ed25519 public-key
+material, so separate identity labels cannot disguise one signing key as both
+an evidence authority and an independent witness. Party and organization
+identifiers are nonempty, and a declared witness signer must name the same
+party as its pinned anchor. The evidence packet carries signatures, pre-run
+commitments, and the signed replay-registry snapshot.
 
-1. a closed trust policy containing Ed25519 public keys, party and
-   organization identities, roles, validity intervals, and revocation state;
-2. an external-evidence packet containing signatures over the bundle root and
-   artifact hashes, signed pre-run commitments, and a signed replay-registry
-   snapshot.
+The claimant and independent witness sign the canonical root. Authorities sign
+the artifacts assigned to their roles. The preregistration authority signs the
+ordered run schedule, protocol, nonce reservation, and analysis recipe before
+the first control capture. Each post-capture nonce assignment binds the
+policy-independent registry identifier, bundle identifier, and canonical root.
+One witness key must sign the closed end-to-end attestation, the root, and the
+replay-registry digest. That witness must be separate from every
+evidence-producing authority. Its explicit witnessed scope covers the protocol
+as well as schedule, device, captures, calibration, controls, custody,
+analysis freeze, claim, nonce reservation, and replay registry. The supplied
+registry snapshot is a closed object; unsigned extension fields are rejected.
 
-The verifier checks actual Ed25519 signature bytes. It requires role-separated
-provenance for raw captures, controls, calibration, device identity, custody,
-analysis, protocol, claim text, and attestation. The run schedule and analysis
-recipe must be signed by the preregistration authority before the first
-capture. Those commitments bind the policy, bundle, claimant, device, and
-protocol, so they cannot be transplanted to another claim. Every nonce must
-have one signed pre-run assignment and post-capture consume receipt for the
-same bundle and canonical root. The replay authority signs the complete
-registry state, including prior seen nonces. An end-to-end witness must belong
-to a different party and organization from the claimant and must sign both the
-attestation artifact and the canonical bundle root.
+The closed analysis operation takes paired raw and control samples
+`(x_k, c_k)`. For the declared affine calibration `T(z) = a z + b`, it computes
 
-Analysis replay uses a closed declarative recipe rather than executing
-producer-supplied code. The implemented
-`mean_max_deviation.v1` operation reads the bound raw samples and recomputes
-the effect statement, unit, magnitude, and maximum-deviation uncertainty
-exactly with rational arithmetic. A mismatch fails the analysis predicate.
-Additional analysis operations require separately reviewed verifier code.
+```text
+d_k = T(x_k) - T(c_k)
+M   = mean_k(d_k)
+U   = max_k |d_k - M|
+```
 
-`test_authenticated_contract_has_a_nonvacuous_sufficient_path` constructs
-independent ephemeral keys and a synthetic decision-procedure packet. The
-verifier returns `SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL` and the CLI
-exits zero. The fixture makes no claim about an actual device; it proves that
-the policy is satisfiable rather than rejecting every input. Mutation tests
-reject a bad signature, witness reuse after bundle rebinding, a witness
-administered by the claimant's organization, a cross-bundle or post-capture
-schedule commitment, unsigned replay-state drift, a nonce consumed for another
-bundle, stale authority snapshots, malformed nested inputs, and a fully
-re-signed raw mutation that disagrees with deterministic analysis replay.
+All arithmetic uses exact rational numbers. The resulting effect statement,
+unit, `M`, and `U` must equal the structured claim. The claim artifact must
+equal the entire structured claim, including device, protocol, conditions,
+effect, magnitude, uncertainty, and extraordinary-effect flag.
 
-The six named external gates remain machine-visible whenever their evidence
-is absent or fails. They close per bundle when the operator-pinned trust,
-independent witness, deterministic analysis, preregistration, provenance, and
-replay-authority checks pass. `INVALID` has exit code `2`, `INSUFFICIENT` has
-exit code `1`, and `SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL` has exit code
-`0`.
+The focused suite constructs independent ephemeral keys and a synthetic
+policy packet, then obtains
+`SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL`. Negative cases cover malformed
+schema input, unsafe evidence substitutions, missing trust roots, bad
+signatures, compromised signers, same-organization witnessing, split witness
+signatures, post-capture or cross-bundle commitments, protocol mutation,
+selective reporting, replay-state drift, nonce rebinding, stale snapshots,
+calibration windows and reference-certificate drift, device and firmware
+substitution, custody gaps at the control or live capture boundary, unpaired
+controls, raw or control nonce reuse, extra analysis inputs, altered claim
+text, producer-selected replay code, attempts to disable a v1 threat, and
+nonce-reservation omissions. It also covers analysis disagreement after fully
+re-signed raw, control, or calibration mutations.
 
-## 7. Exact claim boundary
+The six external gate codes remain visible when their evidence is absent or
+fails. `INVALID` has exit code `2`, `INSUFFICIENT` has exit code `1`, and
+`SUFFICIENT_RELATIVE_TO_DECLARED_THREAT_MODEL` has exit code `0`.
 
-The test suite constructs a synthetic satisfiability fixture. The repository
-ships no promoted physical claim. The issue #509 IBM bundle is an independently
-replayable engineering specimen against its frozen controller nulls, but this
-verifier does not bind or promote it, and its programmed circuit is
-non-discriminating between OPH and standard quantum mechanics. The application
-concepts in [APPLICATIONS.md](APPLICATIONS.md) are design documents.
+## 7. Acceptance map
 
-A sufficient verifier result establishes that the named evidence predicates
-hold relative to the operator's pinned trust policy and the declared threat
-model. It does not prove the physical truth of the effect, protect against
-collusion by every independent authority, or convert a generic hardware
-result into an OPH result. OPH attribution additionally requires the
-observer-like self-reading structure stated in Section 1.
+| Required property | Fail-closed enforcement |
+|---|---|
+| Claim class H and evidentiary predicates | Closed schema, typed artifact formats, predicate report, and exact structured claim |
+| Trust roots, compromise, replay, selective reporting, substitution | Operator-supplied policy, role signatures, preregistered nonce population, independently co-signed nonce registry, ordered population checks, and device/firmware/mark agreement |
+| Raw, calibration, analysis, and claim binding | Artifact hashes, canonical root, signed provenance, explicit affine transform, closed replay, and exact claim equality |
+| Reproduction or attestation where required | Physical promotion requires the resolved witness path; reproduction remains insufficient until its separate bundle is verified |
+| Integrity-valid physical falsehood controls | Self-authored false claims, claim/data disagreements, protocol reuse, witness conflicts, and omitted predicates fail |
+
+## 8. Exact claim boundary
+
+The repository ships no promoted physical class-H claim through this verifier.
+The positive test establishes that the evidence-policy decision procedure is
+satisfiable. The reference fixture explicitly denies any physical experiment.
+
+A sufficient verdict states that the named evidence predicates hold relative
+to the operator's pinned trust policy and the declared threat model. It does
+not establish the physical truth of the effect, protect against a coalition
+controlling every independent authority, or convert a generic hardware result
+into an OPH result. OPH attribution also requires the observer-like
+self-reading structure stated in Section 1.
+
+The issue-509 IBM bundle is an independently replayable engineering specimen
+against its frozen controller nulls. This verifier does not bind or promote
+that bundle, and its programmed circuit is non-discriminating between OPH and
+standard quantum mechanics. The application concepts in
+[APPLICATIONS.md](APPLICATIONS.md) are design documents.

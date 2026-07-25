@@ -7,7 +7,8 @@ Canonical runners:
 - `export_verified_tree_packet_net.py`: exports the verified tree packet-net repair domain.
 - `reference_architecture_benchmark_suite.py`: runs the fixed-cutoff Z2/S3 reference-architecture benchmark suite for issue #237.
 - `verify_issue_517_proof_obligations.py`: recomputes the finite
-  conflict-component, prepared-lock BFT, refinement-modulus, \(\ell^p\), and
+  conflict-component, prepared-acceptance/lock BFT, refinement-modulus,
+  \(\ell^p\), and
   selector/separation receipts used by proof-audit issue #517.
 
 Run the benchmark suite from the repo root:
@@ -33,13 +34,22 @@ python3 -m pytest code/consensus/test_issue_517_proof_obligations.py
 `TXN-DIAMOND-1` exhausts a finite reference engine; it is evidence that the
 declared read/write, support-reclosed component-merge, prepared-batch,
 protected-record, and descent contract is realizable, not a substitute for checking that contract in another
-engine. `BFT-LOCK-1` exhausts quorum intersections for the displayed
-\((n,f,q)\) instances, parses finite certificate/view-change traces, and
-executes reference honest-progress phases; the arbitrary-view and wall-clock
-arguments remain the paper theorem. The refinement controls are finite
+engine. `BFT-LOCK-1` exhausts quorum intersections for
+\((n,f,q)=(1,0,1),(4,1,3),(6,1,4),(7,2,5)\), treats prepare signers and prepared-certificate
+acceptors as independent provisional quorums, treats committers as the durable
+lock holders, checks the \(q-f\) nonfaulty commit-lock set of every decision
+certificate against every new-view quorum, and reconciles local predecision
+locks under a valid highest-certificate new view. Its orphan-lock traces derive
+each validator's lock state from certificate delivery and partial commits,
+construct the new-view reports, select the proposal, compute eligible voters,
+and determine recovery or deadlock. It also executes reference
+nonfaulty-progress phases; the arbitrary-view
+and wall-clock arguments remain the paper theorem. The refinement controls are finite
 descriptions of parametric infinite counterfamilies, not fixed-depth
 surrogates for a limit; the arbitrary-depth positive telescope remains the
 mathematical/Lean theorem. The receipt
+checks both \(p\ge1\) and the finite-channel or pairwise-summability premise
+for finite-valued weighted \(\ell^p\) pseudometrics. It
 also recomputes the independent twelve-port selector certificate and keeps
 coefficient reconstruction, physical currents, global-form descent, and
 matter realization in their independent receipt classes.
@@ -49,10 +59,11 @@ Formalization status is deliberately split:
 - Transactional local confluence has a paper proof and an exhaustive Python
   reference-engine receipt. Its general support-closure and prepared-batch
   theorem is not formalized in Lean, TLA+, or a protocol model checker.
-- Prepared-lock BFT has a paper proof plus finite Python certificate,
-  next-view, negative-control, and honest-progress traces at three parameter
-  points. Its arbitrary-view protocol theorem is not Lean/TLA+/model-checker
-  verified.
+- Prepared-acceptance/lock BFT has a paper proof plus finite Python
+  prepare/provisional-acceptor/committer, next-view, orphan-lock
+  reconciliation, negative-control, and nonfaulty-progress traces at three
+  exact-size parameter points and one general-threshold point. Its arbitrary-view protocol theorem is not
+  Lean/TLA+/model-checker verified.
 - `Lean/ObservableNormalForms/Refinement.lean` proves the metric telescope.
   The family-uniform inverse/residual moduli and cofinal-limit quantifiers are
   paper proofs with executable witness schemas, not separate Lean theorems.

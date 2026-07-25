@@ -133,7 +133,7 @@ class FileTracker:
 
 
 def parse_log(log_path: Path) -> tuple[list[BoxWarning], list[str]]:
-    lines = unwrap_log(log_path.read_text(errors="replace"))
+    lines = unwrap_log(log_path.read_text(encoding="utf-8", errors="replace"))
     tracker = FileTracker()
     warnings: list[BoxWarning] = []
     ref_problems: list[str] = []

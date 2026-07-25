@@ -4,9 +4,9 @@
 The script deliberately keeps four logically different checks separate:
 
 * conflict-component aggregation and the transactional local diamond;
-* prepared-certificate locking and cross-view Byzantine safety;
+* prepared-certificate acceptance, lock propagation, and cross-view Byzantine safety;
 * uniform refinement moduli and refinement-tail controls;
-* the ``p >= 1`` guard for weighted ell-p pseudometrics.
+* the exponent and summability guards for weighted ell-p pseudometrics.
 
 The twelve-port source selector is not reimplemented here.  Its independent
 certificate and negative-control bundle are recomputed and hash-bound into the
@@ -31,7 +31,7 @@ from collections import deque
 from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any, Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -376,13 +376,16 @@ def transactional_negative_controls() -> list[dict[str, Any]]:
 
     # Missing semantic dependency: B=x*y depends jointly on the two disjoint
     # writes.  Each first move preserves B and descends.  The second move is
-    # rejected by the still-active B-preservation check, so the two endpoints
+    # rejected by the active B-preservation check, so the two endpoints
     # are distinct terminal states rather than an unverified "blocked join".
     source = (0, 0)
     left = (1, 0)
     right = (0, 1)
-    nonlinear_boundary = lambda state: state[0] * state[1]
-    nonlinear_measure = lambda state: 2 - state[0] - state[1]
+    def nonlinear_boundary(state: tuple[int, int]) -> int:
+        return state[0] * state[1]
+
+    def nonlinear_measure(state: tuple[int, int]) -> int:
+        return 2 - state[0] - state[1]
     semantic_edges = {
         source: (left, right),
         left: (),
@@ -521,7 +524,7 @@ def transactional_negative_controls() -> list[dict[str, Any]]:
     )
 
     # Missing source-batch/component stability: A and B are distinct at the
-    # source, but A enables C, which conflicts with the still-prepared B.
+    # source, but A enables C, which conflicts with the prepared B.
     # Recomputing the graph replaces B by aggregate {B,C}; without a frozen
     # prepared-batch admissibility rule (or an equivalent dynamic-stability
     # premise), the two source steps need not admit the asserted join.
@@ -684,6 +687,313 @@ def subsets_of_size(items: Sequence[int], size: int) -> tuple[frozenset[int], ..
     return tuple(frozenset(row) for row in itertools.combinations(items, size))
 
 
+def evaluate_orphan_lock_scenario(scenario: Mapping[str, Any]) -> dict[str, Any]:
+    """Execute the finite lock, new-view, and vote transitions in one scenario."""
+
+    expected_keys = {
+        "validators",
+        "byzantine",
+        "q",
+        "certificates",
+        "new_view_senders",
+        "fresh_values",
+        "acknowledgements_are_provisional",
+        "new_view_supersedes_lc_locks",
+    }
+    require(
+        set(scenario) == expected_keys,
+        "orphan-lock scenario has an unexpected schema",
+    )
+    validators_list = scenario["validators"]
+    byzantine_list = scenario["byzantine"]
+    q = scenario["q"]
+    certificates = scenario["certificates"]
+    new_view_senders_list = scenario["new_view_senders"]
+    fresh_values = scenario["fresh_values"]
+    acknowledgements_are_provisional = scenario[
+        "acknowledgements_are_provisional"
+    ]
+    new_view_supersedes_lc_locks = scenario[
+        "new_view_supersedes_lc_locks"
+    ]
+    require(
+        isinstance(validators_list, list)
+        and validators_list
+        and all(type(validator) is int for validator in validators_list)
+        and len(set(validators_list)) == len(validators_list),
+        "scenario validators must be a nonempty distinct integer list",
+    )
+    validators = set(validators_list)
+    require(
+        isinstance(byzantine_list, list)
+        and all(type(validator) is int for validator in byzantine_list)
+        and len(set(byzantine_list)) == len(byzantine_list)
+        and set(byzantine_list) <= validators,
+        "scenario Byzantine set is malformed",
+    )
+    byzantine = set(byzantine_list)
+    require(
+        type(q) is int and 1 <= q <= len(validators),
+        "scenario quorum threshold is invalid",
+    )
+    require(
+        isinstance(certificates, list),
+        "scenario certificates must be a list",
+    )
+    require(
+        isinstance(new_view_senders_list, list)
+        and len(new_view_senders_list) == q
+        and all(type(sender) is int for sender in new_view_senders_list)
+        and len(set(new_view_senders_list)) == q
+        and set(new_view_senders_list) <= validators,
+        "scenario new-view senders must be q distinct validators",
+    )
+    require(
+        isinstance(fresh_values, list)
+        and fresh_values
+        and all(isinstance(value, str) and value for value in fresh_values)
+        and len(set(fresh_values)) == len(fresh_values),
+        "scenario fresh values must be a nonempty distinct string list",
+    )
+    require(
+        type(acknowledgements_are_provisional) is bool
+        and type(new_view_supersedes_lc_locks) is bool,
+        "scenario rule switches must be booleans",
+    )
+
+    states: dict[int, dict[str, Any]] = {
+        validator: {"kind": "unlocked", "view": None, "value": None}
+        for validator in validators
+    }
+    certificate_receipts: list[dict[str, Any]] = []
+    decision_certificates: list[dict[str, Any]] = []
+
+    def install_lock(
+        validator: int,
+        *,
+        kind: str,
+        view: int,
+        value: str,
+        certificate_index: int,
+    ) -> None:
+        current = states[validator]
+        current_view = current["view"]
+        if current_view is None or view > current_view:
+            states[validator] = {
+                "kind": kind,
+                "view": view,
+                "value": value,
+                "certificate_index": certificate_index,
+            }
+            return
+        if view == current_view:
+            require(
+                current["value"] == value,
+                "one validator received conflicting same-view locks",
+            )
+            if current["kind"] == "ack_lock" and kind == "lc_lock":
+                states[validator] = {
+                    "kind": kind,
+                    "view": view,
+                    "value": value,
+                    "certificate_index": certificate_index,
+                }
+
+    for certificate_index, certificate in enumerate(certificates):
+        require(
+            isinstance(certificate, Mapping)
+            and set(certificate)
+            == {
+                "view",
+                "value",
+                "prepare_signers",
+                "acknowledgers",
+                "lock_certificate_recipients",
+                "committers",
+            },
+            "scenario certificate has an unexpected schema",
+        )
+        view = certificate["view"]
+        value = certificate["value"]
+        prepare_signers_list = certificate["prepare_signers"]
+        acknowledgers_list = certificate["acknowledgers"]
+        recipients_list = certificate["lock_certificate_recipients"]
+        committers_list = certificate["committers"]
+        require(
+            type(view) is int
+            and view >= 0
+            and isinstance(value, str)
+            and value,
+            "scenario certificate view/value is malformed",
+        )
+        require(
+            isinstance(prepare_signers_list, list)
+            and len(prepare_signers_list) == q
+            and all(type(signer) is int for signer in prepare_signers_list)
+            and len(set(prepare_signers_list)) == q
+            and set(prepare_signers_list) <= validators,
+            "scenario prepared certificate is malformed",
+        )
+        require(
+            isinstance(acknowledgers_list, list)
+            and len(acknowledgers_list) <= q
+            and all(type(acknowledger) is int for acknowledger in acknowledgers_list)
+            and len(set(acknowledgers_list)) == len(acknowledgers_list)
+            and set(acknowledgers_list) <= validators,
+            "scenario acknowledgement set is malformed",
+        )
+        require(
+            isinstance(recipients_list, list)
+            and all(type(recipient) is int for recipient in recipients_list)
+            and len(set(recipients_list)) == len(recipients_list)
+            and set(recipients_list) <= validators,
+            "scenario lock-certificate recipients are malformed",
+        )
+        require(
+            isinstance(committers_list, list)
+            and all(type(committer) is int for committer in committers_list)
+            and len(set(committers_list)) == len(committers_list)
+            and set(committers_list) <= set(recipients_list),
+            "scenario committers are malformed",
+        )
+        lock_certificate_assembled = len(acknowledgers_list) == q
+        require(
+            lock_certificate_assembled or not recipients_list,
+            "an unassembled lock certificate cannot have recipients",
+        )
+        require(
+            lock_certificate_assembled or not committers_list,
+            "an unassembled lock certificate cannot have committers",
+        )
+        if lock_certificate_assembled:
+            for recipient in recipients_list:
+                install_lock(
+                    recipient,
+                    kind="lc_lock",
+                    view=view,
+                    value=value,
+                    certificate_index=certificate_index,
+                )
+        elif not acknowledgements_are_provisional:
+            for acknowledger in acknowledgers_list:
+                install_lock(
+                    acknowledger,
+                    kind="ack_lock",
+                    view=view,
+                    value=value,
+                    certificate_index=certificate_index,
+                )
+        decision_certificate_formed = len(committers_list) == q
+        if decision_certificate_formed:
+            decision_certificates.append(
+                {
+                    "view": view,
+                    "value": value,
+                    "committers": sorted(committers_list),
+                }
+            )
+        certificate_receipts.append(
+            {
+                "index": certificate_index,
+                "view": view,
+                "value": value,
+                "prepare_signers": sorted(prepare_signers_list),
+                "acknowledgers": sorted(acknowledgers_list),
+                "lock_certificate_assembled": lock_certificate_assembled,
+                "lock_certificate_recipients": sorted(recipients_list),
+                "committers": sorted(committers_list),
+                "decision_certificate_formed": decision_certificate_formed,
+            }
+        )
+
+    new_view_reports: list[dict[str, Any]] = []
+    for sender in new_view_senders_list:
+        state = states[sender]
+        report = (
+            {
+                "view": state["view"],
+                "value": state["value"],
+                "certificate_index": state["certificate_index"],
+            }
+            if state["kind"] == "lc_lock"
+            else None
+        )
+        new_view_reports.append({"sender": sender, "report": report})
+    valid_reports = [
+        row["report"] for row in new_view_reports if row["report"] is not None
+    ]
+    if valid_reports:
+        highest_view = max(report["view"] for report in valid_reports)
+        highest_values = {
+            report["value"]
+            for report in valid_reports
+            if report["view"] == highest_view
+        }
+        require(
+            len(highest_values) == 1,
+            "new-view reports conflict at the highest view",
+        )
+        proposal_values = [next(iter(highest_values))]
+        selected_report = next(
+            report
+            for report in valid_reports
+            if report["view"] == highest_view
+            and report["value"] == proposal_values[0]
+        )
+    else:
+        proposal_values = list(fresh_values)
+        selected_report = None
+
+    available_voters = sorted(validators - byzantine)
+    voting_outcomes: list[dict[str, Any]] = []
+    for proposal in proposal_values:
+        eligible_voters: list[int] = []
+        rejected_voters: list[int] = []
+        for validator in available_voters:
+            state = states[validator]
+            eligible = (
+                state["kind"] == "unlocked"
+                or state["value"] == proposal
+                or (
+                    state["kind"] == "lc_lock"
+                    and new_view_supersedes_lc_locks
+                )
+            )
+            (eligible_voters if eligible else rejected_voters).append(validator)
+        voting_outcomes.append(
+            {
+                "proposal": proposal,
+                "eligible_voters": eligible_voters,
+                "rejected_voters": rejected_voters,
+                "eligible_vote_count": len(eligible_voters),
+                "quorum_reached": len(eligible_voters) >= q,
+            }
+        )
+
+    maximum_eligible_votes = max(
+        outcome["eligible_vote_count"] for outcome in voting_outcomes
+    )
+    recovered = any(outcome["quorum_reached"] for outcome in voting_outcomes)
+    return {
+        "certificate_receipts": certificate_receipts,
+        "validator_states": {
+            str(validator): states[validator] for validator in sorted(states)
+        },
+        "decision_certificates": decision_certificates,
+        "new_view": {
+            "senders": list(new_view_senders_list),
+            "reports": new_view_reports,
+            "selected_report": selected_report,
+            "proposal_values": proposal_values,
+        },
+        "available_voters": available_voters,
+        "voting_outcomes": voting_outcomes,
+        "maximum_eligible_votes": maximum_eligible_votes,
+        "recovered": recovered,
+        "deadlocked": not recovered,
+    }
+
+
 def bft_locking_receipt() -> dict[str, Any]:
     def valid_prepared_certificate(
         certificate: Any,
@@ -706,15 +1016,64 @@ def bft_locking_receipt() -> dict[str, Any]:
             and set(signers) <= validators
         )
 
+    def valid_lock_certificate(
+        certificate: Any,
+        validators: set[int],
+        q: int,
+    ) -> bool:
+        if not isinstance(certificate, Mapping):
+            return False
+        if set(certificate) != {"prepared_certificate", "acceptors"}:
+            return False
+        acceptors = certificate["acceptors"]
+        return (
+            valid_prepared_certificate(
+                certificate["prepared_certificate"],
+                validators,
+                q,
+            )
+            and isinstance(acceptors, list)
+            and all(type(acceptor) is int for acceptor in acceptors)
+            and len(acceptors) == q
+            and len(set(acceptors)) == q
+            and set(acceptors) <= validators
+        )
+
+    def valid_decision_certificate(
+        certificate: Any,
+        validators: set[int],
+        q: int,
+    ) -> bool:
+        if not isinstance(certificate, Mapping):
+            return False
+        if set(certificate) != {"lock_certificate", "committers"}:
+            return False
+        committers = certificate["committers"]
+        return (
+            valid_lock_certificate(
+                certificate["lock_certificate"],
+                validators,
+                q,
+            )
+            and isinstance(committers, list)
+            and all(type(committer) is int for committer in committers)
+            and len(committers) == q
+            and len(set(committers)) == q
+            and set(committers) <= validators
+        )
+
     parameter_rows: list[dict[str, Any]] = []
     total_same_view_pairs = 0
+    total_prepared_acceptor_pairs = 0
+    total_distinct_prepared_acceptor_pairs = 0
+    total_acceptor_committer_pairs = 0
+    total_distinct_acceptor_committer_pairs = 0
     total_lock_transfers = 0
     total_next_view_prepare_quorums = 0
+    total_orphan_lock_reconciliation_traces = 0
     total_progress_traces = 0
 
-    for f in (0, 1, 2):
-        n = 3 * f + 1
-        q = 2 * f + 1
+    for n, f, q in ((1, 0, 1), (4, 1, 3), (6, 1, 4), (7, 2, 5)):
         validators = tuple(range(n))
         quorums = subsets_of_size(validators, q)
         byzantine_sets = subsets_of_size(validators, f)
@@ -722,81 +1081,169 @@ def bft_locking_receipt() -> dict[str, Any]:
         require(threshold_ok, "reference BFT threshold does not satisfy overlap inequality")
 
         minimum_quorum_overlap = n
-        minimum_honest_overlap = n
+        minimum_nonfaulty_overlap = n
+        minimum_nonfaulty_commit_lock_holders = n
         minimum_lock_transfer = n
         highest_rule_preserves_value = True
         conflicting_next_view_quorums = 0
         checked_next_view_prepare_quorums = 0
+        checked_prepared_acceptor_pairs = 0
+        distinct_prepared_acceptor_pairs = 0
+        checked_acceptor_committer_pairs = 0
+        distinct_acceptor_committer_pairs = 0
+        parameter_orphan_lock_reconciliation_traces = 0
+        parameter_omitted_orphan_lock_reconciliations = 0
+        parameter_orphan_lock_example: dict[str, Any] | None = None
         parameter_progress_traces = 0
         for byzantine in byzantine_sets:
             for left, right in itertools.product(quorums, repeat=2):
                 overlap = left & right
-                honest_overlap = overlap - byzantine
+                nonfaulty_overlap = overlap - byzantine
                 minimum_quorum_overlap = min(minimum_quorum_overlap, len(overlap))
-                minimum_honest_overlap = min(minimum_honest_overlap, len(honest_overlap))
+                minimum_nonfaulty_overlap = min(
+                    minimum_nonfaulty_overlap,
+                    len(nonfaulty_overlap),
+                )
                 require(
-                    len(honest_overlap) >= 1,
+                    len(nonfaulty_overlap) >= 1,
                     "two certificates could avoid a nonfaulty overlap witness",
                 )
                 total_same_view_pairs += 1
 
-            for prepared, view_change in itertools.product(quorums, repeat=2):
-                honest_locked = prepared - byzantine
-                transfer = honest_locked & view_change
+            # Prepare signers and prepared-certificate acceptors are separate
+            # quorum roles. Acceptance acknowledgements are provisional and
+            # do not change the acceptor's voting lock.
+            for prepared, acceptors in itertools.product(quorums, repeat=2):
+                certificate_a = {
+                    "prepared_certificate": {
+                        "view": 0,
+                        "value": "A",
+                        "signers": sorted(prepared),
+                    },
+                    "acceptors": sorted(acceptors),
+                }
+                require(
+                    valid_lock_certificate(certificate_a, set(validators), q),
+                    "well-formed lock certificate was rejected",
+                )
+                checked_prepared_acceptor_pairs += 1
+                total_prepared_acceptor_pairs += 1
+                if prepared != acceptors:
+                    distinct_prepared_acceptor_pairs += 1
+                    total_distinct_prepared_acceptor_pairs += 1
+
+            # Durable locks arise only when a validator receives the assembled
+            # lock certificate and signs a commit. A valid decision certificate
+            # therefore supplies q committers independently of the provisional
+            # acceptors, with at least q-f nonfaulty durable lock holders.
+            for acceptors, committers in itertools.product(quorums, repeat=2):
+                decision_certificate_a = {
+                    "lock_certificate": {
+                        "prepared_certificate": {
+                            "view": 0,
+                            "value": "A",
+                            "signers": sorted(quorums[0]),
+                        },
+                        "acceptors": sorted(acceptors),
+                    },
+                    "committers": sorted(committers),
+                }
+                require(
+                    valid_decision_certificate(
+                        decision_certificate_a,
+                        set(validators),
+                        q,
+                    ),
+                    "well-formed decision certificate was rejected",
+                )
+                nonfaulty_commit_lock_holders = committers - byzantine
+                minimum_nonfaulty_commit_lock_holders = min(
+                    minimum_nonfaulty_commit_lock_holders,
+                    len(nonfaulty_commit_lock_holders),
+                )
+                require(
+                    len(nonfaulty_commit_lock_holders) >= q - f,
+                    "decision certificate has too few nonfaulty lock holders",
+                )
+                checked_acceptor_committer_pairs += 1
+                total_acceptor_committer_pairs += 1
+                if acceptors != committers:
+                    distinct_acceptor_committer_pairs += 1
+                    total_distinct_acceptor_committer_pairs += 1
+
+            for committers, view_change in itertools.product(quorums, repeat=2):
+                nonfaulty_commit_lock_holders = committers - byzantine
+                transfer = nonfaulty_commit_lock_holders & view_change
                 minimum_lock_transfer = min(minimum_lock_transfer, len(transfer))
                 require(
                     len(transfer) >= 1,
-                    "view-change quorum could omit every nonfaulty prepared lock",
+                    "view-change quorum could omit every nonfaulty commit lock",
                 )
-                certificate_a = {
-                    "view": 0,
-                    "value": "A",
-                    "signers": sorted(prepared),
+                lock_certificate_a = {
+                    "prepared_certificate": {
+                        "view": 0,
+                        "value": "A",
+                        "signers": sorted(quorums[0]),
+                    },
+                    "acceptors": sorted(quorums[0]),
                 }
                 messages = []
                 for validator in sorted(view_change):
-                    if validator in honest_locked:
-                        report = certificate_a
+                    if validator in nonfaulty_commit_lock_holders:
+                        report = lock_certificate_a
                     elif validator in byzantine:
                         # The adversary reports a higher conflicting object,
-                        # but cannot forge q distinct authenticated signers.
+                        # but cannot forge q distinct prepare signers or
+                        # acceptance acknowledgements.
                         report = {
-                            "view": 1,
-                            "value": "B",
-                            "signers": [validator] * q,
+                            "prepared_certificate": {
+                                "view": 1,
+                                "value": "B",
+                                "signers": [validator] * q,
+                            },
+                            "acceptors": [validator] * q,
                         }
                     else:
                         report = None
                     messages.append(
-                        {"validator": validator, "highest_prepared": report}
+                        {
+                            "validator": validator,
+                            "highest_lock_certificate": report,
+                        }
                     )
                 valid_reports = [
-                    message["highest_prepared"]
+                    message["highest_lock_certificate"]
                     for message in messages
-                    if valid_prepared_certificate(
-                        message["highest_prepared"],
+                    if valid_lock_certificate(
+                        message["highest_lock_certificate"],
                         set(validators),
                         q,
                     )
                 ]
                 selected = max(
                     valid_reports,
-                    key=lambda certificate: certificate["view"],
+                    key=lambda certificate: certificate[
+                        "prepared_certificate"
+                    ]["view"],
                 )
                 highest_rule_preserves_value &= (
-                    selected["view"] == 0 and selected["value"] == "A"
+                    selected["prepared_certificate"]["view"] == 0
+                    and selected["prepared_certificate"]["value"] == "A"
                 )
                 total_lock_transfers += 1
 
                 # Execute the induction base into the next view.  A nonfaulty
                 # lock holder may vote only for A (or for a strictly higher
-                # valid certificate, absent in this finite base).  Every
-                # candidate q-vote quorum for conflicting B therefore fails.
+                # valid lock certificate, absent in this finite base). Every
+                # candidate q-vote prepare quorum for B therefore fails.
                 for candidate_prepare in quorums:
                     eligible_for_b = {
                         validator
                         for validator in candidate_prepare
-                        if validator in byzantine or validator not in honest_locked
+                        if (
+                            validator in byzantine
+                            or validator not in nonfaulty_commit_lock_holders
+                        )
                     }
                     if len(eligible_for_b) == q:
                         conflicting_next_view_quorums += 1
@@ -806,17 +1253,147 @@ def bft_locking_receipt() -> dict[str, Any]:
             # P5 positive trace: after GST and timeout-bound activation, each
             # nonfaulty leader is checked with Byzantine validators
             # withholding.  Because q<=n-f, the
-            # nonfaulty set alone constructs VC, prepare, PC, commit, DC, and
-            # relay/finalisation phases.
+            # nonfaulty set alone constructs VC, prepare, PC, q acceptance
+            # acknowledgements, a lock certificate, commit, DC, and
+            # relay/finalisation.
             nonfaulty = set(validators) - set(byzantine)
             for leader in sorted(nonfaulty):
                 view_change_senders = sorted(nonfaulty)[:q]
                 prepare_senders = sorted(nonfaulty)[:q]
+                acceptor_senders = sorted(nonfaulty)[:q]
                 commit_senders = sorted(nonfaulty)[:q]
+                # Failed views can deliver assembled lock certificates to fewer
+                # than q validators and collect fewer than q commits. Execute
+                # those local deliveries, build the next q-message certificate,
+                # select its highest report, and derive every validator's voting
+                # eligibility. The n=6 case also leaves the higher B@1 lock
+                # outside the new-view certificate.
+                if q == 1:
+                    orphan_certificates = [
+                        {
+                            "view": 0,
+                            "value": "A",
+                            "prepare_signers": prepare_senders,
+                            "acknowledgers": acceptor_senders,
+                            "lock_certificate_recipients": [
+                                min(nonfaulty)
+                            ],
+                            "committers": [],
+                        }
+                    ]
+                else:
+                    orphan_certificates = [
+                        {
+                            "view": 0,
+                            "value": "A",
+                            "prepare_signers": prepare_senders,
+                            "acknowledgers": acceptor_senders,
+                            "lock_certificate_recipients": [
+                                min(nonfaulty)
+                            ],
+                            "committers": [min(nonfaulty)],
+                        },
+                        {
+                            "view": 1,
+                            "value": "B",
+                            "prepare_signers": prepare_senders,
+                            "acknowledgers": acceptor_senders,
+                            "lock_certificate_recipients": [
+                                max(nonfaulty)
+                            ],
+                            "committers": [max(nonfaulty)],
+                        },
+                    ]
+                orphan_scenario = {
+                    "validators": list(validators),
+                    "byzantine": sorted(byzantine),
+                    "q": q,
+                    "certificates": orphan_certificates,
+                    "new_view_senders": view_change_senders,
+                    "fresh_values": ["A"],
+                    "acknowledgements_are_provisional": True,
+                    "new_view_supersedes_lc_locks": True,
+                }
+                orphan_evaluation = evaluate_orphan_lock_scenario(
+                    orphan_scenario
+                )
+                selected_report = orphan_evaluation["new_view"][
+                    "selected_report"
+                ]
+                require(
+                    selected_report is not None,
+                    "positive orphan-lock trace produced no report",
+                )
+                selected_view = selected_report["view"]
+                selected_value = selected_report["value"]
+                selected_outcome = next(
+                    outcome
+                    for outcome in orphan_evaluation["voting_outcomes"]
+                    if outcome["proposal"] == selected_value
+                )
+                omitted_higher_lock_holders = [
+                    validator
+                    for validator in sorted(
+                        nonfaulty - set(view_change_senders)
+                    )
+                    if (
+                        orphan_evaluation["validator_states"][str(validator)][
+                            "kind"
+                        ]
+                        == "lc_lock"
+                        and orphan_evaluation["validator_states"][
+                            str(validator)
+                        ]["view"]
+                        > selected_view
+                    )
+                ]
+                orphan_locks_reconciled = (
+                    not orphan_evaluation["decision_certificates"]
+                    and orphan_evaluation["recovered"]
+                    and selected_outcome["eligible_voters"]
+                    == orphan_evaluation["available_voters"]
+                )
+                require(
+                    orphan_locks_reconciled,
+                    "valid new-view selection did not reconcile orphan locks",
+                )
+                if parameter_orphan_lock_example is None:
+                    parameter_orphan_lock_example = {
+                        "scenario": orphan_scenario,
+                        "evaluation": orphan_evaluation,
+                        "omitted_higher_lock_holders": (
+                            omitted_higher_lock_holders
+                        ),
+                    }
+                parameter_orphan_lock_reconciliation_traces += 1
+                total_orphan_lock_reconciliation_traces += 1
+                parameter_omitted_orphan_lock_reconciliations += len(
+                    omitted_higher_lock_holders
+                )
+                prepared_certificate = {
+                    "view": selected_view + 1,
+                    "value": selected_value,
+                    "signers": prepare_senders,
+                }
+                lock_certificate = {
+                    "prepared_certificate": prepared_certificate,
+                    "acceptors": acceptor_senders,
+                }
+                lock_certificate_valid = valid_lock_certificate(
+                    lock_certificate,
+                    set(validators),
+                    q,
+                )
                 decision_certificate_valid = (
-                    len(set(commit_senders)) == q
+                    valid_decision_certificate(
+                        {
+                            "lock_certificate": lock_certificate,
+                            "committers": commit_senders,
+                        },
+                        set(validators),
+                        q,
+                    )
                     and set(commit_senders) <= nonfaulty
-                    and len(set(prepare_senders)) == q
                 )
                 finalised = (
                     set(nonfaulty)
@@ -827,10 +1404,12 @@ def bft_locking_receipt() -> dict[str, Any]:
                     leader in nonfaulty
                     and len(view_change_senders) == q
                     and len(prepare_senders) == q
+                    and len(acceptor_senders) == q
+                    and lock_certificate_valid
                     and decision_certificate_valid
                     and finalised == nonfaulty
                 )
-                require(progress_ok, "post-GST honest-progress trace failed")
+                require(progress_ok, "post-GST nonfaulty-progress trace failed")
                 parameter_progress_traces += 1
                 total_progress_traces += 1
 
@@ -841,9 +1420,26 @@ def bft_locking_receipt() -> dict[str, Any]:
                 "q": q,
                 "threshold_2q_ge_n_plus_f_plus_1": threshold_ok,
                 "minimum_quorum_overlap": minimum_quorum_overlap,
-                "minimum_nonfaulty_certificate_overlap": minimum_honest_overlap,
+                "minimum_nonfaulty_certificate_overlap": minimum_nonfaulty_overlap,
+                "checked_prepared_signer_acceptor_quorum_pairs": (
+                    checked_prepared_acceptor_pairs
+                ),
+                "distinct_prepared_signer_acceptor_pairs": (
+                    distinct_prepared_acceptor_pairs
+                ),
+                "checked_provisional_acceptor_committer_quorum_pairs": (
+                    checked_acceptor_committer_pairs
+                ),
+                "distinct_provisional_acceptor_committer_pairs": (
+                    distinct_acceptor_committer_pairs
+                ),
+                "minimum_nonfaulty_decision_commit_lock_holders": (
+                    minimum_nonfaulty_commit_lock_holders
+                ),
                 "minimum_nonfaulty_lock_transfer_to_view_change": minimum_lock_transfer,
-                "base_view_highest_rule_preserves_value": highest_rule_preserves_value,
+                "base_view_highest_lock_certificate_preserves_value": (
+                    highest_rule_preserves_value
+                ),
                 "checked_next_view_candidate_prepare_quorums": (
                     checked_next_view_prepare_quorums
                 ),
@@ -853,6 +1449,15 @@ def bft_locking_receipt() -> dict[str, Any]:
                 "checked_post_GST_nonfaulty_leader_progress_traces": (
                     parameter_progress_traces
                 ),
+                "checked_orphan_lock_new_view_reconciliation_traces": (
+                    parameter_orphan_lock_reconciliation_traces
+                ),
+                "checked_omitted_higher_orphan_lock_reconciliations": (
+                    parameter_omitted_orphan_lock_reconciliations
+                ),
+                "orphan_lock_reconciliation_example": (
+                    parameter_orphan_lock_example
+                ),
             }
         )
 
@@ -860,6 +1465,17 @@ def bft_locking_receipt() -> dict[str, Any]:
         "every_certificate_pair_has_nonfaulty_overlap": all(
             row["minimum_nonfaulty_certificate_overlap"] >= 1
             for row in parameter_rows
+        ),
+        "every_decision_certificate_has_q_minus_f_nonfaulty_commit_locks": all(
+            row["minimum_nonfaulty_decision_commit_lock_holders"]
+            >= row["q"] - row["f"]
+            for row in parameter_rows
+        ),
+        "prepare_signers_provisional_acceptors_and_committers_are_separate": (
+            total_prepared_acceptor_pairs > 0
+            and total_distinct_prepared_acceptor_pairs > 0
+            and total_acceptor_committer_pairs > 0
+            and total_distinct_acceptor_committer_pairs > 0
         ),
         "every_new_view_quorum_carries_a_nonfaulty_lock": all(
             row["minimum_nonfaulty_lock_transfer_to_view_change"] >= 1
@@ -869,8 +1485,12 @@ def bft_locking_receipt() -> dict[str, Any]:
             row["q"] <= row["n"] - row["f"]
             for row in parameter_rows
         ),
-        "highest_prepared_certificate_rule_is_value_preserving": all(
-            row["base_view_highest_rule_preserves_value"]
+        "general_threshold_case_with_q_lt_n_minus_f_is_checked": any(
+            row["q"] < row["n"] - row["f"]
+            for row in parameter_rows
+        ),
+        "highest_lock_certificate_rule_is_value_preserving": all(
+            row["base_view_highest_lock_certificate_preserves_value"]
             for row in parameter_rows
         ),
         "finite_next_view_lock_transition_rejects_conflicting_prepare_quorums": all(
@@ -878,7 +1498,16 @@ def bft_locking_receipt() -> dict[str, Any]:
             and row["conflicting_next_view_quorums_accepted"] == 0
             for row in parameter_rows
         ),
-        "post_GST_honest_progress_trace_reaches_valid_decision_and_relay": all(
+        "valid_new_view_selection_supersedes_local_predecision_locks": all(
+            row["checked_orphan_lock_new_view_reconciliation_traces"] > 0
+            for row in parameter_rows
+        ),
+        "omitted_higher_orphan_lock_is_reconciled_in_general_case": any(
+            row["q"] < row["n"] - row["f"]
+            and row["checked_omitted_higher_orphan_lock_reconciliations"] > 0
+            for row in parameter_rows
+        ),
+        "post_GST_nonfaulty_progress_trace_reaches_valid_decision_and_relay": all(
             row["checked_post_GST_nonfaulty_leader_progress_traces"] > 0
             for row in parameter_rows
         ),
@@ -887,8 +1516,11 @@ def bft_locking_receipt() -> dict[str, Any]:
         ),
         "same_view_and_cross_view_induction_base_are_finite_checked": (
             total_same_view_pairs > 0
+            and total_prepared_acceptor_pairs > 0
+            and total_acceptor_committer_pairs > 0
             and total_lock_transfers > 0
             and total_next_view_prepare_quorums > 0
+            and total_orphan_lock_reconciliation_traces > 0
         ),
     }
     require(all(checks.values()), f"BFT locking reference failed: {checks}")
@@ -897,50 +1529,84 @@ def bft_locking_receipt() -> dict[str, Any]:
         "protocol_rule": {
             "monotone_view_participation": (
                 "after entering view w, a nonfaulty validator never signs a "
-                "prepare or commit message for any lower view"
+                "prepare, prepared-certificate acceptance, or commit message "
+                "for any lower view and never adopts a durable lower-view lock"
             ),
-            "prepared_certificate": (
+            "raw_prepared_certificate": (
                 "q distinct authenticated prepare votes for one value in one view"
+            ),
+            "lock_certificate": (
+                "a valid prepared certificate plus q distinct authenticated "
+                "provisional acceptance acknowledgements; an acknowledgement "
+                "does not change the acceptor's voting lock, and a raw prepared "
+                "certificate alone has no new-view or commit status"
             ),
             "decision_certificate": (
                 "q distinct authenticated commit votes referring to the same "
-                "valid prepared certificate; a nonfaulty observer finalises "
+                "valid lock certificate; each nonfaulty committer received "
+                "that assembled certificate and recorded its durable lock "
+                "before committing, and a nonfaulty observer finalises "
                 "only after accepting such a valid decision certificate"
             ),
             "lock": (
-                "a nonfaulty validator records the value/view after accepting a "
-                "prepared certificate and before committing, then reports its "
-                "highest valid prepared certificate in view change"
+                "a nonfaulty validator records a durable lock only after "
+                "receiving an assembled lock certificate and before committing; "
+                "it reports that certificate in view change and retains the "
+                "lock until a valid q-message new-view selection authorizes a "
+                "prepare and the assembled current-view lock certificate "
+                "replaces it before commit"
             ),
             "new_view": (
                 "the leader collects q authenticated view-change messages and "
-                "proposes the value of their highest-view prepared certificate"
+                "proposes the value of their highest-view lock certificate; "
+                "every nonfaulty validator may supersede any local "
+                "assembled-lock-certificate lock with this valid q-message "
+                "selection for voting; the current-view lock is recorded only "
+                "after its assembled certificate arrives, without locally "
+                "testing whether an earlier commit set reached q"
             ),
             "vote_rule": (
                 "an unlocked nonfaulty validator may support a fresh value only "
-                "when no prepared certificate is present; otherwise it votes only "
-                "for its lock value or for the value justified by a strictly "
-                "higher valid prepared certificate"
+                "when no lock certificate is present; otherwise it votes only "
+                "for its lock value, except that the value selected by a valid "
+                "q-message new-view certificate supersedes its local "
+                "assembled-lock-certificate lock; if a decision certificate "
+                "exists, quorum intersection forces that selection to be "
+                "compatible with the decided value"
             ),
-            "post_GST_timeout_active_honest_progress": (
+            "post_GST_timeout_active_nonfaulty_progress": (
                 "in a post-GST nonfaulty-led view after timeout-bound "
                 "activation, the "
                 "leader emits the P4-selected justified proposal; nonfaulty "
-                "validators promptly send the required prepare and commit "
-                "messages, accept only valid certificates, and relay the "
+                "validators promptly send prepare votes and provisional "
+                "prepared-certificate acknowledgements; the leader assembles "
+                "and disseminates the lock certificate, validators lock and "
+                "send commit messages, and they relay the "
                 "decision certificate so every nonfaulty validator finalises"
             ),
         },
         "finite_parameter_sweep": parameter_rows,
         "checked_same_view_certificate_pairs": total_same_view_pairs,
-        "checked_prepared_to_view_change_pairs": total_lock_transfers,
+        "checked_prepared_signer_acceptor_quorum_pairs": (
+            total_prepared_acceptor_pairs
+        ),
+        "checked_provisional_acceptor_committer_quorum_pairs": (
+            total_acceptor_committer_pairs
+        ),
+        "checked_decision_committer_to_view_change_pairs": total_lock_transfers,
         "checked_next_view_candidate_prepare_quorums": (
             total_next_view_prepare_quorums
         ),
+        "checked_orphan_lock_new_view_reconciliation_traces": (
+            total_orphan_lock_reconciliation_traces
+        ),
         "checked_post_GST_progress_traces": total_progress_traces,
         "induction_invariant": (
-            "after the first prepared/decision certificate for x at view v, "
-            "every valid prepared certificate in a later view is for x"
+            "after the first valid decision certificate for x at view v, its "
+            "q-f nonfaulty committer locks intersect every q-message view "
+            "change and every later q-vote prepare quorum; every later raw "
+            "prepared certificate, lock certificate, and decision certificate "
+            "therefore carries x"
         ),
         "checks": checks,
     }
@@ -954,17 +1620,17 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         left: set[int],
         right: set[int],
         *,
-        allow_honest_double_vote: bool,
+        allow_nonfaulty_double_vote: bool,
     ) -> bool:
-        honest_overlap = (left & right) - byzantine
-        return allow_honest_double_vote or not honest_overlap
+        nonfaulty_overlap = (left & right) - byzantine
+        return allow_nonfaulty_double_vote or not nonfaulty_overlap
 
-    # P1: the single honest overlap witness signs both values.
+    # P1: the single nonfaulty overlap witness signs both values.
     p1 = conflicting_certificates(
         {0},
         {0, 1, 2},
         {0, 1, 3},
-        allow_honest_double_vote=True,
+        allow_nonfaulty_double_vote=True,
     )
     require(p1, "one-vote negative control failed")
     controls.append(
@@ -987,8 +1653,8 @@ def bft_negative_controls() -> list[dict[str, Any]]:
     # Monotone view participation is separate from one-value-per-view.  H2
     # first prepares B in view 1 without receiving the assembled PC, then
     # returns to commit A in view 0.  Once DC(A@0) exists it receives the
-    # already valid higher PC(B@1), advances its lock, and commits B.  All
-    # per-view vote and monotone-lock rules hold; only the stale lower-view
+    # valid higher PC(B@1), advances its lock, and commits B. All
+    # per-view vote and certificate/lock rules hold; only the stale lower-view
     # commit is forbidden by the removed rule.
     stale_view_trace = {
         "byzantine": [0],
@@ -1039,7 +1705,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         {0},
         {0, 1},
         {0, 2},
-        allow_honest_double_vote=False,
+        allow_nonfaulty_double_vote=False,
     )
     require(small_q, "quorum-overlap negative control failed")
     controls.append(
@@ -1064,7 +1730,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         {0, 1},
         {0, 1, 2},
         {0, 1, 3},
-        allow_honest_double_vote=False,
+        allow_nonfaulty_double_vote=False,
     )
     require(too_many_faults, "fault-bound negative control failed")
     controls.append(
@@ -1099,7 +1765,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         }
     )
 
-    # P4: P1 is per-view only.  Without locks, honest validators may sign A
+    # P4: P1 is per-view only. Without locks, nonfaulty validators may sign A
     # in view 0 and B in view 1.
     view_zero = {0, 1, 2}
     view_one = {0, 2, 3}
@@ -1125,6 +1791,134 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         }
     )
 
+    # P4 provisional acceptance: Byzantine assemblers deliver two raw prepared
+    # certificates to different nonfaulty validators but collect fewer than q
+    # acknowledgements for either, so no lock certificate exists. If those
+    # pre-certificate acknowledgements create durable locks, the locks have no
+    # reportable new-view evidence and split the q available nonfaulty voters.
+    pre_certificate_scenario = {
+        "validators": [0, 1, 2, 3],
+        "byzantine": [0],
+        "q": 3,
+        "certificates": [
+            {
+                "view": 0,
+                "value": "A",
+                "prepare_signers": [0, 1, 2],
+                "acknowledgers": [0, 1],
+                "lock_certificate_recipients": [],
+                "committers": [],
+            },
+            {
+                "view": 1,
+                "value": "B",
+                "prepare_signers": [0, 2, 3],
+                "acknowledgers": [0, 2],
+                "lock_certificate_recipients": [],
+                "committers": [],
+            },
+        ],
+        "new_view_senders": [1, 2, 3],
+        "fresh_values": ["A", "B", "C"],
+        "acknowledgements_are_provisional": False,
+        "new_view_supersedes_lc_locks": True,
+    }
+    pre_certificate_evaluation = evaluate_orphan_lock_scenario(
+        pre_certificate_scenario
+    )
+    pre_states = pre_certificate_evaluation["validator_states"]
+    pre_certificate_deadlock = (
+        pre_certificate_evaluation["deadlocked"]
+        and not pre_certificate_evaluation["decision_certificates"]
+        and pre_certificate_evaluation["new_view"]["selected_report"] is None
+        and pre_certificate_evaluation["maximum_eligible_votes"] == 2
+        and pre_states["1"]["kind"] == "ack_lock"
+        and pre_states["1"]["value"] == "A"
+        and pre_states["2"]["kind"] == "ack_lock"
+        and pre_states["2"]["value"] == "B"
+    )
+    require(
+        pre_certificate_deadlock,
+        "provisional prepared-acceptance negative control failed",
+    )
+    controls.append(
+        {
+            "removed_hypothesis": (
+                "P4_pre_lock_certificate_acknowledgements_are_provisional"
+            ),
+            "finite_witness": {
+                "scenario": pre_certificate_scenario,
+                "evaluation": pre_certificate_evaluation,
+            },
+            "violated_conclusion": "bounded_liveness_after_timeout_activation",
+            "counterexample_verified": pre_certificate_deadlock,
+        }
+    )
+
+    # P4 orphan-lock reconciliation: two assembled lock certificates can be
+    # delivered to different validators and receive fewer than q commits, so
+    # neither produces a decision certificate. A valid q-message new-view
+    # certificate reports both and selects the higher B@1 certificate. If the
+    # lower A@0 lock cannot be superseded by that selection, Byzantine
+    # withholding leaves only two votes for B.
+    partial_commit_scenario = {
+        "validators": [0, 1, 2, 3],
+        "byzantine": [0],
+        "q": 3,
+        "certificates": [
+            {
+                "view": 0,
+                "value": "A",
+                "prepare_signers": [0, 1, 2],
+                "acknowledgers": [0, 1, 2],
+                "lock_certificate_recipients": [1],
+                "committers": [1],
+            },
+            {
+                "view": 1,
+                "value": "B",
+                "prepare_signers": [0, 2, 3],
+                "acknowledgers": [0, 2, 3],
+                "lock_certificate_recipients": [2],
+                "committers": [2],
+            },
+        ],
+        "new_view_senders": [1, 2, 3],
+        "fresh_values": ["C"],
+        "acknowledgements_are_provisional": True,
+        "new_view_supersedes_lc_locks": False,
+    }
+    partial_commit_evaluation = evaluate_orphan_lock_scenario(
+        partial_commit_scenario
+    )
+    partial_outcome = partial_commit_evaluation["voting_outcomes"][0]
+    partial_commit_deadlock = (
+        partial_commit_evaluation["deadlocked"]
+        and not partial_commit_evaluation["decision_certificates"]
+        and partial_commit_evaluation["new_view"]["selected_report"]
+        == {"view": 1, "value": "B", "certificate_index": 1}
+        and partial_outcome["proposal"] == "B"
+        and partial_outcome["eligible_voters"] == [2, 3]
+        and partial_commit_evaluation["maximum_eligible_votes"] == 2
+    )
+    require(
+        partial_commit_deadlock,
+        "partial-commit orphan-lock negative control failed",
+    )
+    controls.append(
+        {
+            "removed_hypothesis": (
+                "P4_valid_new_view_supersedes_local_predecision_commit_lock"
+            ),
+            "finite_witness": {
+                "scenario": partial_commit_scenario,
+                "evaluation": partial_commit_evaluation,
+            },
+            "violated_conclusion": "bounded_liveness_after_timeout_activation",
+            "counterexample_verified": partial_commit_deadlock,
+        }
+    )
+
     # P4 leader selection: a new leader omits the valid highest certificate.
     # Correct locked validators reject in both views.  The second leader is
     # nonfaulty, so this two-view trace exceeds the f+1 post-GST bound when
@@ -1132,14 +1926,14 @@ def bft_negative_controls() -> list[dict[str, Any]]:
     # remains.
     omitted = {
         "view_change_quorum": {0, 1, 3},
-        "honest_lock_holder": 1,
+        "nonfaulty_lock_holder": 1,
         "reported_certificate": "A@0",
         "leader_proposals": ["B@1", "B@2"],
         "leaders": [0, 3],
         "available_votes_for_B": {0, 3},
     }
     omitted_highest = (
-        omitted["honest_lock_holder"] in omitted["view_change_quorum"]
+        omitted["nonfaulty_lock_holder"] in omitted["view_change_quorum"]
         and omitted["reported_certificate"].startswith("A")
         and all(proposal.startswith("B") for proposal in omitted["leader_proposals"])
         and len(omitted["available_votes_for_B"]) < 3
@@ -1151,7 +1945,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
             "removed_hypothesis": "P4_leader_selects_highest_prepared_certificate",
             "finite_witness": {
                 "view_change_quorum": sorted(omitted["view_change_quorum"]),
-                "honest_lock_holder": omitted["honest_lock_holder"],
+                "nonfaulty_lock_holder": omitted["nonfaulty_lock_holder"],
                 "reported_certificate": omitted["reported_certificate"],
                 "post_GST_views": [1, 2],
                 "timeout_bound_active": True,
@@ -1170,7 +1964,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
 
     # P4 validator validation: if validators do not check the new-view proof,
     # an unlocked validator can accept a proposal whose justification has
-    # fewer than q messages.  Lock discipline still prevents a conflicting
+    # fewer than q messages. Lock discipline also prevents a conflicting
     # certificate, so this is explicitly a protocol-conformance control, not
     # a safety counterexample.
     malformed_justification = {"messages": [0, 3], "q": 3}
@@ -1216,8 +2010,8 @@ def bft_negative_controls() -> list[dict[str, Any]]:
     # Availability is distinct from overlap. With n=4, f=1, q=4, quorum
     # intersections are maximal but one withholding Byzantine validator
     # prevents every certificate.
-    honest_votes = {1, 2, 3}
-    unavailable_quorum = len(honest_votes) < 4
+    available_nonfaulty_votes = {1, 2, 3}
+    unavailable_quorum = len(available_nonfaulty_votes) < 4
     require(unavailable_quorum, "quorum-availability negative control failed")
     controls.append(
         {
@@ -1227,7 +2021,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
                 "f": 1,
                 "q": 4,
                 "withholding_byzantine": [0],
-                "available_nonfaulty_votes": sorted(honest_votes),
+                "available_nonfaulty_votes": sorted(available_nonfaulty_votes),
             },
             "violated_conclusion": "liveness",
             "counterexample_verified": unavailable_quorum,
@@ -1289,7 +2083,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
     silent_leader = all(
         row["messages_sent"] == 0 for row in silent_leader_trace
     )
-    require(silent_leader, "honest-leader progress negative control failed")
+    require(silent_leader, "nonfaulty-leader progress negative control failed")
     controls.append(
         {
             "removed_hypothesis": (
@@ -1311,7 +2105,7 @@ def bft_negative_controls() -> list[dict[str, Any]]:
     )
 
     # P5(b): a valid proposal is timely, but responsive validator actions are
-    # absent.  P1/P2/P4 and every safety assumption still hold; no PC/DC can
+    # absent. P1/P2/P4 and every safety assumption hold; no PC/DC can
     # be produced.
     silent_validator_trace = {
         "proposal": {
@@ -1327,7 +2121,10 @@ def bft_negative_controls() -> list[dict[str, Any]]:
         len(silent_validator_trace["prepare_votes"]) < 3
         and len(silent_validator_trace["commit_votes"]) < 3
     )
-    require(silent_validators, "honest-validator progress negative control failed")
+    require(
+        silent_validators,
+        "nonfaulty-validator progress negative control failed",
+    )
     controls.append(
         {
             "removed_hypothesis": (
@@ -1801,10 +2598,19 @@ def refinement_negative_controls() -> list[dict[str, Any]]:
 
 def lp_receipt() -> dict[str, Any]:
     points = ((0, 0), (1, 0), (0, 1), (1, 1))
+    finite_channels = (0, 1)
 
     def l1(left: tuple[int, int], right: tuple[int, int]) -> int:
         return sum(abs(a - b) for a, b in zip(left, right, strict=True))
 
+    finite_distances = {
+        (left, right): l1(left, right)
+        for left, right in itertools.product(points, repeat=2)
+    }
+    finite_product_values = all(
+        type(value) is int and 0 <= value <= len(finite_channels)
+        for value in finite_distances.values()
+    )
     l1_triangle = all(
         l1(x, z) <= l1(x, y) + l1(y, z)
         for x, y, z in itertools.product(points, repeat=3)
@@ -1815,21 +2621,43 @@ def lp_receipt() -> dict[str, Any]:
     direct_quasi_distance = 4
     via_origin = 1 + 1
     p_half_failure = direct_quasi_distance > via_origin
+
+    # If the channel set is the positive integers, every weight and every
+    # channel distance can equal one. The N-channel partial sum is then N.
+    # For each proposed integer upper bound M, cutoff N=M+1 is an exact
+    # witness above that bound, so the product formula has value +infinity.
+    def divergence_witness(bound: int) -> dict[str, int]:
+        require(
+            type(bound) is int and bound >= 0,
+            "divergence bound must be a nonnegative integer",
+        )
+        cutoff = bound + 1
+        return {
+            "proposed_upper_bound": bound,
+            "witness_cutoff": cutoff,
+            "partial_sum": cutoff,
+        }
+
+    divergence_witnesses = [
+        divergence_witness(bound) for bound in (0, 1, 2, 8, 32)
+    ]
+    nonsummable_failure = all(
+        row["witness_cutoff"] == row["proposed_upper_bound"] + 1
+        and row["partial_sum"] > row["proposed_upper_bound"]
+        for row in divergence_witnesses
+    )
     checks = {
+        "finite_channel_reference_distances_are_finite": finite_product_values,
         "p_equals_one_triangle_checked_on_finite_reference_set": l1_triangle,
         "p_equals_one_half_has_exact_triangle_counterexample": p_half_failure,
-        "paper_guard_required": True,
+        "infinite_nonsummable_channel_family_has_exact_divergence_schema": (
+            nonsummable_failure
+        ),
+        "paper_exponent_and_summability_guards_required": True,
     }
     require(all(checks.values()), f"ell-p guard failed: {checks}")
-    return {
-        "receipt_id": "LP-GUARD-1",
-        "declared_domain": "p>=1",
-        "positive_finite_check": {
-            "p": "1",
-            "points": [list(point) for point in points],
-            "all_ordered_triangles_checked": len(points) ** 3,
-        },
-        "negative_control": {
+    negative_controls = [
+        {
             "removed_hypothesis": "p>=1",
             "p": "1/2",
             "points": {
@@ -1839,9 +2667,45 @@ def lp_receipt() -> dict[str, Any]:
             },
             "d_p_xz": direct_quasi_distance,
             "d_p_xy_plus_d_p_yz": via_origin,
-            "violated_conclusion": "triangle_inequality_and_pseudometric_status",
+            "violated_conclusion": (
+                "triangle_inequality_and_pseudometric_status"
+            ),
             "counterexample_verified": p_half_failure,
         },
+        {
+            "removed_hypothesis": (
+                "finite_or_pairwise_summable_declared_channel_family"
+            ),
+            "finite_description_of_parametric_witness": {
+                "points": ["x", "y"],
+                "channels": "positive integers",
+                "p": "1",
+                "weights": "w_c=1",
+                "channel_distances": "d_c(F_c(x),F_c(y))=1",
+                "partial_sum_formula": "S_N=N",
+                "unboundedness_constructor": (
+                    "for every integer bound M>=0 choose N=M+1"
+                ),
+                "sampled_exact_witnesses": divergence_witnesses,
+            },
+            "violated_conclusion": "finite_valued_pseudometric_status",
+            "counterexample_verified": nonsummable_failure,
+        },
+    ]
+    return {
+        "receipt_id": "LP-GUARD-1",
+        "declared_domain": (
+            "p>=1 with a finite declared channel set or a finite weighted "
+            "p-sum for every compared pair"
+        ),
+        "positive_finite_check": {
+            "p": "1",
+            "channel_count": len(finite_channels),
+            "points": [list(point) for point in points],
+            "all_ordered_pairs_checked_for_finiteness": len(points) ** 2,
+            "all_ordered_triangles_checked": len(points) ** 3,
+        },
+        "negative_controls": negative_controls,
         "checks": checks,
     }
 
@@ -2114,7 +2978,7 @@ def build_receipt() -> dict[str, Any]:
         "transactional_confluence": transactional_negative_controls(),
         "bft": bft_negative_controls(),
         "refinement": refinement_negative_controls(),
-        "ell_p": [lp["negative_control"]],
+        "ell_p": lp["negative_controls"],
     }
     all_negative_controls = [
         row

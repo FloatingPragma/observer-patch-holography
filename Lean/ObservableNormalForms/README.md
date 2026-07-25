@@ -1,4 +1,4 @@
-# Observation-Determined Normal Forms — Lean artifact
+# Observation-Determined Normal Forms: Lean artifact
 
 This directory is a standalone, generic Lean 4 formalization accompanying
 *Observation-Determined Normal Forms: Stability, Obstructions, and Refinement
@@ -85,10 +85,11 @@ the quantified family argument remains the manuscript proof. This
 distinction prevents the executable controls from being reported as a Lean
 proof of the infinite-family limit statement.
 
-The issue-517 transactional local-diamond and prepared-lock BFT theorems are
-outside this Lean package. They currently have manuscript proofs and finite
-Python reference receipts under `code/consensus/`; neither general theorem is
-claimed as Lean, TLA+, or protocol-model-checker verified.
+The issue-517 transactional local-diamond and prepared-acceptance/lock BFT
+theorems are outside this Lean package. They have manuscript proofs and finite Python
+reference receipts under `code/consensus/`; neither general theorem is claimed
+as Lean, TLA+, or protocol-model-checker verified.
 
-The current exact product-calculus theorem likewise uses a nonempty finite
-index family. That theorem is not yet formalized here.
+The exact product-calculus theorem in this package uses a nonempty finite
+index family. The manuscript permits an infinite family only under pairwise
+weighted-\(\ell^p\) summability; that generalization is outside this package.

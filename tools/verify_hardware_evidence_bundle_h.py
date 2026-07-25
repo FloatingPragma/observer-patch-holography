@@ -53,6 +53,7 @@ PREDICATES = (
 ROLE_PREDICATE = {
     "raw_measurement": "raw_capture",
     "calibration": "calibration_chain",
+    "calibration_reference": "calibration_chain",
     "custody": "custody",
     "control": "controls",
     "analysis_code": "analysis_binding",
@@ -60,6 +61,7 @@ ROLE_PREDICATE = {
     "protocol": "analysis_binding",
     "run_schedule": "completeness",
     "device_identity": "device_identity",
+    "nonce_reservation": "replay_protection",
     "attestation": "attestation",
 }
 
@@ -70,7 +72,11 @@ RAW_CAPTURE_SCHEMA = "oph.hardware_evidence_bundle_h.raw_capture.v1"
 CONTROL_CAPTURE_SCHEMA = "oph.hardware_evidence_bundle_h.control_capture.v1"
 DEVICE_IDENTITY_SCHEMA = "oph.hardware_evidence_bundle_h.device_identity.v1"
 CLAIM_TEXT_SCHEMA = "oph.hardware_evidence_bundle_h.structured_claim.v1"
+ANALYSIS_REPLAY_COMMAND = [
+    "internal:paired_calibrated_mean_max_deviation.v1"
+]
 CONTROL_KINDS = frozenset({"blank", "detuned_twin", "sham", "synthetic_blank"})
+PHYSICAL_CONTROL_KINDS = frozenset({"blank", "detuned_twin", "sham"})
 
 
 def _canonical_bytes(value: Any) -> bytes:
@@ -408,6 +414,16 @@ def verify_bundle(
             "calibration ids are not unique",
             "calibration_chain",
         )
+    used_calibration_ids = {row["calibration_id"] for row in runs}
+    if set(calibrations) != used_calibration_ids:
+        insufficient(
+            "CALIBRATION_POPULATION_MISMATCH",
+            (
+                "declared calibration ids differ from the complete "
+                "scheduled-run calibration population"
+            ),
+            "calibration_chain",
+        )
 
     declared_controls = set(bundle["controls"]["artifact_ids"])
     for control_id in sorted(declared_controls):
@@ -419,12 +435,17 @@ def verify_bundle(
         )
 
     nonces: list[str] = []
+    capture_times: list[datetime] = []
     previous_live_capture: datetime | None = None
     used_raw_ids: set[str] = set()
     used_control_ids: set[str] = set()
     for run_index, run in enumerate(runs):
         run_id = run["run_id"]
-        nonces.append(run["capture_nonce"])
+        control_capture_for_run: datetime | None = None
+        nonces.extend(
+            [run["control_capture_nonce"], run["capture_nonce"]]
+        )
+        capture_times.append(_parse_utc(run["captured_utc"]))
         if run["device_id"] != claim_device:
             insufficient(
                 "DEVICE_SUBSTITUTION",
@@ -518,6 +539,7 @@ def verify_bundle(
                 and raw["device_id"] == run["device_id"]
                 and raw["protocol_id"] == claim_protocol
                 and raw["run_id"] == run_id
+                and type(raw["sequence_index"]) is int
                 and raw["sequence_index"] == 2 * run_index + 1
                 and raw["captured_utc"] == run["captured_utc"]
                 and isinstance(raw["samples"], list)
@@ -560,6 +582,7 @@ def verify_bundle(
                 control = json_artifact(control_id, "controls")
                 control_keys = {
                     "schema",
+                    "capture_nonce",
                     "control_kind",
                     "channel",
                     "raw_unit",
@@ -588,10 +611,12 @@ def verify_bundle(
                     live_capture = None
                 control_matches = (
                     control["schema"] == CONTROL_CAPTURE_SCHEMA
+                    and control["capture_nonce"] == run["control_capture_nonce"]
                     and control["control_kind"] in CONTROL_KINDS
                     and control["run_id"] == run_id
                     and control["device_id"] == claim_device
                     and control["protocol_id"] == claim_protocol
+                    and type(control["sequence_index"]) is int
                     and control["sequence_index"] == 2 * run_index
                     and isinstance(control["samples"], list)
                     and bool(control["samples"])
@@ -609,8 +634,24 @@ def verify_bundle(
                     and identity is not None
                     and control["hardware_serial_hash"]
                     == identity["hardware_serial_hash"]
+                    and (
+                        bundle["claim_boundary"]["physical_claim"] is not True
+                        or control["control_kind"] in PHYSICAL_CONTROL_KINDS
+                    )
                 )
                 if not control_matches:
+                    if (
+                        bundle["claim_boundary"]["physical_claim"] is True
+                        and control["control_kind"] not in PHYSICAL_CONTROL_KINDS
+                    ):
+                        insufficient(
+                            "CONTROL_KIND_NOT_PHYSICAL",
+                            (
+                                f"{control_id} uses synthetic-only control kind "
+                                f"{control['control_kind']}"
+                            ),
+                            "controls",
+                        )
                     insufficient(
                         "CONTROL_BINDING_MISMATCH",
                         (
@@ -619,6 +660,9 @@ def verify_bundle(
                         ),
                         "controls",
                     )
+                if control_capture is not None:
+                    capture_times.append(control_capture)
+                    control_capture_for_run = control_capture
         previous_live_capture = _parse_utc(run["captured_utc"])
 
         calibration = calibrations.get(run["calibration_id"])
@@ -643,6 +687,7 @@ def verify_bundle(
                     "calibration_id",
                     "device_id",
                     "reference_id",
+                    "reference_artifact_id",
                     "reference_uri",
                     "reference_certificate_sha256",
                     "channel_id",
@@ -659,6 +704,22 @@ def verify_bundle(
                     f"{calibration_id} differs from typed calibration",
                     "calibration_chain",
                 )
+        reference_id = calibration["reference_artifact_id"]
+        reference = artifacts.get(reference_id)
+        if (
+            reference is None
+            or reference["role"] != "calibration_reference"
+            or reference["sha256"]
+            != calibration["reference_certificate_sha256"]
+        ):
+            insufficient(
+                "CALIBRATION_REFERENCE_MISMATCH",
+                (
+                    f"calibration {calibration['calibration_id']} does not "
+                    "bind its declared reference-certificate artifact"
+                ),
+                "calibration_chain",
+            )
         if calibration["device_id"] != run["device_id"]:
             insufficient(
                 "CALIBRATION_DEVICE_MISMATCH",
@@ -678,10 +739,17 @@ def verify_bundle(
         captured = _parse_utc(run["captured_utc"])
         valid_from = _parse_utc(calibration["valid_from_utc"])
         valid_until = _parse_utc(calibration["valid_until_utc"])
-        if not valid_from <= captured <= valid_until:
+        if (
+            control_capture_for_run is None
+            or not valid_from <= control_capture_for_run <= valid_until
+            or not valid_from <= captured <= valid_until
+        ):
             insufficient(
                 "CALIBRATION_OUT_OF_WINDOW",
-                f"run {run_id} capture is outside calibration validity",
+                (
+                    f"run {run_id} control or live capture is outside "
+                    "calibration validity"
+                ),
                 "calibration_chain",
             )
 
@@ -727,6 +795,31 @@ def verify_bundle(
             insufficient(
                 "REPLAY_NONCE_SEEN",
                 f"capture nonce {nonce} is present in the independent registry",
+                "replay_protection",
+            )
+    reservation_id = bundle["replay_protection"]["reservation_artifact_id"]
+    if require_artifact(
+        reservation_id,
+        "nonce_reservation",
+        predicate="replay_protection",
+        code="REPLAY_RESERVATION_ARTIFACT_INVALID",
+    ):
+        reservation = json_artifact(reservation_id, "replay_protection")
+        expected_reservation = {
+            "schema": "oph.hardware_evidence_bundle_h.nonce_reservation.v1",
+            "registry_id": bundle["replay_protection"]["registry_id"],
+            "bundle_id": bundle["bundle_id"],
+            "device_id": claim_device,
+            "protocol_id": claim_protocol,
+            "capture_nonces": nonces,
+        }
+        if reservation != expected_reservation:
+            insufficient(
+                "REPLAY_RESERVATION_MISMATCH",
+                (
+                    "bound nonce reservation must name every ordered raw and "
+                    "control capture nonce"
+                ),
                 "replay_protection",
             )
 
@@ -777,8 +870,8 @@ def verify_bundle(
             insufficient("CUSTODY_BREAK", "custody segment ends before it starts", "custody")
             continue
         segments.append((start, end))
-    if runs and segments:
-        chain_start = min(_parse_utc(run["captured_utc"]) for run in runs)
+    if capture_times and segments:
+        chain_start = min(capture_times)
         chain_end = _parse_utc(bundle["created_utc"])
         cursor = chain_start
         for start, end in sorted(segments):
@@ -813,6 +906,12 @@ def verify_bundle(
             "analysis was not frozen before unblinding",
             "analysis_binding",
         )
+    if analysis["replay_command"] != ANALYSIS_REPLAY_COMMAND:
+        insufficient(
+            "ANALYSIS_REPLAY_COMMAND_UNSUPPORTED",
+            "analysis must name the closed verifier-internal replay operation",
+            "analysis_binding",
+        )
     required_inputs = {
         artifact_id
         for artifact_id, row in artifacts.items()
@@ -820,6 +919,7 @@ def verify_bundle(
         in {
             "raw_measurement",
             "calibration",
+            "calibration_reference",
             "custody",
             "control",
             "protocol",
@@ -827,10 +927,13 @@ def verify_bundle(
             "device_identity",
         }
     }
-    if not required_inputs.issubset(set(analysis["input_artifact_ids"])):
+    if required_inputs != set(analysis["input_artifact_ids"]):
         insufficient(
-            "ANALYSIS_INPUT_COVERAGE_INCOMPLETE",
-            "analysis inputs omit raw, calibration, custody, control, protocol, schedule, or device evidence",
+            "ANALYSIS_INPUT_POPULATION_MISMATCH",
+            (
+                "analysis inputs must equal the raw, calibration/reference, "
+                "custody, control, protocol, schedule, and device evidence"
+            ),
             "analysis_binding",
         )
     claim_payload = json_artifact(
@@ -1028,7 +1131,10 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser.add_argument(
         "--replay-registry",
         type=Path,
-        help="identified {registry_id, seen_nonces} JSON object maintained independently",
+        help=(
+            "independently maintained registry snapshot with registry_id, "
+            "seen_nonces, and nonce assignments"
+        ),
     )
     parser.add_argument(
         "--trust-policy",
@@ -1038,7 +1144,10 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser.add_argument(
         "--external-evidence",
         type=Path,
-        help="signature, preregistration, witness, and replay-authority evidence",
+        help=(
+            "artifact signatures, schedule/protocol/nonce/analysis "
+            "preregistration, witness, and replay-authority evidence"
+        ),
     )
     parser.add_argument("--json-out", type=Path)
     args = parser.parse_args(argv)

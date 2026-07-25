@@ -4,9 +4,9 @@ Proves that ordinary ``pytest`` discovery cannot silently treat a cloud or
 hardware experiment as mandatory science. The two optional-lane mechanisms
 have different contracts, and each is asserted literally:
 
-- the IBM / Qiskit hardware lane is excluded from collection entirely
-  (``collect_ignore_glob`` in its conftest), because importing it without the
-  IBM extras breaks at import time;
+- the IBM / Qiskit hardware lane is excluded from broad collection entirely
+  (``collect_ignore_glob`` in its conftest), while a direct invocation exits
+  with the named opt-in and extras instructions;
 - the legacy arXiv D10 helpers are collected but explicitly skip-marked with
   an opt-in reason, so a direct invocation without the extras fails clearly
   instead of running silently.
@@ -51,6 +51,26 @@ def test_ibm_lane_exists_and_stays_out_of_mandatory_collection():
     )
     assert "ibm_quantum_cloud" not in result.stdout, (
         "IBM hardware lane tests were collected into the mandatory suite"
+    )
+
+
+def test_direct_ibm_lane_invocation_fails_with_opt_in_instructions():
+    result = run_pytest(["-q", IBM_LANE])
+    combined = result.stdout + result.stderr
+    assert result.returncode != 0, (
+        "direct IBM lane invocation silently succeeded without opt-in:\n"
+        + combined
+    )
+    assert "OPH_RUN_IBM=1" in combined, (
+        "IBM lane failure does not name the opt-in variable:\n" + combined
+    )
+    assert "requirements-ibm.txt" in combined, (
+        "IBM lane failure does not identify its deterministic extras:\n"
+        + combined
+    )
+    assert "no tests ran" not in combined, (
+        "direct IBM lane invocation retained pytest's ambiguous empty result:\n"
+        + combined
     )
 
 
