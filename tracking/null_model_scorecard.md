@@ -163,20 +163,20 @@ The factor `1/9` is exactly `(1/3)/3`; the common down-lane Yukawa
 and same-scale QCD factors cancel. The implementation verifies the
 corresponding factor-ratio identity for all six permutations.
 
-- Current assumed-order output: `22.974258210716425`
+- Adopted assumed-order output: `22.974258210716425`
 - Register-scale right-hand side: `22.97425821071643`
 - Relative gap: `2.1763488310006592551048984527742538E-16`
 - Low-scale MCPR-display `(m_mu/m_e)/9`: `22.9742556216867746378151389375632596963663873535222915378211`
 - Low-scale substitution relative gap: `1.1269264575946673323934586257966845348103689875872763E-7`
 
-The unqualified low-scale identity is **not exact** in the current
+The unqualified low-scale identity is **not exact** in the declared
 implementation: flavor-dependent charged-lepton self-running changes
 `y_mu/y_e` before `μ_U`. The RG-protected statement therefore requires
 the register-scale lepton ratio. Common down-lane and same-scale QCD
 transport cancel, but an arbitrary generation-dependent threshold would
 break the identity and define a modified lane.
 
-### FLAG 2024 compare-only falsification
+### FLAG 2024 compare-only rejection of the declared route
 
 The comparison consumes the two published dimensionless ratios
 `m_s/m_ud` and `m_u/m_d` and derives
