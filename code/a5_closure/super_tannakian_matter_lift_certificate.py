@@ -491,16 +491,25 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
     )
     physical_gate = current_receipt.get("physical_source_gate")
     require(
-        isinstance(physical_gate, Mapping) and physical_gate.get("passed") is False,
+        isinstance(physical_gate, Mapping) and physical_gate.get("passed") is True,
         "UPSTREAM_RECEIPT",
-        "the upstream premise-binding status must be recorded honestly: the #566 response premises are "
-        "declared, and their source binding is tracked in #599, so the stored gate must read open",
+        "the upstream response representation must be source-bound: the #566 receipt "
+        "must record a passing physical source gate from the #599 semantic artifact",
+    )
+    binding = current_receipt.get("semantic_response_binding")
+    require(
+        isinstance(binding, Mapping)
+        and binding.get("sector_structure_recomputed") is True,
+        "UPSTREAM_RECEIPT",
+        "the upstream physical gate must be justified by a recomputed semantic "
+        "response binding",
     )
     return {
         "current_manifest": current_manifest,
         "current_manifest_sha256": digest,
         "current_receipt_sha256": sha256_json(current_receipt),
         "carrier_manifest_sha256": current_receipt.get("carrier_manifest_sha256"),
+        "semantic_response_artifact_sha256": binding.get("artifact_sha256"),
     }
 
 
