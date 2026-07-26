@@ -202,6 +202,29 @@ Mapping between Lean 4 theorems in this project and statements in
   from golden-ratio coordinates and reproduces the orbit, commutant,
   fiber-count, spectrum, kernel, and enumeration data (22 checks). Does
   **not** bear on the Prop 4.2 / Def 4.1 counts.
+- #567 axis-centre descent (`Screen/Z6Descent.lean`): the common central
+  kernel on the realized matter weight table equals the tensor-spin kernel
+  by exhaustive enumeration over the 36 candidates
+  (`kernel_on_realized_weights`); the centre has exactly four subgroups
+  (`four_admissible_global_forms`), with the adjoint-only kernel the full
+  centre and a fractionally charged extra tensor shrinking the kernel to
+  the identity (the larger-cover / smaller-quotient countermodels); and
+  the explicit intertwiner `sixAxisToKernel` carries the six-axis gluing
+  class of `Z6Exact.lean` onto the kernel of `TraceBalancedKernel.lean`,
+  generator to generator and antipodal sign reversal to conjugation,
+  injective with image exactly the kernel. Sorry-free, standard axioms,
+  no `native_decide`. Executable counterpart:
+  `code/a5_closure/axis_center_descent_certificate.py`.
+- FZ-02 angular multiplet signature (`Screen/A5AngularMultiplets.lean`):
+  the exact branching of rotation levels `l = 0..6` under `A5` in integer
+  `Z[sqrt 5]` arithmetic (`branching_table`, with the doubled character
+  table verified orthonormal and the pentagonal cosines pinned by their
+  defining identities), the first nonconstant invariant at `l = 6`, and
+  the face-phase multiplicity vector `(0, 1, 1, 1, 2)`
+  (`face_phase_multiplicities`). Sorry-free; several theorems are
+  axiom-free kernel computations. Executable counterpart:
+  `code/a5_closure/a5_harmonic_decomposition.py --receipt`; frozen
+  custody under the FZ-02 registration.
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear

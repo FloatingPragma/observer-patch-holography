@@ -33,8 +33,9 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Object | Statement |
 |---|---|
 | **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
-| **Conditional port-current algebra (#566)** | Given the certified #565 carrier, a declared charged-double-triplet construction, four signed nonzero response coefficients, and repairs typed irreversible and excluded, the exact map `K : P12 -> u(C^3 (+) C^3)` has twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared algebraic tower maps. The equivariant intertwiner space is exactly four-dimensional. This proves the conditional algebraic construction; physical source binding of the representation, coefficients, and refinement maps remains open. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
-| **Conditional super-Tannakian matter lift (#314)** | Given the hash-pinned conditional #566 packet and the declared matter-lift contracts (trace-balanced block charges `(y_C, y_W) = (-1/3, 1/2)`, one scalar `= W`, three Yukawa channels, fermionic statistics, Spin/odd-Weyl typing): the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — the exact algebraic PORT-SPIN-LIFT target); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed on the genuine simply connected cover `R x SU(3) x SU(2)` and **emitted** as data (infinite cyclic, generator `(zeta_6, omega, -1)`, sixth power the unit deck translation, residual order 6 modulo the pure deck translations) without forming the central compactification or the quotient; the declared MAR class is witnessed nonempty without promoting uniqueness. Fifteen typed negative controls fail closed. This proves the conditional algebraic construction; physical source binding of the upstream response premises, matter contract, and refinement maps remains open, so #314 is not closed physically. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
+| **Source-bound port-current algebra (#566, #599)** | Given the certified #565 carrier and the hash-pinned semantic response artifact measured from the carrier dynamics (sector structure `1+3+3'+5` with Galois-paired triplets, oriented port-to-vertex frame, potential and rotation response channels with measured signs, defect-port persistence maps), the certificate recomputes every exact artifact claim in `Q(sqrt5)` and derives the map `K : P12 -> u(C^3 (+) C^3)` with twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared tower and the physical persistence maps. The equivariant intertwiner space is exactly four-dimensional; the construction-model string is control-lane only and the physical source gate is computed from the binding. Nineteen negative controls fail closed. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
+| **Source-bound super-Tannakian matter lift (#314)** | Given the hash-pinned source-bound #566 packet: the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — PORT-SPIN-LIFT); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed on the genuine simply connected cover `R x SU(3) x SU(2)` and **emitted** as data without forming the quotient. The trace-balanced charge pair `(-1/3, 1/2)` is **derived** by BLOCK-DETERMINANT-BALANCE (anomaly freedom of the realized package forces the balance line, primitive `q = 6Y` integrality and the measured artifact orientation fix the pair), the scalar and channel list are **derived** by the selection scan (admissible scalar charges exactly the conjugate pair `+-3` equal to the weak-block charge), the category typing is **forced** on the realized module by the failing Vec/sVec controls, and the artifact persistence maps are intertwined on the carrier and the Fock realization. MAR nonemptiness is witnessed without promoting uniqueness. Eighteen typed negative controls fail closed. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
+| **Axis-centre descent (#567)** | Consuming the pinned #314 receipt, the common central kernel on every realized matter tensor is computed by exhaustive enumeration over the 36 candidates and equals the cyclic group generated by `(omega_3 I_3, -I_2, e^{i pi/3})`, matching the emitted kernel data; the quotient character lattice has basis `(1,0,-2), (0,1,-3), (0,0,6)` with Smith invariants `(1,1,6)`; the six Wilson classes and the 't Hooft lattice generated by the minimum magnetic line (color flux 1, weak flux 1, `U(1)` charge `1/6` in electron-Dirac units) follow; spin descent, refinement invariance, and the four-admissible-global-forms control (adjoint-only kernel = full centre; a fractionally charged extra tensor kills the centre) are on the record. Lean: `Z6Descent.lean` with the explicit intertwiner between the six-axis gluing class and the tensor-spin kernel. Monopole dynamics is not inferred. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -42,7 +43,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. This remains an independent optimality cross-check; it is no longer needed as the source selector on the certified echosahedral-federation branch. |
 | Compact-Lie trichotomy | Exactly three algebras: `u(1)^12`, `su(2)^2 + u(1)^6`, `su(3) + su(2) + u(1)` |
 | **Inner-action closure** | If the `A5` action is **inner**: `dim Z(g) <= 1` (inner autos fix the center pointwise); `Z(g)=0` forces `su(2)^4` whose fixed-space dimension is a multiple of 3, contradicting `dim g^{A5}=1`; hence `dim Z(g)=1`, semisimple dim 11, and `11=8+3` uniquely ⇒ `su(3)+su(2)+u(1)`. **Needs no `W5-NONCENTRAL` receipt.** |
-| Angular multiplets | `l=2: 5` (irreducible); `l=3: 3'+4`; `l=4: 4+5`; `l=5: 3+3'+5`; `l=6: 1+3+4+5`. First nonconstant invariant at `l=6`. |
+| Angular multiplets | `l=2: 5` (irreducible); `l=3: 3'+4`; `l=4: 4+5`; `l=5: 3+3'+5`; `l=6: 1+3+4+5`. First nonconstant invariant at `l=6`. Frozen forward target FZ-02 with kill bands and timestamped custody; Lean receipt `A5AngularMultiplets.lean`; deterministic receipt via `a5_harmonic_decomposition.py --receipt`. |
 | Horizon log coefficient | **Conditional decision tree, not a universal law.** Unconstrained `q`-state cells give `S=K log q` exactly, i.e. `c=0`. Exact 12-port balance: `c=11/2`. 24-slot balance: `c=23/2`. Nonabelian `SU(3)xSU(2)` singlet saddle: `c=11/2`. Full 12-dim gauge singlet incl. `U(1)`: `c=6`. The horizon measure must be derived before `c` is frozen. |
 | Rank-five corollary | `W_5` noncentral ⇒ `su(3) + su(2) + u(1)` uniquely |
 | Face-phase multiplicities | `m_w = (dim V - chi_V(3A))/3 = (0,1,1,1,2)` on `(1,3,3',4,5)`; minimal nontrivial extension has dimension 3 |
@@ -66,24 +67,25 @@ simple of order 60).
 
 ## Claim boundary
 
-The exact chain is a conditional finite `A5` module, a compact coefficient
-bracket, trace-balanced block integration under coefficient `1/2`, and a
-six-axis lattice quotient `Z6`. Central record projectors commute; the
-full-rank compact skew-adjoint algebraic construction is verified conditionally
-by `port_current_inner_certificate.py` for a declared response representation
-and four signed coefficients. Source binding of the declared response
-premises (**PORT-CURRENT-INNER** as a physical receipt) is tracked in #599.
-The conditional algebraic matter lift is verified on
-top of that packet by `super_tannakian_matter_lift_certificate.py` for the
-declared matter-lift contracts, while the physical #314 source gate remains open: the
-exact non-split SU(2) double cover (the
-algebraic PORT-SPIN-LIFT target), the projector-realized fifteen-state
-module, the emitted action kernel (infinite cyclic on the cover, residual
-order six modulo the pure deck translations), and the MAR nonemptiness
-witness. The physical **PORT-SPIN-LIFT** receipt inherits the #599 premise
-binding. The global form still requires block/axis descent; the matter
-lift emits the kernel data for that descent. The coefficient
-construction supplies no observational discriminator.
+The exact chain is a finite `A5` module, a compact coefficient bracket,
+trace-balanced block integration under coefficient `1/2`, and a six-axis
+lattice quotient `Z6`. Central record projectors commute; the full-rank
+compact skew-adjoint construction is verified by
+`port_current_inner_certificate.py` with the response representation, four
+signed coefficients, oriented frame, and physical refinement maps
+determined by the semantic response artifact measured from the carrier
+dynamics (#599 closure) and recomputed exactly before use. The matter lift
+is verified on top of that packet by
+`super_tannakian_matter_lift_certificate.py` with a passing physical
+source gate: the exact non-split SU(2) double cover (PORT-SPIN-LIFT), the
+projector-realized fifteen-state module, the derived
+BLOCK-DETERMINANT-BALANCE charge pair, the derived scalar and channel
+selection, the emitted action kernel, and the MAR nonemptiness witness.
+The global form is the #567 descent certificate
+(`axis_center_descent_certificate.py`), which computes the kernel on every
+realized tensor and fixes the line spectrum with the
+four-admissible-global-forms control. The coefficient construction
+supplies no observational discriminator.
 
 `survival_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -137,44 +139,44 @@ prove that arbitrary OPH carriers must have this type.
   A5-equivariant, inner, and natural along the declared algebraic tower maps.
   These representation data are branch premises, not physical measurements.
 
-- The **conditional super-Tannakian matter lift** (issue #314) is verified by
-  `super_tannakian_matter_lift_certificate.py`: given the pinned conditional
-  #566 packet and the declared matter-lift contracts, the exact non-split
-  SU(2) double cover of the sixty proper implementers (the algebraic
-  PORT-SPIN-LIFT target), the faithful current action on the matter carrier
-  and the fifteen-state module, the derived equivariant projector on the
-  auxiliary CAR/Fock space, realized anomaly and Witten checks, exact
-  chirality and conjugation, three Yukawa invariant lines, naturality along
-  the declared algebraic tower maps, the emitted action kernel (infinite
-  cyclic on the cover, residual order six modulo the pure deck
-  translations), and the MAR nonemptiness witness. The declared inputs beyond #566 — the
-  trace-balanced exterior matter contract, the fermionic statistics
-  contract, the Spin/odd-Weyl category typing, the kernel emission
-  contract, and the MAR class declaration — are branch premises, typed and
-  enforced fail-closed, not physical measurements. Theorem:
+- The **source-bound super-Tannakian matter lift** (issue #314) is verified
+  by `super_tannakian_matter_lift_certificate.py`: given the pinned
+  source-bound #566 packet, the exact non-split SU(2) double cover of the
+  sixty proper implementers (PORT-SPIN-LIFT), the faithful current action
+  on the matter carrier and the fifteen-state module, the derived
+  equivariant projector on the auxiliary CAR/Fock space, realized anomaly
+  and Witten checks, exact chirality and conjugation, three Yukawa
+  invariant lines, naturality along the declared tower and the artifact
+  persistence maps, the emitted action kernel, and the MAR nonemptiness
+  witness. The charge pair is derived by BLOCK-DETERMINANT-BALANCE, the
+  scalar and channels by the selection scan, and the category typing is
+  forced by the failing Vec/sVec controls; the kernel emission contract
+  and the MAR class declaration stay typed declarations. Theorem:
   `physics-problems/issue_314_super_tannakian_matter_lift.md`.
+
+### Closed receipts of the source-bound chain
+
+- **PORT-CURRENT-INNER** is source-bound (#599 closure): the semantic
+  response artifact measured from the carrier dynamics determines the
+  representation, coefficients, frame, and physical refinement maps, and
+  the certificate recomputes every exact artifact claim before use.
+- **PORT-SPIN-LIFT** rides on the source-bound packet: the non-split
+  binary icosahedral cover is forced (unique involution; split lifts are
+  impossible on the realized module).
+- **BLOCK-DETERMINANT-BALANCE** is derived inside the matter packet:
+  anomaly freedom of the realized package forces the balance line,
+  primitive integrality and the measured orientation select
+  `(-1/3, 1/2)`.
+- **AXIS-CENTER-DESCENT** is the #567 descent certificate: the kernel is
+  computed on every realized tensor, with the four-admissible-global-forms
+  control and the line spectrum on the record.
 
 ### Open receipts
 
-- **PORT-CURRENT-INNER (physical source binding, tracked in #599)**: derive
-  or measure the
-  charged response representation and four coefficients from carrier response,
-  and bind the physical refinement maps to the resulting operators.
 - *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
   one group-level action shared by ports and gauge reconstruction, plus one
   source-derived repair composition with nonzero projected `W_5` commutator.
-  The conditional algebraic route above is stronger once its physical
-  response premises are source-bound.
-- **PORT-SPIN-LIFT (physical source binding)**: land the exact algebraic
-  double cover physically. The #314 packet verifies the algebraic target
-  (non-split binary icosahedral cover with a unique involution) given the
-  conditional #566 premises; the physical receipt remains open pending
-  #599 and source binding of the matter contract and refinement maps.
-- **BLOCK-DETERMINANT-BALANCE** and **AXIS-CENTER-DESCENT**: select total
-  trace zero from source dynamics (the #314 packet declares it as a branch
-  premise) and identify port-loop winding with the deck class; the matter
-  lift emits the action-kernel data (generator, deck relation, residual)
-  this descent consumes.
+  The source-bound route above is stronger.
 - **A5-FAMILY-ATTACHMENT** (family corollary only): prove the chiral family
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
