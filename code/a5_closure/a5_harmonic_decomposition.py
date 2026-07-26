@@ -90,15 +90,47 @@ def payload(max_ell: int = 15) -> dict:
             "ell_5": "3 + 3prime + 5",
             "ell_6": "1 + 3 + 4 + 5",
         },
-        "caveat": "This fixes degeneracy/mixing representations only. Frequencies, amplitudes, linewidths, and the screen-to-observable coupling remain dynamical inputs.",
+        "caveat": "This fixes degeneracy/mixing representations only. Frequencies, amplitudes, linewidths, and the screen-to-observable coupling are dynamical inputs.",
     }
+
+
+def receipt_payload(max_ell: int = 15) -> dict:
+    """Deterministic receipt for the frozen angular multiplet signature.
+
+    The Lean module Lean/Screen/A5AngularMultiplets.lean checks the same
+    branching table in exact arithmetic on standard axioms.
+    """
+
+    import hashlib
+
+    data = payload(max_ell)
+    data["schema"] = "oph.a5_angular_multiplet_receipt.v1"
+    data["lean_receipt"] = "Lean/Screen/A5AngularMultiplets.lean"
+    data["face_phase_multiplicities"] = {
+        "1": 0,
+        "3": 1,
+        "3prime": 1,
+        "4": 1,
+        "5": 2,
+    }
+    body = json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    data["receipt_sha256"] = hashlib.sha256(body.encode("utf-8")).hexdigest()
+    return data
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--max-ell", type=int, default=15)
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--receipt", type=Path, default=None)
     args = parser.parse_args()
+    if args.receipt is not None:
+        data = receipt_payload(args.max_ell)
+        args.receipt.write_text(
+            json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        print(json.dumps({"receipt": str(args.receipt), "sha256": data["receipt_sha256"]}, indent=2))
+        return
     data = payload(args.max_ell)
     if args.json:
         print(json.dumps(data, indent=2))

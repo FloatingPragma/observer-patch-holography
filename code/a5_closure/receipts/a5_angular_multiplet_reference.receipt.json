@@ -1,0 +1,317 @@
+{
+  "caveat": "This fixes degeneracy/mixing representations only. Frequencies, amplitudes, linewidths, and the screen-to-observable coupling are dynamical inputs.",
+  "face_phase_multiplicities": {
+    "1": 0,
+    "3": 1,
+    "3prime": 1,
+    "4": 1,
+    "5": 2
+  },
+  "first_nonconstant_A5_invariant_ell": 6,
+  "lean_receipt": "Lean/Screen/A5AngularMultiplets.lean",
+  "port_equals_restriction_H0_plus_H5": true,
+  "port_module": {
+    "1": 1,
+    "3": 1,
+    "3prime": 1,
+    "5": 1
+  },
+  "receipt_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
+  "restriction_H0_plus_H5": {
+    "1": 1,
+    "3": 1,
+    "3prime": 1,
+    "5": 1
+  },
+  "rows": [
+    {
+      "decomposition": {
+        "1": 1
+      },
+      "dimension": 1,
+      "ell": 0,
+      "multiplet_dimensions": [
+        1
+      ],
+      "n_trivial_invariants": 1,
+      "pretty": "1"
+    },
+    {
+      "decomposition": {
+        "3": 1
+      },
+      "dimension": 3,
+      "ell": 1,
+      "multiplet_dimensions": [
+        3
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3"
+    },
+    {
+      "decomposition": {
+        "5": 1
+      },
+      "dimension": 5,
+      "ell": 2,
+      "multiplet_dimensions": [
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "5"
+    },
+    {
+      "decomposition": {
+        "3prime": 1,
+        "4": 1
+      },
+      "dimension": 7,
+      "ell": 3,
+      "multiplet_dimensions": [
+        3,
+        4
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3prime + 4"
+    },
+    {
+      "decomposition": {
+        "4": 1,
+        "5": 1
+      },
+      "dimension": 9,
+      "ell": 4,
+      "multiplet_dimensions": [
+        4,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "4 + 5"
+    },
+    {
+      "decomposition": {
+        "3": 1,
+        "3prime": 1,
+        "5": 1
+      },
+      "dimension": 11,
+      "ell": 5,
+      "multiplet_dimensions": [
+        3,
+        3,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3 + 3prime + 5"
+    },
+    {
+      "decomposition": {
+        "1": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "dimension": 13,
+      "ell": 6,
+      "multiplet_dimensions": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "n_trivial_invariants": 1,
+      "pretty": "1 + 3 + 4 + 5"
+    },
+    {
+      "decomposition": {
+        "3": 1,
+        "3prime": 1,
+        "4": 1,
+        "5": 1
+      },
+      "dimension": 15,
+      "ell": 7,
+      "multiplet_dimensions": [
+        3,
+        3,
+        4,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3 + 3prime + 4 + 5"
+    },
+    {
+      "decomposition": {
+        "3prime": 1,
+        "4": 1,
+        "5": 2
+      },
+      "dimension": 17,
+      "ell": 8,
+      "multiplet_dimensions": [
+        3,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3prime + 4 + 2*5"
+    },
+    {
+      "decomposition": {
+        "3": 1,
+        "3prime": 1,
+        "4": 2,
+        "5": 1
+      },
+      "dimension": 19,
+      "ell": 9,
+      "multiplet_dimensions": [
+        3,
+        3,
+        4,
+        4,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3 + 3prime + 2*4 + 5"
+    },
+    {
+      "decomposition": {
+        "1": 1,
+        "3": 1,
+        "3prime": 1,
+        "4": 1,
+        "5": 2
+      },
+      "dimension": 21,
+      "ell": 10,
+      "multiplet_dimensions": [
+        1,
+        3,
+        3,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 1,
+      "pretty": "1 + 3 + 3prime + 4 + 2*5"
+    },
+    {
+      "decomposition": {
+        "3": 2,
+        "3prime": 1,
+        "4": 1,
+        "5": 2
+      },
+      "dimension": 23,
+      "ell": 11,
+      "multiplet_dimensions": [
+        3,
+        3,
+        3,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "2*3 + 3prime + 4 + 2*5"
+    },
+    {
+      "decomposition": {
+        "1": 1,
+        "3": 1,
+        "3prime": 1,
+        "4": 2,
+        "5": 2
+      },
+      "dimension": 25,
+      "ell": 12,
+      "multiplet_dimensions": [
+        1,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 1,
+      "pretty": "1 + 3 + 3prime + 2*4 + 2*5"
+    },
+    {
+      "decomposition": {
+        "3": 1,
+        "3prime": 2,
+        "4": 2,
+        "5": 2
+      },
+      "dimension": 27,
+      "ell": 13,
+      "multiplet_dimensions": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3 + 2*3prime + 2*4 + 2*5"
+    },
+    {
+      "decomposition": {
+        "3": 1,
+        "3prime": 1,
+        "4": 2,
+        "5": 3
+      },
+      "dimension": 29,
+      "ell": 14,
+      "multiplet_dimensions": [
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 0,
+      "pretty": "3 + 3prime + 2*4 + 3*5"
+    },
+    {
+      "decomposition": {
+        "1": 1,
+        "3": 2,
+        "3prime": 2,
+        "4": 2,
+        "5": 2
+      },
+      "dimension": 31,
+      "ell": 15,
+      "multiplet_dimensions": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5
+      ],
+      "n_trivial_invariants": 1,
+      "pretty": "1 + 2*3 + 2*3prime + 2*4 + 2*5"
+    }
+  ],
+  "schema": "oph.a5_angular_multiplet_receipt.v1",
+  "spectroscopy_targets": {
+    "ell_2": "one 5-fold multiplet",
+    "ell_3": "3prime + 4",
+    "ell_4": "4 + 5",
+    "ell_5": "3 + 3prime + 5",
+    "ell_6": "1 + 3 + 4 + 5"
+  }
+}

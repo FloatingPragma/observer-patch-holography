@@ -37,6 +37,10 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/build_selection_ledger.py", "--check"],
     ),
     (
+        "Validate the frozen-prediction ladder and its generated surface",
+        [sys.executable, "tools/build_fz_registry.py", "--check"],
+    ),
+    (
         "Validate external-data provenance pins and declared source gaps",
         [sys.executable, "tools/check_external_data_provenance.py"],
     ),
