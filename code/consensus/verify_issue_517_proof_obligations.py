@@ -2893,8 +2893,12 @@ def separation_receipt() -> dict[str, Any]:
         and refinement["natural"] is True
         and all(row["intertwined"] for row in refinement["maps"])
     )
-    physical_source_gate_open = (
-        matter_artifact["physical_source_gate"]["passed"] is False
+    physical_source_gate_bound = (
+        matter_artifact["physical_source_gate"]["passed"] is True
+        and matter_artifact["block_determinant_balance"]["declared_equals_derived"]
+        is True
+        and matter_artifact["upstream"]["semantic_response_artifact_sha256"]
+        .startswith("sha256:")
     )
     return {
         "receipt_id": "A5-LAYER-SEPARATION-1",
@@ -2963,11 +2967,11 @@ def separation_receipt() -> dict[str, Any]:
                 rows["matter_realization"]["promoted"] is False
             ),
             "conditional_spin_lift_subreceipt_checked_separately": (
-                conditional_spin_checked and physical_source_gate_open
+                conditional_spin_checked and physical_source_gate_bound
             ),
             "conditional_refinement_stable_anomaly_subreceipt_checked_separately": (
                 conditional_refinement_stable_anomalies_checked
-                and physical_source_gate_open
+                and physical_source_gate_bound
             ),
         },
     }

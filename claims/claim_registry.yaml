@@ -1229,7 +1229,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
-      "statement": "The twelve-port boundary of one echosahedral carrier, the routed federation screen formed by carriers and observer supports, and the global support screen whose refinement limit is S2 are different typed objects. Local icosahedral incidence and A5 symmetry do not by themselves determine the federation nerve, global topology, conformal support, or BW flow. A physical carrier-to-support bridge must be source-bound, refinement-natural, and preserve the declared visible incidence and response data.",
+      "statement": "The twelve-port boundary of one echosahedral carrier, the routed federation screen formed by carriers and observer supports, and the global support screen whose refinement limit is S2 are different typed objects. Local icosahedral incidence and A5 symmetry do not by themselves determine the federation nerve, global topology, conformal support, or BW flow. A physical carrier-to-support bridge must be source-bound, refinement-natural, and preserve the declared visible incidence and response data. The simulator computes the bridge receipts fail-closed: the interface-algebra seam maps are checked as algebra isomorphisms with the federation-level cocycle on every seam triangle, the carrier-to-support refinement naturality is verified through the geodesic tower (defect-vertex embedding, left-inverse coarse graining, sixty-rotation equivariance, quotient commutation, chart realization), the phase dynamics induces accepted confluent repair with a two-schedule terminal agreement and strict-descent witness, and the observer and emergence receipts bind to the same federation bundle. Phase lock does not imply consensus, local A5 incidence does not imply global S2 support, and the physical H3/KMS capture lane keeps its naturality receipts quarantined until the capture executes those checks.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "finite_no_go_and_open_physical_bridge",
       "assumptions": [
@@ -1245,18 +1245,16 @@
       "oph_specific_delta": "OPH exposes the exact missing morphism between its finite hardware-facing carrier and its support-visible Lorentz branch instead of treating the shared word screen as an identity proof.",
       "novelty_type": "typed_screen_separation_and_bridge_contract",
       "evidence": [
-        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
-        "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/reality_as_consensus_protocol.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex"
       ],
       "falsifier": "The declared local twelve-port packet alone determines a unique global S2 support and BW normalization without routing or refinement data, or a proposed physical bridge fails incidence preservation, source binding, or refinement naturality.",
       "scope_if_false": "The screen-separation no-go or proposed positive bridge must be revised. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
-      "status": "local_to_global_no_go_established__physical_bridge_open",
+      "status": "local_to_global_no_go_established__structural_bridge_receipts_computed__physical_capture_lane_quarantined",
       "claim_class": "conditional_implication",
-      "gates": [
-        596
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
