@@ -37,8 +37,10 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertTrue(gate["passed"])
         self.assertTrue(all(gate.values()))
         physical_gate = self.expected["physical_source_gate"]
-        self.assertFalse(physical_gate["passed"])
-        self.assertFalse(physical_gate["response_model_source_bound"])
+        self.assertTrue(physical_gate["passed"])
+        self.assertTrue(physical_gate["response_model_source_bound"])
+        self.assertTrue(physical_gate["response_coefficients_source_bound"])
+        self.assertTrue(physical_gate["physical_refinement_intertwining_source_bound"])
 
     def test_port_to_generator_map_shape(self) -> None:
         row = self.expected["port_to_generator_map"]
@@ -65,8 +67,10 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
 
     def test_derivation_chain_and_acceptance_status(self) -> None:
         chain = self.expected["derivation_chain"]
-        self.assertEqual(len(chain), 13)
-        self.assertEqual([row["step"] for row in chain], list(range(1, 14)))
+        self.assertEqual(len(chain), 14)
+        self.assertEqual(
+            [row["step"] for row in chain], [1, "1a"] + list(range(2, 14))
+        )
         for row in chain:
             self.assertTrue(row["premise"])
             self.assertTrue(row["uses"])
@@ -74,30 +78,40 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
             self.assertTrue(row["conclusion"])
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 5)
-        self.assertFalse(status["operators_domain_inner_product_response_pairing_refinement_maps_source_defined"])
-        self.assertTrue(
-            all(
-                value
-                for key, value in status.items()
-                if key != "operators_domain_inner_product_response_pairing_refinement_maps_source_defined"
-            )
-        )
+        self.assertTrue(all(status.values()))
         self.assertIn("branch_scope", self.expected)
         self.assertIn("factor_origins", self.expected)
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_response_construction_is_conditional_not_source_bound(self) -> None:
+    def test_response_construction_is_source_bound(self) -> None:
         definedness = self.expected["source_definedness"]
-        self.assertEqual(definedness["response_construction_status"], "declared_branch_premise")
+        self.assertEqual(
+            definedness["response_construction_status"], "source_bound_semantic_artifact"
+        )
         self.assertTrue(definedness["carrier_and_refinement_source_bound"])
-        self.assertTrue(definedness["response_model_declared_as_branch_premise"])
-        self.assertFalse(definedness["physical_response_source_bound"])
+        self.assertFalse(definedness["response_model_declared_as_branch_premise"])
+        self.assertTrue(definedness["physical_response_source_bound"])
         self.assertTrue(definedness["algebraic_construction_verified"])
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
-        self.assertFalse(closure_condition["met_locally"])
+        self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
+        self.assertTrue(closure_condition["met_locally"])
+
+    def test_semantic_binding_reports_recomputed_measurement(self) -> None:
+        binding = self.expected["semantic_response_binding"]
+        self.assertTrue(binding["sector_structure_recomputed"])
+        self.assertTrue(binding["galois_pairing_recomputed"])
+        self.assertEqual(binding["tight_frame_constant_recomputed"], "10 + 2*sqrt(5)")
+        self.assertEqual(binding["derived_construction"], "charged_double_triplet")
+        self.assertEqual(
+            binding["derived_response_band_scales"],
+            {"unit_band": "-1", "quintet_band": "-1", "frame_band": "1", "kernel_band": "1"},
+        )
+        self.assertEqual(binding["physical_refinement_map_count"], 2)
+        physical = self.expected["refinement"]["physical_naturality"]
+        self.assertEqual(len(physical), 2)
+        self.assertTrue(all(row["intertwined"] for row in physical))
 
     def test_measurement_upgrade_is_rejected_without_semantic_schema(self) -> None:
         unsupported = copy.deepcopy(self.manifest)
@@ -114,7 +128,14 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         mutant["construction_model"] = "abelian_record"
         with self.assertRaises(cert.CertificateError) as caught:
             cert.certificate_payload(mutant)
-        self.assertEqual(caught.exception.code, "RESPONSE_MODEL")
+        self.assertEqual(caught.exception.code, "CONSTRUCTION_MODEL_STRING")
+
+    def test_production_manifest_requires_the_semantic_artifact(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        del mutant["semantic_response_artifact"]
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "ARTIFACT_REFERENCE")
 
     def test_register_relabeling_no_go(self) -> None:
         row = self.expected["response_versus_register_relabeling"]
@@ -160,18 +181,29 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertEqual(rigidity["multiplicity_of_kernel_band_in_even_block"], "0")
         moduli = self.expected["response_moduli"]
         self.assertEqual(moduli["equivariant_lift_dimension"], 4)
-        self.assertEqual(len(moduli["open_source_data"]), 4)
+        self.assertEqual(moduli["source_data_status"], "determined_by_semantic_artifact")
+        self.assertEqual(len(moduli["band_coefficient_provenance"]), 4)
 
     def test_four_signed_coefficients_are_the_complete_parameterization(self) -> None:
         mutant = copy.deepcopy(self.manifest)
+        mutant["construction_model"] = "charged_double_triplet"
+        del mutant["semantic_response_artifact"]
         mutant["response_band_scales"]["frame_band"] = "-1"
-        receipt = cert.certificate_payload(mutant)
+        receipt = cert.certificate_payload(mutant, allow_control_models=True)
         self.assertTrue(receipt["conditional_algebraic_gate"]["passed"])
+        self.assertFalse(receipt["physical_source_gate"]["passed"])
         self.assertEqual(
             receipt["port_to_generator_map"]["signed_response_band_coefficients"]["frame_band"],
             "-1",
         )
         self.assertNotIn("odd_response_sign", receipt["port_to_generator_map"])
+
+    def test_manifest_coefficients_are_determined_by_the_artifact(self) -> None:
+        mutant = copy.deepcopy(self.manifest)
+        mutant["response_band_scales"]["frame_band"] = "-1"
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.certificate_payload(mutant)
+        self.assertEqual(caught.exception.code, "COEFFICIENT_MISMATCH")
 
     def test_refinement_naturality(self) -> None:
         row = self.expected["refinement"]
@@ -207,10 +239,13 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
     def test_receipt_status_is_semantically_consistent(self) -> None:
         self.assertEqual(
             self.expected["claim_boundary"]["status"],
-            "proved_conditional_on_declared_response_representation",
+            "proved_on_source_bound_response_artifact",
         )
-        self.assertFalse(self.expected["issue_closure_condition"]["met_locally"])
-        self.assertFalse(self.expected["physical_source_gate"]["passed"])
+        self.assertTrue(self.expected["issue_closure_condition"]["met_locally"])
+        self.assertTrue(self.expected["physical_source_gate"]["passed"])
+        self.assertIn(
+            "#569", self.expected["issue_closure_condition"]["remaining_producer"]
+        )
 
     def test_forbidden_downstream_data_is_rejected(self) -> None:
         mutant = copy.deepcopy(self.manifest)
@@ -244,7 +279,11 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
             manifest = copy.deepcopy(self.manifest)
             manifest["carrier_manifest_path"] = str(relabeled_path)
             manifest["carrier_manifest_sha256"] = cert.sha256_json(relabeled_carrier)
-            receipt = cert.certificate_payload(manifest)
+            # The artifact pins the reference labeling, so the invariance
+            # statement is exercised on the declared control lane.
+            manifest["construction_model"] = "charged_double_triplet"
+            del manifest["semantic_response_artifact"]
+            receipt = cert.certificate_payload(manifest, allow_control_models=True)
         self.assertEqual(
             receipt["compactness"]["hilbert_schmidt_pullback_band_coefficients"],
             self.expected["compactness"]["hilbert_schmidt_pullback_band_coefficients"],

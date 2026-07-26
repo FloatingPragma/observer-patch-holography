@@ -72,16 +72,19 @@ class AuditTests(unittest.TestCase):
         self.assertTrue(any("PORT-CURRENT-INNER" in x for x in state["physical_gates"]))
         self.assertTrue(any("MAR" in x for x in state["physical_gates"]))
         port_gate = next(x for x in state["physical_gates"] if "PORT-CURRENT-INNER" in x)
-        self.assertIn("conditional", port_gate)
-        self.assertIn("remain open", port_gate)
+        self.assertIn("semantic response artifact", port_gate)
+        self.assertIn("laboratory attachment", port_gate)
         self.assertNotIn("is closed", port_gate)
 
         receipt = json.loads(
             (ROOT / "receipts" / "port_current_inner_reference.receipt.json").read_text()
         )
         self.assertTrue(receipt["conditional_algebraic_gate"]["passed"])
-        self.assertFalse(receipt["physical_source_gate"]["passed"])
-        self.assertFalse(receipt["issue_closure_condition"]["met_locally"])
+        self.assertTrue(receipt["physical_source_gate"]["passed"])
+        self.assertTrue(receipt["issue_closure_condition"]["met_locally"])
+        self.assertTrue(
+            receipt["semantic_response_binding"]["sector_structure_recomputed"]
+        )
 
         registry = json.loads((ROOT.parent.parent / "claims" / "claim_registry.yaml").read_text())
         claim = next(

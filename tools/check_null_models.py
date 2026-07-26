@@ -938,8 +938,14 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
         "12-port conditional current gate no longer passes",
     )
     require(
-        current_gate.get("physical_source_realization_gate_passed") is False,
-        "12-port current receipt unexpectedly claims physical source realization",
+        current_gate.get("physical_source_realization_gate_passed") is True,
+        "12-port current receipt lost its source-bound response artifact gate",
+    )
+    require(
+        isinstance(current.get("semantic_response_binding"), dict)
+        and current["semantic_response_binding"].get("sector_structure_recomputed")
+        is True,
+        "12-port current gate passes without a recomputed semantic binding",
     )
     matter_selection = matter.get("selection", {})
     require(matter_selection.get("projector_rank") == 15, "matter projector rank drifted")
@@ -1008,7 +1014,7 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
                 "sm_lie_type_available": True,
                 "sm_lie_type_uniquely_selected": False,
                 "conditional_response_gate_passed": True,
-                "physical_source_binding": False,
+                "physical_source_binding": True,
                 "status": "AVAILABLE_NOT_UNIQUELY_SELECTED",
             }
         )
@@ -1035,10 +1041,10 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
             "sm_lie_type_available_count": len(available),
             "sm_lie_type_uniquely_selected_count": len(unique_selected),
             "verdict": (
-                "u(1)+su(2)+su(3) is available on the declared twelve-port "
-                "conditional response branch, not uniquely selected. Seven "
-                "alternative deltahedra have no compatible producer and remain "
-                "unknown; they are not counted as exclusions."
+                "u(1)+su(2)+su(3) is available on the source-bound twelve-port "
+                "response branch, not uniquely selected across the carrier "
+                "menu. Seven alternative deltahedra have no compatible "
+                "producer and are unknown; they are not counted as exclusions."
             ),
         },
         "twelve_port_completion_nonuniqueness": no_go,

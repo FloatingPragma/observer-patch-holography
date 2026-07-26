@@ -200,7 +200,7 @@ def test_selector_menu_is_available_not_unique_and_fails_closed() -> None:
         row for row in report["rows"] if row["configuration"] == "icosahedron"
     )
     assert icosahedron["status"] == "AVAILABLE_NOT_UNIQUELY_SELECTED"
-    assert icosahedron["physical_source_binding"] is False
+    assert icosahedron["physical_source_binding"] is True
     assert len(icosahedron["compatible_compact_lie_types"]) == 3
     assert report["matter_nonuniqueness"] == {
         "rank15_projector_verified": True,

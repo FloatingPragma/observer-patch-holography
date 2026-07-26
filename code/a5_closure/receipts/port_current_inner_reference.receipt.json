@@ -4,13 +4,13 @@
     "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": true,
     "coefficient_classification_distinguished_from_physical_current_realization": true,
     "no_measured_coupling_particle_assignment_or_standard_model_current_input": true,
-    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": false
+    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
   },
   "branch_scope": {
-    "branch": "declared echosahedral response branch",
+    "branch": "source-bound echosahedral response branch",
     "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
-    "declared_response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements",
-    "not_claimed": "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group"
+    "not_claimed": "no statement about arbitrary OPH carriers, no laboratory measurement of the response channels, and no identification with the physical Standard Model gauge group",
+    "response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, determined by the bound semantic artifact and recomputed here"
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charged_faithfulness": {
@@ -21,16 +21,14 @@
   },
   "claim_boundary": {
     "does_not_close": [
-      "PORT-CURRENT-INNER as a physical source-bound receipt",
-      "derivation or measurement of the response representation and coefficients from physical carrier response",
-      "physical refinement intertwining beyond the declared algebraic tower maps",
+      "laboratory measurement of the response channels and the physical attachment lane (#569)",
       "block determinant balance and PORT-SPIN-LIFT",
       "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
       "matter attachment, family structure, and exterior package selection",
       "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
     ],
-    "proves": "the conditional exact port-current algebra for the declared charged-double-triplet response construction",
-    "status": "proved_conditional_on_declared_response_representation"
+    "proves": "the exact port-current algebra with the charged response representation, coefficients, frame, and physical refinement maps determined by the bound semantic artifact",
+    "status": "proved_on_source_bound_response_artifact"
   },
   "classification_vs_realization": {
     "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
@@ -1031,14 +1029,25 @@
   },
   "derivation_chain": [
     {
-      "conclusion": "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents",
-      "premise": "declared response manifest with firewall and repair/response typing",
+      "conclusion": "the production packet is admissible: the construction, coefficients, frame, and physical refinement maps enter through the bound artifact, and repairs are excluded from currents",
+      "premise": "response manifest with firewall, repair/response typing, and the hash-pinned semantic response artifact",
       "source_artifact": "manifests/port_current_response_reference.json",
       "step": 1,
       "uses": [
         "schema validation",
         "forbidden-token firewall",
         "reversible/irreversible typing split"
+      ]
+    },
+    {
+      "conclusion": "the charged response representation, the four signed coefficients, the oriented frame, and the physical refinement maps are determined by measured carrier structure",
+      "premise": "semantic response artifact measured from the carrier dynamics",
+      "source_artifact": "manifests/charged_response_semantic_artifact.json",
+      "step": "1a",
+      "uses": [
+        "artifact self-hash and manifest pin",
+        "paper-side recomputation of the isotypic sector projectors, Galois pairing, tight-frame constant, and rotation group data",
+        "sign and coefficient equality between the manifest and the artifact"
       ]
     },
     {
@@ -1155,7 +1164,7 @@
       ]
     },
     {
-      "conclusion": "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; physical source binding remains open",
+      "conclusion": "the conditional algebraic gate and the physical source gate pass on the artifact-bound reference packet and fail on every algebraic and artifact countermodel",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_566_negative_controls.json",
       "step": 13,
@@ -1175,6 +1184,7 @@
   },
   "frame_realization": {
     "arithmetic_field": "Q(sqrt5), no floating point in any proof decision",
+    "assignment_source": "semantic artifact port_vertex_frame",
     "axis_representatives": [
       "p00",
       "p01",
@@ -2540,18 +2550,18 @@
   "issue": 566,
   "issue_closure_condition": {
     "conditional_algebraic_gate_passed": true,
-    "met_locally": false,
-    "physical_source_realization_gate_passed": false,
-    "produced_locally": "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)",
-    "remaining_producer": "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps",
-    "response_field_provenance": "declared_branch_premise"
+    "met_locally": true,
+    "physical_source_realization_gate_passed": true,
+    "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, derived from the bound semantic response artifact with exact tower and physical-map covariance over Q(sqrt5)",
+    "remaining_producer": "none for the response representation; the laboratory identification of the source-bound current with measured gauge currents is tracked by the physical attachment lane (#569)",
+    "response_field_provenance": "source_bound_semantic_artifact"
   },
-  "manifest_sha256": "4285344be88495c335b6784bd19be8992a9b532c2df9588baca389f1079e7684",
+  "manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
   "physical_source_gate": {
-    "passed": false,
-    "physical_refinement_intertwining_source_bound": false,
-    "response_coefficients_source_bound": false,
-    "response_model_source_bound": false
+    "passed": true,
+    "physical_refinement_intertwining_source_bound": true,
+    "response_coefficients_source_bound": true,
+    "response_model_source_bound": true
   },
   "port_to_generator_map": {
     "band_realization": {
@@ -2566,6 +2576,7 @@
     },
     "block_dimensions_verified": true,
     "compact_lie_type": "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)",
+    "construction_provenance": "derived_from_bound_semantic_artifact",
     "image_real_dimension": 12,
     "injective": true,
     "kernel_block_real_verified": true,
@@ -2573,8 +2584,8 @@
     "signed_response_band_coefficients": {
       "frame_band": "1",
       "kernel_band": "1",
-      "quintet_band": "1",
-      "unit_band": "1"
+      "quintet_band": "-1",
+      "unit_band": "-1"
     },
     "skew_adjoint": true
   },
@@ -2609,6 +2620,20 @@
         "source": "r0",
         "target": "r2"
       }
+    ],
+    "physical_naturality": [
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 1
+      },
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 2
+      }
     ]
   },
   "repair_response_distinction": {
@@ -2619,14 +2644,15 @@
     "strict_descent_repairs_typed_irreversible": true
   },
   "response_moduli": {
+    "band_coefficient_provenance": {
+      "frame_band": "rotation response on the +sqrt(5) triplet, sign measured positive",
+      "kernel_band": "rotation response on the Galois conjugate triplet, sign measured positive",
+      "quintet_band": "potential response, centered axis normalized, sign measured negative",
+      "unit_band": "potential response, tight-frame normalized, sign measured negative"
+    },
     "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
     "equivariant_lift_dimension": 4,
-    "open_source_data": [
-      "signed unit-band response coefficient",
-      "signed quintet-band response coefficient",
-      "signed frame-band response coefficient",
-      "signed kernel-band response coefficient"
-    ]
+    "source_data_status": "determined_by_semantic_artifact"
   },
   "response_versus_register_relabeling": {
     "conclusion": "the current lift factors through genuinely non-relabeling response sectors; register relabeling provably cannot generate these currents",
@@ -2645,28 +2671,47 @@
       "kernel_block": "1"
     }
   },
-  "schema": "oph.port_current_inner_receipt.v2",
+  "schema": "oph.port_current_inner_receipt.v3",
+  "semantic_response_binding": {
+    "artifact_sha256": "sha256:df13c745c468f4f887614fbe0f366cb17b4573e2229b731d7664f17079d44869",
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "derived_construction": "charged_double_triplet",
+    "derived_response_band_scales": {
+      "frame_band": "1",
+      "kernel_band": "1",
+      "quintet_band": "-1",
+      "unit_band": "-1"
+    },
+    "dynamics_sha256": "sha256:e112ed4262bf283c25a9ce1f0b7f33a1b7c06564eba97341280fe0903781a2bb",
+    "frame_assignment_source": "artifact port_vertex_frame",
+    "galois_pairing_recomputed": true,
+    "normalization_rule": "each band scale is the measured channel response divided by its canonical normalizer: unit by the tight-frame constant (10 + 2*sqrt(5)), quintet by the centered axis constant 2, frame and kernel by the vertex coordinate isometry; signs are the measured response signs",
+    "physical_refinement_map_count": 2,
+    "producer": "oph_fpe.core.charged_response",
+    "sector_structure_recomputed": true,
+    "tight_frame_constant_recomputed": "10 + 2*sqrt(5)"
+  },
   "source_definedness": {
     "algebraic_construction_verified": true,
     "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
     "carrier_and_refinement_source_bound": true,
-    "declared_branch_premise": "the charged-double-triplet construction and four signed A5-equivariant response coefficients",
     "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
     "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
-    "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
-    "physical_response_source_bound": false,
-    "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
-    "response_construction_status": "declared_branch_premise",
-    "response_model_declared_as_branch_premise": true,
+    "operators": "K built from the artifact-bound oriented frame, the Galois-twisted kernel intertwiner, and the artifact-determined response scales",
+    "physical_response_source_bound": true,
+    "refinement_maps": "the declared carrier tower maps and the artifact-bound physical persistence maps, each intertwined by the current lift",
+    "response_construction_status": "source_bound_semantic_artifact",
+    "response_data_provenance": "measured by the semantic response artifact and recomputed here",
+    "response_model_declared_as_branch_premise": false,
     "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
   },
   "source_firewall": {
     "forbidden_dependency_hits": [],
     "uses_only": [
       "certified twelve-port carrier packet",
-      "declared algebraic response construction",
+      "hash-pinned semantic response artifact measured from the carrier dynamics",
       "reversible response automorphism typing",
-      "four exact signed response coefficients",
+      "four signed response coefficients determined by the artifact measurement channels",
       "irreversible strict-descent repair ledger (excluded from currents)"
     ]
   },

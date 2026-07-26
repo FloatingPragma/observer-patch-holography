@@ -88,7 +88,7 @@ no positive evidential weight.
 
 ## W3b — selector and port-menu ablation
 
-u(1)+su(2)+su(3) is available on the declared twelve-port conditional response branch, not uniquely selected. Seven alternative deltahedra have no compatible producer and remain unknown; they are not counted as exclusions.
+u(1)+su(2)+su(3) is available on the source-bound twelve-port response branch, not uniquely selected across the carrier menu. Seven alternative deltahedra have no compatible producer and are unknown; they are not counted as exclusions.
 
 | Vertex configuration | Ports | Producer state | SM Lie type |
 |---|---:|---|---|
@@ -252,13 +252,13 @@ it can enter a claim. A short-expression near hit is not a derivation.
 | Input | SHA-256 |
 |---|---|
 | `code/P_derivation/interval_contraction_certificate.py` | `4177208147d18f0c2d36b027ea5acb3a6db15335fa088d610c98163b6bfd7efb` |
-| `code/a5_closure/a5_screen_sm_closure.json` | `68c14fb8e9ea87d6b03b03820688391b1ae802de7023f082f50a17212e1ff4e0` |
+| `code/a5_closure/a5_screen_sm_closure.json` | `f5afae158a88c8ed4ecaf718ac152e863243a3e2eda81f5f692d720a11b35450` |
 | `code/a5_closure/echosahedral_selector_certificate.py` | `857792a474f46dc8582627f65bad271e4f613365fe2f675a4b7d5dd353ebb2b6` |
 | `code/a5_closure/manifests/echosahedral_federation_reference.json` | `12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14` |
-| `code/a5_closure/manifests/port_current_response_reference.json` | `6dd1a9e0a57b1865efdbfbd758f87f0b15f55e12496ace24b55deef80ad56576` |
-| `code/a5_closure/port_current_inner_certificate.py` | `d664737ca915696014eca197117918018f0d644ff9148fddf2d21005e44269df` |
+| `code/a5_closure/manifests/port_current_response_reference.json` | `43ce1a9cf0a34679df3775c429f55a1cea62c4bff5caeb0a0627dc3ffdcc1aff` |
+| `code/a5_closure/port_current_inner_certificate.py` | `76b390d2dfc987581590f8f9ebc18c7047c9080ec1964df87749b5463d6e2e8e` |
 | `code/a5_closure/receipts/echosahedral_federation_reference.receipt.json` | `bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5` |
-| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `bd8aecb31e0316e715dc053026fabaed1f08fdfa4341beba51020b96153c4100` |
+| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `9f18cc7d107976f26435b9011fdd1aec5635cd744453322e07a355f2fb9a2fbb` |
 | `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `8f0ff518419a5578a096dae4592c48de4f10584cc931bc9563915e66a87402bf` |
 | `code/a5_closure/survival_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/particles/data/flag_2024_light_quark_ratio_fixture.json` | `82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78` |

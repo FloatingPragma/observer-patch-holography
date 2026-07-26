@@ -267,15 +267,17 @@
       "promoted": false,
       "literal_check": "a5_current",
       "antecedent_artifacts": [
-        "code/a5_closure/manifests/port_current_response_reference.json"
+        "code/a5_closure/manifests/port_current_response_reference.json",
+        "code/a5_closure/manifests/charged_response_semantic_artifact.json"
       ],
       "target_artifacts": [],
       "open_gates": [
-        "physical response model, coefficients, and refinement maps are not source-bound"
+        "laboratory attachment of the source-bound current to measured gauge currents (#569)"
       ],
       "mutation_controls": [
-        "physical_source_gate_false_blocks_promotion",
-        "abelian_and_rank_deficient_controls_fail"
+        "physical_source_gate_requires_semantic_binding",
+        "abelian_and_rank_deficient_controls_fail",
+        "artifact_tamper_controls_fail"
       ]
     },
     {

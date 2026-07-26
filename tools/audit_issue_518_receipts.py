@@ -493,8 +493,14 @@ def _check_a5_current(payload: Mapping[str, Any], row: Mapping[str, Any]) -> lis
     failures: list[str] = []
     if payload.get("conditional_algebraic_gate", {}).get("passed") is not True:
         failures.append("a5_conditional_current_algebra_gate_failed")
-    if payload.get("physical_source_gate", {}).get("passed") is not False:
-        failures.append("a5_physical_current_source_gate_not_fail_closed")
+    gate = payload.get("physical_source_gate", {})
+    binding = payload.get("semantic_response_binding")
+    if gate.get("passed") is not True:
+        failures.append("a5_physical_current_source_gate_not_passed")
+    if gate.get("passed") is True and not isinstance(binding, Mapping):
+        failures.append("a5_physical_current_gate_passed_without_semantic_binding")
+    if isinstance(binding, Mapping) and binding.get("sector_structure_recomputed") is not True:
+        failures.append("a5_physical_current_binding_not_recomputed")
     if row.get("promoted") is not False:
         failures.append("a5_physical_current_improperly_promoted")
     return failures

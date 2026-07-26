@@ -8,6 +8,11 @@
       "matches_coefficient_module": true,
       "model": "K(f) = i*diag(f) on C^12 with permutation implementers"
     },
+    "artifact": {
+      "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
+      "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
+      "structure_binding": "missing sectors, swapped channel orientation, coefficient mismatch, measured-sign flips, and doctored refinement maps fail closed"
+    },
     "equivariance": {
       "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
       "per_axis_sign_flip": "breaks equivariance and covariance"
@@ -21,7 +26,7 @@
       "firewall": "a measured-coupling target in the source manifest fails closed",
       "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
       "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed",
-      "unsupported_measurement_upgrade": "measurement artifacts are rejected until a separately reviewed semantic schema exists"
+      "unsupported_measurement_upgrade": "measurement data outside the reviewed semantic artifact schema is rejected"
     }
   },
   "finite_controls": [
@@ -84,9 +89,63 @@
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "inject_downstream_target",
       "passed": true
+    },
+    {
+      "actual_error": "CONSTRUCTION_MODEL_STRING",
+      "expected_error": "CONSTRUCTION_MODEL_STRING",
+      "name": "production_construction_model_string",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_SCHEMA",
+      "expected_error": "ARTIFACT_SCHEMA",
+      "name": "artifact_unrelated_json",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_HASH",
+      "expected_error": "ARTIFACT_HASH",
+      "name": "artifact_self_hash_tamper",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_CARRIER",
+      "expected_error": "ARTIFACT_CARRIER",
+      "name": "artifact_wrong_carrier",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_SECTORS",
+      "expected_error": "ARTIFACT_SECTORS",
+      "name": "artifact_missing_sector",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_SECTORS",
+      "expected_error": "ARTIFACT_SECTORS",
+      "name": "artifact_orientation_swap",
+      "passed": true
+    },
+    {
+      "actual_error": "COEFFICIENT_MISMATCH",
+      "expected_error": "COEFFICIENT_MISMATCH",
+      "name": "artifact_coefficient_mismatch",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_REFINEMENT",
+      "expected_error": "ARTIFACT_REFINEMENT",
+      "name": "artifact_doctored_refinement_map",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_ORIENTATION",
+      "expected_error": "ARTIFACT_ORIENTATION",
+      "name": "artifact_measured_sign_flip",
+      "passed": true
     }
   ],
   "issue": 566,
-  "manifest_sha256": "4285344be88495c335b6784bd19be8992a9b532c2df9588baca389f1079e7684",
-  "schema": "oph.port_current_inner_negative_controls.v2"
+  "manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
+  "schema": "oph.port_current_inner_negative_controls.v3"
 }

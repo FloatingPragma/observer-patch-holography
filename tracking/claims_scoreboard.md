@@ -73,7 +73,7 @@ Release: `r1578`. 61 claims, 26 distinct live gates across 23 gated claims.
 | `OPH-SM-Q4-OS-OBSERVABLE-SECTOR` | `conditional_implication` | `conditional_implication_defined__nonperturbative_G6_tower_open` | none |
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | [#554](https://github.com/FloatingPragma/observer-patch-holography/issues/554) |
-| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_conditional_on_declared_response_representation` | [#599](https://github.com/FloatingPragma/observer-patch-holography/issues/599) |
+| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_response_artifact` | [#599](https://github.com/FloatingPragma/observer-patch-holography/issues/599) |
 | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_conditional_on_declared_matter_contracts` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `local_to_global_no_go_established__physical_bridge_open` | [#596](https://github.com/FloatingPragma/observer-patch-holography/issues/596) |
 | `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open` | [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567), [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |

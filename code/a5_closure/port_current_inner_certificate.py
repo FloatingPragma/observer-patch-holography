@@ -47,9 +47,10 @@ if str(MODULE_DIR) not in sys.path:
 
 import echosahedral_selector_certificate as e565  # noqa: E402
 
-SCHEMA = "oph.port_current_response_manifest.v2"
-RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v2"
-NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v2"
+SCHEMA = "oph.port_current_response_manifest.v3"
+RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v3"
+NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v3"
+ARTIFACT_SCHEMA = "oph.charged_response_semantic_artifact.v1"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -403,9 +404,9 @@ def validate_manifest(
     require(response.get("reversible") is True, "RESPONSE_TYPING", "response automorphisms must be typed reversible")
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
 
-    # This packet declares a mathematical response construction.  It does
-    # not claim that the construction was derived from a physical response
-    # measurement; that remains a separate source-binding gate.
+    # A production packet binds the semantic response artifact, so the
+    # construction is derived from measured carrier structure. The declared
+    # lane survives only for negative controls.
     contract = manifest.get("response_declaration_contract")
     require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_declaration_contract is missing")
     require(
@@ -414,14 +415,9 @@ def validate_manifest(
         "the response fields must be typed distinct from register relabeling",
     )
     require(
-        contract.get("status") == "declared_branch_premise",
-        "RESPONSE_TYPING",
-        "response construction status must be 'declared_branch_premise'",
-    )
-    require(
         "measurement_artifact" not in contract,
         "RESPONSE_ARTIFACT",
-        "measurement upgrades require a separately reviewed semantic artifact schema",
+        "measurement data enters only through the reviewed semantic artifact schema",
     )
 
     repairs = manifest.get("strict_descent_repairs")
@@ -443,17 +439,42 @@ def validate_manifest(
             f"repair record {row.get('repair_id')} is conflated with the current source",
         )
 
+    artifact_ref = manifest.get("semantic_response_artifact")
     model = manifest.get("construction_model")
-    allowed_models = (
-        ("charged_double_triplet", "abelian_record", "symmetric_record_control")
-        if allow_control_models
-        else ("charged_double_triplet",)
-    )
-    require(
-        model in allowed_models,
-        "RESPONSE_MODEL",
-        "the production packet must declare the charged_double_triplet algebraic construction",
-    )
+    if model is not None:
+        require(
+            allow_control_models,
+            "CONSTRUCTION_MODEL_STRING",
+            "the production current construction is derived from the bound "
+            "semantic artifact; construction-model strings are control-lane only",
+        )
+        require(
+            model
+            in ("charged_double_triplet", "abelian_record", "symmetric_record_control"),
+            "RESPONSE_MODEL",
+            "unknown control construction model",
+        )
+        require(
+            contract.get("status")
+            in ("declared_branch_premise", "source_bound_semantic_artifact"),
+            "RESPONSE_TYPING",
+            "control-lane response construction status is untyped",
+        )
+        artifact_ref = None
+        response_status = "declared_branch_premise"
+    else:
+        require(
+            isinstance(artifact_ref, Mapping),
+            "ARTIFACT_REFERENCE",
+            "a production manifest must bind the semantic response artifact",
+        )
+        require(
+            contract.get("status") == "source_bound_semantic_artifact",
+            "RESPONSE_TYPING",
+            "response construction status must be 'source_bound_semantic_artifact'",
+        )
+        model = "charged_double_triplet"
+        response_status = "source_bound_semantic_artifact"
 
     scales_raw = manifest.get("response_band_scales")
     require(isinstance(scales_raw, Mapping), "RESPONSE_SCALES", "response_band_scales is missing")
@@ -484,7 +505,8 @@ def validate_manifest(
         "axis_scales": axis_scales,
         "odd_axis_signs": [int(s) for s in odd_axis_signs_raw],
         "repair_ledger_rows": len(ledger),
-        "response_status": "declared_branch_premise",
+        "response_status": response_status,
+        "artifact_ref": artifact_ref,
     }
 
 
@@ -507,6 +529,432 @@ def load_carrier(manifest: Mapping[str, Any], base_dir: Path) -> tuple[Any, dict
         _CARRIER_CACHE[digest] = (carrier, group_row, plus, minus)
     carrier, group_row, plus, _ = _CARRIER_CACHE[digest]
     return carrier, group_row, plus, carrier_manifest
+
+
+# ---------------------------------------------------------------------------
+# Semantic response artifact binding (issue #599)
+# ---------------------------------------------------------------------------
+
+
+def parse_f5_text(value: Any, code: str) -> F5:
+    """Parse an exact Q(sqrt5) string: 'a', 'b*sqrt(5)', or 'a + b*sqrt(5)'."""
+
+    require(isinstance(value, str) and value.strip(), code, f"expected an exact Q(sqrt5) string, got {value!r}")
+    text = value.strip()
+    try:
+        if "sqrt(5)" not in text:
+            return F5(Fraction(text))
+        if "+" in text:
+            left, right = text.split("+", 1)
+            rational = Fraction(left.strip())
+        else:
+            left, right = "0", text
+            rational = Fraction(0)
+        radical = right.strip()
+        require(radical.endswith("*sqrt(5)"), code, f"malformed radical part in {value!r}")
+        coefficient = Fraction(radical[: -len("*sqrt(5)")])
+        return F5(rational, coefficient)
+    except (ValueError, ZeroDivisionError) as exc:
+        raise CertificateError(code, f"cannot parse exact Q(sqrt5) value {value!r}") from exc
+
+
+def artifact_self_hash(artifact: Mapping[str, Any]) -> str:
+    body = {key: value for key, value in artifact.items() if key != "artifact_sha256"}
+    return "sha256:" + sha256_json(body)
+
+
+def load_semantic_artifact(
+    artifact_ref: Mapping[str, Any],
+    base_dir: Path,
+    allow_control_models: bool,
+) -> dict[str, Any]:
+    if "value" in artifact_ref:
+        require(
+            allow_control_models,
+            "ARTIFACT_REFERENCE",
+            "inline artifacts are control-lane only; production binds a hash-pinned path",
+        )
+        artifact = artifact_ref["value"]
+    else:
+        path_raw = artifact_ref.get("path")
+        require(isinstance(path_raw, str), "ARTIFACT_REFERENCE", "semantic artifact path is missing")
+        path = Path(path_raw)
+        if not path.is_absolute():
+            path = base_dir / path
+        artifact = load_json(path)
+        declared = artifact_ref.get("artifact_sha256")
+        require(
+            isinstance(declared, str) and declared == artifact.get("artifact_sha256"),
+            "ARTIFACT_HASH",
+            "the manifest pin does not match the artifact self-hash field",
+        )
+    require(isinstance(artifact, Mapping), "ARTIFACT_SCHEMA", "the semantic artifact must be an object")
+    require(
+        artifact.get("schema") == ARTIFACT_SCHEMA,
+        "ARTIFACT_SCHEMA",
+        f"expected semantic artifact schema {ARTIFACT_SCHEMA}",
+    )
+    require(artifact.get("issue") == 599, "ARTIFACT_SCHEMA", "the semantic artifact must name issue 599")
+    require(
+        artifact.get("artifact_sha256") == artifact_self_hash(artifact),
+        "ARTIFACT_HASH",
+        "the artifact self-hash does not match its content",
+    )
+    return dict(artifact)
+
+
+ARTIFACT_BAND_ORDER = ("unit_band", "quintet_band", "frame_band", "kernel_band")
+ARTIFACT_SECTOR_DIMENSIONS = {
+    "unit_band": 1,
+    "quintet_band": 5,
+    "frame_band": 3,
+    "kernel_band": 3,
+}
+ARTIFACT_CHANNEL_VALUES = {
+    "unit_band": F5(5),
+    "quintet_band": F5(-1),
+    "frame_band": F5(0, 1),
+    "kernel_band": F5(0, -1),
+}
+
+
+def _adjacency_matrix(carrier: Any) -> RMat:
+    return [
+        [ONE if carrier.distances[i][j] == 1 else ZERO for j in range(12)]
+        for i in range(12)
+    ]
+
+
+def _recompute_isotypic_channels(carrier: Any) -> dict[str, RMat]:
+    """Exact spectral projectors of the carrier adjacency, recomputed here.
+
+    This is the paper-side recomputation of the artifact's central claim: the
+    measured incidence presents exactly the 1 + 3 + 3' + 5 sector structure
+    with Galois-paired triplet channels.
+    """
+
+    adjacency = _adjacency_matrix(carrier)
+    identity: RMat = [[ONE if i == j else ZERO for j in range(12)] for i in range(12)]
+    projectors: dict[str, RMat] = {}
+    for band in ARTIFACT_BAND_ORDER:
+        eigenvalue = ARTIFACT_CHANNEL_VALUES[band]
+        product = identity
+        for other_band in ARTIFACT_BAND_ORDER:
+            if other_band == band:
+                continue
+            other = ARTIFACT_CHANNEL_VALUES[other_band]
+            shifted = [
+                [adjacency[i][j] - (other if i == j else ZERO) for j in range(12)]
+                for i in range(12)
+            ]
+            product = rmul(product, shifted)
+            scale = (eigenvalue - other).inv()
+            product = [[scale * entry for entry in row] for row in product]
+        projectors[band] = product
+
+    residual = [[entry for entry in row] for row in identity]
+    for band, projector in projectors.items():
+        square = rmul(projector, projector)
+        require(
+            all(
+                (square[i][j] - projector[i][j]).is_zero()
+                for i in range(12)
+                for j in range(12)
+            ),
+            "ARTIFACT_SECTORS",
+            f"the recomputed {band} projector is not idempotent; the carrier "
+            "does not present the charged sector structure",
+        )
+        image = rmul(_adjacency_matrix(carrier), projector)
+        require(
+            all(
+                (
+                    image[i][j]
+                    - ARTIFACT_CHANNEL_VALUES[band] * projector[i][j]
+                ).is_zero()
+                for i in range(12)
+                for j in range(12)
+            ),
+            "ARTIFACT_SECTORS",
+            f"the recomputed {band} projector fails its eigenrelation",
+        )
+        trace = ZERO
+        for i in range(12):
+            trace = trace + projector[i][i]
+        require(
+            trace == F5(ARTIFACT_SECTOR_DIMENSIONS[band]),
+            "ARTIFACT_SECTORS",
+            f"the recomputed {band} sector dimension is not "
+            f"{ARTIFACT_SECTOR_DIMENSIONS[band]}",
+        )
+        residual = [
+            [residual[i][j] - projector[i][j] for j in range(12)] for i in range(12)
+        ]
+    require(
+        all(residual[i][j].is_zero() for i in range(12) for j in range(12)),
+        "ARTIFACT_SECTORS",
+        "the recomputed sector projectors do not resolve the identity",
+    )
+    frame_projector = projectors["frame_band"]
+    kernel_projector = projectors["kernel_band"]
+    require(
+        all(
+            (frame_projector[i][j].conj() - kernel_projector[i][j]).is_zero()
+            for i in range(12)
+            for j in range(12)
+        ),
+        "ARTIFACT_SECTORS",
+        "Galois conjugation does not pair the recomputed triplet sectors",
+    )
+    return projectors
+
+
+def bind_semantic_artifact(
+    artifact: Mapping[str, Any],
+    carrier: Any,
+    carrier_manifest: Mapping[str, Any],
+    verts: Sequence[Vec3],
+    matched: Sequence[tuple[int, ...]],
+    params: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Verify the semantic artifact against paper-side recomputation.
+
+    Returns the artifact-selected oriented frame assignment, the physical
+    refinement port maps, and the binding report for the receipt. Every
+    exact claim in the artifact is recomputed here before use.
+    """
+
+    binding = artifact.get("carrier_binding")
+    require(isinstance(binding, Mapping), "ARTIFACT_CARRIER", "carrier_binding block is missing")
+    require(
+        binding.get("carrier_manifest_sha256") == sha256_json(carrier_manifest),
+        "ARTIFACT_CARRIER",
+        "the artifact does not bind the pinned carrier manifest",
+    )
+    require(
+        list(binding.get("port_order", [])) == list(carrier.ports),
+        "ARTIFACT_CARRIER",
+        "the artifact port order does not match the carrier",
+    )
+    antipode_map = binding.get("antipode")
+    require(isinstance(antipode_map, Mapping), "ARTIFACT_CARRIER", "antipode map missing")
+    for position, port in enumerate(carrier.ports):
+        require(
+            antipode_map.get(port) == carrier.ports[carrier.antipode[position]],
+            "ARTIFACT_CARRIER",
+            "the artifact antipode map does not match the carrier",
+        )
+
+    basis = artifact.get("response_basis")
+    require(isinstance(basis, Mapping), "ARTIFACT_SECTORS", "response_basis block is missing")
+    require(
+        list(basis.get("sector_order", [])) == list(ARTIFACT_BAND_ORDER),
+        "ARTIFACT_SECTORS",
+        "the artifact sector order does not name the four response bands",
+    )
+    dimensions = basis.get("sector_dimensions")
+    require(
+        isinstance(dimensions, Mapping)
+        and {name: dimensions.get(name) for name in ARTIFACT_BAND_ORDER}
+        == ARTIFACT_SECTOR_DIMENSIONS,
+        "ARTIFACT_SECTORS",
+        "the artifact sector dimensions are not (1, 5, 3, 3)",
+    )
+    channels = basis.get("adjacency_channel_values")
+    require(isinstance(channels, Mapping), "ARTIFACT_SECTORS", "channel values missing")
+    _recompute_isotypic_channels(carrier)
+    for band in ARTIFACT_BAND_ORDER:
+        parsed = parse_f5_text(channels.get(band), "ARTIFACT_SECTORS")
+        require(
+            parsed == ARTIFACT_CHANNEL_VALUES[band],
+            "ARTIFACT_SECTORS",
+            f"the artifact {band} channel value does not match the recomputed spectrum",
+        )
+    pairing = basis.get("galois_pairing")
+    require(
+        isinstance(pairing, Mapping)
+        and pairing.get("frame_and_kernel_swapped_by_conjugation") is True
+        and pairing.get("unit_and_quintet_galois_stable") is True,
+        "ARTIFACT_SECTORS",
+        "the artifact does not record the recomputed Galois pairing",
+    )
+
+    orientation = artifact.get("orientation_convention")
+    require(isinstance(orientation, Mapping), "ARTIFACT_ORIENTATION", "orientation convention missing")
+    require(
+        orientation.get("block_map") == "(A,B,z) -> (z^-2 A, z^3 B)",
+        "ARTIFACT_ORIENTATION",
+        "the artifact block-map orientation does not match the corpus convention",
+    )
+    require(
+        ARTIFACT_CHANNEL_VALUES["frame_band"].is_positive()
+        and not ARTIFACT_CHANNEL_VALUES["kernel_band"].is_positive(),
+        "ARTIFACT_ORIENTATION",
+        "orientation invariant failed",
+    )
+
+    frame_map = artifact.get("port_vertex_frame")
+    require(isinstance(frame_map, Mapping), "ARTIFACT_FRAME", "port_vertex_frame is missing")
+    vertex_index = {tuple(v): position for position, v in enumerate(verts)}
+    psi: list[int] = []
+    for position, port in enumerate(carrier.ports):
+        coordinates = frame_map.get(port)
+        require(
+            isinstance(coordinates, list) and len(coordinates) == 3,
+            "ARTIFACT_FRAME",
+            f"port {port} lacks exact frame coordinates",
+        )
+        vector = tuple(parse_f5_text(text, "ARTIFACT_FRAME") for text in coordinates)
+        slot = vertex_index.get(vector)
+        require(
+            slot is not None,
+            "ARTIFACT_FRAME",
+            f"port {port} is not assigned a standard icosahedron vertex",
+        )
+        psi.append(slot)
+    require(
+        tuple(psi) in set(matched),
+        "ARTIFACT_FRAME",
+        "the artifact frame assignment is not an oriented incidence realization",
+    )
+
+    measured = artifact.get("measured_response")
+    require(isinstance(measured, Mapping), "ARTIFACT_CHANNELS", "measured_response missing")
+    potential = measured.get("potential_response")
+    require(isinstance(potential, Mapping), "ARTIFACT_CHANNELS", "potential response missing")
+    gram = rzeros(3, 3)
+    for position in range(12):
+        vertex = verts[psi[position]]
+        for i in range(3):
+            for j in range(3):
+                gram[i][j] = gram[i][j] + vertex[i] * vertex[j]
+    tight = F5(10, 2)
+    require(
+        all(
+            (gram[i][j] - (tight if i == j else ZERO)).is_zero()
+            for i in range(3)
+            for j in range(3)
+        ),
+        "ARTIFACT_CHANNELS",
+        "the recomputed tight-frame constant is not (10 + 2*sqrt(5))",
+    )
+    require(
+        parse_f5_text(potential.get("unit_channel_constant"), "ARTIFACT_CHANNELS") == tight
+        and parse_f5_text(potential.get("quintet_channel_constant"), "ARTIFACT_CHANNELS") == F5(2)
+        and potential.get("response_sign") == -1,
+        "ARTIFACT_CHANNELS",
+        "the artifact potential response does not match the recomputation",
+    )
+    rotation = measured.get("rotation_response")
+    require(isinstance(rotation, Mapping), "ARTIFACT_CHANNELS", "rotation response missing")
+    require(
+        rotation.get("incidence_automorphism_group_order") == 120
+        and rotation.get("commuting_incidence_automorphisms") == len(matched)
+        and rotation.get("response_sign") == 1,
+        "ARTIFACT_CHANNELS",
+        "the artifact rotation response does not match the recomputed group data",
+    )
+
+    derived = artifact.get("derived")
+    require(isinstance(derived, Mapping), "ARTIFACT_SCALES", "derived block missing")
+    require(
+        derived.get("construction") == "charged_double_triplet"
+        and derived.get("construction_provenance")
+        == "derived_from_measured_sector_structure",
+        "ARTIFACT_SCALES",
+        "the artifact construction is not derived from the measured sector structure",
+    )
+    derived_scales = derived.get("response_band_scales")
+    require(isinstance(derived_scales, Mapping), "ARTIFACT_SCALES", "derived scales missing")
+    expected_signs = {
+        "unit_band": -1,
+        "quintet_band": -1,
+        "frame_band": 1,
+        "kernel_band": 1,
+    }
+    for band in ARTIFACT_BAND_ORDER:
+        value = parse_rational(derived_scales.get(band), "ARTIFACT_SCALES")
+        require(value != 0, "ARTIFACT_SCALES", f"the derived {band} scale is zero")
+        sign = 1 if value > 0 else -1
+        require(
+            sign == expected_signs[band],
+            "ARTIFACT_ORIENTATION",
+            f"the derived {band} sign does not match the measured response sign",
+        )
+        manifest_scale = params["scales"][band]
+        require(
+            manifest_scale == value,
+            "COEFFICIENT_MISMATCH",
+            f"the manifest {band} coefficient does not equal the artifact-derived value",
+        )
+
+    refinement = artifact.get("physical_refinement_maps")
+    require(isinstance(refinement, Mapping), "ARTIFACT_REFINEMENT", "physical refinement maps missing")
+    rows = refinement.get("port_persistence_maps")
+    require(isinstance(rows, list) and rows, "ARTIFACT_REFINEMENT", "no physical refinement maps recorded")
+    port_maps: list[dict[str, Any]] = []
+    for row in rows:
+        require(isinstance(row, Mapping), "ARTIFACT_REFINEMENT", "malformed refinement row")
+        port_map = row.get("port_map")
+        require(
+            isinstance(port_map, list) and sorted(port_map) == list(range(12)),
+            "ARTIFACT_REFINEMENT",
+            "a physical refinement map is not a port permutation",
+        )
+        for i in range(12):
+            for j in range(12):
+                require(
+                    carrier.distances[i][j]
+                    == carrier.distances[port_map[i]][port_map[j]],
+                    "ARTIFACT_REFINEMENT",
+                    "a physical refinement map does not preserve the incidence",
+                )
+        body = {key: value for key, value in row.items() if key != "map_hash"}
+        require(
+            row.get("map_hash") == "sha256:" + sha256_json(body),
+            "ARTIFACT_REFINEMENT",
+            "a physical refinement map hash does not recompute",
+        )
+        port_maps.append(
+            {
+                "source_level": row.get("source_level"),
+                "target_level": row.get("target_level"),
+                "port_map": [int(v) for v in port_map],
+                "origin": row.get("origin"),
+            }
+        )
+
+    provenance = artifact.get("provenance")
+    require(isinstance(provenance, Mapping), "ARTIFACT_SCHEMA", "provenance block missing")
+    runtime = provenance.get("runtime_binding")
+    require(
+        isinstance(runtime, Mapping)
+        and runtime.get("spectrum_multiplicities") == [1, 3, 3, 5]
+        and runtime.get("equivariance_receipt") is True,
+        "ARTIFACT_SCHEMA",
+        "the artifact runtime binding does not certify the propagated dynamics",
+    )
+
+    return {
+        "psi": tuple(psi),
+        "port_maps": port_maps,
+        "report": {
+            "artifact_sha256": artifact.get("artifact_sha256"),
+            "producer": provenance.get("producer"),
+            "dynamics_sha256": runtime.get("dynamics_sha256"),
+            "carrier_manifest_sha256": binding.get("carrier_manifest_sha256"),
+            "sector_structure_recomputed": True,
+            "galois_pairing_recomputed": True,
+            "tight_frame_constant_recomputed": "10 + 2*sqrt(5)",
+            "frame_assignment_source": "artifact port_vertex_frame",
+            "derived_construction": derived.get("construction"),
+            "derived_response_band_scales": {
+                band: str(derived_scales.get(band)) for band in ARTIFACT_BAND_ORDER
+            },
+            "normalization_rule": derived.get("normalization_rule"),
+            "physical_refinement_map_count": len(port_maps),
+        },
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -937,7 +1385,17 @@ def certificate_payload(
 
     verts = standard_vertices()
     matched = orientation_matched_assignments(carrier, verts)
-    psi = matched[0]
+    artifact_binding: dict[str, Any] | None = None
+    if params["artifact_ref"] is not None:
+        artifact = load_semantic_artifact(
+            params["artifact_ref"], base, allow_control_models
+        )
+        artifact_binding = bind_semantic_artifact(
+            artifact, carrier, carrier_manifest, verts, matched, params
+        )
+        psi = artifact_binding["psi"]
+    else:
+        psi = matched[0]
     frame = FrameRealization(carrier, psi, verts)
 
     model_cls = MODELS[params["model"]]
@@ -1240,6 +1698,35 @@ def certificate_payload(
                 )
         naturality_maps.append({"source": item["source"], "target": item["target"], "intertwined": True})
 
+    # Physical refinement maps: every artifact-bound persistence map is a
+    # port permutation preserving the incidence and intertwined by K.
+    physical_naturality_maps = []
+    if artifact_binding is not None:
+        for row in artifact_binding["port_maps"]:
+            permutation = tuple(row["port_map"])
+            pi = model.implementer(permutation)
+            pi_dagger = tuple(cdagger(block) for block in pi)
+            ginv = inverse(permutation)
+            for field in BASIS_FIELDS:
+                moved = [field[ginv[p]] for p in range(12)]
+                left = model.generator(moved)
+                right = model.generator(field)
+                for b in range(len(pi)):
+                    conjugated = cmul(cmul(pi[b], right[b]), pi_dagger[b])
+                    require(
+                        c_is_zero(csub(left[b], conjugated)),
+                        "ARTIFACT_REFINEMENT",
+                        "a physical refinement map is not intertwined by the derived current lift",
+                    )
+            physical_naturality_maps.append(
+                {
+                    "source_level": row["source_level"],
+                    "target_level": row["target_level"],
+                    "origin": row["origin"],
+                    "intertwined": True,
+                }
+            )
+
     # Equivariant response moduli: dim Hom_A5(P12, g) via the permutation rank.
     fixed_point_squares = sum(sum(1 for p in range(12) if g[p] == p) ** 2 for g in plus)
     require(fixed_point_squares % 60 == 0, "MODULI_ARITHMETIC", "Burnside sum is not divisible by the group order")
@@ -1290,6 +1777,15 @@ def certificate_payload(
     }
     require(all(gate.values()), "GATE", "conditional algebraic gate did not pass")
 
+    bound = artifact_binding is not None
+    physical_gate = {
+        "response_model_source_bound": bound,
+        "response_coefficients_source_bound": bound,
+        "physical_refinement_intertwining_source_bound": bound
+        and bool(physical_naturality_maps),
+        "passed": bound and bool(physical_naturality_maps),
+    }
+
     return {
         "schema": RECEIPT_SCHEMA,
         "issue": 566,
@@ -1299,24 +1795,48 @@ def certificate_payload(
             "forbidden_dependency_hits": [],
             "uses_only": [
                 "certified twelve-port carrier packet",
-                "declared algebraic response construction",
+                (
+                    "hash-pinned semantic response artifact measured from the "
+                    "carrier dynamics"
+                    if bound
+                    else "declared algebraic response construction"
+                ),
                 "reversible response automorphism typing",
-                "four exact signed response coefficients",
+                (
+                    "four signed response coefficients determined by the artifact "
+                    "measurement channels"
+                    if bound
+                    else "four exact signed response coefficients"
+                ),
                 "irreversible strict-descent repair ledger (excluded from currents)",
             ],
         },
         "source_definedness": {
             "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
-            "operators": "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales",
+            "operators": (
+                "K built from the artifact-bound oriented frame, the Galois-twisted "
+                "kernel intertwiner, and the artifact-determined response scales"
+                if bound
+                else "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales"
+            ),
             "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
             "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
-            "refinement_maps": "the declared carrier tower maps, each intertwined by the current lift",
+            "refinement_maps": (
+                "the declared carrier tower maps and the artifact-bound physical "
+                "persistence maps, each intertwined by the current lift"
+                if bound
+                else "the declared carrier tower maps, each intertwined by the current lift"
+            ),
             "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
             "response_construction_status": params["response_status"],
-            "declared_branch_premise": "the charged-double-triplet construction and four signed A5-equivariant response coefficients",
+            "response_data_provenance": (
+                "measured by the semantic response artifact and recomputed here"
+                if bound
+                else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, declared"
+            ),
             "carrier_and_refinement_source_bound": True,
-            "response_model_declared_as_branch_premise": True,
-            "physical_response_source_bound": False,
+            "response_model_declared_as_branch_premise": not bound,
+            "physical_response_source_bound": bound,
             "algebraic_construction_verified": True,
         },
         "frame_realization": {
@@ -1325,10 +1845,20 @@ def certificate_payload(
             "orientation_matched_assignments": 60,
             "equivalence": "realizations form one proper orbit; exact band coefficients verified equal for an alternative orientation-matched realization",
             "canonical_assignment": list(psi),
+            "assignment_source": (
+                "semantic artifact port_vertex_frame"
+                if bound
+                else "first orientation-matched realization"
+            ),
             "axis_representatives": [carrier.ports[p] for p in frame.axis_reps],
         },
         "port_to_generator_map": {
             "model": params["model"],
+            "construction_provenance": (
+                "derived_from_bound_semantic_artifact"
+                if bound
+                else "declared_construction_model"
+            ),
             "signed_response_band_coefficients": {k: str(v) for k, v in params["scales"].items()},
             "injective": True,
             "image_real_dimension": image_rank,
@@ -1397,17 +1927,30 @@ def certificate_payload(
         "refinement": {
             "carrier_tower": refinement_row,
             "naturality": naturality_maps,
+            "physical_naturality": physical_naturality_maps,
             "natural": True,
         },
         "response_moduli": {
             "equivariant_lift_dimension": moduli_dimension,
             "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
-            "open_source_data": [
-                "signed unit-band response coefficient",
-                "signed quintet-band response coefficient",
-                "signed frame-band response coefficient",
-                "signed kernel-band response coefficient",
-            ],
+            "source_data_status": (
+                "determined_by_semantic_artifact" if bound else "open"
+            ),
+            "band_coefficient_provenance": (
+                {
+                    "unit_band": "potential response, tight-frame normalized, sign measured negative",
+                    "quintet_band": "potential response, centered axis normalized, sign measured negative",
+                    "frame_band": "rotation response on the +sqrt(5) triplet, sign measured positive",
+                    "kernel_band": "rotation response on the Galois conjugate triplet, sign measured positive",
+                }
+                if bound
+                else {
+                    "unit_band": "signed unit-band response coefficient (open)",
+                    "quintet_band": "signed quintet-band response coefficient (open)",
+                    "frame_band": "signed frame-band response coefficient (open)",
+                    "kernel_band": "signed kernel-band response coefficient (open)",
+                }
+            ),
         },
         "repair_response_distinction": {
             "reversible_response_automorphisms_define_currents": True,
@@ -1423,19 +1966,49 @@ def certificate_payload(
             "distinguished": True,
         },
         "conditional_algebraic_gate": {**gate, "passed": True},
-        "physical_source_gate": {
-            "response_model_source_bound": False,
-            "response_coefficients_source_bound": False,
-            "physical_refinement_intertwining_source_bound": False,
-            "passed": False,
-        },
+        "physical_source_gate": physical_gate,
+        "semantic_response_binding": (
+            artifact_binding["report"] if bound else None
+        ),
         "derivation_chain": [
             {
                 "step": 1,
-                "premise": "declared response manifest with firewall and repair/response typing",
+                "premise": (
+                    "response manifest with firewall, repair/response typing, and "
+                    "the hash-pinned semantic response artifact"
+                    if bound
+                    else "declared response manifest with firewall and repair/response typing"
+                ),
                 "uses": ["schema validation", "forbidden-token firewall", "reversible/irreversible typing split"],
                 "source_artifact": "manifests/port_current_response_reference.json",
-                "conclusion": "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents",
+                "conclusion": (
+                    "the production packet is admissible: the construction, "
+                    "coefficients, frame, and physical refinement maps enter "
+                    "through the bound artifact, and repairs are excluded from currents"
+                    if bound
+                    else "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents"
+                ),
+            },
+            {
+                "step": "1a",
+                "premise": "semantic response artifact measured from the carrier dynamics",
+                "uses": [
+                    "artifact self-hash and manifest pin",
+                    "paper-side recomputation of the isotypic sector projectors, Galois pairing, tight-frame constant, and rotation group data",
+                    "sign and coefficient equality between the manifest and the artifact",
+                ],
+                "source_artifact": (
+                    "manifests/charged_response_semantic_artifact.json"
+                    if bound
+                    else "absent: declared control lane"
+                ),
+                "conclusion": (
+                    "the charged response representation, the four signed "
+                    "coefficients, the oriented frame, and the physical refinement "
+                    "maps are determined by measured carrier structure"
+                    if bound
+                    else "no semantic artifact is bound; the physical source gate stays false"
+                ),
             },
             {
                 "step": 2,
@@ -1519,7 +2092,13 @@ def certificate_payload(
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_566_negative_controls.json",
-                "conclusion": "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; physical source binding remains open",
+                "conclusion": (
+                    "the conditional algebraic gate and the physical source gate "
+                    "pass on the artifact-bound reference packet and fail on every "
+                    "algebraic and artifact countermodel"
+                    if bound
+                    else "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; the physical source gate is false on the declared control lane"
+                ),
             },
         ],
         "factor_origins": {
@@ -1532,25 +2111,54 @@ def certificate_payload(
             "order_five_cosines_(-1+-sqrt5)/4": "traces of the order-five rotation implementers, Galois-paired across the two blocks",
         },
         "branch_scope": {
-            "branch": "declared echosahedral response branch",
+            "branch": (
+                "source-bound echosahedral response branch"
+                if bound
+                else "declared echosahedral response branch"
+            ),
             "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
-            "declared_response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements",
-            "not_claimed": "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group",
+            "response_data": (
+                "the charged-double-triplet construction and four signed "
+                "A5-equivariant response coefficients, determined by the bound "
+                "semantic artifact and recomputed here"
+                if bound
+                else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements"
+            ),
+            "not_claimed": (
+                "no statement about arbitrary OPH carriers, no laboratory "
+                "measurement of the response channels, and no identification "
+                "with the physical Standard Model gauge group"
+                if bound
+                else "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group"
+            ),
         },
         "acceptance_criteria_status": {
-            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": False,
+            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": bound,
             "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
             "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
             "coefficient_classification_distinguished_from_physical_current_realization": True,
             "no_measured_coupling_particle_assignment_or_standard_model_current_input": True,
         },
         "issue_closure_condition": {
-            "produced_locally": "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)",
-            "response_field_provenance": "declared_branch_premise",
+            "produced_locally": (
+                "the full-rank compact skew-adjoint commutator-closed current "
+                "lift with inner A5 action, derived from the bound semantic "
+                "response artifact with exact tower and physical-map covariance "
+                "over Q(sqrt5)"
+                if bound
+                else "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)"
+            ),
+            "response_field_provenance": params["response_status"],
             "conditional_algebraic_gate_passed": True,
-            "physical_source_realization_gate_passed": False,
-            "met_locally": False,
-            "remaining_producer": "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps",
+            "physical_source_realization_gate_passed": physical_gate["passed"],
+            "met_locally": physical_gate["passed"],
+            "remaining_producer": (
+                "none for the response representation; the laboratory "
+                "identification of the source-bound current with measured gauge "
+                "currents is tracked by the physical attachment lane (#569)"
+                if bound
+                else "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps"
+            ),
         },
         "dependency_acyclicity_note": {
             "upstream": [
@@ -1564,17 +2172,37 @@ def certificate_payload(
         },
         "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
-            "proves": "the conditional exact port-current algebra for the declared charged-double-triplet response construction",
-            "status": "proved_conditional_on_declared_response_representation",
-            "does_not_close": [
-                "PORT-CURRENT-INNER as a physical source-bound receipt",
-                "derivation or measurement of the response representation and coefficients from physical carrier response",
-                "physical refinement intertwining beyond the declared algebraic tower maps",
-                "block determinant balance and PORT-SPIN-LIFT",
-                "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
-                "matter attachment, family structure, and exterior package selection",
-                "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
-            ],
+            "proves": (
+                "the exact port-current algebra with the charged response "
+                "representation, coefficients, frame, and physical refinement "
+                "maps determined by the bound semantic artifact"
+                if bound
+                else "the conditional exact port-current algebra for the declared charged-double-triplet response construction"
+            ),
+            "status": (
+                "proved_on_source_bound_response_artifact"
+                if bound
+                else "proved_conditional_on_declared_response_representation"
+            ),
+            "does_not_close": (
+                [
+                    "laboratory measurement of the response channels and the physical attachment lane (#569)",
+                    "block determinant balance and PORT-SPIN-LIFT",
+                    "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
+                    "matter attachment, family structure, and exterior package selection",
+                    "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
+                ]
+                if bound
+                else [
+                    "PORT-CURRENT-INNER as a physical source-bound receipt",
+                    "derivation or measurement of the response representation and coefficients from physical carrier response",
+                    "physical refinement intertwining beyond the declared algebraic tower maps",
+                    "block determinant balance and PORT-SPIN-LIFT",
+                    "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
+                    "matter attachment, family structure, and exterior package selection",
+                    "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
+                ]
+            ),
         },
     }
 
@@ -1584,32 +2212,61 @@ def certificate_payload(
 # ---------------------------------------------------------------------------
 
 
-def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[str, Any], str]]:
+def _control_lane(manifest: Mapping[str, Any], model: str) -> dict[str, Any]:
+    """A declared-lane mutant exercising the algebraic countermodels."""
+
+    mutant = copy.deepcopy(manifest)
+    mutant["construction_model"] = model
+    mutant.pop("semantic_response_artifact", None)
+    return mutant
+
+
+def _mutated_artifact(
+    artifact: Mapping[str, Any], mutate: Callable[[dict[str, Any]], None], *, rehash: bool = True
+) -> dict[str, Any]:
+    mutated = copy.deepcopy(dict(artifact))
+    mutate(mutated)
+    if rehash:
+        mutated["artifact_sha256"] = artifact_self_hash(mutated)
+    return mutated
+
+
+def _with_inline_artifact(
+    manifest: Mapping[str, Any], artifact: Mapping[str, Any]
+) -> dict[str, Any]:
+    mutant = copy.deepcopy(manifest)
+    mutant["semantic_response_artifact"] = {"value": artifact}
+    return mutant
+
+
+def negative_control_cases(
+    manifest: Mapping[str, Any], base_dir: Path
+) -> list[tuple[str, dict[str, Any], str]]:
     cases: list[tuple[str, dict[str, Any], str]] = []
 
-    abelian = copy.deepcopy(manifest)
-    abelian["construction_model"] = "abelian_record"
-    cases.append(("abelian_record_model", abelian, "CENTER_NOT_ONE_DIMENSIONAL"))
+    cases.append(
+        ("abelian_record_model", _control_lane(manifest, "abelian_record"), "CENTER_NOT_ONE_DIMENSIONAL")
+    )
 
-    rank_deficient = copy.deepcopy(manifest)
+    rank_deficient = _control_lane(manifest, "charged_double_triplet")
     rank_deficient["response_band_scales"]["kernel_band"] = "0"
     cases.append(("rank_deficient_kernel_band", rank_deficient, "IMAGE_RANK_DEFICIENT"))
 
-    dead_center = copy.deepcopy(manifest)
+    dead_center = _control_lane(manifest, "charged_double_triplet")
     dead_center["response_band_scales"]["unit_band"] = "0"
     cases.append(("rank_deficient_dead_center", dead_center, "IMAGE_RANK_DEFICIENT"))
 
-    non_equivariant = copy.deepcopy(manifest)
+    non_equivariant = _control_lane(manifest, "charged_double_triplet")
     non_equivariant["even_quintet_axis_scales"] = ["2", "1", "1", "1", "1", "1"]
     cases.append(("non_equivariant_axis_response", non_equivariant, "COVARIANCE_BROKEN"))
 
-    uncommon_sign = copy.deepcopy(manifest)
+    uncommon_sign = _control_lane(manifest, "charged_double_triplet")
     uncommon_sign["odd_axis_signs"] = [1, 1, 1, 1, 1, -1]
     cases.append(("odd_axis_sign_not_common", uncommon_sign, "COVARIANCE_BROKEN"))
 
-    symmetric = copy.deepcopy(manifest)
-    symmetric["construction_model"] = "symmetric_record_control"
-    cases.append(("symmetric_record_pairing", symmetric, "SKEW_ADJOINTNESS_BROKEN"))
+    cases.append(
+        ("symmetric_record_pairing", _control_lane(manifest, "symmetric_record_control"), "SKEW_ADJOINTNESS_BROKEN")
+    )
 
     conflated = copy.deepcopy(manifest)
     conflated["strict_descent_repairs"]["ledger"][0]["defines_currents"] = True
@@ -1630,15 +2287,105 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     forbidden["downstream_hint"] = {"measured_coupling_target": "alpha_inverse"}
     cases.append(("inject_downstream_target", forbidden, "FORBIDDEN_DEPENDENCY"))
 
+    production_model_string = copy.deepcopy(manifest)
+    production_model_string["construction_model"] = "charged_double_triplet"
+    cases.append(
+        ("production_construction_model_string", production_model_string, "CONSTRUCTION_MODEL_STRING")
+    )
+    # This control runs in production mode: PRODUCTION_MODE_CASES below.
+
+    artifact_ref = manifest.get("semantic_response_artifact")
+    if isinstance(artifact_ref, Mapping) and "path" in artifact_ref:
+        artifact = load_semantic_artifact(artifact_ref, base_dir, False)
+
+        unrelated = copy.deepcopy(manifest)
+        unrelated["semantic_response_artifact"] = {
+            "value": {"schema": "unrelated.receipt.v1", "rows": []}
+        }
+        cases.append(("artifact_unrelated_json", unrelated, "ARTIFACT_SCHEMA"))
+
+        tampered = _mutated_artifact(
+            artifact,
+            lambda a: a["derived"].update(construction="abelian_record"),
+            rehash=False,
+        )
+        cases.append(
+            ("artifact_self_hash_tamper", _with_inline_artifact(manifest, tampered), "ARTIFACT_HASH")
+        )
+
+        wrong_carrier = _mutated_artifact(
+            artifact,
+            lambda a: a["carrier_binding"].update(carrier_manifest_sha256="0" * 64),
+        )
+        cases.append(
+            ("artifact_wrong_carrier", _with_inline_artifact(manifest, wrong_carrier), "ARTIFACT_CARRIER")
+        )
+
+        missing_sector = _mutated_artifact(
+            artifact,
+            lambda a: a["response_basis"]["sector_dimensions"].pop("kernel_band"),
+        )
+        cases.append(
+            ("artifact_missing_sector", _with_inline_artifact(manifest, missing_sector), "ARTIFACT_SECTORS")
+        )
+
+        def _swap_channels(a: dict[str, Any]) -> None:
+            channels = a["response_basis"]["adjacency_channel_values"]
+            channels["frame_band"], channels["kernel_band"] = (
+                channels["kernel_band"],
+                channels["frame_band"],
+            )
+
+        swapped = _mutated_artifact(artifact, _swap_channels)
+        cases.append(
+            ("artifact_orientation_swap", _with_inline_artifact(manifest, swapped), "ARTIFACT_SECTORS")
+        )
+
+        mismatched = _mutated_artifact(
+            artifact,
+            lambda a: a["derived"]["response_band_scales"].update(frame_band="7"),
+        )
+        cases.append(
+            ("artifact_coefficient_mismatch", _with_inline_artifact(manifest, mismatched), "COEFFICIENT_MISMATCH")
+        )
+
+        def _doctor_map(a: dict[str, Any]) -> None:
+            row = a["physical_refinement_maps"]["port_persistence_maps"][0]
+            doctored_map = list(range(12))
+            doctored_map[0], doctored_map[1] = doctored_map[1], doctored_map[0]
+            row["port_map"] = doctored_map
+            body = {key: value for key, value in row.items() if key != "map_hash"}
+            row["map_hash"] = "sha256:" + sha256_json(body)
+
+        doctored = _mutated_artifact(artifact, _doctor_map)
+        cases.append(
+            ("artifact_doctored_refinement_map", _with_inline_artifact(manifest, doctored), "ARTIFACT_REFINEMENT")
+        )
+
+        def _flip_sign(a: dict[str, Any]) -> None:
+            a["derived"]["response_band_scales"]["unit_band"] = "1"
+
+        sign_flip = _mutated_artifact(artifact, _flip_sign)
+        cases.append(
+            ("artifact_measured_sign_flip", _with_inline_artifact(manifest, sign_flip), "ARTIFACT_ORIENTATION")
+        )
+
     return cases
+
+
+PRODUCTION_MODE_CASES = {"production_construction_model_string"}
 
 
 def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
     results: list[dict[str, Any]] = []
-    for name, mutant, expected_code in negative_control_cases(manifest):
+    for name, mutant, expected_code in negative_control_cases(manifest, base_dir or MODULE_DIR):
         actual_code = "ACCEPTED"
         try:
-            certificate_payload(mutant, base_dir, allow_control_models=True)
+            certificate_payload(
+                mutant,
+                base_dir,
+                allow_control_models=name not in PRODUCTION_MODE_CASES,
+            )
         except CertificateError as exc:
             actual_code = exc.code
         require(
@@ -1673,8 +2420,13 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             "typing": {
                 "repair_conflation": "an irreversible strict-descent repair declared as a current source fails closed",
                 "relabeling_conflation": "a response contract not typed distinct from register relabeling fails closed",
-                "unsupported_measurement_upgrade": "measurement artifacts are rejected until a separately reviewed semantic schema exists",
+                "unsupported_measurement_upgrade": "measurement data outside the reviewed semantic artifact schema is rejected",
                 "firewall": "a measured-coupling target in the source manifest fails closed",
+            },
+            "artifact": {
+                "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
+                "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
+                "structure_binding": "missing sectors, swapped channel orientation, coefficient mismatch, measured-sign flips, and doctored refinement maps fail closed",
             },
         },
     }

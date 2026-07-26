@@ -1,0 +1,262 @@
+{
+  "artifact_sha256": "sha256:df13c745c468f4f887614fbe0f366cb17b4573e2229b731d7664f17079d44869",
+  "carrier_binding": {
+    "antipode": {
+      "p00": "p03",
+      "p01": "p02",
+      "p02": "p01",
+      "p03": "p00",
+      "p04": "p07",
+      "p05": "p06",
+      "p06": "p05",
+      "p07": "p04",
+      "p08": "p11",
+      "p09": "p10",
+      "p10": "p09",
+      "p11": "p08"
+    },
+    "axis_representatives": [
+      "p00",
+      "p01",
+      "p04",
+      "p05",
+      "p08",
+      "p09"
+    ],
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "incidence_edge_count": 30,
+    "port_order": [
+      "p00",
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09",
+      "p10",
+      "p11"
+    ]
+  },
+  "derived": {
+    "construction": "charged_double_triplet",
+    "construction_provenance": "derived_from_measured_sector_structure",
+    "even_quintet_axis_scales": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "normalization_rule": "each band scale is the measured channel response divided by its canonical normalizer: unit by the tight-frame constant (10 + 2*sqrt(5)), quintet by the centered axis constant 2, frame and kernel by the vertex coordinate isometry; signs are the measured response signs",
+    "odd_axis_signs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "response_band_scales": {
+      "frame_band": "1",
+      "kernel_band": "1",
+      "quintet_band": "-1",
+      "unit_band": "-1"
+    }
+  },
+  "issue": 599,
+  "measured_response": {
+    "potential_response": {
+      "coupling": "generator_perturbation_minus_i_diag_port_potential",
+      "quintet_channel_constant": "2",
+      "response_sign": -1,
+      "unit_channel_constant": "10 + 2*sqrt(5)"
+    },
+    "rotation_response": {
+      "commuting_incidence_automorphisms": 60,
+      "frame_transport": "vertex_coordinate_isometry",
+      "incidence_automorphism_group_order": 120,
+      "kernel_transport": "galois_conjugate_vertex_coordinate_isometry",
+      "orientation_preserving": true,
+      "response_sign": 1
+    }
+  },
+  "orientation_convention": {
+    "block_map": "(A,B,z) -> (z^-2 A, z^3 B)",
+    "faces": "every oriented face has positive determinant in the assigned frame",
+    "frame_band": "triplet sector with adjacency channel value +sqrt(5) in the oriented vertex frame",
+    "kernel_band": "Galois conjugate triplet sector with adjacency channel value -sqrt(5)"
+  },
+  "physical_refinement_maps": {
+    "equivariant_rotation_count": 60,
+    "levels_measured": 3,
+    "per_level_defect_port_count": 12,
+    "port_persistence_maps": [
+      {
+        "map_hash": "sha256:2cfcc7bdd91ccfc2ad34a2d55276b6449ac7fbdd5c0821a45a09fd5011c18ccf",
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "port_map": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "source_level": 0,
+        "target_level": 1
+      },
+      {
+        "map_hash": "sha256:a0cf3196b51423e7f032bf9422625784960f98ca5e19d7a1a1c7ab11a42da84e",
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "port_map": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "source_level": 0,
+        "target_level": 2
+      }
+    ],
+    "tower": "oph_fpe.core.icosahedral.build_geodesic_icosahedral_tower"
+  },
+  "port_vertex_frame": {
+    "p00": [
+      "0",
+      "1",
+      "1/2 + 1/2*sqrt(5)"
+    ],
+    "p01": [
+      "0",
+      "1",
+      "-1/2 + -1/2*sqrt(5)"
+    ],
+    "p02": [
+      "0",
+      "-1",
+      "1/2 + 1/2*sqrt(5)"
+    ],
+    "p03": [
+      "0",
+      "-1",
+      "-1/2 + -1/2*sqrt(5)"
+    ],
+    "p04": [
+      "1",
+      "1/2 + 1/2*sqrt(5)",
+      "0"
+    ],
+    "p05": [
+      "1",
+      "-1/2 + -1/2*sqrt(5)",
+      "0"
+    ],
+    "p06": [
+      "-1",
+      "1/2 + 1/2*sqrt(5)",
+      "0"
+    ],
+    "p07": [
+      "-1",
+      "-1/2 + -1/2*sqrt(5)",
+      "0"
+    ],
+    "p08": [
+      "1/2 + 1/2*sqrt(5)",
+      "0",
+      "1"
+    ],
+    "p09": [
+      "1/2 + 1/2*sqrt(5)",
+      "0",
+      "-1"
+    ],
+    "p10": [
+      "-1/2 + -1/2*sqrt(5)",
+      "0",
+      "1"
+    ],
+    "p11": [
+      "-1/2 + -1/2*sqrt(5)",
+      "0",
+      "-1"
+    ]
+  },
+  "provenance": {
+    "deterministic": true,
+    "producer": "oph_fpe.core.charged_response",
+    "runtime_binding": {
+      "coupling": "combinatorial_icosahedral_graph_laplacian",
+      "dynamics_module": "oph_fpe.core.echosahedral_dynamics",
+      "dynamics_sha256": "sha256:e112ed4262bf283c25a9ce1f0b7f33a1b7c06564eba97341280fe0903781a2bb",
+      "equivariance_receipt": true,
+      "evolution": "finite_unitary_exp_minus_i_u_gL",
+      "manifest_to_runtime_port_map": [
+        0,
+        2,
+        1,
+        3,
+        10,
+        8,
+        11,
+        9,
+        7,
+        6,
+        5,
+        4
+      ],
+      "reversibility_receipt": true,
+      "reversible_response_source": "finite_unitary_carrier_channel",
+      "runtime_tolerance": 5e-09,
+      "spectrum_multiplicities": [
+        1,
+        3,
+        3,
+        5
+      ]
+    }
+  },
+  "response_basis": {
+    "adjacency_channel_values": {
+      "frame_band": "0 + 1*sqrt(5)",
+      "kernel_band": "0 + -1*sqrt(5)",
+      "quintet_band": "-1",
+      "unit_band": "5"
+    },
+    "galois_pairing": {
+      "frame_and_kernel_swapped_by_conjugation": true,
+      "unit_and_quintet_galois_stable": true
+    },
+    "sector_dimensions": {
+      "frame_band": 3,
+      "kernel_band": 3,
+      "quintet_band": 5,
+      "unit_band": 1
+    },
+    "sector_order": [
+      "unit_band",
+      "quintet_band",
+      "frame_band",
+      "kernel_band"
+    ]
+  },
+  "schema": "oph.charged_response_semantic_artifact.v1"
+}
