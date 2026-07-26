@@ -39,7 +39,7 @@ def test_every_row_names_one_canonical_claim_and_class():
 
 def test_open_row_owner_outside_claim_gates_fails():
     ledger = live_ledger()
-    row = next(r for r in ledger["rows"] if r["selector_id"] == "physical_port_current_realization")
+    row = next(r for r in ledger["rows"] if r["selector_id"] == "z6_global_form_descent")
     row["owner_issues"] = [505]
     with pytest.raises(SystemExit, match="boundaries diverge"):
         ledger_tool.validate(ledger)
