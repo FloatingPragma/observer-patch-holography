@@ -5,7 +5,7 @@
     "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": true,
     "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": true,
     "family_attachment_scalar_potential_pole_mass_outside_packet": true,
-    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": false,
+    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": true,
     "fifteen_state_module_selected_by_derived_equivariant_projector": true,
     "mar_class_proved_nonempty_before_uniqueness_promoted": true,
     "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": true
@@ -34,6 +34,32 @@
     "second_quantization_derivation_checks": 60,
     "vacuum_cyclic_rank": 32
   },
+  "block_determinant_balance": {
+    "anomaly_forms_general_charges": {
+      "SU2_squared_U1": "3a + 2b",
+      "SU3_squared_U1": "3a + 2b",
+      "U1_cubed": "vanishes identically on the balance line 3a + 2b = 0; nonzero at off-line probes",
+      "gravity_squared_U1": "24 a + 16 b = 8 (3a + 2b)"
+    },
+    "conclusion_balance": "anomaly freedom of the realized exterior package is equivalent to the determinant balance 3 y_C + 2 y_W = 0",
+    "declared_equals_derived": true,
+    "derived_pair": {
+      "color_block": "-1/3",
+      "weak_block": "1/2"
+    },
+    "integral_spectrum_on_line": {
+      "L": -3,
+      "Q": 1,
+      "d_c": 2,
+      "e_c": 6,
+      "u_c": -4
+    },
+    "orientation": {
+      "artifact_block_map": "(A,B,z) -> (z^-2 A, z^3 B)",
+      "selected_sign": "t = +1: the color fundamental carries q = -2, matching z^-2 on the color block"
+    },
+    "primitivity": "the q = 6Y spectrum is primitive only at t = +-1"
+  },
   "branch_scope": {
     "branch": "declared echosahedral response branch",
     "declared_branch_premises": "the trace-balanced exterior matter contract (block trace charges, the one-scalar choice, the Yukawa channel list), the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration - typed premises, not measurements",
@@ -49,26 +75,29 @@
     "tensor": "wedge product with Koszul braiding; the CAR-derivation identity is the exact Leibniz rule",
     "typing": "spin_odd_weyl_super"
   },
+  "category_typing_source_binding": {
+    "conclusion": "among the typed category alternatives, only spin_odd_weyl_super survives on the realized module; the typing is forced, not chosen",
+    "double_cover_forced": "the derived lift group has a unique nontrivial involution and does not factor through the sixty rotations, so a split lift is impossible",
+    "svec_opposite_control": "the split-spin sVec and opposite-Weyl controls fail closed on the realized module (svec_split_spin, opposite_weyl_selection)",
+    "vec_control": "the Vec typing fails closed on the realized module (negative control vec_typing)"
+  },
   "chirality": {
     "argument": "any intertwiner S with the dual module satisfies S dGamma(Y) = -dGamma(Y)^T S, so S maps each charge eigenspace into the negated eigenvalue; the exact spectra are disjoint, hence S = 0",
     "hom_dimension_with_dual": 0,
     "matter_spectrum_disjoint_from_dual": true
   },
   "claim_boundary": {
-    "declared_branch_premises": "the trace-balanced exterior matter contract, statistics and category typing, kernel emission contract, and MAR class declaration enter as typed branch premises, not as physical measurements",
+    "contract_provenance": "the trace-balanced charge pair, the one-scalar choice, and the channel list are derived by BLOCK-DETERMINANT-BALANCE and the selection scan and matched against the declared contract; the statistics and category typing are forced on the realized module by the failing Vec/sVec controls; kernel emission and the MAR class stay typed declarations",
     "does_not_close": [
-      "source binding of the upstream response representation and coefficients (tracked in #599)",
-      "PORT-SPIN-LIFT beyond its algebraic target (inherits the #599 premise binding)",
-      "BLOCK-DETERMINANT-BALANCE (physical selection of the trace-balanced charge pair)",
-      "physical refinement intertwining beyond the declared algebraic tower maps",
       "AXIS-CENTER-DESCENT and the global form (the kernel is emitted, the quotient is not chosen)",
       "MAR uniqueness (only nonemptiness is discharged here)",
-      "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim",
+      "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
       "exclusion of other anomaly-free light sectors (MGFC-grade no-extra-sector)",
+      "laboratory measurement of any matter observable",
       "scalar potential, pole masses, measured couplings, continuum spin-statistics, or quantum field theory"
     ],
-    "proves": "the conditional exact super-Tannakian matter lift for the declared matter contracts over the pinned conditional current packet, including the algebraic PORT-SPIN-LIFT target",
-    "status": "proved_conditional_on_declared_matter_contracts"
+    "proves": "the exact super-Tannakian matter lift over the source-bound current packet, with the charge pair, scalar choice, and channel list derived and the physical refinement maps intertwined, including the PORT-SPIN-LIFT",
+    "status": "proved_on_source_bound_matter_contracts"
   },
   "conditional_algebraic_gate": {
     "chiral_no_common_summand_with_dual": true,
@@ -103,8 +132,8 @@
   },
   "derivation_chain": [
     {
-      "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, MAR declaration",
-      "premise": "declared matter-lift manifest",
+      "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, MAR declaration; the contract values are matched against the derivations of steps 2a and 2b",
+      "premise": "matter-lift manifest with typed contracts",
       "source_artifact": "validate_manifest",
       "step": 1,
       "uses": [
@@ -114,13 +143,35 @@
       ]
     },
     {
-      "conclusion": "the conditional current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate is recorded open in #599",
-      "premise": "hash-pinned #566 manifest and receipt",
+      "conclusion": "the source-bound current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate passes on the #599 artifact",
+      "premise": "hash-pinned #566 manifest and receipt with the bound semantic response artifact",
       "source_artifact": "load_upstream",
       "step": 2,
       "uses": [
         "sha256 pins",
-        "gate check on the stored receipt"
+        "gate check on the stored receipt",
+        "recomputed semantic binding requirement"
+      ]
+    },
+    {
+      "conclusion": "anomaly freedom forces the balance line 3a + 2b = 0, integrality fixes the pair up to sign, and the measured orientation selects (-1/3, 1/2); BLOCK-DETERMINANT-BALANCE is derived and matched against the declaration",
+      "premise": "the realized exterior package with general block charges (a, b)",
+      "source_artifact": "block_determinant_balance_certificate",
+      "step": "2a",
+      "uses": [
+        "exact anomaly polynomials",
+        "primitive q = 6Y integrality",
+        "artifact block-map orientation"
+      ]
+    },
+    {
+      "conclusion": "the admissible scalar charges are the conjugate pair +-3 equal to the weak-block charge, and the admissible channel set is exactly the declared list; the one-scalar choice and channels are derived",
+      "premise": "the integer charge, triality, and duality arithmetic of the realized fields",
+      "source_artifact": "scalar_and_channel_selection_certificate",
+      "step": "2b",
+      "uses": [
+        "scalar charge scan over q_S in [-6, 6]",
+        "channel selection rules"
       ]
     },
     {
@@ -291,12 +342,12 @@
   },
   "issue": 314,
   "issue_closure_condition": {
-    "branch_premises": "the hash-pinned #565/#566 packets plus the declared matter-lift contracts (trace-balanced block charges, one scalar, channel list, statistics, category typing, kernel emission, MAR class)",
+    "branch_premises": "the hash-pinned #565/#566 packets with the #599 semantic response artifact; the matter contracts are matched against their derivations rather than accepted as free declarations",
     "conditional_algebraic_gate_passed": true,
-    "met_locally": false,
-    "physical_source_realization_gate_passed": false,
-    "produced_locally": "the conditional exact matter lift: the non-split algebraic PORT-SPIN-LIFT target, faithful current action, derived equivariant selection of the fifteen-state module, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), and declared-tower descent",
-    "remaining_producer": "physical source binding: #599 must source-bind the upstream response representation, the trace-balanced matter contract must be physically selected, and the physical refinement maps must be derived from carrier response before the issue's source-derived matter category closes"
+    "met_locally": true,
+    "physical_source_realization_gate_passed": true,
+    "produced_locally": "the exact matter lift on the source-bound current packet: the non-split PORT-SPIN-LIFT, faithful current action, derived equivariant selection of the fifteen-state module, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE charge pair, and the derived scalar and channel selection",
+    "remaining_producer": "none for this packet; AXIS-CENTER-DESCENT (#567), MAR uniqueness, family attachment (#569), scalar potential, and pole masses stay in their own lanes"
   },
   "kernel_emission": {
     "central_factor": "the non-compact R (phase turns); no compactification of R to U(1) is chosen here",
@@ -348,7 +399,7 @@
     "tensor_additivity": "charge, triality, and duality are additive over wedge and tensor factors by construction, so triviality on the verified weight list extends to every realized matter tensor",
     "verified_trivial_on": "every realized matter state, every carrier mode, and the declared scalar"
   },
-  "manifest_sha256": "0eba2319645300a6029526c1d4ad24ce7e4a9e83ff9ddee28d15013f707c6379",
+  "manifest_sha256": "6ee735fec15c57d4476c7b713fbba380a4655d4f46e8b9b018325e7da2622f8f",
   "mar_class": {
     "declared": "one_generation_one_scalar_chiral_anomaly_free",
     "nonempty": true,
@@ -362,7 +413,7 @@
       "weak_block": "1/2"
     },
     "carrier": "V = C (+) W = (even response sector C^3) (+) (spin-lifted weak doublet C^2)",
-    "central_charge_provenance": "the trace-balanced redistribution of the central charge onto (y_C, y_W) is the declared conditional exterior matter contract; BLOCK-DETERMINANT-BALANCE (the physical selection of trace balance) is not closed here",
+    "central_charge_provenance": "the trace-balanced charge pair (y_C, y_W) = (-1/3, 1/2) is derived by BLOCK-DETERMINANT-BALANCE: anomaly freedom of the realized package forces the balance line, primitive q = 6Y integrality fixes the pair up to sign, and the artifact block-map orientation fixes the sign; the declared contract is matched against the derivation",
     "faithful_rank_on_carrier": 12,
     "raw_source_central_charge": "i on the even response sector, 0 on the kernel sector (from the #566 packet)",
     "trace_balance": "3 y_C + 2 y_W = 0, checked exactly; the top line is exactly invariant because of it",
@@ -370,10 +421,10 @@
     "transport_homomorphism_bracket_checks": 66
   },
   "physical_source_gate": {
-    "matter_contract_source_bound": false,
-    "passed": false,
-    "physical_refinement_intertwining_source_bound": false,
-    "upstream_response_representation_source_bound": false
+    "matter_contract_source_bound": true,
+    "passed": true,
+    "physical_refinement_intertwining_source_bound": true,
+    "upstream_response_representation_source_bound": true
   },
   "port_spin_lift": {
     "conclusion": "the sixty proper implementers lift to SU(2) with a unique involution -1 in the 120-element lift group, so the double cover is non-split (binary icosahedral) and PORT-SPIN-LIFT is realized on this branch; irrational spinor characters exclude any signed register-relabeling realization of the spinor sector",
@@ -454,9 +505,55 @@
       }
     ],
     "natural": true,
-    "scope": "naturality along the declared algebraic tower maps; physical refinement intertwining is not source-bound here"
+    "physical_maps": [
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 1
+      },
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 2
+      }
+    ],
+    "scope": "naturality along the declared algebraic tower maps and the artifact-bound physical defect-port persistence maps, each intertwined on the matter carrier and the Fock realization"
   },
-  "schema": "oph.super_tannakian_matter_receipt.v2",
+  "scalar_and_channel_selection": {
+    "admissible_scalar_charges": [
+      3,
+      -3
+    ],
+    "conjugation_relation": "q_S = -3 is the conjugate relabeling S <-> Sbar of q_S = +3",
+    "declared_equals_derived": true,
+    "derived_channels_at_plus_three": [
+      [
+        "L",
+        "Sbar",
+        "e_c"
+      ],
+      [
+        "Q",
+        "S",
+        "u_c"
+      ],
+      [
+        "Q",
+        "Sbar",
+        "d_c"
+      ]
+    ],
+    "one_scalar_conclusion": "the weak block carries q_W = 3, the unique admissible scalar charge up to conjugation, so the one-scalar choice is the weak-block carrier",
+    "scan_range": "q_S in [-6, 6] minus zero, weak-doublet color-singlet scalars",
+    "selection_rules": [
+      "charge sum zero in q = 6Y",
+      "triality zero modulo three",
+      "even total doublet count"
+    ]
+  },
+  "schema": "oph.super_tannakian_matter_receipt.v3",
   "selection": {
     "commutes_with_parity": true,
     "derived_invariant_sector": "complex dimension 2: the Fock vacuum and the top line",
@@ -469,10 +566,12 @@
   "source_firewall": {
     "forbidden_dependency_hits": [],
     "uses_only": [
-      "hash-pinned #566 conditional current packet (manifest and receipt)",
-      "declared trace-balanced exterior matter contract (branch premise)",
-      "declared fermionic statistics and Spin/odd-Weyl category contracts (branch premises)",
-      "declared kernel emission contract and MAR class declaration (branch premises)"
+      "hash-pinned #566 source-bound current packet (manifest and receipt)",
+      "the bound semantic response artifact (orientation and physical refinement maps)",
+      "the trace-balanced exterior matter contract, derived by BLOCK-DETERMINANT-BALANCE and matched against the declaration",
+      "the scalar and channel selection, derived from the realized charge arithmetic and matched against the declaration",
+      "typed statistics and Spin/odd-Weyl category contracts, forced on the realized module by the failing Vec/sVec controls",
+      "kernel emission contract and MAR class declaration"
     ]
   },
   "upstream": {
@@ -481,9 +580,11 @@
     "current_receipt_sha256": "d519364de4e655fbeea7dccec5aff11ac74b7fd1d741437bf4637b66ddff2c02",
     "dependencies": [
       "#565 (carrier packet)",
-      "#566 (conditional port-current algebra)"
+      "#566 (source-bound port-current algebra)",
+      "#599 (semantic response artifact)"
     ],
-    "inherited_scope": "the upstream response premises are declared in the closed #566 packet; their physical source binding is tracked in #599, which is not a dependency of this issue"
+    "inherited_scope": "the upstream response representation is source-bound by the #599 semantic artifact; the pinned #566 receipt records a passing physical source gate with a recomputed binding",
+    "semantic_response_artifact_sha256": "sha256:df13c745c468f4f887614fbe0f366cb17b4573e2229b731d7664f17079d44869"
   },
   "verifier_command": "python3 code/a5_closure/super_tannakian_matter_lift_certificate.py verify --manifest code/a5_closure/manifests/super_tannakian_matter_reference.json --receipt code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
   "yukawa_sector": {

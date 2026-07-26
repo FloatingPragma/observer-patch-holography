@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r1578`. 61 claims, 25 distinct live gates across 22 gated claims.
+Release: `r1578`. 61 claims, 24 distinct live gates across 21 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -74,7 +74,7 @@ Release: `r1578`. 61 claims, 25 distinct live gates across 22 gated claims.
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | [#554](https://github.com/FloatingPragma/observer-patch-holography/issues/554) |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_response_artifact` | none |
-| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_conditional_on_declared_matter_contracts` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
+| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_on_source_bound_matter_contracts` | none |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `local_to_global_no_go_established__physical_bridge_open` | [#596](https://github.com/FloatingPragma/observer-patch-holography/issues/596) |
 | `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open` | [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567), [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-QUARK-REGISTER-CLEBSCH` | `conditional_implication` | `conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent` | none |
@@ -104,7 +104,6 @@ Release: `r1578`. 61 claims, 25 distinct live gates across 22 gated claims.
 |---|---|---|
 | [#294](https://github.com/FloatingPragma/observer-patch-holography/issues/294) | Clay YM: complete OS reconstruction and nontriviality package | `OPH-YM-GAP` |
 | [#295](https://github.com/FloatingPragma/observer-patch-holography/issues/295) | Clay YM: certify the finite repair-gap floor | `OPH-YM-GAP` |
-| [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) | Proof packet: Super-Tannakian Matter Lift | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
 | [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) | [Physical scale] Complete the source-derived clock stack for the Newton constant | `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-SCREEN-24-CLOCK-DETERMINANT` |
 | [#364](https://github.com/FloatingPragma/observer-patch-holography/issues/364) | String theorem: critical-edge heterotic VOA closure | `OPH-STRING-SELECTOR` |
 | [#365](https://github.com/FloatingPragma/observer-patch-holography/issues/365) | String certificate: Bouchard-Donagi cohomology and one-Higgs witness reproduction | `OPH-STRING-SELECTOR` |

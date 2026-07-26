@@ -86,8 +86,8 @@
       "passed": true
     },
     {
-      "actual_error": "CURRENT_ACTION_NOT_FAITHFUL",
-      "expected_error": "CURRENT_ACTION_NOT_FAITHFUL",
+      "actual_error": "BLOCK_DETERMINANT_BALANCE",
+      "expected_error": "BLOCK_DETERMINANT_BALANCE",
       "name": "charge_dead_package",
       "passed": true
     },
@@ -95,6 +95,24 @@
       "actual_error": "TRACE_BALANCE",
       "expected_error": "TRACE_BALANCE",
       "name": "unbalanced_trace_charges",
+      "passed": true
+    },
+    {
+      "actual_error": "BLOCK_DETERMINANT_BALANCE",
+      "expected_error": "BLOCK_DETERMINANT_BALANCE",
+      "name": "non_primitive_balanced_pair",
+      "passed": true
+    },
+    {
+      "actual_error": "BLOCK_DETERMINANT_BALANCE",
+      "expected_error": "BLOCK_DETERMINANT_BALANCE",
+      "name": "orientation_conjugate_pair",
+      "passed": true
+    },
+    {
+      "actual_error": "SCALAR_SELECTION",
+      "expected_error": "SCALAR_SELECTION",
+      "name": "undeclared_forbidden_channel",
       "passed": true
     },
     {
@@ -117,6 +135,6 @@
     }
   ],
   "issue": 314,
-  "manifest_sha256": "0eba2319645300a6029526c1d4ad24ce7e4a9e83ff9ddee28d15013f707c6379",
-  "schema": "oph.super_tannakian_matter_negative_controls.v2"
+  "manifest_sha256": "6ee735fec15c57d4476c7b713fbba380a4655d4f46e8b9b018325e7da2622f8f",
+  "schema": "oph.super_tannakian_matter_negative_controls.v3"
 }

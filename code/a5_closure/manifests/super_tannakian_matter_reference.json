@@ -1,6 +1,6 @@
 {
-  "schema": "oph.super_tannakian_matter_manifest.v2",
-  "description": "Reference source packet for the super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose response representation is source-bound by the #599 semantic artifact. This manifest carries the trace-balanced exterior matter contract, the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration.",
+  "schema": "oph.super_tannakian_matter_manifest.v3",
+  "description": "Reference source packet for the super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose response representation is source-bound by the #599 semantic artifact. The trace-balanced charge pair, one-scalar choice, and channel list are matched against their derivations (BLOCK-DETERMINANT-BALANCE and the selection scan); the statistics and category typing are forced on the realized module; kernel emission and the MAR class stay typed declarations.",
   "current_manifest_path": "manifests/port_current_response_reference.json",
   "current_manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
   "current_receipt_path": "receipts/port_current_inner_reference.receipt.json",
@@ -29,7 +29,7 @@
       ]
     ],
     "extra_scalars": [],
-    "note": "trace balance 3*y_C + 2*y_W = 0 is checked arithmetically from the declared charge pair, not declared as a separate flag; the pair itself is a branch premise of the conditional exterior lane, not derived here"
+    "note": "the charge pair, scalar choice, and channel list must equal the values derived by BLOCK-DETERMINANT-BALANCE and the selection scan; a mismatched declaration fails closed"
   },
   "statistics_contract": {
     "matter_statistics": "fermionic_odd",
