@@ -255,11 +255,11 @@ it can enter a claim. A short-expression near hit is not a derivation.
 | `code/a5_closure/a5_screen_sm_closure.json` | `7f1e7122995ffc762724cdaea9b4c0bf29015ac421a1eb5c1e3058d2474ee247` |
 | `code/a5_closure/echosahedral_selector_certificate.py` | `857792a474f46dc8582627f65bad271e4f613365fe2f675a4b7d5dd353ebb2b6` |
 | `code/a5_closure/manifests/echosahedral_federation_reference.json` | `12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14` |
-| `code/a5_closure/manifests/port_current_response_reference.json` | `43ce1a9cf0a34679df3775c429f55a1cea62c4bff5caeb0a0627dc3ffdcc1aff` |
-| `code/a5_closure/port_current_inner_certificate.py` | `76b390d2dfc987581590f8f9ebc18c7047c9080ec1964df87749b5463d6e2e8e` |
+| `code/a5_closure/manifests/port_current_response_reference.json` | `b4385017e209fa3b9765e89fdf987089b555d0335572e95e09f6e38f826bc71a` |
+| `code/a5_closure/port_current_inner_certificate.py` | `a273a30bec5b0cfd9ea81610ab8ba4e1e4481858036d1c21d31fc0178a640b8c` |
 | `code/a5_closure/receipts/echosahedral_federation_reference.receipt.json` | `bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5` |
-| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `9f18cc7d107976f26435b9011fdd1aec5635cd744453322e07a355f2fb9a2fbb` |
-| `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `9c63f74158b723a26f447a510c369e10d407eed31f69e99a9aef8c6312a9d81a` |
+| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07` |
+| `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `c54f376dcc849b0ccdb2bc9b3fad1333aaaa89c03c699c1da493e38b4263d1a6` |
 | `code/a5_closure/survival_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/particles/data/flag_2024_light_quark_ratio_fixture.json` | `82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78` |
 | `code/particles/flavor/audit_quark_rscc_completion_candidate.py` | `584fcbeced8d26a6aba10f6490edd879f324e1bab2f77808cd76370aca467cfe` |

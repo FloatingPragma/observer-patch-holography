@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r1583`. 61 claims, 23 distinct live gates across 20 gated claims.
+Release: `r1584`. 61 claims, 23 distinct live gates across 20 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -73,8 +73,8 @@ Release: `r1583`. 61 claims, 23 distinct live gates across 20 gated claims.
 | `OPH-SM-Q4-OS-OBSERVABLE-SECTOR` | `conditional_implication` | `conditional_implication_defined__nonperturbative_G6_tower_open` | none |
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | none |
-| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_target_blind_carrier_impulse_readback` | none |
-| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `conditional_exact_matter_lift__fermionic_spin_source_and_scalar_economy_open` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
+| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_impulse_readback_artifact` | none |
+| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower` | none |
 | `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_chain__z6_arithmetic_on_declared_tensors__physical_global_form_and_family_attachment_open` | [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567), [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-QUARK-REGISTER-CLEBSCH` | `conditional_implication` | `conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent` | none |

@@ -317,7 +317,7 @@ CLOSED_OUT_OF_SCOPE_ISSUES: dict[int, dict[str, str]] = {
         "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157",
         "closed_status": "closed_not_planned_out_of_scope_computationally_blocked",
         "closure_note": (
-            "Closed as out-of-scope, not solved. Compact-paper hadron claims remain suppressed until "
+            "Closed as out-of-scope, not solved. Specialist-paper hadron claims remain suppressed until "
             "a working OPH backend emits the required nonperturbative QCD/hadron data."
         ),
     },

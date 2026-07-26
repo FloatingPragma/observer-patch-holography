@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "release_id": "r1583",
+  "release_id": "r1584",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -1189,7 +1189,7 @@
       ],
       "falsifier": "The target-blind delta/readback histories do not have one unique common shell-isolation solution, the recovered operator differs from the farthest-port permutation or the exact adjacency polynomial, centrality or the sector signs fail, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a declared refinement map is not intertwined, an abelian-record or rank-deficient model passes, or any doctored artifact/protocol passes the binding.",
       "scope_if_false": "The port-current algebra falls back to the coefficient-level trichotomy. The echosahedral selector and coefficient bracket remain separately assessable; laboratory gauge-current attachment is outside this finite carrier receipt.",
-      "status": "proved_on_source_bound_target_blind_carrier_impulse_readback",
+      "status": "proved_on_source_bound_impulse_readback_artifact",
       "claim_class": "conditional_implication",
       "gates": []
     },
@@ -1228,7 +1228,7 @@
       ],
       "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
       "scope_if_false": "The conditional matter-lift construction falls back to the representation-arithmetic exterior witness. The source-bound port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
-      "status": "conditional_exact_matter_lift__fermionic_spin_source_and_scalar_economy_open",
+      "status": "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
       "claim_class": "conditional_implication",
       "gates": [
         314
@@ -1257,8 +1257,8 @@
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
-        "../oph-physics-sim/oph_fpe/consensus/incidence_nerve_bridge.py",
-        "../oph-physics-sim/tests/test_incidence_nerve_bridge.py"
+        "https://github.com/muellerberndt/oph-physics-sim/blob/8147b5db117460a263d975a6c51bc963ee9b9e15/oph_fpe/consensus/incidence_nerve_bridge.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/8147b5db117460a263d975a6c51bc963ee9b9e15/tests/test_incidence_nerve_bridge.py"
       ],
       "falsifier": "The source incidence fails to produce the declared 12/30/20 nerve, any seam map fails the algebra homomorphism check, a face cocycle fails, a phase-induced repair leaves the seam set or loses confluence, the operational observer fails readback, record, feedback, prediction, or checkpoint replay, or the support map fails orientation or refinement naturality.",
       "scope_if_false": "The finite federation/support bridge falls. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",

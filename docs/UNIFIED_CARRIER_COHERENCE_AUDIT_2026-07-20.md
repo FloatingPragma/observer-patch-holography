@@ -3,7 +3,7 @@
 ## Scope
 
 This audit fixes the shared ontology and dependency order for the screen
-microphysics, consensus, compact Standard Model and relativity papers, and the
+microphysics, consensus, specialist Standard Model and relativity papers, and the
 corresponding book chapters. OPH is presentation-invariant and
 carrier-architecture-sensitive. A relabeling is silent when it preserves the
 complete observer-facing signature. Visible port incidence, response maps,

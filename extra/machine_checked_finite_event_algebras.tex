@@ -57,28 +57,25 @@ Pragma Research Inc., Washington, United States}
 \begin{abstract}
 Finite quantum measurement looks simple on paper: multiply matrices, take a
 trace, and normalize. In Lean, each step crosses a different interface and
-every side condition must be supplied. We build a Lean~4 library for
+every side condition must be supplied. This paper presents a Lean~4 library for
 projection events over finite complex matrix algebras. A projective partition
 defines a star-subalgebra of matrices that commute with its projectors and a
 complex-linear pinching map onto that subalgebra. The map is unital, positive,
 trace preserving, and idempotent; its range and fixed points are exactly the
-partition commutant, and it satisfies the bimodule law, Hilbert--Schmidt
-Pythagorean and contraction identities, and a trace-duality uniqueness
-theorem. A second expectation averages onto the commutative span of the
-partition. The two maps satisfy tower laws, the average preserves the Born
-statistics of the partition, and conditioning on a partition member commutes
-with averaging. L\"uders conditioning is available as a total matrix formula
-and as a typed state update; the fixed states are exactly the states
-assigning weight one to the event. A checked bound dominates every state
-expectation by the operator norm of the observable, which turns an
-operator-norm Tsirelson theorem, interoperable with Mathlib's
-Clauser-Horne-Shimony-Holt (CHSH) interface, into a state-level CHSH bound
-for projection events. We compare the library with Mathlib, Physlib,
-Lean-Quantum, Lean-QIT, and Isabelle/HOL, and we record the Mathlib gaps met
-during construction together with the workarounds that closed them. The
-artifact pins its Lean and Mathlib revisions and records declaration-level
-axiom dependencies. Complete positivity, a Physlib correspondence, rank-one
-classicality, and a CHSH sharpness witness are outside the formalization.
+partition commutant. It also satisfies the bimodule law,
+Hilbert--Schmidt Pythagorean and contraction identities, and a
+trace-duality uniqueness theorem.
+
+A second expectation averages onto the commutative span of the partition.
+The two maps satisfy tower laws, preserve the partition's Born statistics,
+and commute with conditioning on a partition member. L\"uders conditioning
+is available as a total matrix formula and a typed state update, with an
+exact fixed-state characterization. An operator-norm estimate lifts the
+Tsirelson theorem to a state-level
+Clauser--Horne--Shimony--Holt bound for projection events. The artifact pins
+its Lean and Mathlib revisions and records declaration-level axiom
+dependencies. Complete positivity, a Physlib correspondence, rank-one
+classicality, and a sharpness witness lie outside the formalization.
 \end{abstract}
 
 \noindent\textbf{Keywords:} formal verification, Lean~4, projective measurement,

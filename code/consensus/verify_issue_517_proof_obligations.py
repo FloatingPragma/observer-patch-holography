@@ -2893,9 +2893,15 @@ def separation_receipt() -> dict[str, Any]:
         and refinement["natural"] is True
         and all(row["intertwined"] for row in refinement["maps"])
     )
-    physical_source_gate_bound = (
-        matter_artifact["physical_source_gate"]["passed"] is True
-        and matter_artifact["block_determinant_balance"]["declared_equals_derived"]
+    matter_source_gate = matter_artifact["physical_source_gate"]
+    conditional_source_ancestry_bound = (
+        matter_source_gate["upstream_response_representation_source_bound"] is True
+        and matter_source_gate["charge_pair_derived_up_to_charge_conjugation"] is True
+        and matter_source_gate["conjugate_projector_pair_source_derived"] is True
+        and matter_source_gate["physical_refinement_intertwining_source_bound"] is True
+        and matter_artifact["block_determinant_balance"][
+            "declared_matches_derived_pair_up_to_conjugation"
+        ]
         is True
         and matter_artifact["upstream"]["semantic_response_artifact_sha256"]
         .startswith("sha256:")
@@ -2967,11 +2973,11 @@ def separation_receipt() -> dict[str, Any]:
                 rows["matter_realization"]["promoted"] is False
             ),
             "conditional_spin_lift_subreceipt_checked_separately": (
-                conditional_spin_checked and physical_source_gate_bound
+                conditional_spin_checked and conditional_source_ancestry_bound
             ),
             "conditional_refinement_stable_anomaly_subreceipt_checked_separately": (
                 conditional_refinement_stable_anomalies_checked
-                and physical_source_gate_bound
+                and conditional_source_ancestry_bound
             ),
         },
     }

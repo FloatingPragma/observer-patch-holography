@@ -105,10 +105,22 @@ class AuditTests(unittest.TestCase):
             (ROOT / "receipts" / "super_tannakian_matter_reference.receipt.json").read_text()
         )
         self.assertTrue(matter_receipt["conditional_algebraic_gate"]["passed"])
-        self.assertTrue(matter_receipt["physical_source_gate"]["passed"])
-        self.assertTrue(matter_receipt["issue_closure_condition"]["met_locally"])
+        self.assertFalse(matter_receipt["physical_source_gate"]["passed"])
+        self.assertFalse(matter_receipt["issue_closure_condition"]["met_locally"])
         self.assertTrue(
-            matter_receipt["block_determinant_balance"]["declared_equals_derived"]
+            matter_receipt["physical_source_gate"][
+                "upstream_response_representation_source_bound"
+            ]
+        )
+        self.assertTrue(
+            matter_receipt["physical_source_gate"][
+                "charge_pair_derived_up_to_charge_conjugation"
+            ]
+        )
+        self.assertTrue(
+            matter_receipt["block_determinant_balance"][
+                "declared_matches_derived_pair_up_to_conjugation"
+            ]
         )
 
         matter_claim = next(

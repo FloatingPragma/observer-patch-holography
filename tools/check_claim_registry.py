@@ -72,6 +72,9 @@ ESTABLISHMENT_WORDING = re.compile(
 
 ISSUE_SNAPSHOT_RELATIVE = Path("tracking") / "open_issues" / "open_problem_ledger.json"
 CLAIM_ID_TOKEN = re.compile(r"\bOPH-[A-Z0-9][A-Z0-9-]{2,}\b")
+PINNED_GITHUB_EVIDENCE = re.compile(
+    r"https://github\.com/[^/]+/[^/]+/blob/[0-9a-f]{40}/.+"
+)
 
 
 def load_json(path: Path) -> dict:
@@ -122,6 +125,17 @@ def check_exact_claim_id_projection(
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise SystemExit(message)
+
+
+def evidence_is_available(root: Path, evidence: str) -> bool:
+    """Accept repository files or immutable GitHub source links.
+
+    Cross-repository producers cannot exist in a clean checkout of this
+    repository. Their evidence links must therefore pin a full commit hash;
+    branch and tag URLs are mutable and remain invalid.
+    """
+
+    return (root / evidence).exists() or bool(PINNED_GITHUB_EVIDENCE.fullmatch(evidence))
 
 
 def release_id_from_tex(root: Path) -> str:
@@ -272,8 +286,8 @@ def main(root: Path = ROOT) -> None:
         )
         for evidence in claim["evidence"]:
             require(
-                (root / evidence).exists(),
-                f"{claim_id}: evidence path does not exist: {evidence}",
+                evidence_is_available(root, evidence),
+                f"{claim_id}: evidence path does not exist and pinned source URL is invalid: {evidence}",
             )
 
     check_snapshot_claim_tokens(snapshot, seen)
