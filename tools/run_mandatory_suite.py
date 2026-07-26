@@ -33,6 +33,10 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     ),
     ("Validate claim registry", [sys.executable, "tools/check_claim_registry.py"]),
     (
+        "Validate the selection ledger and its generated surface",
+        [sys.executable, "tools/build_selection_ledger.py", "--check"],
+    ),
+    (
         "Validate external-data provenance pins and declared source gaps",
         [sys.executable, "tools/check_external_data_provenance.py"],
     ),

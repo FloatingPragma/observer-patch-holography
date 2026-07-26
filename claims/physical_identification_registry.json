@@ -174,21 +174,157 @@
   ],
   "selector_menus": [
     {
-      "selector_id": "complete_discrete_selector_inventory",
-      "label": "complete menu inventory for every discrete selector consumed by a compression calculation",
-      "source": "docs/SELECTION_LEDGER.md",
+      "selector_id": "twelve_unit_port_splitting",
+      "label": "twelve-unit port splitting over the linear-cost minimizer menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 1352078,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "inverse_port_pairing_six_axes",
+      "label": "inverse port pairing over the fixed-point-free pairing menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 10395,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "icosahedral_screen_selector_port_frame",
+      "label": "oriented A5 port frame over the orientation menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 2,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "echosahedral_carrier_lineage",
+      "label": "echosahedral carrier lineage over the antipodal port families",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 3,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "mar_matter_class_one_higgs_witness",
+      "label": "declared economy class generation count N_g",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 3,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br0_cell_product_reading",
+      "label": "BR-0 cell product reading of the screen count",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 2,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "physical_port_current_realization",
+      "label": "current completion of the source reduct",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 2,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "z6_global_form_descent",
+      "label": "physical global form over the admissible quotient menu",
+      "source": "claims/selection_ledger.json",
       "status": "undeclared",
       "menu_size": null,
       "blocking_issues": [
-        554
+        567
       ]
+    },
+    {
+      "selector_id": "physical_matter_spin_lift",
+      "label": "matter spin lift over the split/non-split cover menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 2,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "screen_to_family_attachment",
+      "label": "screen-to-family attachment route",
+      "source": "claims/selection_ledger.json",
+      "status": "undeclared",
+      "menu_size": null,
+      "blocking_issues": [
+        569
+      ]
+    },
+    {
+      "selector_id": "capacity_closure_selector",
+      "label": "capacity-closure selector for the slack law",
+      "source": "claims/selection_ledger.json",
+      "status": "undeclared",
+      "menu_size": null,
+      "blocking_issues": [
+        505,
+        551
+      ]
+    },
+    {
+      "selector_id": "br1_reserve_semantics",
+      "label": "BR-1 reserve semantics",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 3,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br2_reserve_attachment",
+      "label": "BR-2 reserve attachment",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 2,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br3_readback_count_effect",
+      "label": "BR-3 readback count effect",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 4,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br4_subfederation_marking",
+      "label": "BR-4 observer/checkpoint subfederation marking",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 3,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br5_symmetry_quotient",
+      "label": "BR-5 symmetry quotient",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 3,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "br6_cap_read_family",
+      "label": "BR-6 Cap_read family",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 4,
+      "blocking_issues": []
     }
   ],
   "compression_bound": {
     "status": "not_computable",
     "reason": "menu_sizes_undeclared",
     "blocking_issues": [
-      554
+      505,
+      551,
+      567,
+      569
     ],
     "p_acc_upper_bound": null
   }

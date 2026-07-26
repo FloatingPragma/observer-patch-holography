@@ -1,0 +1,590 @@
+{
+  "schema": "oph.selection_ledger.v1",
+  "issue": 554,
+  "generated_surface": "docs/SELECTION_LEDGER.md",
+  "classes": ["forced", "exposed_premise", "open"],
+  "menu_note": "A menu records how many alternatives a selection passed over. Rows with a numeric menu feed the compression accounting in claims/physical_identification_registry.json. Rows whose declared object has no finite alternative enumeration carry a null menu, are excluded from compression accounting by construction, and are visible here and in the claim registry assumptions.",
+  "rows": [
+    {
+      "row": 1,
+      "selector_id": "twelve_unit_port_splitting",
+      "label": "Twelve-unit port splitting (all twelve port weights equal one)",
+      "class": "forced",
+      "conditional_on": ["echosahedral_carrier_lineage"],
+      "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Issue #565 closure packet (`code/a5_closure`): unique all-one total-12 allocation with exact floor 12, next floor 14, gap 2. Lean: `Lean/Screen/UnitSplit12.lean`, `unit_split_of_positive_sum`. Conditional on row 4.",
+      "menu": {
+        "size": 1352078,
+        "alternatives": "integer twelve-defect splittings that minimize a linear cost; 1,352,078 compositions survive a linear cost and the strictly superadditive cost selects the all-unit splitting uniquely",
+        "enumeration_source": "compact paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/echosahedral_selector_certificate.py",
+        "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json"
+      ],
+      "lean": [
+        {"module": "Lean/Screen/UnitSplit12.lean", "declaration": "unit_split_of_positive_sum"}
+      ],
+      "negative_controls": [
+        "removed primitive atoms leave a continuum of line decompositions",
+        "unequal port weights or total charge 13 destroy unique all-unit selection",
+        "a linear cost has 1,352,078 minimizers (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+      ]
+    },
+    {
+      "row": 2,
+      "selector_id": "inverse_port_pairing_six_axes",
+      "label": "Inverse port pairing and six axes",
+      "class": "forced",
+      "conditional_on": ["echosahedral_carrier_lineage"],
+      "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Issue #565 closure packet: unique distance-3 antipodal pairing and six axes on the port incidence, with negative controls. Conditional on row 4.",
+      "menu": {
+        "size": 10395,
+        "alternatives": "fixed-point-free pairings of twelve labels; 10,395 pairings exist without incidence and oriented incidence at distance three selects the antipodal pairing uniquely",
+        "enumeration_source": "compact paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/echosahedral_selector_certificate.py"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "labels without incidence admit 10,395 fixed-point-free pairings"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+      ]
+    },
+    {
+      "row": 3,
+      "selector_id": "icosahedral_screen_selector_port_frame",
+      "label": "Icosahedral screen selector and port frame (A5 action, rank-3 Gram frame)",
+      "class": "forced",
+      "conditional_on": ["echosahedral_carrier_lineage"],
+      "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Issue #565 closure packet: Aut+ isomorphic to A5, full Aut isomorphic to A5 x C2, Gram identity G^2 = 4G with trace 12. Lean: `Lean/Screen/PortFrameGram.lean`, `Lean/Screen/A5PortAction.lean` (kernel `decide`). Conditional on row 4.",
+      "menu": {
+        "size": 2,
+        "alternatives": "oriented A5 frame or orientation-forgetting A5 x C2 frame; the orientation receipt fixes the oriented class",
+        "enumeration_source": "compact paper selector-boundary remark (forgetting orientation restores A5 x C2)"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/echosahedral_selector_certificate.py",
+        "code/a5_closure/a5_selection_certificate.py"
+      ],
+      "lean": [
+        {"module": "Lean/Screen/PortFrameGram.lean", "declaration": null},
+        {"module": "Lean/Screen/A5PortAction.lean", "declaration": null}
+      ],
+      "negative_controls": [
+        "forgetting orientation restores A5 x C2",
+        "non-incidence or noncocyclic refinement maps break naturality"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+      ]
+    },
+    {
+      "row": 4,
+      "selector_id": "echosahedral_carrier_lineage",
+      "label": "Echosahedral carrier lineage (icosahedral geometry for the screen carrier)",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Declared quotient-visible carrier lineage of the #565 selector; the packet does not derive that every OPH carrier is echosahedral. Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyChargeReconstruction`) proves the bare total-charge reduct cannot force the choice, so a declared premise is the exact boundary.",
+      "menu": {
+        "size": 3,
+        "alternatives": "tetrahedral, octahedral, icosahedral antipodal port families",
+        "enumeration_source": "docs/SELECTION_LEDGER.md row 4 declaration; Cohn-Kumar and tomography cross-checks in the compact paper"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/echosahedral_selector_certificate.py"
+      ],
+      "lean": [
+        {"module": "Lean/Screen/PhysicalA5ForcingNoGo.lean", "declaration": "noSourceOnlyChargeReconstruction"}
+      ],
+      "negative_controls": [
+        "the bare total-charge reduct admits non-echosahedral completions (`noSourceOnlyChargeReconstruction`)"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+      ]
+    },
+    {
+      "row": 5,
+      "selector_id": "compact_gauge_refinement_receipt",
+      "label": "Compact-gauge refinement receipt",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-GAUGE-D7-D9",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Declared in the D7 antecedent of the compact paper and the synthesis paper: cofinal tail with coherent surjective charge pullbacks, finite block embeddings, tensor realizations, 3+1D symmetry, and compatible forgetful fibers.",
+      "menu": {
+        "size": null,
+        "alternatives": "declared receipt object; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
+        "enumeration_source": null
+      },
+      "compression_input": false,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "the classification-versus-realization proposition records that no step of the receipt names Standard Model data"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "def:compact-gauge-refinement-receipt"}
+      ]
+    },
+    {
+      "row": 6,
+      "selector_id": "mar_matter_class_one_higgs_witness",
+      "label": "MAR matter class with the one-generation/one-Higgs witness (N_g = 3 as least economy value)",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-GAUGE-D7-D9",
+      "secondary_claim_ids": ["OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"],
+      "owner_issues": [],
+      "where": "Minimal admissible realization is axiom five; the low-energy packet with the one-generation/one-Higgs chiral witness is declared in the D8/D9 antecedents. The packet admits 3 <= N_g <= 5 and selects N_g = 3 as the least value of the declared economy class.",
+      "menu": {
+        "size": 3,
+        "alternatives": "N_g in {3, 4, 5} within the declared economy class",
+        "enumeration_source": "compact paper cor:ng"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/super_tannakian_matter_lift_certificate.py"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "MAR uniqueness promotion is rejected by the matter-lift verifier (`MAR_UNIQUENESS_PROMOTION`)",
+        "the equal-MAR-score quark counterfamily exhibits nonuniqueness of flavor closure"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "ax:mar"},
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "cor:ng"}
+      ]
+    },
+    {
+      "row": 7,
+      "selector_id": "z6_reserve_pricing_input",
+      "label": "Z6 reserve pricing input l_shared = P/4",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-CHI-NU",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Declared branch input to the reserve-trace theorem (`thm:z6-reserve-trace`, screen microphysics paper); every downstream reserve number inherits it.",
+      "menu": {
+        "size": null,
+        "alternatives": "declared continuous input; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
+        "enumeration_source": null
+      },
+      "compression_input": false,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "the presence and poisson readings of the same reserve trace are both carried and are separated at branch axis BR-1"
+      ],
+      "paper_anchors": [
+        {"file": "paper/screen_microphysics_and_observer_synchronization.tex", "anchor": "thm:z6-reserve-trace"}
+      ]
+    },
+    {
+      "row": 8,
+      "selector_id": "br0_cell_product_reading",
+      "label": "BR-0: cell product reading of the screen count",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-GR-D6-CAPACITY",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "`code/capacity_readback/F_CONSTRUCTION_2026-07-14.md`, Step 2: reading (i) is the only executable reading and is carried with its warning as an inherited hypothesis; it reproduces the declared screen dimension exactly.",
+      "menu": {
+        "size": 2,
+        "alternatives": "reading (i) treats the cells as independent record carriers; reading (ii) refuses the product structure and derives no count",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 2"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "reading (ii) is recorded as the fallback interpretation and ends the run without a configuration count"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 9,
+      "selector_id": "publicness_policy",
+      "label": "Publicness policy",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-GR-D6-CAPACITY",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Frozen publicness policy declared in the finite closure construction of the synthesis paper; deriving it from source objects belongs to the issue #505 program.",
+      "menu": {
+        "size": null,
+        "alternatives": "frozen policy object; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
+        "enumeration_source": null
+      },
+      "compression_input": false,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "the readback no-go proves local checkpoint marginals cannot replace the policy (`OPH-GR-D6-READBACK-NOGO`)"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 10,
+      "selector_id": "scheduler_selection_fair_block",
+      "label": "Scheduler selection (fair-block contraction branch)",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-CONS-D1",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Declared in the consensus-paper fair-block antecedent, where the implementation supplies the contraction data for the statement.",
+      "menu": {
+        "size": null,
+        "alternatives": "declared branch with continuous contraction data; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
+        "enumeration_source": null
+      },
+      "compression_input": false,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "schedule independence of the repair normal form is the D1 theorem itself; the scheduler premise only selects the fairness class"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 11,
+      "selector_id": "quantitative_closure_map_declaration",
+      "label": "Quantitative closure map declaration (pixel closure)",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-ALPHA-PIXEL",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "Each candidate closure map is declared before evaluation; the interval certificate proves exactly one fixed point per declared map on the physical domain (compact proof, certificate C1). The physical Thomson identification is a separate receipt.",
+      "menu": {
+        "size": null,
+        "alternatives": "per declared map; the map space has no finite alternative enumeration, so the row is a theorem antecedent and not a compression-menu input",
+        "enumeration_source": null
+      },
+      "compression_input": false,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "the pixel constant-substitution scan in the null-model scorecard tests adverse constant substitutions without promoting any favorable null"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 12,
+      "selector_id": "physical_port_current_realization",
+      "label": "Physical port-current realization",
+      "class": "open",
+      "conditional_on": ["echosahedral_carrier_lineage"],
+      "canonical_claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
+      "secondary_claim_ids": ["OPH-SCREEN-A5-SM-RECOGNITION"],
+      "owner_issues": [599],
+      "where": "Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyCurrentReconstruction`) proves port count and total charge cannot select it, and the exact finite non-identifiability certificate exhibits two inequivalent current completions of the same source reduct. The source binding of the charged response representation and its four signed coefficients is the outstanding producer of issue #599; the #566 packet is its conditional input.",
+      "menu": {
+        "size": 2,
+        "alternatives": "two inequivalent current completions of the same source reduct; a bound semantic response artifact determines one",
+        "enumeration_source": "code/a5_closure/survival_boundary_certificates.py, source_completion_nonuniqueness_certificate"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/port_current_inner_certificate.py",
+        "code/a5_closure/survival_boundary_certificates.py"
+      ],
+      "lean": [
+        {"module": "Lean/Screen/PhysicalA5ForcingNoGo.lean", "declaration": "noSourceOnlyCurrentReconstruction"}
+      ],
+      "negative_controls": [
+        "abelian-record and symmetric-record control models fail the production verifier",
+        "the register-relabeling no-go separates response data from register relabeling"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "prop:obstruction-neutrality"}
+      ]
+    },
+    {
+      "row": 13,
+      "selector_id": "z6_global_form_descent",
+      "label": "Determinant, spin, loop, axis, and refinement descent to the physical Z6 global form",
+      "class": "open",
+      "conditional_on": ["physical_matter_spin_lift"],
+      "canonical_claim_id": "OPH-GAUGE-D7-D9",
+      "secondary_claim_ids": [],
+      "owner_issues": [567],
+      "where": "Abstract six-axis quotient arithmetic is proved in Lean `Z6Exact.lean` and the tensor-spin kernel in `TraceBalancedKernel.lean`; the physical cocharacter-lattice descent, the exact line spectrum, and the four-global-forms negative control are the target of issue #567.",
+      "menu": {
+        "size": null,
+        "alternatives": "the admissible global-form menu awaits the four-global-forms negative control of issue #567",
+        "enumeration_source": null
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/a5_screen_sm_closure.py"
+      ],
+      "lean": [
+        {"module": "Lean/Screen/Z6Exact.lean", "declaration": "quotientEquivZMod6"},
+        {"module": "Lean/Screen/TraceBalancedKernel.lean", "declaration": "kernel_cyclic"}
+      ],
+      "negative_controls": [
+        "the four-global-forms negative control is a required deliverable of issue #567"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "prop:z6"}
+      ]
+    },
+    {
+      "row": 14,
+      "selector_id": "physical_matter_spin_lift",
+      "label": "Physical matter spin lift",
+      "class": "open",
+      "conditional_on": ["physical_port_current_realization"],
+      "canonical_claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
+      "secondary_claim_ids": [],
+      "owner_issues": [314],
+      "where": "The cover-level matter tensors, the non-split binary-icosahedral spin lift, and the emitted action kernel are receipt-checked conditionally; the physical source binding of the matter contracts is the target of issue #314, feeding row 13.",
+      "menu": {
+        "size": 2,
+        "alternatives": "split SO(3) port lift or non-split binary icosahedral lift; the spin-lift certificate forces the non-split cover",
+        "enumeration_source": "code/a5_closure/super_tannakian_matter_lift_certificate.py, spin_lift_certificate"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/a5_closure/super_tannakian_matter_lift_certificate.py",
+        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "fifteen typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls",
+        "the representation-arithmetic route is rejected as realization (`REALIZATION_NOT_OPERATOR`)"
+      ],
+      "paper_anchors": [
+        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:screen-exterior-sm-witness"}
+      ]
+    },
+    {
+      "row": 15,
+      "selector_id": "screen_to_family_attachment",
+      "label": "Screen-to-family attachment (rank-45 map to three rank-15 families)",
+      "class": "open",
+      "conditional_on": ["physical_matter_spin_lift"],
+      "canonical_claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
+      "secondary_claim_ids": [],
+      "owner_issues": [569],
+      "where": "The canonical lowest rank-three screen band exists; its source-derived complex-linear attachment to the physical matter-pole residue space is the target of issue #569. The exact 31-axis spectrum excludes only direct real-3D residual-axis equality with the Cabibbo angle.",
+      "menu": {
+        "size": null,
+        "alternatives": "the attachment menu is not enumerated; spinorial, broken-symmetry, and general overlap routes are open",
+        "enumeration_source": null
+      },
+      "compression_input": true,
+      "receipts": [],
+      "lean": [],
+      "negative_controls": [
+        "the 31-axis icosahedral no-go excludes the direct real-3D residual-axis route"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 16,
+      "selector_id": "capacity_closure_selector",
+      "label": "Capacity-closure selector (exact finite-size slack law with one physical zero)",
+      "class": "open",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-GR-D6-CAPACITY",
+      "secondary_claim_ids": ["OPH-Q-PN-CLOSURE"],
+      "owner_issues": [505, 551],
+      "where": "Source-only correctable public-record closure and the unique slack zero are the targets of issues #505 and #551.",
+      "menu": {
+        "size": null,
+        "alternatives": "the closure-selector menu is not enumerated before the slack law exists",
+        "enumeration_source": null
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "the readback no-go proves capacity is not determined by the terminal quotient normal form and local checkpoint marginals"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 17,
+      "selector_id": "br1_reserve_semantics",
+      "label": "BR-1: reserve semantics",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 3,
+        "alternatives": "poisson survival e^(-P/24), presence survival 1 - P/24, or no exclusion",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 3"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "the menu was declared with the fifth bridge reading and the CAP-B family barred before evaluation"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 18,
+      "selector_id": "br2_reserve_attachment",
+      "label": "BR-2: reserve attachment",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 2,
+        "alternatives": "one reserve unit per equal-area cell, or reserve priced on the 3K shared edges",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 3"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "the menu was declared with the fifth bridge reading and the CAP-B family barred before evaluation"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 19,
+      "selector_id": "br3_readback_count_effect",
+      "label": "BR-3: count effect of the readback record",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 4,
+        "alternatives": "port multiplicity X+, delta constraint X0, record cost X-, write plus check cost X=",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 4"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "the fifth reading (electroweak bridge, CAP-B) is excluded pre-evaluation under V-08 and never executed"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 20,
+      "selector_id": "br4_subfederation_marking",
+      "label": "BR-4: observer/checkpoint subfederation marking",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 3,
+        "alternatives": "unmarked K0, one marked chain K1, chain plus checkpoint K2",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 5"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "readings with one chain per port or per face-corner flag import undeclared structure and are recorded, not executed"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 21,
+      "selector_id": "br5_symmetry_quotient",
+      "label": "BR-5: symmetry quotient",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 3,
+        "alternatives": "A5 quotient S-, quotient representatives S0, flag multiplicity S+",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 6"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "the menu was declared with the fifth bridge reading and the CAP-B family barred before evaluation"
+      ],
+      "paper_anchors": []
+    },
+    {
+      "row": 22,
+      "selector_id": "br6_cap_read_family",
+      "label": "BR-6: Cap_read family",
+      "class": "open",
+      "conditional_on": ["capacity_closure_selector"],
+      "canonical_claim_id": "OPH-Q-PN-CLOSURE",
+      "secondary_claim_ids": [],
+      "owner_issues": [551],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "menu": {
+        "size": 4,
+        "alternatives": "CAP-L log-count readback and three declared alternative Cap_read families; CAP-B is barred before evaluation",
+        "enumeration_source": "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md, Step 7"
+      },
+      "compression_input": true,
+      "receipts": [
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+      ],
+      "lean": [],
+      "negative_controls": [
+        "CAP-B (electroweak bridge readback) is excluded pre-evaluation under V-08 and recorded, never executed"
+      ],
+      "paper_anchors": []
+    }
+  ]
+}

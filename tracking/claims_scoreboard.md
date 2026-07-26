@@ -19,7 +19,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 ## Compression-bound state
 
-`compression_bound: not_computable - menu sizes undeclared (#554)`
+`compression_bound: not_computable - menu sizes undeclared (#505, #551, #567, #569)`
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
