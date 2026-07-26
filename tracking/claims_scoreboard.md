@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r1578`. 61 claims, 23 distinct live gates across 21 gated claims.
+Release: `r1578`. 61 claims, 22 distinct live gates across 20 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -72,7 +72,7 @@ Release: `r1578`. 61 claims, 23 distinct live gates across 21 gated claims.
 | `OPH-SM-Q3-BV-RESTORATION` | `conditional_implication` | `conditional_formal_theorem_defined__oph_restoration_and_validation_open` | none |
 | `OPH-SM-Q4-OS-OBSERVABLE-SECTOR` | `conditional_implication` | `conditional_implication_defined__nonperturbative_G6_tower_open` | none |
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
-| `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | [#554](https://github.com/FloatingPragma/observer-patch-holography/issues/554) |
+| `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | none |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_response_artifact` | none |
 | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_on_source_bound_matter_contracts` | none |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `local_to_global_no_go_established__physical_bridge_open` | [#596](https://github.com/FloatingPragma/observer-patch-holography/issues/596) |
@@ -113,7 +113,6 @@ Release: `r1578`. 61 claims, 23 distinct live gates across 21 gated claims.
 | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) | [Charged leptons] Derive the physical Yukawa landing and determinant attachment | `OPH-KOIDE-CIRCULANT-IDENTITY` |
 | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) | [N-Higgs bridge] Identify the common screen/electroweak load carrier | `OPH-HIER-EW` |
 | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) | [N closure selector] Derive the exact finite-size slack law and unique zero | `OPH-Q-PN-CLOSURE` |
-| [#554](https://github.com/FloatingPragma/observer-patch-holography/issues/554) | [Structural selections] Derive or expose every discrete selector | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` |
 | [#560](https://github.com/FloatingPragma/observer-patch-holography/issues/560) | [Chi-nu math] Derive coherent repair charge, signed control, and device-force receipts | `OPH-CHI-NU` |
 | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) | [Rotor program] Derive the repair-charge dark sector from finite OPH | `OPH-DM-CONT` |
 | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) | [A5 matter] Attach the icosahedral screen action to three physical families | `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION` |
