@@ -397,7 +397,7 @@ def build_artifact(
         },
         "minimal_future_cut": {
             "routes": [
-                "physical source binding of the response representation (#599) followed by physical Z6 descent (#567)",
+                "laboratory-current attachment (#569), physical matter typing (#314), and physical global-form selection (#567)",
                 "source-derived attachment of the icosahedral screen action to three physical families (#569)",
                 "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline",
             ],

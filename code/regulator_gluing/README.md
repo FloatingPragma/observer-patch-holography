@@ -1,6 +1,6 @@
 # Regulator Gluing Evidence Bundle
 
-Machine gate for the quantum regulator gluing datum of the compact paper
+Machine gate for the quantum regulator gluing datum of the specialist derivation papers
 (Definition `def:qregdatum`, Proposition `prop:regulatedrealization`,
 Lemma `lem:qregdatum-realized`). It implements the acceptance test of
 paper-audit finding 003 (issue #529):
@@ -80,4 +80,4 @@ The gate certifies the declared finite-dimensional gluing datum and its
 composition laws at fixed cutoff. It does not certify continuum limits,
 channel-typed (non-isomorphism) transitions, or the genuinely noncentral
 crossed-module branch, which is carried by the higher-gauge theorems of the
-compact paper.
+specialist derivation papers.

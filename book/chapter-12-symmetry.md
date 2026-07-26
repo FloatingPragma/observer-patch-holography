@@ -239,16 +239,27 @@ refined that fusion data carries through consistently. A
 reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
-This is classification before selection. Transport and refinement reconstruct
-a compact group under their stated hypotheses. The economy rule
-then selects the smallest admissible one-Higgs matter package, including
-three colors and a conditional minimum of three
-families. Attaching that family count to physical chiral matter is a separate
-construction. On the selected matter package, six shared center
-transformations act trivially. Counting those duplicates once gives
+This transportable-sector route is classification before selection. Transport
+and refinement reconstruct a compact group under their stated hypotheses.
+A second route begins with the twelve-port carrier. Incidence determines its
+unique nonidentity central graph involution. Under the explicit condition that
+an admissible finite response is a signed central involutive graph
+automorphism, the response is $\pm J$, and an exact compact lift realizes the
+Standard Model current algebra. On a declared conjugate pair of
+one-generation exterior modules, anomaly balance fixes the primitive charge
+pair up to conjugation, and exactly six shared center transformations act
+trivially. Quotienting by all six gives the maximal faithful matter image
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
-the quotient says those six shared moves are one move.
+the quotient says those six shared moves are one move. The cover and the
+intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
+tensors, so physical global-form selection needs additional global data.
+
+The economy rule is not used in this conditional finite calculation. It
+orders the family count and extra light sectors inside its declared class.
+Physical matter typing, global-form selection, laboratory current
+identification, and attachment of three families to physical chiral matter
+are separate constructions.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
@@ -299,18 +310,25 @@ $\pm\sqrt5$. This is the shape arithmetic of the port frame. The later
 golden-ratio balance coordinate plays a separate self-similar role in the
 quantitative construction.
 
-With outward orientation and a compact noncommuting current law, the same
-$1+3+3'+5$ coefficient space carries
+Incidence and target-blind port readback give the signed response through
+which the same $1+3+3'+5$ coefficient space carries
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Chapter 14 shows
-how the bracket works. The finite register decomposition does not supply that
-law. The result concerns coefficient and current directions; the public record
-projectors themselves commute. A physically constructed, refinement-stable current
-realization is the separate bridge into the gauge sector.
+how the bracket works. The finite register decomposition alone does not supply
+that law: the full equivariant linear commutant is four-dimensional. Incidence
+does prove the unique central involution $J$ and its exact sector eigenvalues,
+and the farthest-shell filter derives $\pm J$, with a common
+charge-conjugation sign. The simulator implements the representative $-J$, and
+an independent certificate reconstructs the current algebra. The result
+concerns coefficient and current directions; the public record projectors
+themselves commute. Identifying the result with a laboratory gauge current is
+a separate bridge.
 
 $A_5$ is a finite regulator symmetry, neither the Standard Model gauge group
-nor the Lorentz group; continuous Lorentz symmetry and the physical matter
-package arrive by the separate routes described above. Tying the antipodal
-$\mathbb Z_6$ residue to its action on matter is work in progress.
+nor the Lorentz group; continuous Lorentz symmetry and physical matter require
+the separate routes described above. Conditionally on the response and matter
+contracts, the spin lift and central descent tie the six-axis residue to every
+declared tensor. Response source binding, matter selection, family attachment,
+and the laboratory current test are open.
 
 ### Yang-Mills and the Gap
 

@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "sha256:df13c745c468f4f887614fbe0f366cb17b4573e2229b731d7664f17079d44869",
+  "artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2",
   "carrier_binding": {
     "antipode": {
       "p00": "p03",
@@ -42,24 +42,8 @@
   },
   "derived": {
     "construction": "charged_double_triplet",
-    "construction_provenance": "derived_from_measured_sector_structure",
-    "even_quintet_axis_scales": [
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1"
-    ],
-    "normalization_rule": "each band scale is the measured channel response divided by its canonical normalizer: unit by the tight-frame constant (10 + 2*sqrt(5)), quintet by the centered axis constant 2, frame and kernel by the vertex coordinate isometry; signs are the measured response signs",
-    "odd_axis_signs": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
+    "construction_provenance": "canonical_equivariant_compact_lift_from_the_impulse_readback_derived_antipode_response",
+    "normalization_rule": "the source response is the self-adjoint unitary involution R = -J; each band scale is its exactly recomputed eigenvalue; the common overall sign is a charge-conjugation convention",
     "response_band_scales": {
       "frame_band": "1",
       "kernel_band": "1",
@@ -68,27 +52,11 @@
     }
   },
   "issue": 599,
-  "measured_response": {
-    "potential_response": {
-      "coupling": "generator_perturbation_minus_i_diag_port_potential",
-      "quintet_channel_constant": "2",
-      "response_sign": -1,
-      "unit_channel_constant": "10 + 2*sqrt(5)"
-    },
-    "rotation_response": {
-      "commuting_incidence_automorphisms": 60,
-      "frame_transport": "vertex_coordinate_isometry",
-      "incidence_automorphism_group_order": 120,
-      "kernel_transport": "galois_conjugate_vertex_coordinate_isometry",
-      "orientation_preserving": true,
-      "response_sign": 1
-    }
-  },
   "orientation_convention": {
-    "block_map": "(A,B,z) -> (z^-2 A, z^3 B)",
     "faces": "every oriented face has positive determinant in the assigned frame",
     "frame_band": "triplet sector with adjacency channel value +sqrt(5) in the oriented vertex frame",
-    "kernel_band": "Galois conjugate triplet sector with adjacency channel value -sqrt(5)"
+    "kernel_band": "Galois conjugate triplet sector with adjacency channel value -sqrt(5)",
+    "overall_u1_charge_sign": "not selected by the finite response operator; overall charge conjugation is a convention"
   },
   "physical_refinement_maps": {
     "equivariant_rotation_count": 60,
@@ -204,11 +172,19 @@
     "deterministic": true,
     "producer": "oph_fpe.core.charged_response",
     "runtime_binding": {
+      "charged_response_operator_receipt": true,
       "coupling": "combinatorial_icosahedral_graph_laplacian",
       "dynamics_module": "oph_fpe.core.echosahedral_dynamics",
-      "dynamics_sha256": "sha256:e112ed4262bf283c25a9ce1f0b7f33a1b7c06564eba97341280fe0903781a2bb",
+      "dynamics_sha256": "sha256:0bb9d95da7f27adfc525d945fad295ffb0e85acac0904550ac374543999dba29",
       "equivariance_receipt": true,
       "evolution": "finite_unitary_exp_minus_i_u_gL",
+      "impulse_readback_filter_coefficients": [
+        "1",
+        "-1/2",
+        "-2/5",
+        "1/10"
+      ],
+      "impulse_readback_producer_receipt": true,
       "manifest_to_runtime_port_map": [
         0,
         2,
@@ -258,5 +234,70 @@
       "kernel_band"
     ]
   },
-  "schema": "oph.charged_response_semantic_artifact.v1"
+  "schema": "oph.charged_response_semantic_artifact.v3",
+  "source_response": {
+    "antipode_polynomial_identity": "J = (A^3 - 4*A^2 - 5*A + 10*I)/10",
+    "antipode_port_map": [
+      3,
+      2,
+      1,
+      0,
+      7,
+      6,
+      5,
+      4,
+      11,
+      10,
+      9,
+      8
+    ],
+    "central_involution_count_including_identity": 2,
+    "commutes_with_propagation_generator": true,
+    "impulse_readback_protocol": {
+      "downstream_labels_used": false,
+      "homogeneous_filter_coefficients": [
+        "1",
+        "-1/2",
+        "-2/5",
+        "1/10"
+      ],
+      "input": "delta impulse at each unlabeled carrier port",
+      "nearer_shells_cancelled": true,
+      "recurrence": "adjacency powers k=0..graph_diameter",
+      "selection_rule": "cancel every nearer distance shell and normalize the unique maximal-distance echo to one",
+      "status": "source_bound_operational_producer",
+      "target_labels_used": false,
+      "unique_farthest_port_per_source": true,
+      "unique_solution_rank": 4
+    },
+    "impulse_readback_response_executed": true,
+    "incidence_automorphism_group_order": 120,
+    "operator": "negative_graph_antipode_involution",
+    "overall_response_sign": "the representative R = -J is conventional; replacing it by +J reverses every band together and leaves the current algebra unchanged",
+    "physical_perturb_readback_source_bound": true,
+    "sector_eigenvalues": {
+      "frame_band": 1,
+      "kernel_band": 1,
+      "quintet_band": -1,
+      "unit_band": -1
+    },
+    "self_adjoint_unitary_involution": true,
+    "source": "target_blind_maximal_distance_impulse_readback",
+    "unique_nonidentity_central_involution": true
+  },
+  "structural_audits": {
+    "frame_normalization": {
+      "response_sign_not_inferred_here": true,
+      "status": "normalization_audit_only",
+      "unit_channel_constant": "10 + 2*sqrt(5)"
+    },
+    "rotation_automorphisms": {
+      "commuting_incidence_automorphisms": 60,
+      "frame_transport": "vertex_coordinate_isometry",
+      "incidence_automorphism_group_order": 120,
+      "kernel_transport": "galois_conjugate_vertex_coordinate_isometry",
+      "orientation_preserving": true,
+      "response_sign_not_inferred_here": true
+    }
+  }
 }

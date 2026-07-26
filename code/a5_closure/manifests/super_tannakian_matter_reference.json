@@ -1,10 +1,10 @@
 {
-  "schema": "oph.super_tannakian_matter_manifest.v3",
-  "description": "Reference source packet for the super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose response representation is source-bound by the #599 semantic artifact. The trace-balanced charge pair, one-scalar choice, and channel list are matched against their derivations (BLOCK-DETERMINANT-BALANCE and the selection scan); the statistics and category typing are forced on the realized module; kernel emission and the MAR class stay typed declarations.",
+  "schema": "oph.super_tannakian_matter_manifest.v4",
+  "description": "Reference packet for the conditional super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose #599 response is source-bound by the exact target-blind carrier impulse/readback protocol. BLOCK-DETERMINANT-BALANCE derives the primitive charge pair up to charge conjugation, and the verifier derives an unordered conjugate pair of rank-fifteen projectors. Fermionic statistics and the Spin/odd-Weyl category remain typed inputs rather than source-derived physical data. Scalar charge and channel compatibility are exact only conditional on the declared weak-doublet scalar content; scalar existence and economy are not derived.",
   "current_manifest_path": "manifests/port_current_response_reference.json",
-  "current_manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
+  "current_manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
   "current_receipt_path": "receipts/port_current_inner_reference.receipt.json",
-  "current_receipt_sha256": "d519364de4e655fbeea7dccec5aff11ac74b7fd1d741437bf4637b66ddff2c02",
+  "current_receipt_sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb",
   "exterior_matter_contract": {
     "block_trace_charges": {
       "color_block": "-1/3",
@@ -29,7 +29,7 @@
       ]
     ],
     "extra_scalars": [],
-    "note": "the charge pair, scalar choice, and channel list must equal the values derived by BLOCK-DETERMINANT-BALANCE and the selection scan; a mismatched declaration fails closed"
+    "note": "the charge pair must lie in the derived conjugate primitive pair and the declared channels must match the exact compatibility calculation. One weak-block scalar is a branch assumption; existence, multiplicity, and no-extra-scalar economy are not derived."
   },
   "statistics_contract": {
     "matter_statistics": "fermionic_odd",
@@ -43,9 +43,8 @@
       "double_cover": true,
       "note": "the kernel-block action must be lifted through a genuine double cover; a split lift is rejected against the derived unique-involution witness"
     },
-    "selection_rule": "parity_even_minus_derived_invariants",
     "realization": "operator_projector",
-    "note": "the fifteen-state module must be selected from the full auxiliary CAR/Fock space by the derived equivariant projector; representation arithmetic alone is not realization"
+    "note": "the verifier derives the unordered conjugate pair consisting of the even-minus-vacuum and odd-minus-top rank-fifteen projectors; neither representative is physically preferred"
   },
   "kernel_emission_contract": {
     "emit": true,

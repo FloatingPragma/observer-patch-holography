@@ -47,10 +47,10 @@ if str(MODULE_DIR) not in sys.path:
 
 import echosahedral_selector_certificate as e565  # noqa: E402
 
-SCHEMA = "oph.port_current_response_manifest.v3"
-RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v3"
-NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v3"
-ARTIFACT_SCHEMA = "oph.charged_response_semantic_artifact.v1"
+SCHEMA = "oph.port_current_response_manifest.v5"
+RECEIPT_SCHEMA = "oph.port_current_inner_receipt.v5"
+NEGATIVE_SCHEMA = "oph.port_current_inner_negative_controls.v5"
+ARTIFACT_SCHEMA = "oph.charged_response_semantic_artifact.v3"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -405,7 +405,7 @@ def validate_manifest(
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
 
     # A production packet binds the semantic response artifact, so the
-    # construction is derived from measured carrier structure. The declared
+    # construction is derived from finite carrier structure. The declared
     # lane survives only for negative controls.
     contract = manifest.get("response_declaration_contract")
     require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_declaration_contract is missing")
@@ -629,7 +629,7 @@ def _recompute_isotypic_channels(carrier: Any) -> dict[str, RMat]:
     """Exact spectral projectors of the carrier adjacency, recomputed here.
 
     This is the paper-side recomputation of the artifact's central claim: the
-    measured incidence presents exactly the 1 + 3 + 3' + 5 sector structure
+    source incidence presents exactly the 1 + 3 + 3' + 5 sector structure
     with Galois-paired triplet channels.
     """
 
@@ -715,6 +715,7 @@ def bind_semantic_artifact(
     carrier_manifest: Mapping[str, Any],
     verts: Sequence[Vec3],
     matched: Sequence[tuple[int, ...]],
+    proper_actions: Sequence[Sequence[int]],
     params: Mapping[str, Any],
 ) -> dict[str, Any]:
     """Verify the semantic artifact against paper-side recomputation.
@@ -762,7 +763,7 @@ def bind_semantic_artifact(
     )
     channels = basis.get("adjacency_channel_values")
     require(isinstance(channels, Mapping), "ARTIFACT_SECTORS", "channel values missing")
-    _recompute_isotypic_channels(carrier)
+    projectors = _recompute_isotypic_channels(carrier)
     for band in ARTIFACT_BAND_ORDER:
         parsed = parse_f5_text(channels.get(band), "ARTIFACT_SECTORS")
         require(
@@ -782,9 +783,9 @@ def bind_semantic_artifact(
     orientation = artifact.get("orientation_convention")
     require(isinstance(orientation, Mapping), "ARTIFACT_ORIENTATION", "orientation convention missing")
     require(
-        orientation.get("block_map") == "(A,B,z) -> (z^-2 A, z^3 B)",
+        "charge conjugation" in str(orientation.get("overall_u1_charge_sign", "")),
         "ARTIFACT_ORIENTATION",
-        "the artifact block-map orientation does not match the corpus convention",
+        "the artifact must expose the common U(1) response sign as conventional",
     )
     require(
         ARTIFACT_CHANNEL_VALUES["frame_band"].is_positive()
@@ -818,10 +819,10 @@ def bind_semantic_artifact(
         "the artifact frame assignment is not an oriented incidence realization",
     )
 
-    measured = artifact.get("measured_response")
-    require(isinstance(measured, Mapping), "ARTIFACT_CHANNELS", "measured_response missing")
-    potential = measured.get("potential_response")
-    require(isinstance(potential, Mapping), "ARTIFACT_CHANNELS", "potential response missing")
+    structural = artifact.get("structural_audits")
+    require(isinstance(structural, Mapping), "ARTIFACT_CHANNELS", "structural_audits missing")
+    frame_audit = structural.get("frame_normalization")
+    require(isinstance(frame_audit, Mapping), "ARTIFACT_CHANNELS", "frame normalization audit missing")
     gram = rzeros(3, 3)
     for position in range(12):
         vertex = verts[psi[position]]
@@ -839,20 +840,187 @@ def bind_semantic_artifact(
         "the recomputed tight-frame constant is not (10 + 2*sqrt(5))",
     )
     require(
-        parse_f5_text(potential.get("unit_channel_constant"), "ARTIFACT_CHANNELS") == tight
-        and parse_f5_text(potential.get("quintet_channel_constant"), "ARTIFACT_CHANNELS") == F5(2)
-        and potential.get("response_sign") == -1,
+        parse_f5_text(frame_audit.get("unit_channel_constant"), "ARTIFACT_CHANNELS") == tight
+        and frame_audit.get("response_sign_not_inferred_here") is True,
         "ARTIFACT_CHANNELS",
-        "the artifact potential response does not match the recomputation",
+        "the artifact frame normalization does not match the recomputation",
     )
-    rotation = measured.get("rotation_response")
-    require(isinstance(rotation, Mapping), "ARTIFACT_CHANNELS", "rotation response missing")
+    rotation = structural.get("rotation_automorphisms")
+    require(isinstance(rotation, Mapping), "ARTIFACT_CHANNELS", "rotation automorphism audit missing")
     require(
         rotation.get("incidence_automorphism_group_order") == 120
         and rotation.get("commuting_incidence_automorphisms") == len(matched)
-        and rotation.get("response_sign") == 1,
+        and rotation.get("response_sign_not_inferred_here") is True,
         "ARTIFACT_CHANNELS",
-        "the artifact rotation response does not match the recomputed group data",
+        "the artifact rotation audit does not match the recomputed group data",
+    )
+
+    source_response = artifact.get("source_response")
+    require(isinstance(source_response, Mapping), "ARTIFACT_RESPONSE", "source_response missing")
+    protocol = source_response.get("impulse_readback_protocol")
+    require(
+        isinstance(protocol, Mapping)
+        and protocol.get("status") == "source_bound_operational_producer"
+        and protocol.get("input") == "delta impulse at each unlabeled carrier port"
+        and protocol.get("unique_solution_rank") == 4
+        and protocol.get("unique_farthest_port_per_source") is True
+        and protocol.get("nearer_shells_cancelled") is True
+        and protocol.get("target_labels_used") is False
+        and protocol.get("downstream_labels_used") is False,
+        "ARTIFACT_RESPONSE",
+        "the artifact does not expose the target-blind impulse/readback producer",
+    )
+    antipode = tuple(int(value) for value in carrier.antipode)
+    require(
+        source_response.get("operator") == "negative_graph_antipode_involution"
+        and source_response.get("source")
+        == "target_blind_maximal_distance_impulse_readback"
+        and tuple(source_response.get("antipode_port_map", ())) == antipode
+        and source_response.get("commutes_with_propagation_generator") is True
+        and source_response.get("self_adjoint_unitary_involution") is True
+        and source_response.get("impulse_readback_response_executed") is True
+        and source_response.get("physical_perturb_readback_source_bound") is True,
+        "ARTIFACT_RESPONSE",
+        "the artifact does not bind the impulse/readback-derived negative antipode response",
+    )
+    identity_permutation = tuple(range(12))
+    full_actions = {
+        tuple(int(value) for value in action)
+        for action in proper_actions
+    }
+    full_actions |= {
+        tuple(antipode[int(action[index])] for index in range(12))
+        for action in proper_actions
+    }
+    require(
+        len(full_actions) == 120,
+        "ARTIFACT_RESPONSE",
+        "the proper actions and antipode do not generate 120 incidence automorphisms",
+    )
+    central_involutions = [
+        action
+        for action in full_actions
+        if all(action[action[index]] == index for index in range(12))
+        and all(
+            action[other[index]] == other[action[index]]
+            for other in full_actions
+            for index in range(12)
+        )
+    ]
+    require(
+        set(central_involutions) == {identity_permutation, antipode}
+        and source_response.get("unique_nonidentity_central_involution") is True
+        and source_response.get("central_involution_count_including_identity") == 2,
+        "ARTIFACT_RESPONSE",
+        "the antipode is not the unique nonidentity central involution",
+    )
+    response = rzeros(12, 12)
+    antipode_matrix = rzeros(12, 12)
+    for index, partner in enumerate(antipode):
+        response[index][partner] = -ONE
+        antipode_matrix[index][partner] = ONE
+    adjacency = _adjacency_matrix(carrier)
+    adjacency_squared = rmul(adjacency, adjacency)
+    adjacency_cubed = rmul(adjacency_squared, adjacency)
+    powers = [
+        [[ONE if i == j else ZERO for j in range(12)] for i in range(12)],
+        adjacency,
+        adjacency_squared,
+        adjacency_cubed,
+    ]
+    diameter = max(
+        carrier.distances[i][j] for i in range(12) for j in range(12)
+    )
+    require(diameter == 3, "ARTIFACT_RESPONSE", "carrier diameter is not three")
+    target = [
+        [ONE if carrier.distances[i][j] == diameter else ZERO for j in range(12)]
+        for i in range(12)
+    ]
+    require(
+        all(sum(target[i][j] == ONE for j in range(12)) == 1 for i in range(12)),
+        "ARTIFACT_RESPONSE",
+        "an impulse source lacks a unique maximal-distance readback port",
+    )
+    augmented = [
+        [powers[k][i][j] for k in range(4)] + [target[i][j]]
+        for i in range(12)
+        for j in range(12)
+    ]
+    reduced, pivots = rref(augmented)
+    require(
+        pivots == [0, 1, 2, 3],
+        "ARTIFACT_RESPONSE",
+        "the common maximal-distance impulse filter is not uniquely solvable",
+    )
+    filter_coefficients = [reduced[index][4] for index in range(4)]
+    require(
+        filter_coefficients
+        == [ONE, F5(Fraction(-1, 2)), F5(Fraction(-2, 5)), F5(Fraction(1, 10))]
+        and [
+            parse_f5_text(value, "ARTIFACT_RESPONSE")
+            for value in protocol.get("homogeneous_filter_coefficients", [])
+        ]
+        == filter_coefficients,
+        "ARTIFACT_RESPONSE",
+        "the artifact impulse filter does not match the independent exact solve",
+    )
+    solved_target = rzeros(12, 12)
+    for coefficient, power in zip(filter_coefficients, powers, strict=True):
+        solved_target = [
+            [
+                solved_target[i][j] + coefficient * power[i][j]
+                for j in range(12)
+            ]
+            for i in range(12)
+        ]
+    require(
+        solved_target == target == antipode_matrix,
+        "ARTIFACT_RESPONSE",
+        "the solved impulse filter does not isolate the carrier antipode",
+    )
+    tenth = F5(Fraction(1, 10))
+    polynomial_antipode = [
+        [
+            tenth
+            * (
+                adjacency_cubed[i][j]
+                - F5(4) * adjacency_squared[i][j]
+                - F5(5) * adjacency[i][j]
+                + (F5(10) if i == j else ZERO)
+            )
+            for j in range(12)
+        ]
+        for i in range(12)
+    ]
+    require(
+        polynomial_antipode == antipode_matrix
+        and source_response.get("antipode_polynomial_identity")
+        == "J = (A^3 - 4*A^2 - 5*A + 10*I)/10",
+        "ARTIFACT_RESPONSE",
+        "the exact adjacency-polynomial identity for the antipode failed",
+    )
+    response_signs: dict[str, int] = {}
+    for band, projector in projectors.items():
+        image = rmul(response, projector)
+        if image == projector:
+            response_signs[band] = 1
+        elif image == [[-entry for entry in row] for row in projector]:
+            response_signs[band] = -1
+        else:
+            raise CertificateError(
+                "ARTIFACT_RESPONSE",
+                f"the {band} sector is not an eigenspace of the antipode response",
+            )
+    artifact_signs = source_response.get("sector_eigenvalues")
+    require(
+        isinstance(artifact_signs, Mapping)
+        and {
+            band: artifact_signs.get(band)
+            for band in ARTIFACT_BAND_ORDER
+        }
+        == response_signs,
+        "ARTIFACT_RESPONSE",
+        "the artifact response signs do not match the exact antipode eigenspaces",
     )
 
     derived = artifact.get("derived")
@@ -860,26 +1028,20 @@ def bind_semantic_artifact(
     require(
         derived.get("construction") == "charged_double_triplet"
         and derived.get("construction_provenance")
-        == "derived_from_measured_sector_structure",
+        == "canonical_equivariant_compact_lift_from_the_impulse_readback_derived_antipode_response",
         "ARTIFACT_SCALES",
-        "the artifact construction is not derived from the measured sector structure",
+        "the artifact construction is not derived from the impulse/readback response",
     )
     derived_scales = derived.get("response_band_scales")
     require(isinstance(derived_scales, Mapping), "ARTIFACT_SCALES", "derived scales missing")
-    expected_signs = {
-        "unit_band": -1,
-        "quintet_band": -1,
-        "frame_band": 1,
-        "kernel_band": 1,
-    }
     for band in ARTIFACT_BAND_ORDER:
         value = parse_rational(derived_scales.get(band), "ARTIFACT_SCALES")
         require(value != 0, "ARTIFACT_SCALES", f"the derived {band} scale is zero")
         sign = 1 if value > 0 else -1
         require(
-            sign == expected_signs[band],
+            sign == response_signs[band],
             "ARTIFACT_ORIENTATION",
-            f"the derived {band} sign does not match the measured response sign",
+            f"the derived {band} sign does not match the impulse/readback-derived response sign",
         )
         manifest_scale = params["scales"][band]
         require(
@@ -930,7 +1092,8 @@ def bind_semantic_artifact(
     require(
         isinstance(runtime, Mapping)
         and runtime.get("spectrum_multiplicities") == [1, 3, 3, 5]
-        and runtime.get("equivariance_receipt") is True,
+        and runtime.get("equivariance_receipt") is True
+        and runtime.get("charged_response_operator_receipt") is True,
         "ARTIFACT_SCHEMA",
         "the artifact runtime binding does not certify the propagated dynamics",
     )
@@ -948,6 +1111,17 @@ def bind_semantic_artifact(
             "tight_frame_constant_recomputed": "10 + 2*sqrt(5)",
             "frame_assignment_source": "artifact port_vertex_frame",
             "derived_construction": derived.get("construction"),
+            "response_operator": source_response.get("operator"),
+            "response_source": source_response.get("source"),
+            "impulse_readback_status": protocol.get("status"),
+            "impulse_readback_filter_coefficients_recomputed": [
+                value.text() for value in filter_coefficients
+            ],
+            "physical_perturb_readback_source_bound": True,
+            "antipode_polynomial_identity_recomputed": True,
+            "unique_nonidentity_central_involution_recomputed": True,
+            "response_sector_eigenvalues_recomputed": response_signs,
+            "overall_u1_charge_sign": orientation.get("overall_u1_charge_sign"),
             "derived_response_band_scales": {
                 band: str(derived_scales.get(band)) for band in ARTIFACT_BAND_ORDER
             },
@@ -1391,7 +1565,7 @@ def certificate_payload(
             params["artifact_ref"], base, allow_control_models
         )
         artifact_binding = bind_semantic_artifact(
-            artifact, carrier, carrier_manifest, verts, matched, params
+            artifact, carrier, carrier_manifest, verts, matched, plus, params
         )
         psi = artifact_binding["psi"]
     else:
@@ -1781,6 +1955,7 @@ def certificate_payload(
     physical_gate = {
         "response_model_source_bound": bound,
         "response_coefficients_source_bound": bound,
+        "target_blind_impulse_readback_recomputed": bound,
         "physical_refinement_intertwining_source_bound": bound
         and bool(physical_naturality_maps),
         "passed": bound and bool(physical_naturality_maps),
@@ -1796,15 +1971,15 @@ def certificate_payload(
             "uses_only": [
                 "certified twelve-port carrier packet",
                 (
-                    "hash-pinned semantic response artifact measured from the "
-                    "carrier dynamics"
+                    "hash-pinned semantic response artifact deriving R=-J from "
+                    "the carrier incidence and binding it to the runtime dynamics"
                     if bound
                     else "declared algebraic response construction"
                 ),
                 "reversible response automorphism typing",
                 (
-                    "four signed response coefficients determined by the artifact "
-                    "measurement channels"
+                    "four relative response signs determined by exact eigenspaces "
+                    "of R=-J; the common sign is a charge-conjugation convention"
                     if bound
                     else "four exact signed response coefficients"
                 ),
@@ -1830,7 +2005,8 @@ def certificate_payload(
             "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
             "response_construction_status": params["response_status"],
             "response_data_provenance": (
-                "measured by the semantic response artifact and recomputed here"
+                "derived from the unique nonidentity central antipode involution "
+                "and independently recomputed here; overall sign is conventional"
                 if bound
                 else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, declared"
             ),
@@ -1938,10 +2114,10 @@ def certificate_payload(
             ),
             "band_coefficient_provenance": (
                 {
-                    "unit_band": "potential response, tight-frame normalized, sign measured negative",
-                    "quintet_band": "potential response, centered axis normalized, sign measured negative",
-                    "frame_band": "rotation response on the +sqrt(5) triplet, sign measured positive",
-                    "kernel_band": "rotation response on the Galois conjugate triplet, sign measured positive",
+                    "unit_band": "negative eigenspace of the conventional representative R=-J",
+                    "quintet_band": "negative eigenspace of the conventional representative R=-J",
+                    "frame_band": "positive eigenspace of the conventional representative R=-J",
+                    "kernel_band": "positive eigenspace of the conventional representative R=-J",
                 }
                 if bound
                 else {
@@ -1970,6 +2146,20 @@ def certificate_payload(
         "semantic_response_binding": (
             artifact_binding["report"] if bound else None
         ),
+        "lean_cross_check": {
+            "module": "Lean/Screen/A5IncidenceResponse.lean",
+            "declarations": [
+                "OPH.A5IncidenceResponse.distance_three_partner_unique",
+                "OPH.A5IncidenceResponse.antipode_polynomial",
+            ],
+            "scope": (
+                "independently checks unique graph-distance-three readback and "
+                "the integral identity 10J=A^3-4A^2-5A+10I; the operational "
+                "impulse/readback contract and laboratory attachment remain "
+                "outside these Lean incidence theorems"
+            ),
+            "standard_axioms_only": True,
+        },
         "derivation_chain": [
             {
                 "step": 1,
@@ -1991,11 +2181,12 @@ def certificate_payload(
             },
             {
                 "step": "1a",
-                "premise": "semantic response artifact measured from the carrier dynamics",
+                "premise": "semantic response artifact derived from the finite carrier incidence and bound to the runtime dynamics",
                 "uses": [
                     "artifact self-hash and manifest pin",
-                    "paper-side recomputation of the isotypic sector projectors, Galois pairing, tight-frame constant, and rotation group data",
-                    "sign and coefficient equality between the manifest and the artifact",
+                    "paper-side recomputation of the isotypic projectors, Galois pairing, unique central antipode involution, tight-frame constant, and rotation group data",
+                    "exact R=-J eigenspace and coefficient equality between the manifest and the artifact",
+                    "independent Lean checks of the unique distance-three partner and 10J adjacency-polynomial identity",
                 ],
                 "source_artifact": (
                     "manifests/charged_response_semantic_artifact.json"
@@ -2005,7 +2196,8 @@ def certificate_payload(
                 "conclusion": (
                     "the charged response representation, the four signed "
                     "coefficients, the oriented frame, and the physical refinement "
-                    "maps are determined by measured carrier structure"
+                    "maps are determined by finite carrier structure, with a common "
+                    "charge-conjugation sign convention"
                     if bound
                     else "no semantic artifact is bound; the physical source gate stays false"
                 ),
@@ -2093,9 +2285,8 @@ def certificate_payload(
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_566_negative_controls.json",
                 "conclusion": (
-                    "the conditional algebraic gate and the physical source gate "
-                    "pass on the artifact-bound reference packet and fail on every "
-                    "algebraic and artifact countermodel"
+                    "the conditional algebraic gate and simulator physical-source "
+                    "gate pass on the target-blind impulse/readback producer"
                     if bound
                     else "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; the physical source gate is false on the declared control lane"
                 ),
@@ -2112,15 +2303,15 @@ def certificate_payload(
         },
         "branch_scope": {
             "branch": (
-                "source-bound echosahedral response branch"
+                "source-bound impulse/readback echosahedral response branch"
                 if bound
                 else "declared echosahedral response branch"
             ),
             "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
             "response_data": (
-                "the charged-double-triplet construction and four signed "
-                "A5-equivariant response coefficients, determined by the bound "
-                "semantic artifact and recomputed here"
+                "the charged-double-triplet construction and four relative "
+                "A5-equivariant response signs, determined by the bound semantic "
+                "artifact and recomputed here; the common sign is conventional"
                 if bound
                 else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements"
             ),
@@ -2153,9 +2344,9 @@ def certificate_payload(
             "physical_source_realization_gate_passed": physical_gate["passed"],
             "met_locally": physical_gate["passed"],
             "remaining_producer": (
-                "none for the response representation; the laboratory "
-                "identification of the source-bound current with measured gauge "
-                "currents is tracked by the physical attachment lane (#569)"
+                "none for the simulator carrier response: the target-blind "
+                "impulse/readback protocol determines it. Laboratory attachment "
+                "to gauge currents remains in #569"
                 if bound
                 else "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps"
             ),
@@ -2180,7 +2371,7 @@ def certificate_payload(
                 else "the conditional exact port-current algebra for the declared charged-double-triplet response construction"
             ),
             "status": (
-                "proved_on_source_bound_response_artifact"
+                "proved_on_source_bound_impulse_readback_artifact"
                 if bound
                 else "proved_conditional_on_declared_response_representation"
             ),
@@ -2367,7 +2558,54 @@ def negative_control_cases(
 
         sign_flip = _mutated_artifact(artifact, _flip_sign)
         cases.append(
-            ("artifact_measured_sign_flip", _with_inline_artifact(manifest, sign_flip), "ARTIFACT_ORIENTATION")
+            ("artifact_derived_sign_flip", _with_inline_artifact(manifest, sign_flip), "ARTIFACT_ORIENTATION")
+        )
+
+        old_schema = _mutated_artifact(
+            artifact,
+            lambda a: a.update(schema="oph.charged_response_semantic_artifact.v2"),
+        )
+        cases.append(
+            ("artifact_v2_schema_rejected", _with_inline_artifact(manifest, old_schema), "ARTIFACT_SCHEMA")
+        )
+
+        def _doctor_antipode(a: dict[str, Any]) -> None:
+            antipode = a["source_response"]["antipode_port_map"]
+            antipode[0] = 0
+
+        doctored_antipode = _mutated_artifact(artifact, _doctor_antipode)
+        cases.append(
+            (
+                "artifact_doctored_source_antipode",
+                _with_inline_artifact(manifest, doctored_antipode),
+                "ARTIFACT_RESPONSE",
+            )
+        )
+
+        source_sign_flip = _mutated_artifact(
+            artifact,
+            lambda a: a["source_response"]["sector_eigenvalues"].update(unit_band=1),
+        )
+        cases.append(
+            (
+                "artifact_source_eigenvalue_flip",
+                _with_inline_artifact(manifest, source_sign_flip),
+                "ARTIFACT_RESPONSE",
+            )
+        )
+
+        protocol_filter_tamper = _mutated_artifact(
+            artifact,
+            lambda a: a["source_response"]["impulse_readback_protocol"].update(
+                homogeneous_filter_coefficients=["1", "0", "0", "0"]
+            ),
+        )
+        cases.append(
+            (
+                "artifact_impulse_filter_tamper",
+                _with_inline_artifact(manifest, protocol_filter_tamper),
+                "ARTIFACT_RESPONSE",
+            )
         )
 
     return cases
@@ -2426,7 +2664,7 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             "artifact": {
                 "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
                 "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
-                "structure_binding": "missing sectors, swapped channel orientation, coefficient mismatch, measured-sign flips, and doctored refinement maps fail closed",
+                "structure_binding": "old schemas, missing sectors, swapped channels, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed",
             },
         },
     }

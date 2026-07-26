@@ -269,31 +269,45 @@ données primaires. Les énoncés mathématiques, les lectures physiques
 conditionnelles et les propriétés mesurées portent des classes distinctes
 dans le [tableau de suivi des affirmations](tracking/claims_scoreboard.md).
 
-La géométrie du porteur accomplit ensuite un travail surprenant, gratuitement.
-Sur la lignée échosaédrique certifiée, la relecture des ports primitifs et
-l’incidence orientée dérivent à elles seules la séparation en douze unités,
-l’appariement antipodal, l’action propre de $A_5$ et le repère icosaédrique de
-rang trois, et l’espace de coefficients obtenu porte un témoin exact du
-commutateur $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$,
-l’algèbre de jauge du Modèle standard. Deux routes logiquement indépendantes,
-la classification finie du courant $A_5$ et la route des secteurs
-transportables avec Tannaka et réalisation admissible minimale,
-atteignent ce même type de Lie ; l’équilibre des traces et la descente du
-revêtement produisent le quotient global
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ; et le paquet de matière déclaré
-donne un témoin exact à quinze états pour une génération, avec les
-hypercharges du Modèle standard, l’annulation des anomalies, trois couleurs et
-une bande canonique de rang trois candidate pour les familles. Les
-applications conditionnelles de clôture $P$ et $N$ testent alors des liens
-entre les échelles de jauge, de Higgs, de gravité et de cosmologie.
+La géométrie du porteur accomplit ensuite un travail exact surprenant. Sur la
+lignée échosaédrique certifiée, la relecture des ports primitifs et l’incidence
+orientée dérivent la séparation en douze unités, l’appariement antipodal,
+l’action propre de $A_5$, le repère icosaédrique de rang trois et la
+décomposition
+$\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. L’incidence fixe aussi
+l’unique involution centrale non triviale $J$ du graphe. Un protocole sans
+cible injecte une impulsion sur chaque port, lit l’historique d’adjacence
+jusqu’au diamètre du graphe et résout le filtre commun de la couche la plus
+éloignée. Il dérive $10J=A^3-4A^2-5A+10I$. La réponse $R=-J$ possède des
+signes sectoriels relatifs exacts ; son signe commun est une convention de
+conjugaison de charge.
+
+À partir de ce contrat de réponse, un relèvement compact équivariant explicite
+construit
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Sur le paquet
+extérieur déclaré à quinze états, l’annulation des anomalies donne
+l’équilibre du déterminant et les charges primitives à conjugaison près. Le
+calcul exhaustif de l’action centrale donne ensuite un noyau commun
+$\mathbb Z_6$ sur ces tenseurs. Leur image fidèle maximale est
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients
+par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Cette
+implication finie exacte n’emploie pas la règle d’admissibilité minimale.
+Le typage fermionique physique, le choix de la forme globale et
+l’identification aux courants de laboratoire sont ouverts. La construction
+indépendante par secteurs transportables et Tannaka est une seconde route
+vers un groupe compact ; l’identification des deux routes à partir de la
+source est ouverte.
 
 Les résultats exacts du porteur gardent des frontières physiques explicites.
-L’attachement du courant physique, la descente de Spin et du revêtement, la
-sélection de la matière, l’attachement des familles, la tour source d’Einstein
-et les paquets physiques de clôture sont des producteurs ouverts. Le
+La liaison physique de la réponse à la source, la sélection du paquet de
+matière, l’identification du courant avec des courants mesurés en laboratoire,
+l’attachement des trois familles, l’exclusion des secteurs légers
+supplémentaires, la tour source d’Einstein et les paquets physiques de clôture
+sont ouverts. Le
 [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues)
 enregistre leurs lots de travail. La valeur $N_g=3$ est le minimum de la
-classe économique déclarée. L’incidence icosaédrique locale contraint le
+classe économique déclarée tant que la route gelée des phases de faces n’est
+pas physiquement attachée. L’incidence icosaédrique locale contraint le
 porteur, tandis que le nerf de la fédération exige sa propre construction.
 
 Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
@@ -349,12 +363,19 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
 - une classification finie et locale à douze ports fondée sur $A_5$ produit
   séparément le même type de Lie
   $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ ;
-- l’équilibre des traces et la descente du centre conduisent conditionnellement
-  à $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ ;
-  l’identité physique des deux courants exige un reçu séparé ;
-- la réalisation admissible minimale sélectionne le réseau de charges déclaré,
-  trois couleurs, un doublet de Higgs et $N_g=3$ comme minimum économique ;
-  l’attachement à trois familles physiques est ouvert ;
+- sous le contrat explicite de réponse finie, le reçu de matière dérive
+  conditionnellement l’équilibre du déterminant et le reçu de descente calcule
+  le noyau commun $\mathbb Z_6$ et l’image fidèle maximale
+  $S(U(3)\times U(2))\cong
+  (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sur les tenseurs déclarés, sans
+  employer l’axiome d’économie ; les quatre formes globales compatibles sont
+  le revêtement et ses quotients par $\mathbb Z_2$, $\mathbb Z_3$ et
+  $\mathbb Z_6$ ;
+- le réseau de charges et les trois couleurs sont exacts sur ce paquet ; le
+  balayage scalaire fixe seulement la paire de charges compatibles et les
+  trois canaux d’interaction, pas la multiplicité scalaire ; $N_g=3$ est le
+  minimum économique tant que l’attachement à trois familles physiques est
+  ouvert ;
 - Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
 La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.
@@ -399,11 +420,12 @@ $$
 \mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-C’est une classification exacte du type de Lie local du Modèle standard sur
-la lignée déclarée. Elle est obtenue à partir de la géométrie finie des
-coefficients. Son identification avec le courant physique reconstruit par la
-route de Tannaka et de sélection économique exige les reçus de source, de Spin, de centre et de
-raffinement.
+C’est une construction exacte du type de Lie local du Modèle standard sous le
+contrat explicite de réponse finie. L’incidence seule ne choisit pas une
+réponse linéaire arbitraire : son commutant équivariant est de dimension
+quatre. La sélection de cette réponse par une loi physique indépendante,
+l’identification avec des courants mesurés en laboratoire et l’identité avec
+le groupe reconstruit par la route de Tannaka restent ouvertes.
 
 La même construction fait apparaître deux fois, indépendamment, le nombre $24$ :
 
@@ -424,9 +446,11 @@ formes normales quotientées publiques
         ├─ reçus fédération-support → géométrie des calottes S2 et flot géométrique
         ├─ tour indépendante d’algèbres et d’états → flot modulaire
         │       composition sur la même tour → Lorentz et branche d’Einstein conditionnelle
-        └─ secteurs transportables → Tannaka → paquet sélectionné par économie
-             ↕ identité du courant physique ouverte
-           courant A5 local à douze ports → type de Lie du Modèle standard
+        ├─ secteurs transportables → route indépendante de Tannaka
+        └─ porteur local à douze ports → théorème exact de réponse inverse
+                → constructions conditionnelles de courant et de matière
+                → noyau tensoriel Z6 conditionnel
+                réponse physique, spectre et familles ouverts
         ↓
 tests quantitatifs de clôture et de lecture physique
 ```
@@ -439,12 +463,12 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface d’événements quantiques | Probabilités de Born, conditionnement de Lüders et borne de Tsirelson sur la surface finie des registres | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Algèbre de jauge finie $A_5$ | Construction exacte de l’espace de coefficients et, sous l’hypothèse d’une représentation déclarée à double triplet chargé avec quatre coefficients signés, d’une algèbre compacte $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ sur douze ports. La liaison physique de la réponse à la source et l’entrelacement physique du raffinement sont ouverts ; aucune conclusion automatique sur un support global $S^2$ | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Forme globale du Modèle standard | Calcul exact de $S(U(3)\times U(2))$ et du quotient par le centre commun $\mathbb Z_6$ ; les reçus physiques de courant et de descente sont énoncés séparément | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Structure de la matière | Témoin extérieur exact pour une génération, calcul des hypercharges et des anomalies, porteur à trois couleurs, bande canonique de rang trois candidate, et sélection économique conditionnelle $N_g=3$ ; l’attachement physique des familles est ouvert, et les implications conditionnelles de théorie des champs sont séparées de leurs producteurs physiques OPH | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article compact de reconstruction](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Théorème fini de courant $A_5$ | Séparation en douze unités, appariement inverse, action propre de $A_5$, repère de rang trois et unique involution centrale du graphe issus de la source. Sous le contrat explicite de réponse centrale signée et involutive, les réponses admissibles sont $\pm J$, avec des signes sectoriels relatifs exacts, et un relèvement compact explicite réalise $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. La sélection physique indépendante de la réponse et l’identification aux courants de laboratoire sont ouvertes ; aucune conclusion automatique sur un support global $S^2$ | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire déclarée de modules extérieurs conjugués à quinze états, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; le choix physique de la forme globale est ouvert. Aucun axiome d’économie n’entre dans cette implication finie | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction ; la multiplicité scalaire, la sélection physique de la matière, l’attachement des trois familles et l’exclusion de secteurs légers supplémentaires sont ouverts. $N_g=3$ est un minimum économique jusqu’à la dérivation de son attachement familial | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition ; l’appariement à la source, un moteur indépendant de symétrie de jauge, la covariance, les amplitudes de courant physique et l’horloge sont ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
@@ -457,7 +481,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Pour découvrir... | Commencer ici |
 | --- | --- |
 | L’argument persuasif le plus court | [Le cas compact pour OPH](extra/compact_proof_of_oph.pdf) |
-| Le centre technique | [Reconstruction de la relativité et du Modèle standard](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| La dérivation de l’espace-temps et d’Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Les deux routes de jauge du Modèle standard | [Structure de jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | La synthèse complète | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | La construction des particules | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

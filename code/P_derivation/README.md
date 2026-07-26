@@ -8,7 +8,7 @@ equations and the larger `code/particles` calibration stack. The code here is
 therefore built directly from the equations stated in:
 
 - `paper/deriving_the_particle_zoo_from_observer_consistency.tex`
-- `paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex`
+- `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex`
 - `paper/observers_are_all_you_need.tex`
 
 ## What is implemented

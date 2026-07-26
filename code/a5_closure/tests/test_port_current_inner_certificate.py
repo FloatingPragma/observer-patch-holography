@@ -32,7 +32,7 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_gate_passes_with_all_rows_true(self) -> None:
+    def test_algebraic_and_simulator_source_gates_pass(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertTrue(gate["passed"])
         self.assertTrue(all(gate.values()))
@@ -40,6 +40,7 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertTrue(physical_gate["passed"])
         self.assertTrue(physical_gate["response_model_source_bound"])
         self.assertTrue(physical_gate["response_coefficients_source_bound"])
+        self.assertTrue(physical_gate["target_blind_impulse_readback_recomputed"])
         self.assertTrue(physical_gate["physical_refinement_intertwining_source_bound"])
 
     def test_port_to_generator_map_shape(self) -> None:
@@ -98,12 +99,27 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
         self.assertTrue(closure_condition["met_locally"])
 
-    def test_semantic_binding_reports_recomputed_measurement(self) -> None:
+    def test_semantic_binding_reports_recomputed_source_response(self) -> None:
         binding = self.expected["semantic_response_binding"]
         self.assertTrue(binding["sector_structure_recomputed"])
         self.assertTrue(binding["galois_pairing_recomputed"])
         self.assertEqual(binding["tight_frame_constant_recomputed"], "10 + 2*sqrt(5)")
         self.assertEqual(binding["derived_construction"], "charged_double_triplet")
+        self.assertEqual(binding["response_operator"], "negative_graph_antipode_involution")
+        self.assertEqual(
+            binding["response_source"], "target_blind_maximal_distance_impulse_readback"
+        )
+        self.assertEqual(
+            binding["impulse_readback_filter_coefficients_recomputed"],
+            ["1", "-1/2", "-2/5", "1/10"],
+        )
+        self.assertTrue(binding["physical_perturb_readback_source_bound"])
+        self.assertTrue(binding["unique_nonidentity_central_involution_recomputed"])
+        self.assertEqual(
+            binding["response_sector_eigenvalues_recomputed"],
+            {"unit_band": -1, "quintet_band": -1, "frame_band": 1, "kernel_band": 1},
+        )
+        self.assertIn("charge conjugation", binding["overall_u1_charge_sign"])
         self.assertEqual(
             binding["derived_response_band_scales"],
             {"unit_band": "-1", "quintet_band": "-1", "frame_band": "1", "kernel_band": "1"},
@@ -235,11 +251,15 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertEqual(by_name["rank_deficient_kernel_band"], "IMAGE_RANK_DEFICIENT")
         self.assertEqual(by_name["register_relabeling_conflated_as_response"], "REGISTER_RELABELING_CONFLATION")
         self.assertEqual(by_name["unsupported_measurement_upgrade"], "RESPONSE_ARTIFACT")
+        self.assertEqual(by_name["artifact_v2_schema_rejected"], "ARTIFACT_SCHEMA")
+        self.assertEqual(by_name["artifact_doctored_source_antipode"], "ARTIFACT_RESPONSE")
+        self.assertEqual(by_name["artifact_source_eigenvalue_flip"], "ARTIFACT_RESPONSE")
+        self.assertEqual(by_name["artifact_impulse_filter_tamper"], "ARTIFACT_RESPONSE")
 
     def test_receipt_status_is_semantically_consistent(self) -> None:
         self.assertEqual(
             self.expected["claim_boundary"]["status"],
-            "proved_on_source_bound_response_artifact",
+            "proved_on_source_bound_impulse_readback_artifact",
         )
         self.assertTrue(self.expected["issue_closure_condition"]["met_locally"])
         self.assertTrue(self.expected["physical_source_gate"]["passed"])

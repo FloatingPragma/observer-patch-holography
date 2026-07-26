@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tests for the quotient-intrinsic geometry producer receipts (GitHub #523).
 
-Each test verifies one clause of the compact paper's
+Each test verifies one clause of The spacetime and Einstein paper's
 `subsec:quotient-intrinsic-geometry-producer`.
 """
 

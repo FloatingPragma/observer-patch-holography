@@ -4,9 +4,9 @@
       "assumed_quotient": "assuming the global quotient violates the emission contract",
       "kernel_killing_scalar": "an extra integral-charge singlet collapses the kernel to the pure full-turn deck translations; a trivial residual cannot satisfy the packet"
     },
-    "opposite_weyl": {
-      "failure": "every declared one-scalar Yukawa channel then has charge sum away from zero, so the Gauss sector is empty",
-      "same_reduct": "the odd-parity selection realizes the conjugate module"
+    "mixed_weyl_convention": {
+      "failure": "changing only the projector while retaining the even-representative charges and channel labels is an inconsistent mixed convention",
+      "valid_pair": "the odd-minus-top projector is the valid conjugate of even-minus-vacuum"
     },
     "selection": {
       "even_including_vacuum": "the full even Clifford module keeps the trivial vacuum line inside matter",
@@ -40,7 +40,7 @@
     {
       "actual_error": "YUKAWA_CHANNEL_EMPTY",
       "expected_error": "YUKAWA_CHANNEL_EMPTY",
-      "name": "opposite_weyl_selection",
+      "name": "mixed_weyl_representative",
       "passed": true
     },
     {
@@ -104,9 +104,9 @@
       "passed": true
     },
     {
-      "actual_error": "BLOCK_DETERMINANT_BALANCE",
-      "expected_error": "BLOCK_DETERMINANT_BALANCE",
-      "name": "orientation_conjugate_pair",
+      "actual_error": "SELECTION_RULE",
+      "expected_error": "SELECTION_RULE",
+      "name": "preferred_projector_representative",
       "passed": true
     },
     {
@@ -135,6 +135,6 @@
     }
   ],
   "issue": 314,
-  "manifest_sha256": "6ee735fec15c57d4476c7b713fbba380a4655d4f46e8b9b018325e7da2622f8f",
-  "schema": "oph.super_tannakian_matter_negative_controls.v3"
+  "manifest_sha256": "5b8cfb566e2f2a854de1c5d9c860a55984dfd78f275b0192c1e9c18deb1f793d",
+  "schema": "oph.super_tannakian_matter_negative_controls.v4"
 }

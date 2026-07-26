@@ -54,6 +54,31 @@ ROW_KEYS = {
     "paper_anchors",
 }
 
+REQUIRED_SELECTOR_IDS = {
+    "twelve_unit_port_splitting",
+    "inverse_port_pairing_six_axes",
+    "icosahedral_screen_selector_port_frame",
+    "echosahedral_carrier_lineage",
+    "compact_gauge_refinement_receipt",
+    "mar_matter_class_one_higgs_witness",
+    "z6_reserve_pricing_input",
+    "br0_cell_product_reading",
+    "publicness_policy",
+    "scheduler_selection_fair_block",
+    "quantitative_closure_map_declaration",
+    "physical_port_current_realization",
+    "z6_global_form_descent",
+    "physical_matter_spin_lift",
+    "screen_to_family_attachment",
+    "capacity_closure_selector",
+    "br1_reserve_semantics",
+    "br2_reserve_attachment",
+    "br3_readback_count_effect",
+    "br4_subfederation_marking",
+    "br5_symmetry_quotient",
+    "br6_cap_read_family",
+}
+
 
 def fail(message: str) -> None:
     raise SystemExit(f"selection ledger: {message}")
@@ -120,6 +145,16 @@ def validate(ledger: dict) -> list[dict]:
         seen_ids.add(selector_id)
         if row["class"] not in CLASSES:
             fail(f"{where}: class must be one of {CLASSES}")
+        conditional_on = row["conditional_on"]
+        if (
+            not isinstance(conditional_on, list)
+            or any(not isinstance(item, str) or not item for item in conditional_on)
+            or len(conditional_on) != len(set(conditional_on))
+        ):
+            fail(
+                f"{where}: conditional_on must be a duplicate-free list of "
+                "nonempty selector ids"
+            )
         if not isinstance(row["label"], str) or not row["label"].strip():
             fail(f"{where}: label must be nonempty")
         if not isinstance(row["where"], str) or not row["where"].strip():
@@ -216,6 +251,41 @@ def validate(ledger: dict) -> list[dict]:
                 fail(
                     f"{where}: anchor {anchor['anchor']} absent from {anchor['file']}"
                 )
+
+    missing_required = REQUIRED_SELECTOR_IDS - seen_ids
+    unexpected = seen_ids - REQUIRED_SELECTOR_IDS
+    if missing_required or unexpected:
+        fail(
+            "selector inventory mismatch "
+            f"(missing {sorted(missing_required)}, unexpected {sorted(unexpected)})"
+        )
+
+    dependencies = {
+        row["selector_id"]: list(row["conditional_on"]) for row in rows
+    }
+    for selector_id, prerequisites in dependencies.items():
+        unknown = set(prerequisites) - seen_ids
+        if unknown:
+            fail(
+                f"selector {selector_id}: conditional_on names unknown selectors "
+                f"{sorted(unknown)}"
+            )
+    visiting: set[str] = set()
+    visited: set[str] = set()
+
+    def visit(selector_id: str) -> None:
+        if selector_id in visiting:
+            fail(f"conditional_on cycle detected at selector {selector_id}")
+        if selector_id in visited:
+            return
+        visiting.add(selector_id)
+        for prerequisite in dependencies[selector_id]:
+            visit(prerequisite)
+        visiting.remove(selector_id)
+        visited.add(selector_id)
+
+    for selector_id in sorted(seen_ids):
+        visit(selector_id)
 
     ledger_menu_ids = {
         row["selector_id"] for row in rows if row["compression_input"]

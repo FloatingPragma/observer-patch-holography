@@ -15,7 +15,8 @@ to underfull boxes only.
 
 Usage (from repo root or anywhere):
   python3 paper/tools/check_build_warnings.py paper/observers_are_all_you_need.log \\
-      paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.log
+      paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.log
+      paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.log
   python3 paper/tools/check_build_warnings.py --list <log>   # dump every box warning with source mapping
 
 Build the logs first with: tectonic -X compile <root>.tex --keep-logs

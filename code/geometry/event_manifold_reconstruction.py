@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Machine receipts for the conditional Lorentzian event manifold (GitHub #525).
 
-Implements a synthetic end-to-end run of the compact paper's subsection
+Implements a synthetic end-to-end run of The spacetime and Einstein paper's subsection
 `subsec:event-manifold`:
 
 * ground truth: events (tau, X) with X on the unit-radius hyperboloid H^3

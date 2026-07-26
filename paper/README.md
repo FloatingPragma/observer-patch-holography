@@ -5,8 +5,8 @@ This directory is the canonical publication surface for the main OPH papers. Eac
 For a first reading, begin with the short [compact
 case](../extra/compact_proof_of_oph.pdf). Continue with *Observers Are All You
 Need* for the observer interpretation and the two quantitative closures, then
-use the technical recovery paper for the relativity, gravity, and Standard
-Model proofs. The consensus, particle, and screen papers provide the finite
+use the two technical derivation papers for spacetime and gravity on one side
+and Standard Model gauge structure on the other. The consensus, particle, and screen papers provide the finite
 repair theorem, numerical continuations, and physical carrier architecture.
 The focused [positive-chamber Koide paper](../extra/koide_identity_from_positive_c3_face_circulants.pdf)
 isolates the exact face-circulant identity and conditional finite tracial
@@ -19,7 +19,8 @@ a separate conditional attachment.
 
 | Paper | Role |
 | --- | --- |
-| [Recovering Relativity and the Standard Model](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) ([source](recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)) | Technical center: exact finite core, source-derived echosahedral selector on its declared carrier lineage, conditional Einstein composition, and selected Standard Model branch |
+| [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Full celestial-screen, modular, event-manifold, stress, generalized-entropy, and Einstein chain |
+| [Deriving Standard Model Gauge Structure](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) ([source](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex)) | Full categorical and finite-carrier gauge routes, conditional matter image, and physical global-form boundary |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Observer-first synthesis and main account of the local $P$ and global $N$ closures |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Finite repair, protected records, and quotient normal forms |
 | [Deriving the Particle Zoo](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Particle carriers, hierarchy coordinates, declared flavor tests, and executable pipeline |

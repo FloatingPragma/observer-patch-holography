@@ -16,7 +16,7 @@ promoting surrogate hadron masses.
   backend output.
 - The backend export and continuum, volume, chiral, and statistics budgets are
   visible before any hadron row can move onto the paper surface.
-- Until that backend exists, the compact paper marks hadrons out of scope.
+- Until that backend exists, The Standard Model gauge paper marks hadrons out of scope.
 
 ## Boundary For This Campaign
 

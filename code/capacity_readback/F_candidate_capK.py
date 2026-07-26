@@ -2,7 +2,7 @@
 """CAP-K candidate family for the capacity readback map F (construction run 2026-07-14).
 
 Cell-count readback (derivation: F_CONSTRUCTION_2026-07-14.md, Step 7): the sector
-reconstructs the equal-area chart count K = 4N/P (compact paper,
+reconstructs the equal-area chart count K = 4N/P (Standard Model gauge paper,
 def:self-closure-density) and reads back N_hat = (P/4) * K_readable, with the
 readable cell fraction set by the reserve reading:
 

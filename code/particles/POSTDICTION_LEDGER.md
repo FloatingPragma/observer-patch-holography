@@ -13,7 +13,7 @@ Every value and every measured reference on this page is read live from the cite
 
 ## Forced structure
 
-The icosahedral screen results pin the gauge sector before any numeric lane runs. The finite steps are machine checked in the Lean workspace; the recorded hypothesis boundaries are the exact classical inputs and open premises of the compact paper.
+The icosahedral screen results pin the gauge sector before any numeric lane runs. The finite steps are machine checked in the Lean workspace; the recorded hypothesis boundaries are the exact classical inputs and open premises of The Standard Model gauge paper.
 
 | Result | Observed counterpart | Match | Receipts |
 | --- | --- | --- | --- |

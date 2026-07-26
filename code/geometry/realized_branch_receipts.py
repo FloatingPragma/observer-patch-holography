@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Realized-branch receipt evaluation for the Einstein branch-entry gate (#503).
 
-Evaluates the decidable incidence receipts of the compact paper's
+Evaluates the decidable incidence receipts of The spacetime and Einstein paper's
 geometry-producer packet (Definition `def:spherical-incidence-receipt`) on the
 currently exported realized consensus artifacts, and emits the machine status
 consumed by Remark `rem:realized-branch-status`:

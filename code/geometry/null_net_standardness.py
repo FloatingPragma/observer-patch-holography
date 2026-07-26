@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Machine receipts for the null-net standardness packet (GitHub #524).
 
-Implements finite-stage witnesses for the compact paper's subsection
+Implements finite-stage witnesses for The spacetime and Einstein paper's subsection
 `subsec:null-net-standardness`:
 
 * stagewise standardness (Theorem `thm:null-net-standardness`, finite part):

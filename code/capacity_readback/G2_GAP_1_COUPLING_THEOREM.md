@@ -80,7 +80,7 @@ gives `3.5323546226...e122`, the value recorded by
 | EW share of screen depth `Gamma_EW = (P/12)*log(N/pi)` | `extra/compact_proof_of_oph.tex`, QCD-free hierarchy witness |
 | contraction carrier, `lambda = 1/2` free | `R_EW_global_capacity_certificate.json`, derivation chain step 7 |
 | seed fixed point `pi` of the pure port inversion | [F_CONSTRUCTION_2026-07-14.md](F_CONSTRUCTION_2026-07-14.md) Section 2.2; [F_candidate_capP.py](F_candidate_capP.py) |
-| `beta_EW = 4` relation | conditional D10 relation stated in the compact paper; no registered comparison target |
+| `beta_EW = 4` relation | conditional D10 relation stated in the Standard Model gauge paper; no registered comparison target |
 | certified `P_fwd` and `alpha_U(P_fwd)` enclosures | `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` (`interval_diagnostics.alpha_u`) |
 
 ## 3. Notation
@@ -124,7 +124,7 @@ fixes the transmutation depth `t_tr = 2*pi/(beta_EW*alpha_U(P))`. The exterior
 certificate gives four weak-doublet copies per generation. Setting the physical
 D10 coefficient `beta_EW` equal to that multiplicity requires `PORT-LOAD-TRACE`
 and the declared normalization. This gives `beta_EW=4` on that conditional branch
-(`d10_ew_forward_transmutation_certificate.json`, theorem block; compact proof).
+(`d10_ew_forward_transmutation_certificate.json`, theorem block; Standard Model gauge derivation).
 Inherits IH-3 (declared D10 branch conventions).
 
 **S5 (PROVEN ON THE PRODUCT-ADJOINT BRANCH). Global repair tick.**
@@ -168,7 +168,7 @@ Three displays of the same condition, equivalent by exact algebra (S8):
    `Pi_EW = beta_EW * P`;
 2. depth balance: the electroweak share of screen depth equals the transmutation
    depth, `Gamma_EW = t_tr`, where
-   `Gamma_EW = beta_EW * ell_cell * X/12 = (P/12)*X` (compact proof, QCD-free
+   `Gamma_EW = beta_EW * ell_cell * X/12 = (P/12)*X` (Standard Model gauge derivation, QCD-free
    hierarchy witness);
 3. per-port coupling: the per-port load equals the inner observation step of the D10
    lane, `X/12 = pi/(2*P*alpha_U)` (the fifth reading of construction Step 4).

@@ -10,8 +10,10 @@ The eligible sources are:
 
 - the finite quotient-consensus theorems in
   [*Reality as a Consensus Protocol*](../paper/reality_as_consensus_protocol.pdf);
-- the D1--D5 and D7--D9 recovered-core claims in the
-  [compact SM/GR paper](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf);
+- the D1--D5 gravity claims in the
+  [spacetime and Einstein paper](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+  and the D7--D9 claims in the
+  [Standard Model gauge paper](../paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf);
 - the exact gauge, charge, color, generation, and declared-action carrier
   claims in
   [*Deriving the Particle Zoo from Observer Consistency*](../paper/deriving_the_particle_zoo_from_observer_consistency.pdf);
@@ -34,10 +36,10 @@ measurement convention can absorb the result.
 | Protected-observation invariance | Two quotient-equivalent implementations satisfying the declared interface and repair rules produce different protected readouts. | The carrier-invariance claim falls. |
 | Cross-source identification | The stated protected-observation criterion identifies two sources whose consistent quotient normal forms remain distinct. | The cross-source theorem falls; same-source confluence is separate. |
 | Collar recovery | A faithful finite-range family satisfying the stated uniform conditional/matrix-mixing and boundary-growth hypotheses violates the published recovery bound or its scaling limit. | The conditional collar-recovery theorem falls. No stress or dark-source claim is attached. |
-| Lorentz cap branch | A receipt-complete prime cap pair satisfying the compact paper's incidence, modular, regularity, and scaling hypotheses fails the stated Lorentz action or commutator relations. | D3--D4 fall on that branch. |
-| Einstein bridge | A model satisfying the compact paper's null-stress, stationarity, tensor-upgrade, conservation, and physical-identification hypotheses fails the stated Einstein equation modulo one metric term. | D5 falls. The cosmological value of the metric term is outside this program. |
+| Lorentz cap branch | A receipt-complete prime cap pair satisfying the spacetime and Einstein paper's incidence, modular, regularity, and scaling hypotheses fails the stated Lorentz action or commutator relations. | D3--D4 fall on that branch. |
+| Einstein bridge | A model satisfying the spacetime and Einstein paper's null-stress, stationarity, tensor-upgrade, conservation, and physical-identification hypotheses fails the stated Einstein equation modulo one metric term. | D5 falls. The cosmological value of the metric term is outside this program. |
 | Compact-gauge reconstruction | A refinement system satisfying the declared sector, transport, obstruction, and compactness receipts fails to produce the stated compact gauge quotient. | D7 falls. |
-| Realized Standard Model quotient | The displayed quotient, hypercharge assignments, anomaly cancellations, shared center, color count, generation count, or one-Higgs admissibility calculation is mathematically inconsistent under its stated realized-branch premises. | D8--D9 fall in the affected part. |
+| Realized Standard Model matter image | The displayed maximal faithful matter image, hypercharge assignments, anomaly cancellations, shared center, color count, generation count, or one-Higgs admissibility calculation is mathematically inconsistent under its stated realized-branch premises. | D8--D9 fall in the affected part. Physical global-form selection has a separate gate. |
 | Classical carrier modes | The declared Maxwell, perturbative pure Yang--Mills, or pure Einstein--Hilbert quadratic action satisfies its stated vacuum and gauge hypotheses but lacks the published classical transverse mode count. | The corresponding classical carrier theorem falls. No quantum-particle claim follows from this row. |
 | Finite screen and $A_5$ coefficient sieve | A finite carrier satisfying the screen-sieve premises violates the stated port, reserve, phase, or quotient conclusion; or the declared twelve-port $A_5$ module, compact bracket, inner-action classification, or six-axis lattice calculation is algebraically inconsistent under its stated premises. | The affected finite screen or coefficient theorem falls. Physical gauge identification remains a separate receipt question. |
 
@@ -49,7 +51,7 @@ measurement convention can absorb the result.
 | Color count | A confirmed light Standard Model color carrier requires a fundamental color multiplicity other than three on the claimed realized branch. | The realized $N_c=3$ branch falls. |
 | Chiral generation count | A confirmed fourth light chiral Standard Model generation satisfies the same low-energy branch conditions. | The realized $N_g=3$ branch falls. |
 | One-Higgs minimal branch | The observed low-energy branch requires an additional elementary Higgs multiplet while satisfying the same minimal-admissibility premises. | The realized one-Higgs MAR branch falls. |
-| Gauge quotient | Under the physical-current, trace-balanced block, tensor-kernel, axis-descent, and MAR premises, a confirmed low-energy global form is incompatible with $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. | The realized gauge-quotient branch falls. |
+| Conditional faithful matter image | Under the source-model inverse-port response, conjugate rank-15 matter-projector contract, anomaly-derived determinant balance, realized-tensor kernel, and axis descent, the common kernel is not $\mathbb Z_6$ or the maximal faithful image is not $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. | The conditional finite matter-image theorem falls. No minimal-admissibility clause enters this implication; physical matter typing and global-form selection have separate open gates. |
 
 These physical rows test the named realized branch. They do not erase finite
 consensus, normal-form, or unrelated recovery theorems.

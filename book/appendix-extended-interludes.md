@@ -680,27 +680,30 @@ questions. Central records preserve completed answers. Overlap checks compare
 what neighboring patches expose, and recovery maps rebuild information from
 the correlations that survive local damage.
 
-The third handle is the smooth limit. Refinement does not turn local
-icosahedra into a round $S^2$ by magic. A federation-to-support map must pass
-a family of geometric checks on one source tower, and a complete
-algebra-state comparison must be carried out independently on that same
-tower. On that branch the conformal group of the sphere gives Lorentz
-kinematics, and $H^3$ is the three-dimensional observer-frame space. A $3+1$
-event manifold needs its own population and cone tests. A measured duration
-requires a clock instrument and calibration, and the Einstein step needs
-stress, entropy, coupling, vacuum, and scale conditions that must be supplied
-together.
+The third handle is the smooth limit. The oriented icosahedral incidence
+structure supplies twelve charts, thirty seams, and twenty nonvacuous seam
+triangles. Their finite interface algebras sew coherently, phase repair is
+confluent, and the carrier-to-support maps converge along one controlled
+refinement tower to the oriented sphere. A complete algebra-state comparison
+on that tower remains a separate requirement. Under that requirement the
+conformal group of the sphere gives Lorentz kinematics, and $H^3$ is the
+three-dimensional observer-frame space. A $3+1$ event manifold needs its own
+population and cone tests. A measured duration requires a clock instrument
+and calibration. The Einstein step also requires stress, entropy, coupling,
+vacuum, and scale conditions.
 
 The fourth handle is matter. The twelve port readings split exactly as
-$1+3+3'+5$. A source-produced compact physical current with the required
-$A_5$ action would turn that finite pattern into the
-$U(1)$, $SU(2)$, and $SU(3)$ Lie type. An independent route through
-transportable charge sectors, asking for the smallest matter package the
-rules admit, reaches the same type. Proving that both groups are the same
-physical group is work in progress. The trace-balanced exterior package is an
-exact one-generation representation witness, while physical matter selection,
-three-family attachment, quantum field-theory construction, and the local and
-global readback closures are each a separate construction.
+$1+3+3'+5$. Incidence fixes the antipode as a polynomial in adjacency.
+A target-blind impulse and port readback therefore derive the signed response
+and its oriented $U(1)$, $SU(2)$, and $SU(3)$ current algebra. Under a declared
+fermionic Spin category and a conjugate rank-fifteen projector pair, anomaly
+balance supplies the Standard Model hypercharges and scalar compatibility.
+The realized tensors have a common central kernel of order six and hence a
+maximal faithful image isomorphic to the usual Standard Model quotient.
+Those tensors also descend through the cover and the order-two, order-three,
+and order-six quotients, so the physical global form is work in progress.
+Physical fermionic typing, three-family attachment, scalar economy, exclusion
+of extra light sectors, and quantum field-theory construction remain separate.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -754,9 +757,12 @@ and the records they share.
 Tannaka-Krein reconstruction reads a compact group from its charge sectors,
 their fusion rules, and their duals. OPH applies that reconstruction to the
 transport-stable sectors of the patch net. On the icosahedral finite carrier,
-the twelve port readings split as $1+3+3'+5$. If a source-produced compact
-physical current realizes the required oriented bracket, the conditional
-classification recognizes the $U(1)$, $SU(2)$, and $SU(3)$ Lie type.
+the twelve port readings split as $1+3+3'+5$. Incidence expresses the antipode
+as a polynomial in adjacency. The target-blind impulse and port readback then
+derive the signed response, oriented bracket, and
+$U(1)$, $SU(2)$, and $SU(3)$ Lie type. The realized matter tensors determine
+a common kernel of order six and a maximal faithful image. They do not select
+one physical global form among the four compatible central quotients.
 
 Modular theory gives every suitable algebra-state pair a canonical flow. It
 becomes the geometric boost flow on a round cap only when the finite cap-flow
@@ -913,12 +919,16 @@ The book reads like a map of that inheritance. Each concept comes with the
 scientific relay that made it usable.
 
 The particle story uses several conditional relays. The finite icosahedral port
-carrier supplies a representation pattern. A source-produced physical current
-and an independent matter-sector reconstruction must identify the same gauge
-group. The exterior package supplies one chiral representation witness and its
-one-Higgs invariant channels. Quantum field theory, source dynamics, spectral
-continuation, and physical readout are separate steps between that witness
-and measured masses, mixings, and poles, and each is work in progress.
+carrier supplies a representation pattern and a unique central graph
+involution. Under explicit response and matter contracts, the compact current,
+exterior package, and central descent give an exact conditional gauge chain;
+the independent Tannaka route requires a common-group identification.
+The exterior package supplies a conjugate pair of chiral representations and,
+for a compatible scalar charge, three invariant channels. Physical response
+and matter selection, scalar multiplicity, quantum field theory, source
+dynamics, spectral continuation, and physical readout are separate steps
+between that witness and measured masses, mixings, and poles, and each is work
+in progress.
 Detectors close the observer-facing record loop after those steps have been
 supplied.
 

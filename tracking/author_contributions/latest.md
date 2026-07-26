@@ -1,7 +1,7 @@
 # Author Contribution Tracking
 
-- Generated (UTC): `2026-07-03T06:11:24+00:00`
-- Repo head: `b0e186e`
+- Generated (UTC): `2026-07-26T12:46:02+00:00`
+- Repo head: `50106883`
 - Repo status when generated: dirty
 
 ## Author Summary
@@ -9,20 +9,16 @@
 | Author | Non-merge commits | +lines | -lines | Category touches |
 | --- | ---: | ---: | ---: | --- |
 | Kai Xue | 192 | 5237 | 3547 | book=247, code=24, extra=4, paper=263, readme=16 |
-| Mario Poneder | 30 | 10509 | 937 | book=2, code=135, extra=11, paper=9, readme=4 |
+| Mario Poneder | 37 | 26040 | 2398 | book=2, code=212, extra=5, other=22, paper=4, readme=4 |
 | Peter Nguyen | 24 | 525 | 417 | book=17, extra=1, paper=39, readme=7 |
 | Kale Arnav Anirudha | 3 | 726 | 309 | paper=3 |
-| Jonathan Hill | 33 | 2447 | 292 | lean=33, other=2 |
+| Jonathan Hill | 35 | 2768 | 298 | lean=40, other=2 |
 
 ## Paper Rankings
 
-### Compact paper
+### Derivation papers
 
-| Rank | Author | Commits touching target file |
-| --- | --- | ---: |
-| 1 | Kai Xue | 49 |
-| 2 | Peter Nguyen | 8 |
-| 3 | Mario Poneder | 7 |
+No tracked co-author commits on this file.
 
 ### Synthesis paper
 
@@ -35,9 +31,8 @@
 
 | Rank | Author | Commits touching target file |
 | --- | --- | ---: |
-| 1 | Jonathan Hill | 30 |
-| 2 | Kai Xue | 21 |
-| 3 | Kale Arnav Anirudha | 3 |
+| 1 | Kai Xue | 21 |
+| 2 | Kale Arnav Anirudha | 3 |
 
 ### Particle paper
 
@@ -76,7 +71,6 @@
 - Line delta: `+5237 / -3547`
 - Files touched: `554` touches across `70` unique files
 - Core paper file counts:
-  - `compact`: `49`
   - `synthesis`: `50`
   - `consensus`: `21`
   - `particle`: `27`
@@ -110,30 +104,24 @@
 
 - Aliases: `Mario Poneder <m.poneder@decentra.vision>`
 - Notes: Git author identity used for Mario Poneder's particle-lane and theorem-closure contributions.
-- Non-merge commits: `30`
-- Line delta: `+10509 / -937`
-- Files touched: `161` touches across `49` unique files
+- Non-merge commits: `37`
+- Line delta: `+26040 / -2398`
+- Files touched: `249` touches across `80` unique files
 - Core paper file counts:
-  - `compact`: `7`
   - `particle`: `1`
 - Most-touched files:
-  - `code/particles/hierarchy/manifest.json`: `16`
-  - `code/particles/hierarchy/test_hierarchy_bundle.py`: `13`
-  - `code/particles/hierarchy/STATUS.md`: `9`
-  - `extra/compact_proof_of_oph.tex`: `8`
+  - `code/particles/hadron/test_issue_317_spectral_measure_packet.py`: `10`
+  - `code/particles/hadron/verify_issue_317_spectral_measure_packet.py`: `9`
+  - `code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json`: `9`
+  - `code/particles/hierarchy/manifest.json`: `9`
+  - `code/a5_closure/README.md`: `8`
+  - `code/particles/hierarchy/test_hierarchy_bundle.py`: `8`
   - `code/particles/RESULTS_STATUS.md`: `8`
-  - `paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex`: `7`
-  - `code/particles/DERIVATION_GAP_LEDGER.md`: `6`
-  - `code/particles/hierarchy/verify_issue_344_exact_capacity.py`: `5`
-  - `code/particles/hierarchy/verify_issue_335_local_global_resonance.py`: `5`
-  - `code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json`: `4`
+  - `claims/claim_registry.yaml`: `7`
+  - `code/a5_closure/a5_screen_sm_closure.json`: `6`
+  - `code/a5_closure/a5_screen_sm_closure.py`: `6`
 - Recent paper commits:
   - `2026-06-18` `3f1776e` Prove edge-entropy area law gives Einstein/Newton coupling
-  - `2026-06-17` `bcde639` Issue #345: derive factor of 4 in G_geom = a_cell/(4*ell_shared)
-  - `2026-06-17` `a9b43cc` Issue #345: maintainer prose smoothing on edge-entropy/Newton theorem
-  - `2026-06-17` `6f3d4e5` Issue #345: maintainer prose smoothing on factor-of-4 corollary
-  - `2026-06-17` `263e23c` Issue #345: prove edge-entropy/area law gives Einstein/Newton coupling
-  - `2026-06-17` `190f2f6` Issue #345: record refinement-scaling dictionary scope explicitly
   - `2026-06-12` `4fb4f52` Close global repair tick lemma
 
 ### Peter Nguyen
@@ -144,7 +132,6 @@
 - Line delta: `+525 / -417`
 - Files touched: `64` touches across `15` unique files
 - Core paper file counts:
-  - `compact`: `8`
   - `synthesis`: `13`
   - `main_fragment`: `7`
   - `technical_supplement`: `7`
@@ -184,22 +171,23 @@
   - `paper/CONSENSUS_PROTOCOL_FORMAL_ANALYSIS.md`: `2`
   - `paper/appendix_B_bft_qecc_extensions.tex`: `1`
 - Recent paper commits:
-  - `2026-04-04` `e897dde` fix: address all review issues; strengthen QBFT assumptions, fix FLP citation, unify repair map definition, soften unproven claims, correct QECC notation, fix async time bound
-  - `2026-04-04` `a8e4dbd` add: LaTeX appendix B; BFT and QECC extensions ready to \input into reality_as_consensus_protocol.tex
+  - `2026-04-04` `e897dde` fix: address all review issues — strengthen QBFT assumptions, fix FLP citation, unify repair map definition, soften unproven claims, correct QECC notation, fix async time bound
+  - `2026-04-04` `a8e4dbd` add: LaTeX appendix B — BFT and QECC extensions ready to \input into reality_as_consensus_protocol.tex
   - `2026-04-04` `9ff52be` fix: address all four remaining review issues in CONSENSUS_PROTOCOL_FORMAL_ANALYSIS
 
 ### Jonathan Hill
 
 - Aliases: `Jonathan Hill <jonathan.f.hill@gmail.com>, qizwiz <jonathan.f.hill@gmail.com>, Your Name <jonathan.f.hill@gmail.com>`
 - Notes: Git identities mapped to Jonathan Hill's Lean formalisation and proof-audit contributions.
-- Non-merge commits: `33`
-- Line delta: `+2447 / -292`
-- Files touched: `35` touches across `4` unique files
+- Non-merge commits: `35`
+- Line delta: `+2768 / -298`
+- Files touched: `42` touches across `6` unique files
 - Core paper file counts:
-  - `consensus`: `30`
 - Most-touched files:
   - `LEAN/ObserverPatchHolography/Primitives.lean`: `29`
-  - `LEAN/ObserverPatchHolography/Rule90.lean`: `3`
+  - `LEAN/ObserverPatchHolography/Rule90.lean`: `5`
+  - `LEAN/ObserverPatchHolography.lean`: `2`
+  - `LEAN/PROOF_INDEX.md`: `2`
+  - `LEAN/README.md`: `2`
   - `.github/workflows/lean-ci.yml`: `2`
-  - `LEAN/ObserverPatchHolography.lean`: `1`
 - Recent paper commits:

@@ -1,26 +1,150 @@
 {
+  "acceptance_criteria_status": {
+    "abstract_z6_intertwiner": true,
+    "algebraic_weak_center_u1_relation": true,
+    "dual_cocharacter_lattice": true,
+    "four_compatible_cover_level_global_forms": true,
+    "genuine_wilson_tHooft_dyonic_line_category_selected": false,
+    "issue_567_closeable": false,
+    "kernel_on_every_declared_tensor": true,
+    "larger_cover_and_smaller_quotient_countermodels": true,
+    "loop_bundle_line_refinement_naturality": false,
+    "maximal_effective_image_character_lattice": true,
+    "monopole_dynamics_not_inferred": true,
+    "physical_global_quotient_selected": false,
+    "primitive_correlated_cocharacter_in_electron_dirac_and_color_weak_units": true,
+    "source_derived_loop_deck_intertwiner": false,
+    "spacetime_spin_fermion_attachment": false,
+    "theta_periodicity_from_instantiated_topological_sectors": false,
+    "weight_level_refinement_invariance": true
+  },
+  "algebraic_weak_center_u1_relation": {
+    "conclusion": "h^3 is a gauge-kernel relation acting trivially on the declared weights; it is not fermion parity, and the finite center table does not attach the matter object to a spacetime Spin bundle",
+    "h_cubed": [
+      0,
+      1,
+      3
+    ],
+    "phase_on_every_declared_weight_sixths": 0,
+    "universal_fermion_minus_one_candidates": []
+  },
   "claim_boundary": {
     "does_not_close": [
-      "monopole or dyon dynamics (only line-lattice arithmetic is derived)",
+      "physical selection/attachment of this global form (#567)",
+      "the independent #599 response producer and physical #314 matter source gate",
+      "a source-derived physical deck/loop class rather than declared central weight data",
+      "a genuine-line category, mutually-local UV polarization, and completeness of the physical line spectrum",
+      "spacetime Spin/fermion attachment (h^3 is a trivial gauge relation, not fermion parity)",
+      "refinement-natural transport of loops, bundles, Spin data, or line categories",
+      "theta periodicity or instanton-sector quantization",
+      "monopole or dyon dynamics (only cocharacter-lattice arithmetic is derived)",
       "family attachment and any three-family claim (#569)",
       "laboratory measurement of any line or flux",
       "continuum quantum field theory"
     ],
-    "proves": "the physical global form of the realized branch: the kernel computed on every realized matter tensor, the quotient character and cocharacter data, the Wilson/'t Hooft line spectrum, spin descent, refinement invariance, and the four-global-forms control",
-    "status": "derived_on_realized_matter_tensors"
+    "proves": "the common central kernel on the declared tensors, the maximal effective quotient and its character/cocharacter lattices, the algebraic intertwiner of the two abstract Z6 groups, weight-level refinement invariance, and exact four-way global-form non-identifiability",
+    "status": "derived_conditionally_on_unsourced_upstream_response_and_matter_branch"
+  },
+  "conditional_algebraic_gate": {
+    "character_and_cocharacter_lattices_computed": true,
+    "four_global_forms_locally_indistinguishable": true,
+    "kernel_enumerated": true,
+    "maximal_effective_image_computed": true,
+    "passed": true,
+    "weak_center_relation_not_misidentified_as_spin": true
   },
   "convention": {
-    "block_map": "(A,B,z) -> (z^-2 A, z^3 B)",
     "hypercharge": "q = 6Y",
     "kernel_generator": "h = (omega_3 I_3, -I_2, exp(i pi/3))",
-    "orientation_note": "mixing the two orientations is a failed receipt; the block map is inherited from the #599 semantic artifact through the #314 packet"
+    "overall_charge_sign": "the displayed generator uses the even-Weyl convention; charge conjugation inverts it and leaves the generated Z6 subgroup unchanged"
   },
-  "four_admissible_global_forms_control": {
+  "dual_cocharacter_lattice": {
+    "basis_coordinates_color_weak_u1": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "1/3",
+        "1/2",
+        "1/6"
+      ]
+    ],
+    "interpretation_boundary": "the dual lattice and its finite central-flux residues are exact; a physical spectrum of genuine Wilson, 't Hooft, or dyonic lines requires a line category and mutually-local UV polarization",
+    "monopole_dynamics_not_inferred": true,
+    "primitive_correlated_cocharacter": {
+      "color_coweight": "1/3",
+      "u1_charge_electron_dirac_units": "1/6",
+      "weak_coweight": "1/2"
+    },
+    "primitive_pure_u1_cocharacter": "one electron-Dirac quantum",
+    "theta_periodicity_status": "not derived: this packet contains no principal-bundle sectors, topological action normalization, or instanton-charge lattice"
+  },
+  "global_form_nonidentifiability": {
     "adjoint_only_kernel_order": 36,
-    "conclusion_countermodels": "a fractionally charged extra tensor shrinks the kernel to the identity (larger cover), and removing the matter tensors enlarges the kernel to the full centre (smaller quotient); the realized tensor set is what forces Z6",
-    "conclusion_menu": "with adjoint tensors only, every subgroup of the centre gives an admissible global form: four admissible forms",
+    "adjoint_only_scope": "adjoint tensors leave the full 36-element finite central slice invisible and therefore do not select the diagonal chain",
+    "conclusion_countermodels": "a fractionally charged extra tensor shrinks the common kernel to the identity, while removing matter enlarges it; local weights determine the maximal kernel but do not choose which subgroup is gauged",
+    "conclusion_menu": "the diagonal quotient chain has four members: 1, Z2, Z3, and Z6; all declared local tensors descend through every member",
     "fractional_singlet_countermodel_kernel_order": 1,
-    "realized_matter_selects": "the maximal quotient Z6, by the exhaustive kernel computation",
+    "maximal_effective_quotient": "Z6",
+    "physical_global_form_selected": false,
+    "quotient_candidates": [
+      {
+        "all_declared_local_tensors_descend": true,
+        "character_residue_class_count": 36,
+        "generator_central_parameters": [
+          0,
+          0,
+          0
+        ],
+        "generator_power_of_h": 0,
+        "quotient_label": "SU(3) x SU(2) x U(1)",
+        "quotient_subgroup_order": 1
+      },
+      {
+        "all_declared_local_tensors_descend": true,
+        "character_residue_class_count": 18,
+        "generator_central_parameters": [
+          0,
+          1,
+          3
+        ],
+        "generator_power_of_h": 3,
+        "quotient_label": "(SU(3) x SU(2) x U(1)) / Z2",
+        "quotient_subgroup_order": 2
+      },
+      {
+        "all_declared_local_tensors_descend": true,
+        "character_residue_class_count": 12,
+        "generator_central_parameters": [
+          2,
+          0,
+          2
+        ],
+        "generator_power_of_h": 2,
+        "quotient_label": "(SU(3) x SU(2) x U(1)) / Z3",
+        "quotient_subgroup_order": 3
+      },
+      {
+        "all_declared_local_tensors_descend": true,
+        "character_residue_class_count": 6,
+        "generator_central_parameters": [
+          1,
+          1,
+          1
+        ],
+        "generator_power_of_h": 1,
+        "quotient_label": "(SU(3) x SU(2) x U(1)) / Z6",
+        "quotient_subgroup_order": 6
+      }
+    ],
+    "selection_boundary": "quotienting by the full common kernel is the maximal effective local action; choosing it as the physical gauge group requires source-derived global/line data",
     "subgroup_menu": [
       {
         "members": [
@@ -54,50 +178,16 @@
         ],
         "order": 6
       }
-    ]
-  },
-  "global_form": {
-    "character_lattice_smith_invariants": [
-      1,
-      1,
-      6
     ],
-    "group": "(SU(3) x SU(2) x U(1)) / Z6",
-    "wilson_class_group_order": 6,
-    "wilson_line_classes": [
-      [
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        1,
-        3
-      ],
-      [
-        1,
-        0,
-        4
-      ],
-      [
-        1,
-        1,
-        1
-      ],
-      [
-        2,
-        0,
-        2
-      ],
-      [
-        2,
-        1,
-        5
-      ]
-    ]
+    "subgroup_menu_scope": "exactly the four subgroups of the selected diagonal cyclic Z6; not every subgroup of the full adjoint centre Z3 x Z2 x Z6"
   },
   "issue": 567,
+  "issue_closure_condition": {
+    "conditional_algebraic_gate_passed": true,
+    "met_locally": false,
+    "physical_global_form_gate_passed": false,
+    "remaining_producer": "after #599/#314 source closure: a source-derived loop/deck holonomy, spacetime Spin attachment, genuine-line category with UV polarization, refinement-natural transport of that data, and principal-bundle/instanton normalization sufficient for theta periodicity"
+  },
   "kernel_on_realized_tensors": {
     "candidates_enumerated": 36,
     "computed_not_inferred": "the kernel is the exhaustive common stabilizer of the realized weight table, not a Lie-type inference",
@@ -140,21 +230,65 @@
     ],
     "kernel_order": 6,
     "matches_emitted_kernel_data": true,
-    "tensor_additivity_checked_pairs": 64
+    "tensor_additivity_checked_pairs": 49
   },
-  "line_spectrum": {
-    "magnetic_charge_unit": "one sixth of the electron-Dirac quantum (electron q = -6)",
-    "minimal_pure_u1_line": "one electron-Dirac quantum",
-    "minimum_magnetic_line": {
-      "color_center_flux": 1,
-      "u1_charge_electron_dirac_units": "1/6",
-      "weak_flux": 1
-    },
-    "monopole_dynamics_not_inferred": true,
-    "theta_periodicity": "the fractional instanton number on the Z6 quotient is quantized in units of 1/6, so the theta angle has period 2 pi times six in the cover normalization; stated as lattice arithmetic, not monopole dynamics"
+  "manifest_sha256": "860a888b3b1385065c92808711fb380cabfc6d839d524ba71b29add63eec01db",
+  "matter_receipt_sha256": "14b6c3f13e1664c93b305a9e73db5c9d8013b174c60daf669f2ebc6633eab807",
+  "maximal_effective_image": {
+    "character_lattice_smith_invariants": [
+      1,
+      1,
+      6
+    ],
+    "character_residue_class_count": 6,
+    "character_residue_classes": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        0,
+        4
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        2
+      ],
+      [
+        2,
+        1,
+        5
+      ]
+    ],
+    "group": "(SU(3) x SU(2) x U(1)) / Z6",
+    "status": "maximal effective image of the declared tensor representation; not a selected physical global gauge group"
   },
-  "manifest_sha256": "6fbdb4e6b42878f49958230eb59483d29db08caac255f630a132d092ab7001a8",
-  "matter_receipt_sha256": "dbdd5ebee779bc4eab2e84723a30e7508c16aecc10039a8084bdee8e4c2d549d",
+  "physical_global_form_gate": {
+    "genuine_line_category_selected": false,
+    "instanton_sector_and_action_normalization": false,
+    "laboratory_global_form_attachment": false,
+    "passed": false,
+    "refinement_natural_loop_bundle_transport": false,
+    "source_derived_deck_loop_class": false,
+    "spacetime_spin_attachment": false,
+    "theta_periodicity_derived": false,
+    "upstream_matter_physically_source_bound": false,
+    "upstream_response_physically_source_bound": false,
+    "uv_mutual_locality_polarization_selected": false
+  },
   "realized_weight_table": {
     "L": {
       "duality": 1,
@@ -186,35 +320,25 @@
       "q": 6,
       "triality": 0
     },
-    "scalar_S": {
-      "duality": 1,
-      "q": 3,
-      "triality": 0
-    },
     "u_c": {
       "duality": 0,
       "q": -4,
       "triality": 2
     }
   },
-  "refinement_invariance": {
+  "schema": "oph.axis_center_descent_receipt.v3",
+  "two_z6_constructions": {
+    "algebraic_intertwiner": "Lean/Screen/Z6Descent.lean: an exact group isomorphism matching chosen generators and inversion",
+    "boundary": "an isomorphism between two abstract cyclic groups is not a source-derived port-loop holonomy or deck action",
+    "physical_loop_intertwiner_derived": false,
+    "six_axis_lattice_quotient": "Lean/Screen/Z6Exact.lean: the abstract coefficient-lattice quotient Lambda_plus/(Lambda_1 (+) Lambda_5)",
+    "tensor_action_kernel": "Lean/Screen/TraceBalancedKernel.lean: the kernel of 2k + 3l + r on the central parameters"
+  },
+  "verifier_command": "python3 code/a5_closure/axis_center_descent_certificate.py verify --manifest code/a5_closure/manifests/axis_center_descent_reference.json --receipt code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+  "weight_level_refinement_invariance": {
     "artifact_persistence_maps": 2,
     "carrier_rotations": 60,
-    "conclusion": "the weight data is invariant under the carrier rotations and the artifact persistence maps, so the kernel computation descends the refinement tower"
-  },
-  "schema": "oph.axis_center_descent_receipt.v1",
-  "spin_fermion_descent": {
-    "conclusion": "every realized fermionic tensor is single-valued on the quotient; the binary cover acts through the quotient on the realized category",
-    "spin_representative_in_kernel": [
-      0,
-      1,
-      3
-    ]
-  },
-  "two_z6_constructions": {
-    "intertwiner": "Lean/Screen/Z6Descent.lean: the explicit isomorphism matching the six-axis residue generator with the kernel generator and the antipodal involution with conjugation",
-    "six_axis_lattice_quotient": "Lean/Screen/Z6Exact.lean: the screen gluing class Lambda_plus/(Lambda_1 (+) Lambda_5) with antipodal sign reversal",
-    "tensor_spin_kernel": "Lean/Screen/TraceBalancedKernel.lean: the kernel of 2k + 3l + r on the central parameters with conjugation inverting the generator"
-  },
-  "verifier_command": "python3 code/a5_closure/axis_center_descent_certificate.py verify --manifest code/a5_closure/manifests/axis_center_descent_reference.json --receipt code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+    "conclusion": "the central weight table and common-kernel computation are invariant under the declared state permutations",
+    "physical_loop_or_bundle_refinement_naturality_derived": false
+  }
 }

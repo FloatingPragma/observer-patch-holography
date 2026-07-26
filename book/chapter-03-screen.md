@@ -289,7 +289,11 @@ corners of an icosahedron with each paired against the one directly opposite,
 is the cheapest one the bookkeeping allows, and the symmetry group of the
 arrangement falls out for free. The details live in the technical papers. The
 arrangement theorem does not by itself supply physical currents; attaching
-those currents to the ports is work in progress.
+them requires a separate physical response law. The exact current certificate
+passes conditionally when the finite response is restricted to a signed
+central involutive graph automorphism; incidence then leaves only the
+charge-conjugate pair $\pm J$. Independent perturb-and-readback source binding
+and laboratory identification are work in progress.
 
 The body is also not an observer by geometry alone. It becomes an elementary
 observer only when its readback, records, feedback, predictions, and checkpoint
@@ -529,7 +533,9 @@ transport, the graviton to emergent geometry and diffeomorphism structure,
 $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
 composites. The ladder explains how OPH moves from seed, to loop, to screen, to
 observer-frame geometry. Event spacetime, physical gauge currents, and particle
-fields enter through their separate later constructions.
+fields enter through their separate later constructions. Incidence and a
+target-blind impulse/readback protocol derive the exact finite current.
+Laboratory identification requires a separate construction.
 
 ## 3.12 The Reverse Engineering
 

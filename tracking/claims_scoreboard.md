@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r1578`. 61 claims, 21 distinct live gates across 19 gated claims.
+Release: `r1583`. 61 claims, 23 distinct live gates across 20 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -73,10 +73,10 @@ Release: `r1578`. 61 claims, 21 distinct live gates across 19 gated claims.
 | `OPH-SM-Q4-OS-OBSERVABLE-SECTOR` | `conditional_implication` | `conditional_implication_defined__nonperturbative_G6_tower_open` | none |
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | none |
-| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_response_artifact` | none |
-| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `proved_on_source_bound_matter_contracts` | none |
-| `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `local_to_global_no_go_established__structural_bridge_receipts_computed__physical_capture_lane_quarantined` | none |
-| `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_chain__global_form_derived_on_realized_tensors__family_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
+| `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_target_blind_carrier_impulse_readback` | none |
+| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `conditional_exact_matter_lift__fermionic_spin_source_and_scalar_economy_open` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
+| `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower` | none |
+| `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_chain__z6_arithmetic_on_declared_tensors__physical_global_form_and_family_attachment_open` | [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567), [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-QUARK-REGISTER-CLEBSCH` | `conditional_implication` | `conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent` | none |
 | `OPH-KOIDE-CIRCULANT-IDENTITY` | `conditional_implication` | `exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic` | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) |
 | `OPH-A5-REAL-AXIS-CABIBBO-NOGO` | `conditional_implication` | `proved_narrow_no_go_for_direct_Cabibbo_identification_with_31_real_3d_icosahedral_residual_axes` | none |
@@ -104,6 +104,7 @@ Release: `r1578`. 61 claims, 21 distinct live gates across 19 gated claims.
 |---|---|---|
 | [#294](https://github.com/FloatingPragma/observer-patch-holography/issues/294) | Clay YM: complete OS reconstruction and nontriviality package | `OPH-YM-GAP` |
 | [#295](https://github.com/FloatingPragma/observer-patch-holography/issues/295) | Clay YM: certify the finite repair-gap floor | `OPH-YM-GAP` |
+| [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) | Proof packet: Super-Tannakian Matter Lift | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
 | [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) | [Physical scale] Complete the source-derived clock stack for the Newton constant | `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-SCREEN-24-CLOCK-DETERMINANT` |
 | [#364](https://github.com/FloatingPragma/observer-patch-holography/issues/364) | String theorem: critical-edge heterotic VOA closure | `OPH-STRING-SELECTOR` |
 | [#365](https://github.com/FloatingPragma/observer-patch-holography/issues/365) | String certificate: Bouchard-Donagi cohomology and one-Higgs witness reproduction | `OPH-STRING-SELECTOR` |
@@ -115,6 +116,7 @@ Release: `r1578`. 61 claims, 21 distinct live gates across 19 gated claims.
 | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) | [N closure selector] Derive the exact finite-size slack law and unique zero | `OPH-Q-PN-CLOSURE` |
 | [#560](https://github.com/FloatingPragma/observer-patch-holography/issues/560) | [Chi-nu math] Derive coherent repair charge, signed control, and device-force receipts | `OPH-CHI-NU` |
 | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) | [Rotor program] Derive the repair-charge dark sector from finite OPH | `OPH-DM-CONT` |
+| [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567) | [12-port global form] Prove physical Z6 descent and the exact line spectrum | `OPH-GAUGE-D7-D9` |
 | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) | [A5 matter] Attach the icosahedral screen action to three physical families | `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION` |
 | [#579](https://github.com/FloatingPragma/observer-patch-holography/issues/579) | [Cosmology] Instantiate the source-screen spectrum receipts on one finite DAG | `OPH-COSMO-SCREEN-SPECTRUM` |
 | [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) | [N-horizon bridge] Identify public-record capacity with horizon area | `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |

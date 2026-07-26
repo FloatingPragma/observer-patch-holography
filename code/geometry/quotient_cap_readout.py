@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Machine receipts for the quotient-intrinsic geometry producer (GitHub #523).
 
-Implements the objects of the compact paper's subsection
+Implements the objects of The spacetime and Einstein paper's subsection
 `subsec:quotient-intrinsic-geometry-producer`:
 
 * a finite transactional quotient repair system whose record layer binds one

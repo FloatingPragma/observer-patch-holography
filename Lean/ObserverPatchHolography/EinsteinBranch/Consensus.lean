@@ -4,7 +4,7 @@ import Mathlib
 # Finite consensus and the typed Einstein-branch boundary
 
 This module formalises the model-theoretic and compositional boundary of the
-compact paper's corrected Einstein branch.  A bare tower contains only finite
+spacetime and Einstein paper's corrected Einstein branch.  A bare tower contains only finite
 presentations, physical quotients, mismatch/repair data, normal forms, protected
 boundary data, and coarse maps.  Geometry and stress are deliberately absent.
 

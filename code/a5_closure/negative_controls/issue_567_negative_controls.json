@@ -1,8 +1,10 @@
 {
   "countermodel_witnesses": {
-    "adjoint_only": "kernel order 36: all four global forms admissible without matter",
+    "adjoint_only": "the adjoint-only table has the full 36-element finite central slice in its kernel",
+    "fermion_parity": "no central element in the 36-element table acts by -1 on all five matter multiplets; h^3 acts trivially",
+    "four_local_data_completions": "the same declared local tensor table descends through quotients by 1, Z2, Z3, and Z6, whose character residue counts are respectively 36, 18, 12, and 6",
     "fractional_singlet": "kernel order 1: a larger cover is forced by a fractionally charged tensor",
-    "orientation": "the conjugate block map fails the convention gate; mixing orientations is a failed receipt"
+    "promotion": "a manifest cannot promote the conditional kernel quotient to a physically attached global form"
   },
   "finite_controls": [
     {
@@ -12,9 +14,9 @@
       "passed": true
     },
     {
-      "actual_error": "CONVENTION",
-      "expected_error": "CONVENTION",
-      "name": "mixed_orientation",
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "unsupported_physical_promotion",
       "passed": true
     },
     {
@@ -28,9 +30,45 @@
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "monopole_dynamics_injection",
       "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_deck_loop_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_spacetime_spin_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_line_category_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_uv_polarization_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_instanton_sector_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_theta_period_injection",
+      "passed": true
     }
   ],
   "issue": 567,
-  "manifest_sha256": "6fbdb4e6b42878f49958230eb59483d29db08caac255f630a132d092ab7001a8",
-  "schema": "oph.axis_center_descent_negative_controls.v1"
+  "manifest_sha256": "860a888b3b1385065c92808711fb380cabfc6d839d524ba71b29add63eec01db",
+  "schema": "oph.axis_center_descent_negative_controls.v3"
 }

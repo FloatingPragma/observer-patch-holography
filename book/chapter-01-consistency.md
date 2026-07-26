@@ -404,9 +404,11 @@ one structure. Two interface geometries need not.
 
 On the geometric branch, controlled refinement of the shared records supports
 the spherical chart, Lorentz kinematics, and the conditional gravity
-construction. On the gauge branch, the twelve-port incidence constrains the
-finite symmetry blocks from which a physical current algebra may be
-recognized. Particles require the later field-theory construction. Observers
+construction. On the gauge branch, the twelve-port incidence determines the
+finite symmetry blocks and its unique central graph involution. A target-blind
+impulse and port readback derive the response, and an exact compact lift turns
+it into the Standard Model current algebra. Laboratory attachment and
+particles require later constructions. Observers
 are bounded self-reading patterns that maintain records, compare interfaces,
 and condition later behavior on what they read. These outputs share an
 architecture without sharing a shortcut.

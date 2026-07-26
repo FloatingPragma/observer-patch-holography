@@ -182,12 +182,16 @@ Mapping between Lean 4 theorems in this project and statements in
   `native_decide`. No physical receipt is formalized. Does **not** bear on
   the Prop 4.2 / Def 4.1 counts.
 - #568 icosahedral-lane completion (`Screen/A5Commutant.lean`,
-  `Screen/TraceBalancedKernel.lean`, `Screen/TrichotomyCases.lean`, plus
-  removability controls in `Screen/UnitSplit12.lean`): the ordered port
+  `Screen/A5IncidenceResponse.lean`, `Screen/TraceBalancedKernel.lean`,
+  `Screen/TrichotomyCases.lean`, plus removability controls in
+  `Screen/UnitSplit12.lean`): the ordered port
   pairs fall into four kernel-checked orbits (diagonal, adjacent,
   distance-two, antipodal), so the commutant of the port action is exactly
   the four-dimensional span of the four orbital matrices, with entry
-  invariance proven equivalent to commutation with the linear action;
+  invariance proven equivalent to commutation with the linear action; the
+  unique graph-distance-three partner is forced by incidence and its
+  permutation matrix satisfies
+  `10J = A^3 - 4A^2 - 5A + 10I` exactly;
   the trace-balanced cover kernel is checked exactly on central
   parameters — six elements, cyclic with generator `(ω₃I₃, -I₂, e^{iπ/3})`,
   `U(1)` coordinate bijective, negation reversing the generator; the
@@ -203,17 +207,25 @@ Mapping between Lean 4 theorems in this project and statements in
   fiber-count, spectrum, kernel, and enumeration data (22 checks). Does
   **not** bear on the Prop 4.2 / Def 4.1 counts.
 - #567 axis-centre descent (`Screen/Z6Descent.lean`): the common central
-  kernel on the realized matter weight table equals the tensor-spin kernel
+  kernel on the realized matter weight table equals the tensor-action kernel
   by exhaustive enumeration over the 36 candidates
-  (`kernel_on_realized_weights`); the centre has exactly four subgroups
-  (`four_admissible_global_forms`), with the adjoint-only kernel the full
-  centre and a fractionally charged extra tensor shrinking the kernel to
-  the identity (the larger-cover / smaller-quotient countermodels); and
+  (`kernel_on_realized_weights`); the selected diagonal kernel has exactly
+  four subgroups (`four_admissible_global_forms`), while the adjoint-only
+  kernel is the full 36-element finite central slice and a fractionally
+  charged extra tensor shrinks the common kernel to the identity. The cube
+  of the diagonal generator acts trivially on every realized weight
+  (`hCube_trivial_on_realized_weights`), and no central parameter acts by
+  `-1` on all five matter multiplets
+  (`no_universal_fermion_minus_one`), so this arithmetic does not supply a
+  spacetime Spin attachment. Finally,
   the explicit intertwiner `sixAxisToKernel` carries the six-axis gluing
   class of `Z6Exact.lean` onto the kernel of `TraceBalancedKernel.lean`,
   generator to generator and antipodal sign reversal to conjugation,
-  injective with image exactly the kernel. Sorry-free, standard axioms,
-  no `native_decide`. Executable counterpart:
+  injective with image exactly the kernel. This is an algebraic isomorphism,
+  not a source-derived port-loop/deck holonomy. Physical global-form
+  selection, genuine-line polarization, refinement of those structures,
+  and instanton/theta data remain open. Sorry-free, standard axioms, no
+  `native_decide`. Executable counterpart:
   `code/a5_closure/axis_center_descent_certificate.py`.
 - FZ-02 angular multiplet signature (`Screen/A5AngularMultiplets.lean`):
   the exact branching of rotation levels `l = 0..6` under `A5` in integer

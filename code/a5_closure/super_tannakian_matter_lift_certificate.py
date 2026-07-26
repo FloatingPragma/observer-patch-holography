@@ -3,10 +3,9 @@
 
 The input is a matter-lift manifest.  It declares only:
 
-* the conditional port-current response manifest of issue #566 (by path
-  and hash) together with its stored receipt hash - the conditional
-  current algebra u(3) (+) so(3) on the charged response space is
-  strictly upstream, and its physical source binding is open in #599;
+* the port-current response manifest of issue #566 (by path and hash)
+  together with its stored receipt hash - the exact carrier-dynamics
+  response source of issue #599 is strictly upstream;
 * the trace-balanced exterior matter contract: the exact charge pair on
   the color and weak blocks, the one-scalar choice (the weak block
   itself), and the declared invariant Yukawa channel list - a typed
@@ -28,9 +27,9 @@ From that packet the verifier derives, rather than assumes:
   super tensor structure (wedge with Koszul signs), and conjugation
   through the pairing into the top line, which is exactly trivial because
   of the declared trace balance;
-* the derived equivariant projector (parity projector minus the derived
-  invariant line) of exact rank fifteen whose image realizes the exterior
-  package Lambda^2 V (+) Lambda^4 V;
+* the unordered conjugate pair of equivariant projectors (a parity
+  projector minus its complete invariant line), each of exact rank
+  fifteen; neither Weyl representative is selected by the source;
 * exact chirality (disjoint charge spectra force a zero intertwiner
   space), realized perturbative anomaly traces, the even Witten parity,
   and exactly one invariant line per declared Yukawa channel;
@@ -42,12 +41,13 @@ From that packet the verifier derives, rather than assumes:
   global quotient is formed;
 * descent along the declared algebraic carrier tower maps.
 
-This is a conditional exact algebraic theorem.  It does not source-bind
-the matter contract or the upstream response representation to physical
-carrier response; those remain separate source-binding gates.  The
-receipt therefore separates the verified conditional algebraic gate
-from the open physical source-realization gate, and issue #314 remains
-open at that physical boundary.
+This is a conditional exact algebraic theorem.  The upstream finite
+carrier response is source-bound, but the manifest still declares
+fermionic statistics and the Spin/odd-Weyl category instead of deriving
+those physical data from an independent source.  Scalar content is also
+a typed branch premise.  The receipt therefore separates the verified
+conditional algebraic gate from the open physical source-realization
+gate, and issue #314 remains open at that boundary.
 
 Vec-typed, split-sVec, opposite-Weyl, bosonic-statistics, truncated
 selection, full-even-module, empty-Gauss, assumed-quotient,
@@ -77,10 +77,9 @@ if str(MODULE_DIR) not in sys.path:
 import echosahedral_selector_certificate as e565  # noqa: E402
 import port_current_inner_certificate as p566  # noqa: E402
 
-SCHEMA = "oph.super_tannakian_matter_manifest.v3"
-RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v3"
-NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v3"
-CANONICAL_BLOCK_MAP = "(A,B,z) -> (z^-2 A, z^3 B)"
+SCHEMA = "oph.super_tannakian_matter_manifest.v4"
+RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v4"
+NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v4"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -390,15 +389,32 @@ def validate_manifest(
         "CATEGORY_TYPING",
         "the production packet must declare the genuine double-cover spin lift",
     )
-    selection_rule = category.get("selection_rule")
-    allowed_rules = (
-        SELECTION_RULES if allow_control_contracts else ("parity_even_minus_derived_invariants",)
-    )
+    declared_selection_rule = category.get("selection_rule")
     require(
-        selection_rule in allowed_rules,
+        "projector_representative_convention" not in category,
         "SELECTION_RULE",
-        "the production packet must declare the parity_even_minus_derived_invariants selection rule",
+        "the source packet may not prefer either member of the derived "
+        "charge-conjugate projector pair",
     )
+    if allow_control_contracts:
+        selection_rule = (
+            str(declared_selection_rule)
+            if declared_selection_rule is not None
+            else "parity_even_minus_derived_invariants"
+        )
+        require(
+            selection_rule in SELECTION_RULES,
+            "SELECTION_RULE",
+            "unknown control-lane selection rule",
+        )
+    else:
+        require(
+            declared_selection_rule is None,
+            "SELECTION_RULE",
+            "the production packet may not choose a matter projector; the "
+            "conjugate rank-fifteen projector pair is derived by the verifier",
+        )
+        selection_rule = "parity_even_minus_derived_invariants"
     realization = category.get("realization")
     require(
         realization in ("operator_projector", "representation_arithmetic"),
@@ -492,10 +508,12 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
     )
     physical_gate = current_receipt.get("physical_source_gate")
     require(
-        isinstance(physical_gate, Mapping) and physical_gate.get("passed") is True,
+        isinstance(physical_gate, Mapping)
+        and physical_gate.get("passed") is True
+        and physical_gate.get("target_blind_impulse_readback_recomputed") is True,
         "UPSTREAM_RECEIPT",
-        "the upstream response representation must be source-bound: the #566 receipt "
-        "must record a passing physical source gate from the #599 semantic artifact",
+        "the upstream receipt must pass the target-blind impulse/readback "
+        "source gate",
     )
     binding = current_receipt.get("semantic_response_binding")
     require(
@@ -511,6 +529,7 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
         "current_receipt_sha256": sha256_json(current_receipt),
         "carrier_manifest_sha256": current_receipt.get("carrier_manifest_sha256"),
         "semantic_response_artifact_sha256": binding.get("artifact_sha256"),
+        "upstream_physical_source_gate_passed": physical_gate.get("passed") is True,
     }
 
 
@@ -1028,7 +1047,7 @@ def _charge_at(field: str, a: Fraction, b: Fraction) -> Fraction:
 
 
 def block_determinant_balance_certificate(
-    y_color: Fraction, y_weak: Fraction, block_map: str
+    y_color: Fraction, y_weak: Fraction
 ) -> dict[str, Any]:
     """Derive the trace-balanced charge pair from the realized package.
 
@@ -1037,9 +1056,10 @@ def block_determinant_balance_certificate(
     linear polynomials proportional to 3a + 2b, and the U(1)^3 form vanishes
     identically on the balance line and only there among the sampled rays.
     Anomaly freedom of the realized package therefore forces the determinant
-    balance. Primitive q = 6Y integrality fixes the pair up to sign, and the
-    measured block-map orientation of the bound semantic artifact fixes the
-    sign. The declared pair must equal the derived pair.
+    balance. Primitive integral block characters solve
+    ``3 q_C + 2 q_W = 0`` only as ``+/-(-2, 3)``. Writing ``Y=q/6`` therefore
+    gives ``+/-(-1/3, 1/2)``. The common sign is charge conjugation and is not
+    selected by the finite response artifact.
     """
 
     half = Fraction(1, 2)
@@ -1077,9 +1097,8 @@ def block_determinant_balance_certificate(
         "U1^3 vanishes off the balance line; the balance is not selective",
     )
 
-    # Primitive q = 6Y integrality on the balance line (a, b) = t(-1/3, 1/2):
-    # the integer charge spectrum is t * (1, -4, 6, 2, -3), primitive only
-    # for |t| = 1.
+    # Primitive integral block characters on the balance line are exactly
+    # +/-(-2, 3). The displayed Y normalization is q/6.
     unit = {
         field: 6 * _charge_at(field, Fraction(-1, 3), Fraction(1, 2))
         for field in GENERAL_PACKAGE
@@ -1095,25 +1114,30 @@ def block_determinant_balance_certificate(
         "BLOCK_DETERMINANT_BALANCE",
         "the declared pair is off the derived balance line",
     )
-    scale = -3 * y_color
+    q_color = 6 * y_color
+    q_weak = 6 * y_weak
     require(
-        scale.denominator == 1 and abs(scale.numerator) == 1,
+        q_color.denominator == 1
+        and q_weak.denominator == 1
+        and 3 * q_color + 2 * q_weak == 0
+        and math.gcd(abs(q_color.numerator), abs(q_weak.numerator)) == 1,
         "BLOCK_DETERMINANT_BALANCE",
-        f"the declared pair is a non-primitive multiple t = {scale} of the "
-        "integral charge spectrum",
+        "the declared block characters are not a primitive integral solution "
+        "of 3 q_C + 2 q_W = 0",
     )
+    primitive_pairs = {
+        (Fraction(-1, 3), Fraction(1, 2)),
+        (Fraction(1, 3), Fraction(-1, 2)),
+    }
     require(
-        block_map == CANONICAL_BLOCK_MAP,
+        (y_color, y_weak) in primitive_pairs,
         "BLOCK_DETERMINANT_BALANCE",
-        "the bound artifact does not carry the canonical block-map orientation",
+        "the declared pair is not one of the two charge-conjugate primitive pairs",
     )
-    # q_C = 6 y_C on the color fundamental must equal the z^-2 block exponent.
-    require(
-        6 * y_color == -2 and 6 * y_weak == 3,
-        "BLOCK_DETERMINANT_BALANCE",
-        "the declared pair does not match the orientation-selected primitive "
-        "pair (-1/3, 1/2)",
-    )
+    declared_spectrum = {
+        field: 6 * _charge_at(field, y_color, y_weak)
+        for field in GENERAL_PACKAGE
+    }
     return {
         "anomaly_forms_general_charges": {
             "gravity_squared_U1": "24 a + 16 b = 8 (3a + 2b)",
@@ -1126,13 +1150,22 @@ def block_determinant_balance_certificate(
             "the determinant balance 3 y_C + 2 y_W = 0"
         ),
         "integral_spectrum_on_line": {"Q": 1, "u_c": -4, "e_c": 6, "d_c": 2, "L": -3},
-        "primitivity": "the q = 6Y spectrum is primitive only at t = +-1",
-        "orientation": {
-            "artifact_block_map": block_map,
-            "selected_sign": "t = +1: the color fundamental carries q = -2, matching z^-2 on the color block",
+        "declared_representative_integral_spectrum": {
+            field: int(value) for field, value in declared_spectrum.items()
         },
+        "primitivity": "the primitive integral block-character solutions are exactly (q_C,q_W)=+/-(-2,3)",
+        "overall_sign_status": "charge-conjugation convention; not selected by the response artifact",
+        "derived_pairs_up_to_charge_conjugation": [
+            {"color_block": "-1/3", "weak_block": "1/2"},
+            {"color_block": "1/3", "weak_block": "-1/2"},
+        ],
+        "calculation_convention": "one charge table is printed with positive weak-block charge; the source-derived physical object is the unordered charge-conjugate pair",
         "derived_pair": {"color_block": "-1/3", "weak_block": "1/2"},
-        "declared_equals_derived": True,
+        "declared_pair": {
+            "color_block": frac_text(y_color),
+            "weak_block": frac_text(y_weak),
+        },
+        "declared_matches_derived_pair_up_to_conjugation": True,
     }
 
 
@@ -1141,47 +1174,59 @@ def scalar_and_channel_selection_certificate(
     y_weak: Fraction,
     channels: Sequence[tuple[str, str, str]],
 ) -> dict[str, Any]:
-    """Derive the one-scalar choice and the Yukawa channel list.
+    """Derive scalar-charge/channel compatibility, not scalar economy.
 
-    Among weak-doublet color-singlet scalars with integer q = 6Y charge, the
-    channel selection rules (charge sum zero, triality zero mod three, even
-    doublet count) admit three channels exactly for q_S in {+3, -3}, the two
-    conjugation-related values, and the admissible set at q_S = +3 is
-    exactly the declared channel list. The weak block itself carries
-    q_W = 3, so the scalar is the weak-block carrier up to conjugation.
+    Conditional on a color-singlet weak-doublet scalar, enumerate every field
+    pair that satisfies triality and duality. Charge conservation fixes the
+    scalar charge for each pair, so no arbitrary bounded charge scan is used.
+    The only compatible values are the conjugate pair q_S = +/-3, with three
+    channels for either convention. Scalar existence, multiplicity, and the
+    absence of additional light scalars remain assumptions outside this scan.
     """
 
     q = {field: 6 * _charge_at(field, y_color, y_weak) for field in GENERAL_PACKAGE}
     fields = sorted(GENERAL_PACKAGE)
     scan: dict[int, list[tuple[str, str, str]]] = {}
-    for q_s in range(-6, 7):
-        if q_s == 0:
-            continue
-        admissible: list[tuple[str, str, str]] = []
-        for i, left in enumerate(fields):
-            for right in fields[i:]:
-                for scalar, sign in (("S", 1), ("Sbar", -1)):
-                    charge_sum = q[left] + sign * q_s + q[right]
-                    triality = (
-                        GENERAL_PACKAGE[left]["triality"]
-                        + GENERAL_PACKAGE[right]["triality"]
-                    ) % 3
-                    duality = (
-                        GENERAL_PACKAGE[left]["duality"]
-                        + 1
-                        + GENERAL_PACKAGE[right]["duality"]
-                    ) % 2
-                    if charge_sum == 0 and triality == 0 and duality == 0:
-                        admissible.append((left, scalar, right))
-        if admissible:
-            scan[q_s] = admissible
+    for i, left in enumerate(fields):
+        for right in fields[i:]:
+            triality = (
+                GENERAL_PACKAGE[left]["triality"]
+                + GENERAL_PACKAGE[right]["triality"]
+            ) % 3
+            duality = (
+                GENERAL_PACKAGE[left]["duality"]
+                + 1
+                + GENERAL_PACKAGE[right]["duality"]
+            ) % 2
+            if triality != 0 or duality != 0:
+                continue
+            pair_charge = q[left] + q[right]
+            require(
+                pair_charge.denominator == 1,
+                "SCALAR_SELECTION",
+                "a compatible matter pair has non-integral q=6Y charge",
+            )
+            for scalar, q_s in (("S", -pair_charge), ("Sbar", pair_charge)):
+                if q_s == 0:
+                    continue
+                scan.setdefault(int(q_s), []).append((left, scalar, right))
 
     require(
         set(scan) == {3, -3},
         "SCALAR_SELECTION",
         f"admissible scalar charges are not the conjugate pair (3, -3): {sorted(scan)}",
     )
-    canonical = {(left, scalar, right) for left, scalar, right in scan[3]}
+    q_weak = 6 * y_weak
+    require(
+        q_weak.denominator == 1 and int(q_weak) in scan,
+        "SCALAR_SELECTION",
+        "the weak block does not carry a compatible scalar charge",
+    )
+    representative_charge = int(q_weak)
+    canonical = {
+        (left, scalar, right)
+        for left, scalar, right in scan[representative_charge]
+    }
     declared = {
         (min(left, right), scalar, max(left, right)) for left, scalar, right in channels
     }
@@ -1191,13 +1236,8 @@ def scalar_and_channel_selection_certificate(
         f"the declared channel list does not equal the derived admissible set: "
         f"derived {sorted(canonical)}, declared {sorted(declared)}",
     )
-    require(
-        6 * y_weak == 3,
-        "SCALAR_SELECTION",
-        "the weak block does not carry the derived scalar charge",
-    )
     return {
-        "scan_range": "q_S in [-6, 6] minus zero, weak-doublet color-singlet scalars",
+        "enumeration_domain": "all unordered realized matter-field pairs; q_S is solved exactly from charge conservation",
         "selection_rules": [
             "charge sum zero in q = 6Y",
             "triality zero modulo three",
@@ -1205,13 +1245,21 @@ def scalar_and_channel_selection_certificate(
         ],
         "admissible_scalar_charges": [3, -3],
         "conjugation_relation": "q_S = -3 is the conjugate relabeling S <-> Sbar of q_S = +3",
-        "derived_channels_at_plus_three": sorted(list(c) for c in canonical),
-        "one_scalar_conclusion": (
-            "the weak block carries q_W = 3, the unique admissible scalar "
-            "charge up to conjugation, so the one-scalar choice is the "
-            "weak-block carrier"
+        "representative_scalar_charge": representative_charge,
+        "derived_channels_for_declared_representative": sorted(list(c) for c in canonical),
+        "derived_channels_at_plus_three": sorted(
+            list(c) for c in set(scan[3])
         ),
-        "declared_equals_derived": True,
+        "compatibility_conclusion": (
+            "if a color-singlet weak-doublet scalar supports these trilinear "
+            "channels, its primitive charge is +/-3 and the compatible channel "
+            "set has three elements"
+        ),
+        "declared_channels_equal_compatible_set": True,
+        "scalar_content_status": (
+            "one weak-block scalar is a manifest assumption; existence, "
+            "multiplicity, no-extra-light-scalar economy, and potential are not derived"
+        ),
     }
 
 
@@ -1225,7 +1273,7 @@ def certificate_payload(
     params = validate_manifest(manifest, allow_control_contracts=allow_control_contracts)
     upstream = load_upstream(manifest, base)
 
-    # --- Semantic response artifact: orientation and physical refinement maps ---
+    # --- Semantic response artifact: physical refinement maps -----------------
     current_manifest = upstream["current_manifest"]
     artifact_ref = current_manifest.get("semantic_response_artifact")
     require(
@@ -1243,8 +1291,6 @@ def certificate_payload(
         "ARTIFACT_HASH",
         "the semantic artifact does not match the upstream receipt binding",
     )
-    orientation = semantic_artifact.get("orientation_convention", {})
-    block_map = orientation.get("block_map") if isinstance(orientation, Mapping) else None
     physical_maps_block = semantic_artifact.get("physical_refinement_maps", {})
     artifact_port_maps = (
         physical_maps_block.get("port_persistence_maps", [])
@@ -1253,7 +1299,7 @@ def certificate_payload(
     )
 
     balance_certificate = block_determinant_balance_certificate(
-        params["y_color"], params["y_weak"], str(block_map)
+        params["y_color"], params["y_weak"]
     )
     scalar_certificate = scalar_and_channel_selection_certificate(
         params["y_color"], params["y_weak"], params["channels"]
@@ -1371,6 +1417,65 @@ def certificate_payload(
                 "INVARIANT_SECTOR",
                 "the top line is not exactly invariant, so trace balance fails at operator level",
             )
+
+    # The source data determine a conjugate pair, not one physically preferred
+    # projector. Each parity sector has rank sixteen and contains exactly one
+    # of the two derived invariant lines. Removing that line gives the unique
+    # rank-fifteen orthogonal complement within that parity sector. Subset
+    # complementation (the exterior pairing) exchanges the two candidates.
+    even_candidate = [
+        n
+        for n, subset in enumerate(fock.subsets)
+        if len(subset) % 2 == 0 and n != vacuum_index
+    ]
+    odd_candidate = [
+        n
+        for n, subset in enumerate(fock.subsets)
+        if len(subset) % 2 == 1 and n != top_index
+    ]
+    require(
+        len(even_candidate) == len(odd_candidate) == 15,
+        "SELECTION_PROJECTOR",
+        "the two parity/invariant-line complements do not both have rank fifteen",
+    )
+    universe = set(range(5))
+    complement_map = {
+        index: fock.index[tuple(sorted(universe.difference(subset)))]
+        for index, subset in enumerate(fock.subsets)
+    }
+    require(
+        {complement_map[index] for index in even_candidate} == set(odd_candidate),
+        "SELECTION_PROJECTOR",
+        "exterior conjugation does not exchange the two rank-fifteen candidates",
+    )
+    derived_projector_rows: dict[str, dict[str, Any]] = {}
+    for label, indices in (
+        ("even_minus_vacuum", even_candidate),
+        ("odd_minus_top", odd_candidate),
+    ):
+        candidate = czeros(fock.dim)
+        for index in indices:
+            candidate[index][index] = IONE
+        require(
+            c_is_zero(csub(cmul(candidate, candidate), candidate))
+            and c_is_zero(csub(cdagger(candidate), candidate)),
+            "SELECTION_PROJECTOR",
+            f"the derived {label} candidate is not an orthogonal projector",
+        )
+        for p in range(12):
+            require(
+                c_is_zero(
+                    csub(cmul(candidate, dgammas[p]), cmul(dgammas[p], candidate))
+                ),
+                "SELECTION_PROJECTOR",
+                f"the derived {label} candidate is not current-equivariant",
+            )
+        derived_projector_rows[label] = {
+            "rank": len(indices),
+            "orthogonal_projector": True,
+            "current_equivariant": True,
+            "contains_invariant_line": False,
+        }
 
     rule = params["selection_rule"]
     selected: list[int] = []
@@ -2009,20 +2114,26 @@ def certificate_payload(
             "current_receipt_sha256": upstream["current_receipt_sha256"],
             "carrier_manifest_sha256": upstream["carrier_manifest_sha256"],
             "semantic_response_artifact_sha256": upstream["semantic_response_artifact_sha256"],
-            "dependencies": ["#565 (carrier packet)", "#566 (source-bound port-current algebra)", "#599 (semantic response artifact)"],
+            "dependencies": [
+                "#565 (carrier packet)",
+                "#566 (finite port-current algebra)",
+                "#599 (source-bound target-blind carrier impulse/readback response)",
+            ],
             "inherited_scope": (
-                "the upstream response representation is source-bound by the #599 semantic artifact; the "
-                "pinned #566 receipt records a passing physical source gate with a recomputed binding"
+                "the pinned #566 response representation passes its source gate by "
+                "an exact target-blind impulse/readback protocol on the carrier "
+                "recurrence; this is a finite carrier-dynamics result, not a "
+                "laboratory gauge-current attachment"
             ),
         },
         "source_firewall": {
             "forbidden_dependency_hits": [],
             "uses_only": [
-                "hash-pinned #566 source-bound current packet (manifest and receipt)",
-                "the bound semantic response artifact (orientation and physical refinement maps)",
-                "the trace-balanced exterior matter contract, derived by BLOCK-DETERMINANT-BALANCE and matched against the declaration",
-                "the scalar and channel selection, derived from the realized charge arithmetic and matched against the declaration",
-                "typed statistics and Spin/odd-Weyl category contracts, forced on the realized module by the failing Vec/sVec controls",
+                "hash-pinned #566 conditional finite current packet (manifest and receipt)",
+                "the bound semantic response artifact (finite response definition and physical refinement maps)",
+                "the trace-balanced charge pair up to overall charge conjugation, derived by BLOCK-DETERMINANT-BALANCE",
+                "scalar-charge and Yukawa-channel compatibility conditional on the declared weak-doublet scalar content",
+            "typed statistics and Spin/odd-Weyl category contracts; the controls test consistency but do not source those physical inputs",
                 "kernel emission contract and MAR class declaration",
             ],
         },
@@ -2031,8 +2142,9 @@ def certificate_payload(
         "category_typing_source_binding": {
             "double_cover_forced": "the derived lift group has a unique nontrivial involution and does not factor through the sixty rotations, so a split lift is impossible",
             "vec_control": "the Vec typing fails closed on the realized module (negative control vec_typing)",
-            "svec_opposite_control": "the split-spin sVec and opposite-Weyl controls fail closed on the realized module (svec_split_spin, opposite_weyl_selection)",
-            "conclusion": "among the typed category alternatives, only spin_odd_weyl_super survives on the realized module; the typing is forced, not chosen",
+            "svec_control": "the split-spin sVec control fails closed on the realized module",
+            "weyl_pair": "the even-minus-vacuum and odd-minus-top projectors form a source-derived unordered charge-conjugate pair; the source does not select either representative",
+            "conclusion": "the exact lift and projector-pair calculations are derived, but the manifest still types the physical matter object as fermionic Spin/odd-Weyl; failing alternative controls do not derive that premise",
         },
         "port_spin_lift": {
             "witness_count": spin["witness_count"],
@@ -2049,10 +2161,10 @@ def certificate_payload(
             "trace_balance": "3 y_C + 2 y_W = 0, checked exactly; the top line is exactly invariant because of it",
             "raw_source_central_charge": "i on the even response sector, 0 on the kernel sector (from the #566 packet)",
             "central_charge_provenance": (
-                "the trace-balanced charge pair (y_C, y_W) = (-1/3, 1/2) is derived by "
+                "the trace-balanced charge pair is derived up to charge conjugation by "
                 "BLOCK-DETERMINANT-BALANCE: anomaly freedom of the realized package forces the balance "
-                "line, primitive q = 6Y integrality fixes the pair up to sign, and the artifact block-map "
-                "orientation fixes the sign; the declared contract is matched against the derivation"
+                "line and primitive integral block characters give +/-(-2,3); the printed "
+                "(y_C,y_W)=(-1/3,1/2) representative is a convention, not an artifact measurement"
             ),
             "transport_homomorphism_bracket_checks": transport["homomorphism_bracket_checks"],
             "transport_covariance_checks": covariance_checks,
@@ -2069,7 +2181,15 @@ def certificate_payload(
         "selection": {
             "rule": rule,
             "derived_invariant_sector": "complex dimension 2: the Fock vacuum and the top line",
-            "projector": "parity projector minus the derived invariant line, diagonal in the subset basis, exact rank 15",
+            "derived_conjugate_projector_pair": derived_projector_rows,
+            "uniqueness_scope": (
+                "within projectors obtained by choosing one fermionic-parity "
+                "eigenspace and removing its complete invariant line, these are "
+                "the only two rank-fifteen orthogonal equivariant complements"
+            ),
+            "conjugation_exchange_verified": True,
+            "physical_object": "unordered conjugacy class {even parity minus vacuum, odd parity minus top}",
+            "calculation_representative": "even parity minus vacuum, used only to print one charge table; every physical conclusion is stated modulo charge conjugation",
             "projector_rank": matter_dimension,
             "equivariance_checks": equivariance_checks,
             "commutes_with_parity": True,
@@ -2148,19 +2268,22 @@ def certificate_payload(
         },
         "conditional_algebraic_gate": {**gate, "passed": True},
         "physical_source_gate": {
-            "matter_contract_source_bound": bool(
-                balance_certificate["declared_equals_derived"]
-                and scalar_certificate["declared_equals_derived"]
+            "charge_pair_derived_up_to_charge_conjugation": bool(
+                balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
             ),
-            "upstream_response_representation_source_bound": True,
+            "conjugate_projector_pair_source_derived": True,
+            "single_projector_representative_source_selected": False,
+            "fermionic_statistics_source_derived": False,
+            "spin_odd_weyl_category_source_derived": False,
+            "declared_scalar_content_source_bound": False,
+            "scalar_economy_source_bound": False,
+            "upstream_response_representation_source_bound": bool(
+                upstream["upstream_physical_source_gate_passed"]
+            ),
             "physical_refinement_intertwining_source_bound": bool(
                 physical_refinement_rows
             ),
-            "passed": bool(
-                balance_certificate["declared_equals_derived"]
-                and scalar_certificate["declared_equals_derived"]
-                and physical_refinement_rows
-            ),
+            "passed": False,
         },
         "derivation_chain": [
             {
@@ -2175,21 +2298,21 @@ def certificate_payload(
                 "premise": "hash-pinned #566 manifest and receipt with the bound semantic response artifact",
                 "uses": ["sha256 pins", "gate check on the stored receipt", "recomputed semantic binding requirement"],
                 "source_artifact": "load_upstream",
-                "conclusion": "the source-bound current algebra u(3) (+) so(3) with its charged response space is strictly upstream; its physical source gate passes on the #599 artifact",
+                "conclusion": "the finite current algebra u(3) (+) so(3) is strictly upstream and its #599 exact carrier-dynamics source gate passes; laboratory gauge-current attachment is outside this packet",
             },
             {
                 "step": "2a",
                 "premise": "the realized exterior package with general block charges (a, b)",
-                "uses": ["exact anomaly polynomials", "primitive q = 6Y integrality", "artifact block-map orientation"],
+                "uses": ["exact anomaly polynomials", "primitive integral block-character equation"],
                 "source_artifact": "block_determinant_balance_certificate",
-                "conclusion": "anomaly freedom forces the balance line 3a + 2b = 0, integrality fixes the pair up to sign, and the measured orientation selects (-1/3, 1/2); BLOCK-DETERMINANT-BALANCE is derived and matched against the declaration",
+                "conclusion": "anomaly freedom forces 3a + 2b = 0 and primitive integral block characters give the charge-conjugate pair +/-(-1/3,1/2); the receipt's sign is conventional",
             },
             {
                 "step": "2b",
                 "premise": "the integer charge, triality, and duality arithmetic of the realized fields",
-                "uses": ["scalar charge scan over q_S in [-6, 6]", "channel selection rules"],
+                "uses": ["exact solution of q_S from every admissible field pair", "triality and duality rules"],
                 "source_artifact": "scalar_and_channel_selection_certificate",
-                "conclusion": "the admissible scalar charges are the conjugate pair +-3 equal to the weak-block charge, and the admissible channel set is exactly the declared list; the one-scalar choice and channels are derived",
+                "conclusion": "conditional on a color-singlet weak-doublet scalar, compatibility forces q_S=+-3 and the three displayed channels; scalar existence, multiplicity, and economy are not derived",
             },
             {
                 "step": 3,
@@ -2235,10 +2358,10 @@ def certificate_payload(
             },
             {
                 "step": 9,
-                "premise": "parity projector minus the derived invariant line",
-                "uses": ["idempotence", "self-adjointness", "12 equivariance checks", "rank 15"],
+                "premise": "the two parity eigenspaces and the complete two-line invariant sector",
+                "uses": ["idempotence", "self-adjointness", "equivariance", "rank 15", "exterior-complement exchange"],
                 "source_artifact": "certificate_payload",
-                "conclusion": "the derived equivariant projector selects the fifteen-state matter module from the full auxiliary Fock space",
+                "conclusion": "exactly two parity/invariant-line-complement projectors form a conjugate rank-fifteen pair; the even representative is printed by convention",
             },
             {
                 "step": 10,
@@ -2304,47 +2427,54 @@ def certificate_payload(
             "branch": "declared echosahedral response branch",
             "upstream_packets": "the certified #565 carrier and the conditional #566 current algebra, both hash-pinned",
             "declared_branch_premises": (
-                "the trace-balanced exterior matter contract (block trace charges, the one-scalar choice, the "
-                "Yukawa channel list), the fermionic statistics contract, the Spin/odd-Weyl category typing, "
+                "one weak-block scalar, the fermionic statistics contract, the Spin/odd-Weyl category typing, "
                 "the kernel emission contract, and the MAR class declaration - typed premises, not measurements"
             ),
             "not_claimed": (
-                "no physical source binding of the matter contract or the upstream response representation, "
-                "no derivation of trace balance from source dynamics (BLOCK-DETERMINANT-BALANCE open), no global-form "
-                "choice (AXIS-CENTER-DESCENT open), no family attachment, no MAR uniqueness, no scalar potential, no "
+                "no physical source binding of the upstream response representation or scalar content, "
+                "no preferred overall charge sign, no scalar economy, no physically attached global-form "
+                "choice, no family attachment, no MAR uniqueness, no scalar potential, no "
                 "pole mass, no continuum spin-statistics theorem, no identification with physical particle content"
             ),
         },
         "acceptance_criteria_status": {
-            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": True,
+            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": False,
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
             "mar_class_proved_nonempty_before_uniqueness_promoted": True,
             "family_attachment_scalar_potential_pole_mass_outside_packet": True,
-            "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": True,
+            "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": False,
             "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": True,
             "fifteen_state_module_selected_by_derived_equivariant_projector": True,
+            "projector_pair_not_single_physical_weyl_selection": True,
+            "scalar_economy_explicitly_not_derived": True,
         },
         "issue_closure_condition": {
             "produced_locally": (
-                "the exact matter lift on the source-bound current packet: the non-split PORT-SPIN-LIFT, "
-                "faithful current action, derived equivariant selection of the fifteen-state module, realized "
+                "the exact conditional matter lift on the finite current packet: the non-split PORT-SPIN-LIFT, "
+                "faithful current action, derived conjugate pair of rank-fifteen projectors, realized "
                 "anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action "
                 "kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the "
                 "artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE charge "
-                "pair, and the derived scalar and channel selection"
+                "charge pair up to conjugation, and scalar/channel compatibility"
             ),
             "branch_premises": (
-                "the hash-pinned #565/#566 packets with the #599 semantic response artifact; the matter "
-                "contracts are matched against their derivations rather than accepted as free declarations"
+                "the hash-pinned #565/#566 packets with the source-bound #599 "
+                "semantic response artifact; the matter charge and unordered "
+                "projector-pair structures are derived; fermionic statistics, "
+                "Spin/odd-Weyl physical typing, and scalar content remain typed "
+                "branch premises"
             ),
             "conditional_algebraic_gate_passed": True,
-            "physical_source_realization_gate_passed": True,
-            "met_locally": True,
+            "physical_source_realization_gate_passed": False,
+            "met_locally": False,
             "remaining_producer": (
-                "none for this packet; AXIS-CENTER-DESCENT (#567), MAR uniqueness, family attachment "
-                "(#569), scalar potential, and pole masses stay in their own lanes"
+                "a source must produce fermionic statistics and the Spin/odd-Weyl "
+                "physical category rather than declaring them; scalar content/"
+                "economy and physical matter attachment also remain unsourced. "
+                "#567 is therefore conditional, with laboratory/family attachment "
+                "still open in #569"
             ),
         },
         "dependency_acyclicity_note": {
@@ -2363,19 +2493,23 @@ def certificate_payload(
             "--receipt code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
         ),
         "claim_boundary": {
-            "proves": "the exact super-Tannakian matter lift over the source-bound current packet, with the charge pair, scalar choice, and channel list derived and the physical refinement maps intertwined, including the PORT-SPIN-LIFT",
-            "status": "proved_on_source_bound_matter_contracts",
+            "proves": "the exact conditional super-Tannakian matter lift, including PORT-SPIN-LIFT, a conjugate rank-fifteen projector pair, anomaly balance up to charge conjugation, compatible scalar charges/channels, and refinement intertwining",
+            "status": "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
             "contract_provenance": (
-                "the trace-balanced charge pair, the one-scalar choice, and the channel list are derived by "
-                "BLOCK-DETERMINANT-BALANCE and the selection scan and matched against the declared contract; "
-                "the statistics and category typing are forced on the realized module by the failing Vec/sVec "
-                "controls; kernel emission and the MAR class stay typed declarations"
+                "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; "
+                "the unordered projector pair is derived from parity and the complete invariant "
+                "sector; scalar-charge and channel compatibility are derived only "
+                "conditional on a declared weak-doublet scalar. The upstream response "
+                "is source-bound, but fermionic statistics, Spin/odd-Weyl physical "
+                "typing, scalar content, kernel-emission policy, and MAR remain typed premises"
             ),
             "does_not_close": [
-                "AXIS-CENTER-DESCENT and the global form (the kernel is emitted, the quotient is not chosen)",
+                "source production of fermionic statistics and the Spin/odd-Weyl physical category",
+                "physical AXIS-CENTER-DESCENT/global-form attachment (the conditional kernel is emitted)",
                 "MAR uniqueness (only nonemptiness is discharged here)",
                 "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
                 "exclusion of other anomaly-free light sectors (MGFC-grade no-extra-sector)",
+                "scalar existence, one-scalar economy, or absence of additional light scalars",
                 "laboratory measurement of any matter observable",
                 "scalar potential, pole masses, measured couplings, continuum spin-statistics, or quantum field theory",
             ],
@@ -2402,7 +2536,7 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
 
     opposite = copy.deepcopy(manifest)
     opposite["category_contract"]["selection_rule"] = "parity_odd_minus_derived_invariants"
-    cases.append(("opposite_weyl_selection", opposite, "YUKAWA_CHANNEL_EMPTY"))
+    cases.append(("mixed_weyl_representative", opposite, "YUKAWA_CHANNEL_EMPTY"))
 
     bosonic = copy.deepcopy(manifest)
     bosonic["statistics_contract"]["matter_statistics"] = "bosonic_even"
@@ -2456,13 +2590,12 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
         ("non_primitive_balanced_pair", non_primitive, "BLOCK_DETERMINANT_BALANCE")
     )
 
-    conjugate_pair = copy.deepcopy(manifest)
-    conjugate_pair["exterior_matter_contract"]["block_trace_charges"] = {
-        "color_block": "1/3",
-        "weak_block": "-1/2",
-    }
+    preferred_projector = copy.deepcopy(manifest)
+    preferred_projector["category_contract"][
+        "projector_representative_convention"
+    ] = "even_minus_vacuum"
     cases.append(
-        ("orientation_conjugate_pair", conjugate_pair, "BLOCK_DETERMINANT_BALANCE")
+        ("preferred_projector_representative", preferred_projector, "SELECTION_RULE")
     )
 
     extra_channel = copy.deepcopy(manifest)
@@ -2514,9 +2647,9 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
                 "svec_split": "a split lift would give the 120-element group more than one involution; the derived group has exactly one",
                 "conclusion": "the Vec and sVec same-reduct typings fail against derived facts, not by fiat",
             },
-            "opposite_weyl": {
-                "same_reduct": "the odd-parity selection realizes the conjugate module",
-                "failure": "every declared one-scalar Yukawa channel then has charge sum away from zero, so the Gauss sector is empty",
+            "mixed_weyl_convention": {
+                "valid_pair": "the odd-minus-top projector is the valid conjugate of even-minus-vacuum",
+                "failure": "changing only the projector while retaining the even-representative charges and channel labels is an inconsistent mixed convention",
             },
             "selection": {
                 "lambda2_only": "ten states with three weak doublets: odd Witten parity",

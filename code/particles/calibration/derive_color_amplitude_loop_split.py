@@ -6,7 +6,7 @@ carrier package fixes the charged and neutral repair coefficients to
 c = sqrt(N_c)/2 (A2) and d = N_c/2 (A3), and confronts the prediction with
 the cleanest tree-level data.
 
-Framework. The compact-gauge reconstruction (compact paper Theorem 6.1,
+Framework. The compact-gauge reconstruction (Standard Model gauge paper Theorem 6.1,
 DR/Tannaka) returns the gauge group and the color triplet sector rho_3 with
 statistical dimension d(rho_3) = N_c = 3. The conjugate intertwiners
 R in Hom(iota, rho_3-bar rho_3) satisfy R*R = d(rho_3) = N_c, so a single

@@ -48,6 +48,27 @@ def test_manifest_generation_timestamp_is_release_derived() -> None:
     )
 
 
+def test_generator_rejects_changed_pdf_behind_existing_tag() -> None:
+    tagged = _base()
+    current = copy.deepcopy(tagged)
+    paper_id = next(iter(current["papers"]))
+    current["papers"][paper_id]["sha256"] = "0" * 64
+
+    with pytest.raises(SystemExit, match="immutable Git tag.*--allow-same-release"):
+        generator.enforce_tag_immutability(tagged, current)
+
+
+def test_generator_accepts_unchanged_pdf_behind_existing_tag() -> None:
+    tagged = _base()
+    generator.enforce_tag_immutability(tagged, copy.deepcopy(tagged))
+
+
+def test_generator_accepts_new_untagged_release() -> None:
+    current = _base()
+    current["release_id"] = "r-next"
+    generator.enforce_tag_immutability(_base(), current)
+
+
 def test_rejects_missing_paper(tmp_path: Path) -> None:
     manifest = _base()
     removed = next(iter(manifest["papers"]))

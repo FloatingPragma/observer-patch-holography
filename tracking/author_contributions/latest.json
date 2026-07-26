@@ -1,31 +1,138 @@
 {
-  "generated_at_utc": "2026-07-03T06:11:24+00:00",
-  "repo_head": "b0e186e",
+  "generated_at_utc": "2026-07-26T12:46:02+00:00",
+  "repo_head": "50106883",
   "repo_status_short": [
-    " M LEAN/README.md",
-    " M cosmology/oph_cosmology_finite_source_cmb_program.md",
-    " M cosmology/oph_cosmology_finite_source_cmb_program.tex",
+    " M Lean/ObserverPatchHolography/CollarClause.lean",
+    " M Lean/ObserverPatchHolography/CollarLayer.lean",
+    " M Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+    " M Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+    " M Lean/Screen/A5CharacterField.lean",
+    " M Lean/Screen/TraceBalancedKernel.lean",
+    " M Lean/Screen/Z6Descent.lean",
+    " M Lean/docs/EINSTEIN_BRANCH_INDEX.md",
+    " M Lean/docs/PROOF_INDEX.md",
+    " M Lean/lakefile.lean",
+    " M README.md",
+    " M README_FR.md",
+    " M book/appendix-concept-glossary.md",
+    " M book/appendix-extended-interludes.md",
+    " M book/chapter-01-consistency.md",
+    " M book/chapter-03-screen.md",
+    " M book/chapter-12-symmetry.md",
+    " M book/chapter-14-standard-model.md",
+    " M book/chapter-15-relativity.md",
+    " M book/chapter-16-matter.md",
+    " M book/chapter-18-strangeloop.md",
+    " M book/chapter-19-synthesis.md",
+    " M book/prologue.md",
+    " M book/reverse-engineering-reality-book.pdf",
+    " M claims/assumption_dictionary.md",
+    " M claims/claim_registry.yaml",
+    " M claims/frozen_prediction_register.json",
+    " M claims/novelty_matrix.csv",
+    " M claims/physical_identification_registry.json",
+    " M claims/selection_ledger.json",
+    " M code/P_derivation/README.md",
+    " M code/a5_closure/README.md",
+    " M code/a5_closure/axis_center_descent_certificate.py",
+    " M code/a5_closure/manifests/axis_center_descent_reference.json",
+    " M code/a5_closure/manifests/charged_response_semantic_artifact.json",
+    " M code/a5_closure/manifests/port_current_response_reference.json",
+    " M code/a5_closure/manifests/super_tannakian_matter_reference.json",
+    " M code/a5_closure/negative_controls/issue_314_negative_controls.json",
+    " M code/a5_closure/negative_controls/issue_566_negative_controls.json",
+    " M code/a5_closure/negative_controls/issue_567_negative_controls.json",
+    " M code/a5_closure/port_current_inner_certificate.py",
+    " M code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+    " M code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+    " M code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+    " M code/a5_closure/super_tannakian_matter_lift_certificate.py",
+    " M code/a5_closure/tests/test_axis_center_descent_certificate.py",
+    " M code/a5_closure/tests/test_port_current_inner_certificate.py",
+    " M code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py",
+    " M code/audit/test_fz_registry_gates.py",
+    " M code/audit/test_selection_ledger_gates.py",
+    " M code/capacity_readback/F_candidate_capK.py",
+    " M code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md",
+    " M code/collar_alignment/msa_characterizations.py",
+    " M code/collar_alignment/test_msa_characterizations.py",
+    " M code/consensus/test_transport_from_gluing_obstruction.py",
+    " M code/geometry/cyclic_cap_net_run.py",
+    " M code/geometry/einstein_closure_receipts.py",
+    " M code/geometry/event_manifold_reconstruction.py",
+    " M code/geometry/modular_clock_instrumentation.py",
+    " M code/geometry/null_net_receipts.py",
+    " M code/geometry/null_net_standardness.py",
+    " M code/geometry/quotient_cap_readout.py",
+    " M code/geometry/realized_branch_receipts.py",
+    " M code/geometry/test_quotient_cap_readout.py",
+    " M code/maxent/maxent_closure_acceptance.py",
+    " M code/particles/POSTDICTION_LEDGER.md",
+    " M code/particles/calibration/derive_color_amplitude_loop_split.py",
+    " M code/particles/campaigns/gap_bundle/issue_refs/issue_157.md",
+    " M code/particles/hierarchy/verify_pixel_screen_resonance_summary.py",
+    " M code/particles/runs/status/postdiction_ledger.json",
+    " M code/particles/scripts/build_postdiction_ledger.py",
+    " M code/regulator_gluing/README.md",
     " M cosmology/oph_dark_matter_paper.tex",
-    " M extra/COMMON_OBJECTIONS.md",
-    " M extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md",
+    " M docs/APPLICATIONS.md",
+    " M docs/BOOK_CHAPTER_LEDGER.md",
+    " M docs/COMMON_OBJECTIONS.md",
+    " M docs/FROZEN_PREDICTION_LADDER.md",
+    " M docs/OPH_FALSIFICATION_PROGRAM.md",
+    " M docs/PROOF_SPINE.md",
+    " M docs/SELECTION_LEDGER.md",
     " M extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex",
     " M extra/chi_nu_susceptibility_bounds.tex",
     " M extra/compact_proof_of_oph.tex",
     " M extra/fine_structure_constant_derivation.tex",
+    " M extra/hacking-the-simulation-anti-gravity-exploit/16-references.md",
+    " M extra/observer_patch_holography_as_string_vacuum_selector.pdf",
     " M extra/observer_patch_holography_as_string_vacuum_selector.tex",
-    " M extra/thinking_as_patch_net_fixed_point_search.tex",
     " M extra/yang_mills_gap_clay_problem.tex",
+    " M paper/README.md",
+    " M paper/build_warning_allowlist.json",
+    " M paper/content_inventory.yml",
+    " M paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
     " M paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    " M paper/observers_are_all_you_need.pdf",
     " M paper/observers_are_all_you_need.tex",
     " M paper/paradise_as_fixed_point_consensus.tex",
+    " M paper/reality_as_consensus_protocol.pdf",
     " M paper/reality_as_consensus_protocol.tex",
-    " M paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+    " D paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
+    " D paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+    " M paper/screen_microphysics_and_observer_synchronization.pdf",
     " M paper/screen_microphysics_and_observer_synchronization.tex",
+    " M paper/tex_fragments/A5_WZ_PHYSICAL_STATUS_PORT.tex",
+    " D paper/tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex",
+    " M paper/tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
+    " M paper/tex_fragments/OBSERVERS_APPENDICES.tex",
     " M paper/tex_fragments/OBSERVERS_REFERENCES.tex",
+    " M paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
+    " M paper/tex_fragments/PAPER.tex",
+    " M paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+    " M paper/tools/check_build_warnings.py",
+    " M tools/build_fz_registry.py",
+    " M tools/build_open_problem_ledger.py",
+    " M tools/build_selection_ledger.py",
+    " M tools/build_tex_papers.py",
+    " M tools/generate_paper_release_manifest.py",
+    " M tools/test_paper_release_manifest.py",
     " M tracking/author_contributions/authors.json",
-    " M tracking/author_contributions/generate_report.py",
     " M tracking/author_contributions/latest.json",
-    " M tracking/author_contributions/latest.md"
+    " M tracking/author_contributions/latest.md",
+    " M tracking/open_issues/open_problem_ledger.json",
+    "?? Lean/Screen/A5IncidenceResponse.lean",
+    "?? OPEN_PROBLEMS.md",
+    "?? paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+    "?? paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "?? paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
+    "?? paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+    "?? paper/tex_fragments/DERIVATION_PAPER_PREAMBLE.tex",
+    "?? paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex",
+    "?? paper/tex_fragments/EINSTEIN_DERIVATION_SCOPE.tex",
+    "?? paper/tex_fragments/STANDARD_MODEL_DERIVATION_SCOPE.tex"
   ],
   "authors": [
     {
@@ -109,7 +216,7 @@
         }
       ],
       "paper_commit_counts": {
-        "compact": 49,
+        "derivations": 0,
         "synthesis": 50,
         "consensus": 21,
         "particle": 27,
@@ -201,33 +308,42 @@
       "aliases": [
         "Mario Poneder <m.poneder@decentra.vision>"
       ],
-      "non_merge_commit_count": 30,
-      "line_additions": 10509,
-      "line_deletions": 937,
-      "touched_file_count": 161,
-      "unique_file_count": 49,
+      "non_merge_commit_count": 37,
+      "line_additions": 26040,
+      "line_deletions": 2398,
+      "touched_file_count": 249,
+      "unique_file_count": 80,
       "category_touch_counts": {
         "book": 2,
-        "code": 135,
-        "extra": 11,
-        "paper": 9,
+        "code": 212,
+        "extra": 5,
+        "other": 22,
+        "paper": 4,
         "readme": 4
       },
       "top_files": [
         {
-          "path": "code/particles/hierarchy/manifest.json",
-          "touches": 16
+          "path": "code/particles/hadron/test_issue_317_spectral_measure_packet.py",
+          "touches": 10
         },
         {
-          "path": "code/particles/hierarchy/test_hierarchy_bundle.py",
-          "touches": 13
-        },
-        {
-          "path": "code/particles/hierarchy/STATUS.md",
+          "path": "code/particles/hadron/verify_issue_317_spectral_measure_packet.py",
           "touches": 9
         },
         {
-          "path": "extra/compact_proof_of_oph.tex",
+          "path": "code/particles/runs/hadron/ward_projected_spectral_measure_proof_packet.json",
+          "touches": 9
+        },
+        {
+          "path": "code/particles/hierarchy/manifest.json",
+          "touches": 9
+        },
+        {
+          "path": "code/a5_closure/README.md",
+          "touches": 8
+        },
+        {
+          "path": "code/particles/hierarchy/test_hierarchy_bundle.py",
           "touches": 8
         },
         {
@@ -235,48 +351,40 @@
           "touches": 8
         },
         {
-          "path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+          "path": "claims/claim_registry.yaml",
           "touches": 7
+        },
+        {
+          "path": "code/a5_closure/a5_screen_sm_closure.json",
+          "touches": 6
+        },
+        {
+          "path": "code/a5_closure/a5_screen_sm_closure.py",
+          "touches": 6
+        },
+        {
+          "path": "code/a5_closure/exterior_sm_completion.json",
+          "touches": 6
+        },
+        {
+          "path": "code/a5_closure/exterior_sm_completion.py",
+          "touches": 6
+        },
+        {
+          "path": "docs/PROOF_SPINE.md",
+          "touches": 6
+        },
+        {
+          "path": "code/particles/hierarchy/STATUS.md",
+          "touches": 6
         },
         {
           "path": "code/particles/DERIVATION_GAP_LEDGER.md",
           "touches": 6
-        },
-        {
-          "path": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
-          "touches": 5
-        },
-        {
-          "path": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
-          "touches": 5
-        },
-        {
-          "path": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
-          "touches": 4
-        },
-        {
-          "path": "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
-          "touches": 4
-        },
-        {
-          "path": "code/particles/hierarchy/validators/validate_issue_343_m_rep_24.py",
-          "touches": 4
-        },
-        {
-          "path": "code/particles/hierarchy/verify_issue_343_m_rep_24.py",
-          "touches": 4
-        },
-        {
-          "path": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-          "touches": 4
-        },
-        {
-          "path": "code/particles/hierarchy/validators/validate_issue_335_local_global_resonance.py",
-          "touches": 4
         }
       ],
       "paper_commit_counts": {
-        "compact": 7,
+        "derivations": 0,
         "synthesis": 0,
         "consensus": 0,
         "particle": 1,
@@ -289,31 +397,6 @@
           "hash": "3f1776ed43782591761018d652ccd1bcc799aa9c",
           "date": "2026-06-18",
           "subject": "Prove edge-entropy area law gives Einstein/Newton coupling"
-        },
-        {
-          "hash": "bcde639fa437294a9708795205a11c37f9c39e18",
-          "date": "2026-06-17",
-          "subject": "Issue #345: derive factor of 4 in G_geom = a_cell/(4*ell_shared)"
-        },
-        {
-          "hash": "a9b43cc7b9bc640f03ddfb01aa9180f6f45cb46d",
-          "date": "2026-06-17",
-          "subject": "Issue #345: maintainer prose smoothing on edge-entropy/Newton theorem"
-        },
-        {
-          "hash": "6f3d4e5557cad9e8c6e92352afe39d81c245a9a8",
-          "date": "2026-06-17",
-          "subject": "Issue #345: maintainer prose smoothing on factor-of-4 corollary"
-        },
-        {
-          "hash": "263e23c15bf2af22bf7a5c93c4b6b08025384c4d",
-          "date": "2026-06-17",
-          "subject": "Issue #345: prove edge-entropy/area law gives Einstein/Newton coupling"
-        },
-        {
-          "hash": "190f2f6141c411d707625012b0d4e42fd26d0dff",
-          "date": "2026-06-17",
-          "subject": "Issue #345: record refinement-scaling dictionary scope explicitly"
         },
         {
           "hash": "4fb4f52386c7c910978af01afd67bed6cde20a5f",
@@ -403,7 +486,7 @@
         }
       ],
       "paper_commit_counts": {
-        "compact": 8,
+        "derivations": 0,
         "synthesis": 13,
         "consensus": 0,
         "particle": 0,
@@ -514,7 +597,7 @@
         }
       ],
       "paper_commit_counts": {
-        "compact": 0,
+        "derivations": 0,
         "synthesis": 0,
         "consensus": 3,
         "particle": 0,
@@ -548,13 +631,13 @@
         "qizwiz <jonathan.f.hill@gmail.com>",
         "Your Name <jonathan.f.hill@gmail.com>"
       ],
-      "non_merge_commit_count": 33,
-      "line_additions": 2447,
-      "line_deletions": 292,
-      "touched_file_count": 35,
-      "unique_file_count": 4,
+      "non_merge_commit_count": 35,
+      "line_additions": 2768,
+      "line_deletions": 298,
+      "touched_file_count": 42,
+      "unique_file_count": 6,
       "category_touch_counts": {
-        "lean": 33,
+        "lean": 40,
         "other": 2
       },
       "top_files": [
@@ -564,21 +647,29 @@
         },
         {
           "path": "LEAN/ObserverPatchHolography/Rule90.lean",
-          "touches": 3
+          "touches": 5
+        },
+        {
+          "path": "LEAN/ObserverPatchHolography.lean",
+          "touches": 2
+        },
+        {
+          "path": "LEAN/PROOF_INDEX.md",
+          "touches": 2
+        },
+        {
+          "path": "LEAN/README.md",
+          "touches": 2
         },
         {
           "path": ".github/workflows/lean-ci.yml",
           "touches": 2
-        },
-        {
-          "path": "LEAN/ObserverPatchHolography.lean",
-          "touches": 1
         }
       ],
       "paper_commit_counts": {
-        "compact": 0,
+        "derivations": 0,
         "synthesis": 0,
-        "consensus": 30,
+        "consensus": 0,
         "particle": 0,
         "microphysics": 0,
         "main_fragment": 0,
@@ -589,25 +680,13 @@
   ],
   "paper_rankings": [
     {
-      "key": "compact",
-      "label": "Compact paper",
+      "key": "derivations",
+      "label": "Derivation papers",
       "paths": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
-      "ranking": [
-        {
-          "display_name": "Kai Xue",
-          "commit_count": 49
-        },
-        {
-          "display_name": "Peter Nguyen",
-          "commit_count": 8
-        },
-        {
-          "display_name": "Mario Poneder",
-          "commit_count": 7
-        }
-      ]
+      "ranking": []
     },
     {
       "key": "synthesis",
@@ -637,17 +716,13 @@
         "paper/CONSENSUS_PROTOCOL_FORMAL_ANALYSIS.md",
         "paper/appendix_B_bft_qecc_extensions.tex",
         "paper/tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
-        "LEAN/ObserverPatchHolography.lean",
-        "LEAN/ObserverPatchHolography/AbstractRewriting.lean",
-        "LEAN/ObserverPatchHolography/Primitives.lean",
-        "LEAN/Main.lean",
-        "LEAN/README.md"
+        "Lean/ObserverPatchHolography.lean",
+        "Lean/ObserverPatchHolography/AbstractRewriting.lean",
+        "Lean/ObserverPatchHolography/Primitives.lean",
+        "Lean/Main.lean",
+        "Lean/README.md"
       ],
       "ranking": [
-        {
-          "display_name": "Jonathan Hill",
-          "commit_count": 30
-        },
         {
           "display_name": "Kai Xue",
           "commit_count": 21

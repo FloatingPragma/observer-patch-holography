@@ -47,7 +47,7 @@ theorem diamondKernelIntegral_eq (ℓ : ℝ) (hℓ : ℓ ≠ 0) :
   ring
 
 /-- Multiplication by the `2*pi` first-law normalisation yields the exact
-bulk coefficient printed in the compact paper. -/
+bulk coefficient printed in The spacetime and Einstein paper. -/
 theorem bulkSmallBallCoefficient (ℓ : ℝ) :
     2 * Real.pi * (4 * Real.pi * ℓ ^ 4 / 15) =
       8 * Real.pi ^ 2 * ℓ ^ 4 / 15 := by

@@ -1,8 +1,57 @@
 {
-  "schema": "oph.frozen_prediction_register.v1",
+  "schema": "oph.frozen_prediction_register.v2",
   "issue": 607,
   "generated_surface": "docs/FROZEN_PREDICTION_LADDER.md",
   "policy": "A freeze is registered before its comparison data is examined, carries a kill band, and a kill is published with the same prominence as a confirmation, after the audit / re-audit / repair ladder of the kill-condition protocol. Retrospective negative results are tracked separately and never backdated into this ladder.",
+  "external_custody_contracts": {
+    "FZ-01": {
+      "rows": [
+        "FZ-01",
+        "FZ-06"
+      ],
+      "custody_path": "falsification/frozen_targets/fz01_2026-07-17",
+      "registration_manifest": "registration_manifest_2026-07-17.json",
+      "registration_manifest_sha256": "80fa5f1e5372067e6f2d034d1a012080322f1d697594d644145c694409c1d09e",
+      "attestation_state": "bitcoin_attested",
+      "artifact_sha256": {
+        "fz01_freeze_registry_2026-07-17.json": "8eb71663383aa7927448188e62337ae46ede676d11fad72450c013c2fa570c91",
+        "tracker_section8_pinned_text.md": "54b216b52afe25895552a04b450c3cb33e303802e99618f24361b2bf2b9e0737",
+        "frozen_target_capacity_band_2026-07-17.md": "a4b66fb8aa2e30bf3bb0eea95c7848d8878fca097813bf94ed5d18ffbd1e46dc",
+        "frozen_target_scalar_tilt_2026-07-17.md": "7efdb588224a848c22019dc5dfae6faea30b0f7a3d47ed544313dacfb3032e9a",
+        "frozen_target_acceleration_scale_2026-07-17.md": "d219fb4f5493b6f5b693a9afa365fb54ec0a04f412da5300fd6b94b88a7832c4",
+        "frozen_target_dark_energy_wlaw_2026-07-17.md": "3fc830cf2a43cdf0d55e2acebb826ee952c8db4bbfad1231b8b2d00bea220e39",
+        "frozen_target_integer_k_comb_2026-07-17.md": "f55dc7fb72797da4a2a25d31870c668e39db6e3579bc2f5b09ac6d4b683de2d7"
+      },
+      "in_repo_artifact_sha256": {}
+    },
+    "FZ-02": {
+      "rows": [
+        "FZ-02"
+      ],
+      "custody_path": "falsification/frozen_targets/fz02_2026-07-26",
+      "registration_manifest": "registration_manifest_2026-07-26.json",
+      "registration_manifest_sha256": "278dedcabe9b242b21a1f0ea0d0ceb8899dd279acf9b579eb0c5bae8af858ddf",
+      "attestation_state": "calendar_pending",
+      "custody_commit": "1e7d7c73dadeef9aa10ec60061a85cee8426c5b1",
+      "custody_commit_utc": "2026-07-26T06:41:53Z",
+      "source_commit": "091658ce585c107a260e7b980352be904d2419b2",
+      "custody_erratum": "CUSTODY_ERRATUM_2026-07-26.md",
+      "custody_erratum_sha256": "80a7bf46431ba630b08841a203752f643906a06b130b6d2d5d4f650539e025aa",
+      "target_file": "frozen_target_angular_multiplet_signature_2026-07-26.md",
+      "target_block_sha256": "cdfd9ff814b19b3f70d2594299cd0047b2fdcd94a9fbcd90e8d42a46a1dee10d",
+      "target_payload_sha256": "a38b63c52e21625ce961ece55357865ee2148e625d416e6ff7885f4723ee48d8",
+      "artifact_sha256": {
+        "frozen_target_angular_multiplet_signature_2026-07-26.md": "abff4289459a53be63808210b37fd4025af2abf73bc82a2b2a41594953742a57",
+        "fz02_freeze_registry_2026-07-26.json": "bf755a072641eeff3ac000f7abd15f4eb0360175d8fa738a73c31495f98447c4",
+        "a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89",
+        "A5AngularMultiplets_pinned.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726"
+      },
+      "in_repo_artifact_sha256": {
+        "code/a5_closure/receipts/a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89",
+        "Lean/Screen/A5AngularMultiplets.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726"
+      }
+    }
+  },
   "rows": [
     {
       "id": "FZ-01",
@@ -21,8 +70,8 @@
       "id": "FZ-02",
       "content": "Angular multiplet signature: the exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, first nonconstant invariant at l = 6 frame-locked to l = 3, and the face-phase multiplicity vector (0, 1, 1, 1, 2) with the N_g = 3 slot",
       "status": "frozen_stamped_upgrade_pending",
-      "frozen_utc": "2026-07-26T09:30:00Z",
-      "custody": "oph-meta falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest)",
+      "frozen_utc": "2026-07-26T06:41:53Z",
+      "custody": "oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, and append-only custody erratum)",
       "attestation": "OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass",
       "content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
       "kill_band": "FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03: nonconstant invariant below l = 6 or l = 6 / l = 3 frame misalignment beyond registered tolerance fails; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route",

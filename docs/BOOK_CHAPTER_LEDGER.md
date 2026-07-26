@@ -707,10 +707,12 @@ In OPH there are two routes that must not be blended. Transportable sectors
 reconstruct a compact group on the refinement branch, and Minimal Admissible
 Realization (MAR) selects the declared one-Higgs Standard Model packet inside
 its economy class. Separately, the oriented twelve-port coefficient module
-recognizes the Standard Model Lie type after a physical compact current and
-its response conditions are supplied. The physical $\mathbb Z_6$ global form
-on the matter side comes from the transformations that act trivially on the
-realized fields. The icosahedral screen has a separate sixfold residue.
+recognizes the Standard Model Lie type through the target-blind finite
+inverse-port response producer. The common $\mathbb Z_6$ kernel on the matter
+side comes from the transformations that act trivially on the realized
+fields. Quotienting by the full kernel gives the maximal faithful matter
+image; the physical global form requires independent global data. The
+icosahedral screen has a separate sixfold residue.
 Identifying the two groups, actions, and quotients requires a source-bound
 commuting square; matching dimensions or Lie types is not enough.
 

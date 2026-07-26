@@ -115,7 +115,7 @@ activated and executed before this lane can test the "exactly our universe" clai
 
 ### Short answer
 
-The rebuttal is conditional. The compact paper proves two separate results.
+The rebuttal is conditional. The spacetime and Einstein paper proves two separate results.
 Bare finite consensus does not imply the Einstein equation. The tensor equation
 does follow from one source-derived common-domain tower carrying the controlled
 geometric modular certificate, null and event data, the exact entropy split,
@@ -650,7 +650,7 @@ one allowed strict edge 1-cocycle representative has trivial represented holonom
 around every closed overlap loop. It is not the
 Standard Model selector.
 
-The OPH gauge lane factors the logic this way:
+The transportable-sector route factors the logic this way:
 
 ```text
 overlap/gluing data
@@ -666,20 +666,44 @@ The first four steps classify the fixed-stage data. The refinement receipt
 supplies the coherent block embeddings, surjective compact-group pullbacks,
 tensor realizations, and compatible forgetful fibers needed for the colimit;
 without it the refinement-limit category and compact group are conditional.
-With it, reconstruction can return a trivial
-compact group, or any compact group carried by the persistent tensor-category
-and fiber-functor data. The Standard Model quotient enters only in the final
-step, where MAR is applied to the explicit nonempty one-Higgs chiral matter
-package.
+With it, reconstruction can return a trivial compact group, or any compact
+group carried by the persistent tensor-category and fiber-functor data. Minimal
+admissible realization orders the declared low-energy packages on this route.
+Zero obstruction itself does not select the Standard Model.
+
+The finite echosahedral route is independent:
+
+```text
+certified twelve-port carrier
+-> incidence theorem: unique central graph involution J
+-> target-blind impulse/readback: solve the common farthest-shell filter,
+   hence R = -J up to charge conjugation
+-> exact source-model compact current algebra su(3)+su(2)+u(1)
+-> conditional conjugate pair of fifteen-state exterior modules
+-> common central kernel computed on every declared tensor
+-> maximal faithful matter image (SU(3) x SU(2) x U(1))/Z_6
+```
+
+Every finite algebraic arrow has a named executable receipt or Lean boundary.
+Incidence alone leaves a four-dimensional $A_5$-equivariant linear
+commutant. The target-blind producer adds the operational inverse-port
+readback rule and derives \(J\) from adjacency histories. No
+minimal-admissibility clause enters the resulting finite implication.
+Physical matter typing, global-form selection, laboratory current
+identification, three-family attachment, exclusion of extra light sectors,
+the common-group map to the Tannaka route, and quantum field-theory
+realization are open.
 
 ### The theorem-level bookkeeping
 
-The compact and main papers state this as theorem-level bookkeeping. The
-SM endpoint is branch-conditional: MAR minima exist because the admissible
-class is nonempty and the MAR complexity vector lives in a well-founded
-lexicographic order on `N^4`; within the stated one-Higgs chiral package, the
-minimal coupled carrier gives `C^3 tensor C^2`, the commutant gives one `U(1)`,
-the hypercharge theorem fixes the charge lattice, and the trace-balanced block
-kernel on the MAR matter action gives the `Z_6` quotient conditional on
-axis-center descent. Generation count is MAR-branch conditional:
-anomaly cancellation alone does not fix it.
+The compact and main papers state this as theorem-level bookkeeping. Under the
+finite response and matter contracts, the current certificate supplies the
+connected abelian factor, anomaly freedom forces determinant balance,
+primitive integrality fixes a conjugate pair of charge lattices, and exhaustive
+central-action enumeration gives the conjugation-insensitive `Z_6` kernel,
+character lattice, and dual cocharacter lattice. The cover and its
+intermediate quotients carry the same local tensors. Minimal admissible
+realization is not consumed by that
+conditional implication. Generation count is different: the declared economy
+rule selects `N_g=3` from `3 <= N_g <= 5` until the frozen face-phase family
+attachment is derived.

@@ -32,32 +32,39 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_conditional_and_physical_gates_pass(self) -> None:
+    def test_conditional_gate_passes_and_physical_gate_stays_open(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertEqual(set(gate.values()), {True})
         self.assertEqual(len(gate), 13)
         self.assertTrue(gate["passed"])
         physical_gate = self.expected["physical_source_gate"]
-        self.assertEqual(set(physical_gate.values()), {True})
-        self.assertTrue(physical_gate["passed"])
+        self.assertFalse(physical_gate["passed"])
+        self.assertTrue(physical_gate["charge_pair_derived_up_to_charge_conjugation"])
+        self.assertTrue(physical_gate["conjugate_projector_pair_source_derived"])
+        self.assertTrue(physical_gate["upstream_response_representation_source_bound"])
+        self.assertFalse(physical_gate["declared_scalar_content_source_bound"])
+        self.assertFalse(physical_gate["scalar_economy_source_bound"])
 
     def test_block_determinant_balance_is_derived(self) -> None:
         balance = self.expected["block_determinant_balance"]
         self.assertEqual(
             balance["derived_pair"], {"color_block": "-1/3", "weak_block": "1/2"}
         )
-        self.assertTrue(balance["declared_equals_derived"])
+        self.assertTrue(balance["declared_matches_derived_pair_up_to_conjugation"])
+        self.assertEqual(len(balance["derived_pairs_up_to_charge_conjugation"]), 2)
+        self.assertIn("charge-conjugation convention", balance["overall_sign_status"])
         self.assertIn("8 (3a + 2b)", balance["anomaly_forms_general_charges"]["gravity_squared_U1"])
         self.assertEqual(
             balance["integral_spectrum_on_line"],
             {"Q": 1, "u_c": -4, "e_c": 6, "d_c": 2, "L": -3},
         )
 
-    def test_scalar_and_channels_are_derived(self) -> None:
+    def test_scalar_charge_and_channels_are_conditionally_derived(self) -> None:
         scalar = self.expected["scalar_and_channel_selection"]
         self.assertEqual(scalar["admissible_scalar_charges"], [3, -3])
-        self.assertTrue(scalar["declared_equals_derived"])
+        self.assertTrue(scalar["declared_channels_equal_compatible_set"])
         self.assertEqual(len(scalar["derived_channels_at_plus_three"]), 3)
+        self.assertIn("manifest assumption", scalar["scalar_content_status"])
 
     def test_physical_refinement_maps_are_intertwined(self) -> None:
         physical = self.expected["refinement"]["physical_maps"]
@@ -115,6 +122,11 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         row = self.expected["selection"]
         self.assertEqual(row["rule"], "parity_even_minus_derived_invariants")
         self.assertEqual(row["projector_rank"], 15)
+        self.assertEqual(
+            set(row["derived_conjugate_projector_pair"]),
+            {"even_minus_vacuum", "odd_minus_top"},
+        )
+        self.assertTrue(row["conjugation_exchange_verified"])
         self.assertEqual(row["equivariance_checks"], 12)
         self.assertTrue(row["commutes_with_parity"])
         self.assertIn("not representation arithmetic", row["realization"])
@@ -216,8 +228,28 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
 
     def test_acceptance_criteria_chain_and_scope(self) -> None:
         status = self.expected["acceptance_criteria_status"]
-        self.assertEqual(len(status), 9)
-        self.assertTrue(all(status.values()))
+        self.assertEqual(len(status), 11)
+        self.assertFalse(
+            status[
+                "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived"
+            ]
+        )
+        self.assertFalse(
+            status[
+                "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail"
+            ]
+        )
+        self.assertTrue(
+            all(
+                value
+                for key, value in status.items()
+                if key
+                not in {
+                    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived",
+                    "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail",
+                }
+            )
+        )
         chain = self.expected["derivation_chain"]
         self.assertEqual(
             [row["step"] for row in chain], [1, 2, "2a", "2b"] + list(range(3, 17))
@@ -232,15 +264,18 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_matter_lift_is_source_bound(self) -> None:
+    def test_matter_lift_is_exact_but_not_physically_source_bound(self) -> None:
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
-        self.assertTrue(closure_condition["met_locally"])
-        self.assertIn("#567", closure_condition["remaining_producer"])
+        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
+        self.assertFalse(closure_condition["met_locally"])
+        self.assertIn("fermionic statistics", closure_condition["remaining_producer"])
         self.assertIn("#569", closure_condition["remaining_producer"])
         boundary = self.expected["claim_boundary"]
-        self.assertEqual(boundary["status"], "proved_on_source_bound_matter_contracts")
+        self.assertEqual(
+            boundary["status"],
+            "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
+        )
         self.assertIn("BLOCK-DETERMINANT-BALANCE", boundary["contract_provenance"])
         self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("MAR uniqueness" in row for row in boundary["does_not_close"]))
@@ -282,13 +317,13 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         by_name = {row["name"]: row["actual_error"] for row in payload["finite_controls"]}
         self.assertEqual(by_name["vec_typing"], "VEC_TYPING")
         self.assertEqual(by_name["svec_split_spin"], "SPIN_LIFT_SPLIT")
-        self.assertEqual(by_name["opposite_weyl_selection"], "YUKAWA_CHANNEL_EMPTY")
+        self.assertEqual(by_name["mixed_weyl_representative"], "YUKAWA_CHANNEL_EMPTY")
         self.assertEqual(by_name["truncated_lambda2_selection"], "WITTEN_PARITY")
         self.assertEqual(by_name["full_even_clifford_module"], "TRIVIAL_LINE_IN_MATTER")
         self.assertEqual(by_name["kernel_killing_extra_scalar"], "KERNEL_TRIVIAL")
         self.assertEqual(by_name["charge_dead_package"], "BLOCK_DETERMINANT_BALANCE")
         self.assertEqual(by_name["non_primitive_balanced_pair"], "BLOCK_DETERMINANT_BALANCE")
-        self.assertEqual(by_name["orientation_conjugate_pair"], "BLOCK_DETERMINANT_BALANCE")
+        self.assertEqual(by_name["preferred_projector_representative"], "SELECTION_RULE")
         self.assertEqual(by_name["undeclared_forbidden_channel"], "SCALAR_SELECTION")
 
     def test_forbidden_matter_targets_are_rejected(self) -> None:
@@ -374,7 +409,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
     def test_issue_566_receipt_schema_is_pinned(self) -> None:
         # The upstream gate check relies on the #566 schema constant; make the
         # cross-module coupling explicit so schema drift fails loudly here.
-        self.assertEqual(p566.RECEIPT_SCHEMA, "oph.port_current_inner_receipt.v3")
+        self.assertEqual(p566.RECEIPT_SCHEMA, "oph.port_current_inner_receipt.v5")
 
 
 if __name__ == "__main__":

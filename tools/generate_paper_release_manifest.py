@@ -24,8 +24,11 @@ RELEASE_TRACKED_PDFS = {
     "observers_are_all_you_need": Path("paper/observers_are_all_you_need.pdf"),
     "paradise_as_fixed_point_consensus": Path("paper/paradise_as_fixed_point_consensus.pdf"),
     "reality_as_consensus_protocol": Path("paper/reality_as_consensus_protocol.pdf"),
-    "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": Path(
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf"
+    "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": Path(
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
+    ),
+    "deriving_standard_model_gauge_structure_from_observer_overlap_consistency": Path(
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
     ),
     "screen_microphysics_and_observer_synchronization": Path(
         "paper/screen_microphysics_and_observer_synchronization.pdf"
@@ -62,6 +65,8 @@ def main() -> int:
 
     output_path = repo_root / OUTPUT_RELATIVE
     previous_manifest = load_existing_manifest(output_path)
+    tagged_manifest = load_tagged_manifest(repo_root, release_id)
+    enforce_tag_immutability(tagged_manifest, manifest)
     enforce_release_bump(previous_manifest, manifest, args.allow_same_release)
     verify_no_stray_pdfs(repo_root, manifest)
     verify_pdf_release_lines(repo_root, manifest, args.skip_pdf_release_check)
@@ -152,7 +157,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--allow-same-release",
         action="store_true",
-        help="Allow PDF hash changes without bumping the release ID first.",
+        help=(
+            "Allow PDF hash changes before the current release ID has been tagged. "
+            "A tagged release is immutable and always requires a new release ID."
+        ),
     )
     parser.add_argument(
         "--skip-pdf-release-check",
@@ -184,6 +192,82 @@ def load_existing_manifest(path: Path) -> dict | None:
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_tagged_manifest(repo_root: Path, release_id: str) -> dict | None:
+    """Read the manifest committed at an existing local release tag.
+
+    Same-release refreshes are useful while preparing a release. Once the
+    release ID has a Git tag, that tag is the immutable local publication
+    boundary and its PDF hashes cannot be replaced under the same ID.
+    """
+
+    tag_ref = f"refs/tags/{release_id}"
+    exists = subprocess.run(
+        ["git", "rev-parse", "--verify", "--quiet", tag_ref],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if exists.returncode != 0:
+        return None
+
+    tagged_path = f"{tag_ref}:{OUTPUT_RELATIVE.as_posix()}"
+    result = subprocess.run(
+        ["git", "show", tagged_path],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.strip() or f"git show exited {result.returncode}"
+        raise SystemExit(
+            f"could not read the release manifest at {tag_ref}: {detail}"
+        )
+    try:
+        payload = json.loads(result.stdout)
+    except json.JSONDecodeError as exc:
+        raise SystemExit(
+            f"release manifest at {tag_ref} is not valid JSON: {exc}"
+        ) from exc
+    if not isinstance(payload, dict):
+        raise SystemExit(f"release manifest at {tag_ref} is not a JSON object")
+    return payload
+
+
+def enforce_tag_immutability(tagged_manifest: dict | None, manifest: dict) -> None:
+    """Reject replacement of PDF bytes behind an existing release tag."""
+
+    if tagged_manifest is None:
+        return
+
+    tagged_release_id = str(tagged_manifest.get("release_id", "")).strip()
+    current_release_id = str(manifest.get("release_id", "")).strip()
+    if tagged_release_id != current_release_id:
+        return
+
+    tagged_papers = manifest_pdf_entries(tagged_manifest)
+    current_papers = manifest_pdf_entries(manifest)
+    changed_papers = [
+        paper_id
+        for paper_id, payload in current_papers.items()
+        if tagged_papers.get(paper_id, {}).get("sha256") != payload["sha256"]
+    ]
+    if not changed_papers:
+        return
+
+    changed_list = ", ".join(sorted(changed_papers))
+    raise SystemExit(
+        "PDF hashes differ from immutable Git tag "
+        f"{current_release_id}: {changed_list}. "
+        "Run python3 tools/bump_paper_release.py, rebuild every paper PDF, "
+        "and regenerate the manifest. --allow-same-release cannot rewrite a "
+        "tagged release."
+    )
 
 
 def enforce_release_bump(previous_manifest: dict | None, manifest: dict, allow_same_release: bool) -> None:

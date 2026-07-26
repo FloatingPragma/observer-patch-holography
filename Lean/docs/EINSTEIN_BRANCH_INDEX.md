@@ -73,4 +73,4 @@ stabilizer condition; no key maps to constant `True`.
 `strictManifest_erase_required_fails` proves syntactic deletion failure. It
 does not establish that every receipt is semantically independent of every
 other receipt; that stronger result requires the isolated full-tower
-countermodel matrix described in the compact paper.
+countermodel matrix described in The spacetime and Einstein paper.

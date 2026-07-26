@@ -520,13 +520,22 @@ def _check_a5_matter(payload: Mapping[str, Any], row: Mapping[str, Any]) -> list
     if payload.get("conditional_algebraic_gate", {}).get("mar_class_nonempty_witnessed") is not True:
         failures.append("a5_matter_schema_nonempty_witness_missing")
     gate = payload.get("physical_source_gate", {})
-    if gate.get("passed") is not True:
-        failures.append("a5_matter_physical_source_gate_not_passed")
-    if gate.get("passed") is True and (
-        payload.get("block_determinant_balance", {}).get("declared_equals_derived")
-        is not True
-    ):
-        failures.append("a5_matter_gate_passed_without_derived_balance")
+    if gate.get("passed") not in {True, False}:
+        failures.append("a5_matter_physical_source_gate_status_missing")
+    if gate.get("passed") is True:
+        balance = payload.get("block_determinant_balance", {})
+        if not (
+            balance.get("declared_equals_derived") is True
+            or balance.get("declared_matches_derived_pair_up_to_conjugation") is True
+        ):
+            failures.append("a5_matter_gate_passed_without_derived_balance")
+    else:
+        closure = payload.get("issue_closure_condition", {})
+        if (
+            closure.get("met_locally") is not False
+            or closure.get("physical_source_realization_gate_passed") is not False
+        ):
+            failures.append("a5_matter_open_gate_not_reflected_in_closure_status")
     if row.get("promoted") is not False:
         failures.append("a5_matter_schema_improperly_promoted")
     return failures

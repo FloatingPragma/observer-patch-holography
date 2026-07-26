@@ -8,20 +8,30 @@ certificate consumes that data and derives, rather than assumes:
 * the common kernel of the central action on every realized matter tensor,
   computed by exhaustive enumeration over the 36 candidate central elements
   rather than inferred from Lie type;
-* the physical global form (SU(3) x SU(2) x U(1)) / Z6, its character and
-  cocharacter lattices by integer Smith reduction, and the Wilson / 't Hooft
-  line pairing table;
-* theta periodicity and the minimum magnetic line, stated in electron-Dirac
-  and color-flux units under the corpus convention q = 6Y with
-  h = (omega_3, -I_2, exp(i pi/3)) and block map (A,B,z) -> (z^-2 A, z^3 B);
-* spin/fermion descent (every realized tensor is single-valued on the
-  quotient) and refinement invariance (the weight data is invariant under
-  the sixty carrier rotations and the artifact persistence maps);
-* the four-admissible-global-forms negative control: at the gauge-algebra
-  level all four quotients by subgroups of the centre are admissible, and
-  only the realized matter tensors select the maximal quotient;
+* the maximal effective image
+  (SU(3) x SU(2) x U(1)) / Z6 of the declared tensor representation,
+  together with its character lattice and dual cocharacter lattice by exact
+  integer/rational arithmetic;
+* the primitive correlated cocharacter, in color, weak, and electron-Dirac
+  units under q = 6Y with
+  h = (omega_3, -I_2, exp(i pi/3)); this is lattice arithmetic, not a
+  physical choice of genuine Wilson/'t Hooft lines or a theta-period theorem;
+* the exact four-way non-identifiability result: quotienting by
+  1, Z2, Z3, or Z6 gives four different character lattices while every
+  declared local tensor descends through all four;
+* the algebraic weak-center/U(1) relation h^3 = (1,-I_2,-1), which acts
+  trivially on every declared weight.  It is not fermion parity.  Indeed no
+  element among the 36 central candidates acts by -1 on all five matter
+  multiplets, so no spacetime Spin attachment follows from this calculation;
+* weight-level refinement invariance under the sixty carrier rotations and
+  the artifact persistence maps;
 * countermodels: an adjoint-only tensor set leaves all four global forms
   admissible, and a fractionally charged extra tensor shrinks the kernel.
+
+The source packet contains no physical loop/deck holonomy, tangent-frame Spin
+lift, genuine-line category or UV polarization, principal-bundle/instanton
+sector, or refinement map on those structures.  The physical #567 gate
+therefore fails closed.
 
 Every arithmetic decision is exact integer or rational arithmetic; no
 floating point appears in a proof step.
@@ -49,15 +59,14 @@ sha256_json = e565.sha256_json
 load_json = e565.load_json
 write_json = e565.write_json
 
-SCHEMA = "oph.axis_center_descent_manifest.v1"
-RECEIPT_SCHEMA = "oph.axis_center_descent_receipt.v1"
-NEGATIVE_SCHEMA = "oph.axis_center_descent_negative_controls.v1"
-CANONICAL_BLOCK_MAP = "(A,B,z) -> (z^-2 A, z^3 B)"
+SCHEMA = "oph.axis_center_descent_manifest.v3"
+RECEIPT_SCHEMA = "oph.axis_center_descent_receipt.v3"
+NEGATIVE_SCHEMA = "oph.axis_center_descent_negative_controls.v3"
 
 # Realized weight table under the corpus convention q = 6Y: every realized
-# matter field, both carrier blocks, and the scalar, each with (q, triality,
-# duality). The table is re-derived below from the pinned #314 receipt rather
-# than trusted; this constant is the expected value.
+# matter field and both carrier blocks, each with (q, triality, duality). The
+# scalar is deliberately unnecessary: its weak-block weight duplicates an
+# already present character, and scalar existence/economy is not source-bound.
 REALIZED_WEIGHTS: dict[str, tuple[int, int, int]] = {
     "Q": (1, 1, 1),
     "u_c": (-4, 2, 0),
@@ -66,8 +75,9 @@ REALIZED_WEIGHTS: dict[str, tuple[int, int, int]] = {
     "L": (-3, 0, 1),
     "carrier_color": (-2, 1, 0),
     "carrier_weak": (3, 0, 1),
-    "scalar_S": (3, 0, 1),
 }
+
+MATTER_LABELS = ("Q", "u_c", "e_c", "d_c", "L")
 
 ADJOINT_WEIGHTS: dict[str, tuple[int, int, int]] = {
     "gluon": (0, 0, 0),
@@ -107,6 +117,32 @@ def common_kernel(weights: Mapping[str, tuple[int, int, int]]) -> list[tuple[int
 def cyclic_generated(generator: tuple[int, int, int]) -> set[tuple[int, int, int]]:
     k, l, r = generator
     return {((k * n) % 3, (l * n) % 2, (r * n) % 6) for n in range(6)}
+
+
+def central_power(
+    generator: tuple[int, int, int], exponent: int
+) -> tuple[int, int, int]:
+    """A power of a central parameter tuple."""
+
+    k, l, r = generator
+    return ((k * exponent) % 3, (l * exponent) % 2, (r * exponent) % 6)
+
+
+def common_scalar_phase_elements(
+    weights: Mapping[str, tuple[int, int, int]], phase_sixths: int
+) -> list[tuple[int, int, int]]:
+    """Central elements acting with one prescribed scalar phase on all weights."""
+
+    return [
+        (k, l, r)
+        for k in range(3)
+        for l in range(2)
+        for r in range(6)
+        if all(
+            central_phase_sixths((k, l, r), weight) == phase_sixths % 6
+            for weight in weights.values()
+        )
+    ]
 
 
 def smith_normal_form(matrix: list[list[int]]) -> list[list[int]]:
@@ -196,6 +232,69 @@ def subgroups_of_z6() -> list[dict[str, Any]]:
     return subgroups
 
 
+def quotient_candidate_menu(
+    weights: Mapping[str, tuple[int, int, int]],
+    generator: tuple[int, int, int],
+) -> list[dict[str, Any]]:
+    """The four diagonal quotient choices and their local-data fingerprints.
+
+    A subgroup of order ``d`` is generated by ``h^(6/d)``.  Its quotient
+    character residues satisfy ``2t + 3d_w + q = 0 (mod d)``.  Every subgroup
+    lies in the common kernel, hence every declared local weight descends
+    through every one of these quotients.  The different residue counts show
+    that their global character data is nevertheless different.
+    """
+
+    rows: list[dict[str, Any]] = []
+    for order in (1, 2, 3, 6):
+        exponent = 6 // order
+        subgroup_generator = central_power(generator, exponent)
+        subgroup_elements = {
+            central_power(generator, exponent * n) for n in range(order)
+        }
+        require(
+            all(
+                central_phase_sixths(element, weight) == 0
+                for element in subgroup_elements
+                for weight in weights.values()
+            ),
+            "GLOBAL_FORM_MENU",
+            f"a realized tensor does not descend through the order-{order} subgroup",
+        )
+        character_residues = [
+            (t, d, q)
+            for t in range(3)
+            for d in range(2)
+            for q in range(6)
+            if (2 * t + 3 * d + q) % order == 0
+        ]
+        require(
+            len(character_residues) == 36 // order,
+            "GLOBAL_FORM_MENU",
+            f"the order-{order} quotient character-residue count drifted",
+        )
+        rows.append(
+            {
+                "quotient_subgroup_order": order,
+                "quotient_label": (
+                    "SU(3) x SU(2) x U(1)"
+                    if order == 1
+                    else f"(SU(3) x SU(2) x U(1)) / Z{order}"
+                ),
+                "generator_power_of_h": 0 if order == 1 else exponent,
+                "generator_central_parameters": list(subgroup_generator),
+                "character_residue_class_count": len(character_residues),
+                "all_declared_local_tensors_descend": True,
+            }
+        )
+    require(
+        len({row["character_residue_class_count"] for row in rows}) == 4,
+        "GLOBAL_FORM_MENU",
+        "the four quotient candidates were not distinguished by global character data",
+    )
+    return rows
+
+
 def load_matter_receipt(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]:
     path_raw = manifest.get("matter_receipt_path")
     require(isinstance(path_raw, str), "UPSTREAM_REFERENCE", "matter_receipt_path is missing")
@@ -215,9 +314,9 @@ def load_matter_receipt(manifest: Mapping[str, Any], base_dir: Path) -> dict[str
         "the pinned receipt is not a #314 matter-lift receipt",
     )
     require(
-        receipt.get("physical_source_gate", {}).get("passed") is True,
+        receipt.get("conditional_algebraic_gate", {}).get("passed") is True,
         "UPSTREAM_RECEIPT",
-        "the pinned matter receipt must record a passing physical source gate",
+        "the pinned matter receipt must record a passing conditional algebraic gate",
     )
     kernel_emission = receipt.get("kernel_emission")
     require(
@@ -236,12 +335,19 @@ def validate_manifest(manifest: Mapping[str, Any]) -> None:
         "CONVENTION",
         "the manifest must declare the integer hypercharge convention q = 6Y",
     )
-    require(
-        manifest.get("block_map") == CANONICAL_BLOCK_MAP,
-        "CONVENTION",
-        "the manifest must declare the canonical block-map orientation",
-    )
-    for key in ("measured_coupling", "mass_target", "monopole_dynamics"):
+    for key in (
+        "measured_coupling",
+        "mass_target",
+        "monopole_dynamics",
+        "claim_physical_global_form",
+        "block_map",
+        "physical_deck_loop",
+        "spacetime_spin_attachment",
+        "genuine_line_category",
+        "uv_line_polarization",
+        "instanton_sector",
+        "theta_periodicity",
+    ):
         require(key not in manifest, "FORBIDDEN_DEPENDENCY", f"forbidden manifest key {key}")
 
 
@@ -278,7 +384,6 @@ def rederive_weights(receipt: Mapping[str, Any]) -> dict[str, tuple[int, int, in
     )
     weights["carrier_color"] = (int(q_color), 1, 0)
     weights["carrier_weak"] = (int(q_weak), 0, 1)
-    weights["scalar_S"] = (int(q_weak), 0, 1)
     require(
         weights == REALIZED_WEIGHTS,
         "WEIGHT_TABLE",
@@ -351,7 +456,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
     require(
         len(allowed_classes) == 6,
         "LATTICE",
-        "the Wilson line class group does not have six elements",
+        "the maximal-quotient character residue table does not have six elements",
     )
     for label, weight in weights.items():
         q, t, d = weight
@@ -361,7 +466,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             f"realized weight {label} is not a quotient character",
         )
 
-    # --- Wilson / 't Hooft pairing and the minimum magnetic line -------------
+    # --- Dual cocharacter lattice and its primitive correlated class ----------
     # The quotient character lattice is the kernel of (t, d, q) -> 2t + 3d + q
     # modulo six inside Z^3; the vectors (1, 0, -2), (0, 1, -3), (0, 0, 6)
     # form a basis (each satisfies the constraint and their determinant is
@@ -389,34 +494,68 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             and pair_three.denominator == 1
         )
 
-    magnetic_lattice = [
+    cocharacter_window = [
         (m, n, Fraction(g, 6))
         for m in range(3)
         for n in range(2)
         for g in range(0, 36)
         if admissible_magnetic(m, n, Fraction(g, 6))
     ]
-    nontrivial = [row for row in magnetic_lattice if row != (0, 0, Fraction(0))]
+    nontrivial = [row for row in cocharacter_window if row != (0, 0, Fraction(0))]
     minimal = min(nontrivial, key=lambda row: (row[2], row[0], row[1]))
     require(
         minimal == (1, 1, Fraction(1, 6)),
-        "MAGNETIC_LINE",
-        f"the minimum magnetic line drifted: {minimal}",
+        "COCHARACTER_LATTICE",
+        f"the primitive correlated cocharacter drifted: {minimal}",
     )
-    pure_u1 = [row for row in magnetic_lattice if row[0] == 0 and row[1] == 0 and row[2] != 0]
+    pure_u1 = [
+        row
+        for row in cocharacter_window
+        if row[0] == 0 and row[1] == 0 and row[2] != 0
+    ]
     require(
         min(row[2] for row in pure_u1) == 1,
-        "MAGNETIC_LINE",
-        "the minimal pure-U(1) magnetic line is not one electron-Dirac quantum",
+        "COCHARACTER_LATTICE",
+        "the primitive pure-U(1) cocharacter is not one electron-Dirac quantum",
+    )
+    # If B is the displayed character basis, its dual lattice is B^{-1} Z^3.
+    # These three exact columns generate it.
+    dual_basis = [
+        (Fraction(1), Fraction(0), Fraction(0)),
+        (Fraction(0), Fraction(1), Fraction(0)),
+        (Fraction(1, 3), Fraction(1, 2), Fraction(1, 6)),
+    ]
+    for cocharacter in dual_basis:
+        for character in basis:
+            pairing = sum(
+                Fraction(character[index]) * cocharacter[index]
+                for index in range(3)
+            )
+            require(
+                pairing.denominator == 1,
+                "COCHARACTER_LATTICE",
+                "the declared dual-basis pairing is not integral",
+            )
+
+    # --- Weak-centre relation; no spacetime Spin conclusion ------------------
+    # h^3 = (1, -I_2, -1) is a gauge-kernel relation.  It acts as +1, not
+    # fermion parity, on every realized tensor.  Exhaustive enumeration also
+    # shows that no central element acts by -1 on all five matter multiplets.
+    weak_center_u1_relation = central_power(generator, 3)
+    require(
+        weak_center_u1_relation == (0, 1, 3)
+        and weak_center_u1_relation in set(kernel),
+        "CENTRAL_RELATION",
+        "h^3 is not the expected weak-centre/U(1) kernel relation",
+    )
+    matter_weights = {label: weights[label] for label in MATTER_LABELS}
+    fermion_minus_one_candidates = common_scalar_phase_elements(matter_weights, 3)
+    require(
+        fermion_minus_one_candidates == [],
+        "FERMION_PARITY",
+        "a central gauge element unexpectedly acts by -1 on every matter multiplet",
     )
 
-    # --- Spin/fermion descent and refinement invariance ----------------------
-    # Spin descent: the binary-icosahedral central involution acts on a
-    # realized tensor with (q, t, d) by (-1)^d through the weak block; the
-    # kernel element (0, 1, 3) represents it on the quotient and is verified
-    # trivial on every realized weight above, so every realized fermionic
-    # tensor is single-valued on the quotient.
-    require((0, 1, 3) in set(kernel), "SPIN_DESCENT", "the spin representative is not in the kernel")
     # Refinement invariance: the weight data (q, t, d) is a class function of
     # the realized fields; the sixty carrier rotations and the artifact
     # persistence maps permute states inside each field block (verified in the
@@ -428,16 +567,19 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "the pinned receipt does not carry intertwined physical refinement maps",
     )
 
-    # --- Four admissible global forms: the negative control ------------------
+    # --- Four locally indistinguishable global forms -------------------------
     menu = subgroups_of_z6()
+    quotient_candidates = quotient_candidate_menu(weights, generator)
     adjoint_kernel = common_kernel(ADJOINT_WEIGHTS)
     require(
         len(adjoint_kernel) == 36,
         "GLOBAL_FORM_MENU",
         "the adjoint-only kernel is not the full centre",
     )
-    # At the algebra level every subgroup of the centre is an admissible
-    # global form: the adjoint tensors cannot distinguish them.
+    # All four subgroups of the common diagonal kernel are compatible with
+    # the realized local tensors.  The full-kernel quotient is the maximal
+    # effective image, but selecting it as the physical gauge group requires
+    # additional global/line data.
     fractional_weights = dict(REALIZED_WEIGHTS)
     fractional_weights["fractional_singlet"] = (1, 0, 0)
     fractional_kernel = common_kernel(fractional_weights)
@@ -455,8 +597,10 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "convention": {
             "hypercharge": "q = 6Y",
             "kernel_generator": "h = (omega_3 I_3, -I_2, exp(i pi/3))",
-            "block_map": CANONICAL_BLOCK_MAP,
-            "orientation_note": "mixing the two orientations is a failed receipt; the block map is inherited from the #599 semantic artifact through the #314 packet",
+            "overall_charge_sign": (
+                "the displayed generator uses the even-Weyl convention; charge "
+                "conjugation inverts it and leaves the generated Z6 subgroup unchanged"
+            ),
         },
         "realized_weight_table": {
             label: {"q": q, "triality": t, "duality": d}
@@ -471,62 +615,179 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "tensor_additivity_checked_pairs": len(weights) ** 2,
             "computed_not_inferred": "the kernel is the exhaustive common stabilizer of the realized weight table, not a Lie-type inference",
         },
-        "global_form": {
+        "maximal_effective_image": {
             "group": "(SU(3) x SU(2) x U(1)) / Z6",
+            "status": (
+                "maximal effective image of the declared tensor representation; "
+                "not a selected physical global gauge group"
+            ),
             "character_lattice_smith_invariants": invariants,
-            "wilson_line_classes": [list(row) for row in allowed_classes],
-            "wilson_class_group_order": 6,
+            "character_residue_classes": [list(row) for row in allowed_classes],
+            "character_residue_class_count": 6,
         },
-        "line_spectrum": {
-            "magnetic_charge_unit": "one sixth of the electron-Dirac quantum (electron q = -6)",
-            "minimum_magnetic_line": {
-                "color_center_flux": 1,
-                "weak_flux": 1,
+        "dual_cocharacter_lattice": {
+            "basis_coordinates_color_weak_u1": [
+                [str(value) for value in row] for row in dual_basis
+            ],
+            "primitive_correlated_cocharacter": {
+                "color_coweight": "1/3",
+                "weak_coweight": "1/2",
                 "u1_charge_electron_dirac_units": "1/6",
             },
-            "minimal_pure_u1_line": "one electron-Dirac quantum",
-            "theta_periodicity": (
-                "the fractional instanton number on the Z6 quotient is quantized in units of 1/6, "
-                "so the theta angle has period 2 pi times six in the cover normalization; stated "
-                "as lattice arithmetic, not monopole dynamics"
+            "primitive_pure_u1_cocharacter": "one electron-Dirac quantum",
+            "interpretation_boundary": (
+                "the dual lattice and its finite central-flux residues are exact; "
+                "a physical spectrum of genuine Wilson, 't Hooft, or dyonic lines "
+                "requires a line category and mutually-local UV polarization"
+            ),
+            "theta_periodicity_status": (
+                "not derived: this packet contains no principal-bundle sectors, "
+                "topological action normalization, or instanton-charge lattice"
             ),
             "monopole_dynamics_not_inferred": True,
         },
-        "spin_fermion_descent": {
-            "spin_representative_in_kernel": [0, 1, 3],
-            "conclusion": "every realized fermionic tensor is single-valued on the quotient; the binary cover acts through the quotient on the realized category",
+        "algebraic_weak_center_u1_relation": {
+            "h_cubed": list(weak_center_u1_relation),
+            "phase_on_every_declared_weight_sixths": 0,
+            "universal_fermion_minus_one_candidates": [
+                list(row) for row in fermion_minus_one_candidates
+            ],
+            "conclusion": (
+                "h^3 is a gauge-kernel relation acting trivially on the declared "
+                "weights; it is not fermion parity, and the finite center table "
+                "does not attach the matter object to a spacetime Spin bundle"
+            ),
         },
-        "refinement_invariance": {
+        "weight_level_refinement_invariance": {
             "carrier_rotations": 60,
             "artifact_persistence_maps": len(physical_maps),
-            "conclusion": "the weight data is invariant under the carrier rotations and the artifact persistence maps, so the kernel computation descends the refinement tower",
+            "conclusion": (
+                "the central weight table and common-kernel computation are "
+                "invariant under the declared state permutations"
+            ),
+            "physical_loop_or_bundle_refinement_naturality_derived": False,
         },
-        "four_admissible_global_forms_control": {
+        "global_form_nonidentifiability": {
             "subgroup_menu": menu,
+            "quotient_candidates": quotient_candidates,
+            "subgroup_menu_scope": (
+                "exactly the four subgroups of the selected diagonal cyclic Z6; "
+                "not every subgroup of the full adjoint centre Z3 x Z2 x Z6"
+            ),
             "adjoint_only_kernel_order": 36,
-            "conclusion_menu": "with adjoint tensors only, every subgroup of the centre gives an admissible global form: four admissible forms",
-            "realized_matter_selects": "the maximal quotient Z6, by the exhaustive kernel computation",
+            "conclusion_menu": (
+                "the diagonal quotient chain has four members: 1, Z2, Z3, and Z6; "
+                "all declared local tensors descend through every member"
+            ),
+            "adjoint_only_scope": (
+                "adjoint tensors leave the full 36-element finite central slice "
+                "invisible and therefore do not select the diagonal chain"
+            ),
+            "maximal_effective_quotient": "Z6",
+            "physical_global_form_selected": False,
+            "selection_boundary": (
+                "quotienting by the full common kernel is the maximal effective "
+                "local action; choosing it as the physical gauge group requires "
+                "source-derived global/line data"
+            ),
             "fractional_singlet_countermodel_kernel_order": 1,
-            "conclusion_countermodels": "a fractionally charged extra tensor shrinks the kernel to the identity (larger cover), and removing the matter tensors enlarges the kernel to the full centre (smaller quotient); the realized tensor set is what forces Z6",
+            "conclusion_countermodels": (
+                "a fractionally charged extra tensor shrinks the common kernel to "
+                "the identity, while removing matter enlarges it; local weights "
+                "determine the maximal kernel but do not choose which subgroup is gauged"
+            ),
         },
         "two_z6_constructions": {
-            "six_axis_lattice_quotient": "Lean/Screen/Z6Exact.lean: the screen gluing class Lambda_plus/(Lambda_1 (+) Lambda_5) with antipodal sign reversal",
-            "tensor_spin_kernel": "Lean/Screen/TraceBalancedKernel.lean: the kernel of 2k + 3l + r on the central parameters with conjugation inverting the generator",
-            "intertwiner": "Lean/Screen/Z6Descent.lean: the explicit isomorphism matching the six-axis residue generator with the kernel generator and the antipodal involution with conjugation",
+            "six_axis_lattice_quotient": (
+                "Lean/Screen/Z6Exact.lean: the abstract coefficient-lattice "
+                "quotient Lambda_plus/(Lambda_1 (+) Lambda_5)"
+            ),
+            "tensor_action_kernel": (
+                "Lean/Screen/TraceBalancedKernel.lean: the kernel of "
+                "2k + 3l + r on the central parameters"
+            ),
+            "algebraic_intertwiner": (
+                "Lean/Screen/Z6Descent.lean: an exact group isomorphism matching "
+                "chosen generators and inversion"
+            ),
+            "physical_loop_intertwiner_derived": False,
+            "boundary": (
+                "an isomorphism between two abstract cyclic groups is not a "
+                "source-derived port-loop holonomy or deck action"
+            ),
         },
         "claim_boundary": {
             "proves": (
-                "the physical global form of the realized branch: the kernel computed on every realized "
-                "matter tensor, the quotient character and cocharacter data, the Wilson/'t Hooft line "
-                "spectrum, spin descent, refinement invariance, and the four-global-forms control"
+                "the common central kernel on the declared tensors, the maximal "
+                "effective quotient and its character/cocharacter lattices, the "
+                "algebraic intertwiner of the two abstract Z6 groups, weight-level "
+                "refinement invariance, and exact four-way global-form non-identifiability"
             ),
-            "status": "derived_on_realized_matter_tensors",
+            "status": "derived_conditionally_on_unsourced_upstream_response_and_matter_branch",
             "does_not_close": [
-                "monopole or dyon dynamics (only line-lattice arithmetic is derived)",
+                "physical selection/attachment of this global form (#567)",
+                "the independent #599 response producer and physical #314 matter source gate",
+                "a source-derived physical deck/loop class rather than declared central weight data",
+                "a genuine-line category, mutually-local UV polarization, and completeness of the physical line spectrum",
+                "spacetime Spin/fermion attachment (h^3 is a trivial gauge relation, not fermion parity)",
+                "refinement-natural transport of loops, bundles, Spin data, or line categories",
+                "theta periodicity or instanton-sector quantization",
+                "monopole or dyon dynamics (only cocharacter-lattice arithmetic is derived)",
                 "family attachment and any three-family claim (#569)",
                 "laboratory measurement of any line or flux",
                 "continuum quantum field theory",
             ],
+        },
+        "conditional_algebraic_gate": {
+            "kernel_enumerated": True,
+            "character_and_cocharacter_lattices_computed": True,
+            "maximal_effective_image_computed": True,
+            "four_global_forms_locally_indistinguishable": True,
+            "weak_center_relation_not_misidentified_as_spin": True,
+            "passed": True,
+        },
+        "physical_global_form_gate": {
+            "upstream_response_physically_source_bound": False,
+            "upstream_matter_physically_source_bound": False,
+            "source_derived_deck_loop_class": False,
+            "spacetime_spin_attachment": False,
+            "genuine_line_category_selected": False,
+            "uv_mutual_locality_polarization_selected": False,
+            "refinement_natural_loop_bundle_transport": False,
+            "instanton_sector_and_action_normalization": False,
+            "theta_periodicity_derived": False,
+            "laboratory_global_form_attachment": False,
+            "passed": False,
+        },
+        "acceptance_criteria_status": {
+            "abstract_z6_intertwiner": True,
+            "source_derived_loop_deck_intertwiner": False,
+            "kernel_on_every_declared_tensor": True,
+            "maximal_effective_image_character_lattice": True,
+            "dual_cocharacter_lattice": True,
+            "physical_global_quotient_selected": False,
+            "genuine_wilson_tHooft_dyonic_line_category_selected": False,
+            "theta_periodicity_from_instantiated_topological_sectors": False,
+            "primitive_correlated_cocharacter_in_electron_dirac_and_color_weak_units": True,
+            "monopole_dynamics_not_inferred": True,
+            "algebraic_weak_center_u1_relation": True,
+            "spacetime_spin_fermion_attachment": False,
+            "weight_level_refinement_invariance": True,
+            "loop_bundle_line_refinement_naturality": False,
+            "larger_cover_and_smaller_quotient_countermodels": True,
+            "four_compatible_cover_level_global_forms": True,
+            "issue_567_closeable": False,
+        },
+        "issue_closure_condition": {
+            "conditional_algebraic_gate_passed": True,
+            "physical_global_form_gate_passed": False,
+            "met_locally": False,
+            "remaining_producer": (
+                "after #599/#314 source closure: a source-derived loop/deck "
+                "holonomy, spacetime Spin attachment, genuine-line category with "
+                "UV polarization, refinement-natural transport of that data, and "
+                "principal-bundle/instanton normalization sufficient for theta periodicity"
+            ),
         },
         "verifier_command": (
             "python3 code/a5_closure/axis_center_descent_certificate.py verify "
@@ -543,9 +804,9 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     wrong_convention["hypercharge_convention"] = "q = Y"
     cases.append(("wrong_hypercharge_convention", wrong_convention, "CONVENTION"))
 
-    mixed_orientation = copy.deepcopy(dict(manifest))
-    mixed_orientation["block_map"] = "(A,B,z) -> (z^2 A, z^-3 B)"
-    cases.append(("mixed_orientation", mixed_orientation, "CONVENTION"))
+    physical_promotion = copy.deepcopy(dict(manifest))
+    physical_promotion["claim_physical_global_form"] = True
+    cases.append(("unsupported_physical_promotion", physical_promotion, "FORBIDDEN_DEPENDENCY"))
 
     wrong_pin = copy.deepcopy(dict(manifest))
     wrong_pin["matter_receipt_sha256"] = "0" * 64
@@ -554,6 +815,18 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     forbidden = copy.deepcopy(dict(manifest))
     forbidden["monopole_dynamics"] = {"target": "monopole mass"}
     cases.append(("monopole_dynamics_injection", forbidden, "FORBIDDEN_DEPENDENCY"))
+
+    for name, key in (
+        ("declared_deck_loop_injection", "physical_deck_loop"),
+        ("declared_spacetime_spin_injection", "spacetime_spin_attachment"),
+        ("declared_line_category_injection", "genuine_line_category"),
+        ("declared_uv_polarization_injection", "uv_line_polarization"),
+        ("declared_instanton_sector_injection", "instanton_sector"),
+        ("declared_theta_period_injection", "theta_periodicity"),
+    ):
+        mutant = copy.deepcopy(dict(manifest))
+        mutant[key] = {"declared_without_source_receipt": True}
+        cases.append((name, mutant, "FORBIDDEN_DEPENDENCY"))
 
     return cases
 
@@ -578,9 +851,21 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
         "manifest_sha256": sha256_json(manifest),
         "finite_controls": results,
         "countermodel_witnesses": {
-            "adjoint_only": "kernel order 36: all four global forms admissible without matter",
+            "four_local_data_completions": (
+                "the same declared local tensor table descends through quotients "
+                "by 1, Z2, Z3, and Z6, whose character residue counts are "
+                "respectively 36, 18, 12, and 6"
+            ),
+            "adjoint_only": (
+                "the adjoint-only table has the full 36-element finite central "
+                "slice in its kernel"
+            ),
             "fractional_singlet": "kernel order 1: a larger cover is forced by a fractionally charged tensor",
-            "orientation": "the conjugate block map fails the convention gate; mixing orientations is a failed receipt",
+            "promotion": "a manifest cannot promote the conditional kernel quotient to a physically attached global form",
+            "fermion_parity": (
+                "no central element in the 36-element table acts by -1 on all "
+                "five matter multiplets; h^3 acts trivially"
+            ),
         },
     }
 

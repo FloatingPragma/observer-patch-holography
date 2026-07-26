@@ -619,7 +619,7 @@ framework.
 Combining the entropy variation with the geometric identity for area variation
 at fixed volume, one obtains the first-variation Einstein relation in the same
 local $d=4$ scaling regime. In four dimensions the small-ball area variation
-used by the compact paper is
+used by The spacetime and Einstein paper is
 
 $$\delta A|_{V,\Lambda} = -\frac{4\pi \ell^4}{15}\,
 \delta\!\left[(G_{ab}+\Lambda g_{ab})u^a u^b\right]+o(\ell^4)$$

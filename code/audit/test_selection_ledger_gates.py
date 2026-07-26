@@ -36,6 +36,35 @@ def test_every_row_names_one_canonical_claim_and_class():
         assert row["canonical_claim_id"]
         assert row["menu"]["alternatives"].strip()
 
+def test_required_selector_omission_fails_even_after_renumbering():
+    ledger = live_ledger()
+    ledger["rows"] = [
+        row
+        for row in ledger["rows"]
+        if row["selector_id"] != "compact_gauge_refinement_receipt"
+    ]
+    for index, row in enumerate(ledger["rows"], start=1):
+        row["row"] = index
+    with pytest.raises(SystemExit, match="selector inventory mismatch"):
+        ledger_tool.validate(ledger)
+
+
+def test_unknown_conditional_selector_fails():
+    ledger = live_ledger()
+    ledger["rows"][0]["conditional_on"] = ["no_such_selector"]
+    with pytest.raises(SystemExit, match="conditional_on names unknown"):
+        ledger_tool.validate(ledger)
+
+
+def test_conditional_selector_cycle_fails():
+    ledger = live_ledger()
+    first = ledger["rows"][0]["selector_id"]
+    second = ledger["rows"][1]["selector_id"]
+    ledger["rows"][0]["conditional_on"] = [second]
+    ledger["rows"][1]["conditional_on"] = [first]
+    with pytest.raises(SystemExit, match="conditional_on cycle"):
+        ledger_tool.validate(ledger)
+
 
 def test_open_row_owner_outside_claim_gates_fails():
     ledger = live_ledger()

@@ -4,7 +4,7 @@ namespace OPH.TraceBalancedKernel
 
 /-! # The trace-balanced cover and its exact kernel, on central parameters
 
-Issue #568.  The compact paper's trace-balanced block integration presents
+Issue #568.  The Standard Model gauge paper's trace-balanced block integration presents
 the cover `(A, B, z) ↦ (z⁻²A, z³B)` from `SU(3) × SU(2) × U(1)` onto
 `S(U(3) × U(2))`, with kernel `{(z²I₃, z⁻³I₂, z) : z⁶ = 1} ≅ ℤ/6`, and the
 tensor-spin image on `ℂ³ ⊗ ℂ²` with the same six-element kernel

@@ -11,7 +11,7 @@
     "artifact": {
       "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
       "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
-      "structure_binding": "missing sectors, swapped channel orientation, coefficient mismatch, measured-sign flips, and doctored refinement maps fail closed"
+      "structure_binding": "old schemas, missing sectors, swapped channels, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed"
     },
     "equivariance": {
       "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
@@ -141,11 +141,35 @@
     {
       "actual_error": "ARTIFACT_ORIENTATION",
       "expected_error": "ARTIFACT_ORIENTATION",
-      "name": "artifact_measured_sign_flip",
+      "name": "artifact_derived_sign_flip",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_SCHEMA",
+      "expected_error": "ARTIFACT_SCHEMA",
+      "name": "artifact_v2_schema_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_RESPONSE",
+      "expected_error": "ARTIFACT_RESPONSE",
+      "name": "artifact_doctored_source_antipode",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_RESPONSE",
+      "expected_error": "ARTIFACT_RESPONSE",
+      "name": "artifact_source_eigenvalue_flip",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_RESPONSE",
+      "expected_error": "ARTIFACT_RESPONSE",
+      "name": "artifact_impulse_filter_tamper",
       "passed": true
     }
   ],
   "issue": 566,
-  "manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
-  "schema": "oph.port_current_inner_negative_controls.v3"
+  "manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+  "schema": "oph.port_current_inner_negative_controls.v5"
 }

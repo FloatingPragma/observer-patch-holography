@@ -3,7 +3,7 @@
 
 Evaluates, on the same realized Gaussian MaxEnt collar states as the
 modular-clock instrumentation, finite-stage witnesses for the null-net
-receipt families of the compact paper's standardness packet
+receipt families of The spacetime and Einstein paper's standardness packet
 (`subsec:null-net-standardness`):
 
 * NTI (nontrivial relative commutants): for nested arcs B in A, the modes of

@@ -200,7 +200,7 @@ calibrated clocks can then supply public time, and the conformal symmetry
 of the shared spherical screen gives Lorentz symmetry with a
 three-dimensional space of observer frames. Populating that kinematic chart
 with a physical event manifold requires the separate receipts stated in the
-compact paper.
+spacetime and Einstein paper.
 
 Matter and forces are stable patterns in the same network. A particle is a
 reproducible pattern that can be transported through the public record
@@ -218,9 +218,11 @@ public quotient normal forms
         ├─ federation-to-support receipts → S2 cap geometry and geometric flow
         ├─ independent algebra-state tower → modular flow
         │       same-tower composition → Lorentz and conditional Einstein branches
-        └─ transportable sectors → Tannaka reconstruction → economy-selected matter packet
-             ↕ physical-current identity open
-           local 12-port A5 current → Standard Model Lie type
+        ├─ transportable sectors → independent Tannaka compact-group route
+        └─ local 12-port carrier → exact inverse-port response theorem
+                → conditional compact current and matter constructions
+                → conditional Z6 tensor kernel
+                laboratory current, physical matter, spectrum, and family attachments open
         ↓
 quantitative closure and physical-readout tests
 ```
@@ -265,20 +267,30 @@ and deterministic measurements with primary data. Mathematical statements,
 conditional physical readings, and measured properties carry separate claim
 classes in the [claim scoreboard](tracking/claims_scoreboard.md).
 
-The carrier geometry then does surprising work for free. On the certified
-echosahedral lineage, primitive port readback and oriented incidence alone
-derive the twelve-unit split, the antipodal pairing, the proper $A_5$ action,
-and the rank-three icosahedral frame, and the resulting coefficient space
-carries an exact commutator witness of
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$, the gauge
-algebra of the Standard Model. Two logically independent routes, the finite
-$A_5$ current classification and the transportable-sector/Tannaka route with
-the minimal admissible realization, reach that same Lie type; trace balance
-and deck descent produce the global quotient
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$; and the declared matter packet
-gives an exact fifteen-state one-generation witness with the Standard Model
-hypercharges, anomaly cancellation, three colors, and a canonical rank-three
-candidate family band.
+The carrier geometry then does surprising exact work. On the certified
+echosahedral lineage, primitive port readback and oriented incidence derive
+the twelve-unit split, antipodal pairing, proper $A_5$ action, rank-three
+icosahedral frame, and the decomposition
+$\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. Incidence also fixes
+the unique nonidentity central graph involution $J$. A target-blind protocol
+injects an impulse at every port, reads the adjacency history through graph
+diameter, and solves the common farthest-shell filter. It derives
+$10J=A^3-4A^2-5A+10I$. The response $R=-J$ has exact relative sector signs;
+its common sign is charge conjugation.
+
+From that derived response, an explicit equivariant compact lift constructs
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. On the declared
+fifteen-state exterior packet, anomaly freedom gives determinant balance and
+primitive charges up to charge conjugation. Exhaustive central-action
+calculation gives a common $\mathbb Z_6$ kernel on those tensors, so their
+maximal faithful image is
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. This
+exact finite implication does not use the minimal-admissibility rule.
+Physical fermion typing, global-form selection, and identification with
+laboratory currents are open. The transportable-sector/Tannaka construction
+is a separate compact-group route, and the source-bound identification of the
+two routes is open.
 
 The exact finite centerpiece of the gauge branch is
 
@@ -289,19 +301,21 @@ P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
 \cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-This coefficient algebra is constructed from the finite local carrier data
-instead of being supplied as the starting symmetry. It agrees in Lie type with
-the separate transportable-sector/Tannaka/economy route. Promotion to one physical
-current object and to the exact Standard Model matter packet uses the receipts
-listed below.
+This coefficient algebra is an exact construction from the finite carrier,
+target-blind impulse, and port readback rather than a consequence of the
+module decomposition alone. The matter and descent certificates prove the
+corresponding conditional representation and kernel arithmetic. Laboratory
+identification is a separate test.
 
 The exact carrier results retain explicit physical boundaries. Physical
-current attachment, Spin and deck descent, matter selection, family
-attachment, the Einstein source tower, and the physical closure packets are
-open producers. The [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
+matter typing, global-form selection, laboratory current identification,
+three-family attachment, exclusion of extra light sectors,
+the Einstein source tower, and the physical closure packets are open. The
+[issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
 records their work packages. The value $N_g=3$ is the minimum of the declared
-economy class. Local icosahedral incidence constrains the carrier, while the
-federation nerve requires its own construction.
+economy class until the frozen face-phase route is physically attached. Local
+icosahedral incidence constrains the carrier, while the federation nerve
+requires its own construction.
 
 ## Claim Tracking
 
@@ -356,12 +370,12 @@ attachment is open, tracked on the issue tracker.
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Echosahedral selector and finite $A_5$ gauge algebra | Local source-derived twelve-unit split, inverse pairing, proper $A_5$ action, and rank-three frame on the declared carrier lineage; exact coefficient-space construction and, conditional on a declared charged-double-triplet representation with four signed coefficients, an exact compact-current algebra $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Physical response source binding and physical refinement intertwining are open; there is no automatic global $S^2$ conclusion | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Standard Model global form | Exact $S(U(3)\times U(2))$ and shared-center $\mathbb Z_6$ calculation, with physical current and descent receipts stated separately | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Matter structure | Exact one-generation exterior witness, hypercharge/anomaly arithmetic, three-color carrier, canonical rank-three candidate band, and conditional economy selection $N_g=3$; physical family attachment is open, and the conditional field-theory implications are separated from their open OPH producers | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
-| Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Echosahedral selector and finite $A_5$ current theorem | Source-derived twelve-unit split, inverse pairing, proper $A_5$ action, rank-three frame, and unique central graph involution on the declared carrier lineage. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Conditional Standard Model faithful matter image | On the declared conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; physical global-form selection is open. No economy axiom enters this finite implication | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels; scalar multiplicity, physical matter selection, three-family attachment, and exclusion of extra light sectors are open. $N_g=3$ is an economy minimum until its family attachment is derived | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression; source matching, an independent gauge-symmetry engine, covariance, physical-current amplitudes, and the clock are open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
@@ -514,7 +528,8 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 | If you want... | Start here |
 | --- | --- |
 | The shortest persuasive overview | [A Compact Case for OPH](extra/compact_proof_of_oph.pdf) |
-| The technical center | [Recovering Relativity and the Standard Model](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| The spacetime and Einstein derivation | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| Both Standard Model gauge routes | [Deriving Standard Model Gauge Structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | The full observer-first synthesis | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

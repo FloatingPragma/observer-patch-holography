@@ -589,21 +589,26 @@ on a wiring diagram name the same actual connection. The Standard Model quotient
 removes that duplicate counting across color, weak isospin, and hypercharge.
 
 From the transportable charge sectors, reconstruction gives a compact gauge
-group. The economy rule then selects the Standard Model:
-among consistent one-Higgs sector packages, it keeps the smallest. Classification
-keeps gluing patterns that fit around every loop; the economy rule selects the minimal
-realized matter package.
+group. This is one independent route. The twelve-port carrier gives a second:
+incidence and target-blind port readback derive the signed response
+$R=-J$. An exact compact lift then realizes the Standard Model
+current algebra. Given the declared conjugate pair of exterior matter modules,
+the matter and central-descent receipts fix the charge lattice up to
+conjugation, the three-color carrier, and the common center kernel. Classification
+keeps gluing patterns that fit around every loop. The economy rule is not used
+in this conditional finite implication.
 
 The consistency test underneath that first stage is technical, and its point is
 simple. Some ways of gluing patches around a loop leave a leftover twist, and
 the theory keeps only the gluing choices where a compatible twist-free option
 exists. Everything downstream builds on the choices that survive.
 
-On this economy branch, the smallest matter sector contains a color triplet, a
-weak doublet, and one abelian charge direction, giving the product Lie type
-$SU(3)\times SU(2)\times U(1)$. The realized matter package also tells us
-which apparently different transformations act identically on every state.
-There are six of them. Counting those duplicates once gives the physical group
+Under those finite contracts, the compact current has one abelian direction,
+a weak triplet of generators, and eight color generators. The matter receipt
+derives determinant balance and a primitive charge pair related by charge
+conjugation. It also tells us which apparently different transformations act
+identically on every declared tensor. There are six of them. Counting those
+duplicates once gives the maximal faithful matter image
 
 $$
 S(U(3)\times U(2))\cong
@@ -624,6 +629,11 @@ is one of its economy coordinates. The graph and anomaly equations do not make
 that choice. The Witten anomaly is a consistency check on the resulting
 triplet-doublet structure.
 
+The distinction is sharp: no economy clause enters this conditional
+current, charge, or $\mathbb Z_6$ kernel calculation. Economy enters the
+three-family minimum and the exclusion of extra light sectors. Physical
+matter typing and global-form selection require independent constructions.
+
 ### The Icosahedral Closure Route
 
 Count the sockets before naming a force. Twelve vertices, six opposite pairs,
@@ -632,10 +642,11 @@ fingerprint. A cubic carrier would leave another one. The hardware geometry
 therefore enters the particle argument at its first finite line, long before a
 quark or a weak boson appears.
 
-The finite carrier can conditionally recognize the same Lie type from a
-second direction. This route starts with the reference microarchitecture from
-Chapter 3, long before quarks, weak doublets, or measured particle data enter
-the story. On the declared echosahedral carrier, charge lives at twelve
+The finite carrier recognizes the same Lie type from a second direction
+through a source-derived response. This route starts with the reference
+microarchitecture from Chapter 3, long before quarks, weak doublets, or
+measured particle data enter the story. On the declared echosahedral carrier,
+the defect readback lives at twelve
 equivalent ports, and the energy accounting forces the cheapest loadout:
 exactly one unit of charge at every port, with every alternative costing at
 least two units more. The wiring of the edges then does the rest. It pairs
@@ -707,24 +718,32 @@ $$
 
 If the five-dimensional block acts noncentrally, the first two disappear. The
 same conclusion follows when the $A_5$ action on a twelve-dimensional compact
-current algebra is implemented by internal gauge transformations. Under those
-physical-current conditions, the Standard Model Lie type is the unique compact
-choice. The physical current gate requires source binding, a nondegenerate
-current pairing, an internal $A_5$ action, and compatibility through
-refinement. The finite port symmetry by itself classifies register operations;
-it does not manufacture gauge currents. A declared charged-double-triplet
-response representation and four signed nonzero coefficients support an exact
-finite certificate of the algebraic part. The certificate constructs
-$\mathfrak u(3)\oplus\mathfrak{so}(3)$ with the required closure, covariance,
-inner action, and a positive invariant pairing. The representation and
-coefficients are inputs. Their derivation or measurement from physical carrier
-response, together with physical refinement maps, is work in progress.
+current algebra is implemented by internal gauge transformations.
+
+Here is the exact response theorem and its boundary. Incidence determines the
+unique nonidentity central graph involution $J$. Its action is positive on the
+$\mathbf1$ and $\mathbf5$ sectors and negative on the two triplets. A
+target-blind impulse/readback protocol derives
+$10J=A^3-4A^2-5A+10I$ and implements $R=-J$; the common sign is charge
+conjugation. From that response, the simulator and
+the independent exact certificate constructs
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$ with closure, covariance, inner action,
+and a positive invariant pairing. The finite port symmetry alone does not
+select a general linear response: its equivariant commutant is
+four-dimensional. Identification with measured laboratory gauge currents is
+open.
 
 The six axes carry two further pieces of structure. Their integral load
-lattice has an exact sixfold residue, and a separate total-trace balance
-integrates the algebra to the same sixfold-quotiented global group displayed
-earlier in the chapter. The geometry route and the matter route thus arrive
-at matching global forms from independent directions.
+lattice has an exact sixfold residue. On the declared conjugate pair of
+fifteen-state exterior modules, anomaly freedom forces determinant balance,
+while primitive integrality fixes the color and weak block charges up to
+simultaneous conjugation. Exhaustive enumeration of the central action on
+every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
+the full kernel produces the maximal faithful matter image. The same local
+tensors also descend through the cover and its intermediate $\mathbb Z_2$ and
+$\mathbb Z_3$ quotients. They therefore do not select the physical global
+form or line spectrum without independent deck/loop and line-polarization
+data.
 
 The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold symmetry of each face cycles its corners. The only
@@ -734,16 +753,21 @@ carrier of a nontrivial face phase has dimension exactly three. The screen,
 in other words, comes with a natural three-place slot built into its faces, a
 canonical candidate home for the three families.
 
-Put together, the oriented carrier conditionally recognizes the gauge-adjoint
-symmetry type and an abstract sixfold quotient, while the matter route
-independently supplies hypercharge, chirality, the color fundamental, the
-weak doublet, and one Higgs doublet.
+Put together, the carrier and target-blind readback supply an exact
+gauge-adjoint symmetry type. Under the declared fermionic Spin category, the matter and descent
+receipts then supply a conjugate pair of hypercharge assignments, chirality,
+the color fundamental, the weak doublet, the compatible scalar-charge pair,
+three invariant interaction channels, and the conjugation-insensitive
+sixfold kernel and maximal faithful image. They do not select the physical
+global form, scalar multiplicity, or physical matter attachment.
 
 ### The Exterior Matter Package
 
-On the declared matter-route global form, an exterior-algebra construction
-generates one full matter-generation pattern.
-Let the trace-balanced five-component carrier be
+Under the matter-projector contract, an exterior-algebra construction
+generates a charge-conjugate pair of full matter-generation patterns. Anomaly
+freedom forces trace balance, and primitive integrality fixes the
+five-component carrier up to simultaneous charge conjugation. Choosing the
+displayed convention gives
 
 $$
 V=C\oplus W,
@@ -783,9 +807,12 @@ Here an overbar marks the anticolor version of a charge, and a superscript
 $c$ marks a field written in its antiparticle form.
 
 The exterior powers do several jobs at once. They make the package chiral.
-They produce the three one-Higgs interaction channels $QHu^c$,
+For a scalar with the compatible displayed charge, they produce the three
+interaction channels $QHu^c$,
 $QH^\dagger d^c$, and $LH^\dagger e^c$, each with one invariant line. Their
 color, weak, gravitational, and cubic hypercharge anomalies all cancel.
+The scan fixes the compatible scalar-charge pair and channel list, not the
+number of physical scalar multiplets or their dynamics.
 
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
@@ -795,15 +822,15 @@ weak doublets after physical attachment, and pairing each slot with an
 orientation label gives twenty-four oriented weak slots, the same finite
 count as twelve ports with two orientations.
 
-The recognition theorem applies to the declared carrier type. It does not show
-that every OPH carrier must be echosahedral, and it imports no quark,
-doublet, or measured particle data. Recognizing the same abstract symmetry
-type from the ports is also weaker than identifying the physical group, and
-the port action by itself does not even single out a literal $8{+}3{+}1$
-split of the ports. Matching this geometric route to
-the matter route, including the source-derived spin lift, central embedding,
-and commuting action square that must show the sixfold residue is the same
-physical identification in both constructions, is work in progress.
+The recognition theorem applies to the source-derived carrier response and the
+declared matter contract. It does not show that every OPH carrier must be
+echosahedral, and it
+imports no measured particle data. Recognizing the same abstract symmetry type
+from the ports is also weaker than identifying the physical group, and the
+port action by itself does not even single out a literal $8{+}3{+}1$ split of
+the ports. Laboratory-current attachment, physical selection of the matter
+projector, and the commuting action square identifying this route with the
+independent Tannaka group are work in progress.
 
 The family story carries its own fine print. Promoting the three-place face
 slot to three physical generations requires one complex family space tying
@@ -1298,11 +1325,12 @@ the simplest set of low-energy matter that OPH's gluing rules can carry,
 rebuild into a gauge structure, and keep stable as you look closer? The
 framework accounts for several concrete facts.
 
-**The integers.** In the one-Higgs chiral economy class, anomaly cancellation
-and Yukawa invariance fix the hypercharge lattice, and the minimal coupled
-carrier fixes the color triplet. CKM CP capability and weak-sector
-ultraviolet consistency give $3\le N_g\le5$, and the economy rule selects the
-least value.
+**The integers.** On the declared conjugate pair of one-generation exterior
+modules, anomaly freedom forces determinant balance, primitive integrality
+fixes the charge lattice up to conjugation, and the coupled carrier fixes the
+color triplet. CKM CP capability and weak-sector ultraviolet consistency give
+$3\le N_g\le5$, and the economy rule selects the least family count inside
+its declared class.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives
@@ -1311,17 +1339,22 @@ Positive-energy quantization turns these recurring carrier patterns into the
 photon and graviton sectors, stable and detectable.
 
 **The particle structure.** The $A_5$ screen fixes the gauge-adjoint
-coefficient geometry and a canonical rank-three candidate family band, and
-the conditional matter packet supplies hypercharge, color fundamentals, weak
-doublets, and one scalar-doublet channel. Charged leptons, quarks, and
-neutrinos acquire one common three-family interpretation only after the
-family attachment and interacting Yukawa tests from section 14.9 pass.
+coefficient geometry and a canonical rank-three candidate family band. Under
+the finite response and matter contracts, the conditional packet supplies
+hypercharge, color fundamentals, weak doublets, and compatible scalar
+channels. Physical scalar multiplicity, charged leptons, quarks, and neutrinos
+acquire one common interpretation only after the response, matter, scalar,
+family, and interacting-Yukawa attachments pass.
 
-**Charge quantization and line operators.** On the realized matter package,
-color singlets have integer electric charge. On the physical economy/tensor
-$\mathbb Z_6$ branch, the minimum magnetic line is one electron-Dirac unit
-with the required color-magnetic charge, and the electromagnetic theta period
-is $2\pi$. These are consequences of the global gauge form.
+**Charge quantization and line operators.** On the declared matter packet,
+color singlets have integer electric charge. On the conditional tensor
+$\mathbb Z_6$ branch, the primitive cocharacter is $(1,1,1/6)$; its pure
+electromagnetic multiple is one electron-Dirac unit, while the primitive class
+also carries color-centre flux. This is exact lattice arithmetic. A genuine
+line spectrum additionally requires a line category and ultraviolet
+polarization, and theta periodicity requires instanton-sector and
+topological-action data. None of those physical inputs, or a dynamical
+monopole, follows from the cocharacter lattice alone.
 
 **Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
 generator, so the standard simple-GUT channel is absent. Baryon-number

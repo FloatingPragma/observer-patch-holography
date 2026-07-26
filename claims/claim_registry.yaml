@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "release_id": "r1578",
+  "release_id": "r1583",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -75,7 +75,7 @@
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/reality_as_consensus_protocol.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
       "falsifier": "A protected OPH output changes under an isomorphism preserving the full declared observer signature, or an argument treats two carriers with different visible incidence, response, repair, clock, or refinement data as physically equivalent without a verified map.",
       "scope_if_false": "The affected invariance or architecture-sensitivity claim falls. Branch-local theorems stated directly on either carrier retain their own statuses.",
@@ -86,7 +86,7 @@
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
       "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier-current lift feeds conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the A5 current group with the independently reconstructed Tannaka/MAR group.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "cross_paper_typed_composition_contract",
       "assumptions": [
         "bounded_observer_patch_federation",
@@ -109,7 +109,8 @@
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
         "paper/reality_as_consensus_protocol.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
       "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, carrier, federation, and support screens are silently identified, phase synchronization is promoted to confluence without an accepted-repair bridge, two gauge routes are identified without an independently verified commuting square, or the gravity and current branches cannot descend from one source-bound refinement tower.",
       "scope_if_false": "The unified composition fails at that interface. Branch-local finite theorems retain their own statuses.",
@@ -144,7 +145,7 @@
       "novelty_type": "theorem_package",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/consensus/verify_issue_517_proof_obligations.py",
         "code/consensus/runs/issue_517_proof_obligations.json",
         "code/consensus/test_issue_517_proof_obligations.py"
@@ -234,7 +235,7 @@
     {
       "claim_id": "OPH-GR-D2-COLLAR-RECOVERY",
       "statement": "For a faithful finite-range Gibbs regulator family with a uniform boundary-anchor strong conditional/matrix log-density mixing envelope, collar tripartitions satisfy I(A_delta:D_delta | B_delta) <= kappa |partial C|_UV exp(-(m-r0)/zeta) <= c |partial C|_UV exp(-delta/xi), with m = delta/ell_UV, xi = zeta ell_UV, and c = kappa exp(r0/zeta); the associated recovery error vanishes when delta/xi - log |partial C|_UV tends to +infinity. Ordinary two-point clustering and delta/ell_UV -> infinity alone are insufficient. The declared central-interface branch remains exactly Markov with zero CMI.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_collar_recoverability_theorem",
       "assumptions": [
         "finite_range_collar_gibbs_family",
@@ -250,7 +251,7 @@
       "oph_specific_delta": "The OPH collar continuation exposes the boundary-size prefactor, regulator/mixing constants, sharp boundary-aware double-scaling rate, and finite receipt schema while separating the exact central-interface branch and downstream stress/source identifications.",
       "novelty_type": "conditional_recoverability_theorem_and_receipt_contract",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/collar_recoverability_receipts.py",
         "code/geometry/test_collar_recoverability_receipts.py",
         "code/geometry/runs/collar_recoverability_analytic_finite_proxy.json"
@@ -264,7 +265,7 @@
     {
       "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
       "statement": "Matscheko's Lean audit checks a declared finite subset. On the A5/Z6 lane it covers the abstract u(3)+so(3) commutator, dimension and noncentrality witness, six-axis lattice quotient, and 11/25 arithmetic; it does not check the port-frame map, A5 equivariance, compact-Lie classification, trace-balanced global form, or physical identification.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "finite_audit_receipt",
       "assumptions": [
         "finite_or_regulated_branch",
@@ -284,7 +285,7 @@
       "oph_specific_delta": "The audit certifies finite theorem packets only on its stated formal scope; physical branch-entry and scaling receipts are separate.",
       "novelty_type": "independent_formal_audit",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/appendix_B_bft_qecc_extensions.tex"
       ],
@@ -297,7 +298,7 @@
     {
       "claim_id": "OPH-GR-D5",
       "statement": "The Lorentz/null-modular branch and fixed-cap generalized-entropy stationarity produce a Jacobson-type Einstein branch in the stated scaling regime.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
         "support_visible_BW_scaling",
@@ -318,7 +319,7 @@
       "oph_specific_delta": "OPH supplies support-visible cap modular extraction, conditional finite collar recovery with a boundary-aware rate receipt (or the exact central-interface specialization), explicit remainder bookkeeping, observer-overlap direction completion, and a separate capacity closure for the cosmological term.",
       "novelty_type": "application_and_extension",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
       ],
       "falsifier": "No physically realizable support-visible modular limit exists, the collar remainder fails to vanish on the branch, or the all-directions tensor upgrade fails.",
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
@@ -329,7 +330,7 @@
     {
       "claim_id": "OPH-GR-D3-CAP-H3",
       "statement": "On the support-visible oriented-round-cap BW branch, the projective future null cone realizes S2, oriented round caps are unit spacelike de Sitter normals transforming equivariantly under SO+(3,1), and the canonical observer-frame symmetric space is H3 = SO+(3,1)/SO(3), with caps dual to geodesic half-spaces rather than observer points.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_geometric_theorem",
       "assumptions": [
         "finite_cap_BW_certificate",
@@ -347,7 +348,7 @@
       "oph_specific_delta": "The standard cap-normal and hyperbolic-boundary geometry is inserted explicitly into the OPH support-visible BW dependency chain. BW consumes both the finite cap-flow certificate and an independent complete MGNS-1 algebra-state certificate on the same tower; the geometric certificate does not manufacture the modular state. The branch also retains the non-populated-bulk boundary and no-go theorem against selecting an observer point from one cap alone.",
       "novelty_type": "standard_geometry_integrated_into_OPH_branch",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "paper/observers_are_all_you_need.tex"
       ],
       "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, BW is invoked without FiniteCapBWCertificate and independent MGNS-1 on the same tower, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
@@ -359,7 +360,7 @@
     {
       "claim_id": "OPH-GR-D3-H3-LOCALIZATION",
       "statement": "Given the observer-facing H3 chart, calibrated record-conditioned modular cap responses stably localize a quotient-visible record token when they factor through one point-local H3 source on a compact domain with a quantitatively observable cap frame, bounded total error, and certified residual-gap controls.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_continuation_theorem",
       "assumptions": [
         "cap_normal_H3_chart",
@@ -379,7 +380,7 @@
       "oph_specific_delta": "OPH attaches the standard inverse-stability geometry to quotient-visible record tokens through modular cap-response operators and simulator receipt semantics, while keeping point locality, neutral bulk, stress, and species outside the theorem.",
       "novelty_type": "conditional_record_population_theorem",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
       ],
@@ -392,7 +393,7 @@
     {
       "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
       "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant. On towers carrying the spherical-incidence, disk/mesh, coherent complex cross-ratio, source-bound cap-flow, KMS-normalization, and related finite receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of FiniteCapBWCertificate are produced with quantitative error envelopes. BW nevertheless requires a separate complete MGNS-1 algebra-state certificate on the same tower. Repair confluence alone underdetermines topology, dimension, orientation framing, modular normalization, and the MGNS state (explicit T2, boundary-of-4-simplex, wedge, and wrong-normalization countermodels).",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "producer_theorem_plus_underdetermination_no_go",
       "assumptions": [
         "repair_completeness",
@@ -409,7 +410,7 @@
       "oph_specific_delta": "FiniteCapBWCertificate is produced from normal-form, support, flow, cross-ratio, and normalization data under decidable finite-stage receipts. MGNS-1 is an independently typed algebra-state producer and must land on the same tower before BW can be consumed; GitHub issue #574 owns physical MGNS construction.",
       "novelty_type": "producer_theorem_with_countermodels",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/quotient_cap_readout.py",
         "code/geometry/test_quotient_cap_readout.py"
       ],
@@ -422,7 +423,7 @@
     {
       "claim_id": "OPH-GR-D4-NULLNET-STANDARDNESS",
       "statement": "On the producer branch, the null blow-up net is standard (cyclic/separating reference vector) given stagewise MaxEnt faithfulness, the mixed-GNS Cauchy clause, and one half-line cyclicity receipt, with interval cyclicity derived by Reeh-Schlieder; the half-sided modular inclusion is derived from the produced cap flow without assuming translations; reduced modular Hamiltonians are endpoint-Lipschitz local exactly on the exact-Markov/central-interface branch, with a machine-verified finite Gibbs counterexample outside it; Mobius bounded-interval covariance holds; and on the modular-intersection receipt branch the per-direction Borchers generators assemble into one positive-energy Poincare translation representation with future-cone joint spectrum.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_theorem_package",
       "assumptions": [
         "support_visible_BW_scaling",
@@ -440,7 +441,7 @@
       "oph_specific_delta": "The null bridge states standardness, noncircular production, Markov-locality, and four-translation compatibility as branch theorems or explicit receipts with counterexamples.",
       "novelty_type": "standardness_and_assembly_package",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/null_net_standardness.py",
         "code/geometry/test_null_net_standardness.py"
       ],
@@ -453,7 +454,7 @@
     {
       "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
       "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is second-countable and completely regular; under receipts E1-E6 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle, quadratic Lorentz-cone fit, and causal reachability), with E4-prime for the curvature upgrade, it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, and a produced conformal metric. Modular flow supplies dimensionless local ordering. An operational clock additionally requires observer-readable transitions, event correspondence, affine calibration, and the stated gluing residual. H3 is strictly the frame fiber over events with no equivariant section; explicit countermodels show dim H3 = 3 promotes nothing by itself.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_construction_theorem",
       "assumptions": [
         "cap_normal_H3_chart",
@@ -472,7 +473,7 @@
       "oph_specific_delta": "The step from Lorentz-group/observer-frame kinematics to an actual 3+1 Lorentzian event spacetime is a quotient-intrinsic construction with named receipts, a strict event-base/frame-fiber separation, plain unconditional regularity, and countermodels; without the receipts the corpus claim is exactly Lorentz kinematics.",
       "novelty_type": "conditional_event_manifold_construction",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/event_manifold_reconstruction.py",
         "code/geometry/test_event_manifold_reconstruction.py"
       ],
@@ -485,7 +486,7 @@
     {
       "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
       "statement": "On the event region with the MI/assembly branch, the smeared endpoint-derivative modular charges satisfy the null-tomography linearity relations and define a symmetric, local, Poincare-covariant, commonly normalized semiclassical stress tensor whose null projections equal the positive Borchers generators on a common core and which is weakly conserved on the C11 atlas; the ambiguity is exactly phi*g plus improvement terms; per-direction generators without the linearity relations admit no rank-two source, and scalar CMI is never promoted.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_construction_theorem",
       "assumptions": [
         "modular_intersection_receipt",
@@ -500,7 +501,7 @@
       "oph_specific_delta": "T_ab is constructed from finite OPH modular data by tomography of directional charges rather than named after an assumed EFT stress tensor; the linearity receipt is exactly the existence boundary for a rank-two source.",
       "novelty_type": "stress_construction_from_modular_charges",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/einstein_closure_receipts.py",
         "code/geometry/test_einstein_closure_receipts.py"
       ],
@@ -513,7 +514,7 @@
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
       "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
         "maxent_refinement_closure_clause",
@@ -527,7 +528,7 @@
       "oph_specific_delta": "Exact machine-verified split identities handle edge terms and changing channels, with explicit countermodels for wrong coefficients and wrong edge normalizations.",
       "novelty_type": "first_law_repair_with_countermodels",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/einstein_closure_receipts.py",
         "code/particles/calibration/derive_d10_gravity_shared_edge_entropy_bridge.py",
         "code/particles/runs/calibration/d10_gravity_shared_edge_entropy_bridge.json",
@@ -542,7 +543,7 @@
     {
       "claim_id": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
       "statement": "One uniform scaling family (region-uniform finite-range/strong conditional-mixing constants, boundary counts, fixed-collar modulus, and the sharp collar rate margin, plus o(ell^4) kernel residuals on that same family) replaces the per-radius diagonal choice; variation coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt VR fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation G_ab + Lambda g_ab = 8 pi G <T_ab> per connected component with structural G and no measured constant; without VR the conclusion is constancy of the residue tensor only, with de Sitter and flat baselines producing identical first-variation data.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
         "einstein_typed_common_domain_tower",
@@ -567,7 +568,7 @@
       "oph_specific_delta": "The diagonal-subsequence and unfixed-baseline defects flagged in the audit are replaced by a single declared scaling family and an explicit irreducible base-condition receipt with failure examples for uniformity, coverage, connectedness, and baseline.",
       "novelty_type": "uniformity_and_base_condition_package",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/einstein_closure_receipts.py"
       ],
       "falsifier": "A receipt family fails the full boundary-aware collar rate or downstream o(ell^4) remainder bound, coverage fails on a populated region, or an absolute equation is asserted without VR.",
@@ -579,7 +580,7 @@
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
       "statement": "Bare finite consensus is not Einstein-complete. The semiclassical Einstein equation follows conditionally from one source-derived repaired quotient tower whose geometry, modular, event, stress, entropy, and scale readouts share a common domain and commute with refinement. The tower must carry the finite geometry, null-net, cap-interior, and event premises; one certified cofinal family for every o(ell^4) remainder; universal coupling; a source-derived vacuum reference; and two independent scale readouts with trivial positive-rescaling stabilizer. The finite artifacts verify algebraic identities, evaluator logic, manifests, deletion rules, and synthetic controls. They do not certify an inhabited tower. Full isolated countermodel towers are also required before the receipt list can be called semantically minimal. Source construction, asymptotic certification, physical identification, and the isolated countermodel matrix are work in progress.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
         "all_receipt_families_of_D3h_D4_D4b_D4c_D4d_D5a",
@@ -603,7 +604,7 @@
       "oph_specific_delta": "The result separates a typed conditional composition theorem from the source-construction and certification problem that would establish an inhabited premise.",
       "novelty_type": "composed_branch_entry_theorem",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/geometry/realized_branch_receipts.py",
         "code/geometry/runs/realized_branch_receipt_report.json",
         "code/geometry/cyclic_cap_net_run.py",
@@ -651,7 +652,7 @@
       "novelty_type": "conditional_direct_capacity_theorem_package",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "extra/compact_proof_of_oph.tex",
         "code/capacity_readback/F_READBACK_SPEC.md",
         "code/capacity_readback/correctable_public_record_capacity.py",
@@ -688,7 +689,7 @@
       "novelty_type": "no_go_and_negative_control",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/capacity_readback/F_READBACK_SPEC.md",
         "code/capacity_readback/test_correctable_public_record_capacity.py",
         "code/capacity_readback/test_operational_readback_contract.py"
@@ -746,7 +747,7 @@
       "novelty_type": "conditional_physical_commuting_square",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/capacity_readback/F_READBACK_SPEC.md"
       ],
       "falsifier": "A branch satisfying direct record closure and the stated horizon-record saturation receipt violates the displayed de Sitter capacity relation, or the record and area limits fail to commute on the declared refinement family.",
@@ -935,7 +936,7 @@
         "code/cosmology/oph_radial_lift_330.py",
         "code/cosmology/scr330_radial_receipt.schema.json",
         "cosmology/oph_cosmology_finite_source_cmb_program.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
       ],
       "falsifier": "A source DAG satisfying every premise fails the gamma-ratio covariance or thin-shell amplitude relation, the reserve generator does not give P over 48 on the source-facing half, the physical dilation or tomography receipt fails, or the promoted source has a measurement-aware ancestor.",
       "scope_if_false": "The conditional inflation-free screen-spectrum branch falls; the recovered consensus, Einstein, and Standard Model branches are independent.",
@@ -948,7 +949,7 @@
     {
       "claim_id": "OPH-WZ-STRICT-1L-POLE-MAP",
       "statement": "At SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER, a complete declared renormalized one-doublet electroweak packet with frozen sign, sheet, scheme, contribution mask, counterterms and tadpoles fixes the strict charged and neutral complex-pole coefficients through the retained order. The one-loop ZA/AZ product is excluded at strict one loop and required at strict two loops, strict mass/width coefficients are distinct from exact square-root coordinates, and untrusted evidence booleans cannot promote the receipt. The evaluated SMDR fixture is post-exposure regression evidence and is not an OPH-native physical prediction.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "proved_conditional_algebraic_kernel",
       "assumptions": [
         "complete_declared_strict_one_loop_renormalized_packet",
@@ -984,7 +985,7 @@
     {
       "claim_id": "OPH-SM-Q1-LOCAL-G6",
       "statement": "On a declared finite oriented spin four-complex, a bounded-support action assembled from G6 class-function plaquettes, gauge-covariant differences, invariant Higgs terms, and invariant Yukawa contractions is local and exactly gauge invariant. The standard electroweak tree kernel follows only after a canonical continuum normalization bridge is separately supplied.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_classical_qft_implication",
       "assumptions": [
         "declared_finite_local_G6_action_packet"
@@ -1008,7 +1009,7 @@
     {
       "claim_id": "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
       "statement": "At fixed finite stage, a basis-independent gauge-invariant chiral measure exists exactly when the determinant line of the declared local Ginsparg-Wilson family admits a nowhere-zero gauge-equivariant section in the required locality and smoothness class, including stabilizer actions and global loop integrability.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_exact_finite_quantum_criterion",
       "assumptions": [
         "qft_q2e_determinant_line_packet"
@@ -1032,7 +1033,7 @@
     {
       "claim_id": "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
       "statement": "A finite constrained Hamiltonian packet with a nontrivial physical projector, unique gapped physical ground state, and positive variance of a gauge-invariant observable contains a positive-energy nonvacuum physical excitation; its chiral, mirror-gap, primitive-completeness, and refinement conclusions require the corresponding explicit receipts.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_exact_finite_quantum_soundness_theorem",
       "assumptions": [
         "qft_q2h_noncollapsing_hamiltonian_packet"
@@ -1056,7 +1057,7 @@
     {
       "claim_id": "OPH-SM-Q3-BV-RESTORATION",
       "statement": "For a complete canonically normalized Standard-Model BV action in a regulator satisfying the quantum action principle, stability, locality, power counting, complete counterterm-basis, normalization, and anomaly-clearance premises imply formal order-by-order restoration of the Slavnov-Taylor identity.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_formal_perturbative_theorem",
       "assumptions": [
         "qft_q3_bv_stability_and_anomaly_clearance"
@@ -1080,7 +1081,7 @@
     {
       "claim_id": "OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
       "statement": "A compatible nonperturbative Euclidean tower of gauge-invariant observables satisfying reflection positivity, Euclidean covariance, symmetry, regularity, clustering, noncollapse, and continuum tightness reconstructs a positive-energy Hilbert-space observable sector by the Osterwalder-Schrader theorem.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_nonperturbative_reconstruction_theorem",
       "assumptions": [
         "qft_q4_os_observable_tower"
@@ -1092,7 +1093,7 @@
       "novelty_type": "typed_qft_landing_contract",
       "evidence": [
         "paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex",
-        "paper/tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex",
+        "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex",
         "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"
       ],
       "falsifier": "A tower satisfying the complete stated OS hypotheses fails to reconstruct the declared positive-energy observable sector.",
@@ -1104,7 +1105,7 @@
     {
       "claim_id": "OPH-SM-Q4-RESONANCE-CONTINUATION",
       "statement": "Given the QFT-Q4 observable sector plus a declared analytic continuation domain and sheet on which a physical gauge-invariant amplitude has a holomorphic numerator and denominator, a simple denominator zero with nonzero numerator gives a stable resonance pole with nonzero Laurent coupling; the continuation packet is independent of OS reconstruction itself.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_resonance_continuation_theorem",
       "assumptions": [
         "qft_q4_resonance_sheet_packet"
@@ -1129,7 +1130,7 @@
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, integer total-charge-twelve defect readback, and refinement cocycle, the source packet uniquely derives the one-unit-per-port split with exact gap two, the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture from arbitrary OPH data or supply a physical gauge-current lift.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "source_derived_finite_branch_theorem",
       "assumptions": [
         "certified_echosahedral_carrier_lineage"
@@ -1142,7 +1143,7 @@
       "oph_specific_delta": "The selector is computed only from observer-visible primitive port records, oriented boundary incidence, local integer readback, and refinement lineage. It closes UD12 and RP-A5 on that carrier branch without importing coordinates, A5, an inverse map, Standard Model labels, product-adjoint counts, couplings, or measurements.",
       "novelty_type": "source_derived_finite_selector_certificate",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "physics-problems/issue_565_echosahedral_selector.md",
         "code/a5_closure/echosahedral_selector_certificate.py",
@@ -1159,12 +1160,12 @@
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
-      "statement": "Given the certified twelve-port echosahedral carrier lineage, the hash-pinned semantic response artifact measured from the carrier dynamics, and strict-descent repairs typed irreversible and excluded from currents, the certificate derives the charged-double-triplet response representation, its four signed coefficients, the oriented frame, and the physical refinement maps from the artifact, recomputes every exact artifact claim in Q(sqrt5), and constructs an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on C^3+C^3, with one-dimensional central u(1), derived dimension eleven, positive-definite A5-invariant Hilbert-Schmidt pullback, A5 covariance, an inner induced A5 action, and naturality along the declared tower and the physical persistence maps. The laboratory identification of the source-bound current with measured gauge currents is a separate open lane.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "source_derived_finite_branch_theorem",
+      "statement": "Given the certified twelve-port echosahedral carrier lineage and strict-descent repairs excluded from currents, a target-blind operational protocol injects a delta at each unlabeled port, records the local adjacency recurrence through graph diameter, and uniquely solves the common shell-isolation filter. It yields J=(A^3-4A^2-5A+10I)/10, with coefficients (1,-1/2,-2/5,1/10), and independently verifies the unique maximal-distance partner, the unique nonidentity central involution, and the relative sector signs of R=-J. The certificate then constructs an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on C^3+C^3. The common response sign is charge-conjugation convention. This is an exact carrier-dynamics source receipt, not laboratory attachment to gauge currents; that attachment remains #569.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "source_bound_exact_finite_carrier_dynamics_theorem",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
-        "semantic_response_artifact_measured_from_carrier_dynamics",
+        "target_blind_maximal_distance_impulse_readback_protocol",
         "strict_descent_repairs_excluded_from_currents"
       ],
       "imported_results": [
@@ -1173,33 +1174,37 @@
         "Rodrigues_rotation_normal_form",
         "Burnside_orbit_counting"
       ],
-      "oph_specific_delta": "The current lift is computed from the certified carrier packet plus the semantic response artifact produced by the simulator carrier dynamics, with the Galois-twisted kernel intertwiner separating the odd bands inside Q(sqrt5). The construction, coefficients, frame, and physical refinement maps are determined by measured carrier structure rather than selected by a construction-model string, and the paper-side verifier recomputes every exact artifact claim before consuming it.",
-      "novelty_type": "conditional_finite_current_lift_certificate",
+      "oph_specific_delta": "The graph theorem and current algebra are exact and independently recomputed in Q(sqrt5). The response is not inserted as J: one common filter is solved from port-local recurrence histories and the unique farthest echo, after which the polynomial, permutation, involution, centrality, and sector signs are checked independently. The Lean incidence module separately proves unique distance-three partnership and the integral polynomial identity.",
+      "novelty_type": "source_bound_finite_current_lift_certificate",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "physics-problems/issue_566_port_current_algebra.md",
         "code/a5_closure/port_current_inner_certificate.py",
         "code/a5_closure/manifests/port_current_response_reference.json",
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "code/a5_closure/negative_controls/issue_566_negative_controls.json",
         "code/a5_closure/tests/test_port_current_inner_certificate.py",
-        "code/a5_closure/manifests/charged_response_semantic_artifact.json"
+        "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+        "Lean/Screen/A5IncidenceResponse.lean"
       ],
-      "falsifier": "Under the declared source packet, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a rotation normal-form witness fails inside Q(sqrt5), a declared refinement map is not intertwined, the equivariant moduli dimension is not four, or an abelian-record or rank-deficient model passes the gate, or a tampered, wrong-carrier, missing-sector, orientation-swapped, coefficient-mismatched, or doctored-refinement artifact passes the binding.",
-      "scope_if_false": "The conditional port-current algebra construction falls back to the coefficient-level trichotomy. The physical source-binding receipt is an independent open gate; the echosahedral selector, coefficient bracket, and exterior completion are assessed separately.",
-      "status": "proved_on_source_bound_response_artifact",
+      "falsifier": "The target-blind delta/readback histories do not have one unique common shell-isolation solution, the recovered operator differs from the farthest-port permutation or the exact adjacency polynomial, centrality or the sector signs fail, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a declared refinement map is not intertwined, an abelian-record or rank-deficient model passes, or any doctored artifact/protocol passes the binding.",
+      "scope_if_false": "The port-current algebra falls back to the coefficient-level trichotomy. The echosahedral selector and coefficient bracket remain separately assessable; laboratory gauge-current attachment is outside this finite carrier receipt.",
+      "status": "proved_on_source_bound_target_blind_carrier_impulse_readback",
       "claim_class": "conditional_implication",
       "gates": []
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-      "statement": "Given the hash-pinned source-bound port-current packet (response representation determined by the #599 semantic artifact), the certificate constructs the non-split binary-icosahedral spin lift, a faithful rank-12 current action on the carrier and the projector-realized fifteen-state matter module, the CAR/Fock realization with chirality, conjugation, vanishing realized anomaly traces, even Witten parity, and three Yukawa invariant lines, and emits the common action kernel on the cover without forming the quotient. The trace-balanced charge pair is derived by BLOCK-DETERMINANT-BALANCE (anomaly freedom of the realized package forces the balance, primitivity and the measured block-map orientation fix the pair), the scalar and channel list are derived by the selection scan, the category typing is forced on the realized module by the failing Vec/sVec controls, and the artifact's physical refinement maps are intertwined on the carrier and the Fock realization. MAR nonemptiness is witnessed without promoting uniqueness.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "source_derived_finite_branch_theorem",
+      "statement": "Given the hash-pinned source-bound finite port-current packet, declared fermionic Spin/odd-Weyl category, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift, faithful current action, CAR/Fock realization, and the source-derived unordered charge-conjugate pair of rank-fifteen projectors: even-minus-vacuum and odd-minus-top. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels. Fermionic statistics and physical Spin/odd-Weyl typing are declared rather than source-produced; scalar existence/economy and absence of extra light sectors are also open.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "conditional_finite_matter_lift_with_open_physical_source_gate",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
-        "semantic_response_artifact_measured_from_carrier_dynamics",
+        "source_bound_target_blind_carrier_response",
         "hash_pinned_source_bound_port_current_packet",
+        "declared_fermionic_statistics_contract",
+        "declared_spin_odd_weyl_category_typing",
+        "declared_weak_doublet_scalar_content",
         "kernel_emission_without_global_quotient_choice",
         "declared_mar_class_without_uniqueness"
       ],
@@ -1210,7 +1215,7 @@
         "canonical_anticommutation_relations_on_exterior_algebra",
         "finite_group_invariant_theory"
       ],
-      "oph_specific_delta": "The matter lift is computed over the source-bound current packet with the charge pair, scalar choice, and channel list derived rather than declared: anomaly freedom of the realized exterior package forces determinant balance, primitive q = 6Y integrality and the measured artifact orientation select (-1/3, 1/2), and the scalar charge scan admits only the conjugate pair +-3 equal to the weak-block charge. The emitted action kernel remains data for the downstream global-form descent.",
+      "oph_specific_delta": "The exact certificate separates what is forced from what is chosen: parity plus the complete invariant sector gives an unordered conjugate projector pair with no preferred representative; anomalies and primitive block characters give the charge pair only up to conjugation; scalar charge/channel compatibility is derived conditional on scalar content. It does not convert declared fermionic/Spin category typing into a source derivation.",
       "novelty_type": "conditional_finite_matter_lift_certificate",
       "evidence": [
         "physics-problems/issue_314_super_tannakian_matter_lift.md",
@@ -1222,44 +1227,49 @@
         "code/a5_closure/manifests/charged_response_semantic_artifact.json"
       ],
       "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
-      "scope_if_false": "The conditional matter-lift construction falls back to the representation-arithmetic exterior witness. The upstream response-premise binding is tracked independently in #599; the port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
-      "status": "proved_on_source_bound_matter_contracts",
+      "scope_if_false": "The conditional matter-lift construction falls back to the representation-arithmetic exterior witness. The source-bound port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
+      "status": "conditional_exact_matter_lift__fermionic_spin_source_and_scalar_economy_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        314
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
-      "statement": "The twelve-port boundary of one echosahedral carrier, the routed federation screen formed by carriers and observer supports, and the global support screen whose refinement limit is S2 are different typed objects. Local icosahedral incidence and A5 symmetry do not by themselves determine the federation nerve, global topology, conformal support, or BW flow. A physical carrier-to-support bridge must be source-bound, refinement-natural, and preserve the declared visible incidence and response data. The simulator computes the bridge receipts fail-closed: the interface-algebra seam maps are checked as algebra isomorphisms with the federation-level cocycle on every seam triangle, the carrier-to-support refinement naturality is verified through the geodesic tower (defect-vertex embedding, left-inverse coarse graining, sixty-rotation equivariance, quotient commutation, chart realization), the phase dynamics induces accepted confluent repair with a two-schedule terminal agreement and strict-descent witness, and the observer and emergence receipts bind to the same federation bundle. Phase lock does not imply consensus, local A5 incidence does not imply global S2 support, and the physical H3/KMS capture lane keeps its naturality receipts quarantined until the capture executes those checks.",
+      "statement": "The twelve-port boundary of one echosahedral carrier, the federation screen, and the support screen are distinct typed objects. One source-derived incidence-nerve producer constructs twelve carrier charts from the ports, thirty seam algebras from the edges, and twenty nonvacuous triple restrictions from the oriented faces. On that same bound artifact it verifies interface-algebra sewing, accepted confluent phase-induced repairs, operational readback, durable records, feedback and prediction controls, checkpoint continuation, and a refinement-natural oriented S2 support limit. This closes the finite carrier/federation/observer/support bridge. H3 frames, an event manifold, BW/KMS time, laboratory attachment, physical scale, and continuum fields are outside this receipt.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
-      "tier": "finite_no_go_and_open_physical_bridge",
+      "tier": "source_bound_exact_finite_federation_support_bridge",
       "assumptions": [
         "declared_local_echosahedral_carrier_boundary",
         "independently_typed_federation_and_support_screens",
-        "source_bound_refinement_required_for_physical_promotion"
+        "oriented_icosahedral_incidence_nerve",
+        "source_bound_refinement_required_for_support_promotion"
       ],
       "imported_results": [
         "graph_and_nerve_nonuniqueness",
         "combinatorial_surface_classification",
         "refinement_naturality"
       ],
-      "oph_specific_delta": "OPH exposes the exact missing morphism between its finite hardware-facing carrier and its support-visible Lorentz branch instead of treating the shared word screen as an identity proof.",
-      "novelty_type": "typed_screen_separation_and_bridge_contract",
+      "oph_specific_delta": "OPH constructs the finite morphism from carrier incidence through a nonvacuous sewn federation and operational self-reading observer to an oriented support limit, while retaining separate H3, event, and BW/KMS gates.",
+      "novelty_type": "source_bound_incidence_nerve_federation_support_bridge",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
-        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex"
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+        "../oph-physics-sim/oph_fpe/consensus/incidence_nerve_bridge.py",
+        "../oph-physics-sim/tests/test_incidence_nerve_bridge.py"
       ],
-      "falsifier": "The declared local twelve-port packet alone determines a unique global S2 support and BW normalization without routing or refinement data, or a proposed physical bridge fails incidence preservation, source binding, or refinement naturality.",
-      "scope_if_false": "The screen-separation no-go or proposed positive bridge must be revised. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
-      "status": "local_to_global_no_go_established__structural_bridge_receipts_computed__physical_capture_lane_quarantined",
+      "falsifier": "The source incidence fails to produce the declared 12/30/20 nerve, any seam map fails the algebra homomorphism check, a face cocycle fails, a phase-induced repair leaves the seam set or loses confluence, the operational observer fails readback, record, feedback, prediction, or checkpoint replay, or the support map fails orientation or refinement naturality.",
+      "scope_if_false": "The finite federation/support bridge falls. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
+      "status": "proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower",
       "claim_class": "conditional_implication",
       "gates": []
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. On the separately declared realized one-generation, one-Higgs MAR-admissible packet, D8-D9 conditionally select the Standard Model quotient, its hypercharge lattice, structural electroweak force content, and N_c=3. Inside the declared MAR economy class, 3 <= N_g <= 5 and the least admitted multiplicity is N_g=3. This route does not use the echosahedral A5 current construction. Physical matter realization and the rank-45 three-family attachment are open, and QFT-Q1--QFT-Q4 have their own producer gates.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. Separately, the A5 matter packet computes a conditional diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on declared realized tensors. That arithmetic does not source a physical deck/loop class, UV line-category polarization, Spin attachment, instanton sectors, or theta periodicity, and its #599/#314 dependencies remain physically open. The physical global-form attachment is therefore issue #567; family attachment remains #569.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_tannaka_mar_reconstruction_and_selection_chain",
       "assumptions": [
         "zero_obstruction_bosonic_branch",
@@ -1278,7 +1288,7 @@
       "oph_specific_delta": "OPH composes refinement-limit sector reconstruction with an explicit realized-package selection stage and keeps the MAR economy rule, especially N_g=3, visible as an axiom-conditional minimum rather than a graph-theoretic theorem.",
       "novelty_type": "conditional_tannaka_reconstruction_and_mar_selection",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/particles/calibration/source_completion_no_go.py",
         "code/particles/calibration/wz_strict_series.py",
         "code/a5_closure/axis_center_descent_certificate.py",
@@ -1287,9 +1297,10 @@
       ],
       "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the declared realized packet, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
       "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
-      "status": "conditional_D7_D9_tannaka_chain__global_form_derived_on_realized_tensors__family_attachment_open",
+      "status": "conditional_D7_D9_tannaka_chain__z6_arithmetic_on_declared_tensors__physical_global_form_and_family_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
+        567,
         569
       ]
     },
@@ -1430,7 +1441,7 @@
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
       "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the selected 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, select the light matter package, attach three families, or identify this group with the D7-D9 Tannaka/MAR reconstruction.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
@@ -1448,7 +1459,7 @@
       "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent Tannaka/MAR group.",
       "novelty_type": "conditional_finite_screen_current_recognition",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "code/a5_closure/README.md",
         "code/a5_closure/echosahedral_selector_certificate.py",
@@ -1468,7 +1479,7 @@
     {
       "claim_id": "OPH-SM-ROUTE-IDENTIFICATION",
       "statement": "The compact group reconstructed from the D7 transportable-sector category and the compact group recognized from the physical A5 screen current are two conditional outputs. Identifying them as one physical gauge group requires a source-bound commuting square: a refinement-natural group isomorphism must intertwine their actions on the same observer-visible current and matter sectors, preserve the global quotient and normalization data, and commute with the common source tower. The physical identification is open.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "open_cross_route_physical_identification",
       "assumptions": [
         "inhabited_D7_D9_tannaka_mar_branch",
@@ -1485,7 +1496,7 @@
       "novelty_type": "open_source_bound_commuting_square_contract",
       "evidence": [
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex"
       ],
       "falsifier": "A proposed identification fails to intertwine the two group actions, quotient kernels, current normalizations, matter representations, or refinement maps on the same source tower; conversely, an explicit target-free receipt satisfying all clauses would close the open status.",
@@ -1497,7 +1508,7 @@
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
       "statement": "For a declared trace-balanced carrier V=C plus W with dimensions three and two and hypercharges -1/3 and 1/2, the selected non-vacuum even package Lambda^2 V plus Lambda^4 V branches to exactly one 15-state chiral Standard Model generation. It has three one-Higgs invariant lines, cancels the listed perturbative anomalies and the SU(2) global parity obstruction, and contains four weak-doublet copies per generation.",
-      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_exact_representation_witness",
       "assumptions": [
         "trace_balanced_C3_W2_carrier",
@@ -1512,7 +1523,7 @@
       "oph_specific_delta": "The witness packages the exact one-generation branching, Yukawa invariant multiplicities, anomaly audit, and weak multiplicity into the same five-dimensional trace-balanced carrier used by the conditional icosahedral closure program.",
       "novelty_type": "conditional_exact_representation_certificate",
       "evidence": [
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/a5_closure/exterior_sm_completion.py",
         "code/a5_closure/exterior_sm_completion.json",
         "code/a5_closure/test_audit.py"
@@ -1639,7 +1650,7 @@
       "novelty_type": "finite_modular_channel_compression",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
       "falsifier": "A supplied exact receipt has vanishing cycle and channel-closure residuals but no reconstructed potential or compressed grading, or an A5- and reversal-covariant exact realization violates the sign-paired 1,3,3,5 multiplicity pattern.",
       "scope_if_false": "The finite modular-gearing carrier theorem falls. The independent finite modular-flow core, BW certificate theorem, screen-register combinatorics, and gauge-current classification require separate audits.",
@@ -1726,7 +1737,7 @@
       "novelty_type": "problem_solution_on_declared_branch",
       "evidence": [
         "extra/yang_mills_gap_clay_problem.tex",
-        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/yang_mills/verify_collar_gap_certificate.py"
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",

@@ -13,7 +13,7 @@ expressible, states it, and settles force-or-independence at that level.
 
 ## The interface (what the clause quantifies over : nothing else)
 
-The clause (compact paper, `par:cicclause`, stated with Axiom 3
+The clause (spacetime and Einstein paper, `par:cicclause`, stated with Axiom 3
 `ax:maxent`): *for every collar cut `Σ`, every retained density whose
 support meets both half-collars acts through the boundary-charge (flux)
 functions in `π_L(Z(C*(K̂_Σ)))`, while all other terms are one-sided

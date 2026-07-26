@@ -65,11 +65,12 @@ The same finite architecture feeds two branches. Its repaired quotient can
 approach a smooth spherical support, whose conformal motions organize Lorentz
 frames and, after an event and gravity construction, spacetime. Its twelve-port
 incidence also carries the $A_5$ blocks used by the compact-current theorem and
-the conditional Standard Model recognition. The compact-current algebra is
-verified exactly for a declared charged-double-triplet response representation
-and four signed coefficients; physical response source binding is open.
-Consensus is the hinge. It supplies public records to both branches. It
-supplies neither a clock nor a gauge current.
+the Standard Model recognition. Incidence fixes the unique central graph
+involution and its sector spectrum. A target-blind impulse and port readback
+derive one of the two charge-conjugate response representatives, and the
+compact-current certificate recomputes the construction exactly. Consensus is
+the hinge. It supplies public records to both branches. It does not supply a
+clock or laboratory current attachment by itself.
 
 This makes the construction presentation-invariant and structure-sensitive.
 Silicon, light, or software may instantiate one carrier contract when every
@@ -146,8 +147,11 @@ observer. Geometry supplies the interface. The loop supplies the rest, and it
 is simple enough to say without notation: read, expose, compare, repair,
 record, checkpoint, and read again. On the certified branch, the spherical
 support chart displays the repaired quotient data while the patch federation
-does the microscopic work; a source-bound, refinement-natural map from the
-federation to the support chart is work in progress.
+does the microscopic work. One finite source-derived incidence nerve supplies
+twelve carrier charts, thirty seams, twenty nonvacuous triple overlaps, an
+operational observer, and a refinement-natural oriented support limit. The
+\(H^3\), event, BW/KMS, physical-scale, and laboratory attachments are work in
+progress.
 
 On the declared quotient-visible echosahedral lineage, the twelve ports are
 forced by counting alone. Ask for identical primitive readback units at every
@@ -157,49 +161,58 @@ them. The geometry is an output, whether or not anyone drew an icosahedron
 first. Refinement maps and consistent port relabelings preserve the entire
 selection. This proves the finite twelve-unit and $A_5$ selection results on
 that branch. It does not derive that carrier type for every OPH
-implementation, and it does not supply the later physical-current, spin-lift,
-central, matter-selection, or family-attachment maps.
+implementation. On the certified carrier branch, the response, spin-lift,
+matter, and central-descent receipts are separate conditional computations.
+Physical response source-binding, matter selection, laboratory-current, and
+family attachments are open.
 
 ## 19.5 How the Particle World Appears
 
 The particle world follows the same logic from another angle. Once the charge
 sectors on a screen can combine, break apart, and carry their opposites, the way
 those charges persist through finer and finer descriptions has to satisfy a set
-of consistency conditions. The gauge group is reconstructed from that
-persistent charge bookkeeping itself. The economy rule and
-the declared matter packet select the smallest admitted compact choice inside
-that economy class, the conditional one-Higgs Standard Model and its global form
+of consistency conditions. One route reconstructs a compact group from that
+persistent charge bookkeeping. Independently, the twelve-port incidence
+theorem plus the source-model response and conditional matter contract give
+the exact Standard Model charge lattice and maximal faithful matter image
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
 $$
 
 The $\mathbb Z_6$ is the six-element set of transformations that acts
-trivially on the realized matter package. On the twelve-port icosahedral
+trivially on every tensor in the declared matter package. The cover and the
+intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
+tensors. Physical global-form selection therefore needs additional line or
+bundle data. On the twelve-port icosahedral
 carrier boundary, the port readings split as
 $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
 triplet. Pulling a compact block commutator back to those coefficients gives
 the exact Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
-A physical current realization would carry that coefficient algebra into the
-gauge sector. Its physical response and refinement evidence are work in
-progress.
+Incidence alone leaves a four-dimensional equivariant linear commutant. The
+target-blind impulse/readback protocol solves the maximal-distance shell
+filter and derives \(R=-J\). The simulator and certificate realize the finite
+current. Its identification with measured laboratory gauge currents is work
+in progress.
 
-The six antipodal axes also leave a sixfold lattice residue. Conditional spin
-and central maps connect it to the $\mathbb Z_6$ action on matter. The
+The six antipodal axes also leave a sixfold lattice residue. The computed spin
+and central maps connect it to the $\mathbb Z_6$ action on every realized
+matter tensor. The
 three-corner face symmetry supplies a canonical three-dimensional candidate
 family carrier. Hypercharge
-follows from the declared matter consistency
-equations, while masses, mixing angles, and coupling strengths require the
-interacting dynamics and physical pole tests.
+follows up to simultaneous charge conjugation from anomaly freedom and
+primitive integrality, while masses, mixing angles, and coupling strengths
+require the interacting dynamics and physical pole tests.
 
 Trace balance packages one generation into a five-component carrier
 $V=C\oplus W$, with a three-place color part and a two-place weak part. The
 non-vacuum even exterior package $\Lambda^2V\oplus\Lambda^4V$ contains exactly
-the fifteen left-handed states $Q,u^c,d^c,L,e^c$. It also produces the three
-one-Higgs Yukawa channels and cancels the color, weak, gravitational, and cubic
-hypercharge anomalies. Three colored quark doublets plus one lepton doublet
+the fifteen left-handed states $Q,u^c,d^c,L,e^c$. For a scalar with the
+compatible charge, it also produces the three Yukawa channels and cancels the
+color, weak, gravitational, and cubic hypercharge anomalies. The calculation
+does not select scalar multiplicity. Three colored quark doublets plus one lepton doublet
 give four weak doublets per family. If the family attachment realizes the
 conditional economy minimum, three families give twelve, and reversible orientation
 doubles that to the same twenty-four slots carried by the screen. The numerical
@@ -561,8 +574,9 @@ checkpoint data.
 
 The finite patch reads, compares, repairs, records, and reads again through
 twelve icosahedral ports. $A_5$ makes that interface isotropic and decomposes
-its register readings into exact symmetry blocks. Turning those blocks into
-physical gauge currents requires a separate current-response construction.
+its register readings into exact symmetry blocks. Incidence and target-blind
+port readback turn those blocks into an exact finite gauge current. Laboratory
+identification remains separate.
 The same separation holds elsewhere: a finite theorem explains what follows
 from a good refinement tower, while source evidence must show that the tower
 exists. On the branches where those tests pass, smooth refinement gives

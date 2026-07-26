@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Machine receipts for the Einstein branch closure packets (GitHub #526-#528, #503, #578).
 
-Implements finite witnesses for the compact paper's subsection
+Implements finite witnesses for The spacetime and Einstein paper's subsection
 `subsec:einstein-branch-closure`:
 
 * null tomography (Theorem `thm:null-tomography`): exact reconstruction of the

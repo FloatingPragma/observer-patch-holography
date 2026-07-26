@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\input{tex_fragments/DERIVATION_PAPER_PREAMBLE.tex}
+
+\title{Deriving Standard Model Gauge Structure\\
+from Observer Overlap Consistency}
+\author{B.\ M\"uller \and Alexander Osika \and Mario Poneder \and Kai Xue
+\and Peter Nguyen \and Maarten Antonie Visser \and David Matscheko}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+Observer-Patch Holography models an observer as a finite self-reading patch
+with local state, boundary ports, readback records, and repair moves. This
+paper gives two gauge-reconstruction routes with distinct proof boundaries. The categorical route
+starts from overlap transport and reconstructs a compact group through a
+receipt-certified bosonic sector category and its fiber functor. The finite
+carrier route derives an inverse-port response from icosahedral incidence and
+target-blind readback, then constructs the current algebra
+\(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\).
+Under the declared fermionic rank-15 matter category, anomaly balance fixes
+the Standard Model charges up to conjugation and the realized tensors have
+common kernel \(\mathbb Z_6\). Thus their maximal faithful matter image is
+\((\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1))/\mathbb Z_6\).
+The local tensors also admit the cover and the \(\mathbb Z_2\) and
+\(\mathbb Z_3\) quotients. Physical global-form selection, laboratory-current
+attachment, and identification of the finite current with the categorical
+group require separate evidence.
+\end{abstract}
+
+\section*{Two reconstruction routes}
+\label{thm:echosahedral-source-selector}
+\label{ass:matter-typing}
+\label{thm:global-form-boundary}
+
+The first route is structural:
+\[
+\begin{split}
+\text{overlap gluing and transport receipts}
+&\Longrightarrow
+\text{rigid symmetric sector category}\\
+&\Longrightarrow
+\operatorname{Aut}_{\otimes}(\mathcal F).
+\end{split}
+\]
+It reconstructs a compact group on the declared bosonic branch. It does not
+select the Standard Model without a realized sector witness.
+
+The second route is finite and carrier-specific:
+\label{thm:current-algebra}
+\[
+\begin{split}
+&\text{icosahedral incidence}
+\Longrightarrow 10J=A^3-4A^2-5A+10I
+\Longrightarrow R=-J\\
+&\Longrightarrow
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)
+\Longrightarrow
+\text{conditional Standard Model matter image}.
+\end{split}
+\]
+The response signs, equivariant lift, anomaly balance, charge lattice, and
+common tensor kernel are independently recomputed by released certificates.
+No Minimal Admissible Realization premise enters this gauge implication.
+That economy rule is used only in separately marked generation, scalar, and
+extra-sector statements.
+
+\tableofcontents
+\clearpage
+
+\def\OPHSkipEinsteinChain{1}
+\def\OPHStandardModelDerivationPaper{1}
+\def\OPHSkipEmbeddedReferences{1}
+\input{tex_fragments/PAPER.tex}
+\appendix
+\input{tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex}
+\input{tex_fragments/OBSERVERS_REFERENCES.tex}
+
+\end{document}

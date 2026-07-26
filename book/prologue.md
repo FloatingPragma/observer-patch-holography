@@ -99,15 +99,19 @@ Read it as: the universe, described by itself, is itself.
 Any one resemblance could be accidental. What carries the evidence is the
 linked appearance, from one zero-dial observer architecture, of the connected
 Lorentz group as the conformal symmetry of the spherical screen, the Einstein
-form of gravity on its conditional branch, the Standard Model Lie type with
-its shared-center quotient, and one full chiral generation with its one-Higgs
-couplings and anomaly cancellations. The results share one finite trunk while
-keeping separate gates: the map connecting the repaired federation to the
-spherical chart used by the relativity branch and the identification of the
-port-geometry gauge route with the independent matter route are both work in
-progress, and because a repair counter is not a clock and a socket is not a
-gluon, physical clocks, event coordinates, gauge currents, matter fields, and
-quantum dynamics require their own source constructions. The more independent
+form of gravity on its conditional branch, and an exact finite recognition of
+the Standard Model Lie type, shared-center quotient, and one chiral exterior
+module under explicitly stated response and matter contracts. The gauge
+recognition is MAR-free but conditional: incidence and target-blind readback
+derive the inverse-port response and sector spectrum, while physical matter
+typing and laboratory-current attachment are open. The results share one
+finite trunk while keeping separate gates: the map connecting the repaired
+federation to the spherical chart used by the relativity branch and the
+identification of the port-geometry gauge route with the independent Tannaka
+route are both work in progress, and because a repair counter is not a clock
+and a socket is not a gluon, physical clocks, event coordinates, gauge-current
+source binding, family attachment, scalar multiplicity, and quantum dynamics
+require their own source constructions. The more independent
 parts of the observed universe land on the same construction, the less
 credible coincidence becomes as a complete explanation. The final proof
 obligations are therefore presented at the end of the book as concrete ways
@@ -290,9 +294,11 @@ This book reverse engineers reality from observer consistency.
 We start from a self-referential mathematical structure that must explain
 itself through finite internal observers. Overlap consistency then produces
 exact finite normal forms, a certified spherical branch produces Lorentz
-kinematics, compact charge transport reconstructs a gauge group, and the
-minimal realized matter branch gives the Standard Model quotient and charge
-structure. On the conditional Einstein branch, one repaired record family
+kinematics, and compact charge transport conditionally reconstructs a gauge
+group. Independently, the twelve-port branch gives an exact conditional
+Standard Model recognition theorem under its response and matter contracts,
+including the quotient and charge structure without invoking minimal
+admissibility. On the conditional Einstein branch, one repaired record family
 supplies modular ordering, calibrated clock records, stress, entropy, continuum
 geometry, a vacuum reference, and independent scale readouts on a common
 domain. The
@@ -386,6 +392,13 @@ github.com/FloatingPragma/observer-patch-holography, together with the full
 paper stack and the code that runs the
 fixed-point calculations. One address holds all of it, for the reader who wants
 to go past the story into the formal record.
+
+Two specialist papers carry the complete structural derivations. *Recovering
+Observer Spacetime and Einstein Dynamics from Overlap Consistency* contains
+the spacetime and gravity chain. *Deriving Standard Model Gauge Structure from
+Observer Overlap Consistency* contains the categorical and finite-carrier
+gauge routes, the conditional matter theorem, and the global-form boundary.
+*Observers Are All You Need* is the synthesis across both chains.
 
 ## How This Book Is Organized
 

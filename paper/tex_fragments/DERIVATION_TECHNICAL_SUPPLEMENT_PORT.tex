@@ -1,11 +1,18 @@
-\section{Supplemented Gravity and Structural Gauge Details}
-\label{app:compact-technical-port}
+\section{Technical Details for the Specialist Derivations}
+\label{app:derivation-technical-port}
 
-This appendix carries the gravity-side and structural gauge items that support the compact paper's
-technical surface. They sharpen the compact paper's Lorentz,
-Einstein, cosmological-constant, and product-group claim surfaces without widening the recovered
+\ifdefined\OPHSkipEinsteinChain
+This appendix carries the structural gauge details that support the Standard Model derivation.
+It sharpens the product-group, baryogenesis-boundary, effective-worldsheet, and compact-gauge
+Yang--Mills surfaces without widening the recovered core beyond its stated branch conditions.
+\else
+This appendix carries the gravity details that support the spacetime and Einstein derivation. It
+sharpens the Lorentz, Einstein, and cosmological-constant surfaces without widening the recovered
 core beyond its stated branch conditions.
+\fi
 
+\ifdefined\OPHSkipEinsteinChain
+\else
 \subsection{Lorentz and Einstein Bridge}
 
 \begin{theorem}[Conformal group isomorphism]
@@ -80,10 +87,10 @@ equation is fixed locally only up to \(\Lambda g_{ab}\).
 In the local Lorentzian scaling regime, once the realized cap-label-preserving MaxEnt family satisfies the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap variations, the half-line
 generator/charge identification of the null bridge, the bounded-interval transport input used in
 the local Lorentzian regime, and the internal small-ball bridge yield the rest-frame first-variation
-relation that drives the compact paper's local Einstein branch; on the same scaling branch, if that
+relation that drives the spacetime and Einstein paper's local Einstein branch; on the same scaling branch, if that
 rest-frame relation holds for all local observer four-velocities and all reference states, the
-compact paper upgrades it to the full tensor equation by the explicit local quadratic-polarization
-argument of Corollary~\ref{cor:einstein}.
+spacetime and Einstein paper upgrades it to the full tensor equation by the explicit local quadratic-polarization
+argument in the main derivation.
 \end{theorem}
 
 \begin{theorem}[Newton coupling from the scale certificate and edge entropy density]
@@ -140,8 +147,8 @@ Within the null-modular reconstruction used here:
 \item the dimensionless \(\Lambda\)-capacity relation requires the global
 screen-capacity closure beyond the local null data. The stable closure target is
 \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\), with
-\(N_{\mathrm{CRC}}=\log D_\star\). Definition~\ref{def:self-closure-density}
-and Theorem~\ref{thm:conditional-operational-n-closure} close its operational
+\(N_{\mathrm{CRC}}=\log D_\star\). The correctable public-record definition and
+conditional operational closure theorem close its operational
 public-section, correctable-code, capacity-bound, approximate-stability, and
 greatest-fixed-point implications under named premises. The full specification
 and receipt schema are carried by \emph{Observers Are All You Need}. The
@@ -157,7 +164,7 @@ certificate.
 \end{theorem}
 
 \begin{corollary}[Benchmark cosmological readout on the D6 branch]\label{cor:lambda-benchmark}
-On the same D6 branch as Corollaries~\ref{cor:lambda}--\ref{cor:lambda-parameters}, inserting the observed value \(\Lambda\approx 1.09\times 10^{-52}\,\mathrm{m^{-2}}\) gives
+On the conditional D6 branch defined above, inserting the observed value \(\Lambda\approx 1.09\times 10^{-52}\,\mathrm{m^{-2}}\) gives
 \[
 r_{\mathrm{dS}}=\sqrt{\frac{3}{\Lambda}}\approx 1.66\times 10^{26}\ \mathrm{m},
 \qquad
@@ -176,7 +183,7 @@ N_{\mathrm{scr}}=S_{\mathrm{dS}}=\pi N_{\mathrm{patch}}
 \end{corollary}
 
 \begin{proof}
-Immediate from Corollary~\ref{cor:lambda-parameters}.
+Immediate from the displayed static-patch and capacity relations.
 \end{proof}
 
 \paragraph{Observed-age benchmark boundary.}
@@ -207,7 +214,7 @@ assumption. Minimal Admissible Realization (MAR) acts on low-energy gauge/matter
 selector.
 
 \begin{theorem}[D5--D6 cosmological-capacity closure stack]
-Assume the compact paper's local Einstein branch, stable direct public-record closure and its
+Assume the spacetime and Einstein paper's local Einstein branch, stable direct public-record closure and its
 capacity coordinate
 \[
 \mathfrak F_{r,0}(D_\star)=\{D_\star\},
@@ -329,6 +336,9 @@ a_{\mathrm{cell}}\approx 1.63\,\ell_\star^2,
 \]
 belong to the separate pixel-closure/local-readout package, outside the D6 cosmological-parameter corollary itself. After the selected scale certificate is supplied, \(\ell_\star\) is displayed as the usual Planck length.
 
+\fi
+\ifdefined\OPHSkipStandardModelChain
+\else
 \subsection{Product-Group Structural Corollaries}
 
 \begin{theorem}[Factorization equivalence]
@@ -467,7 +477,7 @@ from OPH data to renormalized proton matrix elements.
 \subsection{Controlled Worldsheet Effective Description}
 
 \paragraph{Exact OPH-to-2D-Yang--Mills bridge.}
-On the compact-group heat-kernel branch, Theorem~\ref{thm:edge-2dym} proves the exact identity
+On the compact-group heat-kernel branch, the edge-partition theorem proves the exact identity
 \[
 Z_{\mathrm{edge}}(t)=K_t(1)
 \]
@@ -489,14 +499,14 @@ sequence, with \(N_{\mathrm{edge}}\neq N_c=3\), a fixed-\(\tau\) window for
 \[
 \tau=tN_{\mathrm{edge}},
 \]
-and the uniform genus-remainder control of Theorem~\ref{thm:worldsheet-largeN}. On that branch the
-edge free energy satisfies the compact paper's theorem-level criterion for a controlled genus
+and the uniform genus-remainder control stated for that expansion. On that branch the
+edge free energy satisfies the Standard Model gauge paper's theorem-level criterion for a controlled genus
 expansion, so the standard Gross--Taylor rewriting becomes a controlled worldsheet effective
 description of edge dynamics.
 
 \paragraph{External items.}
 The exact bridge theorem uses the compact-group heat-kernel branch and the quadratic-Casimir
-normalization declared in the compact paper. The continuation theorem uses the declared
+normalization declared in the Standard Model gauge paper. The continuation theorem uses the declared
 large-\(N_{\mathrm{edge}}\) regime and the imported Gross--Taylor large-\(N\) worldsheet dictionary
 for two-dimensional Yang--Mills. It does not identify a critical worldsheet CFT. Worldsheet
 supersymmetry, critical dimension, modular invariance, anomaly cancellation, GSO projection, and
@@ -511,12 +521,12 @@ chain.
 The compact-gauge branch used in this subsection is the ordinary or central zero-obstruction
 compact-gauge sector with compact simple structure group \(G\), a four-dimensional Euclidean
 scaling chart, and a cofinal tail carrying the compact-gauge refinement receipt of
-Definition~\ref{def:compact-gauge-refinement-receipt}. It also has a reflection-positive ordinary
+the compact-gauge refinement receipt stated in the main derivation. It also has a reflection-positive ordinary
 vacuum, topological angle \(\theta=0\), gauge-invariant
 local finite-constraint MaxEnt/Gibbs refinement, no additional relevant dimension-four pure-gauge
 operator on the branch besides the positive quadratic curvature invariant, active exact-Markov
 repair collars, bounded-color collar covers, and repair completeness. It is carried on the
-separated cofinal regulator system of Theorem~\ref{thm:consensusrefinement}. No continuum
+separated cofinal regulator system stated in the main derivation. No continuum
 cylinder state, GNS space, transfer generator, or vacuum projection is included in this
 assumption; those objects are constructed, or separately certified, below.
 \end{assumption}
@@ -617,7 +627,7 @@ On local cylinders it gives the unital \(^*\)-map
 \]
 On the compact-gauge refinement branch, the sector-projector part must agree with the separately
 supplied block-multiplicity injection \(\jmath_{rs}^{B}\) of
-Definition~\ref{def:compact-gauge-refinement-receipt}; it is not inferred from the deterministic
+the compact-gauge refinement receipt; it is not inferred from the deterministic
 coarse-shadow map. The holonomy and readback parts are its declared compatible extension. The maps
 preserve isotony and obey
 \[
@@ -628,7 +638,7 @@ surjective and \(\iota_{rs}^{O}\) is injective. Without that finite extendabilit
 \(C^*\)-inductive limit quotients the common refinement-null kernel; the extraction proof below
 does not assume prelimit injectivity of the full cylinder map. That broader quotient extraction is
 not, by itself, the receipt-certified sector ladder of
-Theorem~\ref{thm:refinement-functor-fiber-descent}.
+the refinement/fiber descent theorem in the main derivation.
 Write \(\mathcal A_r^{G,\mathrm{sv}}:=
 \mathcal A_r^{G,\mathrm{sv}}(\Lambda_r)\).
 Choose a countable cofinal regulator sequence and a countable bounded-region exhaustion of the
@@ -698,7 +708,7 @@ space by \(K:=K^{(0)}\). Each is a faithful cyclic GNS pair on its support quoti
 time-zero vector is identified as the physical vacuum only by the transfer/OS receipt below.
 \end{enumerate}
 If, in addition, the finite four-dimensional quotient presentation satisfies the fiber-sum
-identity stated after Axiom~\ref{ax:maxent}, then
+identity stated after the Local MaxEnt and Refinement Stability axiom, then
 \((p_{sr}^{(4)})_\#\mu_s^{(4)}=\mu_r^{(4)}\). The time-zero commuting square gives
 \((p_{sr}^{(0)})_\#\pi_s=\pi_r\), so both original state families are projective. Without that
 finite receipt, the bars on
@@ -891,7 +901,7 @@ repair-dynamics theorem proves a spectral gap for that Hamiltonian.
 
 \paragraph{Standing compact-gauge setup.}
 Fix a compact simple gauge group \(G\) carried by an OPH compact-gauge zero-obstruction vacuum
-branch on a cofinal tail satisfying Definition~\ref{def:compact-gauge-refinement-receipt}, realized
+branch on a cofinal tail satisfying the compact-gauge refinement receipt, realized
 at fixed cutoff by the declared compact-gauge patch-carrier architecture. For
 each regulator \(r\), let
 \[
@@ -914,7 +924,7 @@ E_C:K_r\to K_r
 \]
 be conditional expectation onto the \(\rho_C\)-measurable functions. This subsection stays on the
 ordinary or central zero-obstruction vacuum branch where the compact-gauge reconstruction ladder is
-carried by the explicit refinement receipt used in the compact paper.
+carried by the explicit refinement receipt used in the Standard Model gauge paper.
 
 \begin{proposition}[Local exact repair equals conditional expectation]
 \label{prop:sv-repair-expectation}
@@ -1404,7 +1414,7 @@ compact-gauge cylinder algebra on its declared branch. It falls short of the ful
 chiral \(G_6\) exact finite quantization, does not by itself instantiate the
 Standard-Model continuum observable sector, and supplies no resonance-sheet
 continuation. Those are separate typed inputs and implications in
-Appendix~\ref{app:compact-technical-port}.
+Appendix~\ref{app:derivation-technical-port}.
 \end{remark}
 
 \begin{proposition}[Nontriviality of the support-visible compact-gauge theory]
@@ -1507,3 +1517,4 @@ finite ground-state-transform/cross-fiber, and uniform-gap receipts; weak-* comp
 substitute for those inputs.
 The standalone Clay note is only a focused presentation of this same theorem surface; it does not
 enlarge the branch beyond the data stated here.
+\fi

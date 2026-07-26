@@ -7,7 +7,7 @@ import ObserverPatchHolography.Primitives
 
 Issue #544 asks whether overlap-consistent repair on the declared
 fixed-cutoff branch *forces* the central-interface collar clause (the
-declared-branch input stated with Axiom 3 of the compact paper,
+declared-branch input stated with Axiom 3 of The spacetime and Einstein paper,
 `par:cicclause`): non-central cross-cut couplings excluded, not merely not
 selected. The sharp failure mode is pinned in
 `code/collar_alignment/test_msa_characterizations.py::test_descent_invariant_but_noncentral_interface_breaks_alignment`:

@@ -7,10 +7,10 @@
     "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
   },
   "branch_scope": {
-    "branch": "source-bound echosahedral response branch",
+    "branch": "source-bound impulse/readback echosahedral response branch",
     "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
     "not_claimed": "no statement about arbitrary OPH carriers, no laboratory measurement of the response channels, and no identification with the physical Standard Model gauge group",
-    "response_data": "the charged-double-triplet construction and four signed A5-equivariant response coefficients, determined by the bound semantic artifact and recomputed here"
+    "response_data": "the charged-double-triplet construction and four relative A5-equivariant response signs, determined by the bound semantic artifact and recomputed here; the common sign is conventional"
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charged_faithfulness": {
@@ -28,7 +28,7 @@
       "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
     ],
     "proves": "the exact port-current algebra with the charged response representation, coefficients, frame, and physical refinement maps determined by the bound semantic artifact",
-    "status": "proved_on_source_bound_response_artifact"
+    "status": "proved_on_source_bound_impulse_readback_artifact"
   },
   "classification_vs_realization": {
     "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
@@ -1040,14 +1040,15 @@
       ]
     },
     {
-      "conclusion": "the charged response representation, the four signed coefficients, the oriented frame, and the physical refinement maps are determined by measured carrier structure",
-      "premise": "semantic response artifact measured from the carrier dynamics",
+      "conclusion": "the charged response representation, the four signed coefficients, the oriented frame, and the physical refinement maps are determined by finite carrier structure, with a common charge-conjugation sign convention",
+      "premise": "semantic response artifact derived from the finite carrier incidence and bound to the runtime dynamics",
       "source_artifact": "manifests/charged_response_semantic_artifact.json",
       "step": "1a",
       "uses": [
         "artifact self-hash and manifest pin",
-        "paper-side recomputation of the isotypic sector projectors, Galois pairing, tight-frame constant, and rotation group data",
-        "sign and coefficient equality between the manifest and the artifact"
+        "paper-side recomputation of the isotypic projectors, Galois pairing, unique central antipode involution, tight-frame constant, and rotation group data",
+        "exact R=-J eigenspace and coefficient equality between the manifest and the artifact",
+        "independent Lean checks of the unique distance-three partner and 10J adjacency-polynomial identity"
       ]
     },
     {
@@ -1164,7 +1165,7 @@
       ]
     },
     {
-      "conclusion": "the conditional algebraic gate and the physical source gate pass on the artifact-bound reference packet and fail on every algebraic and artifact countermodel",
+      "conclusion": "the conditional algebraic gate and simulator physical-source gate pass on the target-blind impulse/readback producer",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_566_negative_controls.json",
       "step": 13,
@@ -2553,15 +2554,25 @@
     "met_locally": true,
     "physical_source_realization_gate_passed": true,
     "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, derived from the bound semantic response artifact with exact tower and physical-map covariance over Q(sqrt5)",
-    "remaining_producer": "none for the response representation; the laboratory identification of the source-bound current with measured gauge currents is tracked by the physical attachment lane (#569)",
+    "remaining_producer": "none for the simulator carrier response: the target-blind impulse/readback protocol determines it. Laboratory attachment to gauge currents remains in #569",
     "response_field_provenance": "source_bound_semantic_artifact"
   },
-  "manifest_sha256": "eefeb56ad34379ac754137172776c88153a2d5c028789a548fe59f81d1c0a8ee",
+  "lean_cross_check": {
+    "declarations": [
+      "OPH.A5IncidenceResponse.distance_three_partner_unique",
+      "OPH.A5IncidenceResponse.antipode_polynomial"
+    ],
+    "module": "Lean/Screen/A5IncidenceResponse.lean",
+    "scope": "independently checks unique graph-distance-three readback and the integral identity 10J=A^3-4A^2-5A+10I; the operational impulse/readback contract and laboratory attachment remain outside these Lean incidence theorems",
+    "standard_axioms_only": true
+  },
+  "manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
   "physical_source_gate": {
     "passed": true,
     "physical_refinement_intertwining_source_bound": true,
     "response_coefficients_source_bound": true,
-    "response_model_source_bound": true
+    "response_model_source_bound": true,
+    "target_blind_impulse_readback_recomputed": true
   },
   "port_to_generator_map": {
     "band_realization": {
@@ -2645,10 +2656,10 @@
   },
   "response_moduli": {
     "band_coefficient_provenance": {
-      "frame_band": "rotation response on the +sqrt(5) triplet, sign measured positive",
-      "kernel_band": "rotation response on the Galois conjugate triplet, sign measured positive",
-      "quintet_band": "potential response, centered axis normalized, sign measured negative",
-      "unit_band": "potential response, tight-frame normalized, sign measured negative"
+      "frame_band": "positive eigenspace of the conventional representative R=-J",
+      "kernel_band": "positive eigenspace of the conventional representative R=-J",
+      "quintet_band": "negative eigenspace of the conventional representative R=-J",
+      "unit_band": "negative eigenspace of the conventional representative R=-J"
     },
     "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
     "equivariant_lift_dimension": 4,
@@ -2671,9 +2682,10 @@
       "kernel_block": "1"
     }
   },
-  "schema": "oph.port_current_inner_receipt.v3",
+  "schema": "oph.port_current_inner_receipt.v5",
   "semantic_response_binding": {
-    "artifact_sha256": "sha256:df13c745c468f4f887614fbe0f366cb17b4573e2229b731d7664f17079d44869",
+    "antipode_polynomial_identity_recomputed": true,
+    "artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2",
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
     "derived_construction": "charged_double_triplet",
     "derived_response_band_scales": {
@@ -2682,14 +2694,32 @@
       "quintet_band": "-1",
       "unit_band": "-1"
     },
-    "dynamics_sha256": "sha256:e112ed4262bf283c25a9ce1f0b7f33a1b7c06564eba97341280fe0903781a2bb",
+    "dynamics_sha256": "sha256:0bb9d95da7f27adfc525d945fad295ffb0e85acac0904550ac374543999dba29",
     "frame_assignment_source": "artifact port_vertex_frame",
     "galois_pairing_recomputed": true,
-    "normalization_rule": "each band scale is the measured channel response divided by its canonical normalizer: unit by the tight-frame constant (10 + 2*sqrt(5)), quintet by the centered axis constant 2, frame and kernel by the vertex coordinate isometry; signs are the measured response signs",
+    "impulse_readback_filter_coefficients_recomputed": [
+      "1",
+      "-1/2",
+      "-2/5",
+      "1/10"
+    ],
+    "impulse_readback_status": "source_bound_operational_producer",
+    "normalization_rule": "the source response is the self-adjoint unitary involution R = -J; each band scale is its exactly recomputed eigenvalue; the common overall sign is a charge-conjugation convention",
+    "overall_u1_charge_sign": "not selected by the finite response operator; overall charge conjugation is a convention",
+    "physical_perturb_readback_source_bound": true,
     "physical_refinement_map_count": 2,
     "producer": "oph_fpe.core.charged_response",
+    "response_operator": "negative_graph_antipode_involution",
+    "response_sector_eigenvalues_recomputed": {
+      "frame_band": 1,
+      "kernel_band": 1,
+      "quintet_band": -1,
+      "unit_band": -1
+    },
+    "response_source": "target_blind_maximal_distance_impulse_readback",
     "sector_structure_recomputed": true,
-    "tight_frame_constant_recomputed": "10 + 2*sqrt(5)"
+    "tight_frame_constant_recomputed": "10 + 2*sqrt(5)",
+    "unique_nonidentity_central_involution_recomputed": true
   },
   "source_definedness": {
     "algebraic_construction_verified": true,
@@ -2701,7 +2731,7 @@
     "physical_response_source_bound": true,
     "refinement_maps": "the declared carrier tower maps and the artifact-bound physical persistence maps, each intertwined by the current lift",
     "response_construction_status": "source_bound_semantic_artifact",
-    "response_data_provenance": "measured by the semantic response artifact and recomputed here",
+    "response_data_provenance": "derived from the unique nonidentity central antipode involution and independently recomputed here; overall sign is conventional",
     "response_model_declared_as_branch_premise": false,
     "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
   },
@@ -2709,9 +2739,9 @@
     "forbidden_dependency_hits": [],
     "uses_only": [
       "certified twelve-port carrier packet",
-      "hash-pinned semantic response artifact measured from the carrier dynamics",
+      "hash-pinned semantic response artifact deriving R=-J from the carrier incidence and binding it to the runtime dynamics",
       "reversible response automorphism typing",
-      "four signed response coefficients determined by the artifact measurement channels",
+      "four relative response signs determined by exact eigenspaces of R=-J; the common sign is a charge-conjugation convention",
       "irreversible strict-descent repair ledger (excluded from currents)"
     ]
   },

@@ -29,8 +29,11 @@ PAPERS = {
     "observers_are_all_you_need": PAPER_DIR / "observers_are_all_you_need.tex",
     "paradise_as_fixed_point_consensus": PAPER_DIR / "paradise_as_fixed_point_consensus.tex",
     "reality_as_consensus_protocol": PAPER_DIR / "reality_as_consensus_protocol.tex",
-    "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": (
-        PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+    "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": (
+        PAPER_DIR / "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+    ),
+    "deriving_standard_model_gauge_structure_from_observer_overlap_consistency": (
+        PAPER_DIR / "deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
     ),
     "screen_microphysics_and_observer_synchronization": PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
 }
@@ -41,7 +44,8 @@ RELEASED_ADJUNCT_PAPERS = dict(EXTRA_PAPERS)
 ALL_PAPERS = {**PAPERS, **RELEASED_ADJUNCT_PAPERS}
 
 RELEASE_TRACKED = (
-    "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact",
+    "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency",
+    "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
     "observers_are_all_you_need",
     "reality_as_consensus_protocol",
     "paradise_as_fixed_point_consensus",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Numerical verification of the Markov-split alignment (MSA) characterizations.
 
-Implements the objects of the compact paper's Proposition `prop:msachar`
+Implements the objects of The spacetime and Einstein paper's Proposition `prop:msachar`
 (operational characterizations of Markov-split alignment) and Corollary
 `cor:msareduction` (axiom-side reduction), introduced for paper-audit issue 001
 (GitHub #543).

@@ -3,7 +3,7 @@
 
 Evaluates, on realized Gaussian MaxEnt reference states, the two receipt
 families the cyclic cap-net repair run left pending at the geometry level
-(compact paper, Definition `def:cap-mesh-crossratio-receipts`):
+(spacetime and Einstein paper, Definition `def:cap-mesh-crossratio-receipts`):
 
 * the independently normalized geometric 2pi-KMS receipt, and
 * the modular cross-ratio Cauchy receipt with identified Moebius limit.

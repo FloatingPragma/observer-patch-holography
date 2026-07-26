@@ -66,11 +66,18 @@ families enter the chain. This is the point where the zoo stops looking like
 a zoo.
 
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
-recovered, durable excitations are sorted by mass, spin, and helicity. Stable
-charge sectors reconstruct the compact gauge structure. The economy rule, which selects the smallest admitted packet,
-then gives a conditional Standard Model quotient
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its charge pattern, a three-color
-carrier, and the conditional minimum $N_g=3$.
+recovered, durable excitations are sorted by mass, spin, and helicity. On the
+certified twelve-port branch, incidence and target-blind port readback derive
+the signed response and exact current algebra. Under the declared fermionic
+Spin category, the anomaly and
+central-descent calculations give the charge pattern, a three-color carrier,
+and the maximal faithful matter image
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication is
+MAR-free and conditional on physical matter typing. The cover and its
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors, so
+physical global-form selection is open. The economy rule supplies
+the conditional minimum $N_g=3$ and orders extra light sectors, not that
+finite gauge calculation.
 
 This chain inherits the collective history of particle physics. Rutherford's
 recoil opened it. Chadwick found the
@@ -109,9 +116,11 @@ m_{\rm rep}=2(8+3+1)=24.
 $$
 
 The icosahedral carrier boundary has twelve ports and twenty-four oriented
-slots, matching that count. Whether the match is physics or coincidence turns
-on constructing the current that would tie gauge directions to ports. The Higgs and top occupy a linked
-critical balance inside the same quantitative structure.
+slots, matching that count. The conditional current construction ties the
+twelve formal gauge directions to the ports; deciding whether that tie and the
+doubled load count have physical content requires independent response and
+load intertwiners. The Higgs and top occupy a linked critical balance inside
+the same quantitative structure.
 
 Where can a three-place family candidate come from? The icosahedron supplies
 one with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
@@ -239,11 +248,11 @@ a different basis: electron, muon, and tau name flavor directions,
 $m_1,m_2,m_3$ name mass directions, and the PMNS matrix is the rotation
 between those two descriptions.
 
-One qualification covers this whole chain. The physical family
-attachment, the current construction that would tie gauge directions to
-ports, the promotion of the W and Z running coordinates to predictions, and
-the identification of the face triplet and its three eigenmodes with the
-measured electron, muon, and tau are work in progress.
+One qualification covers this whole chain. Physical response and matter
+selection, the family attachment, laboratory-current identification, promotion
+of the W and Z running coordinates to predictions, and identification of the
+face triplet and its eigenmodes with the measured electron, muon, and tau are
+work in progress.
 
 ### Why the Universe Contains More Matter Than Antimatter
 

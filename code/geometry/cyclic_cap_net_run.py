@@ -10,7 +10,7 @@ the realized-branch receipt evaluation.
 
 Provenance is stated exactly: the overlap net of each stage is CHOSEN to be a
 sphere triangulation (icosahedron plus edge subdivisions). Per the
-dimension-selection boundary of the compact paper
+dimension-selection boundary of The spacetime and Einstein paper
 (Corollary `cor:dimension-selection-status`), this is explicit branch
 selection, allowed as a named branch input, never claimed as a consensus
 output. What the run genuinely witnesses is the joint realizability of the

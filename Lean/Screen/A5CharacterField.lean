@@ -44,7 +44,7 @@ RESULTS.
   (multiplicity bounds 1, 1, 1, 0, 1), a Galois-stable submodule has
   dimension in `{0, 1, 5, 6, 7, 11, 12}`; dimension two is impossible.
 
-The statements map to the rationality lemma of the compact paper's
+The statements map to the rationality lemma of The Standard Model gauge paper's
 trichotomy subsection; `Screen/A5OPH.lean` (Part VI header) records the
 lemma as the declared input this file discharges up to the torus step.
 No physical content is at stake in this receipt lane. -/

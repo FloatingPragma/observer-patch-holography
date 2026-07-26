@@ -18,7 +18,7 @@
       "menu": {
         "size": 1352078,
         "alternatives": "integer twelve-defect splittings that minimize a linear cost; 1,352,078 compositions survive a linear cost and the strictly superadditive cost selects the all-unit splitting uniquely",
-        "enumeration_source": "compact paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
+        "enumeration_source": "Standard Model gauge paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
       },
       "compression_input": true,
       "receipts": [
@@ -34,7 +34,7 @@
         "a linear cost has 1,352,078 minimizers (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
       ]
     },
     {
@@ -50,7 +50,7 @@
       "menu": {
         "size": 10395,
         "alternatives": "fixed-point-free pairings of twelve labels; 10,395 pairings exist without incidence and oriented incidence at distance three selects the antipodal pairing uniquely",
-        "enumeration_source": "compact paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
+        "enumeration_source": "Standard Model gauge paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
       },
       "compression_input": true,
       "receipts": [
@@ -61,7 +61,7 @@
         "labels without incidence admit 10,395 fixed-point-free pairings"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
       ]
     },
     {
@@ -77,7 +77,7 @@
       "menu": {
         "size": 2,
         "alternatives": "oriented A5 frame or orientation-forgetting A5 x C2 frame; the orientation receipt fixes the oriented class",
-        "enumeration_source": "compact paper selector-boundary remark (forgetting orientation restores A5 x C2)"
+        "enumeration_source": "Standard Model gauge paper selector-boundary remark (forgetting orientation restores A5 x C2)"
       },
       "compression_input": true,
       "receipts": [
@@ -93,7 +93,7 @@
         "non-incidence or noncocyclic refinement maps break naturality"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
       ]
     },
     {
@@ -109,7 +109,7 @@
       "menu": {
         "size": 3,
         "alternatives": "tetrahedral, octahedral, icosahedral antipodal port families",
-        "enumeration_source": "docs/SELECTION_LEDGER.md row 4 declaration; Cohn-Kumar and tomography cross-checks in the compact paper"
+        "enumeration_source": "docs/SELECTION_LEDGER.md row 4 declaration; Cohn-Kumar and tomography cross-checks in The Standard Model gauge paper"
       },
       "compression_input": true,
       "receipts": [
@@ -122,7 +122,7 @@
         "the bare total-charge reduct admits non-echosahedral completions (`noSourceOnlyChargeReconstruction`)"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:echosahedral-source-selector"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
       ]
     },
     {
@@ -134,7 +134,7 @@
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Declared in the D7 antecedent of the compact paper and the synthesis paper: cofinal tail with coherent surjective charge pullbacks, finite block embeddings, tensor realizations, 3+1D symmetry, and compatible forgetful fibers.",
+      "where": "Declared in the D7 antecedent of The Standard Model gauge paper and the synthesis paper: cofinal tail with coherent surjective charge pullbacks, finite block embeddings, tensor realizations, 3+1D symmetry, and compatible forgetful fibers.",
       "menu": {
         "size": null,
         "alternatives": "declared receipt object; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
@@ -146,9 +146,7 @@
       "negative_controls": [
         "the classification-versus-realization proposition records that no step of the receipt names Standard Model data"
       ],
-      "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "def:compact-gauge-refinement-receipt"}
-      ]
+      "paper_anchors": []
     },
     {
       "row": 6,
@@ -163,7 +161,7 @@
       "menu": {
         "size": 3,
         "alternatives": "N_g in {3, 4, 5} within the declared economy class",
-        "enumeration_source": "compact paper cor:ng"
+        "enumeration_source": "Standard Model gauge paper cor:ng"
       },
       "compression_input": true,
       "receipts": [
@@ -175,8 +173,7 @@
         "the equal-MAR-score quark counterfamily exhibits nonuniqueness of flavor closure"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "ax:mar"},
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "cor:ng"}
+        {"file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex", "anchor": "ax:mar"}
       ]
     },
     {
@@ -284,7 +281,7 @@
       "canonical_claim_id": "OPH-ALPHA-PIXEL",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Each candidate closure map is declared before evaluation; the interval certificate proves exactly one fixed point per declared map on the physical domain (compact proof, certificate C1). The physical Thomson identification is a separate receipt.",
+      "where": "Each candidate closure map is declared before evaluation; the interval certificate proves exactly one fixed point per declared map on the physical domain (Standard Model gauge derivation, certificate C1). The physical Thomson identification is a separate receipt.",
       "menu": {
         "size": null,
         "alternatives": "per declared map; the map space has no finite alternative enumeration, so the row is a theorem antecedent and not a compression-menu input",
@@ -326,25 +323,25 @@
         "the register-relabeling no-go separates response data from register relabeling"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "prop:obstruction-neutrality"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:current-algebra"}
       ]
     },
     {
       "row": 13,
       "selector_id": "z6_global_form_descent",
-      "label": "Determinant, spin, loop, axis, and refinement descent to the physical Z6 global form",
-      "class": "forced",
+      "label": "Physical global-form selection beyond the computed Z6 matter kernel",
+      "class": "open",
       "conditional_on": ["physical_matter_spin_lift"],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
-      "owner_issues": [],
-      "where": "The descent certificate computes the common central kernel on every realized matter tensor by exhaustive enumeration over the 36 candidates, derives the character and cocharacter lattices with Smith invariants (1, 1, 6), and fixes the Wilson/'t Hooft line spectrum with the minimum magnetic line (1, 1, 1/6); Lean `Z6Descent.lean` checks the same enumeration, the four-subgroup menu, both countermodels, and the explicit intertwiner between the six-axis gluing class and the tensor-spin kernel (issue #567 closure packet). Conditional on rows 4, 12, and 14.",
+      "owner_issues": [567],
+      "where": "The descent certificate computes the common Z6 kernel on every realized matter tensor by exhaustive enumeration over 36 candidates and derives the character and dual cocharacter lattices with Smith invariants (1, 1, 6). The cover and the Z2, Z3, and Z6 quotients all carry the declared local tensors. Selecting the physical quotient, genuine line spectrum, ultraviolet polarization, Spin attachment, instanton sectors, or theta periodicity requires additional global data tracked by issue #567. Conditional on rows 4, 12, and 14.",
       "menu": {
-        "size": 4,
-        "alternatives": "the four admissible global forms, one per subgroup of the centre; the realized matter tensors select the maximal quotient Z6",
-        "enumeration_source": "code/a5_closure/axis_center_descent_certificate.py; Lean/Screen/Z6Descent.lean, four_admissible_global_forms"
+        "size": null,
+        "alternatives": "four compatible global forms are enumerated, but no physical selector has acted on that menu",
+        "enumeration_source": null
       },
-      "compression_input": true,
+      "compression_input": false,
       "receipts": [
         "code/a5_closure/axis_center_descent_certificate.py",
         "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
@@ -357,39 +354,39 @@
       "negative_controls": [
         "adjoint-only tensors leave all four global forms admissible (kernel order 36)",
         "a fractionally charged extra tensor shrinks the kernel to the identity",
-        "mixed block-map orientations fail the convention gate"
+        "no central candidate acts as fermion parity on all five matter multiplets"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "prop:z6"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:global-form-boundary"}
       ]
     },
     {
       "row": 14,
       "selector_id": "physical_matter_spin_lift",
-      "label": "Physical matter spin lift",
-      "class": "forced",
+      "label": "Physical fermionic matter and Spin/odd-Weyl source typing",
+      "class": "open",
       "conditional_on": ["physical_port_current_realization"],
       "canonical_claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
       "secondary_claim_ids": [],
-      "owner_issues": [],
-      "where": "The matter-lift certificate over the source-bound current packet forces the non-split binary-icosahedral spin lift (unique involution, split lifts impossible), derives the trace-balanced charge pair by BLOCK-DETERMINANT-BALANCE, derives the scalar and channel selection, and intertwines the artifact's physical refinement maps on the carrier and the Fock realization; its physical source gate passes (issue #314 closure packet). Conditional on rows 4 and 12.",
+      "owner_issues": [314],
+      "where": "Conditional on declared fermionic Spin/odd-Weyl typing, the matter-lift certificate constructs the non-split binary-icosahedral lift, the unordered conjugate rank-15 projector pair, anomaly-forced trace balance, primitive charges, and scalar-channel compatibility. The certificate does not source-produce fermionic statistics or the physical Spin/odd-Weyl category, so its physical gate is open under issue #314. Conditional on rows 4 and 12.",
       "menu": {
-        "size": 2,
-        "alternatives": "split SO(3) port lift or non-split binary icosahedral lift; the spin-lift certificate forces the non-split cover",
-        "enumeration_source": "code/a5_closure/super_tannakian_matter_lift_certificate.py, spin_lift_certificate"
+        "size": null,
+        "alternatives": "physical source typing is an open producer obligation with no finite source-alternative enumeration",
+        "enumeration_source": null
       },
-      "compression_input": true,
+      "compression_input": false,
       "receipts": [
         "code/a5_closure/super_tannakian_matter_lift_certificate.py",
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
       ],
       "lean": [],
       "negative_controls": [
-        "fifteen typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls",
+        "eighteen typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls",
         "the representation-arithmetic route is rejected as realization (`REALIZATION_NOT_OPERATOR`)"
       ],
       "paper_anchors": [
-        {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "thm:screen-exterior-sm-witness"}
+        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "ass:matter-typing"}
       ]
     },
     {

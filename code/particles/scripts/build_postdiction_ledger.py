@@ -10,7 +10,7 @@ Section one records the forced-structure layer: the machine-checked
 icosahedral results that pin the gauge sector before any numeric lane runs.
 The finite steps live in the Lean workspace under `Lean/Screen/`; the
 receipt entries record the module paths (existence-checked here) and the
-declared hypothesis boundaries exactly as the compact paper states them.
+declared hypothesis boundaries exactly as The Standard Model gauge paper states them.
 
 The numeric sections carry the per-lane claim discipline of their parents:
 interval rows report containment of the compare-only witness, conditional
@@ -123,7 +123,7 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
                 "paper; the physical inner current action is the open premise "
                 "of issues 567 and 599"
             ),
-            "paper_ref": "compact paper, Compact-Lie trichotomy section",
+            "paper_ref": "Standard Model gauge paper, Compact-Lie trichotomy section",
         },
         {
             "id": "global_form_z6",
@@ -144,7 +144,7 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
                 "form rides on the same inner current action premise as the "
                 "Lie-algebra row"
             ),
-            "paper_ref": "compact paper, Z6 global-form section",
+            "paper_ref": "Standard Model gauge paper, Z6 global-form section",
         },
         {
             "id": "hypercharge_spectrum",
@@ -182,7 +182,7 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
                 "reduces the universality clause to A5-equivariance of the "
                 "implemented source law; no coupling value is implied"
             ),
-            "paper_ref": "compact paper, coupling symmetry section",
+            "paper_ref": "Standard Model gauge paper, coupling symmetry section",
         },
     ]
 
@@ -589,7 +589,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("The icosahedral screen results pin the gauge sector before any numeric "
         "lane runs. The finite steps are machine checked in the Lean workspace; "
         "the recorded hypothesis boundaries are the exact classical inputs and "
-        "open premises of the compact paper.")
+        "open premises of The Standard Model gauge paper.")
     add("")
     add("| Result | Observed counterpart | Match | Receipts |")
     add("| --- | --- | --- | --- |")

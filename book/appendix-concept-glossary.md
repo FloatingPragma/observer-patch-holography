@@ -395,10 +395,14 @@ Gauge group
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
 quotient by a shared discrete center in the full global structure. Under its
 transport and refinement premises, OPH reconstructs a compact group from
-persistent charge bookkeeping across patches. Given a separately constructed
-physical current law, the oriented twelve-port decomposition recognizes the
-Standard Model Lie type. Minimal admissible selection then picks its conditional
-one-Higgs matter branch.
+persistent charge bookkeeping across patches. Independently, twelve-port
+incidence and target-blind port readback derive an exact current with the
+Standard Model Lie type. Under a declared fermionic Spin category, the matter
+and central-descent receipts fix the charge
+lattice up to conjugation and the maximal faithful matter image. The cover
+and its intermediate quotients carry the same local tensors. Physical matter
+typing and global-form selection are open. Minimal admissible selection orders family
+count and extra light sectors inside the declared matter class.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -787,15 +791,13 @@ cells to keep the fundamental bookkeeping finite.
 
 Quotient
 :   A quotient identifies descriptions that act the same for the
-purpose at hand. In the Standard Model group
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, a shared discrete center is
-counted once across the gauge factors. Quotients remove duplicate labels from
-the physical bookkeeping. The six-axis icosahedral screen also has an abstract
-$\mathbb Z_6$ residue. A source-derived spin lift and central intertwiner would
-have to carry that residue into the matter action. That construction and the
-commuting square identifying the local current group with the independent
-Tannaka/matter group are work in progress. Matching abstract quotients does
-not establish a physical identification.
+purpose at hand. The realized Standard Model tensors have a common
+$\mathbb Z_6$ kernel, so their maximal faithful image is
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors.
+Selecting the physical global form requires line, bundle, or equivalent
+ultraviolet data. The commuting square identifying the local current group
+with the independent Tannaka group is work in progress.
 
 Record
 :   A record is physical information that can be consulted later or

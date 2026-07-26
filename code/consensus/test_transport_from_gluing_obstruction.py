@@ -98,31 +98,27 @@ def _collapsed(path: Path) -> str:
 
 
 def test_paper_sources_retain_the_combined_criterion_and_cycle_check() -> None:
-    compact = _collapsed(
+    gauge_wrapper = _collapsed(
         ROOT
         / "paper"
-        / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+        / "deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
     )
-    synthesis = _collapsed(ROOT / "paper" / "tex_fragments" / "PAPER.tex")
+    shared_spine = _collapsed(ROOT / "paper" / "tex_fragments" / "PAPER.tex")
+    gauge = f"{gauge_wrapper} {shared_spine}"
 
-    assert "Triangle-free cycle acceptance test" in compact
-    assert "existence of a trivial-holonomy strictification on the central branch" in compact
-    assert "existence of a trivial-holonomy strict representative" in compact
-    assert "full crossed-module orbit" in compact
-    assert "\\(o^{(2)}_\\Sigma=0\\)" in compact
-    assert "\\SU(2)\\hookrightarrow G_\\Sigma=\\U(2)" in compact
-    assert "Triangle-free cycle check" in synthesis
-    assert "associator-strictification and trivial-holonomy criterion" in synthesis
-    assert "full orbit \\(q_\\Sigma\\)" in synthesis
-    assert "\\(o^{(2)}_\\Sigma=0\\)" in synthesis
-    assert "\\SU(2)\\hookrightarrow\\U(2)" in synthesis
-    assert "fixed abelian unitary coefficient group \\(Z_\\Sigma\\)" in synthesis
-    assert "central defect strictification and residual holonomy" in synthesis
+    assert "\\input{tex_fragments/PAPER.tex}" in gauge_wrapper
+    assert "\\def\\OPHSkipEinsteinChain{1}" in gauge_wrapper
+    assert "Triangle-free cycle check" in gauge
+    assert "associator-strictification and trivial-holonomy criterion" in gauge
+    assert "full orbit \\(q_\\Sigma\\)" in gauge
+    assert "\\(o^{(2)}_\\Sigma=0\\)" in gauge
+    assert "\\SU(2)\\hookrightarrow\\U(2)" in gauge
+    assert "fixed abelian unitary coefficient group \\(Z_\\Sigma\\)" in gauge
+    assert "central defect strictification and residual holonomy" in gauge
 
-    assert "strict path-independent transport exists if and only if \\([z]_\\Sigma=0\\)" not in compact
-    assert "transport of collar charges exists if and only if \\([z]_\\Sigma=0\\)" not in compact
-    assert "strict path-independent transport exists iff the central loop-coherence class" not in synthesis
-    assert "Strict ordinary transport exists iff \\(q_\\Sigma=[(g,h)]\\) vanishes." not in synthesis
-    assert "\\(q_\\Sigma=0\\) strictifies the higher defect" not in compact
-    assert "\\(q_\\Sigma=0\\) strictifies the higher defect" not in synthesis
-    assert "A loop-coherent global gluing exists iff {[}z{]} = 0" not in synthesis
+    assert "strict path-independent transport exists if and only if \\([z]_\\Sigma=0\\)" not in gauge
+    assert "transport of collar charges exists if and only if \\([z]_\\Sigma=0\\)" not in gauge
+    assert "strict path-independent transport exists iff the central loop-coherence class" not in gauge
+    assert "Strict ordinary transport exists iff \\(q_\\Sigma=[(g,h)]\\) vanishes." not in gauge
+    assert "\\(q_\\Sigma=0\\) strictifies the higher defect" not in gauge
+    assert "A loop-coherent global gluing exists iff {[}z{]} = 0" not in gauge

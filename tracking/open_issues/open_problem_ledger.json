@@ -20,17 +20,17 @@
       "chrome_policy": "Do not use Chrome workers for backend execution.",
       "claim_level": "out of local scope",
       "closed_status": "closed_not_planned_out_of_scope_computationally_blocked",
-      "closure": "Compact paper states the backend output and budgets or marks hadrons out-of-scope.",
+      "closure": "The particle and gauge papers state the backend output and budgets or mark hadrons out-of-scope.",
       "closure_note": "Closed as out-of-scope, not solved. Compact-paper hadron claims remain suppressed until a working OPH backend emits the required nonperturbative QCD/hadron data.",
-      "falsification": "Compact paper promotes hadron masses without production backend evidence.",
+      "falsification": "A specialist paper promotes hadron masses without production backend evidence.",
       "number": 157,
       "phase": "hardware-gated-hadrons",
       "title": "nonperturbative QCD hadron branch",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-07-26T07:06:54Z",
-  "open_issue_count": 46,
+  "generated_utc": "2026-07-26T10:25:40Z",
+  "open_issue_count": 49,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
@@ -114,6 +114,22 @@
       "title": "Proof packet: Particle-Like Defect Criterion",
       "updated_at": "2026-07-23T16:42:00Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/311"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: particles"
+      ],
+      "number": 314,
+      "phase": "unclassified",
+      "title": "Proof packet: Super-Tannakian Matter Lift",
+      "updated_at": "2026-07-26T10:25:17Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/314"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -646,10 +662,28 @@
         "surface: compact",
         "physics-problems"
       ],
+      "number": 567,
+      "phase": "unclassified",
+      "title": "[12-port global form] Prove physical Z6 descent and the exact line spectrum",
+      "updated_at": "2026-07-26T10:25:18Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/567"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: compact",
+        "dag:ready-now",
+        "physics-problems"
+      ],
       "number": 569,
       "phase": "unclassified",
       "title": "[A5 matter] Attach the icosahedral screen action to three physical families",
-      "updated_at": "2026-07-23T16:42:09Z",
+      "updated_at": "2026-07-26T07:21:29Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/569"
     },
     {
@@ -800,6 +834,19 @@
       "title": "[de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments",
       "updated_at": "2026-07-25T10:59:20Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/608"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [],
+      "number": 609,
+      "phase": "unclassified",
+      "title": "[MAR retirement] Prove a source-complete no-extra-light-sector theorem",
+      "updated_at": "2026-07-26T08:21:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/609"
     }
   ],
   "worker_policy": {

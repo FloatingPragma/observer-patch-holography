@@ -2,7 +2,7 @@
 """Emit a pixel-screen resonance summary from existing hierarchy certificates.
 
 This is a receipt-level composition artifact, not an additional theorem. It
-records the equal-area screen chart identities in the compact proof and checks
+records the equal-area screen chart identities in the Standard Model gauge derivation and checks
 that they are sourced from the same selected `(P, N_CRC^EW)`
 branch as the local/global hierarchy resonance certificate.
 """

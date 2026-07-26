@@ -164,7 +164,7 @@ rules are part of the same stack.
 References: the OPH dark branch is described in
 [OPH Dark Matter Paper](../cosmology/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
 Einstein/Jacobson dynamics is in
-[Recovering Relativity and the Standard Model from Observer Overlap Consistency](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf).
+[Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 The federated carrier model is in
 [Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 The global reconstruction context is in

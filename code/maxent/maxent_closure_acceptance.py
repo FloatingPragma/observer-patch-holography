@@ -8,7 +8,7 @@ Issue #539 requires, on two successive regulator lattices:
    N_glob optional global charges), independent of the number of regulator cells. The
    rejected per-cell reading is counted alongside to show its dimension grows with cells.
 2. The coarse-grained MaxEnt state must lie in the claimed family with a proved residual
-   bound. This is the I-projection residual bound (compact paper, Lemma
+   bound. This is the I-projection residual bound (spacetime and Einstein paper, Lemma
    ``lem:closure-residual``; synthesis paper, Lemma 2.6b): the moment-matching
    I-projection R(lambda) onto the coarse homogeneous family exists and is unique, the
    closure defect is eps = D(sigma || omega_L(R(lambda))), and
