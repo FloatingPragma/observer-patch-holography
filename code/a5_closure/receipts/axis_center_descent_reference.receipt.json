@@ -1,0 +1,220 @@
+{
+  "claim_boundary": {
+    "does_not_close": [
+      "monopole or dyon dynamics (only line-lattice arithmetic is derived)",
+      "family attachment and any three-family claim (#569)",
+      "laboratory measurement of any line or flux",
+      "continuum quantum field theory"
+    ],
+    "proves": "the physical global form of the realized branch: the kernel computed on every realized matter tensor, the quotient character and cocharacter data, the Wilson/'t Hooft line spectrum, spin descent, refinement invariance, and the four-global-forms control",
+    "status": "derived_on_realized_matter_tensors"
+  },
+  "convention": {
+    "block_map": "(A,B,z) -> (z^-2 A, z^3 B)",
+    "hypercharge": "q = 6Y",
+    "kernel_generator": "h = (omega_3 I_3, -I_2, exp(i pi/3))",
+    "orientation_note": "mixing the two orientations is a failed receipt; the block map is inherited from the #599 semantic artifact through the #314 packet"
+  },
+  "four_admissible_global_forms_control": {
+    "adjoint_only_kernel_order": 36,
+    "conclusion_countermodels": "a fractionally charged extra tensor shrinks the kernel to the identity (larger cover), and removing the matter tensors enlarges the kernel to the full centre (smaller quotient); the realized tensor set is what forces Z6",
+    "conclusion_menu": "with adjoint tensors only, every subgroup of the centre gives an admissible global form: four admissible forms",
+    "fractional_singlet_countermodel_kernel_order": 1,
+    "realized_matter_selects": "the maximal quotient Z6, by the exhaustive kernel computation",
+    "subgroup_menu": [
+      {
+        "members": [
+          0
+        ],
+        "order": 1
+      },
+      {
+        "members": [
+          0,
+          3
+        ],
+        "order": 2
+      },
+      {
+        "members": [
+          0,
+          2,
+          4
+        ],
+        "order": 3
+      },
+      {
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "order": 6
+      }
+    ]
+  },
+  "global_form": {
+    "character_lattice_smith_invariants": [
+      1,
+      1,
+      6
+    ],
+    "group": "(SU(3) x SU(2) x U(1)) / Z6",
+    "wilson_class_group_order": 6,
+    "wilson_line_classes": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        0,
+        4
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        2
+      ],
+      [
+        2,
+        1,
+        5
+      ]
+    ]
+  },
+  "issue": 567,
+  "kernel_on_realized_tensors": {
+    "candidates_enumerated": 36,
+    "computed_not_inferred": "the kernel is the exhaustive common stabilizer of the realized weight table, not a Lie-type inference",
+    "cyclic_generator": [
+      1,
+      1,
+      1
+    ],
+    "kernel_elements": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        0,
+        4
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        2
+      ],
+      [
+        2,
+        1,
+        5
+      ]
+    ],
+    "kernel_order": 6,
+    "matches_emitted_kernel_data": true,
+    "tensor_additivity_checked_pairs": 64
+  },
+  "line_spectrum": {
+    "magnetic_charge_unit": "one sixth of the electron-Dirac quantum (electron q = -6)",
+    "minimal_pure_u1_line": "one electron-Dirac quantum",
+    "minimum_magnetic_line": {
+      "color_center_flux": 1,
+      "u1_charge_electron_dirac_units": "1/6",
+      "weak_flux": 1
+    },
+    "monopole_dynamics_not_inferred": true,
+    "theta_periodicity": "the fractional instanton number on the Z6 quotient is quantized in units of 1/6, so the theta angle has period 2 pi times six in the cover normalization; stated as lattice arithmetic, not monopole dynamics"
+  },
+  "manifest_sha256": "6fbdb4e6b42878f49958230eb59483d29db08caac255f630a132d092ab7001a8",
+  "matter_receipt_sha256": "dbdd5ebee779bc4eab2e84723a30e7508c16aecc10039a8084bdee8e4c2d549d",
+  "realized_weight_table": {
+    "L": {
+      "duality": 1,
+      "q": -3,
+      "triality": 0
+    },
+    "Q": {
+      "duality": 1,
+      "q": 1,
+      "triality": 1
+    },
+    "carrier_color": {
+      "duality": 0,
+      "q": -2,
+      "triality": 1
+    },
+    "carrier_weak": {
+      "duality": 1,
+      "q": 3,
+      "triality": 0
+    },
+    "d_c": {
+      "duality": 0,
+      "q": 2,
+      "triality": 2
+    },
+    "e_c": {
+      "duality": 0,
+      "q": 6,
+      "triality": 0
+    },
+    "scalar_S": {
+      "duality": 1,
+      "q": 3,
+      "triality": 0
+    },
+    "u_c": {
+      "duality": 0,
+      "q": -4,
+      "triality": 2
+    }
+  },
+  "refinement_invariance": {
+    "artifact_persistence_maps": 2,
+    "carrier_rotations": 60,
+    "conclusion": "the weight data is invariant under the carrier rotations and the artifact persistence maps, so the kernel computation descends the refinement tower"
+  },
+  "schema": "oph.axis_center_descent_receipt.v1",
+  "spin_fermion_descent": {
+    "conclusion": "every realized fermionic tensor is single-valued on the quotient; the binary cover acts through the quotient on the realized category",
+    "spin_representative_in_kernel": [
+      0,
+      1,
+      3
+    ]
+  },
+  "two_z6_constructions": {
+    "intertwiner": "Lean/Screen/Z6Descent.lean: the explicit isomorphism matching the six-axis residue generator with the kernel generator and the antipodal involution with conjugation",
+    "six_axis_lattice_quotient": "Lean/Screen/Z6Exact.lean: the screen gluing class Lambda_plus/(Lambda_1 (+) Lambda_5) with antipodal sign reversal",
+    "tensor_spin_kernel": "Lean/Screen/TraceBalancedKernel.lean: the kernel of 2k + 3l + r on the central parameters with conjugation inverting the generator"
+  },
+  "verifier_command": "python3 code/a5_closure/axis_center_descent_certificate.py verify --manifest code/a5_closure/manifests/axis_center_descent_reference.json --receipt code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+}

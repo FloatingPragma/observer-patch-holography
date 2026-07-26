@@ -1284,14 +1284,16 @@
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/particles/calibration/source_completion_no_go.py",
-        "code/particles/calibration/wz_strict_series.py"
+        "code/particles/calibration/wz_strict_series.py",
+        "code/a5_closure/axis_center_descent_certificate.py",
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+        "Lean/Screen/Z6Descent.lean"
       ],
       "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the declared realized packet, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
       "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
-      "status": "conditional_D7_D9_tannaka_mar_chain__physical_matter_and_rank45_attachment_open",
+      "status": "conditional_D7_D9_tannaka_chain__global_form_derived_on_realized_tensors__family_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        567,
         569
       ]
     },

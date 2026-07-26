@@ -333,27 +333,31 @@
       "row": 13,
       "selector_id": "z6_global_form_descent",
       "label": "Determinant, spin, loop, axis, and refinement descent to the physical Z6 global form",
-      "class": "open",
+      "class": "forced",
       "conditional_on": ["physical_matter_spin_lift"],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
-      "owner_issues": [567],
-      "where": "Abstract six-axis quotient arithmetic is proved in Lean `Z6Exact.lean` and the tensor-spin kernel in `TraceBalancedKernel.lean`; the physical cocharacter-lattice descent, the exact line spectrum, and the four-global-forms negative control are the target of issue #567.",
+      "owner_issues": [],
+      "where": "The descent certificate computes the common central kernel on every realized matter tensor by exhaustive enumeration over the 36 candidates, derives the character and cocharacter lattices with Smith invariants (1, 1, 6), and fixes the Wilson/'t Hooft line spectrum with the minimum magnetic line (1, 1, 1/6); Lean `Z6Descent.lean` checks the same enumeration, the four-subgroup menu, both countermodels, and the explicit intertwiner between the six-axis gluing class and the tensor-spin kernel (issue #567 closure packet). Conditional on rows 4, 12, and 14.",
       "menu": {
-        "size": null,
-        "alternatives": "the admissible global-form menu awaits the four-global-forms negative control of issue #567",
-        "enumeration_source": null
+        "size": 4,
+        "alternatives": "the four admissible global forms, one per subgroup of the centre; the realized matter tensors select the maximal quotient Z6",
+        "enumeration_source": "code/a5_closure/axis_center_descent_certificate.py; Lean/Screen/Z6Descent.lean, four_admissible_global_forms"
       },
       "compression_input": true,
       "receipts": [
-        "code/a5_closure/a5_screen_sm_closure.py"
+        "code/a5_closure/axis_center_descent_certificate.py",
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
       ],
       "lean": [
+        {"module": "Lean/Screen/Z6Descent.lean", "declaration": "kernel_on_realized_weights"},
         {"module": "Lean/Screen/Z6Exact.lean", "declaration": "quotientEquivZMod6"},
         {"module": "Lean/Screen/TraceBalancedKernel.lean", "declaration": "kernel_cyclic"}
       ],
       "negative_controls": [
-        "the four-global-forms negative control is a required deliverable of issue #567"
+        "adjoint-only tensors leave all four global forms admissible (kernel order 36)",
+        "a fractionally charged extra tensor shrinks the kernel to the identity",
+        "mixed block-map orientations fail the convention gate"
       ],
       "paper_anchors": [
         {"file": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "anchor": "prop:z6"}

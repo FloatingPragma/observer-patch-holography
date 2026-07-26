@@ -39,8 +39,22 @@ def test_every_row_names_one_canonical_claim_and_class():
 
 def test_open_row_owner_outside_claim_gates_fails():
     ledger = live_ledger()
-    row = next(r for r in ledger["rows"] if r["selector_id"] == "z6_global_form_descent")
-    row["owner_issues"] = [505]
+    registry = json.loads(ledger_tool.REGISTRY_PATH.read_text(encoding="utf-8"))
+    identification = json.loads(
+        ledger_tool.IDENTIFICATION_PATH.read_text(encoding="utf-8")
+    )
+    snapshot = json.loads(ledger_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))
+    open_issues = {row["number"] for row in snapshot["rows"]}
+    row = next(r for r in ledger["rows"] if r["class"] == "open")
+    allowed: set[int] = set()
+    for claim_id in [row["canonical_claim_id"], *row["secondary_claim_ids"]]:
+        claim = next(c for c in registry["claims"] if c["claim_id"] == claim_id)
+        allowed |= set(claim["gates"])
+        for entry in identification["physical_identifications"]:
+            if claim_id in entry["claim_ids"]:
+                allowed |= {b["number"] for b in entry["blocking_issues"]}
+    divergent = sorted(open_issues - allowed)[0]
+    row["owner_issues"] = [divergent]
     with pytest.raises(SystemExit, match="boundaries diverge"):
         ledger_tool.validate(ledger)
 

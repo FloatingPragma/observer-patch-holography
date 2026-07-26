@@ -1,0 +1,36 @@
+{
+  "countermodel_witnesses": {
+    "adjoint_only": "kernel order 36: all four global forms admissible without matter",
+    "fractional_singlet": "kernel order 1: a larger cover is forced by a fractionally charged tensor",
+    "orientation": "the conjugate block map fails the convention gate; mixing orientations is a failed receipt"
+  },
+  "finite_controls": [
+    {
+      "actual_error": "CONVENTION",
+      "expected_error": "CONVENTION",
+      "name": "wrong_hypercharge_convention",
+      "passed": true
+    },
+    {
+      "actual_error": "CONVENTION",
+      "expected_error": "CONVENTION",
+      "name": "mixed_orientation",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "wrong_matter_receipt_pin",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "monopole_dynamics_injection",
+      "passed": true
+    }
+  ],
+  "issue": 567,
+  "manifest_sha256": "6fbdb4e6b42878f49958230eb59483d29db08caac255f630a132d092ab7001a8",
+  "schema": "oph.axis_center_descent_negative_controls.v1"
+}

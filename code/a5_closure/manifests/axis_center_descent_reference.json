@@ -1,0 +1,8 @@
+{
+  "schema": "oph.axis_center_descent_manifest.v1",
+  "description": "Reference source packet for AXIS-CENTER-DESCENT (issue #567). The kernel data is consumed from the hash-pinned #314 matter-lift receipt, whose physical source gate passes on the #599 semantic artifact chain; the kernel is recomputed on every realized matter tensor by exhaustive enumeration.",
+  "matter_receipt_path": "receipts/super_tannakian_matter_reference.receipt.json",
+  "matter_receipt_sha256": "dbdd5ebee779bc4eab2e84723a30e7508c16aecc10039a8084bdee8e4c2d549d",
+  "hypercharge_convention": "q = 6Y",
+  "block_map": "(A,B,z) -> (z^-2 A, z^3 B)"
+}
