@@ -1,0 +1,641 @@
+{
+  "claim_boundary": {
+    "does_not_close": [
+      "selection of the A3 reference family itself; the equal-state-weights receipt carries that hypothesis surface",
+      "third-order and higher readback structure; the theorem is a second-order jet statement with symbolic O(eps^3) remainder",
+      "physical identification of ports, currents, or any downstream gauge datum",
+      "consumer semantics beyond the typing rows; no consumer file is edited"
+    ],
+    "proves": "on the pinned A1 carrier, every declared load observable is an integer combination of atomic record counters, so the load fiber is Z by A1 finiteness and atomicity; the first-order term of the A3 divergence vanishes on the feasible tangent space and the second-order term is the Fisher form diag(1 / (2 tau_p)) = 6 I at the uniform reference, the identity element of the four-parameter equivariant menu"
+  },
+  "consumer_ledger": [
+    {
+      "binding_token": "integer_port_charges",
+      "consumer": "code/a5_closure/echosahedral_selector_certificate.py",
+      "consumes": "integer port-defect domain, total charge 12, quadratic mismatch cost, and the unit-split identity H(q) = 12 + sum (q_p - 1)^2",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": "A3 second-order theorem at the declared reference (quadratic_readback lane of this certificate)"
+    },
+    {
+      "binding_token": "carrier_manifest_sha256",
+      "consumer": "code/a5_closure/port_current_inner_certificate.py",
+      "consumes": "the port-current packet bound to the hash-pinned carrier with its integer defect readback",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "A5Commutant",
+      "consumer": "code/a5_closure/response_grammar_completeness_certificate.py",
+      "consumes": "the equivariant response grammar on the port space whose invariant quadratic forms are the commutant menu",
+      "integer_fiber_source": null,
+      "quadratic_form_source": "A3 second-order theorem at the declared reference (quadratic_readback lane of this certificate)"
+    },
+    {
+      "binding_token": "unit_split_of_positive_sum",
+      "consumer": "Lean/Screen/UnitSplit12.lean",
+      "consumes": "the twelve-slot positive integer split theorem on the integer load fiber",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "unit_split",
+      "consumer": "code/consensus/verify_issue_517_proof_obligations.py",
+      "consumes": "the unit-split domain and the strict quadratic gap 2 from the selector receipt",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": "A3 second-order theorem at the declared reference (quadratic_readback lane of this certificate)"
+    },
+    {
+      "binding_token": "defect_cost_sum_q2",
+      "consumer": "code/particles/hierarchy/verify_screen_sieve_theorem.py",
+      "consumes": "integer curvature charges 6 - deg with total 12 and the quadratic defect cost sum q^2",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": "A3 second-order theorem at the declared reference (quadratic_readback lane of this certificate)"
+    },
+    {
+      "binding_token": "total_curvature_charge",
+      "consumer": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+      "consumes": "the total curvature charge 12 from the screen sieve",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "total_charge",
+      "consumer": "code/particles/leptons/derive_charged_nonuniform_port_record_dynamics_no_go.py",
+      "consumes": "the screen-sieve minimum total charge",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "K = 4N/P",
+      "consumer": "code/capacity_readback/F_candidate_capK.py",
+      "consumes": "the pixel-chain equal-area cell count K = 4N/P read back as an integer family of record carriers",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "K = 4N/P",
+      "consumer": "code/capacity_readback/F_candidate_capL.py",
+      "consumes": "the pixel-chain marked-host-cell factor K = 4N/P",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    },
+    {
+      "binding_token": "K = 4N/P",
+      "consumer": "code/capacity_readback/capacity_semantics_menu_certificate.py",
+      "consumes": "the cell-product-structure axis with K = 4N/P cells as independent record carriers",
+      "integer_fiber_source": "A1 finiteness and atomicity (integer_fiber lane of this certificate)",
+      "quadratic_form_source": null
+    }
+  ],
+  "controls": {
+    "adjacency_form_claimed_forced": {
+      "dropped_hypothesis": "the A3 reference clause selecting the readback",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "claimed_form": "6*I + 1*A (adjacency-weighted quadratic form)",
+        "fisher_coefficient_vector": [
+          "6",
+          "6",
+          "6",
+          "6"
+        ],
+        "identity_class": false,
+        "isotypic_coefficients": {
+          "1": "11",
+          "3": "6 + 1*sqrt(5)",
+          "3p": "6 + -1*sqrt(5)",
+          "5": "5"
+        },
+        "passes_incidence_equivariance": true,
+        "reading": "the claim that A3 forces the adjacency-weighted form is rejected: its isotypic coefficient vector differs from (6, 6, 6, 6), and only the A3 reference clause separates the two inside the equivariant menu"
+      }
+    },
+    "linear_readback": {
+      "dropped_hypothesis": "the leading readback of a small feasible mismatch is first order at the projection",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "first_order_coefficients": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "reading": "the first-order term of D(tau + eps v || tau) is eps sum_p v_p, exactly zero for every feasible v, so the leading readback is the quadratic term",
+        "tangent_basis_evaluations": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    },
+    "non_atomic_load_model": {
+      "dropped_hypothesis": "A1 finiteness and central atomicity",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "model": {
+          "load_observable": "lebesgue_density_readback",
+          "model": "continuous_spectrum_load",
+          "primitive_central_atom_count": "no finite atomic family",
+          "record_spectrum": "continuous_interval_0_1"
+        },
+        "reading": "a continuous-spectrum load model has no finite atomic family, so it is out of the A1 class and no integer fiber conclusion applies to it",
+        "rejection_code": "A1_FINITENESS",
+        "rejection_message": "A1 asserts finite accessible algebras with atomic central record algebras; record spectrum 'continuous_interval_0_1' leaves the axiom class"
+      }
+    },
+    "tilted_reference": {
+      "dropped_hypothesis": "the A3 reference family is the uniform family",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "distinct_diagonal_values": [
+          "13/2",
+          "13/4"
+        ],
+        "proportional_to_identity": false,
+        "reading": "diag(1 / (2 tau_p)) with unequal tau_p is not proportional to the identity, so the reference clause selects the identity class",
+        "second_order_diagonal": [
+          "13/4",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2",
+          "13/2"
+        ],
+        "tau_prime": [
+          "2/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13"
+        ]
+      }
+    }
+  },
+  "generated_by": "code/a5_closure/load_fiber_readback_certificate.py",
+  "integer_fiber": "axiom_forced_from_A1_finiteness_and_atomicity",
+  "integer_fiber_lane": {
+    "accepted_load_model": {
+      "accepted": true,
+      "load_observable": "record_counting_difference",
+      "primitive_central_atom_count": 12,
+      "record_spectrum": "finite_atomic_central_records"
+    },
+    "atomicity": {
+      "atom_count": 12,
+      "atom_multiplicities": [
+        0,
+        1
+      ],
+      "atoms_pairwise_orthogonal": true,
+      "atoms_sum_to_unit": true,
+      "every_atom_minimal": true,
+      "every_projection_idempotent": true,
+      "lattice_closure": "complement, meet, and join act on subset masks, so the 4096 subset sums are closed under all three by construction",
+      "record_projection_count": 4096
+    },
+    "axiom_input": "A1 asserts finite accessible algebras with central record algebras and twelve primitive pairwise-orthogonal central port projections summing to one",
+    "carrier_manifest_path": "manifests/echosahedral_federation_reference.json",
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "conclusion": "axiom_forced_from_A1_finiteness_and_atomicity",
+    "load_observable_grammar": {
+      "argument": "each atom counter is a record-counting difference on an atomic central record algebra, hence Z-valued; an integer combination of Z-valued counters is Z-valued",
+      "declared_total_charge": 12,
+      "defect_domain": "integer_port_charges",
+      "observables": [
+        {
+          "atom_coefficients": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p00"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p01"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p02"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p03"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p04"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p05"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p06"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p07"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p08"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p09"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p10"
+        },
+        {
+          "atom_coefficients": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "integer_combination_of_atom_counters": true,
+          "name": "q_p11"
+        },
+        {
+          "atom_coefficients": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "declared_value": 12,
+          "integer_combination_of_atom_counters": true,
+          "name": "total_charge"
+        }
+      ],
+      "value_fiber": "Z",
+      "value_witness_counts": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "witness": "twelve primitive atoms, 4096 record projections with atom multiplicities in {0, 1}, and thirteen declared load observables, each an integer combination of atom counters"
+  },
+  "issue": 625,
+  "lean_spine": {
+    "commutant_module": "Lean/Screen/A5Commutant.lean",
+    "commutant_theorems": [
+      "OPH.A5Commutant.commutant_decomposition",
+      "OPH.A5Commutant.orbitals_independent",
+      "OPH.A5Commutant.equivariant_iff_commutes"
+    ],
+    "unit_split_module": "Lean/Screen/UnitSplit12.lean",
+    "unit_split_theorem": "OPH.UnitSplit12.unit_split_of_positive_sum"
+  },
+  "payload_sha256": "sha256:71ebcf044087a447d368fba16841b58d306cd12740fb59f12ded639ee6b65429",
+  "quadratic_readback_lane": {
+    "conclusion": "forced_to_identity_class_by_A3_reference",
+    "invariance_menu": {
+      "conclusion": "forced_to_identity_class_by_A3_reference",
+      "fisher_form": {
+        "coefficient_vector": [
+          "6",
+          "6",
+          "6",
+          "6"
+        ],
+        "equivariant": true,
+        "identity_class": true,
+        "isotypic_coefficients": {
+          "1": "6",
+          "3": "6",
+          "3p": "6",
+          "5": "6"
+        },
+        "matrix": "6 I",
+        "reading": "the A3 Fisher form at the uniform reference is the identity element of the menu: port-diagonal with equal weights"
+      },
+      "lean_commutant_module": "Lean/Screen/A5Commutant.lean",
+      "lean_commutant_theorems": [
+        "OPH.A5Commutant.commutant_decomposition",
+        "OPH.A5Commutant.orbitals_independent",
+        "OPH.A5Commutant.equivariant_iff_commutes"
+      ],
+      "menu": "deck-invariant quadratic forms on the port space are the symmetric commutant elements; the commutant is the four-dimensional span of the identity, adjacency, distance-two, and antipode orbitals, all symmetric, so the menu has exactly four parameters",
+      "menu_dimension": 4,
+      "orbital_supports_partition_entries": true,
+      "orbitals_equivariant_under_sixty_rotations": true,
+      "orbitals_symmetric": true,
+      "retained_countermodel": {
+        "family": "a*I + b*A + c*N + d*P, four free parameters",
+        "identity_class": false,
+        "independence_boundary": "equivariance without the A3 reference clause admits the full four-parameter menu, so the reference clause is the selecting hypothesis for the identity class",
+        "isotypic_coefficients": {
+          "1": "11",
+          "3": "6 + 1*sqrt(5)",
+          "3p": "6 + -1*sqrt(5)",
+          "5": "5"
+        },
+        "passes_incidence_equivariance": true,
+        "positive_definite": true,
+        "symmetric": true,
+        "witness_form": "6*I + 1*A (adjacency-weighted quadratic form)"
+      }
+    },
+    "second_order_theorem": {
+      "expansion": "D(tau + eps v || tau) = eps sum_p v_p + eps^2 sum_p v_p^2 / (2 tau_p) + O(eps^3), by the exact jet of (tau_p + eps v)(log(1 + eps v / tau_p))",
+      "first_order_coefficients": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "first_order_vanishes_on_tangent_space": true,
+      "fisher_coefficient_per_port": "6",
+      "fisher_quadratic_form": "Q = diag(1 / (2 tau_p)) = 6 I",
+      "numerics_used": false,
+      "off_tangent_witness": {
+        "reading": "the vanishing of the first-order term uses the feasibility clause sum_p v_p = 0 exactly",
+        "value": "1",
+        "vector": "e_0 (sum of entries 1, outside the tangent space)"
+      },
+      "positive_definite": true,
+      "reference_family_tau": [
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12"
+      ],
+      "second_order_diagonal": [
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6"
+      ],
+      "tangent_basis_evaluations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weight_note": "a strictly positive constant A3 weight w multiplies the jet port-uniformly, so the form becomes 6 w I and stays in the identity class"
+    }
+  },
+  "readback_quadratic_form": "forced_to_identity_class_by_A3_reference",
+  "schema": "oph.load_fiber_readback_certificate.v1"
+}

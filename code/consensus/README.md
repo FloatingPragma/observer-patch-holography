@@ -10,6 +10,10 @@ Canonical runners:
   conflict-component, prepared-acceptance/lock BFT, refinement-modulus,
   \(\ell^p\), and
   selector/separation receipts used by proof-audit issue #517.
+- `compiled_lattice_settling_certificate.py`: recomputes the compiled
+  Boolean-lattice uniform-settling realization packet for issue #328
+  (NAND/wire/fan-out patch encodings, exhaustive primitive intertwiner,
+  DAG composition checker, settling potential, fail-closed controls).
 
 Run the benchmark suite from the repo root:
 
@@ -30,6 +34,24 @@ python3 code/consensus/verify_issue_517_proof_obligations.py verify \
   --receipt code/consensus/runs/issue_517_proof_obligations.json
 python3 -m pytest code/consensus/test_issue_517_proof_obligations.py
 ```
+
+Run and verify the issue #328 settling certificate from the repo root:
+
+```bash
+python3 code/consensus/compiled_lattice_settling_certificate.py emit
+python3 code/consensus/compiled_lattice_settling_certificate.py verify
+python3 -m pytest code/consensus/test_compiled_lattice_settling_certificate.py
+```
+
+The emitted manifest is
+`code/consensus/manifests/compiled_lattice_settling_reference.json`
+(schema `oph.compiled_lattice_settling_certificate.v1`). The abstract acyclic
+Boolean-circuit compiler corollary stays a paper/Lean result
+(`extra/observable_normal_forms.tex`, `cor:boolean-circuit-compiler`;
+`Lean/ObservableNormalForms/ObservableNormalForms/Functional.lean`,
+`synchronous_depth_settling`); the certificate is the realized-dynamics
+correspondence at finite software scope, and continuum or physical-hardware
+attachment is open.
 
 `TXN-DIAMOND-1` exhausts a finite reference engine; it is evidence that the
 declared read/write, support-reclosed component-merge, prepared-batch,

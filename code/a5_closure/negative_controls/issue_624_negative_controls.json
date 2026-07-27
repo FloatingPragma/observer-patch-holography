@@ -1,0 +1,74 @@
+{
+  "countermodel_witnesses": {
+    "incoherent_assignment": "one twisted seam breaks the face relation of the two triple overlaps that seam borders and the worklist rejects it at the first forced face",
+    "noncentral_obstruction": "a face discrepancy outside the centre fails the commutation check against a propagated seam value and is rejected",
+    "out_of_class_nerve": "a faceless cycle stalls the worklist and carries a flat nontrivial-holonomy assignment that is not a gauge, which is the recorded fundamental-group boundary of the classification",
+    "s3_extra_flux_sector": "the symmetric group on three letters has trivial centre, so its second cohomology on the spherical nerve is trivial and a claimed extra sector repeats the trivial class",
+    "spin_manifest_pin": "the spin-artifact pin is carried twice, in this manifest and in the #613 chain, and any tampered copy breaks the hash comparison before any classification runs"
+  },
+  "finite_controls": [
+    {
+      "actual_error": "SCHEMA",
+      "expected_error": "SCHEMA",
+      "name": "wrong_manifest_schema",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "routed_manifest_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "spin_manifest_pin_tampered",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "routed_manifest_path_swapped",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "noncentral_flux_sector_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "flat_sector_promotion_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "fundamental_group_sector_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "instanton_sector_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "theta_period_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "laboratory_flux_injection",
+      "passed": true
+    }
+  ],
+  "issue": 624,
+  "manifest_sha256": "0f7813273174797c67e49810dafce93733bd3252c792e6f077cbf007f1d0a4b2",
+  "schema": "oph.noncentral_seam_reduction_negative_controls.v1"
+}

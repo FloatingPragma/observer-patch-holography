@@ -1,0 +1,570 @@
+{
+  "acceptance_criteria_status": {
+    "classical_localization_cannot_pass_gate": true,
+    "continuum_quantum_pole_open": true,
+    "defect_object_and_equivalence_source_defined": true,
+    "mass_and_charge_invariant_and_target_independent": true,
+    "multi_defect_composition_and_asymptotics_controlled": true,
+    "spectral_criterion_proved_at_finite_scope": true
+  },
+  "arithmetic": {
+    "characteristic_polynomial_method": "fraction-free Faddeev-LeVerrier with exact trace divisions and a zero-omega-part requirement on every coefficient",
+    "encoding": "integer pairs (a, b) for a + b omega, cross-checked against the integer 2n x 2n companion-block image of omega",
+    "floating_point_free": true,
+    "ring": "Z[omega] with omega^2 = omega - 1, omega = exp(2 pi i / 6)"
+  },
+  "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+  "charge_and_fusion": {
+    "charge_group": "Z6, the measured flux class group",
+    "conservation": "the total holonomy of every seam chain vanishes on the closed support, so charge is created and absorbed only in puncture pairs",
+    "fusion_pairs_checked": 36,
+    "fusion_rule": "class j fused with class k is class j + k mod 6",
+    "multi_defect_pairs_checked": 36,
+    "seam_supports_disjoint": true,
+    "second_pair_seam_support": [
+      11,
+      13,
+      14,
+      16,
+      21
+    ],
+    "second_puncture_pair_faces": [
+      1,
+      5
+    ]
+  },
+  "claim_boundary": {
+    "does_not_close": [
+      "a continuum quantum pole or propagator for any defect",
+      "scattering amplitudes and asymptotic completeness in the continuum",
+      "mass calibration against any measured particle target",
+      "laboratory identification of any species"
+    ],
+    "proves": "at finite source scope: the six measured flux sectors carry a gauge-invariant, refinement-stable, target-free spectral invariant that separates them from every classical localized record, with Z6 charge conservation, additive fusion, and additive composition of well-separated defect pairs on a self-adjoint ell^2 representation",
+    "status": "finite_source_scope_defect_sector"
+  },
+  "classical_record_control": {
+    "local_perturbation_preserves_class_and_spectra": true,
+    "marked_vertex_leaves_operator_family_unchanged": true,
+    "ordered_class_pairs_with_no_connecting_regauge": 30,
+    "scaled_basis_coboundaries_with_zero_holonomy": 60,
+    "separation_statement": "localization alone cannot pass the gate: every local operation fixes the flux class and the spectrum family, while distinct classes are separated by an exact holonomy obstruction and by the twisted characteristic polynomials"
+  },
+  "defect_sector_definition": {
+    "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the measured order-six class group",
+    "puncture_faces": {
+      "antipodal": true,
+      "end": 6,
+      "start": 0
+    },
+    "source_defined": true,
+    "witness_dual_path_length": 5,
+    "witness_family_is_scaling_of_class_1_chain": true,
+    "witness_seam_support": [
+      0,
+      4,
+      9,
+      24,
+      25
+    ]
+  },
+  "gauge_invariance": {
+    "characteristic_polynomials_invariant": true,
+    "classes_checked_per_gauge": 6,
+    "diagonal_conjugation_entry_checks": 1440,
+    "sample_gauges": [
+      "marked_vertex_0_scale_1",
+      "marked_last_vertex_scale_4",
+      "linear_ramp",
+      "affine_ramp"
+    ]
+  },
+  "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+  "hilbert_representation": {
+    "hermiticity_entry_checks": 360,
+    "operator": "twisted seam adjacency A_k with phase omega^(k f(e)) on the oriented seam and the conjugate phase on the reverse",
+    "self_adjoint": true,
+    "space": "ell^2 on the twelve support vertices; the refined level uses ell^2 on the forty-two refined vertices"
+  },
+  "issue": 311,
+  "manifest_sha256": "6c00b832f5be777da76335739cbbf207acfd60cb39dd08676ab659c1d9936e47",
+  "refinement_stability": {
+    "characteristic_polynomials": {
+      "0": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -160,
+          6330,
+          16416,
+          -183620,
+          -732720
+        ],
+        "coefficients_tail": [
+          173801472000,
+          33816576000,
+          2621440000
+        ],
+        "degree": 42,
+        "sha256": "d3532e67daeccc0cc3943a4e67a32847827b553a5ba5839a774bb8b5179f3893"
+      },
+      "1": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -158,
+          6336,
+          16224,
+          -184433,
+          -725416
+        ],
+        "coefficients_tail": [
+          67551154509,
+          11472153104,
+          753688220
+        ],
+        "degree": 42,
+        "sha256": "6c8c93aded624c7603d0b9cc72501dc4c25eed315b07ba26c5481759169ea41d"
+      },
+      "2": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -154,
+          6348,
+          15840,
+          -186053,
+          -710772
+        ],
+        "coefficients_tail": [
+          2112457239,
+          76168368,
+          -1227884
+        ],
+        "degree": 42,
+        "sha256": "3db79b32e207ff26c06a7d361ae734a090fc2f3499da331edbad376abac3897c"
+      },
+      "3": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -152,
+          6354,
+          15648,
+          -186860,
+          -703432
+        ],
+        "coefficients_tail": [
+          -279235584,
+          20676608,
+          -348160
+        ],
+        "degree": 42,
+        "sha256": "9536db9d825dda7ec6e0cdfb209c0bf79240fc3373c5823e4f8f66f109d688e0"
+      },
+      "4": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -154,
+          6348,
+          15840,
+          -186053,
+          -710772
+        ],
+        "coefficients_tail": [
+          2112457239,
+          76168368,
+          -1227884
+        ],
+        "degree": 42,
+        "sha256": "3db79b32e207ff26c06a7d361ae734a090fc2f3499da331edbad376abac3897c"
+      },
+      "5": {
+        "coefficients_head": [
+          1,
+          0,
+          -120,
+          -158,
+          6336,
+          16224,
+          -184433,
+          -725416
+        ],
+        "coefficients_tail": [
+          67551154509,
+          11472153104,
+          753688220
+        ],
+        "degree": 42,
+        "sha256": "6c8c93aded624c7603d0b9cc72501dc4c25eed315b07ba26c5481759169ea41d"
+      }
+    },
+    "coincidence_partition": [
+      [
+        0
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3
+      ]
+    ],
+    "hermiticity_checks": 1440,
+    "matches_pinned_refinement_transport": true,
+    "puncture_faces": {
+      "end": 24,
+      "end_child_of": 6,
+      "start": 0,
+      "start_child_of": 0
+    },
+    "realized_flux_menu": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refined_complex": {
+      "faces": 80,
+      "seams": 120,
+      "vertices": 42
+    },
+    "refined_dual_path_length": 9,
+    "regauge_invariance_sampled_classes": [
+      1,
+      3
+    ],
+    "verdict_persists": true
+  },
+  "schema": "oph.flux_defect_criterion_receipt.v1",
+  "spectral_criterion": {
+    "all_six_pairwise_distinct": false,
+    "class_0_differs_from_class_1": true,
+    "class_0_differs_from_class_3": true,
+    "class_1_differs_from_class_3": true,
+    "coincidence_partition": [
+      [
+        0
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3
+      ]
+    ],
+    "coincident_unordered_pairs": [
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "distinct_unordered_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "reading": "four distinct polynomials; classes k and 6 - k coincide because charge conjugation sends A_k to its entrywise conjugate, the transpose of a Hermitian operator, which fixes the characteristic polynomial"
+  },
+  "spectral_criterion_gate": {
+    "charge_conserved_and_fusion_additive": true,
+    "class_0_vs_3_and_0_vs_1_distinct": true,
+    "classical_localization_cannot_pass": true,
+    "continuum_quantum_pole": false,
+    "defect_objects_source_defined": true,
+    "invariants_target_free": true,
+    "laboratory_identification": false,
+    "multi_defect_composition_controlled": true,
+    "operators_self_adjoint": true,
+    "passed": true,
+    "refinement_stable": true,
+    "scattering_amplitude_interface": false,
+    "scope": "the gate aggregates the nine finite measured rows; the three false rows are open named interfaces outside finite source scope and never enter 'passed'",
+    "spectra_gauge_invariant": true
+  },
+  "twisted_spectra": {
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "integer_block_cross_check": "for every class the 24 x 24 integer polynomial equals the exact square of the Eisenstein polynomial",
+    "operator_dimension": 12,
+    "per_class": {
+      "0": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -40,
+          255,
+          576,
+          -580,
+          -2640,
+          -1425,
+          3200,
+          5250,
+          3000,
+          625
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "2051ff773fba6e58bf12a72fa7740fece323bb301e3badee9a62a00885d05ead"
+      },
+      "1": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -38,
+          261,
+          564,
+          -583,
+          -2394,
+          -1062,
+          2528,
+          3249,
+          1356,
+          181
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          2,
+          6,
+          -12,
+          -3,
+          246,
+          363,
+          -672,
+          -2001,
+          -1644,
+          -444
+        ],
+        "sha256": "3bccbbcfdde396c9877e69d9bc4973cc9c37221fb61b4502e433410dab81a591"
+      },
+      "2": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -34,
+          273,
+          540,
+          -583,
+          -1866,
+          -174,
+          1784,
+          561,
+          -456,
+          -53
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          6,
+          18,
+          -36,
+          -3,
+          774,
+          1251,
+          -1416,
+          -4689,
+          -3456,
+          -678
+        ],
+        "sha256": "f89200ef798288a5337a498bf3caeb9ab034a311c03a60558759bc612bfd19da"
+      },
+      "3": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -32,
+          279,
+          528,
+          -580,
+          -1584,
+          351,
+          1712,
+          -126,
+          -624,
+          169
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          8,
+          24,
+          -48,
+          0,
+          1056,
+          1776,
+          -1488,
+          -5376,
+          -3624,
+          -456
+        ],
+        "sha256": "5d65c7a384450850f185e093b6c157452c36e9f75c8c3472f5285c31bf8769eb"
+      },
+      "4": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -34,
+          273,
+          540,
+          -583,
+          -1866,
+          -174,
+          1784,
+          561,
+          -456,
+          -53
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          6,
+          18,
+          -36,
+          -3,
+          774,
+          1251,
+          -1416,
+          -4689,
+          -3456,
+          -678
+        ],
+        "sha256": "f89200ef798288a5337a498bf3caeb9ab034a311c03a60558759bc612bfd19da"
+      },
+      "5": {
+        "characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -38,
+          261,
+          564,
+          -583,
+          -2394,
+          -1062,
+          2528,
+          3249,
+          1356,
+          181
+        ],
+        "delta_from_untwisted": [
+          0,
+          0,
+          0,
+          2,
+          6,
+          -12,
+          -3,
+          246,
+          363,
+          -672,
+          -2001,
+          -1644,
+          -444
+        ],
+        "sha256": "3bccbbcfdde396c9877e69d9bc4973cc9c37221fb61b4502e433410dab81a591"
+      }
+    },
+    "untwisted_anchor": "class 0 is the plain icosahedral adjacency; its polynomial factors as (x - 5)(x + 1)^5 (x^2 - 5)^3"
+  },
+  "verifier_command": "python3 code/a5_closure/flux_defect_criterion_certificate.py verify --manifest code/a5_closure/manifests/flux_defect_criterion_reference.json --receipt code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json"
+}

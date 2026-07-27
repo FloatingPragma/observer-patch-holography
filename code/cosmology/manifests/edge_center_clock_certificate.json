@@ -1,0 +1,1350 @@
+{
+  "acceptance_mapping": {
+    "clock_normalization_source_identified": {
+      "detail": "derived lattice invariant m_rep = 24 with its theorem and artifacts",
+      "discharged_here": true
+    },
+    "full_collar_derivative_and_half_collar_identity": {
+      "detail": "finite error bounds computed and gated at every depth",
+      "discharged_here": true
+    },
+    "paper_and_simulator_distinguish_infinitesimal_from_finite": {
+      "detail": "the paper fragment already states the distinction; the simulator-side statement is owned by #579/#580",
+      "discharged_here": false
+    },
+    "simulator_emits_p_over_48_only_from_receipt": {
+      "detail": "owned by the #579 instantiation; oph_radial_lift_330 currently takes theta as a caller input and can consume this receipt",
+      "discharged_here": false
+    },
+    "source_graph_ancestry": {
+      "detail": "no measurement, likelihood, fit, residual, or data-calibrated input enters this module; P enters only as the declared closure-map enclosure whose own claim boundary and consumer policy are recorded in the antecedents",
+      "discharged_here": true
+    }
+  },
+  "antecedents": {
+    "pixel_root_interval": {
+      "artifact": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+      "certificate_date": "2026-07-14",
+      "consumer_policy": {
+        "default_thomson_endpoint_allowed": false,
+        "hidden_external_alpha_allowed": false,
+        "may_feed_compare_or_audit_surfaces": true,
+        "may_feed_live_particle_predictions": false
+      },
+      "exact_alpha_promoted": false,
+      "mode": "thomson_structured_running",
+      "role": "P enters only as this certified enclosure"
+    },
+    "presence_reading": {
+      "artifact": "extra/chi_nu_collar_survival_presence_correction.md",
+      "statement": "the finite one-step survival is the presence value 1 - P/24; e^(-P/24) is the depth limit, unreachable at any finite regulator"
+    },
+    "repair_round_invariant": {
+      "artifact": "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+      "certificate_status": "closed_representation_to_spectrum_round_count",
+      "exponent_denominator": 48,
+      "m_rep": 24,
+      "producer": "code/particles/hierarchy/verify_issue_343_m_rep_24.py",
+      "specialized_exponent": "-1/48",
+      "statement": "m_rep = 2*(8+3+1) = 24 oriented repair ticks per full-collar round, derived without measured inputs"
+    },
+    "reserve_trace_theorem": {
+      "artifact": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "statement": "tau_q(Z6) = P/24: the scalar-weighted reserve-presence probability per oriented repair tick"
+    }
+  },
+  "artifact": "oph_edge_center_clock_certificate",
+  "carrier_tower": {
+    "carrier": "icosahedral screen cellulation, edge-midpoint refinement",
+    "depths": 12,
+    "records": [
+      {
+        "backward_oriented_slots": 30,
+        "collar_cells": 20,
+        "collar_cells_route_a_per_face": 20,
+        "collar_cells_route_b_per_sub_edge": 20,
+        "collar_fraction": "1",
+        "depth": 0,
+        "edges": 30,
+        "euler_characteristic": 2,
+        "faces": 20,
+        "forward_oriented_slots": 30,
+        "full_cells": 0,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 30,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 30
+        },
+        "oriented_collar_slots": 60,
+        "skeleton_sub_edges": 30,
+        "sub_slots_per_depth0_slot": 1,
+        "vertices": 12
+      },
+      {
+        "backward_oriented_slots": 60,
+        "collar_cells": 60,
+        "collar_cells_route_a_per_face": 60,
+        "collar_cells_route_b_per_sub_edge": 60,
+        "collar_fraction": "3/4",
+        "depth": 1,
+        "edges": 120,
+        "euler_characteristic": 2,
+        "faces": 80,
+        "forward_oriented_slots": 60,
+        "full_cells": 20,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 60,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 60
+        },
+        "oriented_collar_slots": 120,
+        "skeleton_sub_edges": 60,
+        "sub_slots_per_depth0_slot": 2,
+        "vertices": 42
+      },
+      {
+        "backward_oriented_slots": 120,
+        "collar_cells": 180,
+        "collar_cells_route_a_per_face": 180,
+        "collar_cells_route_b_per_sub_edge": 180,
+        "collar_fraction": "9/16",
+        "depth": 2,
+        "edges": 480,
+        "euler_characteristic": 2,
+        "faces": 320,
+        "forward_oriented_slots": 120,
+        "full_cells": 140,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 120,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 120
+        },
+        "oriented_collar_slots": 240,
+        "skeleton_sub_edges": 120,
+        "sub_slots_per_depth0_slot": 4,
+        "vertices": 162
+      },
+      {
+        "backward_oriented_slots": 240,
+        "collar_cells": 420,
+        "collar_cells_route_a_per_face": 420,
+        "collar_cells_route_b_per_sub_edge": 420,
+        "collar_fraction": "21/64",
+        "depth": 3,
+        "edges": 1920,
+        "euler_characteristic": 2,
+        "faces": 1280,
+        "forward_oriented_slots": 240,
+        "full_cells": 860,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 240,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 240
+        },
+        "oriented_collar_slots": 480,
+        "skeleton_sub_edges": 240,
+        "sub_slots_per_depth0_slot": 8,
+        "vertices": 642
+      },
+      {
+        "backward_oriented_slots": 480,
+        "collar_cells": 900,
+        "collar_cells_route_a_per_face": 900,
+        "collar_cells_route_b_per_sub_edge": 900,
+        "collar_fraction": "45/256",
+        "depth": 4,
+        "edges": 7680,
+        "euler_characteristic": 2,
+        "faces": 5120,
+        "forward_oriented_slots": 480,
+        "full_cells": 4220,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 480,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 480
+        },
+        "oriented_collar_slots": 960,
+        "skeleton_sub_edges": 480,
+        "sub_slots_per_depth0_slot": 16,
+        "vertices": 2562
+      },
+      {
+        "backward_oriented_slots": 960,
+        "collar_cells": 1860,
+        "collar_cells_route_a_per_face": 1860,
+        "collar_cells_route_b_per_sub_edge": 1860,
+        "collar_fraction": "93/1024",
+        "depth": 5,
+        "edges": 30720,
+        "euler_characteristic": 2,
+        "faces": 20480,
+        "forward_oriented_slots": 960,
+        "full_cells": 18620,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 960,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 960
+        },
+        "oriented_collar_slots": 1920,
+        "skeleton_sub_edges": 960,
+        "sub_slots_per_depth0_slot": 32,
+        "vertices": 10242
+      },
+      {
+        "backward_oriented_slots": 1920,
+        "collar_cells": 3780,
+        "collar_cells_route_a_per_face": 3780,
+        "collar_cells_route_b_per_sub_edge": 3780,
+        "collar_fraction": "189/4096",
+        "depth": 6,
+        "edges": 122880,
+        "euler_characteristic": 2,
+        "faces": 81920,
+        "forward_oriented_slots": 1920,
+        "full_cells": 78140,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 1920,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 1920
+        },
+        "oriented_collar_slots": 3840,
+        "skeleton_sub_edges": 1920,
+        "sub_slots_per_depth0_slot": 64,
+        "vertices": 40962
+      },
+      {
+        "backward_oriented_slots": 3840,
+        "collar_cells": 7620,
+        "collar_cells_route_a_per_face": 7620,
+        "collar_cells_route_b_per_sub_edge": 7620,
+        "collar_fraction": "381/16384",
+        "depth": 7,
+        "edges": 491520,
+        "euler_characteristic": 2,
+        "faces": 327680,
+        "forward_oriented_slots": 3840,
+        "full_cells": 320060,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 3840,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 3840
+        },
+        "oriented_collar_slots": 7680,
+        "skeleton_sub_edges": 3840,
+        "sub_slots_per_depth0_slot": 128,
+        "vertices": 163842
+      },
+      {
+        "backward_oriented_slots": 7680,
+        "collar_cells": 15300,
+        "collar_cells_route_a_per_face": 15300,
+        "collar_cells_route_b_per_sub_edge": 15300,
+        "collar_fraction": "765/65536",
+        "depth": 8,
+        "edges": 1966080,
+        "euler_characteristic": 2,
+        "faces": 1310720,
+        "forward_oriented_slots": 7680,
+        "full_cells": 1295420,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 7680,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 7680
+        },
+        "oriented_collar_slots": 15360,
+        "skeleton_sub_edges": 7680,
+        "sub_slots_per_depth0_slot": 256,
+        "vertices": 655362
+      },
+      {
+        "backward_oriented_slots": 15360,
+        "collar_cells": 30660,
+        "collar_cells_route_a_per_face": 30660,
+        "collar_cells_route_b_per_sub_edge": 30660,
+        "collar_fraction": "1533/262144",
+        "depth": 9,
+        "edges": 7864320,
+        "euler_characteristic": 2,
+        "faces": 5242880,
+        "forward_oriented_slots": 15360,
+        "full_cells": 5212220,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 15360,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 15360
+        },
+        "oriented_collar_slots": 30720,
+        "skeleton_sub_edges": 15360,
+        "sub_slots_per_depth0_slot": 512,
+        "vertices": 2621442
+      },
+      {
+        "backward_oriented_slots": 30720,
+        "collar_cells": 61380,
+        "collar_cells_route_a_per_face": 61380,
+        "collar_cells_route_b_per_sub_edge": 61380,
+        "collar_fraction": "3069/1048576",
+        "depth": 10,
+        "edges": 31457280,
+        "euler_characteristic": 2,
+        "faces": 20971520,
+        "forward_oriented_slots": 30720,
+        "full_cells": 20910140,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 30720,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 30720
+        },
+        "oriented_collar_slots": 61440,
+        "skeleton_sub_edges": 30720,
+        "sub_slots_per_depth0_slot": 1024,
+        "vertices": 10485762
+      },
+      {
+        "backward_oriented_slots": 61440,
+        "collar_cells": 122820,
+        "collar_cells_route_a_per_face": 122820,
+        "collar_cells_route_b_per_sub_edge": 122820,
+        "collar_fraction": "6141/4194304",
+        "depth": 11,
+        "edges": 125829120,
+        "euler_characteristic": 2,
+        "faces": 83886080,
+        "forward_oriented_slots": 61440,
+        "full_cells": 83763260,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 61440,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 61440
+        },
+        "oriented_collar_slots": 122880,
+        "skeleton_sub_edges": 61440,
+        "sub_slots_per_depth0_slot": 2048,
+        "vertices": 41943042
+      },
+      {
+        "backward_oriented_slots": 122880,
+        "collar_cells": 245700,
+        "collar_cells_route_a_per_face": 245700,
+        "collar_cells_route_b_per_sub_edge": 245700,
+        "collar_fraction": "12285/16777216",
+        "depth": 12,
+        "edges": 503316480,
+        "euler_characteristic": 2,
+        "faces": 335544320,
+        "forward_oriented_slots": 122880,
+        "full_cells": 335298620,
+        "orientation_balance_defect": 0,
+        "orientation_reversal_involution": {
+          "fixed_point_free": true,
+          "half_collar_slot_count": 122880,
+          "half_over_full_slot_ratio": "1/2",
+          "orbit_count": 122880
+        },
+        "oriented_collar_slots": 245760,
+        "skeleton_sub_edges": 122880,
+        "sub_slots_per_depth0_slot": 4096,
+        "vertices": 167772162
+      }
+    ]
+  },
+  "clock_binding": {
+    "binding": "the generator density P/24 is reserve-presence probability per accepted repair event; the physical clock is repair-event counting, so no seconds-valued constant enters the computation",
+    "clock_normalization_source": {
+      "artifacts": [
+        "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+        "paper/screen_microphysics_and_observer_synchronization.tex"
+      ],
+      "invariant": "m_rep = 24 oriented repair ticks per full-collar round (orientation-doubled product-adjoint dimension 2*12)",
+      "theorem": "representation-to-spectrum round count (issue #343) together with the reserve-trace theorem tau_q(Z6) = P/24"
+    },
+    "clock_unit": "one accepted oriented repair event on the collar",
+    "declared_command_line_step_time": null
+  },
+  "controls": {
+    "e_branch_selected_as_primary": {
+      "reason": "primary branch must be 'edge_center_P_over_48'; 'repair_clock_e' branches are diagnostics only",
+      "rejected": true
+    },
+    "injected_declared_step_time": {
+      "reason": "forbidden input key at inputs.step_time_seconds: contains 'time'",
+      "rejected": true
+    },
+    "injected_measured_tilt_target": {
+      "reason": "measured-tilt-shaped input value at inputs.primordial_amplitude_hint: 0.9649 lies inside [0.95, 0.98]",
+      "rejected": true
+    },
+    "wrong_orientation_factor_1": {
+      "reason": "produces theta = P/24 and is flagged as the rejected orientation branch",
+      "rejected": true
+    }
+  },
+  "defect_bound_summary": {
+    "derivative": "sub-step quotient equals P/24 exactly at every depth",
+    "fail_closed": true,
+    "orientation_balance": "slot-count defect 0 exactly; survival defect bounded by (P/24)_hi^2 2^-m, shrinking with depth",
+    "refinement": "e^(-P/24) - u_m(1) strictly positive and bounded by (P/24)_hi^2 2^-m, shrinking with depth",
+    "semigroup": "exact on the dyadic grid at every depth (interval width gate)"
+  },
+  "diagnostics": {
+    "e_branch": {
+      "diagnostic_only": true,
+      "kappa_rep": "e",
+      "n_s": {
+        "hi": "0.9648305785509416344428741999412763788158",
+        "lo": "0.9648305785509416344428741981052628989851"
+      },
+      "note": "a diagnostic alternative, not the selected edge-center coordinate",
+      "theta": {
+        "hi": "0.03516942144905836555712580189473710101487",
+        "lo": "0.03516942144905836555712580005872362118424"
+      }
+    },
+    "finite_transition_exponent": {
+      "diagnostic_only": true,
+      "disjoint_from_theta": true,
+      "formula": "-log u / log b at u = 1 - P/48, log b = 1 tick",
+      "note": "substituting the finite one-step survival into the exponent formula does not produce the infinitesimal theorem value",
+      "value": {
+        "hi": "0.03456927662029671074908027889723932899017",
+        "lo": "0.0345692766202967107490802788826728900659"
+      }
+    }
+  },
+  "freeze_policy": "freezing the source artifact before sky comparison is an owner action",
+  "freeze_status": "not_frozen_here",
+  "generator": {
+    "distinction": "the infinitesimal density P/24 is the sub-step difference quotient at every depth; the finite one-tick survival 1 - P/24 is not the generator and is recorded separately",
+    "finite_one_step_presence_value": {
+      "hi": "0.9320428293392126092931452540346150074164",
+      "lo": "0.9320428293392126092931452540064720235437"
+    },
+    "full_collar_derivative": {
+      "hi": "0.06795717066078739070685474599352797645628",
+      "lo": "0.06795717066078739070685474596538499258364"
+    },
+    "statement": "-u_full'(0) = P/24 in the repair-tick clock coordinate"
+  },
+  "github_issue": 522,
+  "half_collar_identity": {
+    "finite_one_step_presence_value_half": {
+      "hi": "0.9660214146696063046465726270173075037082",
+      "lo": "0.9660214146696063046465726270032360117719"
+    },
+    "half_over_full_slot_ratio": "1/2",
+    "kappa_rep": {
+      "hi": "2.626240843743741047492891215398967426003",
+      "lo": "2.626240843743741047492891077208924173096"
+    },
+    "kappa_rep_issue_body_reconciliation": {
+      "computed_at": "legacy point P = 1.630968209403959, superseded",
+      "inside_certified_interval": false,
+      "issue_body_value": "2.627023712627471",
+      "note": "the emitted object is the interval from the certified P enclosure; the issue-body decimal tracks an earlier pixel point value",
+      "reproduced_at_legacy_point_within": "1e-13"
+    },
+    "n_s": {
+      "hi": "0.9660214146696063046465726270173075037082",
+      "lo": "0.9660214146696063046465726270032360117719"
+    },
+    "statement": "orientation reversal is a fixed-point-free involution on oriented collar slots with two equal classes at every tower depth; the source-facing restriction is one class, giving the exact factor 2",
+    "theta": {
+      "hi": "0.03397858533039369535342737299676398822814",
+      "lo": "0.03397858533039369535342737298269249629182"
+    }
+  },
+  "input_hygiene": {
+    "declared_step_time_present": false,
+    "forbidden_key_substrings": [
+      "time",
+      "second",
+      "hertz",
+      "planck",
+      "target",
+      "measured",
+      "sky",
+      "likelihood",
+      "fit",
+      "n_s",
+      "tilt"
+    ],
+    "measured_alpha_present": false,
+    "measured_tilt_window_rejected": [
+      "0.95",
+      "0.98"
+    ],
+    "time_dimension_constants_present": false
+  },
+  "inputs": {
+    "P_certified_enclosure": {
+      "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+      "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+    },
+    "P_source": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+    "structure_integers": {
+      "adjoint_dimension": 12,
+      "half_collar_denominator": 48,
+      "icosahedron": {
+        "edges": 30,
+        "faces": 20,
+        "vertices": 12
+      },
+      "m_rep_round_count": 24,
+      "orientation_doubling": 2,
+      "refinement_scale_ratio": 2
+    }
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 60,
+    "rounding": "mpmath_interval_outward"
+  },
+  "rejected_branches": {
+    "e_branch_as_primary": {
+      "reason": "the e branch is a diagnostic; selecting it as primary fails closed",
+      "status": "rejected_selection"
+    },
+    "poisson_value_at_finite_regulator": {
+      "reason": "every finite refinement sits strictly below e^(-P/24); the Poisson value is the depth limit, not a finite record",
+      "status": "rejected_finite_claim"
+    },
+    "wrong_orientation_factor_1": {
+      "disjoint_from_selected_theta": true,
+      "reason": "taking the full collar for the source-facing restriction ignores the fixed-point-free orientation-reversal involution whose two classes are exactly equal at every tower depth",
+      "status": "rejected_orientation_branch",
+      "theta": {
+        "hi": "0.06795717066078739070685474599352797645628",
+        "lo": "0.06795717066078739070685474596538499258364"
+      }
+    }
+  },
+  "schema": "oph.edge_center_clock_certificate.v1",
+  "selected_primary_branch": "edge_center_P_over_48",
+  "sky_comparison": {
+    "performed": false,
+    "policy": "this certificate never compares to any sky value"
+  },
+  "status": "edge_center_generator_and_clock_certificate_emitted",
+  "survival_family": {
+    "clock_coordinate": "s counts accepted oriented repair events (ticks); one full-collar round is m_rep = 24 ticks; no time-dimension unit appears",
+    "exponential_family_semigroup_defect": {
+      "contains_zero": true,
+      "probe": "s = 3/8, t = 5/8 ticks",
+      "value": {
+        "hi": "2.629400357140968296547592213313250586199e-29",
+        "lo": "-2.629400357140968296547592213313250586199e-29"
+      },
+      "width_bound": "1e-25"
+    },
+    "family": "u_m(1 tick) = (1 - (P/24) 2^-m)^(2^m), presence reading",
+    "records": [
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.0046181770442193825249",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.002257658853630360260773802508229538920686",
+              "lo": "0.002257658853630360260773802453792551476638"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.0046181770442193825249",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.001154544261054845631221068025874601373567",
+              "lo": "0.001154544261054845631221067970544892407258"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.0046181770442193825249",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.002257658853630360260773802508229538920686",
+              "lo": "0.002257658853630360260773802453792551476638"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "1.375660336509972947419420888168601891533e-28",
+              "lo": "-1.37566033650997294741942088816860266941e-28"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766687748775067e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 0,
+        "one_sub_step_survival": {
+          "hi": "0.9320428293392126092931452540346150074164",
+          "lo": "0.9320428293392126092931452540064720235437"
+        },
+        "one_tick_survival": {
+          "hi": "0.9320428293392126092931452540346150074164",
+          "lo": "0.9320428293392126092931452540064720235437"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9660214146696063046465726270173075037082",
+          "lo": "0.9660214146696063046465726270032360117719"
+        },
+        "sub_slots_per_tick": 1,
+        "sub_step_thickness_ticks": "1"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.0023090885221096912624",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.001141577997907384118333347915918423786445",
+              "lo": "0.001141577997907384118333347860572651114543"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.0023090885221096912624",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0005577405509596095296810294630239730158004",
+              "lo": "0.0005577405509596095296810294091044209829401"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.0023090885221096912624",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.001103114592575514629552734509541662640789",
+              "lo": "0.001103114592575514629552734456060933975709"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "8.837662464104131398971181147921314440004e-29",
+              "lo": "-8.837662464104131398971181147921314440004e-29"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766687756553836e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 1,
+        "one_sub_step_survival": {
+          "hi": "0.9660214146696063046465726270173075037082",
+          "lo": "0.9660214146696063046465726270032360117719"
+        },
+        "one_tick_survival": {
+          "hi": "0.9331973736002674549243663220323466249173",
+          "lo": "0.9331973736002674549243663220051598998236"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9663100507348700160543778940167404080834",
+          "lo": "0.9663100507348700160543778940029079808418"
+        },
+        "sub_slots_per_tick": 2,
+        "sub_step_thickness_ticks": "1/2"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.0011545442610548456312",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0005740168202196822790515762492820090743716",
+              "lo": "0.0005740168202196822790515761934701320820498"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.0011545442610548456312",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0002742036049407986627917877607664391767737",
+              "lo": "0.0002742036049407986627917877075220337282444"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.0011545442610548456312",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.0005453740416159050998717050732505165641789",
+              "lo": "0.0005453740416159050998717050202236860535793"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "4.992382774037650033648847123771774321751e-29",
+              "lo": "-4.992382774037650033648847123771789879289e-29"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766687772111375e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 2,
+        "one_sub_step_survival": {
+          "hi": "0.9830107073348031523232863135086537518541",
+          "lo": "0.9830107073348031523232863135016180058859"
+        },
+        "one_tick_survival": {
+          "hi": "0.9337551141512270644540473514681838728394",
+          "lo": "0.9337551141512270644540473514414510459002"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9664519221131322594151973920342775034189",
+          "lo": "0.966451922113132259415197392020561570995"
+        },
+        "sub_slots_per_tick": 4,
+        "sub_step_thickness_ticks": "1/4"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.00057727213052742281561",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0002878205108626119870387638406583614409937",
+              "lo": "0.0002878205108626119870387637846104458744589"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.00057727213052742281561",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0001359607966551243089095549702817436565156",
+              "lo": "0.0001359607966551243089095549173678275182292"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.00057727213052742281561",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.0002711704366751064370799173389956558967446",
+              "lo": "0.0002711704366751064370799172861900738159956"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.65115785093393537696143579940241827712e-29",
+              "lo": "-2.651157850933935376961435799402426055889e-29"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766687772111375e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 3,
+        "one_sub_step_survival": {
+          "hi": "0.991505353667401576161643156754326875927",
+          "lo": "0.991505353667401576161643156750809002943"
+        },
+        "one_tick_survival": {
+          "hi": "0.934029317756167863116839139202217485077",
+          "lo": "0.9340293177561678631168391391757059065677"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665222597296054968007852746121116278591",
+          "lo": "0.9665222597296054968007852745984532059433"
+        },
+        "sub_slots_per_tick": 8,
+        "sub_step_thickness_ticks": "1/8"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.00028863606526371140781",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0001441139276284045084929020686555175521658",
+              "lo": "0.0001441139276284045084929020124888286670131"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.00028863606526371140781",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00006769827385725125668471393854556092808585",
+              "lo": "0.00006769827385725125668471388579516534054097"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.00028863606526371140781",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.000135209640019982128170362395116249869176",
+              "lo": "0.0001352096400199821281703623424199086688193"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "1.365842191587671243642024759366401944919e-29",
+              "lo": "-1.365842191587671243642024759366409723688e-29"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766687772111375e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 4,
+        "one_sub_step_survival": {
+          "hi": "0.9957526768337007880808215783771634379635",
+          "lo": "0.9957526768337007880808215783754045014715"
+        },
+        "one_tick_survival": {
+          "hi": "0.9341652785528229874257486941459876502242",
+          "lo": "0.9341652785528229874257486941195853125952"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665572806754291055705611836094610911273",
+          "lo": "0.9665572806754291055705611835958312429613"
+        },
+        "sub_slots_per_tick": 16,
+        "sub_step_thickness_ticks": "1/16"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.0001443180326318557039",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00007210796298019804657864497117963552946239",
+              "lo": "0.0000721079629801980465786449149533705412067"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.0001443180326318557039",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00003377899177439509505423804903550346567399",
+              "lo": "0.00003377899177439509505423799636644281421047"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.0001443180326318557039",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.00006751136616273087148564848291874689968799",
+              "lo": "0.00006751136616273087148564843027668536968048"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "6.931819157138698612407006973324400647553e-30",
+              "lo": "-6.931819157138698612407006973324478435244e-30"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.81429838726387418769797476668789657168e-29",
+              "lo": "-2.814298387263874187697974766687746830375e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 5,
+        "one_sub_step_survival": {
+          "hi": "0.9978763384168503940404107891885817189818",
+          "lo": "0.9978763384168503940404107891877022507357"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342329768266802386824334080581308735233",
+          "lo": "0.9342329768266802386824334080317828155647"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665747543870854864204597631583983929102",
+          "lo": "0.966574754387085486420459763144782786578"
+        },
+        "sub_slots_per_tick": 32,
+        "sub_step_thickness_ticks": "1/32"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.000072159016315927851951",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00003606674143626605668593872549832142368918",
+              "lo": "0.00003606674143626605668593866924222090547754"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.000072159016315927851951",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00001687200754136566894306779574578992158271",
+              "lo": "0.00001687200754136566894306774311729110362217"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.000072159016315927851951",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.00003373237438833577643141046020424612687969",
+              "lo": "0.00003373237438833577643141040758923986260432"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "3.49180842914530424818148894677949426546e-30",
+              "lo": "-3.491808429145304248181488946779649840842e-30"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.81429838726387418769797476668789657168e-29",
+              "lo": "-2.814298387263874187697974766687995750986e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 6,
+        "one_sub_step_survival": {
+          "hi": "0.9989381692084251970202053945942908594909",
+          "lo": "0.9989381692084251970202053945938511253679"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342667558184546337774876460808183190304",
+          "lo": "0.9342667558184546337774876460544973163375"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665834820779817151067089960674804808061",
+          "lo": "0.9665834820779817151067089960538719841719"
+        },
+        "sub_slots_per_tick": 64,
+        "sub_step_thickness_ticks": "1/64"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.000036079508157963925976",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00001803656197495191977575039440363833420617",
+              "lo": "0.00001803656197495191977575033813260816670419"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.000036079508157963925976",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000008431637658275352207486283965283699668709",
+              "lo": "0.000008431637658275352207486231357039476710858"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.000036079508157963925976",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.00001686036684697010748834269076595233039183",
+              "lo": "0.0000168603668469701074883426381644526338873"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "1.752409969247867676023919649646503337952e-30",
+              "lo": "-1.752409969247867676023919649646503337952e-30"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766688394412902e-29",
+              "lo": "-2.814298387263874187697974766688493592208e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 7,
+        "one_sub_step_survival": {
+          "hi": "0.9994690846042125985101026972971454297454",
+          "lo": "0.9994690846042125985101026972969255626839"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342836278259959994464307138502431062591",
+          "lo": "0.934283627825995999446430713823935610134"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665878436353595455860479138783207294437",
+          "lo": "0.966587843635359545586047913864715784859"
+        },
+        "sub_slots_per_tick": 128,
+        "sub_step_thickness_ticks": "1/128"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "0.000018039754078981962988",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.00000901907896052433992802379464159229139747",
+              "lo": "0.000009019078960524339928023738363094326331483"
+            }
+          },
+          "orientation_balance": {
+            "bound": "0.000018039754078981962988",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000004214728046621700423098164792803993910081",
+              "lo": "0.000004214728046621700423098112194680498836785"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "0.000018039754078981962988",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.000008428729188694755280856433101416728586122",
+              "lo": "0.00000842872918869475528085638050666505931344"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "8.77835315590442184009897646040680311273e-31",
+              "lo": "-8.77835315590442184009897646040602523582e-31"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766689390095347e-29",
+              "lo": "-2.814298387263874187697974766688493592208e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 8,
+        "one_sub_step_survival": {
+          "hi": "0.9997345423021062992550513486485727148727",
+          "lo": "0.999734542302106299255051348648462781342"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342920594636542747986382001079008938337",
+          "lo": "0.9342920594636542747986382000816001457358"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665900238424256034294802569738861310539",
+          "lo": "0.9665900238424256034294802569602829617947"
+        },
+        "sub_slots_per_tick": 256,
+        "sub_step_thickness_ticks": "1/256"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "9.0198770394909814939e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000004509738993383411817458786033282009841899",
+              "lo": "0.000004509738993383411817458729751049402533995"
+            }
+          },
+          "orientation_balance": {
+            "bound": "9.0198770394909814939e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000002107091420807065880436036056402802034973",
+              "lo": "0.000002107091420807065880435983463338029849798"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "9.0198770394909814939e-6",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.000004214001142073054857758294605988131886338",
+              "lo": "0.000004214001142073054857758242014609163266358"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "4.393257278282997250135572361438596871322e-31",
+              "lo": "-4.393257278282997250135572361439374748231e-31"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766691381460236e-29",
+              "lo": "-2.814298387263874187697974766688493592208e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 9,
+        "one_sub_step_survival": {
+          "hi": "0.9998672711510531496275256743242863574364",
+          "lo": "0.999867271151053149627525674324231390671"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342962741917008964990612982463929497297",
+          "lo": "0.9342962741917008964990612982200955743325"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665911138031022182178745943786063513624",
+          "lo": "0.9665911138031022182178745943650040695912"
+        },
+        "sub_slots_per_tick": 512,
+        "sub_step_thickness_ticks": "1/512"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "4.509938519745490747e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000002254919377454640371757973094876008377395",
+              "lo": "0.000002254919377454640371757916810775894054771"
+            }
+          },
+          "orientation_balance": {
+            "bound": "4.509938519745490747e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000001053477571413677711330577129340596807461",
+              "lo": "0.000001053477571413677711330524538804775971405"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "4.509938519745490747e-6",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.000002106909721265988977322284845274704826243",
+              "lo": "0.000002106909721265988977322232255581758441682"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.197649423810378313646394277665169929996e-31",
+              "lo": "-2.197649423810378313646394277664392053086e-31"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766695364190013e-29",
+              "lo": "-2.814298387263874187697974766692476321986e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 10,
+        "one_sub_step_survival": {
+          "hi": "0.9999336355755265748137628371621431787182",
+          "lo": "0.9999336355755265748137628371621156953355"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342983812831217035649417342561519771346",
+          "lo": "0.9342983812831217035649417342298562877596"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665916587477325821715032069758054092271",
+          "lo": "0.9665916587477325821715032069622035711562"
+        },
+        "sub_slots_per_tick": 1024,
+        "sub_step_thickness_ticks": "1/1024"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "2.2549692598727453735e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000001127472159228396218055386125814354327894",
+              "lo": "0.000001127472159228396218055329840780440020872"
+            }
+          },
+          "orientation_balance": {
+            "bound": "2.2549692598727453735e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.000000526721752413601504143468710769279702425",
+              "lo": "0.0000005267217524136015041434161214978320382596"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "2.2549692598727453735e-6",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.000001053432149852311265991734010780553879959",
+              "lo": "0.000001053432149852311265991681421930536609099"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "1.099079984300188443880444708751297249699e-31",
+              "lo": "-1.099079984300188443880444708752075126609e-31"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766695364190013e-29",
+              "lo": "-2.814298387263874187697974766692476321986e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 11,
+        "one_sub_step_survival": {
+          "hi": "0.9999668177877632874068814185810715893591",
+          "lo": "0.9999668177877632874068814185810578476677"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342994347606931172426530648069856283564",
+          "lo": "0.9342994347606931172426530647806907819105"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.9665919312111215481476975520899113400018",
+          "lo": "0.9665919312111215481476975520763097237702"
+        },
+        "sub_slots_per_tick": 2048,
+        "sub_step_thickness_ticks": "1/2048"
+      },
+      {
+        "defects": {
+          "limit_family_derivative": {
+            "bound": "1.1274846299363726867e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0000005637391972782608201903875328336386749048",
+              "lo": "0.0000005637391972782608201903312473328127559742"
+            }
+          },
+          "orientation_balance": {
+            "bound": "1.1274846299363726867e-6",
+            "nonnegative": true,
+            "value": {
+              "hi": "0.0000002633566180652519186032912700222153013787",
+              "lo": "0.0000002633566180652519186032386813829286001233"
+            }
+          },
+          "refinement_to_poisson_floor": {
+            "bound": "1.1274846299363726867e-6",
+            "strictly_positive": true,
+            "value": {
+              "hi": "0.0000005267103974387097618482915944362759805227",
+              "lo": "0.0000005267103974387097618482390060077027678513"
+            }
+          },
+          "semigroup_on_grid": {
+            "contains_zero": true,
+            "value": {
+              "hi": "5.496038197791610781449099973635908793657e-32",
+              "lo": "-5.496038197791610781449099973643687562754e-32"
+            },
+            "width_bound": "1e-25"
+          },
+          "sub_step_derivative": {
+            "contains_zero": true,
+            "value": {
+              "hi": "2.814298387263874187697974766711295109125e-29",
+              "lo": "-2.814298387263874187697974766692476321986e-29"
+            },
+            "width_bound": "1e-25"
+          }
+        },
+        "depth": 12,
+        "one_sub_step_survival": {
+          "hi": "0.9999834088938816437034407092905357946795",
+          "lo": "0.9999834088938816437034407092905289238339"
+        },
+        "one_tick_survival": {
+          "hi": "0.9342999614824455308441572082494015511902",
+          "lo": "0.9342999614824455308441572082231071261884"
+        },
+        "one_tick_survival_half_collar": {
+          "hi": "0.966592067440584573358577463492061445811",
+          "lo": "0.9665920674405845733585774634784599404963"
+        },
+        "sub_slots_per_tick": 4096,
+        "sub_step_thickness_ticks": "1/4096"
+      }
+    ],
+    "thin_representative_exactness": {
+      "depths_checked": [
+        0,
+        6,
+        12
+      ],
+      "representative": "midpoint of the certified P enclosure",
+      "width_bound": "1e-50",
+      "worst_derivative_defect_width": "3.186281057e-58",
+      "worst_semigroup_defect_width": "1.555753819e-60"
+    }
+  },
+  "theorem_source": {
+    "definition": "def:oph-screen-reserve-generator",
+    "fragment": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+    "theorem": "thm:oph-p-over-48-tilt"
+  }
+}

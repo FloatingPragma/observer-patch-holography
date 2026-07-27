@@ -15,7 +15,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 4. **`de_sitter_capacity_transfer_shock_sign`: finite screen-capacity transfer / gravitational de Sitter shock sign.** Status: `undischarged`. Canonical claims: `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`. Source anchors: `de_Sitter_fixed_total_capacity_horizon_dictionary`, `capacity_ledger_to_observer_mass_dictionary`, `de_Sitter_shock_coefficient_scale_dictionary`, `Einstein_branch_D5`, `independent_physical_scale_receipt`. Blocking issues: [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) [open work item] source-derived physical scale and clock stack; [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) [open work item] source-only correctable public-record capacity; [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) [open work item] fixed total screen-capacity and horizon-area identification; [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) [open work item] source-bound Einstein-branch clause realization; [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) [open work item] de Sitter gauge, kinetic, ledger-to-source, and response-coefficient attachments.
 5. **`port_bracket_physical_current`: twelve-port bracket / physical gauge current.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-PORT-CURRENT-INNER`. Source anchors: `physical port-current source-binding contract`. Blocking issues: [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [open work item] physical attachment of the source-bound current to laboratory gauge currents.
 6. **`repair_generator_yang_mills_hamiltonian`: repair generator / Yang-Mills Hamiltonian.** Status: `undischarged`. Canonical claims: `OPH-YM-GAP`. Source anchors: `Assumption 20`. Blocking issues: [#294](https://github.com/FloatingPragma/observer-patch-holography/issues/294) [open work item] Osterwalder-Schrader reconstruction and nontriviality; [#295](https://github.com/FloatingPragma/observer-patch-holography/issues/295) [open work item] finite repair-gap floor.
-7. **`g_si_clock`: G_SI / source-derived physical clock.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-24-CLOCK-DETERMINANT`. Source anchors: `G_SI clock chain`. Blocking issues: [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) [open work item] source-derived clock stack for the Newton constant; [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) [open work item] finite edge-center generator and clock certificate.
+7. **`g_si_clock`: G_SI / source-derived physical clock.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-24-CLOCK-DETERMINANT`. Source anchors: `G_SI clock chain`. Blocking issues: [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) [open work item] source-derived clock stack for the Newton constant; the finite edge-center generator and clock certificate landed under the closed #522 (receipt code/cosmology/manifests/edge_center_clock_certificate.json).
 
 ## Compression-bound state
 
@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2000`. 61 claims, 21 distinct live gates across 19 gated claims.
+Release: `r2000`. 61 claims, 20 distinct live gates across 19 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -86,7 +86,7 @@ Release: `r2000`. 61 claims, 21 distinct live gates across 19 gated claims.
 | `OPH-GAUGE-EXTERIOR-SM-WITNESS` | `conditional_implication` | `proved_conditional_representation_witness` | none |
 | `OPH-Q-PN-CLOSURE` | `declared_structure` | `declared_maps_with_physical_closure_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |
 | `OPH-HIER-EW` | `conditional_implication` | `weak_multiplicity_closed_common_load_and_direct_capacity_open` | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) |
-| `OPH-SCREEN-24-CLOCK-DETERMINANT` | `conditional_implication` | `rate_no_go_proved_physical_clock_attachment_open` | [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334), [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) |
+| `OPH-SCREEN-24-CLOCK-DETERMINANT` | `conditional_implication` | `rate_no_go_proved_physical_clock_attachment_open` | [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) |
 | `OPH-SCREEN-MODULAR-GEARING` | `conditional_implication` | `theorem_proved_source_derived_realization_open` | none |
 | `OPH-ALPHA-PIXEL` | `empirical_implementation` | `source_branch_with_endpoint_boundary` | [#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545) |
 | `OPH-DM-CONT` | `declared_structure` | `work_in_progress` | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) |
@@ -108,7 +108,6 @@ Release: `r2000`. 61 claims, 21 distinct live gates across 19 gated claims.
 | [#364](https://github.com/FloatingPragma/observer-patch-holography/issues/364) | String theorem: critical-edge heterotic VOA closure | `OPH-STRING-SELECTOR` |
 | [#365](https://github.com/FloatingPragma/observer-patch-holography/issues/365) | String certificate: Bouchard-Donagi cohomology and one-Higgs witness reproduction | `OPH-STRING-SELECTOR` |
 | [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) | [N closure] Prove robust source-only correctable public-record closure | `OPH-GR-D6-CAPACITY`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |
-| [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) | [Cosmology] Emit the finite edge-center generator and clock certificate | `OPH-SCREEN-24-CLOCK-DETERMINANT` |
 | [#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545) | [P closure] Complete the physical pixel readback and certify its unique root | `OPH-ALPHA-PIXEL` |
 | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) | [Charged leptons] Derive the physical Yukawa landing and determinant attachment | `OPH-KOIDE-CIRCULANT-IDENTITY` |
 | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) | [N-Higgs bridge] Identify the common screen/electroweak load carrier | `OPH-HIER-EW` |

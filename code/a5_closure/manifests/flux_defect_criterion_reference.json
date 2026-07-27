@@ -1,0 +1,8 @@
+{
+  "schema": "oph.flux_defect_criterion_certificate.v1",
+  "description": "Reference packet for the particle-like defect criterion (issue #311). The defect objects are the six measured flux sectors of the certified icosahedral support: seam chains up to coboundary regauging, classified by their puncture holonomy in the measured order-six class group. The hash-pinned carrier manifest supplies the oriented twelve-vertex, thirty-seam, twenty-face complex, and the hash-pinned measured global-form artifact supplies the two-puncture flux-tube witnesses realizing every class. The verifier derives, per class, the twisted seam adjacency operator over the Eisenstein ring Z[omega] and its exact characteristic polynomial over Z, then proves the finite spectral criterion: the spectra are gauge invariant, refinement stable, and separate the flux classes from every classical localized record, with Z6 charge conservation, additive fusion, and additive composition of disjoint defect pairs. The continuum quantum pole, scattering amplitudes, mass calibration, and laboratory identification remain open named interfaces.",
+  "carrier_manifest_path": "manifests/echosahedral_federation_reference.json",
+  "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+  "global_form_artifact_path": "manifests/global_form_semantic_artifact.json",
+  "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c"
+}

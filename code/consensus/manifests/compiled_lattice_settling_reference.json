@@ -1,0 +1,354 @@
+{
+  "abstract_compiler_result": {
+    "gap_this_packet_closes_at_finite_scope": "cor:functional-synchronous states that correspondence with a separately specified compiler or update rule requires its own theorem; this packet supplies the realized-dynamics correspondence for the finite software patch dynamics defined here",
+    "label": "separately labelled abstract result; this packet cites it and does not restate or replace its proof",
+    "lean_declarations": [
+      "ObservableNormalForms.RankedSynchronousSystem.synchronousEvolve_agrees_through_rank",
+      "ObservableNormalForms.RankedSynchronousSystem.synchronous_depth_settling",
+      "ObservableNormalForms.RankedSynchronousSystem.generatedExtension_unique"
+    ],
+    "lean_module": "Lean/ObservableNormalForms/ObservableNormalForms/Functional.lean",
+    "paper": "extra/observable_normal_forms.tex",
+    "paper_results": [
+      "cor:boolean-circuit-compiler (Acyclic Boolean circuit compiler)",
+      "cor:functional-synchronous (Synchronous settling by dependency depth)"
+    ],
+    "proof_index": "Lean/ObservableNormalForms/PROOF_INDEX.md"
+  },
+  "arithmetic": "exact integer and Boolean arithmetic; no floating point in any check",
+  "circuits": {
+    "nand_tree_depth3": {
+      "compiled_depth": 4,
+      "extension_semantics_checks": 256,
+      "gate_count": 7,
+      "patch_counts": {
+        "NAND": 7,
+        "WIRE": 1
+      },
+      "patch_total": 8,
+      "rank_ladder": {
+        "conclusion": "after round k every instance of rank at most k is settled from any initial register state; the realized dynamics settles in at most c * depth rounds with c = 1",
+        "layers": {
+          "1": 4,
+          "2": 2,
+          "3": 1,
+          "4": 1
+        },
+        "premise_per_instance": "every source sits at strictly lower rank",
+        "premise_per_primitive": "one-round settling and port locality, exhaustively checked",
+        "verified": true
+      },
+      "register_count": 8,
+      "settling": {
+        "bound_verified": true,
+        "coverage": "exhaustive over all inputs and all internal register states",
+        "min_potential_margin": 0,
+        "settling_bound_c_times_depth": 4,
+        "trajectories": 65536,
+        "worst_settling_time": 4
+      }
+    },
+    "two_bit_adder_from_nand": {
+      "compiled_depth": 13,
+      "extension_semantics_checks": 16,
+      "gate_count": 14,
+      "patch_counts": {
+        "FANOUT2": 13,
+        "NAND": 14,
+        "WIRE": 3
+      },
+      "patch_total": 30,
+      "rank_ladder": {
+        "conclusion": "after round k every instance of rank at most k is settled from any initial register state; the realized dynamics settles in at most c * depth rounds with c = 1",
+        "layers": {
+          "1": 4,
+          "10": 2,
+          "11": 2,
+          "12": 2,
+          "13": 1,
+          "2": 2,
+          "3": 2,
+          "4": 4,
+          "5": 4,
+          "6": 3,
+          "7": 2,
+          "8": 1,
+          "9": 1
+        },
+        "premise_per_instance": "every source sits at strictly lower rank",
+        "premise_per_primitive": "one-round settling and port locality, exhaustively checked",
+        "verified": true
+      },
+      "register_count": 43,
+      "settling": {
+        "bound_verified": true,
+        "coverage": "declared finite family: extension, all-zero, all-one, complement of the extension, all single-register corruptions of the extension and of all-zero, for every input assignment; the all-initial-state bound is the composition-checker rank-ladder lemma",
+        "min_potential_margin": 0,
+        "settling_bound_c_times_depth": 13,
+        "trajectories": 1440,
+        "worst_settling_time": 13
+      }
+    },
+    "xor_from_nand": {
+      "compiled_depth": 6,
+      "extension_semantics_checks": 4,
+      "gate_count": 4,
+      "patch_counts": {
+        "FANOUT2": 3,
+        "NAND": 4,
+        "WIRE": 1
+      },
+      "patch_total": 8,
+      "rank_ladder": {
+        "conclusion": "after round k every instance of rank at most k is settled from any initial register state; the realized dynamics settles in at most c * depth rounds with c = 1",
+        "layers": {
+          "1": 2,
+          "2": 1,
+          "3": 1,
+          "4": 2,
+          "5": 1,
+          "6": 1
+        },
+        "premise_per_instance": "every source sits at strictly lower rank",
+        "premise_per_primitive": "one-round settling and port locality, exhaustively checked",
+        "verified": true
+      },
+      "register_count": 11,
+      "settling": {
+        "bound_verified": true,
+        "coverage": "exhaustive over all inputs and all internal register states",
+        "min_potential_margin": 0,
+        "settling_bound_c_times_depth": 6,
+        "trajectories": 8192,
+        "worst_settling_time": 6
+      }
+    }
+  },
+  "composition_checker": {
+    "rules": [
+      "known primitive kinds only",
+      "port arity matches the primitive interface (fan-in overload rejected)",
+      "every source reference resolves (dangling references rejected)",
+      "every port source feeds at most one consumer (replication requires a fan-out patch)",
+      "acyclic wiring via topological sort (cycles rejected)",
+      "rank ladder: every source sits at strictly lower rank",
+      "path-count weight inequality checked per instance"
+    ],
+    "structural_induction": "acyclic composition of exhaustively verified primitives is verified: the rank-ladder certification instantiates the induction layer by layer on each compiled circuit"
+  },
+  "controls": {
+    "cross_talk_fanout": {
+      "construction": "fan-out whose first branch xors the sibling register into its update; the state-independence sweep detects the sibling dependence",
+      "error_code": "CROSS_TALK",
+      "verdict": "fails_closed",
+      "witness": "primitive CROSSTALK_FANOUT: next state depends on internal register state at ports (0,); state-dependent images [(0, 0), (1, 0)]"
+    },
+    "cyclic_layout": {
+      "construction": "two wire patches feeding each other",
+      "error_code": "CYCLIC_LAYOUT",
+      "verdict": "fails_closed",
+      "witness": "cyclic_control: acyclicity fails; instances on a cycle: ['W1', 'W2']"
+    },
+    "fan_in_overload": {
+      "construction": "three sources wired into a two-port NAND",
+      "error_code": "PORT_ARITY",
+      "verdict": "fails_closed",
+      "witness": "fan_in_overload_control: instance G wires 3 sources into 2 ports of NAND"
+    },
+    "multi_consumer_port": {
+      "construction": "one input feeding two ports without a fan-out patch",
+      "error_code": "MULTI_CONSUMER",
+      "verdict": "fails_closed",
+      "witness": "multi_consumer_control: source ('in', 'x') feeds more than one port; replication requires an explicit fan-out patch"
+    },
+    "noisy_update_table": {
+      "construction": "NAND with the (1,1) table entry flipped to 1; the intertwiner check detects the broken truth-table commutation",
+      "error_code": "INTERTWINER_BROKEN",
+      "verdict": "fails_closed",
+      "witness": "primitive NOISY_NAND: settled readback (1,) at ports (1, 1) differs from declared truth (0,)"
+    }
+  },
+  "fan_out_control": {
+    "checked_port_state_pairs": 8,
+    "non_interference": "the FANOUT2 state-independence sweep varies both branch registers over all values at every port value and requires identical branch updates, so neither branch reads its sibling"
+  },
+  "intertwiner": {
+    "kind": "finite bisimulation, exact",
+    "statement": "decode is the register readback and encode is the identity on register bits; for every primitive, every port assignment, and every internal register state, one patch update commutes exactly with the single-site ranked-system update, checked exhaustively; for compiled nets the realized synchronous step is the product of these local updates over the single-consumer wiring, so the realized dynamics is the synchronous dynamics of the ranked functional system carried by the patch DAG"
+  },
+  "issue": 328,
+  "potential": {
+    "checked_premises": [
+      "per-primitive port locality and one-round settling (exhaustive)",
+      "per-instance weight inequality over the DAG (exact integer check)"
+    ],
+    "depth_weight_countermodel": {
+      "depth_weight_potential_after": 8,
+      "depth_weight_potential_before": 6,
+      "finding": "the potential weighted by remaining depth increases across this step, so it is not a settling potential for fan-out circuits; the path-count weight decreases by exactly the unsettled count and is the potential this certificate uses",
+      "net_depth": 4,
+      "path_count_potential_after": 8,
+      "path_count_potential_before": 10,
+      "witness_unsettled_after": [
+        "W1",
+        "W2",
+        "W3",
+        "W4"
+      ],
+      "witness_unsettled_before": [
+        "F2",
+        "F3"
+      ]
+    },
+    "lemma": "Phi(step(x)) <= Phi(x) - |unsettled(x)|: an instance is unsettled after the step only if some source instance was unsettled before it (port locality plus per-primitive one-round settling), so the post-step unsettled set is covered by the consumers of the pre-step unsettled set, and the weight inequality w(p) >= 1 + sum of consumer weights telescopes the sum",
+    "potential": "Phi(x) = sum of w(p) over instances p not holding their extension value",
+    "weight": "w(p) = 1 + sum over consuming port uses of w(consumer), computed in reverse topological order (the number of directed paths leaving p, plus one)"
+  },
+  "primitives": {
+    "FANOUT2": {
+      "evidence_bundle": {
+        "checked_port_state_pairs": 8,
+        "one_step_commutation": "readback(update(ports, state)) = truth(ports) for every internal state; encode/decode are identity on register bits",
+        "settled_state_is_fixed_point": true,
+        "settles_in_rounds": 1,
+        "state_independent_update": true
+      },
+      "local_state": [
+        "q0",
+        "q1"
+      ],
+      "ports": {
+        "in": [
+          "x"
+        ],
+        "out": [
+          "z0",
+          "z1"
+        ]
+      },
+      "readback": {
+        "z0": "q0",
+        "z1": "q1"
+      },
+      "record": "the settled register content; at the fixed point the register carries the declared truth of the port values and one further update leaves it unchanged",
+      "repair_update_rule": "synchronous table update: registers := table(port values)",
+      "truth_table": {
+        "0": [
+          0,
+          0
+        ],
+        "1": [
+          1,
+          1
+        ]
+      }
+    },
+    "NAND": {
+      "evidence_bundle": {
+        "checked_port_state_pairs": 8,
+        "one_step_commutation": "readback(update(ports, state)) = truth(ports) for every internal state; encode/decode are identity on register bits",
+        "settled_state_is_fixed_point": true,
+        "settles_in_rounds": 1,
+        "state_independent_update": true
+      },
+      "local_state": [
+        "q"
+      ],
+      "ports": {
+        "in": [
+          "x",
+          "y"
+        ],
+        "out": [
+          "z"
+        ]
+      },
+      "readback": {
+        "z": "q"
+      },
+      "record": "the settled register content; at the fixed point the register carries the declared truth of the port values and one further update leaves it unchanged",
+      "repair_update_rule": "synchronous table update: registers := table(port values)",
+      "truth_table": {
+        "00": [
+          1
+        ],
+        "01": [
+          1
+        ],
+        "10": [
+          1
+        ],
+        "11": [
+          0
+        ]
+      }
+    },
+    "WIRE": {
+      "evidence_bundle": {
+        "checked_port_state_pairs": 4,
+        "one_step_commutation": "readback(update(ports, state)) = truth(ports) for every internal state; encode/decode are identity on register bits",
+        "settled_state_is_fixed_point": true,
+        "settles_in_rounds": 1,
+        "state_independent_update": true
+      },
+      "local_state": [
+        "q"
+      ],
+      "ports": {
+        "in": [
+          "x"
+        ],
+        "out": [
+          "z"
+        ]
+      },
+      "readback": {
+        "z": "q"
+      },
+      "record": "the settled register content; at the fixed point the register carries the declared truth of the port values and one further update leaves it unchanged",
+      "repair_update_rule": "synchronous table update: registers := table(port values)",
+      "truth_table": {
+        "0": [
+          0
+        ],
+        "1": [
+          1
+        ]
+      }
+    }
+  },
+  "resource_bounds": {
+    "per_circuit_witnesses": {
+      "nand_tree_depth3": {
+        "compiled_depth": 4,
+        "patch_total": 8,
+        "register_count": 8,
+        "worst_settling_time": 4
+      },
+      "two_bit_adder_from_nand": {
+        "compiled_depth": 13,
+        "patch_total": 30,
+        "register_count": 43,
+        "worst_settling_time": 13
+      },
+      "xor_from_nand": {
+        "compiled_depth": 6,
+        "patch_total": 8,
+        "register_count": 11,
+        "worst_settling_time": 6
+      }
+    },
+    "statement": "compiled patches = gates + one fan-out patch per extra consumer of each signal + one wire patch per circuit output; registers = gates + 2 * fan-out patches + outputs; settling time is at most c * compiled depth from any initial register state"
+  },
+  "schema": "oph.compiled_lattice_settling_certificate.v1",
+  "scope": {
+    "open": "continuum-limit and physical-hardware attachment of the patch dynamics is open; no laboratory device, photonic chamber, or continuum field realization is claimed by this packet",
+    "realized": "finite software patch dynamics: the three primitive patches, the compiled test circuits, and the composition checker defined in code/consensus/compiled_lattice_settling_certificate.py"
+  },
+  "settling_theorem": {
+    "bound": "T(circuit) <= c * compiled_depth, uniform in circuit width",
+    "constant_c": 1,
+    "constant_source": "every primitive settles in exactly one round from any internal state once its ports are settled, so c = 1 round per compiled rank",
+    "size_uniformity": "the bound depends on the compiled DAG depth alone; width enters only through the patch and register counts reported per circuit"
+  }
+}

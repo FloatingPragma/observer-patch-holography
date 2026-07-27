@@ -1,0 +1,111 @@
+{
+  "countermodel_witnesses": {
+    "class_change_rejection": "the class-1 witness chain has puncture holonomy one, so no verifier accepts it as a local operation from the vacuum",
+    "equal_spectra_rejection": "classes 0 and 3, and classes 0 and 1, have distinct exact characteristic polynomials, so an equal-spectra claim fails",
+    "gauge_tamper_rejection": "a chain with nonzero holonomy is refused as a regauge before any spectrum comparison",
+    "hermiticity_rejection": "twisting one oriented seam without its reverse breaks the conjugate-transpose identity on that seam"
+  },
+  "issue": 311,
+  "manifest_controls": [
+    {
+      "actual_error": "SCHEMA",
+      "expected_error": "SCHEMA",
+      "name": "wrong_manifest_schema",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "carrier_manifest_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "global_form_artifact_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "swapped_artifact_path",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "mass_target_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "measured_coupling_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "particle_species_label_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "scattering_amplitude_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "continuum_pole_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "laboratory_identification_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "spectrum_target_injection",
+      "passed": true
+    }
+  ],
+  "manifest_sha256": "6c00b832f5be777da76335739cbbf207acfd60cb39dd08676ab659c1d9936e47",
+  "schema": "oph.flux_defect_criterion_negative_controls.v1",
+  "tamper_controls": [
+    {
+      "actual_error": "CLASS_TAMPER",
+      "expected_error": "CLASS_TAMPER",
+      "name": "claimed_local_class_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SPECTRAL_TAMPER",
+      "expected_error": "SPECTRAL_TAMPER",
+      "name": "equal_spectra_claim_classes_0_3",
+      "passed": true
+    },
+    {
+      "actual_error": "SPECTRAL_TAMPER",
+      "expected_error": "SPECTRAL_TAMPER",
+      "name": "equal_spectra_claim_classes_0_1",
+      "passed": true
+    },
+    {
+      "actual_error": "HERMITICITY",
+      "expected_error": "HERMITICITY",
+      "name": "non_hermitian_seam_tamper",
+      "passed": true
+    },
+    {
+      "actual_error": "GAUGE_TAMPER",
+      "expected_error": "GAUGE_TAMPER",
+      "name": "gauge_dependence_tamper",
+      "passed": true
+    }
+  ]
+}
