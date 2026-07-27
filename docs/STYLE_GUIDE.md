@@ -59,10 +59,10 @@ Each paper is a publication that an outside reader finishes without access to
 the repository, the ledgers, or the other papers.
 
 - A paper never reads as a list of project-internal labels. Internal tier and
-  rule names (QFT-Q1 through QFT-Q4, MAR, MGNS-1, Q0, FJ, DAG as a tier graph)
+  rule names (QFT-Q1 through QFT-Q4, MGNS-1, Q0, FJ, DAG as a tier graph)
   carry no meaning outside the project, so the prose states the thing itself:
-  "exact finite quantization", "formal perturbative quantization", "the economy
-  minimum", "the modular algebra-state reconstruction data".
+  "exact finite quantization", "formal perturbative quantization", "the modular
+  algebra-state reconstruction data".
 - Where a paper depends on a companion result, it states the result in words
   and cites the companion paper. It does not hand the reader a label.
 
@@ -85,7 +85,7 @@ the repository, the ledgers, or the other papers.
   spelled-out words fit, they are used instead.
 - An acronym that survives is spelled out at its first use in every paper
   independently, including acronyms that are standard in the field.
-- Project-internal acronyms and named rules (MAR, CFQ, KMS in the OPH-specific
+- Project-internal acronyms and named rules (CFQ, KMS in the OPH-specific
   sense) never appear in an abstract, in the book, or in any informal surface.
   In technical sections they are defined before first use.
 - Proper names of outside tools and results keep their usual form
@@ -96,8 +96,7 @@ the repository, the ledgers, or the other papers.
 - The book is pop-science and standalone. It explains the physics to a reader
   who has never opened a paper.
 - The book NEVER carries internal identifiers, tier labels, rule names, or
-  repository paths. Concepts appear under plain descriptions: "the economy
-  rule", not an acronym.
+  repository paths.
 - Quantities the book itself defines and explains (a named capacity, a named
   constant) stay, because the book gives the reader their meaning on the page.
 

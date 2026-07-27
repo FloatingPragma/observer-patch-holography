@@ -118,7 +118,10 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert axiom_boundary["counterfamily"]["parameter_space"] == (
         "(lambda_u,lambda_d) in (R_{>0})^2"
     )
-    assert axiom_boundary["MAR_audit"]["counterfamily_members_have_equal_MAR_score"] is True
+    assert axiom_boundary["three_axiom_audit"]["all_registered_axiom_data_preserved"] is True
+    assert axiom_boundary["three_axiom_audit"]["Axiom_3_information_projection"][
+        "Yukawa_output_map_supplied"
+    ] is False
     assert axiom_boundary["public_numeric_quark_rows_allowed"] is False
     assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron_neutrino"]["reason"] == (

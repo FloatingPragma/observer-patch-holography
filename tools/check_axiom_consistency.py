@@ -20,6 +20,7 @@ it. Exit is nonzero on any violation.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -27,6 +28,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "claims" / "axiom_registry.yaml"
+HANDOFF_MANIFEST = (
+    ROOT / "docs" / "axiom_revision_web_handoff" / "handoff_manifest.json"
+)
 
 # Active surface roots scanned for stale-basis tokens.
 ACTIVE_GLOBS = [
@@ -45,6 +49,7 @@ ACTIVE_GLOBS = [
     "Lean/Screen/*.lean",
     "Lean/ObserverPatchHolography/**/*.lean",
     "assets/prediction-chain.svg",
+    "assets/book_diagrams/*.svg",
 ]
 
 # Path substrings excluded as archives, provenance, or non-active records.
@@ -73,6 +78,22 @@ STALE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("axiom five", re.compile(r"\baxiom five\b", re.IGNORECASE)),
     ("economy axiom", re.compile(r"\beconomy axiom\b", re.IGNORECASE)),
     (
+        "retired recovery principle",
+        re.compile(r"\bRecoverable Generalized Entropy axiom\b", re.IGNORECASE),
+    ),
+    (
+        "retired A3 refinement clause",
+        re.compile(r"\brefinement[- ]closure clause of (?:the third OPH axiom|Axiom 3)\b", re.IGNORECASE),
+    ),
+    (
+        "retired combined A3 branch",
+        re.compile(r"\bAxiom-?3 MaxEnt/refinement branch\b", re.IGNORECASE),
+    ),
+    (
+        "retired economy selector",
+        re.compile(r"\bminimal admissibility selects\b|\bMAR is used\b", re.IGNORECASE),
+    ),
+    (
         "MAR as core principle",
         re.compile(r"Minimal Admissible Realization economy rule as an axiom"),
     ),
@@ -87,6 +108,8 @@ LINE_ALLOW = [
     re.compile(r"#print axioms|sorryAx|propext|Quot\.sound|Classical\.choice"),
     re.compile(r"former_A4|former_A5|retired_principles|retired as|withdrawn"),
     re.compile(r"no longer|formerly|superseded"),  # explicit supersession notes
+    re.compile(r'^\|\s*Five axioms \(also "OPH5"\)\s*\|'),
+    re.compile(r"^\|\s*Recoverable generalized entropy axiom \(the recovery bundle\)\s*\|"),
 ]
 
 ENTRY_SURFACES = {
@@ -134,6 +157,16 @@ def registry_checks(errors: list[str]) -> dict:
                       "constrains", "does_not_imply"):
             if not axiom.get(field):
                 errors.append(f"registry: axiom {axiom.get('id')} missing {field}")
+    if len(axioms) == 3:
+        a3 = axioms[2].get("formal_concise", "")
+        for needle in (
+            "restriction map is injective",
+            "strictly positive exact weights",
+            "Umegaki relative entropies",
+            "identity-proportional",
+        ):
+            if needle not in a3:
+                errors.append(f"registry: A3 formal_concise missing exact contract: {needle}")
     if registry.get("status_enum") != REQUIRED_ENUM:
         errors.append("registry: status_enum does not match the canonical seven values")
     for row in registry.get("premise_interfaces", []):
@@ -184,6 +217,28 @@ def entry_surface_checks(errors: list[str]) -> None:
             errors.append(f"{rel}: entry surface does not state the three-axiom basis ('{needle}')")
 
 
+def handoff_manifest_checks(errors: list[str]) -> None:
+    try:
+        manifest = json.loads(HANDOFF_MANIFEST.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"{HANDOFF_MANIFEST.relative_to(ROOT)}: unreadable manifest: {exc}")
+        return
+    for record in manifest.get("files", []):
+        rel = record.get("path")
+        if not isinstance(rel, str):
+            errors.append("handoff manifest: file record has no path")
+            continue
+        path = ROOT / rel
+        if not path.is_file():
+            errors.append(f"handoff manifest: missing {rel}")
+            continue
+        payload = path.read_bytes()
+        if record.get("bytes") != len(payload):
+            errors.append(f"handoff manifest: byte count drift for {rel}")
+        if record.get("sha256") != hashlib.sha256(payload).hexdigest():
+            errors.append(f"handoff manifest: SHA-256 drift for {rel}")
+
+
 def pdf_checks(errors: list[str]) -> None:
     try:
         from pypdf import PdfReader
@@ -200,10 +255,7 @@ def pdf_checks(errors: list[str]) -> None:
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{rel}: PDF extraction failed: {exc}")
             continue
-        for label, pattern in (
-            ("five-axiom count", re.compile(r"\bfive axioms\b", re.IGNORECASE)),
-            ("OPH5 umbrella", re.compile(r"\bOPH5\b")),
-        ):
+        for label, pattern in STALE_PATTERNS:
             if pattern.search(text):
                 errors.append(f"{rel}: extracted text carries stale token ({label})")
 
@@ -251,6 +303,7 @@ def main(argv: list[str] | None = None) -> int:
     registry_checks(errors)
     scan_surfaces(errors)
     entry_surface_checks(errors)
+    handoff_manifest_checks(errors)
     if args.pdf:
         pdf_checks(errors)
 

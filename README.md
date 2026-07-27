@@ -128,7 +128,9 @@ basis.
    agreement leaves unconstrained is maximally random. Formally: the
    realized state is the information projection of an exact reference family
    onto the convex set of compatible local state families satisfying the
-   finite observer-visible constraints,
+   finite observer-visible constraints. The finite A1-generated observer
+   cover is state-determining on that feasible set, and its exact weights are
+   strictly positive:
    $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
    D(\rho_{r,P}\Vert\tau_{r,P})$.
 

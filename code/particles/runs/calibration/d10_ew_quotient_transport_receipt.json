@@ -12,7 +12,7 @@
       "exact_rational_color_measure_and_incidence_counts",
       "Z6_projector_and_normalized_trace",
       "fibre_Gram_and_residual_pairing",
-      "complete_deformation_enumeration_and_positive_MAR_gap",
+      "complete_deformation_enumeration_and_unique_target_free_source_rule",
       "same_branch_target_free_source_DAG",
       "exact_verifier_receipt_bound_to_the_certificate_hash"
     ],
@@ -33,7 +33,7 @@
     "rho_in_open_unit_interval": true,
     "v_positive": true
   },
-  "generated_utc": "2026-07-12T09:32:04Z",
+  "generated_utc": "2026-07-27T07:16:35Z",
   "notes": [
     "The correspondence verifier validates the conditional algebra and local chart; it proves none of QT1--QT5.",
     "QT3 is the coefficient-emission premise, whereas QT5 separately excludes additional admissible deformations.",
@@ -92,7 +92,7 @@
     {
       "certificate_evidence_status": "assumed_not_enumerated",
       "id": "QT5",
-      "missing": "deformation enumeration or positive target-free MAR gap; without QT5 additional output-changing paths or deformations remain unexcluded even if QT3 is assumed",
+      "missing": "deformation enumeration or a unique target-free source rule; without QT5 additional output-changing paths or deformations remain unexcluded even if QT3 is assumed",
       "name": "path_completeness_and_rigidity",
       "source_emitted_by_current_repo": false
     }

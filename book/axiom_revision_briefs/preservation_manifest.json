@@ -1,0 +1,1325 @@
+{
+  "schema": "oph.book.axiom_revision_preservation.v1",
+  "canonical_basis": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "protected_dedication": "*For my wife Noon, and for Douglas Adams.*",
+  "source_count": 24,
+  "owner_voice_signoff": false,
+  "sources": [
+    {
+      "source": "book/prologue.md",
+      "title": "Prologue: Physicists Are Hackers",
+      "source_sha256": "7dbc7332e3b66e628512221c85ec9ba32f1511f70944722713a1189421a5901d",
+      "protected_passages": [
+        {
+          "kind": "dedication",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "2e87c70d2b61396db9e69cbe4a65fec953b7c55c69f49c0d379db23b7af3d0d0",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": true
+        },
+        {
+          "kind": "closing",
+          "line_start": 435,
+          "line_end": 436,
+          "sha256": "30a3ecfc96f4ce696f035e8f9eb3c7545172da2fb754ecb8a1a5e8a64d9a3aad",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 9,
+          "line_end": 16,
+          "sha256": "bd8455de0843751ffdfcda4c4ac7a3230fd4b24ae86d81330d6b14212e944560",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 53,
+          "line_end": 56,
+          "sha256": "33a55e7ba3ca31d136a63c2d6d40454c93d59ac1cb0b6f24c3fbcc2517ef29b1",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 58,
+          "line_end": 68,
+          "sha256": "ea86abda65c9b255ddea8f256fed6c9bf0c2c7519d27be417e924f5a811583d0",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 142,
+          "line_end": 146,
+          "sha256": "55f007acefc36a780d72b6295fdbd4480902510f2527d81c7730807ca7b89a73",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 230,
+          "line_end": 235,
+          "sha256": "43376e3cf92a06cae3cc6e0a8eba60483a997a98bb8f058e87988775ae77e181",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 318,
+          "line_end": 332,
+          "sha256": "e6e1d4b4088ec059541087c9a8863576d36e25cc10a60be2e314a60373982458",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 388,
+          "line_end": 394,
+          "sha256": "3e39ecdcc8cb8ee4a28639387feb3c1cfda6d3bfc2e840d3e143ad3052253b45",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-01-consistency.md",
+      "title": "Chapter 1: The Consistent Universe",
+      "source_sha256": "730a0ac3d4c749f7cc3792db3564a20032cc71cd75ea6a9e632182c5bf037c65",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 4,
+          "sha256": "52a8957292c0fe66c983594d345554dfa044c3a697af8cc896a1f146e773acd6",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 484,
+          "line_end": 484,
+          "sha256": "c6c3feb38e6ce8a8948fbd7b7e144f7e81c0ed0dd8379038d27e199b19aa1e34",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 19,
+          "line_end": 19,
+          "sha256": "8b4625d27754cae7f500699f1ce34251feb1018cb8709f1a23d63b8c8940aa2d",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 41,
+          "line_end": 41,
+          "sha256": "680ccb3dfa3c097bbba90d2b20d48370e2fcf0f41f81d00d59f733f45ba8c99a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 71,
+          "line_end": 71,
+          "sha256": "0dd7a7f1caba711e2084799b87d499acd309f9dffd19a1a4f6e6327b0c94f15d",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 307,
+          "line_end": 307,
+          "sha256": "8600165c7c07361bd756b692b55e13821d0005ec2f03b775af194113354409e4",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-02-lineage.md",
+      "title": "Chapter 2: The Original Hackers",
+      "source_sha256": "d706f77eefc362bbed6cd8a2835262d61567c1464bbc0712fe94ac70d56ed404",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "6a09afeb6f5b7d5789d467d152acb696801d17322d93694bee6cc3c0568bb6f1",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 530,
+          "line_end": 530,
+          "sha256": "c97eef380bcc1de9d7034ad5e72fead90315e90166b94b48ec2b9a1e9c51e9bf",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 26,
+          "line_end": 26,
+          "sha256": "5694505484a8a352307ad67cbbdbd0824a7a6a2501bb8f727926019758ba74a9",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 30,
+          "line_end": 30,
+          "sha256": "2703764a7f4c1aacc2415608b8fe47e8d575042568a0b0ce32d0e7740be5dbdd",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 291,
+          "line_end": 293,
+          "sha256": "2781a953f0e11ca4a1a5802e37970cc3aacc8abcbd6caa03f9c699dd60377dd5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 398,
+          "line_end": 407,
+          "sha256": "1eb24bba12124b776331cfb18b9ee9164ce561842456b178f76abc147047c7c8",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 417,
+          "line_end": 427,
+          "sha256": "620f10469da0c32de34d9683b2f706c357031d6eedb730ee0adfc418a8a1c82e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 476,
+          "line_end": 481,
+          "sha256": "ee8d559405c745def625852d2432b5ce2946fe97347f58b293cd21171c96d6a3",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-03-screen.md",
+      "title": "Chapter 3: The Screen and the Sphere",
+      "source_sha256": "fcbb2edf8ffe15bed7a7603bd21780e94335091d33917d6a863c22d73749579c",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "9718c22fe9fdfcc9d7fac93375d501c541542e9c2963ba54e743c1dd2263cd56",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 598,
+          "line_end": 598,
+          "sha256": "ec7a59830978b79ed6f9bd004093d4efcf06142545f8dc823d111b545c4f56fe",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 19,
+          "line_end": 19,
+          "sha256": "8f9a430f76d2f5107b88db24d15bec2f5eb57ccb5e08f5986c4ccc532c020f79",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 31,
+          "line_end": 32,
+          "sha256": "47cbf2d5be3972e12eaf018c94ad7f4f0c91c4f792b13630398b1f59e4fedfaa",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-04-entropy.md",
+      "title": "Chapter 4: Entropy on the Edge",
+      "source_sha256": "aad982a6f4b44293ee3bb7cc7fcd51fbce0ce3587320d817a7fc10106518ef3f",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "8a05dd7a5a8d08851a807cf9e035bf2f03dd35f179dc15a528c553294bc4e20a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 461,
+          "line_end": 462,
+          "sha256": "2074a0345d980dea26836adfd81682bbdc6e544f7eadbc2e2222a40eebb5c9b6",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 14,
+          "line_end": 14,
+          "sha256": "c95ea6d1f100b0568986e71e2deae37a9ded4a4b9cb5c43150079e76eba09741",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 103,
+          "line_end": 106,
+          "sha256": "7ca78d9137f5ebd56e85cc1b7507f27de4d604b64055a50c60ca51e3f398323c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 127,
+          "line_end": 130,
+          "sha256": "97b5ba81d03a5ef984e1a0f2cefd14da1ce356c2844282cab2810972c92bed73",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 200,
+          "line_end": 200,
+          "sha256": "101134079c5cce010950cefc0232ba2667741d62f7917eec9decdddc41e8eb9c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 330,
+          "line_end": 332,
+          "sha256": "0ef5a97c27cca5a35a3dcda134fb7710b6ef22a7090384f7f9047944feb4290a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 449,
+          "line_end": 455,
+          "sha256": "75ec8db4dea79ae103cf05459305da57dc664c312219054a61b02de7c74f6069",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-05-algebra.md",
+      "title": "Chapter 5: The Algebra of Questions",
+      "source_sha256": "7297b9a57a64abb0c7854f26de51d04085afb645e3eff82519f756e493ce7a62",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "3e371cd2dd114ccc3d35edd7a2ce736647804e2540cc569e486aace689402b3e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 507,
+          "line_end": 507,
+          "sha256": "442ef7fea9bc2df421eeb7271d0c3d2e4ce023afdad6ea0689cd4ff21a3e7532",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 96,
+          "line_end": 101,
+          "sha256": "1b6852a2a13aa956d24920e31940be5ebcb92594c58237f71c311a43a2397f37",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 282,
+          "line_end": 285,
+          "sha256": "0d3987e5839bd7a08af14167938aa59b01c610c1c90648a7bda25c4eabec2586",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 404,
+          "line_end": 408,
+          "sha256": "f6ca2c5e9de4d72081e548cfcc07450de0b5f3fa12f91aa8e68b465a8bde56bb",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 487,
+          "line_end": 491,
+          "sha256": "50e50d2f269642ff1ec5ab4e9f00754f41cce35cc35cd7f1932e40795154e77a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-06-overlap.md",
+      "title": "Chapter 6: Overlap and Agreement",
+      "source_sha256": "0e09004ae8ad545d503d2a8888f046fdb9ee584c992b3609106322cc0c38410f",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "5c1a031d633cb159180ee8ff8a428f29413145b3b63736f5d7bd8e3c31c9758b",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 576,
+          "line_end": 578,
+          "sha256": "fae1f9bc3be17ce0d9719c11d8c4efd480046a9ffc998b42f209ee797cdfadb5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 7,
+          "line_end": 11,
+          "sha256": "d96ccfca0c464c16300ce22c257f8f2ee42537d9f4c7d3756940715d1d358210",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 104,
+          "line_end": 109,
+          "sha256": "4e4231030ef56b7a7f5ec2950cc8aa0b026077eca957c8d141ef757edf36e15e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 173,
+          "line_end": 173,
+          "sha256": "83d39cd40d23eb5f88a671c564637082f2fd3c3f6f6fa675a8a19c10e1357e91",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 352,
+          "line_end": 352,
+          "sha256": "d6d4f047b9e4ed5263490b8fd7a840062f70b5b4681a258c12f42f375f1eea4e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-07-recovery.md",
+      "title": "Chapter 7: The Recovery Rule",
+      "source_sha256": "84d636f08cde6ddd34fbadc7cf9c85805292741e38da15d519adbe3b5232b0b3",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "e587b679a7eec5ad3cdfc5140497a2b89c5b49d5317ffc22fbb625efa1cb2530",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 595,
+          "line_end": 595,
+          "sha256": "402b2c086ea9022e401e6992b3a23ddd691bd757cf0ff429361dda8e9e37aa6b",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 118,
+          "line_end": 118,
+          "sha256": "bcc366fb98c617c6a354a37528efa3a0e8e5cb22da5358a38a3786c2a463b093",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 277,
+          "line_end": 280,
+          "sha256": "e34383d81deff4884a2a51a62a72c17463283b408ce230068d39ca0c1a53ac1d",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 574,
+          "line_end": 582,
+          "sha256": "5daabf26869d441155b9ec615f88c3908b3741100b967fc8599a485c2806184c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-08-holography.md",
+      "title": "Chapter 8: Why Holography Looks Like a Boundary",
+      "source_sha256": "8055068e89a08c788995a0b6ceeda2194bb0580ede9f3d1573dacf5aa38daf94",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "69b486d285019ec61dccca59389a51cc673cf409dfe3a8a4367dc81f001ff8f4",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 526,
+          "line_end": 531,
+          "sha256": "6c74f03a2fb59a1e818fbaa483c844bed36156584b98d8cc4d10fdcd2afb95c5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 133,
+          "line_end": 133,
+          "sha256": "479525fb858f0aedbbd21c0129f742defa57c06014ba6e841a925daf8905ac95",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 365,
+          "line_end": 370,
+          "sha256": "c55d28dea8299378972adc788f9f37c6e4635d96f4f7f94b59b0b170c6b9a04a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-09-entanglement.md",
+      "title": "Chapter 9: Entanglement Builds Space",
+      "source_sha256": "94732a04fba1dae977caed2d81a6d13e060c1a9ec58c21be112e7a926b1616e5",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "5759b74f3b807b345a3942fcc03dc102d4e15b7370665f699e5dfbda11999165",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 363,
+          "line_end": 363,
+          "sha256": "243a882c291325aa6a88e2c298b57089ae29b29608143abf8c29abaddd77c950",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 21,
+          "line_end": 21,
+          "sha256": "5da8f1aedc5e874ab3eebf60dfc43ae9ad35652244f4c93acf93d11b529595c2",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 322,
+          "line_end": 327,
+          "sha256": "b25a7319f2491f1cb7f2cc0a70af2300d3d436fb969e8acafa033ce9ab9891e5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 329,
+          "line_end": 329,
+          "sha256": "d063b2a774c447329e7870bf8b5b0b218677206c1ca6d513d7c8ea5a3621c2ca",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-10-error-correction.md",
+      "title": "Chapter 10: Error Correction as Physics",
+      "source_sha256": "c432e17f701ec93c2e2618eb9fc8ac13b3101122dd4dd1b6f21dd97705c4d4bc",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "8d4d485098ea098a467ddcc6c2ba2e76f9763345ceac232b3343a7e4713e778b",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 377,
+          "line_end": 378,
+          "sha256": "e19880b99a0b8756cee20c81762a006b3a48bc5215e3fc30786516671cba9fa7",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-11-maxent.md",
+      "title": "Chapter 11: MaxEnt and the Arrow",
+      "source_sha256": "08d830fb240f0258412e49afe67ca54d386752af161eb11e871f78ce0fc19811",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "934cb6da438212e420c84e9ab0440f7e6b86b5531da480791bd0353dd6c7f767",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 478,
+          "line_end": 478,
+          "sha256": "b880961b541759e3f189d3e7865eda69634bc6cfa359c4f2f7d4ad8995118f33",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 51,
+          "line_end": 51,
+          "sha256": "b6a08bb6c00783386b3e114c2658573565ebe54b987a9321f826f49448b272e6",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-12-symmetry.md",
+      "title": "Chapter 12: Symmetry on the Sphere",
+      "source_sha256": "042c3435d8cdc24492bd0e4febfe5384a470aacb7b36aa3d0ae094b46b740ba2",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "610deffd78f821b6b0d099b2a97c767cc0017764a14209e4ec48843e28f807be",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 570,
+          "line_end": 570,
+          "sha256": "ccccb9541aed3e25660bb88c2179af1e8b4fb0ba2d9c7338636305c0d5488603",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 24,
+          "line_end": 31,
+          "sha256": "cc459301716ff6873794731f3b03ba2a91aff9998a651fbb7b8d36f1613f3c89",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 548,
+          "line_end": 549,
+          "sha256": "25155570c4bf042ea28332073550bf9e213ee15534d2efb09d9e1fa09ee5e936",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-13-desitter.md",
+      "title": "Chapter 13: The de Sitter Patch",
+      "source_sha256": "a3ea32c5d8d8e00680164bf350ad5186dfd05038f4d062710c748b3290e5b869",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "646a1f44d543a82aa4f74a0a4dbf6421e70ee2ca8db04ad57c425c29f9f589f9",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 529,
+          "line_end": 529,
+          "sha256": "88f57bdb68e672bf909c9e3514755741c617516989779dbcf523910b19c78da1",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 307,
+          "line_end": 310,
+          "sha256": "c2b512591c8ad3d54c881f67741992689315cf50b2d344ccbb9cce9ad13de908",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 334,
+          "line_end": 339,
+          "sha256": "675269d29c21e8d4002eb06db2a14397e1c23dfd63ff91d2675541d3f9b1fd1c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-14-standard-model.md",
+      "title": "Chapter 14: The Standard Model from Consistency",
+      "source_sha256": "cde336d0672b372262ff53d6202c64fe1915d46958525c4d91c16842e7d46259",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 10,
+          "sha256": "30ab4aa6b90e432dab7b0df7c34150c4090bf4eaf7e59586b038ebf1a1a0e6f0",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 1468,
+          "line_end": 1468,
+          "sha256": "e7cddd3e166057697bdd1993d07a75bd5a786abc88b6c819c794320559be6aa5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 138,
+          "line_end": 143,
+          "sha256": "6efaf8476fca729759efb45bb6a4f382d46d386124f8d83da22e6ee8a4b1366c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 268,
+          "line_end": 273,
+          "sha256": "1e13763fcc118d43e380bdf8657ed695717c74e744d7d439c1f0bcc3637e203e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 647,
+          "line_end": 661,
+          "sha256": "24ac6f7a349c108fabc596289d88234ae23266f9a92bfefb2dcfff76372bbac8",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 843,
+          "line_end": 854,
+          "sha256": "392868db0e1a1c55326441ad006841ad08d2a4ff4af3a1dd4a396b809a922a9c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 1113,
+          "line_end": 1119,
+          "sha256": "dfbcf3fcecc9eaa8a0235dcab4bf0e25653734a5e83b90b2a403af5e3ad8da8a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 1262,
+          "line_end": 1266,
+          "sha256": "f09ffdb9f538f9972f72168e198d2f7eecf4a6a1c48e4e2ac9c96bf54a611920",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 1373,
+          "line_end": 1376,
+          "sha256": "1baa34b0b0201b1a474fd9d985643408791ebe5ae1d7fc51ad45e860a131c00b",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-15-relativity.md",
+      "title": "Chapter 15: Relativity from Modular Time",
+      "source_sha256": "493278cb6c058a98e7c1f8743ffe877049f4535a7d65fba9e193bf365b514fe1",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 7,
+          "sha256": "18100b22b3c05c871602b52d97f152bc03bc1f9104f7fa2d3a35f95b48f13c96",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 897,
+          "line_end": 897,
+          "sha256": "a8eeb35d6199bdca3e532c5ae69e8d028fd72e4699dcac673a72769e13c8f5da",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 286,
+          "line_end": 289,
+          "sha256": "e9b3fb563b9b5cc9e19f7f20387256c6cd452767fe5c26b83d7a17d2ce4b527d",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 749,
+          "line_end": 751,
+          "sha256": "00a866bba11dadfbd27cd2c0617635eb117031b1229ff9a24e77bef7913934e0",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-16-matter.md",
+      "title": "Chapter 16: Matter, Motion, and Classical Physics",
+      "source_sha256": "a7cc94249861073907e3c55385c5dd09cbac0be5cc2853d45c46a8baac3b8b37",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 8,
+          "sha256": "63cc5aa07331c4b46d4e07056bc8c01a8c442e8cd5d40333b142e0386204549a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 492,
+          "line_end": 492,
+          "sha256": "41eeb3f853c62cb72a7d4eb863de9fb471e987c1049d3410fee7a22343724f36",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 84,
+          "line_end": 91,
+          "sha256": "831682c0e711c83f6323935b1734e7456256b1cf29626a1bf4e4f86be6b9ce7c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 267,
+          "line_end": 276,
+          "sha256": "ba832e015a612956c00a104cfb908cc5be8046d1b373168578339d38584437ef",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 444,
+          "line_end": 448,
+          "sha256": "0e80e19bf371ae97fc5b5c04e34116657399ddcb2d9d3e959811362d875da25e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 473,
+          "line_end": 478,
+          "sha256": "3c6f5b51f7b46ae44e2dd4fcc51aa038ffe28d547f552e5035dc6dfa1e15ff03",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 480,
+          "line_end": 486,
+          "sha256": "bd7899b820b6742f6e272022cce58eec1688d83a6c29753041df41fa65cbf5ac",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-17-darwin.md",
+      "title": "Chapter 17: Darwin's Laws",
+      "source_sha256": "8ab75740dcea717ee00c97a40951f5fc5122402cfb41d3415a5c8149ec22d4f4",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "97f5e6554b70a7c55fec3ae68bd2da860c45133c2664b3be8f9bbde778aca954",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 370,
+          "line_end": 373,
+          "sha256": "bb8414c5eac2f87729a7e4aa39042949f4636860d03be49ffaef30d70fc01c6e",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 7,
+          "line_end": 10,
+          "sha256": "5ba87e53c59c46dc6026b1d6f362a59c055c722756a27d6b9a7d01f9ceb8312c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 226,
+          "line_end": 231,
+          "sha256": "19cd7f1c030855d89bec9d73ad26f701641cd731e9fe7519088eb49e1f7d1147",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 283,
+          "line_end": 287,
+          "sha256": "17319853ef4025fe3bf2c9ff257bf9ca29dbc244245eec5a2bf0dd6044e52916",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-18-strangeloop.md",
+      "title": "Chapter 18: The Strange Loop",
+      "source_sha256": "1ec1a5ceff7328048ff80bdef47e792ceb22ca9218695fae600d0f1634c6ceea",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 4,
+          "sha256": "a1a1f51b26f8114b9b0fcd75bae0500a82c91b7866db8f580d033eb10c4d06a6",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 298,
+          "line_end": 303,
+          "sha256": "a44b3359cf6d0e2a1b661bd582765417575a9d77d9c37450be258cd5dd2d4012",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-19-synthesis.md",
+      "title": "Chapter 19: Synthesis",
+      "source_sha256": "4e9a44d1e01d30a51baf844b552c3ff4c97ed43ab312bb5348fbbc109163a9ae",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 5,
+          "sha256": "1888aebeca570d95a15bf16031c22a054ebb02c586f4141b792bed8c8bf35db2",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 591,
+          "line_end": 592,
+          "sha256": "ee98d728c12cbeea088aacfb683c4362a885a16c4cd9a342063849f1533305b5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 20,
+          "line_end": 27,
+          "sha256": "cb213a365003933a096ff55dce07dac7ff71ed71db2da02526e9e64709ff86b3",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 125,
+          "line_end": 133,
+          "sha256": "3848a752bf45e06ddbeea50ca9490bbf498f2403d76ca3a7aef217692f2c6de0",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 503,
+          "line_end": 506,
+          "sha256": "af0fd66f4076e85822762b9f1903a8c6c38e742d6659591faf2abedb32ac96a8",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/chapter-20-metaphysics.md",
+      "title": "Chapter 20: Metaphysics and Qualia",
+      "source_sha256": "0cd5d90f34c2a80196b7fefadc85dffbe0f8ac38fc68b4562abe2af193d45f8c",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 5,
+          "line_end": 5,
+          "sha256": "25cbff91bc5f97acf6f0628fe488d65407b40bd87a2605e034111eb71648e649",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 307,
+          "line_end": 309,
+          "sha256": "baee198fb032c57b66e294c41daa10e8a04f526756c2229e6e5ac00e671c44e5",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 7,
+          "line_end": 7,
+          "sha256": "301c3acee7f84e23919f489fcfb0e52767e0bca253310d82a416864c5e2ece7a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 17,
+          "line_end": 17,
+          "sha256": "889d4bf482aeef5fcd801100275225ee270257c55621ab7da4d6ad62d92c8993",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 129,
+          "line_end": 129,
+          "sha256": "8c5d82b8d1d346f89bef4eda442adb56d4b2ea5f2fb0470d82d02ce0f4ecbaa7",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 133,
+          "line_end": 140,
+          "sha256": "f7977009436fe20e705636a0f962cf341e0306034dd6f0806f048ae542344af9",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 197,
+          "line_end": 199,
+          "sha256": "69dd6e49341e1a233822d3cff91be42ab55431d0b842b45b12b771f5d8f1afda",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 254,
+          "line_end": 261,
+          "sha256": "e3bac6246bbaad567530735317efb603c1c656c930533a3474d1a798cb75033f",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 263,
+          "line_end": 266,
+          "sha256": "2408bb4fe5ea0dcf3245bb9bfe4a3aa6368ae1321d1ae3fc198116dd71bd77ea",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 285,
+          "line_end": 289,
+          "sha256": "b9c7eec77603fd3269bb13c65de07f732427de816e1f9a821aeda007962a8283",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/epilogue.md",
+      "title": "Epilogue: Observer Continuation",
+      "source_sha256": "0c5f313a417a05f86f2d8f0bfc2c6c0e865f6caf66c45859e70485f328cc6a0d",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 6,
+          "sha256": "28c6b381428ea00106d91ebbd29838fd7720681c9286c63cf22f552319093972",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 138,
+          "line_end": 139,
+          "sha256": "40a34cefd228b14a726221d47ce43c796300eed9a110d04dc918c58ba3883cfd",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/appendix-concept-glossary.md",
+      "title": "Appendix: Concept Glossary for the OPH Reader",
+      "source_sha256": "9109d3f7751d36bcd001d26bf97da01e1980bb1610be4dccbf1dcdcb2220fa30",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 5,
+          "sha256": "991f15b1266d61a27048133503133b1c40d5981c64047e870665565752e8b582",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 1027,
+          "line_end": 1032,
+          "sha256": "57a9f2ab05c571b6f54b20907dff138e77e00e9b014199d08c7bb08205a0e664",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 17,
+          "line_end": 23,
+          "sha256": "cc1451377753349dc7dccf7eb66b1fffba1334467681bcddc8cb86956c07d555",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 448,
+          "line_end": 453,
+          "sha256": "caa8802327fea669b09dcfbbdc5a29b81c3f71242d4d5f18b96139f421d04162",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    },
+    {
+      "source": "book/appendix-extended-interludes.md",
+      "title": "Appendix: Extended Interludes for a Longer Reading Path",
+      "source_sha256": "c6c24ea6adbbb76137d61bbcb4d18bb3a299b62ec682cac0be8c9ebb5409b7f8",
+      "protected_passages": [
+        {
+          "kind": "opening",
+          "line_start": 3,
+          "line_end": 11,
+          "sha256": "2eb1881da8849f664cfb2f68b9b59241e1a21ac40b32fffed070ab09e45d8e59",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "closing",
+          "line_start": 948,
+          "line_end": 950,
+          "sha256": "7d63dfdf8a5667912951fa3fb967357b09796e6430144ced8bcfc85469e1f022",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 67,
+          "line_end": 73,
+          "sha256": "a5f16a7ac5f9fb422de95c77997b346d07a7c97ebe03c261c46b5248a8db187f",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 110,
+          "line_end": 115,
+          "sha256": "175ff59c3477d4e135a0cc7e55cd4ddd623487919e0b119d31f91e98df67ff8a",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 268,
+          "line_end": 273,
+          "sha256": "1b37dabf43615fa6d0041fa156a8a0879b40e27db06b34b72087176e1ad48c4c",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 319,
+          "line_end": 323,
+          "sha256": "3b81afd524614fb058c7c65d2d6ad5798e4db26d7c8fa22fe734e3b6743721eb",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 558,
+          "line_end": 561,
+          "sha256": "169a17a64e2383b321fe1d16f91751af5dbd653cd0384c54cb94661ef823b384",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 571,
+          "line_end": 577,
+          "sha256": "dd8038d6101e5be8564e5995fabbf7a8d109497b3322203fc2ad64a9f3211fec",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 634,
+          "line_end": 640,
+          "sha256": "081907095df6b1dd39bcc1662a8ffb4c6590c53a861a0ee44d9460b44dbfd65b",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 837,
+          "line_end": 844,
+          "sha256": "9ce6d848a6a77fd82ea4bc183b92ca757b2f559ddc5c7c14333bb26a3b4b1e46",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 852,
+          "line_end": 859,
+          "sha256": "c8f4f34a1f8322c9f0bb094989f678467e4046ae020ec1bdf9056fe97c3d9cfd",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        },
+        {
+          "kind": "voice",
+          "line_start": 921,
+          "line_end": 933,
+          "sha256": "f7efe3908293e2a1deebd4165d73a9e7567349446232cddc3b9aa5f5616fad52",
+          "narrative_purpose": "Protected reader-facing voice, scene, analogy, opening, or closing.",
+          "owner_only_deletion": false
+        }
+      ],
+      "claim_registry_signoff": true,
+      "machine_style_signoff": true,
+      "owner_voice_signoff": false
+    }
+  ]
+}

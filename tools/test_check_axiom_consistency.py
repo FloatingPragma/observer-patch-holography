@@ -24,6 +24,7 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         errors: list[str] = []
         guard.scan_surfaces(errors)
         guard.entry_surface_checks(errors)
+        guard.handoff_manifest_checks(errors)
         self.assertEqual(errors, [], "\n".join(errors))
 
     def test_injected_stale_five_axiom_block_fails(self) -> None:
@@ -45,6 +46,26 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
             errors,
         )
         self.assertEqual(len(errors), 2)
+
+    def test_retired_recovery_and_refinement_clauses_fail(self) -> None:
+        errors: list[str] = []
+        guard.scan_text(
+            "injected.tex",
+            "The Recoverable Generalized Entropy axiom supplies focusing.\n"
+            "The refinement-closure clause of Axiom 3 supplies the RG map.\n"
+            "Minimal admissibility selects the light sector.\n",
+            errors,
+        )
+        self.assertEqual(len(errors), 3)
+
+    def test_exact_migration_table_row_is_allowed(self) -> None:
+        errors: list[str] = []
+        guard.scan_text(
+            "handoff.md",
+            '| Five axioms (also "OPH5") | Three axioms | Retired terms are search aliases. |\n',
+            errors,
+        )
+        self.assertEqual(errors, [])
 
     def test_mathematical_a5_group_reference_passes(self) -> None:
         errors: list[str] = []

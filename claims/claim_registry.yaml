@@ -427,7 +427,7 @@
       "tier": "conditional_scaling_theorem_package",
       "assumptions": [
         "support_visible_BW_scaling",
-        "maxent_refinement_closure_clause",
+        "optimizer_pushforward_and_refinement_tail",
         "halfline_cyclicity_receipt",
         "modular_intersection_receipt"
       ],
@@ -517,7 +517,7 @@
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
-        "maxent_refinement_closure_clause",
+        "optimizer_pushforward_and_refinement_tail",
         "central_interface_clause",
         "edge_normalization_log_d"
       ],
@@ -1269,7 +1269,7 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate now attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_tannaka_reconstruction_and_declared_completion_chain",
       "assumptions": [
@@ -1442,7 +1442,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the selected 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, select the light matter package, attach three families, or identify this group with the D7-D9 Tannaka/MAR reconstruction.",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, attach three families, or identify this group with the independent categorical reconstruction.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
@@ -1458,7 +1458,7 @@
         "covering_group_and_lattice_algebra",
         "exterior_representation_and_anomaly_algebra"
       ],
-      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent Tannaka/MAR group.",
+      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent categorical group reconstruction.",
       "novelty_type": "conditional_finite_screen_current_recognition",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1471,7 +1471,7 @@
         "Lean/Screen/PhysicalA5ForcingNoGo.lean"
       ],
       "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, or exterior witness fails under its exact stated premises, or a promoted physical conclusion omits its current, selection, attachment, or refinement receipt.",
-      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 Tannaka/MAR route and unrelated consensus or gravity branches are separately assessable.",
+      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
       "status": "exact_finite_implications_on_strengthened_packet__physical_family_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [

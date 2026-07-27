@@ -189,10 +189,12 @@ The order matters here. OPH is not allowed to assume a light cone and then
 discover a sphere; that would smuggle in the answer. Instead the framework
 asks the patches themselves to certify their own geometry: do the repaired
 pieces knit into one closed surface with no holes and no twists in its
-stitching? When they do, the surface is a sphere and the sphere is round.
-Without that certificate, repair consensus alone can just as well settle on a
-torus or another support. Whether the twelve-port machinery delivers the
-certificate is work in progress.
+stitching? The A1 regulator packet answers the finite topological question
+with a source-bound degree-one map from the federation nerve to its oriented
+spherical support. Repair consensus by itself can settle on a torus or another
+support, which is why the bridge belongs to the architecture rather than to
+agreement. The round conformal and metric structure used later requires its
+own geometric receipts.
 
 Only after the sphere has been certified does its symmetry group hand back
 Lorentz kinematics. Light cones come out of that construction; they do not go
@@ -284,11 +286,11 @@ and a coupling law, they can also expose phase-lock-sensitive observables.
 They are local subchannels, not a claim that the whole universe is a torus or
 that every federation has proved phase locking.
 
-There is a precise sense in which this arrangement, twelve ports at the
-corners of an icosahedron with each paired against the one directly opposite,
-is the cheapest one the bookkeeping allows, and the symmetry group of the
-arrangement falls out for free. The details live in the technical papers. The
-arrangement theorem does not by itself supply physical currents; attaching
+The twelve-port oriented boundary is the local architecture asserted by
+Axiom 1. Its unique distance-three inverse pairing, six axes, proper
+icosahedral rotation group, and conjugate rank-three frame pair follow from
+the incidence data. The details live in the technical papers. The
+architecture does not by itself supply physical currents; attaching
 them requires a separate physical response law. The exact current certificate
 passes conditionally when the finite response is restricted to a signed
 central involutive graph automorphism; incidence then leaves only the
@@ -321,10 +323,12 @@ lower a declared mismatch score. Different compatible repair orders reach the
 same public normal form only when the protected dependencies are complete,
 conflicting updates have one coherent combined payload, the local-diamond test
 passes, and the repair menu is complete.
-Nested icosahedral subdivisions provide one convenient finite regulator for
-the spherical support chart. They are not the twelve-port carrier federation,
-and the map connecting repaired carrier data to the certified smooth sphere is
-work in progress.
+Nested edge-midpoint subdivisions provide the declared finite regulator for
+the spherical support chart. They are not the twelve-port carrier federation.
+The source-bound degree-one bridge from the federation nerve to this support,
+its refinement naturality, and mesh convergence are certified on the named
+finite tower. The later analytic and metric reconstructions carry additional
+premises.
 
 ## 3.8 Patches and Overlaps
 
@@ -458,14 +462,14 @@ repair moves and writes the accepted result to the record layer. Gauge
 redundancy at the boundary makes the gluing non-trivial and gives rise to the
 edge modes that carry geometric information.
 
-**State selection and repair play different roles.** Maximum entropy selects
-the realized state within a declared constraint family. At fixed cutoff this is
-modeled by a Gibbs-like state $\rho \propto e^{-H}$, where $H$ is a sum of local
-terms and $\rho$ is a quantum probability table, unpacked properly next
-chapter. The patch update and repair instruments perform the synchronization
-work when exposed records disagree. Evidence that both layers come from one
-source and remain compatible under refinement is needed to keep state selection
-and repair aligned across scales.
+**State selection and repair play different roles.** Conditional maximum
+randomness selects a compatible local state family within the declared
+constraint set, relative to an exact reference, observer cover, and positive
+weights. A Gibbs-like representative $\rho \propto e^{-H}$ appears only on the
+finite identity-reference branch with the required local constraint grammar.
+The patch update and repair instruments perform the synchronization work when
+exposed records disagree. A separate optimizer-pushforward theorem is needed
+to carry the selected state family across refinement.
 
 **The 4D bulk is not painted on the sphere.** On the successful geometric
 branch, event spacetime is reconstructed from refined overlap records and their

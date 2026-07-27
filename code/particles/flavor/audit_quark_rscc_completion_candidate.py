@@ -282,7 +282,7 @@ def build_audit(bundle: Path | None = None) -> dict[str, Any]:
             "module_minimality_or_uniqueness_proved": False,
             "effect_projectors_ranks_and_signs_constructed": False,
             "full_unitary_isotropy_derived_from_S3": False,
-            "MAR_two_cumulant_truncation_proved": False,
+            "three_axiom_two_cumulant_truncation_proved": False,
             "count_only_24_slot_register_emits_family_non_singlet": False,
             "rescaling_residual_is_a_derived_OPH_minimization_law": False,
         },

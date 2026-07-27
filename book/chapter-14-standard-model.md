@@ -621,8 +621,8 @@ three-entry object rotated by the color symmetry. "Pseudoreal" and "complex"
 distinguish whether the mirror representation is effectively the same object or
 a genuinely different one.
 
-The minimal coupled carrier makes the quark doublet a color triplet and fixes
-$N_c=3$ inside the declared packet. On the same one-Higgs class, intrinsic CKM
+Within the declared determinant-balanced $3+2$ exterior packet, the quark
+doublet is a color triplet and $N_c=3$. On the same one-Higgs class, intrinsic CKM
 CP capability requires at least three generations and weak-sector ultraviolet
 consistency permits at most five. Those conditions leave three, four, or
 five generations. The count is open, and $N_g=3$ enters as a declared
@@ -647,11 +647,13 @@ quark or a weak boson appears.
 The finite carrier recognizes the same Lie type from a second direction
 through a source-derived response. This route starts with the reference
 microarchitecture from Chapter 3, long before quarks, weak doublets, or
-measured particle data enter the story. On the declared echosahedral carrier,
-the defect readback lives at twelve
-equivalent ports, and the energy accounting forces the cheapest loadout:
-exactly one unit of charge at every port, with every alternative costing at
-least two units more. The wiring of the edges then does the rest. It pairs
+measured particle data enter the story. On the declared twelve-port carrier,
+the defect readback lives at twelve equivalent ports. The separate integer
+total-twelve load and quadratic readback packet has a unique all-unit
+minimizer, with every alternative costing at least two units more. This is an
+exact named-realization result; derivation of the load fiber and readback law
+from the complete A1 mechanism grammar is an open theorem problem. The wiring of the edges
+then does the rest. It pairs
 each port with the one directly opposite it, three steps away across the
 graph, it hands the whole structure the sixty rotations of a regular
 icosahedron, the group called $A_5$, and it recovers the icosahedron's actual
@@ -937,8 +939,9 @@ That fixes the quark doublet to be a color triplet:
 
 $$\boxed{N_c = 3}$$
 
-The same minimal coupled carrier produces the $SU(3)$ factor and emits the
-color count. A separate oddness argument is unnecessary.
+The declared determinant-balanced $3+2$ carrier produces the $SU(3)$ factor
+and emits the color count inside the certified exterior-module menu. A
+completeness theorem for that menu is open.
 
 ### The Witten Check
 
@@ -1359,7 +1362,7 @@ multiple is one electron-Dirac unit, while the primitive class also carries
 color-centre flux. This is exact lattice arithmetic, and the measured flux
 sectors of the carrier federation realize each class as a two-puncture flux
 tube through the screen, with the electric line polarization forced by
-mutual locality with the realized matter. Theta periodicity still requires
+mutual locality with the realized matter. Theta periodicity requires
 four-dimensional instanton-sector and topological-action data, and no
 dynamical monopole follows from the lattice or the sector menu.
 

@@ -144,7 +144,9 @@ incluent la base formelle partagée.
    laisse sans contrainte est maximalement aléatoire. Formellement : l’état
    réalisé est la projection d’information d’une famille de référence exacte
    sur l’ensemble convexe des familles d’états locaux compatibles qui
-   satisfont les contraintes finies visibles par les observateurs,
+   satisfont les contraintes finies visibles par les observateurs. La
+   couverture finie engendrée par A1 détermine l’état sur cet ensemble
+   réalisable, et ses poids exacts sont strictement positifs :
    $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
    D(\rho_{r,P}\Vert\tau_{r,P})$.
 

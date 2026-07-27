@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 163,
+  "surface_count": 186,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -429,6 +429,11 @@
       "allowlisted": true
     },
     {
+      "path": "docs/AXIOM_REVISION_LEARNING_HANDOFF.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/BOOK_CHAPTER_LEDGER.md",
       "glob": "docs/*.md",
       "allowlisted": false
@@ -831,6 +836,116 @@
     {
       "path": "assets/prediction-chain.svg",
       "glob": "assets/prediction-chain.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/boundary-ledger.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/collar-tripartition.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/consensus-funnel.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/desitter-static-patch.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/entanglement-wedge-overlap.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/entropy-arrow.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/error-correction-layers.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/generation-count.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/matter-stability-ladder.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/maxent-clock.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/modular-flow-cap.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/newton-limit.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/null-blowup.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/observer-loop.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/overlap-consistency.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/platos-cave-projection.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/question-algebra-order.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/s2-screen.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/selection-filters.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/symmetry-to-conservation.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/synthesis-spine.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/tannaka-krein.svg",
+      "glob": "assets/book_diagrams/*.svg",
       "allowlisted": false
     }
   ]

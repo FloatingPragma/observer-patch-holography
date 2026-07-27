@@ -277,7 +277,7 @@
         }
       ],
       "pass": true,
-      "statement": "aggregate reading of membership clause 4: the readback residual is certified nonzero at every off-balance probe and encloses zero at balance, so the clause-4-exact support is the fixed-point box and the MAR argmax over the support equals the fixed point (degenerate coherence, the count representation carries no independent information)"
+      "statement": "aggregate reading of membership clause 4: the readback residual is certified nonzero at every off-balance probe and encloses zero at balance, so the clause-4-exact support is the fixed-point box and the declared-score argmax over the support equals the fixed point (degenerate coherence, the count representation carries no independent information)"
     },
     "B2_positive_control_cp4": {
       "agreement_abs_hi": "1.0e-10",
@@ -337,7 +337,7 @@
     "B4_negative_control_sign_carrier": {
       "H_at_balance_abs_hi": "8.3033792e-84",
       "pass": true,
-      "statement": "sign-carrier clause of CP-4 dropped: a remote maximum 20 nats below balance tops the balance value by about 100 while the balance point stays stationary to below 1e-80; the MAR argmax leaves the fixed point",
+      "statement": "sign-carrier clause of CP-4 dropped: a remote maximum 20 nats below balance tops the balance value by about 100 while the balance point stays stationary to below 1e-80; the declared-score argmax leaves the fixed point",
       "value_gap_lo": "100.0"
     },
     "B5_recorded_lattice_control": {

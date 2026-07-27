@@ -120,7 +120,7 @@ m_rep = 2 * 12 = 24.
 
 The SU(5) adjoint has the same single-orientation integer for a different
 support; its X/Y mixed gauge channels are excluded by the OPH product branch.
-The screen/A5 selector, global quotient, and MAR matter realization are not
+The screen-selection premise, global quotient, and matter-menu completeness are not
 premises; physical-current identification is upstream.
 
 The issue-#335 close-out certificate accounts for the closed global tick,

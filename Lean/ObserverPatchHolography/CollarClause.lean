@@ -7,7 +7,7 @@ import ObserverPatchHolography.Primitives
 
 Issue #544 asks whether overlap-consistent repair on the declared
 fixed-cutoff branch *forces* the central-interface collar clause (the
-declared-branch input stated with Axiom 3 of The spacetime and Einstein paper,
+named gravity interface in The spacetime and Einstein paper,
 `par:cicclause`): non-central cross-cut couplings excluded, not merely not
 selected. The sharp failure mode is pinned in
 `code/collar_alignment/test_msa_characterizations.py::test_descent_invariant_but_noncentral_interface_breaks_alignment`:
@@ -52,19 +52,18 @@ forceable **because it is not expressible**: the layer's acceptance data
 (edge-consistency) cannot distinguish a central interface energy from an
 invariant-but-non-central one when both realize the same constraint family.
 Any derivation of the clause must therefore consume structure *beyond* this
-layer : the Axiom-3 density family, the `C*(K̂_Σ)` center and flux functions
+layer: the declared local-density family, the `C*(K̂_Σ)` center and flux functions
 `π_L(Z(C*(K̂_Σ)))`, the touched-overlap acceptance contract's algebraic
-content, or refinement closure : exactly the machinery in which #543 located
+content, or cross-scale closure: exactly the machinery in which #543 located
 the clause.
 
 ## Declared scope (what this does NOT do)
 
 This layer result does not derive the clause. Such a derivation would need
 the operator-algebraic layer formalised. It also does not prove independence
-for the paper's admissible class (the paper's
-axiom system is strictly richer than the Lean core: Axiom-3 densities,
-refinement closure and the collar C*-machinery are not formalised here).
-The clause is an explicit axiom-level declared-branch input
+for the paper's admissible class. The declared density family,
+optimizer-pushforward interface, and collar C*-machinery are not formalised here.
+The clause is an explicit declared-branch interface
 (`par:cicclause`). This module identifies the layer boundary used by the
 #544 independence resolution.
 No `sorry`, no `native_decide`, no new axiom.

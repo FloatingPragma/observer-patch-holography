@@ -3,19 +3,19 @@
   "axiom_role": {
     "d10_role": "mechanism receipt for the D10 discrete law decision",
     "into": "a quantitative selection principle with a strictly positive Pinsker selector gap",
-    "sharpens": "Local MaxEnt axiom"
+    "sharpens": "finite A3 information-projection packet"
   },
   "branch": {
     "P_cand": "1.63097209585889737696451390350695562847912625483895268486516",
     "P_cand_source": "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
-    "expected_p": "0.007299545168876648",
+    "expected_p": "0.0072995452617244017571725360595355818930943167597298",
     "p": "0.0072995452617244017571725360595355818930943167597298",
-    "p_agreement_residual": "0.000000000092847753757172536059535581893094316759729832421035",
-    "p_agrees_to_1e-15": false,
+    "p_agreement_residual": "3.2421034563920790044432277925487685135755433802204e-53",
+    "p_agrees_to_1e-15": true,
     "p_definition": "(P - phi)/sqrt(pi)",
     "phi": "1.6180339887498948482045868343656381177203091798058"
   },
-  "checks_pass": false,
+  "checks_pass": true,
   "mechanism_checks": {
     "Gamma_hessian": "138.00218839783998839296866957857081070571289215834",
     "Gamma_hessian_formula": "1/(p(1-p))",

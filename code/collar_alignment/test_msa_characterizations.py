@@ -310,8 +310,8 @@ def test_descent_invariant_but_noncentral_interface_breaks_alignment():
 # ---------------------------------------------------------------------------
 # Independence of the central-interface collar clause (issue #544,
 # Proposition prop:clauseindependence): a finite regulator package that
-# satisfies the checked repair/consensus axiom-side conditions while its
-# retained Axiom-3 family carries a K-invariant NON-central cross-cut density.
+# satisfies the checked repair/consensus conditions while its retained local
+# density family carries a K-invariant NON-central cross-cut density.
 # ---------------------------------------------------------------------------
 
 
@@ -321,7 +321,7 @@ def _rand_herm(rng: np.random.Generator, n: int) -> np.ndarray:
 
 
 def _noncentral_package(rng: np.random.Generator, g_cross: float = 1.5):
-    """Retained Axiom-3 density family with an invariant noncentral coupling.
+    """Retained local density family with an invariant noncentral coupling.
 
     Returns (U, isometries, densities) where densities = (H_AL, H_RD, H_X)
     are the three retained gauge-invariant local densities on the 64-dim
@@ -373,14 +373,14 @@ def test_noncentral_model_satisfies_axioms():
     The retained family {H_AL, H_RD, H_X} with H_X the invariant-but-noncentral
     cross-cut density passes every axiom-side condition checked here:
 
-    (a) Axiom-3 admissibility: each density is self-adjoint and gauge
+    (a) Local-density admissibility: each density is self-adjoint and gauge
         (K_Sigma-)invariant, and the family plus the identity is linearly
         independent, so the MaxEnt multipliers are unique
         (lem:closure-residual, item i);
     (b) Axiom 2 (overlap consistency): restrictions of the realized Gibbs
         state to the two overlapping patches {A,BL,BR} and {BL,BR,D} agree
         on the shared half-collar pair;
-    (c) refinement closure (Axiom-3 clause): the declared ancilla-extension
+    (c) declared cross-scale closure: the ancilla-extension
         refinement channel (extra regulator cells disjoint from the collar,
         coarse-graining = partial trace) has closure defect exactly zero at
         every tested multiplier vector, with identity induced multiplier map,

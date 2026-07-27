@@ -284,7 +284,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-23T06:40:02Z",
+  "generated_utc": "2026-07-27T07:59:17Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -577,16 +577,6 @@
     }
   ],
   "quark_axiom_level_nondefinability": {
-    "MAR_audit": {
-      "Yukawa_completability_preserved": true,
-      "Yukawa_eigenvalues_are_components_of_complexity_vector": false,
-      "complexity_vector": "(chi_cpl,N_nonab,N_c,N_g)",
-      "counterfamily_members_have_equal_MAR_score": true,
-      "counterfamily_members_remain_distinct_MAR_minima": true,
-      "different_Yukawa_invariants_are_physically_equivalent": false,
-      "intrinsic_CKM_CP_capability_preserved": true,
-      "weak_sector_UV_counting_clause_preserved": true
-    },
     "additional_axioms_used": false,
     "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
     "counterfamily": {
@@ -603,7 +593,30 @@
       "simple_spectrum_preserved": true
     },
     "proof_status": "closed_axiom_level_nondefinability_theorem",
-    "public_numeric_quark_rows_allowed": false
+    "public_numeric_quark_rows_allowed": false,
+    "three_axiom_audit": {
+      "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
+      "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
+      "Axiom_3_information_projection": {
+        "Yukawa_output_map_supplied": false,
+        "constraint_values_or_multipliers_numerically_fixed_by_axiom": false,
+        "gauge_invariant_local_Yukawa_densities_allowed": true,
+        "map_from_P_to_Yukawa_multipliers_supplied": false,
+        "model_space_selection_allowed": false,
+        "optimizer_to_Yukawa_output_map_supplied": false
+      },
+      "all_registered_axiom_data_preserved": true,
+      "declared_structural_packet": {
+        "Yukawa_completability_preserved": true,
+        "Yukawa_eigenvalues_are_declared_structural_coordinates": false,
+        "counterfamily_members_remain_physically_distinct": true,
+        "counterfamily_members_share_all_registered_source_data": true,
+        "different_Yukawa_invariants_are_physically_equivalent": false,
+        "intrinsic_CKM_CP_capability_preserved": true,
+        "weak_sector_UV_counting_clause_preserved": true
+      },
+      "fixed_P": "unchanged across the counterfamily"
+    }
   },
   "quark_scheme_and_yukawa_boundary": {
     "artifact": "oph_quark_running_mass_scheme_convention_obstruction",
@@ -686,7 +699,7 @@
       "same_source_completion_B": "independently rescaled generic admissible Yukawa boundary Y_u'=lambda_u*Y_u, Y_d'=lambda_d*Y_d",
       "source_RGI_mass_vector_emitted": false,
       "source_objects_held_fixed": [
-        "Axioms 1--5",
+        "Axioms 1--3",
         "P",
         "structural Standard-Model sector package",
         "gauge and anomaly data",

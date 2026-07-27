@@ -204,12 +204,12 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "chrome_policy": "Use for proof audit after local BW packet.",
     },
     233: {
-        "phase": "mar-formalization",
-        "claim_level": "theorem gap",
-        "blocker": "MAR realization space, well-founded order, minimality, and uniqueness theorems.",
-        "closure": "MAR claims have formal definitions, order, minimality theorem, and uniqueness boundary.",
-        "falsification": "MAR has no well-founded order compatible with the stated minimality claims.",
-        "chrome_policy": "Use for proof audit after local formalization.",
+        "phase": "retired-claim-audit",
+        "claim_level": "withdrawn premise",
+        "blocker": "No theorem gap remains: economy selection is not part of the three-axiom basis.",
+        "closure": "All active surfaces classify finite economy scores as diagnostics that select no physics.",
+        "falsification": "An active theorem continues to infer physical uniqueness from an economy score.",
+        "chrome_policy": "Do not launch a worker; enforce the source guard.",
     },
     234: {
         "phase": "particle-provenance",

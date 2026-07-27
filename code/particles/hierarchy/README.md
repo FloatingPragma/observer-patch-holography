@@ -110,8 +110,8 @@ Closed inside this bundle:
    refinement limit.
 12. The issue-#343 representation-to-spectrum round-count theorem:
    conditional on active current algebra `su(3)+su(2)+u(1)`, the adjoint has
-   dimension `8+3+1=12`; reversible orientation gives `m_rep=24`. Screen/A5,
-   the global quotient, and MAR matter are not premises. The physical-current
+   dimension `8+3+1=12`; reversible orientation gives `m_rep=24`. Screen selection,
+   the global quotient, and matter-menu completeness are not premises. The physical-current
    identification is upstream.
 13. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, conditional on the named hierarchy
@@ -190,7 +190,7 @@ External/source gates outside this bundle:
    `v/E_star`, not a weak scale in GeV.
 7. The D10 QT1--QT5 quotient-path certificate: finite quotient
    canonicalization, explicit path enumeration, exact rational measures and
-   central trace, fibre Gram/residual derivation, and a positive MAR gap.
+   central trace, fibre Gram/residual derivation, and a unique target-free source rule.
 8. A concrete frozen RG/matching/threshold/scheme receipt with truncation
    intervals.
 9. W/Z/H complex-pole, residue, analytic-sheet, and uncertainty certificates.

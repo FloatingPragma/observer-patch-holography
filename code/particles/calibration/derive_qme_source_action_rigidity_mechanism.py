@@ -9,8 +9,8 @@ unique MaxEnt laws, the exponential-family multiplier, exact projective
 compatibility under the coarse map, the Pythagorean identity, a strictly
 positive Pinsker selector gap, and the Legendre Hessian 1/(p(1-p)).
 
-This artifact sharpens the Local MaxEnt axiom into a quantitative selection
-principle and is the mechanism receipt for the D10 discrete law decision.
+This artifact proves a quantitative information-projection gap inside one
+declared finite A3 packet and is the mechanism receipt for the D10 discrete law decision.
 The physical Standard-Model moment packet is absent and the promotion gate
 is fail-closed.
 """
@@ -298,7 +298,7 @@ def build_artifact(certificate: Mapping[str, Any]) -> dict[str, Any]:
         "status": "SELECTION_MECHANISM_CLOSED_PHYSICAL_MOMENT_VECTOR_OPEN",
         "promotion_allowed": False,
         "axiom_role": {
-            "sharpens": "Local MaxEnt axiom",
+            "sharpens": "finite A3 information-projection packet",
             "into": (
                 "a quantitative selection principle with a strictly positive "
                 "Pinsker selector gap"

@@ -492,35 +492,40 @@ surprisingly little freedom about what it can be made of.
 
 ## 6.11 Formal Statement
 
-The consistency condition can be stated directly.
+Axiom 2 concerns operational meaning on accepted data. Let
+$\mathsf{Data}_i$ be the data accessible to observer $i$,
+$\mathsf{Meaning}_i$ its operational interpretations, and
+$\mathcal J_i:\mathsf{Data}_i\to\mathsf{Meaning}_i$ the interpretation map.
+If patches $P_i$ and $P_j$ share an overlap $O$, their interfaces supply
+restriction maps and a translation $\tau_{j\to i}$ between their local
+dictionaries. Accepted data obey
 
-### Setup
+$$
+\mathcal J_O\!\left(\operatorname{res}_{i\to O}d_i\right)
+=
+\mathcal J_O\!\left(
+  \tau_{j\to i}\operatorname{res}_{j\to O}d_j
+\right).
+$$
 
-We have a screen $S^2$, a collection of patches $\{P_i\}$, an algebra
-$A(P_i)$ of observables for each patch, and a state $\omega_i$ on each patch.
+The same naturality condition closes on triple overlaps and commutes with
+refinement. Raw records can disagree before repair and acceptance. Private
+coordinates can also differ because the translation map, rather than literal
+symbol equality, carries their shared meaning.
 
-### The Condition
+Equality of restricted states is an important finite special case. When the
+two interfaces use the same overlap algebra and the shared meanings are
+expectation values,
 
-For any two patches P_i and P_j with non-empty overlap:
+$$
+\omega_i|_{\mathcal A(O)}=\omega_j|_{\mathcal A(O)},
+\qquad
+\omega_i(X)=\omega_j(X)\quad\text{for every }X\in\mathcal A(O).
+$$
 
-$$\omega_i|_{\mathcal{A}(P_i \cap P_j)} = \omega_j|_{\mathcal{A}(P_i \cap P_j)}$$
-
-The restrictions to the overlap algebra must be the same state.
-
-$\omega_i$ and $\omega_j$ are the states assigned by observers $i$ and $j$.
-$\mathcal A(P_i\cap P_j)$ is the algebra of observables available on their
-shared patch. The vertical restriction bar means "look only at this shared
-algebra."
-
-In plainer English: for any observable O that both Alice and Bob can measure:
-
-$$\omega_i(O) = \omega_j(O)$$
-
-They must assign the same expectation value.
-
-$O$ is any observable in the overlap. The equation says that the two observers
-may keep different private descriptions elsewhere. On the overlap, they must
-make the same predictions for questions both can actually ask.
+This special case does not replace the full axiom. Axiom 2 also covers
+translated readouts, update effects, public record values, higher overlaps,
+and cross-resolution transport.
 
 ### The Patch Graph
 

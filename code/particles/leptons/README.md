@@ -33,7 +33,7 @@ postdiction, separate from the theorem-grade completion lane:
   Born--Lueders conditioning gives `p0=pc=1/2`. The canonical tracial-GNS
   square-root vector maps these probabilities to response powers and forces
   `rho/a=1/sqrt(2)`, hence `Q=2/3` on the positive chamber. This closes the
-  finite probability-to-power normalization. Applying MAR to this response
+  finite probability-to-power normalization. Selecting this response
   register and constructing the physical chiral regular-`C3`, exact recoverable
   source-to-mass-response attachment, positivity, refinement, and mass-scheme
   bridge remain open, so the artifact does not promote Koide as a source-only

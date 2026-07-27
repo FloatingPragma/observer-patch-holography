@@ -249,11 +249,16 @@ finite in the declared regulator scheme.
 
 A3 includes an exact reference and aggregation rule: a compatible local
 reference family \(\tau_r\), a finite A1-generated observer cover
-\(\mathcal G_r\subseteq\mathcal P_r\) seeing every state coordinate used by
-the constraint grammar, and strictly positive exact weights \(w_{r,P}\) from
-quotient-visible A1 data, stating its representation or base-measure
-dependence, its normalization, and its behavior under refinement, natural
-under admissible presentation equivalence. For compatible local families,
+\(\mathcal G_r\subseteq\mathcal P_r\), and strictly positive exact weights
+\(w_{r,P}\) from quotient-visible A1 data. The cover restriction map
+\[
+\rho\longmapsto(\rho_{r,P})_{P\in\mathcal G_r}
+\]
+is injective on \(\mathcal K_r\). Equivalently at smooth points, no nonzero
+feasible tangent is invisible to every member of the cover. The aggregation
+rule states its representation or base-measure dependence, cover and weight
+normalization, and behavior under refinement, and it is natural under
+admissible presentation equivalence. For compatible local families,
 
 \[
 \mathcal D_r(\rho\Vert\tau_r)

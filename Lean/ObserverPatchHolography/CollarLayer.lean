@@ -13,8 +13,8 @@ expressible, states it, and settles force-or-independence at that level.
 
 ## The interface (what the clause quantifies over : nothing else)
 
-The clause (spacetime and Einstein paper, `par:cicclause`, stated with Axiom 3
-`ax:maxent`): *for every collar cut `Σ`, every retained density whose
+The clause (spacetime and Einstein paper, `par:cicclause`) is a named gravity
+interface: *for every collar cut `Σ`, every retained density whose
 support meets both half-collars acts through the boundary-charge (flux)
 functions in `π_L(Z(C*(K̂_Σ)))`, while all other terms are one-sided
 `K̂_Σ`-invariant operators.* Its ingredients, abstracted to pure ring
@@ -32,13 +32,13 @@ algebra (HARD RAIL: no C*-analysis, no GNS/spectra/Hilbert spaces):
   `K`; `Flux` : the center `Z(K) = K ∩ K′`; `CrossCut a` : support meets
   both half-collars, i.e. `a ∉ ML ∪ MR`.
 
-A `RetainedFamily` packages exactly the algebraic stipulations Axiom 3
-places on the retained constraint list (`ax:maxent`): a **finite** list of
-**gauge-invariant** (= `K̂`-invariant) **collar-supported** densities,
-together with a family of admissible refinement channels (additive maps :
+A `RetainedFamily` packages the algebraic stipulations of the separately
+declared local-density and optimizer-pushforward interface: a **finite** list
+of **gauge-invariant** (= `K̂`-invariant) **collar-supported** densities,
+together with a family of admissible refinement channels (additive maps:
 CP coarse-graining maps are *not* multiplicative, so `RingHom` would be
 unfaithful strength) under which the list is **refinement-closed** (the
-operator-level shadow of the refinement-closure clause: coarse-graining
+operator-level shadow of the cross-scale interface: coarse-graining
 generates nothing outside the retained span).
 
 ## Faithfulness notes (scope, stated up front)
@@ -48,8 +48,9 @@ generates nothing outside the retained span).
    membership in the superset therefore refutes the paper's form, and the
    positive witness below lands in the smaller set too (its `K` is
    commutative, so the two coincide). No overclaim in either direction.
-2. Only the **algebraic core** of Axiom 3 is shadowed. The state-side /
-   analytic content (MaxEnt selection, closure-defect trace norms,
+2. Only the **algebraic core** of the declared density and cross-scale
+   interfaces is shadowed. The state-side and analytic content (A3
+   information projection, closure-defect trace norms,
    realized-branch persistence) is *not* formalised here, and every claim
    below is scoped accordingly.
 3. The representation-theoretic descent of `lem:onesideddescent` (Schur)
@@ -77,22 +78,21 @@ matrices `M₂(ℤ) ⊗ M₂(ℤ)`:
   and collar-supported while being cross-cut and **not** in `Z(K)`; so
   `CollarClause` fails (`not_collarClause_negFamily`).
 
-Hence (`collarClause_independent_of_axiom3_core`): the stated algebraic
+Hence (`collarClause_independent_of_declared_cross_scale_core`): the stated algebraic
 laws admit both a central-interface and a non-central-interface retained
 family : the collar clause is **not a consequence of the algebraic core of
 the stated laws** and stays exactly what the paper declares it to be: a
-named axiom-level input of the declared branch. Sharper
+named interface of the declared branch. Sharper
 (`collarClause_not_layer_determined`): the two families share one layer,
 so *no predicate of the layer data whatsoever* : in particular nothing
 derivable from overlap-consistent repair, which by `CollarClause.lean`
 reads only constraint data : can express the clause.
 
-## Refinement-closure scope
+## Cross-scale closure scope
 
-Axiom 3 calls the closure clause "a *substantive* renormalization
-condition on the realized branch" and simultaneously stipulates "choose
-**any** family of refinement channels compatible with the axiom"
-(`ax:maxent`, and the channel choice in the refinement lemma). Both
+The declared optimizer-pushforward interface imposes a substantive
+renormalization condition on the realized branch while permitting a named
+family of refinement channels. Both
 witnesses below discharge closure with the identity channel, which the
 "choose any channels" clause admits. This is a legal choice, so the
 independence result applies. **The collar clause is not forced by the
@@ -155,8 +155,8 @@ def CrossCut (a : Λ.A) : Prop := ¬ Λ.OneSided a
 
 end CollarLayer
 
-/-- The algebraic stipulations Axiom 3 (`ax:maxent`) places on the retained
-    constraint family : exactly these, no more: a finite list of
+/-- The algebraic stipulations of the declared local-density and
+    optimizer-pushforward interfaces: a finite list of
     gauge-invariant, collar-supported densities, refinement-closed under an
     admissible family of (additive) coarse-graining channels. -/
 structure RetainedFamily (Λ : CollarLayer) where
@@ -173,7 +173,7 @@ structure RetainedFamily (Λ : CollarLayer) where
       coarse-graining maps are not multiplicative, so demanding `RingHom`
       would smuggle unstated strength. -/
   refineChannels : Set (Λ.A →+ Λ.A)
-  /-- The refinement-closure clause, operator-level shadow: coarse-graining
+  /-- The cross-scale closure interface, operator-level shadow: coarse-graining
       generates nothing outside the retained span. -/
   refinement_closure : ∀ Φ ∈ refineChannels, ∀ d ∈ densities,
     Φ d ∈ AddSubgroup.closure (densities : Set Λ.A)
@@ -422,7 +422,7 @@ def posFamily : RetainedFamily modelLayer where
 
 /-- **The failure-boundary witness**: adds the invariant-but-non-central
     cross coupling `XX` : the algebraic double of the pinned python test's
-    group-averaged cross term. Every stated Axiom-3 law holds. -/
+    group-averaged cross term. Every stated interface law holds. -/
 def negFamily : RetainedFamily modelLayer where
   densities := {uu, XX}
   gauge_invariant := by
@@ -467,16 +467,16 @@ theorem not_collarClause_negFamily : ¬ CollarClause modelLayer negFamily := by
 
 /-- **INDEPENDENCE (issue #544, interface level).** The algebraic core of
     the stated laws : screen-net locality, gauge-invariance of the retained
-    densities, finiteness, collar support, and the refinement-closure
-    clause discharged by the identity channel that the "choose any
+    densities, finiteness, collar support, and the cross-scale closure
+    interface discharged by the identity channel that the declared
     channels" stipulation admits : is satisfied both by a retained family
     satisfying the collar clause and by one refuting it. The clause is
     therefore not a consequence of that algebraic core and is exactly
-    what the paper declares: a named axiom-level input of the declared
+    what the paper declares: a named interface of the declared
     branch. Any derivation must add content the core lacks : fixed
     nontrivial coarse-graining channels under which closure bites, or
     state-side/analytic content. -/
-theorem collarClause_independent_of_axiom3_core :
+theorem collarClause_independent_of_declared_cross_scale_core :
     (∃ (Λ : CollarLayer) (F : RetainedFamily Λ), CollarClause Λ F) ∧
     (∃ (Λ : CollarLayer) (F : RetainedFamily Λ), ¬ CollarClause Λ F) :=
   ⟨⟨modelLayer, posFamily, collarClause_posFamily⟩,
@@ -506,7 +506,7 @@ theorem collarClause_not_layer_determined :
 #print axioms XX_notMem_flux
 #print axioms collarClause_posFamily
 #print axioms not_collarClause_negFamily
-#print axioms collarClause_independent_of_axiom3_core
+#print axioms collarClause_independent_of_declared_cross_scale_core
 #print axioms collarClause_not_layer_determined
 
 /-! ## No-go addendum (#544): force-by-coarse-graining is OBSTRUCTED at the
@@ -517,7 +517,7 @@ clause. The results below say more: the concrete algebraic routes by which a
 coarse-graining derivation could try to *force* it are each obstructed.
 
 1. **Span-closure preservation.** The faithful semantics of the
-   refinement-closure clause is closure of the additive *span* of the
+   declared cross-scale interface is closure of the additive *span* of the
    retained densities (the exponential family is generated by Lagrange
    combinations, so `0`, sums, and negations of retained densities are
    retained directions : a multiplier set to zero belongs to the family).
@@ -567,7 +567,7 @@ variable {Λ : CollarLayer}
 
 /-- Span-level refinement closure: the channel maps the additive span of
     the retained densities into itself. This is the faithful reading of the
-    refinement-closure clause : the exponential family is generated by the
+    declared cross-scale interface: the exponential family is generated by the
     span, so integer combinations (including `0`: all couplings dropped)
     are retained directions. -/
 def SpanClosed (F : RetainedFamily Λ) (Φ : Λ.A →+ Λ.A) : Prop :=
@@ -586,7 +586,7 @@ theorem spanClosed_of_generators {F : RetainedFamily Λ} {Φ : Λ.A →+ Λ.A}
     exact fun d hd => h d hd
   exact hle ha
 
-/-- The Finset-level refinement-closure law of `RetainedFamily`
+/-- The Finset-level cross-scale law of `RetainedFamily`
     yields span-level closure for every admissible channel: the span
     semantics is implied, not an extra assumption. -/
 theorem RetainedFamily.spanClosed (F : RetainedFamily Λ) :

@@ -220,11 +220,11 @@ Everything that observer agreement leaves unconstrained is maximally random.
 
 ### Medium
 
-At each finite resolution, a state is a compatible family of local states on the accessible algebra net. A1 and A2 carve out the convex set of families satisfying every observer-visible constraint. A3 selects from that set the least informative family relative to a declared reference: the information projection under a weighted sum of local relative entropies over a declared observer cover. When the reference is trace-uniform, this equals weighted local entropy maximization.
+At each finite resolution, a state is a compatible family of local states on the accessible algebra net. A1 and A2 carve out the convex set of families satisfying every observer-visible constraint. A3 selects from that set the least informative family relative to a declared reference: the information projection under a weighted sum of local relative entropies over a declared, state-determining observer cover with positive exact weights. When every local reference density is identity-proportional in its declared trace, this equals weighted local entropy maximization.
 
 ### Long
 
-At each finite resolution, a state is a compatible family of local states on the accessible algebra net. A1 and A2 carve out the convex set of families satisfying every observer-visible constraint. A3 selects from that set the least informative family relative to a declared reference: the information projection under a weighted sum of local relative entropies over a declared observer cover. When the reference is trace-uniform, this equals weighted local entropy maximization.
+At each finite resolution, a state is a compatible family of local states on the accessible algebra net. A1 and A2 carve out the convex set of families satisfying every observer-visible constraint. A3 selects from that set the least informative family relative to a declared reference: the information projection under a weighted sum of local relative entropies over a declared, state-determining observer cover with positive exact weights. When every local reference density is identity-proportional in its declared trace, this equals weighted local entropy maximization.
 
 Random means least informative relative to the declared reference and the complete observer-agreement constraint set; it does not mean independent noise, equal probabilities in every coordinate system, or global thermal equilibrium. Every use of A3 names its optimizer type: an ontic state on a fixed accessible algebra, an observer-inference state on a fixed evidence algebra, or a transition distribution on a fixed finite move simplex. A3 selects a state inside one A1-fixed feasible space and cannot compare unrelated Hilbert spaces, field lists, or ontology classes; this model-space boundary keeps maximum randomness from becoming a renamed economy rule. Commutation of the optimizer with refinement is a separate theorem.
 
@@ -244,11 +244,16 @@ finite in the declared regulator scheme.
 
 A3 includes an exact reference and aggregation rule: a compatible local
 reference family \(\tau_r\), a finite A1-generated observer cover
-\(\mathcal G_r\subseteq\mathcal P_r\) seeing every state coordinate used by
-the constraint grammar, and strictly positive exact weights \(w_{r,P}\) from
-quotient-visible A1 data, stating its representation or base-measure
-dependence, its normalization, and its behavior under refinement, natural
-under admissible presentation equivalence. For compatible local families,
+\(\mathcal G_r\subseteq\mathcal P_r\), and strictly positive exact weights
+\(w_{r,P}\) from quotient-visible A1 data. The cover restriction map
+\[
+\rho\longmapsto(\rho_{r,P})_{P\in\mathcal G_r}
+\]
+is injective on \(\mathcal K_r\). Equivalently at smooth points, no nonzero
+feasible tangent is invisible to every member of the cover. The aggregation
+rule states its representation or base-measure dependence, cover and weight
+normalization, and behavior under refinement, and it is natural under
+admissible presentation equivalence. For compatible local families,
 
 \[
 \mathcal D_r(\rho\Vert\tau_r)

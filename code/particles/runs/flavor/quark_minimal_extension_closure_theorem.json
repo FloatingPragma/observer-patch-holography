@@ -1,7 +1,7 @@
 {
   "artifact": "oph_quark_minimal_extension_closure_theorem",
   "status": "theorem_grade_extension_contract",
-  "premise_set": "P := p_a + Axioms 1-5 + Assumption 6 + emitted OPH nodes D1-D10 + current public D12 quark objects",
+  "premise_set": "P := p_a + Axioms 1-3 + the declared particle-branch interfaces + emitted OPH nodes D1-D10 + public D12 quark objects",
   "base_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
   "exact_minimal_extension_triple": {
     "H_mass": "ell_ud := log(c_d / c_u)",

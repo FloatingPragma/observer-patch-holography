@@ -145,7 +145,12 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
     assert axiom_obstruction["counterfamily"]["parameter_space"] == (
         "(lambda_u,lambda_d) in (R_{>0})^2"
     )
-    assert axiom_obstruction["MAR_audit"]["counterfamily_members_have_equal_MAR_score"] is True
+    assert axiom_obstruction["three_axiom_audit"][
+        "all_registered_axiom_data_preserved"
+    ] is True
+    assert axiom_obstruction["three_axiom_audit"][
+        "Axiom_3_information_projection"
+    ]["Yukawa_output_map_supplied"] is False
     assert axiom_obstruction["reference_data_policy"]["no_target_leak_by_construction"] is True
     assert axiom_obstruction["public_numeric_quark_rows_allowed"] is False
 

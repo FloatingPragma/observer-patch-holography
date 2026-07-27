@@ -52,14 +52,17 @@ nonempty convex set of such families satisfying the finite observer-visible
 constraints supplied by Axioms 1 and 2 through an A1-generated constraint
 grammar with a factorization theorem; and, relative to an exact reference
 family \(\tau_r\), an A1-generated observer cover \(\mathcal G_r\), and
-strictly positive weights \(w_{r,P}\), the realized state is the
-information projection
+strictly positive exact weights \(w_{r,P}\), the realized state is the
+information projection. The cover restriction map is injective on
+\(\mathcal K_r\), or equivalently at smooth points no nonzero feasible
+tangent is invisible to the whole cover:
 \[
 \rho_r=\operatorname*{arg\,min}_{\rho\in\mathcal K_r}
 \sum_{P\in\mathcal G_r} w_{r,P}\,D(\rho_{r,P}\Vert\tau_{r,P}),
 \]
-equivalent to weighted local entropy maximization when the reference is
-identity-proportional. "Random" means least informative relative to the
+This is equivalent to weighted local entropy maximization when every local
+reference density is identity-proportional in its declared trace. "Random"
+means least informative relative to the
 declared reference and the complete agreement constraint set. The axiom
 selects one state inside one fixed feasible space. It does not compare
 unrelated state spaces or field contents, does not imply optimizer

@@ -311,7 +311,7 @@ def evaluate(
             "F=G+V_std is the unique minimal physical family-response carrier",
             "the eight composite module incidences are source-selected",
             "the declared projectors, ranks, orientations, and signs are physical",
-            "full unitary isotropy and Gaussian two-cumulant truncation follow from MAR",
+            "full unitary isotropy and Gaussian two-cumulant truncation are source laws",
             "the count-only 24-slot register acquires a family non-singlet attachment",
             "the heat time, even responses, and affine mean law are source laws",
             "the residual functional is physically minimized",

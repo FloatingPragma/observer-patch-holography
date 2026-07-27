@@ -275,7 +275,7 @@ def p4_record(rho, c, d, row_status: str, fp_mid: mpf | None) -> dict:
         return rec
     return {
         "interior_stationary_point": False,
-        "reason": "l'(N) = (rho-1) + c/N has no interior zero for this (rho, c); MAR argmax sits on a boundary",
+        "reason": "l'(N) = (rho-1) + c/N has no interior zero for this (rho, c); the declared score argmax sits on a boundary",
         "verdict": "p4_fails_structurally",
     }
 

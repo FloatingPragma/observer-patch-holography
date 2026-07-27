@@ -303,7 +303,7 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 > `CollarClause.lean`/`CollarLayer.lean` prove the layer separation (the
 > overlap-consistency repair layer factors through the realized constraint
 > family; the collar clause is a declared input, not a theorem).
-> `CollarStates.lean` (T0) proves `stateSide_axioms_do_not_force`:
+> `CollarStates.lean` (T0) proves `stateSide_interfaces_do_not_force`:
 > the state-side axioms (density matrices, Gibbs states of the retained
 > family, Umegaki relative entropy, family Klein inequality) do not force
 > the clause. `CollarStatesT1.lean` (T1) proves `Eflux_does_not_force` and

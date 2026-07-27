@@ -496,10 +496,8 @@ def build_payload() -> dict[str, Any]:
                 "additional_axioms_used"
             ),
             "counterfamily": quark_axiom_level_obstruction.get("counterfamily", {}),
-            "MAR_audit": (
-                quark_axiom_level_obstruction.get("axiom_invariance_audit", {}).get(
-                    "Axiom_5_MAR", {}
-                )
+            "three_axiom_audit": quark_axiom_level_obstruction.get(
+                "axiom_invariance_audit", {}
             ),
             "public_numeric_quark_rows_allowed": quark_axiom_level_obstruction.get(
                 "public_numeric_quark_rows_allowed"
@@ -701,7 +699,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         )
     axiom_boundary = payload.get("quark_axiom_level_nondefinability") or {}
     if axiom_boundary.get("artifact"):
-        mar_audit = axiom_boundary.get("MAR_audit") or {}
+        axiom_audit = axiom_boundary.get("three_axiom_audit") or {}
         counterfamily = axiom_boundary.get("counterfamily") or {}
         lines.extend(
             [
@@ -712,9 +710,10 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"- Status: `{axiom_boundary.get('proof_status')}`",
                 f"- Additional axioms used: `{axiom_boundary.get('additional_axioms_used')}`",
                 f"- Counterfamily: `{counterfamily.get('parameter_space')}`",
-                f"- MAR complexity vector: `{mar_audit.get('complexity_vector')}`",
-                f"- Equal MAR score across counterfamily: "
-                f"`{mar_audit.get('counterfamily_members_have_equal_MAR_score')}`",
+                f"- A1-A3 structural data remain fixed: "
+                f"`{axiom_audit.get('all_registered_axiom_data_preserved')}`",
+                f"- A3 receives no Yukawa-output map: "
+                f"`{axiom_audit.get('Axiom_3_information_projection', {}).get('Yukawa_output_map_supplied')}`",
                 f"- Public numeric quark rows allowed: "
                 f"`{axiom_boundary.get('public_numeric_quark_rows_allowed')}`",
             ]

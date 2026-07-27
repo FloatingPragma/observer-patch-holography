@@ -186,7 +186,7 @@
       "abs_b_squared_over_a_squared": "exp(-Delta_S)",
       "pc_over_p0": "2*exp(-Delta_S)"
     },
-    "logical_scope": "The connected-register rank calculation, Born-Lueders conditioning, and canonical tracial-GNS probability-to-power map are closed finite mathematics. Applying Minimal Admissible Realization to response-local registers is additional structural content, and identifying this GNS process with the physical charged-mass response requires the open exact recoverable attachment below.",
+    "logical_scope": "The connected-register rank calculation, Born-Lueders conditioning, and canonical tracial-GNS probability-to-power map are closed finite mathematics. Selecting the response-local register and connected event is additional structural content, and identifying this GNS process with the physical charged-mass response requires the open exact recoverable attachment below.",
     "minimal_orientation_event": {
       "Z0": "P0 tensor I_2",
       "Zc": "Pc tensor q_+",
@@ -227,7 +227,7 @@
     "derived": false,
     "id": "charged_GNS_to_physical_chiral_mass_recovery_attachment",
     "requirements": [
-      "justify applying Minimal Admissible Realization to the response-local two-state orientation register and the connected M6 admissibility event",
+      "derive a target-free source rule selecting the response-local two-state orientation register and the connected M6 admissibility event",
       "construct the physical chiral L-H-E carrier with quotient-visible regular C3 family fibers and canonical kinetic forms",
       "construct faithful trace-preserving recoverable u.c.p. maps between the finite source process and physical response process, with a left inverse and singlet/charged record intertwining",
       "identify the physical GNS vector with the normalized positive square-root-mass response C=(Y_e^dagger Y_e)^(1/4), after kinetic whitening",
@@ -256,12 +256,12 @@
   "source_receipts": {
     "geometric_C3_carrier": {
       "path": "particles/runs/leptons/charged_icosahedral_face_carrier_frontier.json",
-      "sha256": "7ca8619bc16834a7eb941f25878a34175dcba107e5f71cada36da2f8b232108b",
+      "sha256": "06f6a69f33c3203ba473fc15f7ecb9596fdd0f5535a822a731e07ddb6c55dcbe",
       "status": "CLOSED_GEOMETRIC_C3_FACE_CARRIER_PHYSICAL_ATTACHMENT_AND_VALUE_LAWS_OPEN"
     },
     "orientation_pair": {
       "path": "particles/hierarchy/certificates/R_m_rep_24_certificate.json",
-      "sha256": "32d39eba6223eaed55ce124a934a04bd4e9027b24bec559ab2400e21643edfe4",
+      "sha256": "d96e9ba9331f184dba240669103b49939ef3c39273b32c4a877e2e549f0e8aee",
       "status": "closed_representation_to_spectrum_round_count"
     }
   },

@@ -136,13 +136,48 @@ structure MeaningNaturality (Data Meaning Index : Type*) where
     ∀ r s d, interpret r (dataTransport s r d)
       = meaningTransport s r (interpret s d)
 
-/-- A3 shadow: an information-projection specification over a finite index
-of local state coordinates, with a reference family, positive weights, a
-feasible predicate, and the projection characterized as the unique feasible
-minimizer of the weighted divergence. -/
-structure InfoProjectionSpec (StateFam : Type*) where
+/-- A1 federation-to-support shadow. The fields are theorem arguments rather
+than new Lean axioms. They keep the carrier federation, its overlap nerve,
+and its finite spherical support distinct, and require an explicit
+source-bound, refinement-natural, degree-one bridge between the latter two. -/
+structure FederationSupportShadow
+    (Carrier Nerve Support Regulator : Type*) where
+  carrierPatch : Regulator → Carrier → Nerve
+  supportMap : Regulator → Nerve → Support
+  refineNerve : Regulator → Regulator → Nerve → Nerve
+  refineSupport : Regulator → Regulator → Support → Support
+  sourceBound : Prop
+  sourceBound_verified : sourceBound
+  bridge_natural :
+    ∀ r s n,
+      supportMap r (refineNerve s r n)
+        = refineSupport s r (supportMap s n)
+  orientedDegreeOne : Regulator → Prop
+  orientedDegreeOne_verified : ∀ r, orientedDegreeOne r
+
+/-- A3 shadow: an information-projection specification over a finite
+A1-generated observer cover. The cover restrictions determine every feasible
+state family, the exact weights are positive, and the declared divergence is
+the weighted sum of local divergences from the compatible reference family.
+The realized family is the unique feasible minimizer. -/
+structure InfoProjectionSpec
+    (StateFam LocalState Patch : Type*) [Fintype Patch] [DecidableEq Patch] where
   feasible : StateFam → Prop
+  restrict : StateFam → Patch → LocalState
+  reference : Patch → LocalState
+  cover : Finset Patch
+  cover_state_determining :
+    ∀ s t, feasible s → feasible t →
+      (∀ p ∈ cover, restrict s p = restrict t p) → s = t
+  weight : Patch → ℝ
+  weight_positive : ∀ p ∈ cover, 0 < weight p
+  localDivergence : LocalState → LocalState → ℝ
   divergence : StateFam → ℝ
+  divergence_is_weighted :
+    ∀ s,
+      divergence s =
+        ∑ p ∈ cover,
+          weight p * localDivergence (restrict s p) (reference p)
   realized : StateFam
   realized_feasible : feasible realized
   realized_minimal :

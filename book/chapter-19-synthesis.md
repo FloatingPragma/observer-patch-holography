@@ -52,12 +52,16 @@ access patch. Where patches overlap, the observables on that overlap have to
 match. The sphere is the chart for the gluing problem, not a literal ball
 outside the universe.
 
-The state on the screen is selected by maximum entropy subject to a stable
-local family of constraints. Generalized entropy gives each cap a bulk piece
-and a boundary piece, while minimal admissibility selects the least elaborate
-low-energy matter sector that satisfies the consistency conditions. Their
-interaction is the spine that lets one construction address several parts of
-physics.
+The state on the screen is selected by conditional maximum randomness inside
+one fixed feasible family, relative to an exact reference, a state-determining
+observer cover, and positive exact weights. Cross-resolution optimizer
+compatibility is a separate theorem problem. On the gravity branch, explicit
+edge-reference, entropy-split, stationarity, stress, and continuum interfaces
+connect the finite state to generalized entropy and Einstein dynamics. On the
+matter branch, the exact finite current and representation certificates stop
+at their named menus; family count, scalar multiplicity, and extra-sector
+completeness are open problems. These typed connections form the spine that lets one
+construction address several parts of physics.
 
 ![The book's main ingredients form one spine from finite screens to shared public reality.](../assets/book_diagrams/synthesis-spine.svg){width=78%}
 

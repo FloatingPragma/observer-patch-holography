@@ -47,7 +47,7 @@ split, absolute scale, or physical poles. A formal weighted path realization is
 not evidence by itself: any finite polynomial can be encoded one monomial per
 path. The carrier is non-vacuous only when its transitions, admissibility,
 quotient, response map, normalized measure, mismatch signs, exhaustive census,
-rigidity/MAR gap, and no-target DAG were fixed independently of the desired
+rigidity or unique target-free source rule, and no-target DAG were fixed independently of the desired
 output.
 
 The remaining source-emission packets are exactly:
@@ -105,7 +105,7 @@ scan is a guard, not a proof that the carrier is physically justified.
    before applying the generic convex minimizer lemma.
 8. Complete a consistent finite deformation census. Either prove no
    output-changing quotient direction survives, or use an independently
-   justified target-free selector with a positive winner gap. A new MAR vector
+   justified target-free selector with a positive winner gap. A new score vector
    cannot be introduced only because it selects the desired law.
 
 ## D11 certificate: DS1--DS5

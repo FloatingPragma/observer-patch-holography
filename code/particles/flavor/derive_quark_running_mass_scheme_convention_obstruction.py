@@ -81,7 +81,7 @@ def build_artifact() -> dict[str, Any]:
                 "Y_u'=lambda_u*Y_u, Y_d'=lambda_d*Y_d"
             ),
             "source_objects_held_fixed": [
-                "Axioms 1--5",
+                "Axioms 1--3",
                 "P",
                 "structural Standard-Model sector package",
                 "gauge and anomaly data",

@@ -112,7 +112,7 @@
       "F=G+V_std is the unique minimal physical family-response carrier",
       "the eight composite module incidences are source-selected",
       "the declared projectors, ranks, orientations, and signs are physical",
-      "full unitary isotropy and Gaussian two-cumulant truncation follow from MAR",
+      "full unitary isotropy and Gaussian two-cumulant truncation are source laws",
       "the count-only 24-slot register acquires a family non-singlet attachment",
       "the heat time, even responses, and affine mean law are source laws",
       "the residual functional is physically minimized"
@@ -132,7 +132,7 @@
           "sha256": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c"
         },
         "particles/hierarchy/certificates/R_m_rep_24_certificate.json": {
-          "sha256": "d96e9ba9331f184dba240669103b49939ef3c39273b32c4a877e2e549f0e8aee"
+          "sha256": "7a459ed1c6456348c475271970b6c7c47ddc7fc01d9faaa4eb8757a2e4bf51fc"
         },
         "particles/runs/calibration/d10_ew_transport_kernel.json": {
           "sha256": "1d84a410437811bd9ed5a16d2fc464fdbedd17d19caab8885fa2800c956d18f7"
@@ -246,12 +246,12 @@
     "F4_affine_mean_law": false,
     "F5_common_scale_physical_readout": false,
     "F6_RG_threshold_scheme_packet": false,
-    "MAR_two_cumulant_truncation_proved": false,
     "count_only_24_slot_register_emits_family_non_singlet": false,
     "effect_projectors_ranks_and_signs_constructed": false,
     "full_unitary_isotropy_derived_from_S3": false,
     "module_minimality_or_uniqueness_proved": false,
-    "rescaling_residual_is_a_derived_OPH_minimization_law": false
+    "rescaling_residual_is_a_derived_OPH_minimization_law": false,
+    "three_axiom_two_cumulant_truncation_proved": false
   },
   "precision_audit": {
     "D10_v_input_decimal_digits": 17,
@@ -263,7 +263,7 @@
   "rescaling_orbit_correction": "For an orbit through the declared E_q, ||lambda E_q-E_q||^2 has its minimum at lambda=1. For a generic base spectrum v, ||lambda v-E_q||^2 is minimized at <v,E_q>/||v||^2, not generally 1. No current OPH theorem requires minimizing the postulated residual.",
   "runtime_separation_audit": {
     "exact_target_literal_hits": [],
-    "predictor_sha256": "99bd2d1b955bb3d4a046365b320381656ff611f2c2ee5ce9d61298ddba53ae4b",
+    "predictor_sha256": "c2703016b69a5617e2f057254fa655f141eeb596d3f1f178071d417dee2106d2",
     "runtime_comparison_separation_passes": true,
     "scope": "Direct runtime separation only; it does not clean Stage-5 ancestry, retrospective formula selection, or mixed-branch D10 scale use."
   },

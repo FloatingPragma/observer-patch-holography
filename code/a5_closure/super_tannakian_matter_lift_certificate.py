@@ -449,15 +449,15 @@ def validate_manifest(
         "the packet must not assume the final global quotient",
     )
 
-    mar = manifest.get("candidate_matter_class")
-    require(isinstance(mar, Mapping), "MATTER_CLASS_CONTRACT", "candidate_matter_class is missing")
+    matter_class = manifest.get("candidate_matter_class")
+    require(isinstance(matter_class, Mapping), "MATTER_CLASS_CONTRACT", "candidate_matter_class is missing")
     require(
-        mar.get("declared") == "one_generation_one_scalar_chiral_anomaly_free",
+        matter_class.get("declared") == "one_generation_one_scalar_chiral_anomaly_free",
         "MATTER_CLASS_CONTRACT",
         "the declared candidate class must be the one-generation one-scalar chiral anomaly-free class",
     )
     require(
-        mar.get("promote_uniqueness") is False,
+        matter_class.get("promote_uniqueness") is False,
         "CLASS_UNIQUENESS_PROMOTION",
         "class uniqueness may not be promoted before the class is proved nonempty and the uniqueness lane runs",
     )
@@ -2936,7 +2936,7 @@ def certificate_payload(
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
-            "candidate_class_proved_nonempty_before_uniqueness_promoted": True,
+            "candidate_class_nonempty_and_uniqueness_not_promoted": True,
             "family_attachment_scalar_potential_pole_mass_outside_packet": True,
             "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": True,
             "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": True,

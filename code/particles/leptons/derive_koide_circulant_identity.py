@@ -148,6 +148,14 @@ def build_artifact() -> dict[str, Any]:
         mcpr_mu_over_e = Decimal(
             mcpr["conditional_prediction"]["ratios"]["m_mu_over_m_e"]
         )
+        modulus_ratio_minus_exact_balance = modulus_ratio - exact_balance
+        relative_modulus_defect_ppm = (
+            modulus_ratio / exact_balance - one
+        ) * Decimal(1_000_000)
+        q_mcpr_minus_two_thirds = q_mcpr - two_thirds
+        measured_q_minus_two_thirds = measured_q - two_thirds
+        q_mcpr_minus_measured = q_mcpr - measured_q
+        mcpr_mu_over_e_minus_measured = mcpr_mu_over_e - measured_mu_over_e
 
     phase = float(mcpr["regular_C3_shape"]["delta"])
     current_roots = roots(float(a_value), float(abs_b), phase)
@@ -252,12 +260,12 @@ def build_artifact() -> dict[str, Any]:
             "abs_b_over_a": decimal_text(modulus_ratio),
             "Q": decimal_text(q_mcpr),
             "abs_b_over_a_minus_exact_balance": decimal_text(
-                modulus_ratio - exact_balance
+                modulus_ratio_minus_exact_balance
             ),
             "relative_modulus_defect_ppm": decimal_text(
-                (modulus_ratio / exact_balance - one) * Decimal(1_000_000)
+                relative_modulus_defect_ppm
             ),
-            "Q_minus_two_thirds": decimal_text(q_mcpr - two_thirds),
+            "Q_minus_two_thirds": decimal_text(q_mcpr_minus_two_thirds),
             "m_mu_over_m_e": decimal_text(mcpr_mu_over_e),
             "provenance": (
                 "retrospective historically target-informed declared-model "
@@ -267,12 +275,14 @@ def build_artifact() -> dict[str, Any]:
         "compare_only_PDG_2026_central_coordinate": {
             "masses_MeV": measured_masses,
             "Q": decimal_text(measured_q),
-            "Q_minus_two_thirds": decimal_text(measured_q - two_thirds),
+            "Q_minus_two_thirds": decimal_text(measured_q_minus_two_thirds),
             "inferred_abs_b_over_a": decimal_text(measured_ratio),
             "m_mu_over_m_e": decimal_text(measured_mu_over_e),
-            "MCPR_Q_minus_measured_central": decimal_text(q_mcpr - measured_q),
+            "MCPR_Q_minus_measured_central": decimal_text(
+                q_mcpr_minus_measured
+            ),
             "MCPR_m_mu_over_m_e_minus_measured_central": decimal_text(
-                mcpr_mu_over_e - measured_mu_over_e
+                mcpr_mu_over_e_minus_measured
             ),
             "significance_claimed": False,
             "note": (

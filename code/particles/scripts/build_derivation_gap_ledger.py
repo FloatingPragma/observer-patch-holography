@@ -296,14 +296,14 @@ def _quark_sigma_obstruction_gate() -> dict[str, Any]:
             "The target-free source equations fix the two ordered profile rays but leave their up/down positive "
             "spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the "
             "affine sector means and mass textures. The edge path begins at a hand-written transport template and "
-            "does not select either modulus. The stronger Axioms-1--5 theorem constructs physically inequivalent "
-            "Yukawa packages with the same MAR score, so the stated MAR order does not break this action."
+            "does not select either modulus. The stronger three-axiom theorem constructs physically inequivalent "
+            "Yukawa packages with the same registered source data because no typed A3 optimizer-to-Yukawa map exists."
             if certified
             else "The target-free spread-obstruction artifact is absent or fails its no-target certificate."
         ),
         "next_action": (
-            "Keep all numeric quark rows suppressed. With additional axioms excluded, reopen only if a theorem from "
-            "the existing MaxEnt/refinement data refutes the equal-MAR-score counterfamily and emits both spreads."
+            "Keep all numeric quark rows suppressed. Reopen only if an A1-generated flavor grammar and typed "
+            "A3 optimizer-to-Yukawa theorem refute the counterfamily and emit both spreads."
         ),
         "obstruction_artifact": _artifact_path(QUARK_SIGMA_OBSTRUCTION),
         "axiom_level_obstruction_artifact": _artifact_path(QUARK_AXIOM_LEVEL_YUKAWA_OBSTRUCTION),
