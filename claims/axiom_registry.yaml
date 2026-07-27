@@ -30,7 +30,7 @@
       ],
       "excluded_from_axiom_content": [
         "equal_state_weights (derived from the A3 exactness clauses; receipt equal_state_weights_reference)",
-        "integer_load_fiber_and_quadratic_readback (derivation target)",
+        "integer_load_fiber_and_quadratic_readback (derivation target, #625)",
         "target_blind_perturb_readback_law (exact_named_realization; grammar completeness #611)",
         "inverse_port_involution_six_axes_a5_frame_pair (derived incidence consequence)",
         "inverse_port_response_and_current_algebra (exact_named_realization; grammar completeness #611)"
@@ -139,12 +139,12 @@
     {"id": "physical_full_rank_screen_current_lift", "class": "conditional_open_interface", "area": "gauge"},
     {"id": "inverse_port_response_law", "class": "exact_named_realization", "area": "gauge", "note": "Target-blind producer and certificate on the named carrier realization. Completeness inside the declared operational grammar is exact and unique up to sign (receipt response_grammar_completeness_reference); forcing that grammar from the axioms is independence_limited with the retained sign-pattern countermodels."},
     {"id": "finite_current_lie_type", "class": "exact_named_realization", "area": "gauge"},
-    {"id": "compact_group_and_global_form_identification", "class": "exact_named_realization", "area": "gauge", "note": "Measured deck, six-axis, and flux-sector data on the named realization. Central-column routed-seam grammar completeness is exact (receipt routed_seam_grammar_reference); the general noncentral grammar stays open with the measured double-cover transport as witness; instanton, theta, and laboratory line attachment separate."},
+    {"id": "compact_group_and_global_form_identification", "class": "exact_named_realization", "area": "gauge", "note": "Measured deck, six-axis, and flux-sector data on the named realization. Central-column routed-seam grammar completeness is exact (receipt routed_seam_grammar_reference); the general noncentral grammar is issue #624 with the measured double-cover transport as witness; instanton, theta, and laboratory line attachment separate."},
     {"id": "spin_statistics_odd_weyl_typing", "class": "exact_named_realization", "area": "matter", "note": "Measured transport double cover and section obstruction on the named realization; continuum spin-statistics separate."},
     {"id": "rank15_exterior_matter_pair", "class": "exact_named_realization", "area": "matter", "note": "Exhaustive 1024-subset scan inside the declared exterior-module menu. Menu completeness inside the declared exterior algebra is exact (receipt matter_menu_spectral_ledger_reference); beyond-algebra completeness is independence_limited with the sterile countermodel."},
     {"id": "hypercharge_color_z6_kernel", "class": "exact_named_realization", "area": "matter"},
     {"id": "matter_projector_physical_selection", "class": "conditional_open_interface", "area": "matter"},
-    {"id": "scalar_existence_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "Campaign #616 executed: existence and multiplicity are not source-determined; the empty, duplicate-doublet, and inert-doublet configurations pass every grammar-visible check (receipt multiplicity_window_reference). The one-doublet completion stays a declared completion; the physical scalar interface stays open."},
+    {"id": "scalar_existence_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "Campaign #616 executed: existence and multiplicity are not source-determined; the empty, duplicate-doublet, and inert-doublet configurations pass every grammar-visible check (receipt multiplicity_window_reference). The one-doublet completion stays a declared completion; the physical scalar attachment is issue #623."},
     {"id": "family_attachment_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "No economy count; one common multiplicity object must precede any generation number. The window 3 <= N_g <= 5 is exact and the in-window count is not source-selected (receipt multiplicity_window_reference); the physical rank-45 attachment is issue #569."},
     {"id": "source_completeness_extra_light_sectors", "class": "independence_limited", "area": "matter", "note": "Campaign #609 executed: the in-algebra threshold and complete classification are exact, and the sterile trivial-charge summand is source-invisible (receipt matter_menu_spectral_ledger_reference), so source data cannot exclude extra light sectors beyond the declared algebra. Physical decoupling and pole identification stay separate interfaces."},
     {"id": "flavor_kernel_orientation_phase_scale_pole", "class": "conditional_open_interface", "area": "flavor"},
@@ -154,7 +154,7 @@
     {"id": "de_sitter_capacity_transfer_identities", "class": "exact_named_realization", "area": "capacity", "note": "Finite identities exact; horizon, mass, and shock dictionaries are physical identifications, attachment pending."},
     {"id": "scheduler_fairness_and_liveness", "class": "conditional_open_interface", "area": "dynamics", "note": "Campaign #614 executed: the A3-selected uniform kernel on the reference carrier is exact with spectral gap 1 - sqrt(5)/5 and exact fairness bounds (receipt a3_scheduler_kernel_reference); general-model fairness and liveness remain implementation premises."},
     {"id": "pixel_fixed_point_transport_map", "class": "physical_identification", "attachment_state": "pending", "area": "quantitative", "note": "Certified unique root of the declared map; same-scheme hadronic transport absent."},
-    {"id": "laboratory_current_identification", "class": "physical_identification", "attachment_state": "pending", "area": "gauge"},
+    {"id": "laboratory_current_identification", "class": "physical_identification", "attachment_state": "pending", "area": "gauge", "note": "Distributed across the carrier pole receipts (#552), the W/Z pole stacks (#593, #594), and the family pole-residue attachment (#569)."},
     {"id": "horizon_area_capacity_identification", "class": "physical_identification", "attachment_state": "pending", "area": "capacity"}
   ]
 }
