@@ -38,6 +38,16 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         self.assertIn("five-axiom count", errors[0])
         self.assertIn("Axiom 5 as principle", errors[1])
 
+    def test_cross_line_five_axiom_count_fails(self) -> None:
+        errors: list[str] = []
+        guard.scan_text(
+            "injected.tex",
+            "The theory uses five\naxioms in its basis.\n",
+            errors,
+        )
+        self.assertEqual(len(errors), 1)
+        self.assertIn("cross-line stale token (five-axiom count)", errors[0])
+
     def test_injected_oph5_and_range_fail(self) -> None:
         errors: list[str] = []
         guard.scan_text(

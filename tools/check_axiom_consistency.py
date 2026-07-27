@@ -68,8 +68,8 @@ ALLOWLIST_PATHS = [
 
 # Regexes whose ACTIVE use is a violation. Case-insensitive where noted.
 STALE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
-    ("five-axiom count", re.compile(r"\bfive axioms\b", re.IGNORECASE)),
-    ("five-axiom count (fr)", re.compile(r"\bcinq axiomes\b", re.IGNORECASE)),
+    ("five-axiom count", re.compile(r"\bfive\s+axioms\b", re.IGNORECASE)),
+    ("five-axiom count (fr)", re.compile(r"\bcinq\s+axiomes\b", re.IGNORECASE)),
     ("five-axiom basis", re.compile(r"\bfive-axiom\b", re.IGNORECASE)),
     ("A1--A5 range", re.compile(r"\bA1\s*(?:--|-|–|—)\s*A5\b")),
     ("OPH5 umbrella", re.compile(r"\bOPH5\b")),
@@ -193,6 +193,13 @@ def scan_text(rel: str, text: str, errors: list[str]) -> None:
         for label, pattern in STALE_PATTERNS:
             if pattern.search(line):
                 errors.append(f"{rel}:{number}: stale token ({label}): {line.strip()[:120]}")
+    for label, pattern in STALE_PATTERNS:
+        for match in pattern.finditer(text):
+            if "\n" in match.group(0):
+                errors.append(
+                    f"{rel}: cross-line stale token ({label}): "
+                    f"{' '.join(match.group(0).split())[:120]}"
+                )
 
 
 def scan_surfaces(errors: list[str]) -> None:
@@ -252,6 +259,7 @@ def pdf_checks(errors: list[str]) -> None:
             continue
         try:
             text = "\n".join((page.extract_text() or "") for page in PdfReader(str(path)).pages)
+            text = text.translate(str.maketrans({"ﬁ": "fi", "ﬂ": "fl", "ﬀ": "ff"}))
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{rel}: PDF extraction failed: {exc}")
             continue
