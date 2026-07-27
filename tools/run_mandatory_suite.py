@@ -41,6 +41,26 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/build_fz_registry.py", "--check"],
     ),
     (
+        "Validate the gravity premise ladder and its generated surface",
+        [sys.executable, "tools/build_gravity_ladder.py", "--check"],
+    ),
+    (
+        "Execute the gravity premise ladder mutation tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/collar_alignment/test_msa_characterizations.py",
+            "code/geometry/test_collar_recoverability_receipts.py",
+            "code/geometry/test_einstein_closure_receipts.py",
+            "code/maxent/test_maxent_closure_acceptance.py",
+            "code/geometry/test_modular_clock_instrumentation.py",
+            "code/geometry/test_quotient_cap_readout.py",
+            "code/particles/clock/test_clock_source_energy_closure_audit.py",
+        ],
+    ),
+    (
         "Validate external-data provenance pins and declared source gaps",
         [sys.executable, "tools/check_external_data_provenance.py"],
     ),

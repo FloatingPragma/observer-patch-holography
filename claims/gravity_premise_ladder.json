@@ -1,0 +1,408 @@
+{
+  "schema": "oph.gravity_premise_ladder.v1",
+  "issue": 618,
+  "generated_surface": "docs/GRAVITY_PREMISE_LADDER.md",
+  "policy": "Recovery, generalized entropy, stationarity, focusing, vacuum choice, and metrological scale are named interfaces or theorem targets rather than axioms. Every rung carries a typed premise packet, a theorem or countermodel, and a deletion or mutation test; no rung is promoted from A2 naturality or A3 optimization alone; fixed-cutoff, continuum-limit, and physical-identification claims stay distinct; an open or independent rung does not erase the exact finite gravity mathematics below it.",
+  "rungs": [
+    {
+      "rung": 1,
+      "title": "A3 existence, uniqueness, support, and faithfulness",
+      "status": "axiom_forced",
+      "premise_interfaces": [
+        "equal_state_weights"
+      ],
+      "assumption_tokens": [],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/Screen/EqualStateWeights.lean",
+          "declaration": "equal_state_weights"
+        },
+        {
+          "kind": "receipt",
+          "path": "code/a5_closure/equal_state_weights_certificate.py"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/a5_closure/tests/test_equal_state_weights_certificate.py",
+          "name": "test_"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [],
+      "owner_issues": []
+    },
+    {
+      "rung": 2,
+      "title": "Optimizer pushforward across refinement",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "optimizer_pushforward_and_refinement_tail"
+      ],
+      "assumption_tokens": [],
+      "theorem_or_countermodel": [
+        {
+          "kind": "receipt",
+          "path": "code/a5_closure/receipts/optimizer_pushforward_reference.receipt.json"
+        },
+        {
+          "kind": "receipt",
+          "path": "code/a5_closure/negative_controls/issue_619_negative_controls.json"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/a5_closure/tests/test_optimizer_pushforward_certificate.py",
+          "name": "test_"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [],
+      "owner_issues": []
+    },
+    {
+      "rung": 3,
+      "title": "Edge-center decomposition and state alignment",
+      "status": "independence_limited",
+      "premise_interfaces": [
+        "edge_center_decomposition",
+        "central_interface_state_alignment"
+      ],
+      "assumption_tokens": [
+        "central_interface_clause"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "code",
+          "path": "code/collar_alignment/msa_characterizations.py",
+          "symbol": "bell_counterexample"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/CollarStates.lean",
+          "declaration": "identityChannel_closureDefect_eq_zero"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/CollarLayer.lean",
+          "declaration": "not_collarClause_negFamily"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/collar_alignment/test_msa_characterizations.py",
+          "name": "test_bell_counterexample_is_markov_but_not_aligned"
+        },
+        {
+          "path": "code/collar_alignment/test_msa_characterizations.py",
+          "name": "test_noncentral_model_satisfies_axioms"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [],
+      "owner_issues": []
+    },
+    {
+      "rung": 4,
+      "title": "Exact Markovity or Gibbs/mixing hypotheses and sharp collar rate",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "exact_conditional_markov_split",
+        "approximate_collar_recovery_rate"
+      ],
+      "assumption_tokens": [
+        "strong_conditional_gibbs_mixing",
+        "sharp_collar_rate_receipt"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "code",
+          "path": "code/geometry/collar_recoverability_receipts.py",
+          "symbol": "counterexample_receipt"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_collar_recoverability_receipts.py",
+          "name": "test_explicit_counterexample_rejects_width_ratio_alone"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-D2-COLLAR-RECOVERY"
+      ],
+      "owner_issues": []
+    },
+    {
+      "rung": 5,
+      "title": "Edge-reference factorization and edge normalization",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "edge_reference_factorization_and_traciality",
+        "edge_entropy_split_and_cut_additivity"
+      ],
+      "assumption_tokens": [
+        "edge_normalization_log_d"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+          "declaration": "centralVariation_eq_edgeEntropyVariation"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+          "declaration": "central_edge_normalization_defect"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_mismatched_edge_normalization_breaks_edge_identification"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-D4D-ENTROPY-BRIDGE"
+      ],
+      "owner_issues": []
+    },
+    {
+      "rung": 6,
+      "title": "Constraint-tangent generalized-entropy stationarity",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "finite_generalized_entropy_identification",
+        "fixed_cap_entropy_stationarity"
+      ],
+      "assumption_tokens": [
+        "fixed_cap_MaxEnt_variation_family"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+          "declaration": "maxEnt_envelope_identity"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+          "declaration": "failingMaxEntTangent_fails"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_maxent_multiplier_identity"
+        },
+        {
+          "path": "code/maxent/test_maxent_closure_acceptance.py",
+          "name": "test_transverse_field_subfamily_is_exactly_closed"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [],
+      "owner_issues": []
+    },
+    {
+      "rung": 7,
+      "title": "Cap flow, Bisognano-Wichmann identification, and independent normalization controls",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "support_visible_bw_modular_normalization"
+      ],
+      "assumption_tokens": [
+        "finite_cap_BW_certificate",
+        "mesh_crossratio_normalization_receipts"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "code",
+          "path": "code/geometry/modular_clock_instrumentation.py",
+          "symbol": "kms_profile_receipt"
+        },
+        {
+          "kind": "code",
+          "path": "code/geometry/quotient_cap_readout.py",
+          "symbol": "kms_receipt"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_modular_clock_instrumentation.py",
+          "name": "test_profile_matches_2pi_bw_and_wrong_normalization_separated"
+        },
+        {
+          "path": "code/geometry/test_quotient_cap_readout.py",
+          "name": "test_wrong_beta_kms_receipt_separates"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-D3H-GEOMETRY-PRODUCER",
+        "OPH-GR-D4-NULLNET-STANDARDNESS"
+      ],
+      "owner_issues": []
+    },
+    {
+      "rung": 8,
+      "title": "Repair conservation and Ward/Bianchi transport",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "repair_conservation_and_stress_attachment",
+        "ward_bianchi_coupling_equality"
+      ],
+      "assumption_tokens": [
+        "weak_ward_conservation",
+        "contracted_bianchi_and_metric_compatibility"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean",
+          "declaration": "einstein_equation_with_constant_symm"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+          "declaration": "strictManifest_erase_required_fails"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_inconsistent_charges_have_irreducible_residual"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-D4C-LOCAL-STRESS"
+      ],
+      "owner_issues": []
+    },
+    {
+      "rung": 9,
+      "title": "Composed small-ball tensor theorem",
+      "status": "conditional_open_interface",
+      "premise_interfaces": [
+        "fixed_volume_small_ball_variation"
+      ],
+      "assumption_tokens": [
+        "smooth_lorentzian_small_ball_regime",
+        "fixed_volume_small_ball_area_identity"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+          "declaration": "restFrameEinsteinRelation"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+          "declaration": "constantRadiusData_fails"
+        },
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+          "declaration": "composedEinsteinBranch"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_consistent_charges_reconstruct_tracefree_part_exactly"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-D5",
+        "OPH-GR-D5A-ABSOLUTE-EINSTEIN"
+      ],
+      "owner_issues": []
+    },
+    {
+      "rung": 10,
+      "title": "Vacuum and physical tower construction",
+      "status": "physical_identification",
+      "premise_interfaces": [
+        "vacuum_reference_and_cosmological_constant"
+      ],
+      "assumption_tokens": [
+        "einstein_typed_common_domain_tower"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+          "declaration": "bare_consensus_not_einstein_complete"
+        },
+        {
+          "kind": "code",
+          "path": "code/geometry/einstein_closure_receipts.py",
+          "symbol": "baseline_countermodel_receipt"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_baseline_invisible_to_first_variations"
+        },
+        {
+          "path": "code/geometry/test_einstein_closure_receipts.py",
+          "name": "test_realized_branch_report_status_is_open"
+        }
+      ],
+      "paper_anchors": [],
+      "claim_ids": [
+        "OPH-GR-E2E-BRANCH-ENTRY"
+      ],
+      "owner_issues": [
+        503,
+        528
+      ]
+    },
+    {
+      "rung": 11,
+      "title": "Metrological and source-clock scale attachment",
+      "status": "physical_identification",
+      "premise_interfaces": [
+        "absolute_metric_and_newton_scale"
+      ],
+      "assumption_tokens": [
+        "independent_physical_scale_receipt"
+      ],
+      "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+          "declaration": "extra_scale_stabilizer_fails"
+        },
+        {
+          "kind": "paper",
+          "file": "paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex",
+          "anchor": "prop:scale-bridge-rescaling-nogo"
+        }
+      ],
+      "mutation_tests": [
+        {
+          "path": "code/particles/clock/test_clock_source_energy_closure_audit.py",
+          "name": "test_"
+        }
+      ],
+      "paper_anchors": [
+        {
+          "file": "paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex",
+          "anchor": "thm:physical-time-scale"
+        }
+      ],
+      "claim_ids": [],
+      "owner_issues": [
+        334,
+        522
+      ]
+    }
+  ]
+}
