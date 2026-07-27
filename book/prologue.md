@@ -297,8 +297,8 @@ exact finite normal forms, a certified spherical branch produces Lorentz
 kinematics, and compact charge transport conditionally reconstructs a gauge
 group. Independently, the twelve-port branch gives an exact conditional
 Standard Model recognition theorem under its response and matter contracts,
-including the quotient and charge structure without invoking minimal
-admissibility. On the conditional Einstein branch, one repaired record family
+including the quotient and charge structure. On the conditional Einstein
+branch, one repaired record family
 supplies modular ordering, calibrated clock records, stress, entropy, continuum
 geometry, a vacuum reference, and independent scale readouts on a common
 domain. The

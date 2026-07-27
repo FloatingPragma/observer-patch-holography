@@ -91,7 +91,20 @@ STALE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ),
     (
         "retired economy selector",
-        re.compile(r"\bminimal admissibility selects\b|\bMAR is used\b", re.IGNORECASE),
+        re.compile(r"\bMAR is used\b", re.IGNORECASE),
+    ),
+    (
+        "retired selector name",
+        re.compile(r"\bminimal\s+admissib(?:le|ility)\b", re.IGNORECASE),
+    ),
+    (
+        "retired selector history",
+        re.compile(
+            r"\beconomy\s+(?:rule|selector|axiom)\b|"
+            r"\bformer\s+least-value\s+selection\b|"
+            r"\bwithdrawn\s+from\s+its\s+declared\s+branch\b",
+            re.IGNORECASE,
+        ),
     ),
     (
         "MAR as core principle",

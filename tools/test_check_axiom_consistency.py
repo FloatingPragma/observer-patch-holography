@@ -48,6 +48,16 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertIn("cross-line stale token (five-axiom count)", errors[0])
 
+    def test_cross_line_retired_selector_name_fails(self) -> None:
+        errors: list[str] = []
+        guard.scan_text(
+            "injected.tex",
+            "The proof invokes Minimal\nAdmissible Realization.\n",
+            errors,
+        )
+        self.assertEqual(len(errors), 1)
+        self.assertIn("cross-line stale token (retired selector name)", errors[0])
+
     def test_injected_oph5_and_range_fail(self) -> None:
         errors: list[str] = []
         guard.scan_text(
