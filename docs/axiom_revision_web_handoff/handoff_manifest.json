@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "source_branch": "three-axioms",
+  "normative_sources": [
+    "claims/axiom_registry.yaml",
+    "docs/AXIOM_REFERENCE.md"
+  ],
+  "files": [
+    {
+      "path": "docs/AXIOM_REVISION_LEARNING_HANDOFF.md",
+      "bytes": 49463,
+      "sha256": "a39448877c4f7a2210fb9e185ee4817440346ba36972196f3c2951b7dcb370cc"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/README.md",
+      "bytes": 3313,
+      "sha256": "948a1bd2ecd69b43803f7a843bced5e4c092dcd7f2f35232862dcf68fdcc6abb"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/claim_contract.md",
+      "bytes": 7267,
+      "sha256": "0bc88276621981af5b1453862e153f65afc80b0eedf31e55f22d9aff53a7c0f9"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/axiom_copy.md",
+      "bytes": 17613,
+      "sha256": "9de180fcc56a996a2494b7dbd0db40c79ce39128246e2f974855452a001d5b17"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/axiom_copy.json",
+      "bytes": 18454,
+      "sha256": "2726d7979bca00d038cb9cdbce69449f13877ee4ef5fae1585349ed5f3110d78"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/glossary_migration.csv",
+      "bytes": 3721,
+      "sha256": "06db41b46a199b345f3a095fee46e3710cac57bd09e6fe637dfaf4392bc9c023"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/route_matrix.json",
+      "bytes": 4454,
+      "sha256": "4d23584caa4187f427bcf41d6d22c714bc434da15acc1a0084c0be6fb4366379"
+    },
+    {
+      "path": "docs/axiom_revision_web_handoff/EXTERNAL_AGENT_PROMPT.md",
+      "bytes": 5005,
+      "sha256": "b23b2f08473f0b96f0b9ae0f70bdeda0c87f916867c4839c955ed00e2d1a174a"
+    }
+  ],
+  "build_notes": [
+    "Formal axiom renderings in axiom_copy.json, axiom_copy.md, and the learning handoff are extracted verbatim from docs/AXIOM_REFERENCE.md; the constrains and does_not_imply fields are taken verbatim from claims/axiom_registry.yaml.",
+    "axiom_copy.md and axiom_copy.json are generated from one shared data source and mirror each other field for field; the JSON is the file sites consume.",
+    "Hashes are sha256 over exact file bytes. This manifest lists every bundle file; it cannot list its own hash. Verify the bundle by rehashing each listed file.",
+    "Stale-token and forbidden-claim scan configurations live in EXTERNAL_AGENT_PROMPT.md sections 5 and 6; route acceptance tests live in route_matrix.json."
+  ]
+}

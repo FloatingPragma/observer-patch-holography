@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "source_branch": "three-axioms",
+  "rewrite_classes": {
+    "full_rewrite": "Replace the route's theory copy wholesale from the named copy asset.",
+    "claim_repair": "Keep structure and narrative; repair every claim sentence to the claim contract and swap axiom statements for canonical copy.",
+    "copy_swap": "Mechanical replacement of terms and canned blocks; no narrative work."
+  },
+  "acceptance_test_definitions": {
+    "stale_token_scan": "Rendered route contains none of the stale tokens listed in EXTERNAL_AGENT_PROMPT.md section 5.",
+    "forbidden_claim_scan": "Rendered route contains no forbidden promotion from claim_contract.md section 2, checked against the pattern list in EXTERNAL_AGENT_PROMPT.md section 6.",
+    "formal_copy_verbatim_check": "Every formal axiom statement on the route is byte-identical to the corresponding formal field in axiom_copy.json."
+  },
+  "routes": [
+    {
+      "route": "/book/gravity/chapter/2",
+      "rewrite_class": "full_rewrite",
+      "copy_asset": "axiom_copy.md (all three axioms, informal plus formal pairing); AXIOM_REVISION_LEARNING_HANDOFF.md section 2 (one-page narrative)",
+      "claim_dependencies": ["axiom_forced"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/book/gravity/chapter/8",
+      "rewrite_class": "claim_repair",
+      "copy_asset": "AXIOM_REVISION_LEARNING_HANDOFF.md section 6 (collar recovery countermodel) and section 7 (Einstein branch named interfaces); claim_contract.md sections 2-3",
+      "claim_dependencies": ["conditional_open_interface", "independence_limited"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/book/gravity/chapter/10",
+      "rewrite_class": "claim_repair",
+      "copy_asset": "AXIOM_REVISION_LEARNING_HANDOFF.md section 7 (Einstein branch row and interface table); claim_contract.md section 1 (Einstein statement premises)",
+      "claim_dependencies": ["conditional_open_interface", "physical_identification"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/book/gravity/chapter/14",
+      "rewrite_class": "claim_repair",
+      "copy_asset": "AXIOM_REVISION_LEARNING_HANDOFF.md section 7 (quantitative tests row); claim_contract.md section 4 (physical_identification wording)",
+      "claim_dependencies": ["physical_identification", "conditional_open_interface"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/book/standard-model/chapter/0",
+      "rewrite_class": "full_rewrite",
+      "copy_asset": "axiom_copy.md (short and medium renderings); AXIOM_REVISION_LEARNING_HANDOFF.md sections 2 and 11 (medium web copy block)",
+      "claim_dependencies": ["axiom_forced", "exact_named_realization"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/book/standard-model/chapter/2",
+      "rewrite_class": "claim_repair",
+      "copy_asset": "AXIOM_REVISION_LEARNING_HANDOFF.md section 7 (finite gauge chain and matter witnesses rows) and section 6 (matter selection countermodel); claim_contract.md section 2 (generation and Higgs rows)",
+      "claim_dependencies": ["exact_named_realization", "conditional_open_interface", "withdrawn"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/unification",
+      "rewrite_class": "full_rewrite",
+      "copy_asset": "AXIOM_REVISION_LEARNING_HANDOFF.md section 11 (short, medium, and long web copy blocks) and section 7 (dependency map)",
+      "claim_dependencies": ["axiom_forced", "exact_named_realization", "conditional_open_interface", "physical_identification", "withdrawn"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    },
+    {
+      "route": "/glossary",
+      "rewrite_class": "copy_swap",
+      "copy_asset": "glossary_migration.csv (definitions and search aliases); AXIOM_REVISION_LEARNING_HANDOFF.md section 8",
+      "claim_dependencies": ["axiom_forced", "withdrawn"],
+      "acceptance_tests": ["stale_token_scan", "forbidden_claim_scan", "formal_copy_verbatim_check"]
+    }
+  ]
+}
