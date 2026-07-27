@@ -1,12 +1,12 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-27T18:40:49Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-27T20:30:02Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
 Worker policy: local artifacts first; up to six Chrome Pro workers may be used only after a concrete theorem, audit, or implementation packet exists. Obstruction-only worker output is not accepted.
 
-Open issue count: `55`
+Open issue count: `52`
 
 ## Closed Out-Of-Scope Records
 
@@ -35,23 +35,11 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | --- | --- | --- | --- | --- | --- |
 | [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) [de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments | `physical identification gap` | The finite capacity, shock operator, and exact graph spectrum lack source-derived gauge, kinetic, response-coefficient, and physical-scale attachments. | One source-derived packet fixes the de Sitter gauge mode, Laplacian normalization, ledger-to-source dictionary, response coefficient, and physical length scale. | The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum. | Use for independent audit only after a local attachment packet exists. |
 
-## load-readback-classification
-
-| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
-| --- | --- | --- | --- | --- | --- |
-| [#625](https://github.com/FloatingPragma/observer-patch-holography/issues/625) Derive or classify the integer load fiber and quadratic readback | `full-schema independence or forcing gap` | The covariant half-count family and alternative quadratic form pass reduced carrier checks, but no complete A1 operational/refinement, A2 naturality, and A3 optimizer lift is proved. | Either derive the integer counting normalization and discrete cost, or construct a complete A1-A3 alternative-readback model preserving every operational, refinement, meaning, and optimizer clause. | A purported alternative changes the feasible family or optimizer, breaks accepted-data naturality, or fails a complete refinement map. | Use only to audit a complete full-schema load/readback model. |
-
-## noncentral-seam-classification
-
-| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
-| --- | --- | --- | --- | --- | --- |
-| [#624](https://github.com/FloatingPragma/observer-patch-holography/issues/624) Classify the noncentral routed-seam grammar | `full-schema classification gap with exact finite subresults` | The Z6/Z7 register controls exercise only a reduced seam interface, and id:S3->S3 has contractible 2-type. Neither is a complete A1-A3 countermodel to general central reduction or order-six forcing. | Construct and verify a complete A1/A2/A3 seam-coefficient lift that preserves primitive central ports, plus a nontrivial finite 2-type with a gauge-invariant sector and typed matter effect, or prove the requested classification directly. | The proposed product register splits a primitive central port, an A2 or refinement diagram fails, the A3 product optimizer is not proved, or the higher witness has trivial kernel and cokernel. | Use only to audit a complete full-schema lift and nontrivial 2-type. |
-
 ## operational-load-readback
 
 | Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
 | --- | --- | --- | --- | --- | --- |
-| [#628](https://github.com/FloatingPragma/observer-patch-holography/issues/628) [Load readback] Construct the operational integer-counting and discrete-cost mechanism | `named-realization source mechanism gap` | The integer normalization and discrete cost are declared in the named realization. Reduced alternative-readback controls exist, but their complete A1-A3 lift remains open in #625. | A finite self-reading patch mechanism emits integer record differences and the discrete mismatch cost from one source-defined repair and readback process. | A rational normalization or inequivalent discrete cost preserves every operational clause and visible naturality check. | Use only to audit a concrete operational counting and cost mechanism. |
+| [#628](https://github.com/FloatingPragma/observer-patch-holography/issues/628) [Load readback] Construct the operational integer-counting and discrete-cost mechanism | `named-realization source mechanism gap` | The #625 complete-schema classification forces the counting readback up to one unit scale and excludes the adjacency-weighted cost from the operational cone. The physical mechanism that realizes the unit and the discrete cost from a source-defined process is the gap. | A finite self-reading patch mechanism emits integer record differences and the discrete mismatch cost from one source-defined repair and readback process. | A rational normalization or inequivalent discrete cost preserves every operational clause and visible naturality check. | Use only to audit a concrete operational counting and cost mechanism. |
 
 ## particle-ontology
 
@@ -69,7 +57,7 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 
 | Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
 | --- | --- | --- | --- | --- | --- |
-| [#627](https://github.com/FloatingPragma/observer-patch-holography/issues/627) [Routed seams] Select the physical noncentral grammar and matter action | `physical grammar and matter-action selection gap` | The named order-six realization has no source selector for the physical grammar or matter action. The reduced Z6/Z7 controls and contractible S3 syntax witness do not close the full axiom-level classification. | A target-free source packet selects or classifies the seam grammar, refinement transport, and representation or 2-representation on realized matter. | A full-schema #624 alternative with a different central menu, or a nontrivial 2-type with a different sector or matter effect, survives every proposed source selector. | Use only after a finite source selector and matter-action packet exists. |
+| [#627](https://github.com/FloatingPragma/observer-patch-holography/issues/627) [Routed seams] Select the physical noncentral grammar and matter action | `physical grammar and matter-action selection gap` | The named order-six realization has no source selector for the physical grammar or matter action. The #624 complete-schema classification bounds the coefficient menu and the admitted higher mechanisms; selecting one physical grammar and matter action from a source packet is the gap. | A target-free source packet selects or classifies the seam grammar, refinement transport, and representation or 2-representation on realized matter. | A full-schema #624 alternative with a different central menu, or a nontrivial 2-type with a different sector or matter effect, survives every proposed source selector. | Use only after a finite source selector and matter-action packet exists. |
 
 ## unclassified
 
@@ -116,7 +104,6 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#593](https://github.com/FloatingPragma/observer-patch-holography/issues/593) [Physical W/Z] Instantiate the strict one-loop external-SM pole receipt stack | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#594](https://github.com/FloatingPragma/observer-patch-holography/issues/594) [Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) [Source law] Attain the five measured Einstein-branch clause targets | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
-| [#618](https://github.com/FloatingPragma/observer-patch-holography/issues/618) Execute the gravity premise-elimination ladder | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#620](https://github.com/FloatingPragma/observer-patch-holography/issues/620) [Book] Complete owner voice review and preservation signoff | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#621](https://github.com/FloatingPragma/observer-patch-holography/issues/621) Implement the learning-site handoff | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#622](https://github.com/FloatingPragma/observer-patch-holography/issues/622) Run the owner-authorized three-axiom release gate | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
