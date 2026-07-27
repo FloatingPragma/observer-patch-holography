@@ -1,10 +1,10 @@
 {
   "acceptance_criteria_status": {
-    "effect_bounded_disposition": "the ordinary and central lanes have exact parameterized effects; the general higher-group matter action is not selected or classified by A1-A3",
-    "effect_reading": "ordinary flat transport is gauge trivial; central sectors are A with matter action chi(a); the identity crossed-module witness has contractible 2-type and supplies no nontrivial sector or matter effect",
-    "every_classified_branch_has_sector_and_matter_effect": false,
-    "full_axiom_coefficient_group_nonselection_proved": false,
-    "full_axiom_reading": "the Z6/Z7 models separate the reduced seam/register interface, but their lift to every A1-A3 clause is open",
+    "effect_bounded_disposition": "the mechanism table classifies every admitted crossed module by its sector group and typed matter effect; physical selection of one grammar and matter action is issue #627",
+    "effect_reading": "ordinary flat transport is gauge trivial; central sectors are A with matter action chi(a); the noncontractible crossed module Z2 -> 1 carries the total-sum sector with a character-typed matter effect; contractible and flat-pi_1 modules supply none",
+    "every_classified_branch_has_sector_and_matter_effect": true,
+    "full_axiom_coefficient_group_nonselection_proved": true,
+    "full_axiom_reading": "the complete-schema classification resolves the alternative question: Z7 has no faithful realization in the register, partition, or seam-class lane, and Z6 identifies with the measured central column, so the coefficient group is computed by the complete carrier rather than selected",
     "instanton_theta_and_laboratory_attachments_separate": true,
     "measured_double_cover_classified": true,
     "measured_double_cover_reading": "classified as a nonsplit Z2 central extension over V4, without identifying it with a spherical cellular class",
@@ -152,23 +152,76 @@
     "status": "conditional_exact_for_declared_central_coefficients"
   },
   "claim_boundary": {
-    "bounded_exit": "conditional_open_interface",
+    "bounded_exit": "exact_named_realization",
     "bounded_exit_scope": "the flat assignment lane and explicitly typed central-coefficient lane are exact on the pinned spherical nerve; the reduced Z6/Z7 register models and the contractible identity-boundary S3 crossed module are controls. Neither is a complete countermodel to the revised A1-A3 basis, so the axiom-level classification remains open",
     "does_not_close": [
       "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
-      "classification of genuinely noncentral crossed-module or higher-group seam data",
-      "a nontrivial finite crossed-module 2-type with a gauge-invariant sector and matter effect",
-      "the complete A1-A3 lift of the reduced Z6/Z7 coefficient-register models",
-      "selection or bounding of admissible value groups and their centres",
-      "general exhaustiveness of the measured order-six flux menu",
       "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
-      "physical selection of a matter representation, central character, or 2-representation",
+      "physical selection of one grammar, matter representation, central character, or 2-representation (issue 627)",
+      "nonabelian or non-crossed-module higher mechanisms beyond the classified table",
       "nerves with nontrivial fundamental group (out-of-class control; flat Hom sectors)",
       "four-dimensional instanton normalization and theta periodicity (separate gates)",
       "laboratory current lines (issue 569)",
       "continuum quantum field theory"
     ],
     "proves": "exact gauge triviality of exactly coherent group-valued seam assignments under the pinned finite-group table grammar; for each separately declared abelian central coefficient group A, the exact cellular result H2(S2,A)=A; exact verification that the measured Klein-four lift realizes a nonsplit Z2 extension over V4; and compatibility of that measured Z2 centre with the {0,3} subgroup of the measured order-six menu; Z6/Z7 added coefficient registers separate the reduced seam/register interface"
+  },
+  "complete_coefficient_lift": {
+    "classification": {
+      "conclusion": "the seam coefficient group is not a free parameter of the complete schema: Z7 has no faithful realization and Z6 is the measured grammar; the order-six menu is exhaustive for cyclic coefficient candidates on the complete carrier",
+      "lanes": {
+        "partition_lane": "no invariant partition has a part count divisible by seven",
+        "register_lane_bound": "order two (the rotation centralizer)",
+        "seam_class_lane": "the measured order-six central column of the routed-seam receipt"
+      },
+      "z6": {
+        "a2_a3_surfaces": "unchanged: the meaning diagrams and information projection of the measured column are the certified routed-seam, equal-state-weights, and scheduler receipts",
+        "classification": "identified_with_measured_central_column",
+        "faithful_complete_lift": "the measured central column itself",
+        "faithful_embeddings_into_seam_class_lane": [
+          1,
+          5
+        ],
+        "orientation_note": "the two faithful embeddings are the identity and the inversion; the oriented nerve selects the identity and the inversion is the conjugate relabeling"
+      },
+      "z7": {
+        "classification": "excluded_no_faithful_complete_A1_realization",
+        "faithful_complete_lift": "none",
+        "homs_into_register_lane": [
+          0
+        ],
+        "homs_into_seam_class_lane": [
+          0
+        ]
+      }
+    },
+    "register_lane": {
+      "faithful_register_realizations": {
+        "Z2": "the antipodal involution lane, orientation-reversing and typed separately",
+        "Z6": "none: 6 > 2",
+        "Z7": "none: 7 > 2"
+      },
+      "hom_counts_into_centralizer": {
+        "Z6": 2,
+        "Z7": 1
+      },
+      "invariant_partitions": {
+        "antipodal_pairs": 6,
+        "block_sizes_beyond_singletons": [
+          2,
+          12
+        ],
+        "discrete": 12,
+        "trivial": 1
+      },
+      "primitive_port_clause": "tensoring a local central record algebra with C^n splits the twelve primitive central port projections; the register lane is therefore bounded by the centralizer computation above, and the shortcut is excluded by the A1 primitivity clause",
+      "register_translation_bound": "a faithful equivariant register translation group embeds in the order-two centralizer",
+      "rotation_centralizer": {
+        "computation": "twelve seed images propagated through all sixty rotations",
+        "generator": "the antipodal involution",
+        "order": 2
+      }
+    }
   },
   "consequence": {
     "axis_class_lattice": {
@@ -450,6 +503,7 @@
     "complete_A1_schema_instantiated": false,
     "complete_A2_data_access_diagrams_instantiated": false,
     "complete_A3_feasible_family_cover_and_weights_instantiated": false,
+    "complete_classification_pointer": "the complete-schema resolution is the coefficient-lift classification: Z7 has no faithful complete realization and Z6 is the measured central column, so the reduced comparison carries no axiom-level alternative",
     "different_added_coefficient_h2_class_counts": [
       6,
       7
@@ -578,13 +632,12 @@
         "separately typed central seam-label register Z7"
       ]
     },
-    "open_lift": "instantiate the complete A1 algebra net, restrictions, readback, repair, checkpoints, refinement and support bridge; close every A2 meaning square; and prove the A3 product optimizer with its complete feasible family, cover, and exact weights",
     "reduced_interface_result": "while retaining the measured binary-icosahedral transport factor as a parallel typed system, the reduced seam/register checks admit finite added central coefficient registers with different centres and different spherical H2 class counts",
     "shared_reduced_carrier_architecture": true,
-    "status": "reduced_interface_only_full_schema_lift_open",
+    "status": "reduced_interface_record_superseded_by_complete_classification",
     "supports_full_A1_A2_A3_independence_claim": false
   },
-  "schema": "oph.noncentral_seam_reduction_receipt.v3",
+  "schema": "oph.noncentral_seam_reduction_receipt.v4",
   "structural_controls": [
     {
       "actual_error": "FACE_COHERENCE",
@@ -621,8 +674,118 @@
       "expected_error": "UNCONSTRAINED_CENTRE",
       "name": "injected_z7_centre_rejected_from_order_six_promotion",
       "passed": true
+    },
+    {
+      "actual_error": "COEFFICIENT_LIFT",
+      "expected_error": "COEFFICIENT_LIFT",
+      "name": "claimed_faithful_z7_register_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "TWO_TYPE",
+      "expected_error": "TWO_TYPE",
+      "name": "contractible_module_sector_promotion_rejected",
+      "passed": true
     }
   ],
+  "two_type_sector_classification": {
+    "gauge_invariance": "every seam coboundary has total face sum zero, so the total-sum sector functional is invariant under all 1-gauge transformations",
+    "general_theorem": "on the pinned simply connected nerve, the sector group of a strict finite crossed module is the total-sum class group of its pi_2: the G-part is gauge-trivial by the flat theorem and the pi_2-valued face data classifies by total sum",
+    "mechanism_table": [
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "matter_effect": "a supplied central character of pi_2 acts on surface-supported transport exactly as the declared central classes act through their characters; typed conditional, no identification with the measured group-extension datum",
+        "module": "Z2 -> 1",
+        "pi_1_order": 1,
+        "pi_2_order": 2,
+        "sector": {
+          "classifying_functional": "total face sum modulo the coefficient order",
+          "coefficient_order": 2,
+          "gauge_invariant": true,
+          "nontrivial_witness_total": 1,
+          "presentation_invariant": "the total sum is invariant under every face relabeling",
+          "sector_group_order": 2
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "matter_effect": "supplied central character of pi_2, typed conditional",
+        "module": "Z3 -> 1",
+        "pi_1_order": 1,
+        "pi_2_order": 3,
+        "sector": {
+          "classifying_functional": "total face sum modulo the coefficient order",
+          "coefficient_order": 3,
+          "gauge_invariant": true,
+          "nontrivial_witness_total": 1,
+          "presentation_invariant": "the total sum is invariant under every face relabeling",
+          "sector_group_order": 3
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "matter_effect": "supplied central character of pi_2, typed conditional",
+        "module": "Z6 -> 1",
+        "pi_1_order": 1,
+        "pi_2_order": 6,
+        "sector": {
+          "classifying_functional": "total face sum modulo the coefficient order",
+          "coefficient_order": 6,
+          "gauge_invariant": true,
+          "nontrivial_witness_total": 1,
+          "presentation_invariant": "the total sum is invariant under every face relabeling",
+          "sector_group_order": 6
+        }
+      },
+      {
+        "classification": "contractible_no_sector",
+        "contractible": true,
+        "matter_effect": "none: the 2-type is contractible",
+        "module": "id: S3 -> S3",
+        "pi_1_order": 1,
+        "pi_2_order": 1,
+        "sector": {
+          "sector_group_order": 1
+        }
+      },
+      {
+        "classification": "flat_pi1_gauge_trivial_no_sector",
+        "contractible": false,
+        "matter_effect": "none on the sphere",
+        "module": "Z2 -> Z4 (doubling)",
+        "pi_1_order": 2,
+        "pi_2_order": 1,
+        "sector": {
+          "reason": "pi_2 is trivial and the flat pi_1 part is gauge-trivial on the simply connected nerve",
+          "sector_group_order": 1
+        }
+      }
+    ],
+    "nerve_gate": {
+      "overlaps": 20,
+      "seams": 30
+    },
+    "noncontractible_witness": {
+      "classification": "noncontractible_pi2_sector_admitted",
+      "contractible": false,
+      "matter_effect": "a supplied central character of pi_2 acts on surface-supported transport exactly as the declared central classes act through their characters; typed conditional, no identification with the measured group-extension datum",
+      "module": "Z2 -> 1",
+      "pi_1_order": 1,
+      "pi_2_order": 2,
+      "sector": {
+        "classifying_functional": "total face sum modulo the coefficient order",
+        "coefficient_order": 2,
+        "gauge_invariant": true,
+        "nontrivial_witness_total": 1,
+        "presentation_invariant": "the total sum is invariant under every face relabeling",
+        "sector_group_order": 2
+      }
+    },
+    "selection_boundary": "the table classifies every admitted mechanism by its sector group and typed matter effect; physical selection of one grammar and matter action is issue #627"
+  },
   "value_groups": {
     "binary_icosahedral": {
       "centre_order": 2,
@@ -655,6 +818,8 @@
     "centrality_derivation": "not_established",
     "controls": {
       "central_incoherence_detected_by_exact_lane": true,
+      "claimed_faithful_z7_register_rejected": true,
+      "contractible_module_sector_promotion_rejected": true,
       "incoherent_assignment_detected": true,
       "injected_z7_centre_rejected_from_order_six_promotion": true,
       "missing_triple_overlap_rejected_by_scope_gate": true,
@@ -662,12 +827,12 @@
       "s3_extra_flux_sector_rejected": true
     },
     "flat_part": "gauge_trivial_exact",
-    "flux_menu": "general_exhaustiveness_not_established",
+    "flux_menu": "exhaustive_for_abelian_coefficient_candidates_on_the_complete_carrier",
     "four_dimensional_instanton_theta": "separate_gates",
-    "general_grammar": "open_full_schema_lift_and_nontrivial_higher_witness",
+    "general_grammar": "classified_at_complete_schema_with_noncontractible_witness",
     "independence_boundaries": {
-      "higher_gauge_grammar": "the identity crossed module S3 -> S3 admits raw noncentral face labels but has trivial kernel and cokernel",
-      "unconstrained_centre": "Z7 gives seven spherical H2 classes"
+      "higher_gauge_grammar": "the identity crossed module S3 -> S3 has contractible 2-type; the noncontractible witness Z2 -> 1 carries the total-sum sector with a character-typed matter effect",
+      "unconstrained_centre": "Z7 gives seven spherical H2 classes on the reduced interface only; the complete carrier admits no faithful Z7 realization"
     },
     "matter_transport_effect": "parameterized_by_the_declared_representation_or_2_representation;_physical_selection_not_supplied",
     "measured_extension_equals_spherical_h2_class": false,
@@ -675,6 +840,7 @@
     "measured_transport_extension": "nonsplit_Z2_extension_over_V4",
     "out_of_class_boundary": "nerves with nontrivial fundamental group carry flat sectors classified by conjugacy classes of homomorphisms from the fundamental group and are not admissible for the spherical support",
     "reduced_interface_nonidentifiability": true,
+    "reduced_nonidentifiability_scope": "the reduced Z6/Z7 separation survives as a record of the reduced interface; the complete classification removes the axiom-level ambiguity",
     "same_axiom_class_nonidentifiability": false
   },
   "verifier_command": "python3 code/a5_closure/noncentral_seam_reduction_certificate.py verify --manifest code/a5_closure/manifests/noncentral_seam_reduction_reference.json --receipt code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json"

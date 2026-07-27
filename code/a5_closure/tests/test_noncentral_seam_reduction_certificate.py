@@ -41,7 +41,7 @@ class NoncentralSeamReductionTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
         self.assertEqual(
-            receipt["schema"], "oph.noncentral_seam_reduction_receipt.v3"
+            receipt["schema"], "oph.noncentral_seam_reduction_receipt.v4"
         )
 
     def test_negative_controls_file_is_exactly_recomputable(self) -> None:
@@ -165,15 +165,16 @@ class NoncentralSeamReductionTests(unittest.TestCase):
             {"2I": 9, "Q8": 5, "S3": 3},
         )
 
-    def test_verdict_records_the_open_full_schema_boundary(self) -> None:
+    def test_verdict_records_the_complete_schema_classification(self) -> None:
         verdict = self.expected["verdict"]
         self.assertEqual(
             verdict["general_grammar"],
-            "open_full_schema_lift_and_nontrivial_higher_witness",
+            "classified_at_complete_schema_with_noncontractible_witness",
         )
         self.assertEqual(verdict["centrality_derivation"], "not_established")
         self.assertEqual(
-            verdict["flux_menu"], "general_exhaustiveness_not_established"
+            verdict["flux_menu"],
+            "exhaustive_for_abelian_coefficient_candidates_on_the_complete_carrier",
         )
         self.assertIn("parameterized", verdict["matter_transport_effect"])
         self.assertEqual(
@@ -182,11 +183,52 @@ class NoncentralSeamReductionTests(unittest.TestCase):
         )
         self.assertEqual(
             self.expected["claim_boundary"]["bounded_exit"],
-            "conditional_open_interface",
+            "exact_named_realization",
         )
         self.assertFalse(verdict["same_axiom_class_nonidentifiability"])
         self.assertTrue(verdict["reduced_interface_nonidentifiability"])
         self.assertTrue(all(verdict["controls"].values()))
+
+    def test_complete_coefficient_lift_classification(self) -> None:
+        lift = self.expected["complete_coefficient_lift"]
+        register = lift["register_lane"]
+        self.assertEqual(register["rotation_centralizer"]["order"], 2)
+        self.assertEqual(
+            register["invariant_partitions"]["antipodal_pairs"], 6
+        )
+        self.assertEqual(register["hom_counts_into_centralizer"]["Z7"], 1)
+        classification = lift["classification"]
+        self.assertEqual(
+            classification["z7"]["classification"],
+            "excluded_no_faithful_complete_A1_realization",
+        )
+        self.assertEqual(
+            classification["z6"]["classification"],
+            "identified_with_measured_central_column",
+        )
+        self.assertEqual(
+            sorted(classification["z6"]["faithful_embeddings_into_seam_class_lane"]),
+            [1, 5],
+        )
+
+    def test_two_type_sector_classification(self) -> None:
+        two_type = self.expected["two_type_sector_classification"]
+        witness = two_type["noncontractible_witness"]
+        self.assertEqual(witness["pi_2_order"], 2)
+        self.assertFalse(witness["contractible"])
+        self.assertEqual(witness["sector"]["sector_group_order"], 2)
+        self.assertTrue(witness["sector"]["gauge_invariant"])
+        table = two_type["mechanism_table"]
+        self.assertEqual(len(table), 5)
+        classifications = {row["module"]: row["classification"] for row in table}
+        self.assertEqual(
+            classifications["id: S3 -> S3"], "contractible_no_sector"
+        )
+        self.assertEqual(
+            classifications["Z2 -> Z4 (doubling)"],
+            "flat_pi1_gauge_trivial_no_sector",
+        )
+        self.assertIn("#627", two_type["selection_boundary"])
 
     def test_unconstrained_z7_centre_blocks_order_six_exhaustiveness(self) -> None:
         boundary = self.expected["open_boundaries"]["unconstrained_centre"]
@@ -310,14 +352,14 @@ class NoncentralSeamReductionTests(unittest.TestCase):
     def test_every_issue_acceptance_item_has_a_bounded_disposition(self) -> None:
         status = self.expected["acceptance_criteria_status"]
         self.assertTrue(status["source_defined_without_target_group_list"])
-        self.assertFalse(
+        self.assertTrue(
             status["full_axiom_coefficient_group_nonselection_proved"]
         )
         self.assertTrue(status["measured_double_cover_classified"])
-        self.assertFalse(
+        self.assertTrue(
             status["every_classified_branch_has_sector_and_matter_effect"]
         )
-        self.assertIn("not selected", status["effect_bounded_disposition"])
+        self.assertIn("physical selection", status["effect_bounded_disposition"])
         self.assertTrue(
             status[
                 "wrong_coherence_missing_overlap_and_injected_group_controls"

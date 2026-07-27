@@ -341,8 +341,9 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "claim_level": "physical grammar and matter-action selection gap",
         "blocker": (
             "The named order-six realization has no source selector for the physical "
-            "grammar or matter action. The reduced Z6/Z7 controls and contractible "
-            "S3 syntax witness do not close the full axiom-level classification."
+            "grammar or matter action. The #624 complete-schema classification bounds "
+            "the coefficient menu and the admitted higher mechanisms; selecting one "
+            "physical grammar and matter action from a source packet is the gap."
         ),
         "closure": (
             "A target-free source packet selects or classifies the seam grammar, refinement "
@@ -359,9 +360,10 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "operational-load-readback",
         "claim_level": "named-realization source mechanism gap",
         "blocker": (
-            "The integer normalization and discrete cost are declared in the named "
-            "realization. Reduced alternative-readback controls exist, but their "
-            "complete A1-A3 lift remains open in #625."
+            "The #625 complete-schema classification forces the counting readback up "
+            "to one unit scale and excludes the adjacency-weighted cost from the "
+            "operational cone. The physical mechanism that realizes the unit and the "
+            "discrete cost from a source-defined process is the gap."
         ),
         "closure": (
             "A finite self-reading patch mechanism emits integer record differences and "

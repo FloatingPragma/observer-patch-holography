@@ -49,7 +49,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
 
     def test_schema_and_identity_fields(self) -> None:
         self.assertEqual(
-            self.expected["schema"], "oph.load_fiber_readback_certificate.v3"
+            self.expected["schema"], "oph.load_fiber_readback_certificate.v4"
         )
         self.assertEqual(self.expected["issue"], 625)
         self.assertEqual(
@@ -68,6 +68,8 @@ class LoadFiberReadbackTests(unittest.TestCase):
                 "readback_quadratic_form",
                 "integer_fiber_lane",
                 "reduced_carrier_noninteger_readback_candidate",
+                "complete_readback_classification",
+                "operational_cost_cone",
                 "quadratic_readback_lane",
                 "consumer_ledger",
                 "consumer_integration_status",
@@ -87,11 +89,11 @@ class LoadFiberReadbackTests(unittest.TestCase):
     def test_conclusion_fields(self) -> None:
         self.assertEqual(
             self.expected["integer_fiber"],
-            "exact_named_realization_for_declared_counting_grammar",
+            "axiom_forced_up_to_unit_scale",
         )
         self.assertEqual(
             self.expected["readback_quadratic_form"],
-            "A3_objective_curvature_identity_ray_exact_physical_readback_open",
+            "A3_objective_curvature_identity_ray_operational_cost_cone_exact",
         )
         self.assertEqual(
             self.expected["integer_fiber_lane"]["conclusion"],
@@ -102,7 +104,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
             self.expected["quadratic_readback_lane"]["conclusion"],
         )
         self.assertEqual(
-            self.expected["bounded_exit"], "conditional_open_interface"
+            self.expected["bounded_exit"], "exact_named_realization"
         )
 
     def test_integer_fiber_lane(self) -> None:
@@ -157,18 +159,22 @@ class LoadFiberReadbackTests(unittest.TestCase):
                 "rejected_by_declared_counting_grammar_after_reduced_carrier_gate"
             ]
         )
-        self.assertFalse(
+        self.assertTrue(
             countermodel[
                 "complete_A1_operational_and_refinement_schema_instantiated"
             ]
         )
-        self.assertFalse(
+        self.assertTrue(
             countermodel["complete_A2_meaning_naturality_instantiated"]
         )
-        self.assertFalse(
+        self.assertTrue(
             countermodel[
                 "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated"
             ]
+        )
+        self.assertEqual(
+            countermodel["status"],
+            "classified_as_units_rescaling_by_complete_readback_classification",
         )
         self.assertFalse(
             countermodel["supports_full_A1_A2_A3_independence_claim"]
@@ -342,6 +348,8 @@ class LoadFiberReadbackTests(unittest.TestCase):
             {
                 "non_atomic_load_model",
                 "tilted_reference",
+                "broken_additivity_readback",
+                "comparison_reward_cost",
                 "linear_readback",
                 "adjacency_form_claimed_forced",
                 "presentation_dependent_form",
@@ -439,7 +447,9 @@ class LoadFiberReadbackTests(unittest.TestCase):
         try:
             with self.assertRaises(cert.CertificateError) as caught:
                 cert.build_payload()
-            self.assertEqual(caught.exception.code, "CONTROL_NOT_FAILED")
+            self.assertIn(
+                caught.exception.code, {"CONTROL_NOT_FAILED", "COST_CONE"}
+            )
         finally:
             cert.ADJACENCY_FORM_COEFFICIENTS = original
 
@@ -502,3 +512,48 @@ class LoadFiberReadbackTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CompleteSchemaLiftTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.expected = cert.build_payload()
+
+    def test_complete_readback_classification(self) -> None:
+        block = self.expected["complete_readback_classification"]
+        self.assertEqual(block["solution_space_dimension"], 1)
+        self.assertEqual(block["naturality_constraint_rank"], 11)
+        self.assertEqual(
+            block["a2_diagram_family"]["orthogonal_join_additivity_diagrams"],
+            3**12,
+        )
+        candidate = block["half_atom_candidate_classification"]
+        self.assertTrue(candidate["instantiates_complete_diagram_family"])
+        self.assertEqual(candidate["scale"], "1/2")
+        self.assertEqual(
+            candidate["classification"], "units_rescaling_of_counting_grammar"
+        )
+        self.assertFalse(candidate["inequivalent_readback"])
+        self.assertEqual(
+            block["integer_fiber_status"], "axiom_forced_up_to_unit_scale"
+        )
+
+    def test_operational_cost_cone(self) -> None:
+        block = self.expected["operational_cost_cone"]
+        candidate = block["candidate_6I_plus_A"]
+        self.assertFalse(candidate["operational_membership"])
+        self.assertEqual(
+            candidate["classification"],
+            "excluded_from_operational_comparison_cone",
+        )
+        self.assertTrue(candidate["imported_only"])
+        self.assertTrue(block["declared_hs_cost"]["operational_membership"])
+        self.assertTrue(block["a3_hessian_12I"]["operational_membership"])
+        self.assertIn("#628", block["grammar_boundary"])
+
+    def test_countermodel_carries_cone_classification(self) -> None:
+        menu = self.expected["quadratic_readback_lane"]["invariance_menu"]
+        self.assertEqual(
+            menu["retained_countermodel"]["operational_cost_cone_classification"],
+            "excluded_from_operational_comparison_cone",
+        )

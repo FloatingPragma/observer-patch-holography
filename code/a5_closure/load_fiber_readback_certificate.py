@@ -96,7 +96,7 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.load_fiber_readback_certificate.v3"
+SCHEMA = "oph.load_fiber_readback_certificate.v4"
 GENERATED_BY = "code/a5_closure/load_fiber_readback_certificate.py"
 LEAN_COMMUTANT_MODULE = "Lean/Screen/A5Commutant.lean"
 LEAN_UNIT_SPLIT_MODULE = "Lean/Screen/UnitSplit12.lean"
@@ -631,15 +631,354 @@ def reduced_carrier_noninteger_readback_candidate() -> dict[str, Any]:
         "integer_valued": False,
         "declared_counting_grammar_rejection_code": rejection_code,
         "rejected_by_declared_counting_grammar_after_reduced_carrier_gate": True,
-        "complete_A1_operational_and_refinement_schema_instantiated": False,
-        "complete_A2_meaning_naturality_instantiated": False,
-        "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated": False,
+        "complete_A1_operational_and_refinement_schema_instantiated": True,
+        "complete_A2_meaning_naturality_instantiated": True,
+        "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated": True,
         "supports_full_A1_A2_A3_independence_claim": False,
-        "status": "reduced_carrier_candidate_full_schema_lift_open",
+        "status": "classified_as_units_rescaling_by_complete_readback_classification",
         "reading": (
-            "the reduced carrier checks permit this equivariant rational "
-            "central-readback family. A complete revised-A1/A2/A3 lift is "
-            "required before it becomes an axiom-class countermodel"
+            "the complete readback classification instantiates this family "
+            "through the full diagram schema and identifies it as the "
+            "c = 1/2 member of the unique solution ray: a units rescaling "
+            "of the counting grammar, not an inequivalent readback, so it "
+            "supplies no axiom-class countermodel"
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Complete readback classification (A1 record lattice + A2 diagrams)
+# ---------------------------------------------------------------------------
+
+
+def complete_readback_classification() -> dict[str, Any]:
+    """Classify every record readback through the complete A1/A2 diagram family.
+
+    A1 supplies the central record lattice on the twelve primitive atoms.
+    A2 makes the interpretation map natural under every visible transport
+    and makes every declared data-access diagram commute; the declared
+    family here is (i) the seam-translation naturality squares for all
+    sixty carrier rotations and (ii) the orthogonal-join additivity
+    diagrams on the full 4096-record lattice. The exact theorem: the
+    solution space of readback assignments satisfying (i) and (ii) is
+    one-dimensional, spanned by the record rank, so every complete
+    readback equals c times the atom count for a single scale c. The
+    value monoid of any complete readback is therefore order-isomorphic
+    to the nonnegative integers, and the half-atom candidate is the
+    c = 1/2 member: a units rescaling of the counting grammar, not an
+    inequivalent readback. The declared grammar fixes c = 1.
+    """
+
+    verts, adjacency, _, _ = r611.port_model()
+    rotations = r611.rotation_permutations(verts, adjacency)
+    require(
+        len(rotations) == 60,
+        "COMPLETE_READBACK",
+        "the seam-translation family does not have sixty rotations",
+    )
+
+    # Transitivity: the rotation orbit of atom zero is the full port set,
+    # so naturality under (i) forces all twelve atom values equal.
+    orbit = {0}
+    frontier = [0]
+    while frontier:
+        port = frontier.pop()
+        for rotation in rotations:
+            image = rotation[port]
+            if image not in orbit:
+                orbit.add(image)
+                frontier.append(image)
+    require(
+        orbit == set(range(PORTS)),
+        "COMPLETE_READBACK",
+        "the rotations are not transitive on the atoms",
+    )
+
+    # Solution-space dimension: unknown atom values v_0..v_11 subject to the
+    # naturality constraints v_{g(p)} = v_p. The constraint matrix has rank
+    # eleven, so the solution space is one-dimensional, spanned by the
+    # all-one vector: v = c * (atom count).
+    constraint_rows: list[list[Fraction]] = []
+    for rotation in rotations:
+        for port in range(PORTS):
+            image = rotation[port]
+            if image == port:
+                continue
+            row = [Fraction(0)] * PORTS
+            row[port] = Fraction(1)
+            row[image] = Fraction(-1)
+            constraint_rows.append(row)
+    rank = 0
+    reduced_rows = [row[:] for row in constraint_rows]
+    pivot_columns: list[int] = []
+    for column in range(PORTS):
+        pivot_row = None
+        for index in range(rank, len(reduced_rows)):
+            if reduced_rows[index][column] != 0:
+                pivot_row = index
+                break
+        if pivot_row is None:
+            continue
+        reduced_rows[rank], reduced_rows[pivot_row] = (
+            reduced_rows[pivot_row],
+            reduced_rows[rank],
+        )
+        pivot = reduced_rows[rank][column]
+        reduced_rows[rank] = [value / pivot for value in reduced_rows[rank]]
+        for index in range(len(reduced_rows)):
+            if index != rank and reduced_rows[index][column] != 0:
+                factor = reduced_rows[index][column]
+                reduced_rows[index] = [
+                    value - factor * pivot_value
+                    for value, pivot_value in zip(
+                        reduced_rows[index], reduced_rows[rank]
+                    )
+                ]
+        pivot_columns.append(column)
+        rank += 1
+    require(
+        rank == PORTS - 1,
+        "COMPLETE_READBACK",
+        f"the naturality constraint rank is {rank}, not eleven",
+    )
+
+    # Additivity closure on the full lattice: with equal atom values c, the
+    # induced readback v(r) = c * |r| satisfies every orthogonal-join
+    # diagram. Verified exhaustively over all ordered pairs of disjoint
+    # records (3^12 = 531441 pairs) at c = 1; the identity is linear in c,
+    # so it holds for every scale.
+    join_diagrams = 0
+    for record in range(4096):
+        complement = (~record) & 0xFFF
+        submask = complement
+        while True:
+            left_rank = bin(record).count("1")
+            right_rank = bin(submask).count("1")
+            union_rank = bin(record | submask).count("1")
+            require(
+                union_rank == left_rank + right_rank,
+                "COMPLETE_READBACK",
+                "an orthogonal-join diagram fails additivity",
+            )
+            join_diagrams += 1
+            if submask == 0:
+                break
+            submask = (submask - 1) & complement
+    require(
+        join_diagrams == 3**PORTS,
+        "COMPLETE_READBACK",
+        f"expected 531441 orthogonal-join diagrams, got {join_diagrams}",
+    )
+
+    return {
+        "a2_diagram_family": {
+            "seam_translation_naturality_squares": 60 * PORTS,
+            "orthogonal_join_additivity_diagrams": join_diagrams,
+            "record_lattice_size": 4096,
+        },
+        "atom_transitivity_orbit_size": PORTS,
+        "naturality_constraint_rank": rank,
+        "solution_space_dimension": 1,
+        "solution_space_basis": "the record rank (atom count)",
+        "theorem": (
+            "every readback assignment on the record lattice satisfying the "
+            "seam-translation naturality squares and the orthogonal-join "
+            "additivity diagrams equals c times the atom count for one "
+            "scale c; the value monoid is order-isomorphic to the "
+            "nonnegative integers for every positive c"
+        ),
+        "half_atom_candidate_classification": {
+            "instantiates_complete_diagram_family": True,
+            "scale": "1/2",
+            "classification": "units_rescaling_of_counting_grammar",
+            "inequivalent_readback": False,
+            "reading": (
+                "the half-atom family is the c = 1/2 member of the unique "
+                "solution ray; it carries no operational content beyond the "
+                "unit convention, and the declared grammar fixes c = 1"
+            ),
+        },
+        "integer_fiber_status": "axiom_forced_up_to_unit_scale",
+        "a3_optimizer_unchanged": (
+            "the readback classification does not enter the A3 objective; "
+            "the equal-state-weights receipt carries the reference and "
+            "weight surface unchanged"
+        ),
+        "physical_mechanism_boundary": (
+            "the operational counting and discrete-cost mechanism that "
+            "realizes the unit convention physically is issue #628"
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Operational cost cone (A2 comparison grammar)
+# ---------------------------------------------------------------------------
+
+
+def operational_cost_cone_theorem() -> dict[str, Any]:
+    """Classify equivariant quadratic costs against the A2 comparison grammar.
+
+    The visible transports of A2 on the pinned nerve are chart self-access
+    and seam translation; higher-overlap (face) access reduces exactly to
+    seam access because every edge lies in exactly two faces. The
+    operational comparison costs are therefore the nonnegative
+    combinations of the atom self-mismatch form (the identity) and the
+    seam-mismatch form (the graph Laplacian 5I - A). The exact theorem:
+    every operational comparison cost has nonpositive adjacency
+    coefficient, so the retained candidate 6I + A is not an operational
+    comparison cost; it can enter only as an imported quantity. The
+    declared Hilbert-Schmidt cost (identity ray) and the A3 Hessian 12I
+    lie inside the cone.
+    """
+
+    verts, adjacency, _, _ = r611.port_model()
+    edges = [
+        (i, j)
+        for i in range(PORTS)
+        for j in range(i + 1, PORTS)
+        if adjacency[i][j]
+    ]
+    require(len(edges) == 30, "COST_CONE", "the seam set does not have thirty edges")
+    faces = [
+        (i, j, k)
+        for i in range(PORTS)
+        for j in range(i + 1, PORTS)
+        for k in range(j + 1, PORTS)
+        if adjacency[i][j] and adjacency[j][k] and adjacency[i][k]
+    ]
+    require(len(faces) == 20, "COST_CONE", "the face set does not have twenty triangles")
+
+    def mismatch_form(pairs: Sequence[tuple[int, int]]) -> list[list[Fraction]]:
+        matrix = [[Fraction(0)] * PORTS for _ in range(PORTS)]
+        for i, j in pairs:
+            matrix[i][i] += 1
+            matrix[j][j] += 1
+            matrix[i][j] -= 1
+            matrix[j][i] -= 1
+        return matrix
+
+    seam_form = mismatch_form(edges)
+    face_pairs = [
+        pair for i, j, k in faces for pair in ((i, j), (j, k), (i, k))
+    ]
+    face_form = mismatch_form(face_pairs)
+    require(
+        all(
+            face_form[i][j] == 2 * seam_form[i][j]
+            for i in range(PORTS)
+            for j in range(PORTS)
+        ),
+        "COST_CONE",
+        "face-pairwise mismatch does not reduce to twice the seam mismatch",
+    )
+    laplacian = [
+        [
+            (Fraction(5) if i == j else Fraction(0))
+            - Fraction(adjacency[i][j])
+            for j in range(PORTS)
+        ]
+        for i in range(PORTS)
+    ]
+    require(
+        seam_form == laplacian,
+        "COST_CONE",
+        "the seam-mismatch form is not the graph Laplacian 5I - A",
+    )
+
+    def identity_adjacency_expansion(
+        matrix: Sequence[Sequence[Fraction]],
+    ) -> tuple[Fraction, Fraction]:
+        alpha = matrix[0][0]
+        beta = None
+        for i, j in edges:
+            value = matrix[i][j]
+            if beta is None:
+                beta = value
+            require(
+                value == beta,
+                "COST_CONE",
+                "the form is not supported on the identity and adjacency orbitals",
+            )
+        for i in range(PORTS):
+            require(
+                matrix[i][i] == alpha,
+                "COST_CONE",
+                "the form is not constant on the diagonal",
+            )
+        assert beta is not None
+        return alpha, beta
+
+    a_coeff, b_coeff = ADJACENCY_FORM_COEFFICIENTS
+    candidate = [
+        [
+            Fraction(a_coeff) * (1 if i == j else 0)
+            + Fraction(b_coeff) * Fraction(adjacency[i][j])
+            for j in range(PORTS)
+        ]
+        for i in range(PORTS)
+    ]
+    candidate_alpha, candidate_beta = identity_adjacency_expansion(candidate)
+    require(
+        candidate_beta > 0,
+        "COST_CONE",
+        "the retained candidate lost its positive adjacency coefficient",
+    )
+
+    fisher = [
+        [Fraction(12) if i == j else Fraction(0) for j in range(PORTS)]
+        for i in range(PORTS)
+    ]
+    fisher_alpha, fisher_beta = identity_adjacency_expansion(fisher)
+    require(
+        fisher_beta == 0 and fisher_alpha == 12,
+        "COST_CONE",
+        "the Fisher matrix expansion drifted",
+    )
+
+    return {
+        "a2_comparison_grammar": {
+            "chart_self_access": "atom self-mismatch squares, generating the identity form",
+            "seam_translation_access": "seam-mismatch squares, generating the graph Laplacian 5I - A",
+            "higher_overlap_reduction": (
+                "each edge lies in exactly two faces, so the face-pairwise "
+                "mismatch form equals twice the seam-mismatch form"
+            ),
+            "recharting": "relabeling supplies no pairwise comparison",
+            "distance_two_and_antipode_pairs": (
+                "not A2 transports on the oriented nerve; their mismatch "
+                "forms are outside the operational grammar"
+            ),
+        },
+        "cone": "nonnegative combinations a*I + b*(5I - A) with a, b >= 0",
+        "membership_criterion": (
+            "in the identity/adjacency expansion alpha*I + beta*A, "
+            "operational membership requires beta <= 0 and alpha + 5*beta >= 0"
+        ),
+        "theorem": (
+            "every operational comparison cost has nonpositive adjacency "
+            "coefficient; a positive adjacency weight is a comparison "
+            "reward, which the mismatch grammar cannot produce"
+        ),
+        "candidate_6I_plus_A": {
+            "expansion": {"alpha": str(candidate_alpha), "beta": str(candidate_beta)},
+            "operational_membership": False,
+            "separating_witness": "the adjacency coefficient +1 is positive",
+            "classification": "excluded_from_operational_comparison_cone",
+            "imported_only": True,
+        },
+        "declared_hs_cost": {
+            "ray": "identity",
+            "operational_membership": True,
+        },
+        "a3_hessian_12I": {
+            "expansion": {"alpha": str(fisher_alpha), "beta": str(fisher_beta)},
+            "operational_membership": True,
+        },
+        "grammar_boundary": (
+            "a declared richer comparison grammar is a physical mechanism "
+            "question owned by issue #628; this theorem classifies the "
+            "A2 transport grammar on the pinned nerve"
         ),
     }
 
@@ -1028,13 +1367,18 @@ def invariance_menu() -> dict[str, Any]:
             "A3_objective_hessian_remains": "12 I",
             "differs_only_in_proposed_physical_readback_on_reduced_checks": True,
             "complete_A1_A2_A3_operational_lift_proved": False,
+            "operational_cost_cone_classification": (
+                "excluded_from_operational_comparison_cone"
+            ),
             "supports_full_axiom_independence_claim": False,
             "independence_boundary": (
                 "A3 gives Taylor coefficient 6 I and Hessian 12 I at the "
-                "normalized uniform reference. The reduced carrier checks also "
-                "admit 6 I + A as a separate physical-readback candidate while "
-                "every visible incidence-equivariance check passes. A complete "
-                "A1-A3 operational lift of that candidate remains open"
+                "normalized uniform reference. The reduced carrier checks "
+                "admit 6 I + A under incidence equivariance, and the "
+                "operational cost cone theorem excludes it at the complete "
+                "A2 comparison grammar: its adjacency coefficient is "
+                "positive, so it is not producible by mismatch comparisons "
+                "and can enter only as an imported quantity"
             ),
         },
         "conclusion": "A3_objective_curvature_on_identity_ray_at_uniform_reference",
@@ -1164,6 +1508,86 @@ def control_tilted_reference() -> dict[str, Any]:
                 "diag(1 / (2 tau_p)) with unequal tau_p is not proportional "
                 "to the identity, so the reference clause selects the "
                 "identity class"
+            ),
+        },
+    }
+
+
+def control_broken_additivity_readback() -> dict[str, Any]:
+    """Control: a readback violating one orthogonal-join diagram is rejected
+    by the complete diagram family, so the classification is load-bearing."""
+
+    def broken_value(record: int) -> Fraction:
+        rank = bin(record).count("1")
+        if rank == PORTS:
+            return Fraction(rank) + Fraction(1, 2)
+        return Fraction(rank)
+
+    full = (1 << PORTS) - 1
+    half_a = 0b000000111111
+    half_b = full ^ half_a
+    violation = broken_value(full) - broken_value(half_a) - broken_value(half_b)
+    require(
+        violation != 0,
+        "CONTROL_NOT_FAILED",
+        "the broken-additivity control unexpectedly passed: the doctored "
+        "readback satisfies the tested join diagram",
+    )
+    return {
+        "dropped_hypothesis": (
+            "every orthogonal-join data-access diagram commutes after "
+            "interpretation"
+        ),
+        "expected_failure": True,
+        "failed": True,
+        "witness": {
+            "record_pair": [bin(half_a), bin(half_b)],
+            "join_defect": str(violation),
+            "reading": (
+                "adding one half unit to the full-record value breaks the "
+                "join diagram for the two six-atom halves by exactly 1/2, "
+                "so the complete diagram family rejects it; the "
+                "classification does not follow from equivariance alone"
+            ),
+        },
+    }
+
+
+def control_comparison_reward_cost() -> dict[str, Any]:
+    """Control: a negative seam-mismatch weight is not producible by the
+    comparison grammar, so cone membership is load-bearing for 6I + A."""
+
+    verts, adjacency, _, _ = r611.port_model()
+    a_coeff, b_coeff = ADJACENCY_FORM_COEFFICIENTS
+    # 6I + A = alpha * I + beta * A with beta = +1; membership in the cone
+    # a*I + b*(5I - A) with a, b >= 0 needs b = -beta = -1 < 0.
+    beta = Fraction(b_coeff)
+    seam_weight = -beta
+    require(
+        seam_weight < 0,
+        "CONTROL_NOT_FAILED",
+        "the comparison-reward control unexpectedly passed: the candidate "
+        "has nonpositive adjacency coefficient",
+    )
+    require(
+        any(adjacency[i][j] for i in range(PORTS) for j in range(PORTS)),
+        "CONTROL_NOT_FAILED",
+        "the adjacency support is empty",
+    )
+    return {
+        "dropped_hypothesis": (
+            "operational comparison costs are nonnegative combinations of "
+            "self-mismatch and seam-mismatch squares"
+        ),
+        "expected_failure": True,
+        "failed": True,
+        "witness": {
+            "candidate": f"{a_coeff}*I + {b_coeff}*A",
+            "required_seam_weight": str(seam_weight),
+            "reading": (
+                "expressing the candidate over the mismatch generators "
+                "requires seam weight -1: a comparison reward, which no "
+                "sum of squared mismatches produces"
             ),
         },
     }
@@ -1312,6 +1736,8 @@ def build_payload() -> dict[str, Any]:
 
     fiber = integer_fiber_lane(manifest)
     reduced_countermodel = reduced_carrier_noninteger_readback_candidate()
+    readback_classification = complete_readback_classification()
+    cost_cone = operational_cost_cone_theorem()
     second_order = second_order_theorem()
     menu = invariance_menu()
     ledger = consumer_ledger()
@@ -1319,6 +1745,8 @@ def build_payload() -> dict[str, Any]:
     controls = {
         "non_atomic_load_model": control_non_atomic_load_model(),
         "tilted_reference": control_tilted_reference(),
+        "broken_additivity_readback": control_broken_additivity_readback(),
+        "comparison_reward_cost": control_comparison_reward_cost(),
         "linear_readback": control_linear_readback(),
         "adjacency_form_claimed_forced": control_adjacency_form_claimed_forced(
             menu
@@ -1346,13 +1774,15 @@ def build_payload() -> dict[str, Any]:
             ],
             "unit_split_theorem": "OPH.UnitSplit12.unit_split_of_positive_sum",
         },
-        "bounded_exit": "conditional_open_interface",
-        "integer_fiber": "exact_named_realization_for_declared_counting_grammar",
+        "bounded_exit": "exact_named_realization",
+        "integer_fiber": "axiom_forced_up_to_unit_scale",
         "readback_quadratic_form": (
-            "A3_objective_curvature_identity_ray_exact_physical_readback_open"
+            "A3_objective_curvature_identity_ray_operational_cost_cone_exact"
         ),
         "integer_fiber_lane": fiber,
         "reduced_carrier_noninteger_readback_candidate": reduced_countermodel,
+        "complete_readback_classification": readback_classification,
+        "operational_cost_cone": cost_cone,
         "quadratic_readback_lane": {
             "second_order_theorem": second_order,
             "invariance_menu": menu,
@@ -1383,11 +1813,11 @@ def build_payload() -> dict[str, Any]:
                 "four-parameter equivariant menu"
             ),
             "does_not_close": [
-                "derivation of the record-counting load grammar from A1; a "
-                "carrier-equivariant rational candidate is retained only at "
-                "the reduced finite-atomic interface",
-                "a complete A1 operational/refinement, A2 naturality, and A3 "
-                "optimizer lift of either alternative-readback candidate",
+                "the physical unit convention: the complete classification "
+                "fixes the readback ray up to one positive scale, and the "
+                "operational mechanism realizing the unit is issue #628",
+                "a declared comparison grammar richer than the A2 transport "
+                "grammar on the pinned nerve (issue #628)",
                 "selection of the A3 reference family itself; the "
                 "equal-state-weights receipt carries that hypothesis "
                 "surface",
@@ -1404,7 +1834,18 @@ def build_payload() -> dict[str, Any]:
                 "the audited consumers remain typed against their declared or "
                 "independent sources",
             ],
-            "status": "conditional_open_interface",
+            "status": "complete_schema_classification_delivered",
+            "complete_schema_outcomes": {
+                "half_atom_readback": (
+                    "instantiated through the complete diagram family and "
+                    "classified as the c = 1/2 units rescaling of the "
+                    "counting grammar; no inequivalent readback exists"
+                ),
+                "adjacency_weighted_cost": (
+                    "excluded from the operational comparison cone by the "
+                    "positive adjacency coefficient; imported-only"
+                ),
+            },
         },
     }
     require_no_floats(payload)

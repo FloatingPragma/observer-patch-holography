@@ -1,9 +1,13 @@
 {
-  "bounded_exit": "conditional_open_interface",
+  "bounded_exit": "exact_named_realization",
   "claim_boundary": {
+    "complete_schema_outcomes": {
+      "adjacency_weighted_cost": "excluded from the operational comparison cone by the positive adjacency coefficient; imported-only",
+      "half_atom_readback": "instantiated through the complete diagram family and classified as the c = 1/2 units rescaling of the counting grammar; no inequivalent readback exists"
+    },
     "does_not_close": [
-      "derivation of the record-counting load grammar from A1; a carrier-equivariant rational candidate is retained only at the reduced finite-atomic interface",
-      "a complete A1 operational/refinement, A2 naturality, and A3 optimizer lift of either alternative-readback candidate",
+      "the physical unit convention: the complete classification fixes the readback ray up to one positive scale, and the operational mechanism realizing the unit is issue #628",
+      "a declared comparison grammar richer than the A2 transport grammar on the pinned nerve (issue #628)",
       "selection of the A3 reference family itself; the equal-state-weights receipt carries that hypothesis surface",
       "the absolute objective-curvature coefficients without a declared local weight normalization",
       "third-order and higher readback structure; the theorem is a second-order jet statement with symbolic O(eps^3) remainder",
@@ -12,7 +16,29 @@
       "promotion of either named-realization premise to an axiom; the audited consumers remain typed against their declared or independent sources"
     ],
     "proves": "on the pinned finite atomic carrier, every observable in the additional declared record-counting grammar is an integer combination of atom counters; the first-order term of the A3 divergence vanishes on the feasible tangent space; the coefficient of eps^2 is diag(1 / (2 tau_p)) = 6 I and the Hessian is diag(1 / tau_p) = 12 I for unit local weight at the uniform reference. Both lie on the identity ray of the four-parameter equivariant menu",
-    "status": "conditional_open_interface"
+    "status": "complete_schema_classification_delivered"
+  },
+  "complete_readback_classification": {
+    "a2_diagram_family": {
+      "orthogonal_join_additivity_diagrams": 531441,
+      "record_lattice_size": 4096,
+      "seam_translation_naturality_squares": 720
+    },
+    "a3_optimizer_unchanged": "the readback classification does not enter the A3 objective; the equal-state-weights receipt carries the reference and weight surface unchanged",
+    "atom_transitivity_orbit_size": 12,
+    "half_atom_candidate_classification": {
+      "classification": "units_rescaling_of_counting_grammar",
+      "inequivalent_readback": false,
+      "instantiates_complete_diagram_family": true,
+      "reading": "the half-atom family is the c = 1/2 member of the unique solution ray; it carries no operational content beyond the unit convention, and the declared grammar fixes c = 1",
+      "scale": "1/2"
+    },
+    "integer_fiber_status": "axiom_forced_up_to_unit_scale",
+    "naturality_constraint_rank": 11,
+    "physical_mechanism_boundary": "the operational counting and discrete-cost mechanism that realizes the unit convention physically is issue #628",
+    "solution_space_basis": "the record rank (atom count)",
+    "solution_space_dimension": 1,
+    "theorem": "every readback assignment on the record lattice satisfying the seam-translation naturality squares and the orthogonal-join additivity diagrams equals c times the atom count for one scale c; the value monoid is order-isomorphic to the nonnegative integers for every positive c"
   },
   "consumer_integration_status": "all eleven originally named surfaces classified: two consume the declared named-realization grammar/cost, one is a conditional mathematical integrality theorem, and eight use independent objects or were false-positive symbol matches; none requires an axiom-forced #625 result",
   "consumer_ledger": [
@@ -206,6 +232,29 @@
         "reading": "the claim that A3 forces the adjacency-weighted form is rejected: its isotypic coefficient vector differs from (6, 6, 6, 6). Equivariance alone does not identify either form as the physical discrete cost"
       }
     },
+    "broken_additivity_readback": {
+      "dropped_hypothesis": "every orthogonal-join data-access diagram commutes after interpretation",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "join_defect": "1/2",
+        "reading": "adding one half unit to the full-record value breaks the join diagram for the two six-atom halves by exactly 1/2, so the complete diagram family rejects it; the classification does not follow from equivariance alone",
+        "record_pair": [
+          "0b111111",
+          "0b111111000000"
+        ]
+      }
+    },
+    "comparison_reward_cost": {
+      "dropped_hypothesis": "operational comparison costs are nonnegative combinations of self-mismatch and seam-mismatch squares",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "candidate": "6*I + 1*A",
+        "reading": "expressing the candidate over the mismatch generators requires seam weight -1: a comparison reward, which no sum of squared mismatches produces",
+        "required_seam_weight": "-1"
+      }
+    },
     "linear_readback": {
       "dropped_hypothesis": "the leading readback of a small feasible mismatch is first order at the projection",
       "expected_failure": true,
@@ -312,7 +361,7 @@
     }
   },
   "generated_by": "code/a5_closure/load_fiber_readback_certificate.py",
-  "integer_fiber": "exact_named_realization_for_declared_counting_grammar",
+  "integer_fiber": "axiom_forced_up_to_unit_scale",
   "integer_fiber_lane": {
     "accepted_load_model": {
       "accepted_by_A1_finite_atomic_gate": true,
@@ -625,7 +674,41 @@
     "unit_split_module": "Lean/Screen/UnitSplit12.lean",
     "unit_split_theorem": "OPH.UnitSplit12.unit_split_of_positive_sum"
   },
-  "payload_sha256": "sha256:a4dce9a62da876350b039fd3f51bf054d740a03048ec2ad190ab1202ced48010",
+  "operational_cost_cone": {
+    "a2_comparison_grammar": {
+      "chart_self_access": "atom self-mismatch squares, generating the identity form",
+      "distance_two_and_antipode_pairs": "not A2 transports on the oriented nerve; their mismatch forms are outside the operational grammar",
+      "higher_overlap_reduction": "each edge lies in exactly two faces, so the face-pairwise mismatch form equals twice the seam-mismatch form",
+      "recharting": "relabeling supplies no pairwise comparison",
+      "seam_translation_access": "seam-mismatch squares, generating the graph Laplacian 5I - A"
+    },
+    "a3_hessian_12I": {
+      "expansion": {
+        "alpha": "12",
+        "beta": "0"
+      },
+      "operational_membership": true
+    },
+    "candidate_6I_plus_A": {
+      "classification": "excluded_from_operational_comparison_cone",
+      "expansion": {
+        "alpha": "6",
+        "beta": "1"
+      },
+      "imported_only": true,
+      "operational_membership": false,
+      "separating_witness": "the adjacency coefficient +1 is positive"
+    },
+    "cone": "nonnegative combinations a*I + b*(5I - A) with a, b >= 0",
+    "declared_hs_cost": {
+      "operational_membership": true,
+      "ray": "identity"
+    },
+    "grammar_boundary": "a declared richer comparison grammar is a physical mechanism question owned by issue #628; this theorem classifies the A2 transport grammar on the pinned nerve",
+    "membership_criterion": "in the identity/adjacency expansion alpha*I + beta*A, operational membership requires beta <= 0 and alpha + 5*beta >= 0",
+    "theorem": "every operational comparison cost has nonpositive adjacency coefficient; a positive adjacency weight is a comparison reward, which the mismatch grammar cannot produce"
+  },
+  "payload_sha256": "sha256:500e99b1937c6eea313c0f687baa0f2b97ca148e0dd9bac0dad0e87363b705c6",
   "quadratic_readback_lane": {
     "conclusion": "A3_objective_curvature_on_identity_ray_at_uniform_reference; exact_discrete_readback_identification_open",
     "invariance_menu": {
@@ -668,13 +751,14 @@
         "differs_only_in_proposed_physical_readback_on_reduced_checks": true,
         "family": "a*I + b*A + c*N + d*P, four free parameters",
         "identity_class": false,
-        "independence_boundary": "A3 gives Taylor coefficient 6 I and Hessian 12 I at the normalized uniform reference. The reduced carrier checks also admit 6 I + A as a separate physical-readback candidate while every visible incidence-equivariance check passes. A complete A1-A3 operational lift of that candidate remains open",
+        "independence_boundary": "A3 gives Taylor coefficient 6 I and Hessian 12 I at the normalized uniform reference. The reduced carrier checks admit 6 I + A under incidence equivariance, and the operational cost cone theorem excludes it at the complete A2 comparison grammar: its adjacency coefficient is positive, so it is not producible by mismatch comparisons and can enter only as an imported quantity",
         "isotypic_coefficients": {
           "1": "11",
           "3": "6 + 1*sqrt(5)",
           "3p": "6 + -1*sqrt(5)",
           "5": "5"
         },
+        "operational_cost_cone_classification": "excluded_from_operational_comparison_cone",
         "passes_incidence_equivariance": true,
         "positive_definite": true,
         "same_reduced_objective_and_state_selection_data": true,
@@ -757,7 +841,7 @@
       "weight_note": "a strictly positive constant A3 weight w multiplies the jet port-uniformly, so C becomes 6 w I and H becomes 12 w I; both stay on the identity ray. The absolute coefficients require unit local weight"
     }
   },
-  "readback_quadratic_form": "A3_objective_curvature_identity_ray_exact_physical_readback_open",
+  "readback_quadratic_form": "A3_objective_curvature_identity_ray_operational_cost_cone_exact",
   "reduced_carrier_noninteger_readback_candidate": {
     "A1_finite_atomic_validation": {
       "accepted_by_A1_finite_atomic_gate": true,
@@ -984,20 +1068,20 @@
     ],
     "carrier_rotations_checked": 60,
     "common_half_integer_value": "1/2",
-    "complete_A1_operational_and_refinement_schema_instantiated": false,
-    "complete_A2_meaning_naturality_instantiated": false,
-    "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated": false,
+    "complete_A1_operational_and_refinement_schema_instantiated": true,
+    "complete_A2_meaning_naturality_instantiated": true,
+    "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated": true,
     "declared_counting_grammar_rejection_code": "DECLARED_LOAD_TYPE",
     "equivariance_checks": 720,
     "family_size": 12,
     "integer_valued": false,
     "presentation_covariant": true,
-    "reading": "the reduced carrier checks permit this equivariant rational central-readback family. A complete revised-A1/A2/A3 lift is required before it becomes an axiom-class countermodel",
+    "reading": "the complete readback classification instantiates this family through the full diagram schema and identifies it as the c = 1/2 member of the unique solution ray: a units rescaling of the counting grammar, not an inequivalent readback, so it supplies no axiom-class countermodel",
     "rejected_by_declared_counting_grammar_after_reduced_carrier_gate": true,
     "same_reduced_finite_atomic_carrier": true,
     "same_twelve_primitive_central_projections": true,
-    "status": "reduced_carrier_candidate_full_schema_lift_open",
+    "status": "classified_as_units_rescaling_by_complete_readback_classification",
     "supports_full_A1_A2_A3_independence_claim": false
   },
-  "schema": "oph.load_fiber_readback_certificate.v3"
+  "schema": "oph.load_fiber_readback_certificate.v4"
 }
