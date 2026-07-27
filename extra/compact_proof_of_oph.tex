@@ -86,8 +86,48 @@ facts. The selected world is a stable normal form,
 \[
   T(\mathfrak U)=\mathfrak U .
 \]
+The theory rests on three core axioms.
+
+\infobox{The three axioms}{
+\textbf{1. Oriented twelve-port observer screen.} There exists an observer
+patch net on an oriented spherical screen: at every finite resolution each
+local carrier has twelve primitive boundary ports forming the vertices of an
+oriented triangular boundary with 30 edges and 20 faces, combinatorially the
+boundary of an icosahedron; carriers join through typed seams and coherent
+triple overlaps, refine to an oriented spherical support, and expose local
+state, readback, records, repair moves, and checkpoints. Formally: for every
+regulator \(r\) there is a typed object
+\(\mathfrak N_r=(\mathcal P_r,\mathcal A_r,\mathcal R_r,\mathcal I_r,
+\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)\) whose carriers carry twelve
+primitive central port projections and the exact boundary packet
+\(K=(P,E,F,o)\), joined by seam algebras with coherent triple-overlap
+cocycles into a nerve \(N_r\) with a degree-one bridge \(b_r\) to the
+oriented spherical support \(S_r\), all commuting with refinement.
+\par\smallskip
+\textbf{2. Observer agreement.} Observers operating on the screen agree on
+the meaning of the data they jointly interpret. Formally: the interpretation
+map \(\mathcal J_r:\mathsf{Data}_r\to\mathsf{Meaning}_r\) is natural with
+respect to every visible overlap restriction, recharting, seam translation,
+higher-overlap map, and refinement map on accepted public data.
+\par\smallskip
+\textbf{3. Conditional maximum randomness.} Everything that observer
+agreement leaves unconstrained is maximally random. Formally: the realized
+state is the information projection of an exact reference family onto the
+convex set of compatible local state families satisfying the finite
+observer-visible constraints,
+\(\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
+D(\rho_{r,P}\Vert\tau_{r,P})\).
+\par\smallskip
+The first axiom constrains architecture, the second meaning, the third
+state selection. None of them contains a gauge group, a particle list, a
+recovery law, or an economy rule. Every result below states which of these
+axioms it uses and which further premises it carries: an exact theorem over
+all models, an exact result inside one named finite realization, a declared
+open interface, an independence result with countermodels, or a physical
+identification.}
+
 The proposal earns attention because several familiar structures arise from
-one finite language. They also arrive with different evidence types. Exact
+this small basis. They also arrive with different evidence types. Exact
 theorems, interval certificates, conditional physical compositions, and
 simulation measurements occupy separate evidence classes throughout this paper.
 
