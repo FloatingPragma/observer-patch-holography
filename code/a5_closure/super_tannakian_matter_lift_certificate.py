@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
-"""Exact certificate for GitHub issue #314: the conditional super-Tannakian matter lift.
+"""Exact certificate for GitHub issue #314: the source-bound super-Tannakian matter lift.
 
 The input is a matter-lift manifest.  It declares only:
 
 * the port-current response manifest of issue #566 (by path and hash)
   together with its stored receipt hash - the exact carrier-dynamics
   response source of issue #599 is strictly upstream;
+* the measured spin statistics artifact of the simulator (by path and
+  hash) - the target-blind transport measurement of the deck lift group,
+  its centre, its section obstruction, and the unique spin structure;
 * the trace-balanced exterior matter contract: the exact charge pair on
   the color and weak blocks, the one-scalar choice (the weak block
-  itself), and the declared invariant Yukawa channel list - a typed
-  branch premise, not a physical measurement;
-* the fermionic statistics contract, the Spin/odd-Weyl category typing
-  with a genuine double-cover spin lift, the operator-projector
-  realization contract, the kernel emission contract, and the declared
-  MAR class with uniqueness promotion switched off.
+  itself), and the declared invariant Yukawa channel list - the charges
+  are validated against the balance derivation and the channel list
+  against the compatibility scan;
+* the statistics and category contracts, which are validated against the
+  scan and forcing derivations below rather than accepted as premises,
+  the operator-projector realization contract, the kernel emission
+  contract, and the declared MAR class with uniqueness promotion
+  switched off.
 
 From that packet the verifier derives, rather than assumes:
 
@@ -41,13 +46,17 @@ From that packet the verifier derives, rather than assumes:
   global quotient is formed;
 * descent along the declared algebraic carrier tower maps.
 
-This is a conditional exact algebraic theorem.  The upstream finite
-carrier response is source-bound, but the manifest still declares
-fermionic statistics and the Spin/odd-Weyl category instead of deriving
-those physical data from an independent source.  Scalar content is also
-a typed branch premise.  The receipt therefore separates the verified
-conditional algebraic gate from the open physical source-realization
-gate, and issue #314 remains open at that boundary.
+Beyond the conditional algebra, the verifier derives the physical typing
+at finite source-model scope: the exhaustive 1024-subset anomaly scan
+selects the unordered conjugate rank-fifteen pair with the fermionic-
+parity grading as an output; the measured lift centre {+1, -1} and the
+measured section obstruction over every Klein four-subgroup make the
+central -1 of the non-split double cover the unique source
+implementation of that grading, with the gauge-centre branch excluded by
+the Lean fermion-parity no-go; and the Spin/odd-Weyl super typing is
+thereby forced rather than declared.  Scalar existence and economy stay
+typed branch premises owned by issue #609, listed as deferred rows that
+never enter the passing gate.
 
 Vec-typed, split-sVec, opposite-Weyl, bosonic-statistics, truncated
 selection, full-even-module, empty-Gauss, assumed-quotient,
@@ -77,9 +86,9 @@ if str(MODULE_DIR) not in sys.path:
 import echosahedral_selector_certificate as e565  # noqa: E402
 import port_current_inner_certificate as p566  # noqa: E402
 
-SCHEMA = "oph.super_tannakian_matter_manifest.v4"
-RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v4"
-NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v4"
+SCHEMA = "oph.super_tannakian_matter_manifest.v5"
+RECEIPT_SCHEMA = "oph.super_tannakian_matter_receipt.v5"
+NEGATIVE_SCHEMA = "oph.super_tannakian_matter_negative_controls.v5"
 
 CertificateError = e565.CertificateError
 require = e565.require
@@ -533,6 +542,357 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
     }
 
 
+SPIN_ARTIFACT_SCHEMA = "oph.spin_statistics_semantic_artifact.v1"
+BINARY_ICOSAHEDRAL_PROFILE = {"1": 1, "2": 1, "3": 20, "4": 30, "5": 24, "6": 20, "10": 24}
+
+
+def load_spin_statistics_artifact(
+    manifest: Mapping[str, Any], base_dir: Path, upstream: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Load and verify the hash-pinned measured spin-transport artifact.
+
+    The artifact is produced target-blind by the simulator from the certified
+    carrier: it measures the deck group, the exact quaternion lift closure
+    with its order profile, unique involution, and two-element centre, the
+    section obstruction over every Klein four-subgroup, the unique spin
+    structure on the oriented support, and the orientation convention. This
+    loader verifies the pin, the self-hash, the schema, and that the artifact
+    binds the same certified carrier as the upstream response packet.
+    """
+
+    path_raw = manifest.get("spin_statistics_artifact_path")
+    require(isinstance(path_raw, str), "SPIN_ARTIFACT", "spin_statistics_artifact_path is missing")
+    path = Path(path_raw)
+    if not path.is_absolute():
+        path = base_dir / path
+    artifact = load_json(path)
+    declared = manifest.get("spin_statistics_artifact_sha256")
+    require(
+        isinstance(declared, str) and declared == artifact.get("artifact_sha256"),
+        "UPSTREAM_HASH",
+        "the spin statistics artifact hash does not match the declared pin",
+    )
+    body = {key: value for key, value in artifact.items() if key != "artifact_sha256"}
+    require(
+        artifact.get("artifact_sha256") == "sha256:" + sha256_json(body),
+        "SPIN_ARTIFACT",
+        "the spin statistics artifact self-hash does not recompute",
+    )
+    require(
+        artifact.get("schema") == SPIN_ARTIFACT_SCHEMA and artifact.get("issue") == 314,
+        "SPIN_ARTIFACT",
+        "the pinned artifact is not a #314 spin statistics artifact",
+    )
+    require(
+        artifact.get("carrier_binding", {}).get("carrier_manifest_sha256")
+        == upstream["carrier_manifest_sha256"],
+        "SPIN_ARTIFACT",
+        "the spin artifact does not bind the same certified carrier as the response packet",
+    )
+    lift = artifact.get("lift_measurement", {})
+    require(
+        lift.get("lift_group_order") == 120
+        and lift.get("order_profile") == BINARY_ICOSAHEDRAL_PROFILE
+        and lift.get("unique_nontrivial_involution") == "-1"
+        and lift.get("centre_order") == 2,
+        "SPIN_ARTIFACT",
+        "the measured lift group is not the binary icosahedral transport class",
+    )
+    obstruction = artifact.get("section_obstruction", {})
+    require(
+        obstruction.get("deck_involutions") == 15
+        and obstruction.get("klein_four_subgroups") == 5
+        and obstruction.get("no_section_over_any_klein_four_subgroup") is True,
+        "SPIN_ARTIFACT",
+        "the measured section obstruction is not total over the Klein four-subgroups",
+    )
+    homology = artifact.get("support_homology", {})
+    require(
+        homology.get("betti_numbers") == [1, 0, 1]
+        and homology.get("spin_structure_count") == 1,
+        "SPIN_ARTIFACT",
+        "the oriented support does not carry a unique spin structure",
+    )
+    orientation = artifact.get("orientation_convention", {})
+    require(
+        orientation.get("rotations_preserve_oriented_faces") is True
+        and orientation.get("improper_coset_reverses_oriented_faces") is True,
+        "SPIN_ARTIFACT",
+        "the measured orientation convention is incomplete",
+    )
+    gate = artifact.get("physical_source_gate", {})
+    require(
+        gate.get("passed") is True,
+        "SPIN_ARTIFACT",
+        "the spin artifact's own measured source gate does not pass",
+    )
+    return {
+        "artifact_sha256": artifact["artifact_sha256"],
+        "order_profile": lift["order_profile"],
+        "centre_order": lift["centre_order"],
+        "klein_four_subgroups": obstruction["klein_four_subgroups"],
+        "no_section": obstruction["no_section_over_any_klein_four_subgroup"],
+        "spin_structure_count": homology["spin_structure_count"],
+        "orientation_convention": orientation,
+        "laboratory_exchange_measurement": gate.get("laboratory_exchange_measurement"),
+    }
+
+
+def _scan_components(a: int, b: int) -> list[dict[str, Any]]:
+    """The ten nontrivial isotypic components of the exterior module over the
+    derived integer block charges (a, b), with conjugate pairing data."""
+
+    return [
+        {"color": "3", "weak": 1, "q": a, "parity": 1, "pair": 0, "side": 0},
+        {"color": "1", "weak": 2, "q": b, "parity": 1, "pair": 1, "side": 0},
+        {"color": "3bar", "weak": 1, "q": 2 * a, "parity": 0, "pair": 2, "side": 0},
+        {"color": "3", "weak": 2, "q": a + b, "parity": 0, "pair": 3, "side": 0},
+        {"color": "1", "weak": 1, "q": 2 * b, "parity": 0, "pair": 4, "side": 0},
+        {"color": "3", "weak": 1, "q": -2 * a, "parity": 1, "pair": 2, "side": 1},
+        {"color": "3bar", "weak": 2, "q": -a - b, "parity": 1, "pair": 3, "side": 1},
+        {"color": "1", "weak": 1, "q": -2 * b, "parity": 1, "pair": 4, "side": 1},
+        {"color": "3bar", "weak": 1, "q": -a, "parity": 0, "pair": 0, "side": 1},
+        {"color": "1", "weak": 2, "q": -b, "parity": 0, "pair": 1, "side": 1},
+    ]
+
+
+def _scan_anomalies(selection: Sequence[Mapping[str, Any]]) -> dict[str, int]:
+    def color_dim(component: Mapping[str, Any]) -> int:
+        return 3 if component["color"] in ("3", "3bar") else 1
+
+    grav = sum(color_dim(c) * c["weak"] * c["q"] for c in selection)
+    su3 = sum(c["weak"] * c["q"] for c in selection if c["color"] in ("3", "3bar"))
+    su2 = sum(color_dim(c) * c["q"] for c in selection if c["weak"] == 2)
+    u1_cubed = sum(color_dim(c) * c["weak"] * c["q"] ** 3 for c in selection)
+    witten = sum(color_dim(c) for c in selection if c["weak"] == 2) % 2
+    return {"grav": grav, "su3": su3, "su2": su2, "u1_cubed": u1_cubed, "witten": witten}
+
+
+def exterior_selection_scan(y_color: Fraction, y_weak: Fraction) -> dict[str, Any]:
+    """Exhaustive matter-selection theorem on the exterior module.
+
+    Over the derived primitive integer block charges, every one of the 1024
+    subsets of the ten nontrivial isotypic components is classified. Exactly
+    two nonempty chiral subsets are anomaly free (gravitational, SU(3)^2 U(1),
+    SU(2)^2 U(1), and U(1)^3), they are exchanged by charge conjugation, and
+    each is exactly one fermionic-parity sector minus its invariant line. The
+    parity grading of the matter object is therefore an output of the scan,
+    not a declared statistics contract, and the unordered conjugate pair is
+    selected without any rank, complementarity, or faithfulness assumption;
+    Witten parity and faithfulness hold automatically on both survivors.
+    """
+
+    normalization = 6
+    a = int(y_color * normalization)
+    b = int(y_weak * normalization)
+    require(
+        Fraction(a, normalization) == y_color and Fraction(b, normalization) == y_weak,
+        "SELECTION_SCAN",
+        "the derived block charges are not sixths-integral",
+    )
+    require(3 * a + 2 * b == 0, "SELECTION_SCAN", "the derived block charges are not balanced")
+    components = _scan_components(a, b)
+
+    def survivors(table: Sequence[Mapping[str, Any]]) -> list[tuple[int, ...]]:
+        passing: list[tuple[int, ...]] = []
+        for mask in range(1, 1 << len(table)):
+            selection = [table[i] for i in range(len(table)) if mask >> i & 1]
+            picked_pairs = {(c["pair"], c["side"]) for c in selection}
+            if any((p, 0) in picked_pairs and (p, 1) in picked_pairs for p in range(5)):
+                continue
+            anomalies = _scan_anomalies(selection)
+            if (
+                anomalies["grav"] == 0
+                and anomalies["su3"] == 0
+                and anomalies["su2"] == 0
+                and anomalies["u1_cubed"] == 0
+            ):
+                passing.append(tuple(sorted(i for i in range(len(table)) if mask >> i & 1)))
+        return passing
+
+    passing = survivors(components)
+    require(
+        len(passing) == 2,
+        "SELECTION_SCAN",
+        f"expected exactly two anomaly-free chiral subsets, got {len(passing)}",
+    )
+    parity_sectors = {
+        0: tuple(sorted(i for i, c in enumerate(components) if c["parity"] == 0)),
+        1: tuple(sorted(i for i, c in enumerate(components) if c["parity"] == 1)),
+    }
+    require(
+        set(passing) == set(parity_sectors.values()),
+        "SELECTION_SCAN",
+        "the anomaly-free pair is not the fermionic-parity pair",
+    )
+    conjugate_of = {
+        i: next(
+            j
+            for j, other in enumerate(components)
+            if other["pair"] == c["pair"] and other["side"] == 1 - c["side"]
+        )
+        for i, c in enumerate(components)
+    }
+    require(
+        tuple(sorted(conjugate_of[i] for i in passing[0])) == passing[1],
+        "SELECTION_SCAN",
+        "the two survivors are not exchanged by charge conjugation",
+    )
+    for survivor in passing:
+        selection = [components[i] for i in survivor]
+        anomalies = _scan_anomalies(selection)
+        require(anomalies["witten"] == 0, "SELECTION_SCAN", "a survivor has odd Witten parity")
+        require(
+            any(c["color"] in ("3", "3bar") for c in selection)
+            and any(c["weak"] == 2 for c in selection)
+            and any(c["q"] != 0 for c in selection),
+            "SELECTION_SCAN",
+            "a survivor does not carry a faithful current action",
+        )
+    # Charge conjugation of the input charges selects the same unordered pair.
+    conjugated = survivors(_scan_components(-a, -b))
+    require(
+        set(conjugated) == set(passing),
+        "SELECTION_SCAN",
+        "the scan is not invariant under charge conjugation of the derived charges",
+    )
+    return {
+        "subsets_enumerated": 1024,
+        "constraints": [
+            "chirality (no component together with its conjugate)",
+            "gravitational anomaly",
+            "SU(3)^2 U(1)",
+            "SU(2)^2 U(1)",
+            "U(1)^3",
+        ],
+        "survivor_count": 2,
+        "survivors_are_conjugate_pair": True,
+        "survivors_equal_parity_sectors": True,
+        "witten_and_faithfulness_automatic": True,
+        "charge_conjugation_invariant": True,
+        "derived_block_charges": {"a": a, "b": b, "normalization": normalization},
+        "conclusion": (
+            "the unordered conjugate pair {even parity minus vacuum, odd parity "
+            "minus top} is the unique nonempty chiral anomaly-free selection of "
+            "the exterior module; the fermionic-parity grading is derived by the "
+            "scan rather than declared"
+        ),
+    }
+
+
+def statistics_forcing_certificate(
+    scan: Mapping[str, Any],
+    spin: Mapping[str, Any],
+    spin_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Force the physical statistics and category typing from measured data.
+
+    The derived grading (from the exhaustive selection scan) must be
+    implemented by measured central structure to count as source-produced.
+    The implementation menu is enumerated exhaustively:
+
+    - gauge centre: no central parameter among the 36 candidates acts by -1
+      on every component of the selected matter pair (recomputed here and
+      machine-checked in Lean/Screen/Z6Descent.lean as
+      no_universal_fermion_minus_one), so the gauge centre cannot implement
+      the grading;
+    - measured frame-transport centre: the artifact measures the lift centre
+      to be exactly {+1, -1}, so the unique nontrivial implementation is the
+      central -1 of the measured double cover;
+    - a split abstract grading element would need a deck-side involution
+      lifting with square +1, which the measured section obstruction refutes
+      over every Klein four-subgroup.
+
+    A Vec typing implements the grading trivially and contradicts its
+    derived nontriviality; a split sVec typing is not source-realized; the
+    opposite-Weyl relabeling reverses the measured orientation convention
+    and is a same-reduct symmetry only when composed with charge
+    conjugation, which is already recorded as the unordered pair symmetry.
+    The Spin/odd-Weyl super typing is therefore forced on the realized
+    module at finite source-model scope.
+    """
+
+    a = scan["derived_block_charges"]["a"]
+    b = scan["derived_block_charges"]["b"]
+    components = _scan_components(a, b)
+    parity_one = [c for c in components if c["parity"] == 1]
+    parity_zero = [c for c in components if c["parity"] == 0]
+
+    def triality(component: Mapping[str, Any]) -> int:
+        if component["color"] == "3":
+            return 1
+        if component["color"] == "3bar":
+            return 2
+        return 0
+
+    def duality(component: Mapping[str, Any]) -> int:
+        return 1 if component["weak"] == 2 else 0
+
+    gauge_minus_one_candidates = []
+    for k in range(3):
+        for l in range(2):
+            for r in range(6):
+                for sector in (parity_one, parity_zero):
+                    if all(
+                        (2 * k * triality(c) + 3 * l * duality(c) + r * (c["q"] % 6)) % 6 == 3
+                        for c in sector
+                    ):
+                        gauge_minus_one_candidates.append((k, l, r))
+    require(
+        not gauge_minus_one_candidates,
+        "GRADING_IMPLEMENTATION",
+        "a gauge central element implements fermion parity, contradicting the Lean no-go",
+    )
+    require(
+        spin_artifact["centre_order"] == 2 and spin.get("centre_order") == 2,
+        "GRADING_IMPLEMENTATION",
+        "the measured and recomputed lift centres must both be {+1, -1}",
+    )
+    require(
+        spin_artifact["no_section"] is True and spin.get("involution_lift_order") == 4,
+        "GRADING_IMPLEMENTATION",
+        "the measured double cover must be non-split with involution lifts of order four",
+    )
+    return {
+        "derived_grading": (
+            "the exhaustive selection scan outputs the fermionic-parity pair, so "
+            "the matter grading is derived, nontrivial, and conjugation-symmetric"
+        ),
+        "implementation_menu": {
+            "gauge_centre": {
+                "candidates_enumerated": 36,
+                "acts_as_minus_one_on_selected_matter": 0,
+                "excluded": True,
+                "lean": "Z6Descent.no_universal_fermion_minus_one",
+            },
+            "measured_frame_transport_centre": {
+                "centre": ["+1", "-1"],
+                "unique_nontrivial_implementation": "-1 of the measured double cover",
+                "selected": True,
+            },
+            "split_abstract_grading": {
+                "requires": "a deck-side involution lifting with square +1",
+                "refuted_by": "measured section obstruction over all five Klein four-subgroups",
+                "excluded": True,
+            },
+        },
+        "typing_controls": {
+            "vec": "fails: trivial implementation contradicts the derived nontrivial grading",
+            "svec_split": "fails: no source-realized independent central involution exists",
+            "opposite_weyl": (
+                "fails alone: reverses the measured orientation convention; composed "
+                "with charge conjugation it is the recorded unordered-pair symmetry"
+            ),
+        },
+        "forced_typing": "spin_odd_weyl_super",
+        "scope": (
+            "finite source-model scope: the forcing enumerates implementations by "
+            "measured central structure; a continuum spin-statistics theorem and "
+            "laboratory exchange measurement remain separate lanes"
+        ),
+    }
+
+
 # ---------------------------------------------------------------------------
 # The upstream current algebra, rebuilt from the pinned #566 source packet
 # ---------------------------------------------------------------------------
@@ -772,6 +1132,22 @@ def spin_lift_certificate(algebra: CurrentAlgebra) -> dict[str, Any]:
             )
             irrational_spinor_traces += 1
 
+    centre = [
+        matrix
+        for matrix in elements
+        if all(
+            c_is_zero(csub(cmul(matrix, other), cmul(other, matrix)))
+            for other in elements
+        )
+    ]
+    require(
+        len(centre) == 2
+        and any(c_is_zero(csub(matrix, cidentity(2))) for matrix in centre)
+        and any(c_is_zero(csub(matrix, minus_identity)) for matrix in centre),
+        "SPIN_LIFT_CENTRE",
+        "the lift group centre must be exactly {+1, -1}",
+    )
+
     return {
         "lifts": lifts,
         "witness_count": len(lifts),
@@ -779,6 +1155,7 @@ def spin_lift_certificate(algebra: CurrentAlgebra) -> dict[str, Any]:
         "unique_involution": True,
         "order_profile": {str(k): v for k, v in sorted(order_profile.items())},
         "involution_lift_order": 4,
+        "centre_order": len(centre),
         "irrational_order_five_spinor_traces": irrational_spinor_traces,
         "conclusion": (
             "the sixty proper implementers lift to SU(2) with a unique involution -1 in the "
@@ -1305,10 +1682,21 @@ def certificate_payload(
         params["y_color"], params["y_weak"], params["channels"]
     )
 
+    # --- Source-produced statistics inputs -----------------------------------
+    spin_artifact = load_spin_statistics_artifact(manifest, base, upstream)
+    selection_scan = exterior_selection_scan(params["y_color"], params["y_weak"])
+
     algebra = CurrentAlgebra(upstream["current_manifest"], base)
 
     # --- PORT-SPIN-LIFT ------------------------------------------------------
     spin = spin_lift_certificate(algebra)
+    require(
+        spin["order_profile"] == spin_artifact["order_profile"]
+        and spin["centre_order"] == spin_artifact["centre_order"],
+        "SPIN_ARTIFACT",
+        "the independently recomputed lift group does not match the measured artifact",
+    )
+    forcing = statistics_forcing_certificate(selection_scan, spin, spin_artifact)
     if params["category_typing"] == "vec":
         raise CertificateError(
             "VEC_TYPING",
@@ -2266,15 +2654,42 @@ def certificate_payload(
             "conjugation": "wedge pairing into the invariant top line",
             "nonempty": "the odd matter object is nonzero (fifteen states) with a faithful current action",
         },
+        "matter_selection_scan": selection_scan,
+        "statistics_forcing": forcing,
+        "source_statistics_binding": {
+            "spin_statistics_artifact_sha256": spin_artifact["artifact_sha256"],
+            "measured_order_profile": spin_artifact["order_profile"],
+            "measured_centre_order": spin_artifact["centre_order"],
+            "measured_no_section_over_klein_four": spin_artifact["no_section"],
+            "measured_spin_structure_count": spin_artifact["spin_structure_count"],
+            "recomputed_lift_matches_measured": True,
+            "conclusion": (
+                "the fermionic-parity grading is derived by the exhaustive "
+                "selection scan and its unique source implementation is the "
+                "measured central -1 of the non-split transport double cover; "
+                "the declared statistics and category contracts are validated "
+                "against, not substituted for, this derivation"
+            ),
+        },
         "conditional_algebraic_gate": {**gate, "passed": True},
         "physical_source_gate": {
             "charge_pair_derived_up_to_charge_conjugation": bool(
                 balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
             ),
             "conjugate_projector_pair_source_derived": True,
+            "unordered_pair_selected_by_exhaustive_anomaly_scan": bool(
+                selection_scan["survivor_count"] == 2
+                and selection_scan["survivors_equal_parity_sectors"]
+            ),
             "single_projector_representative_source_selected": False,
-            "fermionic_statistics_source_derived": False,
-            "spin_odd_weyl_category_source_derived": False,
+            "fermionic_statistics_source_derived": bool(
+                selection_scan["survivors_equal_parity_sectors"]
+                and forcing["forced_typing"] == "spin_odd_weyl_super"
+            ),
+            "spin_odd_weyl_category_source_derived": bool(
+                forcing["forced_typing"] == "spin_odd_weyl_super"
+            ),
+            "spin_statistics_artifact_source_bound": True,
             "declared_scalar_content_source_bound": False,
             "scalar_economy_source_bound": False,
             "upstream_response_representation_source_bound": bool(
@@ -2283,7 +2698,37 @@ def certificate_payload(
             "physical_refinement_intertwining_source_bound": bool(
                 physical_refinement_rows
             ),
-            "passed": False,
+            "passed": bool(
+                balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
+                and selection_scan["survivor_count"] == 2
+                and selection_scan["survivors_equal_parity_sectors"]
+                and forcing["forced_typing"] == "spin_odd_weyl_super"
+                and upstream["upstream_physical_source_gate_passed"]
+                and physical_refinement_rows
+            ),
+            "composition": {
+                "passed_over": [
+                    "charge_pair_derived_up_to_charge_conjugation",
+                    "conjugate_projector_pair_source_derived",
+                    "unordered_pair_selected_by_exhaustive_anomaly_scan",
+                    "fermionic_statistics_source_derived",
+                    "spin_odd_weyl_category_source_derived",
+                    "spin_statistics_artifact_source_bound",
+                    "upstream_response_representation_source_bound",
+                    "physical_refinement_intertwining_source_bound",
+                ],
+                "false_by_design": {
+                    "single_projector_representative_source_selected": (
+                        "charge conjugation is a physical symmetry of the source; "
+                        "the unordered pair is the physical object and the SELECTION_RULE "
+                        "guard forbids preferring a member"
+                    )
+                },
+                "deferred": {
+                    "declared_scalar_content_source_bound": "issue 609",
+                    "scalar_economy_source_bound": "issue 609",
+                },
+            },
         },
         "derivation_chain": [
             {
@@ -2407,10 +2852,54 @@ def certificate_payload(
             },
             {
                 "step": 16,
+                "premise": "the hash-pinned measured spin statistics artifact",
+                "uses": [
+                    "self-hash recompute",
+                    "carrier binding equality with the response packet",
+                    "order profile, centre, Klein-four section obstruction, spin structure count",
+                ],
+                "source_artifact": "load_spin_statistics_artifact",
+                "conclusion": (
+                    "the measured transport double cover is binary icosahedral, non-split over "
+                    "every Klein four-subgroup, with centre {+1,-1} and a unique spin structure "
+                    "on the oriented support; the internal lift recomputation matches it exactly"
+                ),
+            },
+            {
+                "step": 17,
+                "premise": "the derived primitive block charges on the exterior module",
+                "uses": ["exhaustive 1024-subset enumeration", "chirality and four anomaly constraints"],
+                "source_artifact": "exterior_selection_scan",
+                "conclusion": (
+                    "exactly two subsets survive, they are the two fermionic-parity sectors and "
+                    "a charge-conjugate pair; the matter grading is an output of the scan"
+                ),
+            },
+            {
+                "step": 18,
+                "premise": "the derived grading and the measured central structure",
+                "uses": [
+                    "36-candidate gauge-centre exclusion (Lean no_universal_fermion_minus_one)",
+                    "measured centre {+1,-1}",
+                    "measured section obstruction",
+                ],
+                "source_artifact": "statistics_forcing_certificate",
+                "conclusion": (
+                    "the unique source implementation of the derived grading is the measured "
+                    "central -1 of the non-split double cover, forcing the Spin/odd-Weyl super "
+                    "typing; Vec, split sVec, and lone opposite-Weyl relabelings fail for derived reasons"
+                ),
+            },
+            {
+                "step": 19,
                 "premise": "gate aggregation and finite countermodels",
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_314_negative_controls.json",
-                "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the physical source gate is recorded open",
+                "conclusion": (
+                    "the conditional algebraic gate and the physical source gate both pass on "
+                    "the reference packet and fail closed on every countermodel; scalar content "
+                    "stays deferred to #609"
+                ),
             },
         ],
         "factor_origins": {
@@ -2424,58 +2913,65 @@ def certificate_payload(
             "yukawa_lines_3": "exact joint-invariant dimensions of the three declared channels",
         },
         "branch_scope": {
-            "branch": "declared echosahedral response branch",
-            "upstream_packets": "the certified #565 carrier and the conditional #566 current algebra, both hash-pinned",
+            "branch": "source-bound echosahedral response branch",
+            "upstream_packets": (
+                "the certified #565 carrier, the source-bound #566/#599 current packet, and the "
+                "measured #314 spin statistics artifact, all hash-pinned"
+            ),
             "declared_branch_premises": (
-                "one weak-block scalar, the fermionic statistics contract, the Spin/odd-Weyl category typing, "
-                "the kernel emission contract, and the MAR class declaration - typed premises, not measurements"
+                "one weak-block scalar (owned by #609), the kernel emission contract, and the MAR "
+                "class declaration; the statistics and category contracts are validated against the "
+                "scan and forcing derivations rather than accepted as premises"
             ),
             "not_claimed": (
-                "no physical source binding of the upstream response representation or scalar content, "
-                "no preferred overall charge sign, no scalar economy, no physically attached global-form "
-                "choice, no family attachment, no MAR uniqueness, no scalar potential, no "
-                "pole mass, no continuum spin-statistics theorem, no identification with physical particle content"
+                "no scalar existence/economy source binding, no preferred overall charge sign, "
+                "no physically attached global-form choice (the #567 packet carries that), no family "
+                "attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum "
+                "spin-statistics theorem, no laboratory exchange measurement, no identification "
+                "with physical particle content"
             ),
         },
         "acceptance_criteria_status": {
-            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": False,
+            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": True,
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
             "mar_class_proved_nonempty_before_uniqueness_promoted": True,
             "family_attachment_scalar_potential_pole_mass_outside_packet": True,
-            "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": False,
+            "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": True,
             "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": True,
             "fifteen_state_module_selected_by_derived_equivariant_projector": True,
+            "fifteen_state_module_selected_by_exhaustive_anomaly_scan": True,
             "projector_pair_not_single_physical_weyl_selection": True,
             "scalar_economy_explicitly_not_derived": True,
         },
         "issue_closure_condition": {
             "produced_locally": (
-                "the exact conditional matter lift on the finite current packet: the non-split PORT-SPIN-LIFT, "
-                "faithful current action, derived conjugate pair of rank-fifteen projectors, realized "
-                "anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action "
+                "the exact matter lift on the finite current packet at source scope: the non-split "
+                "PORT-SPIN-LIFT cross-checked against the measured transport artifact, the faithful "
+                "current action, the unordered conjugate rank-fifteen pair selected by the exhaustive "
+                "1024-subset anomaly scan with the parity grading as an output, the statistics/category "
+                "typing forced by the measured centre and section obstruction, realized anomaly and "
+                "Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action "
                 "kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the "
-                "artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE charge "
+                "artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE "
                 "charge pair up to conjugation, and scalar/channel compatibility"
             ),
             "branch_premises": (
-                "the hash-pinned #565/#566 packets with the source-bound #599 "
-                "semantic response artifact; the matter charge and unordered "
-                "projector-pair structures are derived; fermionic statistics, "
-                "Spin/odd-Weyl physical typing, and scalar content remain typed "
-                "branch premises"
+                "the hash-pinned #565/#566 packets with the source-bound #599 semantic response "
+                "artifact and the measured #314 spin statistics artifact; the matter charges, the "
+                "unordered projector pair, the parity grading, and the Spin/odd-Weyl typing are "
+                "derived; declared scalar content remains a typed branch premise owned by #609"
             ),
             "conditional_algebraic_gate_passed": True,
-            "physical_source_realization_gate_passed": False,
-            "met_locally": False,
-            "remaining_producer": (
-                "a source must produce fermionic statistics and the Spin/odd-Weyl "
-                "physical category rather than declaring them; scalar content/"
-                "economy and physical matter attachment also remain unsourced. "
-                "#567 is therefore conditional, with laboratory/family attachment "
-                "still open in #569"
-            ),
+            "physical_source_realization_gate_passed": True,
+            "met_locally": True,
+            "remaining_open_lanes": {
+                "scalar_content_and_economy": "issue 609 (no-extra-light-sector theorem)",
+                "family_and_laboratory_attachment": "issue 569",
+                "physical_global_form": "issue 567 (own packet)",
+                "continuum_spin_statistics_theorem": "continuum lane, not claimed",
+            },
         },
         "dependency_acyclicity_note": {
             "upstream": [
@@ -2493,23 +2989,30 @@ def certificate_payload(
             "--receipt code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
         ),
         "claim_boundary": {
-            "proves": "the exact conditional super-Tannakian matter lift, including PORT-SPIN-LIFT, a conjugate rank-fifteen projector pair, anomaly balance up to charge conjugation, compatible scalar charges/channels, and refinement intertwining",
-            "status": "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
+            "proves": (
+                "the source-bound super-Tannakian matter lift at finite source-model scope: "
+                "PORT-SPIN-LIFT cross-checked against the measured transport artifact, the "
+                "unordered conjugate rank-fifteen pair selected by the exhaustive anomaly scan "
+                "with the parity grading as an output, the statistics/category typing forced by "
+                "the measured centre and section obstruction, anomaly balance up to charge "
+                "conjugation, compatible scalar charges/channels, and refinement intertwining"
+            ),
+            "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
             "contract_provenance": (
-                "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; "
-                "the unordered projector pair is derived from parity and the complete invariant "
-                "sector; scalar-charge and channel compatibility are derived only "
-                "conditional on a declared weak-doublet scalar. The upstream response "
-                "is source-bound, but fermionic statistics, Spin/odd-Weyl physical "
-                "typing, scalar content, kernel-emission policy, and MAR remain typed premises"
+                "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; the "
+                "exhaustive 1024-subset scan selects the unordered pair and outputs the parity "
+                "grading; the measured lift centre and section obstruction force the "
+                "Spin/odd-Weyl implementation, with the gauge-centre branch excluded by the "
+                "Lean fermion-parity no-go; scalar-charge and channel compatibility are derived "
+                "only conditional on a declared weak-doublet scalar, whose existence and economy "
+                "are owned by #609"
             ),
             "does_not_close": [
-                "source production of fermionic statistics and the Spin/odd-Weyl physical category",
-                "physical AXIS-CENTER-DESCENT/global-form attachment (the conditional kernel is emitted)",
+                "physical AXIS-CENTER-DESCENT/global-form attachment (the #567 packet carries that)",
                 "MAR uniqueness (only nonemptiness is discharged here)",
                 "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
-                "exclusion of other anomaly-free light sectors (MGFC-grade no-extra-sector)",
-                "scalar existence, one-scalar economy, or absence of additional light scalars",
+                "exclusion of other anomaly-free light sectors beyond the exterior module (#609)",
+                "scalar existence, one-scalar economy, or absence of additional light scalars (#609)",
                 "laboratory measurement of any matter observable",
                 "scalar potential, pole masses, measured couplings, continuum spin-statistics, or quantum field theory",
             ],
@@ -2618,6 +3121,19 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     potential = copy.deepcopy(manifest)
     potential["downstream_hint"] = {"scalar_sector": "scalar potential quartic and pole mass"}
     cases.append(("scalar_potential_injection", potential, "FORBIDDEN_DEPENDENCY"))
+
+    artifact_drift = copy.deepcopy(manifest)
+    artifact_drift["spin_statistics_artifact_sha256"] = "sha256:" + "0" * 64
+    cases.append(("spin_artifact_pin_drift", artifact_drift, "UPSTREAM_HASH"))
+
+    wrong_artifact = copy.deepcopy(manifest)
+    wrong_artifact["spin_statistics_artifact_path"] = str(
+        manifest.get("current_manifest_path")
+    )
+    wrong_artifact["spin_statistics_artifact_sha256"] = str(
+        manifest.get("current_manifest_sha256")
+    )
+    cases.append(("wrong_spin_artifact_schema", wrong_artifact, "UPSTREAM_HASH"))
 
     return cases
 

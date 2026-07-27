@@ -1,12 +1,12 @@
-# Issue #314: conditional super-Tannakian matter lift on declared matter contracts
+# Issue #314: source-bound super-Tannakian matter lift
 
 ## Result
 
-This artifact proves the exact algebraic **SUPER-TANNAKIAN-MATTER-LIFT**
-construction, including the exact algebraic **PORT-SPIN-LIFT** target,
-conditional on the pinned conditional #566 current packet and the declared
-matter-lift contracts. It does not close #314 or PORT-SPIN-LIFT as physical
-source-bound receipts:
+This artifact proves the exact **SUPER-TANNAKIAN-MATTER-LIFT**
+construction, including the **PORT-SPIN-LIFT** target, source-bound at
+finite source-model scope on the pinned #566/#599 current packet and the
+measured spin statistics artifact, conditional on the declared scalar
+content owned by #609:
 
 > **Theorem (conditional super-Tannakian matter lift).** On a certified
 > twelve-port echosahedral carrier lineage, given the hash-pinned
@@ -36,15 +36,21 @@ source-bound receipts:
 > realized packet witnesses the declared MAR class nonempty without
 > promoting uniqueness.
 
-The algebraic properties are machine-checked. The conditional current
-algebra is strictly upstream through the hash-pinned #566 packet, whose
-physical source gate is open in issue #599. The matter-lift contracts (the
-trace-balanced block charge pair, the one-scalar choice, the Yukawa
-channel list, the statistics and category typing, the kernel emission
-contract, and the MAR class declaration) enter as explicit typed branch
-premises, not as measurements or physically source-bound data. The receipt
-therefore records a passing conditional algebraic gate and an open physical
-source-realization gate; `issue_closure_condition.met_locally` remains false.
+The algebraic properties are machine-checked. The current algebra is
+strictly upstream through the hash-pinned #566 packet, whose physical
+source gate passes on the #599 target-blind impulse/readback producer. The
+measured spin statistics artifact supplies the transport double cover from
+source, the exhaustive 1024-subset anomaly scan selects the unordered
+conjugate rank-15 pair with the fermionic-parity grading as an output
+(machine-checked in `Lean/Screen/ExteriorSelection.lean`), and the
+implementation enumeration forces the Spin/odd-Weyl typing from the
+measured centre and section obstruction. The declared statistics and
+category contracts are validated against those derivations. Scalar
+existence and economy stay typed branch premises owned by issue #609,
+recorded as deferred rows that never enter the passing gate. The receipt
+records a passing conditional algebraic gate and a passing physical
+source gate at finite source-model scope;
+`issue_closure_condition.met_locally` is true.
 
 No family attachment, scalar potential, pole mass, measured coupling, or
 global-form choice is an input. Every proof decision is exact arithmetic
@@ -90,10 +96,10 @@ blocks with `3 y_C + 2 y_W = 0` (checked arithmetically from the pair,
 accepted); the reference values are `(-1/3, 1/2)`. The contract further
 declares the one-scalar choice (the weak block itself) and the invariant
 Yukawa channel list `(Q S u_c)`, `(Q Sbar d_c)`, `(L Sbar e_c)`. An empty
-channel list is rejected (`GAUSS_DATA_EMPTY`). This contract is a typed
-branch premise of the conditional exterior lane, not a measurement: the
-balance itself is **not** derived here (BLOCK-DETERMINANT-BALANCE stays
-open).
+channel list is rejected (`GAUSS_DATA_EMPTY`). The declared pair is validated against the derivation:
+BLOCK-DETERMINANT-BALANCE proves anomaly freedom of the realized package
+equivalent to the balance line, and primitive integrality fixes the pair
+up to charge conjugation.
 
 ### M3. Fermionic statistics contract
 
@@ -487,10 +493,10 @@ scope (#599). ∎
 | refinement maps intertwined | all declared (`3` in the reference tower) |
 | MAR class | nonempty witnessed, uniqueness not promoted |
 | conditional algebraic gate | `passed: true` |
-| physical source-realization gate | `passed: false`; source binding is open |
-| issue closure condition | `met_locally: false` |
+| physical source-realization gate | `passed: true` at finite source-model scope; scalar rows deferred to #609 |
+| issue closure condition | `met_locally: true` |
 
-The receipt also records a sixteen-step `derivation_chain`,
+The receipt also records a twenty-one-step `derivation_chain`,
 `factor_origins` for every numeric constant, `branch_scope`,
 `acceptance_criteria_status` (nine rows, with the source-derivation row
 open), a
@@ -640,7 +646,7 @@ as a Lean theorem.
 | Issue acceptance item | Discharge |
 |---|---|
 | fermionic parity, spin lift, chirality, conjugation, tensor product source-derived | open physically: each structure is derived exactly on the declared branch, while the upstream response representation and matter contract remain typed premises rather than source-bound data |
-| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the conditional #566 current algebra acts with rank 12 on the carrier and selected module; its physical source binding is open in #599 |
+| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the source-bound #566 current algebra acts with rank 12 on the carrier and selected module; the #599 physical source gate passes on the target-blind producer |
 | conditional exterior package realized on the cover; listed perturbative anomalies and Witten parity checked | the package is realized as operators on the cover data (SU(3)-valued even implementers, the SU(2) spin lift, the R-central lane); all listed anomaly traces vanish exactly on the realized operators and the Witten parity is even (Lemma 314.10) |
 | common action kernel emitted rather than assumed as a Z6 quotient | the kernel is computed by exact congruence enumeration on the genuine cover `R x SU(3) x SU(2)`: infinite cyclic with generator `(zeta_6, omega, -1)`, sixth power the unit deck translation (not the identity on the cover), residual order six modulo the pure deck translations; verified trivial on every realized weight and emitted as data; `assume_global_quotient` is contractually false, and neither the central compactification nor the quotient is ever formed (Lemma 314.11) |
 | declared MAR class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
@@ -658,23 +664,21 @@ declared matter contracts over the pinned conditional current packet:
 given those premises, the super-Tannakian matter category exists, is
 realized by exact operators, passes the conditional algebraic gate, and
 its common action kernel is emitted for the downstream global-form
-descent. It does not close **SUPER-TANNAKIAN-MATTER-LIFT** or
-**PORT-SPIN-LIFT** as physical source-bound receipts;
-`issue_closure_condition.met_locally` is therefore `false`.
+descent. The physical source gate passes at finite source-model scope: the
+transport double cover is measured, the matter selection and its parity
+grading are outputs of the exhaustive anomaly scan, and the typing is
+forced by the implementation enumeration;
+`issue_closure_condition.met_locally` is `true`.
 
-The matter-lift contracts (the trace-balanced block charge pair, the
-one-scalar choice, the Yukawa channel list, the statistics and category
-typing, the kernel emission contract, and the MAR class declaration)
-enter as typed branch premises, not as measurements. The upstream #566
-packet is conditional on a declared response representation whose physical
-source binding is open in #599, and this packet inherits that
-conditionality.
+The declared charge pair, channel list, statistics, and category typing
+are validated against their derivations rather than accepted as
+premises; the one-scalar choice, the kernel emission contract, and the
+MAR class declaration stay typed branch premises. The upstream #566
+packet is source-bound through the #599 target-blind producer.
 
-It does not derive the trace balance from source dynamics
-(BLOCK-DETERMINANT-BALANCE stays open), does not source-bind the
-inherited response premises or the physical refinement maps (#599), does
-not choose the global form (AXIS-CENTER-DESCENT consumes the emitted
-kernel downstream), does not promote MAR uniqueness, does not attach
+It does not choose the global form (AXIS-CENTER-DESCENT consumes the
+emitted kernel downstream and carries the selection in its own packet),
+does not promote MAR uniqueness, does not attach
 families or count them, does not exclude other anomaly-free light
 sectors (the MGFC-grade no-extra-sector boundary), and makes no
 scalar-potential, pole-mass, measured-coupling, continuum

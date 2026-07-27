@@ -741,9 +741,13 @@ simultaneous conjugation. Exhaustive enumeration of the central action on
 every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
 the full kernel produces the maximal faithful matter image. The same local
 tensors also descend through the cover and its intermediate $\mathbb Z_2$ and
-$\mathbb Z_3$ quotients. They therefore do not select the physical global
-form or line spectrum without independent deck/loop and line-polarization
-data.
+$\mathbb Z_3$ quotients, so local data alone cannot select the physical
+global form. The selection comes from measured deck and flux data: the
+carrier federation admits exactly six flux sectors, every one of them
+carries the realized matter single-valuedly, and among the four candidate
+global forms only the full $\mathbb Z_6$ quotient has exactly that sector
+menu. The line polarization is then forced by mutual locality with the
+realized electric lines.
 
 The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold symmetry of each face cycles its corners. The only
@@ -1346,15 +1350,16 @@ channels. Physical scalar multiplicity, charged leptons, quarks, and neutrinos
 acquire one common interpretation only after the response, matter, scalar,
 family, and interacting-Yukawa attachments pass.
 
-**Charge quantization and line operators.** On the declared matter packet,
-color singlets have integer electric charge. On the conditional tensor
-$\mathbb Z_6$ branch, the primitive cocharacter is $(1,1,1/6)$; its pure
-electromagnetic multiple is one electron-Dirac unit, while the primitive class
-also carries color-centre flux. This is exact lattice arithmetic. A genuine
-line spectrum additionally requires a line category and ultraviolet
-polarization, and theta periodicity requires instanton-sector and
-topological-action data. None of those physical inputs, or a dynamical
-monopole, follows from the cocharacter lattice alone.
+**Charge quantization and line operators.** On the realized matter packet,
+color singlets have integer electric charge. On the tensor $\mathbb Z_6$
+branch, the primitive cocharacter is $(1,1,1/6)$; its pure electromagnetic
+multiple is one electron-Dirac unit, while the primitive class also carries
+color-centre flux. This is exact lattice arithmetic, and the measured flux
+sectors of the carrier federation realize each class as a two-puncture flux
+tube through the screen, with the electric line polarization forced by
+mutual locality with the realized matter. Theta periodicity still requires
+four-dimensional instanton-sector and topological-action data, and no
+dynamical monopole follows from the lattice or the sector menu.
 
 **Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
 generator, so the standard simple-GUT channel is absent. Baryon-number

@@ -221,11 +221,30 @@ Mapping between Lean 4 theorems in this project and statements in
   the explicit intertwiner `sixAxisToKernel` carries the six-axis gluing
   class of `Z6Exact.lean` onto the kernel of `TraceBalancedKernel.lean`,
   generator to generator and antipodal sign reversal to conjugation,
-  injective with image exactly the kernel. This is an algebraic isomorphism,
-  not a source-derived port-loop/deck holonomy. Physical global-form
-  selection, genuine-line polarization, refinement of those structures,
-  and instanton/theta data remain open. Sorry-free, standard axioms, no
-  `native_decide`. Executable counterpart:
+  injective with image exactly the kernel. The source side of the
+  intertwiner is measured by the simulator global-form artifact (six-axis
+  class group with Smith invariants (1,1,1,1,1,6), deck action, flux-sector
+  menu), which the executable certificate consumes by hash pin;
+  four-dimensional instanton/theta data remain open. Sorry-free, standard
+  axioms, no `native_decide`. Executable counterpart:
+  `code/a5_closure/axis_center_descent_certificate.py`.
+- #314/#567 exterior selection and statistics forcing
+  (`Screen/ExteriorSelection.lean`): among all 1024 subsets of the ten
+  nontrivial isotypic components over the derived primitive charges,
+  the nonempty chiral anomaly-free selections are exactly the two
+  fermionic-parity sectors (`selection_unique`, kernel `decide`), both
+  survive (`parity_sectors_survive`), charge conjugation exchanges them
+  (`conj_exchanges_survivors`), and Witten parity is automatic
+  (`witten_automatic`). A group whose nonidentity square roots of the
+  identity are unique admits no injective homomorphism from the Klein
+  four group (`no_klein_section_of_unique_involution`), the abstract form
+  of the measured section obstruction. On the line-class group, any class
+  mutually local with every electric class is electric
+  (`electric_commutant`, `electric_isotropic`), and the order-`d`
+  subgroup members of `ZMod 6` are the divisor menu of the four-form
+  discrimination (`lift_menu`). Sorry-free, standard axioms, no
+  `native_decide`. Executable counterparts:
+  `code/a5_closure/super_tannakian_matter_lift_certificate.py`,
   `code/a5_closure/axis_center_descent_certificate.py`.
 - FZ-02 angular multiplet signature (`Screen/A5AngularMultiplets.lean`):
   the exact branching of rotation levels `l = 0..6` under `A5` in integer

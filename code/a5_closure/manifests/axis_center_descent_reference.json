@@ -1,7 +1,9 @@
 {
-  "schema": "oph.axis_center_descent_manifest.v3",
-  "description": "Reference packet for the conditional AXIS-CENTER-DESCENT arithmetic and the #567 physical-closure no-go. The hash-pinned #314 tensor table determines a common diagonal Z6 kernel and hence a maximal effective quotient, but the same local tensors descend through quotients by 1, Z2, Z3, and Z6. No source-derived loop/deck holonomy, spacetime Spin attachment, genuine-line category or UV polarization, refinement transport of those structures, or instanton-sector normalization is present. The physical global-form gate therefore remains open.",
+  "schema": "oph.axis_center_descent_manifest.v4",
+  "description": "Reference packet for the source-bound AXIS-CENTER-DESCENT closure (issue #567). The hash-pinned #314 tensor table determines the common diagonal Z6 kernel and the maximal effective quotient; local tensors alone descend through quotients by 1, Z2, Z3, and Z6, and that four-way non-identifiability stays on the record as the negative control. The hash-pinned measured global-form artifact supplies the physical data the selection principle consumes: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group with Smith invariants (1,1,1,1,1,6), the vacuum sector class of the realized reference federation, and the two-puncture flux-tube witnesses realizing every class of the measured order-six group. The verifier derives the exhaustive transport consistency of realized matter through every measured sector, the four-form sector-menu discrimination whose unique match is the Z6 quotient, the unique realized-compatible line polarization, and screen-scope Spin attachment. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, laboratory flux measurement, and continuum QFT remain open named gates.",
   "matter_receipt_path": "receipts/super_tannakian_matter_reference.receipt.json",
-  "matter_receipt_sha256": "14b6c3f13e1664c93b305a9e73db5c9d8013b174c60daf669f2ebc6633eab807",
+  "matter_receipt_sha256": "172bbbb319472aa4727c8d512b7baf96cd122440c6b3d2053674836596fc4148",
+  "global_form_artifact_path": "manifests/global_form_semantic_artifact.json",
+  "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
   "hypercharge_convention": "q = 6Y"
 }

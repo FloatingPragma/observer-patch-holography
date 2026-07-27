@@ -1,0 +1,322 @@
+{
+  "artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+  "carrier_binding": {
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "incidence_edge_count": 30,
+    "oriented_face_count": 20,
+    "port_order": [
+      "p00",
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09",
+      "p10",
+      "p11"
+    ]
+  },
+  "deck_measurement": {
+    "antipode_is_orientation_reversing": true,
+    "incidence_automorphism_group_order": 120,
+    "orientation_preserving_rotations": 60,
+    "orientation_reversing_elements": 60
+  },
+  "federation_deck_action": {
+    "carrier_to_chart_isomorphism": {
+      "p00": "incidence-chart-00",
+      "p01": "incidence-chart-02",
+      "p02": "incidence-chart-01",
+      "p03": "incidence-chart-03",
+      "p04": "incidence-chart-10",
+      "p05": "incidence-chart-08",
+      "p06": "incidence-chart-11",
+      "p07": "incidence-chart-09",
+      "p08": "incidence-chart-07",
+      "p09": "incidence-chart-06",
+      "p10": "incidence-chart-05",
+      "p11": "incidence-chart-04"
+    },
+    "charts": 12,
+    "deck_group_order": 120,
+    "declared_deck_upgrade": "the reference federation formerly declared identity_only deck elements; the full order-120 incidence deck action on charts, seams, and oriented triple overlaps is now measured",
+    "orientation_preserving_deck_elements": 60,
+    "orientation_reversing_deck_elements": 60,
+    "seams": 30,
+    "source_incidence_sha256": "sha256:b8ebad655f66d8bc51766e23b8484225e26122f2dc3c51f9e2deb183b6e47fc6",
+    "triple_overlaps": 20
+  },
+  "federation_sector_class": {
+    "face_holonomies_all_zero": true,
+    "federation_verifier_binding": {
+      "bundle_sha256": "sha256:cae14fe734b657efc83cd97a3710a81f2d52280e304243bc7052aba765d0b196",
+      "higher_overlap_cocycle_condition": true,
+      "nonvacuous_witness": true,
+      "triple_restriction_loops": 20
+    },
+    "measured_sector_class": 0,
+    "reading": "the realized reference federation carries the vacuum sector; the flux-tube witnesses below show every other class in the measured class group is realizable seam data on the twice-punctured support",
+    "seam_twist": "zero_cochain_no_twist_field_in_seam_schema"
+  },
+  "issue": 567,
+  "physical_source_gate": {
+    "deck_action_on_federation_measured": true,
+    "flux_tube_sector_menu_realized": true,
+    "four_dimensional_instanton_attachment": false,
+    "laboratory_line_measurement": false,
+    "passed": true,
+    "reference_federation_sector_class_measured": true,
+    "refinement_natural_sector_menu": true,
+    "scope": "finite source-model scope: the gate aggregates the seven measured rows above; the two false rows are separate lanes (laboratory attachment #569, continuum/4d instanton normalization) and never enter 'passed'",
+    "single_puncture_impossibility_verified": true,
+    "six_axis_class_group_measured": true,
+    "subgroup_obstruction_menu_exact": true
+  },
+  "provenance": {
+    "deterministic": true,
+    "producer": "oph_fpe.core.global_form_response.produce_global_form_artifact"
+  },
+  "refined_sector_menu": {
+    "puncture_faces": {
+      "end": 24,
+      "end_child_of": 6,
+      "start": 0,
+      "start_child_of": 0
+    },
+    "realized_flux_menu": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refined_complex": {
+      "faces": 80,
+      "seams": 120,
+      "vertices": 42
+    },
+    "refinement_natural_sector_menu": true,
+    "single_puncture_impossibility": {
+      "every_seam_appears_with_opposite_signs": true,
+      "face_holonomy_sum_identically_zero": true,
+      "physical_reading": "net flux through the closed support vanishes; a nonzero sector needs a flux tube entering and leaving, realized here through two antipodal punctures",
+      "single_puncture_nonzero_flux_impossible": true
+    }
+  },
+  "schema": "oph.global_form_semantic_artifact.v1",
+  "sector_menu": {
+    "boundary_smith_invariants_all_unit": true,
+    "class_order_source": "measured_six_axis_class_group",
+    "complex": {
+      "faces": 20,
+      "seams": 30,
+      "vertices": 12
+    },
+    "flux_tube_witnesses": [
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 0,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 0,
+          "24": 0,
+          "25": 0,
+          "4": 0,
+          "9": 0
+        },
+        "start_face": 0
+      },
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 1,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 1,
+          "24": 1,
+          "25": 1,
+          "4": 1,
+          "9": 1
+        },
+        "start_face": 0
+      },
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 2,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 2,
+          "24": 2,
+          "25": 2,
+          "4": 2,
+          "9": 2
+        },
+        "start_face": 0
+      },
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 3,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 3,
+          "24": 3,
+          "25": 3,
+          "4": 3,
+          "9": 3
+        },
+        "start_face": 0
+      },
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 4,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 4,
+          "24": 4,
+          "25": 4,
+          "4": 4,
+          "9": 4
+        },
+        "start_face": 0
+      },
+      {
+        "dual_path_length": 5,
+        "end_face": 6,
+        "flux": 5,
+        "interior_faces_flat": true,
+        "seam_values": {
+          "0": 5,
+          "24": 5,
+          "25": 5,
+          "4": 5,
+          "9": 5
+        },
+        "start_face": 0
+      }
+    ],
+    "menu_reading": "a flux value lifts through a subgroup of the measured class group exactly when the subgroup contains it; only the full measured group carries the whole measured menu",
+    "puncture_faces": {
+      "antipodal": true,
+      "end": 6,
+      "start": 0
+    },
+    "realized_flux_menu": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "single_puncture_impossibility": {
+      "every_seam_appears_with_opposite_signs": true,
+      "face_holonomy_sum_identically_zero": true,
+      "physical_reading": "net flux through the closed support vanishes; a nonzero sector needs a flux tube entering and leaving, realized here through two antipodal punctures",
+      "single_puncture_nonzero_flux_impossible": true
+    },
+    "subgroup_obstruction_menu": {
+      "order_1": {
+        "liftable_fluxes": [
+          0
+        ],
+        "obstructed_fluxes": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "order_2": {
+        "liftable_fluxes": [
+          0,
+          3
+        ],
+        "obstructed_fluxes": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "order_3": {
+        "liftable_fluxes": [
+          0,
+          2,
+          4
+        ],
+        "obstructed_fluxes": [
+          1,
+          3,
+          5
+        ]
+      },
+      "order_6": {
+        "liftable_fluxes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "obstructed_fluxes": []
+      }
+    }
+  },
+  "six_axis_class_measurement": {
+    "all_axis_classes_equal_generator": true,
+    "antipode_reverses_every_oriented_axis": true,
+    "axes": [
+      [
+        "p00",
+        "p03"
+      ],
+      [
+        "p01",
+        "p02"
+      ],
+      [
+        "p04",
+        "p07"
+      ],
+      [
+        "p05",
+        "p06"
+      ],
+      [
+        "p08",
+        "p11"
+      ],
+      [
+        "p09",
+        "p10"
+      ]
+    ],
+    "axis_count": 6,
+    "class_group_order": 6,
+    "lattice": "free rank six on the axes modulo diagonal and zero-sum relations",
+    "note": "the class group order is measured as the last Smith invariant of the axis relation lattice; its identification with any tensor-action kernel is a paper-side step",
+    "orientation_reversal_class_shadow": "reversing every oriented axis negates the oriented-axis generators, which descends to negation on the order-six class group",
+    "rotation_action_faithful_order": 60,
+    "rotation_action_transitive": true,
+    "rotations_act_trivially_on_class_group": true,
+    "smith_invariants": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      6
+    ]
+  },
+  "target_firewall": "no_gauge_label_charge_table_matter_module_or_quotient_choice_enters_the_producer"
+}

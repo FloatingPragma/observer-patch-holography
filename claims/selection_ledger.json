@@ -2,7 +2,11 @@
   "schema": "oph.selection_ledger.v1",
   "issue": 554,
   "generated_surface": "docs/SELECTION_LEDGER.md",
-  "classes": ["forced", "exposed_premise", "open"],
+  "classes": [
+    "forced",
+    "exposed_premise",
+    "open"
+  ],
   "menu_note": "A menu records how many alternatives a selection passed over. Rows with a numeric menu feed the compression accounting in claims/physical_identification_registry.json. Rows whose declared object has no finite alternative enumeration carry a null menu, are excluded from compression accounting by construction, and are visible here and in the claim registry assumptions.",
   "rows": [
     {
@@ -10,7 +14,9 @@
       "selector_id": "twelve_unit_port_splitting",
       "label": "Twelve-unit port splitting (all twelve port weights equal one)",
       "class": "forced",
-      "conditional_on": ["echosahedral_carrier_lineage"],
+      "conditional_on": [
+        "echosahedral_carrier_lineage"
+      ],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
@@ -26,7 +32,10 @@
         "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json"
       ],
       "lean": [
-        {"module": "Lean/Screen/UnitSplit12.lean", "declaration": "unit_split_of_positive_sum"}
+        {
+          "module": "Lean/Screen/UnitSplit12.lean",
+          "declaration": "unit_split_of_positive_sum"
+        }
       ],
       "negative_controls": [
         "removed primitive atoms leave a continuum of line decompositions",
@@ -34,7 +43,10 @@
         "a linear cost has 1,352,078 minimizers (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:echosahedral-source-selector"
+        }
       ]
     },
     {
@@ -42,7 +54,9 @@
       "selector_id": "inverse_port_pairing_six_axes",
       "label": "Inverse port pairing and six axes",
       "class": "forced",
-      "conditional_on": ["echosahedral_carrier_lineage"],
+      "conditional_on": [
+        "echosahedral_carrier_lineage"
+      ],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
@@ -61,7 +75,10 @@
         "labels without incidence admit 10,395 fixed-point-free pairings"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:echosahedral-source-selector"
+        }
       ]
     },
     {
@@ -69,7 +86,9 @@
       "selector_id": "icosahedral_screen_selector_port_frame",
       "label": "Icosahedral screen selector and port frame (A5 action, rank-3 Gram frame)",
       "class": "forced",
-      "conditional_on": ["echosahedral_carrier_lineage"],
+      "conditional_on": [
+        "echosahedral_carrier_lineage"
+      ],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
@@ -85,15 +104,24 @@
         "code/a5_closure/a5_selection_certificate.py"
       ],
       "lean": [
-        {"module": "Lean/Screen/PortFrameGram.lean", "declaration": null},
-        {"module": "Lean/Screen/A5PortAction.lean", "declaration": null}
+        {
+          "module": "Lean/Screen/PortFrameGram.lean",
+          "declaration": null
+        },
+        {
+          "module": "Lean/Screen/A5PortAction.lean",
+          "declaration": null
+        }
       ],
       "negative_controls": [
         "forgetting orientation restores A5 x C2",
         "non-incidence or noncocyclic refinement maps break naturality"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:echosahedral-source-selector"
+        }
       ]
     },
     {
@@ -116,13 +144,19 @@
         "code/a5_closure/echosahedral_selector_certificate.py"
       ],
       "lean": [
-        {"module": "Lean/Screen/PhysicalA5ForcingNoGo.lean", "declaration": "noSourceOnlyChargeReconstruction"}
+        {
+          "module": "Lean/Screen/PhysicalA5ForcingNoGo.lean",
+          "declaration": "noSourceOnlyChargeReconstruction"
+        }
       ],
       "negative_controls": [
         "the bare total-charge reduct admits non-echosahedral completions (`noSourceOnlyChargeReconstruction`)"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:echosahedral-source-selector"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:echosahedral-source-selector"
+        }
       ]
     },
     {
@@ -155,7 +189,9 @@
       "class": "exposed_premise",
       "conditional_on": [],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
-      "secondary_claim_ids": ["OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"],
+      "secondary_claim_ids": [
+        "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
+      ],
       "owner_issues": [],
       "where": "Minimal admissible realization is axiom five; the low-energy packet with the one-generation/one-Higgs chiral witness is declared in the D8/D9 antecedents. The packet admits 3 <= N_g <= 5 and selects N_g = 3 as the least value of the declared economy class.",
       "menu": {
@@ -173,7 +209,10 @@
         "the equal-MAR-score quark counterfamily exhibits nonuniqueness of flavor closure"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex", "anchor": "ax:mar"}
+        {
+          "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+          "anchor": "ax:mar"
+        }
       ]
     },
     {
@@ -198,7 +237,10 @@
         "the presence and poisson readings of the same reserve trace are both carried and are separated at branch axis BR-1"
       ],
       "paper_anchors": [
-        {"file": "paper/screen_microphysics_and_observer_synchronization.tex", "anchor": "thm:z6-reserve-trace"}
+        {
+          "file": "paper/screen_microphysics_and_observer_synchronization.tex",
+          "anchor": "thm:z6-reserve-trace"
+        }
       ]
     },
     {
@@ -300,9 +342,13 @@
       "selector_id": "physical_port_current_realization",
       "label": "Physical port-current realization",
       "class": "forced",
-      "conditional_on": ["echosahedral_carrier_lineage"],
+      "conditional_on": [
+        "echosahedral_carrier_lineage"
+      ],
       "canonical_claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
-      "secondary_claim_ids": ["OPH-SCREEN-A5-SM-RECOGNITION"],
+      "secondary_claim_ids": [
+        "OPH-SCREEN-A5-SM-RECOGNITION"
+      ],
       "owner_issues": [],
       "where": "The semantic response artifact measured from the carrier dynamics determines the charged response representation, its four signed coefficients, the oriented frame, and the physical refinement maps; the port-current certificate recomputes every exact artifact claim in Q(sqrt5) and its physical source gate passes (issue #599 closure packet). Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyCurrentReconstruction`) records why the artifact is necessary: the bare source reduct admits two inequivalent completions. Conditional on row 4.",
       "menu": {
@@ -316,77 +362,127 @@
         "code/a5_closure/survival_boundary_certificates.py"
       ],
       "lean": [
-        {"module": "Lean/Screen/PhysicalA5ForcingNoGo.lean", "declaration": "noSourceOnlyCurrentReconstruction"}
+        {
+          "module": "Lean/Screen/PhysicalA5ForcingNoGo.lean",
+          "declaration": "noSourceOnlyCurrentReconstruction"
+        }
       ],
       "negative_controls": [
         "abelian-record and symmetric-record control models fail the production verifier",
         "the register-relabeling no-go separates response data from register relabeling"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:current-algebra"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:current-algebra"
+        }
       ]
     },
     {
       "row": 13,
       "selector_id": "z6_global_form_descent",
-      "label": "Physical global-form selection beyond the computed Z6 matter kernel",
-      "class": "open",
-      "conditional_on": ["physical_matter_spin_lift"],
+      "label": "Source-bound global-form selection through the measured sector menu",
+      "class": "forced",
+      "conditional_on": [
+        "physical_matter_spin_lift"
+      ],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
-      "owner_issues": [567],
-      "where": "The descent certificate computes the common Z6 kernel on every realized matter tensor by exhaustive enumeration over 36 candidates and derives the character and dual cocharacter lattices with Smith invariants (1, 1, 6). The cover and the Z2, Z3, and Z6 quotients all carry the declared local tensors. Selecting the physical quotient, genuine line spectrum, ultraviolet polarization, Spin attachment, instanton sectors, or theta periodicity requires additional global data tracked by issue #567. Conditional on rows 4, 12, and 14.",
+      "owner_issues": [],
+      "where": "The descent certificate computes the common Z6 kernel on every realized matter tensor by exhaustive enumeration over 36 candidates and derives the character and dual cocharacter lattices with Smith invariants (1, 1, 6). Local tensors alone descend through the cover and the Z2, Z3, and Z6 quotients and cannot select; the selection is carried by the measured global-form artifact: the order-120 deck action, the measured six-axis class group of exactly the kernel order, and the measured flux-sector menu {0..5} through which every realized tensor transports single-valuedly, whose unique four-form match is the Z6 quotient. The Dirac-pairing commutant theorem selects the electric polarization uniquely. Four-dimensional instanton normalization, theta periodicity, and laboratory flux measurement stay open named gates. Conditional on rows 4, 12, and 14.",
       "menu": {
-        "size": null,
-        "alternatives": "four compatible global forms are enumerated, but no physical selector has acted on that menu",
-        "enumeration_source": null
+        "size": 4,
+        "alternatives": "the four admissible global forms (cover, Z2, Z3, Z6 quotients) with sector menus {0}, {0,3}, {0,2,4}, {0..5}; the measured source-admissible menu equals exactly the Z6-quotient menu",
+        "enumeration_source": "code/a5_closure/axis_center_descent_certificate.py sector_transport_consistency; code/a5_closure/manifests/global_form_semantic_artifact.json"
       },
-      "compression_input": false,
+      "compression_input": true,
       "receipts": [
         "code/a5_closure/axis_center_descent_certificate.py",
-        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+        "code/a5_closure/manifests/global_form_semantic_artifact.json"
       ],
       "lean": [
-        {"module": "Lean/Screen/Z6Descent.lean", "declaration": "kernel_on_realized_weights"},
-        {"module": "Lean/Screen/Z6Exact.lean", "declaration": "quotientEquivZMod6"},
-        {"module": "Lean/Screen/TraceBalancedKernel.lean", "declaration": "kernel_cyclic"}
+        {
+          "module": "Lean/Screen/Z6Descent.lean",
+          "declaration": "kernel_on_realized_weights"
+        },
+        {
+          "module": "Lean/Screen/Z6Exact.lean",
+          "declaration": "quotientEquivZMod6"
+        },
+        {
+          "module": "Lean/Screen/TraceBalancedKernel.lean",
+          "declaration": "kernel_cyclic"
+        },
+        {
+          "module": "Lean/Screen/ExteriorSelection.lean",
+          "declaration": "lift_menu"
+        },
+        {
+          "module": "Lean/Screen/ExteriorSelection.lean",
+          "declaration": "electric_commutant"
+        }
       ],
       "negative_controls": [
         "adjoint-only tensors leave all four global forms admissible (kernel order 36)",
-        "a fractionally charged extra tensor shrinks the kernel to the identity",
-        "no central candidate acts as fermion parity on all five matter multiplets"
+        "a fractionally charged extra tensor shrinks the kernel to the identity and obstructs every nonzero measured sector",
+        "no central candidate acts as fermion parity on all five matter multiplets",
+        "a single-puncture nonzero flux is exactly impossible on the closed support"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "thm:global-form-boundary"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:global-form-boundary"
+        }
       ]
     },
     {
       "row": 14,
       "selector_id": "physical_matter_spin_lift",
-      "label": "Physical fermionic matter and Spin/odd-Weyl source typing",
-      "class": "open",
-      "conditional_on": ["physical_port_current_realization"],
+      "label": "Source-bound fermionic matter selection and Spin/odd-Weyl typing",
+      "class": "forced",
+      "conditional_on": [
+        "physical_port_current_realization"
+      ],
       "canonical_claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
       "secondary_claim_ids": [],
-      "owner_issues": [314],
-      "where": "Conditional on declared fermionic Spin/odd-Weyl typing, the matter-lift certificate constructs the non-split binary-icosahedral lift, the unordered conjugate rank-15 projector pair, anomaly-forced trace balance, primitive charges, and scalar-channel compatibility. The certificate does not source-produce fermionic statistics or the physical Spin/odd-Weyl category, so its physical gate is open under issue #314. Conditional on rows 4 and 12.",
+      "owner_issues": [],
+      "where": "The matter-lift certificate consumes the hash-pinned measured spin statistics artifact and selects the matter object by the exhaustive 1024-subset anomaly scan over the derived primitive charges: the unordered conjugate rank-15 pair is the unique nonempty chiral anomaly-free selection and the fermionic-parity grading is an output of the scan. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the non-split double cover the unique source implementation of that grading; the gauge-centre branch is excluded by the Lean fermion-parity no-go. Scalar existence and economy stay deferred to issue #609. Conditional on rows 4 and 12.",
       "menu": {
-        "size": null,
-        "alternatives": "physical source typing is an open producer obligation with no finite source-alternative enumeration",
-        "enumeration_source": null
+        "size": 1024,
+        "alternatives": "all 1024 subsets of the ten nontrivial isotypic components; exactly two survive chirality and the four anomaly constraints, and they form one unordered conjugate pair equal to the two fermionic-parity sectors",
+        "enumeration_source": "code/a5_closure/super_tannakian_matter_lift_certificate.py exterior_selection_scan; Lean/Screen/ExteriorSelection.lean"
       },
-      "compression_input": false,
+      "compression_input": true,
       "receipts": [
         "code/a5_closure/super_tannakian_matter_lift_certificate.py",
-        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
+        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "code/a5_closure/manifests/spin_statistics_semantic_artifact.json"
       ],
-      "lean": [],
+      "lean": [
+        {
+          "module": "Lean/Screen/ExteriorSelection.lean",
+          "declaration": "selection_unique"
+        },
+        {
+          "module": "Lean/Screen/ExteriorSelection.lean",
+          "declaration": "no_klein_section_of_unique_involution"
+        },
+        {
+          "module": "Lean/Screen/Z6Descent.lean",
+          "declaration": "no_universal_fermion_minus_one"
+        }
+      ],
       "negative_controls": [
-        "eighteen typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls",
-        "the representation-arithmetic route is rejected as realization (`REALIZATION_NOT_OPERATOR`)"
+        "twenty typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls failing against the derived grading and measured centre",
+        "the representation-arithmetic route is rejected as realization (`REALIZATION_NOT_OPERATOR`)",
+        "spin-artifact pin drift and wrong-schema substitutions fail closed (`UPSTREAM_HASH`)"
       ],
       "paper_anchors": [
-        {"file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex", "anchor": "ass:matter-typing"}
+        {
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "ass:matter-typing"
+        }
       ]
     },
     {
@@ -394,10 +490,14 @@
       "selector_id": "screen_to_family_attachment",
       "label": "Screen-to-family attachment (rank-45 map to three rank-15 families)",
       "class": "open",
-      "conditional_on": ["physical_matter_spin_lift"],
+      "conditional_on": [
+        "physical_matter_spin_lift"
+      ],
       "canonical_claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
       "secondary_claim_ids": [],
-      "owner_issues": [569],
+      "owner_issues": [
+        569
+      ],
       "where": "The canonical lowest rank-three screen band exists; its source-derived complex-linear attachment to the physical matter-pole residue space is the target of issue #569. The exact 31-axis spectrum excludes only direct real-3D residual-axis equality with the Cabibbo angle.",
       "menu": {
         "size": null,
@@ -419,8 +519,13 @@
       "class": "open",
       "conditional_on": [],
       "canonical_claim_id": "OPH-GR-D6-CAPACITY",
-      "secondary_claim_ids": ["OPH-Q-PN-CLOSURE"],
-      "owner_issues": [505, 551],
+      "secondary_claim_ids": [
+        "OPH-Q-PN-CLOSURE"
+      ],
+      "owner_issues": [
+        505,
+        551
+      ],
       "where": "Source-only correctable public-record closure and the unique slack zero are the targets of issues #505 and #551.",
       "menu": {
         "size": null,
@@ -442,10 +547,14 @@
       "selector_id": "br1_reserve_semantics",
       "label": "BR-1: reserve semantics",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 3,
@@ -467,10 +576,14 @@
       "selector_id": "br2_reserve_attachment",
       "label": "BR-2: reserve attachment",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 2,
@@ -492,10 +605,14 @@
       "selector_id": "br3_readback_count_effect",
       "label": "BR-3: count effect of the readback record",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 4,
@@ -517,10 +634,14 @@
       "selector_id": "br4_subfederation_marking",
       "label": "BR-4: observer/checkpoint subfederation marking",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 3,
@@ -542,10 +663,14 @@
       "selector_id": "br5_symmetry_quotient",
       "label": "BR-5: symmetry quotient",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 3,
@@ -567,10 +692,14 @@
       "selector_id": "br6_cap_read_family",
       "label": "BR-6: Cap_read family",
       "class": "open",
-      "conditional_on": ["capacity_closure_selector"],
+      "conditional_on": [
+        "capacity_closure_selector"
+      ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
       "secondary_claim_ids": [],
-      "owner_issues": [551],
+      "owner_issues": [
+        551
+      ],
       "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
       "menu": {
         "size": 4,

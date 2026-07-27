@@ -297,6 +297,22 @@
       "status": "declared",
       "menu_size": 4,
       "blocking_issues": []
+    },
+    {
+      "selector_id": "physical_matter_spin_lift",
+      "label": "source-bound matter selection over the 1024-subset exterior menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 1024,
+      "blocking_issues": []
+    },
+    {
+      "selector_id": "z6_global_form_descent",
+      "label": "global-form selection over the four-quotient menu through the measured sector menu",
+      "source": "claims/selection_ledger.json",
+      "status": "declared",
+      "menu_size": 4,
+      "blocking_issues": []
     }
   ],
   "compression_bound": {

@@ -5,12 +5,13 @@
     "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": true,
     "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": true,
     "family_attachment_scalar_potential_pole_mass_outside_packet": true,
-    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": false,
+    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": true,
     "fifteen_state_module_selected_by_derived_equivariant_projector": true,
+    "fifteen_state_module_selected_by_exhaustive_anomaly_scan": true,
     "mar_class_proved_nonempty_before_uniqueness_promoted": true,
     "projector_pair_not_single_physical_weyl_selection": true,
     "scalar_economy_explicitly_not_derived": true,
-    "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": false
+    "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": true
   },
   "anomalies": {
     "scope": "listed four-dimensional perturbative anomalies, realized as exact operator traces on the matter module",
@@ -82,10 +83,10 @@
     "primitivity": "the primitive integral block-character solutions are exactly (q_C,q_W)=+/-(-2,3)"
   },
   "branch_scope": {
-    "branch": "declared echosahedral response branch",
-    "declared_branch_premises": "one weak-block scalar, the fermionic statistics contract, the Spin/odd-Weyl category typing, the kernel emission contract, and the MAR class declaration - typed premises, not measurements",
-    "not_claimed": "no physical source binding of the upstream response representation or scalar content, no preferred overall charge sign, no scalar economy, no physically attached global-form choice, no family attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum spin-statistics theorem, no identification with physical particle content",
-    "upstream_packets": "the certified #565 carrier and the conditional #566 current algebra, both hash-pinned"
+    "branch": "source-bound echosahedral response branch",
+    "declared_branch_premises": "one weak-block scalar (owned by #609), the kernel emission contract, and the MAR class declaration; the statistics and category contracts are validated against the scan and forcing derivations rather than accepted as premises",
+    "not_claimed": "no scalar existence/economy source binding, no preferred overall charge sign, no physically attached global-form choice (the #567 packet carries that), no family attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum spin-statistics theorem, no laboratory exchange measurement, no identification with physical particle content",
+    "upstream_packets": "the certified #565 carrier, the source-bound #566/#599 current packet, and the measured #314 spin statistics artifact, all hash-pinned"
   },
   "category": {
     "conjugation": "wedge pairing into the invariant top line",
@@ -109,19 +110,18 @@
     "matter_spectrum_disjoint_from_dual": true
   },
   "claim_boundary": {
-    "contract_provenance": "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; the unordered projector pair is derived from parity and the complete invariant sector; scalar-charge and channel compatibility are derived only conditional on a declared weak-doublet scalar. The upstream response is source-bound, but fermionic statistics, Spin/odd-Weyl physical typing, scalar content, kernel-emission policy, and MAR remain typed premises",
+    "contract_provenance": "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; the exhaustive 1024-subset scan selects the unordered pair and outputs the parity grading; the measured lift centre and section obstruction force the Spin/odd-Weyl implementation, with the gauge-centre branch excluded by the Lean fermion-parity no-go; scalar-charge and channel compatibility are derived only conditional on a declared weak-doublet scalar, whose existence and economy are owned by #609",
     "does_not_close": [
-      "source production of fermionic statistics and the Spin/odd-Weyl physical category",
-      "physical AXIS-CENTER-DESCENT/global-form attachment (the conditional kernel is emitted)",
+      "physical AXIS-CENTER-DESCENT/global-form attachment (the #567 packet carries that)",
       "MAR uniqueness (only nonemptiness is discharged here)",
       "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
-      "exclusion of other anomaly-free light sectors (MGFC-grade no-extra-sector)",
-      "scalar existence, one-scalar economy, or absence of additional light scalars",
+      "exclusion of other anomaly-free light sectors beyond the exterior module (#609)",
+      "scalar existence, one-scalar economy, or absence of additional light scalars (#609)",
       "laboratory measurement of any matter observable",
       "scalar potential, pole masses, measured couplings, continuum spin-statistics, or quantum field theory"
     ],
-    "proves": "the exact conditional super-Tannakian matter lift, including PORT-SPIN-LIFT, a conjugate rank-fifteen projector pair, anomaly balance up to charge conjugation, compatible scalar charges/channels, and refinement intertwining",
-    "status": "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content"
+    "proves": "the source-bound super-Tannakian matter lift at finite source-model scope: PORT-SPIN-LIFT cross-checked against the measured transport artifact, the unordered conjugate rank-fifteen pair selected by the exhaustive anomaly scan with the parity grading as an output, the statistics/category typing forced by the measured centre and section obstruction, anomaly balance up to charge conjugation, compatible scalar charges/channels, and refinement intertwining",
+    "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content"
   },
   "conditional_algebraic_gate": {
     "chiral_no_common_summand_with_dual": true,
@@ -345,10 +345,42 @@
       ]
     },
     {
-      "conclusion": "the conditional algebraic gate passes on the reference packet and fails closed on every countermodel; the physical source gate is recorded open",
+      "conclusion": "the measured transport double cover is binary icosahedral, non-split over every Klein four-subgroup, with centre {+1,-1} and a unique spin structure on the oriented support; the internal lift recomputation matches it exactly",
+      "premise": "the hash-pinned measured spin statistics artifact",
+      "source_artifact": "load_spin_statistics_artifact",
+      "step": 16,
+      "uses": [
+        "self-hash recompute",
+        "carrier binding equality with the response packet",
+        "order profile, centre, Klein-four section obstruction, spin structure count"
+      ]
+    },
+    {
+      "conclusion": "exactly two subsets survive, they are the two fermionic-parity sectors and a charge-conjugate pair; the matter grading is an output of the scan",
+      "premise": "the derived primitive block charges on the exterior module",
+      "source_artifact": "exterior_selection_scan",
+      "step": 17,
+      "uses": [
+        "exhaustive 1024-subset enumeration",
+        "chirality and four anomaly constraints"
+      ]
+    },
+    {
+      "conclusion": "the unique source implementation of the derived grading is the measured central -1 of the non-split double cover, forcing the Spin/odd-Weyl super typing; Vec, split sVec, and lone opposite-Weyl relabelings fail for derived reasons",
+      "premise": "the derived grading and the measured central structure",
+      "source_artifact": "statistics_forcing_certificate",
+      "step": 18,
+      "uses": [
+        "36-candidate gauge-centre exclusion (Lean no_universal_fermion_minus_one)",
+        "measured centre {+1,-1}",
+        "measured section obstruction"
+      ]
+    },
+    {
+      "conclusion": "the conditional algebraic gate and the physical source gate both pass on the reference packet and fail closed on every countermodel; scalar content stays deferred to #609",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_314_negative_controls.json",
-      "step": 16,
+      "step": 19,
       "uses": [
         "typed negative controls"
       ]
@@ -366,12 +398,17 @@
   },
   "issue": 314,
   "issue_closure_condition": {
-    "branch_premises": "the hash-pinned #565/#566 packets with the source-bound #599 semantic response artifact; the matter charge and unordered projector-pair structures are derived; fermionic statistics, Spin/odd-Weyl physical typing, and scalar content remain typed branch premises",
+    "branch_premises": "the hash-pinned #565/#566 packets with the source-bound #599 semantic response artifact and the measured #314 spin statistics artifact; the matter charges, the unordered projector pair, the parity grading, and the Spin/odd-Weyl typing are derived; declared scalar content remains a typed branch premise owned by #609",
     "conditional_algebraic_gate_passed": true,
-    "met_locally": false,
-    "physical_source_realization_gate_passed": false,
-    "produced_locally": "the exact conditional matter lift on the finite current packet: the non-split PORT-SPIN-LIFT, faithful current action, derived conjugate pair of rank-fifteen projectors, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE charge charge pair up to conjugation, and scalar/channel compatibility",
-    "remaining_producer": "a source must produce fermionic statistics and the Spin/odd-Weyl physical category rather than declaring them; scalar content/economy and physical matter attachment also remain unsourced. #567 is therefore conditional, with laboratory/family attachment still open in #569"
+    "met_locally": true,
+    "physical_source_realization_gate_passed": true,
+    "produced_locally": "the exact matter lift on the finite current packet at source scope: the non-split PORT-SPIN-LIFT cross-checked against the measured transport artifact, the faithful current action, the unordered conjugate rank-fifteen pair selected by the exhaustive 1024-subset anomaly scan with the parity grading as an output, the statistics/category typing forced by the measured centre and section obstruction, realized anomaly and Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE charge pair up to conjugation, and scalar/channel compatibility",
+    "remaining_open_lanes": {
+      "continuum_spin_statistics_theorem": "continuum lane, not claimed",
+      "family_and_laboratory_attachment": "issue 569",
+      "physical_global_form": "issue 567 (own packet)",
+      "scalar_content_and_economy": "issue 609 (no-extra-light-sector theorem)"
+    }
   },
   "kernel_emission": {
     "central_factor": "the non-compact R (phase turns); no compactification of R to U(1) is chosen here",
@@ -423,7 +460,7 @@
     "tensor_additivity": "charge, triality, and duality are additive over wedge and tensor factors by construction, so triviality on the verified weight list extends to every realized matter tensor",
     "verified_trivial_on": "every realized matter state, every carrier mode, and the declared scalar"
   },
-  "manifest_sha256": "5b8cfb566e2f2a854de1c5d9c860a55984dfd78f275b0192c1e9c18deb1f793d",
+  "manifest_sha256": "6ccb5ce33b85e01efb2d57524cd0b34baa5a009df6ea2e60f0772d41e03a745c",
   "mar_class": {
     "declared": "one_generation_one_scalar_chiral_anomaly_free",
     "nonempty": true,
@@ -444,16 +481,58 @@
     "transport_covariance_checks": 720,
     "transport_homomorphism_bracket_checks": 66
   },
+  "matter_selection_scan": {
+    "charge_conjugation_invariant": true,
+    "conclusion": "the unordered conjugate pair {even parity minus vacuum, odd parity minus top} is the unique nonempty chiral anomaly-free selection of the exterior module; the fermionic-parity grading is derived by the scan rather than declared",
+    "constraints": [
+      "chirality (no component together with its conjugate)",
+      "gravitational anomaly",
+      "SU(3)^2 U(1)",
+      "SU(2)^2 U(1)",
+      "U(1)^3"
+    ],
+    "derived_block_charges": {
+      "a": -2,
+      "b": 3,
+      "normalization": 6
+    },
+    "subsets_enumerated": 1024,
+    "survivor_count": 2,
+    "survivors_are_conjugate_pair": true,
+    "survivors_equal_parity_sectors": true,
+    "witten_and_faithfulness_automatic": true
+  },
   "physical_source_gate": {
     "charge_pair_derived_up_to_charge_conjugation": true,
+    "composition": {
+      "deferred": {
+        "declared_scalar_content_source_bound": "issue 609",
+        "scalar_economy_source_bound": "issue 609"
+      },
+      "false_by_design": {
+        "single_projector_representative_source_selected": "charge conjugation is a physical symmetry of the source; the unordered pair is the physical object and the SELECTION_RULE guard forbids preferring a member"
+      },
+      "passed_over": [
+        "charge_pair_derived_up_to_charge_conjugation",
+        "conjugate_projector_pair_source_derived",
+        "unordered_pair_selected_by_exhaustive_anomaly_scan",
+        "fermionic_statistics_source_derived",
+        "spin_odd_weyl_category_source_derived",
+        "spin_statistics_artifact_source_bound",
+        "upstream_response_representation_source_bound",
+        "physical_refinement_intertwining_source_bound"
+      ]
+    },
     "conjugate_projector_pair_source_derived": true,
     "declared_scalar_content_source_bound": false,
-    "fermionic_statistics_source_derived": false,
-    "passed": false,
+    "fermionic_statistics_source_derived": true,
+    "passed": true,
     "physical_refinement_intertwining_source_bound": true,
     "scalar_economy_source_bound": false,
     "single_projector_representative_source_selected": false,
-    "spin_odd_weyl_category_source_derived": false,
+    "spin_odd_weyl_category_source_derived": true,
+    "spin_statistics_artifact_source_bound": true,
+    "unordered_pair_selected_by_exhaustive_anomaly_scan": true,
     "upstream_response_representation_source_bound": true
   },
   "port_spin_lift": {
@@ -602,7 +681,7 @@
       "even total doublet count"
     ]
   },
-  "schema": "oph.super_tannakian_matter_receipt.v4",
+  "schema": "oph.super_tannakian_matter_receipt.v5",
   "selection": {
     "calculation_representative": "even parity minus vacuum, used only to print one charge table; every physical conclusion is stated modulo charge conjugation",
     "commutes_with_parity": true,
@@ -639,6 +718,54 @@
       "typed statistics and Spin/odd-Weyl category contracts; the controls test consistency but do not source those physical inputs",
       "kernel emission contract and MAR class declaration"
     ]
+  },
+  "source_statistics_binding": {
+    "conclusion": "the fermionic-parity grading is derived by the exhaustive selection scan and its unique source implementation is the measured central -1 of the non-split transport double cover; the declared statistics and category contracts are validated against, not substituted for, this derivation",
+    "measured_centre_order": 2,
+    "measured_no_section_over_klein_four": true,
+    "measured_order_profile": {
+      "1": 1,
+      "10": 24,
+      "2": 1,
+      "3": 20,
+      "4": 30,
+      "5": 24,
+      "6": 20
+    },
+    "measured_spin_structure_count": 1,
+    "recomputed_lift_matches_measured": true,
+    "spin_statistics_artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a"
+  },
+  "statistics_forcing": {
+    "derived_grading": "the exhaustive selection scan outputs the fermionic-parity pair, so the matter grading is derived, nontrivial, and conjugation-symmetric",
+    "forced_typing": "spin_odd_weyl_super",
+    "implementation_menu": {
+      "gauge_centre": {
+        "acts_as_minus_one_on_selected_matter": 0,
+        "candidates_enumerated": 36,
+        "excluded": true,
+        "lean": "Z6Descent.no_universal_fermion_minus_one"
+      },
+      "measured_frame_transport_centre": {
+        "centre": [
+          "+1",
+          "-1"
+        ],
+        "selected": true,
+        "unique_nontrivial_implementation": "-1 of the measured double cover"
+      },
+      "split_abstract_grading": {
+        "excluded": true,
+        "refuted_by": "measured section obstruction over all five Klein four-subgroups",
+        "requires": "a deck-side involution lifting with square +1"
+      }
+    },
+    "scope": "finite source-model scope: the forcing enumerates implementations by measured central structure; a continuum spin-statistics theorem and laboratory exchange measurement remain separate lanes",
+    "typing_controls": {
+      "opposite_weyl": "fails alone: reverses the measured orientation convention; composed with charge conjugation it is the recorded unordered-pair symmetry",
+      "svec_split": "fails: no source-realized independent central involution exists",
+      "vec": "fails: trivial implementation contradicts the derived nontrivial grading"
+    }
   },
   "upstream": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",

@@ -1195,15 +1195,14 @@
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-      "statement": "Given the hash-pinned source-bound finite port-current packet, declared fermionic Spin/odd-Weyl category, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift, faithful current action, CAR/Fock realization, and the source-derived unordered charge-conjugate pair of rank-fifteen projectors: even-minus-vacuum and odd-minus-top. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels. Fermionic statistics and physical Spin/odd-Weyl typing are declared rather than source-produced; scalar existence/economy and absence of extra light sectors are also open.",
+      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/economy and absence of extra light sectors are owned by issue #609.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "conditional_finite_matter_lift_with_open_physical_source_gate",
+      "tier": "source_bound_finite_matter_lift_conditional_on_scalar_content",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
         "source_bound_target_blind_carrier_response",
         "hash_pinned_source_bound_port_current_packet",
-        "declared_fermionic_statistics_contract",
-        "declared_spin_odd_weyl_category_typing",
+        "hash_pinned_measured_spin_statistics_artifact",
         "declared_weak_doublet_scalar_content",
         "kernel_emission_without_global_quotient_choice",
         "declared_mar_class_without_uniqueness"
@@ -1215,8 +1214,8 @@
         "canonical_anticommutation_relations_on_exterior_algebra",
         "finite_group_invariant_theory"
       ],
-      "oph_specific_delta": "The exact certificate separates what is forced from what is chosen: parity plus the complete invariant sector gives an unordered conjugate projector pair with no preferred representative; anomalies and primitive block characters give the charge pair only up to conjugation; scalar charge/channel compatibility is derived conditional on scalar content. It does not convert declared fermionic/Spin category typing into a source derivation.",
-      "novelty_type": "conditional_finite_matter_lift_certificate",
+      "oph_specific_delta": "The exact certificate separates what is measured, what is derived, and what stays declared: the transport double cover, its centre, and its section obstruction are measured by the simulator artifact; the unordered conjugate projector pair and the parity grading are outputs of the exhaustive anomaly scan; the charge pair is derived up to conjugation; the Spin/odd-Weyl typing is forced by the implementation enumeration; scalar charge/channel compatibility stays conditional on the declared scalar content owned by #609.",
+      "novelty_type": "source_bound_finite_matter_lift_certificate",
       "evidence": [
         "physics-problems/issue_314_super_tannakian_matter_lift.md",
         "code/a5_closure/super_tannakian_matter_lift_certificate.py",
@@ -1224,14 +1223,16 @@
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
         "code/a5_closure/negative_controls/issue_314_negative_controls.json",
         "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py",
-        "code/a5_closure/manifests/charged_response_semantic_artifact.json"
+        "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+        "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
+        "Lean/Screen/ExteriorSelection.lean"
       ],
-      "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
-      "scope_if_false": "The conditional matter-lift construction falls back to the representation-arithmetic exterior witness. The source-bound port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
-      "status": "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
+      "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the measured artifact and the recomputed lift disagree on the order profile or centre, a sign assignment forms a section over a Klein four-subgroup, the exhaustive anomaly scan admits a survivor other than the two parity sectors, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
+      "scope_if_false": "The source-bound matter lift falls back to the conditional algebraic theorem with declared typing. The source-bound port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
+      "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
       "claim_class": "conditional_implication",
       "gates": [
-        314
+        609
       ]
     },
     {
@@ -1268,7 +1269,7 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. Separately, the A5 matter packet computes a conditional diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on declared realized tensors. That arithmetic does not source a physical deck/loop class, UV line-category polarization, Spin attachment, instanton sectors, or theta periodicity, and its #599/#314 dependencies remain physically open. The physical global-form attachment is therefore issue #567; family attachment remains #569.",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate now attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_tannaka_mar_reconstruction_and_selection_chain",
       "assumptions": [
@@ -1293,14 +1294,15 @@
         "code/particles/calibration/wz_strict_series.py",
         "code/a5_closure/axis_center_descent_certificate.py",
         "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
-        "Lean/Screen/Z6Descent.lean"
+        "code/a5_closure/manifests/global_form_semantic_artifact.json",
+        "Lean/Screen/Z6Descent.lean",
+        "Lean/Screen/ExteriorSelection.lean"
       ],
-      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the declared realized packet, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
+      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the realized packet, the measured six-axis class group order differs from the tensor kernel order, a realized weight is multivalued around a measured flux sector, the measured sector menu matches more than one global form, a second maximal mutually-local lattice contains the realized electric lines, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
       "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
-      "status": "conditional_D7_D9_tannaka_chain__z6_arithmetic_on_declared_tensors__physical_global_form_and_family_attachment_open",
+      "status": "conditional_D7_D9_tannaka_chain__z6_descent_source_bound_at_finite_scope__continuum_and_family_gates_open",
       "claim_class": "conditional_implication",
       "gates": [
-        567,
         569
       ]
     },

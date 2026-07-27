@@ -397,12 +397,14 @@ quotient by a shared discrete center in the full global structure. Under its
 transport and refinement premises, OPH reconstructs a compact group from
 persistent charge bookkeeping across patches. Independently, twelve-port
 incidence and target-blind port readback derive an exact current with the
-Standard Model Lie type. Under a declared fermionic Spin category, the matter
-and central-descent receipts fix the charge
+Standard Model Lie type. The exhaustive selection scan and the measured
+transport double cover fix the matter content and its fermionic Spin typing
+from source, and the matter and central-descent receipts fix the charge
 lattice up to conjugation and the maximal faithful matter image. The cover
-and its intermediate quotients carry the same local tensors. Physical matter
-typing and global-form selection are open. Minimal admissible selection orders family
-count and extra light sectors inside the declared matter class.
+and its intermediate quotients carry the same local tensors; the measured
+flux-sector menu selects the full quotient at finite source scope. Minimal
+admissible selection orders family count and extra light sectors inside the
+declared matter class.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term

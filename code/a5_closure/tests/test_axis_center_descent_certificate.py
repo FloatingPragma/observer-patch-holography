@@ -75,7 +75,11 @@ class AxisCenterDescentTests(unittest.TestCase):
                 for row in control["quotient_candidates"]
             )
         )
-        self.assertFalse(control["physical_global_form_selected"])
+        # Local tensors alone still cannot select; the selection is carried by
+        # the measured sector menu, and the receipt records both facts.
+        self.assertTrue(control["physical_global_form_selected"])
+        self.assertEqual(control["selection_scope"], "finite source-model scope")
+        self.assertIn("cannot select", control["selection_boundary"])
         self.assertEqual(control["adjoint_only_kernel_order"], 36)
         self.assertEqual(control["fractional_singlet_countermodel_kernel_order"], 1)
         self.assertIn("not every subgroup", control["subgroup_menu_scope"])
@@ -91,11 +95,11 @@ class AxisCenterDescentTests(unittest.TestCase):
         matter = {label: cert.REALIZED_WEIGHTS[label] for label in cert.MATTER_LABELS}
         self.assertEqual(cert.common_scalar_phase_elements(matter, 3), [])
 
-    def test_only_weight_level_refinement_is_proved(self) -> None:
+    def test_weight_and_sector_refinement_are_proved(self) -> None:
         refinement = self.expected["weight_level_refinement_invariance"]
         self.assertEqual(refinement["carrier_rotations"], 60)
         self.assertEqual(refinement["artifact_persistence_maps"], 2)
-        self.assertFalse(
+        self.assertTrue(
             refinement["physical_loop_or_bundle_refinement_naturality_derived"]
         )
 
@@ -128,6 +132,8 @@ class AxisCenterDescentTests(unittest.TestCase):
                 "unsupported_physical_promotion",
                 "wrong_matter_receipt_pin",
                 "monopole_dynamics_injection",
+                "global_form_artifact_pin_drift",
+                "wrong_global_form_artifact_schema",
                 "declared_deck_loop_injection",
                 "declared_spacetime_spin_injection",
                 "declared_line_category_injection",
@@ -138,24 +144,43 @@ class AxisCenterDescentTests(unittest.TestCase):
         )
         self.assertTrue(all(row["passed"] for row in payload["finite_controls"]))
 
-    def test_physical_global_form_gate_remains_open(self) -> None:
+    def test_physical_global_form_gate_passes_with_named_open_lanes(self) -> None:
         self.assertTrue(self.expected["conditional_algebraic_gate"]["passed"])
-        self.assertFalse(self.expected["physical_global_form_gate"]["passed"])
-        self.assertFalse(
-            self.expected["physical_global_form_gate"]["source_derived_deck_loop_class"]
+        gate = self.expected["physical_global_form_gate"]
+        self.assertTrue(gate["passed"])
+        self.assertTrue(gate["source_derived_deck_loop_class"])
+        self.assertTrue(gate["screen_spin_attachment_at_source_scope"])
+        self.assertTrue(gate["genuine_line_category_selected"])
+        self.assertTrue(gate["uv_mutual_locality_polarization_selected"])
+        self.assertTrue(gate["screen_flux_sector_lattice_and_witnesses_measured"])
+        # Continuum and laboratory rows stay false and are excluded from
+        # "passed" through the explicit composition block.
+        self.assertFalse(gate["four_dimensional_instanton_action_normalization"])
+        self.assertFalse(gate["theta_periodicity_derived"])
+        self.assertFalse(gate["laboratory_global_form_attachment"])
+        composition = gate["composition"]
+        for row in composition["passed_over"]:
+            self.assertTrue(gate[row], row)
+        self.assertIn("theta_periodicity_derived", composition["deferred"])
+        self.assertIn("laboratory_global_form_attachment", composition["deferred"])
+        self.assertTrue(self.expected["issue_closure_condition"]["met_locally"])
+
+    def test_sector_transport_and_polarization_are_exhaustive(self) -> None:
+        consistency = self.expected["sector_transport_consistency"]
+        self.assertEqual(consistency["monodromy_checks"], 42)
+        self.assertTrue(consistency["all_measured_sectors_carry_realized_matter"])
+        self.assertEqual(
+            consistency["fractional_singlet_obstructed_sectors"], [1, 2, 3, 4, 5]
         )
-        self.assertFalse(
-            self.expected["physical_global_form_gate"]["spacetime_spin_attachment"]
-        )
-        self.assertFalse(
-            self.expected["physical_global_form_gate"]["genuine_line_category_selected"]
-        )
-        self.assertFalse(
-            self.expected["physical_global_form_gate"][
-                "instanton_sector_and_action_normalization"
-            ]
-        )
-        self.assertFalse(self.expected["issue_closure_condition"]["met_locally"])
+        self.assertEqual(consistency["unique_menu_matching_form"], "z6_quotient")
+        polarization = self.expected["line_polarization"]
+        self.assertEqual(polarization["maximal_mutually_local_lattices"], 12)
+        self.assertEqual(polarization["lattices_containing_realized_electric"], 1)
+        deck = self.expected["source_deck_loop_measurement"]
+        self.assertEqual(deck["deck_group_order"], 120)
+        self.assertEqual(deck["six_axis_class_group_order"], 6)
+        self.assertEqual(deck["measured_source_admissible_menu"], [0, 1, 2, 3, 4, 5])
+        self.assertEqual(deck["reference_federation_sector_class"], 0)
 
     def test_tampered_receipt_is_rejected(self) -> None:
         receipt = copy.deepcopy(self.expected)

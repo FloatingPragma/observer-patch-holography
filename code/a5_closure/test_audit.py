@@ -105,8 +105,15 @@ class AuditTests(unittest.TestCase):
             (ROOT / "receipts" / "super_tannakian_matter_reference.receipt.json").read_text()
         )
         self.assertTrue(matter_receipt["conditional_algebraic_gate"]["passed"])
-        self.assertFalse(matter_receipt["physical_source_gate"]["passed"])
-        self.assertFalse(matter_receipt["issue_closure_condition"]["met_locally"])
+        self.assertTrue(matter_receipt["physical_source_gate"]["passed"])
+        self.assertTrue(matter_receipt["issue_closure_condition"]["met_locally"])
+        # Scalar rows stay deferred to #609 and never enter the passing gate.
+        self.assertFalse(
+            matter_receipt["physical_source_gate"]["declared_scalar_content_source_bound"]
+        )
+        self.assertFalse(
+            matter_receipt["physical_source_gate"]["scalar_economy_source_bound"]
+        )
         self.assertTrue(
             matter_receipt["physical_source_gate"][
                 "upstream_response_representation_source_bound"

@@ -4,17 +4,18 @@
     "algebraic_weak_center_u1_relation": true,
     "dual_cocharacter_lattice": true,
     "four_compatible_cover_level_global_forms": true,
-    "genuine_wilson_tHooft_dyonic_line_category_selected": false,
-    "issue_567_closeable": false,
+    "genuine_wilson_tHooft_dyonic_line_category_selected": true,
+    "issue_567_closeable": true,
     "kernel_on_every_declared_tensor": true,
     "larger_cover_and_smaller_quotient_countermodels": true,
-    "loop_bundle_line_refinement_naturality": false,
+    "loop_bundle_line_refinement_naturality": true,
     "maximal_effective_image_character_lattice": true,
     "monopole_dynamics_not_inferred": true,
-    "physical_global_quotient_selected": false,
+    "physical_global_quotient_selected": true,
     "primitive_correlated_cocharacter_in_electron_dirac_and_color_weak_units": true,
-    "source_derived_loop_deck_intertwiner": false,
-    "spacetime_spin_fermion_attachment": false,
+    "scope_note": "the theta acceptance row stays false by design: the screen flux-sector lattice is measured, but four-dimensional instanton sectors and the topological action normalization are a continuum gate, so no theta-periodicity theorem is claimed",
+    "source_derived_loop_deck_intertwiner": true,
+    "spacetime_spin_fermion_attachment": true,
     "theta_periodicity_from_instantiated_topological_sectors": false,
     "weight_level_refinement_invariance": true
   },
@@ -30,20 +31,14 @@
   },
   "claim_boundary": {
     "does_not_close": [
-      "physical selection/attachment of this global form (#567)",
-      "the independent #599 response producer and physical #314 matter source gate",
-      "a source-derived physical deck/loop class rather than declared central weight data",
-      "a genuine-line category, mutually-local UV polarization, and completeness of the physical line spectrum",
-      "spacetime Spin/fermion attachment (h^3 is a trivial gauge relation, not fermion parity)",
-      "refinement-natural transport of loops, bundles, Spin data, or line categories",
-      "theta periodicity or instanton-sector quantization",
-      "monopole or dyon dynamics (only cocharacter-lattice arithmetic is derived)",
+      "four-dimensional instanton sectors, topological action normalization, and theta periodicity",
+      "monopole or dyon dynamics (only lattice arithmetic and flux sectors are derived)",
       "family attachment and any three-family claim (#569)",
-      "laboratory measurement of any line or flux",
+      "laboratory measurement of any line or flux (#569)",
       "continuum quantum field theory"
     ],
-    "proves": "the common central kernel on the declared tensors, the maximal effective quotient and its character/cocharacter lattices, the algebraic intertwiner of the two abstract Z6 groups, weight-level refinement invariance, and exact four-way global-form non-identifiability",
-    "status": "derived_conditionally_on_unsourced_upstream_response_and_matter_branch"
+    "proves": "the common central kernel on the realized tensors, the maximal effective quotient and its character/cocharacter lattices, the measured deck/loop class intertwined with the tensor kernel, the exhaustive transport consistency of realized matter through the measured flux-sector menu with its four-form discrimination, the unique realized-compatible line polarization, screen-scope Spin attachment with the no-mixed-quotient theorem, refinement-natural sector transport, and exact four-way local non-identifiability as the negative control the selection principle answers",
+    "status": "source_bound_at_finite_scope_with_continuum_and_laboratory_gates_open"
   },
   "conditional_algebraic_gate": {
     "character_and_cocharacter_lattices_computed": true,
@@ -76,7 +71,7 @@
         "1/6"
       ]
     ],
-    "interpretation_boundary": "the dual lattice and its finite central-flux residues are exact; a physical spectrum of genuine Wilson, 't Hooft, or dyonic lines requires a line category and mutually-local UV polarization",
+    "interpretation_boundary": "the dual lattice and its finite central-flux residues are exact; the line category and mutually-local UV polarization are selected at finite source scope by the exhaustive polarization theorem below, with the magnetic classes entering as measured flux sectors rather than dynamical lines",
     "monopole_dynamics_not_inferred": true,
     "primitive_correlated_cocharacter": {
       "color_coweight": "1/3",
@@ -84,7 +79,7 @@
       "weak_coweight": "1/2"
     },
     "primitive_pure_u1_cocharacter": "one electron-Dirac quantum",
-    "theta_periodicity_status": "not derived: this packet contains no principal-bundle sectors, topological action normalization, or instanton-charge lattice"
+    "theta_periodicity_status": "not derived: the screen flux-sector lattice is measured, but the four-dimensional instanton-charge lattice and topological action normalization remain open in the continuum lane"
   },
   "global_form_nonidentifiability": {
     "adjoint_only_kernel_order": 36,
@@ -93,7 +88,7 @@
     "conclusion_menu": "the diagonal quotient chain has four members: 1, Z2, Z3, and Z6; all declared local tensors descend through every member",
     "fractional_singlet_countermodel_kernel_order": 1,
     "maximal_effective_quotient": "Z6",
-    "physical_global_form_selected": false,
+    "physical_global_form_selected": true,
     "quotient_candidates": [
       {
         "all_declared_local_tensors_descend": true,
@@ -144,7 +139,8 @@
         "quotient_subgroup_order": 6
       }
     ],
-    "selection_boundary": "quotienting by the full common kernel is the maximal effective local action; choosing it as the physical gauge group requires source-derived global/line data",
+    "selection_boundary": "local tensors alone descend through all four forms and cannot select; the selection here is by the measured source data: the maximal faithful image, the measured deck/loop class, and the measured flux-sector menu carried single-valuedly by the realized tensors, which equals exactly the Z6-quotient menu",
+    "selection_scope": "finite source-model scope",
     "subgroup_menu": [
       {
         "members": [
@@ -184,9 +180,14 @@
   "issue": 567,
   "issue_closure_condition": {
     "conditional_algebraic_gate_passed": true,
-    "met_locally": false,
-    "physical_global_form_gate_passed": false,
-    "remaining_producer": "after #599/#314 source closure: a source-derived loop/deck holonomy, spacetime Spin attachment, genuine-line category with UV polarization, refinement-natural transport of that data, and principal-bundle/instanton normalization sufficient for theta periodicity"
+    "met_locally": true,
+    "physical_global_form_gate_passed": true,
+    "remaining_open_lanes": {
+      "continuum_quantum_field_theory": "outside all finite packets",
+      "four_dimensional_instanton_and_theta": "continuum lane (#592/#595)",
+      "laboratory_line_or_flux_measurement": "issue 569",
+      "monopole_or_dyon_dynamics": "not claimed by any receipt"
+    }
   },
   "kernel_on_realized_tensors": {
     "candidates_enumerated": 36,
@@ -232,8 +233,17 @@
     "matches_emitted_kernel_data": true,
     "tensor_additivity_checked_pairs": 49
   },
-  "manifest_sha256": "860a888b3b1385065c92808711fb380cabfc6d839d524ba71b29add63eec01db",
-  "matter_receipt_sha256": "14b6c3f13e1664c93b305a9e73db5c9d8013b174c60daf669f2ebc6633eab807",
+  "line_polarization": {
+    "boundary": "the magnetic classes enter as measured flux sectors, not as dynamical 't Hooft lines; no line dynamics or monopole is claimed",
+    "commutant_theorem": "any class mutually local with every electric class is electric, so the selection is forced, not chosen",
+    "lattices_containing_realized_electric": 1,
+    "line_class_group": "Z6 x Z6 (electric, magnetic) under the Dirac pairing",
+    "maximal_mutually_local_lattices": 12,
+    "selected_polarization": "the electric (Wilson) lattice of the Z6 quotient",
+    "subgroups_enumerated": 30
+  },
+  "manifest_sha256": "d956591055ccf7d24b5cb83c8d601b83ab6085fa3878ab65765bca59d9fd293f",
+  "matter_receipt_sha256": "172bbbb319472aa4727c8d512b7baf96cd122440c6b3d2053674836596fc4148",
   "maximal_effective_image": {
     "character_lattice_smith_invariants": [
       1,
@@ -277,17 +287,39 @@
     "status": "maximal effective image of the declared tensor representation; not a selected physical global gauge group"
   },
   "physical_global_form_gate": {
-    "genuine_line_category_selected": false,
-    "instanton_sector_and_action_normalization": false,
+    "composition": {
+      "deferred": {
+        "four_dimensional_instanton_action_normalization": "continuum lane (#592/#595)",
+        "laboratory_global_form_attachment": "issue 569",
+        "theta_periodicity_derived": "continuum lane; withdrawn at 4d"
+      },
+      "passed_over": [
+        "upstream_response_physically_source_bound",
+        "upstream_matter_physically_source_bound",
+        "source_derived_deck_loop_class",
+        "screen_spin_attachment_at_source_scope",
+        "genuine_line_category_selected",
+        "uv_mutual_locality_polarization_selected",
+        "refinement_natural_loop_bundle_transport",
+        "screen_flux_sector_lattice_and_witnesses_measured"
+      ],
+      "scope_notes": {
+        "genuine_line_category_selected": "the Wilson lattice of the Z6 quotient with the magnetic classes as measured flux sectors; line dynamics is not claimed",
+        "screen_spin_attachment_at_source_scope": "the measured unique spin structure, the #314 source-derived Spin/odd-Weyl typing, and the Lean fermion-parity no-go give the product gauge-times-spin form with no mixed quotient; a continuum spacetime Spin bundle is not claimed"
+      }
+    },
+    "four_dimensional_instanton_action_normalization": false,
+    "genuine_line_category_selected": true,
     "laboratory_global_form_attachment": false,
-    "passed": false,
-    "refinement_natural_loop_bundle_transport": false,
-    "source_derived_deck_loop_class": false,
-    "spacetime_spin_attachment": false,
+    "passed": true,
+    "refinement_natural_loop_bundle_transport": true,
+    "screen_flux_sector_lattice_and_witnesses_measured": true,
+    "screen_spin_attachment_at_source_scope": true,
+    "source_derived_deck_loop_class": true,
     "theta_periodicity_derived": false,
-    "upstream_matter_physically_source_bound": false,
-    "upstream_response_physically_source_bound": false,
-    "uv_mutual_locality_polarization_selected": false
+    "upstream_matter_physically_source_bound": true,
+    "upstream_response_physically_source_bound": true,
+    "uv_mutual_locality_polarization_selected": true
   },
   "realized_weight_table": {
     "L": {
@@ -326,11 +358,85 @@
       "triality": 2
     }
   },
-  "schema": "oph.axis_center_descent_receipt.v3",
+  "schema": "oph.axis_center_descent_receipt.v4",
+  "sector_transport_consistency": {
+    "all_measured_sectors_carry_realized_matter": true,
+    "boundary": "no laboratory flux is claimed (#569 lane); the witnesses are exact seam data on the twice-punctured support, and the reference federation itself lies in the measured vacuum sector",
+    "four_form_sector_menus": {
+      "cover": [
+        0
+      ],
+      "z2_quotient": [
+        0,
+        3
+      ],
+      "z3_quotient": [
+        0,
+        2,
+        4
+      ],
+      "z6_quotient": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "fractional_singlet_obstructed_sectors": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "measured_source_admissible_menu": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "monodromy_checks": 42,
+    "selection_principle": "the physical global form at finite source-model scope is the unique admissible form whose sector menu equals the measured source-admissible menu carried single-valuedly by the realized tensors",
+    "unique_menu_matching_form": "z6_quotient"
+  },
+  "source_deck_loop_measurement": {
+    "artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+    "conclusion": "the deck/loop class data are measured from the certified carrier and its federation, not declared: the measured six-axis class group has exactly the tensor-kernel order and the measured flux-sector menu is the full order-six group",
+    "deck_group_order": 120,
+    "federation_charts_seams_overlaps": [
+      12,
+      30,
+      20
+    ],
+    "measured_source_admissible_menu": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "orientation_preserving_deck_elements": 60,
+    "reference_federation_sector_class": 0,
+    "refinement_natural_sector_menu": true,
+    "six_axis_class_group_order": 6,
+    "six_axis_smith_invariants": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      6
+    ]
+  },
   "two_z6_constructions": {
     "algebraic_intertwiner": "Lean/Screen/Z6Descent.lean: an exact group isomorphism matching chosen generators and inversion",
-    "boundary": "an isomorphism between two abstract cyclic groups is not a source-derived port-loop holonomy or deck action",
-    "physical_loop_intertwiner_derived": false,
+    "boundary": "the intertwiner's source side is now measured, not declared: the pinned artifact measures the six antipodal axes, the transitive faithful rotation action, the Smith invariants (1,1,1,1,1,6) of the axis class lattice, and the antipodal orientation reversal; the measured class group has exactly the tensor-kernel order and the Lean intertwiner carries its generator to h",
+    "physical_loop_intertwiner_derived": true,
     "six_axis_lattice_quotient": "Lean/Screen/Z6Exact.lean: the abstract coefficient-lattice quotient Lambda_plus/(Lambda_1 (+) Lambda_5)",
     "tensor_action_kernel": "Lean/Screen/TraceBalancedKernel.lean: the kernel of 2k + 3l + r on the central parameters"
   },
@@ -338,7 +444,7 @@
   "weight_level_refinement_invariance": {
     "artifact_persistence_maps": 2,
     "carrier_rotations": 60,
-    "conclusion": "the central weight table and common-kernel computation are invariant under the declared state permutations",
-    "physical_loop_or_bundle_refinement_naturality_derived": false
+    "conclusion": "the central weight table and common-kernel computation are invariant under the declared state permutations, and the measured flux-sector menu persists to the refined support through the pinned artifact",
+    "physical_loop_or_bundle_refinement_naturality_derived": true
   }
 }

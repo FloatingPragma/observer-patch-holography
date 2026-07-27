@@ -32,6 +32,18 @@
       "passed": true
     },
     {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "global_form_artifact_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "wrong_global_form_artifact_schema",
+      "passed": true
+    },
+    {
       "actual_error": "FORBIDDEN_DEPENDENCY",
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "declared_deck_loop_injection",
@@ -69,6 +81,6 @@
     }
   ],
   "issue": 567,
-  "manifest_sha256": "860a888b3b1385065c92808711fb380cabfc6d839d524ba71b29add63eec01db",
-  "schema": "oph.axis_center_descent_negative_controls.v3"
+  "manifest_sha256": "d956591055ccf7d24b5cb83c8d601b83ab6085fa3878ab65765bca59d9fd293f",
+  "schema": "oph.axis_center_descent_negative_controls.v4"
 }

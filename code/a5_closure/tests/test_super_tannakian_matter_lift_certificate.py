@@ -32,18 +32,57 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_conditional_gate_passes_and_physical_gate_stays_open(self) -> None:
+    def test_conditional_and_physical_gates_pass_with_deferred_scalar_rows(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertEqual(set(gate.values()), {True})
         self.assertEqual(len(gate), 13)
         self.assertTrue(gate["passed"])
         physical_gate = self.expected["physical_source_gate"]
-        self.assertFalse(physical_gate["passed"])
+        self.assertTrue(physical_gate["passed"])
         self.assertTrue(physical_gate["charge_pair_derived_up_to_charge_conjugation"])
         self.assertTrue(physical_gate["conjugate_projector_pair_source_derived"])
+        self.assertTrue(physical_gate["unordered_pair_selected_by_exhaustive_anomaly_scan"])
+        self.assertTrue(physical_gate["fermionic_statistics_source_derived"])
+        self.assertTrue(physical_gate["spin_odd_weyl_category_source_derived"])
+        self.assertTrue(physical_gate["spin_statistics_artifact_source_bound"])
         self.assertTrue(physical_gate["upstream_response_representation_source_bound"])
+        # Deferred and by-design rows stay false and are excluded from "passed"
+        # through the explicit composition block.
         self.assertFalse(physical_gate["declared_scalar_content_source_bound"])
         self.assertFalse(physical_gate["scalar_economy_source_bound"])
+        self.assertFalse(physical_gate["single_projector_representative_source_selected"])
+        composition = physical_gate["composition"]
+        self.assertEqual(
+            composition["deferred"],
+            {
+                "declared_scalar_content_source_bound": "issue 609",
+                "scalar_economy_source_bound": "issue 609",
+            },
+        )
+        self.assertIn(
+            "single_projector_representative_source_selected",
+            composition["false_by_design"],
+        )
+        for row in composition["passed_over"]:
+            self.assertTrue(physical_gate[row], row)
+
+    def test_selection_scan_and_forcing_are_derived(self) -> None:
+        scan = self.expected["matter_selection_scan"]
+        self.assertEqual(scan["subsets_enumerated"], 1024)
+        self.assertEqual(scan["survivor_count"], 2)
+        self.assertTrue(scan["survivors_are_conjugate_pair"])
+        self.assertTrue(scan["survivors_equal_parity_sectors"])
+        self.assertTrue(scan["charge_conjugation_invariant"])
+        forcing = self.expected["statistics_forcing"]
+        self.assertEqual(forcing["forced_typing"], "spin_odd_weyl_super")
+        menu = forcing["implementation_menu"]
+        self.assertTrue(menu["gauge_centre"]["excluded"])
+        self.assertTrue(menu["measured_frame_transport_centre"]["selected"])
+        self.assertTrue(menu["split_abstract_grading"]["excluded"])
+        binding = self.expected["source_statistics_binding"]
+        self.assertTrue(binding["recomputed_lift_matches_measured"])
+        self.assertEqual(binding["measured_centre_order"], 2)
+        self.assertEqual(binding["measured_spin_structure_count"], 1)
 
     def test_block_determinant_balance_is_derived(self) -> None:
         balance = self.expected["block_determinant_balance"]
@@ -228,31 +267,22 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
 
     def test_acceptance_criteria_chain_and_scope(self) -> None:
         status = self.expected["acceptance_criteria_status"]
-        self.assertEqual(len(status), 11)
-        self.assertFalse(
+        self.assertEqual(len(status), 12)
+        self.assertTrue(
             status[
                 "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived"
             ]
         )
-        self.assertFalse(
+        self.assertTrue(
             status[
                 "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail"
             ]
         )
-        self.assertTrue(
-            all(
-                value
-                for key, value in status.items()
-                if key
-                not in {
-                    "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived",
-                    "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail",
-                }
-            )
-        )
+        self.assertTrue(status["fifteen_state_module_selected_by_exhaustive_anomaly_scan"])
+        self.assertTrue(all(status.values()))
         chain = self.expected["derivation_chain"]
         self.assertEqual(
-            [row["step"] for row in chain], [1, 2, "2a", "2b"] + list(range(3, 17))
+            [row["step"] for row in chain], [1, 2, "2a", "2b"] + list(range(3, 20))
         )
         for row in chain:
             self.assertTrue(row["premise"])
@@ -264,21 +294,23 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_matter_lift_is_exact_but_not_physically_source_bound(self) -> None:
+    def test_matter_lift_is_source_bound_with_named_open_lanes(self) -> None:
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
-        self.assertFalse(closure_condition["met_locally"])
-        self.assertIn("fermionic statistics", closure_condition["remaining_producer"])
-        self.assertIn("#569", closure_condition["remaining_producer"])
+        self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
+        self.assertTrue(closure_condition["met_locally"])
+        lanes = closure_condition["remaining_open_lanes"]
+        self.assertIn("609", lanes["scalar_content_and_economy"])
+        self.assertIn("569", lanes["family_and_laboratory_attachment"])
         boundary = self.expected["claim_boundary"]
         self.assertEqual(
             boundary["status"],
-            "proved_conditionally_on_declared_fermionic_spin_category_and_scalar_content",
+            "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
         )
         self.assertIn("BLOCK-DETERMINANT-BALANCE", boundary["contract_provenance"])
         self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("MAR uniqueness" in row for row in boundary["does_not_close"]))
+        self.assertTrue(any("scalar existence" in row for row in boundary["does_not_close"]))
 
     def test_control_contracts_are_not_valid_production_manifests(self) -> None:
         for path, value, code in (
@@ -312,9 +344,11 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         payload = cert.negative_control_payload(self.manifest)
         stored = cert.load_json(self.negative_path)
         self.assertEqual(payload, stored)
-        self.assertEqual(len(payload["finite_controls"]), 18)
+        self.assertEqual(len(payload["finite_controls"]), 20)
         self.assertTrue(all(row["passed"] for row in payload["finite_controls"]))
         by_name = {row["name"]: row["actual_error"] for row in payload["finite_controls"]}
+        self.assertEqual(by_name["spin_artifact_pin_drift"], "UPSTREAM_HASH")
+        self.assertEqual(by_name["wrong_spin_artifact_schema"], "UPSTREAM_HASH")
         self.assertEqual(by_name["vec_typing"], "VEC_TYPING")
         self.assertEqual(by_name["svec_split_spin"], "SPIN_LIFT_SPLIT")
         self.assertEqual(by_name["mixed_weyl_representative"], "YUKAWA_CHANNEL_EMPTY")

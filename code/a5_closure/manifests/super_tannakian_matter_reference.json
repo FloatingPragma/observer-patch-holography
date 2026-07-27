@@ -1,10 +1,12 @@
 {
-  "schema": "oph.super_tannakian_matter_manifest.v4",
-  "description": "Reference packet for the conditional super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose #599 response is source-bound by the exact target-blind carrier impulse/readback protocol. BLOCK-DETERMINANT-BALANCE derives the primitive charge pair up to charge conjugation, and the verifier derives an unordered conjugate pair of rank-fifteen projectors. Fermionic statistics and the Spin/odd-Weyl category remain typed inputs rather than source-derived physical data. Scalar charge and channel compatibility are exact only conditional on the declared weak-doublet scalar content; scalar existence and economy are not derived.",
+  "schema": "oph.super_tannakian_matter_manifest.v5",
+  "description": "Reference packet for the source-bound super-Tannakian matter lift (issue #314). The current algebra is strictly upstream through the hash-pinned #566 packet, whose #599 response is source-bound by the exact target-blind carrier impulse/readback protocol. BLOCK-DETERMINANT-BALANCE derives the primitive charge pair up to charge conjugation; the exhaustive 1024-subset anomaly scan selects the unordered conjugate rank-fifteen pair with the fermionic-parity grading as an output; and the hash-pinned measured spin statistics artifact supplies the non-split transport double cover whose central -1 is the unique source implementation of that grading, forcing the Spin/odd-Weyl typing. The statistics and category contracts below are validated against those derivations. Scalar charge and channel compatibility are exact only conditional on the declared weak-doublet scalar content; scalar existence and economy are owned by issue #609.",
   "current_manifest_path": "manifests/port_current_response_reference.json",
   "current_manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
   "current_receipt_path": "receipts/port_current_inner_reference.receipt.json",
   "current_receipt_sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb",
+  "spin_statistics_artifact_path": "manifests/spin_statistics_semantic_artifact.json",
+  "spin_statistics_artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a",
   "exterior_matter_contract": {
     "block_trace_charges": {
       "color_block": "-1/3",

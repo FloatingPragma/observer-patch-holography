@@ -68,16 +68,17 @@ a zoo.
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. On the
 certified twelve-port branch, incidence and target-blind port readback derive
-the signed response and exact current algebra. Under the declared fermionic
-Spin category, the anomaly and
+the signed response and exact current algebra. The exhaustive selection scan
+fixes the matter content with its fermionic grading as an output, the
+measured transport double cover forces the Spin typing, and the anomaly and
 central-descent calculations give the charge pattern, a three-color carrier,
 and the maximal faithful matter image
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication is
-MAR-free and conditional on physical matter typing. The cover and its
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors, so
-physical global-form selection is open. The economy rule supplies
-the conditional minimum $N_g=3$ and orders extra light sectors, not that
-finite gauge calculation.
+MAR-free. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
+the same local tensors; the measured flux-sector menu of the carrier
+federation selects the full quotient at finite source scope. The economy
+rule supplies the conditional minimum $N_g=3$ and orders extra light
+sectors, not that finite gauge calculation.
 
 This chain inherits the collective history of particle physics. Rutherford's
 recoil opened it. Chadwick found the

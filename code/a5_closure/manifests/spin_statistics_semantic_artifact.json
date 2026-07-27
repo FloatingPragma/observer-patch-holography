@@ -1,0 +1,310 @@
+{
+  "artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a",
+  "canonical_klein_four_lift_table": [
+    {
+      "deck_permutation": [
+        1,
+        0,
+        3,
+        2,
+        6,
+        7,
+        4,
+        5,
+        11,
+        10,
+        9,
+        8
+      ],
+      "lift_square": "-1",
+      "quaternion_lift": [
+        "0",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "deck_permutation": [
+        2,
+        3,
+        0,
+        1,
+        7,
+        6,
+        5,
+        4,
+        10,
+        11,
+        8,
+        9
+      ],
+      "lift_square": "-1",
+      "quaternion_lift": [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "deck_permutation": [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10
+      ],
+      "lift_square": "-1",
+      "quaternion_lift": [
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "carrier_binding": {
+    "antipode": {
+      "p00": "p03",
+      "p01": "p02",
+      "p02": "p01",
+      "p03": "p00",
+      "p04": "p07",
+      "p05": "p06",
+      "p06": "p05",
+      "p07": "p04",
+      "p08": "p11",
+      "p09": "p10",
+      "p10": "p09",
+      "p11": "p08"
+    },
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "incidence_edge_count": 30,
+    "oriented_face_count": 20,
+    "port_order": [
+      "p00",
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09",
+      "p10",
+      "p11"
+    ]
+  },
+  "deck_measurement": {
+    "antipode_is_orientation_reversing": true,
+    "incidence_automorphism_group_order": 120,
+    "matrix_realization": "exact_q_sqrt5_orthogonal_fit_on_measured_frame",
+    "orientation_preserving_rotations": 60,
+    "orientation_reversing_elements": 60
+  },
+  "issue": 314,
+  "lift_measurement": {
+    "centre_elements": [
+      "+1",
+      "-1"
+    ],
+    "centre_order": 2,
+    "conclusion": "the measured deck rotations lift to a closed 120-element unit-quaternion group with binary-icosahedral order profile, unique involution -1, and centre {+1, -1}",
+    "lift_arithmetic": "exact_unit_quaternions_over_q_sqrt5",
+    "lift_group_order": 120,
+    "order_profile": {
+      "1": 1,
+      "10": 24,
+      "2": 1,
+      "3": 20,
+      "4": 30,
+      "5": 24,
+      "6": 20
+    },
+    "unique_nontrivial_involution": "-1"
+  },
+  "orientation_convention": {
+    "faces": "all_twenty_oriented_face_determinants_positive_in_measured_frame",
+    "improper_coset_reverses_oriented_faces": true,
+    "rotations_preserve_oriented_faces": true,
+    "weyl_relabeling_note": "reversing the measured orientation exchanges the two quaternion conjugation classes; composing that reversal with the global conjugation of the response artifact is the only same-reduct relabeling"
+  },
+  "physical_source_gate": {
+    "continuum_spin_statistics_theorem": false,
+    "deck_equivariant_refinement_persistence": true,
+    "frame_transport_lift_measured": true,
+    "laboratory_exchange_measurement": false,
+    "lift_group_binary_icosahedral": true,
+    "no_section_over_any_klein_four_deck_subgroup": true,
+    "orientation_chirality_convention_measured": true,
+    "passed": true,
+    "scope": "finite source-model scope: the gate aggregates the seven measured facts above; the two false rows are separate lanes (laboratory attachment #569, continuum QFT) and never enter 'passed'",
+    "unique_nontrivial_central_involution": true,
+    "unique_spin_structure_on_oriented_support": true
+  },
+  "port_vertex_frame": {
+    "p00": [
+      "0",
+      "1",
+      "1/2 + 1/2*sqrt(5)"
+    ],
+    "p01": [
+      "0",
+      "1",
+      "-1/2 + -1/2*sqrt(5)"
+    ],
+    "p02": [
+      "0",
+      "-1",
+      "1/2 + 1/2*sqrt(5)"
+    ],
+    "p03": [
+      "0",
+      "-1",
+      "-1/2 + -1/2*sqrt(5)"
+    ],
+    "p04": [
+      "1",
+      "1/2 + 1/2*sqrt(5)",
+      "0"
+    ],
+    "p05": [
+      "1",
+      "-1/2 + -1/2*sqrt(5)",
+      "0"
+    ],
+    "p06": [
+      "-1",
+      "1/2 + 1/2*sqrt(5)",
+      "0"
+    ],
+    "p07": [
+      "-1",
+      "-1/2 + -1/2*sqrt(5)",
+      "0"
+    ],
+    "p08": [
+      "1/2 + 1/2*sqrt(5)",
+      "0",
+      "1"
+    ],
+    "p09": [
+      "1/2 + 1/2*sqrt(5)",
+      "0",
+      "-1"
+    ],
+    "p10": [
+      "-1/2 + -1/2*sqrt(5)",
+      "0",
+      "1"
+    ],
+    "p11": [
+      "-1/2 + -1/2*sqrt(5)",
+      "0",
+      "-1"
+    ]
+  },
+  "provenance": {
+    "deterministic": true,
+    "producer": "oph_fpe.core.spin_statistics_response.produce_spin_statistics_artifact"
+  },
+  "refinement_equivariance": {
+    "deck_equivariant_persistence": true,
+    "equivariance_provenance": "the measured persistence map is the identity on the persistent port ids, so it commutes with every deck element by arithmetic",
+    "levels_measured": 3,
+    "per_level": [
+      {
+        "defect_ports": 12,
+        "level": 0
+      },
+      {
+        "defect_ports": 12,
+        "level": 1
+      },
+      {
+        "defect_ports": 12,
+        "level": 2
+      }
+    ],
+    "persistence_map": "identity_on_defect_ports",
+    "persistent_port_vertex_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "schema": "oph.spin_statistics_semantic_artifact.v1",
+  "section_obstruction": {
+    "conclusion": "the measured deck-to-lift extension admits no section over any Klein four-subgroup, so the measured transport double cover is non-split",
+    "deck_involutions": 15,
+    "involution_lift_squares": "-1 for all fifteen deck involutions",
+    "klein_four_subgroups": 5,
+    "no_section_over_any_klein_four_subgroup": true,
+    "section_exhaustion_per_subgroup": [
+      {
+        "obstruction": "every involution lift squares to -1, so no assignment closes",
+        "sections_found": 0,
+        "sign_assignments_tested": 8
+      },
+      {
+        "obstruction": "every involution lift squares to -1, so no assignment closes",
+        "sections_found": 0,
+        "sign_assignments_tested": 8
+      },
+      {
+        "obstruction": "every involution lift squares to -1, so no assignment closes",
+        "sections_found": 0,
+        "sign_assignments_tested": 8
+      },
+      {
+        "obstruction": "every involution lift squares to -1, so no assignment closes",
+        "sections_found": 0,
+        "sign_assignments_tested": 8
+      },
+      {
+        "obstruction": "every involution lift squares to -1, so no assignment closes",
+        "sections_found": 0,
+        "sign_assignments_tested": 8
+      }
+    ]
+  },
+  "support_homology": {
+    "betti_numbers": [
+      1,
+      0,
+      1
+    ],
+    "boundary_smith_ranks": [
+      11,
+      19
+    ],
+    "cells": {
+      "edges": 30,
+      "faces": 20,
+      "vertices": 12
+    },
+    "conclusion": "the oriented support is an exact homology two-sphere with b1 = 0, so it carries exactly one spin structure and the lift measurement has no spin-structure ambiguity",
+    "euler_characteristic": 2,
+    "integral_h2_torsion": [],
+    "spin_structure_count": 1
+  },
+  "target_firewall": "no_standard_model_label_statistics_contract_category_typing_or_matter_module_enters_the_producer"
+}

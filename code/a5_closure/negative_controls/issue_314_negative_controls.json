@@ -132,9 +132,21 @@
       "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "scalar_potential_injection",
       "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "spin_artifact_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "wrong_spin_artifact_schema",
+      "passed": true
     }
   ],
   "issue": 314,
-  "manifest_sha256": "5b8cfb566e2f2a854de1c5d9c860a55984dfd78f275b0192c1e9c18deb1f793d",
-  "schema": "oph.super_tannakian_matter_negative_controls.v4"
+  "manifest_sha256": "6ccb5ce33b85e01efb2d57524cd0b34baa5a009df6ea2e60f0772d41e03a745c",
+  "schema": "oph.super_tannakian_matter_negative_controls.v5"
 }
