@@ -1,6 +1,6 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-27T09:12:37Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-27T09:34:18Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
