@@ -253,7 +253,7 @@ it can enter a claim. A short-expression near hit is not a derivation.
 |---|---|
 | `code/P_derivation/interval_contraction_certificate.py` | `4177208147d18f0c2d36b027ea5acb3a6db15335fa088d610c98163b6bfd7efb` |
 | `code/a5_closure/a5_screen_sm_closure.json` | `33c8edf0e3c12899dfefdf1000efeb489c4ef398d6ffa576b5cbb998d90ed1ec` |
-| `code/a5_closure/echosahedral_selector_certificate.py` | `857792a474f46dc8582627f65bad271e4f613365fe2f675a4b7d5dd353ebb2b6` |
+| `code/a5_closure/echosahedral_selector_certificate.py` | `e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7` |
 | `code/a5_closure/manifests/echosahedral_federation_reference.json` | `12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14` |
 | `code/a5_closure/manifests/port_current_response_reference.json` | `b4385017e209fa3b9765e89fdf987089b555d0335572e95e09f6e38f826bc71a` |
 | `code/a5_closure/port_current_inner_certificate.py` | `a273a30bec5b0cfd9ea81610ab8ba4e1e4481858036d1c21d31fc0178a640b8c` |
