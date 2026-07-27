@@ -85,7 +85,7 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
     PipelineStep(
         "quark_axiom_level_yukawa_moduli_nonidentifiability",
         "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
-        "Refresh the no-extra-axiom MAR/Yukawa counterfamily theorem.",
+        "Refresh the A1-A3 Yukawa-output non-definability theorem.",
     ),
     PipelineStep(
         "quark_sigma_source_boundary",

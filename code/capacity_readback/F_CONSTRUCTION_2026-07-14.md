@@ -37,7 +37,7 @@ The construction consumes:
 
 `F(N) = Cap_read(Obs(nf(U_N)))`, closure equation `N_CRC = F(N_CRC)`, count
 representation `Pi(N) = |Omega^sc_N| * e^(-N)`, selector
-`N_star = MAR argmax_N [log|Omega^sc_N| - N]`.
+`N_star = argmax_N [log|Omega^sc_N| - N]` for the declared diagnostic score.
 Source: `paper/recovering_relativity_..._compact.tex`, Definition
 `def:self-closure-density` and Remark `rem:self-closure-counting-target`;
 `paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex`, global self-closure section
@@ -215,7 +215,7 @@ surface. **Branch point BR-6, Cap_read family (menu size 4).**
 `l(N) = log|Omega^sc_N| - N = (rho-1)*N + c*log N + d`, `l'(N) = (rho-1) + c/N`.
 
 - `rho < 1, c > 0`: unique interior stationary point `N_star = c/(1-rho)`, `l'' < 0`.
-- `rho < 1, c <= 0`: `l' < 0` everywhere; the MAR argmax sits on the left boundary of
+- `rho < 1, c <= 0`: `l' < 0` everywhere; the declared-score argmax sits on the left boundary of
   the admissible interval; no input-free interior selector. P4 fails structurally.
 - `rho = 1, c > 0`: `l' > 0` everywhere; argmax at the right boundary. P4 fails.
 - `rho = 1, c < 0`: `l' < 0` everywhere. P4 fails.

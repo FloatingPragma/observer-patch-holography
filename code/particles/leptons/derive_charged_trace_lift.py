@@ -347,7 +347,7 @@ def _existing_axiom_independence_theorem() -> dict[str, Any]:
         "preserved_existing_antecedents": [
             "D9 gauge group, matter representations, Higgs role, hypercharge lattice, N_c and N_g",
             "anomaly cancellation and the existence of the allowed L H^dagger e^c Yukawa monomial",
-            "Yukawa-completability, rank, and the MAR complexity vector",
+            "Yukawa-completability, rank, and the declared structural packet",
             "D10 gauge-coupling, weak-scale, and electroweak pole outputs",
             "D9 representation-role projectors and exact quark-channel leakage zero",
             "all refinement squares when the same constant rescaling is used at every stage",

@@ -59,10 +59,10 @@ Each paper is a publication that an outside reader finishes without access to
 the repository, the ledgers, or the other papers.
 
 - A paper never reads as a list of project-internal labels. Internal tier and
-  rule names (QFT-Q1 through QFT-Q4, MAR, MGNS-1, Q0, FJ, DAG as a tier graph)
+  rule names (QFT-Q1 through QFT-Q4, MGNS-1, Q0, FJ, DAG as a tier graph)
   carry no meaning outside the project, so the prose states the thing itself:
-  "exact finite quantization", "formal perturbative quantization", "the economy
-  minimum", "the modular algebra-state reconstruction data".
+  "exact finite quantization", "formal perturbative quantization", "the modular
+  algebra-state reconstruction data".
 - Where a paper depends on a companion result, it states the result in words
   and cites the companion paper. It does not hand the reader a label.
 
@@ -85,7 +85,7 @@ the repository, the ledgers, or the other papers.
   spelled-out words fit, they are used instead.
 - An acronym that survives is spelled out at its first use in every paper
   independently, including acronyms that are standard in the field.
-- Project-internal acronyms and named rules (MAR, CFQ, KMS in the OPH-specific
+- Project-internal acronyms and named rules (CFQ, KMS in the OPH-specific
   sense) never appear in an abstract, in the book, or in any informal surface.
   In technical sections they are defined before first use.
 - Proper names of outside tools and results keep their usual form
@@ -96,10 +96,24 @@ the repository, the ledgers, or the other papers.
 - The book is pop-science and standalone. It explains the physics to a reader
   who has never opened a paper.
 - The book NEVER carries internal identifiers, tier labels, rule names, or
-  repository paths. Concepts appear under plain descriptions: "the economy
-  rule", not an acronym.
+  repository paths.
 - Quantities the book itself defines and explains (a named capacity, a named
   constant) stay, because the book gives the reader their meaning on the page.
+
+## Axiom basis
+
+- A surface that states or counts the axiom basis gives exactly three axioms
+  and pairs every axiom with both forms in the same local context: one
+  plain-language sentence, then the concise formal statement, then what the
+  axiom constrains, then what it does not imply, then a citation to
+  `docs/AXIOM_REFERENCE.md`. A surface that only consumes an axiom names the
+  exact dependency and cites the reference.
+- The symbol \(A_5\) names the alternating group on five letters, never an
+  axiom. Where confusion is possible, the group is typeset with a subscript
+  and introduced as a group.
+- Retired principles are never mentioned by name in active prose. A former
+  consequence appears only through its surviving premises: a conditional
+  window, a declared completion, a classified interface, or a countermodel.
 
 ## Consistency
 

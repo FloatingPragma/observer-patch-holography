@@ -190,9 +190,9 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     231: {
         "phase": "axiom-status",
         "claim_level": "independence decision gate",
-        "blocker": "Axiom 3/Axiom 4 independence proof or downgrade.",
-        "closure": "Five-axiom basis language matches the proved independence/dependence status.",
-        "falsification": "Axiom independence is asserted while a dependency proof or countermodel is missing.",
+        "blocker": "Interface independence proof or downgrade against the three-axiom basis.",
+        "closure": "Basis language matches the proved independence/dependence status of each classified interface.",
+        "falsification": "Interface independence is asserted while a dependency proof or countermodel is missing.",
         "chrome_policy": "Use for proof/countermodel audit after local packet.",
     },
     232: {
@@ -204,12 +204,12 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "chrome_policy": "Use for proof audit after local BW packet.",
     },
     233: {
-        "phase": "mar-formalization",
-        "claim_level": "theorem gap",
-        "blocker": "MAR realization space, well-founded order, minimality, and uniqueness theorems.",
-        "closure": "MAR claims have formal definitions, order, minimality theorem, and uniqueness boundary.",
-        "falsification": "MAR has no well-founded order compatible with the stated minimality claims.",
-        "chrome_policy": "Use for proof audit after local formalization.",
+        "phase": "retired-claim-audit",
+        "claim_level": "withdrawn premise",
+        "blocker": "No theorem gap remains: economy selection is not part of the three-axiom basis.",
+        "closure": "All active surfaces classify finite economy scores as diagnostics that select no physics.",
+        "falsification": "An active theorem continues to infer physical uniqueness from an economy score.",
+        "chrome_policy": "Do not launch a worker; enforce the source guard.",
     },
     234: {
         "phase": "particle-provenance",

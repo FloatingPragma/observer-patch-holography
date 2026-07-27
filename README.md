@@ -11,7 +11,7 @@ gauge group, and a table of measured constants. OPH begins with observers:
 bounded systems that carry local state, read part of themselves and their
 neighbors, keep records, and repair disagreement. From this it derives the rest.
 Reality emerges from observer overlap repair on a holographic screen. From
-five axioms and two constants, $P$ and $N$, the observed universe arises:
+three axioms and two constants, $P$ and $N$, the observed universe arises:
 quantum measurement, Lorentzian spacetime, the conditional Einstein branch,
 gauge symmetry, and matter are readouts of one finite observer-consistency
 system on their stated premises.
@@ -95,34 +95,55 @@ certificates:
 
 The rest of this README is the architecture those receipts come from.
 
-## The Five Axioms
+## The Three Axioms
 
-The whole construction stands on the five axioms of
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf):
+The whole construction stands on three core axioms. The canonical statements
+live in [the axiom reference](docs/AXIOM_REFERENCE.md) and the machine
+registry `claims/axiom_registry.yaml`; the papers include the shared formal
+basis.
 
-1. **A1: A screen net.** A finite net of local algebras is assigned to
-   connected patches of the holographic screen, the observer-facing support
-   charted by $S^2$ on the certified spherical branch. The screen is not
-   generic: its microphysical realization is the federated twelve-port
-   carrier architecture with local icosahedral rotation symmetry $A_5$,
-   stated precisely in
-   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+1. **A1: Oriented twelve-port observer screen.** There exists an observer
+   patch net on an oriented spherical screen. At every finite resolution,
+   each local carrier has twelve primitive boundary ports forming the
+   vertices of an oriented triangular boundary with 30 edges and 20 faces,
+   combinatorially the boundary of an icosahedron. Carriers join through
+   typed seams and coherent triple overlaps, refine to an oriented spherical
+   support, and expose local state, readback, records, repair moves, and
+   checkpoints. Formally: for every regulator $r$ there is a typed object
+   $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,\mathcal R_r,\mathcal I_r,
+   \mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$ whose carriers carry twelve
+   primitive central port projections and the exact boundary packet
+   $K=(P,E,F,o)$, joined by seam algebras into a nerve with a degree-one
+   bridge to the oriented spherical support, all commuting with refinement.
    The local carrier, the federation of carriers, and the global $S^2$
-   support chart stay typed and distinct throughout the corpus.
-2. **A2: Overlap consistency.** Neighboring patches must agree on shared
-   observables. No patch sees the whole universe; a fact becomes public only
-   when it survives comparison across overlaps.
-3. **A3: Local MaxEnt with refinement stability.** Each patch carries the
-   least biased local state compatible with its finite constraint data,
-   stably under refinement.
-4. **A4: Recoverable generalized entropy.** Records can be recovered after
-   further evolution; this supplies the collar-recovery and focusing
-   structure used by the gravity lane.
-5. **A5: Minimal admissible realization.** The simplest low-energy sector
-   compatible with the consistency constraints is selected.
+   support stay typed and distinct throughout the corpus.
+2. **A2: Observer agreement.** Observers operating on the screen agree on
+   the meaning of the data they jointly interpret. Formally: the
+   interpretation map $\mathcal J_r$ from observer-accessible data to
+   operational meanings is natural with respect to every visible overlap
+   restriction, recharting, seam translation, higher-overlap map, and
+   refinement map on accepted public data. No patch sees the whole universe;
+   a fact becomes public only when it survives comparison across overlaps.
+3. **A3: Conditional maximum randomness.** Everything that observer
+   agreement leaves unconstrained is maximally random. Formally: the
+   realized state is the information projection of an exact reference family
+   onto the convex set of compatible local state families satisfying the
+   finite observer-visible constraints. The finite A1-generated observer
+   cover is state-determining on that feasible set, and its exact weights are
+   strictly positive:
+   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
+   D(\rho_{r,P}\Vert\tau_{r,P})$.
 
-Everything else in the repository is the working-out of what these five
-axioms force.
+None of the axioms contains a gauge group, a particle list, a recovery law,
+or a selection rule. Collar recovery, generalized-entropy structure, and
+sector completions enter as named interfaces and declarations at the results
+that consume them, each classified as an exact theorem, an exact result
+inside a named finite realization, a declared open interface, an
+independence result with countermodels, or a physical identification.
+
+Everything else in the repository is the working-out of what these three
+axioms force, and of exactly how much further structure each physical
+conclusion consumes.
 
 ## The Idea In Plain Language
 
@@ -286,7 +307,7 @@ calculation gives a common $\mathbb Z_6$ kernel on those tensors, so their
 maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
 $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. This
-exact finite implication does not use the minimal-admissibility rule.
+exact finite implication uses its stated premises alone.
 Physical fermion typing, global-form selection, and identification with
 laboratory currents are open. The transportable-sector/Tannaka construction
 is a separate compact-group route, and the source-bound identification of the
@@ -312,8 +333,9 @@ matter typing, global-form selection, laboratory current identification,
 three-family attachment, exclusion of extra light sectors,
 the Einstein source tower, and the physical closure packets are open. The
 [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
-records their work packages. The value $N_g=3$ is the minimum of the declared
-economy class until the frozen face-phase route is physically attached. Local
+records their work packages. The value $N_g=3$ is a declared completion
+inside the conditional window until the frozen face-phase route is
+physically attached. Local
 icosahedral incidence constrains the carrier, while the federation nerve
 requires its own construction.
 
@@ -373,8 +395,8 @@ attachment is open, tracked on the issue tracker.
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Echosahedral selector and finite $A_5$ current theorem | Source-derived twelve-unit split, inverse pairing, proper $A_5$ action, rank-three frame, and unique central graph involution on the declared carrier lineage. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Conditional Standard Model faithful matter image | On the declared conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; physical global-form selection is open. No economy axiom enters this finite implication | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels; scalar multiplicity, physical matter selection, three-family attachment, and exclusion of extra light sectors are open. $N_g=3$ is an economy minimum until its family attachment is derived | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Conditional Standard Model faithful matter image | On the declared conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels; scalar multiplicity, physical matter selection, three-family attachment, and exclusion of extra light sectors are open. The generation count is a declared completion inside the conditional window $3\le N_g\le5$ until its family attachment is derived | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression; source matching, an independent gauge-symmetry engine, covariance, physical-current amplitudes, and the clock are open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -436,7 +458,7 @@ survival-boundary calibration tests.
 
 ## The Twist: The Universe Is Its Own Simulator
 
-Everything above stands on the five axioms alone. There is one further
+Everything above stands on the three axioms alone. There is one further
 hypothesis, and it arrives as a twist rather than a foundation. It is itself
 an indirect consequence of consistency: something that exists with no outside
 support must be capable of creating itself. A completely consistent
@@ -471,7 +493,7 @@ branch with both values returned by the architecture. That physical
 attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
 physical derivation. The first-principles $N$ closure is work in progress.
-Reading $N$ from the universe leaves every consequence of the five axioms
+Reading $N$ from the universe leaves every consequence of the three axioms
 intact.
 
 Under full closure, the loop answers the last question a theory of

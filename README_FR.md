@@ -13,7 +13,7 @@ commence par des observateurs : des systèmes bornés dotés d’un état local,
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. Elle en dérive le reste. La réalité émerge de la
 réparation des recouvrements d’observateurs sur un écran holographique. De
-cinq axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
+trois axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
 la mesure quantique, l’espace-temps lorentzien, la branche conditionnelle
 d’Einstein, les symétries de jauge et la matière sont des relectures d’un
 seul système fini de cohérence entre observateurs, sous leurs prémisses
@@ -106,32 +106,61 @@ certificats :
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 
-## Les cinq axiomes
+## Les trois axiomes
 
-Toute la construction repose sur les cinq axiomes de
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf) :
+Toute la construction repose sur trois axiomes fondamentaux. Les énoncés
+canoniques se trouvent dans [la référence des axiomes](docs/AXIOM_REFERENCE.md)
+et dans le registre machine `claims/axiom_registry.yaml` ; les articles
+incluent la base formelle partagée.
 
-1. **A1 : Un réseau d’écran.** Un réseau fini d’algèbres locales est assigné
-   aux parcelles connexes de l’écran holographique, le support tourné vers
-   l’observateur, cartographié par $S^2$ sur la branche sphérique certifiée.
-   L’écran n’est pas générique : sa réalisation microphysique est
-   l’architecture fédérée de porteurs à douze ports de symétrie icosaédrique
-   locale $A_5$, énoncée précisément dans
-   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
-   Le porteur local, la fédération de porteurs et la carte de support
-   globale $S^2$ sont typés et distincts dans tout le corpus.
-2. **A2 : Cohérence des recouvrements.** Les parcelles voisines doivent
-   s’accorder sur les observables partagées.
-3. **A3 : MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
-   l’état local le moins biaisé compatible avec ses contraintes finies.
-4. **A4 : Entropie généralisée récupérable.** Les registres sont
-   récupérables après l’évolution ; c’est la structure de récupération et de
-   focalisation de la voie gravitationnelle.
-5. **A5 : Réalisation admissible minimale.** Le secteur de basse énergie le
-   plus simple compatible avec les contraintes de cohérence est sélectionné.
+1. **A1 : Écran d’observateurs orienté à douze ports.** Il existe un réseau
+   de parcelles d’observateur sur un écran sphérique orienté. À chaque
+   résolution finie, chaque porteur local possède douze ports de bord
+   primitifs qui forment les sommets d’un bord triangulaire orienté à 30
+   arêtes et 20 faces, combinatoirement le bord d’un icosaèdre. Les porteurs
+   se joignent par des coutures typées et des recouvrements triples
+   cohérents, se raffinent en un support sphérique orienté et exposent un
+   état local, une relecture, des registres, des mouvements de réparation et
+   des points de contrôle. Formellement : pour chaque régulateur $r$ il
+   existe un objet typé $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,
+   \mathcal R_r,\mathcal I_r,\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$ dont
+   les porteurs portent douze projections de port centrales primitives et le
+   paquet de bord exact $K=(P,E,F,o)$, joints par des algèbres de coutures
+   en un nerf muni d’un pont de degré un vers le support sphérique orienté,
+   le tout commutant avec le raffinement. Le porteur local, la fédération de
+   porteurs et le support global $S^2$ restent typés et distincts dans tout
+   le corpus.
+2. **A2 : Accord des observateurs.** Les observateurs qui opèrent sur
+   l’écran s’accordent sur le sens des données qu’ils interprètent
+   conjointement. Formellement : l’application d’interprétation
+   $\mathcal J_r$ des données accessibles aux observateurs vers les
+   significations opérationnelles est naturelle vis-à-vis de chaque
+   restriction de recouvrement visible, changement de carte, traduction de
+   couture, application de recouvrement supérieur et application de
+   raffinement sur les données publiques acceptées. Aucune parcelle ne voit
+   l’univers entier ; un fait devient public seulement lorsqu’il survit à la
+   comparaison entre recouvrements.
+3. **A3 : Aléa maximal conditionnel.** Tout ce que l’accord des observateurs
+   laisse sans contrainte est maximalement aléatoire. Formellement : l’état
+   réalisé est la projection d’information d’une famille de référence exacte
+   sur l’ensemble convexe des familles d’états locaux compatibles qui
+   satisfont les contraintes finies visibles par les observateurs. La
+   couverture finie engendrée par A1 détermine l’état sur cet ensemble
+   réalisable, et ses poids exacts sont strictement positifs :
+   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
+   D(\rho_{r,P}\Vert\tau_{r,P})$.
 
-Tout le reste du dépôt est le déploiement de ce que ces cinq axiomes
-imposent.
+Aucun des axiomes ne contient un groupe de jauge, une liste de particules,
+une loi de récupération ou une règle de sélection. La récupération de
+collier, la structure d’entropie généralisée et les complétions de secteurs
+entrent comme interfaces nommées et déclarations aux résultats qui les
+consomment, chacune classée comme théorème exact, résultat exact dans une
+réalisation finie nommée, interface ouverte déclarée, résultat
+d’indépendance avec contre-modèles ou identification physique.
+
+Tout le reste du dépôt est le déploiement de ce que ces trois axiomes
+imposent, et de la quantité exacte de structure supplémentaire que chaque
+conclusion physique consomme.
 
 ## L’idée en langage simple
 
@@ -291,7 +320,7 @@ calcul exhaustif de l’action centrale donne ensuite un noyau commun
 $\mathbb Z_6$ sur ces tenseurs. Leur image fidèle maximale est
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients
 par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Cette
-implication finie exacte n’emploie pas la règle d’admissibilité minimale.
+implication finie exacte n’utilise que ses prémisses énoncées.
 Le typage fermionique physique, le choix de la forme globale et
 l’identification aux courants de laboratoire sont ouverts. La construction
 indépendante par secteurs transportables et Tannaka est une seconde route
@@ -305,9 +334,9 @@ l’attachement des trois familles, l’exclusion des secteurs légers
 supplémentaires, la tour source d’Einstein et les paquets physiques de clôture
 sont ouverts. Le
 [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues)
-enregistre leurs lots de travail. La valeur $N_g=3$ est le minimum de la
-classe économique déclarée tant que la route gelée des phases de faces n’est
-pas physiquement attachée. L’incidence icosaédrique locale contraint le
+enregistre leurs lots de travail. La valeur $N_g=3$ est une complétion
+déclarée à l’intérieur de la fenêtre conditionnelle tant que la route gelée
+des phases de faces n’est pas physiquement attachée. L’incidence icosaédrique locale contraint le
 porteur, tandis que le nerf de la fédération exige sa propre construction.
 
 Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
@@ -367,14 +396,17 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
   conditionnellement l’équilibre du déterminant et le reçu de descente calcule
   le noyau commun $\mathbb Z_6$ et l’image fidèle maximale
   $S(U(3)\times U(2))\cong
-  (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sur les tenseurs déclarés, sans
-  employer l’axiome d’économie ; les quatre formes globales compatibles sont
-  le revêtement et ses quotients par $\mathbb Z_2$, $\mathbb Z_3$ et
-  $\mathbb Z_6$ ;
+  (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sur les tenseurs déclarés ;
+  cette implication finie n’utilise que ses prémisses énoncées ; les quatre
+  formes globales compatibles sont le revêtement et ses quotients par
+  $\mathbb Z_2$, $\mathbb Z_3$ et $\mathbb Z_6$, et la sélection physique de
+  la forme globale est portée par les données de secteurs de flux mesurées
+  du certificat de descente ;
 - le réseau de charges et les trois couleurs sont exacts sur ce paquet ; le
   balayage scalaire fixe seulement la paire de charges compatibles et les
-  trois canaux d’interaction, pas la multiplicité scalaire ; $N_g=3$ est le
-  minimum économique tant que l’attachement à trois familles physiques est
+  trois canaux d’interaction, pas la multiplicité scalaire ; $N_g=3$ est une
+  complétion déclarée à l’intérieur de la fenêtre conditionnelle
+  $3\le N_g\le5$ tant que l’attachement à trois familles physiques est
   ouvert ;
 - Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
@@ -466,8 +498,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Théorème fini de courant $A_5$ | Séparation en douze unités, appariement inverse, action propre de $A_5$, repère de rang trois et unique involution centrale du graphe issus de la source. Sous le contrat explicite de réponse centrale signée et involutive, les réponses admissibles sont $\pm J$, avec des signes sectoriels relatifs exacts, et un relèvement compact explicite réalise $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. La sélection physique indépendante de la réponse et l’identification aux courants de laboratoire sont ouvertes ; aucune conclusion automatique sur un support global $S^2$ | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire déclarée de modules extérieurs conjugués à quinze états, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; le choix physique de la forme globale est ouvert. Aucun axiome d’économie n’entre dans cette implication finie | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction ; la multiplicité scalaire, la sélection physique de la matière, l’attachement des trois familles et l’exclusion de secteurs légers supplémentaires sont ouverts. $N_g=3$ est un minimum économique jusqu’à la dérivation de son attachement familial | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire déclarée de modules extérieurs conjugués à quinze états, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; la sélection physique de la forme globale est portée par les données de secteurs de flux mesurées du certificat de descente à portée de source finie. Cette implication finie n’utilise que ses prémisses énoncées | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction ; la multiplicité scalaire, la sélection physique de la matière, l’attachement des trois familles et l’exclusion de secteurs légers supplémentaires sont ouverts. Le nombre de générations est une complétion déclarée à l’intérieur de la fenêtre conditionnelle $3\le N_g\le5$ jusqu’à la dérivation de son attachement familial | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition ; l’appariement à la source, un moteur indépendant de symétrie de jauge, la covariance, les amplitudes de courant physique et l’horloge sont ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -530,7 +562,7 @@ calibration W/Z de convention et de frontières de survie.
 
 ## Le twist : l’univers est son propre simulateur
 
-Tout ce qui précède repose sur les cinq axiomes seuls. Une hypothèse
+Tout ce qui précède repose sur les trois axiomes seuls. Une hypothèse
 supplémentaire arrive ensuite, comme un twist plutôt que comme un fondement.
 Elle est elle-même une conséquence indirecte de la cohérence : ce qui existe
 sans aucun support extérieur doit être capable de se créer soi-même. Une
@@ -559,7 +591,7 @@ physique est ouvert. Les théorèmes de point fixe certifient les racines des
 applications déclarées ; ils ne transforment pas un bassin observé ou une
 coordonnée définie par la cible en dérivation physique. La clôture de $N$ par
 premiers principes est en cours. La lecture de $N$ dans l’univers laisse
-intactes les conséquences des cinq axiomes.
+intactes les conséquences des trois axiomes.
 
 Sous clôture complète, la boucle répond à la dernière question qu’une théorie
 du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est

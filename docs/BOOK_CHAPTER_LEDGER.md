@@ -36,11 +36,11 @@ prediction/control, and continuation after a checkpoint.
 Two more bridges stay visible. Phase locking is a candidate synchronization
 mechanism. Consensus requires accepted descent and the same quotient normal
 form. Local $A_5$ incidence does not supply the global $S^2$ support.
-On the particle side, the A5 screen-current route and the D7-D9 Tannaka/MAR
+On the particle side, the A5 screen-current route and the D7-D9 Tannaka
 route are two compatible conditional outputs. Their identity as one physical
-group requires a source-bound commuting square. MAR chooses $N_g=3$ only
-as the least value in its declared economy class; a physical rank-45
-three-family attachment is open.
+group requires a source-bound commuting square. The generation count
+$N_g=3$ enters only as a declared completion inside the conditional window
+$3 \le N_g \le 5$; a physical rank-45 three-family attachment is open.
 
 Finally, the relativity chapters keep the repaired BW dependency explicit.
 `FiniteCapBWCertificate` supplies the cap and support-flow certificate.
@@ -140,14 +140,14 @@ map is proved on the declared rooted-tree packet-net domain, where the boundary
 map is the root-packet readback; on any wider consistent quotient it is an
 application-specific premise.
 
-The five axiom groups are not meant as arbitrary declarations. They bundle
+The three axioms are not meant as arbitrary declarations. They bundle
 lessons from several mature fields. Finite screen capacity comes from
 black-hole thermodynamics and holography. Local algebras come from quantum
 theory and algebraic quantum field theory. Overlap gluing comes from sheaf
 logic, quantum marginal problems, and operational comparison. Generalized
 entropy and recoverability come from semiclassical gravity and quantum
-information. The economy principle belongs to the selection part of the
-program, where the admissible low-energy sectors are narrowed.
+information; in OPH they live in classified gravity interfaces with
+countermodels, never as axiom content.
 
 The chapter's diagram, the consensus funnel, is a repair picture. Many local
 descriptions enter. Some mismatch. Some can be repaired.
@@ -704,9 +704,9 @@ isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
 In OPH there are two routes that must not be blended. Transportable sectors
-reconstruct a compact group on the refinement branch, and Minimal Admissible
-Realization (MAR) selects the declared one-Higgs Standard Model packet inside
-its economy class. Separately, the oriented twelve-port coefficient module
+reconstruct a compact group on the refinement branch, with the one-Higgs
+Standard Model packet entering as a declared completion with open physical
+status. Separately, the oriented twelve-port coefficient module
 recognizes the Standard Model Lie type through the target-blind finite
 inverse-port response producer. The common $\mathbb Z_6$ kernel on the matter
 side comes from the transformations that act trivially on the realized
@@ -779,13 +779,13 @@ independent mixing status.
 
 The generation-count diagram marks a conditional window: it begins at three
 for intrinsic CP capability and closes above five from the declared
-weak-sector ultraviolet clause. MAR then chooses three because generation
-number is an explicit economy coordinate. This is not a theorem of the
+weak-sector ultraviolet clause. Inside that window, three generations enter
+as a declared completion. This is not a theorem of the
 icosahedral graph. Turning the canonical rank-three candidate band into three
 physical chiral families requires a complex rank-45 attachment, the
 right locality and residue, compatible symmetry breaking or descent, and
 refinement control. The chapter is careful about which entries are proved,
-which are economy assumptions, which are benchmark checks, and which require
+which are declared completions, which are benchmark checks, and which require
 physical construction or external data.
 
 The builders are too many for a short list, but the relay includes Dirac,

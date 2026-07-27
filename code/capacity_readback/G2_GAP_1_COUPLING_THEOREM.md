@@ -132,7 +132,7 @@ Inherits IH-3 (declared D10 branch conventions).
 contraction is `-log|g_*'| = X/48`, with `48 = 2*m_rep` and
 `m_rep = 2*dim(su(3)+su(2)+u(1)) = 24` derived by the representation-to-spectrum
 round-count theorem. This derivation does not use the twelve-port screen, the global
-quotient, or the MAR matter realization (`R_m_rep_24_certificate.json`). The equalities
+quotient, or matter-menu completeness (`R_m_rep_24_certificate.json`). The equalities
 `12 = 8+3+1` and `24 = 2(8+3+1)` therefore do not identify the sieve ports or their
 oriented bookkeeping register with gauge generators or the product-adjoint repair
 register. Inherits IH-4 (repair-tick declared items).

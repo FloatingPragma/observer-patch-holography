@@ -7,7 +7,7 @@
 
 Companion to [G2_GAP_1_COUPLING_THEOREM.md](G2_GAP_1_COUPLING_THEOREM.md).
 Historical target: GAP-A8, the P4
-obligation for the coupled readback (the MAR argmax representation and the
+obligation for the coupled readback (the declared-score argmax representation and the
 fixed-point representation select the same `N`). Machine checks:
 [cp2_p4_premise_reduction.py](cp2_p4_premise_reduction.py), artifact
 `runtime/cp2_p4_premise_reduction_check.json`.
@@ -28,11 +28,10 @@ proven load chart `X(N) = log(N/pi)`.
   supporting, recovered-package carrying, own-surface readback of `N`).
 - **Limiting density.** `l(N) = lim_r log A_r(N) - N`, on the same cofinal
   refinement as `F_r -> F` (spec P1), where the limit exists.
-- **Selector and its carrier.** The MAR argmax
-  `N_star = argmax_{N in I} l(N)`, non-uniqueness resolved by the MAR
-  (Minimal Admissible Realization) lexicographic order; the count
-  representation consumes a smoothness/interior-maximum assumption the MAR
-  order does not license (`def:self-closure-density`), and the accepted proof
+- **Diagnostic extremum and its carrier.** The declared-score argmax
+  `N_star = argmax_{N in I} l(N)`; the count representation consumes a
+  smoothness/interior-maximum assumption that the finite score definition
+  does not license (`def:self-closure-density`), and the accepted proof
   carrier is the derivative-sign certificate `H_N = l'` with a unique
   positive-to-negative sign change (spec Section 1.3).
 - **Fixed-point readback.** `N_CRC = F(N_CRC)` with the coupled map of
@@ -49,7 +48,7 @@ configuration at capacity `N` reads back `F(N)`. Then clause 4 is
 all-or-nothing: `Omega^sc_N` is empty unless `F(N) = N`.
 
 **Theorem P4-A (support collapse).** Under the aggregate reading,
-`supp(A) = Fix(F)`, so for any readback map with a fixed point the MAR argmax
+`supp(A) = Fix(F)`, so for any readback map with a fixed point the declared-score argmax
 over the support equals the fixed point, and P4 coherence holds degenerately.
 For a map with no fixed point (the recorded CAP-K family) the selector is
 empty. Machine witness (artifact B1): the coupled readback residual is
@@ -72,7 +71,7 @@ differentiable on `I` and carries the accepted derivative-sign certificate
 (unique positive-to-negative sign change of `H_N = l'` on `I`). Then
 
 ```
-MAR argmax of l  =  N_CRC      iff      H_N(N_CRC) = 0,
+declared-score argmax of l  =  N_CRC      iff      H_N(N_CRC) = 0,
 ```
 
 that is, P4 coherence for the coupled readback is equivalent to

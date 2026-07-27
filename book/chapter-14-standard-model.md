@@ -284,9 +284,9 @@ The electron is stable. The muon and tau decay quickly.
 The fermions come in a strange pattern: three copies. The up and down quarks, plus the electron and its neutrino, form the first generation. The charm and strange quarks, plus the muon and its neutrino, form the second. The top and bottom, plus the tau and its neutrino, form the third.
 
 The Standard Model by itself does not explain why there are three generations.
-On the declared OPH one-Higgs economy class, the admitted window is three to
-five and the economy rule selects its least value. This is a model-selection
-statement; section 14.9 states its standing precisely. The charged members of the second and
+In OPH, on the declared one-Higgs class, the CP and weak-sector conditions
+leave three, four, or five generations. The count is open, and three enters
+as a declared completion; section 14.12 states its standing precisely. The charged members of the second and
 third observed generations are heavier copies of the first, while the
 neutrino sector has its own mixing pattern. Almost all ordinary matter uses
 only first-generation particles.
@@ -595,8 +595,8 @@ $R=-J$. An exact compact lift then realizes the Standard Model
 current algebra. Given the declared conjugate pair of exterior matter modules,
 the matter and central-descent receipts fix the charge lattice up to
 conjugation, the three-color carrier, and the common center kernel. Classification
-keeps gluing patterns that fit around every loop. The economy rule is not used
-in this conditional finite implication.
+keeps gluing patterns that fit around every loop. No selection principle is
+used in this conditional finite implication.
 
 The consistency test underneath that first stage is technical, and its point is
 simple. Some ways of gluing patches around a loop leave a leftover twist, and
@@ -621,17 +621,19 @@ three-entry object rotated by the color symmetry. "Pseudoreal" and "complex"
 distinguish whether the mirror representation is effectively the same object or
 a genuinely different one.
 
-The minimal coupled carrier makes the quark doublet a color triplet and fixes
-$N_c=3$ inside the declared packet. On the same one-Higgs class, intrinsic CKM
+Within the declared determinant-balanced $3+2$ exterior packet, the quark
+doublet is a color triplet and $N_c=3$. On the same one-Higgs class, intrinsic CKM
 CP capability requires at least three generations and weak-sector ultraviolet
-consistency permits at most five. The economy rule chooses $N_g=3$ because generation count
-is one of its economy coordinates. The graph and anomaly equations do not make
+consistency permits at most five. Those conditions leave three, four, or
+five generations. The count is open, and $N_g=3$ enters as a declared
+completion. The graph and anomaly equations do not make
 that choice. The Witten anomaly is a consistency check on the resulting
 triplet-doublet structure.
 
-The distinction is sharp: no economy clause enters this conditional
-current, charge, or $\mathbb Z_6$ kernel calculation. Economy enters the
-three-family minimum and the exclusion of extra light sectors. Physical
+The distinction is sharp: no completion clause enters this conditional
+current, charge, or $\mathbb Z_6$ kernel calculation. The declared completion
+covers the three-family count and the absence of extra light sectors, and
+both carry open physical status. Physical
 matter typing and global-form selection require independent constructions.
 
 ### The Icosahedral Closure Route
@@ -645,11 +647,13 @@ quark or a weak boson appears.
 The finite carrier recognizes the same Lie type from a second direction
 through a source-derived response. This route starts with the reference
 microarchitecture from Chapter 3, long before quarks, weak doublets, or
-measured particle data enter the story. On the declared echosahedral carrier,
-the defect readback lives at twelve
-equivalent ports, and the energy accounting forces the cheapest loadout:
-exactly one unit of charge at every port, with every alternative costing at
-least two units more. The wiring of the edges then does the rest. It pairs
+measured particle data enter the story. On the declared twelve-port carrier,
+the defect readback lives at twelve equivalent ports. The separate integer
+total-twelve load and quadratic readback packet has a unique all-unit
+minimizer, with every alternative costing at least two units more. This is an
+exact named-realization result; derivation of the load fiber and readback law
+from the complete A1 mechanism grammar is an open theorem problem. The wiring of the edges
+then does the rest. It pairs
 each port with the one directly opposite it, three steps away across the
 graph, it hands the whole structure the sixty rotations of a regular
 icosahedron, the group called $A_5$, and it recovers the icosahedron's actual
@@ -821,7 +825,7 @@ number of physical scalar multiplets or their dynamics.
 They also explain the weak load. The quark doublet appears in three color
 copies, and the lepton doublet adds one more, giving four weak doublets per
 generation. Four is even, so the global $SU(2)$ Witten check closes. The
-conditional economy minimum of three families would therefore carry twelve
+declared three-family completion would therefore carry twelve
 weak doublets after physical attachment, and pairing each slot with an
 orientation label gives twenty-four oriented weak slots, the same finite
 count as twelve ports with two orientations.
@@ -935,8 +939,9 @@ That fixes the quark doublet to be a color triplet:
 
 $$\boxed{N_c = 3}$$
 
-The same minimal coupled carrier produces the $SU(3)$ factor and emits the
-color count. A separate oddness argument is unnecessary.
+The declared determinant-balanced $3+2$ carrier produces the $SU(3)$ factor
+and emits the color count inside the certified exterior-module menu. A
+completeness theorem for that menu is open.
 
 ### The Witten Check
 
@@ -999,20 +1004,20 @@ Combining the lower and upper bounds gives the viable window:
 
 $$3 \le N_g \le 5.$$
 
-### The Minimal Viable Window
+### The Window and the Declared Completion
 
 CKM CP capability and weak-sector UV completability define the viable window.
 Here UV completability means that the theory can keep making sense at shorter
 distances and higher energies, with no immediate breakdown when the resolution
 is increased.
 
-A minimal admissible realization principle then picks the smallest option in
-the declared economy class. "Minimal admissible" means the smallest option
-that satisfies the listed consistency tests:
+Those conditions leave three, four, or five generations, and nothing in the
+axioms narrows the window further. The count is open. Three enters as a
+declared completion, the value the rest of the book carries:
 
 $$\boxed{N_g = 3}$$
 
-This boxed value is a conditional economy selection. It is not forced by anomaly
+This boxed value is a declared completion with open physical status. It is not forced by anomaly
 cancellation, the $A_5$ graph, or the target-free source reduct.
 
 The one-Higgs slot also has a clean local geometric carrier. The construction
@@ -1050,9 +1055,9 @@ those belong to the OPH hierarchy and Higgs/top quantitative branch.
 
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
-The economy axiom disfavors extra unfixed Yukawa structure inside its
-declared admissible class. Among the allowed options, its smallest viable one
-wins. With $N_c=3$ and the conditional economy value $N_g=3$, each generation
+The declared completion carries no extra unfixed Yukawa structure; whether
+nature agrees is an open physical question.
+With $N_c=3$ and the declared value $N_g=3$, each generation
 carries four left-handed weak doublets, an even number, so the Witten anomaly
 is satisfied generation by generation. This check does not construct the
 physical family attachment.
@@ -1127,9 +1132,9 @@ which of those roles propagate as particles.
 
 The particle picture can be told as one continuous line. The framework first
 rebuilds a conditional gauge structure from charge sectors that fit together
-around every loop. A smallest-that-works rule then picks a declared Standard
-Model packet, its charge lattice, the color carrier, and an economy-class
-generation count. The same structure
+around every loop. The matter receipts then fix a declared Standard
+Model packet, its charge lattice, and the color carrier, and a declared
+completion sets the generation count inside the open three-to-five window. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
 positive-energy quantum sectors give the corresponding particles.
@@ -1333,8 +1338,8 @@ framework accounts for several concrete facts.
 modules, anomaly freedom forces determinant balance, primitive integrality
 fixes the charge lattice up to conjugation, and the coupled carrier fixes the
 color triplet. CKM CP capability and weak-sector ultraviolet consistency give
-$3\le N_g\le5$, and the economy rule selects the least family count inside
-its declared class.
+$3\le N_g\le5$; the count is open inside that window, and three enters as a
+declared completion.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives
@@ -1357,7 +1362,7 @@ multiple is one electron-Dirac unit, while the primitive class also carries
 color-centre flux. This is exact lattice arithmetic, and the measured flux
 sectors of the carrier federation realize each class as a two-puncture flux
 tube through the screen, with the electric line polarization forced by
-mutual locality with the realized matter. Theta periodicity still requires
+mutual locality with the realized matter. Theta periodicity requires
 four-dimensional instanton-sector and topological-action data, and no
 dynamical monopole follows from the lattice or the sector menu.
 
@@ -1451,7 +1456,7 @@ inputs, the cosmic-capacity selector, and the calibrated clock-and-curvature
 map are work in progress.
 
 The result is an organized conditional particle packet: a specific gauge
-group, charge pattern, color carrier, economy-class generation count, carrier
+group, charge pattern, color carrier, declared generation count, carrier
 inventory, and quantitative comparison surfaces, with candidate stable
 patterns organized by the screen's emergent symmetries. Underneath the whole
 inventory runs the quietest thread in the chapter. The screen that carries

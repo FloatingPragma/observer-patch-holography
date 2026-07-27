@@ -184,8 +184,8 @@
     },
     {
       "row": 6,
-      "selector_id": "mar_matter_class_one_higgs_witness",
-      "label": "MAR matter class with the one-generation/one-Higgs witness (N_g = 3 as least economy value)",
+      "selector_id": "declared_matter_completion_one_higgs_witness",
+      "label": "Declared matter completion with the one-generation/one-Higgs witness",
       "class": "exposed_premise",
       "conditional_on": [],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
@@ -193,11 +193,11 @@
         "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
       ],
       "owner_issues": [],
-      "where": "Minimal admissible realization is axiom five; the low-energy packet with the one-generation/one-Higgs chiral witness is declared in the D8/D9 antecedents. The packet admits 3 <= N_g <= 5 and selects N_g = 3 as the least value of the declared economy class.",
+      "where": "The completed matter packet carries separately declared three-generation and one-Higgs completions inside the conditional window 3 <= N_g <= 5 given by the CP-capability and weak-sector clauses. The one-generation chiral witness is realized exactly; the generation count, scalar multiplicity, and extra-sector completeness are open physical attachments, and no minimality argument enters any conclusion. Source completeness for extra light sectors is issue #609.",
       "menu": {
         "size": 3,
-        "alternatives": "N_g in {3, 4, 5} within the declared economy class",
-        "enumeration_source": "Standard Model gauge paper cor:ng"
+        "alternatives": "the conditional window admits N_g in {3, 4, 5}; the declared completion displays three without selecting it",
+        "enumeration_source": "Standard Model gauge paper conditional generation window (Proposition 6.9)"
       },
       "compression_input": true,
       "receipts": [
@@ -205,13 +205,13 @@
       ],
       "lean": [],
       "negative_controls": [
-        "MAR uniqueness promotion is rejected by the matter-lift verifier (`MAR_UNIQUENESS_PROMOTION`)",
-        "the equal-MAR-score quark counterfamily exhibits nonuniqueness of flavor closure"
+        "the window bounds are the complete numerical content of the declared clauses; no value inside the window is selected",
+        "arbitrary sterile extensions remain countermodels to any completeness reading of the declared completion"
       ],
       "paper_anchors": [
         {
-          "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-          "anchor": "ax:mar"
+          "file": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+          "anchor": "thm:global-form-boundary"
         }
       ]
     },

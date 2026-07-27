@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Held-out quark mass tests of the frozen shape law (#377, #379, #380).
 
-The axiom-level nonidentifiability theorem stands: Axioms 1-5 plus fixed P
+The axiom-level nonidentifiability theorem stands: Axioms 1-3 plus fixed P
 do not define the quark spread moduli, and this artifact does not claim
 otherwise. It runs the strongest intermediate test available on the current
 corpus: freeze the candidate structure (profile rays from rho_ord, the

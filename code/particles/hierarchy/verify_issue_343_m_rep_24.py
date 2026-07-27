@@ -97,7 +97,7 @@ def build_derivation_chain(
             "uses": [
                 "the active connected current algebra is su(3)+su(2)+u(1)",
                 "its adjoint support has no mixed X/Y generators or extra visible U(1)",
-                "the screen selector, global group, and MAR matter realization are not used",
+                "the screen selector, global group, and matter-menu completeness are not used",
             ],
             "source_artifact": CORPUS_PRODUCT_ADJOINT_SOURCE,
             "conclusion": (
@@ -137,7 +137,7 @@ def build_derivation_chain(
         },
         {
             "step": 4,
-            "premise": "OPH reversible orientation-doubling axiom",
+            "premise": "Declared reversible orientation-doubling grammar",
             "uses": [
                 "the OPH finite patch-carrier pipeline operates on a completed compare/write/verify slice",
                 "record-preserving repair requires every primitive repair tick to be paired with its co-oriented verification half (write/check, action/coaction, ket/bra)",
@@ -222,7 +222,7 @@ def build_derivation_chain(
                 "from single-orientation SU(5), m=48 from doubled SU(5), "
                 "graviton-augmented support) is rejected on structural grounds; "
                 "no other branch satisfying the OPH product-adjoint exclusion "
-                "and orientation-doubling axioms yields a different round count"
+                "and orientation-doubling grammar yields a different round count"
             ),
         },
     ]
@@ -271,7 +271,7 @@ def build_factor_origins(
             "value": orientation_multiplier,
             "role": "doubling from action/coaction (write/verify) reversible repair grammar",
             "source_theorem": (
-                "OPH reversible orientation-doubling axiom on the patch-carrier "
+                "Declared reversible orientation-doubling grammar on the patch-carrier "
                 "compare/write/verify slice"
             ),
             "source_artifact": CORPUS_ORIENTATION_DOUBLING_SOURCE,
@@ -301,7 +301,7 @@ def build_branch_scope() -> dict[str, Any]:
         "product_adjoint_branch": (
             "the active observer-visible current algebra is su(3)+su(2)+u(1), "
             "with no extra visible U(1) or mixed X/Y generators; a screen selector, "
-            "global quotient, and MAR matter package are not premises"
+            "global quotient, and matter-menu completeness are not premises"
         ),
         "reversible_repair_orientation_branch": (
             "the OPH finite patch-carrier pipeline operates on a completed "
@@ -488,7 +488,7 @@ def build_certificate() -> dict[str, Any]:
         "U(1) Lie algebra dimension = 1 (abelian Lie algebra)",
         "conditional product-adjoint branch (extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', quoted connected-adjoint premise)",
         "unoriented product-adjoint dimension 8+3+1=12 (extra/compact_proof_of_oph.tex)",
-        "OPH reversible orientation-doubling axiom (extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted m_rep premise)",
+        "declared reversible orientation-doubling grammar (extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted m_rep premise)",
         "parametric global repair-tick law |g_*'| = (N_CRC/pi)^(-1/(2*m)) from R_N_global_repair_tick_certificate.json",
     ]
     forbidden_used = sorted(set(used_inputs) & FORBIDDEN_INPUTS)
@@ -536,7 +536,7 @@ def build_certificate() -> dict[str, Any]:
             )
         ),
         "derivation_chain_step4_orientation_doubling": (
-            "orientation-doubling axiom" in derivation_chain[3]["premise"]
+            "orientation-doubling grammar" in derivation_chain[3]["premise"]
         ),
         "derivation_chain_step7_specializes_tick_law": (
             "Specialization of the parametric global repair-tick law"
@@ -593,7 +593,7 @@ def build_certificate() -> dict[str, Any]:
             "not_used": [
                 "twelve-port screen or A5 selector",
                 "global Z6 quotient",
-                "MAR matter realization",
+                "matter-menu completeness",
             ],
         },
         "representation_sector": {
@@ -666,7 +666,7 @@ def build_certificate() -> dict[str, Any]:
                 ),
                 "m_rep_24_primary": (
                     "This certificate derives m_rep = 24 from the product-adjoint "
-                    "premise + reversible orientation-doubling axiom "
+                    "premise + reversible orientation-doubling grammar "
                     "+ Lie-algebra dimension formulas + cyclic-scheduler order. "
                     "Steps 1-6 of the derivation chain do not use the tick law; "
                     "the per-tick exponent -1/(2m) appears in no premise or "
@@ -693,7 +693,7 @@ def build_certificate() -> dict[str, Any]:
             ),
             "other_branches_are_upstream_only": (
                 "The product-adjoint branch (extra/compact_proof_of_oph.tex), "
-                "the reversible orientation-doubling axiom (same), the cyclic "
+                "the reversible orientation-doubling grammar (same), the cyclic "
                 "scheduler branch (recorded in branch_scope), and the source-side "
                 "fixed point N_CRC^EW(P_*) (R_EW_global_capacity_certificate.json) "
                 "are strictly upstream of this certificate or symbolic only; "
@@ -723,7 +723,7 @@ def build_certificate() -> dict[str, Any]:
                 "branch + reversible orientation-doubling grammar + "
                 "cyclic scheduler. The parametric per-tick law -1/(2*m) is supplied by "
                 "R_N_global_repair_tick_certificate.json. The screen selector, global "
-                "quotient, and MAR matter package are not premises; the source-side fixed point "
+                "quotient, and matter-menu completeness are not premises; the source-side fixed point "
                 "N_CRC^EW(P_*) is supplied separately by R_EW_global_capacity_certificate.json."
             ),
         },

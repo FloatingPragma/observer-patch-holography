@@ -950,8 +950,9 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
     matter_selection = matter.get("selection", {})
     require(matter_selection.get("projector_rank") == 15, "matter projector rank drifted")
     require(
-        matter.get("mar_class", {}).get("uniqueness_promoted") is False,
-        "matter receipt unexpectedly promotes MAR uniqueness",
+        matter.get("candidate_matter_class", {}).get("uniqueness_promoted")
+        is False,
+        "matter receipt unexpectedly promotes candidate-class uniqueness",
     )
     does_not_close = matter.get("claim_boundary", {}).get("does_not_close", [])
     require(

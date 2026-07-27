@@ -377,10 +377,10 @@ def build_artifact(
             "logical_scope": (
                 "The connected-register rank calculation, Born-Lueders conditioning, and "
                 "canonical tracial-GNS probability-to-power map are closed finite "
-                "mathematics. Applying Minimal Admissible Realization to response-local "
-                "registers is additional structural content, and identifying this GNS "
-                "process with the physical charged-mass response requires the open exact "
-                "recoverable attachment below."
+                "mathematics. Selecting the response-local register and connected event is "
+                "additional structural content, and identifying this GNS process with the "
+                "physical charged-mass response requires the open exact recoverable "
+                "attachment below."
             ),
         },
         "conditional_theorem": {
@@ -513,7 +513,7 @@ def build_artifact(
             "id": "charged_GNS_to_physical_chiral_mass_recovery_attachment",
             "derived": False,
             "requirements": [
-                "justify applying Minimal Admissible Realization to the response-local two-state orientation register and the connected M6 admissibility event",
+                "derive a target-free source rule selecting the response-local two-state orientation register and the connected M6 admissibility event",
                 "construct the physical chiral L-H-E carrier with quotient-visible regular C3 family fibers and canonical kinetic forms",
                 "construct faithful trace-preserving recoverable u.c.p. maps between the finite source process and physical response process, with a left inverse and singlet/charged record intertwining",
                 "identify the physical GNS vector with the normalized positive square-root-mass response C=(Y_e^dagger Y_e)^(1/4), after kinetic whitening",

@@ -128,7 +128,7 @@
       "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
     ]
   },
-  "generated_utc": "2026-07-23T06:40:02Z",
+  "generated_utc": "2026-07-27T07:59:16Z",
   "p_trunk": {
     "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
     "alpha_inv": "136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341",
@@ -276,11 +276,11 @@
     {
       "axiom_level_obstruction_artifact": "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json",
       "axiom_level_obstruction_certified": true,
-      "current_boundary": "The target-free source equations fix the two ordered profile rays but leave their up/down positive spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the affine sector means and mass textures. The edge path begins at a hand-written transport template and does not select either modulus. The stronger Axioms-1--5 theorem constructs physically inequivalent Yukawa packages with the same MAR score, so the stated MAR order does not break this action.",
+      "current_boundary": "The target-free source equations fix the two ordered profile rays but leave their up/down positive spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the affine sector means and mass textures. The edge path begins at a hand-written transport template and does not select either modulus. The stronger three-axiom theorem constructs physically inequivalent Yukawa packages with the same registered source data because no typed A3 optimizer-to-Yukawa map exists.",
       "github_issue": 377,
       "id": "quark.source-spread-identifiability",
       "lane": "Quarks",
-      "next_action": "Keep all numeric quark rows suppressed. With additional axioms excluded, reopen only if a theorem from the existing MaxEnt/refinement data refutes the equal-MAR-score counterfamily and emits both spreads.",
+      "next_action": "Keep all numeric quark rows suppressed. Reopen only if an A1-generated flavor grammar and typed A3 optimizer-to-Yukawa theorem refute the counterfamily and emit both spreads.",
       "obstruction_artifact": "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
       "related_github_issues": [
         379,

@@ -659,7 +659,7 @@ overlap/gluing data
 -> transportable sector category
 -> explicit compact-gauge refinement receipt
 -> compact group by DR/Tannaka reconstruction
--> one-Higgs matter package selected by Minimal Admissible Realization
+-> one-Higgs matter package entered as a declared completion
 ```
 
 The first four steps classify the fixed-stage data. The refinement receipt
@@ -667,8 +667,9 @@ supplies the coherent block embeddings, surjective compact-group pullbacks,
 tensor realizations, and compatible forgetful fibers needed for the colimit;
 without it the refinement-limit category and compact group are conditional.
 With it, reconstruction can return a trivial compact group, or any compact
-group carried by the persistent tensor-category and fiber-functor data. Minimal
-admissible realization orders the declared low-energy packages on this route.
+group carried by the persistent tensor-category and fiber-functor data. The
+one-Higgs low-energy package on this route is a declared completion with open
+physical status.
 Zero obstruction itself does not select the Standard Model.
 
 The finite echosahedral route is independent:
@@ -688,7 +689,7 @@ Every finite algebraic arrow has a named executable receipt or Lean boundary.
 Incidence alone leaves a four-dimensional $A_5$-equivariant linear
 commutant. The target-blind producer adds the operational inverse-port
 readback rule and derives \(J\) from adjacency histories. No
-minimal-admissibility clause enters the resulting finite implication.
+matter-content selection rule enters the resulting finite implication.
 Physical matter typing, global-form selection, laboratory current
 identification, three-family attachment, exclusion of extra light sectors,
 the common-group map to the Tannaka route, and quantum field-theory
@@ -702,8 +703,9 @@ connected abelian factor, anomaly freedom forces determinant balance,
 primitive integrality fixes a conjugate pair of charge lattices, and exhaustive
 central-action enumeration gives the conjugation-insensitive `Z_6` kernel,
 character lattice, and dual cocharacter lattice. The cover and its
-intermediate quotients carry the same local tensors. Minimal admissible
-realization is not consumed by that
-conditional implication. Generation count is different: the declared economy
-rule selects `N_g=3` from `3 <= N_g <= 5` until the frozen face-phase family
+intermediate quotients carry the same local tensors. No matter-content
+selection rule is consumed by that
+conditional implication. Generation count is different: `N_g=3` is a declared
+completion, with open physical status, inside the conditional window
+`3 <= N_g <= 5` until the frozen face-phase family
 attachment is derived.

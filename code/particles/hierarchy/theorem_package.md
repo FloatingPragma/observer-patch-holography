@@ -319,7 +319,7 @@ m_{\rm rep}
 ```
 
 The cyclic repair scheduler on this oriented support has period 24. This result
-uses no screen/A5 selector, global quotient, or MAR matter package. Identifying
+uses no screen-selection premise, global quotient, or matter-menu completeness. Identifying
 the product adjoint with physical currents is an upstream premise. The SU(5)
 adjoint is a different support containing excluded mixed X/Y generators.
 The certificate is `certificates/R_m_rep_24_certificate.json`.

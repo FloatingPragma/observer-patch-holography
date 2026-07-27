@@ -30,7 +30,7 @@ Part B (P4, GAP-A8). Checks:
   B1. Aggregate reading of membership clause 4: support collapse. The coupled
       readback residual is certified nonzero off balance and encloses zero at
       balance, so the clause-4-exact support is the fixed-point box and the
-      MAR argmax over the support is the fixed point (degenerate coherence).
+      declared-score argmax over the support is the fixed point (degenerate coherence).
   B2. Per-configuration reading, positive control: for a count density
       satisfying CP-4 the derivative-sign certificate holds and the argmax box
       agrees with the fixed-point box.
@@ -373,7 +373,7 @@ def build() -> dict:
         "statement": "aggregate reading of membership clause 4: the readback "
         "residual is certified nonzero at every off-balance probe and "
         "encloses zero at balance, so the clause-4-exact support is the "
-        "fixed-point box and the MAR argmax over the support equals the fixed "
+        "fixed-point box and the declared-score argmax over the support equals the fixed "
         "point (degenerate coherence, the count representation carries no "
         "independent information)",
         "off_balance_probes": collapse_probes,
@@ -451,7 +451,7 @@ def build() -> dict:
     b4 = {
         "statement": "sign-carrier clause of CP-4 dropped: a remote maximum "
         "20 nats below balance tops the balance value by about 100 while the "
-        "balance point stays stationary to below 1e-80; the MAR argmax leaves "
+        "balance point stays stationary to below 1e-80; the declared-score argmax leaves "
         "the fixed point",
         "value_gap_lo": mp.nstr(_abs_lo(value_gap), 8),
         "H_at_balance_abs_hi": mp.nstr(_abs_hi(H_at_balance), 8),

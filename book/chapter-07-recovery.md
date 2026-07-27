@@ -340,15 +340,16 @@ three systems to see it.
 
 You cannot recover C from B alone. The GHZ state is non-Markov.
 
-## 7.9 The Fourth Axiom: Local Markov and Recoverability
+## 7.9 Recovery as a Working Hypothesis
 
-We can state the recovery rule as a physical principle. One piece of
-vocabulary first: a **collar** is a thin buffer strip wrapped around a region,
-like a moat around a castle.
+We can state the recovery rule as a precise working hypothesis. It is a
+property the theory names and tests, and it is deliberately kept off the
+axiom list. One piece of vocabulary first: a **collar** is a thin buffer
+strip wrapped around a region, like a moat around a castle.
 
-**Axiom 4 (Local Markov/Recoverability)**: For any three support regions $P_A$,
-$P_B$, and $P_C$ on the screen chart, where $P_B$ topologically separates
-$P_A$ from $P_C$:
+**Local Markov/Recoverability (working hypothesis)**: For any three support
+regions $P_A$, $P_B$, and $P_C$ on the screen chart, where $P_B$
+topologically separates $P_A$ from $P_C$:
 
 $$I(A:C|B) \leq \varepsilon(B)$$
 
@@ -357,6 +358,14 @@ is the separator, typically a collar, and the small quantity $\varepsilon(B)$
 is the allowed leakage past it. Exact Markov screening sets it to zero. In the
 finite thermal screen model, $\varepsilon(B)$ is a boundary-size prefactor
 times a factor that decays exponentially with the collar's thickness.
+
+The status of this statement matters. The gravity chapters consume it as a
+stated interface: wherever a result needs recovery, it says so. Finite
+pieces are proved, among them the thermal screen bound and the constructive
+tree-cover gluing below. Explicit countermodels show that the three axioms
+do not force it: there are federations satisfying every axiom in which a
+collar fails to screen its cap from the exterior. Whether the physically
+realized screen satisfies the property at every scale is an open obligation.
 
 The framework's repair tool is the Fawzi-Renner recovery map from earlier in
 this chapter. As the collar thickens, the repair error shrinks toward zero,
@@ -396,7 +405,7 @@ boundary supplies more places for a residual correlation to cross.
 ### Constructive Gluing (Tree Covers)
 
 In the finite-dimensional code-subspace setting, the arena of the
-error-correcting codes below, Axiom 4 yields a clean constructive result for
+error-correcting codes below, the recovery hypothesis yields a clean constructive result for
 patch families arranged like a tree. Each new patch touches the glued
 union only through a single separator $B$, the induced $A$-$B$-$C$ split is a
 genuine tensor product at each step, and recovery maps glue the patches into

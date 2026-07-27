@@ -563,7 +563,7 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     assert "compact_proof_of_oph.tex" in chain[0]["source_artifact"]
     assert "section 'The compact-gauge branch'" in chain[0]["source_artifact"]
     assert "line 482" not in chain[0]["source_artifact"]
-    assert "orientation-doubling axiom" in chain[3]["premise"]
+    assert "orientation-doubling grammar" in chain[3]["premise"]
     assert "compact_proof_of_oph.tex" in chain[3]["source_artifact"]
     assert "section 'The QCD-free hierarchy witness'" in chain[3]["source_artifact"]
     assert (

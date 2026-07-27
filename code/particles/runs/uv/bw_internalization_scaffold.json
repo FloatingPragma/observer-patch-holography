@@ -1,6 +1,6 @@
 {
   "artifact": "oph_uv_bw_internalization_scaffold",
-  "generated_utc": "2026-07-23T02:53:04Z",
+  "generated_utc": "2026-07-27T08:33:46Z",
   "status": "minimal_constructive_extension",
   "public_promotion_allowed": false,
   "current_boundary": "T1_plus_T3_external_scaling_limit_branch",
@@ -100,7 +100,7 @@
       "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
       "independent_bw_rigidity_on_realized_limit"
     ],
-    "current_internalized_scope": "Axiom-3 plus the fixed-cutoff collar/MaxEnt package internalize local Gibbs form, quasi-local propagation, endpoint-Lipschitz interval control, and refinement-stable branch persistence. The current corpus also packages the reference cap-local test system, the projectively compatible transported cap marginal family, and the asymptotic transport-equivalence certificate.",
+    "current_internalized_scope": "Axiom 3 with its exact local reference and constraint package gives the fixed-stage local Gibbs form, quasi-local propagation, and endpoint-Lipschitz interval control. The separate optimizer-pushforward interface supplies refinement-stable branch persistence. The current corpus also packages the reference cap-local test system, the projectively compatible transported cap marginal family, and the asymptotic transport-equivalence certificate.",
     "reason_current_corpus_fails": "The current corpus already packages the reference cap-local test system, the projectively compatible transported cap marginal family, and the asymptotic transport-equivalence certificate. The compactness/extraction step itself is not the missing proof. The live extraction input is the derived carried-collar schedule on fixed local collar models, and on the local-Gibbs plus exponential-mixing pullback branch the constructive-recovery / exact-Markov side is already latent once epsilon -> 0 on each fixed collar model. The only nonlatent lower input still external to the emitted chain is the eventual modular-transport common floor feeding the faithful modular-defect term; no second comparison-state spectral clause is missing because the exact-Markov reference inherits the same eventual floor once the exact-Markov modulus goes to zero on that fixed model. Without that clause, neither the faithful modular-defect witness, nor the carried-collar schedule, nor the canonical scaling-limit cap-pair realization is promoted.",
     "statement": "First exact object: starting from a projectively compatible extracted family of transported cap marginals on fixed reference type-I regulator cap algebras, realize a canonical scaling-limit observer cap pair (A_infty(C), omega_infty^C) without assuming type-I survival.",
     "follow_on_statement": "Second exact object: on that realized limit pair, prove from internal OPH premises alone that ordered null cut-pair data rigidify the residual cap-preserving conformal freedom to the unique BW hyperbolic subgroup lambda_C(s), so sigma_t^{omega_infty^C} = alpha_{lambda_C(2 pi t)} without reusing consequences already downstream of the BW branch.",

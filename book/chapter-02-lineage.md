@@ -416,12 +416,13 @@ trade places. Keep Escher's hands in a pocket. They will be needed again.
 
 One concrete regulator chart uses quantum link models. Imagine a triangulated
 screen where each edge carries a small quantum system. Rules at each vertex
-constrain which configurations are allowed, and maximum entropy selects the
-state. The implementation surface is a federation of finite patches, with the
+constrain which configurations are allowed. A3 selects the least informative
+compatible local state family relative to its exact reference, cover, and
+weights. The implementation surface is a federation of finite patches, with the
 screen acting as an observer-facing geometry chart. At fixed cutoff, the
-construction gives exact finite bookkeeping. Refinement turns the same read,
-compare, repair, and record structure into the smooth description used at
-larger scales. Spacetime, particles, and observers therefore appear as outputs
+construction gives exact finite bookkeeping. Separate source-bound refinement
+and optimizer-pushforward receipts carry the same read, compare, repair, and
+record structure across scales. Spacetime, particles, and observers therefore appear as outputs
 of the shared visible quotient rather than contents stored on a literal
 spherical shell.
 

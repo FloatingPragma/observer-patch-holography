@@ -1,0 +1,952 @@
+{
+  "schema": "oph.active_surface_inventory.v1",
+  "generator": "tools/check_axiom_consistency.py --inventory",
+  "surface_count": 186,
+  "entry_surfaces": [
+    "README.md",
+    "README_FR.md",
+    "docs/AXIOM_REFERENCE.md"
+  ],
+  "pdf_surfaces": [
+    "extra/compact_proof_of_oph.pdf",
+    "paper/observers_are_all_you_need.pdf",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+    "paper/reality_as_consensus_protocol.pdf",
+    "paper/screen_microphysics_and_observer_synchronization.pdf",
+    "book/reverse-engineering-reality-book.pdf"
+  ],
+  "surfaces": [
+    {
+      "path": "README.md",
+      "glob": "README.md",
+      "allowlisted": false
+    },
+    {
+      "path": "README_FR.md",
+      "glob": "README_FR.md",
+      "allowlisted": false
+    },
+    {
+      "path": "OPEN_PROBLEMS.md",
+      "glob": "OPEN_PROBLEMS.md",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/appendix_B_bft_qecc_extensions.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/observers_are_all_you_need.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/paradise_as_fixed_point_consensus.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/reality_as_consensus_protocol.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/release_info.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "glob": "paper/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/A5_WZ_PHYSICAL_STATUS_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/COMPACT_N_CLOSURE_PRO5.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DERIVATION_PAPER_PREAMBLE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/EINSTEIN_DERIVATION_SCOPE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FOUNDATIONAL_REFERENCES.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/MICROPHYSICS_MEASUREMENT_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/OBSERVERS_APPENDICES.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/OBSERVERS_N_CLOSURE_PRO5.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/OBSERVERS_REFERENCES.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/OBSERVERS_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PAPER.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/STANDARD_MODEL_DERIVATION_SCOPE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/STRICT_ONE_LOOP_WZ_POLE_MAP_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/THREE_AXIOM_BASIS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/chi_nu_susceptibility_bounds.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/compact_proof_of_oph.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/fine_structure_constant_derivation.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/koide_identity_from_positive_c3_face_circulants.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/machine_checked_finite_event_algebras.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/observable_normal_forms.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/thinking_as_patch_net_fixed_point_search.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "extra/yang_mills_gap_clay_problem.tex",
+      "glob": "extra/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_boltzmann_transport_derivation.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_cosmological_vacuum_and_structure_formation.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_cosmology_data_likelihood_contracts.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_cosmology_finite_source_cmb_program.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_dark_matter_paper.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
+      "glob": "cosmology/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "book/README.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/appendix-concept-glossary.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/appendix-extended-interludes.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-01-consistency.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-02-lineage.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-03-screen.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-04-entropy.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-05-algebra.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-06-overlap.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-07-recovery.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-08-holography.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-09-entanglement.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-10-error-correction.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-11-maxent.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-12-symmetry.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-13-desitter.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-14-standard-model.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-15-relativity.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-16-matter.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-17-darwin.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-18-strangeloop.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-19-synthesis.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/chapter-20-metaphysics.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/epilogue.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/prologue.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/APPLICATIONS.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/AXIOM_REFERENCE.md",
+      "glob": "docs/*.md",
+      "allowlisted": true
+    },
+    {
+      "path": "docs/AXIOM_REVISION_LEARNING_HANDOFF.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/BOOK_CHAPTER_LEDGER.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/COMMON_OBJECTIONS.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/COMPRESSION_SCORECARD.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/FLAVOR_AND_DE_SITTER_TWO_SIDED_AUDIT.md",
+      "glob": "docs/*.md",
+      "allowlisted": true
+    },
+    {
+      "path": "docs/FROZEN_PREDICTION_LADDER.md",
+      "glob": "docs/*.md",
+      "allowlisted": true
+    },
+    {
+      "path": "docs/HACKER_NEWS_START_HERE.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/HADRON.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/HARDWARE_EVIDENCE_BUNDLE_H.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/IBM_QUANTUM_CLOUD.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/OPH_FALSIFICATION_PROGRAM.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/PHASE_0_M0_CLEAN_CLONE_AUDIT_2026-07-25.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/PROOF_SPINE.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/README.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/SELECTION_LEDGER.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/STYLE_GUIDE.md",
+      "glob": "docs/*.md",
+      "allowlisted": true
+    },
+    {
+      "path": "docs/SURVIVAL_PROOF_FINAL_INTEGRATION_2026-07-20.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md",
+      "glob": "docs/*.md",
+      "allowlisted": true
+    },
+    {
+      "path": "claims/axiom_registry.yaml",
+      "glob": "claims/*.yaml",
+      "allowlisted": true
+    },
+    {
+      "path": "claims/claim_registry.yaml",
+      "glob": "claims/*.yaml",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/README.md",
+      "glob": "claims/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/assumption_dictionary.md",
+      "glob": "claims/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/active_surface_inventory.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/dependency_graph.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/frozen_prediction_register.json",
+      "glob": "claims/*.json",
+      "allowlisted": true
+    },
+    {
+      "path": "claims/physical_identification_registry.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/public_surface_quantitative_claims.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/selection_ledger.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5AngularMultiplets.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5CharacterField.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5Commutant.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5CouplingSymmetry.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5IncidenceResponse.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5OPH.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5PortAction.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5PortModule.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5SixAxes.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/Compact12.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/ExteriorSelection.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/OPHScreen.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PhysicalA5ForcingNoGo.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PortFrameGram.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/S2DesignSignature.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/TopThreeKernelFix.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/TraceBalancedKernel.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/TrichotomyCases.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/UnitSplit12.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/Z6Descent.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/Z6Exact.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/AbstractRewriting.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/BoundaryFiber.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/BridgeBoundaries.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/BridgeEquivalence.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Bridges/ObservableNormalForms.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CapacityFixedPoint.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/ClebschRatio.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarClause.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarLayer.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarModularT2.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarStates.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarStatesBridge.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CollarStatesT1.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CoreAxioms.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/AxiomAudit.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/IcosahedralAntibridge.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/IcosahedralAxisNoGo.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/IcosahedralOrbitStabilizer.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/KoideCirculant.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Primitives.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Rule90.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/SeedPi.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/W5Stabilizer.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/prediction-chain.svg",
+      "glob": "assets/prediction-chain.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/boundary-ledger.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/collar-tripartition.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/consensus-funnel.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/desitter-static-patch.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/entanglement-wedge-overlap.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/entropy-arrow.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/error-correction-layers.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/generation-count.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/matter-stability-ladder.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/maxent-clock.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/modular-flow-cap.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/newton-limit.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/null-blowup.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/observer-loop.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/overlap-consistency.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/platos-cave-projection.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/question-algebra-order.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/s2-screen.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/selection-filters.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/symmetry-to-conservation.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/synthesis-spine.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    },
+    {
+      "path": "assets/book_diagrams/tannaka-krein.svg",
+      "glob": "assets/book_diagrams/*.svg",
+      "allowlisted": false
+    }
+  ]
+}

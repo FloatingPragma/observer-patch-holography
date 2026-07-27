@@ -141,9 +141,10 @@ def build_artifact() -> dict[str, object]:
             "independent_bw_rigidity_on_realized_limit",
         ],
         "current_internalized_scope": (
-            "Axiom-3 plus the fixed-cutoff collar/MaxEnt package internalize local Gibbs form, "
-            "quasi-local propagation, endpoint-Lipschitz interval control, and refinement-stable "
-            "branch persistence. The current corpus also packages the reference cap-local test system, "
+            "Axiom 3 with its exact local reference and constraint package gives the fixed-stage "
+            "local Gibbs form, quasi-local propagation, and endpoint-Lipschitz interval control. "
+            "The separate optimizer-pushforward interface supplies refinement-stable branch "
+            "persistence. The current corpus also packages the reference cap-local test system, "
             "the projectively compatible transported cap marginal family, and the asymptotic transport-equivalence certificate."
         ),
         "reason_current_corpus_fails": (

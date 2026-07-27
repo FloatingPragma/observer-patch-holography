@@ -25,7 +25,7 @@ OUTPUT = (
 )
 
 
-def test_axioms_1_5_admit_physically_distinct_equal_mar_score_quark_spectra() -> None:
+def test_three_axioms_admit_physically_distinct_quark_spectra_without_output_map() -> None:
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
@@ -42,11 +42,10 @@ def test_axioms_1_5_admit_physically_distinct_equal_mar_score_quark_spectra() ->
     assert family["normalized_determinants_preserved"].endswith("= 1")
     assert family["quark_mass_singular_values_changed"] is True
 
-    mar = payload["axiom_invariance_audit"]["Axiom_5_MAR"]
-    assert mar["complexity_vector"] == "(chi_cpl,N_nonab,N_c,N_g)"
-    assert mar["Yukawa_eigenvalues_are_components_of_complexity_vector"] is False
-    assert mar["counterfamily_members_have_equal_MAR_score"] is True
-    assert mar["counterfamily_members_remain_distinct_MAR_minima"] is True
+    structural = payload["axiom_invariance_audit"]["declared_structural_packet"]
+    assert structural["Yukawa_eigenvalues_are_declared_structural_coordinates"] is False
+    assert structural["counterfamily_members_share_all_registered_source_data"] is True
+    assert structural["counterfamily_members_remain_physically_distinct"] is True
 
     policy = payload["reference_data_policy"]
     assert policy["direct_input_artifacts"] == []
@@ -57,4 +56,4 @@ def test_axioms_1_5_admit_physically_distinct_equal_mar_score_quark_spectra() ->
     assert policy["no_target_leak_by_construction"] is True
 
     assert payload["corollaries"]["unique_source_map_P_to_six_quark_masses_exists"] is False
-    assert payload["corollaries"]["MAR_breaks_counterfamily_under_current_definition"] is False
+    assert payload["corollaries"]["A3_breaks_counterfamily_under_registered_contract"] is False

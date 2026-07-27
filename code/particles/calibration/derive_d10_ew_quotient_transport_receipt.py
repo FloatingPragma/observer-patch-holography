@@ -140,7 +140,7 @@ def build_artifact(source_pair: dict, value_law: dict) -> dict:
             "certificate_evidence_status": "assumed_not_enumerated",
             "source_emitted_by_current_repo": False,
             "missing": (
-                "deformation enumeration or positive target-free MAR gap; without QT5 additional "
+                "deformation enumeration or a unique target-free source rule; without QT5 additional "
                 "output-changing paths or deformations remain unexcluded even if QT3 is assumed"
             ),
         },
@@ -178,7 +178,7 @@ def build_artifact(source_pair: dict, value_law: dict) -> dict:
                 "exact_rational_color_measure_and_incidence_counts",
                 "Z6_projector_and_normalized_trace",
                 "fibre_Gram_and_residual_pairing",
-                "complete_deformation_enumeration_and_positive_MAR_gap",
+                "complete_deformation_enumeration_and_unique_target_free_source_rule",
                 "same_branch_target_free_source_DAG",
                 "exact_verifier_receipt_bound_to_the_certificate_hash",
             ],

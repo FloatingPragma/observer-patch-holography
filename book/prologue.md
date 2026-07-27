@@ -102,7 +102,7 @@ Lorentz group as the conformal symmetry of the spherical screen, the Einstein
 form of gravity on its conditional branch, and an exact finite recognition of
 the Standard Model Lie type, shared-center quotient, and one chiral exterior
 module under explicitly stated response and matter contracts. The gauge
-recognition is MAR-free but conditional: incidence and target-blind readback
+recognition uses no selection principle and is conditional: incidence and target-blind readback
 derive the inverse-port response and sector spectrum, while physical matter
 typing and laboratory-current attachment are open. The results share one
 finite trunk while keeping separate gates: the map connecting the repaired
@@ -379,7 +379,7 @@ explains the hint once observer consistency is taken seriously. When the
 structural chain is in place, the book follows the closure-selected quantities
 through gravity, gauge structure, particles, and observers.
 
-This model rests on established mathematics and physics, organized around five
+This model rests on established mathematics and physics, organized around three
 core axioms. The framework gives conditional reconstructions of gravity and the
 symmetry structure behind the Standard Model, with separate physical source
 questions left visible. The book explains the path from observer consistency

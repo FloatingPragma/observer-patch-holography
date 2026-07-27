@@ -30,14 +30,14 @@ Scope (T0 only, per the scoping report `oph-544-state-side-scoping-report-
 * **S4** : admissible channels (linear, positive, trace-preserving : the
   requirements named in `rem:msascope`, nothing more), the closure defect
   of `def:closure-defect`, and the T0 theorem
-  `stateSide_axioms_do_not_force`.
+  `stateSide_interfaces_do_not_force`.
 
 **Claim discipline.** T0 contributes to the #544 independence resolution. It shows the paper's
 stated admissible-channel requirements
 cannot force the central-interface collar clause, because the identity
-channel is admissible and discharges refinement closure with closure
+channel is admissible and discharges the declared cross-scale closure with closure
 defect exactly zero on a non-central family. A forcing theorem would
-require stronger axioms for the admissible class. T2 records the modular
+require stronger premises for the admissible class. T2 records the modular
 boundary of this argument.
 
 Anti-smuggling discipline (report §3): `AdmissibleChannel` is
@@ -1132,7 +1132,7 @@ the non-central family `{uuC, XXC}` admits a refinement-stable realized
 MaxEnt branch. This is the state-side identity-channel component of the
 #544 independence resolution. A forcing theorem requires stronger axioms
 for the admissible class. -/
-theorem stateSide_axioms_do_not_force :
+theorem stateSide_interfaces_do_not_force :
     ∃ S : Fin 2 → CollarC,
       (∀ a, GaugeInvariantC (S a)) ∧
       (∃ a, CrossCutC (S a) ∧ S a ∉ FluxC) ∧
@@ -1166,6 +1166,6 @@ Quot.sound]`.  No `sorry`, no `native_decide`, no extra axioms. -/
 #print axioms finset_klDiv_nonneg
 #print axioms relEntropyM_gibbs_nonneg
 #print axioms identityChannel_closureDefect_eq_zero
-#print axioms stateSide_axioms_do_not_force
+#print axioms stateSide_interfaces_do_not_force
 
 end OPH

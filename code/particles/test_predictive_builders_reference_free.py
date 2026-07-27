@@ -36,6 +36,7 @@ REFERENCE_CONSUMER_ALLOWLIST = {
     "flavor/derive_quark_shape_law_heldout_prediction_test.py",
     "leptons/audit_charged_stage5_frozen_candidate.py",
     "leptons/derive_charged_d12_continuation_followup.py",
+    "leptons/derive_koide_circulant_identity.py",
     "leptons/derive_lepton_current_family_exact_readout.py",
     "leptons/derive_lepton_current_family_exactness_audit.py",
     "leptons/derive_lepton_current_family_quadratic_readout_theorem.py",

@@ -1,7 +1,7 @@
 {
   "artifact": "oph_d11_boundary_scale_midpoint_selection_theorem",
   "capacity_asymmetry_band": {
-    "delta_t_e_folds": 5.957067830657767,
+    "delta_t_e_folds": 5.957067830590499,
     "rows": [
       {
         "approx_mh_shift_gev": 0.0,
@@ -9,14 +9,14 @@
         "offset_e_folds": 0.0
       },
       {
-        "approx_mh_shift_gev": 0.6949912469100729,
+        "approx_mh_shift_gev": 0.6949912469022249,
         "capacity_ratio": 1.25,
-        "offset_e_folds": 0.3309482128143204
+        "offset_e_folds": 0.3309482128105833
       },
       {
-        "approx_mh_shift_gev": 2.0849737407302182,
+        "approx_mh_shift_gev": 2.084973740706675,
         "capacity_ratio": 2.0,
-        "offset_e_folds": 0.9928446384429611
+        "offset_e_folds": 0.9928446384317499
       }
     ],
     "statement": "AR3 is testable: a capacity asymmetry moves the selected scale off the midpoint by a computable amount, and the three-loop implied scale measures it."
@@ -28,7 +28,7 @@
     "premises_carried_fail_closed": true
   },
   "checks_pass": true,
-  "claim_boundary": "The implication from AR1, AR2, AR3 to the midpoint scale is proved exactly. The premises are a proposed selection principle without a derivation from the five axioms; the theorem shares the claim class of the completed conditional laws and inherits the registered three-loop discriminating test.",
+  "claim_boundary": "The implication from AR1, AR2, AR3 to the midpoint scale is proved exactly. The premises are a proposed selection principle without a derivation from the axioms; the theorem shares the claim class of the completed conditional laws and inherits the registered three-loop discriminating test.",
   "closed_form_identity": {
     "exact": true,
     "identity": "sqrt(mu_U * E_cell) = E_star * exp(-pi) * P^(-1/6)",
@@ -63,7 +63,7 @@
   "promotion_allowed": false,
   "row_class": "conditional_theorem_with_named_premises",
   "schema_version": 1,
-  "selected_scale_gev": 4.862867915188205e+17,
+  "selected_scale_gev": 4.862867915106425e+17,
   "status": "CONDITIONAL_SELECTION_THEOREM_PREMISES_OPEN",
   "theorem": {
     "conclusion": "the boundary scale is the log-midpoint sqrt(mu_U * E_cell) = E_star exp(-pi) P^(-1/6); with unequal capacities it is the capacity-weighted geometric mean",
@@ -76,7 +76,7 @@
     "proof": "the cost is strictly convex in renormalization time with positive second derivative 2(w1+w2); the exact gradient vanishes only at the weighted mean; equal weights give the midpoint; exponent algebra gives the closed form"
   },
   "two_loop_consequence": {
-    "mh_tree_gev": 125.77115268001006,
-    "mt_pole_gev": 172.62935949498873
+    "mh_tree_gev": 125.77115226639518,
+    "mt_pole_gev": 172.62935892273643
   }
 }

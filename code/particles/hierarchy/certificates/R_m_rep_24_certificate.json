@@ -18,7 +18,7 @@
     "not_used": [
       "twelve-port screen or A5 selector",
       "global Z6 quotient",
-      "MAR matter realization"
+      "matter-menu completeness"
     ]
   },
   "representation_sector": {
@@ -76,7 +76,7 @@
       "uses": [
         "the active connected current algebra is su(3)+su(2)+u(1)",
         "its adjoint support has no mixed X/Y generators or extra visible U(1)",
-        "the screen selector, global group, and MAR matter realization are not used"
+        "the screen selector, global group, and matter-menu completeness are not used"
       ],
       "source_artifact": "extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', quoted premise: 'Its connected adjoint is (8,1,0)+(1,3,0)+(1,1,0), excluding mixed (3,2,+/-5/6) generators'; paper/deriving_the_particle_zoo_from_observer_consistency.tex, section 'Local/global resonance continuation for the hierarchy'",
       "conclusion": "The active product adjoint has dimensions 8, 3, and 1; its support excludes mixed X/Y generators and extra visible U(1) factors."
@@ -104,7 +104,7 @@
     },
     {
       "step": 4,
-      "premise": "OPH reversible orientation-doubling axiom",
+      "premise": "Declared reversible orientation-doubling grammar",
       "uses": [
         "the OPH finite patch-carrier pipeline operates on a completed compare/write/verify slice",
         "record-preserving repair requires every primitive repair tick to be paired with its co-oriented verification half (write/check, action/coaction, ket/bra)",
@@ -155,7 +155,7 @@
         "the graviton is the dynamical metric branch, not an internal compact-gauge adjoint repair channel"
       ],
       "source_artifact": "extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', quoted exclusion of mixed (3,2,+/-5/6) generators; summary-table row 'Gauge-mediated proton-decay boundary', quoted premise: 'The connected product adjoint has no X/Y generator'",
-      "conclusion": "every nearby round count (m=12 unoriented, m=6 minimal carrier, m=16 color-only doubled, m=22 without U(1), m=24 from single-orientation SU(5), m=48 from doubled SU(5), graviton-augmented support) is rejected on structural grounds; no other branch satisfying the OPH product-adjoint exclusion and orientation-doubling axioms yields a different round count"
+      "conclusion": "every nearby round count (m=12 unoriented, m=6 minimal carrier, m=16 color-only doubled, m=22 without U(1), m=24 from single-orientation SU(5), m=48 from doubled SU(5), graviton-augmented support) is rejected on structural grounds; no other branch satisfying the OPH product-adjoint exclusion and orientation-doubling grammar yields a different round count"
     }
   ],
   "factor_origins": {
@@ -187,7 +187,7 @@
     "orientation_multiplier": {
       "value": 2,
       "role": "doubling from action/coaction (write/verify) reversible repair grammar",
-      "source_theorem": "OPH reversible orientation-doubling axiom on the patch-carrier compare/write/verify slice",
+      "source_theorem": "Declared reversible orientation-doubling grammar on the patch-carrier compare/write/verify slice",
       "source_artifact": "extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted premise: 'reversible orientation doubles the product-adjoint dimension: m_rep=2 dim(su(3)+su(2)+u(1))=2(8+3+1)=24'"
     },
     "m_rep": {
@@ -206,7 +206,7 @@
     }
   },
   "branch_scope": {
-    "product_adjoint_branch": "the active observer-visible current algebra is su(3)+su(2)+u(1), with no extra visible U(1) or mixed X/Y generators; a screen selector, global quotient, and MAR matter package are not premises",
+    "product_adjoint_branch": "the active observer-visible current algebra is su(3)+su(2)+u(1), with no extra visible U(1) or mixed X/Y generators; a screen selector, global quotient, and matter-menu completeness are not premises",
     "reversible_repair_orientation_branch": "the OPH finite patch-carrier pipeline operates on a completed compare/write/verify slice; for each unoriented adjoint generator the alphabet contains exactly two oriented primitive repair ticks (action/coaction, write/verify, ket/bra)",
     "cyclic_scheduler_branch": "the global repair cycle visits each oriented primitive exactly once per cycle, so the induced linear shift on the oriented support is a cyclic permutation whose order equals m_rep",
     "scope_note": "the conditional representation-to-spectrum result m_rep=24 and the specialization |g_*'| = (N_CRC/pi)^(-1/48) are theorems on the conjunction of the three branches above; the parametric law |g_*'| = (N_CRC/pi)^(-1/(2*m)) at the m-tick decomposition is supplied by the global repair-tick lemma. Identifying the product adjoint with physical currents is an upstream gate."
@@ -226,11 +226,11 @@
     "summary": "The bidirectional reference between R_m_rep_24_certificate.json and R_N_global_repair_tick_certificate.json is a peer cross-reference, not a circular dependency. The proof-level dependency graph is acyclic.",
     "primary_theorems_are_independent": {
       "global_repair_tick_lemma_primary": "R_N_global_repair_tick_certificate.json derives the parametric per-tick exponent law |g_*'| = (N_CRC/pi)^(-1/(2*m)) for an m-tick homogeneous decomposition from the D6 screen-capacity normalization, readback fixed-point closure, and scale-free homogeneity. The integer m is a free parameter throughout this derivation; m_rep = 24 is not used in any step of the parametric proof.",
-      "m_rep_24_primary": "This certificate derives m_rep = 24 from the product-adjoint premise + reversible orientation-doubling axiom + Lie-algebra dimension formulas + cyclic-scheduler order. Steps 1-6 of the derivation chain do not use the tick law; the per-tick exponent -1/(2m) appears in no premise or conclusion of steps 1-6."
+      "m_rep_24_primary": "This certificate derives m_rep = 24 from the product-adjoint premise + reversible orientation-doubling grammar + Lie-algebra dimension formulas + cyclic-scheduler order. Steps 1-6 of the derivation chain do not use the tick law; the per-tick exponent -1/(2m) appears in no premise or conclusion of steps 1-6."
     },
     "specialized_corollary_is_a_composition_not_a_circle": "The specialized result |g_*'| = (N_CRC/pi)^(-1/48) is the composition of the two independent primary theorems above. It is recorded in both R_N_global_repair_tick_certificate.json (as the m=m_rep=24 specialization of the parametric law) and R_m_rep_24_certificate.json derivation_chain step 7 (as the specialization at the derived m_rep=24). Recording the composition in both certs is a documentation convenience; neither primary proof feeds back into the other.",
     "umbrella_certificate_resolves_the_composition": "R_local_global_hierarchy_resonance_closeout_335.json composes both R_N_global_repair_tick_certificate.json and R_m_rep_24_certificate.json (and six other prerequisite theorems) as independent dependency artifacts. The umbrella is the canonical place where the -1/48 specialization is consumed without redundant cross-reference.",
-    "other_branches_are_upstream_only": "The product-adjoint branch (extra/compact_proof_of_oph.tex), the reversible orientation-doubling axiom (same), the cyclic scheduler branch (recorded in branch_scope), and the source-side fixed point N_CRC^EW(P_*) (R_EW_global_capacity_certificate.json) are strictly upstream of this certificate or symbolic only; none participate in a cycle. N_CRC^EW from R_EW_global_capacity_certificate.json is referenced only symbolically in the specialized exponent (N_CRC/pi)^(-1/48); no concrete numerical value of N_CRC is used in the m_rep=24 derivation, and R_EW_global_capacity_certificate.json does not depend on this certificate."
+    "other_branches_are_upstream_only": "The product-adjoint branch (extra/compact_proof_of_oph.tex), the reversible orientation-doubling grammar (same), the cyclic scheduler branch (recorded in branch_scope), and the source-side fixed point N_CRC^EW(P_*) (R_EW_global_capacity_certificate.json) are strictly upstream of this certificate or symbolic only; none participate in a cycle. N_CRC^EW from R_EW_global_capacity_certificate.json is referenced only symbolically in the specialized exponent (N_CRC/pi)^(-1/48); no concrete numerical value of N_CRC is used in the m_rep=24 derivation, and R_EW_global_capacity_certificate.json does not depend on this certificate."
   },
   "negative_controls": [
     {
@@ -296,7 +296,7 @@
     "U(1) Lie algebra dimension = 1 (abelian Lie algebra)",
     "conditional product-adjoint branch (extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', quoted connected-adjoint premise)",
     "unoriented product-adjoint dimension 8+3+1=12 (extra/compact_proof_of_oph.tex)",
-    "OPH reversible orientation-doubling axiom (extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted m_rep premise)",
+    "declared reversible orientation-doubling grammar (extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted m_rep premise)",
     "parametric global repair-tick law |g_*'| = (N_CRC/pi)^(-1/(2*m)) from R_N_global_repair_tick_certificate.json"
   ],
   "forbidden_inputs": [
@@ -321,7 +321,7 @@
       "every nearby round count is rejected on structural grounds (negative_controls)"
     ],
     "not_closed_here": [],
-    "scope": "the representation-to-spectrum theorem m_rep=24 and the specialization |g_*'| = (N_CRC/pi)^(-1/48) are conditional on the product-adjoint branch + reversible orientation-doubling grammar + cyclic scheduler. The parametric per-tick law -1/(2*m) is supplied by R_N_global_repair_tick_certificate.json. The screen selector, global quotient, and MAR matter package are not premises; the source-side fixed point N_CRC^EW(P_*) is supplied separately by R_EW_global_capacity_certificate.json."
+    "scope": "the representation-to-spectrum theorem m_rep=24 and the specialization |g_*'| = (N_CRC/pi)^(-1/48) are conditional on the product-adjoint branch + reversible orientation-doubling grammar + cyclic scheduler. The parametric per-tick law -1/(2*m) is supplied by R_N_global_repair_tick_certificate.json. The screen selector, global quotient, and matter-menu completeness are not premises; the source-side fixed point N_CRC^EW(P_*) is supplied separately by R_EW_global_capacity_certificate.json."
   },
   "acceptance_criteria_status": {
     "repair_grammar_representation_sector_spectral_object_and_tick_count_observable_defined": true,

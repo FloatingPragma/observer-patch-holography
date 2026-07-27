@@ -489,7 +489,7 @@ def build_artifact(source: dict[str, Any], source_meta: dict[str, Any]) -> dict[
         "charged_reference_data_consumed_scope": "runtime_execution_only",
         "public_charged_mass_promotion_allowed": False,
         "claim_class": {
-            "current_OPH5_alone_unique": False,
+            "current_A1_A3_alone_unique": False,
             "conditional_on_declared_architecture_unique": True,
             "runtime_continuous_fit_parameter_count": 0,
             "declared_architecture_contains_stipulated_continuous_choices": True,

@@ -1,4 +1,5 @@
 import ObserverPatchHolography.AbstractRewriting
+import ObserverPatchHolography.CoreAxioms
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
 import ObserverPatchHolography.BoundaryFiber

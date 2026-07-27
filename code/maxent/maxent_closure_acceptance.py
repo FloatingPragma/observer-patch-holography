@@ -19,7 +19,7 @@ O_1(x) = Z_x Z_{x+1} and O_2(x) = X_x, constrained through their homogeneous glo
 so N_con = 2 and N_glob = 0. The refinement channel is decimation (partial trace over odd
 sites), a completely positive trace-preserving coarse-graining.
 
-Both regimes stated by the refinement-closure clause are exhibited:
+Both regimes relevant to the separate optimizer-pushforward interface are exhibited:
 
 - generic multipliers: the closure defect is strictly positive, so closure under one fixed
   finite exponential family is a substantive renormalization condition, and the residual

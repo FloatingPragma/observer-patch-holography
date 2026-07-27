@@ -29,9 +29,9 @@
     "arg_b": "0.222224763427524420299358777606514807365010171718643065568712",
     "abs_b_over_a": "0.707104444275072003075755939496228549000312877091299790190395",
     "Q": "0.666664463409038938443574662553643561009382495847282275225786",
-    "abs_b_over_a_minus_exact_balance": "-0.000002336911475521325088422608620",
-    "relative_modulus_defect_ppm": "-3.304891902747579061263000000",
-    "Q_minus_two_thirds": "-0.000002203257627728223092004113023",
+    "abs_b_over_a_minus_exact_balance": "-0.0000023369114755213250884226086204902845230605971742463979448689953665",
+    "relative_modulus_defect_ppm": "-3.304891902747579061262957486805803060428981698920885389557711886100000",
+    "Q_minus_two_thirds": "-0.0000022032576277282230920041130231056572841708193843914408806666666667",
     "m_mu_over_m_e": "206.768300595180971740336250438069337267297486181700623840391",
     "provenance": "retrospective historically target-informed declared-model coordinate; zero charged targets are read at runtime"
   },
@@ -42,11 +42,11 @@
       "tau": "1776.93"
     },
     "Q": "0.6666644634026367029382786248892424584933042461962970542137359728464935",
-    "Q_minus_two_thirds": "-0.000002203264029963728388041777424",
+    "Q_minus_two_thirds": "-0.0000022032640299637283880417774242081733624204703696124529306938201732",
     "inferred_abs_b_over_a": "0.7071044442682813844226405654623032180291266189518775576251946815458548",
     "m_mu_over_m_e": "206.7682827084671796902080640552322774868514476087915663034803090115911",
-    "MCPR_Q_minus_measured_central": "0.000000000006402235505296037664401102516",
-    "MCPR_m_mu_over_m_e_minus_measured_central": "0.00001788671379205012818638283706",
+    "MCPR_Q_minus_measured_central": "0.0000000000064022355052960376644011025160782496509852210120500271535065",
+    "MCPR_m_mu_over_m_e_minus_measured_central": "0.0000178867137920501281863828370597804460385729090575369106909884089",
     "significance_claimed": false,
     "note": "The current PDG central masses give Q near the MCPR coordinate, not 0.666660511. The MCPR architecture was historically target-informed, so this near-equality is a diagnostic and not prospective evidence."
   },
@@ -96,11 +96,11 @@
   "provenance": {
     "mcpr": {
       "path": "particles/runs/leptons/charged_mcpr_completion_conditional.json",
-      "sha256": "8e98af7c39121ed10694779d4fefb43020196653dd403a77888679b7831c0936"
+      "sha256": "b0408203ad135c912a73abfd2b55697b6efc1cf28228cc9649076105724fa4ee"
     },
     "finite_GNS": {
       "path": "particles/runs/leptons/charged_koide_orientation_isometry.json",
-      "sha256": "cab8f240e4909d61a4e79559a756e29728ee8f0ded219b3d666e34847dfb5a4d"
+      "sha256": "613924c39d9d8269e6511474626bb55f131d3ddf4190c7180ad7ed23654f910d"
     },
     "face_carrier": {
       "path": "particles/runs/leptons/charged_icosahedral_face_carrier_frontier.json",

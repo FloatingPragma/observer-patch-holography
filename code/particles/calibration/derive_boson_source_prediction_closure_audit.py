@@ -583,8 +583,8 @@ def build_artifact(
             ],
         ),
         _gate(
-            "T09_branch_rigidity_mar",
-            "Branch rigidity or target-independent MAR selection",
+            "T09_branch_rigidity_source_selection",
+            "Branch rigidity or target-independent source selection",
             theorem_status="generic_criterion_recorded",
             closure_requirement_status="open_admissible_class_enumeration_and_unique_argmin",
             gate_passed=False,

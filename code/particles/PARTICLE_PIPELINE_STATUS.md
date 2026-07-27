@@ -1,6 +1,6 @@
 # Particle Pipeline Status
 
-Generated: `2026-07-23T06:40:02Z`
+Generated: `2026-07-27T07:59:17Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
@@ -113,8 +113,8 @@ Empirical-closure interval rows; the compare-only witness triple lies inside eve
 - Status: `closed_axiom_level_nondefinability_theorem`
 - Additional axioms used: `False`
 - Counterfamily: `(lambda_u,lambda_d) in (R_{>0})^2`
-- MAR complexity vector: `(chi_cpl,N_nonab,N_c,N_g)`
-- Equal MAR score across counterfamily: `True`
+- A1-A3 structural data remain fixed: `True`
+- A3 receives no Yukawa-output map: `False`
 - Public numeric quark rows allowed: `False`
 
 ## Quark Scheme and Yukawa Boundary

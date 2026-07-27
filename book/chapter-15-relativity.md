@@ -549,15 +549,17 @@ and Einstein's equation appears as the geometry required by that bookkeeping.
 
 ### What OPH Adds
 
-OPH provides the selection rule that makes entanglement equilibrium
-natural. The global state maximizes entropy subject to overlap consistency
-constraints. On the realized cap-label-preserving MaxEnt family, admissible
-fixed-cap variations satisfy
+OPH supplies a finite A3 information projection relative to an exact
+reference and the complete visible constraints. The gravity branch adds an
+edge-center decomposition, state alignment, an edge-reference factorization,
+a finite generalized-entropy identity, and a separate fixed-cap stationarity
+interface. On that declared branch, admissible fixed-cap variations satisfy
 
 $$\delta S_{\text{gen}}(C) = 0$$
 
-Entropy is stationary because the chosen state sits at the maximum
-allowed by the local consistency data.
+Stationarity is a named premise until it is derived for the identified finite
+functional and transported through the continuum limit. It is not a direct
+consequence of observer agreement or of A3 alone.
 
 The word admissible carries the load. The cap, boundary sector, charges, and
 declared constraint values are held fixed, apart from the stress-energy
@@ -693,8 +695,8 @@ approximation, while matter retains quantum expectation values.
 
 ### The Derivation Chain
 
-The chain is straightforward. MaxEnt selects the equilibrium state among
-overlap-consistent configurations. Entanglement equilibrium gives the
+The chain begins with the finite A3 information projection. The explicit
+edge-reference, entropy-split, and stationarity interfaces give the
 thermodynamic relation in each local rest frame. Geometric modular flow turns
 modular energy into physical energy. The stress-tensor bridge identifies the
 energy content. Each observer reads the Einstein relation in their own frame,

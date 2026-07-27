@@ -3,29 +3,30 @@
   "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
   "axiom_invariance_audit": {
     "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
-    "Axiom_2_overlap_consistency": "unchanged by Yukawa-eigenvalue rescaling",
-    "Axiom_3_MaxEnt_and_refinement": {
+    "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
+    "Axiom_3_information_projection": {
+      "Yukawa_output_map_supplied": false,
       "constraint_values_or_multipliers_numerically_fixed_by_axiom": false,
       "gauge_invariant_local_Yukawa_densities_allowed": true,
-      "homogeneous_refinement_selects_initial_modulus": false,
-      "map_from_P_to_Yukawa_multipliers_supplied": false
+      "map_from_P_to_Yukawa_multipliers_supplied": false,
+      "model_space_selection_allowed": false,
+      "optimizer_to_Yukawa_output_map_supplied": false
     },
-    "Axiom_4_recoverable_generalized_entropy": "contains no numerical flavor-eigenvalue selector",
-    "Axiom_5_MAR": {
+    "all_registered_axiom_data_preserved": true,
+    "declared_structural_packet": {
       "Yukawa_completability_preserved": true,
-      "Yukawa_eigenvalues_are_components_of_complexity_vector": false,
-      "complexity_vector": "(chi_cpl,N_nonab,N_c,N_g)",
-      "counterfamily_members_have_equal_MAR_score": true,
-      "counterfamily_members_remain_distinct_MAR_minima": true,
+      "Yukawa_eigenvalues_are_declared_structural_coordinates": false,
+      "counterfamily_members_remain_physically_distinct": true,
+      "counterfamily_members_share_all_registered_source_data": true,
       "different_Yukawa_invariants_are_physically_equivalent": false,
       "intrinsic_CKM_CP_capability_preserved": true,
       "weak_sector_UV_counting_clause_preserved": true
     },
     "fixed_P": "unchanged across the counterfamily"
   },
-  "claim_tier": "axioms_1_5_source_only_obstruction",
+  "claim_tier": "three_axiom_source_only_obstruction",
   "corollaries": {
-    "MAR_breaks_counterfamily_under_current_definition": false,
+    "A3_breaks_counterfamily_under_registered_contract": false,
     "artifact_level_two_modulus_obstruction_is_axiomatically_expected": true,
     "refinement_naturality_breaks_counterfamily": false,
     "selected_frame_representative_independence_breaks_counterfamily": false,
@@ -45,20 +46,20 @@
     "quark_spreads_changed": true,
     "simple_spectrum_preserved": true
   },
-  "generated_utc": "2026-07-23T02:51:30Z",
+  "generated_utc": "2026-07-27T08:32:18Z",
   "notes": [
     "This is a non-definability theorem under the stated axioms, not a claim that every conceivable future theory must leave Yukawa values free.",
     "No additional axiom or numerical normalization principle is introduced.",
-    "A positive numerical theorem would have to refute this counterfamily using a consequence already present in Axioms 1--5; no such consequence is currently stated or emitted."
+    "A positive numerical theorem would have to refute this counterfamily using an A1-generated flavor grammar and a typed A3 optimizer-to-Yukawa map; neither is present."
   ],
   "proof_status": "closed_axiom_level_nondefinability_theorem",
   "proof_steps": [
     "Fix any generic admissible one-Higgs three-generation Yukawa package with simple spectra.",
     "Apply independent positive rescalings to the two centered log-spectrum profiles while fixing their frames.",
     "Gauge representations, anomaly cancellation, hypercharges, Higgs content, CKM data, and CP capability are unchanged.",
-    "The MAR complexity vector is unchanged because it contains only structural discrete entries.",
+    "The complete registered A1--A3 data and declared structural checks are unchanged because no typed optimizer-to-Yukawa map is present.",
     "The packages are physically inequivalent because their Yukawa singular values differ and physical equivalence preserves Yukawa invariants.",
-    "Therefore the same OPH axioms and fixed P admit multiple quark spectra, contradicting uniqueness of any proposed source-only mass map."
+    "Therefore the same OPH axioms, declared structural packet, and fixed P admit multiple quark spectra, contradicting uniqueness of any registered source-only mass map."
   ],
   "public_numeric_quark_rows_allowed": false,
   "public_policy": {
@@ -76,13 +77,14 @@
     "quark_reference_values_consumed": false,
     "selected_class_target_witnesses_consumed": false
   },
-  "scope": "OPH_Axioms_1_5_plus_structural_SM_branch_and_fixed_P",
+  "scope": "OPH_Axioms_1_3_plus_declared_structural_SM_branch_and_fixed_P",
   "source_only_numeric_quark_spectrum_emitted": false,
   "theorem_grade_obstruction": true,
-  "theorem_statement": "OPH Axioms 1--5, a fixed pixel closure P, and the MAR-selected structural Standard-Model package do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs three-generation package there is a continuous positive-rescaling family with the same screen, overlap, recovery, gauge, anomaly, hypercharge, Higgs, generation, CKM, CP-capability, weak-UV, and MAR-complexity data but different Yukawa singular values and quark masses. Hence a unique quark mass spectrum does not factor through the stated axioms and source signature.",
-  "why_minimal_Yukawas_does_not_follow_from_MAR": {
-    "adding_a_norm_entropy_cost_description_length_or_RG_functional": "would change the MAR selection rule and therefore add physical selection content",
-    "current_order_contains_no_continuous_Yukawa_coordinate": true,
+  "theorem_statement": "OPH Axioms 1--3, a fixed pixel closure P, and a declared structural Standard-Model package do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs three-generation package there is a continuous positive-rescaling family with the same screen, agreement, reference and aggregation, gauge, anomaly, hypercharge, Higgs, generation, CKM, CP-capability, and weak-UV data but different Yukawa singular values and quark masses. Hence a unique quark mass spectrum does not factor through the stated axioms and source signature.",
+  "why_A3_does_not_select_Yukawa_moduli": {
+    "A3_contains_no_typed_optimizer_to_Yukawa_map": true,
+    "A3_selects_states_inside_one_fixed_feasible_space": true,
+    "adding_a_norm_entropy_cost_description_length_or_RG_functional": "would add a new output-selection premise unless derived from the A1 grammar and A3 optimizer",
     "infimum": "lambda_u=lambda_d=0",
     "positive_rescaling_has_no_smallest_positive_element": true,
     "zero_limit_effect": "massless or degenerate quarks rather than the observed spectrum"

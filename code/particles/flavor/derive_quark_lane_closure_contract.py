@@ -390,7 +390,7 @@ def build_payload(
             "theorem_statement": axiom_level_yukawa_obstruction["theorem_statement"],
             "additional_axioms_used": axiom_level_yukawa_obstruction["additional_axioms_used"],
             "counterfamily": axiom_level_yukawa_obstruction["counterfamily"],
-            "MAR_audit": axiom_level_yukawa_obstruction["axiom_invariance_audit"]["Axiom_5_MAR"],
+            "three_axiom_audit": axiom_level_yukawa_obstruction["axiom_invariance_audit"],
             "reference_data_policy": axiom_level_yukawa_obstruction["reference_data_policy"],
             "public_numeric_quark_rows_allowed": axiom_level_yukawa_obstruction[
                 "public_numeric_quark_rows_allowed"

@@ -6,7 +6,7 @@ lane. The restricted source-spread non-identifiability theorem
 (`paper/deriving_the_particle_zoo_from_observer_consistency.tex`, paragraph "Restricted
 source-spread non-identifiability theorem") proves that the light-quark source equations
 fix two ordered Yukawa profile rays while leaving their two endpoint spans free; the
-no-extra-axiom MAR theorem in the same paper proves that Axioms 1-5 plus fixed P admit a
+three-axiom non-definability theorem in the same paper proves that Axioms 1-3 plus fixed P admit a
 free `(R_>0)^2` family of equal-score quark spectra. This file states what a candidate
 selector must be and what it must pass. It constructs nothing and selects nothing.
 

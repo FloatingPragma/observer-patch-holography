@@ -133,7 +133,7 @@ def build_artifact() -> dict[str, Any]:
             "effect_projectors_exist_and_are_canonical": False,
             "effect_ranks_and_signs_are_source_derived": False,
             "S3_equivariance_implies_full_unitary_isotropy": False,
-            "MAR_implies_gaussian_two_cumulant_truncation": False,
+            "three_axioms_imply_gaussian_two_cumulant_truncation": False,
             "residual_minimization_is_an_OPH_dynamical_law": False,
         },
         "existing_count_only_register_boundary": {

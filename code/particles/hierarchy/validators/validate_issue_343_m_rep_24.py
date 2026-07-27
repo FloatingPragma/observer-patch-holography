@@ -159,7 +159,7 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         ),
         "derivation_step4_orientation_doubling": (
             len(derivation_premises) >= 4
-            and "orientation-doubling axiom" in derivation_premises[3]
+            and "orientation-doubling grammar" in derivation_premises[3]
         ),
         "derivation_step5_oriented_support": (
             len(derivation_premises) >= 5

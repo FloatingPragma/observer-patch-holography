@@ -58,7 +58,7 @@ def payload() -> dict:
             "innerness of the screen A5 action from bare OPH repair axioms",
             "the kinetic form, locality, or normalization",
             "trace-balanced physical integration or axis-center descent",
-            "the MAR matter package, hypercharge lattice, or global gauge quotient",
+            "a physical matter selection, hypercharge attachment, or global gauge quotient",
         ],
         "counterbranches_if_innerness_is_dropped_but_group_integrality_is_retained": [
             "u(1)^12 with a nontrivial A5 lattice action",

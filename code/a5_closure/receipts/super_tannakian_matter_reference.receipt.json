@@ -1,5 +1,6 @@
 {
   "acceptance_criteria_status": {
+    "candidate_class_nonempty_and_uniqueness_not_promoted": true,
     "common_action_kernel_emitted_not_assumed_as_z6_quotient": true,
     "current_algebra_acts_faithfully_on_matter_tensors": true,
     "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": true,
@@ -8,7 +9,6 @@
     "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": true,
     "fifteen_state_module_selected_by_derived_equivariant_projector": true,
     "fifteen_state_module_selected_by_exhaustive_anomaly_scan": true,
-    "mar_class_proved_nonempty_before_uniqueness_promoted": true,
     "projector_pair_not_single_physical_weyl_selection": true,
     "scalar_economy_explicitly_not_derived": true,
     "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": true
@@ -84,9 +84,16 @@
   },
   "branch_scope": {
     "branch": "source-bound echosahedral response branch",
-    "declared_branch_premises": "one weak-block scalar (owned by #609), the kernel emission contract, and the MAR class declaration; the statistics and category contracts are validated against the scan and forcing derivations rather than accepted as premises",
-    "not_claimed": "no scalar existence/economy source binding, no preferred overall charge sign, no physically attached global-form choice (the #567 packet carries that), no family attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum spin-statistics theorem, no laboratory exchange measurement, no identification with physical particle content",
+    "declared_branch_premises": "one weak-block scalar (owned by #609), the kernel emission contract, and the candidate matter class declaration; the statistics and category contracts are validated against the scan and forcing derivations rather than accepted as premises",
+    "not_claimed": "no scalar existence/economy source binding, no preferred overall charge sign, no physically attached global-form choice (the #567 packet carries that), no family attachment, no class-uniqueness promotion, no scalar potential, no pole mass, no continuum spin-statistics theorem, no laboratory exchange measurement, no identification with physical particle content",
     "upstream_packets": "the certified #565 carrier, the source-bound #566/#599 current packet, and the measured #314 spin statistics artifact, all hash-pinned"
+  },
+  "candidate_matter_class": {
+    "declared": "one_generation_one_scalar_chiral_anomaly_free",
+    "nonempty": true,
+    "note": "this packet discharges the nonemptiness precondition; class uniqueness stays in its own lane",
+    "uniqueness_promoted": false,
+    "witness": "the realized packet: fifteen multiplicity-free states (one generation), one declared scalar, exact chirality, vanishing realized anomaly traces"
   },
   "category": {
     "conjugation": "wedge pairing into the invariant top line",
@@ -113,7 +120,7 @@
     "contract_provenance": "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; the exhaustive 1024-subset scan selects the unordered pair and outputs the parity grading; the measured lift centre and section obstruction force the Spin/odd-Weyl implementation, with the gauge-centre branch excluded by the Lean fermion-parity no-go; scalar-charge and channel compatibility are derived only conditional on a declared weak-doublet scalar, whose existence and economy are owned by #609",
     "does_not_close": [
       "physical AXIS-CENTER-DESCENT/global-form attachment (the #567 packet carries that)",
-      "MAR uniqueness (only nonemptiness is discharged here)",
+      "class uniqueness (only nonemptiness is discharged here)",
       "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
       "exclusion of other anomaly-free light sectors beyond the exterior module (#609)",
       "scalar existence, one-scalar economy, or absence of additional light scalars (#609)",
@@ -124,6 +131,7 @@
     "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content"
   },
   "conditional_algebraic_gate": {
+    "candidate_matter_class_nonempty_witnessed": true,
     "chiral_no_common_summand_with_dual": true,
     "common_action_kernel_emitted_not_assumed": true,
     "conjugation_and_super_tensor_derived": true,
@@ -133,7 +141,6 @@
     "family_and_potential_and_mass_firewalled": true,
     "fifteen_state_module_from_equivariant_projector": true,
     "listed_anomalies_and_witten_parity_checked": true,
-    "mar_class_nonempty_witnessed": true,
     "nonzero_invariant_sector": true,
     "passed": true,
     "port_spin_lift_nonsplit_double_cover": true
@@ -156,7 +163,7 @@
   },
   "derivation_chain": [
     {
-      "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, MAR declaration; the contract values are matched against the derivations of steps 2a and 2b",
+      "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, candidate class declaration; the contract values are matched against the derivations of steps 2a and 2b",
       "premise": "matter-lift manifest with typed contracts",
       "source_artifact": "validate_manifest",
       "step": 1,
@@ -460,14 +467,7 @@
     "tensor_additivity": "charge, triality, and duality are additive over wedge and tensor factors by construction, so triviality on the verified weight list extends to every realized matter tensor",
     "verified_trivial_on": "every realized matter state, every carrier mode, and the declared scalar"
   },
-  "manifest_sha256": "6ccb5ce33b85e01efb2d57524cd0b34baa5a009df6ea2e60f0772d41e03a745c",
-  "mar_class": {
-    "declared": "one_generation_one_scalar_chiral_anomaly_free",
-    "nonempty": true,
-    "note": "this packet discharges the nonemptiness precondition; MAR uniqueness stays in its own lane",
-    "uniqueness_promoted": false,
-    "witness": "the realized packet: fifteen multiplicity-free states (one generation), one declared scalar, exact chirality, vanishing realized anomaly traces"
-  },
+  "manifest_sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2",
   "matter_carrier": {
     "block_trace_charges": {
       "color_block": "-1/3",
@@ -716,7 +716,7 @@
       "the trace-balanced charge pair up to overall charge conjugation, derived by BLOCK-DETERMINANT-BALANCE",
       "scalar-charge and Yukawa-channel compatibility conditional on the declared weak-doublet scalar content",
       "typed statistics and Spin/odd-Weyl category contracts; the controls test consistency but do not source those physical inputs",
-      "kernel emission contract and MAR class declaration"
+      "kernel emission contract and candidate matter class declaration"
     ]
   },
   "source_statistics_binding": {

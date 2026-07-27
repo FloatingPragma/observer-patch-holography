@@ -92,7 +92,7 @@ load `x_EW = 6*pi/(P*alpha_U)`), CP-3 (re-emission
   and carries the derivative-sign certificate with its unique zero exactly at
   load balance `X(N) = x_EW`.
 
-Then for a candidate `F_phi`, P4 coherence (MAR argmax of `l` equals the
+Then for a candidate `F_phi`, P4 coherence (the declared-score argmax of `l` equals the
 fixed point of `F_phi`) holds iff `phi(x_EW) = x_EW`, and every P4-coherent
 candidate has the same unique fixed point `N_CRC = pi * exp(x_EW)`, the
 bridge capacity, independent of `phi`. Proof: CP-4 places the argmax at

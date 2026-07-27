@@ -33,7 +33,7 @@ content owned by #609:
 > without forming either the central compactification or the quotient.
 > The construction
 > descends naturally along the declared algebraic tower maps, and the
-> realized packet witnesses the declared MAR class nonempty without
+> realized packet witnesses the declared candidate matter class nonempty without
 > promoting uniqueness.
 
 The algebraic properties are machine-checked. The current algebra is
@@ -128,11 +128,11 @@ alone is not realization (`REALIZATION_NOT_OPERATOR`).
 (`emit: true`) and forbids assuming the final global quotient
 (`assume_global_quotient: false`, `KERNEL_EMISSION_CONTRACT` otherwise).
 
-### M6. MAR class declaration
+### M6. Candidate matter-class declaration
 
 `R` declares the class `one_generation_one_scalar_chiral_anomaly_free`
 with `promote_uniqueness: false`. Promoting uniqueness inside this packet
-is rejected (`MAR_UNIQUENESS_PROMOTION`); the packet only discharges the
+is rejected (`CLASS_UNIQUENESS_PROMOTION`); the packet only discharges the
 nonemptiness precondition.
 
 ### M7. Source firewall
@@ -305,11 +305,11 @@ the spin lift to an exterior-power implementer that commutes with `Pi`
 and intertwines all twelve currents on both the carrier and the Fock
 realization. Physical refinement intertwining is not source-bound here.
 
-#### (j) MAR nonemptiness without uniqueness
+#### (j) Candidate-class nonemptiness without uniqueness
 
 The realized packet (fifteen multiplicity-free states, one declared
 scalar, exact chirality, vanishing realized anomaly traces) witnesses the
-declared MAR class nonempty. Uniqueness is not promoted; the contract
+declared candidate matter class nonempty. Uniqueness is not promoted; the contract
 rejects promotion inside this packet.
 
 #### (k) Conditional algebraic gate
@@ -491,7 +491,7 @@ scope (#599). ∎
 | Yukawa invariant lines | `1, 1, 1`; forbidden control `0` |
 | emitted kernel (on the cover `R x SU(3) x SU(2)`) | infinite cyclic, generator `(zeta_6, omega, -1)`, `g^6 =` unit deck translation, residual order `6` |
 | refinement maps intertwined | all declared (`3` in the reference tower) |
-| MAR class | nonempty witnessed, uniqueness not promoted |
+| candidate matter class | nonempty witnessed, uniqueness not promoted |
 | conditional algebraic gate | `passed: true` |
 | physical source-realization gate | `passed: true` at finite source-model scope; scalar rows deferred to #609 |
 | issue closure condition | `met_locally: true` |
@@ -563,9 +563,9 @@ the current action drops to rank 11 and faithfulness fails
 `3 y_C + 2 y_W != 0` is rejected at the contract (`TRACE_BALANCE`); the
 top line would not be invariant and conjugation would fail downstream.
 
-### N13. MAR uniqueness promotion
+### N13. Candidate-class uniqueness promotion
 
-`promote_uniqueness: true` is rejected (`MAR_UNIQUENESS_PROMOTION`).
+`promote_uniqueness: true` is rejected (`CLASS_UNIQUENESS_PROMOTION`).
 
 ### N14-N15. Firewall
 
@@ -586,7 +586,7 @@ exterior_matter_contract.{block_trace_charges,one_scalar,yukawa_channels,extra_s
 statistics_contract.{matter_statistics,auxiliary_car_modes,distinct_from_bosonic_records}
 category_contract.{typing,spin_lift,selection_rule,realization}
 kernel_emission_contract.{emit,assume_global_quotient}
-mar_class.{declared,promote_uniqueness}
+candidate_matter_class.{declared,promote_uniqueness}
 ```
 
 No spin lift, Fock operator, projector, anomaly value, kernel element, or
@@ -649,7 +649,7 @@ as a Lean theorem.
 | physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the source-bound #566 current algebra acts with rank 12 on the carrier and selected module; the #599 physical source gate passes on the target-blind producer |
 | conditional exterior package realized on the cover; listed perturbative anomalies and Witten parity checked | the package is realized as operators on the cover data (SU(3)-valued even implementers, the SU(2) spin lift, the R-central lane); all listed anomaly traces vanish exactly on the realized operators and the Witten parity is even (Lemma 314.10) |
 | common action kernel emitted rather than assumed as a Z6 quotient | the kernel is computed by exact congruence enumeration on the genuine cover `R x SU(3) x SU(2)`: infinite cyclic with generator `(zeta_6, omega, -1)`, sixth power the unit deck translation (not the identity on the cover), residual order six modulo the pure deck translations; verified trivial on every realized weight and emitted as data; `assume_global_quotient` is contractually false, and neither the central compactification nor the quotient is ever formed (Lemma 314.11) |
-| declared MAR class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
+| declared candidate matter class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
 | family attachment and scalar-potential or pole-mass claims outside | firewall M7 plus controls N14-N15; the claim boundary lists them as not closed |
 | Spin/odd-Weyl category nonempty and source-produced; Vec/sVec and opposite-Weyl same-reduct controls do not both pass | the realized category carries the nonzero fifteen-state odd matter object with faithful action on the conditional branch; physical source production is open; N1-N3 fail against derived facts |
 | nontrivial faithful current action and nonzero physical invariant sector; empty Gauss data or zero common kernel cannot satisfy | rank-12 faithfulness plus three exact invariant Yukawa lines; `GAUSS_DATA_EMPTY` and `KERNEL_TRIVIAL` controls N7, N9 |
@@ -673,12 +673,12 @@ forced by the implementation enumeration;
 The declared charge pair, channel list, statistics, and category typing
 are validated against their derivations rather than accepted as
 premises; the one-scalar choice, the kernel emission contract, and the
-MAR class declaration stay typed branch premises. The upstream #566
+candidate matter-class declaration stays a typed branch premise. The upstream #566
 packet is source-bound through the #599 target-blind producer.
 
 It does not choose the global form (AXIS-CENTER-DESCENT consumes the
 emitted kernel downstream and carries the selection in its own packet),
-does not promote MAR uniqueness, does not attach
+does not promote candidate-class uniqueness, does not attach
 families or count them, does not exclude other anomaly-free light
 sectors (the MGFC-grade no-extra-sector boundary), and makes no
 scalar-potential, pole-mass, measured-coupling, continuum

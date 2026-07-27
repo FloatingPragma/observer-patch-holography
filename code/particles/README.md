@@ -241,8 +241,8 @@ certificate. The repository does not emit that certificate. A proof-producing
 enumeration must construct the quotient canonicalizer and finite path lists,
 verify the incidence counts, exact color weighting convention, a
 representation-derived `Z_6` invariant-rank fraction (not merely group order),
-the fibre Gram form and residual pairing, and prove a
-positive MAR gap over an explicit deformation class. The executable QT receipt
+the fibre Gram form and residual pairing, and prove source-grammar completeness
+and a unique target-free output over an explicit deformation class. The executable QT receipt
 checks only the downstream algebra and chart Jacobian; it fails closed on every
 source-entailment field.
 
@@ -413,11 +413,11 @@ coefficients and begins from a hand-written family-kernel template.
 
 The stronger no-extra-axiom result is emitted in
 [`quark_axiom_level_yukawa_moduli_nonidentifiability.json`](runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json).
-MAR orders the structural tuple `(chi_cpl, N_nonab, N_c, N_g)` and contains no
-Yukawa eigenvalue coordinate. Independent positive rescalings of the two
-centered quark profiles therefore remain physically distinct equal-score MAR
-minima. The positive family has no smallest member, so MAR cannot be read as a
-hidden numerical Yukawa selector under its stated definition.
+Axioms 1--3 and the declared structural packet contain no typed
+optimizer-to-Yukawa map. Independent positive rescalings of the two centered
+quark profiles therefore preserve the registered source data while remaining
+physically distinct. A numerical theorem must derive a complete flavor grammar
+and an optimizer-to-output map before A3 can constrain these moduli.
 
 The same-family and common-refinement artifacts reproduce their chosen target
 coordinates after target inversion. They are audit surfaces, not source-only

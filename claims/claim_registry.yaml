@@ -85,7 +85,7 @@
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
-      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier-current lift feeds conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the A5 current group with the independently reconstructed Tannaka/MAR group.",
+      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier-current lift feeds conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the A5 current group with the independently reconstructed Tannaka group.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "cross_paper_typed_composition_contract",
       "assumptions": [
@@ -427,7 +427,7 @@
       "tier": "conditional_scaling_theorem_package",
       "assumptions": [
         "support_visible_BW_scaling",
-        "maxent_refinement_closure_clause",
+        "optimizer_pushforward_and_refinement_tail",
         "halfline_cyclicity_receipt",
         "modular_intersection_receipt"
       ],
@@ -513,11 +513,11 @@
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
-      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved.",
+      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. The exact finite first law is delta S = 2pi delta<B> + delta<Z>; Z contains only the sectorwise log d_alpha term, so delta<Z> = delta S_edge and delta S_bulk = 2pi delta<B> for the full central-interface variation class, including moving sector probabilities. The changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the generalized-entropy leading term and edge normalization are named branch interfaces. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
-        "maxent_refinement_closure_clause",
+        "optimizer_pushforward_and_refinement_tail",
         "central_interface_clause",
         "edge_normalization_log_d"
       ],
@@ -535,7 +535,7 @@
         "code/particles/runs/clock/clock_source_energy_closure_audit.json"
       ],
       "falsifier": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family.",
-      "scope_if_false": "The entropy bridge and its Axiom-4 support fail.",
+      "scope_if_false": "The entropy bridge and its generalized-entropy interface support fail.",
       "status": "proved_finite_plus_receipt_branch",
       "claim_class": "conditional_implication",
       "gates": []
@@ -1195,7 +1195,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/economy and absence of extra light sectors are owned by issue #609.",
+      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/multiplicity and absence of extra light sectors are owned by issue #609.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "source_bound_finite_matter_lift_conditional_on_scalar_content",
       "assumptions": [
@@ -1205,7 +1205,7 @@
         "hash_pinned_measured_spin_statistics_artifact",
         "declared_weak_doublet_scalar_content",
         "kernel_emission_without_global_quotient_choice",
-        "declared_mar_class_without_uniqueness"
+        "declared_candidate_matter_class_without_uniqueness"
       ],
       "imported_results": [
         "exact_Q_sqrt5_linear_algebra",
@@ -1228,7 +1228,7 @@
         "Lean/Screen/ExteriorSelection.lean"
       ],
       "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the measured artifact and the recomputed lift disagree on the order profile or centre, a sign assignment forms a section over a Klein four-subgroup, the exhaustive anomaly scan admits a survivor other than the two parity sectors, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
-      "scope_if_false": "The source-bound matter lift falls back to the conditional algebraic theorem with declared typing. The source-bound port-current algebra, echosahedral selector, and MAR economy selection are assessed separately.",
+      "scope_if_false": "The source-bound matter lift falls back to the conditional algebraic theorem with declared typing. The source-bound port-current algebra and echosahedral selector are assessed separately.",
       "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
       "claim_class": "conditional_implication",
       "gates": [
@@ -1269,16 +1269,16 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate now attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "conditional_tannaka_mar_reconstruction_and_selection_chain",
+      "tier": "conditional_tannaka_reconstruction_and_declared_completion_chain",
       "assumptions": [
         "zero_obstruction_bosonic_branch",
         "transportable_sector_category",
         "compact_gauge_refinement_receipt",
         "finite_tensor_realization_receipt",
         "declared_realized_one_generation_one_Higgs_matter_package",
-        "MAR_economy_axiom"
+        "declared_generation_and_sector_completions"
       ],
       "imported_results": [
         "Doplicher_Roberts_reconstruction",
@@ -1286,8 +1286,8 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "OPH composes refinement-limit sector reconstruction with an explicit realized-package selection stage and keeps the MAR economy rule, especially N_g=3, visible as an axiom-conditional minimum rather than a graph-theoretic theorem.",
-      "novelty_type": "conditional_tannaka_reconstruction_and_mar_selection",
+      "oph_specific_delta": "OPH composes refinement-limit sector reconstruction with an explicit realized-package stage and keeps the generation count visible as a declared completion inside the conditional window rather than a graph-theoretic theorem.",
+      "novelty_type": "conditional_tannaka_reconstruction_and_declared_completion",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/particles/calibration/source_completion_no_go.py",
@@ -1298,8 +1298,8 @@
         "Lean/Screen/Z6Descent.lean",
         "Lean/Screen/ExteriorSelection.lean"
       ],
-      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the realized packet, the measured six-axis class group order differs from the tensor kernel order, a realized weight is multivalued around a measured flux sector, the measured sector menu matches more than one global form, a second maximal mutually-local lattice contains the realized electric lines, the MAR window or economy minimum is inconsistent, or a claimed physical family realization lacks the required rank-45 attachment.",
-      "scope_if_false": "The failing Tannaka, realized-package, or MAR layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
+      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the realized packet, the measured six-axis class group order differs from the tensor kernel order, a realized weight is multivalued around a measured flux sector, the measured sector menu matches more than one global form, a second maximal mutually-local lattice contains the realized electric lines, the conditional generation window is inconsistent with its declared clauses, or a claimed physical family realization lacks the required rank-45 attachment.",
+      "scope_if_false": "The failing Tannaka, realized-package, or completion layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
       "status": "conditional_D7_D9_tannaka_chain__z6_descent_source_bound_at_finite_scope__continuum_and_family_gates_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -1442,7 +1442,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the selected 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, select the light matter package, attach three families, or identify this group with the D7-D9 Tannaka/MAR reconstruction.",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, attach three families, or identify this group with the independent categorical reconstruction.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
@@ -1458,7 +1458,7 @@
         "covering_group_and_lattice_algebra",
         "exterior_representation_and_anomaly_algebra"
       ],
-      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent Tannaka/MAR group.",
+      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. It provides a second route to Standard Model Lie type without silently importing the independent categorical group reconstruction.",
       "novelty_type": "conditional_finite_screen_current_recognition",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1471,7 +1471,7 @@
         "Lean/Screen/PhysicalA5ForcingNoGo.lean"
       ],
       "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, or exterior witness fails under its exact stated premises, or a promoted physical conclusion omits its current, selection, attachment, or refinement receipt.",
-      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 Tannaka/MAR route and unrelated consensus or gravity branches are separately assessable.",
+      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
       "status": "exact_finite_implications_on_strengthened_packet__physical_family_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -1484,7 +1484,7 @@
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "open_cross_route_physical_identification",
       "assumptions": [
-        "inhabited_D7_D9_tannaka_mar_branch",
+        "inhabited_D7_D9_tannaka_matter_branch",
         "inhabited_physical_A5_screen_current_branch",
         "common_source_bound_refinement_tower",
         "refinement_natural_intertwining_group_isomorphism"

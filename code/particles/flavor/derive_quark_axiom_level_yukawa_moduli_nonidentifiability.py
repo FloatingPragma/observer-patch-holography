@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Emit the Axioms-1--5 quark-Yukawa non-definability theorem.
+"""Emit the three-axiom quark-Yukawa non-definability theorem.
 
 This artifact answers the strongest possible source-only question.  It does
 not merely audit the present builders: it records an explicit counterfamily
 of physically inequivalent one-Higgs, three-generation Yukawa packages that
-obey the same OPH axioms and have the same MAR complexity vector.
+share the same three-axiom source data and declared structural packet.
 
 No quark reference value, fitted spread, selected-family target, or numerical
 flavor template is loaded.  The result uses no additional axiom.
@@ -38,18 +38,18 @@ def build_artifact() -> dict[str, Any]:
         "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
         "generated_utc": _timestamp(),
         "proof_status": "closed_axiom_level_nondefinability_theorem",
-        "claim_tier": "axioms_1_5_source_only_obstruction",
-        "scope": "OPH_Axioms_1_5_plus_structural_SM_branch_and_fixed_P",
+        "claim_tier": "three_axiom_source_only_obstruction",
+        "scope": "OPH_Axioms_1_3_plus_declared_structural_SM_branch_and_fixed_P",
         "additional_axioms_used": False,
         "theorem_grade_obstruction": True,
         "source_only_numeric_quark_spectrum_emitted": False,
         "public_numeric_quark_rows_allowed": False,
         "theorem_statement": (
-            "OPH Axioms 1--5, a fixed pixel closure P, and the MAR-selected structural Standard-Model "
+            "OPH Axioms 1--3, a fixed pixel closure P, and a declared structural Standard-Model "
             "package do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs "
             "three-generation package there is a continuous positive-rescaling family with the same screen, "
-            "overlap, recovery, gauge, anomaly, hypercharge, Higgs, generation, CKM, CP-capability, weak-UV, "
-            "and MAR-complexity data but different Yukawa singular values and quark masses. Hence a unique "
+            "agreement, reference and aggregation, gauge, anomaly, hypercharge, Higgs, generation, CKM, "
+            "CP-capability, and weak-UV data but different Yukawa singular values and quark masses. Hence a unique "
             "quark mass spectrum does not factor through the stated axioms and source signature."
         ),
         "counterfamily": {
@@ -79,52 +79,52 @@ def build_artifact() -> dict[str, Any]:
             "quark_mass_singular_values_changed": True,
         },
         "axiom_invariance_audit": {
+            "all_registered_axiom_data_preserved": True,
             "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
-            "Axiom_2_overlap_consistency": "unchanged by Yukawa-eigenvalue rescaling",
-            "Axiom_3_MaxEnt_and_refinement": {
+            "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
+            "Axiom_3_information_projection": {
                 "gauge_invariant_local_Yukawa_densities_allowed": True,
                 "constraint_values_or_multipliers_numerically_fixed_by_axiom": False,
                 "map_from_P_to_Yukawa_multipliers_supplied": False,
-                "homogeneous_refinement_selects_initial_modulus": False,
+                "Yukawa_output_map_supplied": False,
+                "optimizer_to_Yukawa_output_map_supplied": False,
+                "model_space_selection_allowed": False,
             },
-            "Axiom_4_recoverable_generalized_entropy": (
-                "contains no numerical flavor-eigenvalue selector"
-            ),
-            "Axiom_5_MAR": {
-                "complexity_vector": "(chi_cpl,N_nonab,N_c,N_g)",
+            "declared_structural_packet": {
                 "Yukawa_completability_preserved": True,
                 "intrinsic_CKM_CP_capability_preserved": True,
                 "weak_sector_UV_counting_clause_preserved": True,
-                "Yukawa_eigenvalues_are_components_of_complexity_vector": False,
+                "Yukawa_eigenvalues_are_declared_structural_coordinates": False,
                 "different_Yukawa_invariants_are_physically_equivalent": False,
-                "counterfamily_members_have_equal_MAR_score": True,
-                "counterfamily_members_remain_distinct_MAR_minima": True,
+                "counterfamily_members_share_all_registered_source_data": True,
+                "counterfamily_members_remain_physically_distinct": True,
             },
             "fixed_P": "unchanged across the counterfamily",
         },
-        "why_minimal_Yukawas_does_not_follow_from_MAR": {
-            "current_order_contains_no_continuous_Yukawa_coordinate": True,
+        "why_A3_does_not_select_Yukawa_moduli": {
+            "A3_selects_states_inside_one_fixed_feasible_space": True,
+            "A3_contains_no_typed_optimizer_to_Yukawa_map": True,
             "positive_rescaling_has_no_smallest_positive_element": True,
             "infimum": "lambda_u=lambda_d=0",
             "zero_limit_effect": "massless or degenerate quarks rather than the observed spectrum",
             "adding_a_norm_entropy_cost_description_length_or_RG_functional": (
-                "would change the MAR selection rule and therefore add physical selection content"
+                "would add a new output-selection premise unless derived from the A1 grammar and A3 optimizer"
             ),
         },
         "proof_steps": [
             "Fix any generic admissible one-Higgs three-generation Yukawa package with simple spectra.",
             "Apply independent positive rescalings to the two centered log-spectrum profiles while fixing their frames.",
             "Gauge representations, anomaly cancellation, hypercharges, Higgs content, CKM data, and CP capability are unchanged.",
-            "The MAR complexity vector is unchanged because it contains only structural discrete entries.",
+            "The complete registered A1--A3 data and declared structural checks are unchanged because no typed optimizer-to-Yukawa map is present.",
             "The packages are physically inequivalent because their Yukawa singular values differ and physical equivalence preserves Yukawa invariants.",
-            "Therefore the same OPH axioms and fixed P admit multiple quark spectra, contradicting uniqueness of any proposed source-only mass map.",
+            "Therefore the same OPH axioms, declared structural packet, and fixed P admit multiple quark spectra, contradicting uniqueness of any registered source-only mass map.",
         ],
         "corollaries": {
             "unique_source_map_P_to_sigma_u_sigma_d_exists": False,
             "unique_source_map_P_to_six_quark_masses_exists": False,
             "selected_frame_representative_independence_breaks_counterfamily": False,
             "refinement_naturality_breaks_counterfamily": False,
-            "MAR_breaks_counterfamily_under_current_definition": False,
+            "A3_breaks_counterfamily_under_registered_contract": False,
             "artifact_level_two_modulus_obstruction_is_axiomatically_expected": True,
         },
         "reference_data_policy": {
@@ -145,14 +145,14 @@ def build_artifact() -> dict[str, Any]:
         "notes": [
             "This is a non-definability theorem under the stated axioms, not a claim that every conceivable future theory must leave Yukawa values free.",
             "No additional axiom or numerical normalization principle is introduced.",
-            "A positive numerical theorem would have to refute this counterfamily using a consequence already present in Axioms 1--5; no such consequence is currently stated or emitted.",
+            "A positive numerical theorem would have to refute this counterfamily using an A1-generated flavor grammar and a typed A3 optimizer-to-Yukawa map; neither is present.",
         ],
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build the OPH Axioms-1--5 quark-Yukawa non-definability theorem."
+        description="Build the OPH three-axiom quark-Yukawa non-definability theorem."
     )
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()

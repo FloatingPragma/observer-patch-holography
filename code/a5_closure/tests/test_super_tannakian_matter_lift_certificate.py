@@ -259,8 +259,8 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertEqual(len(row["maps"]), 3)
         self.assertTrue(all(item["intertwined"] for item in row["maps"]))
 
-    def test_mar_class_nonempty_without_uniqueness(self) -> None:
-        row = self.expected["mar_class"]
+    def test_candidate_class_nonempty_without_uniqueness(self) -> None:
+        row = self.expected["candidate_matter_class"]
         self.assertTrue(row["nonempty"])
         self.assertFalse(row["uniqueness_promoted"])
         self.assertIn("nonemptiness precondition", row["note"])
@@ -309,7 +309,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         )
         self.assertIn("BLOCK-DETERMINANT-BALANCE", boundary["contract_provenance"])
         self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))
-        self.assertTrue(any("MAR uniqueness" in row for row in boundary["does_not_close"]))
+        self.assertTrue(any("class uniqueness" in row for row in boundary["does_not_close"]))
         self.assertTrue(any("scalar existence" in row for row in boundary["does_not_close"]))
 
     def test_control_contracts_are_not_valid_production_manifests(self) -> None:

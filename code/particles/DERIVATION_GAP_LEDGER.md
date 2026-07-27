@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-07-23T06:40:02Z`
+Generated: `2026-07-27T07:59:16Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -77,7 +77,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
 | `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
 | `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an declared determinant-sensitive source observable is exhibited that breaks the kappa countermodel; the gate flips only when N_det has the certified singleton interval [0,0]. |
-| `quark.source-spread-identifiability` | Quarks | `closed_corpus_limited_two_modulus_nonidentifiability_obstruction` | Keep all numeric quark rows suppressed. With additional axioms excluded, reopen only if a theorem from the existing MaxEnt/refinement data refutes the equal-MAR-score counterfamily and emits both spreads. |
+| `quark.source-spread-identifiability` | Quarks | `closed_corpus_limited_two_modulus_nonidentifiability_obstruction` | Keep all numeric quark rows suppressed. Reopen only if an A1-generated flavor grammar and typed A3 optimizer-to-Yukawa theorem refute the counterfamily and emit both spreads. |
 | `quark.running-scheme-and-yukawa-normalization` | Quarks | `closed_structural_scheme_nonidentifiability_obstruction` | Emit an RG-covariant mass trajectory or invariant. Apply a declared comparison chart afterward, and require one common scale, threshold transport, top conversion, running v(mu), and y=sqrt(2)m/v before using the phrase physical Yukawa matrix. |
 | `quark.selected-class-vs-global-classification` | Quarks | `selected_class_descent_closed_global_classification_no_go` | Keep selected-fiber descent scoped to representative independence. Global classification may reopen only for a source-emitted ambient public-frame classifier; numeric mass promotion is governed by the separate spread and scheme obstructions. |
 | `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `rejected_candidate_source_basis_and_kernel_open` | Derive a source-closed neutrino operator, stable physical charged-lepton left basis, and mass-eigenstate label/order rule without oscillation-target feedback; freeze that construction before evaluating a later likelihood. Keep all present weighted-cycle, bridge, and exact-adapter numbers rejected or compare-only. |
