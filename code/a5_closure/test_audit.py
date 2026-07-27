@@ -70,7 +70,7 @@ class AuditTests(unittest.TestCase):
         state = m.payload["theorem_scope"]
         self.assertIn("coefficient", state["exact_here"])
         self.assertTrue(any("PORT-CURRENT-INNER" in x for x in state["physical_gates"]))
-        self.assertTrue(any("MAR" in x for x in state["physical_gates"]))
+        self.assertTrue(any("matter" in x.lower() for x in state["physical_gates"]))
         port_gate = next(x for x in state["physical_gates"] if "PORT-CURRENT-INNER" in x)
         self.assertIn("semantic response artifact", port_gate)
         self.assertIn("laboratory attachment", port_gate)

@@ -162,7 +162,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `A5_and_reversal_covariance_for_paired_spectrum` | The paired-channel gearing spectrum assumes covariance under the icosahedral action and orientation reversal. | Screen microphysics |
 | `D10_source_transmutation_relation` | The electroweak hierarchy witness assumes the source-transmutation relation linking the unified width coordinate to the weak scale on the declared branch. | Particle paper |
 | `Einstein_branch_D5` | The horizon-record identification assumes the composed Einstein-branch entropy-stationarity clause on its declared tower. | Observers synthesis |
-| `MAR_economy_axiom` | The realized matter package assumes the Minimal Admissible Realization economy rule as an axiom, not a derived selector. | specialist derivation papers |
+| `declared_generation_and_sector_completions` | The completed matter package carries separately declared three-generation and sector completions inside the conditional window; each is a declaration with open physical status, and no minimality argument enters any conclusion. | specialist derivation papers |
 | `Maxwell_endpoint_lane` | The pixel fixed point assumes the declared Maxwell endpoint lane for the electromagnetic readback chain. | Fine-structure note |
 | `OPHProofChain Lean audit provenance` | The finite audit claim assumes the declared build and audit provenance of the OPHProofChain Lean artifact. | specialist derivation papers |
 | `OPH_recovered_core_target_vector` | The string-vacuum selector assumes the OPH recovered-core target vector as the comparison object for candidate vacua. | String-selector note |
@@ -199,7 +199,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `declared_local_echosahedral_carrier_boundary` | The carrier bridge assumes the declared local echosahedral carrier boundary. | Screen microphysics |
 | `oriented_icosahedral_incidence_nerve` | The oriented twelve-vertex, thirty-edge, twenty-face incidence data define the carrier charts, seams, and nonvacuous triple restrictions used by the finite federation bridge. | Screen microphysics, issue #596 |
 | `source_bound_refinement_required_for_support_promotion` | Promotion from the finite sewn federation to an oriented support screen requires carrier-to-support maps on the same source-bound refinement tower. | Screen microphysics, issue #596 |
-| `declared_mar_class_without_uniqueness` | The matter lift assumes the declared MAR candidate class without assuming a unique minimum. | specialist derivation papers |
+| `declared_candidate_matter_class_without_uniqueness` | The matter lift assumes the declared candidate matter class without assuming class uniqueness. | specialist derivation papers |
 | `declared_realized_one_generation_one_Higgs_matter_package` | The matter-reconstruction chain assumes the declared realized one-generation, one-Higgs matter package. | specialist derivation papers |
 | `declared_spin_odd_weyl_category_typing` | Control-lane premise, retained for the negative-control countermodels. The production matter lift forces the Spin/odd-Weyl typing from the measured lift centre and section obstruction and validates the declared contract against it. | specialist derivation papers, issue #314 controls |
 | `declared_trace_balanced_exterior_matter_contract` | The matter lift assumes the declared trace-balanced exterior matter contract. | specialist derivation papers |
@@ -229,7 +229,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `heterotic_critical_edge_certificate` | The string selector assumes the heterotic critical-edge certificate. | String-selector note |
 | `independent_complete_MGNS1_certificate_on_the_same_tower` | The cap chart assumes an independent complete MGNS1 certificate on the same tower. | specialist derivation papers |
 | `independently_typed_federation_and_support_screens` | The carrier bridge assumes independently typed federation and support screens. | Screen microphysics |
-| `inhabited_D7_D9_tannaka_mar_branch` | Route identification assumes the Tannaka--Minimal-Admissible-Realization matter branch is inhabited. | specialist derivation papers |
+| `inhabited_D7_D9_tannaka_matter_branch` | Route identification assumes the Tannaka matter branch is inhabited. | specialist derivation papers |
 | `inhabited_physical_A5_screen_current_branch` | Route identification assumes the physical A5 screen-current branch is inhabited. | specialist derivation papers |
 | `inner_action_or_physical_noncentral_five_band` | Standard-Model recognition assumes an inner icosahedral action or a physically noncentral five-band. | specialist derivation papers |
 | `joint_likelihood_contract` | The dark-matter continuation assumes the declared joint likelihood contract. | oph_dark_matter_paper |

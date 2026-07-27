@@ -16,7 +16,7 @@
       "bosonic_matter": "the derived matter-building operators anticommute; bosonic typing fails closed",
       "charge_dead": "a charge-dead contract annihilates the central lane, so the current action is unfaithful",
       "representation_arithmetic": "representation arithmetic without the operator projector is not physical realization",
-      "uniqueness_promotion": "promoting MAR uniqueness inside this packet is rejected; only nonemptiness is discharged"
+      "uniqueness_promotion": "promoting class uniqueness inside this packet is rejected; only nonemptiness is discharged"
     },
     "vec_and_svec": {
       "conclusion": "the Vec and sVec same-reduct typings fail against derived facts, not by fiat",
@@ -116,9 +116,9 @@
       "passed": true
     },
     {
-      "actual_error": "MAR_UNIQUENESS_PROMOTION",
-      "expected_error": "MAR_UNIQUENESS_PROMOTION",
-      "name": "mar_uniqueness_promoted",
+      "actual_error": "CLASS_UNIQUENESS_PROMOTION",
+      "expected_error": "CLASS_UNIQUENESS_PROMOTION",
+      "name": "class_uniqueness_promoted",
       "passed": true
     },
     {
@@ -147,6 +147,6 @@
     }
   ],
   "issue": 314,
-  "manifest_sha256": "6ccb5ce33b85e01efb2d57524cd0b34baa5a009df6ea2e60f0772d41e03a745c",
+  "manifest_sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2",
   "schema": "oph.super_tannakian_matter_negative_controls.v5"
 }

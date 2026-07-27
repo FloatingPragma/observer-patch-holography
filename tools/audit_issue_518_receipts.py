@@ -517,7 +517,7 @@ def _check_a5_global(payload: Mapping[str, Any], row: Mapping[str, Any]) -> list
 
 def _check_a5_matter(payload: Mapping[str, Any], row: Mapping[str, Any]) -> list[str]:
     failures: list[str] = []
-    if payload.get("conditional_algebraic_gate", {}).get("mar_class_nonempty_witnessed") is not True:
+    if payload.get("conditional_algebraic_gate", {}).get("candidate_matter_class_nonempty_witnessed") is not True:
         failures.append("a5_matter_schema_nonempty_witness_missing")
     gate = payload.get("physical_source_gate", {})
     if gate.get("passed") not in {True, False}:

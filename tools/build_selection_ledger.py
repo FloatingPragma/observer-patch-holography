@@ -60,7 +60,7 @@ REQUIRED_SELECTOR_IDS = {
     "icosahedral_screen_selector_port_frame",
     "echosahedral_carrier_lineage",
     "compact_gauge_refinement_receipt",
-    "mar_matter_class_one_higgs_witness",
+    "declared_matter_completion_one_higgs_witness",
     "z6_reserve_pricing_input",
     "br0_cell_product_reading",
     "publicness_policy",

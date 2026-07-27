@@ -17,7 +17,7 @@ The input is a matter-lift manifest.  It declares only:
 * the statistics and category contracts, which are validated against the
   scan and forcing derivations below rather than accepted as premises,
   the operator-projector realization contract, the kernel emission
-  contract, and the declared MAR class with uniqueness promotion
+  contract, and the declared candidate matter class with uniqueness promotion
   switched off.
 
 From that packet the verifier derives, rather than assumes:
@@ -449,17 +449,17 @@ def validate_manifest(
         "the packet must not assume the final global quotient",
     )
 
-    mar = manifest.get("mar_class")
-    require(isinstance(mar, Mapping), "MAR_CONTRACT", "mar_class is missing")
+    mar = manifest.get("candidate_matter_class")
+    require(isinstance(mar, Mapping), "MATTER_CLASS_CONTRACT", "candidate_matter_class is missing")
     require(
         mar.get("declared") == "one_generation_one_scalar_chiral_anomaly_free",
-        "MAR_CONTRACT",
-        "the declared MAR class must be the one-generation one-scalar chiral anomaly-free class",
+        "MATTER_CLASS_CONTRACT",
+        "the declared candidate class must be the one-generation one-scalar chiral anomaly-free class",
     )
     require(
         mar.get("promote_uniqueness") is False,
-        "MAR_UNIQUENESS_PROMOTION",
-        "MAR uniqueness may not be promoted before the class is proved nonempty and the uniqueness lane runs",
+        "CLASS_UNIQUENESS_PROMOTION",
+        "class uniqueness may not be promoted before the class is proved nonempty and the uniqueness lane runs",
     )
 
     return {
@@ -2483,7 +2483,7 @@ def certificate_payload(
         "conjugation_and_super_tensor_derived": True,
         "nonzero_invariant_sector": True,
         "common_action_kernel_emitted_not_assumed": True,
-        "mar_class_nonempty_witnessed": True,
+        "candidate_matter_class_nonempty_witnessed": True,
         "declared_tower_descent": True,
         "family_and_potential_and_mass_firewalled": True,
     }
@@ -2522,7 +2522,7 @@ def certificate_payload(
                 "the trace-balanced charge pair up to overall charge conjugation, derived by BLOCK-DETERMINANT-BALANCE",
                 "scalar-charge and Yukawa-channel compatibility conditional on the declared weak-doublet scalar content",
             "typed statistics and Spin/odd-Weyl category contracts; the controls test consistency but do not source those physical inputs",
-                "kernel emission contract and MAR class declaration",
+                "kernel emission contract and candidate matter class declaration",
             ],
         },
         "block_determinant_balance": balance_certificate,
@@ -2635,7 +2635,7 @@ def certificate_payload(
                 "intertwined on the matter carrier and the Fock realization"
             ),
         },
-        "mar_class": {
+        "candidate_matter_class": {
             "declared": "one_generation_one_scalar_chiral_anomaly_free",
             "nonempty": True,
             "witness": (
@@ -2643,7 +2643,7 @@ def certificate_payload(
                 "exact chirality, vanishing realized anomaly traces"
             ),
             "uniqueness_promoted": False,
-            "note": "this packet discharges the nonemptiness precondition; MAR uniqueness stays in its own lane",
+            "note": "this packet discharges the nonemptiness precondition; class uniqueness stays in its own lane",
         },
         "category": {
             "typing": "spin_odd_weyl_super",
@@ -2736,7 +2736,7 @@ def certificate_payload(
                 "premise": "matter-lift manifest with typed contracts",
                 "uses": ["schema check", "matter firewall", "typed contracts"],
                 "source_artifact": "validate_manifest",
-                "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, MAR declaration; the contract values are matched against the derivations of steps 2a and 2b",
+                "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, candidate class declaration; the contract values are matched against the derivations of steps 2a and 2b",
             },
             {
                 "step": 2,
@@ -2919,14 +2919,14 @@ def certificate_payload(
                 "measured #314 spin statistics artifact, all hash-pinned"
             ),
             "declared_branch_premises": (
-                "one weak-block scalar (owned by #609), the kernel emission contract, and the MAR "
+                "one weak-block scalar (owned by #609), the kernel emission contract, and the candidate matter "
                 "class declaration; the statistics and category contracts are validated against the "
                 "scan and forcing derivations rather than accepted as premises"
             ),
             "not_claimed": (
                 "no scalar existence/economy source binding, no preferred overall charge sign, "
                 "no physically attached global-form choice (the #567 packet carries that), no family "
-                "attachment, no MAR uniqueness, no scalar potential, no pole mass, no continuum "
+                "attachment, no class-uniqueness promotion, no scalar potential, no pole mass, no continuum "
                 "spin-statistics theorem, no laboratory exchange measurement, no identification "
                 "with physical particle content"
             ),
@@ -2936,7 +2936,7 @@ def certificate_payload(
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
-            "mar_class_proved_nonempty_before_uniqueness_promoted": True,
+            "candidate_class_proved_nonempty_before_uniqueness_promoted": True,
             "family_attachment_scalar_potential_pole_mass_outside_packet": True,
             "spin_odd_weyl_nonempty_and_vec_svec_opposite_weyl_controls_fail": True,
             "faithful_action_and_nonzero_invariant_sector_with_gauss_and_kernel_gates": True,
@@ -3009,7 +3009,7 @@ def certificate_payload(
             ),
             "does_not_close": [
                 "physical AXIS-CENTER-DESCENT/global-form attachment (the #567 packet carries that)",
-                "MAR uniqueness (only nonemptiness is discharged here)",
+                "class uniqueness (only nonemptiness is discharged here)",
                 "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",
                 "exclusion of other anomaly-free light sectors beyond the exterior module (#609)",
                 "scalar existence, one-scalar economy, or absence of additional light scalars (#609)",
@@ -3111,8 +3111,8 @@ def negative_control_cases(manifest: Mapping[str, Any]) -> list[tuple[str, dict[
     cases.append(("undeclared_forbidden_channel", extra_channel, "SCALAR_SELECTION"))
 
     promoted = copy.deepcopy(manifest)
-    promoted["mar_class"]["promote_uniqueness"] = True
-    cases.append(("mar_uniqueness_promoted", promoted, "MAR_UNIQUENESS_PROMOTION"))
+    promoted["candidate_matter_class"]["promote_uniqueness"] = True
+    cases.append(("class_uniqueness_promoted", promoted, "CLASS_UNIQUENESS_PROMOTION"))
 
     family = copy.deepcopy(manifest)
     family["downstream_hint"] = {"attachment_target": "three family attachment"}
@@ -3178,7 +3178,7 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             "typing": {
                 "bosonic_matter": "the derived matter-building operators anticommute; bosonic typing fails closed",
                 "representation_arithmetic": "representation arithmetic without the operator projector is not physical realization",
-                "uniqueness_promotion": "promoting MAR uniqueness inside this packet is rejected; only nonemptiness is discharged",
+                "uniqueness_promotion": "promoting class uniqueness inside this packet is rejected; only nonemptiness is discharged",
                 "charge_dead": "a charge-dead contract annihilates the central lane, so the current action is unfaithful",
             },
         },

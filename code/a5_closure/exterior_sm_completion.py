@@ -247,7 +247,7 @@ payload = {
             "M1 is the non-vacuum even exterior package, not the full even Clifford module. "
             "The full even exterior module also contains Lambda^0 V, and M1 alone is not "
             "Clifford-stable. Removing that singlet and "
-            "excluding other anomaly-free light sectors requires MGFC/MAR or an "
+            "excluding other anomaly-free light sectors requires a source-completeness theorem or an "
             "observer-visible discriminator."
         ),
         "physical_status": (

@@ -27,7 +27,7 @@ minimizer at the log-midpoint, so the boundary scale is
 capacities the minimizer is the capacity-weighted geometric mean.
 
 The implication is exact.  The premises are a proposed selection principle:
-AR1 and AR3 have no derivation from the five axioms in the current corpus,
+AR1 and AR3 have no derivation from the axioms in the current corpus,
 and AR2 is motivated by, without being derived from, the quadratic mismatch
 form.  The theorem therefore carries the same claim class as every completed
 conditional law in this repository, and the registered three-loop
@@ -229,7 +229,7 @@ def build_artifact(scan: dict[str, Any]) -> dict[str, Any]:
         "claim_boundary": (
             "The implication from AR1, AR2, AR3 to the midpoint scale is "
             "proved exactly. The premises are a proposed selection principle "
-            "without a derivation from the five axioms; the theorem shares "
+            "without a derivation from the axioms; the theorem shares "
             "the claim class of the completed conditional laws and inherits "
             "the registered three-loop discriminating test."
         ),
