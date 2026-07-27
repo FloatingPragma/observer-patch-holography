@@ -109,6 +109,22 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     ("Collect the mandatory scientific suite", [sys.executable, "-m", "pytest", "--collect-only", "-q", "code"]),
     ("Execute the audit fixture suite", [sys.executable, "-m", "pytest", "-q", "code/audit"]),
     ("Audit A5 closure ledgers", [sys.executable, "code/a5_closure/test_audit.py"]),
+    (
+        "Execute the three-axiom campaign certificate suites",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_equal_state_weights_certificate.py",
+            "code/a5_closure/tests/test_response_grammar_completeness_certificate.py",
+            "code/a5_closure/tests/test_a3_scheduler_kernel_certificate.py",
+            "code/a5_closure/tests/test_routed_seam_grammar_certificate.py",
+            "code/a5_closure/tests/test_optimizer_pushforward_certificate.py",
+            "code/a5_closure/tests/test_multiplicity_window_certificate.py",
+            "code/capacity_readback/test_capacity_semantics_menu_certificate.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

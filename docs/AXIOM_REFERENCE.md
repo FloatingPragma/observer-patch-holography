@@ -145,7 +145,8 @@ recovery, generalized-entropy structure, or any laboratory identification.
 The listed incidence consequences (inverse port, axes, \(A_5\), frame pair,
 antipode polynomial) are theorems about A1 carriers, proved separately; the
 response law and current algebra are exact results inside a named
-realization; equal state weights and the load fiber are derivation targets.
+realization; the load fiber is a derivation target. Equal state weights are
+not A1 content; they follow from A1 and A3 together (see the A3 section).
 No gauge, particle, coupling, measured-target, or fitted coordinate may
 appear in the source packet used for any of these derivations.
 
@@ -322,7 +323,22 @@ degeneracies, a \(\log d\) entropy term without a proved factorized
 identity-proportional edge reference, exponential-family closure under
 coarse-graining, or any selection among unrelated model spaces. The
 identity-channel and collar countermodels delimit these nonimplications and
-remain permanent controls.
+remain permanent controls. For pushforward specifically, the exact
+sufficiency family commutes with refinement and the exact nonclosure defect
+\(5/66\) is exhibited outside it (receipt
+`optimizer_pushforward_reference`).
+
+**A3 does imply equal state weights.** On any carrier whose deck action
+lifts as required by the A1 presentation firewall, the A3 exactness clauses
+(reference family, observer cover, and weights constructed from
+quotient-visible A1 data by a presentation-natural rule) make the whole
+variational problem deck-invariant; uniqueness of the information
+projection and transitivity of the port action then force
+\(\rho(e_p)=1/12\). `Lean/Screen/EqualStateWeights.lean` and the receipt
+`equal_state_weights_reference` carry the proof; the tilted-reference,
+non-transitive, non-unique, and incomplete-cover countermodels mark each
+clause as necessary. The realized state weight stays a distinct object from
+the measured central-block trace of the carrier realization.
 
 ---
 
