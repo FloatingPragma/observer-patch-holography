@@ -1,12 +1,12 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-26T18:57:11Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-27T04:42:04Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
 Worker policy: local artifacts first; up to six Chrome Pro workers may be used only after a concrete theorem, audit, or implementation packet exists. Obstruction-only worker output is not accepted.
 
-Open issue count: `49`
+Open issue count: `47`
 
 ## Closed Out-Of-Scope Records
 
@@ -37,7 +37,6 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#294](https://github.com/FloatingPragma/observer-patch-holography/issues/294) Clay YM: complete OS reconstruction and nontriviality package | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#295](https://github.com/FloatingPragma/observer-patch-holography/issues/295) Clay YM: certify the finite repair-gap floor | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#311](https://github.com/FloatingPragma/observer-patch-holography/issues/311) Proof packet: Particle-Like Defect Criterion | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
-| [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) Proof packet: Super-Tannakian Matter Lift | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#315](https://github.com/FloatingPragma/observer-patch-holography/issues/315) Proof packet: OPH Strong-CP Cancellation | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#318](https://github.com/FloatingPragma/observer-patch-holography/issues/318) Proof packet: Same-Scheme Hadronic Endpoint Transport for Alpha | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#328](https://github.com/FloatingPragma/observer-patch-holography/issues/328) Proof packet: Uniform Settling for Compiled Boolean Lattices | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
@@ -69,7 +68,6 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#562](https://github.com/FloatingPragma/observer-patch-holography/issues/562) [Rotor source] Derive the baryonic repair demand from the BW/modular gravity bridge | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#563](https://github.com/FloatingPragma/observer-patch-holography/issues/563) [Rotor cosmology] Construct the joint CMB, lensing, cluster, and growth likelihood program | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) [Rotor program] Derive the repair-charge dark sector from finite OPH | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
-| [#567](https://github.com/FloatingPragma/observer-patch-holography/issues/567) [12-port global form] Prove physical Z6 descent and the exact line spectrum | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [A5 matter] Attach the icosahedral screen action to three physical families | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#579](https://github.com/FloatingPragma/observer-patch-holography/issues/579) [Cosmology] Instantiate the source-screen spectrum receipts on one finite DAG | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#580](https://github.com/FloatingPragma/observer-patch-holography/issues/580) [Cosmology] Close physical TT/TE/EE transfer and frozen likelihood | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
