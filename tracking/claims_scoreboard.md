@@ -115,7 +115,7 @@ Release: `r1584`. 61 claims, 22 distinct live gates across 20 gated claims.
 | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) | [N closure selector] Derive the exact finite-size slack law and unique zero | `OPH-Q-PN-CLOSURE` |
 | [#560](https://github.com/FloatingPragma/observer-patch-holography/issues/560) | [Chi-nu math] Derive coherent repair charge, signed control, and device-force receipts | `OPH-CHI-NU` |
 | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) | [Rotor program] Derive the repair-charge dark sector from finite OPH | `OPH-DM-CONT` |
-| [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) | [A5 matter] Attach the icosahedral screen action to three physical families | `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION` |
+| [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) | [Family attachment] Attach the icosahedral screen action to three physical families | `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION` |
 | [#579](https://github.com/FloatingPragma/observer-patch-holography/issues/579) | [Cosmology] Instantiate the source-screen spectrum receipts on one finite DAG | `OPH-COSMO-SCREEN-SPECTRUM` |
 | [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) | [N-horizon bridge] Identify public-record capacity with horizon area | `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |
 | [#591](https://github.com/FloatingPragma/observer-patch-holography/issues/591) | [Quark flavor] Construct the source-derived flavor carrier and orbit selector | `OPH-W5-STABILISER-POTENTIAL-BOUNDARY` |
@@ -123,4 +123,4 @@ Release: `r1584`. 61 claims, 22 distinct live gates across 20 gated claims.
 | [#594](https://github.com/FloatingPragma/observer-patch-holography/issues/594) | [Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet | `OPH-WZ-STRICT-1L-POLE-MAP` |
 | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) | [Source law] Attain the five measured Einstein-branch clause targets | `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |
 | [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) | [de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments | `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM` |
-| [#609](https://github.com/FloatingPragma/observer-patch-holography/issues/609) | [MAR retirement] Prove a source-complete no-extra-light-sector theorem | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
+| [#609](https://github.com/FloatingPragma/observer-patch-holography/issues/609) | [Matter completeness] Prove a source-complete no-extra-light-sector theorem | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
