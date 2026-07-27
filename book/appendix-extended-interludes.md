@@ -702,7 +702,7 @@ The realized tensors have a common central kernel of order six and hence a
 maximal faithful image isomorphic to the usual Standard Model quotient.
 Those tensors also descend through the cover and the order-two, order-three,
 and order-six quotients, so the physical global form is work in progress.
-Physical fermionic typing, three-family attachment, scalar economy, exclusion
+Physical fermionic typing, three-family attachment, scalar multiplicity, exclusion
 of extra light sectors, and quantum field-theory construction remain separate.
 
 ## Interlude 17: How Particle Data Enters a Book Like This

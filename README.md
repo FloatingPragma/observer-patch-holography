@@ -305,7 +305,7 @@ calculation gives a common $\mathbb Z_6$ kernel on those tensors, so their
 maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
 $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. This
-exact finite implication does not use the minimal-admissibility rule.
+exact finite implication uses its stated premises alone.
 Physical fermion typing, global-form selection, and identification with
 laboratory currents are open. The transportable-sector/Tannaka construction
 is a separate compact-group route, and the source-bound identification of the

@@ -200,9 +200,8 @@ CKM matrix
 mix under the weak interaction, and its complex phase is the Standard Model's
 source of charge-parity violation. Counting its physical phases gives the lower
 bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
-consistency gives $N_g\le5$, and a minimal-realization principle selects
-the least admitted value. This is
-an economy-class selection only. Physical family attachment is a separate
+consistency gives $N_g\le5$. The count is open inside that window, and
+three enters as a declared completion. Physical family attachment is a separate
 construction.
 
 Classical limit

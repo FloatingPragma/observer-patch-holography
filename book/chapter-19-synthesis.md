@@ -214,7 +214,7 @@ compatible charge, it also produces the three Yukawa channels and cancels the
 color, weak, gravitational, and cubic hypercharge anomalies. The calculation
 does not select scalar multiplicity. Three colored quark doublets plus one lepton doublet
 give four weak doublets per family. If the family attachment realizes the
-conditional economy minimum, three families give twelve, and reversible orientation
+declared three-family completion, three families give twelve, and reversible orientation
 doubles that to the same twenty-four slots carried by the screen. The numerical
 match is a load check, not the missing physical intertwiner.
 
@@ -236,7 +236,8 @@ Refinement is what lets the finite screen construction become that smooth field
 theory.
 
 The color triplet is structural on the conditional matter packet. The
-three-generation value is the least member of the declared economy window,
+three-generation value is a declared completion inside the open
+three-to-five window,
 while the icosahedral faces supply a canonical rank-three candidate band. The
 physical family attachment and its field-theory evidence are work in
 progress. Gauge

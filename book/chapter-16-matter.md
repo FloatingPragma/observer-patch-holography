@@ -73,12 +73,13 @@ fixes the matter content with its fermionic grading as an output, the
 measured transport double cover forces the Spin typing, and the anomaly and
 central-descent calculations give the charge pattern, a three-color carrier,
 and the maximal faithful matter image
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication is
-MAR-free. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
+no selection principle. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
 the same local tensors; the measured flux-sector menu of the carrier
-federation selects the full quotient at finite source scope. The economy
-rule supplies the conditional minimum $N_g=3$ and orders extra light
-sectors, not that finite gauge calculation.
+federation selects the full quotient at finite source scope. The generation
+count is open inside its three-to-five window; $N_g=3$ and the absence of
+extra light sectors enter as declared completions, and neither enters that
+finite gauge calculation.
 
 This chain inherits the collective history of particle physics. Rutherford's
 recoil opened it. Chadwick found the
@@ -137,8 +138,8 @@ where $I$ is the identity, $R$ advances one corner, $a$ sets the response the
 three corners share, and $b$ sets how they differ. A circulant is a matrix
 whose rows are all the same list, rotated one step each row. The icosahedral
 action carries the same unordered spectrum from face to face. The sixty
-face-corner flags are the local copies of this dial, and the economy
-selection leaves a canonical three-slot candidate band. The face triplet and
+face-corner flags are the local copies of this dial, and the face orbit
+supplies a canonical three-slot candidate band. The face triplet and
 the color triplet of $SU(3)$ do different jobs; their shared use of the
 number three comes from different parts of the architecture.
 

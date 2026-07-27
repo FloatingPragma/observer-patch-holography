@@ -335,54 +335,48 @@ Why? Because macroscopic observers don't see molecules. They see pressure gauges
 
 Physicists call this **universality**. At large scales, different microscopic theories flow to the same effective behavior. The stable patterns are called **fixed points**. They are the laws that survive coarse-graining, the things that many different realities can agree on.
 
-## 1.10 Five Core Axioms
+## 1.10 Three Core Axioms
 
-From these hints, OPH distills **five core axioms** that guide the rest of this
+From these hints, OPH distills **three core axioms** that guide the rest of this
 book:
 
-**Axiom 1: Screen Net / Finite Access**
+**Axiom 1: The Observer Screen**
 No observer reads the whole world; every view comes through a bounded window
-backed by a finite memory. Every observer is finite. Its operational patch has a bounded algebra and
-state, records, exposed interfaces, and allowed updates. On the geometric
-branch, that patch is displayed as a local cut of the shared screen net. No
-observer accesses the whole structure at once.
+backed by a finite memory. Precisely: there is a net of observer patches on an
+oriented spherical screen. At every finite resolution, each local carrier has
+twelve primitive boundary ports, and the ports form an oriented triangular
+boundary with 30 edges and 20 faces, combinatorially the boundary of an
+icosahedron. Carriers join through typed seams and triple overlaps, refine
+together onto a spherical support, and expose local state, readback, records,
+repair moves, and checkpoints.
 
-**Axiom 2: Overlap Consistency**
-If you look at a star and I look at the same star, we have to agree on what we can jointly check. Where patches overlap, their descriptions must match on the shared observables. That single constraint shapes almost everything.
+**Axiom 2: Observer Agreement**
+If you look at a star and I look at the same star, we have to agree on what we can jointly check. Precisely: observers agree on the meaning of the data they
+jointly interpret. Wherever two patches share an overlap, interpreting
+accepted shared data commutes with every restriction, translation between the
+two interfaces, and refinement, so a public record means the same thing to
+every observer who can reach it. That single constraint shapes almost
+everything.
 
-**Axiom 3: Local MaxEnt and Refinement Stability**
-Where its checks run out, an observer assumes as little as possible, and it
-keeps the same short list of assumptions as the picture sharpens. At the regulator scale, the realized state is selected by maximizing entropy
-subject to a short, fixed list of constraints on screen-wide totals, one
-dial per constraint in the list rather than one per screen cell. The axiom then adds
-a genuine physical assumption, the refinement-closure clause: as the screen is
-refined, the same short list keeps describing the realized state, so the
-theory stays on one stable track without changing its rules at every cutoff.
+**Axiom 3: Conditional Maximum Randomness**
+Where its checks run out, an observer assumes as little as possible.
+Precisely: everything that observer agreement leaves unconstrained is
+maximally random. Among all states satisfying the finite observer-visible
+constraints the first two axioms supply, the realized state is the
+information projection onto that constraint set, the state least informative
+relative to the declared reference. "Random" here means least informative
+given the constraints; it does not mean independent noise or equal
+probabilities in every coordinate system.
 
-The regulator scale is the working resolution of the screen. MaxEnt means
-"maximum entropy": choose the least biased state compatible with the constraints
-the observer can actually enforce.
-
-**Axiom 4: Recoverable Generalized Entropy**
-Tear a page out of a well-kept ledger and the neighboring entries let you
-rebuild it. You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
-
-Generalized entropy is ordinary quantum entropy plus the geometric boundary
-term familiar from horizons. Recoverability means that missing local data can
-be reconstructed from neighboring overlap data when the correlations have the
-right form.
-
-**Axiom 5: Economy Principle**
-When several particle worlds would all satisfy the checks, the realized one
-is the cheapest. Later chapters make "cheapest" precise; here it is enough
-that the tie-breaker is economy. Among the admissible low-energy possibilities, the realized sector is the
-minimal one under the precise complexity ordering used in the physics program.
-This is the selector that acts after compact-gauge reconstruction and narrows
-the realized low-energy package to the Standard Model branch.
+That is the complete list. The axioms contain no gauge group, no particle
+list, no recovery law, and no selection principle. Every further structure a
+result uses, a recovery property, a matter contract, a declared completion,
+is named at that result, so the reader can always see where an extra
+assumption enters the chain.
 
 ## 1.11 Reality as Computation
 
-These five axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
+These three axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
 
 The observer-facing screen can be represented by a finite quantum regulator.
 In one chart, qudits sit on the edges of a triangulated screen and local
@@ -391,9 +385,9 @@ the universe runs. The finite-resolution carrier is a federation of finite patch
 whose exposed overlaps, records, and repair moves are read through
 observer-facing screen charts. On the reference branch, each elementary
 carrier has twelve ports arranged by icosahedral incidence. Maximum entropy
-selects the realized state subject to a stable family of local constraints,
-and the low-energy sector is narrowed further by the minimal realization rule
-used later in the program.
+selects the realized state subject to a stable family of local constraints.
+Where several low-energy completions remain admissible, the realized one
+enters as a declared completion rather than as an output of the axioms.
 
 A qudit is the multi-level cousin of a qubit. A triangulated screen is a finite
 network approximation to an observer-facing cut, not a declaration that the

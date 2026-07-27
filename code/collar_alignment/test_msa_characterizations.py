@@ -521,7 +521,7 @@ def test_noncentral_model_repair_confluence():
 
 
 def test_noncentral_coupling_passes_small_cmi_budget():
-    """The small-CMI clause of Axiom 4 does not exclude the coupling class.
+    """The small-CMI clause of the collar-recovery interface does not exclude the coupling class.
 
     At coupling strength g the collar CMI of the descended Gibbs state
     scales quadratically while the modular-splitting defect scales linearly.
