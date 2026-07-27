@@ -90,7 +90,7 @@
   <text x="310" y="222" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace">One carrier-sensitive observer architecture links public records to conditional spacetime, gravity, and Standard Model branches through named physical bridges.</text>
   <rect x="4260" y="76" width="1120" height="112" rx="24" fill="rgb(255 255 255 / 0.03)" stroke="rgb(255 255 255 / 0.08)" />
   <text x="4292" y="104" fill="#f4f7fb" font-size="18" font-family="Space Grotesk, sans-serif" font-weight="700">Poster logic</text>
-  <text x="4292" y="128" fill="#9ba7b8" font-size="14" font-family="JetBrains Mono, monospace">Top: axioms and bridge packages. Middle: derivation spine. Bottom: branch completions and global closure.</text>
+  <text x="4292" y="128" fill="#9ba7b8" font-size="14" font-family="JetBrains Mono, monospace">Top: the three axioms with typed interfaces and declared completions. Middle: derivation spine. Bottom: branch completions and global closure.</text>
   <rect x="4300" y="140" width="110" height="24" rx="12" fill="rgb(255 255 255 / 0.04)" stroke="#d4b56e" />
   <text x="4314" y="157" fill="#d4b56e" font-size="12" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2">AXIOM</text>
   <rect x="4428" y="140" width="130" height="24" rx="12" fill="rgb(255 255 255 / 0.04)" stroke="#f3df9a" />
@@ -109,8 +109,8 @@
 <g filter="url(#panelShadow)">
   <rect x="120" y="330" width="1750" height="620" rx="32" fill="url(#panelGradient)" stroke="rgb(212 181 110 / 0.12)" />
   <rect x="142" y="352" width="1706" height="86" rx="20" fill="rgb(212 181 110 / 0.05)" stroke="rgb(255 255 255 / 0.05)" />
-  <text x="162" y="388" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Axiom Package</text>
-  <text x="162" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core structural basis of OPH.</text>
+  <text x="162" y="388" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Three Axioms and Named Interfaces</text>
+  <text x="162" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core basis of OPH: three axioms; interfaces and declared completions are typed separately.</text>
   <line x1="150" y1="450" x2="1840" y2="450" stroke="rgb(212 181 110 / 0.22)" />
 </g>
 <g filter="url(#panelShadow)">
@@ -410,12 +410,12 @@
   <rect x="186" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
   <text x="200" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
   <rect x="188" y="833" width="167.4" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="194" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A1 Typed</text>
-  <text x="194" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Screen Net</text>
-  <text x="194" y="668" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">carrier,</text>
-  <text x="194" y="698" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">federation,</text>
-  <text x="194" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">support kept</text>
-  <text x="194" y="758" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">distinct</text>
+  <text x="194" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A1 Twelve-Port</text>
+  <text x="194" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Observer Screen</text>
+  <text x="194" y="668" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">12 ports, 30 edges,</text>
+  <text x="194" y="698" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">20 oriented faces</text>
+  <text x="194" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">carrier, federation,</text>
+  <text x="194" y="758" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">support kept distinct</text>
   <text x="194" y="788" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">S2 belongs to the</text>
   <text x="194" y="818" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">support branch</text>
 </g>
@@ -426,11 +426,11 @@
   <rect x="516" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
   <text x="530" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
   <rect x="518" y="833" width="167.4" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="524" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A2 Overlap</text>
-  <text x="524" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Consistency</text>
-  <text x="524" y="668" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">shared</text>
-  <text x="524" y="698" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">observables must</text>
-  <text x="524" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">agree</text>
+  <text x="524" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A2 Observer</text>
+  <text x="524" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Agreement</text>
+  <text x="524" y="668" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">meaning of shared</text>
+  <text x="524" y="698" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">data agrees across</text>
+  <text x="524" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">every overlap</text>
   <text x="524" y="758" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">objectivity from</text>
   <text x="524" y="788" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">compatible</text>
   <text x="524" y="818" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">overlaps</text>
@@ -442,42 +442,42 @@
   <rect x="846" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
   <text x="860" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
   <rect x="848" y="806" width="183.6" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="854" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A3 Local MaxEnt</text>
-  <text x="854" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">+ Refinement</text>
-  <text x="854" y="654" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Stability</text>
-  <text x="854" y="701" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">finite local</text>
-  <text x="854" y="731" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">constraint family</text>
-  <text x="854" y="761" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">branch selector</text>
-  <text x="854" y="791" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">across refinement</text>
+  <text x="854" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A3 Conditional</text>
+  <text x="854" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Maximum</text>
+  <text x="854" y="654" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Randomness</text>
+  <text x="854" y="701" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">information</text>
+  <text x="854" y="731" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">projection onto the</text>
+  <text x="854" y="761" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">agreement</text>
+  <text x="854" y="791" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">constraint set</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="1184" y="504" width="352" height="317" rx="30" fill="none" stroke="#d4b56e" stroke-width="3" opacity="0.18" filter="url(#softGlow)" />
   <rect x="1190" y="510" width="340" height="305" rx="24" fill="rgb(14 16 24 / 0.96)" stroke="#d4b56e" stroke-width="2.2" opacity="1.0" />
   <rect x="1191" y="511" width="338" height="38" rx="23" fill="rgba(212, 181, 110, 0.18)" opacity="0.84" />
   <rect x="1206" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
-  <text x="1220" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
+  <text x="1220" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">INTERFACE</text>
   <rect x="1208" y="806" width="183.6" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="1214" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A4 Recoverable</text>
-  <text x="1214" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Generalized</text>
-  <text x="1214" y="654" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Entropy</text>
-  <text x="1214" y="701" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">S_gen = S_bulk +</text>
-  <text x="1214" y="731" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">&lt;L_C&gt;</text>
-  <text x="1214" y="761" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">recoverability,</text>
-  <text x="1214" y="791" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">collars, focusing</text>
+  <text x="1214" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Gravity</text>
+  <text x="1214" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Interfaces</text>
+  <text x="1214" y="654" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">(not axioms)</text>
+  <text x="1214" y="701" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">collar recovery,</text>
+  <text x="1214" y="731" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">S_gen, focusing:</text>
+  <text x="1214" y="761" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">derived or open,</text>
+  <text x="1214" y="791" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">with countermodels</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="1544" y="504" width="322" height="281" rx="30" fill="none" stroke="#d4b56e" stroke-width="3" opacity="0.18" filter="url(#softGlow)" />
   <rect x="1550" y="510" width="310" height="269" rx="24" fill="rgb(14 16 24 / 0.96)" stroke="#d4b56e" stroke-width="2.2" opacity="1.0" />
   <rect x="1551" y="511" width="308" height="38" rx="23" fill="rgba(212, 181, 110, 0.18)" opacity="0.84" />
   <rect x="1566" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
-  <text x="1580" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
+  <text x="1580" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">DECLARED</text>
   <rect x="1568" y="770" width="167.4" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="1574" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">MAR Economy</text>
-  <text x="1574" y="635" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">lexicographic</text>
-  <text x="1574" y="665" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">selector on</text>
-  <text x="1574" y="695" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">admissible</text>
-  <text x="1574" y="725" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">low-energy sector</text>
-  <text x="1574" y="755" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">packages</text>
+  <text x="1574" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Declared</text>
+  <text x="1574" y="635" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">Completions</text>
+  <text x="1574" y="665" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">generation window</text>
+  <text x="1574" y="695" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">3..5, one Higgs,</text>
+  <text x="1574" y="725" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">sector absences:</text>
+  <text x="1574" y="755" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">open declarations</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="1974" y="504" width="292" height="434" rx="30" fill="none" stroke="#f3df9a" stroke-width="3" opacity="0.18" filter="url(#softGlow)" />
@@ -759,7 +759,7 @@
   <rect x="3176" y="1225" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#4ee7ff" opacity="1" />
   <text x="3190" y="1244" fill="#4ee7ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">THEOREM</text>
   <rect x="3178" y="1397" width="300.8" height="3" rx="1.5" fill="#4ee7ff" opacity="0.82" />
-  <text x="3184" y="1297" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Tannaka / DR + MAR Route</text>
+  <text x="3184" y="1297" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Tannaka / DR Route</text>
   <text x="3184" y="1350" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">transportable tensor/fiber colimit reconstructs G</text>
   <text x="3184" y="1382" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">declared matter package selects the SM quotient conditionally</text>
 </g>
@@ -790,7 +790,7 @@
   <text x="3190" y="1943" fill="#7ca6ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">OUTPUT</text>
   <rect x="3178" y="2096" width="300.8" height="3" rx="1.5" fill="#7ca6ff" opacity="0.82" />
   <text x="3184" y="1996" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Theorem 6.14 Colors = 3</text>
-  <text x="3184" y="2049" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">Witten anomaly + MAR</text>
+  <text x="3184" y="2049" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">Witten anomaly on the realized branch</text>
   <text x="3184" y="2081" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">Nc = 3 on the realized branch</text>
 </g>
 <g filter="url(#panelShadow)">
@@ -799,8 +799,8 @@
   <rect x="3176" y="2157" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#7ca6ff" opacity="1" />
   <text x="3190" y="2176" fill="#7ca6ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">OUTPUT</text>
   <rect x="3178" y="2329" width="300.8" height="3" rx="1.5" fill="#7ca6ff" opacity="0.82" />
-  <text x="3184" y="2229" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">MAR Economy Minimum Ng = 3</text>
-  <text x="3184" y="2282" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">CP + UV window + MAR economy</text>
+  <text x="3184" y="2229" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Generation Window 3..5</text>
+  <text x="3184" y="2282" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">CP + UV clauses; count open, 3 declared</text>
   <text x="3184" y="2314" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">physical rank-45 family attachment remains open</text>
 </g>
 <g filter="url(#panelShadow)">

@@ -13,7 +13,7 @@ commence par des observateurs : des systèmes bornés dotés d’un état local,
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. Elle en dérive le reste. La réalité émerge de la
 réparation des recouvrements d’observateurs sur un écran holographique. De
-cinq axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
+trois axiomes et de deux constantes, $P$ et $N$, l’univers observé se déploie :
 la mesure quantique, l’espace-temps lorentzien, la branche conditionnelle
 d’Einstein, les symétries de jauge et la matière sont des relectures d’un
 seul système fini de cohérence entre observateurs, sous leurs prémisses
@@ -106,32 +106,59 @@ certificats :
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 
-## Les cinq axiomes
+## Les trois axiomes
 
-Toute la construction repose sur les cinq axiomes de
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf) :
+Toute la construction repose sur trois axiomes fondamentaux. Les énoncés
+canoniques se trouvent dans [la référence des axiomes](docs/AXIOM_REFERENCE.md)
+et dans le registre machine `claims/axiom_registry.yaml` ; les articles
+incluent la base formelle partagée.
 
-1. **A1 : Un réseau d’écran.** Un réseau fini d’algèbres locales est assigné
-   aux parcelles connexes de l’écran holographique, le support tourné vers
-   l’observateur, cartographié par $S^2$ sur la branche sphérique certifiée.
-   L’écran n’est pas générique : sa réalisation microphysique est
-   l’architecture fédérée de porteurs à douze ports de symétrie icosaédrique
-   locale $A_5$, énoncée précisément dans
-   [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
-   Le porteur local, la fédération de porteurs et la carte de support
-   globale $S^2$ sont typés et distincts dans tout le corpus.
-2. **A2 : Cohérence des recouvrements.** Les parcelles voisines doivent
-   s’accorder sur les observables partagées.
-3. **A3 : MaxEnt local avec stabilité au raffinement.** Chaque parcelle porte
-   l’état local le moins biaisé compatible avec ses contraintes finies.
-4. **A4 : Entropie généralisée récupérable.** Les registres sont
-   récupérables après l’évolution ; c’est la structure de récupération et de
-   focalisation de la voie gravitationnelle.
-5. **A5 : Réalisation admissible minimale.** Le secteur de basse énergie le
-   plus simple compatible avec les contraintes de cohérence est sélectionné.
+1. **A1 : Écran d’observateurs orienté à douze ports.** Il existe un réseau
+   de parcelles d’observateur sur un écran sphérique orienté. À chaque
+   résolution finie, chaque porteur local possède douze ports de bord
+   primitifs qui forment les sommets d’un bord triangulaire orienté à 30
+   arêtes et 20 faces, combinatoirement le bord d’un icosaèdre. Les porteurs
+   se joignent par des coutures typées et des recouvrements triples
+   cohérents, se raffinent en un support sphérique orienté et exposent un
+   état local, une relecture, des registres, des mouvements de réparation et
+   des points de contrôle. Formellement : pour chaque régulateur $r$ il
+   existe un objet typé $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,
+   \mathcal R_r,\mathcal I_r,\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$ dont
+   les porteurs portent douze projections de port centrales primitives et le
+   paquet de bord exact $K=(P,E,F,o)$, joints par des algèbres de coutures
+   en un nerf muni d’un pont de degré un vers le support sphérique orienté,
+   le tout commutant avec le raffinement. Le porteur local, la fédération de
+   porteurs et le support global $S^2$ restent typés et distincts dans tout
+   le corpus.
+2. **A2 : Accord des observateurs.** Les observateurs qui opèrent sur
+   l’écran s’accordent sur le sens des données qu’ils interprètent
+   conjointement. Formellement : l’application d’interprétation
+   $\mathcal J_r$ des données accessibles aux observateurs vers les
+   significations opérationnelles est naturelle vis-à-vis de chaque
+   restriction de recouvrement visible, changement de carte, traduction de
+   couture, application de recouvrement supérieur et application de
+   raffinement sur les données publiques acceptées. Aucune parcelle ne voit
+   l’univers entier ; un fait devient public seulement lorsqu’il survit à la
+   comparaison entre recouvrements.
+3. **A3 : Aléa maximal conditionnel.** Tout ce que l’accord des observateurs
+   laisse sans contrainte est maximalement aléatoire. Formellement : l’état
+   réalisé est la projection d’information d’une famille de référence exacte
+   sur l’ensemble convexe des familles d’états locaux compatibles qui
+   satisfont les contraintes finies visibles par les observateurs,
+   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
+   D(\rho_{r,P}\Vert\tau_{r,P})$.
 
-Tout le reste du dépôt est le déploiement de ce que ces cinq axiomes
-imposent.
+Aucun des axiomes ne contient un groupe de jauge, une liste de particules,
+une loi de récupération ou une règle de sélection. La récupération de
+collier, la structure d’entropie généralisée et les complétions de secteurs
+entrent comme interfaces nommées et déclarations aux résultats qui les
+consomment, chacune classée comme théorème exact, résultat exact dans une
+réalisation finie nommée, interface ouverte déclarée, résultat
+d’indépendance avec contre-modèles ou identification physique.
+
+Tout le reste du dépôt est le déploiement de ce que ces trois axiomes
+imposent, et de la quantité exacte de structure supplémentaire que chaque
+conclusion physique consomme.
 
 ## L’idée en langage simple
 

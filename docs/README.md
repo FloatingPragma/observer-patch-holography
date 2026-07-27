@@ -20,7 +20,7 @@ run data so you can watch the universe assemble itself.
   [textbooks](https://learn.floatingpragma.io/), and the
   [simulation](https://simulation.floatingpragma.io/) above, then the
   [compact case](../extra/compact_proof_of_oph.pdf) and the repository
-  [README](../README.md) from the five axioms through the twist.
+  [README](../README.md) from the three axioms through the twist.
 - **Scientific audit:** use the [proof spine](PROOF_SPINE.md), the
   [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure),
   the [carrier-coherence
