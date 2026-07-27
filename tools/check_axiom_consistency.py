@@ -208,11 +208,44 @@ def pdf_checks(errors: list[str]) -> None:
                 errors.append(f"{rel}: extracted text carries stale token ({label})")
 
 
+def write_inventory() -> None:
+    rows = []
+    seen: set[Path] = set()
+    for glob in ACTIVE_GLOBS:
+        for path in sorted(ROOT.glob(glob)):
+            if not path.is_file() or path in seen:
+                continue
+            seen.add(path)
+            rows.append(
+                {
+                    "path": path.relative_to(ROOT).as_posix(),
+                    "glob": glob,
+                    "allowlisted": path_allowed(path),
+                }
+            )
+    payload = {
+        "schema": "oph.active_surface_inventory.v1",
+        "generator": "tools/check_axiom_consistency.py --inventory",
+        "surface_count": len(rows),
+        "entry_surfaces": sorted(ENTRY_SURFACES),
+        "pdf_surfaces": PDF_SURFACES,
+        "surfaces": rows,
+    }
+    out = ROOT / "claims" / "active_surface_inventory.json"
+    out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(f"wrote {out.relative_to(ROOT)} ({len(rows)} surfaces)")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--pdf", action="store_true", help="also scan designated release PDFs")
     parser.add_argument("--list-only", action="store_true", help="print violations without failing")
+    parser.add_argument("--inventory", action="store_true", help="write claims/active_surface_inventory.json")
     args = parser.parse_args(argv)
+
+    if args.inventory:
+        write_inventory()
+        return 0
 
     errors: list[str] = []
     registry_checks(errors)

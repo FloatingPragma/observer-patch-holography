@@ -101,6 +101,21 @@ the repository, the ledgers, or the other papers.
 - Quantities the book itself defines and explains (a named capacity, a named
   constant) stay, because the book gives the reader their meaning on the page.
 
+## Axiom basis
+
+- A surface that states or counts the axiom basis gives exactly three axioms
+  and pairs every axiom with both forms in the same local context: one
+  plain-language sentence, then the concise formal statement, then what the
+  axiom constrains, then what it does not imply, then a citation to
+  `docs/AXIOM_REFERENCE.md`. A surface that only consumes an axiom names the
+  exact dependency and cites the reference.
+- The symbol \(A_5\) names the alternating group on five letters, never an
+  axiom. Where confusion is possible, the group is typeset with a subscript
+  and introduced as a group.
+- Retired principles are never mentioned by name in active prose. A former
+  consequence appears only through its surviving premises: a conditional
+  window, a declared completion, a classified interface, or a countermodel.
+
 ## Consistency
 
 - Values, status labels, and claim boundaries agree across every paper and
