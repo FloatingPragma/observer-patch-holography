@@ -329,10 +329,13 @@ def render(rows: list[dict]) -> str:
         "screen, compare overlaps, and repair disagreement until every observer agrees."
     )
     lines.append(
-        "On the declared carrier lineage that consensus requirement forces the twelve-port"
+        "On the declared carrier lineage (row 4, an exposed premise) that consensus"
     )
     lines.append(
-        "screen geometry outright, with machine-checked proofs, and every remaining"
+        "requirement forces the unit split, pairing, and frame of rows 1-3,"
+    )
+    lines.append(
+        "with machine-checked proofs, and every remaining"
     )
     lines.append(
         "structural choice is finite: a declared premise with a stated menu, or an open"

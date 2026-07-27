@@ -39,9 +39,12 @@ every visible overlap restriction, recharting, seam translation,
 higher-overlap map, federation map, and refinement map: every declared
 data-access diagram for accepted public data commutes after interpretation,
 and \(\mathcal J_r\circ c_{s\to r}=C_{s\to r}\circ\mathcal J_s\) across
-resolutions. The axiom constrains accepted shared data only. It does not
+resolutions. The axiom constrains accepted shared data only, and the domain
+it quantifies over is supplied by the Axiom 1 interfaces rather than by the
+axiom itself. It does not
 imply global state extension, repair termination, confluence, unique normal
-forms, record durability, or commutation of state optimization with
+forms, record durability, Byzantine safety, dissemination, or commutation of
+state optimization with
 refinement; raw mismatch and repair precede acceptance.
 
 \paragraph{Axiom 3 (conditional maximum randomness).}
@@ -52,14 +55,19 @@ nonempty convex set of such families satisfying the finite observer-visible
 constraints supplied by Axioms 1 and 2 through an A1-generated constraint
 grammar with a factorization theorem; and, relative to an exact reference
 family \(\tau_r\), an A1-generated observer cover \(\mathcal G_r\), and
-strictly positive exact weights \(w_{r,P}\), the realized state is the
+strictly positive exact weights \(w_{r,P}\) constructed from quotient-visible
+A1 data by a rule natural under admissible presentation equivalence, the
+realized state is the
 information projection. The cover restriction map is injective on
-\(\mathcal K_r\), or equivalently at smooth points no nonzero feasible
-tangent is invisible to the whole cover:
+\(\mathcal K_r\); equivalently, at smooth points no nonzero feasible
+tangent is invisible to the whole cover. The realized state is
 \[
 \rho_r=\operatorname*{arg\,min}_{\rho\in\mathcal K_r}
-\sum_{P\in\mathcal G_r} w_{r,P}\,D(\rho_{r,P}\Vert\tau_{r,P}),
+\sum_{P\in\mathcal G_r} w_{r,P}\,D(\rho_{r,P}\Vert\tau_{r,P}).
 \]
+The same projection rule applies separately to each declared optimizer
+object type (ontic state, inference state, or transition distribution), and
+statements about one type do not transfer to another.
 This is equivalent to weighted local entropy maximization when every local
 reference density is identity-proportional in its declared trace. "Random"
 means least informative relative to the

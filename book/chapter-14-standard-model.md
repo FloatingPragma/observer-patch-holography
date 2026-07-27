@@ -738,8 +738,10 @@ four-dimensional. Identification with measured laboratory gauge currents is
 open.
 
 The six axes carry two further pieces of structure. Their integral load
-lattice has an exact sixfold residue. On the declared conjugate pair of
-fifteen-state exterior modules, anomaly freedom forces determinant balance,
+lattice has an exact sixfold residue. On the conjugate pair of
+fifteen-state exterior modules, the unique nonempty chiral anomaly-free
+selection in the exhaustive scan of all 1024 module subsets, anomaly freedom
+forces determinant balance,
 while primitive integrality fixes the color and weak block charges up to
 simultaneous conjugation. Exhaustive enumeration of the central action on
 every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
@@ -762,11 +764,14 @@ in other words, comes with a natural three-place slot built into its faces, a
 canonical candidate home for the three families.
 
 Put together, the carrier and target-blind readback supply an exact
-gauge-adjoint symmetry type. Under the declared fermionic Spin category, the matter and descent
+gauge-adjoint symmetry type. The fermionic typing is itself measured at
+finite source scope, forced by the measured centre of the transport double
+cover and the section obstruction. The matter and descent
 receipts then supply a conjugate pair of hypercharge assignments, chirality,
 the color fundamental, the weak doublet, the compatible scalar-charge pair,
 three invariant interaction channels, and the conjugation-insensitive
-sixfold kernel and maximal faithful image. They do not select the physical
+sixfold kernel and maximal faithful image. Beyond that finite source scope
+they do not fix the continuum
 global form, scalar multiplicity, or physical matter attachment.
 
 ### The Exterior Matter Package
@@ -1020,9 +1025,12 @@ $$\boxed{N_g = 3}$$
 This boxed value is a declared completion with open physical status. It is not forced by anomaly
 cancellation, the $A_5$ graph, or the target-free source reduct.
 
-The one-Higgs slot also has a clean local geometric carrier. The construction
-needs exactly one weak doublet to appear at the bottom rung, and complex
-geometry supplies exactly one. On the selected electroweak branch, the weak
+The one-Higgs slot also has a clean local geometric carrier, though the
+count of one doublet is itself a declared completion, not a derivation:
+scalar existence and multiplicity are open, and what follows shows only
+that the minimal geometric slot has the right shape. The construction
+uses exactly one weak doublet at the bottom rung, and complex
+geometry supplies a natural carrier of exactly that shape. On the selected electroweak branch, the weak
 screen chart can be modeled locally as the simplest curved complex geometry,
 the projective line $\mathbb{CP}^1$, carrying its minimal positive line
 bundle $\mathcal O(1)$. The Borel-Weil theorem then gives

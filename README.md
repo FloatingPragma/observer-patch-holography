@@ -121,8 +121,8 @@ basis.
    the meaning of the data they jointly interpret. Formally: the
    interpretation map $\mathcal J_r$ from observer-accessible data to
    operational meanings is natural with respect to every visible overlap
-   restriction, recharting, seam translation, higher-overlap map, and
-   refinement map on accepted public data. No patch sees the whole universe;
+   restriction, recharting, seam translation, higher-overlap map, federation
+   map, and refinement map on accepted public data. No patch sees the whole universe;
    a fact becomes public only when it survives comparison across overlaps.
 3. **A3: Conditional maximum randomness.** Everything that observer
    agreement leaves unconstrained is maximally random. Formally: the
@@ -135,11 +135,14 @@ basis.
    D(\rho_{r,P}\Vert\tau_{r,P})$.
 
 None of the axioms contains a gauge group, a particle list, a recovery law,
-or a selection rule. Collar recovery, generalized-entropy structure, and
+or a rule that selects field content or multiplicity; A3 selects one state
+inside one fixed feasible space and nothing else. Collar recovery,
+generalized-entropy structure, and
 sector completions enter as named interfaces and declarations at the results
 that consume them, each classified as an exact theorem, an exact result
-inside a named finite realization, a declared open interface, an
-independence result with countermodels, or a physical identification.
+inside a named finite realization, a discovery-level observation, a declared
+open interface, an independence result with countermodels, a physical
+identification, or a withdrawn claim.
 
 Everything else in the repository is the working-out of what these three
 axioms force, and of exactly how much further structure each physical
@@ -241,9 +244,9 @@ public quotient normal forms
         │       same-tower composition → Lorentz and conditional Einstein branches
         ├─ transportable sectors → independent Tannaka compact-group route
         └─ local 12-port carrier → exact inverse-port response theorem
-                → conditional compact current and matter constructions
-                → conditional Z6 tensor kernel
-                laboratory current, physical matter, spectrum, and family attachments open
+                → conditional compact current and scan-selected matter constructions
+                → exact Z6 tensor kernel; flux-measured global form at source scope
+                laboratory current, scalar, spectrum, and family attachments open
         ↓
 quantitative closure and physical-readout tests
 ```
@@ -300,16 +303,21 @@ $10J=A^3-4A^2-5A+10I$. The response $R=-J$ has exact relative sector signs;
 its common sign is charge conjugation.
 
 From that derived response, an explicit equivariant compact lift constructs
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. On the declared
-fifteen-state exterior packet, anomaly freedom gives determinant balance and
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. The
+fifteen-state exterior packet is selected by the exhaustive 1024-subset
+anomaly scan: the unordered conjugate rank-15 pair is the unique nonempty
+chiral anomaly-free selection, with the fermionic-parity grading as an
+output. Anomaly freedom gives determinant balance and
 primitive charges up to charge conjugation. Exhaustive central-action
 calculation gives a common $\mathbb Z_6$ kernel on those tensors, so their
 maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. This
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors, and
+the measured flux-sector data of the descent certificate select the
+$\mathbb Z_6$ quotient at finite source scope. This
 exact finite implication uses its stated premises alone.
-Physical fermion typing, global-form selection, and identification with
-laboratory currents are open. The transportable-sector/Tannaka construction
+Beyond that finite source scope, continuum fermion typing, the continuum
+global form, and identification with laboratory currents are open. The transportable-sector/Tannaka construction
 is a separate compact-group route, and the source-bound identification of the
 two routes is open.
 
@@ -328,9 +336,11 @@ module decomposition alone. The matter and descent certificates prove the
 corresponding conditional representation and kernel arithmetic. Laboratory
 identification is a separate test.
 
-The exact carrier results retain explicit physical boundaries. Physical
-matter typing, global-form selection, laboratory current identification,
-three-family attachment, exclusion of extra light sectors,
+The exact carrier results retain explicit physical boundaries. Matter typing
+and global-form selection are measured at finite source scope only;
+laboratory current identification,
+three-family attachment, exclusion of extra light sectors, scalar
+multiplicity,
 the Einstein source tower, and the physical closure packets are open. The
 [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
 records their work packages. The value $N_g=3$ is a declared completion
@@ -395,7 +405,7 @@ attachment is open, tracked on the issue tracker.
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Echosahedral selector and finite $A_5$ current theorem | Source-derived twelve-unit split, inverse pairing, proper $A_5$ action, rank-three frame, and unique central graph involution on the declared carrier lineage. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Conditional Standard Model faithful matter image | On the declared conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels; scalar multiplicity, physical matter selection, three-family attachment, and exclusion of extra light sectors are open. The generation count is a declared completion inside the conditional window $3\le N_g\le5$ until its family attachment is derived | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
@@ -458,8 +468,10 @@ survival-boundary calibration tests.
 
 ## The Twist: The Universe Is Its Own Simulator
 
-Everything above stands on the three axioms alone. There is one further
-hypothesis, and it arrives as a twist rather than a foundation. It is itself
+Everything above stands on the three axioms together with the stated
+premises and named interfaces of each result; none of it uses the hypothesis
+of this section. That hypothesis arrives as a twist rather than a
+foundation. It is itself
 an indirect consequence of consistency: something that exists with no outside
 support must be capable of creating itself. A completely consistent
 observer-built reality must therefore evolve observers, and those observers

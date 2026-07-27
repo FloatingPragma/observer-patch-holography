@@ -28,12 +28,12 @@
         "collar recovery, generalized-entropy identities, or gravity structure",
         "a laboratory identification of any carrier object"
       ],
-      "derivation_targets_not_in_axiom": [
-        "equal_state_weights",
-        "integer_load_fiber_and_quadratic_readback",
-        "target_blind_perturb_readback_law",
-        "inverse_port_involution_six_axes_a5_frame_pair",
-        "inverse_port_response_and_current_algebra"
+      "excluded_from_axiom_content": [
+        "equal_state_weights (derivation target, #610)",
+        "integer_load_fiber_and_quadratic_readback (derivation target)",
+        "target_blind_perturb_readback_law (exact_named_realization; grammar completeness #611)",
+        "inverse_port_involution_six_axes_a5_frame_pair (derived incidence consequence)",
+        "inverse_port_response_and_current_algebra (exact_named_realization; grammar completeness #611)"
       ],
       "architecture_firewall": "Every load-bearing A1 field is quotient-visible, operationally used, relabeling-invariant, finitely realizable and testable, fixed without gauge/particle/mass/coupling/target data, deletion-tested against an observer operation, and accompanied by same-A1 and off-branch controls. A field failing any test leaves A1.",
       "realization_receipts": [
@@ -143,7 +143,7 @@
     {"id": "rank15_exterior_matter_pair", "class": "exact_named_realization", "area": "matter", "note": "Exhaustive 1024-subset scan inside the declared exterior-module menu; menu completeness open."},
     {"id": "hypercharge_color_z6_kernel", "class": "exact_named_realization", "area": "matter"},
     {"id": "matter_projector_physical_selection", "class": "conditional_open_interface", "area": "matter"},
-    {"id": "scalar_existence_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "Owned by issue #609 with the response-algebra completeness program."},
+    {"id": "scalar_existence_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "Owned by issue #616 with the response-algebra completeness program; #609 consumes the result."},
     {"id": "family_attachment_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "No economy count; one common multiplicity object must precede any generation number."},
     {"id": "source_completeness_extra_light_sectors", "class": "conditional_open_interface", "area": "matter", "note": "Issue #609; arbitrary sterile extensions remain countermodels."},
     {"id": "flavor_kernel_orientation_phase_scale_pole", "class": "conditional_open_interface", "area": "flavor"},

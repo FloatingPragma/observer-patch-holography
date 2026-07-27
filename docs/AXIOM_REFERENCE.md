@@ -7,7 +7,8 @@ Holography. The machine-readable normative source is
 axiom names the exact dependency and cites this reference.
 
 OPH rests on exactly three core axioms. Everything else in the corpus is a
-theorem, an exact result inside a named finite realization, a declared open
+theorem, an exact result inside a named finite realization, a
+discovery-level observation, a declared open
 interface, an independence result with countermodels, a physical
 identification, or a withdrawn claim. The seven-value status vocabulary is
 `axiom_forced`, `exact_named_realization`, `discovery_only`,

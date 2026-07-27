@@ -6,117 +6,47 @@
 > There are only local, subjective perspectives, and physics is the rulebook that keeps them consistent where they overlap.
 > If you are not a physicist, you are in the right place; this book is written as a reverse-engineering book, not a math-first textbook.
 
-OPH begins with a severe wager: reality is a self-referential mathematical
-structure that explains itself. Making that wager operational produces a
-stubbornly practical object, a bounded patch with local state, ports or
-boundaries, readback, records, feedback, and repair moves. Call that patch an
-observer if you like, but do not picture a little person sitting inside it; it
-is closer to a debugging probe with memory, except the probe is part of the
-program being debugged. The question running through this book is how much
-physics follows when many such probes have to agree about one public world.
+Reality is remarkably good at passing for ordinary. Coffee falls downward,
+sunlight crosses the room, and the kitchen clock advances with reassuring
+confidence. This impression survives until someone measures the world
+carefully.
 
-Those patches can see only local records. Where their boundaries overlap they
-can compare notes, find checkable disagreement, and repair what can be
-repaired. The shared world is the structure that survives that pressure. It is
-public because many perspectives can read it back. It is stable because failed
-comparisons have been eliminated.
+At that point, time depends on motion. Empty space acquires structure.
+Particles behave like spread-out possibilities until an experiment leaves a
+definite record. Two distant detectors can produce correlations that no local
+classical story can explain. A collapsing star can turn information into a
+problem for the foundations of physics.
 
-The reference finite machine is equally concrete. An **echosahedral carrier**,
-a carrier that echoes its reads back through icosahedrally arranged ports,
-has a bounded internal state, twelve exposed boundary ports, local readout
-maps, a finite mismatch score, repair moves, and checkpoint fields. It is not
-automatically an observer. One carrier or a support spread across several
-carriers becomes observer-like only when it can make durable records, read them
-back, let that readback alter later action, test its own predictions, and
-continue after repair. On the icosahedral screen-sieve branch, the twelve local
-ports sit on a regular icosahedral frame. Think of a twelve-socket junction box
-that can become part of a self-checking network. Many such carriers route ports
-to one another and form a federation.
+The theories behind these discoveries are among the best ideas humans have
+ever had. Quantum field theory describes particles and their interactions with
+extraordinary precision. General relativity explains gravity as geometry and
+predicts phenomena from bending light to black holes. Each succeeds in its
+own territory. They do not give us a single finished account of nature.
 
-The smooth sphere used later in the book is a third object: a global support
-chart. The mathematics produces it on a branch with spherical-incidence,
-refinement, mesh, and cross-ratio receipts. The sphere is not a literal
-shell or an external computer wrapped around the universe.
+Their domains collide in the places where the questions become unavoidable:
+inside black holes, near the beginning of cosmic history, and wherever the
+quantum act of producing a fact meets the geometry in which that fact is
+supposed to occur. The Standard Model contains a striking collection of
+particles and constants without explaining why this collection was chosen.
+Cosmology describes most of the universe with the names dark matter and dark
+energy, which are useful names for things whose underlying nature remains
+unclear.
 
-The twelve sockets are part of the physics. Their incidence, opposite pairs,
-orientation, and allowed responses determine which finite patterns can survive
-comparison. An optical rig and a quantum register may realize the same carrier
-when all of those exposed relations agree. A cube fails that test against an
-icosahedron before either machine has been switched on. OPH ignores a hidden
-paint color; it does not ignore architecture.
+There is another complication. We are trying to understand the universe while
+living inside it. Every telescope, clock, equation, and memory is part of the
+system under investigation. Physics has no external operator with access to
+the source code.
 
-The carrier earns the name observer only when it reads itself, keeps records,
-lets those records affect later behavior, and can continue from a checkpoint.
-One carrier may pass that test. A connected group of carriers may pass it as a
-larger observer. Twelve ports alone prove neither case.
+Observer Patch Holography explores one possible response. Suppose public
+reality is built from the agreement of limited observers, each with access to
+only part of the world. Space, time, matter, and law would then have to survive
+comparison between perspectives before they could count as shared facts.
 
-This is the OPH meaning of simulation: a self-reading system settling into
-public records. No outside machine renders a global timeline frame by frame.
-History is the inside readout of the settled structure, as experienced by
-observers who live inside it.
-
-That closed reading is running ahead of the story. The thread the chapters
-actually hang on is simpler: observers come first, and objective reality is
-what their overlapping readings force into existence. Two dimensionless
-coordinates organize the quantitative proposal: the local grain of the screen
-and the total record capacity. Each is defined by a closure equation. The
-local maps have certified unique roots, and the
-global equation has an exact finite capacity definition and a worked example
-at one fixed resolution. Their physical identifications, through the Thomson
-problem, the old question of how equal charges repelling on a sphere settle
-into their best arrangement, and through a capacity-indexed selector, are
-work in progress.
-
-The equations come later, where the reader has the right handles for them. One
-chapter deals with the local grain of the screen and its electromagnetic
-readout. Another deals with the total horizon capacity, the cosmological
-constant, and the requirement that the universe read back its own boundary. A
-later synthesis chapter gathers the scale bridge that lets those
-dimensionless closures appear in familiar units.
-
-For the prologue the important fact is simpler: OPH treats physics as the
-debug log of a self-reading world. Gravity, gauge structure, particles,
-dark-energy bookkeeping, and the observer problem are different tests of the
-same local-record architecture.
-
-## Why the Result Is So Unusual
-
-OPH begins its theory layer with no fitted continuous physical parameters. It
-does not start by entering the Lorentz group, the spacetime dimension, the
-Einstein equation, the Standard Model gauge group, its global quotient, its
-chiral multiplets, or a Higgs representation. It starts with the finite
-observer contract and asks what survives consistency.
-
-The resulting reconstruction is difficult to summarize without making it
-sound less strange than it is. In equations, the spine is
-
-$$
-T(\mathfrak U)=\mathfrak U.
-$$
-
-Read it as: the universe, described by itself, is itself.
-
-Any one resemblance could be accidental. What carries the evidence is the
-linked appearance, from one zero-dial observer architecture, of the connected
-Lorentz group as the conformal symmetry of the spherical screen, the Einstein
-form of gravity on its conditional branch, and an exact finite recognition of
-the Standard Model Lie type, shared-center quotient, and one chiral exterior
-module under explicitly stated response and matter contracts. The gauge
-recognition uses no selection principle and is conditional: incidence and target-blind readback
-derive the inverse-port response and sector spectrum, while physical matter
-typing and laboratory-current attachment are open. The results share one
-finite trunk while keeping separate gates: the map connecting the repaired
-federation to the spherical chart used by the relativity branch and the
-identification of the port-geometry gauge route with the independent Tannaka
-route are both work in progress, and because a repair counter is not a clock
-and a socket is not a gluon, physical clocks, event coordinates, gauge-current
-source binding, family attachment, scalar multiplicity, and quantum dynamics
-require their own source constructions. The more independent
-parts of the observed universe land on the same construction, the less
-credible coincidence becomes as a complete explanation. The final proof
-obligations are therefore presented at the end of the book as concrete ways
-to finish or break the chain, rather than allowed to obscure the reconstruction
-while the reader is learning it.
+This is a simple idea with an unreasonable amount of work hidden inside it.
+It has to recover the physics we know, explain something that the older
+description leaves open, and make itself vulnerable to failure. The machinery
+for that test belongs in the chapters. A prologue that opens with boundary
+incidence has started debugging before anyone cares why the program is broken.
 
 ## The Cosmic Program
 
@@ -251,154 +181,43 @@ solipsism. The stable, shared, predictable structure that we call "the
 physical world" is the overlap-consistent backbone that all observers must
 agree on.
 
-The same architecture reaches several familiar layers of physics. On the
-shared-domain gravity branch, the entropy argument yields Einstein's equation
-under its explicit vacuum, coupling, continuum, and scale premises.
-Transportable charges become the
-Standard Model gauge and matter package. A repair-charge medium has a
-dust-like normal phase and a cubic deep-galaxy phase. Self-referential closure
-then carries the existence question: a world that contains its own observers
-must reproduce the conditions that let those observers read it.
+From this angle, the strange features of reality become questions about
+agreement. The absence of a preferred frame concerns how local clocks compare.
+Measurement concerns the production of a record that different observers can
+use. Entanglement concerns correlations that belong to a joint experiment
+rather than to two independent classical objects.
 
-Once you make this shift, the strange features of reality become consistency
-problems. The absence of a preferred frame concerns agreement between local
-clocks. Measurement concerns the creation of shared records. Entanglement
-concerns correlations that no local hidden account can reproduce. OPH has to
-recover each constraint from the same patch architecture or fail at the point
-where the reconstruction breaks.
+This viewpoint does not make the old mathematics disappear. It asks why that
+mathematics has the shape it does. Relativity and quantum theory become clues
+about the conditions under which observers can share a world.
 
-Why is there no preferred reference frame? Because there's no privileged
-observer to define one. Why does measurement affect outcomes? Because
-"measurement" is observer patches entering shared record relations. Why does
-time dilate? Because different observers compare calibrated local clocks, and
-relativity is the consistency condition between those comparisons. Why can't
-you explain consciousness from physics?
-Because the inside cannot be derived from an outside that the theory itself
-does not contain.
-
-Long-standing philosophical puzzles change form as well. The hard problem of
-consciousness, the measurement problem, the nature of time, and free will are
-usually posed against a world described from outside. OPH rejects that outside
-view as a physical starting point and asks what an internal observer can read,
-record, compare, and repair. This move is an ontological proposal. The finite
-consensus and reconstruction theorems test its mathematical consequences.
-
-The math we've developed over centuries stays in place. OPH reads quantum
-mechanics and relativity as consistency conditions that observers must
-satisfy to share a reality.
+The idea reaches beyond physics as well. Questions about experience, time, and
+free choice often assume a universe described from somewhere outside the
+universe. OPH begins from the less comfortable position available to us: the
+description and the describer occupy the same reality. Whether that change of
+view is useful depends on the results it can produce. The rest of the book puts
+it to work.
 
 ## What This Book Does
 
-This book reverse engineers reality from observer consistency.
+This book follows the reverse-engineering attempt from its first question:
+what must be true for observers inside one universe to agree about anything?
+The early chapters build the idea in plain language. The mathematical tools
+enter when the story needs them.
 
-We start from a self-referential mathematical structure that must explain
-itself through finite internal observers. Overlap consistency then produces
-exact finite normal forms, a certified spherical branch produces Lorentz
-kinematics, and compact charge transport conditionally reconstructs a gauge
-group. Independently, the twelve-port branch gives an exact conditional
-Standard Model recognition theorem under its response and matter contracts,
-including the quotient and charge structure. On the conditional Einstein
-branch, one repaired record family
-supplies modular ordering, calibrated clock records, stress, entropy, continuum
-geometry, a vacuum reference, and independent scale readouts on a common
-domain. The
-book keeps the logical layers distinct while showing how one
-architecture links them.
+The route passes through quantum records, spacetime, gravity, symmetries, and
+matter. Some parts end in exact theorems. Some end in computer experiments that
+can be repeated. Some reach a clearly marked open question. These distinctions
+matter because an unfinished theory should be interesting for what it has
+actually found, not for what its author hopes it will find.
 
-At the quantitative layer, two conditional closure coordinates organize the
-construction. The local coordinate asks whether electromagnetic transport
-reads back the grain of the picture from inside the encoded world. The global
-coordinate asks whether correctable public records read back the total screen
-capacity. A separate scale bridge converts dimensionless relations into
-laboratory units. Their proposed compression links gravity, compact gauge
-structure, and the minimally admissible particle world; the inhabited record
-family and the physical Thomson, capacity, and scale identifications are
-work in progress.
+The details can become demanding. The underlying question remains simple
+enough to carry through the book: how much of physics is required by a universe
+whose observers must construct one public reality from local views?
 
-One more thing before the story starts, because a book like this earns
-suspicion by default. Everything here is tied to a public repository, and the
-load-bearing mathematics in that repository is machine-checked: hundreds of
-theorems verified by a proof kernel down to the axioms, covering the consensus
-core, the record algebra, the icosahedral port geometry, and the boundary
-theorems that state exactly what the geometry cannot force on its own. Beside
-the proofs sit the simulation receipts: deterministic runs of the repair
-dynamics, from small acceptance cells up to a million patches, each shipping
-the raw data needed to recheck every printed number without rerunning
-anything. The largest of these runs watched a Lorentzian light-cone signature
-emerge in the event form of the repair dynamics and tracked its convergence
-rung by rung at the scales tested. Where a claim has neither a proof nor a
-receipt, the book says so, and the gap sits on a public list of open
-problems. Readers who would rather audit than believe can do the whole
-thing from a clean checkout.
-
-The machinery comes later. Under the hood the book uses the quantum language
-of observables, states, event probabilities, and entropy because a
-record-bearing patch needs an algebra of what it can read, compare, and repair.
-The prologue needs the street-level version: begin with a structure that has to
-explain itself, watch it force bounded observers whose overlaps must agree, then
-see how much physics is forced.
-
-A good reverse engineer first works out the architecture, then checks how many
-knobs are really left. The book shows that most of the architecture is forced
-early. Each consistency requirement removes a freedom, and the way to keep
-score is to count what is left. After ten such requirements, the count reads
-two. The sharp test is whether one local grain of the screen keeps
-organizing more of the particle structure than common sense would expect.
-
-Perfect symmetry would make a dead machine. Arbitrary detuning would make a
-mess. The useful departures have to reinforce one another. That is the role of
-the local pixel ratio, which later chapters define without asking the reader to
-take it on faith. It is selected as the small detuning for which the
-outside screen geometry and the inside electromagnetic readout agree. The
-middle of the book tracks the same local grain through the weak interaction,
-electromagnetism, the Higgs and top sectors, quarks, neutrinos, and the
-gravity-facing side of the framework.
-
-The synthesis chapter returns to the same point from a more surprising angle.
-By then the reader will have the machinery that makes the angle worth taking.
-
-Relativity, gauge structure, and particle physics are organized by consistency
-requirements, with the quantum-algebraic description as the local
-language of records. Technical proofs stay in the chapters that need them:
-the mass-gap discussion belongs with compact gauge repair, the cosmological
-capacity argument belongs with de Sitter structure, and the particle numbers
-belong with the Standard Model and matter chapters.
-
-The program reconstructs a broad structural slice of known physics with no
-fitted continuous parameters. Its two closure coordinates are the local pixel
-ratio and the global horizon capacity, with one clock-and-curvature bridge
-fixing the laboratory scale.
-
-The apparent mysteries of physics change shape once observer consistency,
-rather than an assumed objective reality, becomes the starting point.
-
-The structure follows the logic of reverse engineering. Each chapter begins
-with the intuitive picture most readers carry into the subject and then turns
-to the hint that breaks that intuition. From there the book asks what principle
-explains the hint once observer consistency is taken seriously. When the
-structural chain is in place, the book follows the closure-selected quantities
-through gravity, gauge structure, particles, and observers.
-
-This model rests on established mathematics and physics, organized around three
-core axioms. The framework gives conditional reconstructions of gravity and the
-symmetry structure behind the Standard Model, with separate physical source
-questions left visible. The book explains the path from observer consistency
-to that reconstructed world.
-
-This book is self-contained. It states results in plain language and does not
-send the reader chasing external files. Where it says a result is proved
-separately, the proof lives in the public OPH repository at
-github.com/FloatingPragma/observer-patch-holography, together with the full
-paper stack and the code that runs the
-fixed-point calculations. One address holds all of it, for the reader who wants
-to go past the story into the formal record.
-
-Two specialist papers carry the complete structural derivations. *Recovering
-Observer Spacetime and Einstein Dynamics from Overlap Consistency* contains
-the spacetime and gravity chain. *Deriving Standard Model Gauge Structure from
-Observer Overlap Consistency* contains the categorical and finite-carrier
-gauge routes, the conditional matter theorem, and the global-form boundary.
-*Observers Are All You Need* is the synthesis across both chains.
+Readers can treat the pages as a story, stop for the mathematical arguments, or
+inspect the public proofs and numerical records. Belief is not a prerequisite.
+Curiosity and a mild distrust of undocumented systems will do.
 
 ## How This Book Is Organized
 
@@ -415,18 +234,18 @@ The epilogue turns the picture outward one final time.
 
 Reality is the strangest program ever written. It also shipped without
 documentation, which is broadly what the rest of this book is about. We meet
-it from the inside, through records, horizons, detectors, clocks, and shared
-facts. Thousands of brilliant minds have contributed to the reverse
-engineering effort.
+it from the inside, through experiments and the facts we manage to share.
+Thousands of brilliant minds have contributed to the reverse-engineering
+effort.
 
 The naive model, a 3D world of independent objects moving through absolute
 time and existing whether or not anyone observes it, turns out to be the
 equivalent of a stub loader. It works for everyday purposes, then fails in the
 places where physics became interesting.
 
-The deeper account is weirder and more unified than the surface shows. It starts with a structure that explains itself. Consistency forces
-observers, and those observers must agree. Spacetime appears as the agreement
-pattern before it appears as a container.
+OPH asks whether a deeper account begins with observers and the agreements they
+can maintain. Spacetime would then appear as part of the agreement pattern
+before it appears as a container.
 
 Start there.
 

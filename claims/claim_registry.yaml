@@ -1195,7 +1195,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/multiplicity and absence of extra light sectors are owned by issue #609.",
+      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/multiplicity are owned by issue #616 and absence of extra light sectors by issue #609.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "source_bound_finite_matter_lift_conditional_on_scalar_content",
       "assumptions": [
@@ -1214,7 +1214,7 @@
         "canonical_anticommutation_relations_on_exterior_algebra",
         "finite_group_invariant_theory"
       ],
-      "oph_specific_delta": "The exact certificate separates what is measured, what is derived, and what stays declared: the transport double cover, its centre, and its section obstruction are measured by the simulator artifact; the unordered conjugate projector pair and the parity grading are outputs of the exhaustive anomaly scan; the charge pair is derived up to conjugation; the Spin/odd-Weyl typing is forced by the implementation enumeration; scalar charge/channel compatibility stays conditional on the declared scalar content owned by #609.",
+      "oph_specific_delta": "The exact certificate separates what is measured, what is derived, and what stays declared: the transport double cover, its centre, and its section obstruction are measured by the simulator artifact; the unordered conjugate projector pair and the parity grading are outputs of the exhaustive anomaly scan; the charge pair is derived up to conjugation; the Spin/odd-Weyl typing is forced by the implementation enumeration; scalar charge/channel compatibility stays conditional on the declared scalar content owned by #616.",
       "novelty_type": "source_bound_finite_matter_lift_certificate",
       "evidence": [
         "physics-problems/issue_314_super_tannakian_matter_lift.md",
@@ -1232,7 +1232,8 @@
       "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
       "claim_class": "conditional_implication",
       "gates": [
-        609
+        609,
+        616
       ]
     },
     {

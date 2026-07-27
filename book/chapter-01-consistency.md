@@ -372,7 +372,9 @@ relative to that reference and the complete visible constraint set; it does
 not mean independent noise or equal probabilities in every coordinate system.
 
 That is the complete list. The axioms contain no gauge group, no particle
-list, no recovery law, and no selection principle. Every further structure a
+list, no recovery law, and no rule that picks field content or multiplicity;
+the third axiom selects one state inside one fixed space of possibilities
+and nothing more. Every further structure a
 result uses, a recovery property, a matter contract, a declared completion,
 is named at that result, so the reader can always see where an extra
 assumption enters the chain.
