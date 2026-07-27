@@ -43,6 +43,11 @@ The shared release identifier lives in [`release_info.tex`](release_info.tex). [
 From the repository root:
 
 ```bash
-python3 tools/build_tex_papers.py --release-only
-python3 tools/generate_paper_release_manifest.py
+python3 tools/refresh_paper_release.py --preview
 ```
+
+This rebuilds review PDFs and their manifest without requiring a version bump,
+including when the visible identifier belongs to an existing release. After
+manual review, run `python3 tools/bump_paper_release.py` followed by
+`python3 tools/refresh_paper_release.py --publication` to prepare a candidate
+under a new release identifier.

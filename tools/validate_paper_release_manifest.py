@@ -20,12 +20,14 @@ expected mapping moves with it.
 Usage:
   python3 tools/validate_paper_release_manifest.py
   python3 tools/validate_paper_release_manifest.py --manifest paper/paper_release_manifest.json
+  python3 tools/validate_paper_release_manifest.py --publication
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -162,7 +164,74 @@ def check_release_surface(manifest: dict, problems: list[str]) -> None:
         )
 
 
-def validate(manifest_path: Path) -> list[str]:
+def check_publication_release_id(
+    repo_root: Path,
+    release_id: str,
+    problems: list[str],
+    *,
+    remote: str | None,
+) -> None:
+    """Require an unused release ID before any publication action.
+
+    Preview manifests may reuse a visible release line. A publication
+    candidate may not reuse a local or remote Git tag, even when the PDF bytes
+    happen to match it.
+    """
+
+    tag_ref = f"refs/tags/{release_id}"
+    local = subprocess.run(
+        ["git", "rev-parse", "--verify", "--quiet", tag_ref],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if local.returncode == 0:
+        problems.append(
+            f"publication requires a new release ID, but Git tag {release_id!r} "
+            "exists locally; run tools/bump_paper_release.py first"
+        )
+        return
+
+    if remote is None:
+        return
+
+    remote_result = subprocess.run(
+        [
+            "git",
+            "ls-remote",
+            "--exit-code",
+            "--tags",
+            remote,
+            tag_ref,
+            f"{tag_ref}^{{}}",
+        ],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if remote_result.returncode == 0:
+        problems.append(
+            f"publication requires a new release ID, but Git tag {release_id!r} "
+            f"exists on {remote!r}; run tools/bump_paper_release.py first"
+        )
+    elif remote_result.returncode != 2:
+        detail = remote_result.stderr.strip() or (
+            f"git ls-remote exited {remote_result.returncode}"
+        )
+        problems.append(
+            f"could not verify that release ID {release_id!r} is unused on "
+            f"{remote!r}: {detail}"
+        )
+
+
+def validate(
+    manifest_path: Path,
+    *,
+    publication: bool = False,
+    publication_remote: str | None = None,
+) -> list[str]:
     problems: list[str] = []
     if not manifest_path.exists():
         return [f"manifest not found: {manifest_path}"]
@@ -172,6 +241,17 @@ def validate(manifest_path: Path) -> list[str]:
         return [f"manifest is not valid JSON: {exc}"]
     if not isinstance(manifest, dict):
         return ["manifest root must be an object"]
+    if publication:
+        release_id = str(manifest.get("release_id", "")).strip()
+        if not release_id:
+            problems.append("publication manifest has no release_id")
+        else:
+            check_publication_release_id(
+                REPO_ROOT,
+                release_id,
+                problems,
+                remote=publication_remote,
+            )
     for name, expected in expected_sections().items():
         section = manifest.get(name, {}) or {}
         if not isinstance(section, dict):
@@ -185,9 +265,26 @@ def validate(manifest_path: Path) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST, help="path to the release manifest JSON")
+    parser.add_argument(
+        "--publication",
+        action="store_true",
+        help=(
+            "require an unused local and remote release ID; use this only after "
+            "manual PDF review and a release bump"
+        ),
+    )
+    parser.add_argument(
+        "--remote",
+        default="origin",
+        help="Git remote checked by --publication (default: origin)",
+    )
     args = parser.parse_args()
 
-    problems = validate(args.manifest)
+    problems = validate(
+        args.manifest,
+        publication=args.publication,
+        publication_remote=args.remote if args.publication else None,
+    )
     if problems:
         print("paper release manifest FAILED (derived from source set):")
         for problem in problems:

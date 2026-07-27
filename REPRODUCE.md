@@ -134,26 +134,44 @@ rejects any `sorry`/`admit`/global-axiom regression, and replays the
 Einstein-branch axiom audit. `Lean/README.md` documents the layout;
 `Lean/docs/PROOF_INDEX.md` maps theorems to paper statements.
 
-## Publication build
+## Paper review and publication builds
 
 With the pinned publication tools above installed, rebuild every registered
-paper, the warnings gate, the release manifest, and the reader-facing book
-from the repository root:
+paper, the warnings gate, the local review manifest, and the reader-facing
+book from the repository root:
 
 ```bash
-python3 tools/refresh_paper_release.py
+python3 tools/refresh_paper_release.py --preview
 python3 tools/build_book_pdf.py
 ```
 
 This chains `tools/build_tex_papers.py`, the build-warnings gate, manifest
 regeneration, and manifest validation, so a rebuilt PDF can never be committed
-with stale manifest hashes. Every generated paper displays the shared release
-identifier from `paper/release_info.tex`; bumping that identifier
-(`tools/bump_paper_release.py`) is a separate, deliberate release step.
+with stale manifest hashes. This review pass may retain the visible release
+identifier from an existing Git tag. It does not publish or replace that tag.
+The CI build uses this mode so draft PDFs can be committed and inspected
+without a version bump.
+
+After review, prepare a publication candidate with a new release identifier:
+
+```bash
+python3 tools/bump_paper_release.py
+python3 tools/refresh_paper_release.py --publication
+python3 tools/build_book_pdf.py
+```
+
+The publication mode fails when the selected identifier exists as a local or
+remote Git tag. Publication remains a separate maintainer action after the
+candidate is committed, pushed, and inspected.
+
+The manually dispatched `Release Channel Integrity` workflow is a
+post-publication audit. Do not use it to validate a same-release preview. A
+preview manifest describes the local bytes under review, while the tagged
+GitHub Release remains fixed until the maintainer publishes a new release.
 
 Both builders derive `SOURCE_DATE_EPOCH` from the visible date in
 `paper/release_info.tex`, force UTC, avoid host-font selection, and retain the
-logs consumed by the warning gate. The publication CI performs the sequence
+logs consumed by the warning gate. The preview CI performs the sequence
 twice on a clean Ubuntu runner and rejects any paper or book PDF whose SHA-256
 changes on the second pass. A local audit can make the same comparison with
 `sha256sum` (or `shasum -a 256` on macOS).
@@ -180,9 +198,10 @@ rebuild:
 git diff --exit-code -- paper extra book/reverse-engineering-reality-book.pdf
 ```
 
-The publication workflow enforces this check. A committed PDF and manifest
-pair therefore cannot substitute another paper's bytes at the expected path;
-the source rebuild restores the correct artifact and makes the job fail.
+The `Paper Preview Build` workflow enforces this check. A committed PDF and
+manifest pair therefore cannot substitute another paper's bytes at the
+expected path; the source rebuild restores the correct artifact and makes the
+job fail.
 
 The issue ledger has two modes. The clean-clone/CI command above uses:
 

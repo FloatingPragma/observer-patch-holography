@@ -11,7 +11,9 @@ from pathlib import Path
 
 import pytest
 
+import bump_paper_release as bumper
 import generate_paper_release_manifest as generator
+import refresh_paper_release as refresher
 import validate_paper_release_manifest as validator
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -54,8 +56,61 @@ def test_generator_rejects_changed_pdf_behind_existing_tag() -> None:
     paper_id = next(iter(current["papers"]))
     current["papers"][paper_id]["sha256"] = "0" * 64
 
-    with pytest.raises(SystemExit, match="immutable Git tag.*--allow-same-release"):
+    with pytest.raises(SystemExit, match="immutable Git tag.*--preview"):
         generator.enforce_tag_immutability(tagged, current)
+
+
+def test_generator_preview_accepts_changed_pdf_behind_existing_tag() -> None:
+    tagged = _base()
+    current = copy.deepcopy(tagged)
+    paper_id = next(iter(current["papers"]))
+    current["papers"][paper_id]["sha256"] = "0" * 64
+
+    generator.enforce_generation_policy(
+        tagged,
+        tagged,
+        current,
+        preview=True,
+    )
+
+
+def test_generator_publication_candidate_rejects_changed_tagged_pdf() -> None:
+    tagged = _base()
+    current = copy.deepcopy(tagged)
+    paper_id = next(iter(current["papers"]))
+    current["papers"][paper_id]["sha256"] = "0" * 64
+
+    with pytest.raises(SystemExit, match="immutable Git tag"):
+        generator.enforce_generation_policy(
+            tagged,
+            tagged,
+            current,
+            preview=False,
+        )
+
+
+def test_generator_rejects_removed_pdf_behind_existing_tag() -> None:
+    tagged = _base()
+    current = copy.deepcopy(tagged)
+    removed = next(iter(current["papers"]))
+    current["papers"].pop(removed)
+
+    with pytest.raises(SystemExit, match="immutable Git tag") as exc:
+        generator.enforce_tag_immutability(tagged, current)
+
+    assert f"papers.{removed}" in str(exc.value)
+
+
+def test_generator_requires_release_bump_for_removed_pdf() -> None:
+    previous = _base()
+    current = copy.deepcopy(previous)
+    removed = next(iter(current["papers"]))
+    current["papers"].pop(removed)
+
+    with pytest.raises(SystemExit, match="manifest entries changed") as exc:
+        generator.enforce_release_bump(previous, current)
+
+    assert f"papers.{removed}" in str(exc.value)
 
 
 def test_generator_accepts_unchanged_pdf_behind_existing_tag() -> None:
@@ -67,6 +122,127 @@ def test_generator_accepts_new_untagged_release() -> None:
     current = _base()
     current["release_id"] = "r-next"
     generator.enforce_tag_immutability(_base(), current)
+
+
+def test_publication_validation_rejects_existing_local_release_id(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[list[str]] = []
+
+    def fake_run(argv, **kwargs):
+        calls.append(argv)
+
+        class Result:
+            returncode = 0
+            stdout = "tag-object\n"
+            stderr = ""
+
+        return Result()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    problems: list[str] = []
+    validator.check_publication_release_id(
+        REPO_ROOT,
+        "r-test",
+        problems,
+        remote="origin",
+    )
+
+    assert any("requires a new release ID" in problem for problem in problems)
+    assert calls == [["git", "rev-parse", "--verify", "--quiet", "refs/tags/r-test"]]
+
+
+def test_publication_validation_accepts_unused_local_and_remote_release_id(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    results = iter((1, 2))
+
+    def fake_run(argv, **kwargs):
+        class Result:
+            returncode = next(results)
+            stdout = ""
+            stderr = ""
+
+        return Result()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    problems: list[str] = []
+    validator.check_publication_release_id(
+        REPO_ROOT,
+        "r-next",
+        problems,
+        remote="origin",
+    )
+
+    assert problems == []
+
+
+def test_publication_validation_rejects_existing_remote_release_id(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[list[str]] = []
+
+    def fake_run(argv, **kwargs):
+        calls.append(argv)
+
+        class Result:
+            returncode = 1 if argv[1] == "rev-parse" else 0
+            stdout = "" if returncode else "tag-object\n"
+            stderr = ""
+
+        return Result()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    problems: list[str] = []
+    validator.check_publication_release_id(
+        REPO_ROOT,
+        "r-test",
+        problems,
+        remote="origin",
+    )
+
+    assert any("exists on 'origin'" in problem for problem in problems)
+    assert [call[1] for call in calls] == ["rev-parse", "ls-remote"]
+
+
+def test_publication_validation_fails_closed_on_remote_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def fake_run(argv, **kwargs):
+        class Result:
+            returncode = 1 if argv[1] == "rev-parse" else 128
+            stdout = ""
+            stderr = "" if returncode == 1 else "network unavailable"
+
+        return Result()
+
+    monkeypatch.setattr(validator.subprocess, "run", fake_run)
+    problems: list[str] = []
+    validator.check_publication_release_id(
+        REPO_ROOT,
+        "r-test",
+        problems,
+        remote="origin",
+    )
+
+    assert problems == [
+        "could not verify that release ID 'r-test' is unused on "
+        "'origin': network unavailable"
+    ]
+
+
+def test_manifest_generator_has_no_legacy_same_release_alias() -> None:
+    with pytest.raises(SystemExit):
+        generator.parse_args(["--allow-same-release"])
+
+
+def test_pdf_release_check_can_be_skipped_only_for_preview() -> None:
+    with pytest.raises(SystemExit):
+        generator.parse_args(["--skip-pdf-release-check"])
+
+    args = generator.parse_args(["--preview", "--skip-pdf-release-check"])
+    assert args.preview is True
+    assert args.skip_pdf_release_check is True
 
 
 def test_rejects_missing_paper(tmp_path: Path) -> None:
@@ -231,11 +407,99 @@ def test_validator_rejects_missing_registered_non_tex_output(
     assert any("registered non-TeX output is missing" in p for p in problems)
 
 
-def test_publication_ci_rejects_committed_artifact_drift_after_rebuild() -> None:
+def test_preview_ci_accepts_same_release_previews_and_rejects_artifact_drift() -> None:
     workflow = (
         REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
     ).read_text(encoding="utf-8")
-    assert "git diff --exit-code --" in workflow
+    assert "git diff --quiet --" in workflow
     assert "book/reverse-engineering-reality-book.pdf" in workflow
-    assert "python tools/refresh_paper_release.py" in workflow
+    assert workflow.count("python tools/refresh_paper_release.py --preview") == 2
     assert "python tools/build_book_pdf.py" in workflow
+    assert "No release bump is required" in workflow
+    assert "paper-preview:" in workflow
+    assert "publication-build:" not in workflow
+    assert "Record first-pass preview hashes" in workflow
+    assert "Record first-pass publication hashes" not in workflow
+    assert workflow.count("sha256sum paper/paper_release_manifest.json") == 2
+    assert 'diff -u "${RUNNER_TEMP}/manifest-first.sha256"' in workflow
+
+
+def test_preview_ci_watches_every_theorem_count_input() -> None:
+    workflow = (
+        REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
+    ).read_text(encoding="utf-8")
+    direct_inputs = (
+        "Lean/**/*.lean",
+        "README.md",
+        "README_FR.md",
+        "docs/HACKER_NEWS_START_HERE.md",
+        "tools/check_lean_theorem_count.py",
+    )
+    for path in direct_inputs:
+        assert workflow.count(f'- "{path}"') == 2
+
+
+def test_refresh_wrapper_dispatches_preview_by_default() -> None:
+    args = refresher.parse_args([])
+    generator_command, validator_command = refresher.manifest_commands(
+        "python",
+        publication=args.publication,
+    )
+
+    assert generator_command == [
+        "python",
+        "tools/generate_paper_release_manifest.py",
+        "--preview",
+    ]
+    assert validator_command == [
+        "python",
+        "tools/validate_paper_release_manifest.py",
+    ]
+
+
+def test_refresh_wrapper_dispatches_explicit_preview() -> None:
+    args = refresher.parse_args(["--preview"])
+    generator_command, validator_command = refresher.manifest_commands(
+        "python",
+        publication=args.publication,
+    )
+
+    assert args.preview is True
+    assert args.publication is False
+    assert generator_command[-1] == "--preview"
+    assert "--publication" not in validator_command
+
+
+def test_refresh_wrapper_dispatches_strict_publication() -> None:
+    args = refresher.parse_args(["--publication"])
+    generator_command, validator_command = refresher.manifest_commands(
+        "python",
+        publication=args.publication,
+    )
+
+    assert args.preview is False
+    assert args.publication is True
+    assert "--preview" not in generator_command
+    assert validator_command[-1] == "--publication"
+
+
+def test_refresh_wrapper_modes_are_mutually_exclusive() -> None:
+    with pytest.raises(SystemExit):
+        refresher.parse_args(["--preview", "--publication"])
+
+
+def test_bump_helper_points_to_strict_publication_wrapper() -> None:
+    assert bumper.NEXT_STEP == (
+        "Next: run python3 tools/refresh_paper_release.py --publication, "
+        "then python3 tools/build_book_pdf.py"
+    )
+
+
+def test_reproduce_marks_release_channel_audit_as_publication_only() -> None:
+    guide = (REPO_ROOT / "REPRODUCE.md").read_text(encoding="utf-8")
+    normalized = " ".join(guide.split())
+    assert (
+        "The manually dispatched `Release Channel Integrity` workflow is a "
+        "post-publication audit."
+    ) in normalized
+    assert "Do not use it to validate a same-release preview." in normalized

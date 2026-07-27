@@ -9,17 +9,19 @@ the order the release pipeline requires:
 
   1. ``tools/build_tex_papers.py``            (tectonic, all registered papers)
   2. ``paper/tools/check_build_warnings.py``  (complete warning gate)
-  3. ``tools/generate_paper_release_manifest.py --allow-same-release``
+  3. ``tools/generate_paper_release_manifest.py --preview``
   4. ``tools/validate_paper_release_manifest.py``
 
 Release bumping is deliberately *not* part of this tool. Bumping the release
 identifier (``tools/bump_paper_release.py``) is a separate editorial decision;
-this tool refreshes artifacts for the identifier already recorded in
-``paper/release_info.tex``.
+the default mode refreshes review artifacts for the identifier already
+recorded in ``paper/release_info.tex``. After review and a release bump,
+``--publication`` applies the strict new-release checks.
 
 Usage:
-  python3 tools/refresh_paper_release.py            # full pass
-  python3 tools/refresh_paper_release.py --no-gate  # skip the warnings gate
+  python3 tools/refresh_paper_release.py               # local review pass
+  python3 tools/refresh_paper_release.py --publication # strict release pass
+  python3 tools/refresh_paper_release.py --no-gate     # skip warning gate
 """
 from __future__ import annotations
 
@@ -41,14 +43,44 @@ def run(description: str, argv: list[str]) -> None:
         raise SystemExit(result.returncode)
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument(
         "--no-gate",
         action="store_true",
         help="skip the build-warnings gate (use only while iterating on TeX)",
     )
-    return parser.parse_args()
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
+        "--preview",
+        action="store_true",
+        help="prepare same-release PDFs and a manifest for local review (default)",
+    )
+    mode.add_argument(
+        "--publication",
+        action="store_true",
+        help=(
+            "prepare a publication candidate after a release bump; reject an "
+            "existing local or remote tag with the selected release ID"
+        ),
+    )
+    return parser.parse_args(argv)
+
+
+def manifest_commands(
+    python: str,
+    *,
+    publication: bool,
+) -> tuple[list[str], list[str]]:
+    """Return the generator and validator commands for one build mode."""
+
+    generator_command = [python, "tools/generate_paper_release_manifest.py"]
+    validator_command = [python, "tools/validate_paper_release_manifest.py"]
+    if publication:
+        validator_command.append("--publication")
+    else:
+        generator_command.append("--preview")
+    return generator_command, validator_command
 
 
 def main() -> int:
@@ -75,16 +107,22 @@ def main() -> int:
             [python, "paper/tools/check_build_warnings.py", *logs],
         )
 
-    run(
-        "regenerate the release manifest",
-        [python, "tools/generate_paper_release_manifest.py", "--allow-same-release"],
-    )
-    run(
-        "validate the release manifest",
-        [python, "tools/validate_paper_release_manifest.py"],
+    generator_command, validator_command = manifest_commands(
+        python,
+        publication=args.publication,
     )
 
-    print("refresh_paper_release: papers, warnings gate, and manifest are consistent")
+    run("regenerate the release manifest", generator_command)
+    run(
+        "validate the release manifest",
+        validator_command,
+    )
+
+    mode = "publication candidate" if args.publication else "local review preview"
+    print(
+        "refresh_paper_release: papers, warnings gate, and manifest are "
+        f"consistent ({mode})"
+    )
     return 0
 
 

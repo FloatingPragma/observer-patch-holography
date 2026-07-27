@@ -65,13 +65,20 @@ def main() -> int:
 
     output_path = repo_root / OUTPUT_RELATIVE
     previous_manifest = load_existing_manifest(output_path)
-    tagged_manifest = load_tagged_manifest(repo_root, release_id)
-    enforce_tag_immutability(tagged_manifest, manifest)
-    enforce_release_bump(previous_manifest, manifest, args.allow_same_release)
+    tagged_manifest = None
+    if not args.preview:
+        tagged_manifest = load_tagged_manifest(repo_root, release_id)
+    enforce_generation_policy(
+        tagged_manifest,
+        previous_manifest,
+        manifest,
+        preview=args.preview,
+    )
     verify_no_stray_pdfs(repo_root, manifest)
     verify_pdf_release_lines(repo_root, manifest, args.skip_pdf_release_check)
     output_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(output_path)
+    mode = "preview" if args.preview else "publication candidate"
+    print(f"{output_path} ({mode})")
     return 0
 
 
@@ -150,16 +157,18 @@ def fill_section(repo_root: Path, section: dict, pdfs: dict[str, Path]) -> None:
         }
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Write the current release manifest for the synced paper PDFs.",
     )
     parser.add_argument(
-        "--allow-same-release",
+        "--preview",
         action="store_true",
         help=(
-            "Allow PDF hash changes before the current release ID has been tagged. "
-            "A tagged release is immutable and always requires a new release ID."
+            "Write a local review manifest for the current PDF bytes without "
+            "requiring a release bump. Preview generation is allowed even when "
+            "the current release ID is already tagged; publication still requires "
+            "the strict, no-flag mode."
         ),
     )
     parser.add_argument(
@@ -167,7 +176,10 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip checking that each local PDF exposes the visible release line.",
     )
-    return parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.skip_pdf_release_check and not args.preview:
+        parser.error("--skip-pdf-release-check may be used only with --preview")
+    return args
 
 
 def extract_macro(text: str, macro_name: str) -> str:
@@ -250,28 +262,44 @@ def enforce_tag_immutability(tagged_manifest: dict | None, manifest: dict) -> No
     if tagged_release_id != current_release_id:
         return
 
-    tagged_papers = manifest_pdf_entries(tagged_manifest)
-    current_papers = manifest_pdf_entries(manifest)
-    changed_papers = [
-        paper_id
-        for paper_id, payload in current_papers.items()
-        if tagged_papers.get(paper_id, {}).get("sha256") != payload["sha256"]
-    ]
+    changed_papers = changed_manifest_entries(tagged_manifest, manifest)
     if not changed_papers:
         return
 
     changed_list = ", ".join(sorted(changed_papers))
     raise SystemExit(
-        "PDF hashes differ from immutable Git tag "
+        "PDF manifest entries differ from immutable Git tag "
         f"{current_release_id}: {changed_list}. "
         "Run python3 tools/bump_paper_release.py, rebuild every paper PDF, "
-        "and regenerate the manifest. --allow-same-release cannot rewrite a "
-        "tagged release."
+        "and regenerate the publication candidate. Use --preview only for "
+        "local review; a preview cannot be published under the tagged ID."
     )
 
 
-def enforce_release_bump(previous_manifest: dict | None, manifest: dict, allow_same_release: bool) -> None:
-    if previous_manifest is None or allow_same_release:
+def enforce_generation_policy(
+    tagged_manifest: dict | None,
+    previous_manifest: dict | None,
+    manifest: dict,
+    *,
+    preview: bool,
+) -> None:
+    """Apply preview or publication-candidate release policy.
+
+    A preview manifest describes the local bytes under review. It is not a
+    publication claim, so it may reuse the visible release line from an
+    existing tag. Publication-candidate generation keeps both historical
+    protections: tagged bytes are immutable and changed bytes require a new
+    release ID.
+    """
+
+    if preview:
+        return
+    enforce_tag_immutability(tagged_manifest, manifest)
+    enforce_release_bump(previous_manifest, manifest)
+
+
+def enforce_release_bump(previous_manifest: dict | None, manifest: dict) -> None:
+    if previous_manifest is None:
         return
 
     previous_release_id = str(previous_manifest.get("release_id", "")).strip()
@@ -279,22 +307,16 @@ def enforce_release_bump(previous_manifest: dict | None, manifest: dict, allow_s
     if previous_release_id != current_release_id:
         return
 
-    previous_papers = manifest_pdf_entries(previous_manifest)
-    current_papers = manifest_pdf_entries(manifest)
-    changed_papers = [
-        paper_id
-        for paper_id, payload in current_papers.items()
-        if previous_papers.get(paper_id, {}).get("sha256") != payload["sha256"]
-    ]
+    changed_papers = changed_manifest_entries(previous_manifest, manifest)
     if not changed_papers:
         return
 
     changed_list = ", ".join(sorted(changed_papers))
     raise SystemExit(
-        "PDF hashes changed for the current release ID "
+        "PDF manifest entries changed for the current release ID "
         f"{current_release_id}, but the release was not bumped first: {changed_list}. "
         "Run python3 tools/bump_paper_release.py, rebuild all current paper PDFs, and rerun this command. "
-        "Use --allow-same-release only if the unchanged release ID is intentional."
+        "Use --preview only for local review under the unchanged release line."
     )
 
 
@@ -327,7 +349,8 @@ def verify_pdf_release_lines(repo_root: Path, manifest: dict, skip_pdf_release_c
         failures = "; ".join(tool_failures)
         raise SystemExit(
             "Could not verify the visible release line in the local PDFs: "
-            f"{failures}. Install pdftotext or rerun with --skip-pdf-release-check."
+            f"{failures}. Install pdftotext or rerun the preview with "
+            "--preview --skip-pdf-release-check."
         )
 
 
@@ -361,6 +384,27 @@ def manifest_pdf_entries(manifest: dict) -> dict:
     for section_name in ("papers", "supplemental_papers", "extra_papers"):
         entries.update(manifest.get(section_name, {}))
     return entries
+
+
+def manifest_pdf_entries_by_section(manifest: dict) -> dict[str, dict]:
+    entries: dict[str, dict] = {}
+    for section_name in ("papers", "supplemental_papers", "extra_papers"):
+        section = manifest.get(section_name, {})
+        for paper_id, payload in section.items():
+            entries[f"{section_name}.{paper_id}"] = payload
+    return entries
+
+
+def changed_manifest_entries(baseline: dict, current: dict) -> list[str]:
+    """Return added, removed, moved, or changed PDF manifest entries."""
+
+    baseline_entries = manifest_pdf_entries_by_section(baseline)
+    current_entries = manifest_pdf_entries_by_section(current)
+    return sorted(
+        entry_id
+        for entry_id in set(baseline_entries) | set(current_entries)
+        if baseline_entries.get(entry_id) != current_entries.get(entry_id)
+    )
 
 
 if __name__ == "__main__":

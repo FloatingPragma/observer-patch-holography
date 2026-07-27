@@ -13,6 +13,10 @@ CLAIM_REGISTRY_RELATIVE = Path("claims/claim_registry.yaml")
 RELEASE_ID_MACRO = "OPHPaperReleaseID"
 RELEASE_DATE_MACRO = "OPHPaperReleaseDate"
 RELEASE_NUMBER_PATTERN = re.compile(r"^(?P<prefix>.*?)(?P<number>\d+)$")
+NEXT_STEP = (
+    "Next: run python3 tools/refresh_paper_release.py --publication, "
+    "then python3 tools/build_book_pdf.py"
+)
 
 
 def main() -> int:
@@ -48,7 +52,7 @@ def main() -> int:
     print(f"Updated {claim_registry_path}")
     print(f"release_id: {current_release_id} -> {next_release_id}")
     print(f"released_at: {current_release_date} -> {next_release_date}")
-    print("Next: rebuild all current paper PDFs, then run python3 tools/generate_paper_release_manifest.py")
+    print(NEXT_STEP)
     return 0
 
 
