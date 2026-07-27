@@ -1,0 +1,159 @@
+# Canonical OPH axiom registry. Machine-readable normative source for the
+# three-axiom basis. docs/AXIOM_REFERENCE.md is the reviewed reader-facing
+# reference; paper/tex_fragments/THREE_AXIOM_BASIS.tex is the shared TeX
+# rendering. tools/check_axiom_consistency.py enforces drift rules against
+# this file. Loaded as JSON-compatible YAML.
+{
+  "schema": "oph.axiom_registry.v1",
+  "core_axiom_count": 3,
+  "axioms": [
+    {
+      "id": "A1",
+      "key": "observer_screen_architecture",
+      "title": "Oriented twelve-port observer screen",
+      "informal": "There exists an observer patch net on an oriented spherical screen. At every finite resolution, each local carrier has twelve primitive boundary ports. The ports form the vertices of an oriented triangular boundary with 30 edges and 20 faces, combinatorially the boundary of an icosahedron: five edges meet each port, the neighbors of each port form a five-cycle, and every edge belongs to two oppositely oriented faces. Carriers join through typed seams and coherent triple overlaps, refine to an oriented spherical support, and expose local state, readback, records, repair moves, and checkpoints.",
+      "formal_concise": "For every regulator r in a directed system (R, <=) there is a typed observer-screen object N_r = (P_r, A_r, R_r, I_r, U_r, C_r, N_r, S_r, b_r): a finite patch/overlap category with an isotone local algebra net; central record algebras; interface, update, and checkpoint types; a federation C_r of finite local carriers, each carrying twelve primitive pairwise-orthogonal central port projections summing to one and a boundary packet K = (P, E, F, o) with |P| = 12, |E| = 30, |F| = 20, degree-five ports with five-cycle links, and coherently oriented two-face edges, combinatorially isomorphic to the icosahedral boundary complex with no preferred labels; seam algebras with unital restriction maps and coherent triple-overlap cocycles forming the nerve N_r; a declared finite edge-midpoint refinement support S_r with an orientation-preserving realization into the two-sphere, mesh tending to zero, and a source-bound degree-one simplicial bridge b_r from the nerve; and refinement maps commuting with routing, quotienting, incidence, records, checkpoints, and support projection.",
+      "reference_anchor": "docs/AXIOM_REFERENCE.md#a1-oriented-twelve-port-observer-screen",
+      "constrains": "The local carrier boundary combinatorics, the typed carrier-federation-support architecture, the interface and repair type surface, and the refinement tower with its controlled spherical support realization.",
+      "does_not_imply": [
+        "semantic agreement (A2)",
+        "any state selection (A3)",
+        "repair termination, confluence, or global state extension",
+        "equal state weights rho(e_p) = 1/12",
+        "the integer load fiber or quadratic readback law",
+        "the perturb/readback response law or the inverse-port response",
+        "the inverse-port involution, six axes, A5 rotation group, or Gram frame pair as axiom content (these are derived incidence consequences)",
+        "any physical selection between the Galois-conjugate frame pair",
+        "the compact current algebra or any gauge, particle, coupling, or metric content",
+        "collar recovery, generalized-entropy identities, or gravity structure",
+        "a laboratory identification of any carrier object"
+      ],
+      "derivation_targets_not_in_axiom": [
+        "equal_state_weights",
+        "integer_load_fiber_and_quadratic_readback",
+        "target_blind_perturb_readback_law",
+        "inverse_port_involution_six_axes_a5_frame_pair",
+        "inverse_port_response_and_current_algebra"
+      ],
+      "architecture_firewall": "Every load-bearing A1 field is quotient-visible, operationally used, relabeling-invariant, finitely realizable and testable, fixed without gauge/particle/mass/coupling/target data, deletion-tested against an observer operation, and accompanied by same-A1 and off-branch controls. A field failing any test leaves A1.",
+      "realization_receipts": [
+        "code/a5_closure/manifests/echosahedral_federation_reference.json",
+        "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+        "oph-physics-sim oph_fpe/core/echosahedral_federation.py reference_incidence_nerve_federation",
+        "oph-physics-sim oph_fpe/consensus/incidence_nerve_bridge.py incidence_nerve_bridge_report"
+      ]
+    },
+    {
+      "id": "A2",
+      "key": "observer_meaning_agreement",
+      "title": "Observer agreement",
+      "informal": "Observers operating on the screen agree on the meaning of the data they jointly interpret.",
+      "formal_concise": "For each regulator r, the interpretation map J_r from observer-accessible data to operational meanings (probabilities, update effects, public record values) is natural with respect to every visible overlap restriction, recharting, seam translation, higher-overlap map, federation map, and refinement map: every declared data-access diagram for accepted public data commutes after interpretation, and across resolutions J_r composed with data transport equals meaning transport composed with J_s.",
+      "reference_anchor": "docs/AXIOM_REFERENCE.md#a2-observer-agreement",
+      "constrains": "Naturality of operational meaning on accepted shared data, across pairwise overlaps, higher overlaps, rechartings, seam translations, and refinement.",
+      "does_not_imply": [
+        "global state extension",
+        "repair termination or confluence",
+        "unique public normal forms",
+        "Byzantine safety, dissemination, or record durability",
+        "closure of an exponential family under coarse-graining",
+        "commutation of the A3 optimization with refinement (optimizer pushforward is a separate theorem)",
+        "the domain of accepted data (A1 or an explicit implementation interface types it; A2 cannot define the domain it quantifies over)"
+      ],
+      "scope_notes": "A2 applies to accepted shared data. Raw records, private coordinates, and repairable mismatches may differ before acceptance. Local states are specified first; a global state is never assumed to make agreement tautological. Temporal record persistence is an A1 continuation theorem, not semantic agreement."
+    },
+    {
+      "id": "A3",
+      "key": "conditional_maximum_randomness",
+      "title": "Conditional maximum randomness",
+      "informal": "Everything that observer agreement leaves unconstrained is maximally random.",
+      "formal_concise": "At finite regulator r, a state is a compatible family of local normalized states on the accessible algebra net. Let K_r be the nonempty convex set of such families satisfying the finite observer-visible constraints supplied by A1 and A2, generated by an A1 observable and constraint grammar through which every A2-visible constraint provably factors. A3 supplies an exact reference and aggregation rule: a compatible local reference family tau_r, a finite A1-generated observer cover G_r seeing every constrained state coordinate, and strictly positive exact weights w_{r,P} from quotient-visible A1 data, natural under admissible presentation equivalence. The realized state is the information projection rho_r = argmin over K_r of the weighted sum of finite-algebra Umegaki relative entropies D(rho_P || tau_P) over the cover. When every local reference density is identity-proportional in its declared trace, this equals weighted local entropy maximization.",
+      "reference_anchor": "docs/AXIOM_REFERENCE.md#a3-conditional-maximum-randomness",
+      "constrains": "One state-selection principle: the least informative compatible local state family relative to the declared reference and the complete observer-agreement constraint set.",
+      "does_not_imply": [
+        "independent noise or equal probabilities in every coordinate system",
+        "global thermal equilibrium",
+        "exact closure of an exponential family under arbitrary coarse-graining",
+        "optimizer pushforward across refinement without a separate compatibility theorem",
+        "collar recovery, state alignment, Markovity, or mixing",
+        "maximally mixed edge degeneracies or a log d entropy term without a proved factorized identity-proportional edge reference",
+        "selection among unrelated Hilbert spaces, field lists, or ontology classes (the model-space boundary)",
+        "any policy, repair coefficient, field content, multiplicity, source character, response law, or capacity ontology without an A1-fixed state space, complete constraints, and a proved optimizer-to-output map"
+      ],
+      "object_types": [
+        "ontic_state_on_fixed_accessible_algebra",
+        "observer_inference_state_on_fixed_evidence_algebra",
+        "transition_distribution_on_fixed_finite_move_simplex"
+      ],
+      "open_specification_notes": "If distinct invariant reference, cover, or weight rules survive on a reducible algebra, the A3 specification for that use remains open and no dependent selection is promoted. Continuum uses go through a controlled finite-regulator or relative-modular limit; an unregulated type-III von Neumann entropy never appears."
+    }
+  ],
+  "status_enum": [
+    "axiom_forced",
+    "exact_named_realization",
+    "discovery_only",
+    "conditional_open_interface",
+    "independence_limited",
+    "physical_identification",
+    "withdrawn"
+  ],
+  "attachment_states": ["pending", "supported", "rejected"],
+  "retired_principles": [
+    {
+      "id": "former_A4_recovery_bundle",
+      "disposition": "removed_from_core",
+      "content": "Collar recoverability, generalized edge entropy, fixed-cap stationarity, quantum focusing, durable records.",
+      "treatment": "Each component is a classified gravity derivation target or physical identification with its own countermodels; see the gravity interface catalogue below. Durable records are typed as observer-screen continuation contracts."
+    },
+    {
+      "id": "former_A5_minimal_admissible_realization",
+      "disposition": "retired_as_global_axiom",
+      "content": "Minimal Admissible Realization economy selection.",
+      "treatment": "Finite order definitions survive only as diagnostics; they select no physics. Economy-based N_g = 3, one-Higgs selection, and no-extra-light-sector claims are withdrawn; surviving exact results keep the scope their remaining premises supply. Issue #609 owns source completeness for extra light sectors."
+    }
+  ],
+  "premise_interfaces": [
+    {"id": "global_extension", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "accepted_repair_termination", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "local_diamonds_or_confluence", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "protected_normal_form_readout", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "byzantine_safety_and_dissemination", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "checkpoint_continuation_and_record_durability", "class": "conditional_open_interface", "area": "consensus"},
+    {"id": "optimizer_pushforward_and_refinement_tail", "class": "conditional_open_interface", "area": "cross_scale"},
+    {"id": "edge_center_decomposition", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "central_interface_state_alignment", "class": "independence_limited", "area": "gravity", "note": "Bell-pair and identity-channel countermodels delimit any A1+A3 shorthand."},
+    {"id": "exact_conditional_markov_split", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "approximate_collar_recovery_rate", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "edge_reference_factorization_and_traciality", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "edge_entropy_split_and_cut_additivity", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "finite_generalized_entropy_identification", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "fixed_cap_entropy_stationarity", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "support_visible_bw_modular_normalization", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "repair_conservation_and_stress_attachment", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "fixed_volume_small_ball_variation", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "ward_bianchi_coupling_equality", "class": "conditional_open_interface", "area": "gravity"},
+    {"id": "vacuum_reference_and_cosmological_constant", "class": "physical_identification", "attachment_state": "pending", "area": "gravity"},
+    {"id": "absolute_metric_and_newton_scale", "class": "physical_identification", "attachment_state": "pending", "area": "gravity"},
+    {"id": "quantum_focusing_extension", "class": "conditional_open_interface", "area": "gravity", "note": "Optional extension; no registered active theorem consumes it."},
+    {"id": "physical_full_rank_screen_current_lift", "class": "conditional_open_interface", "area": "gauge"},
+    {"id": "inverse_port_response_law", "class": "exact_named_realization", "area": "gauge", "note": "Target-blind producer and certificate on the named carrier realization; response-grammar completeness is open."},
+    {"id": "finite_current_lie_type", "class": "exact_named_realization", "area": "gauge"},
+    {"id": "compact_group_and_global_form_identification", "class": "exact_named_realization", "area": "gauge", "note": "Measured deck, six-axis, and flux-sector data on the named realization; routed-seam grammar completeness is open; instanton, theta, and laboratory line attachment separate."},
+    {"id": "spin_statistics_odd_weyl_typing", "class": "exact_named_realization", "area": "matter", "note": "Measured transport double cover and section obstruction on the named realization; continuum spin-statistics separate."},
+    {"id": "rank15_exterior_matter_pair", "class": "exact_named_realization", "area": "matter", "note": "Exhaustive 1024-subset scan inside the declared exterior-module menu; menu completeness open."},
+    {"id": "hypercharge_color_z6_kernel", "class": "exact_named_realization", "area": "matter"},
+    {"id": "matter_projector_physical_selection", "class": "conditional_open_interface", "area": "matter"},
+    {"id": "scalar_existence_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "Owned by issue #609 with the response-algebra completeness program."},
+    {"id": "family_attachment_and_multiplicity", "class": "conditional_open_interface", "area": "matter", "note": "No economy count; one common multiplicity object must precede any generation number."},
+    {"id": "source_completeness_extra_light_sectors", "class": "conditional_open_interface", "area": "matter", "note": "Issue #609; arbitrary sterile extensions remain countermodels."},
+    {"id": "flavor_kernel_orientation_phase_scale_pole", "class": "conditional_open_interface", "area": "flavor"},
+    {"id": "quark_absolute_mass_nonidentifiability", "class": "independence_limited", "area": "flavor", "note": "Equal-score continuous counterfamily; lift to the complete revised A1 witness is a migration task."},
+    {"id": "charged_lepton_koide_positive_chamber", "class": "exact_named_realization", "area": "flavor", "note": "Exact circulant identity within the closed finite packet; phase, poles, scale, family attachment open."},
+    {"id": "capacity_publicness_and_closure", "class": "conditional_open_interface", "area": "capacity"},
+    {"id": "de_sitter_capacity_transfer_identities", "class": "exact_named_realization", "area": "capacity", "note": "Finite identities exact; horizon, mass, and shock dictionaries are physical identifications, attachment pending."},
+    {"id": "scheduler_fairness_and_liveness", "class": "conditional_open_interface", "area": "dynamics"},
+    {"id": "pixel_fixed_point_transport_map", "class": "physical_identification", "attachment_state": "pending", "area": "quantitative", "note": "Certified unique root of the declared map; same-scheme hadronic transport absent."},
+    {"id": "laboratory_current_identification", "class": "physical_identification", "attachment_state": "pending", "area": "gauge"},
+    {"id": "horizon_area_capacity_identification", "class": "physical_identification", "attachment_state": "pending", "area": "capacity"}
+  ]
+}
