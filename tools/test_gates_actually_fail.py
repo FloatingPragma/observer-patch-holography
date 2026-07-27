@@ -185,6 +185,12 @@ def _write_release_fixture(root: Path) -> tuple[Path, Path, Path, Path, str]:
         manifest,
         {
             "release_id": "r-test",
+            "book": {
+                "built_for_release_id": "r-test",
+                "pdf_path": "book/reverse-engineering-reality-book.pdf",
+                "sha256": _sha256(book),
+                "size_bytes": book.stat().st_size,
+            },
             "papers": {
                 "fixture": {
                     "pdf_path": "paper/paper.pdf",

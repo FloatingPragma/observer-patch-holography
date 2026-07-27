@@ -24,6 +24,12 @@ def _fixture(tmp_path: Path) -> tuple[Path, dict, dict]:
     manifest_path = tmp_path / checker.DEFAULT_MANIFEST_RELATIVE
     manifest = {
         "release_id": "r-test",
+        "book": {
+            "built_for_release_id": "r-test",
+            "pdf_path": checker.BOOK_RELATIVE.as_posix(),
+            "sha256": hashlib.sha256(book.read_bytes()).hexdigest(),
+            "size_bytes": book.stat().st_size,
+        },
         "papers": {
             "paper": {
                 "pdf_path": "paper/paper.pdf",
@@ -141,6 +147,21 @@ def test_tampered_local_manifest_digest_is_rejected(tmp_path: Path) -> None:
         encoding="utf-8",
     )
     with pytest.raises(checker.ReleaseChannelError, match="does not match local"):
+        checker.expected_assets(
+            repo_root=tmp_path,
+            manifest_path=manifest_path,
+        )
+
+
+def test_stale_book_receipt_is_rejected(tmp_path: Path) -> None:
+    manifest_path, _, _ = _fixture(tmp_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["book"]["built_for_release_id"] = "r-old"
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(checker.ReleaseChannelError, match="must match"):
         checker.expected_assets(
             repo_root=tmp_path,
             manifest_path=manifest_path,

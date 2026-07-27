@@ -16,6 +16,7 @@ import build_tex_papers as paper_sources
 
 RELEASE_INFO_RELATIVE = Path("paper/release_info.tex")
 OUTPUT_RELATIVE = Path("paper/paper_release_manifest.json")
+BOOK_PDF_RELATIVE = Path("book/reverse-engineering-reality-book.pdf")
 RELEASED_COSMOLOGY_TEX = ()
 RELEASE_TRACKED_PDFS = {
     "deriving_the_particle_zoo_from_observer_consistency": Path(
@@ -48,6 +49,8 @@ def main() -> int:
     release_info = (repo_root / RELEASE_INFO_RELATIVE).read_text(encoding="utf-8")
     release_id = extract_macro(release_info, "OPHPaperReleaseID")
     release_date = extract_macro(release_info, "OPHPaperReleaseDate")
+    output_path = repo_root / OUTPUT_RELATIVE
+    previous_manifest = load_existing_manifest(output_path)
 
     manifest = {
         "release_id": release_id,
@@ -59,12 +62,15 @@ def main() -> int:
         "supplemental_papers": {},
         "extra_papers": {},
     }
+    manifest["book"] = carried_book_manifest_entry(
+        repo_root,
+        previous_manifest,
+        release_id,
+    )
     fill_section(repo_root, manifest["papers"], RELEASE_TRACKED_PDFS)
     fill_section(repo_root, manifest["supplemental_papers"], SUPPLEMENTAL_RELEASE_PDFS)
     fill_section(repo_root, manifest["extra_papers"], discover_extra_pdfs(repo_root))
 
-    output_path = repo_root / OUTPUT_RELATIVE
-    previous_manifest = load_existing_manifest(output_path)
     tagged_manifest = None
     if not args.preview:
         tagged_manifest = load_tagged_manifest(repo_root, release_id)
@@ -157,9 +163,80 @@ def fill_section(repo_root: Path, section: dict, pdfs: dict[str, Path]) -> None:
         }
 
 
+def book_manifest_entry(repo_root: Path, release_id: str) -> dict:
+    book_path = repo_root / BOOK_PDF_RELATIVE
+    if not book_path.is_file():
+        raise SystemExit(
+            f"missing canonical book PDF: {book_path}. "
+            "Run python3 tools/build_book_pdf.py before regenerating the manifest."
+        )
+    return {
+        "built_for_release_id": release_id,
+        "pdf_path": BOOK_PDF_RELATIVE.as_posix(),
+        "sha256": sha256(book_path),
+        "size_bytes": book_path.stat().st_size,
+    }
+
+
+def carried_book_manifest_entry(
+    repo_root: Path,
+    previous_manifest: dict | None,
+    release_id: str,
+) -> dict:
+    """Carry the last builder-stamped book receipt across a paper rebuild.
+
+    A release bump must not relabel old book bytes. The book builder replaces
+    this entry only after producing the canonical book for the selected
+    release. The missing-entry branch is a one-time migration for manifests
+    created before the book joined the canonical bundle.
+    """
+
+    if previous_manifest is None or not isinstance(previous_manifest.get("book"), dict):
+        return book_manifest_entry(repo_root, release_id)
+    payload = dict(previous_manifest["book"])
+    expected = book_manifest_entry(
+        repo_root,
+        str(payload.get("built_for_release_id", "")).strip(),
+    )
+    if payload != expected:
+        raise SystemExit(
+            "the canonical book PDF and its manifest receipt disagree. "
+            "Run python3 tools/build_book_pdf.py before regenerating the paper manifest."
+        )
+    return payload
+
+
+def update_book_manifest_entry(repo_root: Path) -> None:
+    """Stamp the canonical book bytes for the manifest's selected release."""
+
+    output_path = repo_root / OUTPUT_RELATIVE
+    manifest = load_existing_manifest(output_path)
+    if manifest is None:
+        raise SystemExit(
+            f"missing {output_path}; generate the paper manifest before building "
+            "the canonical book"
+        )
+    release_info = (repo_root / RELEASE_INFO_RELATIVE).read_text(encoding="utf-8")
+    source_release_id = extract_macro(release_info, "OPHPaperReleaseID")
+    manifest_release_id = str(manifest.get("release_id", "")).strip()
+    if manifest_release_id != source_release_id:
+        raise SystemExit(
+            "paper/release_info.tex and paper/paper_release_manifest.json "
+            f"disagree on release ID: {source_release_id} vs {manifest_release_id}"
+        )
+    manifest["book"] = book_manifest_entry(repo_root, source_release_id)
+    output_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Write the current release manifest for the synced paper PDFs.",
+        description=(
+            "Write the current release manifest for the synced paper PDFs and "
+            "canonical book receipt."
+        ),
     )
     parser.add_argument(
         "--preview",
@@ -388,6 +465,8 @@ def manifest_pdf_entries(manifest: dict) -> dict:
 
 def manifest_pdf_entries_by_section(manifest: dict) -> dict[str, dict]:
     entries: dict[str, dict] = {}
+    if "book" in manifest:
+        entries["book"] = manifest["book"]
     for section_name in ("papers", "supplemental_papers", "extra_papers"):
         section = manifest.get(section_name, {})
         for paper_id, payload in section.items():

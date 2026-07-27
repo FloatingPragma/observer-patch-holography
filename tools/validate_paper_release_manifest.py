@@ -12,8 +12,9 @@ rejects the manifest when membership drifts:
 
 For every section the manifest key set and paper-to-PDF mapping must equal the
 derived source mapping (no missing paper, unexpected paper, or cross-paper
-artifact substitution), and every listed PDF artifact must exist in the
-checkout. Any mismatch exits non-zero. No fixed counts are hard-coded here; add
+artifact substitution), every listed PDF artifact must exist in the checkout,
+and the canonical book receipt must match its path, release ID, hash, and
+size. Any mismatch exits non-zero. No fixed counts are hard-coded here; add
 or remove a paper in build_tex_papers.py (or an extra/*.tex file) and the
 expected mapping moves with it.
 
@@ -33,6 +34,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MANIFEST = REPO_ROOT / "paper" / "paper_release_manifest.json"
+BOOK_PDF_RELATIVE = Path("book/reverse-engineering-reality-book.pdf")
 
 # Import the source of truth. build_tex_papers only defines sets and globs
 # extra/*.tex at import time; it has no import-time side effects beyond that.
@@ -164,6 +166,45 @@ def check_release_surface(manifest: dict, problems: list[str]) -> None:
         )
 
 
+def check_book(manifest: dict, problems: list[str]) -> None:
+    payload = manifest.get("book")
+    if not isinstance(payload, dict):
+        problems.append("book: canonical book receipt is missing from the manifest")
+        return
+    pdf_rel = payload.get("pdf_path")
+    if pdf_rel != BOOK_PDF_RELATIVE.as_posix():
+        problems.append(
+            f"book: pdf_path must be {BOOK_PDF_RELATIVE.as_posix()}, got {pdf_rel!r}"
+        )
+        return
+    release_id = str(manifest.get("release_id", "")).strip()
+    built_for = str(payload.get("built_for_release_id", "")).strip()
+    if built_for != release_id:
+        problems.append(
+            f"book: built_for_release_id {built_for!r} does not match "
+            f"manifest release_id {release_id!r}"
+        )
+    book_path = REPO_ROOT / BOOK_PDF_RELATIVE
+    if not book_path.is_file():
+        problems.append(f"book: canonical PDF is missing: {BOOK_PDF_RELATIVE}")
+        return
+    declared_sha = str(payload.get("sha256", "")).strip()
+    actual_sha = _sha256(book_path)
+    if declared_sha != actual_sha:
+        problems.append(
+            f"book: sha256 mismatch for {BOOK_PDF_RELATIVE}: "
+            f"manifest {declared_sha or '<missing>'}, disk {actual_sha}"
+        )
+    declared_size = payload.get("size_bytes")
+    if not isinstance(declared_size, int):
+        problems.append(f"book: size_bytes is not an integer: {declared_size!r}")
+    elif declared_size != book_path.stat().st_size:
+        problems.append(
+            f"book: size_bytes mismatch for {BOOK_PDF_RELATIVE}: "
+            f"manifest {declared_size}, disk {book_path.stat().st_size}"
+        )
+
+
 def check_publication_release_id(
     repo_root: Path,
     release_id: str,
@@ -241,6 +282,7 @@ def validate(
         return [f"manifest is not valid JSON: {exc}"]
     if not isinstance(manifest, dict):
         return ["manifest root must be an object"]
+    check_book(manifest, problems)
     if publication:
         release_id = str(manifest.get("release_id", "")).strip()
         if not release_id:
@@ -293,7 +335,10 @@ def main() -> int:
 
     sections = expected_sections()
     counts = " + ".join(f"{len(v)} {k}" for k, v in sections.items())
-    print(f"paper release manifest OK: {counts} (membership derived from build_tex_papers.py)")
+    print(
+        "paper release manifest OK: canonical book + "
+        f"{counts} (paper membership derived from build_tex_papers.py)"
+    )
     return 0
 
 

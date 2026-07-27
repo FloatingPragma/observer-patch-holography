@@ -14,8 +14,7 @@ RELEASE_ID_MACRO = "OPHPaperReleaseID"
 RELEASE_DATE_MACRO = "OPHPaperReleaseDate"
 RELEASE_NUMBER_PATTERN = re.compile(r"^(?P<prefix>.*?)(?P<number>\d+)$")
 NEXT_STEP = (
-    "Next: run python3 tools/refresh_paper_release.py --publication, "
-    "then python3 tools/build_book_pdf.py"
+    "Next: run python3 tools/refresh_paper_release.py --publication"
 )
 
 

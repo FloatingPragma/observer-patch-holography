@@ -38,7 +38,9 @@ Shared TeX lives in [`tex_fragments/`](tex_fragments/). The [BFT/QECC appendix](
 
 ## Reproducibility
 
-The shared release identifier lives in [`release_info.tex`](release_info.tex). [`paper_release_manifest.json`](paper_release_manifest.json) records the release artifacts and hashes.
+The shared release identifier lives in [`release_info.tex`](release_info.tex).
+[`paper_release_manifest.json`](paper_release_manifest.json) records the paper
+artifacts and the builder-stamped canonical book receipt.
 
 From the repository root:
 
@@ -50,4 +52,5 @@ This rebuilds review PDFs and their manifest without requiring a version bump,
 including when the visible identifier belongs to an existing release. After
 manual review, run `python3 tools/bump_paper_release.py` followed by
 `python3 tools/refresh_paper_release.py --publication` to prepare a candidate
-under a new release identifier.
+under a new release identifier. Publication mode rebuilds the canonical book
+and binds its bytes to that identifier in the same manifest.

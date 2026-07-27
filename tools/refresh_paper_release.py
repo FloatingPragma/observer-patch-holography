@@ -10,7 +10,8 @@ the order the release pipeline requires:
   1. ``tools/build_tex_papers.py``            (tectonic, all registered papers)
   2. ``paper/tools/check_build_warnings.py``  (complete warning gate)
   3. ``tools/generate_paper_release_manifest.py --preview``
-  4. ``tools/validate_paper_release_manifest.py``
+  4. publication mode only: ``tools/build_book_pdf.py``
+  5. ``tools/validate_paper_release_manifest.py``
 
 Release bumping is deliberately *not* part of this tool. Bumping the release
 identifier (``tools/bump_paper_release.py``) is a separate editorial decision;
@@ -113,6 +114,11 @@ def main() -> int:
     )
 
     run("regenerate the release manifest", generator_command)
+    if args.publication:
+        run(
+            "build the canonical book and stamp its release receipt",
+            [python, "tools/build_book_pdf.py"],
+        )
     run(
         "validate the release manifest",
         validator_command,

@@ -124,6 +124,56 @@ def manifest_asset_path(
     )
 
 
+def validated_manifest_asset(
+    *,
+    repo_root: Path,
+    record: Mapping[str, Any],
+    where: str,
+) -> Path:
+    """Validate one manifest receipt and return its confined local artifact."""
+
+    pdf_path = record.get("pdf_path")
+    if not isinstance(pdf_path, str) or not pdf_path:
+        raise ReleaseChannelError(f"{where} has no pdf_path")
+    path = manifest_asset_path(
+        repo_root=repo_root,
+        pdf_path=pdf_path,
+        where=where,
+    )
+    declared_sha = record.get("sha256")
+    if not isinstance(declared_sha, str) or SHA256_RE.fullmatch(declared_sha) is None:
+        raise ReleaseChannelError(
+            f"{where}.sha256 must be a lowercase 64-digit SHA-256"
+        )
+    declared_size = record.get("size_bytes")
+    if (
+        isinstance(declared_size, bool)
+        or not isinstance(declared_size, int)
+        or declared_size < 0
+    ):
+        raise ReleaseChannelError(
+            f"{where}.size_bytes must be a nonnegative integer"
+        )
+    try:
+        actual_sha = sha256_file(path)
+        actual_size = path.stat().st_size
+    except OSError as exc:
+        raise ReleaseChannelError(
+            f"cannot inspect release asset {pdf_path}: {exc}"
+        ) from exc
+    if declared_sha != actual_sha:
+        raise ReleaseChannelError(
+            f"{where}: manifest sha256 {declared_sha!r} does not match "
+            f"local {actual_sha!r}"
+        )
+    if declared_size != actual_size:
+        raise ReleaseChannelError(
+            f"{where}: manifest size_bytes {declared_size!r} does not "
+            f"match local {actual_size!r}"
+        )
+    return path
+
+
 def expected_assets(
     *,
     repo_root: Path,
@@ -162,58 +212,33 @@ def expected_assets(
                 raise ReleaseChannelError(
                     f"{section_name}.{paper_id} must be an object"
                 )
-            pdf_path = record.get("pdf_path")
-            if not isinstance(pdf_path, str) or not pdf_path:
-                raise ReleaseChannelError(
-                    f"{section_name}.{paper_id} has no pdf_path"
-                )
             where = f"{section_name}.{paper_id}"
-            path = manifest_asset_path(
+            path = validated_manifest_asset(
                 repo_root=normalized_root,
-                pdf_path=pdf_path,
+                record=record,
                 where=where,
             )
-            declared_sha = record.get("sha256")
-            if not isinstance(declared_sha, str) or SHA256_RE.fullmatch(
-                declared_sha
-            ) is None:
-                raise ReleaseChannelError(
-                    f"{where}.sha256 must be a lowercase 64-digit SHA-256"
-                )
-            declared_size = record.get("size_bytes")
-            if (
-                isinstance(declared_size, bool)
-                or not isinstance(declared_size, int)
-                or declared_size < 0
-            ):
-                raise ReleaseChannelError(
-                    f"{where}.size_bytes must be a nonnegative integer"
-                )
-            try:
-                actual_sha = sha256_file(path)
-                actual_size = path.stat().st_size
-            except OSError as exc:
-                raise ReleaseChannelError(
-                    f"cannot inspect release asset {pdf_path}: {exc}"
-                ) from exc
-            if declared_sha != actual_sha:
-                raise ReleaseChannelError(
-                    f"{where}: manifest sha256 {declared_sha!r} does not match "
-                    f"local {actual_sha!r}"
-                )
-            if declared_size != actual_size:
-                raise ReleaseChannelError(
-                    f"{where}: manifest size_bytes {declared_size!r} does not "
-                    f"match local {actual_size!r}"
-                )
             paths.append(path)
 
+    book = manifest.get("book")
+    if not isinstance(book, dict):
+        raise ReleaseChannelError(
+            "paper release manifest has no canonical book receipt"
+        )
+    if book.get("built_for_release_id") != release_id:
+        raise ReleaseChannelError(
+            "book.built_for_release_id must match the manifest release_id"
+        )
+    if book.get("pdf_path") != BOOK_RELATIVE.as_posix():
+        raise ReleaseChannelError(
+            f"book.pdf_path must be {BOOK_RELATIVE.as_posix()!r}"
+        )
     paths.extend(
         (
-            confined_file(
+            validated_manifest_asset(
                 repo_root=normalized_root,
-                path=BOOK_RELATIVE,
-                label="book release asset",
+                record=book,
+                where="book",
             ),
             normalized_manifest,
         )

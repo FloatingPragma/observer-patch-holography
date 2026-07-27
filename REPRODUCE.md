@@ -157,11 +157,12 @@ After review, prepare a publication candidate with a new release identifier:
 ```bash
 python3 tools/bump_paper_release.py
 python3 tools/refresh_paper_release.py --publication
-python3 tools/build_book_pdf.py
 ```
 
 The publication mode fails when the selected identifier exists as a local or
-remote Git tag. Publication remains a separate maintainer action after the
+remote Git tag. It also rebuilds the canonical book and stamps its hash, size,
+path, and selected release ID into the shared manifest before final
+validation. Publication remains a separate maintainer action after the
 candidate is committed, pushed, and inspected.
 
 The manually dispatched `Release Channel Integrity` workflow is a

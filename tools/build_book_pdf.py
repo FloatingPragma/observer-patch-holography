@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 from book_pdf_assets import stage_book_pdf_assets
+from generate_paper_release_manifest import update_book_manifest_entry
 from reproducible_build_env import build_environment
 
 
@@ -320,6 +321,8 @@ def build(output: Path) -> None:
     built_pdf = BUILD_DIR / f"{tex_path.stem}.pdf"
     output.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(built_pdf, output)
+    if output.resolve() == DEFAULT_OUTPUT.resolve():
+        update_book_manifest_entry(REPO_ROOT)
 
 
 def parse_args() -> argparse.Namespace:

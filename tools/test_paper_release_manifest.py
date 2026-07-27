@@ -50,6 +50,57 @@ def test_manifest_generation_timestamp_is_release_derived() -> None:
     )
 
 
+def test_manifest_binds_canonical_book_bytes_and_release() -> None:
+    manifest = _base()
+    book = manifest["book"]
+    book_path = REPO_ROOT / book["pdf_path"]
+
+    assert book["pdf_path"] == "book/reverse-engineering-reality-book.pdf"
+    assert book["built_for_release_id"] == manifest["release_id"]
+    assert book["sha256"] == generator.sha256(book_path)
+    assert book["size_bytes"] == book_path.stat().st_size
+
+
+def test_generator_carries_book_builder_receipt_across_release_bump() -> None:
+    previous = _base()
+    carried = generator.carried_book_manifest_entry(
+        REPO_ROOT,
+        previous,
+        "r-next",
+    )
+
+    assert carried == previous["book"]
+    assert carried["built_for_release_id"] == previous["release_id"]
+
+
+def test_book_builder_updates_manifest_receipt(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    (repo / "paper").mkdir(parents=True)
+    (repo / "book").mkdir()
+    (repo / "paper/release_info.tex").write_text(
+        r"\newcommand{\OPHPaperReleaseID}{r-next}" + "\n",
+        encoding="utf-8",
+    )
+    (repo / "paper/paper_release_manifest.json").write_text(
+        json.dumps({"release_id": "r-next", "book": {}}),
+        encoding="utf-8",
+    )
+    book_path = repo / generator.BOOK_PDF_RELATIVE
+    book_path.write_bytes(b"%PDF-rebuilt-book")
+
+    generator.update_book_manifest_entry(repo)
+
+    manifest = json.loads(
+        (repo / "paper/paper_release_manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["book"] == {
+        "built_for_release_id": "r-next",
+        "pdf_path": "book/reverse-engineering-reality-book.pdf",
+        "sha256": generator.sha256(book_path),
+        "size_bytes": book_path.stat().st_size,
+    }
+
+
 def test_generator_rejects_changed_pdf_behind_existing_tag() -> None:
     tagged = _base()
     current = copy.deepcopy(tagged)
@@ -251,6 +302,20 @@ def test_rejects_missing_paper(tmp_path: Path) -> None:
     manifest["papers"].pop(removed)
     problems = validator.validate(_write(tmp_path, manifest))
     assert any("missing" in p and removed in p for p in problems)
+
+
+def test_rejects_missing_or_stale_book_receipt(tmp_path: Path) -> None:
+    manifest = _base()
+    manifest.pop("book")
+    problems = validator.validate(_write(tmp_path, manifest))
+    assert any("book receipt is missing" in problem for problem in problems)
+
+    manifest = _base()
+    manifest["book"]["sha256"] = "0" * 64
+    manifest["book"]["built_for_release_id"] = "r-old"
+    problems = validator.validate(_write(tmp_path, manifest))
+    assert any("book: sha256 mismatch" in problem for problem in problems)
+    assert any("built_for_release_id" in problem for problem in problems)
 
 
 def test_rejects_unexpected_paper(tmp_path: Path) -> None:
@@ -483,6 +548,31 @@ def test_refresh_wrapper_dispatches_strict_publication() -> None:
     assert validator_command[-1] == "--publication"
 
 
+def test_refresh_wrapper_builds_book_inside_publication_mode(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[tuple[str, list[str]]] = []
+    monkeypatch.setattr(
+        "sys.argv",
+        ["refresh_paper_release.py", "--publication", "--no-gate"],
+    )
+    monkeypatch.setattr(
+        refresher,
+        "run",
+        lambda description, argv: calls.append((description, argv)),
+    )
+
+    assert refresher.main() == 0
+    descriptions = [description for description, _argv in calls]
+    assert descriptions == [
+        "build all registered papers",
+        "regenerate the release manifest",
+        "build the canonical book and stamp its release receipt",
+        "validate the release manifest",
+    ]
+    assert calls[2][1][-1] == "tools/build_book_pdf.py"
+
+
 def test_refresh_wrapper_modes_are_mutually_exclusive() -> None:
     with pytest.raises(SystemExit):
         refresher.parse_args(["--preview", "--publication"])
@@ -490,8 +580,7 @@ def test_refresh_wrapper_modes_are_mutually_exclusive() -> None:
 
 def test_bump_helper_points_to_strict_publication_wrapper() -> None:
     assert bumper.NEXT_STEP == (
-        "Next: run python3 tools/refresh_paper_release.py --publication, "
-        "then python3 tools/build_book_pdf.py"
+        "Next: run python3 tools/refresh_paper_release.py --publication"
     )
 
 
