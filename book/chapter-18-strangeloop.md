@@ -181,11 +181,11 @@ fine-structure constant. Strange-loop closure says these two readings are
 one quantity. The outside grain of the pixel and the inside strength of
 electromagnetism are the loop looking at one cell from its two sides.
 
-Set the two readings equal and the pixel is fixed. Feed a trial value of
-$P$ through the whole forward machinery, the unification scale, the running gauge
-couplings, the electroweak anchor, the transport of the electromagnetic channel
-down to long distances, and the machinery hands back an inside reading. Closure
-is the demand that the value you get back is the value you put in:
+Set the two readings equal and the pixel is fixed on the declared source map.
+Feed a trial value of $P$ through its unification scale, running gauge
+couplings, electroweak anchor, and electromagnetic end-point readback. The map
+hands back an inside reading. Closure is the demand that the value you get back
+is the value you put in:
 
 $$
 P = \varphi + \frac{\sqrt{\pi}}{A_T(P)} .
@@ -195,13 +195,12 @@ $A_T(P)$ is what the machinery hands back: the inverse of that interaction
 strength, the famous 137-ish number, so dividing the width by it is the same
 detuning written in terms of the answer.
 
-This self-consistency equation has one fixed point on the physical interval.
-The full transport map carries the trial pixel through the gauge and
-electroweak scales, includes the vacuum response of strongly interacting
-matter, and returns the long-distance electromagnetic reading. At the fixed
-point, the outside geometry and the inside measurement agree. Run the
-machinery and the fixed point lands within a few parts per million of the
-measured value.
+This source map has one interval-certified fixed point on its physical
+interval. Its comparison with the measured low-energy fine-structure constant
+is within a few parts per million. A physical low-energy prediction requires a
+same-scheme hadronic spectral transport. That transport is work in progress,
+so the result has precise source-map status. A completed laboratory prediction
+requires that transport.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
@@ -270,10 +269,10 @@ P_\star\approx1.63,
 \alpha^{-1}_{\mathrm{meas}}=137.035999177(21).
 $$
 
-The first coupling value is the certified fixed point, machine-checked in
-the proof assistant; the second is the measurement it is tested against. The
-residual between them is the hadronic-transport gap of a few parts per
-million; closing it is work in progress.
+The first coupling value is the interval-certified source-map fixed point; the
+second is the experimental value used for comparison. The residual is a few
+parts per million. A same-scheme hadronic spectral transport is required for a
+physical low-energy prediction and is work in progress.
 
 The global equation identifies two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the

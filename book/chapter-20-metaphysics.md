@@ -1,5 +1,11 @@
 # Chapter 20: Metaphysics and Qualia
 
+This chapter is a philosophical interpretation of the observer-patch
+framework. It adds no physical theorem about consciousness or personal
+identity. Its job is to ask what follows if experience is discussed from
+within the same finite, record-bearing structures that the earlier chapters
+use for measurement and public reality.
+
 ## 20.1 The Zombie That Couldn't Exist
 
 In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. All the lights are on. Nobody is watching them.

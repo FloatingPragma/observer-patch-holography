@@ -286,10 +286,10 @@ group therefore organizes the ports, the triangular overlap neighborhoods, and
 the edge-sector and boundary bookkeeping without choosing a preferred
 direction.
 
-In the declared echosahedral lineage, the twelve ports arrange themselves
-under the construction rules; the antipodal pairing and the icosahedral
-symmetry come out rather than being put in. The result is scoped to that
-architecture.
+In the declared echosahedral lineage, the twelve ports and their oriented
+incidence are the local carrier contract. The inverse pairing and the
+icosahedral symmetry are exact consequences of that exposed contract. The
+result is scoped to this architecture.
 
 The twelve real port readings split under $A_5$ into four bundles:
 

@@ -76,9 +76,10 @@ and the maximal faithful matter image
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
 no selection principle.
 
-The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
-the same local tensors; the measured flux-sector menu of the carrier
-federation selects the full quotient at finite source scope. The generation
+The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
+local tensors. The finite result is therefore the maximal faithful matter
+image. A flux-sector menu can become a source-model input for global-form
+selection only when physical line and bundle data are supplied. The generation
 count is open inside its three-to-five window; $N_g=3$ and the absence of
 extra light sectors enter as declared completions, and neither enters that
 finite gauge calculation.

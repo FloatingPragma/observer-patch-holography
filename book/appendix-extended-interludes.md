@@ -364,8 +364,9 @@ one of the most precisely measured quantities in physics. Its inverse is near
 stories. The useful questions are concrete. Which value is being discussed?
 At what scale? In which renormalization scheme? Which vacuum response carries
 the coupling from the electroweak scale to the long-distance Thomson reading?
-In OPH, that full transport is part of the fixed-point map that makes the inside
-electromagnetic reading agree with the outside screen pixel.
+OPH has an interval-certified source map through the unification and
+electroweak stages. A same-scheme hadronic spectral transport is required for
+the physical low-energy reading and is work in progress.
 
 The same applies to masses. The electron mass is measured to extraordinary
 precision. Quark masses are scheme-dependent running parameters, not little

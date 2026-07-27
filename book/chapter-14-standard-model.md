@@ -747,15 +747,12 @@ simultaneous conjugation. Exhaustive enumeration of the central action on
 every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
 the full kernel produces the maximal faithful matter image.
 
-The same local
-tensors also descend through the cover and its intermediate $\mathbb Z_2$ and
-$\mathbb Z_3$ quotients, so local data alone cannot select the physical
-global form. The selection comes from measured deck and flux data: the
-carrier federation admits exactly six flux sectors, every one of them
-carries the realized matter single-valuedly, and among the four candidate
-global forms only the full $\mathbb Z_6$ quotient has exactly that sector
-menu. The line polarization is then forced by mutual locality with the
-realized electric lines.
+The same local tensors also descend through the cover and its intermediate
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients. The finite calculation therefore
+identifies the maximal faithful image of the declared matter package. It does
+not select the physical global form. A flux-sector menu can serve as a
+source-model condition for a later selection, provided it is tied to physical
+line and bundle data. That physical attachment is work in progress.
 
 The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold symmetry of each face cycles its corners. The only
@@ -766,15 +763,22 @@ in other words, comes with a natural three-place slot built into its faces, a
 canonical candidate home for the three families.
 
 Put together, the carrier and target-blind readback supply an exact
-gauge-adjoint symmetry type. The fermionic typing is itself measured at
-finite source scope, forced by the measured centre of the transport double
-cover and the section obstruction. The matter and descent
-receipts then supply a conjugate pair of hypercharge assignments, chirality,
-the color fundamental, the weak doublet, the compatible scalar-charge pair,
-three invariant interaction channels, and the conjugation-insensitive
-sixfold kernel and maximal faithful image. Beyond that finite source scope
-they do not fix the continuum
-global form, scalar multiplicity, or physical matter attachment.
+gauge-adjoint symmetry type. The fermionic typing is measured at finite source
+scope through the center of the transport double cover and its section
+obstruction. The matter and descent receipts then supply a conjugate pair of
+hypercharge assignments, chirality, the color fundamental, the weak doublet,
+the compatible scalar-charge pair, three invariant interaction channels, and
+the conjugation-insensitive sixfold kernel and maximal faithful image. The
+calculation leaves the continuum global form, scalar multiplicity, and
+physical matter attachment open.
+
+This is the architectural part of the particle story. The carrier fixes which
+finite transformations and charge packages fit together without contradiction.
+The response contract turns that finite geometry into current directions. The
+matter contract identifies a chiral package that survives the anomaly checks.
+A particle seen in a detector requires the separate route from those finite
+objects to a laboratory current, a physical matter sector, and dynamical poles.
+The book keeps those jobs separate because each one can fail independently.
 
 ### The Exterior Matter Package
 

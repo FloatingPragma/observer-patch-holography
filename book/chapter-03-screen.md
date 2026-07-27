@@ -298,14 +298,13 @@ and a coupling law, they can also expose phase-lock-sensitive observables.
 They are local subchannels, not a claim that the whole universe is a torus or
 that every federation has proved phase locking.
 
-The twelve-port oriented boundary is the local architecture asserted by
-Axiom 1. Its unique distance-three inverse pairing, six axes, proper
-icosahedral rotation group, and conjugate rank-three frame pair follow from
-the incidence data. The details live in the technical papers. The
-architecture does not by itself supply physical currents; attaching
-them requires a separate physical response law. The exact current certificate
-passes conditionally when the finite response is restricted to a signed
-central involutive graph automorphism; incidence then leaves only the
+The oriented twelve-port boundary is the local screen architecture. Its unique
+distance-three inverse pairing, six axes, proper icosahedral rotation group,
+and conjugate rank-three frame pair follow from the exposed incidence data.
+The details live in the technical papers. The architecture does not by itself
+supply physical currents; attaching them requires a separate physical response
+law. The exact finite current certificate applies when the response is a signed
+central involutive graph automorphism. Incidence then leaves only the
 charge-conjugate pair $\pm J$. Independent perturb-and-readback source binding
 and laboratory identification are work in progress.
 
@@ -335,6 +334,36 @@ lower a declared mismatch score. Different compatible repair orders reach the
 same public normal form only when the protected dependencies are complete,
 conflicting updates have one coherent combined payload, the local-diamond test
 passes, and the repair menu is complete.
+
+### The Whole Network
+
+The picture becomes useful when many chambers are wired together. Every port
+on one carrier terminates in a typed seam, a small protocol that says what can
+cross the boundary, how it is translated, and which record proves that the
+translation succeeded. Three carriers can meet around a triangular
+neighborhood. Their records have to agree after all three translations, the
+same way three survey teams need to close a triangle before trusting their
+map. The federation is the finite architecture that performs the world's
+bookkeeping.
+
+Several familiar features follow from that architecture. Access is bounded
+because a patch reads only its local state and boundary packets. A fact becomes
+public only when it survives comparison through the seams. A record lasts only
+when later reads and repairs preserve the protected part of the record. A
+change of material, port labels, or controller partition is irrelevant only
+when it preserves every one of these exposed relations. The simulator picture
+therefore names a distributed self-reading machine. A computer outside the
+world rendering a three-dimensional scene is a different picture.
+
+The local icosahedron and the global federation answer different questions.
+The first fixes the finite grammar of one carrier: twelve ports, thirty seams,
+twenty triangular neighborhoods, orientation, and a large symmetry group. The
+second says which carriers share a seam and how their repair histories form a
+public normal form. A network made from identical chambers can have many
+topologies. The bridge that presents the repaired federation through a
+spherical support chart is a separate certified construction. The smooth
+geometric and physical scale readings require further premises.
+
 Nested edge-midpoint subdivisions provide the declared finite regulator for
 the spherical support chart. They are not the twelve-port carrier federation.
 The source-bound degree-one bridge from the federation nerve to this support,

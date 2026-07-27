@@ -869,12 +869,14 @@ where $a_b$ is the ordinary baryonic pull and $a_0$ is a tiny acceleration
 scale, about one ten-billionth of Earth gravity, below which rotation curves
 misbehave.
 
-Because the count and the angle enter one action, the medium carries a
-conserved relativistic stress rather than a fitted force rule. The dust-like
-phase controls abundance and the growth of structure. The condensed phase
-controls lensing, gravitational slip (light and matter bending differently),
-cluster interiors, the quiet Solar System, and the deep-galaxy acceleration
-law.
+This is a conditional action proposal. Given its dimensional source
+calibration, ambient repair field, compact-phase completion, and source
+receipt, the count and angle carry one conserved relativistic stress. The
+dust-like phase then supplies abundance and structure-growth equations. The
+condensed phase supplies equations for lensing, gravitational slip, cluster
+interiors, the quiet Solar System, and the deep-galaxy acceleration law. Those
+physical attachments and the corresponding astronomical tests are work in
+progress.
 
 ## 15.13 Reverse Engineering Summary
 

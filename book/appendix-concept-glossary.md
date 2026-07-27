@@ -400,10 +400,10 @@ Standard Model Lie type. The exhaustive selection scan and the measured
 transport double cover fix the matter content and its fermionic Spin typing
 from source, and the matter and central-descent receipts fix the charge
 lattice up to conjugation and the maximal faithful matter image. The cover
-and its intermediate quotients carry the same local tensors; the measured
-flux-sector menu selects the full quotient at finite source scope. Family
-count and extra-light-sector completeness require source-complete attachment
-and matter-menu theorems.
+and its intermediate quotients carry the same local tensors. A flux-sector
+menu can be a source-model input for global-form selection when physical line
+and bundle data are supplied. Family count and extra-light-sector completeness
+require source-complete attachment and matter-menu theorems.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term

@@ -470,11 +470,14 @@ tracks its conjugate phase. Together they form the number-and-phase pair needed
 for dynamics. The finite register, its compact phase, and their action form one
 repair-charge field.
 
-Given that action, changing the phase gives an exact balance law for repair
-charge, and changing the geometry gives a stress tensor. In a dilute,
-homogeneous phase, charge conservation gives $\rho_R\propto a^{-3}$ and
-$w_R\simeq0$. The medium therefore dilutes like pressureless matter, while its
-perturbations travel through the same conserved stress law.
+The proposed action is a conditional model. Given that action, changing the
+phase gives an exact balance law for repair charge, and changing the geometry
+gives a stress tensor. In a dilute, homogeneous phase, charge conservation gives
+$\rho_R\propto a^{-3}$ and $w_R\simeq0$. The medium then dilutes like
+pressureless matter, while its perturbations travel through the same conserved
+stress law. Dimensional source calibration, the ambient repair field,
+compact-phase completion, and an astronomical source receipt are work in
+progress.
 
 ### Why Galaxies Flatten
 
@@ -494,10 +497,11 @@ $$V^4 = GM_ba_0,$$
 
 where $V$ is the flat rotation speed and $M_b$ is the galaxy's baryonic mass.
 
-The cubic phase law therefore links a single repair-charge medium to flat
-galaxy rotation curves and the baryonic Tully-Fisher relation. Its relativistic
-stress controls lensing, clusters, Solar-System response, cosmic abundance, and
-perturbations in the corresponding regimes.
+Within the proposed action, the cubic phase law links one repair-charge medium
+to flat galaxy rotation curves and the baryonic Tully-Fisher relation. Its
+relativistic stress supplies the corresponding lensing, cluster, Solar-System,
+abundance, and perturbation equations. Comparing that model with the full
+astronomical data set requires the open source and calibration attachments.
 
 The same action lets coherent material enter the repair channel through a
 fixed dimensionless efficiency. That number is not a force law. A device force
@@ -516,9 +520,9 @@ entropy budget, and finite accessible information. The cosmological horizon is
 the natural screen in this reading. The finite screen gives an exact entropy
 maximum, an exact logarithmic capacity-transfer law, and the radius-independent
 pure-de-Sitter shock normalization. Its physical time-advance reading uses the
-declared horizon and shock dictionary. The dark sector joins the same ledger
-as a repair-charge medium that dilutes like matter and flattens rotation curves
-where accelerations run low.
+declared horizon and shock dictionary. The repair-charge action is a conditional
+dark-sector model. Its matter-like and deep-galaxy consequences require the
+listed source, calibration, and astronomical attachments.
 
 ---
 
@@ -528,7 +532,8 @@ The next chapter treats the Standard Model of particle physics as an effective
 structure. The path has three steps. Gluing observer patches together sorts out
 which charge sectors can be carried around cleanly. Refining that picture lets a
 reconstruction read a compact symmetry group from the surviving sectors.
-Choosing the smallest single-Higgs matter content that works lands on the
-realized Standard Model.
+The declared finite matter contract then identifies the charge pattern and
+maximal faithful matter image. Physical scalar multiplicity, matter attachment,
+and the exclusion of extra light sectors remain separate questions.
 
 This is **Chapter 14: The Standard Model from Consistency**.

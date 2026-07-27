@@ -139,8 +139,8 @@ The detailed microphysics layer puts an explicit machine under that story. An
 abstract observer patch is a bounded local algebra and state with exposed
 interfaces, rereadable records, repair instruments, and checkpoint data. The
 cap or collar it occupies on the sphere is its support chart, and the silicon,
-light, or software that runs it is its implementation. Swapping the material
-is silent exactly when the full contract survives the swap: port geometry,
+light, or software that runs it is its implementation. A change of material is
+physically silent only when the full contract survives: port geometry,
 readback, dynamics, repair, refinement, and continuation. Keeping these roles
 separate prevents a drawing of a sphere, one mesh cell, or one computer
 process from being mistaken for the observer itself.
@@ -167,21 +167,19 @@ support chart displays the repaired quotient data while the patch federation
 does the microscopic work. One finite source-derived incidence nerve supplies
 twelve carrier charts, thirty seams, twenty nonvacuous triple overlaps, an
 operational observer, and a refinement-natural oriented support limit. The
-\(H^3\), event, BW/KMS, physical-scale, and laboratory attachments are work in
-progress.
+hyperbolic observer-frame, event, modular thermal, physical-scale, and
+laboratory attachments are work in progress.
 
-On the declared quotient-visible echosahedral lineage, the twelve ports are
-forced by counting alone. Ask for identical primitive readback units at every
-port and the arithmetic leaves exactly one unit per port, twelve ports,
-paired across the sphere, with the icosahedron's symmetry group acting on
-them. The geometry is an output, whether or not anyone drew an icosahedron
-first. Refinement maps and consistent port relabelings preserve the entire
-selection. This proves the finite twelve-unit and $A_5$ selection results on
-that branch. It does not derive that carrier type for every OPH
-implementation. On the certified carrier branch, the response, spin-lift,
-matter, and central-descent receipts are separate conditional computations.
-Physical response source-binding, matter selection, laboratory-current, and
-family attachments are open.
+On the declared quotient-visible echosahedral lineage, twelve ports and their
+oriented icosahedral incidence specify the local carrier architecture. The
+source selector then gives identical primitive readback units, one unit per
+port, paired across the sphere with the icosahedral rotation group acting on
+them. Refinement maps and consistent port relabelings preserve that selection.
+This proves the finite unit-weight and symmetry results on the declared
+carrier branch. The theorem is scoped to that carrier architecture. Response,
+spin-lift, matter, and central-descent receipts are separate conditional
+computations. Physical response source-binding, matter selection,
+laboratory-current, and family attachments are open.
 
 ## 19.5 How the Particle World Appears
 
