@@ -1,0 +1,650 @@
+{
+  "claim_boundary": {
+    "does_not_close": [
+      "exclusion of sectors outside the declared algebra: the sterile countermodel is source-invisible, so the beyond-algebra verdict is independence_limited",
+      "scalar multiplicity, scalar duplicates, and inert doublets (issue #616)",
+      "response completeness of the declared algebra itself (issue #611)",
+      "a physical decoupling or laboratory pole identification justification for the declared threshold",
+      "continuum spin-statistics and laboratory identification of any matter observable"
+    ],
+    "proves": "menu completeness inside the declared exterior response algebra by an exact projector resolution of the identity, the exhaustive exclusion classification of all 1024 in-algebra selections with exactly the two conjugate rank-fifteen survivors, exact off-menu control verdicts, and the declared light/heavy threshold with exact in-algebra clauses"
+  },
+  "declared_algebra": {
+    "carrier": "the exterior algebra Lambda^* V over the five-dimensional matter carrier V = C (+) W of the pinned matter lift",
+    "charge_pair_y": {
+      "color_block": "-1/3",
+      "weak_block": "1/2"
+    },
+    "derived_block_charges": {
+      "a": -2,
+      "b": 3,
+      "normalization": 6
+    },
+    "dimension": 32
+  },
+  "description": "Spectral ledger for matter-menu completeness inside the declared exterior response algebra Lambda^* V over the five-dimensional module with the derived primitive block charges. The twelve-summand isotypic menu is complete by an exact projector resolution of the identity, the 1024-subset exclusion classification is exhaustive with exactly the two kernel-checked survivors, the off-menu controls carry exact verdicts, the sterile trivial-charge countermodel bounds the beyond-algebra claim, and the light/heavy threshold is declared with its exact in-algebra clauses.",
+  "fail_closed_controls": [
+    {
+      "actual_error": "SURVIVOR_COUNT",
+      "expected_error": "SURVIVOR_COUNT",
+      "name": "claimed_third_scan_survivor",
+      "passed": true,
+      "statement": "a claimed third survivor mask is rejected against the exact two-survivor scan"
+    },
+    {
+      "actual_error": "PINNED_ANOMALY_TALLY",
+      "expected_error": "PINNED_ANOMALY_TALLY",
+      "name": "tampered_charge_assignment",
+      "passed": true,
+      "statement": "shifting one component charge breaks the anomaly tally on the pinned parity masks"
+    },
+    {
+      "actual_error": "STERILE_SOURCE_INVISIBLE",
+      "expected_error": "STERILE_SOURCE_INVISIBLE",
+      "name": "sterile_summand_claimed_source_visible",
+      "passed": true,
+      "statement": "the sterile summand cannot be claimed source-visible: its couplings are exactly zero"
+    },
+    {
+      "actual_error": "PROJECTOR_COMPLETENESS",
+      "expected_error": "PROJECTOR_COMPLETENESS",
+      "name": "dropped_menu_summand",
+      "passed": true,
+      "statement": "dropping one summand breaks the projector resolution of the identity"
+    }
+  ],
+  "issues": [
+    612,
+    609
+  ],
+  "light_heavy_threshold": {
+    "heavy_topological_side": {
+      "description": "the Gauss-invariant trivial-charge lines of the algebra are the declared heavy/topological side of the threshold",
+      "lines": [
+        "vacuum_line",
+        "top_line"
+      ]
+    },
+    "in_algebra_exclusions": "every other in-algebra configuration carries its exact exclusion clause from the 1024-subset classification: empty, vectorlike_nonchiral, or anomalous with its failing traces",
+    "physical_decoupling_interface": {
+      "note": "a physical decoupling or laboratory pole identification justification for the threshold is not supplied by this certificate; the threshold is declared with its exact in-algebra clauses only",
+      "status": "separate_open_physical_interface"
+    },
+    "retained_light_sector": {
+      "description": "the unordered charge-conjugate pair of rank-fifteen chiral anomaly-free selections, exactly the two scan survivors",
+      "masks": [
+        227,
+        796
+      ],
+      "rank": 15
+    },
+    "status": "declared_threshold"
+  },
+  "menu": {
+    "grammar_separation": {
+      "charge_and_parity_separate_all_twelve": true,
+      "nontrivial_charges_distinct_and_nonzero": true,
+      "statement": "every nontrivial summand carries a distinct nonzero charge; the two trivial-charge lines are separated by fermionic parity, so the grammar signature determines the summand"
+    },
+    "isotypic_completeness": {
+      "irreducibility_source": "the pinned #314 receipt certifies the five realized blocks as irreducible with scalar commutants and the module as multiplicity free; the odd-sector components are their exact charge conjugates under the verified wedge pairing",
+      "resolution_of_identity": true,
+      "statement": "every finite object of the declared exterior response algebra decomposes through the twelve summand projectors, and the decomposition is unique because the grammar signature separates the summands; factorization through the menu is exact inside the declared algebra",
+      "verdict": "exact"
+    },
+    "nontrivial_summand_count": 10,
+    "projector_completeness": {
+      "orthogonal_idempotents": 12,
+      "pairwise_orthogonality_checks": 66,
+      "statement": "the twelve diagonal summand projectors are orthogonal idempotents whose sum is exactly the identity on Lambda^* V",
+      "sum_equals_identity_on_32": true
+    },
+    "summand_count": 12,
+    "summands": [
+      {
+        "charge_q6": 0,
+        "charge_y": "0",
+        "color_factor": "1",
+        "component_index": null,
+        "dimension": 1,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 0,
+          "total": 0,
+          "weak": 0
+        },
+        "fermionic_parity": "even",
+        "field_label": null,
+        "fock_basis_indices": [
+          0
+        ],
+        "gauss_vacuum_class": true,
+        "summand": "vacuum_line",
+        "triality": 0,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": -2,
+        "charge_y": "-1/3",
+        "color_factor": "3",
+        "component_index": 0,
+        "dimension": 3,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 1,
+          "total": 1,
+          "weak": 0
+        },
+        "fermionic_parity": "odd",
+        "field_label": "d_c_conjugate",
+        "fock_basis_indices": [
+          1,
+          2,
+          3
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_0",
+        "triality": 1,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": 3,
+        "charge_y": "1/2",
+        "color_factor": "1",
+        "component_index": 1,
+        "dimension": 2,
+        "duality": 1,
+        "exterior_degree": {
+          "color": 0,
+          "total": 1,
+          "weak": 1
+        },
+        "fermionic_parity": "odd",
+        "field_label": "L_conjugate",
+        "fock_basis_indices": [
+          4,
+          5
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_1",
+        "triality": 0,
+        "weak_dimension": 2
+      },
+      {
+        "charge_q6": -4,
+        "charge_y": "-2/3",
+        "color_factor": "3bar",
+        "component_index": 2,
+        "dimension": 3,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 2,
+          "total": 2,
+          "weak": 0
+        },
+        "fermionic_parity": "even",
+        "field_label": "u_c",
+        "fock_basis_indices": [
+          6,
+          7,
+          10
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_2",
+        "triality": 2,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": 1,
+        "charge_y": "1/6",
+        "color_factor": "3",
+        "component_index": 3,
+        "dimension": 6,
+        "duality": 1,
+        "exterior_degree": {
+          "color": 1,
+          "total": 2,
+          "weak": 1
+        },
+        "fermionic_parity": "even",
+        "field_label": "Q",
+        "fock_basis_indices": [
+          8,
+          9,
+          11,
+          12,
+          13,
+          14
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_3",
+        "triality": 1,
+        "weak_dimension": 2
+      },
+      {
+        "charge_q6": 6,
+        "charge_y": "1",
+        "color_factor": "1",
+        "component_index": 4,
+        "dimension": 1,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 0,
+          "total": 2,
+          "weak": 2
+        },
+        "fermionic_parity": "even",
+        "field_label": "e_c",
+        "fock_basis_indices": [
+          15
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_4",
+        "triality": 0,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": 4,
+        "charge_y": "2/3",
+        "color_factor": "3",
+        "component_index": 5,
+        "dimension": 3,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 1,
+          "total": 3,
+          "weak": 2
+        },
+        "fermionic_parity": "odd",
+        "field_label": "u_c_conjugate",
+        "fock_basis_indices": [
+          21,
+          24,
+          25
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_5",
+        "triality": 1,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": -1,
+        "charge_y": "-1/6",
+        "color_factor": "3bar",
+        "component_index": 6,
+        "dimension": 6,
+        "duality": 1,
+        "exterior_degree": {
+          "color": 2,
+          "total": 3,
+          "weak": 1
+        },
+        "fermionic_parity": "odd",
+        "field_label": "Q_conjugate",
+        "fock_basis_indices": [
+          17,
+          18,
+          19,
+          20,
+          22,
+          23
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_6",
+        "triality": 2,
+        "weak_dimension": 2
+      },
+      {
+        "charge_q6": -6,
+        "charge_y": "-1",
+        "color_factor": "1",
+        "component_index": 7,
+        "dimension": 1,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 3,
+          "total": 3,
+          "weak": 0
+        },
+        "fermionic_parity": "odd",
+        "field_label": "e_c_conjugate",
+        "fock_basis_indices": [
+          16
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_7",
+        "triality": 0,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": 2,
+        "charge_y": "1/3",
+        "color_factor": "3bar",
+        "component_index": 8,
+        "dimension": 3,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 2,
+          "total": 4,
+          "weak": 2
+        },
+        "fermionic_parity": "even",
+        "field_label": "d_c",
+        "fock_basis_indices": [
+          28,
+          29,
+          30
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_8",
+        "triality": 2,
+        "weak_dimension": 1
+      },
+      {
+        "charge_q6": -3,
+        "charge_y": "-1/2",
+        "color_factor": "1",
+        "component_index": 9,
+        "dimension": 2,
+        "duality": 1,
+        "exterior_degree": {
+          "color": 3,
+          "total": 4,
+          "weak": 1
+        },
+        "fermionic_parity": "even",
+        "field_label": "L",
+        "fock_basis_indices": [
+          26,
+          27
+        ],
+        "gauss_vacuum_class": false,
+        "summand": "component_9",
+        "triality": 0,
+        "weak_dimension": 2
+      },
+      {
+        "charge_q6": 0,
+        "charge_y": "0",
+        "color_factor": "1",
+        "component_index": null,
+        "dimension": 1,
+        "duality": 0,
+        "exterior_degree": {
+          "color": 3,
+          "total": 5,
+          "weak": 2
+        },
+        "fermionic_parity": "odd",
+        "field_label": null,
+        "fock_basis_indices": [
+          31
+        ],
+        "gauss_vacuum_class": true,
+        "summand": "top_line",
+        "triality": 0,
+        "weak_dimension": 1
+      }
+    ],
+    "total_dimension": 32
+  },
+  "off_menu_controls": {
+    "higher_representation": {
+      "candidates": [
+        "the six-dimensional symmetric square of the color triplet as a single color block",
+        "a five-dimensional single-block current module (spin-2 style A5 irrep)"
+      ],
+      "location": "outside the declared menu; carried by the beyond-algebra boundary verdict",
+      "menu_color_factors": [
+        "1",
+        "3",
+        "3bar"
+      ],
+      "menu_weak_dimensions": [
+        1,
+        2
+      ],
+      "single_factor_summand_dimensions": [
+        1,
+        2,
+        3
+      ],
+      "verdict": "not_a_summand_of_the_declared_exterior_algebra"
+    },
+    "neutral_singlet_sterile": {
+      "all_current_observable_couplings_zero": true,
+      "consequence": "source data cannot exclude the sterile summand; the beyond-algebra completeness verdict is independence_limited with this witness",
+      "construction": "one rank-one line with charge 0, triality 0, duality 0, adjoined as an external direct summand to the declared algebra",
+      "couplings": {
+        "anomaly_form_contributions": {
+          "grav": 0,
+          "su2": 0,
+          "su3": 0,
+          "u1_cubed": 0,
+          "witten_doublet_slots": 0
+        },
+        "duality_class": 0,
+        "triality_class": 0,
+        "u1_charge_readback": 0,
+        "weak_casimir_indicator": 0
+      },
+      "kernel_residue_phases": [
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 0,
+            "su3_center_power": 0,
+            "u1_phase_turns": "0"
+          }
+        },
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 1,
+            "su3_center_power": 1,
+            "u1_phase_turns": "1/6"
+          }
+        },
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 0,
+            "su3_center_power": 2,
+            "u1_phase_turns": "1/3"
+          }
+        },
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 1,
+            "su3_center_power": 0,
+            "u1_phase_turns": "1/2"
+          }
+        },
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 0,
+            "su3_center_power": 1,
+            "u1_phase_turns": "2/3"
+          }
+        },
+        {
+          "phase_integral": true,
+          "residue": {
+            "su2_center_power": 1,
+            "su3_center_power": 2,
+            "u1_phase_turns": "5/6"
+          }
+        }
+      ],
+      "menu_contrast": {
+        "statement": "every nontrivial menu summand carries a nonzero charge readback, so the grammar sees the full menu; the sterile line evades every declared readback",
+        "visible_nontrivial_summands": 10
+      },
+      "scalar_channel_arithmetic": {
+        "admissible_pairing": [
+          "L",
+          "S",
+          "sterile_line"
+        ],
+        "charge_sum_q6": 0,
+        "duality_sum_mod2": 0,
+        "statement": "the trilinear selection rules admit the pairing of the sterile line with the L block and the declared scalar; such a coupling lives in the scalar-sector interface owned by issues #616 and #609 and is not a current observable, so it does not make the sterile line source-visible here",
+        "triality_sum_mod3": 0
+      },
+      "verdict": "sterile_countermodel_source_invisible"
+    },
+    "scalar_duplicates_inert_doublets": {
+      "analyzed_here": false,
+      "note": "scalar duplicates and inert doublets are scalar-response and multiplicity questions; issue #616 owns them",
+      "verdict": "owned_by_issue_616"
+    },
+    "source_invisible_direct_sums": {
+      "note": "every declared readback is additive over direct summands, so a direct sum of trivial-charge trivial-isotype lines carries the same exact zero couplings as the rank-one sterile witness",
+      "verdict": "covered_by_sterile_countermodel"
+    },
+    "vectorlike_pair": {
+      "anomaly_traces": {
+        "grav": 0,
+        "su2": 0,
+        "su3": 0,
+        "u1_cubed": 0
+      },
+      "chiral": false,
+      "components": [
+        0,
+        8
+      ],
+      "location": "inside the declared menu; excluded by the exact chirality clause alone",
+      "mask": 257,
+      "verdict": "anomaly_free_but_fails_chirality_clause"
+    }
+  },
+  "pinned_matter_lift": {
+    "checks": {
+      "charge_pair_matches_derived_primitive_pair": true,
+      "field_dimensions": {
+        "L": 2,
+        "Q": 6,
+        "d_c": 3,
+        "e_c": 1,
+        "u_c": 3
+      },
+      "five_irreducible_blocks_multiplicity_free": true,
+      "kernel_residues": 6,
+      "rank_fifteen_selection": true,
+      "two_survivor_scan_with_derived_charges": true
+    },
+    "manifest_path": "manifests/super_tannakian_matter_reference.json",
+    "manifest_sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2",
+    "receipt_path": "receipts/super_tannakian_matter_reference.receipt.json",
+    "receipt_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+  },
+  "scan_agreement": {
+    "lean_masks_match_ledger": true,
+    "matter_lift_scan_matches_ledger": true,
+    "matter_lift_scan_survivor_count": 2
+  },
+  "schema": "oph.matter_menu_spectral_ledger_certificate.v1",
+  "subset_classification": {
+    "anomalous_breakdown_by_failing_traces": {
+      "grav+su2+u1_cubed": 20,
+      "grav+su3": 2,
+      "grav+su3+su2+u1_cubed": 118,
+      "grav+su3+u1_cubed": 54,
+      "grav+u1_cubed": 10,
+      "su2+u1_cubed": 10,
+      "su3+su2+u1_cubed": 14,
+      "su3+u1_cubed": 10,
+      "u1_cubed": 2
+    },
+    "class_string": "EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVVVVAAAAVVVVAAAAVVVVAAAAVVVVAAAAAAAAVVVVVVVVAAAAAAAAVVVVVVVVAAAAVVVVVVVVVVVVAAAAVVVVVVVVVVVVAAAAAAAAAAAAAAAAVVVVVVVVVVVVVVVVAAAAVVVVAAAAVVVVVVVVVVVVVVVVVVVVAAAAAAAAVVVVVVVVVVVVVVVVVVVVVVVVAAASVVVVVVVVVVVVVVVVVVVVVVVVVVVVAVAVAVAVAVAVAVAVAVAVAVAVAVAVAVAVAVAVVVVVAVAVVVVVAVAVVVVVAVAVVVVVAVAVAVAVVVVVVVVVAVAVAVAVVVVVVVVVAVAVVVVVVVVVVVVVAVAVVVVVVVVVVVVVAVAVAVAVAVAVAVAVVVVVVVVVVVVVVVVVAVAVVVVVAVAVVVVVVVVVVVVVVVVVVVVVAVAVAVAVVVVVVVVVVVVVVVVVVVVVVVVVAVAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVAAVVAAVVAAVVAAVVAAVVAAVVAAVVAAVVAAVVVVVVAAVVVVVVAAVVVVVVAAVVVVVVAAVVAAVVVVVVVVVVAAVVAAVVVVVVVVVVAAVVVVVVVVVVVVVVAAVVVVVVVVVVVVVVAAVVAAVVAAVVAAVVVVVVVVVVVVVVVVVVAAVVVVVVAAVVVVVVVVVVVVVVVVVVVVVVAAVVAAVVVVVVVVVVVVVVVVVVVVVVVVVVAAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVAVVVAVVVAVVVAVVVAVVVAVVVAVVVSVVVAVVVVVVVAVVVVVVVAVVVVVVVAVVVVVVVAVVVAVVVVVVVVVVVAVVVAVVVVVVVVVVVAVVVVVVVVVVVVVVVAVVVVVVVVVVVVVVVAVVVAVVVAVVVAVVVVVVVVVVVVVVVVVVVAVVVVVVVAVVVVVVVVVVVVVVVVVVVVVVVAVVVAVVVVVVVVVVVVVVVVVVVVVVVVVVVAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+    "class_string_legend": {
+      "A": "anomalous",
+      "E": "empty",
+      "S": "survivor",
+      "V": "vectorlike_nonchiral"
+    },
+    "detailed_table_sha256": "66d7347f08615780d4d0c8b9b4e5e9769ed4f834eecd1b3be19e7f26ec606edc",
+    "exclusion_classes": {
+      "anomalous": "the selection is chiral and at least one of the four anomaly traces (grav, su3, su2, u1_cubed) is nonzero; the failing traces are recorded exactly",
+      "empty": "the empty selection",
+      "survivor": "the selection is nonempty, chiral, and anomaly free",
+      "vectorlike_nonchiral": "the selection contains a component together with its charge conjugate and fails the chirality clause"
+    },
+    "indexing": "bit i of the mask selects component i of the ten nontrivial summands, in exactly the order of the matter-lift scan table and the Fin 10 arrays of Lean/Screen/ExteriorSelection.lean",
+    "lean_cross_reference": {
+      "agreement": true,
+      "even_mask": 796,
+      "file": "Lean/Screen/ExteriorSelection.lean",
+      "odd_mask": 227,
+      "theorems": [
+        "selection_unique",
+        "parity_sectors_survive",
+        "conj_exchanges_survivors",
+        "witten_automatic"
+      ]
+    },
+    "subsets_enumerated": 1024,
+    "survivor_count": 2,
+    "survivors": [
+      {
+        "anomaly_traces": {
+          "grav": 0,
+          "su2": 0,
+          "su3": 0,
+          "u1_cubed": 0
+        },
+        "chiral": true,
+        "components": [
+          0,
+          1,
+          5,
+          6,
+          7
+        ],
+        "dimension": 15,
+        "mask": 227,
+        "parity_sector": "odd",
+        "weak_doublet_slots": 4
+      },
+      {
+        "anomaly_traces": {
+          "grav": 0,
+          "su2": 0,
+          "su3": 0,
+          "u1_cubed": 0
+        },
+        "chiral": true,
+        "components": [
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        "dimension": 15,
+        "mask": 796,
+        "parity_sector": "even",
+        "weak_doublet_slots": 4
+      }
+    ],
+    "survivors_are_conjugate_pair": true,
+    "tally": {
+      "anomalous": 240,
+      "empty": 1,
+      "survivor": 2,
+      "vectorlike_nonchiral": 781
+    }
+  },
+  "verdicts": {
+    "beyond_declared_algebra": "independence_limited",
+    "beyond_declared_algebra_witness": "the sterile rank-one trivial-charge summand: every declared readback annihilates it, so source data cannot exclude it",
+    "continuum_spin_statistics_and_laboratory_identification": "separate_physical_interfaces",
+    "every_admissible_in_algebra_object_factors_through_menu": "exact",
+    "light_heavy_threshold": "declared_with_exact_in_algebra_clauses",
+    "menu_completeness_inside_declared_algebra": "exact"
+  },
+  "verifier_command": "python3 code/a5_closure/matter_menu_spectral_ledger_certificate.py verify --manifest code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json"
+}

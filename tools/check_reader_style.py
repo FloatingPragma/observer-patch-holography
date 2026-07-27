@@ -58,6 +58,13 @@ INFORMAL_GLOBS = [
     "book/**/*.md",
 ]
 
+BOOK_GLOBS = [
+    "book/prologue.md",
+    "book/chapter-*.md",
+    "book/epilogue.md",
+    "book/appendix-*.md",
+]
+
 PAPER_GLOBS = [
     "paper/**/*.tex",
     "extra/**/*.tex",
@@ -172,6 +179,21 @@ def abstracts(text: str) -> list[tuple[int, str]]:
     return out
 
 
+def book_prose_paragraphs(text: str) -> list[tuple[int, str]]:
+    """Return line-numbered prose paragraphs from a Markdown book source."""
+
+    out: list[tuple[int, str]] = []
+    for match in re.finditer(r"(?ms)(?:(?<=\n\n)|\A)(.*?)(?=\n\n|\Z)", text):
+        paragraph = match.group(1).strip()
+        if not paragraph:
+            continue
+        if paragraph.startswith(("#", "$$", "```", "|", "-", ":", "![", ">")):
+            continue
+        line = text.count("\n", 0, match.start()) + 1
+        out.append((line, paragraph))
+    return out
+
+
 def main() -> int:
     issues: list[str] = []
 
@@ -194,6 +216,16 @@ def main() -> int:
     for path in iter_paths(INFORMAL_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")
         add_matches(issues, path, text, INFORMAL_IDENTIFIER_PATTERNS)
+
+    for path in iter_paths(BOOK_GLOBS):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for line, paragraph in book_prose_paragraphs(text):
+            word_count = len(re.sub(r"\s+", " ", paragraph).split())
+            if word_count > 150:
+                issues.append(
+                    f"{path.relative_to(ROOT)}:{line}:1: "
+                    f"book prose paragraph has {word_count} words (maximum 150)"
+                )
 
     for path in iter_paths(PAPER_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")

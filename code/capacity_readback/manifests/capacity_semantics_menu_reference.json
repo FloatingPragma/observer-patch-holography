@@ -1,0 +1,583 @@
+{
+  "axiom_registry_alignment": {
+    "access": "read-only; this certificate writes no registry row",
+    "registry": "claims/axiom_registry.yaml",
+    "registry_sha256": "34f8e65e1463fab4d766f00f93b25eb444d8fce45071c733f00e6432ce822115",
+    "rows": {
+      "capacity_publicness_and_closure": "conditional_open_interface",
+      "horizon_area_capacity_identification": "physical_identification, attachment pending"
+    }
+  },
+  "campaign": "bounded capacity-closure campaign",
+  "campaign_verdict": {
+    "horizon_area_and_ew_bridge": "separate_physical_attachments (#589, #547)",
+    "no_target_import": "verified",
+    "semantics_enumeration": "declared_menu_complete_for_executed_families",
+    "source_only_fixed_point_selector": "conditional_open_interface"
+  },
+  "comparison_landed_rows": 0,
+  "executed_construction_rows": 190,
+  "finite_evaluator_control": {
+    "ledger": "runtime/a5_finite_control_status.json",
+    "note": "the exact finite packet is a software evaluator control and a no-go witness for raw-carrier promotion; it emits no physical capacity coordinate",
+    "record": "A5_FINITE_CONTROL_STATUS_2026-07-20.md",
+    "status": "BLOCKED_EXTERNAL_PHYSICAL_DERIVATION"
+  },
+  "issue": 615,
+  "menu_row_count": 17,
+  "menu_rows": [
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-K",
+      "implementation": "F_candidate_capK.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with certified s < 1; the unique fixed point N = 0 lies outside (0, inf) and the self-map bracketing pair of specification property P3 does not exist",
+      "row_id": "capK.s_poisson",
+      "semantics": {
+        "channel": "cell-count readback F(N) = (P/4) * K_readable = s*N",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per cell survival factor",
+        "reserve_semantics": "poisson exp(-P/24)"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capK_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-K",
+      "implementation": "F_candidate_capK.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with certified s < 1; the unique fixed point N = 0 lies outside (0, inf) and the self-map bracketing pair of specification property P3 does not exist",
+      "row_id": "capK.s_presence",
+      "semantics": {
+        "channel": "cell-count readback F(N) = (P/4) * K_readable = s*N",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per cell survival factor",
+        "reserve_semantics": "presence 1 - P/24"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capK_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-K",
+      "implementation": "F_candidate_capK.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with certified s < 1; the unique fixed point N = 0 lies outside (0, inf) and the self-map bracketing pair of specification property P3 does not exist",
+      "row_id": "capK.s_nat_share",
+      "semantics": {
+        "channel": "cell-count readback F(N) = (P/4) * K_readable = s*N",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per cell",
+        "reserve_semantics": "poisson, exact nat share 5/6"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capK_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-K",
+      "implementation": "F_candidate_capK.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with certified s < 1; the unique fixed point N = 0 lies outside (0, inf) and the self-map bracketing pair of specification property P3 does not exist",
+      "row_id": "capK.s_edge_share",
+      "semantics": {
+        "channel": "cell-count readback F(N) = (P/4) * K_readable = s*N",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per shared edge",
+        "reserve_semantics": "poisson, exact nat share 1/2"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capK_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "reason": "certified fixed point exactly N = pi for every degradation strength: the unique solution of (N/pi)^s = N/pi with s != 1 is N = pi; the count-density comparison registers a discrepancy on every certified row and the comparison record lands zero rows",
+      "row_id": "capP.s_poisson_port",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "multiplicative on the per-port load",
+        "reserve_semantics": "poisson exp(-P/24)"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "reason": "certified fixed point exactly N = pi for every degradation strength: the unique solution of (N/pi)^s = N/pi with s != 1 is N = pi; the count-density comparison registers a discrepancy on every certified row and the comparison record lands zero rows",
+      "row_id": "capP.s_presence_port",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "multiplicative on the per-port load",
+        "reserve_semantics": "presence 1 - P/24"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "reason": "certified fixed point exactly N = pi for every degradation strength: the unique solution of (N/pi)^s = N/pi with s != 1 is N = pi; the count-density comparison registers a discrepancy on every certified row and the comparison record lands zero rows",
+      "row_id": "capP.s_poisson_pair",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "multiplicative per oriented slot pair",
+        "reserve_semantics": "poisson exp(-P/12)"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "reason": "certified fixed point exactly N = pi for every degradation strength: the unique solution of (N/pi)^s = N/pi with s != 1 is N = pi; the count-density comparison registers a discrepancy on every certified row and the comparison record lands zero rows",
+      "row_id": "capP.s_presence_pair",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "multiplicative per oriented slot pair",
+        "reserve_semantics": "presence (1 - P/24)^2"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with s < 1; the unique fixed point N = 0 lies outside the admissible interval",
+      "row_id": "capP.add_slot",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "subtracted from the per-port load",
+        "reserve_semantics": "additive reserve cost P/24"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "no_positive_fixed_point",
+      "family": "CAP-P",
+      "implementation": "F_candidate_capP.py",
+      "linear_contraction": {
+        "map": "F(N) = s*N",
+        "s_below_one": true
+      },
+      "reason": "linear map through the origin with s < 1; the unique fixed point N = 0 lies outside the admissible interval",
+      "row_id": "capP.add_port",
+      "semantics": {
+        "channel": "port-inversion readback of the twelve-port load X = log(N/pi)",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "subtracted from the per-port load",
+        "reserve_semantics": "additive reserve cost P/12"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_capP_certificates.json",
+        "reexecuted": true
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-L",
+      "implementation": "F_candidate_capL.py",
+      "reason": "every certified fixed point of the lattice lies in [1.4686, 1452.33] nats, zero rows are P4-coherent, and the comparison record lands zero rows against either reference; the recorded scale exclusion holds independently of every branch choice",
+      "recorded_status_counts": {
+        "fixed_point_certified": 24,
+        "fixed_point_unstable_rejected": 3,
+        "no_fixed_point": 9
+      },
+      "row_id": "capL.R1",
+      "semantics": {
+        "channel": "log-count readback F(N) = rho*N + c*log N + d, unit nat normalization",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per cell",
+        "reserve_semantics": "poisson exp(-P/24)",
+        "rho": "rho = 5/6 exact",
+        "sublattice": "readback-record effect (4) x observer marking (3) x symmetry quotient (3)"
+      },
+      "verdict_provenance": {
+        "note": "re-execution deferred; recorded certificate pinned by sha256",
+        "recorded": "runtime/F_candidate_capL_certificates.json",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-L",
+      "implementation": "F_candidate_capL.py",
+      "reason": "every certified fixed point of the lattice lies in [1.4686, 1452.33] nats, zero rows are P4-coherent, and the comparison record lands zero rows against either reference; the recorded scale exclusion holds independently of every branch choice",
+      "recorded_status_counts": {
+        "fixed_point_certified": 24,
+        "fixed_point_unstable_rejected": 3,
+        "no_fixed_point": 9
+      },
+      "row_id": "capL.R2",
+      "semantics": {
+        "channel": "log-count readback F(N) = rho*N + c*log N + d, unit nat normalization",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per cell",
+        "reserve_semantics": "presence 1 - P/24",
+        "rho": "rho = 1 + (4/P) ln(1 - P/24)",
+        "sublattice": "readback-record effect (4) x observer marking (3) x symmetry quotient (3)"
+      },
+      "verdict_provenance": {
+        "note": "re-execution deferred; recorded certificate pinned by sha256",
+        "recorded": "runtime/F_candidate_capL_certificates.json",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-L",
+      "implementation": "F_candidate_capL.py",
+      "reason": "every certified fixed point of the lattice lies in [1.4686, 1452.33] nats, zero rows are P4-coherent, and the comparison record lands zero rows against either reference; the recorded scale exclusion holds independently of every branch choice",
+      "recorded_status_counts": {
+        "fixed_point_certified": 6,
+        "fixed_point_unstable_rejected": 3,
+        "no_fixed_point": 8,
+        "rejected_no_contraction": 18,
+        "rejected_trivial": 1
+      },
+      "row_id": "capL.R3",
+      "semantics": {
+        "channel": "log-count readback F(N) = rho*N + c*log N + d, unit nat normalization",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "collapsed",
+        "reserve_semantics": "none",
+        "rho": "rho = 1",
+        "sublattice": "readback-record effect (4) x observer marking (3) x symmetry quotient (3)"
+      },
+      "verdict_provenance": {
+        "note": "re-execution deferred; recorded certificate pinned by sha256",
+        "recorded": "runtime/F_candidate_capL_certificates.json",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-L",
+      "implementation": "F_candidate_capL.py",
+      "reason": "every certified fixed point of the lattice lies in [1.4686, 1452.33] nats, zero rows are P4-coherent, and the comparison record lands zero rows against either reference; the recorded scale exclusion holds independently of every branch choice",
+      "recorded_status_counts": {
+        "fixed_point_certified": 22,
+        "fixed_point_unstable_rejected": 3,
+        "no_fixed_point": 11
+      },
+      "row_id": "capL.R4",
+      "semantics": {
+        "channel": "log-count readback F(N) = rho*N + c*log N + d, unit nat normalization",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per shared edge",
+        "reserve_semantics": "poisson exp(-P/24)",
+        "rho": "rho = 1/2 exact",
+        "sublattice": "readback-record effect (4) x observer marking (3) x symmetry quotient (3)"
+      },
+      "verdict_provenance": {
+        "note": "re-execution deferred; recorded certificate pinned by sha256",
+        "recorded": "runtime/F_candidate_capL_certificates.json",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "excluded",
+      "family": "CAP-L",
+      "implementation": "F_candidate_capL.py",
+      "reason": "every certified fixed point of the lattice lies in [1.4686, 1452.33] nats, zero rows are P4-coherent, and the comparison record lands zero rows against either reference; the recorded scale exclusion holds independently of every branch choice",
+      "recorded_status_counts": {
+        "fixed_point_certified": 22,
+        "fixed_point_unstable_rejected": 3,
+        "no_fixed_point": 11
+      },
+      "row_id": "capL.R5",
+      "semantics": {
+        "channel": "log-count readback F(N) = rho*N + c*log N + d, unit nat normalization",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "per shared edge",
+        "reserve_semantics": "presence 1 - P/24",
+        "rho": "rho = 1 + (12/P) ln(1 - P/24)",
+        "sublattice": "readback-record effect (4) x observer marking (3) x symmetry quotient (3)"
+      },
+      "verdict_provenance": {
+        "note": "re-execution deferred; recorded certificate pinned by sha256",
+        "recorded": "runtime/F_candidate_capL_certificates.json",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "excluded_pre_evaluation",
+      "family": "CAP-B",
+      "implementation": "recorded in F_CONSTRUCTION_2026-07-14.md step 4; no module, never executed",
+      "reason": "the forced constant is the issue-589 electroweak-bridge expression, named in the specification blindness cone; barred under control V-08 before evaluation and never executed",
+      "row_id": "capB.bridge_constant",
+      "semantics": {
+        "channel": "per-port read equated to the inner electromagnetic observation step of the D10 lane, forcing a constant readback at the electroweak-bridge expression",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "inapplicable",
+        "reserve_semantics": "inapplicable: constant readback"
+      },
+      "verdict_provenance": {
+        "recorded": "F_CONSTRUCTION_2026-07-14.md",
+        "reexecuted": false
+      }
+    },
+    {
+      "executed_verdict": "conditional_open",
+      "family": "coupled",
+      "implementation": "F_candidate_coupled.py",
+      "reason": "the evaluation cone contains the electroweak-bridge expression by construction, so the candidate fails the specification blindness bar as written, cannot serve as a blind landing test, and moves no ledger row; the closure row stays open, reduced to the CP-1, CP-2, CP-3 premises",
+      "row_id": "coupled.cp1_cp2_cp3",
+      "semantics": {
+        "channel": "port-load inversion with the D10 balance coupling CP-1; fixed point independent of lambda, conditional on CP-1, CP-2, CP-3",
+        "publicness_family": "inherited frozen family of the count construction",
+        "reserve_attachment": "port-load re-emission",
+        "reserve_semantics": "re-emission weight lambda = 1/2, recorded free in (0, 1)"
+      },
+      "verdict_provenance": {
+        "recorded": "runtime/F_candidate_coupled_certificates.json",
+        "reexecuted": true
+      }
+    }
+  ],
+  "negative_controls": [
+    {
+      "actual_error": "CONTRACTION_CONTRADICTION",
+      "expected_error": "CONTRACTION_CONTRADICTION",
+      "name": "capk_positive_fixed_point_claim_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "HIDDEN_TARGET",
+      "expected_error": "HIDDEN_TARGET",
+      "name": "hidden_target_scale_token_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "HIDDEN_TARGET",
+      "expected_error": "HIDDEN_TARGET",
+      "name": "hidden_target_marker_key_rejected",
+      "passed": true
+    },
+    {
+      "detail": {
+        "conclusion": "every CAP-K reading is a contraction with fixed point N = 0 outside (0, inf); a positive fixed point is impossible on this family",
+        "map_form": "F(N) = s*N, linear through the origin",
+        "rows": [
+          {
+            "branch": "capK.s_poisson",
+            "recorded_s_hi_below_one": true,
+            "symbolic_argument": "P > 0 from the certified enclosure lower endpoint, hence exp(-P/24) < 1 and 1 - P/24 < 1"
+          },
+          {
+            "branch": "capK.s_presence",
+            "recorded_s_hi_below_one": true,
+            "symbolic_argument": "P > 0 from the certified enclosure lower endpoint, hence exp(-P/24) < 1 and 1 - P/24 < 1"
+          },
+          {
+            "branch": "capK.s_nat_share",
+            "exact_fraction": "5/6",
+            "exact_fraction_below_one": true,
+            "recorded_s_hi_below_one": true
+          },
+          {
+            "branch": "capK.s_edge_share",
+            "exact_fraction": "1/2",
+            "exact_fraction_below_one": true,
+            "recorded_s_hi_below_one": true
+          }
+        ]
+      },
+      "name": "capk_linear_contraction_symbolic",
+      "passed": true
+    }
+  ],
+  "reexecution_confirmations": {
+    "capK": {
+      "reexecuted": true,
+      "statuses_match_recorded": true
+    },
+    "capL": {
+      "note": "re-execution deferred: the 180-row interval lattice is a minute-scale job; the recorded certificate is pinned by sha256 and its summary is cross-checked against the pinned expectation",
+      "reexecuted": false
+    },
+    "capP": {
+      "reexecuted": true,
+      "statuses_match_recorded": true
+    },
+    "coupled": {
+      "reexecuted": true,
+      "statuses_match_recorded": true
+    }
+  },
+  "schema": "oph.capacity_semantics_menu_certificate.v1",
+  "semantic_axes": [
+    {
+      "alternatives": [
+        "collective (one authorized set of all observers)",
+        "universal-local (every observer separately)",
+        "quorum (declared authorized subsets)"
+      ],
+      "axis": "publicness_family",
+      "executed_scope": "the issue-548 source-derived packet freezes the collective all-port family universal-twelve-port-publicness/v1; the universal-local and quorum contracts have no executed packet and stay open",
+      "source": "F_READBACK_SPEC.md section 3"
+    },
+    {
+      "alternatives": [
+        "(i) K = 4N/P cells as independent record carriers of P/4 nats",
+        "(ii) refusal of the product structure: no configuration count"
+      ],
+      "axis": "cell_product_structure",
+      "executed_scope": "reading (i) is the only executable reading and is carried on every executed branch; reading (ii) is recorded as the fallback with outcome class (c)",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 2, branch BR-0"
+    },
+    {
+      "alternatives": [
+        "poisson: survival factor exp(-P/24) per unit",
+        "presence: survival factor 1 - P/24 per unit",
+        "none: reserve slots stay countable states"
+      ],
+      "axis": "reserve_semantics",
+      "executed_scope": "all three readings executed inside CAP-L; poisson and presence executed inside CAP-P and CAP-K",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 3, branch BR-1"
+    },
+    {
+      "alternatives": [
+        "per cell: K reserve units",
+        "per shared edge: 3K reserve units"
+      ],
+      "axis": "reserve_attachment",
+      "executed_scope": "both attachments executed; the poisson readings collapse to the exact readable shares 5/6 (per cell) and 1/2 (per edge), giving the five-reading rho axis R1..R5",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 3, branch BR-2"
+    },
+    {
+      "alternatives": [
+        "X+: port-orbit multiplicity e^X = N/pi",
+        "X0: delta constraint, no multiplicity and no cost",
+        "X-: record cost X nats in bulk",
+        "X=: write+check cost 2X on the oriented register"
+      ],
+      "axis": "readback_record_effect",
+      "executed_scope": "all four readings executed inside the CAP-L lattice; the fifth reading, a constant readback through the D10 inner observation step, is the CAP-B bridge branch and is barred before evaluation under the specification blindness bar",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 4, branch BR-3"
+    },
+    {
+      "alternatives": [
+        "K0: unmarked at-least-one chain",
+        "K1: one marked host cell, factor K",
+        "K2: marked host plus checkpoint cell, factor K^2"
+      ],
+      "axis": "observer_marking",
+      "executed_scope": "all three executed inside CAP-L; per-port (k = 12) and per-flag (k = 60) markings import undeclared structure and are recorded without execution",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 5, branch BR-4"
+    },
+    {
+      "alternatives": [
+        "S-: A5 quotient, divide by 60",
+        "S0: normal form supplies one representative per class",
+        "S+: sixty face-corner flag anchorings, multiply by 60"
+      ],
+      "axis": "symmetry_quotient",
+      "executed_scope": "all three executed inside CAP-L",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 6, branch BR-5"
+    },
+    {
+      "alternatives": [
+        "CAP-L: log-count readback, unit nat normalization",
+        "CAP-P: port-inversion readback",
+        "CAP-K: cell-count readback",
+        "CAP-B: bridge constant readback (barred before evaluation)",
+        "coupled: theorem-coupled port-load inversion, conditional on CP-1..CP-3"
+      ],
+      "axis": "cap_read_family",
+      "executed_scope": "CAP-L, CAP-P, CAP-K executed blind; CAP-B never executed; coupled executed as a conditional theorem-coupled candidate",
+      "source": "F_CONSTRUCTION_2026-07-14.md step 7, branch BR-6; G2_GAP_1_COUPLING_THEOREM.md"
+    },
+    {
+      "alternatives": [
+        "zero-error capacity M_0 (independence number of the compound confusability graph)",
+        "epsilon-tolerant capacity M_epsilon with the total-variation stability bound"
+      ],
+      "axis": "channel_capacity_semantics",
+      "executed_scope": "both implemented in correctable_public_record_capacity.py; the zero-error branch is intentionally discontinuous under arbitrarily small full-support noise and that control is on record",
+      "source": "F_READBACK_SPEC.md sections 4-5"
+    },
+    {
+      "alternatives": [
+        "joint checkpoint kernels supplied per authorized set and continuation",
+        "local marginals only (insufficient: parity and independent-uniform channels share marginals with capacities two and one)"
+      ],
+      "axis": "kernel_ontology",
+      "executed_scope": "joint kernels are mandatory; the marginal nonidentifiability countermodel is executed in the evaluator tests",
+      "source": "F_READBACK_SPEC.md section 3"
+    },
+    {
+      "alternatives": [
+        "indefinite exact continuation via the finite support-relation semigroup",
+        "declared finite horizon, valid only when the theorem is scoped to it"
+      ],
+      "axis": "continuation_scope",
+      "executed_scope": "the semigroup closure is implemented and executed; no finite-horizon packet is on record",
+      "source": "F_READBACK_SPEC.md section 3"
+    }
+  ],
+  "sources_sha256": {
+    "code/capacity_readback/A5_FINITE_CONTROL_STATUS_2026-07-20.md": "3a07bd466b843ba58550ab72e111ff94da770910447385b28a479820b06b5ec1",
+    "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md": "943102c8970b7c5ce58d606691fb4de396d919b9c6d1eceb14854afd35e4428f",
+    "code/capacity_readback/F_READBACK_SPEC.md": "07a5798e4197c63c330d3239c313ad37d992b1fde4987e3ff7446a0172d180ed",
+    "code/capacity_readback/F_candidate_capK.py": "8c06d3263e7b6b1777c5b1c445f183e05c5959c20a556724d454ebd3d3ee183a",
+    "code/capacity_readback/F_candidate_capL.py": "d1271f9244b86c304de42f9233f544a05bef87bb9ba04fab274470442316747f",
+    "code/capacity_readback/F_candidate_capP.py": "43c9dc4df9a8cebbbd637735df6d9159ddd5146c43eb48794485e1a4ea404945",
+    "code/capacity_readback/F_candidate_coupled.py": "572a15c3c9655d42e603f4af0b7797cf887ce6f47f954db750e783433eb52741",
+    "code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md": "68e29d975bb55815fcd0367d8d6548445ec8abc96104157f7eb7c898716cb7a5",
+    "code/capacity_readback/runtime/F_candidate_capK_certificates.json": "b4be9516a64c4eaaa1e996c3b24b4411cd3f2d11a682a49c417dea536562337b",
+    "code/capacity_readback/runtime/F_candidate_capL_certificates.json": "0976955b65a0b933053d2c106ab4526f9bf12d37f60d411b309694ae2d3e3932",
+    "code/capacity_readback/runtime/F_candidate_capP_certificates.json": "84f7473b134992bba286c2597f9a54af9d5b495b86597d8d66199275176a92e6",
+    "code/capacity_readback/runtime/F_candidate_coupled_certificates.json": "33694f5385a08da442a3b1c432ab54b3960110564918a9c85943d4c05f9fa51f",
+    "code/capacity_readback/runtime/F_construction_comparison_2026-07-14.json": "e22b341f7d7f83e3c6b12c2ba9ebefddf57c17cea6eaa216e7df434883d0b3f8",
+    "code/capacity_readback/runtime/a5_finite_control_status.json": "2dba447defa0343e1f0f9d3a4c67cfad346f6eb4e2012308d3a1566226d8d05d"
+  },
+  "statement": "This ledger records the executed scope of the capacity-readback candidate campaign. The semantic axes are enumerated before any optimization, each executed reading carries its recorded verdict, and no reading yields a positive source-only fixed point at the public stable-record capacity without importing a target. Ties and incomplete semantics leave the selector conditional_open_interface; an economy rule does not resolve them. The menu is a record of executed scope."
+}

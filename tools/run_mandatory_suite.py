@@ -115,6 +115,7 @@ CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [
     ("Execute the conditional port-current certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_port_current_inner_certificate.py"]),
     ("Execute the source-bound matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
     ("Execute the axis-center-descent certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_axis_center_descent_certificate.py"]),
+    ("Execute the matter-menu spectral-ledger certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_matter_menu_spectral_ledger_certificate.py"]),
 ]
 
 CERTIFICATE_SMOKE_STEPS: list[tuple[str, list[str]]] = [
@@ -149,6 +150,17 @@ CERTIFICATE_SMOKE_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "code/a5_closure/tests/test_axis_center_descent_certificate.py"
             "::AxisCenterDescentTests::test_reference_receipt_is_exactly_recomputable",
+        ],
+    ),
+    (
+        "Recompute and verify the canonical matter-menu spectral ledger",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_matter_menu_spectral_ledger_certificate.py"
+            "::MatterMenuSpectralLedgerTests::test_manifest_is_deterministic_and_matches_stored",
         ],
     ),
 ]

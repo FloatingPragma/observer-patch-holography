@@ -115,6 +115,17 @@ consistency demand strikes out the worlds that fail it, and what survives at the
 bottom is almost fixed. Start with every world that reads itself, and take the
 cuts in order.
 
+Randomness is the raw material in this picture. A bounded observer sees only a
+slice of it and records a few facts. A neighboring observer constrains that
+slice wherever their records overlap. Every successful comparison removes
+possibilities that would make the shared record inconsistent. Maximum
+randomness leaves the unconstrained remainder alone.
+
+The result is neither a universe imagined into existence nor a universe
+finished before any perspective appears. It is a world whose public shape is
+formed by the constraints required for finite observers to inhabit it
+together.
+
 A world that reads itself needs records. Reading with no trace left behind is
 not reading. Something has to hold what was read, and hold it well enough to be
 read again. Every world without record-keeping falls at the first step.

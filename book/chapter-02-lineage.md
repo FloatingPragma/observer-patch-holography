@@ -341,7 +341,9 @@ the end of its tail, looking back at its own beginning, and summarized the
 lesson as "it from bit." The bootstrap idea, that consistency alone can fix a
 theory with no free inputs, failed for the hadrons of the 1960s and then
 returned as the modern conformal bootstrap, where a short list of consistency
-demands pins down real numbers to many digits. Algebras that carry their own
+demands pins down real numbers to many digits.
+
+Algebras that carry their own
 clock, gravity read off as a consistency condition on horizons, groups
 reconstructed from the behavior of their own representations, and a bulk stored
 redundantly inside its own boundary code all point the same way. Each of those

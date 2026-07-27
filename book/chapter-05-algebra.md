@@ -205,6 +205,11 @@ in general. Birkhoff and von Neumann noted this in 1936. The failure reflects th
 
 ## 5.5 The Mathematical Machinery
 
+This section is a tool bench. The symbols give precise names to three ordinary
+ideas: the condition of a system, the questions an observer can ask it, and the
+odds of each answer. Keep those ideas in view and the notation has very little
+room to misbehave.
+
 ### States as Vectors
 
 Quantum mechanics stores knowledge about a system in a vector in Hilbert space. For a two-state system (like spin-1/2):

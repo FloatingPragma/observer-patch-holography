@@ -161,6 +161,11 @@ screen with a hard budget.
 
 ### A Finite-Screen Calculation of the Shock Sign
 
+This is one of the chapter's technical stops. The point to carry through the
+calculation is the sign. Giving part of a finite screen's capacity to an
+observer leaves less capacity on the horizon. The entropy change must therefore
+be negative. The equations make that statement exact.
+
 Pure de Sitter space supplies an exact normalization for a horizon shock. In
 $D$ spacetime dimensions, the coefficient in the smooth shock equation is
 

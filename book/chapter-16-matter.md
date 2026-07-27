@@ -74,12 +74,19 @@ measured transport double cover forces the Spin typing, and the anomaly and
 central-descent calculations give the charge pattern, a three-color carrier,
 and the maximal faithful matter image
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
-no selection principle. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
+no selection principle.
+
+The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry
 the same local tensors; the measured flux-sector menu of the carrier
 federation selects the full quotient at finite source scope. The generation
 count is open inside its three-to-five window; $N_g=3$ and the absence of
 extra light sectors enter as declared completions, and neither enters that
 finite gauge calculation.
+
+The simpler reading is that the architecture supplies a cast of possible
+roles. It tells us what kinds of charge and transformation can survive across
+the observer network. Dynamics decides which actors occupy those roles, how
+heavy they are, and how they interact.
 
 This chain inherits the collective history of particle physics. Rutherford's
 recoil opened it. Chadwick found the
@@ -215,12 +222,15 @@ family order has no source derivation. The
 declared one-loop transport preserves the exact ratio
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. Against the two central light-quark
 ratios derived from [FLAG 2024](https://arxiv.org/abs/2411.04268), it is 15.2%
-and 12.8% high. A non-preregistered conservative comparison gate using experimental errors
+and 12.8% high.
+
+A non-preregistered conservative comparison gate using experimental errors
 alone rejects every assignment against both FLAG rows. The unavailable
 covariance and absent theory uncertainty preclude a covariance-aware
 significance, and the gate has no preregistered theory-wide falsification
-status. The result
-closes only this common-transport assignment family. Other coefficient
+status. The result closes only this common-transport assignment family.
+
+Other coefficient
 relations, alphabets, physical charged-family attachments, and
 generation-dependent threshold transport define different classes. The
 retained results are the conditional pairing of separate quark and lepton

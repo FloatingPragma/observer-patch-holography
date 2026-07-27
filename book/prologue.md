@@ -23,6 +23,9 @@ extraordinary precision. General relativity explains gravity as geometry and
 predicts phenomena from bending light to black holes. Each succeeds in its
 own territory. They do not give us a single finished account of nature.
 
+The universe has supplied plenty of answers. The difficulty, as Douglas Adams
+warned, is working out which question makes the answers inevitable.
+
 Their domains collide in the places where the questions become unavoidable:
 inside black holes, near the beginning of cosmic history, and wherever the
 quantum act of producing a fact meets the geometry in which that fact is

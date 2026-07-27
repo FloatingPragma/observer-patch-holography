@@ -1,0 +1,745 @@
+{
+  "arithmetic": {
+    "convention": "exact_rational_simplex",
+    "statement": "every quantity is an exact rational number on a classical probability simplex; stationarity is checked through the chain-rule conditional identity, which needs no logarithm"
+  },
+  "axis_receipt_sha256": "b3f8bc306471334c0dc75d38b2f9c1b7b1dd4247ff02cbe2980c0caad07b3506",
+  "control_battery": {
+    "changed_weight": {
+      "fails_closed": true,
+      "mismatched_pair": {
+        "arena": "axis 0 mass pinned to 1/3",
+        "coarse_reference": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "coarse_reference_is_pushforward": false,
+        "defect_on_axis_1": "2/15",
+        "finding": "a cross-axis fine tilt with the coarse reference left uniform destroys reference compatibility and commutation fails by exactly 2/15 on axis 1",
+        "fine_reference": [
+          "1/12",
+          "1/6",
+          "1/6",
+          "1/12",
+          "1/24",
+          "1/24",
+          "1/24",
+          "1/24",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "fine_then_push": [
+          "1/3",
+          "4/15",
+          "1/15",
+          "1/15",
+          "2/15",
+          "2/15"
+        ],
+        "push_then_optimize": [
+          "1/3",
+          "2/15",
+          "2/15",
+          "2/15",
+          "2/15",
+          "2/15"
+        ]
+      },
+      "t_invisible_tilt": {
+        "coarse_target": [
+          "1/3",
+          "1/4",
+          "1/6",
+          "1/8",
+          "1/12",
+          "1/24"
+        ],
+        "commutation_survives": true,
+        "equal_split_formula_breaks": true,
+        "finding": "an unequal within-pair reference changes the optimizer while leaving its pushforward fixed, because the tilt is invisible to T; commutation is unharmed when both references stay compatible",
+        "fine_projection": [
+          "2/9",
+          "1/8",
+          "1/8",
+          "1/9",
+          "1/12",
+          "1/16",
+          "1/16",
+          "1/12",
+          "1/24",
+          "1/48",
+          "1/48",
+          "1/24"
+        ],
+        "fine_reference": [
+          "1/9",
+          "1/12",
+          "1/12",
+          "1/18",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "pushforward_of_fine_reference_stays_uniform": true,
+        "within_pair_split_ratio": "2:1, the reference ratio"
+      }
+    },
+    "incomplete_constraint": {
+      "coarse_constraint": "dropped; the feasible set is the whole simplex",
+      "defect_arithmetic": "6/21 - 1/6 = 12/42 - 7/42 = 5/42",
+      "defect_on_axis_5": "5/42",
+      "fails_closed": true,
+      "fine_constraint": "axis marginals fixed at (1/21, ..., 6/21)",
+      "fine_then_push": [
+        "1/21",
+        "2/21",
+        "1/7",
+        "4/21",
+        "5/21",
+        "2/7"
+      ],
+      "push_then_optimize": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ]
+    },
+    "non_sufficient_channel": {
+      "cross_reference": "nonclosure_countermodel",
+      "defect": "5/66",
+      "fails_closed": true,
+      "statement": "the pinned-port constraint is the non-sufficient-channel control itself: it separates states with equal pushforward, and the recorded defect is 5/66"
+    },
+    "wrong_reference": {
+      "arena": "axis 0 mass pinned to 1/3, a channel-expressible constraint",
+      "coarse_reference": [
+        "1/6",
+        "1/3",
+        "1/12",
+        "1/12",
+        "1/6",
+        "1/6"
+      ],
+      "defect_on_axis_1": "2/15",
+      "fails_closed": true,
+      "fine_reference": [
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12"
+      ],
+      "fine_then_push": [
+        "1/3",
+        "2/15",
+        "2/15",
+        "2/15",
+        "2/15",
+        "2/15"
+      ],
+      "masking_note": "on the full-marginal family the coarse feasible set is the singleton {m}, its projection is m for any coarse reference, and the tilt is invisible; the breakage appears exactly on the smallest channel-expressible relaxation",
+      "push_then_optimize": [
+        "1/3",
+        "4/15",
+        "1/15",
+        "1/15",
+        "2/15",
+        "2/15"
+      ]
+    }
+  },
+  "issue": 619,
+  "manifest_sha256": "040d4fbe1b7ee1f3e824b3903dc3803efb2a7040ac66dadfa7b9bfbd5d024daf",
+  "nonclosure_countermodel": {
+    "axis_of_pinned_port": 0,
+    "coarse_projection": [
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6"
+    ],
+    "coarse_projection_argument": "the reference lies in the pushed feasible set (1/6 >= 1/6), the divergence to the reference is zero there and positive elsewhere, so the projection is the reference",
+    "conclusion": "fine-then-push and push-then-optimize disagree by exactly 5/66 on the constrained axis; optimizer compatibility fails quantitatively for constraints the channel cannot express",
+    "defect_arithmetic": "8/33 - 1/6 = 16/66 - 11/66 = 5/66",
+    "fine_constraint": "rho[port 0] = 1/6, a within-axis constraint",
+    "fine_projection": [
+      "1/6",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66",
+      "5/66"
+    ],
+    "free_face_value": "5/66",
+    "image_surjectivity_battery": [
+      {
+        "coarse_state": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "preimage": [
+          "1/6",
+          "1/12",
+          "1/12",
+          "0",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ]
+      },
+      {
+        "coarse_state": [
+          "8/33",
+          "5/33",
+          "5/33",
+          "5/33",
+          "5/33",
+          "5/33"
+        ],
+        "preimage": [
+          "1/6",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66",
+          "5/66"
+        ]
+      },
+      {
+        "coarse_state": [
+          "1/3",
+          "2/15",
+          "2/15",
+          "2/15",
+          "2/15",
+          "2/15"
+        ],
+        "preimage": [
+          "1/6",
+          "1/15",
+          "1/15",
+          "1/6",
+          "1/15",
+          "1/15",
+          "1/15",
+          "1/15",
+          "1/15",
+          "1/15",
+          "1/15",
+          "1/15"
+        ]
+      },
+      {
+        "coarse_state": [
+          "1/2",
+          "1/10",
+          "1/10",
+          "1/10",
+          "1/10",
+          "1/10"
+        ],
+        "preimage": [
+          "1/6",
+          "1/20",
+          "1/20",
+          "1/3",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20"
+        ]
+      },
+      {
+        "coarse_state": [
+          "5/6",
+          "1/30",
+          "1/30",
+          "1/30",
+          "1/30",
+          "1/30"
+        ],
+        "preimage": [
+          "1/6",
+          "1/60",
+          "1/60",
+          "2/3",
+          "1/60",
+          "1/60",
+          "1/60",
+          "1/60",
+          "1/60",
+          "1/60",
+          "1/60",
+          "1/60"
+        ]
+      },
+      {
+        "coarse_state": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "preimage": [
+          "1/6",
+          "0",
+          "0",
+          "5/6",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "no_preimage_witness": {
+      "coarse_state": [
+        "1/12",
+        "11/60",
+        "11/60",
+        "11/60",
+        "11/60",
+        "11/60"
+      ],
+      "reason": "a preimage would need the partner port at 1/12 - 1/6 = -1/12, which is negative"
+    },
+    "non_expressibility_witness": {
+      "conclusion": "the constraint separates states with equal pushforward, so no constraint on T(rho) expresses it",
+      "feasible_state": [
+        "1/6",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66"
+      ],
+      "infeasible_state_with_equal_pushforward": [
+        "5/66",
+        "5/66",
+        "5/66",
+        "1/6",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66",
+        "5/66"
+      ]
+    },
+    "nonclosure_defect": "5/66",
+    "partner_port": 3,
+    "pinned_port": 0,
+    "pushed_axis_weight": "8/33",
+    "pushed_feasible_set": "{q in the six-simplex : q[axis of port 0] >= 1/6}; the pinned port contributes 1/6 and the free partner port sweeps [0, 5/6]",
+    "pushforward_of_fine_projection": [
+      "8/33",
+      "5/33",
+      "5/33",
+      "5/33",
+      "5/33",
+      "5/33"
+    ]
+  },
+  "positive_sufficiency_family": {
+    "battery": [
+      {
+        "coarse_projection": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "coarse_target": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "pushforward_of_fine_projection": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "within_pair_split": "equal"
+      },
+      {
+        "coarse_projection": [
+          "1/21",
+          "2/21",
+          "1/7",
+          "4/21",
+          "5/21",
+          "2/7"
+        ],
+        "coarse_target": [
+          "1/21",
+          "2/21",
+          "1/7",
+          "4/21",
+          "5/21",
+          "2/7"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "1/42",
+          "1/21",
+          "1/21",
+          "1/42",
+          "1/14",
+          "2/21",
+          "2/21",
+          "1/14",
+          "5/42",
+          "1/7",
+          "1/7",
+          "5/42"
+        ],
+        "pushforward_of_fine_projection": [
+          "1/21",
+          "2/21",
+          "1/7",
+          "4/21",
+          "5/21",
+          "2/7"
+        ],
+        "within_pair_split": "equal"
+      },
+      {
+        "coarse_projection": [
+          "1/2",
+          "1/4",
+          "1/8",
+          "1/16",
+          "1/32",
+          "1/32"
+        ],
+        "coarse_target": [
+          "1/2",
+          "1/4",
+          "1/8",
+          "1/16",
+          "1/32",
+          "1/32"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "1/4",
+          "1/8",
+          "1/8",
+          "1/4",
+          "1/16",
+          "1/32",
+          "1/32",
+          "1/16",
+          "1/64",
+          "1/64",
+          "1/64",
+          "1/64"
+        ],
+        "pushforward_of_fine_projection": [
+          "1/2",
+          "1/4",
+          "1/8",
+          "1/16",
+          "1/32",
+          "1/32"
+        ],
+        "within_pair_split": "equal"
+      },
+      {
+        "coarse_projection": [
+          "1/3",
+          "1/4",
+          "1/6",
+          "1/8",
+          "1/12",
+          "1/24"
+        ],
+        "coarse_target": [
+          "1/3",
+          "1/4",
+          "1/6",
+          "1/8",
+          "1/12",
+          "1/24"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "1/6",
+          "1/8",
+          "1/8",
+          "1/6",
+          "1/12",
+          "1/16",
+          "1/16",
+          "1/12",
+          "1/24",
+          "1/48",
+          "1/48",
+          "1/24"
+        ],
+        "pushforward_of_fine_projection": [
+          "1/3",
+          "1/4",
+          "1/6",
+          "1/8",
+          "1/12",
+          "1/24"
+        ],
+        "within_pair_split": "equal"
+      },
+      {
+        "coarse_projection": [
+          "2/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7"
+        ],
+        "coarse_target": [
+          "2/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "1/7",
+          "1/14",
+          "1/14",
+          "1/7",
+          "1/14",
+          "1/14",
+          "1/14",
+          "1/14",
+          "1/14",
+          "1/14",
+          "1/14",
+          "1/14"
+        ],
+        "pushforward_of_fine_projection": [
+          "2/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7"
+        ],
+        "within_pair_split": "equal"
+      },
+      {
+        "coarse_projection": [
+          "5/12",
+          "1/12",
+          "1/6",
+          "1/12",
+          "1/6",
+          "1/12"
+        ],
+        "coarse_target": [
+          "5/12",
+          "1/12",
+          "1/6",
+          "1/12",
+          "1/6",
+          "1/12"
+        ],
+        "commutes": true,
+        "fine_projection": [
+          "5/24",
+          "1/24",
+          "1/24",
+          "5/24",
+          "1/12",
+          "1/24",
+          "1/24",
+          "1/12",
+          "1/12",
+          "1/24",
+          "1/24",
+          "1/12"
+        ],
+        "pushforward_of_fine_projection": [
+          "5/12",
+          "1/12",
+          "1/6",
+          "1/12",
+          "1/6",
+          "1/12"
+        ],
+        "within_pair_split": "equal"
+      }
+    ],
+    "battery_size": 6,
+    "conclusion": "when the constraints are channel-expressible and the coarse reference is the pushforward of the fine reference, the information projections commute with refinement, exactly",
+    "family": "for every rational m in the open six-simplex, the fine feasible set fixes the axis marginals at m and the coarse feasible set is the singleton {m}",
+    "free_rational_parameters": 5,
+    "fully_asymmetric_targets": 2,
+    "kkt_argument": "chain rule over the antipodal pairs: the axis-marginal divergence is constant on the feasible set and the pair-conditional term is nonnegative, vanishing exactly at the reference-proportional within-pair split; uniqueness follows from strict convexity, and stationarity is verified as the rational identity that pair conditionals of projection and reference coincide"
+  },
+  "references": {
+    "coarse": [
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6",
+      "1/6"
+    ],
+    "coarse_equals_pushforward_of_fine": true,
+    "fine": [
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12"
+    ],
+    "objective": "relative entropy to the reference at each level"
+  },
+  "refinement_channel": {
+    "axis_pairs": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ]
+    ],
+    "channel": "T(rho)[axis] = rho[i] + rho[j] over the antipodal pair (i, j)",
+    "coarse_level": "the six-axis probability simplex",
+    "fine_level": "the twelve-port probability simplex",
+    "pairing_source": "the hash-pinned #565 selector receipt: the pairs are the orbits of the unique fixed-point-free graph-distance-three involution of the certified carrier, so the six axes are the derived incidence axes and the channel is A1-sourced"
+  },
+  "schema": "oph.optimizer_pushforward_receipt.v1",
+  "verdict": {
+    "axiom_status": "conditional_open_interface",
+    "bounded_exit": "conditional_open_interface",
+    "controls": {
+      "changed_weight": "the T-invisible tilt leaves commutation intact; the mismatched pair fails closed with defect 2/15 on axis 1",
+      "incomplete_constraint": "fails closed with defect 5/42 on axis 5",
+      "non_sufficient_channel": "fails closed with defect 5/66 on axis 0",
+      "wrong_reference": "fails closed with defect 2/15 on axis 1"
+    },
+    "gravity_ladder_composition": "the result is an optimizer-interface statement about A3 projections across the A1-sourced channel; it is consumed by the #618 ladder as a named premise and is not an instance of A2 naturality of meanings",
+    "negative_lane": "exact_nonclosure_defect_5_66",
+    "positive_lane": "exact_sufficiency_family",
+    "statement": "cross-refinement optimizer compatibility is a premise, discharged per constraint family: A1, A2, and A3 do not force it, it holds exactly under the named sufficiency conditions, and it fails by the exact defect 5/66 for the pinned-port countermodel",
+    "sufficiency_conditions": [
+      "the coarse reference equals the pushforward of the fine reference",
+      "the fine feasible set is channel-expressible: it is the full T-preimage of its own image"
+    ]
+  },
+  "verifier_command": "python3 code/a5_closure/optimizer_pushforward_certificate.py verify --manifest code/a5_closure/manifests/optimizer_pushforward_reference.json --receipt code/a5_closure/receipts/optimizer_pushforward_reference.receipt.json"
+}

@@ -1,0 +1,301 @@
+{
+  "claim_boundary": {
+    "does_not_close": [
+      "selection of the reference family itself: if distinct invariant reference, cover, or weight rules survive, the A3 specification stays open and no dependent selection is promoted",
+      "equal central-block algebra dimensions or any realization property of the carrier; the measured block trace is a distinct object",
+      "physical identification of ports or any downstream gauge datum"
+    ],
+    "proves": "the deck action is a transitive group of oriented incidence automorphisms; the uniform reference with any strictly positive invariant weight has the uniform point as its unique information projection, exactly 1/12 per port; each of the four dropped hypotheses admits the recorded countermodel"
+  },
+  "controls": {
+    "incomplete_cover": {
+      "dropped_hypothesis": "the observer cover restriction map is injective on the feasible family",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "covered_ports": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "objective_note": "the cover objective sums weighted divergences over covered ports only; the two states have identical covered restrictions, so their objective values are equal by structural identity, with no log evaluated",
+        "omitted_port": 0,
+        "restriction_map_injective": false,
+        "restrictions_to_cover_equal": true,
+        "state_one": [
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "state_one_at_omitted_port": "1/12",
+        "state_two": [
+          "5/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "state_two_at_omitted_port": "5/12"
+      }
+    },
+    "non_transitive": {
+      "dropped_hypothesis": "the invariance group acts transitively on ports",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "projection": [
+          "1/4",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/4"
+        ],
+        "projection_is_uniform": false,
+        "projection_value_on_pair_orbit": "1/4",
+        "projection_value_on_ring_orbit": "1/20",
+        "stabilized_antipodal_pair": [
+          0,
+          11
+        ],
+        "stabilizer_orbit_sizes": [
+          2,
+          10
+        ],
+        "stabilizer_order": 10,
+        "subgroup_invariant_tau": [
+          "1/4",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/20",
+          "1/4"
+        ]
+      }
+    },
+    "non_unique": {
+      "dropped_hypothesis": "the information projection is unique on the feasible family",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "distinct_minimizers_exhibited": true,
+        "every_simplex_point_minimizes": true,
+        "minimizer_one": [
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "minimizer_two": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "objective": "F(rho) = sum_p rho_p, invariant under every port permutation",
+        "objective_values": [
+          "1",
+          "1"
+        ]
+      }
+    },
+    "wrong_reference": {
+      "dropped_hypothesis": "the reference family is the invariant uniform family",
+      "expected_failure": true,
+      "failed": true,
+      "witness": {
+        "differs_from_uniform_at_port": 0,
+        "projection": [
+          "2/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13"
+        ],
+        "projection_equals_tau_prime": true,
+        "projection_value_at_that_port": "2/13",
+        "tau_prime": [
+          "2/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13",
+          "1/13"
+        ],
+        "uniform_value": "1/12"
+      }
+    }
+  },
+  "deck_action": {
+    "adjacency_preserved": true,
+    "antipode_i_to_11_minus_i_commutes": true,
+    "closure_verified": true,
+    "full_incidence_automorphism_order": 120,
+    "identity_present": true,
+    "inverses_verified": true,
+    "matches_lean_listed_rotations": true,
+    "oriented_faces_preserved_with_consistent_cyclic_orientation": true,
+    "pairwise_transitivity": {
+      "all_pairs_connected": true,
+      "ordered_port_pairs_checked": 144
+    },
+    "port_count": 12,
+    "rotation_group_order": 60,
+    "rotation_list_sha256": "645218444213b2fead4efd49323f53169ec3354f95b1e2e18d5ceaaf8fa94cf4"
+  },
+  "generated_by": "code/a5_closure/equal_state_weights_certificate.py",
+  "issue": 610,
+  "lean_spine": {
+    "action_module": "Lean/Screen/A5PortAction.lean",
+    "composition_theorem": "OPH.EqualStateWeights.equal_state_weights",
+    "hypotheses_supplied_here": [
+      "invariance of the feasible family and objective under the deck action",
+      "uniqueness of the information projection by strict convexity",
+      "the concrete sixty-rotation action and its pairwise transitivity"
+    ],
+    "module": "Lean/Screen/EqualStateWeights.lean",
+    "oriented_faces_module": "Lean/ObserverPatchHolography/CoreAxioms.lean"
+  },
+  "payload_sha256": "sha256:9642a60cbc77d96aaaa751ef8476182a0924a50237af14d6f29d4cb9cf976bb3",
+  "positive_lane": {
+    "feasible_set": "the twelve-port probability simplex; the complete A1/A2 constraint grammar contributes only deck-invariant constraints, and the base case is normalization alone",
+    "implied_orbit_constraint": {
+      "orbit_sum_equals_orbit_fraction": "12/12 = 1, supplied by normalization",
+      "single_port_orbit": true
+    },
+    "invariant_linear_constraint_case": {
+      "constraint": "sum_p c rho_p = c with c = 3",
+      "deck_invariant": true,
+      "gradient_note": "the constraint gradient is the constant vector (3, ..., 3), proportional to the normalization gradient, so the KKT system at the uniform point is unchanged",
+      "uniform_point_feasible": true,
+      "uniform_point_stationary": true
+    },
+    "kkt_stationarity": {
+      "density_ratios_rho_over_tau": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "gradient_component_symbolic": "w * (log(1) + 1) = w, identical at every port",
+      "gradient_components_all_equal": true,
+      "numerics_used": false
+    },
+    "projection": [
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12"
+    ],
+    "reference_family_tau": [
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12"
+    ],
+    "reference_invariant_under_deck_action": true,
+    "result_per_port": "1/12",
+    "uniqueness": "x -> x log x is strictly convex on the open simplex; with a fixed full-support reference and strictly positive weights the objective is strictly convex on the feasible family, so the stationary point is the unique minimizer",
+    "weights": "w = 1 at every port; invariance under the transitive deck action forces any admissible strictly positive exact weight rule to be constant across ports, and the stationarity witness is identical for every such constant"
+  },
+  "schema": "oph.equal_state_weights_certificate.v1",
+  "state_weight_vs_block_trace": {
+    "carrier_manifest_path": "manifests/echosahedral_federation_reference.json",
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "derived_state_weight": "1/12",
+    "derived_state_weight_source": "the information projection under invariance, uniqueness, and transitivity, composed in Lean/Screen/EqualStateWeights.lean",
+    "distinct_objects_that_agree_at_one_twelfth": true,
+    "distinction": "the block trace is a realization property of the carrier algebra; the state weight is a property of the realized A3 state; neither value is derived from the other in this certificate",
+    "measured_central_block_trace": "1/12",
+    "measured_central_block_trace_source": "the twelve primitive central port atoms of the pinned federation carrier manifest, each with normalized trace 1/12"
+  }
+}

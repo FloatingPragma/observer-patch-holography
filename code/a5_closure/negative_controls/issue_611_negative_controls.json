@@ -1,0 +1,73 @@
+{
+  "countermodel_witnesses": {
+    "fifteenth_pattern": "the +-identity patterns are the only two excluded patterns; a claimed fifteenth admissible pattern is rejected",
+    "grammar_without_operational_clause": "fourteen admissible responses survive; the retained pair (+,-,-,+) and (+,+,+,-) is inequivalent, so the readback clause carries the uniqueness",
+    "non_automorphism_promotion": "the quintet-flip response carries the dense entry 1/6 on the diagonal and fails the signed-automorphism entry check",
+    "tampered_adjacency": "one broken incidence edge destroys the quartic minimal polynomial and the projector system fails closed"
+  },
+  "finite_controls": [
+    {
+      "actual_error": "SCHEMA",
+      "expected_error": "SCHEMA",
+      "name": "wrong_schema",
+      "passed": true
+    },
+    {
+      "actual_error": "GRAMMAR_DECLARATION",
+      "expected_error": "GRAMMAR_DECLARATION",
+      "name": "involution_clause_dropped",
+      "passed": true
+    },
+    {
+      "actual_error": "GRAMMAR_DECLARATION",
+      "expected_error": "GRAMMAR_DECLARATION",
+      "name": "operational_clause_dropped",
+      "passed": true
+    },
+    {
+      "actual_error": "PRODUCER_SELECTION",
+      "expected_error": "PRODUCER_SELECTION",
+      "name": "plus_J_promotion",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "producer_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "mass_target_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "source_firewall_token",
+      "passed": true
+    },
+    {
+      "actual_error": "PROJECTOR_SYSTEM",
+      "expected_error": "PROJECTOR_SYSTEM",
+      "name": "tampered_adjacency_breaks_projectors",
+      "passed": true
+    },
+    {
+      "actual_error": "ADMISSIBLE_SET",
+      "expected_error": "ADMISSIBLE_SET",
+      "name": "fifteenth_admissible_pattern_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "SIGNED_AUTOMORPHISM",
+      "expected_error": "SIGNED_AUTOMORPHISM",
+      "name": "non_automorphism_promotion_rejected",
+      "passed": true
+    }
+  ],
+  "issue": 611,
+  "manifest_sha256": "d21720235b006603093113e6e8edede866da9bf63c1f01ecece3eaf52cf34f29",
+  "schema": "oph.response_grammar_completeness_negative_controls.v1"
+}

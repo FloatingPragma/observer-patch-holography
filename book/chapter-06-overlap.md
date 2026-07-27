@@ -492,6 +492,11 @@ surprisingly little freedom about what it can be made of.
 
 ## 6.11 Formal Statement
 
+The formal statement says the same thing as the Alice, Bob, and Carol story.
+Each observer may use a private dictionary. When two dictionaries describe one
+shared record, translating and then interpreting must give the same result as
+interpreting through the overlap itself.
+
 Axiom 2 concerns operational meaning on accepted data. Let
 $\mathsf{Data}_i$ be the data accessible to observer $i$,
 $\mathsf{Meaning}_i$ its operational interpretations, and

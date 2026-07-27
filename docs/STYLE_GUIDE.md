@@ -99,6 +99,15 @@ the repository, the ledgers, or the other papers.
   repository paths.
 - Quantities the book itself defines and explains (a named capacity, a named
   constant) stay, because the book gives the reader their meaning on the page.
+- A prose paragraph in the book stays at or below 150 words. A longer argument
+  is divided where the idea changes, so the reader gets somewhere to breathe.
+- A technical stretch begins with the physical question or a concrete image.
+  Equations are introduced in words, and the prose after them says what the
+  reader should carry forward.
+- The three-axiom intuition remains visible through the narrative: bounded
+  observers make records, agreement constrains shared meaning, and maximum
+  randomness fills what those constraints leave free. This does not imply that
+  preference or consciousness chooses physical outcomes.
 
 ## Axiom basis
 

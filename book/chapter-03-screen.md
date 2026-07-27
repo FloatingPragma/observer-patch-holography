@@ -273,14 +273,26 @@ cannot.
 
 The reference carrier is called **echosahedral**, echo crossed with
 icosahedral, a carrier that echoes its reads back through icosahedrally
-arranged ports. It has a finite internal algebra and state, twelve overlap
+arranged ports.
+
+The quickest picture is a self-checking junction box. It has a small internal
+memory and twelve sockets through which it exchanges records with its
+neighbors. The shape of the socket board matters because it controls which
+comparisons and symmetries the network can support.
+
+In the mathematical version, the carrier has a finite internal algebra and
+state, twelve overlap
 ports, a readout at each port, an
 observer-readable central record register, a finite mismatch score, a finite
-menu of update and repair moves, and checkpoint data. In the icosahedral
+menu of update and repair moves, and checkpoint data.
+
+In the icosahedral
 screen sieve, the ports sit at the vertices of a regular icosahedron and
 opposite ports form six axes. The twenty
 triangular faces and thirty edges organize incidence, edge-sector, and collar
-bookkeeping. Recurrent loops inside a patch or a small group of ports can
+bookkeeping.
+
+Recurrent loops inside a patch or a small group of ports can
 supply local memory and winding-sensitive behavior. With physical phase data
 and a coupling law, they can also expose phase-lock-sensitive observables.
 They are local subchannels, not a claim that the whole universe is a torus or

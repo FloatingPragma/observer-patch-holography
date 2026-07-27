@@ -239,8 +239,15 @@ refined that fusion data carries through consistently. A
 reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
+The reader only needs one picture before the group theory starts. Imagine
+several technicians describing the same cable with different labels. The
+labels may change from one workbench to another. The rule for translating them
+cannot change the current carried by the cable. Gauge symmetry is the complete
+set of relabelings that preserves every such physical comparison.
+
 This transportable-sector route is classification before selection. Transport
 and refinement reconstruct a compact group under their stated hypotheses.
+
 A second route begins with the twelve-port carrier. Incidence determines its
 unique nonidentity central graph involution. Under the explicit condition that
 an admissible finite response is a signed central involutive graph

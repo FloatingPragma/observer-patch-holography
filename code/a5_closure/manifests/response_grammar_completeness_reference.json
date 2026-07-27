@@ -1,0 +1,10 @@
+{
+  "schema": "oph.response_grammar_completeness_certificate.v1",
+  "description": "Reference packet for the RESPONSE-GRAMMAR COMPLETENESS closure (issue #611). The declared quotient-visible response grammar on the twelve-port space consists of the equivariant, involutive, signed, nontrivial linear responses in the four-dimensional rotation commutant (Lean/Screen/A5Commutant.lean); the operational clause admits exactly the signed graph automorphisms. The verifier constructs the four isotypic projectors exactly in Q(sqrt5), enumerates all sixteen sign patterns, certifies the fourteen admissible ones as the complete mechanism space, proves that exactly the two central-involution responses +J and -J pass the operational clause, and retains an inequivalent countermodel pair showing the operational clause is load-bearing. The pinned #566 producer selects R = -J by the impulse/readback sign convention. Forcing the grammar itself from the three axioms stays open; the bounded exit is independence_limited.",
+  "grammar_clauses": ["equivariant", "involutive", "signed", "nontrivial"],
+  "operational_clause": "signed_graph_automorphism_readback",
+  "declared_selected_response": "minus_central_involution",
+  "producer_manifest_path": "manifests/port_current_response_reference.json",
+  "producer_manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+  "lean_commutant_module": "Lean/Screen/A5Commutant.lean"
+}

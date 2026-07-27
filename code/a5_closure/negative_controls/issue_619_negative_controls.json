@@ -1,0 +1,61 @@
+{
+  "countermodel_witnesses": {
+    "changed_weight": "a within-pair tilt changes the split to the reference ratio 2:1 without harming commutation; a cross-axis tilt with the coarse reference left uniform breaks commutation by 2/15",
+    "incomplete_constraint": "dropping the coarse marginal constraint returns the uniform reference against the pushed target (1/21, ..., 6/21), a defect of 5/42 on axis 5",
+    "non_sufficient_channel": "the pinned-port constraint separates states with equal pushforward and leaves the exact nonclosure defect 5/66",
+    "wrong_reference": "a tilted coarse reference on the single-axis arena moves the coarse projection to (1/3, 4/15, 1/15, 1/15, 2/15, 2/15) against the pushed fine optimizer (1/3, 2/15, ..., 2/15)"
+  },
+  "finite_controls": [
+    {
+      "actual_error": "SCHEMA",
+      "expected_error": "SCHEMA",
+      "name": "wrong_schema",
+      "passed": true
+    },
+    {
+      "actual_error": "CONVENTION",
+      "expected_error": "CONVENTION",
+      "name": "float_arithmetic_declaration",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "wrong_axis_receipt_pin",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_RECEIPT",
+      "expected_error": "UPSTREAM_RECEIPT",
+      "name": "wrong_axis_receipt_target",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "float_tolerance_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "approximate_projection_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "quantum_state_space_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "declared_defect_injection",
+      "passed": true
+    }
+  ],
+  "issue": 619,
+  "manifest_sha256": "040d4fbe1b7ee1f3e824b3903dc3803efb2a7040ac66dadfa7b9bfbd5d024daf",
+  "schema": "oph.optimizer_pushforward_negative_controls.v1"
+}

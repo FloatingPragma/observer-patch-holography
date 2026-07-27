@@ -1,0 +1,74 @@
+{
+  "countermodel_witnesses": {
+    "conjugate_frame": "the Galois-conjugate frame carries the identical seam set, oriented faces, and boundary matrix, so a claimed frame-dependent extra sector reduces to a class the frame-independent menu carries and is rejected",
+    "extra_flux": "a claimed seventh sector class repeats one of the six residues fixed by the Smith computation and is rejected",
+    "missing_triple_overlap": "deleting one face leaves three seams with a single bordering face each and the incidence check rejects the nerve",
+    "nonabelian_witness": "the pinned binary-icosahedral transport keeps general grammar exhaustiveness a named open interface; a manifest cannot promote the central-column result to a general completeness claim",
+    "wrong_routing": "one tampered seam value breaks the holonomy of the triple overlaps that seam borders and the composition checker rejects it"
+  },
+  "finite_controls": [
+    {
+      "actual_error": "SCHEMA",
+      "expected_error": "SCHEMA",
+      "name": "wrong_manifest_schema",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "descent_manifest_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "spin_artifact_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "spin_artifact_path_swapped",
+      "passed": true
+    },
+    {
+      "actual_error": "CARRIER_BINDING",
+      "expected_error": "CARRIER_BINDING",
+      "name": "carrier_manifest_swapped",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "general_grammar_promotion",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "nonabelian_completion_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "instanton_sector_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "theta_period_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "laboratory_flux_injection",
+      "passed": true
+    }
+  ],
+  "issue": 613,
+  "manifest_sha256": "6e3d4714ddb1666484e7ea7d0f74c133d9811a63163a1017f28c4af16db395db",
+  "schema": "oph.routed_seam_grammar_negative_controls.v1"
+}

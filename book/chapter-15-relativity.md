@@ -288,6 +288,11 @@ for this book is different: sit a federation of finite observers on the
 screen and ask what comparisons they can consistently make. Relativity should
 fall out as the answer, or the framework is in trouble.
 
+The chapter changes gears here. The familiar experiments are behind us and the
+reconstruction begins. Keep one route in mind: local records acquire an
+internal ordering, clocks turn that ordering into measured time, and compatible
+clock comparisons recover the geometry of relativity.
+
 The route begins with a finite object and has to clear several checks along
 the way, each one a change in the kind of mathematical object being handled.
 The twelve-port icosahedron is the local instrument panel. A repaired
@@ -517,6 +522,12 @@ over each event.
 
 On the certified geometry branch, special-relativistic kinematics emerges from
 the conformal structure of the screen. What about gravity?
+
+The central idea is less frightening than Einstein's equation. Every small
+horizon keeps an entropy account. Energy crossing the horizon changes that
+account. Requiring all local observers to balance the same books forces the
+geometry to respond to energy in a common way. Jacobson showed that the common
+response has Einstein's form.
 
 ### How Patch Consistency Enters
 

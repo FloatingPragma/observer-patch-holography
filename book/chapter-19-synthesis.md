@@ -35,6 +35,16 @@ theorems show how this demand produces public normal forms; the physics
 chapters test how far the same architecture reaches into spacetime, gravity,
 gauge structure, and matter.
 
+Stripped of the machinery, the movement is easy to picture. Each observer
+receives a limited view and can leave records. Agreement cuts away the local
+possibilities that would make shared records meaningless. Maximum randomness
+fills whatever freedom survives without slipping in an unseen preference.
+
+The observers therefore co-shape the public universe. They do not manufacture
+it by wishing. Their physical capacity to read, compare, and preserve records
+determines which parts of a random background can settle into common fact.
+Objectivity is the shape left by that collective constraint.
+
 That turn changes the tone of everything that came before. Objectivity ceases
 to be a mysterious substance sitting behind all perspectives. It becomes the
 shared account that survives comparison. A world becomes public when many local
@@ -54,8 +64,11 @@ outside the universe.
 
 The state on the screen is selected by conditional maximum randomness inside
 one fixed feasible family, relative to an exact reference, a state-determining
-observer cover, and positive exact weights. Cross-resolution optimizer
-compatibility is a separate theorem problem. On the gravity branch, explicit
+observer cover, and positive exact weights. This is the mathematical version
+of refusing to add structure that no observer-visible constraint requires.
+Cross-resolution optimizer compatibility is a separate theorem problem.
+
+On the gravity branch, explicit
 edge-reference, entropy-split, stationarity, stress, and continuum interfaces
 connect the finite state to generalized entropy and Einstein dynamics. On the
 matter branch, the exact finite current and representation certificates stop
@@ -259,19 +272,67 @@ records close.
 
 ## 19.6 Closure Coordinates And Scale Bridge
 
-The quantitative proposal uses two dimensionless closure coordinates and one
-scale bridge that does not take Newton's constant as input. Chapter 18 earned
-both coordinates, and this section only recalls them. The local coordinate is
-the pixel ratio $P$: the effective area $a_{\mathrm{cell}}$ of one screen
-cell divided by the fundamental scale area $\ell_\star^2$ that the bridge
-would supply. The global coordinate is $N$, the correctable-record capacity
-of the universe. The declared local maps have interval-certified unique roots
-for $P_\star$, and the global branch has an exact finite capacity definition
-and a small exact witness model. Everything in this subsection is conditional
-on the physical source constructions, which are work in progress.
+The quantitative proposal uses two pure numbers and one bridge to laboratory
+units. One number describes the grain of a local screen cell. The other
+describes the total record capacity of a cosmic horizon. Keeping those jobs
+separate makes the construction much easier to follow.
 
-Under the horizon and scale attachments, the two coordinates set the
-cosmological constant $\Lambda_\star$:
+### The Global Number
+
+Call the total capacity $N$. Imagine building a trial universe with a given
+record budget, then asking how many public records its internal observers can
+reconstruct through every allowed checkpoint. Closure occurs when the answer
+returned from inside equals the budget supplied from outside.
+
+The de Sitter horizon gives a second reading of the same quantity:
+
+$$
+N=\frac{A_{\mathrm{dS}}}{4\ell_\star^2}.
+$$
+
+$A_{\mathrm{dS}}$ is the horizon area and $\ell_\star^2$ is the fundamental
+area supplied by the scale bridge. The observed cosmological constant places
+this horizon reading near $3.31\times10^{122}$ natural entropy units. A direct
+construction that produces the same capacity from public checkpoints is work
+in progress.
+
+### The Local Number
+
+Call the local pixel ratio $P$:
+
+$$
+P=\frac{a_{\mathrm{cell}}}{\ell_\star^2}.
+$$
+
+The numerator is the effective area of one screen cell. The denominator turns
+it into a dimensionless ratio, so no choice of meters or feet can affect it.
+
+The local closure proposal reads that cell twice. From outside, it is a pixel
+of the horizon sitting slightly away from perfect self-similar balance. From
+inside, the same departure appears as an electromagnetic interaction strength.
+Closure asks the geometric reading and the electromagnetic reading to agree.
+
+Perfect balance would be too quiet. A world with records needs enough
+asymmetry for light, detectors, and durable differences, while preserving the
+screen geometry. This is the memorable idea behind the local equation. A
+perfectly silent universe would at least have kept the paperwork down.
+
+The declared map has an interval-certified unique root near $P=1.63$. Its
+long-distance electromagnetic diagnostic lands at an inverse strength of
+$137.035999177(21)$, where the digits in parentheses give the stated
+uncertainty. Connecting that diagnostic to a physical carrier requires the
+source geometry, transport, calibration, and public readback. Those
+attachments are work in progress.
+
+### The Bridge to Familiar Units
+
+Pure ratios cannot tell us how long a second is or how large a meter is. The
+scale bridge supplies $\ell_\star^2$ by matching an internal clock to a
+curvature reading. Newton's constant is then read from that area rather than
+inserted at the start.
+
+Once the bridge is available, the global and local numbers relate to the
+cosmological constant:
 
 $$
 \Lambda_\star\ell_\star^2=\frac{3\pi}{N},
@@ -280,131 +341,30 @@ $$
 =\frac{3\pi P_\star}{N}.
 $$
 
-Here "no-G" means that Newton's constant is not inserted as an input. A
-source-bound clock and curvature construction would select the scale instead:
-a clock ratio built from $\ell_\star$ and the cesium hyperfine frequency
-$\nu_{\mathrm{Cs}}$, the transition that defines the second, matched against
-the curvature display $B_\star=3\pi/\ell_\star^2$. A completed bridge
-supplies $\ell_\star^2$ first, and only then are the Planck area and
-$G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$ read in SI units.
+The equations say that cosmic curvature depends on the horizon's total record
+capacity, while the cell equation expresses the same curvature through one
+local pixel.
 
-The first closure is global. Count the distinguishable public records a
-trial universe can keep about itself; $N$ is the size at which that count
-matches the universe's own capacity, and only that size. When that closure
-holds, the outside carrier and every terminal inside readback agree without a
-hidden branch selector. A separate finite $A_5$ control shows why bare
-numerical agreement would not be enough on its own: its publicly inert
-multiplicity blocks a raw equality of counts from becoming physical closure.
+### Where the Readings Stand
 
-Horizon-record saturation reads the same capacity off the horizon, with
-$N=A_{\mathrm{dS}}/4\ell_\star^2$ in the de Sitter display. The late-time
-measurement locates a working value near $3.31\times10^{122}$ natural entropy
-units. That numerical location is a horizon comparison; the direct
-correctable-capacity producer does not take it as input.
+The local electroweak comparison corresponds to a capacity near
+$3.53\times10^{122}$. The de Sitter reading is
+$3.31\times10^{122}$. They differ by $6.6$ percent on the unrounded central
+values. A physical identification has to explain that gap.
 
-The proposed second closure coordinate is local. The pixel ratio
+There is another suggestive count. The gauge algebra has twelve directions,
+and adding an orientation label gives twenty-four slots. The icosahedral
+carrier also has twelve ports and twenty-four oriented slots. The equality is
+a clue. Turning it into one physical object requires an explicit current map
+that respects the algebra, the symmetry, and refinement.
 
-$$
-P=\frac{a_{\mathrm{cell}}}{\ell_\star^2}
-$$
+The compact score is therefore easy to state. The local equation has a unique
+root on its declared mathematical map. The global capacity has an exact finite
+definition and witness examples. The scale bridge and the physical
+identifications are work in progress. The unresolved $6.6$ percent gap stays
+visible.
 
-acts as the ruler from which the declared comparison maps display the
-dimensionless electroweak hierarchy and low-energy electromagnetic coupling.
-
-$a_{\mathrm{cell}}$ is the effective area assigned to one screen cell.
-$\ell_\star^2$ would be supplied by the scale bridge, usually written
-as a no-G clock ratio or equivalently as the curvature display
-$B_\star=3\pi/\ell_\star^2$. It is displayed as the Planck area only after the
-gravity calculation supplies $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
-$\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
-area and the emitted scale area.
-
-The declared local map sends a trial pixel value through an electroweak chain
-and returns an electromagnetic diagnostic. The computation has a definite
-order. The golden-ratio balance gives the reference value $\phi$, and the
-boundary Gaussian normalization gives the $\sqrt{\pi}$ width. A trial $P$ is
-sent through the unification scale, the running gauge couplings, and the
-electroweak anchor, and the unbroken electromagnetic channel is then
-transported to the long-distance Thomson endpoint. The fixed point is the
-value of $P$ at which the geometric and diagnostic readings name the same
-local scale. Under the attachment
-premises, the hierarchy relation fixes $v/E_\star$, and the scale, pole, and
-clock maps display masses, couplings, and gravity in ordinary units.
-
-The hierarchy normalization is
-$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
-=2(8+3+1)=24$, obtained by attaching two orientation labels to each product
-adjoint direction. The unit-split icosahedral carrier boundary separately has
-twelve ports and 24 oriented slots. This equality compares finite counts. It
-does not identify ports with gauge-current directions, and the transitive
-port action supplies no invariant literal $8+3+1$ partition. The physical
-bridge requires a full-rank current map, compact commutator closure, a common
-inner icosahedral action, and refinement naturality.
-
-The compact comparison gives an electroweak capacity coordinate near
-$3.53\times10^{122}$ on the public endpoint branch, while the capacity
-located from the measured cosmological constant is $3.31\times10^{122}$, a
-$6.6$ percent detuning between the local electroweak and global de Sitter
-coordinates on the unrounded central values. Their physical identification
-runs through the public-capacity, saturation, and common-load bridges.
-
-A sieve is a finite sampling rule on the local carrier boundary. On the
-declared echosahedral lineage it selects twelve unit ports organized like the
-vertices of an icosahedron. The global spherical support does not expose
-those ports by itself; the federation-to-support map would have to supply
-them. The local oriented write/check count matches the independently derived
-doubled gauge adjoint.
-
-The local closure proposal reads one holographic screen cell twice. From the
-outside it is a pixel of the horizon, displaced from perfect self-similar
-equilibrium. Under the physical identification, the same displacement appears
-inside as the smallest electromagnetic observation scale available to the
-observers on that screen, and the mathematical detuning becomes the
-fine-structure constant.
-
-In this proposal, perfect equilibrium would be too quiet. A perfectly
-balanced universe would have nothing to announce and no one to announce it
-to, which would at least have kept the paperwork down. A world with records
-needs a small departure from silence: enough asymmetry for light, detectors,
-and durable differences, but small enough for the screen geometry to hold
-together. The fine-structure constant would measure that minimal
-electromagnetic disturbance.
-
-The conditional Newton normalization uses the same local cell without using it
-to solve for the scale. A completed scale bridge would supply the scale area.
-The pixel ratio then fixes the cell/edge identity, while that ratio cancels out
-of Newton's constant. In the proposal, fine structure reads the pixel's
-electromagnetic detuning and Newton's constant reads the scale bridge.
-
-The interval-certified root gives a pixel ratio near $1.63$, and the declared
-transport surface lands at a long-distance inverse electromagnetic strength of
-$137.035999177(21)$, where $(21)$ means uncertainty in the last quoted
-digits. The declared transport includes a hadronic vacuum response term
-associated with processes such as $e^+e^-\to\mathrm{hadrons}$. A physical
-carrier must expose the fixed-point relation through its optical geometry,
-firmware, calibration traces, and public readback evidence.
-
-The declared comparison surfaces use two dimensionless closure coordinates,
-one scale bridge, and one observer architecture without fitted continuous
-dials. The local equation fixes $P_\star$ on its declared map, the global
-equation would fix $N$ on a completed physical family, and a clock anchor
-would connect substrate units to laboratory units. Relativity, gauge
-currents, matter, and observer records retain their separate source and
-construction requirements.
-
-In the book's conditional simulation-theory language, $P$ links the pixel
-area of the simulating-side screen to the electromagnetic interaction inside
-the simulated-side universe, $N$ links the outside horizon capacity to the
-inside observer-accessible public record, and $\ell_\star^2$ supplies the
-Newton scale. Closure demands that the internal readback reconstruct the same
-boundary capacity the outside supplied.
-
-The same two coordinates organize the observer problem, gravity and gauge
-reconstruction, the hierarchy bridge, dark energy, repair-charge response,
-the missing simple-GUT $X/Y$ channel, the particle inventory, and the
-string-vacuum sieve. Clocks turn iteration into time, energy operators turn
-repair spectra into particle spectra, and detector channels turn stored
-records into radiation histories.
+### The Dark-Sector Continuation
 
 The declared dark-sector continuation promotes integer repair occupation and
 a compact repair phase to a canonical pair carrying a current-balance law and
@@ -527,6 +487,7 @@ residual symmetry in the five-dimensional family space forces a double
 eigenvalue; twofold symmetry leaves two free ratios after scale is removed.
 Numerical ratios therefore require a potential derived from the screen
 dynamics.
+
 The displayed W/Z and Higgs/top values are prescription or declared-surface
 checks, not OPH-native complex-pole predictions. The strict finite-order W/Z
 algebra is a conditional theorem: complete renormalized inputs determine the
@@ -535,6 +496,7 @@ at the next retained order. A gauge-identity calculation controls the simple
 determinant zero. A physical resonance also needs a nonzero coupling to a
 gauge-invariant measurable current, complete source ancestry, uncertainties,
 and a clock.
+
 Six family-sensitive Yukawa
 coordinates organize conditional quark and neutrino comparisons after a common
 physical family attachment is supplied. On the down-type comparison lane, the
@@ -546,12 +508,15 @@ declared one-loop transport gives the exact conditional ratio
 $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. It is 15.2% and 12.8% above the two
 central light-quark ratios derived from
 [FLAG 2024](https://arxiv.org/abs/2411.04268). The absolute down-type values
-disagree by 30–50%. A non-preregistered conservative comparison gate using experimental
+disagree by 30–50%.
+
+A non-preregistered conservative comparison gate using experimental
 errors alone rejects every assignment against both FLAG rows. The unavailable
 covariance and absent theory uncertainty preclude a covariance-aware
 significance, and the gate has no preregistered theory-wide falsification
-status. This closes
-only the common-transport assignment family. Other coefficient relations,
+status. This closes only the common-transport assignment family.
+
+Other coefficient relations,
 alphabets, physical charged-family attachments, and generation-dependent
 threshold transport define different classes. The retained results are the
 conditional pairing of separate quark and lepton channels, the target-free

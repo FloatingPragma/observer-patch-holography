@@ -1,0 +1,322 @@
+{
+  "claim_boundary": {
+    "does_not_close": [
+      "forcing the equivariance, involution, and signed-readback grammar itself from the three axioms",
+      "laboratory attachment of the response",
+      "continuum dynamics"
+    ],
+    "proves": "the complete mechanism space of the declared quotient-visible response grammar (sixteen sign patterns, fourteen admissible), the exactly-two signed-automorphism realizations +-J, the producer selection R = -J unique up to the conventional sign inside the operational grammar, the load-bearing status of the operational readback clause via the retained countermodel pair, and presentation invariance under the sixty carrier rotations",
+    "status": "exact_named_realization"
+  },
+  "commutant": {
+    "basis_note": "the orbital-to-projector coefficient matrix is a Vandermonde system in the four distinct eigenvalues, hence invertible: the projector quadruple spans exactly the machine-checked four-dimensional commutant",
+    "dimension": 4,
+    "lean_reference": "Lean/Screen/A5Commutant.lean",
+    "lean_statement": "every matrix equivariant under the listed sixty rotations is a unique rational combination of the identity, adjacency, distance-two, and antipode orbitals; entry equivariance is equivalent to commutation with the linear action; dimension four matches the rational isotypic structure 1 + 5 + (3 + 3') with endomorphism fields Q, Q, Q(sqrt5)",
+    "lean_theorems": [
+      "commutant_decomposition",
+      "orbitals_independent",
+      "equivariant_iff_commutes"
+    ],
+    "orbital_in_projector_basis": {
+      "adjacency": {
+        "1": "5",
+        "3": "1*sqrt(5)",
+        "3p": "-1*sqrt(5)",
+        "5": "-1"
+      },
+      "antipode": {
+        "1": "1",
+        "3": "-1",
+        "3p": "-1",
+        "5": "1"
+      },
+      "distance_two": {
+        "1": "5",
+        "3": "-1*sqrt(5)",
+        "3p": "1*sqrt(5)",
+        "5": "-1"
+      },
+      "identity": {
+        "1": "1",
+        "3": "1",
+        "3p": "1",
+        "5": "1"
+      }
+    },
+    "pair_orbit_count": 4,
+    "pair_orbit_representatives": {
+      "adjacent": [
+        0,
+        2
+      ],
+      "antipodal": [
+        0,
+        3
+      ],
+      "diagonal": [
+        0,
+        0
+      ],
+      "distance_two": [
+        0,
+        1
+      ]
+    }
+  },
+  "countermodel_pair": {
+    "both_satisfy_equivariance_involution_signedness_nontriviality": true,
+    "clause_dropped": "signed_graph_automorphism_readback",
+    "conclusion": "incidence with equivariance and involution alone retains fourteen admissible responses, two exhibited here as an inequivalent pair, so the operational readback clause is load-bearing for the uniqueness of the inverse-port law",
+    "inequivalent": true,
+    "model_a": {
+      "description": "the central involution J, the antipode permutation",
+      "entry_values": [
+        "0",
+        "1"
+      ],
+      "pattern": "+--+",
+      "sector_signs": {
+        "1": 1,
+        "3": -1,
+        "3p": -1,
+        "5": 1
+      },
+      "signed_graph_automorphism": true,
+      "trace": "0"
+    },
+    "model_b": {
+      "description": "I - 2 P_5, the reflection through the quintet sector",
+      "entry_values": [
+        "-5/6",
+        "1/6"
+      ],
+      "offending_entry": {
+        "col": 0,
+        "row": 0,
+        "value": "1/6"
+      },
+      "pattern": "+++-",
+      "sector_signs": {
+        "1": 1,
+        "3": 1,
+        "3p": 1,
+        "5": -1
+      },
+      "signed_graph_automorphism": false,
+      "trace": "2"
+    }
+  },
+  "involution_completeness": {
+    "admissible_count": 14,
+    "admissible_patterns": [
+      "+++-",
+      "++-+",
+      "++--",
+      "+-++",
+      "+-+-",
+      "+--+",
+      "+---",
+      "-+++",
+      "-++-",
+      "-+-+",
+      "-+--",
+      "--++",
+      "--+-",
+      "---+"
+    ],
+    "argument": "an equivariant involution lies in the four-dimensional commutant; the projectors are an exact basis of orthogonal idempotents summing to the identity, so R = sum(c_s P_s) has R^2 = sum(c_s^2 P_s) and R^2 = I forces c_s^2 = 1 on every sector; on each real-irreducible isotypic block the equivariant commutant is the real scalars by Schur, so every coefficient is +-1",
+    "pattern_count": 16,
+    "sector_order": [
+      "1",
+      "3",
+      "3p",
+      "5"
+    ],
+    "trivial_patterns": [
+      "++++",
+      "----"
+    ]
+  },
+  "isotypic_projectors": {
+    "construction": "Lagrange interpolation in the adjacency matrix over the four exact eigenvalues",
+    "diagonal_entries": {
+      "1": "1/12",
+      "3": "1/4",
+      "3p": "1/4",
+      "5": "5/12"
+    },
+    "eigenvalue_relations_verified": true,
+    "idempotent": true,
+    "mutually_orthogonal": true,
+    "partition_of_unity": true,
+    "ranks_by_exact_trace": {
+      "1": 1,
+      "3": 3,
+      "3p": 3,
+      "5": 5
+    }
+  },
+  "issue": 611,
+  "manifest_sha256": "d21720235b006603093113e6e8edede866da9bf63c1f01ecece3eaf52cf34f29",
+  "port_space": {
+    "adjacency_eigenvalues": {
+      "1": "5",
+      "3": "1*sqrt(5)",
+      "3p": "-1*sqrt(5)",
+      "5": "-1"
+    },
+    "arithmetic_field": "Q(sqrt5), no floating point in any proof decision",
+    "dimension": 12,
+    "frame_band_identification": "neighbour sums equal sqrt5 times the vertex coordinates, so sector 3 carries the vertex frame",
+    "isotypic_decomposition": "1 + 3 + 3' + 5",
+    "vertex_model": "cyclic permutations of (0, +-1, +-phi)"
+  },
+  "presentation_invariance": {
+    "conjugation_fixes_every_admissible_response": true,
+    "group_closure_verified": true,
+    "refinement_note": "each admissible response is a polynomial in the adjacency matrix, so it is fixed by conjugation with every incidence automorphism; the sixty rotations are checked exhaustively",
+    "rotations_checked": 60,
+    "verdict": "presentation_invariant"
+  },
+  "producer_reference": {
+    "convention": "the incidence-derived negative-antipode response of the #566 inverse-port producer; the common sign is a charge-conjugation convention",
+    "manifest_path": "manifests/port_current_response_reference.json",
+    "manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+    "schema": "oph.port_current_response_manifest.v5"
+  },
+  "schema": "oph.response_grammar_completeness_receipt.v1",
+  "selected_producer_response": {
+    "convention": "impulse/readback sign convention of the pinned #566 inverse-port producer",
+    "pattern": [
+      -1,
+      1,
+      1,
+      -1
+    ],
+    "pattern_name": "-++-",
+    "realized_as_signed_automorphism": true,
+    "response": "R = -J, minus the antipode permutation"
+  },
+  "signed_automorphism_selection": {
+    "J_is_antipode_permutation": true,
+    "J_sign_pattern": [
+      1,
+      -1,
+      -1,
+      1
+    ],
+    "central_involution_identity": "J = (A^3 - 4*A^2 - 5*A + 10*I)/10",
+    "identity_verified": true,
+    "non_realized": [
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "1/6"
+        },
+        "pattern": "+++-"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "1/2"
+        },
+        "pattern": "++-+"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-1/3"
+        },
+        "pattern": "++--"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "1/2"
+        },
+        "pattern": "+-++"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-1/3"
+        },
+        "pattern": "+-+-"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-5/6"
+        },
+        "pattern": "+---"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "5/6"
+        },
+        "pattern": "-+++"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "1/3"
+        },
+        "pattern": "-+-+"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-1/2"
+        },
+        "pattern": "-+--"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "1/3"
+        },
+        "pattern": "--++"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-1/2"
+        },
+        "pattern": "--+-"
+      },
+      {
+        "offending_entry": {
+          "col": 0,
+          "row": 0,
+          "value": "-1/6"
+        },
+        "pattern": "---+"
+      }
+    ],
+    "realized_count": 2,
+    "realized_patterns": [
+      "+--+",
+      "-++-"
+    ]
+  },
+  "verdict": {
+    "axiom_forcing": "independence_limited",
+    "bounded_exit": "independence_limited",
+    "grammar_internal_uniqueness": "up_to_sign",
+    "operational_clause": "load_bearing"
+  },
+  "verifier_command": "python3 code/a5_closure/response_grammar_completeness_certificate.py verify --manifest code/a5_closure/manifests/response_grammar_completeness_reference.json --receipt code/a5_closure/receipts/response_grammar_completeness_reference.receipt.json"
+}

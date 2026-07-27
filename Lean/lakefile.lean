@@ -30,7 +30,7 @@ lean_lib «OPHScreen» where
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,
     `A5CharacterField, `A5SixAxes, `A5PortModule, `A5Commutant,
     `A5IncidenceResponse, `TraceBalancedKernel, `TrichotomyCases, `Z6Descent,
-    `A5AngularMultiplets, `ExteriorSelection]
+    `A5AngularMultiplets, `ExteriorSelection, `EqualStateWeights]
 
 lean_exe «oph» where
   root := `Main

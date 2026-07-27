@@ -465,29 +465,28 @@ Why do the Yukawa couplings have the values they do? Why is the top quark so muc
 
 ## 14.9 From Overlaps to Gauge Structure
 
-Before the machinery starts, one paragraph on what the construction delivers
-and what it does not, stated here so the rest of the chapter can move freely.
-Given the declared twelve-port carrier with its current and matter premises,
-the construction recognizes the Standard Model's gauge symmetry type, its
-sixfold global quotient, and the fifteen chiral states of one generation, and
-the icosahedral faces supply a canonical three-place candidate slot for the
-families. Attaching that slot to three physical families, and building spin,
-scalar fields, interactions, positivity, refinement, and the W and Z
-resonances on top of the recognition, is work in progress. A separate
-machine-checked theorem verifies the finite-order W and Z pole algebra once a
-complete renormalized electroweak theory is supplied to it; it neither
-creates that theory nor turns a chart coordinate into a physical resonance,
-and a physical W or Z claim would further need source-selected parameters,
-matching across scales, the gauge identities, a coupling to a measurable
-current, an uncertainty budget, and an independent clock, since a zero of an
-inverse propagator is only part of a resonance. A nonperturbative continuum
-theory starts from its own observable and positivity data, and the bounded
-pole check can proceed in parallel with those exact constructions; neither
-waits on the other. Finally, the exposed carrier data admit more than one
-current and matter completion. Geometry constrains the answer sharply, and
-richer observer-like readback from the source has to choose the rest.
+Before the machinery starts, it helps to know what comes out. Given the
+declared twelve-port carrier and its current and matter premises, the
+construction recognizes the Standard Model gauge symmetry type, its sixfold
+global quotient, and the fifteen chiral states of one generation. The
+icosahedral faces also supply a natural three-place candidate for the family
+slot.
 
-With that stated, the OPH connection is direct.
+This is architectural recognition. Think of working out a machine's
+instruction set from its wiring before anyone has connected it to a motor.
+Physical family attachment, scalar multiplicity, interacting fields, and
+laboratory current identification require additional constructions.
+
+The finite W and Z pole algebra has a separate machine-checked theorem once a
+complete renormalized electroweak theory is supplied. A physical resonance
+also needs measurable-current coupling, scale matching, uncertainties, and a
+clock. The carrier admits more than one current and matter completion, so its
+richer self-readback has real work left to do.
+
+Two routes carry the chapter. One reconstructs a compact symmetry from the way
+charges cross patch boundaries. The other reads a specific current algebra
+from the twelve-port carrier. Their agreement is interesting precisely because
+they begin from different information.
 
 ### Gauge as Gluing Redundancy
 
@@ -652,8 +651,9 @@ the defect readback lives at twelve equivalent ports. The separate integer
 total-twelve load and quadratic readback packet has a unique all-unit
 minimizer, with every alternative costing at least two units more. This is an
 exact named-realization result; derivation of the load fiber and readback law
-from the complete A1 mechanism grammar is an open theorem problem. The wiring of the edges
-then does the rest. It pairs
+from the complete A1 mechanism grammar is an open theorem problem.
+
+The wiring of the edges then does the rest. It pairs
 each port with the one directly opposite it, three steps away across the
 graph, it hands the whole structure the sixty rotations of a regular
 icosahedron, the group called $A_5$, and it recovers the icosahedron's actual
@@ -745,7 +745,9 @@ forces determinant balance,
 while primitive integrality fixes the color and weak block charges up to
 simultaneous conjugation. Exhaustive enumeration of the central action on
 every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
-the full kernel produces the maximal faithful matter image. The same local
+the full kernel produces the maximal faithful matter image.
+
+The same local
 tensors also descend through the cover and its intermediate $\mathbb Z_2$ and
 $\mathbb Z_3$ quotients, so local data alone cannot select the physical
 global form. The selection comes from measured deck and flux data: the

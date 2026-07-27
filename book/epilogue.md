@@ -64,6 +64,25 @@ question of personal identity asks whether the recovered pattern counts as the
 same continuing subject. The interface between one recovered interior pattern
 and one redesigned world is where the two questions meet.
 
+## Restoring an Earlier Checkpoint
+
+A checkpoint can preserve an earlier condition of an observer. Imagine that a
+person develops Parkinson's disease after a checkpoint was made. The relevant
+idea is to reinstate the earlier observer state, from before the disease had
+produced the condition one wants to escape.
+
+Think of a saved game in which the player is part of the save file. Restore
+everything the observer could read, the saved state, the connections to the
+outside world, and the same rules for what happens next. The mathematics says
+that the restored observer faces the same odds for every future event it can
+observe. A close restoration keeps those odds correspondingly close.
+
+That is the part OPH can support. It cannot scan a living brain, decide which
+changes belong to the person and which belong to disease, rebuild the body, or
+settle the question of personal identity. Applying the idea to Parkinson's is a
+biomedical and engineering project. OPH supplies a checklist for what a
+successful restoration must preserve. It does not supply the treatment.
+
 ## What Follows
 
 The philosophical weight of this is easy to miss if one hears only the word

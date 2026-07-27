@@ -86,6 +86,11 @@ fully, the pair carries a preferred internal flow whether or not anyone inserts
 an external master clock. The formal machinery is called
 **Tomita-Takesaki theory**.
 
+The name is heavier than the picture. Give an observer a complete menu of
+accessible questions and a sufficiently informative state. The pair contains
+its own natural ordering of those questions. No clock has appeared, though the
+raw material for one has.
+
 An automorphism is a reshuffling of the allowed questions that preserves their
 algebraic rules. Modular flow is a continuous family of such reshufflings,
 indexed by a parameter that behaves like time. The concrete content is that the
@@ -221,6 +226,11 @@ is its energy, $\beta$ is inverse temperature, and $Z$ is the partition
 function that normalizes all probabilities so they add to 1.
 
 ### The Exact OPH Rule
+
+In ordinary language, the first two axioms draw the boundary of what the
+observer can consistently know. The third chooses the least opinionated state
+inside that boundary. Agreement supplies the shape; maximum randomness fills
+the room without hiding extra furniture in it.
 
 OPH applies Jaynes locally and relative to a declared reference. At one finite
 resolution, a state is a compatible family

@@ -371,6 +371,19 @@ the whole cover are the same family. "Random" here means least informative
 relative to that reference and the complete visible constraint set; it does
 not mean independent noise or equal probabilities in every coordinate system.
 
+Put the formal wording aside for a moment. The picture is almost literal.
+Axiom 1 gives each observer a finite window and somewhere to keep a record.
+Axiom 2 forces records to retain the same operational meaning when observers
+compare them. Axiom 3 refuses to invent extra structure in the part left
+undecided. Agreement presses order into a random background, one shared fact
+at a time.
+
+The observers do not vote gravity or electrons into existence. Their
+architecture and their ability to check one another impose constraints.
+Patterns that violate those constraints cannot become stable public facts.
+Among the patterns that survive, maximum randomness adds no secret preference.
+In this precise sense, observers co-shape the world they can inhabit.
+
 That is the complete list. The axioms contain no gauge group, no particle
 list, no recovery law, and no rule that picks field content or multiplicity;
 the third axiom selects one state inside one fixed space of possibilities
@@ -382,6 +395,11 @@ assumption enters the chain.
 ## 1.11 Reality as Computation
 
 These three axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
+
+The useful mental model is a network that keeps checking its own work. Each
+part sees only a local slice. Neighbors compare what they can jointly inspect.
+Unforced details remain random. Stable large-scale structure is whatever can
+survive this process across the network.
 
 The observer-facing screen can be represented by a finite quantum regulator.
 In one chart, qudits sit on the edges of a triangulated screen and local

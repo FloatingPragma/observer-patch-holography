@@ -1,0 +1,575 @@
+{
+  "arithmetic": "exact integer, rational, and Q(sqrt5) arithmetic; no floating point",
+  "description": "bounded scalar-response and family-multiplicity campaigns: the scalar compatibility block on the pinned matter-lift charges with its non-determination countermodel battery, and the exact conditional generation window 3 <= N_g <= 5 with in-window non-selection and fail-closed controls",
+  "fail_closed_controls": [
+    {
+      "claim": "one CP phase in a two-generation CKM matrix",
+      "detail": "an N_g = 2 CKM matrix carries exactly 0 physical phases, the claimed count 1 is rejected",
+      "error_code": "CP_COUNT_REJECTION",
+      "rejected": true
+    },
+    {
+      "claim": "an asymptotically free SU(2) sector at N_g = 6",
+      "detail": "b_SU2 = -5/6 at N_g = 6; the asymptotic-freedom claim is rejected",
+      "error_code": "UV_SIGN_REJECTION",
+      "rejected": true
+    },
+    {
+      "claim": "a two-dimensional A5 irreducible representation",
+      "detail": "no A5 irreducible of dimension 2 exists; the complete dimension list is [1, 3, 3, 4, 5]",
+      "error_code": "A5_IRREP_REJECTION",
+      "rejected": true
+    }
+  ],
+  "family_multiplicity_window": {
+    "cp_capability_lower_edge": {
+      "conclusion": "the declared CP-capability clause excludes N_g <= 2: a two-generation CKM matrix carries zero physical phases and the first phase appears at N_g = 3",
+      "count_table": {
+        "2": {
+          "angles": 1,
+          "phases": 0
+        },
+        "3": {
+          "angles": 3,
+          "phases": 1
+        },
+        "4": {
+          "angles": 6,
+          "phases": 3
+        },
+        "5": {
+          "angles": 10,
+          "phases": 6
+        },
+        "6": {
+          "angles": 15,
+          "phases": 10
+        }
+      },
+      "excluded_counts": [
+        1,
+        2
+      ],
+      "formula": "#(CP phases) = (N_g - 1)(N_g - 2) / 2",
+      "lower_edge": 3,
+      "paper_convention": {
+        "clause": "intrinsic CKM CP capability, clause (v) of Definition 6.1a on the declared one-Higgs quark branch",
+        "matches_certificate_formula": true,
+        "paper_formula": "#(CP phases) = (N_g - 1)(N_g - 2)/2",
+        "source": "paper/tex_fragments/PAPER.tex, Proposition 6.9, Step 1"
+      }
+    },
+    "in_window_non_selection": {
+      "copy_admissibility": "anomaly freedom and Witten parity are per-family and scale linearly, so k independent copies of any family carrier stay grammar-admissible at every in-window count; no visible constraint counts copies",
+      "copy_counting_clause_exists": false,
+      "count_inside_window_source_selected": false,
+      "members": [
+        {
+          "b_su2": "19/6",
+          "cp_clause_pass": true,
+          "cp_phases": 1,
+          "k_copies_anomaly_forms": {
+            "grav": "0",
+            "su2_sq_u1": "0",
+            "su3_sq_u1": "0",
+            "u1_cubed": "0"
+          },
+          "k_copies_grammar_admissible": true,
+          "k_copies_witten_parity": 0,
+          "n_g": 3,
+          "uv_clause_pass": true
+        },
+        {
+          "b_su2": "11/6",
+          "cp_clause_pass": true,
+          "cp_phases": 3,
+          "k_copies_anomaly_forms": {
+            "grav": "0",
+            "su2_sq_u1": "0",
+            "su3_sq_u1": "0",
+            "u1_cubed": "0"
+          },
+          "k_copies_grammar_admissible": true,
+          "k_copies_witten_parity": 0,
+          "n_g": 4,
+          "uv_clause_pass": true
+        },
+        {
+          "b_su2": "1/2",
+          "cp_clause_pass": true,
+          "cp_phases": 6,
+          "k_copies_anomaly_forms": {
+            "grav": "0",
+            "su2_sq_u1": "0",
+            "su3_sq_u1": "0",
+            "u1_cubed": "0"
+          },
+          "k_copies_grammar_admissible": true,
+          "k_copies_witten_parity": 0,
+          "n_g": 5,
+          "uv_clause_pass": true
+        }
+      ],
+      "window": [
+        3,
+        4,
+        5
+      ],
+      "window_is_exact": true
+    },
+    "screen_carrier": {
+      "character_table_orthonormal": true,
+      "class_labels": [
+        "e",
+        "(2,2)",
+        "3-cycles",
+        "5-cycles-a",
+        "5-cycles-b"
+      ],
+      "class_sizes": [
+        1,
+        15,
+        20,
+        12,
+        12
+      ],
+      "irreducible_dimensions": [
+        1,
+        3,
+        3,
+        4,
+        5
+      ],
+      "lean_references": [
+        "Lean/Screen/A5CharacterField.lean (character table, Galois stability)",
+        "Lean/Screen/A5AngularMultiplets.lean (character_table_orthonormal)"
+      ],
+      "no_two_dimensional_irreducible": true,
+      "smallest_nontrivial_carrier_dimension": 3,
+      "table_complete": "five irreducibles on five classes; squared dimensions sum to 60",
+      "three_slot_carrier_exists": true,
+      "two_dimensional_modules": [
+        {
+          "content": "1 + 1",
+          "irreducible": false,
+          "multiplicities": [
+            2,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "su2_ultraviolet_upper_edge": {
+      "b_at_5": "1/2",
+      "b_at_6": "-5/6",
+      "conclusion": "the declared UV clause excludes N_g >= 6: b_SU2 = 1/2 > 0 at N_g = 5 and b_SU2 = -5/6 < 0 at N_g = 6",
+      "excluded_counts_from_6": true,
+      "formula": "b_SU2 = 22/3 - (1/3) N_g (N_c + 1) - 1/6, N_c = 3",
+      "higgs_term": "-1/6 from one complex Higgs doublet (T = 1/2 scalar)",
+      "paper_convention": {
+        "clause": "weak-sector UV completability, clause (vi) of Definition 6.1a on the same declared one-Higgs branch",
+        "includes_higgs_term": true,
+        "matches_certificate_formula": true,
+        "paper_formula": "b_SU2 = 22/3 - (1/3) N_g (N_c + 1) - 1/6",
+        "paper_inequality": "asymptotic freedom b_SU2 > 0, i.e. N_g (N_c + 1) < 43/2",
+        "source": "paper/tex_fragments/PAPER.tex, Proposition 6.9, Step 2"
+      },
+      "upper_edge": 5,
+      "value_table": {
+        "1": "35/6",
+        "2": "9/2",
+        "3": "19/6",
+        "4": "11/6",
+        "5": "1/2",
+        "6": "-5/6",
+        "7": "-13/6",
+        "8": "-7/2"
+      }
+    },
+    "verdict": {
+      "count_inside_window": "not_source_selected",
+      "declared_completion": "N_g = 3 stays a declared completion inside the conditional window",
+      "registry_row": {
+        "area": "matter",
+        "campaign_issue": 617,
+        "class": "conditional_open_interface",
+        "id": "family_attachment_and_multiplicity"
+      },
+      "window": [
+        3,
+        4,
+        5
+      ],
+      "window_is_exact": true
+    }
+  },
+  "issues": [
+    616,
+    617
+  ],
+  "manifest_sha256": "sha256:eeb844b6f24f645635f1c7f4958430745ed9d9db12f0465f0bc5bc59d3932e24",
+  "scalar_response_multiplicity": {
+    "compatibility_block": {
+      "admissible_scalar_charges": [
+        3,
+        -3
+      ],
+      "block_trace_charges": {
+        "color_block": "-1/3",
+        "weak_block": "1/2"
+      },
+      "channel_count": 3,
+      "charge_normalization": "q = 6Y integer normalization",
+      "conditional_on": "one declared color-singlet weak-doublet scalar; existence, multiplicity, and economy are outside the scan",
+      "conjugation_relation": "q_S = -3 is the conjugate relabeling S <-> Sbar of q_S = +3",
+      "invariant_yukawa_channels": [
+        [
+          "L",
+          "Sbar",
+          "e_c"
+        ],
+        [
+          "Q",
+          "S",
+          "u_c"
+        ],
+        [
+          "Q",
+          "Sbar",
+          "d_c"
+        ]
+      ],
+      "matches_pinned_manifest_channels": true,
+      "pinned_matter_lift_manifest": {
+        "path": "manifests/super_tannakian_matter_reference.json",
+        "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+      },
+      "representative_scalar_charge": 3
+    },
+    "countermodel_battery": {
+      "conclusion": "three mutually incompatible scalar contents pass every grammar-visible check, so the source grammar determines neither scalar existence nor scalar multiplicity",
+      "configurations": [
+        {
+          "all_checks_pass": true,
+          "checks": [
+            {
+              "check": "charge_compatibility_per_copy",
+              "pass": true,
+              "value": []
+            },
+            {
+              "check": "channel_structure",
+              "pass": true,
+              "value": {
+                "channels_scale_with_coupled_copies": true,
+                "per_copy": [],
+                "total": 0
+              }
+            },
+            {
+              "check": "charge_sum_zero_in_q6Y_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 0
+              }
+            },
+            {
+              "check": "triality_zero_mod_three_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 0
+              }
+            },
+            {
+              "check": "even_total_doublet_count_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 0
+              }
+            },
+            {
+              "check": "chiral_anomaly_freedom",
+              "pass": true,
+              "value": {
+                "fermion_sector": {
+                  "grav": "0",
+                  "su2_sq_u1": "0",
+                  "su3_sq_u1": "0",
+                  "u1_cubed": "0"
+                },
+                "scalar_chiral_weight_per_copy": 0
+              }
+            },
+            {
+              "check": "witten_parity_even",
+              "pass": true,
+              "value": {
+                "parity": 0,
+                "scalar_doublet_contribution": 0,
+                "weyl_fermion_doublets": 4
+              }
+            },
+            {
+              "check": "no_clause_counts_scalar_copies",
+              "pass": true,
+              "value": {
+                "clauses_referencing_scalar_count": [],
+                "grammar_clauses": [
+                  "charge_sum_zero_in_q6Y_per_coupled_channel",
+                  "triality_zero_mod_three_per_coupled_channel",
+                  "even_total_doublet_count_per_coupled_channel",
+                  "chiral_anomaly_freedom",
+                  "witten_parity_even"
+                ],
+                "scalar_copies": 0
+              }
+            }
+          ],
+          "copy_count": 0,
+          "name": "n0_no_scalar",
+          "reading": "no grammar clause fails at zero scalars: scalar existence is not forced by the source grammar, and the absent Yukawa channels violate no A1/A2/A3-visible constraint",
+          "scalar_copies": []
+        },
+        {
+          "all_checks_pass": true,
+          "checks": [
+            {
+              "check": "charge_compatibility_per_copy",
+              "pass": true,
+              "value": [
+                3,
+                3
+              ]
+            },
+            {
+              "check": "channel_structure",
+              "pass": true,
+              "value": {
+                "channels_scale_with_coupled_copies": true,
+                "per_copy": [
+                  3,
+                  3
+                ],
+                "total": 6
+              }
+            },
+            {
+              "check": "charge_sum_zero_in_q6Y_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 6
+              }
+            },
+            {
+              "check": "triality_zero_mod_three_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 6
+              }
+            },
+            {
+              "check": "even_total_doublet_count_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 6
+              }
+            },
+            {
+              "check": "chiral_anomaly_freedom",
+              "pass": true,
+              "value": {
+                "fermion_sector": {
+                  "grav": "0",
+                  "su2_sq_u1": "0",
+                  "su3_sq_u1": "0",
+                  "u1_cubed": "0"
+                },
+                "scalar_chiral_weight_per_copy": 0
+              }
+            },
+            {
+              "check": "witten_parity_even",
+              "pass": true,
+              "value": {
+                "parity": 0,
+                "scalar_doublet_contribution": 0,
+                "weyl_fermion_doublets": 4
+              }
+            },
+            {
+              "check": "no_clause_counts_scalar_copies",
+              "pass": true,
+              "value": {
+                "clauses_referencing_scalar_count": [],
+                "grammar_clauses": [
+                  "charge_sum_zero_in_q6Y_per_coupled_channel",
+                  "triality_zero_mod_three_per_coupled_channel",
+                  "even_total_doublet_count_per_coupled_channel",
+                  "chiral_anomaly_freedom",
+                  "witten_parity_even"
+                ],
+                "scalar_copies": 2
+              }
+            }
+          ],
+          "copy_count": 2,
+          "name": "n2_duplicate_identical_charge",
+          "reading": "two identical charge-3 doublets pass charge compatibility and channel structure per copy; the channel set scales and the non-chiral scalars contribute nothing to any anomaly form",
+          "scalar_copies": [
+            {
+              "charge_q6Y": 3,
+              "color": "1",
+              "invariant_channel_count": 3,
+              "label": "S1",
+              "weak": 2,
+              "yukawa_coupling": "unit"
+            },
+            {
+              "charge_q6Y": 3,
+              "color": "1",
+              "invariant_channel_count": 3,
+              "label": "S2",
+              "weak": 2,
+              "yukawa_coupling": "unit"
+            }
+          ]
+        },
+        {
+          "all_checks_pass": true,
+          "checks": [
+            {
+              "check": "charge_compatibility_per_copy",
+              "pass": true,
+              "value": [
+                3,
+                3
+              ]
+            },
+            {
+              "check": "channel_structure",
+              "pass": true,
+              "value": {
+                "channels_scale_with_coupled_copies": true,
+                "per_copy": [
+                  3,
+                  0
+                ],
+                "total": 3
+              }
+            },
+            {
+              "check": "charge_sum_zero_in_q6Y_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 3
+              }
+            },
+            {
+              "check": "triality_zero_mod_three_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 3
+              }
+            },
+            {
+              "check": "even_total_doublet_count_per_coupled_channel",
+              "pass": true,
+              "value": {
+                "coupled_channels": 3
+              }
+            },
+            {
+              "check": "chiral_anomaly_freedom",
+              "pass": true,
+              "value": {
+                "fermion_sector": {
+                  "grav": "0",
+                  "su2_sq_u1": "0",
+                  "su3_sq_u1": "0",
+                  "u1_cubed": "0"
+                },
+                "scalar_chiral_weight_per_copy": 0
+              }
+            },
+            {
+              "check": "witten_parity_even",
+              "pass": true,
+              "value": {
+                "parity": 0,
+                "scalar_doublet_contribution": 0,
+                "weyl_fermion_doublets": 4
+              }
+            },
+            {
+              "check": "no_clause_counts_scalar_copies",
+              "pass": true,
+              "value": {
+                "clauses_referencing_scalar_count": [],
+                "grammar_clauses": [
+                  "charge_sum_zero_in_q6Y_per_coupled_channel",
+                  "triality_zero_mod_three_per_coupled_channel",
+                  "even_total_doublet_count_per_coupled_channel",
+                  "chiral_anomaly_freedom",
+                  "witten_parity_even"
+                ],
+                "scalar_copies": 2
+              }
+            }
+          ],
+          "copy_count": 2,
+          "name": "n2_one_inert",
+          "reading": "one coupled and one inert doublet pass every visible check; no clause forces a nonzero Yukawa coupling on any copy",
+          "scalar_copies": [
+            {
+              "charge_q6Y": 3,
+              "color": "1",
+              "invariant_channel_count": 3,
+              "label": "S1",
+              "weak": 2,
+              "yukawa_coupling": "unit"
+            },
+            {
+              "charge_q6Y": 3,
+              "color": "1",
+              "invariant_channel_count": 0,
+              "label": "S_inert",
+              "weak": 2,
+              "yukawa_coupling": "zero"
+            }
+          ]
+        }
+      ],
+      "every_configuration_passes_every_check": true,
+      "grammar_visible_checks": [
+        "charge_sum_zero_in_q6Y_per_coupled_channel",
+        "triality_zero_mod_three_per_coupled_channel",
+        "even_total_doublet_count_per_coupled_channel",
+        "chiral_anomaly_freedom",
+        "witten_parity_even",
+        "charge_compatibility_per_copy",
+        "channel_structure",
+        "no_clause_counts_scalar_copies"
+      ]
+    },
+    "verdict": {
+      "countermodels": [
+        "n0_no_scalar",
+        "n2_duplicate_identical_charge",
+        "n2_one_inert"
+      ],
+      "declared_completion": "one color-singlet weak-doublet scalar with q_S = +/-3 stays a declared completion of the matter branch",
+      "registry_row": {
+        "area": "matter",
+        "class": "conditional_open_interface",
+        "id": "scalar_existence_and_multiplicity",
+        "owner_issue": 616
+      },
+      "scalar_existence": "not_source_determined",
+      "scalar_multiplicity": "independence_limited"
+    }
+  },
+  "schema": "oph.multiplicity_window_certificate.v1"
+}

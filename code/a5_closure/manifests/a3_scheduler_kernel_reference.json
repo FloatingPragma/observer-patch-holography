@@ -1,0 +1,442 @@
+{
+  "a3_selection": {
+    "deck_invariance": {
+      "carrier_automorphism_group_order": 120,
+      "conclusion": "the automorphism group acts transitively on the seams, so a deck-invariant positive weight vector is constant and normalizes to the same uniform kernel",
+      "edge_transitive": true,
+      "seam_orbit_size": 30
+    },
+    "feasible_set": "the full move simplex; the complete constraint grammar contributes normalization only",
+    "information_projection": "the minimizer of the relative entropy to the reference over the full simplex is the reference itself: KKT stationarity log(p_e/r_e) + 1 + lambda = 0 forces p proportional to r, normalization fixes the constant, and strict convexity gives uniqueness; this is the same argument as the equal-state-weights certificate",
+    "kernel_sums_to_one": true,
+    "positive_weights": true,
+    "reference": "uniform_on_moves",
+    "selected_kernel_probability_per_seam": "1/30"
+  },
+  "arithmetic": "exact Fraction and Q(sqrt5) arithmetic; no floating point in any proof step",
+  "controls": {
+    "periodic": {
+      "verdict": "fails_closed",
+      "witness": {
+        "conclusion": "the even and odd reachability classes of the restricted walk are disjoint, so the restricted scheduler has period two",
+        "cycle_length": 6,
+        "cycle_ports": [
+          "p00",
+          "p02",
+          "p05",
+          "p03",
+          "p01",
+          "p04"
+        ],
+        "even_class_ports": [
+          "p00",
+          "p01",
+          "p05"
+        ],
+        "odd_class_ports": [
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "period": 2
+      }
+    },
+    "presentation_dependent": {
+      "verdict": "fails_closed",
+      "witness": {
+        "conclusion": "the deterministic lowest-index-first scheduler names different physical first seams in two presentations whose quotient-visible data agree, so presentation invariance rejects it; the uniform kernel is invariant under the same relabeling",
+        "deck_rotation_matrix": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_move_reference_presentation": [
+          "p00",
+          "p02"
+        ],
+        "first_move_relabeled_presentation_physical_seam": [
+          "p08",
+          "p10"
+        ],
+        "induced_port_permutation": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          0,
+          1,
+          2,
+          3
+        ],
+        "quotient_visible_agreement": {
+          "degree_sequence": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "relabeled_seam_multiset_equals_reference": true,
+          "seam_count": 30
+        },
+        "rotation_is_identity": false,
+        "uniform_kernel_pullback_invariant": true
+      }
+    },
+    "reducible": {
+      "verdict": "fails_closed",
+      "witness": {
+        "closure_start_port": "p00",
+        "conclusion": "the reachability closure of the restricted move set does not cover the ports, so the restricted scheduler is reducible",
+        "first_triangle": [
+          "p00",
+          "p02",
+          "p08"
+        ],
+        "move_subset_seam_count": 6,
+        "ports_covered": 3,
+        "ports_total": 12,
+        "reachability_closure_ports": [
+          "p00",
+          "p02",
+          "p08"
+        ],
+        "second_triangle": [
+          "p01",
+          "p03",
+          "p10"
+        ]
+      }
+    },
+    "wrong_reference": {
+      "verdict": "fails_closed",
+      "witness": {
+        "conclusion": "a reference with a zero seam weight never repairs that seam, so bounded fairness fails",
+        "expected_first_visit": "unbounded",
+        "horizon_steps": 120,
+        "seam_selection_probability": "0",
+        "starved_seam": [
+          "p00",
+          "p02"
+        ],
+        "unvisited_probability_after_horizon": "1"
+      }
+    }
+  },
+  "description": "Executable certificate for the bounded A3 scheduler campaign. The move simplex is the thirty-seam icosahedral reference carrier; the A3 information projection selects the uniform kernel 1/30 per seam in closed form; the induced port walk W = A/5 has exact positive support, irreducibility, aperiodicity, contraction with spectral gap 1 - sqrt5/5, and exact fairness and excursion bounds; four scheduler controls fail closed. Fairness and liveness for a general implementation model stay a conditional_open_interface premise, per the bounded exit of the issue.",
+  "induced_port_walk": {
+    "matches_selected_kernel": true,
+    "per_step_seam_traversal_probability": "1/30",
+    "stationary_distribution": "uniform 1/12, verified exactly",
+    "transition_matrix": "W = A/5, the uniform neighbor walk on the twelve ports"
+  },
+  "issue": 614,
+  "manifest_sha256": "sha256:89a9b7302e1ed9a5bad5542d7eedb68dda76d75de3064fdca22c966703c1a479",
+  "move_simplex": {
+    "coordinate_model": "cyclic permutations of (0, +/-1, +/-phi) over Q(sqrt5)",
+    "degree": 5,
+    "port_coordinates": {
+      "p00": [
+        "0",
+        "1",
+        "1/2 + 1/2*sqrt(5)"
+      ],
+      "p01": [
+        "0",
+        "1",
+        "-1/2 + -1/2*sqrt(5)"
+      ],
+      "p02": [
+        "0",
+        "-1",
+        "1/2 + 1/2*sqrt(5)"
+      ],
+      "p03": [
+        "0",
+        "-1",
+        "-1/2 + -1/2*sqrt(5)"
+      ],
+      "p04": [
+        "1",
+        "1/2 + 1/2*sqrt(5)",
+        "0"
+      ],
+      "p05": [
+        "1",
+        "-1/2 + -1/2*sqrt(5)",
+        "0"
+      ],
+      "p06": [
+        "-1",
+        "1/2 + 1/2*sqrt(5)",
+        "0"
+      ],
+      "p07": [
+        "-1",
+        "-1/2 + -1/2*sqrt(5)",
+        "0"
+      ],
+      "p08": [
+        "1/2 + 1/2*sqrt(5)",
+        "0",
+        "1"
+      ],
+      "p09": [
+        "-1/2 + -1/2*sqrt(5)",
+        "0",
+        "1"
+      ],
+      "p10": [
+        "1/2 + 1/2*sqrt(5)",
+        "0",
+        "-1"
+      ],
+      "p11": [
+        "-1/2 + -1/2*sqrt(5)",
+        "0",
+        "-1"
+      ]
+    },
+    "ports": 12,
+    "seams": 30,
+    "seams_by_port_pair": [
+      [
+        "p00",
+        "p02"
+      ],
+      [
+        "p00",
+        "p04"
+      ],
+      [
+        "p00",
+        "p06"
+      ],
+      [
+        "p00",
+        "p08"
+      ],
+      [
+        "p00",
+        "p09"
+      ],
+      [
+        "p01",
+        "p03"
+      ],
+      [
+        "p01",
+        "p04"
+      ],
+      [
+        "p01",
+        "p06"
+      ],
+      [
+        "p01",
+        "p10"
+      ],
+      [
+        "p01",
+        "p11"
+      ],
+      [
+        "p02",
+        "p05"
+      ],
+      [
+        "p02",
+        "p07"
+      ],
+      [
+        "p02",
+        "p08"
+      ],
+      [
+        "p02",
+        "p09"
+      ],
+      [
+        "p03",
+        "p05"
+      ],
+      [
+        "p03",
+        "p07"
+      ],
+      [
+        "p03",
+        "p10"
+      ],
+      [
+        "p03",
+        "p11"
+      ],
+      [
+        "p04",
+        "p06"
+      ],
+      [
+        "p04",
+        "p08"
+      ],
+      [
+        "p04",
+        "p10"
+      ],
+      [
+        "p05",
+        "p07"
+      ],
+      [
+        "p05",
+        "p08"
+      ],
+      [
+        "p05",
+        "p10"
+      ],
+      [
+        "p06",
+        "p09"
+      ],
+      [
+        "p06",
+        "p11"
+      ],
+      [
+        "p07",
+        "p09"
+      ],
+      [
+        "p07",
+        "p11"
+      ],
+      [
+        "p08",
+        "p10"
+      ],
+      [
+        "p09",
+        "p11"
+      ]
+    ],
+    "source_definition": "each move is one undirected seam repair between adjacent ports of the reference carrier; the transition observable is the source-defined record of which seam repairs next"
+  },
+  "proved_dynamics": {
+    "aperiodicity": {
+      "closed_walk_lengths": [
+        2,
+        3
+      ],
+      "period": 1,
+      "triangle_witness": [
+        "p00",
+        "p02",
+        "p08"
+      ]
+    },
+    "contraction": {
+      "adjacency_eigenvalues": [
+        {
+          "multiplicity": 1,
+          "value": "5"
+        },
+        {
+          "multiplicity": 3,
+          "value": "sqrt(5)"
+        },
+        {
+          "multiplicity": 3,
+          "value": "-sqrt(5)"
+        },
+        {
+          "multiplicity": 5,
+          "value": "-1"
+        }
+      ],
+      "minimal_polynomial_identity": "(A - 5I)(A^2 - 5I)(A + I) = 0, verified entrywise over Q(sqrt5)",
+      "minimal_polynomial_is_minimal": true,
+      "multiplicities_from_exact_trace_system": [
+        1,
+        3,
+        3,
+        5
+      ],
+      "second_largest_modulus": "sqrt(5)/5",
+      "spectral_gap": {
+        "display": "1 - (1/5)*sqrt(5)",
+        "rational_part": "1",
+        "sqrt5_coefficient": "-1/5"
+      },
+      "trace_powers_of_A": [
+        12,
+        0,
+        60,
+        120
+      ],
+      "walk_eigenvalues": [
+        "1",
+        "sqrt(5)/5",
+        "-sqrt(5)/5",
+        "-1/5"
+      ]
+    },
+    "fairness": {
+      "expected_first_visit_steps": "30",
+      "horizon_steps": 120,
+      "per_step_seam_visit_probability": "1/30",
+      "unvisited_probability_after_t_steps": "(29/30)^t",
+      "unvisited_probability_at_horizon": "30743955856271326009800885254899430625835118050344914365109757763489626321958816165082856828818926865398552860043349643962869379768958696719652799436963134201374927539682242401/1797010299914431210413179829509605039731475627537851106401000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "unvisited_probability_denominator_digits": 178,
+      "unvisited_probability_numerator_digits": 176
+    },
+    "irreducibility": {
+      "connected": true,
+      "reachability_closure_size": 12
+    },
+    "positive_support": {
+      "all_moves_positive": true,
+      "minimum_move_probability": "1/30"
+    }
+  },
+  "schema": "oph.a3_scheduler_kernel_certificate.v1",
+  "verdict": {
+    "controls": {
+      "periodic": "fails_closed",
+      "presentation_dependent": "fails_closed",
+      "reducible": "fails_closed",
+      "wrong_reference": "fails_closed"
+    },
+    "dynamics_scope": "the reference carrier walk; no continuum or implementation claim",
+    "dynamics_tier": "exact_named_realization",
+    "general_model_fairness_liveness": "conditional_open_interface",
+    "general_model_note": "fairness and liveness of an arbitrary implementation remain an implementation premise; the positive theorem covers the named reference realization only",
+    "kernel": "uniform_1_over_30",
+    "kernel_status": "A3_selected_exact"
+  },
+  "verifier_command": "python3 code/a5_closure/a3_scheduler_kernel_certificate.py verify --manifest code/a5_closure/manifests/a3_scheduler_kernel_reference.json"
+}

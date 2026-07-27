@@ -1,0 +1,7 @@
+{
+  "schema": "oph.optimizer_pushforward_certificate.v1",
+  "description": "Reference packet for the optimizer pushforward interface (issue #619). The fine level is the twelve-port probability simplex, the coarse level is the six-axis probability simplex, and the refinement channel sums each antipodal port pair into its axis; the pairing is read from the hash-pinned #565 selector receipt, so the channel is A1-sourced. The verifier derives the exact sufficiency family where information projections commute with refinement for every rational coarse target, the quantitative nonclosure countermodel with exact defect 5/66 from a within-axis constraint the channel cannot express, and the four-control battery with exact rational witnesses. The verdict classifies cross-refinement optimizer compatibility as a conditional open interface: exact under compatible references and channel-expressible constraints, quantitatively false otherwise.",
+  "axis_receipt_path": "receipts/echosahedral_federation_reference.receipt.json",
+  "axis_receipt_sha256": "b3f8bc306471334c0dc75d38b2f9c1b7b1dd4247ff02cbe2980c0caad07b3506",
+  "arithmetic_convention": "exact_rational_simplex"
+}

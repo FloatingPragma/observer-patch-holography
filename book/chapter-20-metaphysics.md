@@ -105,6 +105,11 @@ filter the space of possible physics. Most candidate laws fail: they create
 inconsistencies, they cannot form stable observers, or they fail comparison
 across patches. The laws we see are the ones that pass that filter.
 
+This is the sense in which observers co-shape the universe. Their wishes do
+nothing. Their ability to form records and compare them does a great deal.
+Agreement removes incompatible possibilities, while maximum randomness avoids
+choosing among the possibilities that no observation has constrained.
+
 This is a structural selection principle. The universe is compatible with us
 because we are the kind of thing that can exist in a universe that passes the
 consistency filter. The "fine-tuning" is what survival looks like.
