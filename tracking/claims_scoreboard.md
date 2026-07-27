@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2000`. 61 claims, 23 distinct live gates across 20 gated claims.
+Release: `r2000`. 61 claims, 21 distinct live gates across 19 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -74,7 +74,7 @@ Release: `r2000`. 61 claims, 23 distinct live gates across 20 gated claims.
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `proved_on_declared_echosahedral_carrier_lineage` | none |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_impulse_readback_artifact` | none |
-| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `source_bound_at_finite_scope_conditional_on_declared_scalar_content` | [#609](https://github.com/FloatingPragma/observer-patch-holography/issues/609), [#616](https://github.com/FloatingPragma/observer-patch-holography/issues/616) |
+| `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `source_bound_at_finite_scope_conditional_on_declared_scalar_content` | none |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower` | none |
 | `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_chain__z6_descent_source_bound_at_finite_scope__continuum_and_family_gates_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-QUARK-REGISTER-CLEBSCH` | `conditional_implication` | `conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent` | none |
@@ -123,5 +123,3 @@ Release: `r2000`. 61 claims, 23 distinct live gates across 20 gated claims.
 | [#594](https://github.com/FloatingPragma/observer-patch-holography/issues/594) | [Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet | `OPH-WZ-STRICT-1L-POLE-MAP` |
 | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) | [Source law] Attain the five measured Einstein-branch clause targets | `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |
 | [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) | [de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments | `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM` |
-| [#609](https://github.com/FloatingPragma/observer-patch-holography/issues/609) | [Matter completeness] Prove a source-complete no-extra-light-sector theorem | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
-| [#616](https://github.com/FloatingPragma/observer-patch-holography/issues/616) | Run the bounded scalar-response multiplicity campaign | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` |
