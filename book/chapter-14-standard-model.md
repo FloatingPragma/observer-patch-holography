@@ -650,8 +650,17 @@ measured particle data enter the story. On the declared twelve-port carrier,
 the defect readback lives at twelve equivalent ports. The separate integer
 total-twelve load and quadratic readback packet has a unique all-unit
 minimizer, with every alternative costing at least two units more. This is an
-exact named-realization result; derivation of the load fiber and readback law
-from the complete A1 mechanism grammar is an open theorem problem.
+exact result in the declared counting realization. A reduced finite-atomic
+carrier model has a half-count candidate. Whether that candidate
+extends to the full observer machinery, agreement maps, and maximum-randomness
+state selection is open.
+
+The local information curvature lies on the symmetric identity ray. For a
+uniform twelve-port reference, relative entropy
+begins as $6\varepsilon^2\sum_p v_p^2$. Its Hessian, equivalently the Fisher
+matrix, is $12I$. That infinitesimal statement does not determine the complete
+discrete repair cost. An operational source for the integer normalization and
+physical cost is work in progress.
 
 The wiring of the edges then does the rest. It pairs
 each port with the one directly opposite it, three steps away across the

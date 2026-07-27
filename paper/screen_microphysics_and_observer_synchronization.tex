@@ -47,9 +47,10 @@ Gibbs potential when cycle affinities vanish and gives an exact
 \(1,3,3,5\) degeneracy theorem for the source-derived twenty-four-channel
 embedding.
 
-On the declared echosahedral carrier lineage, port atoms, central readback,
-oriented incidence, and refinement maps derive twelve unit lines, inverse
-pairing, the proper \(A_5\) action, and a rank-three frame. Target-blind
+On the declared echosahedral carrier lineage, an integer atom-counting grammar
+and normalized central-readback cost give twelve unit lines and an exact gap.
+Oriented incidence and refinement maps derive inverse pairing, the proper
+\(A_5\) action, and a rank-three frame. Target-blind
 impulse and port readback derive the inverse-port response. Its compact
 current algebra is
 \(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\).
@@ -81,9 +82,10 @@ the Tsirelson bound, and checkpoint restoration states what it means for an obse
 after repair. The finite modular-gearing package keeps strict-descent normalization separate from
 reversible proposal rates, tests whether the oriented \(24\)-slot register is an invariant channel
 space, and fixes only symmetry-protected degeneracies rather than numerical gaps or clock units.
-The finite echosahedral selector separately closes the unit-splitting and
-proper-\(A_5\) source receipts on the declared carrier lineage, without using
-downstream particle or gauge targets.
+The finite echosahedral selector gives the exact unit split within the
+declared integer counting and normalized readback-cost realization. Oriented
+incidence separately gives the proper-\(A_5\) result without using downstream
+particle or gauge targets.
 Incidence and target-blind port readback derive the finite response, compact
 current, and refinement maps. Under the declared fermionic Spin category,
 the anomaly and descent certificates imply the Standard Model charge lattice
@@ -2350,7 +2352,7 @@ the port arrangement.
 \end{enumerate}
 \end{definition}
 
-\begin{definition}[Certified echosahedral carrier lineage]
+\begin{definition}[Certified echosahedral counting realization]
 \label{def:certified-echosahedral-lineage}
 A certified local lineage augments the quotient-visible echosahedral patch by:
 \begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
@@ -2358,21 +2360,24 @@ A certified local lineage augments the quotient-visible echosahedral patch by:
 normalized trace \(1/12\);
 \item the oriented \(12\)-vertex, \(30\)-edge, \(20\)-face triangular
 incidence packet, with degree-five vertices and five-cycle links;
-\item the integer total-charge fiber
-\(\mathcal Q_r=\{q\in\mathbb Z^{12}:\sum_pq_p=12\}\) and the central
-readback cost \(H_r(q)=\sum_pq_p^2\);
+\item a separately declared integer atom-counting grammar with total-charge
+fiber \(\mathcal Q_r=\{q\in\mathbb Z^{12}:\sum_pq_p=12\}\), and the
+normalized central-readback Hilbert--Schmidt cost
+\(H_r(q)=\sum_pq_p^2\);
 \item orientation-preserving incidence isomorphisms along refinement that
 preserve the port-center/readback packet and obey the refinement cocycle; and
 \item a source manifest that rejects Standard Model, product-adjoint, gauge,
 coupling, particle, measured-target, and fitted-coordinate fields, is closed
 to undeclared fields, and encodes trace fractions with exact JSON integers.
 \end{enumerate}
+The integer grammar and cost normalization in item (iii) are realization
+data. Their derivation from the complete three-axiom schema is open.
 \end{definition}
 
-\begin{theorem}[Echosahedral source-selector theorem]
+\begin{theorem}[Echosahedral counting-and-incidence selector theorem]
 \label{thm:echosahedral-source-selector-microphysics}
 On every lineage of
-Definition~\ref{def:certified-echosahedral-lineage}, the source packet
+Definition~\ref{def:certified-echosahedral-lineage}, the declared realization packet
 canonically determines:
 \begin{enumerate}[leftmargin=2em,label=\textup{(\roman*)}]
 \item the twelve coefficient lines \(\mathbb R e_{r,p}\) and the unique
@@ -2396,8 +2401,8 @@ whose oriented factorization is the regular six-axis icosahedral frame up to
 \item refinement naturality and arbitrary simultaneous port-relabeling
 equivariance of all these objects.
 \end{enumerate}
-Thus the finite \(\mathrm{UD12}\) and \(\mathrm{RP\text{-}A5}\) source
-receipts are closed on this carrier branch.
+Thus the finite \(\mathrm{UD12}\) and \(\mathrm{RP\text{-}A5}\) receipts are
+exact on this named realization.
 \end{theorem}
 
 \begin{proof}
@@ -2430,6 +2435,22 @@ every possible OPH carrier selects that packet, and it does not construct a
 physical gauge-current algebra.  The executable controls recompute the finite
 countermodel values and reject both an opaque undeclared numeric input and a
 floating-point trace fraction that could otherwise be truncated.
+
+At the reduced finite-atomic carrier level, the family
+\(\{\tfrac12 e_{r,p}\}_{p=0}^{11}\) is a covariant half-count candidate and is
+not an integer atom counter. A complete lift with the operational and
+refinement data required by A1, the naturality required by A2, and an A3
+optimizer is open. The candidate therefore does not establish a full
+three-axiom independence theorem. For a separately declared uniform
+twelve-port reference \(\tau_p=1/12\), a feasible perturbation
+\(\rho=\tau+\varepsilon v\), with \(\sum_pv_p=0\), satisfies
+\[
+D(\rho\Vert\tau)
+=6\varepsilon^2\sum_pv_p^2+O(\varepsilon^3).
+\]
+The second-order Taylor coefficient is \(6I\), while the Hessian, equivalently
+the Fisher matrix, is \(12I\). The A3 weight fixes their common scale. This
+infinitesimal curvature does not supply the exact discrete cost \(H_r\).
 \end{remark}
 
 \begin{theorem}[Alternative variational icosahedral screen sieve]\label{thm:icosahedral-screen-sieve}
@@ -2497,11 +2518,15 @@ twelve ports.
 
 \begin{remark}[Source-selector boundary]
 For Theorem~\ref{thm:icosahedral-screen-sieve}, the D-optimal
-vector/quadrupole functional remains a branch premise, and a source-derived
-strictly completely monotonic pair cost is another sufficient selector by
+vector/quadrupole functional remains a branch premise, and a strictly
+completely monotonic pair cost is another sufficient selector by
 universal optimality.  Neither is needed on the certified lineage of
 Theorem~\ref{thm:echosahedral-source-selector-microphysics}, where oriented
-incidence and central readback supply the selector directly. Only the
+incidence supplies the antipode, \(A_5\) action, and frame, while the declared
+integer counting grammar and normalized central-readback cost supply the
+all-unit selector. In the alternative variational theorem,
+\(\sum_v(6-\deg(v))=12\) follows from spherical incidence, while integer
+charge typing and the strict additive cost remain assumptions. Only the
 twelve-port load normalization follows from unit splitting and placement. The cell value
 \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution of
 Theorem~\ref{thm:z6-reserve-trace} have separate premises; the port and slot
@@ -2604,8 +2629,9 @@ proved in the compact and particle papers; construction of the inputs remains
 a separate producer problem.
 \end{remark}
 
-On the certified echosahedral lineage, the source-selector theorem derives the
-unit lines, inverse pairs, proper \(A_5\) action, and rank-three frame. On
+On the certified echosahedral lineage, the declared integer counting and
+normalized readback-cost realization gives the unit lines. Oriented incidence
+gives the inverse pairs, proper \(A_5\) action, and rank-three frame. On
 other declared cost/selector branches, the variational screen-sieve theorem
 provides a sufficient alternative. These results give the reference patch
 enough boundary structure to support nontrivial overlap

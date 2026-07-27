@@ -1,43 +1,44 @@
 #!/usr/bin/env python3
-"""Finite edge-center reserve generator and repair-clock certificate (issue #522).
+"""Conditional edge-center arithmetic and finite-geometry packet for issue #522.
 
-The module instantiates the finite side of the edge-center reserve generator
-receipt (paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex, Definition
-``def:oph-screen-reserve-generator`` and Theorem ``thm:oph-p-over-48-tilt``)
-from antecedent-only finite collar records:
+The module checks the arithmetic consequences of the conditional edge-center
+reserve-generator theorem (paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex,
+Definition ``def:oph-screen-reserve-generator`` and Theorem
+``thm:oph-p-over-48-tilt``) and records finite collar combinatorics. It does not
+derive the reserve generator or an operational clock from those counts.
 
 * exact integer edge-midpoint refinement combinatorics on the icosahedral
   reference carrier (collar cells vs full cells, oriented slot counts, the
   orientation-reversal involution, all exact at every tower depth);
 * the certified pixel-root interval ``P`` imported from the P_derivation
-  contraction certificate (never a measured alpha);
-* the derived repair-round invariant ``m_rep = 24`` (representation-to-spectrum
-  theorem, code/particles/hierarchy/verify_issue_343_m_rep_24.py) and the
-  reserve-trace theorem ``tau_q(Z6) = P/24``
-  (paper/screen_microphysics_and_observer_synchronization.tex), which bind the
-  generator to the physical repair clock without any declared step time.
+  contraction certificate, whose physical endpoint remains unpromoted;
+* the conditional repair-round count ``m_rep = 24`` and the separately declared
+  reserve-trace branch input ``tau_q(Z6) = P/24``. The equality of their
+  denominators is not a clock derivation.
 
-Emitted objects:
+Conditional arithmetic:
 
-* the full-collar generator derivative ``-u_full'(0) = P/24`` as an interval;
-* the orientation-reversal half-collar identity (exact factor 2 from the
-  fixed-point-free involution on oriented collar slots at every depth), hence
+* if the imported full-collar density premise is
+  ``-u_full'(0) = P/24``, its interval is propagated;
+* if the weighted orientation-reversal coarea identity is also supplied, then
   ``theta = P/48`` and ``n_s = 1 - P/48`` as intervals, and
   ``kappa_rep = P/(48 (P - phi))`` as an interval;
 * the finite presence survival family ``u_m(1 tick) = (1 - (P/24) 2^-m)^(2^m)``
-  with semigroup, derivative, orientation-balance, and refinement defects
-  computed and bounded at every available depth (fail closed on any bound);
+  constructed from that imported density, with its arithmetic defects computed
+  and bounded at every available depth;
 * the finite-transition exponent ``-log u / log b`` and the ``e`` branch as
   diagnostics only.
 
-The certificate performs no sky comparison; freezing is an owner action and the
-artifact records ``freeze_status = "not_frozen_here"``.
+Equal oriented-slot counts alone do not force equal reserve weights on the two
+orientations. The operational clock, source-emitted weighted half identity,
+simulator receipt consumption, freeze action, and sky comparison remain open.
 """
 
 from __future__ import annotations
 
 import argparse
 from fractions import Fraction
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -48,7 +49,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 DEFAULT_OUT = HERE / "manifests" / "edge_center_clock_certificate.json"
 
-SCHEMA = "oph.edge_center_clock_certificate.v1"
+SCHEMA = "oph.edge_center_clock_certificate.v3"
 ARTIFACT = "oph_edge_center_clock_certificate"
 GITHUB_ISSUE = 522
 PRECISION = 60
@@ -67,7 +68,7 @@ M_REP_CERTIFICATE_PATH = (
     ROOT / "code" / "particles" / "hierarchy" / "certificates" / "R_m_rep_24_certificate.json"
 )
 
-SELECTED_PRIMARY_BRANCH = "edge_center_P_over_48"
+SELECTED_PRIMARY_BRANCH = "conditional_edge_center_P_over_48"
 
 # Defect gates (all verified with mpmath.iv outward-rounded interval arithmetic).
 # Identities that hold pointwise for every representative of the P enclosure
@@ -141,6 +142,26 @@ def _fraction_text(value: Fraction) -> str:
     return f"{value.numerator}/{value.denominator}"
 
 
+def _sha256_bytes(path: Path) -> str:
+    return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _payload_sha256(payload: dict[str, Any]) -> str:
+    body = {key: value for key, value in payload.items() if key != "artifact_sha256"}
+    encoded = json.dumps(
+        body,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return "sha256:" + hashlib.sha256(encoded).hexdigest()
+
+
+def verify_artifact_self_hash(payload: dict[str, Any]) -> None:
+    if payload.get("artifact_sha256") != _payload_sha256(payload):
+        raise CertificateError("artifact self-hash mismatch")
+
+
 # ---------------------------------------------------------------------------
 # antecedent import: the certified pixel-root interval
 # ---------------------------------------------------------------------------
@@ -159,9 +180,11 @@ def load_certified_p_interval(path: Path = P_CERTIFICATE_PATH) -> dict[str, Any]
         "lo": enclosure["lo"],
         "hi": enclosure["hi"],
         "source": path.relative_to(ROOT).as_posix(),
+        "source_sha256": _sha256_bytes(path),
         "mode": P_CERTIFICATE_MODE,
         "certificate_date": payload.get("date"),
         "consumer_policy": payload.get("consumer_policy", {}),
+        "claim_boundary": payload.get("claim_boundary"),
         "exact_alpha_promoted": bool(payload.get("exact_alpha_promoted", False)),
     }
 
@@ -181,10 +204,12 @@ def load_repair_round_invariant(path: Path = M_REP_CERTIFICATE_PATH) -> dict[str
         raise CertificateError("repair-round certificate does not certify m_rep = 24")
     return {
         "artifact": path.relative_to(ROOT).as_posix(),
+        "artifact_sha256": _sha256_bytes(path),
         "status": payload.get("status"),
         "m_rep": result["m_rep"],
         "exponent_denominator": result["exponent_denominator"],
         "specialized_exponent": result.get("specialized_exponent"),
+        "branch_scope": payload.get("branch_scope", {}),
     }
 
 
@@ -209,9 +234,9 @@ def _numeric_or_none(value: Any) -> Any:
 def reject_forbidden_inputs(inputs: dict[str, Any], path: str = "inputs") -> None:
     """Fail closed on time-dimension keys and measured-tilt-shaped values.
 
-    The clock is bound by repair-event counting, so any declared step time is a
-    contract violation; any numeric input inside the measured spectral-tilt
-    window is a target injection.
+    No external step time is admissible until an operational binding exists,
+    so any declared step time is a contract violation. Any numeric input inside
+    the measured spectral-tilt window is a target injection.
     """
     window_lo = mpf(MEASURED_TILT_WINDOW[0])
     window_hi = mpf(MEASURED_TILT_WINDOW[1])
@@ -236,7 +261,7 @@ def reject_forbidden_inputs(inputs: dict[str, Any], path: str = "inputs") -> Non
 
 
 # ---------------------------------------------------------------------------
-# antecedent-only collar records: exact icosahedral edge-midpoint tower
+# finite collar-count records: exact icosahedral edge-midpoint tower
 # ---------------------------------------------------------------------------
 
 
@@ -310,17 +335,231 @@ def collar_tower_records(depth: int = TOWER_DEPTH) -> list[dict[str, Any]]:
     return records
 
 
+def orientation_weight_countermodel(
+    tower: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Show that equal slot counts do not force a weighted half identity.
+
+    At every depth of the actual collar tower, N forward and N backward slots
+    admit both equal positive weights and unequal positive weights. The
+    counting involution is unchanged, while the forward reserve share changes
+    from one half to two thirds.
+    """
+
+    records = collar_tower_records() if tower is None else tower
+    if not records:
+        raise CertificateError("orientation-weight countermodel needs a tower")
+    schedule: list[dict[str, Any]] = []
+    equal_forward_weight = Fraction(1, 1)
+    equal_backward_weight = Fraction(1, 1)
+    biased_forward_weight = Fraction(2, 1)
+    biased_backward_weight = Fraction(1, 1)
+    for record in records:
+        forward_slots = record["forward_oriented_slots"]
+        backward_slots = record["backward_oriented_slots"]
+        if (
+            type(forward_slots) is not int
+            or type(backward_slots) is not int
+            or forward_slots <= 0
+            or forward_slots != backward_slots
+        ):
+            raise CertificateError(
+                "orientation-weight countermodel requires equal positive "
+                "forward/backward tower counts"
+            )
+        equal_forward_total = forward_slots * equal_forward_weight
+        equal_total = (
+            equal_forward_total + backward_slots * equal_backward_weight
+        )
+        biased_forward_total = forward_slots * biased_forward_weight
+        biased_total = (
+            biased_forward_total + backward_slots * biased_backward_weight
+        )
+        schedule.append(
+            {
+                "depth": record["depth"],
+                "forward_slot_count": forward_slots,
+                "backward_slot_count": backward_slots,
+                "equal_weight_forward_reserve_share": _fraction_text(
+                    equal_forward_total / equal_total
+                ),
+                "biased_positive_weight_forward_reserve_share": _fraction_text(
+                    biased_forward_total / biased_total
+                ),
+            }
+        )
+
+    return {
+        "tower_slot_schedule": schedule,
+        "tower_slot_schedule_sha256": _payload_sha256({"schedule": schedule}),
+        "all_depths_match_exact_collar_tower_counts": True,
+        "slot_count_ratio_at_every_depth": "1/2",
+        "equal_weight_forward_reserve_share_at_every_depth": "1/2",
+        "biased_positive_weight_forward_reserve_share_at_every_depth": "2/3",
+        "all_weights_strictly_positive": True,
+        "same_fixed_point_free_counting_involution": True,
+        "conclusion": (
+            "equal orientation counts do not imply an equal weighted reserve "
+            "share; the weighted coarea identity requires an additional "
+            "orientation-invariance premise or source receipt"
+        ),
+        "exhaustive_family": (
+            "at a depth with N=30*2^n slots in each orientation, every "
+            "rational r in (0,1) is realized by assigning weight r/N to each "
+            "forward slot and (1-r)/N to each backward slot; all weights are "
+            "positive and the unchanged N+N counts have forward share r"
+        ),
+    }
+
+
+def count_only_independence_no_go(
+    tower: list[dict[str, Any]],
+    weight_countermodel: dict[str, Any],
+) -> dict[str, Any]:
+    """Prove that the exact count interface selects no density, half, or clock.
+
+    The exported geometry is held fixed while reserve weights, a formal
+    continuous-semigroup generator coefficient, and the conversion from repair
+    event number to logarithmic thickness vary independently.
+    """
+
+    geometry_projection = [
+        {
+            "depth": row["depth"],
+            "vertices": row["vertices"],
+            "edges": row["edges"],
+            "faces": row["faces"],
+            "collar_cells": row["collar_cells"],
+            "oriented_collar_slots": row["oriented_collar_slots"],
+            "forward_oriented_slots": row["forward_oriented_slots"],
+            "backward_oriented_slots": row["backward_oriented_slots"],
+        }
+        for row in tower
+    ]
+    geometry_sha256 = _payload_sha256({"geometry": geometry_projection})
+    expected_schedule = [
+        {
+            "depth": row["depth"],
+            "forward_slot_count": row["forward_oriented_slots"],
+            "backward_slot_count": row["backward_oriented_slots"],
+            "equal_weight_forward_reserve_share": "1/2",
+            "biased_positive_weight_forward_reserve_share": "2/3",
+        }
+        for row in tower
+    ]
+    if weight_countermodel["tower_slot_schedule"] != expected_schedule:
+        raise CertificateError(
+            "orientation-weight witness does not use the exact collar tower counts"
+        )
+    reserve_models = [
+        {
+            "name": "backward_biased_positive_weights",
+            "forward_share": "1/3",
+            "geometry_sha256": geometry_sha256,
+        },
+        {
+            "name": "orientation_invariant",
+            "forward_share": "1/2",
+            "geometry_sha256": geometry_sha256,
+        },
+        {
+            "name": "forward_biased_positive_weights",
+            "forward_share": "2/3",
+            "geometry_sha256": geometry_sha256,
+        },
+    ]
+    generator_models = [
+        {
+            "name": "formal_semigroup_g_1",
+            "generator_coefficient": "1/24",
+            "family": "u(s)=exp(-(1/24)s)",
+            "geometry_sha256": geometry_sha256,
+        },
+        {
+            "name": "formal_semigroup_g_2",
+            "generator_coefficient": "1/12",
+            "family": "u(s)=exp(-(1/12)s)",
+            "geometry_sha256": geometry_sha256,
+        },
+    ]
+    clock_models = [
+        {
+            "name": "unit_event_scale",
+            "log_thickness_per_event": "1",
+            "coordinate": "s=n",
+            "geometry_sha256": geometry_sha256,
+        },
+        {
+            "name": "double_event_scale",
+            "log_thickness_per_event": "2",
+            "coordinate": "s=2n",
+            "geometry_sha256": geometry_sha256,
+        },
+    ]
+    return {
+        "count_interface_sha256": geometry_sha256,
+        "same_counts_multiple_reserve_weights": reserve_models,
+        "same_counts_multiple_generator_coefficients": generator_models,
+        "same_counts_multiple_event_to_log_thickness_scales": clock_models,
+        "orientation_weight_family": weight_countermodel["exhaustive_family"],
+        "conclusion": (
+            "no deterministic selector whose complete input is the exact collar "
+            "count interface can uniquely determine P/24, a weighted half "
+            "factor, a reserve generator, or an event-to-log-thickness clock "
+            "scale"
+        ),
+        "exhaustive_scope": (
+            "all predicates and deterministic algorithms whose complete input "
+            "is the exact integer collar-count tower"
+        ),
+        "negative_closure_at_count_only_interface": True,
+    }
+
+
+def assert_counts_select_unique_reserve_share(no_go: dict[str, Any]) -> None:
+    shares = {
+        row["forward_share"]
+        for row in no_go["same_counts_multiple_reserve_weights"]
+    }
+    if len(shares) != 1:
+        raise CertificateError(
+            "COUNT_WEIGHT_INDEPENDENCE: identical counts admit multiple reserve shares"
+        )
+
+
+def assert_counts_select_unique_generator(no_go: dict[str, Any]) -> None:
+    coefficients = {
+        row["generator_coefficient"]
+        for row in no_go["same_counts_multiple_generator_coefficients"]
+    }
+    if len(coefficients) != 1:
+        raise CertificateError(
+            "COUNT_GENERATOR_INDEPENDENCE: identical counts admit multiple generators"
+        )
+
+
+def assert_counts_select_unique_clock_scale(no_go: dict[str, Any]) -> None:
+    scales = {
+        row["log_thickness_per_event"]
+        for row in no_go["same_counts_multiple_event_to_log_thickness_scales"]
+    }
+    if len(scales) != 1:
+        raise CertificateError(
+            "COUNT_CLOCK_INDEPENDENCE: identical counts admit multiple clock scales"
+        )
+
+
 # ---------------------------------------------------------------------------
 # finite survival family and defect bounds
 # ---------------------------------------------------------------------------
 
 
 def survival_family_records(P: Any, depth: int = TOWER_DEPTH) -> list[dict[str, Any]]:
-    """Finite presence-survival family with certified defect bounds.
+    """Construct a finite presence-survival family from the imported density.
 
     At depth m the clock tick subdivides into the exact integer ``2^m``
-    sub-slots given by the edge-midpoint tower, the reserve-presence
-    probability splits uniformly (scalar-reserve unbiasedness), and the
+    sub-slots. Conditional on uniform splitting of the imported reserve-presence
+    density (a branch premise, not a consequence of the collar counts), the
     finite one-tick survival is ``u_m(1) = (1 - (P/24) 2^-m)^(2^m)``.
 
     Bounds verified at every depth (mpmath.iv, outward rounding):
@@ -337,6 +576,8 @@ def survival_family_records(P: Any, depth: int = TOWER_DEPTH) -> list[dict[str, 
       (the Poisson value is unreachable at any finite regulator) with sup at
       most ``(P/24)_hi^2 2^-m``, and ``u_m(1)`` is strictly increasing in m.
     """
+    # Conditional branch arithmetic. P/24 is imported from the declared
+    # reserve-trace premise; it is not inferred from the collar counts below.
     eps = P / 24
     eps_half = P / 48
     _, eps_hi = _endpoints(eps)
@@ -506,6 +747,8 @@ def build(
     kappa_rep = P / (48 * (P - phi))
 
     tower = collar_tower_records(tower_depth)
+    weight_countermodel = orientation_weight_countermodel(tower)
+    count_no_go = count_only_independence_no_go(tower, weight_countermodel)
     family = survival_family_records(P, tower_depth)
     p_lo, p_hi = _endpoints(P)
     thin_exactness = thin_representative_exactness(iv.mpf((p_lo + p_hi) / 2), tower_depth)
@@ -521,12 +764,14 @@ def build(
     if _width(exponential_semigroup_defect) > mpf(EXACT_DEFECT_WIDTH_BOUND):
         raise CertificateError("exponential-family semigroup width gate failed")
 
-    # Half-collar identity consistency: theta computed two ways must agree.
+    # Conditional half-collar arithmetic: once the weighted coarea premise is
+    # supplied, theta computed through that premise must agree with P/48.
     theta_via_half = eps / 2
     if _disjoint(theta, theta_via_half):
         raise CertificateError("half-collar identity arithmetic inconsistency")
 
-    # Orientation balance is exact at every tower depth.
+    # Orientation count balance is exact at every tower depth. The separate
+    # countermodel above records why this does not imply weighted balance.
     if any(record["orientation_balance_defect"] != 0 for record in tower):
         raise CertificateError("orientation balance defect nonzero on the tower")
     if any(
@@ -547,35 +792,38 @@ def build(
     e_branch_theta = iv.exp(iv.mpf([1, 1])) * (P - phi)
     e_branch_n_s = 1 - e_branch_theta
 
-    # Rejected wrong-orientation branch (factor 1 instead of 2).
+    # Alternative factor-1 value. It is numerically distinct, but slot counts
+    # alone do not reject it; the weighted coarea premise selects the half.
     theta_wrong_orientation = eps
     if not _disjoint(theta_wrong_orientation, theta):
         raise CertificateError("wrong-orientation branch is not separated from theta")
 
-    # The issue body quotes kappa_rep = 2.627023712627471, computed at the
-    # superseded point value P = 1.630968209403959 (the legacy pixel value used
-    # by the radial-lift tests).  The certified enclosure gives a different
-    # interval; both facts are recorded, and the emitted object is the interval.
-    legacy_p = iv.mpf(["1.630968209403959", "1.630968209403959"])
-    kappa_rep_legacy = legacy_p / (48 * (legacy_p - phi))
-    legacy_defect = kappa_rep_legacy - iv.mpf(["2.627023712627471", "2.627023712627471"])
-    legacy_lo, legacy_hi = _endpoints(legacy_defect)
-    if max(abs(legacy_lo), abs(legacy_hi)) > mpf("1e-13"):
+    # The issue body quotes kappa_rep = 2.627023712627471 at the distinct
+    # canonical comparison coordinate P_C = 1.630968209403959. P_C lies
+    # outside this issue's selected P_fwd enclosure. Both coordinates remain
+    # typed separately, and the emitted object here is the P_fwd interval.
+    p_c = iv.mpf(["1.630968209403959", "1.630968209403959"])
+    kappa_rep_at_p_c = p_c / (48 * (p_c - phi))
+    p_c_defect = kappa_rep_at_p_c - iv.mpf(
+        ["2.627023712627471", "2.627023712627471"]
+    )
+    p_c_lo, p_c_hi = _endpoints(p_c_defect)
+    if max(abs(p_c_lo), abs(p_c_hi)) > mpf("1e-13"):
         raise CertificateError(
-            "issue-body kappa_rep value is not reproduced at the legacy pixel point"
+            "issue-body kappa_rep value is not reproduced at the P_C comparison coordinate"
         )
     if _contains_value(kappa_rep, "2.627023712627471"):
         raise CertificateError(
-            "legacy kappa_rep point unexpectedly lies inside the certified interval"
+            "P_C kappa_rep point unexpectedly lies inside the P_fwd certified interval"
         )
 
-    controls = _run_controls()
+    controls = _run_controls(weight_countermodel, count_no_go)
 
     payload: dict[str, Any] = {
         "schema": SCHEMA,
         "artifact": ARTIFACT,
         "github_issue": GITHUB_ISSUE,
-        "status": "edge_center_generator_and_clock_certificate_emitted",
+        "status": "conditional_edge_center_arithmetic_with_open_source_and_clock_gates",
         "selected_primary_branch": SELECTED_PRIMARY_BRANCH,
         "theorem_source": {
             "fragment": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
@@ -585,7 +833,13 @@ def build(
         "interval_backend": {
             "library": "mpmath.iv",
             "precision_decimal_digits": PRECISION,
-            "rounding": "mpmath_interval_outward",
+            "rounding": "binary interval floating-point with outward enclosures",
+            "exact_arithmetic": False,
+            "exact_integer_geometry": True,
+            "claim": (
+                "numerical intervals are rigorous enclosures at the declared "
+                "precision; they are not exact rational arithmetic"
+            ),
         },
         "inputs": inputs,
         "input_hygiene": {
@@ -598,30 +852,50 @@ def build(
         "antecedents": {
             "pixel_root_interval": {
                 "artifact": p_record["source"],
+                "artifact_sha256": p_record["source_sha256"],
                 "mode": p_record["mode"],
                 "certificate_date": p_record["certificate_date"],
                 "consumer_policy": p_record["consumer_policy"],
+                "claim_boundary": p_record["claim_boundary"],
                 "exact_alpha_promoted": p_record["exact_alpha_promoted"],
-                "role": "P enters only as this certified enclosure",
+                "role": (
+                    "P enters as this conditional closure-map enclosure; the "
+                    "artifact does not promote it to a physical endpoint"
+                ),
             },
             "repair_round_invariant": {
                 "artifact": m_rep_record["artifact"],
+                "artifact_sha256": m_rep_record["artifact_sha256"],
                 "producer": "code/particles/hierarchy/verify_issue_343_m_rep_24.py",
                 "certificate_status": m_rep_record["status"],
+                "branch_scope": m_rep_record["branch_scope"],
                 "m_rep": m_rep_record["m_rep"],
                 "exponent_denominator": m_rep_record["exponent_denominator"],
                 "specialized_exponent": m_rep_record["specialized_exponent"],
                 "statement": (
-                    "m_rep = 2*(8+3+1) = 24 oriented repair ticks per full-collar "
-                    "round, derived without measured inputs"
+                    "m_rep = 2*(8+3+1) = 24 on the declared product-adjoint, "
+                    "orientation-doubling, cyclic-scheduler branch"
+                ),
+                "clock_role": (
+                    "a conditional scheduler count only; no binding to the "
+                    "collar refinement coordinate or operational clock is "
+                    "proved in this packet"
                 ),
             },
-            "reserve_trace_theorem": {
+            "reserve_trace_branch_input": {
                 "artifact": "paper/screen_microphysics_and_observer_synchronization.tex",
                 "statement": (
-                    "tau_q(Z6) = P/24: the scalar-weighted reserve-presence "
-                    "probability per oriented repair tick"
+                    "tau_q(Z6) = P/24 on the shared-edge protected-reserve "
+                    "branch"
                 ),
+                "premises": [
+                    "declared shared-cut density P/4",
+                    "declared Z6 class equidistribution",
+                    "scalar-reserve unbiasedness where a scalar-weighted mean is consumed",
+                ],
+                "derived_from_collar_counts": False,
+                "denominator_match_not_used_as_a_derivation": True,
+                "binding_theorem_present": False,
             },
             "presence_reading": {
                 "artifact": "extra/chi_nu_collar_survival_presence_correction.md",
@@ -635,13 +909,27 @@ def build(
             "carrier": "icosahedral screen cellulation, edge-midpoint refinement",
             "depths": tower_depth,
             "records": tower,
+            "derives_reserve_density": False,
+            "derives_weighted_half_identity": False,
+            "derives_operational_clock": False,
+            "boundary": (
+                "the tower certifies integer incidence and orientation counts "
+                "only; reserve weights and time normalization require separate "
+                "source data"
+            ),
         },
+        "count_only_independence_no_go": count_no_go,
         "survival_family": {
-            "clock_coordinate": (
-                "s counts accepted oriented repair events (ticks); one full-collar "
-                "round is m_rep = 24 ticks; no time-dimension unit appears"
+            "coordinate": (
+                "a dimensionless formal subdivision coordinate; this packet "
+                "does not identify it with logarithmic physical refinement or "
+                "an operational repair clock"
             ),
             "family": "u_m(1 tick) = (1 - (P/24) 2^-m)^(2^m), presence reading",
+            "construction_status": (
+                "constructed from the imported P/24 density and uniform-splitting "
+                "premise, not emitted by the collar records"
+            ),
             "records": family,
             "exponential_family_semigroup_defect": {
                 "probe": "s = 3/8, t = 5/8 ticks",
@@ -652,67 +940,93 @@ def build(
             "thin_representative_exactness": thin_exactness,
         },
         "generator": {
-            "statement": "-u_full'(0) = P/24 in the repair-tick clock coordinate",
+            "status": "imported_conditional_density",
+            "statement": (
+                "conditional on the declared reserve-trace branch input, "
+                "-u_full'(0) = P/24 in an otherwise unbound dimensionless coordinate"
+            ),
             "full_collar_derivative": _interval_json(eps),
             "finite_one_step_presence_value": _interval_json(presence_one_step_full),
+            "emitted_from_finite_collar_records": False,
+            "operational_clock_bound": False,
             "distinction": (
-                "the infinitesimal density P/24 is the sub-step difference quotient "
-                "at every depth; the finite one-tick survival 1 - P/24 is not the "
-                "generator and is recorded separately"
+                "the constructed family has sub-step quotient P/24 by definition; "
+                "its finite one-step presence value 1 - P/24 is different from "
+                "that conditional infinitesimal density"
             ),
         },
         "half_collar_identity": {
+            "status": "conditional_on_weighted_coarea_premise",
             "statement": (
-                "orientation reversal is a fixed-point-free involution on oriented "
-                "collar slots with two equal classes at every tower depth; the "
-                "source-facing restriction is one class, giving the exact factor 2"
+                "the counting involution gives equally many forward and backward "
+                "slots; theta=P/48 follows only if a source receipt also makes "
+                "their reserve weights orientation-invariant"
             ),
             "half_over_full_slot_ratio": "1/2",
+            "weighted_half_identity_derived_from_slot_counts": False,
+            "orientation_weight_countermodel": weight_countermodel,
             "theta": _interval_json(theta),
             "n_s": _interval_json(n_s),
             "kappa_rep": _interval_json(kappa_rep),
             "kappa_rep_issue_body_reconciliation": {
                 "issue_body_value": "2.627023712627471",
-                "computed_at": "legacy point P = 1.630968209403959, superseded",
-                "reproduced_at_legacy_point_within": "1e-13",
+                "computed_at": (
+                    "P_C = 1.630968209403959, the distinct canonical "
+                    "comparison coordinate outside this issue's selected "
+                    "P_fwd enclosure"
+                ),
+                "reproduced_at_P_C_within": "1e-13",
                 "inside_certified_interval": False,
                 "note": (
-                    "the emitted object is the interval from the certified P "
-                    "enclosure; the issue-body decimal tracks an earlier pixel "
-                    "point value"
+                    "the conditional interval uses the imported P enclosure; "
+                    "the issue-body decimal tracks the distinct P_C comparison "
+                    "coordinate retained by canonical particle surfaces"
                 ),
             },
             "finite_one_step_presence_value_half": _interval_json(presence_one_step_half),
         },
         "clock_binding": {
+            "status": "open",
             "clock_normalization_source": {
                 "invariant": (
-                    "m_rep = 24 oriented repair ticks per full-collar round "
-                    "(orientation-doubled product-adjoint dimension 2*12)"
+                    "m_rep = 24 is a conditional product-adjoint scheduler count"
                 ),
                 "theorem": (
-                    "representation-to-spectrum round count (issue #343) together "
-                    "with the reserve-trace theorem tau_q(Z6) = P/24"
+                    "the issue #343 representation-to-spectrum theorem does not "
+                    "identify its scheduler count with the collar refinement "
+                    "coordinate or an operational clock"
                 ),
                 "artifacts": [
                     "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
                     "paper/screen_microphysics_and_observer_synchronization.tex",
                 ],
             },
-            "clock_unit": "one accepted oriented repair event on the collar",
+            "clock_unit": None,
             "declared_command_line_step_time": None,
+            "scheduler_count_bound_to_collar_events": False,
+            "dimensionless_coordinate_bound_to_log_refinement": False,
+            "operational_clock_derived": False,
+            "physical_frequency_derived": False,
             "binding": (
-                "the generator density P/24 is reserve-presence probability per "
-                "accepted repair event; the physical clock is repair-event counting, "
-                "so no seconds-valued constant enters the computation"
+                "no clock binding is proved here; a noncommutative transition "
+                "algebra, source state, event-to-refinement map, and operational "
+                "calibration remain separate requirements"
             ),
         },
         "defect_bound_summary": {
-            "semigroup": "exact on the dyadic grid at every depth (interval width gate)",
-            "derivative": "sub-step quotient equals P/24 exactly at every depth",
+            "scope": "arithmetic of the constructed conditional survival family",
+            "semigroup": (
+                "algebraic on the dyadic grid of the constructed family "
+                "(interval width gate)"
+            ),
+            "derivative": (
+                "the constructed sub-step quotient equals the imported P/24 "
+                "density at every depth"
+            ),
             "orientation_balance": (
-                "slot-count defect 0 exactly; survival defect bounded by "
-                "(P/24)_hi^2 2^-m, shrinking with depth"
+                "slot-count defect 0 exactly; the displayed survival defect "
+                "assumes uniform splitting and does not prove weighted "
+                "orientation balance"
             ),
             "refinement": (
                 "e^(-P/24) - u_m(1) strictly positive and bounded by "
@@ -739,14 +1053,14 @@ def build(
                 "note": "a diagnostic alternative, not the selected edge-center coordinate",
             },
         },
-        "rejected_branches": {
+        "branch_boundaries": {
             "wrong_orientation_factor_1": {
                 "theta": _interval_json(theta_wrong_orientation),
-                "status": "rejected_orientation_branch",
+                "status": "not_ruled_out_by_slot_counts_alone",
                 "reason": (
-                    "taking the full collar for the source-facing restriction "
-                    "ignores the fixed-point-free orientation-reversal involution "
-                    "whose two classes are exactly equal at every tower depth"
+                    "equal cardinalities do not fix weighted reserve shares; "
+                    "the weighted coarea premise, if independently supplied, "
+                    "selects the factor one half"
                 ),
                 "disjoint_from_selected_theta": True,
             },
@@ -771,20 +1085,30 @@ def build(
         "freeze_policy": "freezing the source artifact before sky comparison is an owner action",
         "acceptance_mapping": {
             "clock_normalization_source_identified": {
-                "discharged_here": True,
-                "detail": "derived lattice invariant m_rep = 24 with its theorem and artifacts",
+                "discharged_here": False,
+                "detail": (
+                    "m_rep=24 is a conditional scheduler count; no theorem here "
+                    "binds it to the collar refinement coordinate or an "
+                    "operational clock"
+                ),
             },
             "full_collar_derivative_and_half_collar_identity": {
-                "discharged_here": True,
-                "detail": "finite error bounds computed and gated at every depth",
+                "discharged_here": False,
+                "partial_arithmetic_check": True,
+                "detail": (
+                    "interval propagation and constructed-family defects are "
+                    "checked, but P/24 is an imported declared branch input and "
+                    "the weighted half identity is an additional premise"
+                ),
             },
             "source_graph_ancestry": {
-                "discharged_here": True,
+                "discharged_here": False,
+                "local_target_injection_rejected": True,
                 "detail": (
-                    "no measurement, likelihood, fit, residual, or data-calibrated "
-                    "input enters this module; P enters only as the declared "
-                    "closure-map enclosure whose own claim boundary and consumer "
-                    "policy are recorded in the antecedents"
+                    "the local module rejects target-shaped inputs, but it does "
+                    "not construct one complete source DAG; P and P/24 enter "
+                    "through conditional upstream artifacts and declared branch "
+                    "premises"
                 ),
             },
             "simulator_emits_p_over_48_only_from_receipt": {
@@ -797,16 +1121,53 @@ def build(
             "paper_and_simulator_distinguish_infinitesimal_from_finite": {
                 "discharged_here": False,
                 "detail": (
-                    "the paper fragment already states the distinction; the "
-                    "simulator-side statement is owned by #579/#580"
+                    "the paper fragment states the distinction; the "
+                    "simulator-side statement belongs to #579/#580"
                 ),
             },
+            "all_issue_acceptance_criteria_satisfied": {
+                "discharged_here": False,
+                "detail": "the source, weighted-half, clock, and simulator gates remain open",
+            },
+        },
+        "claim_boundary": {
+            "proves": (
+                "exact integer collar counts and rigorous interval arithmetic "
+                "for the consequences of imported P/24 and weighted-half "
+                "premises; an exhaustive independence no-go for every selector "
+                "whose complete input is the integer collar-count tower"
+            ),
+            "does_not_prove": [
+                "that finite collar counts emit the reserve density P/24",
+                "that equal orientation counts force equal reserve weights",
+                "an operational or physical repair clock",
+                "that the simulator consumes theta only from this artifact",
+                "a physical or frozen prediction of n_s",
+            ],
+        },
+        "negative_closure_status": {
+            "status": "proved_no_go_at_count_only_interface",
+            "counts_do_not_select_reserve_density": True,
+            "counts_do_not_select_weighted_half": True,
+            "counts_do_not_select_generator": True,
+            "counts_do_not_select_clock_scale": True,
+            "scope": count_no_go["exhaustive_scope"],
+            "required_extra_inputs": [
+                "source reserve-weight receipt",
+                "weighted orientation-reversal coarea identity",
+                "source generator receipt",
+                "event-to-log-thickness or operational-clock map",
+            ],
         },
     }
+    payload["artifact_sha256"] = _payload_sha256(payload)
     return payload
 
 
-def _run_controls() -> dict[str, Any]:
+def _run_controls(
+    weight_countermodel: dict[str, Any],
+    count_no_go: dict[str, Any],
+) -> dict[str, Any]:
     """Execute the required rejection controls; fail closed if any passes."""
     controls: dict[str, Any] = {}
 
@@ -831,10 +1192,51 @@ def _run_controls() -> dict[str, Any]:
     else:
         raise CertificateError("control failure: e branch was accepted as primary")
 
-    controls["wrong_orientation_factor_1"] = {
+    if not (
+        weight_countermodel[
+            "equal_weight_forward_reserve_share_at_every_depth"
+        ]
+        == "1/2"
+        and weight_countermodel[
+            "biased_positive_weight_forward_reserve_share_at_every_depth"
+        ]
+        == "2/3"
+        and weight_countermodel["all_weights_strictly_positive"] is True
+    ):
+        raise CertificateError("orientation-weight countermodel failed")
+    controls["slot_count_only_weighted_half_claim"] = {
         "rejected": True,
-        "reason": "produces theta = P/24 and is flagged as the rejected orientation branch",
+        "reason": (
+            "equal forward/backward slot counts admit both one-half and "
+            "two-thirds forward reserve shares under strictly positive weights"
+        ),
+        "countermodel": weight_countermodel,
     }
+    for name, action, marker in (
+        (
+            "count_only_unique_reserve_share_claim",
+            assert_counts_select_unique_reserve_share,
+            "COUNT_WEIGHT_INDEPENDENCE",
+        ),
+        (
+            "count_only_unique_generator_claim",
+            assert_counts_select_unique_generator,
+            "COUNT_GENERATOR_INDEPENDENCE",
+        ),
+        (
+            "count_only_unique_clock_scale_claim",
+            assert_counts_select_unique_clock_scale,
+            "COUNT_CLOCK_INDEPENDENCE",
+        ),
+    ):
+        try:
+            action(count_no_go)
+        except CertificateError as error:
+            if marker not in str(error):
+                raise
+            controls[name] = {"rejected": True, "reason": str(error)}
+        else:
+            raise CertificateError(f"control failure: {name} was accepted")
     return controls
 
 
@@ -847,6 +1249,19 @@ def build_check_primary_branch(primary_branch: str) -> None:
         )
 
 
+def verify_stored_artifact(path: Path, expected: dict[str, Any] | None = None) -> None:
+    """Fail closed unless a stored artifact matches a fresh build and self-hash."""
+
+    if not path.exists():
+        raise CertificateError(f"missing stored artifact: {path}")
+    stored = json.loads(path.read_text(encoding="utf-8"))
+    verify_artifact_self_hash(stored)
+    fresh = expected if expected is not None else build()
+    verify_artifact_self_hash(fresh)
+    if stored != fresh:
+        raise CertificateError("stored artifact is stale, malformed, or tampered")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -854,18 +1269,30 @@ def build_check_primary_branch(primary_branch: str) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Emit the finite edge-center generator and clock certificate (#522)."
+        description=(
+            "Emit the conditional edge-center arithmetic and count-only "
+            "independence packet (#522)."
+        )
     )
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     parser.add_argument("--print-json", action="store_true")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="verify the stored output against a fresh build without rewriting it",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     payload = build()
-    text = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     out_path = Path(args.output)
+    if args.check:
+        verify_stored_artifact(out_path, payload)
+        print(f"verified: {out_path}")
+        return 0
+    text = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(text, encoding="utf-8")
     if args.print_json:

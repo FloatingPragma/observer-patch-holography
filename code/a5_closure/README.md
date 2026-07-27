@@ -33,7 +33,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 
 | Object | Statement |
 |---|---|
-| **Echosahedral source selector (#565)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, the integer total-12 defect readback, oriented edge/face incidence, and refinement lineage derive: the unique all-one split with exact quadratic gap `2`; the unique graph-distance-three antipode; `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups; six axes; and the exact rank-three Gram frame `G^2=4G`. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and nine negative controls. |
+| **Echosahedral counting and incidence selector (#565, #625)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, an additional integer atom-counting grammar on the total-12 fiber, and the normalized central-readback Hilbert-Schmidt cost give the unique all-one split with exact quadratic gap `2`. Oriented edge/face incidence and the refinement lineage independently give the unique graph-distance-three antipode, `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups, six axes, and the exact rank-three Gram frame `G^2=4G`. A covariant half-count candidate exists on the reduced finite-atomic carrier. Its complete A1 operational/refinement data, A2 naturality, and A3 optimizer lift are open, so #625 does not establish full-schema independence. Issue #628 owns the operational source construction. The receipt checks all 60 proper and 60 improper frame determinants, refinement cocycles, arbitrary relabelling equivariance, and the typed negative controls. |
 | **Source-bound port-current algebra (#566, #599)** | Given the certified #565 carrier and the hash-pinned semantic response artifact measured from the carrier dynamics (sector structure `1+3+3'+5` with Galois-paired triplets, oriented port-to-vertex frame, potential and rotation response channels with measured signs, defect-port persistence maps), the certificate recomputes every exact artifact claim in `Q(sqrt5)` and derives the map `K : P12 -> u(C^3 (+) C^3)` with twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared tower and the physical persistence maps. The equivariant intertwiner space is exactly four-dimensional; the construction-model string is control-lane only and the physical source gate is computed from the binding. Nineteen negative controls fail closed. Theorem and proofs: `physics-problems/issue_566_port_current_algebra.md`. |
 | **Source-bound super-Tannakian matter lift (#314)** | Given the hash-pinned source-bound #566 packet: the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — PORT-SPIN-LIFT); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed on the genuine simply connected cover `R x SU(3) x SU(2)` and **emitted** as data without forming the quotient. The trace-balanced charge pair `(-1/3, 1/2)` is **derived** by BLOCK-DETERMINANT-BALANCE (anomaly freedom of the realized package forces the balance line, primitive `q = 6Y` integrality and the measured artifact orientation fix the pair), the scalar and channel list are **derived** by the selection scan (admissible scalar charges exactly the conjugate pair `+-3` equal to the weak-block charge), the category typing is **forced** on the realized module by the failing Vec/sVec controls, and the artifact persistence maps are intertwined on the carrier and the Fock realization. The measured spin statistics artifact supplies the transport double cover from source: the exact quaternion lifts of the sixty measured deck rotations, the binary-icosahedral order profile, the centre `{+1,-1}`, the eight-way section-sign exhaustion over all five Klein four-subgroups, and the unique spin structure on the oriented support. The exhaustive 1024-subset anomaly scan (machine-checked in `Lean/Screen/ExteriorSelection.lean`) selects the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output, and the implementation enumeration forces the Spin/odd-Weyl typing: the gauge centre is excluded by the Lean fermion-parity no-go and the measured `-1` is the unique remaining central implementation. Candidate-class nonemptiness is witnessed without promoting uniqueness; scalar existence and multiplicity are owned by #609. Twenty typed negative controls fail closed. Theorem and proofs: `physics-problems/issue_314_super_tannakian_matter_lift.md`. |
 | **Source-bound axis-centre descent (#567)** | Consuming the pinned #314 receipt and the measured global-form artifact, exhaustive enumeration over the 36 central candidates gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})`; the character lattice has basis `(1,0,-2), (0,1,-3), (0,0,6)` with Smith invariants `(1,1,6)` and exact dual basis `(1,0,0)`, `(0,1,0)`, `(1/3,1/2,1/6)`. Local tensors alone descend through quotients by `1`, `Z2`, `Z3`, and `Z6` (character-residue counts `36,18,12,6`) and cannot select — that stays on the record as the negative control. The selection is carried by measured source data: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group of exactly the kernel order, and the measured flux-sector menu `{0..5}` realized by two-puncture seam witnesses on the base and refined supports, with exact single-puncture impossibility. Realized matter transports single-valuedly through every measured sector (42 monodromy checks) while a fractional singlet obstructs every nonzero sector; the unique global form whose sector menu equals the measured menu is the `Z6` quotient. The Dirac-pairing commutant theorem selects the electric (Wilson) polarization as the unique maximal mutually-local lattice containing the realized lines (12 lattices enumerated, 1 admissible). `h^3=(1,-I_2,-1)` acts trivially and is not fermion parity; screen-scope Spin attachment comes from the #314 source-derived typing with no mixed quotient. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
@@ -41,7 +41,7 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
 | Icosahedral selection | 3 distinct inner products `{-1, ±1/sqrt5}`, spherical 5-design ⇒ **sharp** (`m=3`, strength `2m-1=5`). By Cohn–Kumar (JAMS 20, 2007) it uniquely minimizes every strictly completely monotonic pair cost of squared distance, up to `O(3)`. |
-| D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. This remains an independent optimality cross-check; it is no longer needed as the source selector on the certified echosahedral-federation branch. |
+| D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. This is an independent optimality cross-check. The certified echosahedral-federation branch uses the declared counting/cost and incidence packet instead. |
 | Compact-Lie trichotomy | Exactly three algebras: `u(1)^12`, `su(2)^2 + u(1)^6`, `su(3) + su(2) + u(1)` |
 | **Inner-action closure** | If the `A5` action is **inner**: `dim Z(g) <= 1` (inner autos fix the center pointwise); `Z(g)=0` forces `su(2)^4` whose fixed-space dimension is a multiple of 3, contradicting `dim g^{A5}=1`; hence `dim Z(g)=1`, semisimple dim 11, and `11=8+3` uniquely ⇒ `su(3)+su(2)+u(1)`. **Needs no `W5-NONCENTRAL` receipt.** |
 | Angular multiplets | `l=2: 5` (irreducible); `l=3: 3'+4`; `l=4: 4+5`; `l=5: 3+3'+5`; `l=6: 1+3+4+5`. First nonconstant invariant at `l=6`. Frozen forward target FZ-02 with kill bands and timestamped custody; Lean receipt `A5AngularMultiplets.lean`; deterministic receipt via `a5_harmonic_decomposition.py --receipt`. |
@@ -126,22 +126,28 @@ exact on the family multiplicity space, it restricts Yukawa tensors to
 `A5`-invariant pairings; general family matrices require a source-derived
 breaking, hiding, or forgetting mechanism.
 
-### Receipts closed on the echosahedral-federation branch
+### Exact receipts on the declared echosahedral realization
 
-- **UD12** is closed by `echosahedral_selector_certificate.py`: the source
-  domain is the integer total-12 fiber, the equal-trace central readback norm
-  is `H(q)=sum q_i^2`, and `H=12+sum(q_i-1)^2` gives the unique all-one
-  minimizer with exact next floor `14`.
-- **RP-A5** is closed without a downstream representation or measured datum:
+- **UD12** is exact within the declared realization checked by
+  `echosahedral_selector_certificate.py`: the integer total-12 fiber and the
+  normalized central readback norm `H(q)=sum q_i^2` are inputs, and
+  `H=12+sum(q_i-1)^2` gives the unique all-one minimizer with exact next floor
+  `14`.
+- **RP-A5** is exact without a downstream representation or measured datum:
   the source-oriented incidence produces the unique distance-three antipode,
   the positive automorphism group is explicitly `A5`, and the distance Gram
   matrix satisfies `G^2=4G`, giving the regular six-axis frame. The theorem,
   data model, equivalence, refinement proof, and countermodels are in
   `physics-problems/issue_565_echosahedral_selector.md`.
 
-These closures use the declared simulator assumption that every local carrier
-lineage is a quotient-visible twelve-port echosahedral packet. They do not
-prove that arbitrary OPH carriers must have this type.
+These results use the declared simulator assumption that every local carrier
+lineage is a quotient-visible twelve-port echosahedral packet. UD12 also uses
+the separately declared integer counting grammar and normalized readback cost.
+A covariant half-count candidate exists on the reduced finite-atomic carrier.
+Its complete A1 operational/refinement data, A2 naturality, and A3 optimizer
+lift are open. Issue #625 therefore carries no full-schema independence
+closure, and issue #628 owns the operational source. The results do not prove
+that arbitrary OPH carriers must have this type.
 
 - The **conditional PORT-CURRENT-INNER algebraic construction** is verified by
   `port_current_inner_certificate.py`: given the charged-double-triplet model
@@ -270,8 +276,14 @@ unit-splitting premise. The independent cross-check
 from golden-ratio coordinates alone and reproduces the orbit, commutant,
 fiber-count, spectrum, kernel, and enumeration data (22 checks, all
 passing 2026-07-23). The issue-#565 artifact supplies an exact executable finite
-proof of the source integer domain, strict readback cost, antipode, `A5`
-action, frame, refinement, relabelling, and countermodels. The issue-#566
+check of the declared integer domain, strict readback cost, antipode, `A5`
+action, frame, refinement, relabelling, and countermodels. The issue-#625
+artifact records the reduced-carrier half-count candidate and the exact local
+A3 expansion:
+the Kullback-Leibler second-order Taylor coefficient is `6 I`, while the
+Hessian, equivalently the Fisher matrix, is `12 I`. Neither infinitesimal
+object supplies the exact discrete physical cost. A full operational,
+refinement-natural three-axiom lift of the half-count candidate is open. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
 moduli proofs on the declared response branch. The issue-#314 artifact
 supplies the exact executable spin lift, matter transport, CAR/Fock

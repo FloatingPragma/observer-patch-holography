@@ -145,7 +145,10 @@ recovery, generalized-entropy structure, or any laboratory identification.
 The listed incidence consequences (inverse port, axes, \(A_5\), frame pair,
 antipode polynomial) are theorems about A1 carriers, proved separately; the
 response law and current algebra are exact results inside a named
-realization; the load fiber is a derivation target. Equal state weights are
+realization. The integer load fiber is exact in a declared counting
+realization. A covariant rational central-readback family separates the
+reduced finite-atomic interface, but its complete A1 operational/refinement,
+A2 naturality, and A3 optimizer lift remains open in issue #625. Equal state weights are
 not A1 content; they follow from A1 and A3 together (see the A3 section).
 No gauge, particle, coupling, measured-target, or fitted coordinate may
 appear in the source packet used for any of these derivations.

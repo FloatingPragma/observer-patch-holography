@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Classification certificate for GitHub issue #624: NONCENTRAL ROUTED-SEAM
+"""Bounded certificate for GitHub issue #624: NONCENTRAL ROUTED-SEAM
 GRAMMAR.
 
 The input is the hash-pinned #613 routed-seam grammar manifest together with
 the chain it binds: the #567 descent manifest, the measured global-form
 artifact, the measured #314 spin-statistics artifact, and the certified
 carrier federation.  No physics pinned by those artifacts is recomputed; this
-certificate consumes their fields, reconstructs the icosahedral federation
-nerve (twelve charts, thirty seams, twenty triple overlaps), and classifies
-the routed-seam mechanism space with values in an arbitrary finite group by
-exact integer and permutation arithmetic:
+certificate consumes their fields and reconstructs the icosahedral
+federation nerve (twelve charts, thirty seams, twenty triple overlaps).  It
+establishes two exact subresults and records the boundaries that prevent a
+general noncentral-grammar closure:
 
 * flat part trivial, exact: a seam assignment valued in a finite group that
   satisfies every triple-overlap coherence relation exactly is gauge trivial,
@@ -30,32 +30,38 @@ exact integer and permutation arithmetic:
   letters, and for the quaternion group of order eight; the count identity
   is verified exhaustively on a reduced two-face simply connected complex
   for the two small groups;
-* obstruction part central, exact: a mechanism that is coherent only up to a
-  face 2-cocycle (lifting data of the double-cover type) has its face
-  discrepancy valued in the group centre; the discrepancy of a
-  vertex-regauged assignment commutes with every propagated seam value and
-  with every group element, and is gauge invariant, verified on a lifted
-  witness with values in the binary icosahedral group.  The obstruction
-  classes on the spherical nerve form the centre exactly: the face-boundary
-  transpose has nineteen unit Smith invariants, integer flux tubes realize
-  the full sum-zero lattice, so the second cohomology with coefficients in
-  any abelian group is that group, computed for Z2, Z3, Z6, and the centres
-  of the three verified value groups.  The measured binary-icosahedral
-  transport is recovered as the nontrivial Z2-central class: the pinned
-  Klein-four lift table gives a 2-cocycle with no section over eight sign
-  assignments, matching the pinned section-obstruction data;
-* consequence: every quotient-visible routed-seam mechanism on the
-  spherical federation nerve reduces to central obstruction data, the
-  noncentral values add no flux sectors, and with the realized matter
-  transport constraint the measured order-six menu stands.  Nerves with
-  nontrivial fundamental group would carry flat sectors classified by
-  conjugacy classes of homomorphisms from the fundamental group and are
-  recorded as the out-of-class control; they are not admissible for the
-  spherical support.
+* central-coefficient part, exact and conditional: if the face discrepancy
+  is separately typed as a cocycle in a specified abelian central
+  coefficient group A, the face-boundary transpose has nineteen unit Smith
+  invariants and integer flux tubes realize the full sum-zero lattice.
+  Hence H2 of the spherical nerve with those fixed coefficients is A.  This
+  is computed for Z2, Z3, Z6, and the centres of the three tested value
+  groups.  Centrality is an input to this lane, not a consequence of A2
+  naturality or triple-overlap coherence;
+* measured extension witness, exact but separate: the pinned Klein-four lift
+  table defines a nonsplit central extension over V4, verified over all
+  eight sign choices.  This is a group-extension class over V4.  The
+  certificate does not identify it with a cellular H2 class on the
+  spherical nerve;
+* open boundaries, exact: a cyclic coefficient group Z7 gives seven
+  cellular H2 classes by the same Smith calculation, so the measured
+  order-six menu is not generally exhaustive until the admissible coefficient
+  group is source-derived. Exact Z6 and Z7 candidates retain the pinned
+  incidence architecture and pass reduced translation and uniform-state
+  checks. They do not instantiate the complete A1, A2, or A3 schema. The
+  measured binary-icosahedral transport factor remains parallel and is not
+  folded into those coefficient groups. The identity crossed module S3 -> S3
+  with conjugation action satisfies both Peiffer identities and carries raw
+  noncentral face labels, but its kernel and cokernel are trivial. Its 2-type
+  is contractible, so it supplies no nontrivial higher sector. The Z6/Z7
+  models exercise only a reduced seam/register interface; their lift to every
+  clause of the complete A1-A3 schema remains open. These witnesses do not
+  establish an independence-limited exit. Nerves with nontrivial fundamental
+  group provide the separate flat-sector boundary.
 
-An incoherent assignment, a claimed noncentral obstruction, a claimed extra
-flux sector from seams valued in the symmetric group on three letters, and a
-tampered spin-manifest pin all fail closed.  Four-dimensional instanton
+An incoherent assignment, a missing triple overlap, an unsupported
+order-six promotion for an injected Z7 centre, and a tampered spin-manifest
+pin all fail closed.  Matter transport, four-dimensional instanton
 normalization, theta periodicity, and laboratory current lines are separate
 gates and are not touched here.
 """
@@ -87,8 +93,8 @@ write_json = r613.write_json
 require_exact_keys = r613.require_exact_keys
 
 SCHEMA = "oph.noncentral_seam_reduction_certificate.v1"
-RECEIPT_SCHEMA = "oph.noncentral_seam_reduction_receipt.v1"
-NEGATIVE_SCHEMA = "oph.noncentral_seam_reduction_negative_controls.v1"
+RECEIPT_SCHEMA = "oph.noncentral_seam_reduction_receipt.v3"
+NEGATIVE_SCHEMA = "oph.noncentral_seam_reduction_negative_controls.v2"
 
 MANIFEST_KEYS = {
     "schema",
@@ -102,6 +108,8 @@ FORBIDDEN_MANIFEST_KEYS = (
     "noncentral_flux_sector",
     "flat_sector_promotion",
     "fundamental_group_sector",
+    "allowed_value_groups",
+    "allowed_centre_orders",
     "instanton_sector",
     "theta_periodicity",
     "laboratory_flux_measurement",
@@ -260,6 +268,27 @@ def build_symmetric_group_three() -> TableGroup:
     return TableGroup("S3", list(itertools.permutations(range(3))), compose)
 
 
+def build_cyclic_group(order: int) -> TableGroup:
+    """The exact additive cyclic group used for coefficient-boundary tests."""
+
+    require(
+        type(order) is int and order >= 1,
+        "GROUP_RECONSTRUCTION",
+        f"a cyclic group needs a positive integer order, got {order!r}",
+    )
+
+    def add(left: int, right: int) -> int:
+        return (left + right) % order
+
+    group = TableGroup(f"Z{order}", list(range(order)), add)
+    require(
+        len(group.centre) == order,
+        "GROUP_RECONSTRUCTION",
+        f"the cyclic group Z{order} is not central in the reconstructed table",
+    )
+    return group
+
+
 def pinned_lift_quaternions(
     spin_artifact: Mapping[str, Any]
 ) -> tuple[list[Q5Quaternion], list[tuple[int, ...]]]:
@@ -354,6 +383,28 @@ def make_complex(
         "faces": [tuple(face) for face in faces],
         "edge_index": {edge: position for position, edge in enumerate(edges)},
     }
+
+
+def require_complete_pinned_nerve(
+    cx: Mapping[str, Any], expected_edges: Sequence[tuple[int, int]]
+) -> None:
+    """Scope gate for the complete A1 icosahedral overlap nerve."""
+
+    require(
+        cx["vertex_count"] == 12,
+        "MISSING_OVERLAP",
+        f"the pinned nerve needs twelve charts, got {cx['vertex_count']}",
+    )
+    require(
+        cx["edges"] == list(expected_edges),
+        "MISSING_OVERLAP",
+        "the pinned nerve seam set changed",
+    )
+    require(
+        len(cx["faces"]) == 20,
+        "MISSING_OVERLAP",
+        f"the pinned nerve needs twenty triple overlaps, got {len(cx['faces'])}",
+    )
 
 
 def spanning_tree(cx: Mapping[str, Any]) -> tuple[list[tuple[int, int]], set[int]]:
@@ -725,12 +776,13 @@ def h2_smith_block(nerve: Mapping[str, Any], centre_orders: Mapping[str, int]) -
 def central_discrepancy_certificate(
     cx: Mapping[str, Any], group: TableGroup, assignment: Sequence[int]
 ) -> dict[str, Any]:
-    """Fail-closed centrality of the face discrepancy of a seam assignment.
+    """Verify the conditional central-coefficient lane.
 
-    Every face discrepancy must commute with every seam value and with every
-    group element; a noncentral discrepancy is rejected.  The discrepancy of
-    the vertex-regauged assignment must equal the original discrepancy,
-    which is the gauge invariance of central obstruction data.
+    Centrality is a premise of this lane.  Every face discrepancy must
+    commute with every seam value and belong to the group centre; an
+    assignment outside that declared coefficient system is left to the open
+    noncentral grammar.  For admitted central data, vertex regauging leaves
+    the discrepancy unchanged.
     """
 
     discrepancies = face_discrepancies(cx, group, assignment)
@@ -763,6 +815,7 @@ def central_discrepancy_certificate(
     return {
         "discrepancies": discrepancies,
         "class_element": class_element,
+        "centrality_is_hypothesis": True,
         "commutes_with_every_seam_value": True,
         "centre_membership": True,
         "gauge_invariant": True,
@@ -772,14 +825,16 @@ def central_discrepancy_certificate(
 def lifted_witness_block(
     cx: Mapping[str, Any], group: TableGroup, rng: random.Random
 ) -> dict[str, Any]:
-    """A lifted double-cover-type mechanism with central Z2 obstruction data.
+    """A lifted double-cover witness inside the conditional central lane.
 
     The quotient by the centre is the icosahedral rotation group of order
     sixty.  A coherent quotient mechanism is built as a quotient pure gauge
     and lifted seam by seam through the canonical coset section; the face
-    discrepancies land in the centre, commute with every propagated seam
-    value, are gauge invariant, and carry the trivial total class because a
-    lifted coboundary has coboundary discrepancy data.
+    discrepancies happen to land in the centre for this chosen central
+    extension, commute with every propagated seam value, and carry the
+    trivial cellular total class because they come from an actual lifted
+    assignment.  This witness does not prove that all higher seam data are
+    central.
     """
 
     minus_one = minus_one_index(group)
@@ -825,6 +880,7 @@ def lifted_witness_block(
     return {
         "quotient_group_order": 60,
         "lift_trials_scanned": trials_scanned,
+        "scope": "chosen binary-icosahedral central extension only",
         "discrepancy_values": "plus one and minus one only",
         "minus_one_faces": minus_one_faces,
         "commutes_with_every_seam_value": True,
@@ -886,14 +942,14 @@ def central_twist_flux_block(
 def section_obstruction_match_block(
     group: TableGroup, spin_artifact: Mapping[str, Any]
 ) -> dict[str, Any]:
-    """Recover the measured transport as the nontrivial central Z2 class.
+    """Verify the measured transport's nonsplit extension class over V4.
 
     The pinned Klein-four lift table gives three deck involutions with unit
     quaternion lifts inside the reconstructed group.  The lifting 2-cocycle
     is recomputed exactly and all eight sign assignments fail to close a
-    section, matching the pinned section-obstruction data, so the measured
-    double-cover transport carries the nontrivial class of the order-two
-    centre.
+    section, matching the pinned section-obstruction data.  This is a group
+    extension statement over V4, not an identification with the cellular
+    H2(S2, Z2) class computed on the federation nerve.
     """
 
     quaternions, permutations = pinned_lift_quaternions(spin_artifact)
@@ -977,13 +1033,452 @@ def section_obstruction_match_block(
         "sign_assignments_tested": sign_assignments_tested,
         "sections_found": sections_found,
         "matches_pinned_section_obstruction": True,
-        "recovered_class": "the nontrivial class of the order-two centre",
+        "extension_base": "V4",
+        "extension_kernel": "Z2",
+        "extension_status": "nonsplit",
+        "cohomology_domain": "group extension over V4",
+        "not_identified_with": "cellular H2 of the spherical federation nerve",
     }
 
 
 # ---------------------------------------------------------------------------
-# Consequence: sector menu exhaustion and the out-of-class control
+# Independence boundaries and bounded consequences
 # ---------------------------------------------------------------------------
+
+
+def require_cyclic_centre_embedding_in_order_six(centre_order: int) -> None:
+    """Reject an unsupported promotion into the measured cyclic order-six menu."""
+
+    require(
+        type(centre_order) is int
+        and centre_order >= 1
+        and 6 % centre_order == 0,
+        "UNCONSTRAINED_CENTRE",
+        (
+            f"a cyclic centre of order {centre_order} does not embed in the "
+            "measured cyclic order-six menu; an admissible-centre selector "
+            "is required before any exhaustiveness claim"
+        ),
+    )
+
+
+def unconstrained_centre_boundary(nerve: Mapping[str, Any]) -> dict[str, Any]:
+    """Exact Z7 boundary for the typed central-coefficient calculation."""
+
+    z7 = build_cyclic_group(7)
+    smith = h2_smith_block(nerve, {"Z(Z7) = Z7": len(z7.centre)})
+    class_count = smith["h2_by_value_group_centre"]["Z(Z7) = Z7"]
+    require(
+        class_count == 7,
+        "UNCONSTRAINED_CENTRE",
+        f"the Z7 coefficient boundary emitted {class_count} classes, not seven",
+    )
+    actual = "ACCEPTED"
+    try:
+        require_cyclic_centre_embedding_in_order_six(class_count)
+    except CertificateError as exc:
+        actual = exc.code
+    require(
+        actual == "UNCONSTRAINED_CENTRE",
+        "NEGATIVE_CONTROL_FAILED",
+        f"the injected Z7 centre was not rejected from order-six promotion: {actual}",
+    )
+    return {
+        "value_group": "Z7",
+        "value_group_order": z7.order,
+        "centre": "Z7",
+        "cellular_h2_class_count": class_count,
+        "order_six_promotion_error": actual,
+        "boundary": (
+            "the same spherical Smith calculation gives H2(S2, Z7) = Z7; "
+            "the typed central-coefficient calculation does not select or "
+            "exclude this coefficient group, so it cannot establish an "
+            "unrestricted order-six exhaustiveness theorem"
+        ),
+    }
+
+
+def crossed_module_boundary(group: TableGroup) -> dict[str, Any]:
+    """Exact raw-grammar boundary using the contractible id:S3 -> S3 2-group.
+
+    With boundary map the identity and action by conjugation, both crossed
+    module Peiffer identities hold, and raw H-valued face labels can be
+    noncentral. Since the boundary is the identity, both ker(boundary) and
+    coker(boundary) are trivial. This witness has no nontrivial 2-bundle sector
+    up to 2-gauge equivalence and cannot close the physical higher-grammar
+    classification.
+    """
+
+    require(
+        group.name == "S3",
+        "CROSSED_MODULE",
+        "the reference crossed-module boundary is defined on S3",
+    )
+
+    def action(g: int, h: int) -> int:
+        return group.mul(group.mul(g, h), group.inverse[g])
+
+    equivariance_checks = 0
+    peiffer_checks = 0
+    action_composition_checks = 0
+    for g in range(group.order):
+        for h in range(group.order):
+            require(
+                action(g, h)
+                == group.mul(group.mul(g, h), group.inverse[g]),
+                "CROSSED_MODULE",
+                "the identity boundary is not equivariant under conjugation",
+            )
+            equivariance_checks += 1
+            for k in range(group.order):
+                require(
+                    action(h, k)
+                    == group.mul(group.mul(h, k), group.inverse[h]),
+                    "CROSSED_MODULE",
+                    "the second Peiffer identity failed",
+                )
+                peiffer_checks += 1
+                require(
+                    action(group.mul(g, h), k) == action(g, action(h, k)),
+                    "CROSSED_MODULE",
+                    "the conjugation action is not a group action",
+                )
+                action_composition_checks += 1
+    noncentral = min(
+        element
+        for element in range(group.order)
+        if element not in group.centre
+    )
+    require(
+        noncentral not in group.centre and noncentral != group.identity,
+        "CROSSED_MODULE",
+        "the crossed-module witness is not genuinely noncentral",
+    )
+    return {
+        "crossed_module": "identity boundary S3 -> S3 with conjugation action",
+        "boundary_map": "identity",
+        "action": "conjugation",
+        "equivariance_checks": equivariance_checks,
+        "peiffer_checks": peiffer_checks,
+        "action_composition_checks": action_composition_checks,
+        "noncentral_face_label_index": noncentral,
+        "noncentral_face_label_in_centre": False,
+        "kernel_order": 1,
+        "cokernel_order": 1,
+        "homotopy_pi1": "trivial",
+        "homotopy_pi2": "trivial",
+        "two_type_contractible": True,
+        "nontrivial_sector_emitted": False,
+        "status": "raw_grammar_boundary_only_contractible_2_group",
+        "reading": (
+            "the strict crossed-module syntax admits noncentral raw face "
+            "labels, but the identity boundary makes the 2-type contractible. "
+            "A nontrivial finite 2-type and its complete A1-A3 lift are needed "
+            "before this can witness a physical sector outside the central lane"
+        ),
+    }
+
+
+def cyclic_reduced_interface_model(
+    nerve: Mapping[str, Any], measured_group: TableGroup, order: int
+) -> dict[str, Any]:
+    """One exact cyclic model of the reduced seam/register interface.
+
+    The carrier incidence and overlap nerve are unchanged. Identity
+    interpretation closes the declared translation squares, and the uniform
+    finite-label state minimizes the reduced relative-entropy objective. The
+    complete A1-A3 operational, refinement, and state-selection schema is not
+    instantiated.
+    """
+
+    require(
+        measured_group.name == "2I"
+        and measured_group.order == 120
+        and len(measured_group.centre) == 2,
+        "AXIOM_COUNTERMODEL",
+        "the cyclic completion must retain the measured 2I transport factor",
+    )
+    group = build_cyclic_group(order)
+    cx = make_complex(12, nerve["faces"])
+    require_complete_pinned_nerve(cx, nerve["edges"])
+    identity_assignment = [group.identity] * len(cx["edges"])
+    flat = trivialize(cx, group, identity_assignment)
+    require(
+        all(value == group.identity for value in flat["regauged"]),
+        "AXIOM_COUNTERMODEL",
+        f"Z{order}: the identity seam assignment is not exactly coherent",
+    )
+
+    naturality_checks = 0
+    for translation in range(order):
+        for datum in range(order):
+            interpreted_after_data_transport = (datum + translation) % order
+            meaning_transport_after_interpretation = (
+                datum + translation
+            ) % order
+            require(
+                interpreted_after_data_transport
+                == meaning_transport_after_interpretation,
+                "AXIOM_COUNTERMODEL",
+                f"Z{order}: an A2 translation square failed",
+            )
+            naturality_checks += 1
+
+    reference = tuple(Fraction(1, order) for _ in range(order))
+    require(
+        sum(reference) == 1,
+        "AXIOM_COUNTERMODEL",
+        f"Z{order}: the A3 reference is not normalized",
+    )
+    for translation in range(order):
+        translated = tuple(
+            reference[(index - translation) % order]
+            for index in range(order)
+        )
+        require(
+            translated == reference,
+            "AXIOM_COUNTERMODEL",
+            f"Z{order}: the A3 reference is not translation invariant",
+        )
+
+    coefficient_name = f"Z(Z{order}) = Z{order}"
+    smith = h2_smith_block(
+        nerve, {coefficient_name: len(group.centre)}
+    )
+    h2_count = smith["h2_by_value_group_centre"][coefficient_name]
+    require(
+        h2_count == order,
+        "AXIOM_COUNTERMODEL",
+        f"Z{order}: the central coefficient class count changed",
+    )
+
+    architecture = {
+        "carrier_manifest_sha256": nerve["carrier_manifest_sha256"],
+        "charts": 12,
+        "seams": 30,
+        "triple_overlaps": 20,
+        "oriented_faces": [list(face) for face in nerve["faces"]],
+    }
+    return {
+        "system_factors": [
+            "measured binary-icosahedral transport factor 2I",
+            f"separately typed central seam-label register Z{order}",
+        ],
+        "parallel_system_order": measured_group.order * group.order,
+        "parallel_system_centre_order": (
+            len(measured_group.centre) * len(group.centre)
+        ),
+        "added_seam_coefficient_group": f"Z{order}",
+        "added_coefficient_centre_order": len(group.centre),
+        "measured_binary_icosahedral_factor_retained": True,
+        "measured_factor_used_as_cellular_coefficient": False,
+        "shared_reduced_carrier_architecture_sha256": sha256_json(architecture),
+        "candidate_seam_interface_extension": {
+            "base_carrier_manifest_sha256": nerve["carrier_manifest_sha256"],
+            "unchanged_reduced_surfaces": [
+                "carrier and port incidence",
+                "overlap nerve and triple overlaps",
+                "measured binary-icosahedral transport factor",
+            ],
+            "proposed_added_surface": (
+                f"a finite central Z{order} public seam-label register whose "
+                "identity restrictions and refinement maps still require a "
+                "complete algebra-net construction"
+            ),
+            "complete_A1_compatibility_proved": False,
+            "primitive_central_port_preservation_proved": False,
+            "required_lift": (
+                "type the register as a seam/interface coefficient system and "
+                "verify the complete algebra-net, operational, refinement, and "
+                "support diagrams without tensoring the central record algebra"
+            ),
+            "invalid_shortcut_rejected": (
+                "tensoring each local central record algebra with C^n would "
+                "split the twelve primitive central port projections"
+            ),
+        },
+        "reduced_A1_checks": {
+            "finite_seam_value_type": True,
+            "complete_pinned_nerve": True,
+            "exactly_coherent_identity_assignment": True,
+            "distinct_coefficient_group_accepted_by_reduced_checks": True,
+        },
+        "reduced_A2_checks": {
+            "interpretation": "identity on the cyclic public seam label",
+            "data_and_meaning_transport": "the same cyclic translation",
+            "naturality_checks": naturality_checks,
+            "all_squares_commute": True,
+        },
+        "reduced_A3_checks": {
+            "optimizer_object": "finite seam-label distribution",
+            "reference": [str(value) for value in reference],
+            "realized_projection": [str(value) for value in reference],
+            "reference_translation_invariant": True,
+            "projection_argument": (
+                "relative entropy to the full-support uniform reference is "
+                "nonnegative and vanishes uniquely at that reference"
+            ),
+        },
+        "added_coefficient_h2_class_count": h2_count,
+        "forbidden_target_inputs": [],
+    }
+
+
+def reduced_interface_coefficient_models(
+    nerve: Mapping[str, Any], measured_group: TableGroup
+) -> dict[str, Any]:
+    """Z6 and Z7 models separate the reduced seam/register interface.
+
+    This function does not instantiate the complete revised A1-A3 schema.
+    """
+
+    z6 = cyclic_reduced_interface_model(nerve, measured_group, 6)
+    z7 = cyclic_reduced_interface_model(nerve, measured_group, 7)
+    require(
+        z6["shared_reduced_carrier_architecture_sha256"]
+        == z7["shared_reduced_carrier_architecture_sha256"],
+        "AXIOM_COUNTERMODEL",
+        "the cyclic models do not share the reduced carrier architecture",
+    )
+    require(
+        z6["reduced_A2_checks"]["all_squares_commute"]
+        and z7["reduced_A2_checks"]["all_squares_commute"],
+        "AXIOM_COUNTERMODEL",
+        "a reduced translation square does not commute",
+    )
+    require(
+        z6["reduced_A3_checks"]["reference_translation_invariant"]
+        and z7["reduced_A3_checks"]["reference_translation_invariant"],
+        "AXIOM_COUNTERMODEL",
+        "a reduced-objective reference is not invariant",
+    )
+    require(
+        z6["added_coefficient_h2_class_count"] == 6
+        and z7["added_coefficient_h2_class_count"] == 7,
+        "AXIOM_COUNTERMODEL",
+        "the reduced-interface models do not separate the flux class counts",
+    )
+    return {
+        "model_z6": z6,
+        "model_z7": z7,
+        "shared_reduced_carrier_architecture": True,
+        "both_satisfy_reduced_translation_naturality": True,
+        "both_satisfy_reduced_uniform_information_projection": True,
+        "complete_A1_schema_instantiated": False,
+        "complete_A2_data_access_diagrams_instantiated": False,
+        "complete_A3_feasible_family_cover_and_weights_instantiated": False,
+        "supports_full_A1_A2_A3_independence_claim": False,
+        "status": "reduced_interface_only_full_schema_lift_open",
+        "different_added_coefficient_h2_class_counts": [6, 7],
+        "reduced_interface_result": (
+            "while retaining the measured binary-icosahedral transport "
+            "factor as a parallel typed system, the reduced seam/register "
+            "checks admit finite added central coefficient registers with "
+            "different centres and different spherical H2 class counts"
+        ),
+        "open_lift": (
+            "instantiate the complete A1 algebra net, restrictions, readback, "
+            "repair, checkpoints, refinement and support bridge; close every "
+            "A2 meaning square; and prove the A3 product optimizer with its "
+            "complete feasible family, cover, and exact weights"
+        ),
+    }
+
+
+def central_matter_character_boundary() -> dict[str, Any]:
+    """Exact Z2 central-character dependence of matter transport."""
+
+    characters = {
+        "trivial": (1, 1),
+        "sign": (1, -1),
+    }
+    checks = 0
+    for values in characters.values():
+        for left in range(2):
+            for right in range(2):
+                require(
+                    values[(left + right) % 2]
+                    == values[left] * values[right],
+                    "MATTER_CHARACTER",
+                    "a declared Z2 central character is not multiplicative",
+                )
+                checks += 1
+    require(
+        characters["trivial"][1] != characters["sign"][1],
+        "MATTER_CHARACTER",
+        "the two exact central-character attachments do not separate",
+    )
+    return {
+        "coefficient_group": "Z2",
+        "nontrivial_class": 1,
+        "parameterized_effect": (
+            "a declared matter representation sees central class a through "
+            "its central character chi(a)"
+        ),
+        "exact_character_witnesses": {
+            "trivial": {"values": [1, 1], "class_one_action": 1},
+            "sign": {"values": [1, -1], "class_one_action": -1},
+        },
+        "multiplicativity_checks": checks,
+        "selection_status": (
+            "A1-A3 and the routed-seam grammar do not select a matter "
+            "representation or central character"
+        ),
+    }
+
+
+def branch_classification(
+    crossed_module: Mapping[str, Any],
+    matter_boundary: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Keep the three mechanism branches mathematically separate."""
+
+    return {
+        "ordinary_flat_one_group": {
+            "input": (
+                "an exactly coherent finite-group-valued edge assignment "
+                "modulo vertex gauge"
+            ),
+            "classification_on_pinned_nerve": "one gauge class",
+            "sector_effect": "no nontrivial flat sector",
+            "matter_transport_effect": (
+                "gauge-equivalent to the identity transport for every "
+                "declared ordinary group representation"
+            ),
+            "status": "exact",
+        },
+        "central_extension": {
+            "input": (
+                "a separately declared abelian central coefficient group A "
+                "and a cellular face 2-cocycle"
+            ),
+            "classification_on_pinned_nerve": "H2(S2,A)=A",
+            "sector_effect": "one cellular class per element of A",
+            "matter_transport_effect": matter_boundary,
+            "measured_member": (
+                "the binary-icosahedral lift is a nonsplit Z2 extension over "
+                "V4; this identifies its extension branch, not a particular "
+                "spherical cellular class"
+            ),
+            "status": "exact conditional on A and the matter character",
+        },
+        "genuinely_noncentral_higher_group": {
+            "input": "a crossed module H -> G with its G action",
+            "raw_syntax_witness": dict(crossed_module),
+            "sector_effect": (
+                "none for the current identity-boundary witness: ker and "
+                "coker are trivial, so its 2-type is contractible"
+            ),
+            "matter_transport_effect": (
+                "none established; a nontrivial crossed module and selected "
+                "2-representation are open"
+            ),
+            "status": (
+                "raw grammar boundary only; nontrivial higher-sector "
+                "classification open"
+            ),
+        },
+    }
 
 
 def admit_flux_sectors(classes: Sequence[int], centre_order: int) -> int:
@@ -1067,6 +1562,7 @@ def consequence_block(
         "the measured order-six menu is not pinned as expected",
     )
     two_i_centre = len(groups["binary_icosahedral"].centre)
+    require_cyclic_centre_embedding_in_order_six(two_i_centre)
     central_embedding = sorted(
         value for value in range(6) if (value * two_i_centre) % 6 == 0
     )
@@ -1078,17 +1574,20 @@ def consequence_block(
     return {
         "axis_class_lattice": lattice,
         "measured_flux_menu": menu,
-        "flux_menu_exhausted_by_central_classes": True,
+        "flux_menu_exhausted_by_central_classes": False,
+        "general_exhaustiveness_status": "not_established",
         "transport_centre_embedding": {
             "centre_order": two_i_centre,
             "menu_subgroup": central_embedding,
+            "scope": "measured binary-icosahedral extension only",
         },
         "menu_statement": (
-            "every quotient-visible routed-seam mechanism on the spherical "
-            "federation nerve reduces to central obstruction data, the "
-            "noncentral values add no flux sectors, and with the realized "
-            "matter transport constraint the measured order-six menu stands"
+            "the measured binary-icosahedral centre embeds as {0,3} in the "
+            "measured order-six menu; this compatibility does not classify "
+            "other value groups, prove general flux-menu exhaustiveness, or "
+            "calculate an action on realized matter transport"
         ),
+        "matter_transport_effect": "not_calculated",
         "out_of_class_control": out_of_class_control(groups),
     }
 
@@ -1126,6 +1625,11 @@ def structural_controls(
     noncentral_twisted[0] = two_i.mul(noncentral_twisted[0], noncentral_element)
     central_twisted = list(coherent)
     central_twisted[0] = two_i.mul(central_twisted[0], minus_one_index(two_i))
+    missing_overlap = make_complex(
+        cx["vertex_count"],
+        cx["faces"][:-1],
+        extra_edges=cx["edges"],
+    )
 
     run(
         "incoherent_assignment_detected",
@@ -1138,7 +1642,7 @@ def structural_controls(
         lambda: trivialize(cx, two_i, central_twisted),
     )
     run(
-        "noncentral_obstruction_rejected_by_commutation",
+        "noncentral_discrepancy_excluded_from_central_coefficient_lane",
         "NONCENTRAL_OBSTRUCTION",
         lambda: central_discrepancy_certificate(cx, two_i, noncentral_twisted),
     )
@@ -1146,6 +1650,16 @@ def structural_controls(
         "s3_extra_flux_sector_rejected",
         "EXTRA_FLUX",
         lambda: admit_flux_sectors([0, 1], len(groups["s3"].centre)),
+    )
+    run(
+        "missing_triple_overlap_rejected_by_scope_gate",
+        "MISSING_OVERLAP",
+        lambda: require_complete_pinned_nerve(missing_overlap, cx["edges"]),
+    )
+    run(
+        "injected_z7_centre_rejected_from_order_six_promotion",
+        "UNCONSTRAINED_CENTRE",
+        lambda: require_cyclic_centre_embedding_in_order_six(7),
     )
     return results
 
@@ -1204,11 +1718,7 @@ def certificate_payload(
     nerve = r613.load_carrier_nerve(routed, base, global_artifact, spin_artifact)
 
     cx = make_complex(12, nerve["faces"])
-    require(
-        cx["edges"] == nerve["edges"] and len(cx["faces"]) == 20,
-        "FLAT_PROPAGATION",
-        "the reconstructed complex does not carry the thirty seams and twenty overlaps",
-    )
+    require_complete_pinned_nerve(cx, nerve["edges"])
     homology = spin_artifact["support_homology"]
     require(
         homology.get("betti_numbers") == [1, 0, 1]
@@ -1235,16 +1745,19 @@ def certificate_payload(
                 "closure of the pinned Klein-four lift quaternions and the two "
                 "exact icosian generators over Q(sqrt(5))"
             ),
+            "role": "measured extension witness and flat-lane test instance",
         },
         "s3": {
             "order": 6,
             "centre_order": 1,
             "source": "the symmetric group on three letters as permutation tuples",
+            "role": "flat-lane test instance and crossed-module boundary",
         },
         "q8": {
             "order": 8,
             "centre_order": 2,
             "source": "closure of the pinned Klein-four lift quaternions alone",
+            "role": "flat-lane test instance",
         },
     }
 
@@ -1259,6 +1772,13 @@ def certificate_payload(
     twist = central_twist_flux_block(cx, nerve, groups["binary_icosahedral"], global_artifact, rng)
     section = section_obstruction_match_block(groups["binary_icosahedral"], spin_artifact)
     consequence = consequence_block(nerve, groups, global_artifact)
+    unconstrained_centre = unconstrained_centre_boundary(nerve)
+    crossed_module = crossed_module_boundary(groups["s3"])
+    reduced_models = reduced_interface_coefficient_models(
+        nerve, groups["binary_icosahedral"]
+    )
+    matter_boundary = central_matter_character_boundary()
+    branches = branch_classification(crossed_module, matter_boundary)
     controls = structural_controls(cx, groups, rng)
 
     return {
@@ -1274,8 +1794,9 @@ def certificate_payload(
             "extends": (
                 "the #613 routed-seam grammar certificate proves central-column "
                 "completeness and exhibits the measured noncentral transport; "
-                "this certificate classifies the mechanism space beyond the "
-                "central column on the same federation"
+                "this certificate proves the flat lane and the fixed "
+                "central-coefficient lane while retaining the genuinely "
+                "noncentral mechanism space as an open interface"
             ),
         },
         "federation_nerve": {
@@ -1290,27 +1811,90 @@ def certificate_payload(
         },
         "value_groups": group_rows,
         "flat_part": flat,
-        "central_obstruction": {
+        "central_coefficient_lane": {
             "h2_smith": smith,
             "lifted_witness": lifted,
             "central_twist_flux": twist,
-            "section_obstruction_match": section,
-            "status": "centre_valued_exact",
+            "measured_extension_witness": section,
+            "centrality_source": (
+                "separate coefficient typing; centrality is not derived from "
+                "A2 naturality or ordinary triple-overlap coherence"
+            ),
+            "status": "conditional_exact_for_declared_central_coefficients",
         },
+        "open_boundaries": {
+            "unconstrained_centre": unconstrained_centre,
+            "genuinely_noncentral_crossed_module": crossed_module,
+        },
+        "reduced_interface_coefficient_models": reduced_models,
+        "branch_classification": branches,
         "consequence": consequence,
         "structural_controls": controls,
+        "acceptance_criteria_status": {
+            "source_defined_without_target_group_list": True,
+            "source_defined_reading": (
+                "the theorem is parameterized by a supplied finite group or "
+                "central coefficient group; no finite allowed-group list is "
+                "promoted"
+            ),
+            "full_axiom_coefficient_group_nonselection_proved": False,
+            "full_axiom_reading": (
+                "the Z6/Z7 models separate the reduced seam/register "
+                "interface, but their lift to every A1-A3 clause is open"
+            ),
+            "measured_double_cover_classified": True,
+            "measured_double_cover_reading": (
+                "classified as a nonsplit Z2 central extension over V4, "
+                "without identifying it with a spherical cellular class"
+            ),
+            "every_classified_branch_has_sector_and_matter_effect": False,
+            "effect_reading": (
+                "ordinary flat transport is gauge trivial; central sectors "
+                "are A with matter action chi(a); the identity crossed-module "
+                "witness has contractible 2-type and supplies no nontrivial "
+                "sector or matter effect"
+            ),
+            "effect_bounded_disposition": (
+                "the ordinary and central lanes have exact parameterized "
+                "effects; the general higher-group matter action is not "
+                "selected or classified by A1-A3"
+            ),
+            "wrong_coherence_missing_overlap_and_injected_group_controls": True,
+            "instanton_theta_and_laboratory_attachments_separate": True,
+        },
         "verdict": {
             "flat_part": "gauge_trivial_exact",
-            "central_obstruction_part": "centre_valued_exact",
-            "general_grammar": "exact_reduction_to_central_obstructions_on_simply_connected_nerve",
-            "flux_menu": "exhausted_by_centre_valued_central_classes",
-            "measured_order_six_menu_stands": True,
-            "measured_transport_class": "nontrivial_Z2",
+            "central_coefficient_part": (
+                "conditional_exact_for_explicit_abelian_coefficients"
+            ),
+            "centrality_derivation": "not_established",
+            "general_grammar": (
+                "open_full_schema_lift_and_nontrivial_higher_witness"
+            ),
+            "flux_menu": "general_exhaustiveness_not_established",
+            "measured_order_six_menu": (
+                "retained_measured_menu_with_binary_icosahedral_Z2_compatibility"
+            ),
+            "measured_transport_extension": "nonsplit_Z2_extension_over_V4",
+            "measured_extension_equals_spherical_h2_class": False,
+            "matter_transport_effect": (
+                "parameterized_by_the_declared_representation_or_2_representation;"
+                "_physical_selection_not_supplied"
+            ),
             "central_class_group_orders": {
                 "binary_icosahedral": 2,
                 "q8": 2,
                 "s3": 1,
             },
+            "independence_boundaries": {
+                "unconstrained_centre": "Z7 gives seven spherical H2 classes",
+                "higher_gauge_grammar": (
+                    "the identity crossed module S3 -> S3 admits raw "
+                    "noncentral face labels but has trivial kernel and cokernel"
+                ),
+            },
+            "same_axiom_class_nonidentifiability": False,
+            "reduced_interface_nonidentifiability": True,
             "out_of_class_boundary": (
                 "nerves with nontrivial fundamental group carry flat sectors "
                 "classified by conjugacy classes of homomorphisms from the "
@@ -1321,26 +1905,38 @@ def certificate_payload(
         },
         "claim_boundary": {
             "proves": (
-                "exact gauge triviality of every exactly coherent finite-group "
-                "seam assignment on the simply connected federation nerve, "
-                "centre-valued obstruction data for every mechanism coherent up "
-                "to a face 2-cocycle, second cohomology equal to the value-group "
-                "centre on the spherical nerve, recovery of the measured "
-                "binary-icosahedral transport as the nontrivial Z2-central "
-                "class, and exhaustion of the flux menu by central classes"
+                "exact gauge triviality of exactly coherent group-valued seam "
+                "assignments under the pinned finite-group table grammar; for "
+                "each separately declared abelian central coefficient group A, "
+                "the exact cellular result H2(S2,A)=A; exact verification that "
+                "the measured Klein-four lift realizes a nonsplit Z2 extension "
+                "over V4; and compatibility of that measured Z2 centre with the "
+                "{0,3} subgroup of the measured order-six menu; Z6/Z7 added "
+                "coefficient registers separate the reduced seam/register "
+                "interface"
             ),
             "does_not_close": [
+                "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
+                "classification of genuinely noncentral crossed-module or higher-group seam data",
+                "a nontrivial finite crossed-module 2-type with a gauge-invariant sector and matter effect",
+                "the complete A1-A3 lift of the reduced Z6/Z7 coefficient-register models",
+                "selection or bounding of admissible value groups and their centres",
+                "general exhaustiveness of the measured order-six flux menu",
+                "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
+                "physical selection of a matter representation, central character, or 2-representation",
                 "nerves with nontrivial fundamental group (out-of-class control; flat Hom sectors)",
                 "four-dimensional instanton normalization and theta periodicity (separate gates)",
                 "laboratory current lines (issue 569)",
                 "continuum quantum field theory",
             ],
-            "bounded_exit": "exact_named_realization",
+            "bounded_exit": "conditional_open_interface",
             "bounded_exit_scope": (
-                "grammar completeness beyond the central column closes "
-                "positively on the spherical nerve class: every quotient-visible "
-                "routed-seam mechanism reduces to central obstruction data and "
-                "the measured order-six menu stands"
+                "the flat assignment lane and explicitly typed central-"
+                "coefficient lane are exact on the pinned spherical nerve; "
+                "the reduced Z6/Z7 register models and the contractible "
+                "identity-boundary S3 crossed module are controls. Neither is "
+                "a complete countermodel to the revised A1-A3 basis, so the "
+                "axiom-level classification remains open"
             ),
         },
         "verifier_command": (
@@ -1381,6 +1977,8 @@ def negative_control_cases(
         ("noncentral_flux_sector_injection", "noncentral_flux_sector"),
         ("flat_sector_promotion_injection", "flat_sector_promotion"),
         ("fundamental_group_sector_injection", "fundamental_group_sector"),
+        ("allowed_value_group_list_injection", "allowed_value_groups"),
+        ("allowed_centre_order_list_injection", "allowed_centre_orders"),
         ("instanton_sector_injection", "instanton_sector"),
         ("theta_period_injection", "theta_periodicity"),
         ("laboratory_flux_injection", "laboratory_flux_measurement"),
@@ -1422,8 +2020,10 @@ def negative_control_payload(
                 "first forced face"
             ),
             "noncentral_obstruction": (
-                "a face discrepancy outside the centre fails the commutation "
-                "check against a propagated seam value and is rejected"
+                "a face discrepancy outside the centre is excluded from the "
+                "conditional central-coefficient lane; the S3 crossed-module "
+                "raw-syntax boundary records why this exclusion is not a "
+                "derivation of general centrality"
             ),
             "s3_extra_flux_sector": (
                 "the symmetric group on three letters has trivial centre, so "
@@ -1434,6 +2034,22 @@ def negative_control_payload(
                 "the spin-artifact pin is carried twice, in this manifest and "
                 "in the #613 chain, and any tampered copy breaks the hash "
                 "comparison before any classification runs"
+            ),
+            "unconstrained_centre": (
+                "the injected cyclic value group Z7 has centre Z7 and the "
+                "same Smith calculation emits seven spherical H2 classes, "
+                "so it fails any unsupported promotion into the measured "
+                "order-six menu"
+            ),
+            "missing_overlap": (
+                "deleting one of the twenty pinned triple overlaps fails the "
+                "complete-nerve scope gate before the flat theorem is used"
+            ),
+            "contractible_noncentral_raw_syntax": (
+                "the exact crossed module id:S3->S3 with conjugation action "
+                "satisfies both Peiffer identities and admits noncentral face "
+                "labels, but its trivial kernel and cokernel emit no "
+                "nontrivial higher sector"
             ),
             "out_of_class_nerve": (
                 "a faceless cycle stalls the worklist and carries a flat "

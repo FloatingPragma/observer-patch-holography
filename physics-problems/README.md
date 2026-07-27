@@ -37,13 +37,18 @@ Use the following evidence vocabulary consistently:
 
 ## Writeups
 
-- [Issue #565: Source-Derived Twelve-Unit, Antipode, and Icosahedral Selector Theorem](issue_565_echosahedral_selector.md):
+- [Issue #565: Twelve-Unit, Antipode, and Icosahedral Selector on a Declared Realization](issue_565_echosahedral_selector.md):
   exact finite theorem and executable receipt for the declared quotient-visible
-  echosahedral carrier lineage. Primitive central atoms, oriented incidence,
-  integer readback, and refinement cocycles derive the unit split and gap,
-  inverse pairing, proper $A_5$ action, and rank-three frame without importing
-  downstream gauge or measured targets. The result does not force every OPH
-  carrier to be echosahedral or provide the physical current lift.
+  echosahedral carrier lineage. The additional integer atom-counting grammar
+  and normalized central-readback cost give the unit split and gap. Oriented
+  incidence and refinement cocycles independently give inverse pairing, the
+  proper $A_5$ action, and the rank-three frame without importing downstream
+  gauge or measured targets. Issue #625 records a covariant half-count
+  candidate on the reduced finite-atomic carrier. Its complete A1
+  operational/refinement data, A2 naturality, and A3 optimizer lift are open,
+  so it does not establish full-schema independence. Issue #628 owns the
+  operational source. The result does not force every OPH carrier to be
+  echosahedral or provide the physical current lift.
 - [Finite-Quotient OPH Baryogenesis Source Theorem](oph_baryogenesis_source_theorem.md):
   exact anomaly/current theorem and source no-go for the matter-antimatter
   problem. It identifies \(k_R\) with the mixed electroweak anomaly index,

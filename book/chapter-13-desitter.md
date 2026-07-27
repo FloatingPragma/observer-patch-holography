@@ -364,13 +364,15 @@ and dipole removed. A source-side maximum-entropy law fixes its amplitude from
 the release energy. The screen precision then gives the exact angular spectrum
 through a ratio of gamma functions.
 
-$P$ is the local pixel ratio the book has been tracking. The finite
-source supplies the edge-center reserve density, so the scalar tilt is
+$P$ is the local pixel ratio the book has been tracking. On the declared
+conditional branch, an imported edge-center reserve-density interval gives
 
 $$n_s=1-\frac{P}{48},$$
 
-about 0.966, against a measured 0.965. The screen's pixel budget shows up as
-a small deficit from perfect scale invariance.
+about 0.966 for the selected comparison coordinate, against a measured 0.965.
+This is a conditional screen-side value. The finite source does not emit the
+reserve density. If the source gate closes, the screen's pixel budget appears
+as a small deficit from perfect scale invariance.
 
 A single spherical snapshot loses depth information. Even a perfect sky map can
 compare points only across distances up to the sphere's diameter. Many different

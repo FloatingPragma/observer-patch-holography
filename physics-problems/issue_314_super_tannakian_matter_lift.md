@@ -80,7 +80,7 @@ with the following fields.
 `K_566` is the issue-#566 source packet, referenced by path and SHA-256
 pin together with its stored receipt hash. The verifier requires the
 stored receipt to be a #566 port-current receipt certifying exactly the
-pinned manifest with a passed conditional algebraic gate and an honestly
+pinned manifest with a passed conditional algebraic gate and an explicitly
 recorded premise-binding status (the declared response premises have
 their source binding tracked in #599, and this packet inherits that
 conditionality as scope, not as a local gap), then **rebuilds** the

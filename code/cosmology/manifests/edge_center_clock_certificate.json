@@ -1,15 +1,20 @@
 {
   "acceptance_mapping": {
+    "all_issue_acceptance_criteria_satisfied": {
+      "detail": "the source, weighted-half, clock, and simulator gates remain open",
+      "discharged_here": false
+    },
     "clock_normalization_source_identified": {
-      "detail": "derived lattice invariant m_rep = 24 with its theorem and artifacts",
-      "discharged_here": true
+      "detail": "m_rep=24 is a conditional scheduler count; no theorem here binds it to the collar refinement coordinate or an operational clock",
+      "discharged_here": false
     },
     "full_collar_derivative_and_half_collar_identity": {
-      "detail": "finite error bounds computed and gated at every depth",
-      "discharged_here": true
+      "detail": "interval propagation and constructed-family defects are checked, but P/24 is an imported declared branch input and the weighted half identity is an additional premise",
+      "discharged_here": false,
+      "partial_arithmetic_check": true
     },
     "paper_and_simulator_distinguish_infinitesimal_from_finite": {
-      "detail": "the paper fragment already states the distinction; the simulator-side statement is owned by #579/#580",
+      "detail": "the paper fragment states the distinction; the simulator-side statement belongs to #579/#580",
       "discharged_here": false
     },
     "simulator_emits_p_over_48_only_from_receipt": {
@@ -17,14 +22,17 @@
       "discharged_here": false
     },
     "source_graph_ancestry": {
-      "detail": "no measurement, likelihood, fit, residual, or data-calibrated input enters this module; P enters only as the declared closure-map enclosure whose own claim boundary and consumer policy are recorded in the antecedents",
-      "discharged_here": true
+      "detail": "the local module rejects target-shaped inputs, but it does not construct one complete source DAG; P and P/24 enter through conditional upstream artifacts and declared branch premises",
+      "discharged_here": false,
+      "local_target_injection_rejected": true
     }
   },
   "antecedents": {
     "pixel_root_interval": {
       "artifact": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+      "artifact_sha256": "sha256:20ab213f836fbe95149d4b40ba57aa144038580a0acb899322f4b72d963c2ad6",
       "certificate_date": "2026-07-14",
+      "claim_boundary": "Existence and uniqueness of the closure-map fixed point are certified by interval arithmetic on the stated alpha interval, for the declared numerical map at the stated representation cutoffs (with the edge-sum truncation tails bounded, the certificate also covers the infinite-cutoff edge sums). The declared one-loop RG/matching conventions, the tree-level m_Z closure, the Stage-5 continuation masses, and the exact one-loop kernel are certified as declared, not as physical endpoint theorems. This is not an exact fine-structure derivation; the stage-3 landing verdict of closure row CL-1 is unchanged.",
       "consumer_policy": {
         "default_thomson_endpoint_allowed": false,
         "hidden_external_alpha_allowed": false,
@@ -33,7 +41,7 @@
       },
       "exact_alpha_promoted": false,
       "mode": "thomson_structured_running",
-      "role": "P enters only as this certified enclosure"
+      "role": "P enters as this conditional closure-map enclosure; the artifact does not promote it to a physical endpoint"
     },
     "presence_reading": {
       "artifact": "extra/chi_nu_collar_survival_presence_correction.md",
@@ -41,22 +49,62 @@
     },
     "repair_round_invariant": {
       "artifact": "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+      "artifact_sha256": "sha256:7a459ed1c6456348c475271970b6c7c47ddc7fc01d9faaa4eb8757a2e4bf51fc",
+      "branch_scope": {
+        "cyclic_scheduler_branch": "the global repair cycle visits each oriented primitive exactly once per cycle, so the induced linear shift on the oriented support is a cyclic permutation whose order equals m_rep",
+        "product_adjoint_branch": "the active observer-visible current algebra is su(3)+su(2)+u(1), with no extra visible U(1) or mixed X/Y generators; a screen selector, global quotient, and matter-menu completeness are not premises",
+        "reversible_repair_orientation_branch": "the OPH finite patch-carrier pipeline operates on a completed compare/write/verify slice; for each unoriented adjoint generator the alphabet contains exactly two oriented primitive repair ticks (action/coaction, write/verify, ket/bra)",
+        "scope_note": "the conditional representation-to-spectrum result m_rep=24 and the specialization |g_*'| = (N_CRC/pi)^(-1/48) are theorems on the conjunction of the three branches above; the parametric law |g_*'| = (N_CRC/pi)^(-1/(2*m)) at the m-tick decomposition is supplied by the global repair-tick lemma. Identifying the product adjoint with physical currents is an upstream gate."
+      },
       "certificate_status": "closed_representation_to_spectrum_round_count",
+      "clock_role": "a conditional scheduler count only; no binding to the collar refinement coordinate or operational clock is proved in this packet",
       "exponent_denominator": 48,
       "m_rep": 24,
       "producer": "code/particles/hierarchy/verify_issue_343_m_rep_24.py",
       "specialized_exponent": "-1/48",
-      "statement": "m_rep = 2*(8+3+1) = 24 oriented repair ticks per full-collar round, derived without measured inputs"
+      "statement": "m_rep = 2*(8+3+1) = 24 on the declared product-adjoint, orientation-doubling, cyclic-scheduler branch"
     },
-    "reserve_trace_theorem": {
+    "reserve_trace_branch_input": {
       "artifact": "paper/screen_microphysics_and_observer_synchronization.tex",
-      "statement": "tau_q(Z6) = P/24: the scalar-weighted reserve-presence probability per oriented repair tick"
+      "binding_theorem_present": false,
+      "denominator_match_not_used_as_a_derivation": true,
+      "derived_from_collar_counts": false,
+      "premises": [
+        "declared shared-cut density P/4",
+        "declared Z6 class equidistribution",
+        "scalar-reserve unbiasedness where a scalar-weighted mean is consumed"
+      ],
+      "statement": "tau_q(Z6) = P/24 on the shared-edge protected-reserve branch"
     }
   },
   "artifact": "oph_edge_center_clock_certificate",
+  "artifact_sha256": "sha256:18e091d72597ce2e72ffc369bf083c270986c47f51cbd6b2c36c88684516481b",
+  "branch_boundaries": {
+    "e_branch_as_primary": {
+      "reason": "the e branch is a diagnostic; selecting it as primary fails closed",
+      "status": "rejected_selection"
+    },
+    "poisson_value_at_finite_regulator": {
+      "reason": "every finite refinement sits strictly below e^(-P/24); the Poisson value is the depth limit, not a finite record",
+      "status": "rejected_finite_claim"
+    },
+    "wrong_orientation_factor_1": {
+      "disjoint_from_selected_theta": true,
+      "reason": "equal cardinalities do not fix weighted reserve shares; the weighted coarea premise, if independently supplied, selects the factor one half",
+      "status": "not_ruled_out_by_slot_counts_alone",
+      "theta": {
+        "hi": "0.06795717066078739070685474599352797645628",
+        "lo": "0.06795717066078739070685474596538499258364"
+      }
+    }
+  },
   "carrier_tower": {
+    "boundary": "the tower certifies integer incidence and orientation counts only; reserve weights and time normalization require separate source data",
     "carrier": "icosahedral screen cellulation, edge-midpoint refinement",
     "depths": 12,
+    "derives_operational_clock": false,
+    "derives_reserve_density": false,
+    "derives_weighted_half_identity": false,
     "records": [
       {
         "backward_oriented_slots": 30,
@@ -372,22 +420,49 @@
       }
     ]
   },
+  "claim_boundary": {
+    "does_not_prove": [
+      "that finite collar counts emit the reserve density P/24",
+      "that equal orientation counts force equal reserve weights",
+      "an operational or physical repair clock",
+      "that the simulator consumes theta only from this artifact",
+      "a physical or frozen prediction of n_s"
+    ],
+    "proves": "exact integer collar counts and rigorous interval arithmetic for the consequences of imported P/24 and weighted-half premises; an exhaustive independence no-go for every selector whose complete input is the integer collar-count tower"
+  },
   "clock_binding": {
-    "binding": "the generator density P/24 is reserve-presence probability per accepted repair event; the physical clock is repair-event counting, so no seconds-valued constant enters the computation",
+    "binding": "no clock binding is proved here; a noncommutative transition algebra, source state, event-to-refinement map, and operational calibration remain separate requirements",
     "clock_normalization_source": {
       "artifacts": [
         "code/particles/hierarchy/certificates/R_m_rep_24_certificate.json",
         "paper/screen_microphysics_and_observer_synchronization.tex"
       ],
-      "invariant": "m_rep = 24 oriented repair ticks per full-collar round (orientation-doubled product-adjoint dimension 2*12)",
-      "theorem": "representation-to-spectrum round count (issue #343) together with the reserve-trace theorem tau_q(Z6) = P/24"
+      "invariant": "m_rep = 24 is a conditional product-adjoint scheduler count",
+      "theorem": "the issue #343 representation-to-spectrum theorem does not identify its scheduler count with the collar refinement coordinate or an operational clock"
     },
-    "clock_unit": "one accepted oriented repair event on the collar",
-    "declared_command_line_step_time": null
+    "clock_unit": null,
+    "declared_command_line_step_time": null,
+    "dimensionless_coordinate_bound_to_log_refinement": false,
+    "operational_clock_derived": false,
+    "physical_frequency_derived": false,
+    "scheduler_count_bound_to_collar_events": false,
+    "status": "open"
   },
   "controls": {
+    "count_only_unique_clock_scale_claim": {
+      "reason": "COUNT_CLOCK_INDEPENDENCE: identical counts admit multiple clock scales",
+      "rejected": true
+    },
+    "count_only_unique_generator_claim": {
+      "reason": "COUNT_GENERATOR_INDEPENDENCE: identical counts admit multiple generators",
+      "rejected": true
+    },
+    "count_only_unique_reserve_share_claim": {
+      "reason": "COUNT_WEIGHT_INDEPENDENCE: identical counts admit multiple reserve shares",
+      "rejected": true
+    },
     "e_branch_selected_as_primary": {
-      "reason": "primary branch must be 'edge_center_P_over_48'; 'repair_clock_e' branches are diagnostics only",
+      "reason": "primary branch must be 'conditional_edge_center_P_over_48'; 'repair_clock_e' branches are diagnostics only",
       "rejected": true
     },
     "injected_declared_step_time": {
@@ -398,17 +473,174 @@
       "reason": "measured-tilt-shaped input value at inputs.primordial_amplitude_hint: 0.9649 lies inside [0.95, 0.98]",
       "rejected": true
     },
-    "wrong_orientation_factor_1": {
-      "reason": "produces theta = P/24 and is flagged as the rejected orientation branch",
+    "slot_count_only_weighted_half_claim": {
+      "countermodel": {
+        "all_depths_match_exact_collar_tower_counts": true,
+        "all_weights_strictly_positive": true,
+        "biased_positive_weight_forward_reserve_share_at_every_depth": "2/3",
+        "conclusion": "equal orientation counts do not imply an equal weighted reserve share; the weighted coarea identity requires an additional orientation-invariance premise or source receipt",
+        "equal_weight_forward_reserve_share_at_every_depth": "1/2",
+        "exhaustive_family": "at a depth with N=30*2^n slots in each orientation, every rational r in (0,1) is realized by assigning weight r/N to each forward slot and (1-r)/N to each backward slot; all weights are positive and the unchanged N+N counts have forward share r",
+        "same_fixed_point_free_counting_involution": true,
+        "slot_count_ratio_at_every_depth": "1/2",
+        "tower_slot_schedule": [
+          {
+            "backward_slot_count": 30,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 0,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 30
+          },
+          {
+            "backward_slot_count": 60,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 1,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 60
+          },
+          {
+            "backward_slot_count": 120,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 2,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 120
+          },
+          {
+            "backward_slot_count": 240,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 3,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 240
+          },
+          {
+            "backward_slot_count": 480,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 4,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 480
+          },
+          {
+            "backward_slot_count": 960,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 5,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 960
+          },
+          {
+            "backward_slot_count": 1920,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 6,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 1920
+          },
+          {
+            "backward_slot_count": 3840,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 7,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 3840
+          },
+          {
+            "backward_slot_count": 7680,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 8,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 7680
+          },
+          {
+            "backward_slot_count": 15360,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 9,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 15360
+          },
+          {
+            "backward_slot_count": 30720,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 10,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 30720
+          },
+          {
+            "backward_slot_count": 61440,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 11,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 61440
+          },
+          {
+            "backward_slot_count": 122880,
+            "biased_positive_weight_forward_reserve_share": "2/3",
+            "depth": 12,
+            "equal_weight_forward_reserve_share": "1/2",
+            "forward_slot_count": 122880
+          }
+        ],
+        "tower_slot_schedule_sha256": "sha256:4d1d4f69f4cf1b7c78e655711e096f9dd3b67e2fc5e744440e95ea2bc584a4fc"
+      },
+      "reason": "equal forward/backward slot counts admit both one-half and two-thirds forward reserve shares under strictly positive weights",
       "rejected": true
     }
   },
+  "count_only_independence_no_go": {
+    "conclusion": "no deterministic selector whose complete input is the exact collar count interface can uniquely determine P/24, a weighted half factor, a reserve generator, or an event-to-log-thickness clock scale",
+    "count_interface_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+    "exhaustive_scope": "all predicates and deterministic algorithms whose complete input is the exact integer collar-count tower",
+    "negative_closure_at_count_only_interface": true,
+    "orientation_weight_family": "at a depth with N=30*2^n slots in each orientation, every rational r in (0,1) is realized by assigning weight r/N to each forward slot and (1-r)/N to each backward slot; all weights are positive and the unchanged N+N counts have forward share r",
+    "same_counts_multiple_event_to_log_thickness_scales": [
+      {
+        "coordinate": "s=n",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "log_thickness_per_event": "1",
+        "name": "unit_event_scale"
+      },
+      {
+        "coordinate": "s=2n",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "log_thickness_per_event": "2",
+        "name": "double_event_scale"
+      }
+    ],
+    "same_counts_multiple_generator_coefficients": [
+      {
+        "family": "u(s)=exp(-(1/24)s)",
+        "generator_coefficient": "1/24",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "name": "formal_semigroup_g_1"
+      },
+      {
+        "family": "u(s)=exp(-(1/12)s)",
+        "generator_coefficient": "1/12",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "name": "formal_semigroup_g_2"
+      }
+    ],
+    "same_counts_multiple_reserve_weights": [
+      {
+        "forward_share": "1/3",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "name": "backward_biased_positive_weights"
+      },
+      {
+        "forward_share": "1/2",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "name": "orientation_invariant"
+      },
+      {
+        "forward_share": "2/3",
+        "geometry_sha256": "sha256:5a0e9def2594140cd8a4c12caeaeef12641a976da530b4f956faf5d7862a7de9",
+        "name": "forward_biased_positive_weights"
+      }
+    ]
+  },
   "defect_bound_summary": {
-    "derivative": "sub-step quotient equals P/24 exactly at every depth",
+    "derivative": "the constructed sub-step quotient equals the imported P/24 density at every depth",
     "fail_closed": true,
-    "orientation_balance": "slot-count defect 0 exactly; survival defect bounded by (P/24)_hi^2 2^-m, shrinking with depth",
+    "orientation_balance": "slot-count defect 0 exactly; the displayed survival defect assumes uniform splitting and does not prove weighted orientation balance",
     "refinement": "e^(-P/24) - u_m(1) strictly positive and bounded by (P/24)_hi^2 2^-m, shrinking with depth",
-    "semigroup": "exact on the dyadic grid at every depth (interval width gate)"
+    "scope": "arithmetic of the constructed conditional survival family",
+    "semigroup": "algebraic on the dyadic grid of the constructed family (interval width gate)"
   },
   "diagnostics": {
     "e_branch": {
@@ -438,7 +670,8 @@
   "freeze_policy": "freezing the source artifact before sky comparison is an owner action",
   "freeze_status": "not_frozen_here",
   "generator": {
-    "distinction": "the infinitesimal density P/24 is the sub-step difference quotient at every depth; the finite one-tick survival 1 - P/24 is not the generator and is recorded separately",
+    "distinction": "the constructed family has sub-step quotient P/24 by definition; its finite one-step presence value 1 - P/24 is different from that conditional infinitesimal density",
+    "emitted_from_finite_collar_records": false,
     "finite_one_step_presence_value": {
       "hi": "0.9320428293392126092931452540346150074164",
       "lo": "0.9320428293392126092931452540064720235437"
@@ -447,7 +680,9 @@
       "hi": "0.06795717066078739070685474599352797645628",
       "lo": "0.06795717066078739070685474596538499258364"
     },
-    "statement": "-u_full'(0) = P/24 in the repair-tick clock coordinate"
+    "operational_clock_bound": false,
+    "statement": "conditional on the declared reserve-trace branch input, -u_full'(0) = P/24 in an otherwise unbound dimensionless coordinate",
+    "status": "imported_conditional_density"
   },
   "github_issue": 522,
   "half_collar_identity": {
@@ -461,21 +696,127 @@
       "lo": "2.626240843743741047492891077208924173096"
     },
     "kappa_rep_issue_body_reconciliation": {
-      "computed_at": "legacy point P = 1.630968209403959, superseded",
+      "computed_at": "P_C = 1.630968209403959, the distinct canonical comparison coordinate outside this issue's selected P_fwd enclosure",
       "inside_certified_interval": false,
       "issue_body_value": "2.627023712627471",
-      "note": "the emitted object is the interval from the certified P enclosure; the issue-body decimal tracks an earlier pixel point value",
-      "reproduced_at_legacy_point_within": "1e-13"
+      "note": "the conditional interval uses the imported P enclosure; the issue-body decimal tracks the distinct P_C comparison coordinate retained by canonical particle surfaces",
+      "reproduced_at_P_C_within": "1e-13"
     },
     "n_s": {
       "hi": "0.9660214146696063046465726270173075037082",
       "lo": "0.9660214146696063046465726270032360117719"
     },
-    "statement": "orientation reversal is a fixed-point-free involution on oriented collar slots with two equal classes at every tower depth; the source-facing restriction is one class, giving the exact factor 2",
+    "orientation_weight_countermodel": {
+      "all_depths_match_exact_collar_tower_counts": true,
+      "all_weights_strictly_positive": true,
+      "biased_positive_weight_forward_reserve_share_at_every_depth": "2/3",
+      "conclusion": "equal orientation counts do not imply an equal weighted reserve share; the weighted coarea identity requires an additional orientation-invariance premise or source receipt",
+      "equal_weight_forward_reserve_share_at_every_depth": "1/2",
+      "exhaustive_family": "at a depth with N=30*2^n slots in each orientation, every rational r in (0,1) is realized by assigning weight r/N to each forward slot and (1-r)/N to each backward slot; all weights are positive and the unchanged N+N counts have forward share r",
+      "same_fixed_point_free_counting_involution": true,
+      "slot_count_ratio_at_every_depth": "1/2",
+      "tower_slot_schedule": [
+        {
+          "backward_slot_count": 30,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 0,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 30
+        },
+        {
+          "backward_slot_count": 60,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 1,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 60
+        },
+        {
+          "backward_slot_count": 120,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 2,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 120
+        },
+        {
+          "backward_slot_count": 240,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 3,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 240
+        },
+        {
+          "backward_slot_count": 480,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 4,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 480
+        },
+        {
+          "backward_slot_count": 960,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 5,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 960
+        },
+        {
+          "backward_slot_count": 1920,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 6,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 1920
+        },
+        {
+          "backward_slot_count": 3840,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 7,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 3840
+        },
+        {
+          "backward_slot_count": 7680,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 8,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 7680
+        },
+        {
+          "backward_slot_count": 15360,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 9,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 15360
+        },
+        {
+          "backward_slot_count": 30720,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 10,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 30720
+        },
+        {
+          "backward_slot_count": 61440,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 11,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 61440
+        },
+        {
+          "backward_slot_count": 122880,
+          "biased_positive_weight_forward_reserve_share": "2/3",
+          "depth": 12,
+          "equal_weight_forward_reserve_share": "1/2",
+          "forward_slot_count": 122880
+        }
+      ],
+      "tower_slot_schedule_sha256": "sha256:4d1d4f69f4cf1b7c78e655711e096f9dd3b67e2fc5e744440e95ea2bc584a4fc"
+    },
+    "statement": "the counting involution gives equally many forward and backward slots; theta=P/48 follows only if a source receipt also makes their reserve weights orientation-invariant",
+    "status": "conditional_on_weighted_coarea_premise",
     "theta": {
       "hi": "0.03397858533039369535342737299676398822814",
       "lo": "0.03397858533039369535342737298269249629182"
-    }
+    },
+    "weighted_half_identity_derived_from_slot_counts": false
   },
   "input_hygiene": {
     "declared_step_time_present": false,
@@ -519,38 +860,37 @@
     }
   },
   "interval_backend": {
+    "claim": "numerical intervals are rigorous enclosures at the declared precision; they are not exact rational arithmetic",
+    "exact_arithmetic": false,
+    "exact_integer_geometry": true,
     "library": "mpmath.iv",
     "precision_decimal_digits": 60,
-    "rounding": "mpmath_interval_outward"
+    "rounding": "binary interval floating-point with outward enclosures"
   },
-  "rejected_branches": {
-    "e_branch_as_primary": {
-      "reason": "the e branch is a diagnostic; selecting it as primary fails closed",
-      "status": "rejected_selection"
-    },
-    "poisson_value_at_finite_regulator": {
-      "reason": "every finite refinement sits strictly below e^(-P/24); the Poisson value is the depth limit, not a finite record",
-      "status": "rejected_finite_claim"
-    },
-    "wrong_orientation_factor_1": {
-      "disjoint_from_selected_theta": true,
-      "reason": "taking the full collar for the source-facing restriction ignores the fixed-point-free orientation-reversal involution whose two classes are exactly equal at every tower depth",
-      "status": "rejected_orientation_branch",
-      "theta": {
-        "hi": "0.06795717066078739070685474599352797645628",
-        "lo": "0.06795717066078739070685474596538499258364"
-      }
-    }
+  "negative_closure_status": {
+    "counts_do_not_select_clock_scale": true,
+    "counts_do_not_select_generator": true,
+    "counts_do_not_select_reserve_density": true,
+    "counts_do_not_select_weighted_half": true,
+    "required_extra_inputs": [
+      "source reserve-weight receipt",
+      "weighted orientation-reversal coarea identity",
+      "source generator receipt",
+      "event-to-log-thickness or operational-clock map"
+    ],
+    "scope": "all predicates and deterministic algorithms whose complete input is the exact integer collar-count tower",
+    "status": "proved_no_go_at_count_only_interface"
   },
-  "schema": "oph.edge_center_clock_certificate.v1",
-  "selected_primary_branch": "edge_center_P_over_48",
+  "schema": "oph.edge_center_clock_certificate.v3",
+  "selected_primary_branch": "conditional_edge_center_P_over_48",
   "sky_comparison": {
     "performed": false,
     "policy": "this certificate never compares to any sky value"
   },
-  "status": "edge_center_generator_and_clock_certificate_emitted",
+  "status": "conditional_edge_center_arithmetic_with_open_source_and_clock_gates",
   "survival_family": {
-    "clock_coordinate": "s counts accepted oriented repair events (ticks); one full-collar round is m_rep = 24 ticks; no time-dimension unit appears",
+    "construction_status": "constructed from the imported P/24 density and uniform-splitting premise, not emitted by the collar records",
+    "coordinate": "a dimensionless formal subdivision coordinate; this packet does not identify it with logarithmic physical refinement or an operational repair clock",
     "exponential_family_semigroup_defect": {
       "contains_zero": true,
       "probe": "s = 3/8, t = 5/8 ticks",

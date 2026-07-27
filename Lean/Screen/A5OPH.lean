@@ -518,7 +518,7 @@ end OPHGap
   (reductive decomposition, compact real forms, the classification of compact
   simple Lie algebras) and the A₅ character table.  None of that is in Mathlib.
 
-  HONEST FRAMING: the hypothesis "A₅ acts trivially on Z(L)" was found by
+  SCOPE NOTE: the hypothesis "A₅ acts trivially on Z(L)" was found by
   working backwards from the desired conclusion.  This file establishes that
   the hypothesis SUFFICES.  It says nothing about whether OPH independently
   DERIVES it.  Those are different claims.

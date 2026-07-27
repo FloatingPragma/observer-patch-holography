@@ -1,12 +1,12 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-27T14:22:27Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-27T16:39:58Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
 Worker policy: local artifacts first; up to six Chrome Pro workers may be used only after a concrete theorem, audit, or implementation packet exists. Obstruction-only worker output is not accepted.
 
-Open issue count: `48`
+Open issue count: `55`
 
 ## Closed Out-Of-Scope Records
 
@@ -17,17 +17,59 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#153](https://github.com/FloatingPragma/observer-patch-holography/issues/153) hadron backend/systematics | `closed_not_planned_out_of_scope_computationally_blocked` | `out of local scope` | Closed as out-of-scope, not solved. The current pipeline emits no hadron predictions until a working OPH hadron backend on suitable hardware publishes production output and systematics. | Production backend output and continuum/volume/chiral/statistical systematics are published. | Do not use Chrome workers for backend execution. |
 | [#157](https://github.com/FloatingPragma/observer-patch-holography/issues/157) nonperturbative QCD hadron branch | `closed_not_planned_out_of_scope_computationally_blocked` | `out of local scope` | Closed as out-of-scope, not solved. Specialist-paper hadron claims remain suppressed until a working OPH backend emits the required nonperturbative QCD/hadron data. | The particle and gauge papers state the backend output and budgets or mark hadrons out-of-scope. | Do not use Chrome workers for backend execution. |
 
+## boolean-scatter-settling
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#626](https://github.com/FloatingPragma/observer-patch-holography/issues/626) [Boolean settling] Construct a directional scatter-project compiler or isolation gadget | `revised constructive theorem after exact negative baseline` | The canonical synchronous scatter-project rule has a satisfiable depth-two period-two orbit because downstream projections can rewrite parent wires. | A source-pinned directional rule or isolation gadget passes the #328 regression, a universal compiler intertwiner, and explicit resource and settling bounds. | A satisfiable compiled circuit retains a nonzero cycle or the proposed intertwiner fails on a reachable production state. | Use for proof audit only after the revised production implementation exists. |
+
+## cosmology-source-clock
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) [Cosmology] Emit the finite edge-center generator and clock certificate | `source generator and operational clock gap` | Exact collar counts do not select reserve weights, P/24, a weighted half, a generator coefficient, or an event-to-log-thickness clock scale. | One target-free source DAG emits the reserve weights, full-collar derivative, weighted orientation identity, and operational clock map consumed by the simulator. | A second source-compatible weighting, generator, or clock scale survives every declared finite record and acceptance check. | Use only after a source generator and clock packet exists locally. |
+
 ## de-sitter-physical-attachment
 
 | Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
 | --- | --- | --- | --- | --- | --- |
 | [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) [de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments | `physical identification gap` | The finite capacity, shock operator, and exact graph spectrum lack source-derived gauge, kinetic, response-coefficient, and physical-scale attachments. | One source-derived packet fixes the de Sitter gauge mode, Laplacian normalization, ledger-to-source dictionary, response coefficient, and physical length scale. | The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum. | Use for independent audit only after a local attachment packet exists. |
 
+## load-readback-classification
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#625](https://github.com/FloatingPragma/observer-patch-holography/issues/625) Derive or classify the integer load fiber and quadratic readback | `full-schema independence or forcing gap` | The covariant half-count family and alternative quadratic form pass reduced carrier checks, but no complete A1 operational/refinement, A2 naturality, and A3 optimizer lift is proved. | Either derive the integer counting normalization and discrete cost, or construct a complete A1-A3 alternative-readback model preserving every operational, refinement, meaning, and optimizer clause. | A purported alternative changes the feasible family or optimizer, breaks accepted-data naturality, or fails a complete refinement map. | Use only to audit a complete full-schema load/readback model. |
+
+## noncentral-seam-classification
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#624](https://github.com/FloatingPragma/observer-patch-holography/issues/624) Classify the noncentral routed-seam grammar | `full-schema classification gap with exact finite subresults` | The Z6/Z7 register controls exercise only a reduced seam interface, and id:S3->S3 has contractible 2-type. Neither is a complete A1-A3 countermodel to general central reduction or order-six forcing. | Construct and verify a complete A1/A2/A3 seam-coefficient lift that preserves primitive central ports, plus a nontrivial finite 2-type with a gauge-invariant sector and typed matter effect, or prove the requested classification directly. | The proposed product register splits a primitive central port, an A2 or refinement diagram fails, the A3 product optimizer is not proved, or the higher witness has trivial kernel and cokernel. | Use only to audit a complete full-schema lift and nontrivial 2-type. |
+
+## operational-load-readback
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#628](https://github.com/FloatingPragma/observer-patch-holography/issues/628) [Load readback] Construct the operational integer-counting and discrete-cost mechanism | `named-realization source mechanism gap` | The integer normalization and discrete cost are declared in the named realization. Reduced alternative-readback controls exist, but their complete A1-A3 lift remains open in #625. | A finite self-reading patch mechanism emits integer record differences and the discrete mismatch cost from one source-defined repair and readback process. | A rational normalization or inequivalent discrete cost preserves every operational clause and visible naturality check. | Use only to audit a concrete operational counting and cost mechanism. |
+
+## particle-ontology
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#311](https://github.com/FloatingPragma/observer-patch-holography/issues/311) Proof packet: Particle-Like Defect Criterion | `physical particle criterion open after finite-interface no-go` | The exact finite flux chains, twisted spectra, fusion rows, and one-step refinement data have hash-identical classical-lattice and quantum-Hilbert interpretations. No asymptotic dynamics, pole, or all-depth intertwiner is emitted. | A source-defined quantum dynamics or equivalent physical spectral criterion excludes the same-flux classical model and controls composition, asymptotic states, and refinement. | The proposed particle discriminator remains a function only of the finite interface shared by the classical and quantum countermodels. | Use only to audit a concrete dynamics, pole, or quantization packet. |
+
 ## particle-rg
 
 | Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
 | --- | --- | --- | --- | --- | --- |
 | [#32](https://github.com/FloatingPragma/observer-patch-holography/issues/32) [OPH Task] papers.compact.e.26-derive-rg-matching-and-threshold-structure-from-oph: 26. Derive RG matching and threshold structure from OPH | `constructive contract` | Populate scheme lock, threshold map, beta provenance table, and matching interval certificate. | Every running/matching ingredient is OPH-derived, explicitly borrowed, or declared with interval impact. | Hidden threshold or scheme freedom is needed to recover the quantitative rows. | Use only after the local RG packet exists. |
+
+## physical-routed-seam-selection
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#627](https://github.com/FloatingPragma/observer-patch-holography/issues/627) [Routed seams] Select the physical noncentral grammar and matter action | `physical grammar and matter-action selection gap` | The named order-six realization has no source selector for the physical grammar or matter action. The reduced Z6/Z7 controls and contractible S3 syntax witness do not close the full axiom-level classification. | A target-free source packet selects or classifies the seam grammar, refinement transport, and representation or 2-representation on realized matter. | A full-schema #624 alternative with a different central menu, or a nontrivial 2-type with a different sector or matter effect, survives every proposed source selector. | Use only after a finite source selector and matter-action packet exists. |
 
 ## unclassified
 

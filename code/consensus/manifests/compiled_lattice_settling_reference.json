@@ -1,6 +1,6 @@
 {
   "abstract_compiler_result": {
-    "gap_this_packet_closes_at_finite_scope": "cor:functional-synchronous states that correspondence with a separately specified compiler or update rule requires its own theorem; this packet supplies the realized-dynamics correspondence for the finite software patch dynamics defined here",
+    "gap_this_packet_closes_at_finite_scope": "cor:functional-synchronous states that correspondence with a separately specified compiler or update rule requires its own theorem; this packet supplies the correspondence for the finite software patch dynamics defined here only",
     "label": "separately labelled abstract result; this packet cites it and does not restate or replace its proof",
     "lean_declarations": [
       "ObservableNormalForms.RankedSynchronousSystem.synchronousEvolve_agrees_through_rank",
@@ -13,9 +13,10 @@
       "cor:boolean-circuit-compiler (Acyclic Boolean circuit compiler)",
       "cor:functional-synchronous (Synchronous settling by dependency depth)"
     ],
-    "proof_index": "Lean/ObservableNormalForms/PROOF_INDEX.md"
+    "proof_index": "Lean/ObservableNormalForms/PROOF_INDEX.md",
+    "remaining_correspondence_gap": "the production synchronous scatter-project rule is source-identified below, but a finite same-interface counterexample disproves the direct intertwiner and uniform-settling target for that rule"
   },
-  "arithmetic": "exact integer and Boolean arithmetic; no floating point in any check",
+  "arithmetic": "exact integer, rational, and Boolean arithmetic; no floating point in any check",
   "circuits": {
     "nand_tree_depth3": {
       "compiled_depth": 4,
@@ -155,6 +156,12 @@
       "verdict": "fails_closed",
       "witness": "fan_in_overload_control: instance G wires 3 sources into 2 ports of NAND"
     },
+    "malformed_source_reference": {
+      "construction": "an output source reference missing its required port-name field",
+      "error_code": "MALFORMED_SOURCE_REF",
+      "verdict": "fails_closed",
+      "witness": "malformed_source_reference_control: W output reference must be ('out', instance_name, port_name), got ('out', 'missing_port')"
+    },
     "multi_consumer_port": {
       "construction": "one input feeding two ports without a fan-out patch",
       "error_code": "MULTI_CONSUMER",
@@ -166,6 +173,12 @@
       "error_code": "INTERTWINER_BROKEN",
       "verdict": "fails_closed",
       "witness": "primitive NOISY_NAND: settled readback (1,) at ports (1, 1) differs from declared truth (0,)"
+    },
+    "unknown_source_primitive": {
+      "construction": "a forward-referenced source instance whose primitive kind is undeclared",
+      "error_code": "UNKNOWN_PRIMITIVE",
+      "verdict": "fails_closed",
+      "witness": "unknown_source_primitive_control: instance BAD has kind UNKNOWN_KIND"
     }
   },
   "fan_out_control": {
@@ -340,10 +353,292 @@
     },
     "statement": "compiled patches = gates + one fan-out patch per extra consumer of each signal + one wire patch per circuit output; registers = gates + 2 * fan-out patches + outputs; settling time is at most c * compiled depth from any initial register state"
   },
-  "schema": "oph.compiled_lattice_settling_certificate.v1",
+  "scatter_project_correspondence_audit": {
+    "arithmetic": "exact rational and Boolean arithmetic",
+    "claim_under_test": "every satisfiable compiled finite lattice reaches zero mismatch under the synchronous scatter-project update",
+    "consequence": "the direct compiler-to-production-rule correspondence and its uniform settling conclusion cannot be proved as stated; a directional output-only rule or a compiler gadget that prevents backward input rewrites requires a revised target and proof",
+    "cycle": {
+      "entry_step": 0,
+      "period": 2,
+      "phi": [
+        1,
+        1
+      ],
+      "reaches_zero_mismatch": false,
+      "states": [
+        {
+          "out": 1,
+          "w": 0
+        },
+        {
+          "out": 1,
+          "w": 1
+        }
+      ]
+    },
+    "initial_state": {
+      "out": 1,
+      "w": 0
+    },
+    "lattice": {
+      "compiled_depth": 2,
+      "description": "acyclic depth-two AND chain",
+      "edges": [
+        "a",
+        "b",
+        "c",
+        "w",
+        "out"
+      ],
+      "free_edges": [
+        "w",
+        "out"
+      ],
+      "pinned_edges": {
+        "a": 0,
+        "b": 0,
+        "c": 1
+      },
+      "unique_zero_mismatch_state": {
+        "out": 0,
+        "w": 0
+      },
+      "vertices": [
+        {
+          "edges": [
+            "a",
+            "b",
+            "w"
+          ],
+          "name": "g1",
+          "type": "AND"
+        },
+        {
+          "edges": [
+            "w",
+            "c",
+            "out"
+          ],
+          "name": "g2",
+          "type": "AND"
+        }
+      ],
+      "zero_mismatch_solution_count": 1
+    },
+    "same_interface_intertwiner": {
+      "commutes_on_witness": false,
+      "ranked_functional_next": {
+        "out": 0,
+        "w": 0
+      },
+      "reason": "nearest projection at g2 rewrites its unpinned input w from 0 to 1; the ranked gate update treats parent wires as read-only",
+      "scatter_project_next": {
+        "out": 1,
+        "w": 1
+      }
+    },
+    "source": {
+      "commit": "afdd1af1491d5bc293595343128c3730637c2a8d",
+      "file_sha256": "154abda8798f0ab9c8a95f7f6b74005285d662669768e0fd08d5c74635aa8d21",
+      "implementation": "LazySettler with UpdateLaw::Synchronous",
+      "path": "crates/fls-settle/src/lib.rs",
+      "repository": "muellerberndt/ophminer",
+      "source_anchors_at_commit": {
+        "and_truth_table": "lines 4068-4075",
+        "nearest_valid_projection": "lines 486-511",
+        "proposal_collection": "lines 336-363",
+        "proposal_resolution": "lines 365-379 and 3350-3372",
+        "scatter_transform": "lines 4007-4016",
+        "step_dispatch": "lines 215-249"
+      }
+    },
+    "trajectory": [
+      {
+        "invalid_vertices": [
+          "g2"
+        ],
+        "next_state": {
+          "out": 1,
+          "w": 1
+        },
+        "phi": 1,
+        "projections": [
+          {
+            "compatible_candidate_distances_squared": [
+              {
+                "candidate": [
+                  0,
+                  1,
+                  0
+                ],
+                "distance": "7/3"
+              },
+              {
+                "candidate": [
+                  1,
+                  1,
+                  1
+                ],
+                "distance": "1"
+              }
+            ],
+            "current": [
+              0,
+              1,
+              1
+            ],
+            "projected": [
+              1,
+              1,
+              1
+            ],
+            "scattered": [
+              "4/3",
+              "1/3",
+              "1/3"
+            ],
+            "vertex": "g2"
+          }
+        ],
+        "proposals": {
+          "out": [
+            1
+          ],
+          "w": [
+            1
+          ]
+        },
+        "state": {
+          "out": 1,
+          "w": 0
+        },
+        "step": 0
+      },
+      {
+        "invalid_vertices": [
+          "g1"
+        ],
+        "next_state": {
+          "out": 1,
+          "w": 0
+        },
+        "phi": 1,
+        "projections": [
+          {
+            "compatible_candidate_distances_squared": [
+              {
+                "candidate": [
+                  0,
+                  0,
+                  0
+                ],
+                "distance": "1"
+              }
+            ],
+            "current": [
+              0,
+              0,
+              1
+            ],
+            "projected": [
+              0,
+              0,
+              0
+            ],
+            "scattered": [
+              "2/3",
+              "2/3",
+              "-1/3"
+            ],
+            "vertex": "g1"
+          }
+        ],
+        "proposals": {
+          "out": [],
+          "w": [
+            0
+          ]
+        },
+        "state": {
+          "out": 1,
+          "w": 1
+        },
+        "step": 1
+      },
+      {
+        "invalid_vertices": [
+          "g2"
+        ],
+        "next_state": {
+          "out": 1,
+          "w": 1
+        },
+        "phi": 1,
+        "projections": [
+          {
+            "compatible_candidate_distances_squared": [
+              {
+                "candidate": [
+                  0,
+                  1,
+                  0
+                ],
+                "distance": "7/3"
+              },
+              {
+                "candidate": [
+                  1,
+                  1,
+                  1
+                ],
+                "distance": "1"
+              }
+            ],
+            "current": [
+              0,
+              1,
+              1
+            ],
+            "projected": [
+              1,
+              1,
+              1
+            ],
+            "scattered": [
+              "4/3",
+              "1/3",
+              "1/3"
+            ],
+            "vertex": "g2"
+          }
+        ],
+        "proposals": {
+          "out": [
+            1
+          ],
+          "w": [
+            1
+          ]
+        },
+        "state": {
+          "out": 1,
+          "w": 0
+        },
+        "step": 2
+      }
+    ],
+    "verdict": "false_for_source_identified_synchronous_rule"
+  },
+  "schema": "oph.compiled_lattice_settling_certificate.v2",
   "scope": {
-    "open": "continuum-limit and physical-hardware attachment of the patch dynamics is open; no laboratory device, photonic chamber, or continuum field realization is claimed by this packet",
-    "realized": "finite software patch dynamics: the three primitive patches, the compiled test circuits, and the composition checker defined in code/consensus/compiled_lattice_settling_certificate.py"
+    "open": "a revised compiler-to-scatter-project target, continuum-limit attachment, and physical-hardware attachment are open; no laboratory device, photonic chamber, or continuum field realization is claimed by this packet",
+    "realized": "finite software patch dynamics: the three primitive patches, the compiled test circuits, and the composition checker defined in code/consensus/compiled_lattice_settling_certificate.py",
+    "scatter_project_linkage": {
+      "required_revision": "specify and prove a directional output-only update, or compile a gadget that prevents downstream vertices from rewriting parent wires; either choice changes the theorem target",
+      "statement": "the finite software transition tables are not the production scatter-project dynamics; the source-identified synchronous rule has a satisfiable depth-two period-two orbit and does not intertwine with the ranked update on the same gate interface",
+      "status": "blocked_by_same_interface_counterexample",
+      "uniform_settling_verdict": false
+    }
   },
   "settling_theorem": {
     "bound": "T(circuit) <= c * compiled_depth, uniform in circuit width",

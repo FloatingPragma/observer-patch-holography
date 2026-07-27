@@ -1,11 +1,23 @@
 {
+  "acceptance_criteria_detail": {
+    "all_depth_refinement_stability_proved": "open: only one freshly reconstructed refined witness and its coincidence partition are checked",
+    "charge_invariant_and_target_independent": "the Z6 charge is exact and target-independent",
+    "classical_localization_alone_cannot_pass_physical_gate": "open: a vertex mark or coboundary cannot change flux, but a classical nonzero-flux configuration is an explicit same-data countermodel",
+    "mass_and_charge_invariant_and_target_independent": "false because only the charge half of the conjunction is proved",
+    "mass_invariant_and_target_independent": "open: the packet emits no mass invariant",
+    "multi_defect_composition_and_asymptotic_states_controlled": "partial: finite addition of two selected seam-path-disjoint chains is checked, but the puncture faces touch and no asymptotic states are constructed",
+    "quantum_pole_or_equivalent_physical_spectral_criterion_proved": "open: the finite twisted spectrum is a topological invariant shared by classical and quantum realizations of the same chain"
+  },
   "acceptance_criteria_status": {
-    "classical_localization_cannot_pass_gate": true,
-    "continuum_quantum_pole_open": true,
+    "all_depth_refinement_stability_proved": false,
+    "all_issue_acceptance_criteria_satisfied": false,
+    "charge_invariant_and_target_independent": true,
+    "classical_localization_alone_cannot_pass_physical_gate": false,
     "defect_object_and_equivalence_source_defined": true,
-    "mass_and_charge_invariant_and_target_independent": true,
-    "multi_defect_composition_and_asymptotics_controlled": true,
-    "spectral_criterion_proved_at_finite_scope": true
+    "mass_and_charge_invariant_and_target_independent": false,
+    "mass_invariant_and_target_independent": false,
+    "multi_defect_composition_and_asymptotic_states_controlled": false,
+    "quantum_pole_or_equivalent_physical_spectral_criterion_proved": false
   },
   "arithmetic": {
     "characteristic_polynomial_method": "fraction-free Faddeev-LeVerrier with exact trace divisions and a zero-omega-part requirement on every coefficient",
@@ -16,11 +28,56 @@
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charge_and_fusion": {
     "charge_group": "Z6, the measured flux class group",
+    "composition_scope": "addition of two finite puncture-pair chains whose selected seam paths are disjoint; no asymptotic state or scattering limit is constructed",
     "conservation": "the total holonomy of every seam chain vanishes on the closed support, so charge is created and absorbed only in puncture pairs",
     "fusion_pairs_checked": 36,
     "fusion_rule": "class j fused with class k is class j + k mod 6",
     "multi_defect_pairs_checked": 36,
-    "seam_supports_disjoint": true,
+    "puncture_face_shared_boundary_edges": [
+      {
+        "edge_vertices": [
+          0,
+          2
+        ],
+        "faces": [
+          0,
+          1
+        ]
+      },
+      {
+        "edge_vertices": [
+          1,
+          3
+        ],
+        "faces": [
+          6,
+          5
+        ]
+      }
+    ],
+    "puncture_face_vertex_overlaps": [
+      {
+        "faces": [
+          0,
+          1
+        ],
+        "vertices": [
+          0,
+          2
+        ]
+      },
+      {
+        "faces": [
+          6,
+          5
+        ],
+        "vertices": [
+          1,
+          3
+        ]
+      }
+    ],
+    "puncture_pairs_are_asymptotically_separated": false,
     "second_pair_seam_support": [
       11,
       13,
@@ -31,24 +88,21 @@
     "second_puncture_pair_faces": [
       1,
       5
-    ]
+    ],
+    "selected_seam_path_supports_disjoint": true
   },
   "claim_boundary": {
     "does_not_close": [
+      "a quantum-particle criterion or a discriminator between quantum and classical realizations of the same flux chain",
+      "exclusion of a classical finite-lattice configuration carrying the same nonzero flux and twisted spectrum",
       "a continuum quantum pole or propagator for any defect",
-      "scattering amplitudes and asymptotic completeness in the continuum",
+      "asymptotic states, scattering amplitudes, or asymptotic completeness",
+      "an all-depth refinement transport, operator intertwiner, or continuum limit",
       "mass calibration against any measured particle target",
       "laboratory identification of any species"
     ],
-    "proves": "at finite source scope: the six measured flux sectors carry a gauge-invariant, refinement-stable, target-free spectral invariant that separates them from every classical localized record, with Z6 charge conservation, additive fusion, and additive composition of well-separated defect pairs on a self-adjoint ell^2 representation",
-    "status": "finite_source_scope_defect_sector"
-  },
-  "classical_record_control": {
-    "local_perturbation_preserves_class_and_spectra": true,
-    "marked_vertex_leaves_operator_family_unchanged": true,
-    "ordered_class_pairs_with_no_connecting_regauge": 30,
-    "scaled_basis_coboundaries_with_zero_holonomy": 60,
-    "separation_statement": "localization alone cannot pass the gate: every local operation fixes the flux class and the spectrum family, while distinct classes are separated by an exact holonomy obstruction and by the twisted characteristic polynomials"
+    "proves": "on the fixed finite support: the six measured Z6 flux sectors carry exact gauge-invariant twisted characteristic polynomials, additive flux fusion, finite two-chain composition, and a self-adjoint ell^2 representation; the charge-conjugacy coincidence partition persists through one edge-midpoint refinement check. At this finite interface, particle ontology is unidentifiable because classical-lattice and quantum-Hilbert interpretations have identical exported data",
+    "status": "finite_topological_flux_spectrum_with_ontology_no_go"
   },
   "defect_sector_definition": {
     "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the measured order-six class group",
@@ -67,6 +121,26 @@
       24,
       25
     ]
+  },
+  "finite_topological_sector_gate": {
+    "all_depth_refinement_stability": false,
+    "asymptotic_states_controlled": false,
+    "charge_conserved_and_fusion_additive": true,
+    "class_0_vs_3_and_0_vs_1_distinct": true,
+    "classical_same_flux_countermodel_excluded": false,
+    "continuum_quantum_pole": false,
+    "defect_objects_source_defined": true,
+    "finite_disjoint_path_chain_composition_checked": true,
+    "invariants_target_free": true,
+    "laboratory_identification": false,
+    "local_coboundary_regauge_cannot_change_flux_class": true,
+    "one_step_coincidence_partition_persists": true,
+    "operators_self_adjoint": true,
+    "passed": true,
+    "physical_particle_discrimination": false,
+    "scattering_amplitude_interface": false,
+    "scope": "passed refers only to the retained finite topological rows; it is not the GitHub issue's physical-particle acceptance gate",
+    "spectra_gauge_invariant": true
   },
   "gauge_invariance": {
     "characteristic_polynomials_invariant": true,
@@ -87,8 +161,26 @@
     "space": "ell^2 on the twelve support vertices; the refined level uses ell^2 on the forty-two refined vertices"
   },
   "issue": 311,
-  "manifest_sha256": "6c00b832f5be777da76335739cbbf207acfd60cb39dd08676ab659c1d9936e47",
-  "refinement_stability": {
+  "local_coboundary_control": {
+    "excludes_every_classical_localized_record": false,
+    "local_coboundary_regauge_preserves_class_and_spectra": true,
+    "marked_vertex_leaves_operator_family_unchanged": true,
+    "ordered_class_pairs_with_no_connecting_regauge": 30,
+    "physical_particle_discrimination": false,
+    "proved_statement": "a vertex mark or coboundary regauge cannot change puncture holonomy; distinct flux classes have an exact holonomy obstruction, and four charge-conjugacy bands have distinct twisted characteristic polynomials",
+    "same_flux_classical_countermodel": "a classical finite-lattice configuration carrying the same nonzero seam chain has the same holonomy and twisted adjacency spectrum; this certificate contains no quantum/classical discriminator",
+    "scaled_basis_coboundaries_with_zero_holonomy": 60
+  },
+  "manifest_sha256": "4a8899e57e1087b47a8ab0bfa189883d8e747d312c7d61134dcd097607a015e9",
+  "negative_closure_status": {
+    "all_finite_interface_discriminators_covered": true,
+    "extra_dynamics_or_pole_premise_necessary": true,
+    "same_data_classical_quantum_countermodels": true,
+    "scope": "all predicates and deterministic algorithms whose complete input is the declared finite observer-visible interface",
+    "status": "proved_no_go_at_declared_finite_interface"
+  },
+  "one_step_refinement_check": {
+    "all_depth_refinement_stability_proved": false,
     "characteristic_polynomials": {
       "0": {
         "coefficients_head": [
@@ -205,6 +297,8 @@
         "sha256": "6c8c93aded624c7603d0b9cc72501dc4c25eed315b07ba26c5481759169ea41d"
       }
     },
+    "coarse_chain_transported_to_refined_chain": false,
+    "coarse_to_refined_operator_intertwiner_proved": false,
     "coincidence_partition": [
       [
         0
@@ -222,7 +316,8 @@
       ]
     ],
     "hermiticity_checks": 1440,
-    "matches_pinned_refinement_transport": true,
+    "matches_pinned_refinement_counts": true,
+    "one_step_partition_persists": true,
     "puncture_faces": {
       "end": 24,
       "end_child_of": 6,
@@ -247,9 +342,25 @@
       1,
       3
     ],
-    "verdict_persists": true
+    "scope": "one edge-midpoint refinement with a freshly constructed child-to-child witness path"
   },
-  "schema": "oph.flux_defect_criterion_receipt.v1",
+  "ontology_independence_no_go": {
+    "classical_model": {
+      "interpretation": "classical finite-lattice flux configuration with a complex linear wave/adjacency operator",
+      "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d"
+    },
+    "conclusion": "every deterministic discriminator that factors only through the declared finite interface has the same value on both models; a dynamics, pole, quantization, or equivalent extra premise is necessary for particle ontology",
+    "exhaustive_scope": "all predicates and deterministic algorithms whose complete input is the declared finite observer-visible interface",
+    "interface": "the exact finite carrier, all six seam chains, twisted Hermitian operators and characteristic polynomials, finite fusion and composition rows, and one-step refinement check exported by this packet",
+    "negative_closure_at_declared_interface": true,
+    "observer_visible_data_identical": true,
+    "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d",
+    "quantum_model": {
+      "interpretation": "quantum Hilbert-space flux-sector Hamiltonian candidate on the same complex vector space",
+      "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d"
+    }
+  },
+  "schema": "oph.flux_defect_criterion_receipt.v3",
   "spectral_criterion": {
     "all_six_pairwise_distinct": false,
     "class_0_differs_from_class_1": true,
@@ -336,22 +447,6 @@
       ]
     ],
     "reading": "four distinct polynomials; classes k and 6 - k coincide because charge conjugation sends A_k to its entrywise conjugate, the transpose of a Hermitian operator, which fixes the characteristic polynomial"
-  },
-  "spectral_criterion_gate": {
-    "charge_conserved_and_fusion_additive": true,
-    "class_0_vs_3_and_0_vs_1_distinct": true,
-    "classical_localization_cannot_pass": true,
-    "continuum_quantum_pole": false,
-    "defect_objects_source_defined": true,
-    "invariants_target_free": true,
-    "laboratory_identification": false,
-    "multi_defect_composition_controlled": true,
-    "operators_self_adjoint": true,
-    "passed": true,
-    "refinement_stable": true,
-    "scattering_amplitude_interface": false,
-    "scope": "the gate aggregates the nine finite measured rows; the three false rows are open named interfaces outside finite source scope and never enter 'passed'",
-    "spectra_gauge_invariant": true
   },
   "twisted_spectra": {
     "classes": [

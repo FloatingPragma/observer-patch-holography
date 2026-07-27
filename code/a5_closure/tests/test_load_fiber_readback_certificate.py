@@ -49,7 +49,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
 
     def test_schema_and_identity_fields(self) -> None:
         self.assertEqual(
-            self.expected["schema"], "oph.load_fiber_readback_certificate.v1"
+            self.expected["schema"], "oph.load_fiber_readback_certificate.v3"
         )
         self.assertEqual(self.expected["issue"], 625)
         self.assertEqual(
@@ -63,11 +63,14 @@ class LoadFiberReadbackTests(unittest.TestCase):
                 "issue",
                 "generated_by",
                 "lean_spine",
+                "bounded_exit",
                 "integer_fiber",
                 "readback_quadratic_form",
                 "integer_fiber_lane",
+                "reduced_carrier_noninteger_readback_candidate",
                 "quadratic_readback_lane",
                 "consumer_ledger",
+                "consumer_integration_status",
                 "controls",
                 "claim_boundary",
                 "payload_sha256",
@@ -84,19 +87,22 @@ class LoadFiberReadbackTests(unittest.TestCase):
     def test_conclusion_fields(self) -> None:
         self.assertEqual(
             self.expected["integer_fiber"],
-            "axiom_forced_from_A1_finiteness_and_atomicity",
+            "exact_named_realization_for_declared_counting_grammar",
         )
         self.assertEqual(
             self.expected["readback_quadratic_form"],
-            "forced_to_identity_class_by_A3_reference",
+            "A3_objective_curvature_identity_ray_exact_physical_readback_open",
         )
         self.assertEqual(
             self.expected["integer_fiber_lane"]["conclusion"],
-            "axiom_forced_from_A1_finiteness_and_atomicity",
+            "exact_named_realization_for_declared_counting_grammar",
+        )
+        self.assertIn(
+            "exact_discrete_readback_identification_open",
+            self.expected["quadratic_readback_lane"]["conclusion"],
         )
         self.assertEqual(
-            self.expected["quadratic_readback_lane"]["conclusion"],
-            "forced_to_identity_class_by_A3_reference",
+            self.expected["bounded_exit"], "conditional_open_interface"
         )
 
     def test_integer_fiber_lane(self) -> None:
@@ -129,7 +135,46 @@ class LoadFiberReadbackTests(unittest.TestCase):
             cert.sha256_json(carrier_manifest),
         )
 
-    def test_second_order_theorem_fisher_coefficient_is_six(self) -> None:
+    def test_reduced_carrier_noninteger_readback_candidate(self) -> None:
+        countermodel = self.expected[
+            "reduced_carrier_noninteger_readback_candidate"
+        ]
+        self.assertTrue(countermodel["same_reduced_finite_atomic_carrier"])
+        self.assertTrue(countermodel["same_twelve_primitive_central_projections"])
+        self.assertEqual(countermodel["family_size"], 12)
+        self.assertEqual(countermodel["carrier_rotations_checked"], 60)
+        self.assertEqual(countermodel["equivariance_checks"], 720)
+        self.assertTrue(countermodel["presentation_covariant"])
+        self.assertEqual(countermodel["common_half_integer_value"], "1/2")
+        self.assertEqual(
+            countermodel["declared_counting_grammar_rejection_code"],
+            "DECLARED_LOAD_TYPE",
+        )
+        self.assertEqual(len(countermodel["boundary_observable_family"]), 12)
+        self.assertFalse(countermodel["integer_valued"])
+        self.assertTrue(
+            countermodel[
+                "rejected_by_declared_counting_grammar_after_reduced_carrier_gate"
+            ]
+        )
+        self.assertFalse(
+            countermodel[
+                "complete_A1_operational_and_refinement_schema_instantiated"
+            ]
+        )
+        self.assertFalse(
+            countermodel["complete_A2_meaning_naturality_instantiated"]
+        )
+        self.assertFalse(
+            countermodel[
+                "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated"
+            ]
+        )
+        self.assertFalse(
+            countermodel["supports_full_A1_A2_A3_independence_claim"]
+        )
+
+    def test_second_order_theorem_keeps_taylor_hessian_factor_two(self) -> None:
         theorem = self.expected["quadratic_readback_lane"][
             "second_order_theorem"
         ]
@@ -137,9 +182,19 @@ class LoadFiberReadbackTests(unittest.TestCase):
         self.assertTrue(theorem["first_order_vanishes_on_tangent_space"])
         self.assertEqual(theorem["tangent_basis_evaluations"], [0] * 11)
         self.assertEqual(theorem["second_order_diagonal"], ["6"] * 12)
-        self.assertEqual(theorem["fisher_coefficient_per_port"], "6")
         self.assertEqual(
-            theorem["fisher_quadratic_form"], "Q = diag(1 / (2 tau_p)) = 6 I"
+            theorem["second_order_taylor_coefficient_per_port"], "6"
+        )
+        self.assertEqual(
+            theorem["second_order_taylor_coefficient_matrix"],
+            "C = diag(1 / (2 tau_p)) = 6 I",
+        )
+        self.assertEqual(theorem["hessian_coefficient_per_port"], "12")
+        self.assertEqual(
+            theorem["hessian_matrix"], "H = diag(1 / tau_p) = 12 I"
+        )
+        self.assertEqual(
+            theorem["fisher_information_matrix"], "F = H = 12 I"
         )
         self.assertTrue(theorem["positive_definite"])
         self.assertFalse(theorem["numerics_used"])
@@ -166,17 +221,38 @@ class LoadFiberReadbackTests(unittest.TestCase):
         self.assertTrue(menu["orbitals_symmetric"])
         self.assertTrue(menu["orbitals_equivariant_under_sixty_rotations"])
         self.assertTrue(menu["orbital_supports_partition_entries"])
-        fisher = menu["fisher_form"]
-        self.assertEqual(fisher["coefficient_vector"], ["6", "6", "6", "6"])
+        curvature = menu["a3_objective_curvature"]
+        self.assertEqual(curvature["coefficient_vector"], ["6", "6", "6", "6"])
         self.assertEqual(
-            fisher["isotypic_coefficients"],
+            curvature["isotypic_coefficients"],
             {"1": "6", "3": "6", "3p": "6", "5": "6"},
         )
-        self.assertTrue(fisher["identity_class"])
+        self.assertEqual(
+            curvature["hessian_and_fisher_information_matrix"], "12 I"
+        )
+        self.assertTrue(curvature["identity_class"])
         countermodel = menu["retained_countermodel"]
         self.assertTrue(countermodel["passes_incidence_equivariance"])
         self.assertTrue(countermodel["positive_definite"])
         self.assertFalse(countermodel["identity_class"])
+        self.assertTrue(
+            countermodel["same_reduced_objective_and_state_selection_data"]
+        )
+        self.assertEqual(
+            countermodel["A3_second_order_taylor_coefficient_remains"], "6 I"
+        )
+        self.assertEqual(countermodel["A3_objective_hessian_remains"], "12 I")
+        self.assertTrue(
+            countermodel[
+                "differs_only_in_proposed_physical_readback_on_reduced_checks"
+            ]
+        )
+        self.assertFalse(
+            countermodel["complete_A1_A2_A3_operational_lift_proved"]
+        )
+        self.assertFalse(
+            countermodel["supports_full_axiom_independence_claim"]
+        )
         self.assertEqual(
             countermodel["isotypic_coefficients"],
             {
@@ -187,7 +263,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
             },
         )
 
-    def test_consumer_ledger_rows_are_typed(self) -> None:
+    def test_consumer_ledger_rows_are_classified_without_axiom_overclaim(self) -> None:
         ledger = self.expected["consumer_ledger"]
         self.assertEqual(len(ledger), len(cert.CONSUMERS))
         paths = [row["consumer"] for row in ledger]
@@ -196,11 +272,36 @@ class LoadFiberReadbackTests(unittest.TestCase):
         )
         self.assertIn("Lean/Screen/UnitSplit12.lean", paths)
         self.assertIn("code/capacity_readback/F_candidate_capK.py", paths)
+        integer_consumers = {
+            row["consumer"]
+            for row in ledger
+            if row["consumes_declared_integer_counting_grammar"]
+        }
+        quadratic_consumers = {
+            row["consumer"]
+            for row in ledger
+            if row["consumes_exact_discrete_quadratic_cost"]
+        }
+        self.assertEqual(
+            integer_consumers,
+            {
+                "code/a5_closure/echosahedral_selector_certificate.py",
+                "Lean/Screen/UnitSplit12.lean",
+                "code/consensus/verify_issue_517_proof_obligations.py",
+            },
+        )
+        self.assertEqual(
+            quadratic_consumers,
+            {
+                "code/a5_closure/echosahedral_selector_certificate.py",
+                "code/consensus/verify_issue_517_proof_obligations.py",
+            },
+        )
         for row in ledger:
-            self.assertTrue(
-                row["integer_fiber_source"] is not None
-                or row["quadratic_form_source"] is not None,
-                row["consumer"],
+            self.assertIn(row["consumer"], cert.SURFACE_CLASSIFICATION)
+            self.assertEqual(
+                row["dependency_class"],
+                cert.SURFACE_CLASSIFICATION[row["consumer"]],
             )
             if row["integer_fiber_source"] is not None:
                 self.assertEqual(
@@ -208,9 +309,19 @@ class LoadFiberReadbackTests(unittest.TestCase):
                 )
             if row["quadratic_form_source"] is not None:
                 self.assertEqual(
-                    row["quadratic_form_source"], cert.QUADRATIC_FORM_SOURCE
+                    row["quadratic_form_source"],
+                    cert.DISCRETE_QUADRATIC_COST_SOURCE,
                 )
+            self.assertFalse(row["consumes_A3_objective_curvature_receipt"])
+            self.assertEqual(row["binding_check"], "token_presence_only")
+            self.assertFalse(row["imports_this_receipt"])
+            self.assertFalse(row["typed_against_this_receipt"])
+            self.assertFalse(row["requires_axiom_forced_issue_625_result"])
             self.assertTrue((cert.REPO_ROOT / row["consumer"]).is_file())
+        self.assertIn(
+            "all eleven originally named surfaces classified",
+            self.expected["consumer_integration_status"],
+        )
 
     def test_missing_consumer_fails_closed(self) -> None:
         original = cert.CONSUMERS
@@ -233,6 +344,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
                 "tilted_reference",
                 "linear_readback",
                 "adjacency_form_claimed_forced",
+                "presentation_dependent_form",
             },
         )
         for name, verdict in controls.items():
@@ -252,30 +364,43 @@ class LoadFiberReadbackTests(unittest.TestCase):
         self.assertTrue(adjacency["passes_incidence_equivariance"])
         self.assertFalse(adjacency["identity_class"])
         self.assertEqual(
-            adjacency["fisher_coefficient_vector"], ["6", "6", "6", "6"]
+            adjacency["A3_taylor_coefficient_vector"], ["6", "6", "6", "6"]
         )
+        presentation = controls["presentation_dependent_form"]["witness"]
+        self.assertEqual(presentation["singled_out_port"], 0)
+        self.assertEqual(presentation["rotations_checked"], 60)
+        self.assertFalse(presentation["passes_incidence_equivariance"])
 
     def test_non_atomic_model_rejected_exactly(self) -> None:
         with self.assertRaises(cert.CertificateError) as caught:
-            cert.accept_load_model(cert.NON_ATOMIC_LOAD_MODEL)
+            cert.validate_a1_finite_atomic_carrier(cert.NON_ATOMIC_LOAD_MODEL)
         self.assertEqual(caught.exception.code, "A1_FINITENESS")
-        accepted = cert.accept_load_model(
+        accepted = cert.accept_declared_counting_model(
             {
                 "record_spectrum": cert.ACCEPTED_SPECTRUM,
                 "primitive_central_atom_count": 12,
-                "load_observable": cert.ACCEPTED_LOAD_TYPE,
+                "load_observable": cert.DECLARED_COUNTING_LOAD_TYPE,
             }
         )
-        self.assertTrue(accepted["accepted"])
+        self.assertTrue(accepted["accepted_by_A1_finite_atomic_gate"])
+        self.assertTrue(accepted["accepted_by_declared_counting_grammar"])
+        a1_only = cert.validate_a1_finite_atomic_carrier(
+            {
+                "record_spectrum": cert.ACCEPTED_SPECTRUM,
+                "primitive_central_atom_count": 12,
+                "load_observable": "covariant_half_atom_counter_family",
+            }
+        )
+        self.assertTrue(a1_only["accepted_by_A1_finite_atomic_gate"])
         with self.assertRaises(cert.CertificateError) as caught:
-            cert.accept_load_model(
+            cert.accept_declared_counting_model(
                 {
                     "record_spectrum": cert.ACCEPTED_SPECTRUM,
                     "primitive_central_atom_count": 12,
                     "load_observable": "lebesgue_density_readback",
                 }
             )
-        self.assertEqual(caught.exception.code, "A1_LOAD_TYPE")
+        self.assertEqual(caught.exception.code, "DECLARED_LOAD_TYPE")
 
     def test_forced_atomic_countermodel_fails_closed(self) -> None:
         original = copy.deepcopy(cert.NON_ATOMIC_LOAD_MODEL)
@@ -283,7 +408,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
             {
                 "record_spectrum": cert.ACCEPTED_SPECTRUM,
                 "primitive_central_atom_count": 12,
-                "load_observable": cert.ACCEPTED_LOAD_TYPE,
+                "load_observable": cert.DECLARED_COUNTING_LOAD_TYPE,
             }
         )
         try:
@@ -324,7 +449,7 @@ class LoadFiberReadbackTests(unittest.TestCase):
         try:
             with self.assertRaises(cert.CertificateError) as caught:
                 cert.build_payload()
-            self.assertEqual(caught.exception.code, "FISHER_NOT_IDENTITY")
+            self.assertEqual(caught.exception.code, "CURVATURE_NOT_IDENTITY")
         finally:
             cert.UNIFORM_REFERENCE_TAU = original
 

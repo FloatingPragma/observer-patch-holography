@@ -1,10 +1,13 @@
 {
   "countermodel_witnesses": {
+    "contractible_noncentral_raw_syntax": "the exact crossed module id:S3->S3 with conjugation action satisfies both Peiffer identities and admits noncentral face labels, but its trivial kernel and cokernel emit no nontrivial higher sector",
     "incoherent_assignment": "one twisted seam breaks the face relation of the two triple overlaps that seam borders and the worklist rejects it at the first forced face",
-    "noncentral_obstruction": "a face discrepancy outside the centre fails the commutation check against a propagated seam value and is rejected",
+    "missing_overlap": "deleting one of the twenty pinned triple overlaps fails the complete-nerve scope gate before the flat theorem is used",
+    "noncentral_obstruction": "a face discrepancy outside the centre is excluded from the conditional central-coefficient lane; the S3 crossed-module raw-syntax boundary records why this exclusion is not a derivation of general centrality",
     "out_of_class_nerve": "a faceless cycle stalls the worklist and carries a flat nontrivial-holonomy assignment that is not a gauge, which is the recorded fundamental-group boundary of the classification",
     "s3_extra_flux_sector": "the symmetric group on three letters has trivial centre, so its second cohomology on the spherical nerve is trivial and a claimed extra sector repeats the trivial class",
-    "spin_manifest_pin": "the spin-artifact pin is carried twice, in this manifest and in the #613 chain, and any tampered copy breaks the hash comparison before any classification runs"
+    "spin_manifest_pin": "the spin-artifact pin is carried twice, in this manifest and in the #613 chain, and any tampered copy breaks the hash comparison before any classification runs",
+    "unconstrained_centre": "the injected cyclic value group Z7 has centre Z7 and the same Smith calculation emits seven spherical H2 classes, so it fails any unsupported promotion into the measured order-six menu"
   },
   "finite_controls": [
     {
@@ -52,6 +55,18 @@
     {
       "actual_error": "FORBIDDEN_DEPENDENCY",
       "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "allowed_value_group_list_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
+      "name": "allowed_centre_order_list_injection",
+      "passed": true
+    },
+    {
+      "actual_error": "FORBIDDEN_DEPENDENCY",
+      "expected_error": "FORBIDDEN_DEPENDENCY",
       "name": "instanton_sector_injection",
       "passed": true
     },
@@ -69,6 +84,6 @@
     }
   ],
   "issue": 624,
-  "manifest_sha256": "0f7813273174797c67e49810dafce93733bd3252c792e6f077cbf007f1d0a4b2",
-  "schema": "oph.noncentral_seam_reduction_negative_controls.v1"
+  "manifest_sha256": "1e1fa8ea54b89cebccd6e308c435ed8a277bd5520b21634188712bde49cbcf90",
+  "schema": "oph.noncentral_seam_reduction_negative_controls.v2"
 }

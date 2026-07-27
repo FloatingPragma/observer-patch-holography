@@ -1129,19 +1129,21 @@
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
-      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, integer total-charge-twelve defect readback, and refinement cocycle, the source packet uniquely derives the one-unit-per-port split with exact gap two, the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture from arbitrary OPH data or supply a physical gauge-current lift.",
+      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, an additional integer total-charge-twelve counting grammar, a declared normalized central-readback quadratic cost, and refinement cocycle, the named packet uniquely derives the one-unit-per-port split with exact gap two. The incidence packet separately derives the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture, integer counting normalization, or discrete physical cost from arbitrary OPH data, and it does not supply a physical gauge-current lift.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "source_derived_finite_branch_theorem",
+      "tier": "exact_named_realization_and_finite_incidence_theorem",
       "assumptions": [
-        "certified_echosahedral_carrier_lineage"
+        "certified_echosahedral_carrier_lineage",
+        "declared_integer_port_counting_grammar",
+        "declared_normalized_central_readback_quadratic_cost"
       ],
       "imported_results": [
         "finite_graph_automorphism_enumeration",
         "finite_group_classification",
         "exact_Gram_matrix_linear_algebra"
       ],
-      "oph_specific_delta": "The selector is computed only from observer-visible primitive port records, oriented boundary incidence, local integer readback, and refinement lineage. It closes UD12 and RP-A5 on that carrier branch without importing coordinates, A5, an inverse map, Standard Model labels, product-adjoint counts, couplings, or measurements.",
-      "novelty_type": "source_derived_finite_selector_certificate",
+      "oph_specific_delta": "Inside the declared integer counting and cost realization, the unit split is computed from primitive port records without measured targets. The inverse pairing, proper A5 action, and Gram frame follow separately from oriented incidence. Reduced-carrier rational readback candidates show that finite atomicity alone is not an integrality proof; no complete A1-A3 lift is supplied.",
+      "novelty_type": "named_counting_realization_plus_finite_incidence_certificate",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
@@ -1154,7 +1156,7 @@
       ],
       "falsifier": "Under the declared source packet, the cost has another minimum or a different next floor, a port lacks a unique distance-three inverse, the positive incidence automorphism group is not A5, the exact Gram matrix is not positive rank three with G squared equal to 4G, or a valid relabeling/refinement fails naturality.",
       "scope_if_false": "The echosahedral source-selector theorem and its use in the finite A5 branch fall. Generic observer-patch, consensus, relativity, and independently assumed icosahedral calculations are assessed separately.",
-      "status": "proved_on_declared_echosahedral_carrier_lineage",
+      "status": "unit_split_exact_in_declared_counting_cost_realization__incidence_outputs_exact_on_declared_carrier",
       "claim_class": "conditional_implication",
       "gates": []
     },
@@ -1624,7 +1626,8 @@
       "status": "rate_no_go_proved_physical_clock_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        334
+        334,
+        522
       ]
     },
     {

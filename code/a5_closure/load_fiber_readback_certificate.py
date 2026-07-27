@@ -6,59 +6,65 @@ Executable companion of Lean/Screen/UnitSplit12.lean (integer split
 arithmetic) and Lean/Screen/A5Commutant.lean (commutant dimension four).
 Two lanes and one ledger:
 
-* INTEGER FIBER (A1). A1 asserts finite accessible algebras with central
+* INTEGER COUNTING GRAMMAR (named realization). A1 asserts finite accessible algebras with central
   record algebras and twelve primitive pairwise-orthogonal central port
   projections. A finite-dimensional algebra has an atomic center, so every
   record projection is a sum of primitive central atoms with multiplicity
-  0 or 1, and every load observable declared as a record-counting
-  difference takes values in Z. The certificate consumes the pinned
+  0 or 1. Once the pinned realization additionally declares its load
+  observables to be record-counting differences, those observables take
+  values in Z. The certificate consumes the pinned
   federation carrier manifest, verifies atomicity on the full record
   lattice of 4096 projections, and verifies that every load observable in
   the selector certificate's grammar (twelve port charges and their total)
-  is an integer combination of atom counters. Conclusion:
-  integer_fiber = "axiom_forced_from_A1_finiteness_and_atomicity". The
-  out-of-class control is a continuous-spectrum load model with no finite
-  atomic family; the A1 finiteness clause rejects it exactly.
+  is an integer combination of atom counters. A rationally weighted central
+  observable that passes reduced finite-atomic and covariance checks is
+  retained as a candidate against the stronger claim that A1 alone selects
+  this counting grammar. Its complete
+  A1-A3 operational and refinement lift is not supplied. Conclusion: the
+  integer fiber is exact inside the declared counting realization; the
+  axiom-level classification remains open.
 
-* QUADRATIC READBACK (A3), two exact steps. (a) Second-order theorem: on
+* A3 OBJECTIVE CURVATURE, two exact steps. (a) Second-order theorem: on
   the twelve-port simplex with the A3 uniform reference tau and any
   feasible perturbation rho = tau + epsilon v with sum_p v_p = 0, the
   exact second-order jet of D(rho || tau) = sum_p rho_p log(rho_p / tau_p)
   has first-order coefficient vector (1, ..., 1), which the feasibility
-  clause annihilates, and second-order coefficient matrix
-  diag(1 / (2 tau_p)) = 6 I, the weighted Fisher quadratic form. The jet
+  clause annihilates, and second-order Taylor-coefficient matrix
+  diag(1 / (2 tau_p)) = 6 I. The Hessian, equivalently the Fisher
+  information matrix, is twice this matrix:
+  diag(1 / tau_p) = 12 I. The jet
   algebra uses the exact Taylor polynomial of log(1 + x) through second
   order with rational coefficients; no numerics appear. (b) Invariance
   menu: the space of deck-invariant quadratic forms on the port space is
   the four-dimensional commutant span of the identity, adjacency,
   distance-two, and antipode orbitals (Lean/Screen/A5Commutant.lean,
   `commutant_decomposition`). The four isotypic projectors P_1, P_3,
-  P_3', P_5 are rebuilt exactly and the Fisher form is expressed in that
+  P_3', P_5 are rebuilt exactly and the Taylor coefficient is expressed in that
   basis with coefficient vector (6, 6, 6, 6): the identity class.
-  Conclusion: readback_quadratic_form =
-  "forced_to_identity_class_by_A3_reference". The retained countermodel
-  family is the four-parameter menu itself; the adjacency-weighted form
+  Conclusion: both the local Hessian 12 I and its second-order Taylor
+  coefficient 6 I lie on the identity ray. The overall coefficient follows
+  the declared A3 weight, and identifying this infinitesimal curvature with an exact discrete physical
+  readback law is a separate interface. The retained control family is
+  the four-parameter menu itself; the adjacency-weighted form
   6 I + A passes incidence-equivariance, symmetry, and positive
   definiteness with projector coefficients (11, 6 + sqrt5, 6 - sqrt5, 5),
-  so equivariance without the A3 reference clause does not force the
-  readback. That is the recorded independence boundary.
+  so incidence equivariance alone does not force the readback. A complete
+  A1-A3 lift of this alternative readback is not supplied.
 
-* CONSUMER LEDGER. Every consumer of the integer load fiber or the
-  quadratic readback (the a5_closure selector and port-current chain, the
-  Lean unit split, the consensus proof-obligation verifier, the screen
-  sieve and its dependents, and the pixel chain K = 4N/P surfaces) is
-  listed with its consumed object and its typed source: integer fiber
-  from A1 finiteness and atomicity, quadratic form from the A3
-  second-order theorem. No consumer file is edited.
+* CONSUMER AUDIT. Potential downstream consumers are listed and checked for
+  stable identifying tokens. This is an inventory only: none of those files
+  imports this receipt, so the certificate does not claim that the exact
+  discrete cost or pixel-chain integrality has been retyped.
 
 Controls fail closed: the non-atomic load model is rejected by the A1
-finiteness clause; the tilted-reference Fisher form has unequal diagonal
+finiteness clause; the tilted-reference Taylor coefficient and Hessian have unequal diagonal
 (13/4 and 13/2), so the reference clause is load-bearing; a claimed
 first-order readback at the projection is rejected because the linear term
 vanishes exactly on the feasible tangent space; the adjacency-form
-readback claimed as A3-forced is rejected because its projector
-coefficient vector is not constant. A control that unexpectedly passes
-raises and the certificate exits nonzero.
+readback claimed as A3-forced is rejected because its projector coefficient
+vector is not constant; and a diagonal form that singles out port zero is
+rejected by the carrier-rotation equivariance check. A control that
+unexpectedly passes raises and the certificate exits nonzero.
 
 Every arithmetic decision is exact integer, fractions.Fraction, or
 Q(sqrt5) arithmetic; the emitted payload is walked to reject any float.
@@ -90,7 +96,7 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.load_fiber_readback_certificate.v1"
+SCHEMA = "oph.load_fiber_readback_certificate.v3"
 GENERATED_BY = "code/a5_closure/load_fiber_readback_certificate.py"
 LEAN_COMMUTANT_MODULE = "Lean/Screen/A5Commutant.lean"
 LEAN_UNIT_SPLIT_MODULE = "Lean/Screen/UnitSplit12.lean"
@@ -102,8 +108,9 @@ UNIFORM_REFERENCE_TAU: tuple[Fraction, ...] = tuple(
 )
 
 # Control (b) reference: one tilted, strictly positive, normalized reference.
-# Its Fisher diagonal 1/(2 tau_p) is (13/4, 13/2, ..., 13/2), unequal, so the
-# tilted form is outside the identity class and the control fails as required.
+# Its second-order Taylor-coefficient diagonal 1/(2 tau_p) is
+# (13/4, 13/2, ..., 13/2), unequal, so the tilted form is outside the identity
+# class and the control fails as required. The Hessian is twice this diagonal.
 TILTED_REFERENCE_TAU: tuple[Fraction, ...] = (Fraction(2, 13),) + tuple(
     Fraction(1, 13) for _ in range(PORTS - 1)
 )
@@ -123,18 +130,24 @@ NON_ATOMIC_LOAD_MODEL: dict[str, Any] = {
 }
 
 ACCEPTED_SPECTRUM = "finite_atomic_central_records"
-ACCEPTED_LOAD_TYPE = "record_counting_difference"
+DECLARED_COUNTING_LOAD_TYPE = "record_counting_difference"
 
 INTEGER_FIBER_SOURCE = (
-    "A1 finiteness and atomicity (integer_fiber lane of this certificate)"
+    "declared record-counting grammar on the pinned finite atomic carrier "
+    "(exact named realization, not A1 alone)"
 )
-QUADRATIC_FORM_SOURCE = (
-    "A3 second-order theorem at the declared reference "
-    "(quadratic_readback lane of this certificate)"
+DISCRETE_QUADRATIC_COST_SOURCE = (
+    "declared normalized central-readback Hilbert-Schmidt cost in the "
+    "echosahedral selector receipt; independent of the A3 Taylor-curvature "
+    "calculation"
 )
 
-# Consumer ledger rows: (path, binding token that must appear in the file,
-# consumed object, consumes integer fiber, consumes quadratic form).
+# Audited surface rows: (path, binding token that must appear in the file,
+# related object, consumes the declared integer grammar, consumes the exact
+# discrete quadratic cost).  Most rows in the original campaign list were
+# symbol-level matches rather than consumers.  SURFACE_CLASSIFICATION records
+# the corrected relation and prevents an inventory row from being reported as
+# a typed dependency.
 CONSUMERS: tuple[tuple[str, str, str, bool, bool], ...] = (
     (
         "code/a5_closure/echosahedral_selector_certificate.py",
@@ -147,18 +160,18 @@ CONSUMERS: tuple[tuple[str, str, str, bool, bool], ...] = (
     (
         "code/a5_closure/port_current_inner_certificate.py",
         "carrier_manifest_sha256",
-        "the port-current packet bound to the hash-pinned carrier with its "
-        "integer defect readback",
-        True,
+        "the port-current packet is bound to the carrier hash but does not "
+        "consume the #625 integer-load theorem",
+        False,
         False,
     ),
     (
         "code/a5_closure/response_grammar_completeness_certificate.py",
         "A5Commutant",
-        "the equivariant response grammar on the port space whose invariant "
-        "quadratic forms are the commutant menu",
+        "the equivariant response grammar uses the commutant menu but does not "
+        "identify its response with the A3 objective-curvature calculation",
         False,
-        True,
+        False,
     ),
     (
         "Lean/Screen/UnitSplit12.lean",
@@ -180,49 +193,86 @@ CONSUMERS: tuple[tuple[str, str, str, bool, bool], ...] = (
         "code/particles/hierarchy/verify_screen_sieve_theorem.py",
         "defect_cost_sum_q2",
         "integer curvature charges 6 - deg with total 12 and the quadratic "
-        "defect cost sum q^2",
-        True,
-        True,
+        "defect cost sum q^2 have an independent geometric source",
+        False,
+        False,
     ),
     (
         "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
         "total_curvature_charge",
         "the total curvature charge 12 from the screen sieve",
-        True,
+        False,
         False,
     ),
     (
         "code/particles/leptons/"
         "derive_charged_nonuniform_port_record_dynamics_no_go.py",
         "total_charge",
-        "the screen-sieve minimum total charge",
-        True,
+        "the screen-sieve minimum total charge has an independent geometric "
+        "source and is not a #625 load-fiber consumer",
+        False,
         False,
     ),
     (
         "code/capacity_readback/F_candidate_capK.py",
         "K = 4N/P",
-        "the pixel-chain equal-area cell count K = 4N/P read back as an "
-        "integer family of record carriers",
-        True,
+        "the capacity candidate uses a cell-count symbol K, not the twelve-port "
+        "load fiber",
+        False,
         False,
     ),
     (
         "code/capacity_readback/F_candidate_capL.py",
         "K = 4N/P",
-        "the pixel-chain marked-host-cell factor K = 4N/P",
-        True,
+        "the capacity candidate uses a marked-cell factor K, not the "
+        "twelve-port load fiber",
+        False,
         False,
     ),
     (
         "code/capacity_readback/capacity_semantics_menu_certificate.py",
         "K = 4N/P",
-        "the cell-product-structure axis with K = 4N/P cells as independent "
-        "record carriers",
-        True,
+        "the capacity menu audits a cell-product hypothesis and is not a "
+        "twelve-port load-fiber consumer",
+        False,
         False,
     ),
 )
+
+SURFACE_CLASSIFICATION: dict[str, str] = {
+    "code/a5_closure/echosahedral_selector_certificate.py": (
+        "direct_named_realization_consumer"
+    ),
+    "code/a5_closure/port_current_inner_certificate.py": (
+        "carrier_hash_consumer_not_load_fiber_consumer"
+    ),
+    "code/a5_closure/response_grammar_completeness_certificate.py": (
+        "commutant_consumer_not_A3_curvature_consumer"
+    ),
+    "Lean/Screen/UnitSplit12.lean": "conditional_mathematical_integrality_theorem",
+    "code/consensus/verify_issue_517_proof_obligations.py": (
+        "downstream_named_selector_receipt_consumer"
+    ),
+    "code/particles/hierarchy/verify_screen_sieve_theorem.py": (
+        "independent_geometric_integer_source"
+    ),
+    "code/particles/hierarchy/verify_issue_335_local_global_resonance.py": (
+        "downstream_screen_sieve_consumer_not_load_fiber_consumer"
+    ),
+    "code/particles/leptons/"
+    "derive_charged_nonuniform_port_record_dynamics_no_go.py": (
+        "downstream_screen_sieve_consumer_not_load_fiber_consumer"
+    ),
+    "code/capacity_readback/F_candidate_capK.py": (
+        "cell_count_symbol_not_load_fiber_consumer"
+    ),
+    "code/capacity_readback/F_candidate_capL.py": (
+        "cell_count_symbol_not_load_fiber_consumer"
+    ),
+    "code/capacity_readback/capacity_semantics_menu_certificate.py": (
+        "cell_product_hypothesis_not_load_fiber_consumer"
+    ),
+}
 
 
 # ---------------------------------------------------------------------------
@@ -230,13 +280,14 @@ CONSUMERS: tuple[tuple[str, str, str, bool, bool], ...] = (
 # ---------------------------------------------------------------------------
 
 
-def accept_load_model(model: Mapping[str, Any]) -> dict[str, Any]:
-    """The A1 acceptance gate for a declared load model.
+def validate_a1_finite_atomic_carrier(model: Mapping[str, Any]) -> dict[str, Any]:
+    """Validate only the finite atomic carrier clauses supplied by A1.
 
     A1 asserts finite accessible algebras with central record algebras and
     twelve primitive pairwise-orthogonal central port projections. A model
     with a continuous record spectrum or no finite atomic family leaves the
-    axiom class and is rejected by the finiteness clause.
+    axiom class and is rejected by the finiteness clause. This function does
+    not restrict the values of a central readback observable.
     """
 
     spectrum = model.get("record_spectrum")
@@ -253,18 +304,29 @@ def accept_load_model(model: Mapping[str, Any]) -> dict[str, Any]:
         "A1 requires a finite positive count of primitive central atoms; "
         f"got {count!r}",
     )
-    load_type = model.get("load_observable")
-    require(
-        load_type == ACCEPTED_LOAD_TYPE,
-        "A1_LOAD_TYPE",
-        "the load observable must be a record-counting difference; "
-        f"got {load_type!r}",
-    )
     return {
         "record_spectrum": spectrum,
         "primitive_central_atom_count": count,
+        "accepted_by_A1_finite_atomic_gate": True,
+    }
+
+
+def accept_declared_counting_model(model: Mapping[str, Any]) -> dict[str, Any]:
+    """Validate the additional named-realization counting grammar."""
+
+    carrier = validate_a1_finite_atomic_carrier(model)
+    load_type = model.get("load_observable")
+    require(
+        load_type == DECLARED_COUNTING_LOAD_TYPE,
+        "DECLARED_LOAD_TYPE",
+        "the named counting realization requires a record-counting "
+        "difference; "
+        f"got {load_type!r}",
+    )
+    return {
+        **carrier,
         "load_observable": load_type,
-        "accepted": True,
+        "accepted_by_declared_counting_grammar": True,
     }
 
 
@@ -463,11 +525,11 @@ def integer_fiber_lane(manifest: Mapping[str, Any]) -> dict[str, Any]:
     vectors = atom_indicator_vectors(atoms)
     lattice = verify_record_lattice(vectors)
     grammar = load_observable_grammar(manifest)
-    accepted_model = accept_load_model(
+    accepted_model = accept_declared_counting_model(
         {
             "record_spectrum": ACCEPTED_SPECTRUM,
             "primitive_central_atom_count": PORTS,
-            "load_observable": ACCEPTED_LOAD_TYPE,
+            "load_observable": DECLARED_COUNTING_LOAD_TYPE,
         }
     )
     return {
@@ -476,16 +538,108 @@ def integer_fiber_lane(manifest: Mapping[str, Any]) -> dict[str, Any]:
             "algebras and twelve primitive pairwise-orthogonal central port "
             "projections summing to one"
         ),
+        "additional_realization_input": (
+            "the pinned source_readback grammar declares integer_port_charges, "
+            "total charge 12, and record-counting observables"
+        ),
         "carrier_manifest_path": f"manifests/{CARRIER_MANIFEST_NAME}",
         "carrier_manifest_sha256": sha256_json(manifest),
         "atomicity": lattice,
         "load_observable_grammar": grammar,
         "accepted_load_model": accepted_model,
-        "conclusion": "axiom_forced_from_A1_finiteness_and_atomicity",
+        "conclusion": "exact_named_realization_for_declared_counting_grammar",
         "witness": (
             "twelve primitive atoms, 4096 record projections with atom "
             "multiplicities in {0, 1}, and thirteen declared load "
             "observables, each an integer combination of atom counters"
+        ),
+    }
+
+
+def reduced_carrier_noninteger_readback_candidate() -> dict[str, Any]:
+    """A reduced finite atomic carrier with a covariant noninteger readback.
+
+    A1 types boundary observables and readback maps but does not normalize every
+    such observable to an integer atom count. For every port p, let q'_p be
+    one half of the p-th atom counter. The full twelve-observable family is
+    carried into itself by every carrier rotation, so no presentation label is
+    preferred. The declared record-counting grammar rejects this family, which
+    shows that the grammar, rather than A1 finiteness alone, carries the
+    integrality claim.
+    """
+
+    family = tuple(
+        tuple(
+            Fraction(1, 2) if atom == port else Fraction(0)
+            for atom in range(PORTS)
+        )
+        for port in range(PORTS)
+    )
+    require(
+        all(row[port] == Fraction(1, 2) for port, row in enumerate(family)),
+        "COUNTERMODEL_NOT_NONINTEGER",
+        "the reduced-carrier readback family lost its half-atom value",
+    )
+    verts, adjacency, _, _ = r611.port_model()
+    rotations = r611.rotation_permutations(verts, adjacency)
+    covariance_checks = 0
+    for rotation in rotations:
+        for port, coefficients in enumerate(family):
+            transported = [Fraction(0)] * PORTS
+            for atom, value in enumerate(coefficients):
+                transported[rotation[atom]] = value
+            require(
+                tuple(transported) == family[rotation[port]],
+                "COUNTERMODEL_PRESENTATION",
+                "the half-atom readback family is not carrier-equivariant",
+            )
+            covariance_checks += 1
+
+    model = {
+        "record_spectrum": ACCEPTED_SPECTRUM,
+        "primitive_central_atom_count": PORTS,
+        "load_observable": "covariant_half_atom_counter_family",
+    }
+    a1_validation = validate_a1_finite_atomic_carrier(model)
+    rejection_code = "ACCEPTED"
+    try:
+        accept_declared_counting_model(model)
+    except CertificateError as exc:
+        rejection_code = exc.code
+    require(
+        rejection_code == "DECLARED_LOAD_TYPE",
+        "COUNTERMODEL_DECLARED_GRAMMAR",
+        "the rational family was not separated from the declared counting grammar",
+    )
+    return {
+        "same_reduced_finite_atomic_carrier": True,
+        "same_twelve_primitive_central_projections": True,
+        "A1_finite_atomic_validation": a1_validation,
+        "boundary_observable_family": [
+            {
+                "observable": f"q_prime_{port}",
+                "atom_coefficients": [str(value) for value in coefficients],
+                "value_on_corresponding_atom": "1/2",
+            }
+            for port, coefficients in enumerate(family)
+        ],
+        "family_size": PORTS,
+        "carrier_rotations_checked": len(rotations),
+        "equivariance_checks": covariance_checks,
+        "presentation_covariant": True,
+        "common_half_integer_value": "1/2",
+        "integer_valued": False,
+        "declared_counting_grammar_rejection_code": rejection_code,
+        "rejected_by_declared_counting_grammar_after_reduced_carrier_gate": True,
+        "complete_A1_operational_and_refinement_schema_instantiated": False,
+        "complete_A2_meaning_naturality_instantiated": False,
+        "complete_A3_feasible_family_cover_weights_and_optimizer_instantiated": False,
+        "supports_full_A1_A2_A3_independence_claim": False,
+        "status": "reduced_carrier_candidate_full_schema_lift_open",
+        "reading": (
+            "the reduced carrier checks permit this equivariant rational "
+            "central-readback family. A complete revised-A1/A2/A3 lift is "
+            "required before it becomes an axiom-class countermodel"
         ),
     }
 
@@ -581,7 +735,11 @@ def tangent_basis() -> list[tuple[int, ...]]:
 
 def second_order_theorem() -> dict[str, Any]:
     """Step (a): first order vanishes on the tangent space, second order is
-    the Fisher quadratic form 6 I at the uniform reference."""
+    represented by the Taylor-coefficient matrix 6 I at the uniform reference.
+
+    The Hessian and Fisher information matrix are 12 I. The factor of two is
+    kept explicit so the coefficient of eps^2 is not mislabeled as a Hessian.
+    """
 
     expansion = divergence_expansion(UNIFORM_REFERENCE_TAU)
     first = expansion["first_order_coefficients"]
@@ -607,13 +765,19 @@ def second_order_theorem() -> dict[str, Any]:
     diagonal = expansion["second_order_diagonal"]
     require(
         diagonal == [Fraction(6)] * PORTS,
-        "FISHER_NOT_IDENTITY",
+        "CURVATURE_NOT_IDENTITY",
         "the second-order diagonal at the uniform reference is not 6 per port",
     )
     require(
         len(set(diagonal)) == 1,
-        "FISHER_NOT_IDENTITY",
-        "the Fisher diagonal is not constant across ports",
+        "CURVATURE_NOT_IDENTITY",
+        "the second-order Taylor-coefficient diagonal is not constant across ports",
+    )
+    hessian_diagonal = [2 * value for value in diagonal]
+    require(
+        hessian_diagonal == [Fraction(12)] * PORTS,
+        "HESSIAN_COEFFICIENT",
+        "the Hessian diagonal at the uniform reference is not 12 per port",
     )
     return {
         "reference_family_tau": [str(value) for value in UNIFORM_REFERENCE_TAU],
@@ -634,13 +798,20 @@ def second_order_theorem() -> dict[str, Any]:
             ),
         },
         "second_order_diagonal": [str(value) for value in diagonal],
-        "fisher_quadratic_form": "Q = diag(1 / (2 tau_p)) = 6 I",
-        "fisher_coefficient_per_port": "6",
+        "second_order_taylor_coefficient_matrix": (
+            "C = diag(1 / (2 tau_p)) = 6 I"
+        ),
+        "second_order_taylor_coefficient_per_port": "6",
+        "hessian_matrix": "H = diag(1 / tau_p) = 12 I",
+        "hessian_coefficient_per_port": "12",
+        "fisher_information_matrix": "F = H = 12 I",
+        "quadratic_term_relation": "eps^2 v^T C v = (eps^2 / 2) v^T H v",
         "positive_definite": True,
         "weight_note": (
             "a strictly positive constant A3 weight w multiplies the jet "
-            "port-uniformly, so the form becomes 6 w I and stays in the "
-            "identity class"
+            "port-uniformly, so C becomes 6 w I and H becomes 12 w I; both "
+            "stay on the identity ray. The absolute coefficients require "
+            "unit local weight"
         ),
         "numerics_used": False,
     }
@@ -733,7 +904,7 @@ def projector_coefficients(
 
 def invariance_menu() -> dict[str, Any]:
     """Step (b): the deck-invariant quadratic forms are the four-dimensional
-    commutant span, and the A3 Fisher form is the identity element."""
+    commutant span, and the A3 objective curvature is in the identity class."""
 
     verts, adjacency, distance, antipode = r611.port_model()
     rotations = r611.rotation_permutations(verts, adjacency)
@@ -767,23 +938,23 @@ def invariance_menu() -> dict[str, Any]:
     )
     projectors = r611.isotypic_projectors(adjacency)
 
-    fisher = [
+    taylor_coefficient = [
         [Fraction(6) if i == j else Fraction(0) for j in range(PORTS)]
         for i in range(PORTS)
     ]
     require(
-        verify_equivariance(fisher, rotations),
+        verify_equivariance(taylor_coefficient, rotations),
         "ORBITAL_EQUIVARIANCE",
-        "the Fisher form is not equivariant",
+        "the second-order Taylor-coefficient form is not equivariant",
     )
-    fisher_coefficients = projector_coefficients(fisher, projectors)
+    taylor_coefficients = projector_coefficients(taylor_coefficient, projectors)
     require(
         all(
-            fisher_coefficients[sector] == F5(6)
+            taylor_coefficients[sector] == F5(6)
             for sector in r611.SECTORS
         ),
-        "FISHER_NOT_IDENTITY",
-        "the Fisher form does not have projector coefficient vector "
+        "CURVATURE_NOT_IDENTITY",
+        "the second-order Taylor coefficient does not have projector vector "
         "(6, 6, 6, 6)",
     )
 
@@ -819,19 +990,20 @@ def invariance_menu() -> dict[str, Any]:
         "orbitals_symmetric": True,
         "orbitals_equivariant_under_sixty_rotations": True,
         "orbital_supports_partition_entries": True,
-        "fisher_form": {
+        "a3_objective_curvature": {
+            "second_order_taylor_coefficient_matrix": "6 I",
+            "hessian_and_fisher_information_matrix": "12 I",
             "matrix": "6 I",
             "equivariant": True,
             "isotypic_coefficients": {
-                sector: fisher_coefficients[sector].text()
+                sector: taylor_coefficients[sector].text()
                 for sector in r611.SECTORS
             },
             "coefficient_vector": ["6", "6", "6", "6"],
             "identity_class": True,
             "reading": (
-                "the A3 Fisher form at the uniform reference is the "
-                "identity element of the menu: port-diagonal with equal "
-                "weights"
+                "the coefficient of eps^2 is 6 I and the Hessian is 12 I; "
+                "both are port-diagonal identity-class forms"
             ),
         },
         "retained_countermodel": {
@@ -851,13 +1023,21 @@ def invariance_menu() -> dict[str, Any]:
                 for sector in r611.SECTORS
             },
             "identity_class": False,
+            "same_reduced_objective_and_state_selection_data": True,
+            "A3_second_order_taylor_coefficient_remains": "6 I",
+            "A3_objective_hessian_remains": "12 I",
+            "differs_only_in_proposed_physical_readback_on_reduced_checks": True,
+            "complete_A1_A2_A3_operational_lift_proved": False,
+            "supports_full_axiom_independence_claim": False,
             "independence_boundary": (
-                "equivariance without the A3 reference clause admits the "
-                "full four-parameter menu, so the reference clause is the "
-                "selecting hypothesis for the identity class"
+                "A3 gives Taylor coefficient 6 I and Hessian 12 I at the "
+                "normalized uniform reference. The reduced carrier checks also "
+                "admit 6 I + A as a separate physical-readback candidate while "
+                "every visible incidence-equivariance check passes. A complete "
+                "A1-A3 operational lift of that candidate remains open"
             ),
         },
-        "conclusion": "forced_to_identity_class_by_A3_reference",
+        "conclusion": "A3_objective_curvature_on_identity_ray_at_uniform_reference",
     }
 
 
@@ -881,17 +1061,31 @@ def consumer_ledger() -> list[dict[str, Any]]:
             "CONSUMER_MISSING",
             f"consumer {path} lacks the binding token {token!r}",
         )
+        classification = SURFACE_CLASSIFICATION.get(path)
+        require(
+            classification is not None,
+            "CONSUMER_CLASSIFICATION",
+            f"audited surface {path} has no dependency classification",
+        )
         rows.append(
             {
                 "consumer": path,
                 "binding_token": token,
-                "consumes": consumes,
+                "related_object": consumes,
+                "dependency_class": classification,
+                "consumes_declared_integer_counting_grammar": uses_integer,
+                "consumes_exact_discrete_quadratic_cost": uses_quadratic,
                 "integer_fiber_source": (
                     INTEGER_FIBER_SOURCE if uses_integer else None
                 ),
                 "quadratic_form_source": (
-                    QUADRATIC_FORM_SOURCE if uses_quadratic else None
+                    DISCRETE_QUADRATIC_COST_SOURCE if uses_quadratic else None
                 ),
+                "consumes_A3_objective_curvature_receipt": False,
+                "binding_check": "token_presence_only",
+                "imports_this_receipt": False,
+                "typed_against_this_receipt": False,
+                "requires_axiom_forced_issue_625_result": False,
             }
         )
     return rows
@@ -909,7 +1103,7 @@ def control_non_atomic_load_model() -> dict[str, Any]:
     code = "ACCEPTED"
     message = ""
     try:
-        accept_load_model(NON_ATOMIC_LOAD_MODEL)
+        validate_a1_finite_atomic_carrier(NON_ATOMIC_LOAD_MODEL)
     except CertificateError as exc:
         code = exc.code
         message = exc.message
@@ -937,9 +1131,9 @@ def control_non_atomic_load_model() -> dict[str, Any]:
 
 
 def control_tilted_reference() -> dict[str, Any]:
-    """Control (b): with a tilted reference the Fisher form has unequal
-    diagonal and leaves the identity class, so the A3 reference clause is
-    load-bearing."""
+    """Control (b): with a tilted reference the objective-curvature form has
+    unequal diagonal and leaves the identity class, so the A3 reference clause
+    is load-bearing."""
 
     expansion = divergence_expansion(TILTED_REFERENCE_TAU)
     diagonal = expansion["second_order_diagonal"]
@@ -947,13 +1141,13 @@ def control_tilted_reference() -> dict[str, Any]:
         len(set(diagonal)) > 1,
         "CONTROL_NOT_FAILED",
         "the tilted-reference control unexpectedly passed: the tilted "
-        "Fisher diagonal is constant",
+        "Taylor-coefficient diagonal is constant",
     )
     require(
         diagonal != [Fraction(6)] * PORTS,
         "CONTROL_NOT_FAILED",
         "the tilted-reference control unexpectedly passed: the tilted "
-        "Fisher diagonal equals the uniform one",
+        "Taylor-coefficient diagonal equals the uniform one",
     )
     return {
         "dropped_hypothesis": "the A3 reference family is the uniform family",
@@ -1033,20 +1227,59 @@ def control_adjacency_form_claimed_forced(menu: Mapping[str, Any]) -> dict[str, 
         "coefficient vector is constant, so it lies in the identity class",
     )
     return {
-        "dropped_hypothesis": "the A3 reference clause selecting the readback",
+        "dropped_hypothesis": (
+            "a source law identifying A3 objective curvature with the "
+            "discrete physical readback"
+        ),
         "expected_failure": True,
         "failed": True,
         "witness": {
             "claimed_form": countermodel["witness_form"],
             "passes_incidence_equivariance": True,
             "isotypic_coefficients": dict(coefficients),
-            "fisher_coefficient_vector": ["6", "6", "6", "6"],
+            "A3_taylor_coefficient_vector": ["6", "6", "6", "6"],
             "identity_class": False,
             "reading": (
                 "the claim that A3 forces the adjacency-weighted form is "
                 "rejected: its isotypic coefficient vector differs from "
-                "(6, 6, 6, 6), and only the A3 reference clause separates "
-                "the two inside the equivariant menu"
+                "(6, 6, 6, 6). Equivariance alone does not identify either "
+                "form as the physical discrete cost"
+            ),
+        },
+    }
+
+
+def control_presentation_dependent_form() -> dict[str, Any]:
+    """Reject a quadratic form that assigns a special coefficient to port zero."""
+
+    verts, adjacency, _distance, _antipode = r611.port_model()
+    rotations = r611.rotation_permutations(verts, adjacency)
+    form = [
+        [
+            Fraction(7 if i == 0 else 6) if i == j else Fraction(0)
+            for j in range(PORTS)
+        ]
+        for i in range(PORTS)
+    ]
+    equivariant = verify_equivariance(form, rotations)
+    require(
+        equivariant is False,
+        "CONTROL_NOT_FAILED",
+        "the presentation-dependent form unexpectedly passed carrier "
+        "equivariance",
+    )
+    return {
+        "dropped_hypothesis": "presentation independence under carrier rotations",
+        "expected_failure": True,
+        "failed": True,
+        "witness": {
+            "form": "diag(7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)",
+            "singled_out_port": 0,
+            "rotations_checked": len(rotations),
+            "passes_incidence_equivariance": False,
+            "reading": (
+                "a coordinate formula that gives one named port a different "
+                "coefficient depends on the presentation and is rejected"
             ),
         },
     }
@@ -1078,6 +1311,7 @@ def build_payload() -> dict[str, Any]:
     e565.validate_carrier(manifest)
 
     fiber = integer_fiber_lane(manifest)
+    reduced_countermodel = reduced_carrier_noninteger_readback_candidate()
     second_order = second_order_theorem()
     menu = invariance_menu()
     ledger = consumer_ledger()
@@ -1089,6 +1323,7 @@ def build_payload() -> dict[str, Any]:
         "adjacency_form_claimed_forced": control_adjacency_form_claimed_forced(
             menu
         ),
+        "presentation_dependent_form": control_presentation_dependent_form(),
     }
     for name, verdict in controls.items():
         require(
@@ -1111,39 +1346,65 @@ def build_payload() -> dict[str, Any]:
             ],
             "unit_split_theorem": "OPH.UnitSplit12.unit_split_of_positive_sum",
         },
-        "integer_fiber": "axiom_forced_from_A1_finiteness_and_atomicity",
-        "readback_quadratic_form": "forced_to_identity_class_by_A3_reference",
+        "bounded_exit": "conditional_open_interface",
+        "integer_fiber": "exact_named_realization_for_declared_counting_grammar",
+        "readback_quadratic_form": (
+            "A3_objective_curvature_identity_ray_exact_physical_readback_open"
+        ),
         "integer_fiber_lane": fiber,
+        "reduced_carrier_noninteger_readback_candidate": reduced_countermodel,
         "quadratic_readback_lane": {
             "second_order_theorem": second_order,
             "invariance_menu": menu,
-            "conclusion": "forced_to_identity_class_by_A3_reference",
+            "conclusion": (
+                "A3_objective_curvature_on_identity_ray_at_uniform_reference; "
+                "exact_discrete_readback_identification_open"
+            ),
         },
         "consumer_ledger": ledger,
+        "consumer_integration_status": (
+            "all eleven originally named surfaces classified: two consume the "
+            "declared named-realization grammar/cost, one is a conditional "
+            "mathematical integrality theorem, and eight use independent objects "
+            "or were false-positive symbol matches; none requires an "
+            "axiom-forced #625 result"
+        ),
         "controls": controls,
         "claim_boundary": {
             "proves": (
-                "on the pinned A1 carrier, every declared load observable "
-                "is an integer combination of atomic record counters, so "
-                "the load fiber is Z by A1 finiteness and atomicity; the "
+                "on the pinned finite atomic carrier, every observable in the "
+                "additional declared record-counting grammar is an integer "
+                "combination of atom counters; the "
                 "first-order term of the A3 divergence vanishes on the "
-                "feasible tangent space and the second-order term is the "
-                "Fisher form diag(1 / (2 tau_p)) = 6 I at the uniform "
-                "reference, the identity element of the four-parameter "
-                "equivariant menu"
+                "feasible tangent space; the coefficient of eps^2 is "
+                "diag(1 / (2 tau_p)) = 6 I and the Hessian is "
+                "diag(1 / tau_p) = 12 I for unit local weight at the uniform "
+                "reference. Both lie on the identity ray of the "
+                "four-parameter equivariant menu"
             ),
             "does_not_close": [
+                "derivation of the record-counting load grammar from A1; a "
+                "carrier-equivariant rational candidate is retained only at "
+                "the reduced finite-atomic interface",
+                "a complete A1 operational/refinement, A2 naturality, and A3 "
+                "optimizer lift of either alternative-readback candidate",
                 "selection of the A3 reference family itself; the "
                 "equal-state-weights receipt carries that hypothesis "
                 "surface",
+                "the absolute objective-curvature coefficients without a "
+                "declared local weight normalization",
                 "third-order and higher readback structure; the theorem is "
                 "a second-order jet statement with symbolic O(eps^3) "
                 "remainder",
+                "identification of the A3 objective curvature with the exact "
+                "discrete mismatch cost used by downstream consumers",
                 "physical identification of ports, currents, or any "
                 "downstream gauge datum",
-                "consumer semantics beyond the typing rows; no consumer "
-                "file is edited",
+                "promotion of either named-realization premise to an axiom; "
+                "the audited consumers remain typed against their declared or "
+                "independent sources",
             ],
+            "status": "conditional_open_interface",
         },
     }
     require_no_floats(payload)

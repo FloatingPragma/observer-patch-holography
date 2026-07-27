@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Uniform-settling realization certificate for compiled Boolean lattices (issue #328).
+"""Finite-table settling and production scatter-project counterexample certificate (issue #328).
 
 The abstract acyclic Boolean circuit compiler corollary
 (``extra/observable_normal_forms.tex``, ``cor:boolean-circuit-compiler``,
@@ -7,8 +7,15 @@ resting on ``cor:functional-synchronous``; Lean:
 ``Lean/ObservableNormalForms/ObservableNormalForms/Functional.lean``,
 ``RankedSynchronousSystem.synchronous_depth_settling``) proves depth settling
 for the explicit ranked functional system and states that correspondence with
-a separately specified update rule requires its own theorem.  This packet is
-that correspondence at finite scope.  It supplies:
+a separately specified update rule requires its own theorem.  This packet
+supplies that correspondence only for the finite software patch dynamics
+defined below.  The production bit-valued synchronous scatter-project rule was
+also audited at its exact source revision.  A satisfiable depth-two AND chain
+has a nonzero-mismatch period-two orbit under that rule, while the ranked
+functional update settles.  Therefore a direct same-interface correspondence
+to that rule is false; a directional update or a compiler gadget with its own
+proof would be a different target.
+The finite software packet supplies:
 
 * explicit patch encodings of a universal gate set (NAND, wire, fan-out-two),
   each an admissible patch reduct with declared ports, local state registers,
@@ -38,6 +45,7 @@ import hashlib
 import json
 import sys
 from dataclasses import dataclass
+from fractions import Fraction
 from itertools import product
 from pathlib import Path
 from typing import Any, Callable, Iterator, Mapping, Sequence
@@ -45,8 +53,24 @@ from typing import Any, Callable, Iterator, Mapping, Sequence
 MODULE_DIR = Path(__file__).resolve().parent
 ROOT = MODULE_DIR.parents[1]
 
-SCHEMA = "oph.compiled_lattice_settling_certificate.v1"
+SCHEMA = "oph.compiled_lattice_settling_certificate.v2"
 DEFAULT_MANIFEST = MODULE_DIR / "manifests" / "compiled_lattice_settling_reference.json"
+
+SCATTER_PROJECT_SOURCE = {
+    "repository": "muellerberndt/ophminer",
+    "commit": "afdd1af1491d5bc293595343128c3730637c2a8d",
+    "path": "crates/fls-settle/src/lib.rs",
+    "file_sha256": "154abda8798f0ab9c8a95f7f6b74005285d662669768e0fd08d5c74635aa8d21",
+    "implementation": "LazySettler with UpdateLaw::Synchronous",
+    "source_anchors_at_commit": {
+        "step_dispatch": "lines 215-249",
+        "proposal_collection": "lines 336-363",
+        "proposal_resolution": "lines 365-379 and 3350-3372",
+        "nearest_valid_projection": "lines 486-511",
+        "scatter_transform": "lines 4007-4016",
+        "and_truth_table": "lines 4068-4075",
+    },
+}
 
 ABSTRACT_COMPILER_RESULT = {
     "label": (
@@ -68,8 +92,13 @@ ABSTRACT_COMPILER_RESULT = {
     "gap_this_packet_closes_at_finite_scope": (
         "cor:functional-synchronous states that correspondence with a separately "
         "specified compiler or update rule requires its own theorem; this packet "
-        "supplies the realized-dynamics correspondence for the finite software "
-        "patch dynamics defined here"
+        "supplies the correspondence for the finite software patch dynamics "
+        "defined here only"
+    ),
+    "remaining_correspondence_gap": (
+        "the production synchronous scatter-project rule is source-identified "
+        "below, but a finite same-interface counterexample disproves the direct "
+        "intertwiner and uniform-settling target for that rule"
     ),
 }
 
@@ -112,6 +141,256 @@ def load_json(path: Path) -> Any:
 
 def bit_tuples(width: int) -> Iterator[tuple[int, ...]]:
     return product((0, 1), repeat=width)
+
+
+# ---------------------------------------------------------------------------
+# Production scatter-project correspondence audit
+# ---------------------------------------------------------------------------
+#
+# The source-linked Rust rule scatters the three incident Boolean values,
+# chooses the nearest truth-table-valid triple compatible with pinned edges,
+# gathers proposals from every invalid vertex, and resolves each edge by
+# majority vote (ties retain the previous value).  Fractions reproduce every
+# distance in the witness exactly.  The counterexample has no vote ties, so it
+# is independent of floating-point rounding and of the tie rule.
+
+
+BitTriple = tuple[int, int, int]
+AND_SATISFYING_TRIPLES: tuple[BitTriple, ...] = (
+    (0, 0, 0),
+    (0, 1, 0),
+    (1, 0, 0),
+    (1, 1, 1),
+)
+
+
+def _require_bits(values: Sequence[int], width: int, label: str) -> tuple[int, ...]:
+    result = tuple(values)
+    if len(result) != width or any(value not in (0, 1) for value in result):
+        raise CertificateError(
+            "INVALID_BIT_VECTOR",
+            f"{label} must contain exactly {width} Boolean bits, got {result!r}",
+        )
+    return result
+
+
+def scatter3_exact(bits: Sequence[int]) -> tuple[Fraction, Fraction, Fraction]:
+    """Exact form of ophminer's bit-valued ``scatter3`` transform."""
+
+    x0, x1, x2 = _require_bits(bits, 3, "scatter input")
+    return (
+        Fraction(-x0 + 2 * x1 + 2 * x2, 3),
+        Fraction(2 * x0 - x1 + 2 * x2, 3),
+        Fraction(2 * x0 + 2 * x1 - x2, 3),
+    )
+
+
+def squared_distance_exact(
+    point: Sequence[Fraction], candidate: Sequence[int]
+) -> Fraction:
+    if len(point) != 3:
+        raise CertificateError(
+            "INVALID_SCATTER_POINT", f"scatter point must have arity 3, got {point!r}"
+        )
+    bits = _require_bits(candidate, 3, "projection candidate")
+    return sum(
+        ((coordinate - bit) ** 2 for coordinate, bit in zip(point, bits)),
+        start=Fraction(0),
+    )
+
+
+def project_scattered_and_exact(
+    current: Sequence[int], pinned_slots: Mapping[int, int]
+) -> tuple[BitTriple, tuple[tuple[BitTriple, Fraction], ...]]:
+    """Nearest valid AND triple with the source rule's table order and pins."""
+
+    bits = _require_bits(current, 3, "AND vertex")
+    for slot, value in pinned_slots.items():
+        if slot not in (0, 1, 2) or value not in (0, 1):
+            raise CertificateError(
+                "INVALID_PIN",
+                f"AND projection pin must be a Boolean value at slot 0..2, got {slot!r}: {value!r}",
+            )
+    scattered = scatter3_exact(bits)
+    distances = tuple(
+        (candidate, squared_distance_exact(scattered, candidate))
+        for candidate in AND_SATISFYING_TRIPLES
+        if all(candidate[slot] == value for slot, value in pinned_slots.items())
+    )
+    if not distances:
+        raise CertificateError(
+            "NO_PINNED_PROJECTION", f"no AND triple respects pins {dict(pinned_slots)!r}"
+        )
+    # Rust replaces the incumbent only on a strict distance decrease.  Python's
+    # min therefore has the same first-in-table tie behavior.
+    projected = min(distances, key=lambda row: row[1])[0]
+    return projected, distances
+
+
+def _and_valid(bits: Sequence[int]) -> bool:
+    return _require_bits(bits, 3, "AND vertex") in AND_SATISFYING_TRIPLES
+
+
+def _resolve_boolean_votes(votes: Sequence[int], current: int) -> int:
+    values = _require_bits(votes, len(votes), "edge proposals")
+    true_votes = sum(values)
+    false_votes = len(values) - true_votes
+    if true_votes > false_votes:
+        return 1
+    if false_votes > true_votes:
+        return 0
+    return current
+
+
+def scatter_project_and_chain_step(
+    state: Sequence[int],
+) -> tuple[tuple[int, int], dict[str, Any]]:
+    """One exact synchronous production-rule step on the two-AND witness."""
+
+    w, out = _require_bits(state, 2, "AND-chain state")
+    values = {"a": 0, "b": 0, "c": 1, "w": w, "out": out}
+    pins = {"a": 0, "b": 0, "c": 1}
+    vertices = (
+        ("g1", ("a", "b", "w")),
+        ("g2", ("w", "c", "out")),
+    )
+    proposals: dict[str, list[int]] = {"w": [], "out": []}
+    projections: list[dict[str, Any]] = []
+    invalid_vertices: list[str] = []
+
+    for name, edges in vertices:
+        current = tuple(values[edge] for edge in edges)
+        if _and_valid(current):
+            continue
+        invalid_vertices.append(name)
+        pinned_slots = {
+            slot: pins[edge] for slot, edge in enumerate(edges) if edge in pins
+        }
+        projected, distances = project_scattered_and_exact(current, pinned_slots)
+        projections.append(
+            {
+                "vertex": name,
+                "current": list(current),
+                "scattered": [str(value) for value in scatter3_exact(current)],
+                "compatible_candidate_distances_squared": [
+                    {"candidate": list(candidate), "distance": str(distance)}
+                    for candidate, distance in distances
+                ],
+                "projected": list(projected),
+            }
+        )
+        for slot, edge in enumerate(edges):
+            if edge not in pins:
+                proposals[edge].append(projected[slot])
+
+    next_state = (
+        _resolve_boolean_votes(proposals["w"], w),
+        _resolve_boolean_votes(proposals["out"], out),
+    )
+    return next_state, {
+        "state": {"w": w, "out": out},
+        "invalid_vertices": invalid_vertices,
+        "phi": len(invalid_vertices),
+        "projections": projections,
+        "proposals": proposals,
+        "next_state": {"w": next_state[0], "out": next_state[1]},
+    }
+
+
+def ranked_and_chain_step(state: Sequence[int]) -> tuple[int, int]:
+    """Synchronous ranked functional update for the same gate interface."""
+
+    w, _out = _require_bits(state, 2, "AND-chain state")
+    return (0 & 0, w & 1)
+
+
+def scatter_project_correspondence_counterexample() -> dict[str, Any]:
+    """Exact finite witness against direct intertwining and uniform settling."""
+
+    solutions = [
+        state
+        for state in bit_tuples(2)
+        if _and_valid((0, 0, state[0])) and _and_valid((state[0], 1, state[1]))
+    ]
+    if solutions != [(0, 0)]:
+        raise CertificateError(
+            "COUNTEREXAMPLE_CONSTRUCTION",
+            f"AND-chain zero-mismatch extension is not unique: {solutions!r}",
+        )
+
+    initial = (0, 1)
+    state = initial
+    trajectory: list[dict[str, Any]] = []
+    for step in range(3):
+        next_state, detail = scatter_project_and_chain_step(state)
+        trajectory.append({"step": step, **detail})
+        state = next_state
+
+    states = [(row["state"]["w"], row["state"]["out"]) for row in trajectory]
+    if states != [(0, 1), (1, 1), (0, 1)]:
+        raise CertificateError(
+            "COUNTEREXAMPLE_CONSTRUCTION",
+            f"expected the period-two orbit, got {states!r}",
+        )
+    if any(row["phi"] == 0 for row in trajectory):
+        raise CertificateError(
+            "COUNTEREXAMPLE_CONSTRUCTION", "witness orbit unexpectedly reached zero mismatch"
+        )
+
+    scatter_next = states[1]
+    ranked_next = ranked_and_chain_step(initial)
+    if scatter_next == ranked_next:
+        raise CertificateError(
+            "COUNTEREXAMPLE_CONSTRUCTION",
+            "scatter-project and ranked updates unexpectedly commute on the witness",
+        )
+
+    return {
+        "source": SCATTER_PROJECT_SOURCE,
+        "claim_under_test": (
+            "every satisfiable compiled finite lattice reaches zero mismatch "
+            "under the synchronous scatter-project update"
+        ),
+        "verdict": "false_for_source_identified_synchronous_rule",
+        "arithmetic": "exact rational and Boolean arithmetic",
+        "lattice": {
+            "description": "acyclic depth-two AND chain",
+            "edges": ["a", "b", "c", "w", "out"],
+            "pinned_edges": {"a": 0, "b": 0, "c": 1},
+            "free_edges": ["w", "out"],
+            "vertices": [
+                {"name": "g1", "type": "AND", "edges": ["a", "b", "w"]},
+                {"name": "g2", "type": "AND", "edges": ["w", "c", "out"]},
+            ],
+            "compiled_depth": 2,
+            "zero_mismatch_solution_count": len(solutions),
+            "unique_zero_mismatch_state": {"w": 0, "out": 0},
+        },
+        "initial_state": {"w": initial[0], "out": initial[1]},
+        "trajectory": trajectory,
+        "cycle": {
+            "entry_step": 0,
+            "period": 2,
+            "states": [{"w": 0, "out": 1}, {"w": 1, "out": 1}],
+            "phi": [1, 1],
+            "reaches_zero_mismatch": False,
+        },
+        "same_interface_intertwiner": {
+            "commutes_on_witness": False,
+            "scatter_project_next": {"w": scatter_next[0], "out": scatter_next[1]},
+            "ranked_functional_next": {"w": ranked_next[0], "out": ranked_next[1]},
+            "reason": (
+                "nearest projection at g2 rewrites its unpinned input w from 0 "
+                "to 1; the ranked gate update treats parent wires as read-only"
+            ),
+        },
+        "consequence": (
+            "the direct compiler-to-production-rule correspondence and its "
+            "uniform settling conclusion cannot be proved as stated; a "
+            "directional output-only rule or a compiler gadget that prevents "
+            "backward input rewrites requires a revised target and proof"
+        ),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -332,8 +611,10 @@ def check_netlist(net: Netlist, prims: Mapping[str, Primitive]) -> dict[str, Any
             raise CertificateError("DUPLICATE_NAME", f"{net.name}: duplicate name {inst.name}")
         by_name[inst.name] = inst
 
-    consumed: dict[SourceRef, int] = {}
-    parents: dict[str, list[str]] = {inst.name: [] for inst in net.instances}
+    # Validate every primitive kind and arity before resolving any reference.
+    # This ordering keeps a forward reference to an instance with an unknown
+    # kind inside the certificate error algebra instead of leaking a KeyError
+    # while inspecting that instance's output-port menu.
     for inst in net.instances:
         prim = prims.get(inst.kind)
         if prim is None:
@@ -346,13 +627,39 @@ def check_netlist(net: Netlist, prims: Mapping[str, Primitive]) -> dict[str, Any
                 f"{net.name}: instance {inst.name} wires {len(inst.sources)} sources "
                 f"into {len(prim.in_ports)} ports of {inst.kind}",
             )
+
+    consumed: dict[SourceRef, int] = {}
+    parents: dict[str, list[str]] = {inst.name: [] for inst in net.instances}
+    for inst in net.instances:
         for ref in inst.sources:
-            if ref[0] == "in":
+            if not isinstance(ref, tuple) or not ref:
+                raise CertificateError(
+                    "MALFORMED_SOURCE_REF",
+                    f"{net.name}: {inst.name} has malformed source reference {ref!r}",
+                )
+            tag = ref[0]
+            if tag == "in":
+                if len(ref) != 2 or not isinstance(ref[1], str):
+                    raise CertificateError(
+                        "MALFORMED_SOURCE_REF",
+                        f"{net.name}: {inst.name} input reference must be "
+                        f"('in', input_name), got {ref!r}",
+                    )
                 if ref[1] not in net.inputs:
                     raise CertificateError(
                         "UNKNOWN_SIGNAL", f"{net.name}: {inst.name} reads missing input {ref[1]}"
                     )
-            elif ref[0] == "out":
+            elif tag == "out":
+                if (
+                    len(ref) != 3
+                    or not isinstance(ref[1], str)
+                    or not isinstance(ref[2], str)
+                ):
+                    raise CertificateError(
+                        "MALFORMED_SOURCE_REF",
+                        f"{net.name}: {inst.name} output reference must be "
+                        f"('out', instance_name, port_name), got {ref!r}",
+                    )
                 src = by_name.get(ref[1])
                 if src is None:
                     raise CertificateError(
@@ -367,7 +674,9 @@ def check_netlist(net: Netlist, prims: Mapping[str, Primitive]) -> dict[str, Any
                 parents[inst.name].append(ref[1])
             else:
                 raise CertificateError(
-                    "UNKNOWN_SIGNAL", f"{net.name}: {inst.name} has malformed ref {ref!r}"
+                    "MALFORMED_SOURCE_REF",
+                    f"{net.name}: {inst.name} source reference has unknown tag "
+                    f"{tag!r}: {ref!r}",
                 )
             consumed[ref] = consumed.get(ref, 0) + 1
             if consumed[ref] > 1:
@@ -1077,6 +1386,35 @@ def run_controls(prims: Mapping[str, Primitive]) -> dict[str, Any]:
         "one input feeding two ports without a fan-out patch"
     )
 
+    malformed = Netlist(
+        "malformed_source_reference_control",
+        ("x",),
+        (Instance("W", "WIRE", (("out", "missing_port"),)),),
+        (),
+    )
+    controls["malformed_source_reference"] = expect_failure(
+        "MALFORMED_SOURCE_REF", lambda: check_netlist(malformed, prims)
+    )
+    controls["malformed_source_reference"]["construction"] = (
+        "an output source reference missing its required port-name field"
+    )
+
+    unknown_source_kind = Netlist(
+        "unknown_source_primitive_control",
+        ("x",),
+        (
+            Instance("W", "WIRE", (("out", "BAD", "z"),)),
+            Instance("BAD", "UNKNOWN_KIND", (("in", "x"),)),
+        ),
+        (),
+    )
+    controls["unknown_source_primitive"] = expect_failure(
+        "UNKNOWN_PRIMITIVE", lambda: check_netlist(unknown_source_kind, prims)
+    )
+    controls["unknown_source_primitive"]["construction"] = (
+        "a forward-referenced source instance whose primitive kind is undeclared"
+    )
+
     return controls
 
 
@@ -1123,8 +1461,14 @@ def build_manifest() -> dict[str, Any]:
     manifest = {
         "schema": SCHEMA,
         "issue": 328,
-        "arithmetic": "exact integer and Boolean arithmetic; no floating point in any check",
+        "arithmetic": (
+            "exact integer, rational, and Boolean arithmetic; no floating point "
+            "in any check"
+        ),
         "abstract_compiler_result": ABSTRACT_COMPILER_RESULT,
+        "scatter_project_correspondence_audit": (
+            scatter_project_correspondence_counterexample()
+        ),
         "primitives": primitive_reports,
         "intertwiner": {
             "statement": (
@@ -1205,10 +1549,26 @@ def build_manifest() -> dict[str, Any]:
                 "code/consensus/compiled_lattice_settling_certificate.py"
             ),
             "open": (
-                "continuum-limit and physical-hardware attachment of the patch "
-                "dynamics is open; no laboratory device, photonic chamber, or "
-                "continuum field realization is claimed by this packet"
+                "a revised compiler-to-scatter-project target, continuum-limit "
+                "attachment, and physical-hardware attachment are open; no "
+                "laboratory device, photonic chamber, or continuum field "
+                "realization is claimed by this packet"
             ),
+            "scatter_project_linkage": {
+                "status": "blocked_by_same_interface_counterexample",
+                "uniform_settling_verdict": False,
+                "statement": (
+                    "the finite software transition tables are not the production "
+                    "scatter-project dynamics; the source-identified synchronous "
+                    "rule has a satisfiable depth-two period-two orbit and does not "
+                    "intertwine with the ranked update on the same gate interface"
+                ),
+                "required_revision": (
+                    "specify and prove a directional output-only update, or compile "
+                    "a gadget that prevents downstream vertices from rewriting "
+                    "parent wires; either choice changes the theorem target"
+                ),
+            },
         },
     }
     return manifest

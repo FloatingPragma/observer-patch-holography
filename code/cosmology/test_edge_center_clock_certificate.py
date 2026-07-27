@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+import hashlib
 import itertools
 import json
 import math
@@ -9,16 +11,23 @@ import pytest
 
 from edge_center_clock_certificate import (
     EXACT_DEFECT_WIDTH_BOUND,
+    DEFAULT_OUT,
     P_CERTIFICATE_PATH,
     SELECTED_PRIMARY_BRANCH,
     CertificateError,
+    assert_counts_select_unique_clock_scale,
+    assert_counts_select_unique_generator,
+    assert_counts_select_unique_reserve_share,
     build,
     build_check_primary_branch,
     collar_tower_records,
     load_certified_p_interval,
     load_repair_round_invariant,
+    orientation_weight_countermodel,
     reject_forbidden_inputs,
     survival_family_records,
+    verify_artifact_self_hash,
+    verify_stored_artifact,
 )
 
 
@@ -167,6 +176,9 @@ def test_p_interval_is_loaded_from_certified_artifact() -> None:
     assert record["lo"] == enclosure["lo"]
     assert record["hi"] == enclosure["hi"]
     assert record["exact_alpha_promoted"] is False
+    assert record["source_sha256"] == "sha256:" + hashlib.sha256(
+        P_CERTIFICATE_PATH.read_bytes()
+    ).hexdigest()
 
 
 def test_repair_round_invariant_is_loaded_and_checked(payload: dict) -> None:
@@ -176,6 +188,9 @@ def test_repair_round_invariant_is_loaded_and_checked(payload: dict) -> None:
     antecedent = payload["antecedents"]["repair_round_invariant"]
     assert antecedent["m_rep"] == 24
     assert antecedent["specialized_exponent"] == "-1/48"
+    reserve = payload["antecedents"]["reserve_trace_branch_input"]
+    assert reserve["denominator_match_not_used_as_a_derivation"] is True
+    assert reserve["binding_theorem_present"] is False
 
 
 def test_generator_is_p_over_24_interval(payload: dict) -> None:
@@ -186,6 +201,9 @@ def test_generator_is_p_over_24_interval(payload: dict) -> None:
     emitted = payload["generator"]["full_collar_derivative"]
     assert mpf(emitted["lo"]) <= lo <= hi <= mpf(emitted["hi"]) * (1 + mpf("1e-38"))
     assert abs(mpf(emitted["lo"]) - lo) < mpf("1e-38")
+    assert payload["generator"]["status"] == "imported_conditional_density"
+    assert payload["generator"]["emitted_from_finite_collar_records"] is False
+    assert payload["generator"]["operational_clock_bound"] is False
 
 
 def test_half_collar_identity_intervals(payload: dict) -> None:
@@ -201,6 +219,57 @@ def test_half_collar_identity_intervals(payload: dict) -> None:
     assert abs(mpf(half["n_s"]["lo"]) - (1 - theta_hi)) < mpf("1e-38")
     assert abs(mpf(half["n_s"]["hi"]) - (1 - theta_lo)) < mpf("1e-38")
     assert half["half_over_full_slot_ratio"] == "1/2"
+    assert half["status"] == "conditional_on_weighted_coarea_premise"
+    assert half["weighted_half_identity_derived_from_slot_counts"] is False
+
+
+def test_equal_counts_do_not_force_weighted_half(payload: dict) -> None:
+    countermodel = orientation_weight_countermodel()
+    schedule = countermodel["tower_slot_schedule"]
+    assert [row["forward_slot_count"] for row in schedule] == [
+        30 * 2**depth for depth in range(13)
+    ]
+    assert all(
+        row["forward_slot_count"] == row["backward_slot_count"]
+        for row in schedule
+    )
+    assert all(
+        row["equal_weight_forward_reserve_share"] == "1/2"
+        for row in schedule
+    )
+    assert all(
+        row["biased_positive_weight_forward_reserve_share"] == "2/3"
+        for row in schedule
+    )
+    assert countermodel["all_weights_strictly_positive"] is True
+    assert "every rational r in (0,1)" in countermodel["exhaustive_family"]
+    assert (
+        payload["half_collar_identity"]["orientation_weight_countermodel"]
+        == countermodel
+    )
+
+
+def test_count_only_independence_no_go_is_exact_and_fail_closed(payload: dict) -> None:
+    no_go = payload["count_only_independence_no_go"]
+    assert no_go["negative_closure_at_count_only_interface"] is True
+    for key in (
+        "same_counts_multiple_reserve_weights",
+        "same_counts_multiple_generator_coefficients",
+        "same_counts_multiple_event_to_log_thickness_scales",
+    ):
+        assert len({row["geometry_sha256"] for row in no_go[key]}) == 1
+    with pytest.raises(CertificateError, match="COUNT_WEIGHT_INDEPENDENCE"):
+        assert_counts_select_unique_reserve_share(no_go)
+    with pytest.raises(CertificateError, match="COUNT_GENERATOR_INDEPENDENCE"):
+        assert_counts_select_unique_generator(no_go)
+    with pytest.raises(CertificateError, match="COUNT_CLOCK_INDEPENDENCE"):
+        assert_counts_select_unique_clock_scale(no_go)
+    closure = payload["negative_closure_status"]
+    assert closure["status"] == "proved_no_go_at_count_only_interface"
+    assert closure["counts_do_not_select_reserve_density"] is True
+    assert closure["counts_do_not_select_weighted_half"] is True
+    assert closure["counts_do_not_select_generator"] is True
+    assert closure["counts_do_not_select_clock_scale"] is True
 
 
 def test_kappa_rep_interval_and_issue_reconciliation(payload: dict) -> None:
@@ -287,10 +356,10 @@ def test_e_branch_is_diagnostic_only(payload: dict) -> None:
     assert payload["selected_primary_branch"] == SELECTED_PRIMARY_BRANCH
 
 
-def test_wrong_orientation_branch_is_flagged_rejected(payload: dict) -> None:
+def test_factor_one_branch_is_not_rejected_by_counts(payload: dict) -> None:
     mp.dps = 60
-    branch = payload["rejected_branches"]["wrong_orientation_factor_1"]
-    assert branch["status"] == "rejected_orientation_branch"
+    branch = payload["branch_boundaries"]["wrong_orientation_factor_1"]
+    assert branch["status"] == "not_ruled_out_by_slot_counts_alone"
     generator = payload["generator"]["full_collar_derivative"]
     assert branch["theta"] == generator
     theta_hi = mpf(payload["half_collar_identity"]["theta"]["hi"])
@@ -336,7 +405,10 @@ def test_controls_are_recorded(payload: dict) -> None:
         "injected_declared_step_time",
         "injected_measured_tilt_target",
         "e_branch_selected_as_primary",
-        "wrong_orientation_factor_1",
+        "slot_count_only_weighted_half_claim",
+        "count_only_unique_reserve_share_claim",
+        "count_only_unique_generator_claim",
+        "count_only_unique_clock_scale_claim",
     ):
         assert controls[name]["rejected"] is True
 
@@ -346,10 +418,15 @@ def test_controls_are_recorded(payload: dict) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_clock_binding_has_no_step_time(payload: dict) -> None:
+def test_clock_binding_remains_open(payload: dict) -> None:
     binding = payload["clock_binding"]
     assert binding["declared_command_line_step_time"] is None
-    assert binding["clock_unit"] == "one accepted oriented repair event on the collar"
+    assert binding["status"] == "open"
+    assert binding["clock_unit"] is None
+    assert binding["scheduler_count_bound_to_collar_events"] is False
+    assert binding["dimensionless_coordinate_bound_to_log_refinement"] is False
+    assert binding["operational_clock_derived"] is False
+    assert binding["physical_frequency_derived"] is False
     source = binding["clock_normalization_source"]
     assert "m_rep = 24" in source["invariant"]
     assert source["artifacts"]
@@ -367,26 +444,55 @@ def test_no_sky_comparison_and_not_frozen(payload: dict) -> None:
         assert token not in text
 
 
-def test_acceptance_mapping_is_honest(payload: dict) -> None:
+def test_acceptance_mapping_is_exact(payload: dict) -> None:
     mapping = payload["acceptance_mapping"]
-    assert mapping["clock_normalization_source_identified"]["discharged_here"] is True
+    assert mapping["clock_normalization_source_identified"]["discharged_here"] is False
     assert (
         mapping["full_collar_derivative_and_half_collar_identity"]["discharged_here"]
+        is False
+    )
+    assert (
+        mapping["full_collar_derivative_and_half_collar_identity"][
+            "partial_arithmetic_check"
+        ]
         is True
     )
+    assert mapping["source_graph_ancestry"]["discharged_here"] is False
+    assert mapping["source_graph_ancestry"]["local_target_injection_rejected"] is True
     assert (
         mapping["simulator_emits_p_over_48_only_from_receipt"]["discharged_here"]
         is False
     )
+    assert mapping["all_issue_acceptance_criteria_satisfied"]["discharged_here"] is False
 
 
 def test_payload_is_deterministic(payload: dict) -> None:
     again = build()
     assert json.dumps(payload, sort_keys=True) == json.dumps(again, sort_keys=True)
+    verify_artifact_self_hash(payload)
+
+
+def test_committed_artifact_is_hash_exact(payload: dict) -> None:
+    stored = json.loads(DEFAULT_OUT.read_text(encoding="utf-8"))
+    verify_artifact_self_hash(stored)
+    assert stored == payload
+    verify_stored_artifact(DEFAULT_OUT, payload)
+
+
+def test_artifact_tamper_fails_self_hash(payload: dict) -> None:
+    mutant = copy.deepcopy(payload)
+    mutant["status"] = "tampered"
+    with pytest.raises(CertificateError, match="self-hash"):
+        verify_artifact_self_hash(mutant)
 
 
 def test_schema_and_issue_fields(payload: dict) -> None:
-    assert payload["schema"] == "oph.edge_center_clock_certificate.v1"
+    assert payload["schema"] == "oph.edge_center_clock_certificate.v3"
     assert payload["artifact"] == "oph_edge_center_clock_certificate"
     assert payload["github_issue"] == 522
-    assert payload["status"] == "edge_center_generator_and_clock_certificate_emitted"
+    assert (
+        payload["status"]
+        == "conditional_edge_center_arithmetic_with_open_source_and_clock_gates"
+    )
+    assert payload["interval_backend"]["exact_arithmetic"] is False
+    assert payload["interval_backend"]["exact_integer_geometry"] is True

@@ -1,5 +1,81 @@
 {
-  "central_obstruction": {
+  "acceptance_criteria_status": {
+    "effect_bounded_disposition": "the ordinary and central lanes have exact parameterized effects; the general higher-group matter action is not selected or classified by A1-A3",
+    "effect_reading": "ordinary flat transport is gauge trivial; central sectors are A with matter action chi(a); the identity crossed-module witness has contractible 2-type and supplies no nontrivial sector or matter effect",
+    "every_classified_branch_has_sector_and_matter_effect": false,
+    "full_axiom_coefficient_group_nonselection_proved": false,
+    "full_axiom_reading": "the Z6/Z7 models separate the reduced seam/register interface, but their lift to every A1-A3 clause is open",
+    "instanton_theta_and_laboratory_attachments_separate": true,
+    "measured_double_cover_classified": true,
+    "measured_double_cover_reading": "classified as a nonsplit Z2 central extension over V4, without identifying it with a spherical cellular class",
+    "source_defined_reading": "the theorem is parameterized by a supplied finite group or central coefficient group; no finite allowed-group list is promoted",
+    "source_defined_without_target_group_list": true,
+    "wrong_coherence_missing_overlap_and_injected_group_controls": true
+  },
+  "branch_classification": {
+    "central_extension": {
+      "classification_on_pinned_nerve": "H2(S2,A)=A",
+      "input": "a separately declared abelian central coefficient group A and a cellular face 2-cocycle",
+      "matter_transport_effect": {
+        "coefficient_group": "Z2",
+        "exact_character_witnesses": {
+          "sign": {
+            "class_one_action": -1,
+            "values": [
+              1,
+              -1
+            ]
+          },
+          "trivial": {
+            "class_one_action": 1,
+            "values": [
+              1,
+              1
+            ]
+          }
+        },
+        "multiplicativity_checks": 8,
+        "nontrivial_class": 1,
+        "parameterized_effect": "a declared matter representation sees central class a through its central character chi(a)",
+        "selection_status": "A1-A3 and the routed-seam grammar do not select a matter representation or central character"
+      },
+      "measured_member": "the binary-icosahedral lift is a nonsplit Z2 extension over V4; this identifies its extension branch, not a particular spherical cellular class",
+      "sector_effect": "one cellular class per element of A",
+      "status": "exact conditional on A and the matter character"
+    },
+    "genuinely_noncentral_higher_group": {
+      "input": "a crossed module H -> G with its G action",
+      "matter_transport_effect": "none established; a nontrivial crossed module and selected 2-representation are open",
+      "raw_syntax_witness": {
+        "action": "conjugation",
+        "action_composition_checks": 216,
+        "boundary_map": "identity",
+        "cokernel_order": 1,
+        "crossed_module": "identity boundary S3 -> S3 with conjugation action",
+        "equivariance_checks": 36,
+        "homotopy_pi1": "trivial",
+        "homotopy_pi2": "trivial",
+        "kernel_order": 1,
+        "noncentral_face_label_in_centre": false,
+        "noncentral_face_label_index": 1,
+        "nontrivial_sector_emitted": false,
+        "peiffer_checks": 216,
+        "reading": "the strict crossed-module syntax admits noncentral raw face labels, but the identity boundary makes the 2-type contractible. A nontrivial finite 2-type and its complete A1-A3 lift are needed before this can witness a physical sector outside the central lane",
+        "status": "raw_grammar_boundary_only_contractible_2_group",
+        "two_type_contractible": true
+      },
+      "sector_effect": "none for the current identity-boundary witness: ker and coker are trivial, so its 2-type is contractible",
+      "status": "raw grammar boundary only; nontrivial higher-sector classification open"
+    },
+    "ordinary_flat_one_group": {
+      "classification_on_pinned_nerve": "one gauge class",
+      "input": "an exactly coherent finite-group-valued edge assignment modulo vertex gauge",
+      "matter_transport_effect": "gauge-equivalent to the identity transport for every declared ordinary group representation",
+      "sector_effect": "no nontrivial flat sector",
+      "status": "exact"
+    }
+  },
+  "central_coefficient_lane": {
     "central_twist_flux": {
       "discrepancy_pattern": "minus one at both puncture faces, plus one elsewhere",
       "dual_path_seams": 5,
@@ -10,6 +86,7 @@
       },
       "total_class": "trivial"
     },
+    "centrality_source": "separate coefficient typing; centrality is not derived from A2 naturality or ordinary triple-overlap coherence",
     "h2_smith": {
       "class_map": "a central discrepancy 2-cochain is classified by its total sum",
       "coboundary_smith_invariants": [
@@ -56,29 +133,42 @@
       "lift_trials_scanned": 1,
       "minus_one_faces": 14,
       "quotient_group_order": 60,
+      "scope": "chosen binary-icosahedral central extension only",
       "total_class": "trivial, as forced for the discrepancy of an actual lifted assignment"
     },
-    "section_obstruction_match": {
+    "measured_extension_witness": {
       "cocycle_values_central": true,
+      "cohomology_domain": "group extension over V4",
+      "extension_base": "V4",
+      "extension_kernel": "Z2",
+      "extension_status": "nonsplit",
       "lift_squares_equal_central_involution": 3,
       "matches_pinned_section_obstruction": true,
+      "not_identified_with": "cellular H2 of the spherical federation nerve",
       "pinned_lifts_in_reconstructed_group": 3,
-      "recovered_class": "the nontrivial class of the order-two centre",
       "sections_found": 0,
       "sign_assignments_tested": 8
     },
-    "status": "centre_valued_exact"
+    "status": "conditional_exact_for_declared_central_coefficients"
   },
   "claim_boundary": {
-    "bounded_exit": "exact_named_realization",
-    "bounded_exit_scope": "grammar completeness beyond the central column closes positively on the spherical nerve class: every quotient-visible routed-seam mechanism reduces to central obstruction data and the measured order-six menu stands",
+    "bounded_exit": "conditional_open_interface",
+    "bounded_exit_scope": "the flat assignment lane and explicitly typed central-coefficient lane are exact on the pinned spherical nerve; the reduced Z6/Z7 register models and the contractible identity-boundary S3 crossed module are controls. Neither is a complete countermodel to the revised A1-A3 basis, so the axiom-level classification remains open",
     "does_not_close": [
+      "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
+      "classification of genuinely noncentral crossed-module or higher-group seam data",
+      "a nontrivial finite crossed-module 2-type with a gauge-invariant sector and matter effect",
+      "the complete A1-A3 lift of the reduced Z6/Z7 coefficient-register models",
+      "selection or bounding of admissible value groups and their centres",
+      "general exhaustiveness of the measured order-six flux menu",
+      "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
+      "physical selection of a matter representation, central character, or 2-representation",
       "nerves with nontrivial fundamental group (out-of-class control; flat Hom sectors)",
       "four-dimensional instanton normalization and theta periodicity (separate gates)",
       "laboratory current lines (issue 569)",
       "continuum quantum field theory"
     ],
-    "proves": "exact gauge triviality of every exactly coherent finite-group seam assignment on the simply connected federation nerve, centre-valued obstruction data for every mechanism coherent up to a face 2-cocycle, second cohomology equal to the value-group centre on the spherical nerve, recovery of the measured binary-icosahedral transport as the nontrivial Z2-central class, and exhaustion of the flux menu by central classes"
+    "proves": "exact gauge triviality of exactly coherent group-valued seam assignments under the pinned finite-group table grammar; for each separately declared abelian central coefficient group A, the exact cellular result H2(S2,A)=A; exact verification that the measured Klein-four lift realizes a nonsplit Z2 extension over V4; and compatibility of that measured Z2 centre with the {0,3} subgroup of the measured order-six menu; Z6/Z7 added coefficient registers separate the reduced seam/register interface"
   },
   "consequence": {
     "axis_class_lattice": {
@@ -120,7 +210,9 @@
         6
       ]
     },
-    "flux_menu_exhausted_by_central_classes": true,
+    "flux_menu_exhausted_by_central_classes": false,
+    "general_exhaustiveness_status": "not_established",
+    "matter_transport_effect": "not_calculated",
     "measured_flux_menu": [
       0,
       1,
@@ -129,7 +221,7 @@
       4,
       5
     ],
-    "menu_statement": "every quotient-visible routed-seam mechanism on the spherical federation nerve reduces to central obstruction data, the noncentral values add no flux sectors, and with the realized matter transport constraint the measured order-six menu stands",
+    "menu_statement": "the measured binary-icosahedral centre embeds as {0,3} in the measured order-six menu; this compatibility does not classify other value groups, prove general flux-menu exhaustiveness, or calculate an action on realized matter transport",
     "out_of_class_control": {
       "control_complex": {
         "charts": 3,
@@ -151,13 +243,14 @@
       "menu_subgroup": [
         0,
         3
-      ]
+      ],
+      "scope": "measured binary-icosahedral extension only"
     }
   },
   "consumed_upstream": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
     "descent_manifest_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
-    "extends": "the #613 routed-seam grammar certificate proves central-column completeness and exhibits the measured noncentral transport; this certificate classifies the mechanism space beyond the central column on the same federation",
+    "extends": "the #613 routed-seam grammar certificate proves central-column completeness and exhibits the measured noncentral transport; this certificate proves the flat lane and the fixed central-coefficient lane while retaining the genuinely noncentral mechanism space as an open interface",
     "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
     "routed_seam_manifest_sha256": "6e3d4714ddb1666484e7ea7d0f74c133d9811a63163a1017f28c4af16db395db",
     "spin_statistics_artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a"
@@ -322,8 +415,176 @@
     ]
   },
   "issue": 624,
-  "manifest_sha256": "0f7813273174797c67e49810dafce93733bd3252c792e6f077cbf007f1d0a4b2",
-  "schema": "oph.noncentral_seam_reduction_receipt.v1",
+  "manifest_sha256": "1e1fa8ea54b89cebccd6e308c435ed8a277bd5520b21634188712bde49cbcf90",
+  "open_boundaries": {
+    "genuinely_noncentral_crossed_module": {
+      "action": "conjugation",
+      "action_composition_checks": 216,
+      "boundary_map": "identity",
+      "cokernel_order": 1,
+      "crossed_module": "identity boundary S3 -> S3 with conjugation action",
+      "equivariance_checks": 36,
+      "homotopy_pi1": "trivial",
+      "homotopy_pi2": "trivial",
+      "kernel_order": 1,
+      "noncentral_face_label_in_centre": false,
+      "noncentral_face_label_index": 1,
+      "nontrivial_sector_emitted": false,
+      "peiffer_checks": 216,
+      "reading": "the strict crossed-module syntax admits noncentral raw face labels, but the identity boundary makes the 2-type contractible. A nontrivial finite 2-type and its complete A1-A3 lift are needed before this can witness a physical sector outside the central lane",
+      "status": "raw_grammar_boundary_only_contractible_2_group",
+      "two_type_contractible": true
+    },
+    "unconstrained_centre": {
+      "boundary": "the same spherical Smith calculation gives H2(S2, Z7) = Z7; the typed central-coefficient calculation does not select or exclude this coefficient group, so it cannot establish an unrestricted order-six exhaustiveness theorem",
+      "cellular_h2_class_count": 7,
+      "centre": "Z7",
+      "order_six_promotion_error": "UNCONSTRAINED_CENTRE",
+      "value_group": "Z7",
+      "value_group_order": 7
+    }
+  },
+  "reduced_interface_coefficient_models": {
+    "both_satisfy_reduced_translation_naturality": true,
+    "both_satisfy_reduced_uniform_information_projection": true,
+    "complete_A1_schema_instantiated": false,
+    "complete_A2_data_access_diagrams_instantiated": false,
+    "complete_A3_feasible_family_cover_and_weights_instantiated": false,
+    "different_added_coefficient_h2_class_counts": [
+      6,
+      7
+    ],
+    "model_z6": {
+      "added_coefficient_centre_order": 6,
+      "added_coefficient_h2_class_count": 6,
+      "added_seam_coefficient_group": "Z6",
+      "candidate_seam_interface_extension": {
+        "base_carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+        "complete_A1_compatibility_proved": false,
+        "invalid_shortcut_rejected": "tensoring each local central record algebra with C^n would split the twelve primitive central port projections",
+        "primitive_central_port_preservation_proved": false,
+        "proposed_added_surface": "a finite central Z6 public seam-label register whose identity restrictions and refinement maps still require a complete algebra-net construction",
+        "required_lift": "type the register as a seam/interface coefficient system and verify the complete algebra-net, operational, refinement, and support diagrams without tensoring the central record algebra",
+        "unchanged_reduced_surfaces": [
+          "carrier and port incidence",
+          "overlap nerve and triple overlaps",
+          "measured binary-icosahedral transport factor"
+        ]
+      },
+      "forbidden_target_inputs": [],
+      "measured_binary_icosahedral_factor_retained": true,
+      "measured_factor_used_as_cellular_coefficient": false,
+      "parallel_system_centre_order": 12,
+      "parallel_system_order": 720,
+      "reduced_A1_checks": {
+        "complete_pinned_nerve": true,
+        "distinct_coefficient_group_accepted_by_reduced_checks": true,
+        "exactly_coherent_identity_assignment": true,
+        "finite_seam_value_type": true
+      },
+      "reduced_A2_checks": {
+        "all_squares_commute": true,
+        "data_and_meaning_transport": "the same cyclic translation",
+        "interpretation": "identity on the cyclic public seam label",
+        "naturality_checks": 36
+      },
+      "reduced_A3_checks": {
+        "optimizer_object": "finite seam-label distribution",
+        "projection_argument": "relative entropy to the full-support uniform reference is nonnegative and vanishes uniquely at that reference",
+        "realized_projection": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "reference": [
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6",
+          "1/6"
+        ],
+        "reference_translation_invariant": true
+      },
+      "shared_reduced_carrier_architecture_sha256": "74130e1ad6b1af81efcd5922e4e125a06235f300deb0f59e59ecfc6a20e322b6",
+      "system_factors": [
+        "measured binary-icosahedral transport factor 2I",
+        "separately typed central seam-label register Z6"
+      ]
+    },
+    "model_z7": {
+      "added_coefficient_centre_order": 7,
+      "added_coefficient_h2_class_count": 7,
+      "added_seam_coefficient_group": "Z7",
+      "candidate_seam_interface_extension": {
+        "base_carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+        "complete_A1_compatibility_proved": false,
+        "invalid_shortcut_rejected": "tensoring each local central record algebra with C^n would split the twelve primitive central port projections",
+        "primitive_central_port_preservation_proved": false,
+        "proposed_added_surface": "a finite central Z7 public seam-label register whose identity restrictions and refinement maps still require a complete algebra-net construction",
+        "required_lift": "type the register as a seam/interface coefficient system and verify the complete algebra-net, operational, refinement, and support diagrams without tensoring the central record algebra",
+        "unchanged_reduced_surfaces": [
+          "carrier and port incidence",
+          "overlap nerve and triple overlaps",
+          "measured binary-icosahedral transport factor"
+        ]
+      },
+      "forbidden_target_inputs": [],
+      "measured_binary_icosahedral_factor_retained": true,
+      "measured_factor_used_as_cellular_coefficient": false,
+      "parallel_system_centre_order": 14,
+      "parallel_system_order": 840,
+      "reduced_A1_checks": {
+        "complete_pinned_nerve": true,
+        "distinct_coefficient_group_accepted_by_reduced_checks": true,
+        "exactly_coherent_identity_assignment": true,
+        "finite_seam_value_type": true
+      },
+      "reduced_A2_checks": {
+        "all_squares_commute": true,
+        "data_and_meaning_transport": "the same cyclic translation",
+        "interpretation": "identity on the cyclic public seam label",
+        "naturality_checks": 49
+      },
+      "reduced_A3_checks": {
+        "optimizer_object": "finite seam-label distribution",
+        "projection_argument": "relative entropy to the full-support uniform reference is nonnegative and vanishes uniquely at that reference",
+        "realized_projection": [
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7"
+        ],
+        "reference": [
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7",
+          "1/7"
+        ],
+        "reference_translation_invariant": true
+      },
+      "shared_reduced_carrier_architecture_sha256": "74130e1ad6b1af81efcd5922e4e125a06235f300deb0f59e59ecfc6a20e322b6",
+      "system_factors": [
+        "measured binary-icosahedral transport factor 2I",
+        "separately typed central seam-label register Z7"
+      ]
+    },
+    "open_lift": "instantiate the complete A1 algebra net, restrictions, readback, repair, checkpoints, refinement and support bridge; close every A2 meaning square; and prove the A3 product optimizer with its complete feasible family, cover, and exact weights",
+    "reduced_interface_result": "while retaining the measured binary-icosahedral transport factor as a parallel typed system, the reduced seam/register checks admit finite added central coefficient registers with different centres and different spherical H2 class counts",
+    "shared_reduced_carrier_architecture": true,
+    "status": "reduced_interface_only_full_schema_lift_open",
+    "supports_full_A1_A2_A3_independence_claim": false
+  },
+  "schema": "oph.noncentral_seam_reduction_receipt.v3",
   "structural_controls": [
     {
       "actual_error": "FACE_COHERENCE",
@@ -340,13 +601,25 @@
     {
       "actual_error": "NONCENTRAL_OBSTRUCTION",
       "expected_error": "NONCENTRAL_OBSTRUCTION",
-      "name": "noncentral_obstruction_rejected_by_commutation",
+      "name": "noncentral_discrepancy_excluded_from_central_coefficient_lane",
       "passed": true
     },
     {
       "actual_error": "EXTRA_FLUX",
       "expected_error": "EXTRA_FLUX",
       "name": "s3_extra_flux_sector_rejected",
+      "passed": true
+    },
+    {
+      "actual_error": "MISSING_OVERLAP",
+      "expected_error": "MISSING_OVERLAP",
+      "name": "missing_triple_overlap_rejected_by_scope_gate",
+      "passed": true
+    },
+    {
+      "actual_error": "UNCONSTRAINED_CENTRE",
+      "expected_error": "UNCONSTRAINED_CENTRE",
+      "name": "injected_z7_centre_rejected_from_order_six_promotion",
       "passed": true
     }
   ],
@@ -356,16 +629,19 @@
       "contains_pinned_klein_four_lifts": true,
       "order": 120,
       "order_profile_matches_pinned_lift_measurement": true,
+      "role": "measured extension witness and flat-lane test instance",
       "source": "closure of the pinned Klein-four lift quaternions and the two exact icosian generators over Q(sqrt(5))"
     },
     "q8": {
       "centre_order": 2,
       "order": 8,
+      "role": "flat-lane test instance",
       "source": "closure of the pinned Klein-four lift quaternions alone"
     },
     "s3": {
       "centre_order": 1,
       "order": 6,
+      "role": "flat-lane test instance and crossed-module boundary",
       "source": "the symmetric group on three letters as permutation tuples"
     }
   },
@@ -375,20 +651,31 @@
       "q8": 2,
       "s3": 1
     },
-    "central_obstruction_part": "centre_valued_exact",
+    "central_coefficient_part": "conditional_exact_for_explicit_abelian_coefficients",
+    "centrality_derivation": "not_established",
     "controls": {
       "central_incoherence_detected_by_exact_lane": true,
       "incoherent_assignment_detected": true,
-      "noncentral_obstruction_rejected_by_commutation": true,
+      "injected_z7_centre_rejected_from_order_six_promotion": true,
+      "missing_triple_overlap_rejected_by_scope_gate": true,
+      "noncentral_discrepancy_excluded_from_central_coefficient_lane": true,
       "s3_extra_flux_sector_rejected": true
     },
     "flat_part": "gauge_trivial_exact",
-    "flux_menu": "exhausted_by_centre_valued_central_classes",
+    "flux_menu": "general_exhaustiveness_not_established",
     "four_dimensional_instanton_theta": "separate_gates",
-    "general_grammar": "exact_reduction_to_central_obstructions_on_simply_connected_nerve",
-    "measured_order_six_menu_stands": true,
-    "measured_transport_class": "nontrivial_Z2",
-    "out_of_class_boundary": "nerves with nontrivial fundamental group carry flat sectors classified by conjugacy classes of homomorphisms from the fundamental group and are not admissible for the spherical support"
+    "general_grammar": "open_full_schema_lift_and_nontrivial_higher_witness",
+    "independence_boundaries": {
+      "higher_gauge_grammar": "the identity crossed module S3 -> S3 admits raw noncentral face labels but has trivial kernel and cokernel",
+      "unconstrained_centre": "Z7 gives seven spherical H2 classes"
+    },
+    "matter_transport_effect": "parameterized_by_the_declared_representation_or_2_representation;_physical_selection_not_supplied",
+    "measured_extension_equals_spherical_h2_class": false,
+    "measured_order_six_menu": "retained_measured_menu_with_binary_icosahedral_Z2_compatibility",
+    "measured_transport_extension": "nonsplit_Z2_extension_over_V4",
+    "out_of_class_boundary": "nerves with nontrivial fundamental group carry flat sectors classified by conjugacy classes of homomorphisms from the fundamental group and are not admissible for the spherical support",
+    "reduced_interface_nonidentifiability": true,
+    "same_axiom_class_nonidentifiability": false
   },
   "verifier_command": "python3 code/a5_closure/noncentral_seam_reduction_certificate.py verify --manifest code/a5_closure/manifests/noncentral_seam_reduction_reference.json --receipt code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json"
 }

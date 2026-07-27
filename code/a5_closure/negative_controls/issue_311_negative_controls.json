@@ -1,9 +1,11 @@
 {
   "countermodel_witnesses": {
-    "class_change_rejection": "the class-1 witness chain has puncture holonomy one, so no verifier accepts it as a local operation from the vacuum",
     "equal_spectra_rejection": "classes 0 and 3, and classes 0 and 1, have distinct exact characteristic polynomials, so an equal-spectra claim fails",
+    "false_regauge_rejection": "the class-1 witness chain has puncture holonomy one, so no verifier accepts it as a coboundary regauge of the vacuum",
     "gauge_tamper_rejection": "a chain with nonzero holonomy is refused as a regauge before any spectrum comparison",
-    "hermiticity_rejection": "twisting one oriented seam without its reverse breaks the conjugate-transpose identity on that seam"
+    "hermiticity_rejection": "twisting one oriented seam without its reverse breaks the conjugate-transpose identity on that seam",
+    "ontology_independence_no_go": "classical-lattice and quantum-Hilbert interpretations expose the same hash-identical finite interface, so an interface-only particle discriminator is rejected",
+    "same_flux_classical_countermodel": "a classical finite-lattice configuration may carry the same nonzero seam chain, holonomy, and twisted spectrum; it is not rejected by this finite certificate"
   },
   "issue": 311,
   "manifest_controls": [
@@ -74,13 +76,13 @@
       "passed": true
     }
   ],
-  "manifest_sha256": "6c00b832f5be777da76335739cbbf207acfd60cb39dd08676ab659c1d9936e47",
-  "schema": "oph.flux_defect_criterion_negative_controls.v1",
+  "manifest_sha256": "4a8899e57e1087b47a8ab0bfa189883d8e747d312c7d61134dcd097607a015e9",
+  "schema": "oph.flux_defect_criterion_negative_controls.v3",
   "tamper_controls": [
     {
       "actual_error": "CLASS_TAMPER",
       "expected_error": "CLASS_TAMPER",
-      "name": "claimed_local_class_change",
+      "name": "non_coboundary_presented_as_regauge",
       "passed": true
     },
     {
@@ -105,6 +107,12 @@
       "actual_error": "GAUGE_TAMPER",
       "expected_error": "GAUGE_TAMPER",
       "name": "gauge_dependence_tamper",
+      "passed": true
+    },
+    {
+      "actual_error": "ONTOLOGY_INDEPENDENCE",
+      "expected_error": "ONTOLOGY_INDEPENDENCE",
+      "name": "finite_interface_particle_discriminator_claim",
       "passed": true
     }
   ]

@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-"""Exact certificate for GitHub issue #311: particle-like defect criterion.
+"""Exact finite topological-sector certificate associated with GitHub issue #311.
 
 The defect objects are the six measured flux sectors of the certified
 icosahedral support. The inputs are hash-pinned: the certified carrier
 manifest supplies the twelve-vertex, thirty-seam, twenty-face oriented
 complex, and the #567 measured global-form artifact supplies the order-six
 class group together with the two-puncture flux-tube witnesses realizing
-every class. On that input this certificate derives the finite spectral
-receipt that separates a topological flux defect from a classical localized
-record:
+every class. On that input this certificate derives a finite topological
+spectral receipt:
 
 * per flux class k in Z6, the twisted seam adjacency operator A_k on the
   ell^2 space of the support vertices, with seam phases omega^(k f(e)) taken
@@ -28,23 +27,23 @@ record:
   A_k by a diagonal unitary and leaves the characteristic polynomial fixed,
   verified exactly for sample gauges, while the sixty scaled basis
   coboundaries all have identically zero face holonomy;
-* the classical-record control in both directions: every local operation
-  (marking a vertex, or any coboundary regauge) leaves the flux class and
-  the spectrum family unchanged, and no seam regauge carries class k to
-  class j for k != j, because the chain difference has nonzero puncture
-  holonomy and coboundaries have none;
+* the local-coboundary control: marking a vertex or applying a coboundary
+  regauge leaves the flux class and spectrum family unchanged, and no
+  coboundary regauge carries class k to class j for k != j;
 * charge and fusion: the flux class is a Z6 charge, additive under chain
-  addition, and two well-separated puncture pairs with disjoint seam
-  supports compose additively on the finite complex;
-* refinement stability: one exact edge-midpoint refinement step reproduces
+  addition, and two puncture pairs whose selected seam paths are disjoint
+  compose additively on the finite complex;
+* a one-step refinement check: one exact edge-midpoint refinement reproduces
   the 42-vertex, 120-seam, 80-face complex of the pinned artifact's
   refinement transport, realizes all six classes between child punctures,
   and reproduces the same spectral coincidence partition.
 
-The continuum quantum pole, scattering amplitudes, mass calibration, and
-laboratory identification of any species stay open named interfaces; the
-receipt is the finite source-scope criterion only. Every arithmetic step is
-exact integer arithmetic; no floating point appears in a proof step.
+These calculations do not distinguish a quantum particle from a classical
+lattice configuration carrying the same nonzero flux. They do not construct
+asymptotic states, a continuum pole, an all-depth refinement intertwiner, a
+mass calibration, or a laboratory species identification. Every arithmetic
+step in the retained finite calculation is exact integer arithmetic; no
+floating point appears in a proof step.
 """
 
 from __future__ import annotations
@@ -68,9 +67,9 @@ sha256_json = e565.sha256_json
 load_json = e565.load_json
 write_json = e565.write_json
 
-SCHEMA = "oph.flux_defect_criterion_certificate.v1"
-RECEIPT_SCHEMA = "oph.flux_defect_criterion_receipt.v1"
-NEGATIVE_SCHEMA = "oph.flux_defect_criterion_negative_controls.v1"
+SCHEMA = "oph.flux_defect_criterion_certificate.v3"
+RECEIPT_SCHEMA = "oph.flux_defect_criterion_receipt.v3"
+NEGATIVE_SCHEMA = "oph.flux_defect_criterion_negative_controls.v3"
 CARRIER_SCHEMA = "oph.echosahedral_selector_manifest.v1"
 GLOBAL_FORM_ARTIFACT_SCHEMA = "oph.global_form_semantic_artifact.v1"
 
@@ -640,7 +639,7 @@ def require_spectral_distinctness(polynomials: Mapping[int, Sequence[int]]) -> d
 
 
 # ---------------------------------------------------------------------------
-# Gauge invariance and the classical-record control
+# Gauge invariance and the local-coboundary boundary
 # ---------------------------------------------------------------------------
 
 
@@ -765,17 +764,19 @@ def gauge_invariance_certificate(
     }
 
 
-def classical_record_control(
+def local_coboundary_control(
     support: Mapping[str, Any], chains: Mapping[int, Mapping[int, int]]
 ) -> dict[str, Any]:
-    """Both separation directions, exactly.
+    """Verify the exact statement available for local coboundary regauges.
 
-    Direction one: a classical localized record (a marked vertex, or any
-    coboundary regauge localized near it) leaves the flux class and the whole
-    twisted spectrum family unchanged; this is the coboundary holonomy and
-    regauge invariance above. Direction two: no seam regauge carries class k
+    A marked vertex or coboundary regauge leaves the flux class and the whole
+    twisted spectrum family unchanged. No coboundary regauge carries class k
     to class j with k != j, because the chain difference has puncture
     holonomy k - j != 0 while every coboundary has zero holonomy everywhere.
+
+    This does not distinguish quantum and classical realizations of one flux
+    class. A classical lattice configuration may carry the same nonzero seam
+    chain and therefore the same twisted spectrum.
     """
 
     basis_checks = require_coboundary_holonomy_zero(support)
@@ -800,15 +801,125 @@ def classical_record_control(
     return {
         "scaled_basis_coboundaries_with_zero_holonomy": basis_checks,
         "marked_vertex_leaves_operator_family_unchanged": True,
-        "local_perturbation_preserves_class_and_spectra": True,
+        "local_coboundary_regauge_preserves_class_and_spectra": True,
         "ordered_class_pairs_with_no_connecting_regauge": rejection_pairs,
-        "separation_statement": (
-            "localization alone cannot pass the gate: every local operation "
-            "fixes the flux class and the spectrum family, while distinct "
-            "classes are separated by an exact holonomy obstruction and by "
-            "the twisted characteristic polynomials"
+        "proved_statement": (
+            "a vertex mark or coboundary regauge cannot change puncture "
+            "holonomy; distinct flux classes have an exact holonomy "
+            "obstruction, and four charge-conjugacy bands have distinct "
+            "twisted characteristic polynomials"
         ),
+        "same_flux_classical_countermodel": (
+            "a classical finite-lattice configuration carrying the same "
+            "nonzero seam chain has the same holonomy and twisted adjacency "
+            "spectrum; this certificate contains no quantum/classical "
+            "discriminator"
+        ),
+        "excludes_every_classical_localized_record": False,
+        "physical_particle_discrimination": False,
     }
+
+
+def ontology_independence_no_go(
+    support: Mapping[str, Any],
+    chains: Mapping[int, Mapping[int, int]],
+    polynomials: Mapping[int, Sequence[int]],
+    fusion: Mapping[str, Any],
+    refinement: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Prove non-identifiability of particle ontology at the finite interface.
+
+    The same exact seam chain and Hermitian operator may be read as a classical
+    finite-lattice flux/wave operator or as a quantum Hilbert-space Hamiltonian
+    candidate. Every observer-visible datum exported by this certificate is
+    identical. Therefore no discriminator that factors only through this
+    interface can separate the two interpretations.
+    """
+
+    interface_data = {
+        "carrier_manifest_sha256": support["carrier_manifest_sha256"],
+        "vertex_count": support["vertex_count"],
+        "edges": [list(edge) for edge in support["edges"]],
+        "per_flux_class": {
+            str(flux): {
+                "seam_chain": [
+                    [position, chains[flux].get(position, 0)]
+                    for position in range(len(support["edges"]))
+                ],
+                "operator_entries": [
+                    [u, v, value[0], value[1]]
+                    for u, row in enumerate(
+                        build_twisted_operator(
+                            support["vertex_count"],
+                            support["edges"],
+                            chains[1],
+                            flux,
+                        )
+                    )
+                    for v, value in sorted(row.items())
+                ],
+                "characteristic_polynomial": list(polynomials[flux]),
+                "hermitian": True,
+            }
+            for flux in range(FLUX_ORDER)
+        },
+        "charge_and_fusion": dict(fusion),
+        "one_step_refinement_check": dict(refinement),
+    }
+    interface_sha256 = sha256_json(interface_data)
+    classical = {
+        "interpretation": (
+            "classical finite-lattice flux configuration with a complex "
+            "linear wave/adjacency operator"
+        ),
+        "observer_visible_interface_sha256": interface_sha256,
+    }
+    quantum = {
+        "interpretation": (
+            "quantum Hilbert-space flux-sector Hamiltonian candidate on the "
+            "same complex vector space"
+        ),
+        "observer_visible_interface_sha256": interface_sha256,
+    }
+    require(
+        classical["observer_visible_interface_sha256"]
+        == quantum["observer_visible_interface_sha256"],
+        "ONTOLOGY_NO_GO",
+        "the two interpretation models do not share identical finite data",
+    )
+    return {
+        "interface": (
+            "the exact finite carrier, all six seam chains, twisted Hermitian "
+            "operators and characteristic polynomials, finite fusion and "
+            "composition rows, and one-step refinement check exported by this packet"
+        ),
+        "observer_visible_interface_sha256": interface_sha256,
+        "classical_model": classical,
+        "quantum_model": quantum,
+        "observer_visible_data_identical": True,
+        "conclusion": (
+            "every deterministic discriminator that factors only through the "
+            "declared finite interface has the same value on both models; a "
+            "dynamics, pole, quantization, or equivalent extra premise is "
+            "necessary for particle ontology"
+        ),
+        "exhaustive_scope": (
+            "all predicates and deterministic algorithms whose complete input "
+            "is the declared finite observer-visible interface"
+        ),
+        "negative_closure_at_declared_interface": True,
+    }
+
+
+def assert_finite_interface_distinguishes_ontology(no_go: Mapping[str, Any]) -> None:
+    """Reject a particle-ontology claim based only on the identical interface."""
+
+    require(
+        no_go["classical_model"]["observer_visible_interface_sha256"]
+        != no_go["quantum_model"]["observer_visible_interface_sha256"],
+        "ONTOLOGY_INDEPENDENCE",
+        "classical and quantum interpretations have identical finite interface data",
+    )
 
 
 def assert_local_class_change(
@@ -950,7 +1061,8 @@ def charge_fusion_certificate(
                 "the fused chain does not carry the fused-class puncture cocycle",
             )
             fusion_checks += 1
-    # Two well-separated puncture pairs with disjoint seam supports.
+    # Two puncture pairs with disjoint selected seam-path supports. This is a
+    # finite chain-composition check, not an asymptotic-separation statement.
     first_support = frozenset(witness["seam_support"])
     second_pair = None
     for face in range(face_count):
@@ -973,6 +1085,30 @@ def charge_fusion_certificate(
         "no second antipodal puncture pair with disjoint seam support exists",
     )
     second_start, second_end, second_chain_one = second_pair
+    first_punctures = (start_face, end_face)
+    second_punctures = (second_start, second_end)
+    shared_boundary_edges = []
+    shared_vertices = []
+    for first_face in first_punctures:
+        for second_face in second_punctures:
+            overlap = sorted(
+                set(support["face_rows"][first_face])
+                & set(support["face_rows"][second_face])
+            )
+            if overlap:
+                shared_vertices.append(
+                    {
+                        "faces": [first_face, second_face],
+                        "vertices": overlap,
+                    }
+                )
+            if len(overlap) == 2:
+                shared_boundary_edges.append(
+                    {
+                        "faces": [first_face, second_face],
+                        "edge_vertices": overlap,
+                    }
+                )
     composition_checks = 0
     for class_j in range(FLUX_ORDER):
         for class_k in range(FLUX_ORDER):
@@ -1002,8 +1138,16 @@ def charge_fusion_certificate(
         "fusion_pairs_checked": fusion_checks,
         "second_puncture_pair_faces": [second_start, second_end],
         "second_pair_seam_support": sorted(second_chain_one),
-        "seam_supports_disjoint": True,
+        "selected_seam_path_supports_disjoint": True,
+        "puncture_face_vertex_overlaps": shared_vertices,
+        "puncture_face_shared_boundary_edges": shared_boundary_edges,
+        "puncture_pairs_are_asymptotically_separated": False,
         "multi_defect_pairs_checked": composition_checks,
+        "composition_scope": (
+            "addition of two finite puncture-pair chains whose selected seam "
+            "paths are disjoint; no asymptotic state or scattering limit is "
+            "constructed"
+        ),
         "conservation": (
             "the total holonomy of every seam chain vanishes on the closed "
             "support, so charge is created and absorbed only in puncture pairs"
@@ -1107,7 +1251,7 @@ def refinement_certificate(
             "seams": len(refined["edges"]),
             "faces": len(refined["face_rows"]),
         },
-        "matches_pinned_refinement_transport": True,
+        "matches_pinned_refinement_counts": True,
         "puncture_faces": {
             "start_child_of": witness["start_face"],
             "end_child_of": witness["end_face"],
@@ -1118,9 +1262,16 @@ def refinement_certificate(
         "refined_dual_path_length": len(refined_chain_one),
         "hermiticity_checks": spectra["hermiticity_checks"],
         "coincidence_partition": verdict["coincidence_partition"],
-        "verdict_persists": True,
+        "one_step_partition_persists": True,
         "regauge_invariance_sampled_classes": [1, 3],
         "characteristic_polynomials": polynomial_digest,
+        "scope": (
+            "one edge-midpoint refinement with a freshly constructed "
+            "child-to-child witness path"
+        ),
+        "coarse_chain_transported_to_refined_chain": False,
+        "coarse_to_refined_operator_intertwiner_proved": False,
+        "all_depth_refinement_stability_proved": False,
     }
 
 
@@ -1162,10 +1313,13 @@ def certificate_payload(
     polynomials = spectra["polynomials"]
     verdict = require_spectral_distinctness(polynomials)
     gauge = gauge_invariance_certificate(support, chains[1], polynomials)
-    record_control = classical_record_control(support, chains)
+    coboundary_control = local_coboundary_control(support, chains)
     fusion = charge_fusion_certificate(support, witness)
     refinement = refinement_certificate(
         support, witness, verdict["coincidence_partition"], artifact
+    )
+    ontology_no_go = ontology_independence_no_go(
+        support, chains, polynomials, fusion, refinement
     )
 
     per_class_invariants = {
@@ -1241,53 +1395,103 @@ def certificate_payload(
         },
         "spectral_criterion": verdict,
         "gauge_invariance": gauge,
-        "classical_record_control": record_control,
+        "local_coboundary_control": coboundary_control,
+        "ontology_independence_no_go": ontology_no_go,
         "charge_and_fusion": fusion,
-        "refinement_stability": refinement,
+        "one_step_refinement_check": refinement,
         "claim_boundary": {
             "proves": (
-                "at finite source scope: the six measured flux sectors carry a "
-                "gauge-invariant, refinement-stable, target-free spectral "
-                "invariant that separates them from every classical localized "
-                "record, with Z6 charge conservation, additive fusion, and "
-                "additive composition of well-separated defect pairs on a "
-                "self-adjoint ell^2 representation"
+                "on the fixed finite support: the six measured Z6 flux sectors "
+                "carry exact gauge-invariant twisted characteristic "
+                "polynomials, additive flux fusion, finite two-chain "
+                "composition, and a self-adjoint ell^2 representation; the "
+                "charge-conjugacy coincidence partition persists through one "
+                "edge-midpoint refinement check. At this finite interface, "
+                "particle ontology is unidentifiable because classical-lattice "
+                "and quantum-Hilbert interpretations have identical exported data"
             ),
-            "status": "finite_source_scope_defect_sector",
+            "status": "finite_topological_flux_spectrum_with_ontology_no_go",
             "does_not_close": [
+                "a quantum-particle criterion or a discriminator between "
+                "quantum and classical realizations of the same flux chain",
+                "exclusion of a classical finite-lattice configuration carrying "
+                "the same nonzero flux and twisted spectrum",
                 "a continuum quantum pole or propagator for any defect",
-                "scattering amplitudes and asymptotic completeness in the continuum",
+                "asymptotic states, scattering amplitudes, or asymptotic completeness",
+                "an all-depth refinement transport, operator intertwiner, or continuum limit",
                 "mass calibration against any measured particle target",
                 "laboratory identification of any species",
             ],
         },
-        "spectral_criterion_gate": {
+        "finite_topological_sector_gate": {
             "defect_objects_source_defined": True,
             "invariants_target_free": True,
             "operators_self_adjoint": True,
             "spectra_gauge_invariant": True,
             "class_0_vs_3_and_0_vs_1_distinct": True,
-            "classical_localization_cannot_pass": True,
+            "local_coboundary_regauge_cannot_change_flux_class": True,
             "charge_conserved_and_fusion_additive": True,
-            "multi_defect_composition_controlled": True,
-            "refinement_stable": True,
+            "finite_disjoint_path_chain_composition_checked": True,
+            "one_step_coincidence_partition_persists": True,
+            "physical_particle_discrimination": False,
+            "classical_same_flux_countermodel_excluded": False,
+            "asymptotic_states_controlled": False,
+            "all_depth_refinement_stability": False,
             "continuum_quantum_pole": False,
             "scattering_amplitude_interface": False,
             "laboratory_identification": False,
             "passed": True,
             "scope": (
-                "the gate aggregates the nine finite measured rows; the three "
-                "false rows are open named interfaces outside finite source "
-                "scope and never enter 'passed'"
+                "passed refers only to the retained finite topological rows; "
+                "it is not the GitHub issue's physical-particle acceptance gate"
             ),
+        },
+        "negative_closure_status": {
+            "status": "proved_no_go_at_declared_finite_interface",
+            "same_data_classical_quantum_countermodels": True,
+            "all_finite_interface_discriminators_covered": True,
+            "extra_dynamics_or_pole_premise_necessary": True,
+            "scope": ontology_no_go["exhaustive_scope"],
         },
         "acceptance_criteria_status": {
             "defect_object_and_equivalence_source_defined": True,
-            "mass_and_charge_invariant_and_target_independent": True,
-            "multi_defect_composition_and_asymptotics_controlled": True,
-            "spectral_criterion_proved_at_finite_scope": True,
-            "classical_localization_cannot_pass_gate": True,
-            "continuum_quantum_pole_open": True,
+            "charge_invariant_and_target_independent": True,
+            "mass_invariant_and_target_independent": False,
+            "mass_and_charge_invariant_and_target_independent": False,
+            "multi_defect_composition_and_asymptotic_states_controlled": False,
+            "quantum_pole_or_equivalent_physical_spectral_criterion_proved": False,
+            "classical_localization_alone_cannot_pass_physical_gate": False,
+            "all_depth_refinement_stability_proved": False,
+            "all_issue_acceptance_criteria_satisfied": False,
+        },
+        "acceptance_criteria_detail": {
+            "charge_invariant_and_target_independent": (
+                "the Z6 charge is exact and target-independent"
+            ),
+            "mass_invariant_and_target_independent": (
+                "open: the packet emits no mass invariant"
+            ),
+            "mass_and_charge_invariant_and_target_independent": (
+                "false because only the charge half of the conjunction is proved"
+            ),
+            "multi_defect_composition_and_asymptotic_states_controlled": (
+                "partial: finite addition of two selected seam-path-disjoint "
+                "chains is checked, but the puncture faces touch and no "
+                "asymptotic states are constructed"
+            ),
+            "quantum_pole_or_equivalent_physical_spectral_criterion_proved": (
+                "open: the finite twisted spectrum is a topological invariant "
+                "shared by classical and quantum realizations of the same chain"
+            ),
+            "classical_localization_alone_cannot_pass_physical_gate": (
+                "open: a vertex mark or coboundary cannot change flux, but a "
+                "classical nonzero-flux configuration is an explicit same-data "
+                "countermodel"
+            ),
+            "all_depth_refinement_stability_proved": (
+                "open: only one freshly reconstructed refined witness and its "
+                "coincidence partition are checked"
+            ),
         },
         "verifier_command": (
             "python3 code/a5_closure/flux_defect_criterion_certificate.py verify "
@@ -1308,7 +1512,7 @@ def negative_control_cases(
     cases: list[tuple[str, dict[str, Any], str]] = []
 
     wrong_schema = copy.deepcopy(dict(manifest))
-    wrong_schema["schema"] = "oph.flux_defect_criterion_certificate.v0"
+    wrong_schema["schema"] = "oph.flux_defect_criterion_certificate.v1"
     cases.append(("wrong_manifest_schema", wrong_schema, "SCHEMA"))
 
     carrier_drift = copy.deepcopy(dict(manifest))
@@ -1343,10 +1547,20 @@ def tamper_control_cases(
     witness = verify_witness_chains(support, artifact)
     chains = witness["chains"]
     polynomials = twisted_spectra(support, chains[1])["polynomials"]
+    fusion = charge_fusion_certificate(support, witness)
+    refinement = refinement_certificate(
+        support,
+        witness,
+        require_spectral_distinctness(polynomials)["coincidence_partition"],
+        artifact,
+    )
+    ontology_no_go = ontology_independence_no_go(
+        support, chains, polynomials, fusion, refinement
+    )
 
-    def claimed_local_class_change() -> None:
-        # The class-1 witness chain presented as a local operation from the
-        # vacuum: its puncture holonomy exposes the class change.
+    def non_coboundary_presented_as_regauge() -> None:
+        # The class-1 witness chain presented as a coboundary regauge of the
+        # vacuum: its puncture holonomy exposes the false presentation.
         assert_local_class_change(support, chains[1])
 
     def equal_spectra_claim_0_3() -> None:
@@ -1369,12 +1583,24 @@ def tamper_control_cases(
         # it is not a coboundary and the spectrum would move.
         require_regauge_invariance(support, chains[0], chains[1], 1, polynomials[0])
 
+    def finite_interface_particle_discriminator_claim() -> None:
+        assert_finite_interface_distinguishes_ontology(ontology_no_go)
+
     return [
-        ("claimed_local_class_change", claimed_local_class_change, "CLASS_TAMPER"),
+        (
+            "non_coboundary_presented_as_regauge",
+            non_coboundary_presented_as_regauge,
+            "CLASS_TAMPER",
+        ),
         ("equal_spectra_claim_classes_0_3", equal_spectra_claim_0_3, "SPECTRAL_TAMPER"),
         ("equal_spectra_claim_classes_0_1", equal_spectra_claim_0_1, "SPECTRAL_TAMPER"),
         ("non_hermitian_seam_tamper", non_hermitian_seam_tamper, "HERMITICITY"),
         ("gauge_dependence_tamper", gauge_dependence_tamper, "GAUGE_TAMPER"),
+        (
+            "finite_interface_particle_discriminator_claim",
+            finite_interface_particle_discriminator_claim,
+            "ONTOLOGY_INDEPENDENCE",
+        ),
     ]
 
 
@@ -1428,9 +1654,9 @@ def negative_control_payload(
         "manifest_controls": manifest_results,
         "tamper_controls": tamper_results,
         "countermodel_witnesses": {
-            "class_change_rejection": (
+            "false_regauge_rejection": (
                 "the class-1 witness chain has puncture holonomy one, so no "
-                "verifier accepts it as a local operation from the vacuum"
+                "verifier accepts it as a coboundary regauge of the vacuum"
             ),
             "equal_spectra_rejection": (
                 "classes 0 and 3, and classes 0 and 1, have distinct exact "
@@ -1443,6 +1669,16 @@ def negative_control_payload(
             "gauge_tamper_rejection": (
                 "a chain with nonzero holonomy is refused as a regauge before "
                 "any spectrum comparison"
+            ),
+            "same_flux_classical_countermodel": (
+                "a classical finite-lattice configuration may carry the same "
+                "nonzero seam chain, holonomy, and twisted spectrum; it is not "
+                "rejected by this finite certificate"
+            ),
+            "ontology_independence_no_go": (
+                "classical-lattice and quantum-Hilbert interpretations expose "
+                "the same hash-identical finite interface, so an interface-only "
+                "particle discriminator is rejected"
             ),
         },
     }

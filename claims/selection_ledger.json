@@ -13,17 +13,17 @@
       "row": 1,
       "selector_id": "twelve_unit_port_splitting",
       "label": "Twelve-unit port splitting (all twelve port weights equal one)",
-      "class": "forced",
+      "class": "exposed_premise",
       "conditional_on": [
         "echosahedral_carrier_lineage"
       ],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Issue #565 closure packet (`code/a5_closure`): unique all-one total-12 allocation with exact floor 12, next floor 14, gap 2. Lean: `Lean/Screen/UnitSplit12.lean`, `unit_split_of_positive_sum`. Conditional on row 4.",
+      "where": "Within the declared integer record-counting grammar q in Z^12 with sum q=12 and the declared normalized central-readback cost H(q)=sum q_i^2, the executable #565 packet proves that the all-one vector is the unique minimizer over the full integer lattice, with floor 12, next floor 14, and gap 2. `Lean/Screen/UnitSplit12.lean` proves the positive-natural sum-12 special case. Issue #625 carries reduced-interface alternative-readback controls; their complete A1-A3 lift remains open. Issue #628 owns an operational source mechanism. Conditional on row 4 and these named-realization premises.",
       "menu": {
         "size": 1352078,
-        "alternatives": "integer twelve-defect splittings that minimize a linear cost; 1,352,078 compositions survive a linear cost and the strictly superadditive cost selects the all-unit splitting uniquely",
+        "alternatives": "weak nonnegative integer compositions of 12 into twelve slots; all 1,352,078 compositions minimize the linear cost sum q_i=12, while the declared quadratic cost selects the all-unit composition uniquely",
         "enumeration_source": "Standard Model gauge paper selector-boundary remark; `code/a5_closure/negative_controls/issue_565_negative_controls.json`"
       },
       "compression_input": true,
@@ -40,7 +40,9 @@
       "negative_controls": [
         "removed primitive atoms leave a continuum of line decompositions",
         "unequal port weights or total charge 13 destroy unique all-unit selection",
-        "a linear cost has 1,352,078 minimizers (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)"
+        "with nonnegative integer entries, a linear cost has 1,352,078 minimizers; without nonnegativity, the integer minimizer set is infinite (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)",
+        "a covariant half-count family removes the integer fiber on the reduced finite-atomic carrier; complete A1-A3 lift remains open",
+        "an inequivalent equivariant readback changes the exact discrete cost on the reduced carrier; complete A1-A3 lift remains open"
       ],
       "paper_anchors": [
         {

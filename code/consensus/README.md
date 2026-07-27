@@ -10,10 +10,11 @@ Canonical runners:
   conflict-component, prepared-acceptance/lock BFT, refinement-modulus,
   \(\ell^p\), and
   selector/separation receipts used by proof-audit issue #517.
-- `compiled_lattice_settling_certificate.py`: recomputes the compiled
-  Boolean-lattice uniform-settling realization packet for issue #328
-  (NAND/wire/fan-out patch encodings, exhaustive primitive intertwiner,
-  DAG composition checker, settling potential, fail-closed controls).
+- `compiled_lattice_settling_certificate.py`: recomputes the finite-table
+  Boolean settling results and the source-pinned production scatter-project
+  counterexample for issue #328 (NAND/wire/fan-out table encodings, exhaustive
+  primitive intertwiner, DAG composition checker, exact period-two orbit, and
+  fail-closed controls).
 
 Run the benchmark suite from the repo root:
 
@@ -45,13 +46,23 @@ python3 -m pytest code/consensus/test_compiled_lattice_settling_certificate.py
 
 The emitted manifest is
 `code/consensus/manifests/compiled_lattice_settling_reference.json`
-(schema `oph.compiled_lattice_settling_certificate.v1`). The abstract acyclic
+(schema `oph.compiled_lattice_settling_certificate.v2`). The abstract acyclic
 Boolean-circuit compiler corollary stays a paper/Lean result
 (`extra/observable_normal_forms.tex`, `cor:boolean-circuit-compiler`;
 `Lean/ObservableNormalForms/ObservableNormalForms/Functional.lean`,
-`synchronous_depth_settling`); the certificate is the realized-dynamics
-correspondence at finite software scope, and continuum or physical-hardware
-attachment is open.
+`synchronous_depth_settling`). The certificate gives an exact correspondence
+between that ranked system and the finite software transition tables declared
+in the certificate. Those tables are not the production scatter-project
+dynamics. The source-identified synchronous `ophminer` rule was checked
+separately and fails the direct correspondence: a satisfiable depth-two AND
+chain alternates between `(w, out) = (0, 1)` and `(1, 1)`, with one invalid
+vertex in each state, while its unique zero-mismatch extension is `(0, 0)`.
+The downstream AND projection rewrites its input wire, whereas the ranked
+normalizer treats parent wires as read-only. A directional output-only rule or
+a compiler gadget that blocks backward writes would be a revised theorem
+target requiring its own proof; issue #626 tracks that construction.
+Continuum and physical-hardware attachment
+remain separate open interfaces.
 
 `TXN-DIAMOND-1` exhausts a finite reference engine; it is evidence that the
 declared read/write, support-reclosed component-merge, prepared-batch,

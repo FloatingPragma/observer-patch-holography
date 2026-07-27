@@ -332,10 +332,13 @@ def render(rows: list[dict]) -> str:
         "On the declared carrier lineage (row 4, an exposed premise) that consensus"
     )
     lines.append(
-        "requirement forces the unit split, pairing, and frame of rows 1-3,"
+        "requirement forces the pairing and frame of rows 2-3. The unit split in row 1"
     )
     lines.append(
-        "with machine-checked proofs, and every remaining"
+        "is exact inside a separately declared integer counting and cost realization."
+    )
+    lines.append(
+        "These statements have machine-checked proofs, and every remaining"
     )
     lines.append(
         "structural choice is finite: a declared premise with a stated menu, or an open"

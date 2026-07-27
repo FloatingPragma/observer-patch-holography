@@ -243,6 +243,136 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "falsification": "The reference architecture cannot be exercised by any finite benchmark suite.",
         "chrome_policy": "Use for architecture audit after local benchmark suite skeleton.",
     },
+    311: {
+        "phase": "particle-ontology",
+        "claim_level": "physical particle criterion open after finite-interface no-go",
+        "blocker": (
+            "The exact finite flux chains, twisted spectra, fusion rows, and one-step "
+            "refinement data have hash-identical classical-lattice and quantum-Hilbert "
+            "interpretations. No asymptotic dynamics, pole, or all-depth intertwiner is emitted."
+        ),
+        "closure": (
+            "A source-defined quantum dynamics or equivalent physical spectral criterion "
+            "excludes the same-flux classical model and controls composition, asymptotic "
+            "states, and refinement."
+        ),
+        "falsification": (
+            "The proposed particle discriminator remains a function only of the finite "
+            "interface shared by the classical and quantum countermodels."
+        ),
+        "chrome_policy": "Use only to audit a concrete dynamics, pole, or quantization packet.",
+    },
+    522: {
+        "phase": "cosmology-source-clock",
+        "claim_level": "source generator and operational clock gap",
+        "blocker": (
+            "Exact collar counts do not select reserve weights, P/24, a weighted half, "
+            "a generator coefficient, or an event-to-log-thickness clock scale."
+        ),
+        "closure": (
+            "One target-free source DAG emits the reserve weights, full-collar derivative, "
+            "weighted orientation identity, and operational clock map consumed by the simulator."
+        ),
+        "falsification": (
+            "A second source-compatible weighting, generator, or clock scale survives every "
+            "declared finite record and acceptance check."
+        ),
+        "chrome_policy": "Use only after a source generator and clock packet exists locally.",
+    },
+    624: {
+        "phase": "noncentral-seam-classification",
+        "claim_level": "full-schema classification gap with exact finite subresults",
+        "blocker": (
+            "The Z6/Z7 register controls exercise only a reduced seam interface, "
+            "and id:S3->S3 has contractible 2-type. Neither is a complete A1-A3 "
+            "countermodel to general central reduction or order-six forcing."
+        ),
+        "closure": (
+            "Construct and verify a complete A1/A2/A3 seam-coefficient lift that "
+            "preserves primitive central ports, plus a nontrivial finite 2-type "
+            "with a gauge-invariant sector and typed matter effect, or prove the "
+            "requested classification directly."
+        ),
+        "falsification": (
+            "The proposed product register splits a primitive central port, an A2 "
+            "or refinement diagram fails, the A3 product optimizer is not proved, "
+            "or the higher witness has trivial kernel and cokernel."
+        ),
+        "chrome_policy": "Use only to audit a complete full-schema lift and nontrivial 2-type.",
+    },
+    625: {
+        "phase": "load-readback-classification",
+        "claim_level": "full-schema independence or forcing gap",
+        "blocker": (
+            "The covariant half-count family and alternative quadratic form pass "
+            "reduced carrier checks, but no complete A1 operational/refinement, "
+            "A2 naturality, and A3 optimizer lift is proved."
+        ),
+        "closure": (
+            "Either derive the integer counting normalization and discrete cost, "
+            "or construct a complete A1-A3 alternative-readback model preserving "
+            "every operational, refinement, meaning, and optimizer clause."
+        ),
+        "falsification": (
+            "A purported alternative changes the feasible family or optimizer, "
+            "breaks accepted-data naturality, or fails a complete refinement map."
+        ),
+        "chrome_policy": "Use only to audit a complete full-schema load/readback model.",
+    },
+    626: {
+        "phase": "boolean-scatter-settling",
+        "claim_level": "revised constructive theorem after exact negative baseline",
+        "blocker": (
+            "The canonical synchronous scatter-project rule has a satisfiable depth-two "
+            "period-two orbit because downstream projections can rewrite parent wires."
+        ),
+        "closure": (
+            "A source-pinned directional rule or isolation gadget passes the #328 regression, "
+            "a universal compiler intertwiner, and explicit resource and settling bounds."
+        ),
+        "falsification": (
+            "A satisfiable compiled circuit retains a nonzero cycle or the proposed "
+            "intertwiner fails on a reachable production state."
+        ),
+        "chrome_policy": "Use for proof audit only after the revised production implementation exists.",
+    },
+    627: {
+        "phase": "physical-routed-seam-selection",
+        "claim_level": "physical grammar and matter-action selection gap",
+        "blocker": (
+            "The named order-six realization has no source selector for the physical "
+            "grammar or matter action. The reduced Z6/Z7 controls and contractible "
+            "S3 syntax witness do not close the full axiom-level classification."
+        ),
+        "closure": (
+            "A target-free source packet selects or classifies the seam grammar, refinement "
+            "transport, and representation or 2-representation on realized matter."
+        ),
+        "falsification": (
+            "A full-schema #624 alternative with a different central menu, or a "
+            "nontrivial 2-type with a different sector or matter effect, survives "
+            "every proposed source selector."
+        ),
+        "chrome_policy": "Use only after a finite source selector and matter-action packet exists.",
+    },
+    628: {
+        "phase": "operational-load-readback",
+        "claim_level": "named-realization source mechanism gap",
+        "blocker": (
+            "The integer normalization and discrete cost are declared in the named "
+            "realization. Reduced alternative-readback controls exist, but their "
+            "complete A1-A3 lift remains open in #625."
+        ),
+        "closure": (
+            "A finite self-reading patch mechanism emits integer record differences and "
+            "the discrete mismatch cost from one source-defined repair and readback process."
+        ),
+        "falsification": (
+            "A rational normalization or inequivalent discrete cost preserves every "
+            "operational clause and visible naturality check."
+        ),
+        "chrome_policy": "Use only to audit a concrete operational counting and cost mechanism.",
+    },
     377: {
         "phase": "quark-source-spread",
         "claim_level": "closed locally as theorem-grade two-modulus non-identifiability obstruction",
