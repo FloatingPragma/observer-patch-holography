@@ -81,7 +81,7 @@ Release: `r2001`. 61 claims, 21 distinct live gates across 19 gated claims.
 | `OPH-KOIDE-CIRCULANT-IDENTITY` | `conditional_implication` | `exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic` | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) |
 | `OPH-A5-REAL-AXIS-CABIBBO-NOGO` | `conditional_implication` | `proved_narrow_no_go_for_direct_Cabibbo_identification_with_31_real_3d_icosahedral_residual_axes` | none |
 | `OPH-W5-STABILISER-POTENTIAL-BOUNDARY` | `conditional_implication` | `exact_C3_C5_double_degeneracy_and_C2_projective_two_parameter_boundary_closed__screen_derived_A5_invariant_potential_open` | [#591](https://github.com/FloatingPragma/observer-patch-holography/issues/591) |
-| `OPH-SCREEN-A5-SM-RECOGNITION` | `conditional_implication` | `exact_finite_implications_on_strengthened_packet__physical_family_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
+| `OPH-SCREEN-A5-SM-RECOGNITION` | `conditional_implication` | `exact_finite_implications_and_conditional_rank_three_screen_selection__physical_family_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-SM-ROUTE-IDENTIFICATION` | `declared_structure` | `open_no_source_bound_commuting_square` | none |
 | `OPH-GAUGE-EXTERIOR-SM-WITNESS` | `conditional_implication` | `proved_conditional_representation_witness` | none |
 | `OPH-Q-PN-CLOSURE` | `declared_structure` | `declared_maps_with_physical_closure_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |

@@ -52,6 +52,7 @@ from pathlib import Path
 from typing import Any
 
 import derive_charged_kappa_interval_from_alpha_transport as rectangle_lane
+import charged_interval_decimal_certificate as decimal_certificate
 
 ROOT = Path(__file__).resolve().parents[2]
 REPO_ROOT = ROOT.parent
@@ -311,7 +312,14 @@ def build(
     coherent_width = kappa_hi - kappa_lo
     width_reduction_factor = rectangle_width / coherent_width
 
-    def mass_rows(k_lo: float, k_hi: float, k_c: float) -> list[dict[str, Any]]:
+    numerical_certificate = decimal_certificate.coherent_certificate(
+        readout, endpoint, bridge
+    )
+    certified_kappa = decimal_certificate.interval_as_floats(
+        numerical_certificate["kappa_interval"]
+    )
+
+    def mass_rows(k_c: float) -> list[dict[str, Any]]:
         rows = []
         factors = (1.0, ratios[0], ratios[1])
         for particle, factor in zip(rectangle_lane.MASS_ORDER, factors, strict=True):
@@ -319,10 +327,9 @@ def build(
                 {
                     "particle": particle,
                     "unit": "GeV",
-                    "mass_interval": [
-                        witness[0] * factor * math.exp(k_lo),
-                        witness[0] * factor * math.exp(k_hi),
-                    ],
+                    "mass_interval": decimal_certificate.interval_as_floats(
+                        numerical_certificate["mass_intervals_gev"][particle]
+                    ),
                     "mass_central": witness[0] * factor * math.exp(k_c),
                     "status": "certified_empirical_closure_interval_coherent",
                     "formula": (
@@ -375,6 +382,7 @@ def build(
             "usable_for_public_final_values": False,
             "usable_as_diagnostic_route_finder": True,
             "satisfies_production_constructive_next_artifact": False,
+            "outward_decimal_interval_certificate": True,
         },
         "coherence_premise": {
             "statement": (
@@ -429,7 +437,7 @@ def build(
         },
         "kappa_interval": {
             "definition": "kappa = ln(m_e / m_e_witness)",
-            "interval": [kappa_lo, kappa_hi],
+            "interval": certified_kappa,
             "central": kappa_central,
             "rectangle_interval": rectangle_interval,
             "central_match": {
@@ -443,20 +451,23 @@ def build(
             },
             "width_reduction_factor": width_reduction_factor,
         },
-        "conditional_mass_rows": mass_rows(kappa_lo, kappa_hi, kappa_central),
+        "conditional_mass_rows": mass_rows(kappa_central),
+        "numerical_certificate": numerical_certificate,
         "interval_width_attribution_kappa_units": attribution,
         "width_floor_audit": _width_floor_audit(rectangle),
         "compare_only": {
             "witness_masses_gev": witness,
-            "witness_inside_certified_intervals": kappa_lo < 0.0 < kappa_hi,
+            "witness_inside_certified_intervals": (
+                certified_kappa[0] < 0.0 < certified_kappa[1]
+            ),
         },
         "claim_boundary": (
-            "Absolute charged-lepton masses carry a certified coherent-closure "
-            "interval on the empirical closure surface, conditional on the "
-            "payload-coherent anchor-gap premise. The rectangle row is retained "
-            "unchanged as the premise-free certified statement. No source-only "
-            "absolute mass is emitted; the trace-lift no-go and its gate remain "
-            "in force unchanged."
+            "The target-anchored payload-coherent calculation carries an "
+            "outward-rounded arithmetic enclosure for each charged-lepton mass, "
+            "conditional on the payload-coherent anchor-gap premise. These are "
+            "diagnostic intervals rather than prediction intervals. The rectangle "
+            "row supplies the independent-gap enclosure. No source-only absolute "
+            "mass is emitted; the trace-lift no-go and its gate remain in force."
         ),
         "constructive_next_artifact": (
             "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge"

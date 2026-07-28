@@ -1,6 +1,6 @@
 # Particle Pipeline Status
 
-Generated: `2026-07-27T07:59:17Z`
+Generated: `2026-07-28T07:47:56Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
@@ -70,7 +70,7 @@ These rows are retained in audit surfaces but are not numeric predictions.
 
 ## Charged-Lepton Certified Intervals
 
-Empirical-closure interval rows; the compare-only witness triple lies inside every certified interval. The coherent row is conditional on the declared payload-coherent anchor-gap premise.
+Target-anchored empirical-closure diagnostics; the compare-only witness triple lies inside every outward-rounded arithmetic enclosure. These rows are not prospective charged-lepton prediction intervals. The coherent row is conditional on the declared payload-coherent anchor-gap premise.
 
 | Lane | Particle | Interval (GeV) | Witness inside |
 | --- | --- | --- | --- |

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is realized by the measured #599 response artifact; clause R is realized for the response resolvent by the measured pole-residue artifact, whose rank-three frame residue sits at the minimal positive pole with the generation factor imported. The matter-pole identification, chirality and spin data, and laboratory attachment stay open.",
+  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is simulator-realized by the #599 response artifact; clause R is simulator-realized for the response resolvent of the declared Laplacian generator by the pole-residue artifact. Its rank-three frame residue sits at the lowest positive generator frequency with the generation factor imported. The matter-pole identification, chirality and spin data, and laboratory attachment stay open.",
   "controls": {
     "block_swap_refinement": {
       "code": "BLOCK_SWAP_COST_DETECTED",
@@ -195,7 +195,7 @@
       "code": "POLE_TABLE",
       "expected_failure": true,
       "failed": true,
-      "meaning": "the receipt reads the measured pole values; a moved pole is refused"
+      "meaning": "the receipt reads the simulator pole values; a moved pole is refused"
     },
     "reducible_object": {
       "code": "NOT_SINGLE_COMPLETE_OBJECT",
@@ -262,13 +262,13 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, strict cost order, minimizer)"
   ],
-  "manifest_sha256": "sha256:85186f705992b7c2416095f3c2fb99a6ea4d5ba764b83235f6d008e0d4df8345",
+  "manifest_sha256": "sha256:85171ab2dd085ab7d5c825c7695919328cd42d7afc85a7b0e514f6119fda20de",
   "measured_receipt": {
     "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
     "artifact_issue": 599,
     "band_response_identity": "Re(40 P3) = 10 (I - antipode)",
-    "clause_R": "carrier_component_measured__pole_residue_receipt_open",
-    "clause_S": "measured_realized",
+    "clause_R": "simulator_realized_for_declared_response_resolvent__matter_pole_identification_open",
+    "clause_S": "simulator_realized_on_declared_channel",
     "galois_pairing_measured": true,
     "measured_band_costs": {
       "1": "0+0*sqrt5",
@@ -297,7 +297,7 @@
       }
     ],
     "measured_minimizer": "frame_band (the 3 band)",
-    "open_receipt": "the pole-residue factorization with complex rank forty-five through band x generation; its gates are specified on issue #569",
+    "open_receipt": "the physical matter-pole identification of the finite rank-forty-five screen assembly; its gates are specified on issue #569",
     "response_double_triplet_scales": {
       "frame_band": "1",
       "kernel_band": "1",
@@ -318,8 +318,8 @@
       "S_selection": "excluded_cone"
     },
     "clause_status": {
-      "R_realization": "measured_realized_for_response_resolvent__matter_pole_identification_open",
-      "S_selection": "measured_realized"
+      "R_realization": "simulator_realized_for_declared_response_resolvent__matter_pole_identification_open",
+      "S_selection": "simulator_realized_on_declared_channel"
     },
     "clauses": {
       "R_realization": "the physical pole-residue multiplicity object is realized as a single complete subobject of the source-visible screen coefficient space",
@@ -372,8 +372,9 @@
       "equivariant_under_all_automorphisms": true,
       "faithful_kernel_order": 1,
       "galois_partner_at_maximal_pole": true,
+      "lowest_positive_generator_frequency": true,
       "measured_rank": 3,
-      "slowest_relaxing_nonconstant_mode": true
+      "unitary_mode_norms_conserved": true
     },
     "measured_poles": {
       "frame": {
@@ -393,9 +394,9 @@
         "pole": "0"
       }
     },
-    "realization_scope": "the pole-residue object of the response resolvent of the propagated screen dynamics, realized inside the screen coefficient space; the matter-pole identification, chirality and spin data, and laboratory attachment stay open"
+    "realization_scope": "the pole-residue object of the response resolvent of the declared unitary screen Laplacian, realized inside the screen coefficient space; this finite simulator receipt carries no relaxation rate, matter-pole identification, chirality or spin data, or laboratory attachment"
   },
-  "schema": "oph.family_band_attachment_certificate.v3",
+  "schema": "oph.family_band_attachment_certificate.v4",
   "selection": {
     "minimizer": "3",
     "order": [
@@ -448,7 +449,7 @@
     "measured_pole_residue_artifact": {
       "issue": 569,
       "path": "manifests/charged_response_pole_residue_artifact.json",
-      "sha256": "1c21ee95b66469877d04241f7addc7a78361e71d99f96ddeb4f745c2cb073b45"
+      "sha256": "fcbc573f373c02e4c0dd9a7527b6cced38bd9bb6c201f78914ae0aa838f007ea"
     },
     "measured_response_artifact": {
       "issue": 599,

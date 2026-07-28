@@ -1,7 +1,7 @@
 {
   "aggregation_policy": "every value and every measured reference is read live from the cited parent artifact; a missing parent aborts the build",
   "artifact": "oph_postdiction_ledger",
-  "generated_utc": "2026-07-25T09:09:28Z",
+  "generated_utc": "2026-07-28T07:47:56Z",
   "guards": {
     "changes_any_solve_path": false,
     "compare_only": true,
@@ -16,7 +16,7 @@
     },
     {
       "id": "lepton_certified_intervals",
-      "statement": "The measured charged-lepton triple lies inside every certified interval; the payload-coherent half-width is 1.73 percent per lepton, and the conditional eight-register triple sits 84 ppm from measurement with the architecture declared."
+      "statement": "The target-anchored measured charged-lepton triple lies inside every outward-rounded diagnostic interval; the payload-coherent logarithmic half-width is 1.732 percent, with one-sided multiplicative widths -1.72 and +1.75 percent. The conditional eight-register triple sits 84 ppm from measurement with the architecture declared."
     },
     {
       "id": "higgs_top_envelopes",
@@ -128,36 +128,76 @@
           0.1052155887600104,
           1.76948334905381
         ],
+        "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
         "id": "charged_leptons_kappa_rectangle",
         "intervals_gev": [
           [
-            0.00047657714307519004,
-            0.0005433242990866062
+            0.000476577143075,
+            0.000543324299087
           ],
           [
-            0.09854103745176451,
-            0.11234223227591915
+            0.098541037451766,
+            0.112342232275917
           ],
           [
-            1.657232801948234,
-            1.8893370435933756
+            1.657232801948271,
+            1.889337043593336
           ]
         ],
+        "logarithmic_half_width": 0.0655383861649065,
         "measured_gev": [
           0.0005109989506900001,
           0.10565837550000001,
           1.7769299999999995
         ],
         "measured_source": "PDG witness triple embedded in the lane, compare-only",
+        "numerical_certificate": {
+          "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+          "input_semantics": "serialized decimal inputs are treated as exact values; the certificate encloses the arithmetic consequence of those inputs",
+          "kappa_interval": [
+            "-0.069737931540707",
+            "0.061338840789106"
+          ],
+          "mass_intervals_gev": {
+            "electron": [
+              "0.000476577143075",
+              "0.000543324299087"
+            ],
+            "muon": [
+              "0.098541037451766",
+              "0.112342232275917"
+            ],
+            "tau": [
+              "1.657232801948271",
+              "1.889337043593336"
+            ]
+          },
+          "method": "100-digit Decimal recomputation at both endpoints of an explicit pi bracket, padded by 1e-60 and rounded outward",
+          "monotonicity": "the one-loop packet is strictly decreasing in the common log-mass shift; the declared endpoint extremes therefore give the interval endpoints",
+          "outward_quantum": "1E-15",
+          "pi_interval": [
+            "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+            "3.1415926535897932384626433832795028841971693993751058209749445923078165"
+          ],
+          "precision_decimal_digits": 100,
+          "rounding_error_bound": "1E-70",
+          "rounding_error_bound_basis": "the fixed expression has fewer than 200 operations on magnitudes below 1e4; correctly rounded 100-digit Decimal elementary operations contribute less than 1e-90 in total, so 1e-70 is a conservative absolute bound",
+          "safety_margin_over_rounding_error": "1E+10",
+          "safety_pad": "1E-60"
+        },
+        "one_sided_multiplicative_widths": {
+          "lower": 0.0634369049958029,
+          "upper": 0.06773372272961353
+        },
         "particles": [
           "electron",
           "muon",
           "tau"
         ],
         "relative_half_widths": [
-          0.0655853138627311,
-          0.06558531386273103,
-          0.06558531386273114
+          0.06558531386330489,
+          0.06558531386271375,
+          0.06558531386270956
         ],
         "row_class": "target_shape_plus_empirical_transport",
         "tier": "T1_empirical_closure",
@@ -174,27 +214,67 @@
           0.10521558876001283,
           1.7694833490538506
         ],
+        "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
         "id": "charged_leptons_kappa_coherent",
         "intervals_gev": [
           [
-            0.0005001193992768244,
-            0.0005177482469115311
+            0.000500119399276,
+            0.000517748246912
           ],
           [
-            0.10340882933765921,
-            0.10705391588921673
+            0.103408829337659,
+            0.107053915889218
           ],
           [
-            1.7390978258506966,
-            1.8003997682230655
+            1.739097825850698,
+            1.800399768223073
           ]
         ],
+        "logarithmic_half_width": 0.0173211229135645,
         "measured_gev": [
           0.0005109989506900001,
           0.10565837550000001,
           1.7769299999999995
         ],
         "measured_source": "PDG witness triple embedded in the lane, compare-only",
+        "numerical_certificate": {
+          "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+          "input_semantics": "serialized decimal inputs are treated as exact values; the certificate encloses the arithmetic consequence of those inputs",
+          "kappa_interval": [
+            "-0.021520668289365",
+            "0.013121577537764"
+          ],
+          "mass_intervals_gev": {
+            "electron": [
+              "0.000500119399276",
+              "0.000517748246912"
+            ],
+            "muon": [
+              "0.103408829337659",
+              "0.107053915889218"
+            ],
+            "tau": [
+              "1.739097825850698",
+              "1.800399768223073"
+            ]
+          },
+          "method": "100-digit Decimal recomputation at both endpoints of an explicit pi bracket, padded by 1e-60 and rounded outward",
+          "monotonicity": "the one-loop packet is strictly decreasing in the common log-mass shift; the declared endpoint extremes therefore give the interval endpoints",
+          "outward_quantum": "1E-15",
+          "pi_interval": [
+            "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+            "3.1415926535897932384626433832795028841971693993751058209749445923078165"
+          ],
+          "precision_decimal_digits": 100,
+          "rounding_error_bound": "1E-70",
+          "rounding_error_bound_basis": "the fixed expression has fewer than 200 operations on magnitudes below 1e4; correctly rounded 100-digit Decimal elementary operations contribute less than 1e-90 in total, so 1e-70 is a conservative absolute bound",
+          "safety_margin_over_rounding_error": "1E+10",
+          "safety_pad": "1E-60"
+        },
+        "one_sided_multiplicative_widths": {
+          "lower": 0.017171974644126564,
+          "upper": 0.01747200344425348
+        },
         "particles": [
           "electron",
           "muon",
@@ -202,13 +282,13 @@
         ],
         "premise": "payload-coherent anchor-gap premise, declared",
         "relative_half_widths": [
-          0.017321989044188277,
-          0.017321989044188232,
-          0.017321989044188302
+          0.017321989045459108,
+          0.01732198904419529,
+          0.01732198904419006
         ],
         "row_class": "target_shape_plus_empirical_transport_coherent_closure",
         "tier": "T1_empirical_closure",
-        "width_reduction_factor": 3.783726175951906,
+        "width_reduction_factor": 3.7837261759506795,
         "witness_inside_all_intervals": true
       }
     ],

@@ -34,18 +34,18 @@ GeV/MeV displays use the unclosed clock candidate; the clock audit classifies th
 
 - Lane: alpha-transport kappa interval (empirical closure)
   - Tier: T1
-  - explanation: Certified intervals contain the physical triple; the width reduces to the open hadronic transport and the anchor bridge.
+  - explanation: Outward-rounded arithmetic enclosures contain the target-anchored witness triple. They are empirical closure diagnostics rather than prospective prediction intervals. Their width reduces to the open hadronic transport and anchor bridge.
   - row_class: target_shape_plus_empirical_transport
-  - mass_rows_GeV: `[{"particle": "electron", "central": 0.0005088574871435145, "interval": [0.00047657714307519004, 0.0005433242990866062]}, {"particle": "muon", "central": 0.1052155887600104, "interval": [0.09854103745176451, 0.11234223227591915]}, {"particle": "tau", "central": 1.76948334905381, "interval": [1.657232801948234, 1.8893370435933756]}]`
+  - mass_rows_GeV: `[{"particle": "electron", "central": 0.0005088574871435145, "interval": [0.000476577143075, 0.000543324299087]}, {"particle": "muon", "central": 0.1052155887600104, "interval": [0.098541037451766, 0.112342232275917]}, {"particle": "tau", "central": 1.76948334905381, "interval": [1.657232801948271, 1.889337043593336]}]`
   - Artifact: `runs/leptons/charged_kappa_interval_from_alpha_transport.json`
   - Blocking objects: source hadronic spectral measure (issue 425), anchor scheme bridge source branch (issue 545)
 
 - Lane: alpha-transport kappa interval (coherent closure)
   - Tier: T1
-  - explanation: The certified anchor-gap interval is the exact affine image of the hadronic payload interval, so the payload cancels from the payload-coherent solve and the certified width shrinks by the recorded factor; the surviving width is the higher-order lepton remainder and the kernel truncation. Conditional on the declared payload-coherent anchor-gap premise; the rectangle row above stays as the premise-free statement.
+  - explanation: The target-anchored anchor-gap interval is the exact affine image of the hadronic payload interval, so the payload cancels from the payload-coherent solve and the outward-rounded diagnostic width shrinks by the recorded factor; the surviving width is the higher-order lepton remainder and the kernel truncation. Conditional on the declared payload-coherent anchor-gap premise; the rectangle row above stays as the premise-free empirical-closure statement. Neither row is a prospective charged-lepton prediction.
   - row_class: target_shape_plus_empirical_transport_coherent_closure
-  - mass_rows_GeV: `[{"particle": "electron", "central": 0.0005088574871435262, "interval": [0.0005001193992768244, 0.0005177482469115311]}, {"particle": "muon", "central": 0.10521558876001283, "interval": [0.10340882933765921, 0.10705391588921673]}, {"particle": "tau", "central": 1.7694833490538506, "interval": [1.7390978258506966, 1.8003997682230655]}]`
-  - width_reduction_factor: 3.783726175951906
+  - mass_rows_GeV: `[{"particle": "electron", "central": 0.0005088574871435262, "interval": [0.000500119399276, 0.000517748246912]}, {"particle": "muon", "central": 0.10521558876001283, "interval": [0.103408829337659, 0.107053915889218]}, {"particle": "tau", "central": 1.7694833490538506, "interval": [1.739097825850698, 1.800399768223073]}]`
+  - width_reduction_factor: 3.7837261759506795
   - Artifact: `runs/leptons/charged_kappa_interval_coherent_closure.json`
   - Blocking objects: source hadronic spectral measure (issue 425), anchor scheme bridge source branch (issue 545), payload-coherent anchor-gap premise (declared)
 

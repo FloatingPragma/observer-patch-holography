@@ -343,14 +343,19 @@ source est ouverte.
 Les résultats exacts du porteur gardent des frontières physiques explicites.
 Le typage de la matière et la sélection de la forme globale ne sont mesurés
 qu’à portée de source finie ; l’identification aux courants de laboratoire,
-l’attachement des trois familles, l’exclusion des secteurs légers
+l’attachement physique des familles, l’exclusion des secteurs légers
 supplémentaires, la multiplicité scalaire, la tour source d’Einstein et les
 paquets physiques de clôture
 sont ouverts. Le
 [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues)
-enregistre leurs lots de travail. La valeur $N_g=3$ est une complétion
-déclarée à l’intérieur de la fenêtre conditionnelle tant que la route gelée
-des phases de faces n’est pas physiquement attachée. L’incidence icosaédrique locale contraint le
+enregistre leurs lots de travail. Les clauses CP et du secteur faible donnent
+la fenêtre conditionnelle exacte $3\le N_g\le5$ sans sélectionner un élément.
+Sous deux prémisses supplémentaires explicites, l’ordre exact des coûts
+$5-\sqrt5<6<5+\sqrt5$ sélectionne uniquement la bande de rang trois de
+l’écran. Un reçu de réponse unitaire fini retrouve cette bande à la plus
+basse fréquence positive du générateur. L’attachement aux familles physiques,
+les données de Spin et de localité et l’exclusion des secteurs légers
+supplémentaires restent ouverts. L’incidence icosaédrique locale contraint le
 porteur, tandis que le nerf de la fédération exige sa propre construction.
 
 Il ne s’agit pas d’ajustements indépendants. Toutes ces branches répondent à la
@@ -418,10 +423,13 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
   du certificat de descente ;
 - le réseau de charges et les trois couleurs sont exacts sur ce paquet ; le
   balayage scalaire fixe seulement la paire de charges compatibles et les
-  trois canaux d’interaction, pas la multiplicité scalaire ; $N_g=3$ est une
-  complétion déclarée à l’intérieur de la fenêtre conditionnelle
-  $3\le N_g\le5$ tant que l’attachement à trois familles physiques est
-  ouvert ;
+  trois canaux d’interaction, pas la multiplicité scalaire ; les clauses CP
+  et du secteur faible donnent $3\le N_g\le5$ ; sous des prémisses distinctes
+  de réalisation à bande unique et d’ordre des coûts, un théorème fini exact
+  sélectionne la bande de rang trois, et un simulateur unitaire déclaré
+  retrouve son résidu à la plus basse fréquence positive du générateur ;
+  l’attachement aux familles physiques, les données de Spin et de localité et
+  l’exclusion des secteurs légers supplémentaires restent ouverts ;
 - Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
 La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.

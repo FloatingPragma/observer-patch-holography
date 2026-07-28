@@ -624,15 +624,17 @@ Within the declared determinant-balanced $3+2$ exterior packet, the quark
 doublet is a color triplet and $N_c=3$. On the same one-Higgs class, intrinsic CKM
 CP capability requires at least three generations and weak-sector ultraviolet
 consistency permits at most five. Those conditions leave three, four, or
-five generations. The count is open, and $N_g=3$ enters as a declared
-completion. The graph and anomaly equations do not make
-that choice. The Witten anomaly is a consistency check on the resulting
+five generations. The graph and anomaly equations do not choose among them.
+A separate screen-band calculation does choose rank three under two additional
+premises, as described below. Connecting that finite band to three physical
+matter families is open, so $N_g=3$ enters the physical packet as a
+declared completion. The Witten anomaly is a consistency check on the resulting
 triplet-doublet structure.
 
 The distinction is sharp: no completion clause enters this conditional
 current, charge, or $\mathbb Z_6$ kernel calculation. The declared completion
-covers the three-family count and the absence of extra light sectors, and
-both carry open physical status. Physical
+attaches the rank-three screen candidate to physical families and assumes the
+absence of extra light sectors. Both carry open physical status. Physical
 matter typing and global-form selection require independent constructions.
 
 ### The Icosahedral Closure Route
@@ -770,6 +772,25 @@ two-dimensional irreducible representation at all, so the smallest global
 carrier of a nontrivial face phase has dimension exactly three. The screen,
 in other words, comes with a natural three-place slot built into its faces, a
 canonical candidate home for the three families.
+
+The full coefficient space makes this sharper. It splits into bands of sizes
+one, three, three, and five. If the family carrier is one complete faithful
+band in the allowed three-to-five window, and if the screen's mismatch cost is
+the comparison rule, the three candidates cost
+
+$$5-\sqrt5,\qquad 6,\qquad 5+\sqrt5.$$
+
+The first cost is uniquely smallest, so rank three wins. Lean checks the band
+split and the exact inequalities. The simulator sends an impulse through the
+declared unitary screen channel and reconstructs the same rank-three residue at
+its lowest positive frequency. Since the channel is unitary, its mode sizes do
+not decay; this is a frequency result, not a relaxation result.
+
+This result selects a finite screen object. It does not identify that object
+with three matter families. That step needs a matter-pole map, chirality,
+Spin and locality data, refinement compatibility, and a laboratory
+identification. It must also show that no extra light sectors have slipped in
+through a side door.
 
 Put together, the carrier and target-blind readback supply an exact
 gauge-adjoint symmetry type. The fermionic typing is measured at finite source
@@ -1024,21 +1045,26 @@ Combining the lower and upper bounds gives the viable window:
 
 $$3 \le N_g \le 5.$$
 
-### The Window and the Declared Completion
+### The Window, the Screen Band, and the Declared Completion
 
 CKM CP capability and weak-sector UV completability define the viable window.
 Here UV completability means that the theory can keep making sense at shorter
 distances and higher energies, with no immediate breakdown when the resolution
 is increased.
 
-Those conditions leave three, four, or five generations, and nothing in the
-axioms narrows the window further. The count is open. Three enters as a
-declared completion, the value the rest of the book carries:
+Those conditions leave three, four, or five generations. The three axioms and
+the target-free matter reduct do not narrow the window. The separate
+screen-band theorem does: under its single-band and cost premises, rank three
+is the unique finite candidate. The physical family count is open because
+the map from that screen band to matter poles has not been established. Three
+therefore enters the physical packet as a declared completion:
 
 $$\boxed{N_g = 3}$$
 
-This boxed value is a declared completion with open physical status. It is not forced by anomaly
-cancellation, the $A_5$ graph, or the target-free source reduct.
+This boxed value has open physical status. Anomaly cancellation and the
+target-free source reduct do not force it. The strengthened finite screen
+interface selects the rank-three candidate under its named premises, while
+physical family attachment remains a separate construction.
 
 The one-Higgs slot also has a clean local geometric carrier, though the
 count of one doublet is itself a declared completion, not a derivation:
@@ -1157,7 +1183,8 @@ The particle picture can be told as one continuous line. The framework first
 rebuilds a conditional gauge structure from charge sectors that fit together
 around every loop. The matter receipts then fix a declared Standard
 Model packet, its charge lattice, and the color carrier, and a declared
-completion sets the generation count inside the open three-to-five window. The same structure
+completion attaches the exact rank-three screen candidate to physical matter
+inside the three-to-five window. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
 positive-energy quantum sectors give the corresponding particles.
@@ -1362,7 +1389,9 @@ modules, anomaly freedom forces determinant balance, primitive integrality
 fixes the charge lattice up to conjugation, and the coupled carrier fixes the
 color triplet. CKM CP capability and weak-sector ultraviolet consistency give
 $3\le N_g\le5$; the count is open inside that window, and three enters as a
-declared completion.
+declared physical completion. A separate exact screen-band theorem selects
+rank three under its single-band and operational-cost premises. The map from
+that finite band to physical matter families is open.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives

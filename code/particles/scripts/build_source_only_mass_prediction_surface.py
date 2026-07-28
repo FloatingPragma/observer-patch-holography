@@ -125,9 +125,11 @@ def _lepton_rows(
                 "lane": "alpha-transport kappa interval (empirical closure)",
                 "tier": "T1",
                 "explanation": (
-                    "Certified intervals contain the physical triple; the "
-                    "width reduces to the open hadronic transport and the "
-                    "anchor bridge."
+                    "Outward-rounded arithmetic enclosures contain the "
+                    "target-anchored witness triple. They are empirical "
+                    "closure diagnostics rather than prospective prediction "
+                    "intervals. Their width reduces to the open hadronic "
+                    "transport and anchor bridge."
                 ),
                 "row_class": kappa["row_class"],
                 "mass_rows_GeV": [
@@ -150,14 +152,15 @@ def _lepton_rows(
                 "lane": "alpha-transport kappa interval (coherent closure)",
                 "tier": "T1",
                 "explanation": (
-                    "The certified anchor-gap interval is the exact affine "
+                    "The target-anchored anchor-gap interval is the exact affine "
                     "image of the hadronic payload interval, so the payload "
                     "cancels from the payload-coherent solve and the "
-                    "certified width shrinks by the recorded factor; the "
+                    "outward-rounded diagnostic width shrinks by the recorded factor; the "
                     "surviving width is the higher-order lepton remainder "
                     "and the kernel truncation. Conditional on the declared "
                     "payload-coherent anchor-gap premise; the rectangle row "
-                    "above stays as the premise-free statement."
+                    "above stays as the premise-free empirical-closure statement. "
+                    "Neither row is a prospective charged-lepton prediction."
                 ),
                 "row_class": kappa_coherent["row_class"],
                 "mass_rows_GeV": [

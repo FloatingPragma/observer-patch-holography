@@ -45,71 +45,140 @@
     "coherent": {
       "artifact": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
       "kappa_interval": [
-        -0.021520668289364893,
-        0.013121577537760613
+        -0.021520668289365,
+        0.013121577537764
       ],
       "mass_rows_gev": [
         {
           "central": 0.0005088574871435262,
           "interval": [
-            0.0005001193992768244,
-            0.0005177482469115311
+            0.000500119399276,
+            0.000517748246912
           ],
           "particle": "electron"
         },
         {
           "central": 0.10521558876001283,
           "interval": [
-            0.10340882933765921,
-            0.10705391588921673
+            0.103408829337659,
+            0.107053915889218
           ],
           "particle": "muon"
         },
         {
           "central": 1.7694833490538506,
           "interval": [
-            1.7390978258506966,
-            1.8003997682230655
+            1.739097825850698,
+            1.800399768223073
           ],
           "particle": "tau"
         }
       ],
+      "numerical_certificate": {
+        "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+        "input_semantics": "serialized decimal inputs are treated as exact values; the certificate encloses the arithmetic consequence of those inputs",
+        "kappa_interval": [
+          "-0.021520668289365",
+          "0.013121577537764"
+        ],
+        "mass_intervals_gev": {
+          "electron": [
+            "0.000500119399276",
+            "0.000517748246912"
+          ],
+          "muon": [
+            "0.103408829337659",
+            "0.107053915889218"
+          ],
+          "tau": [
+            "1.739097825850698",
+            "1.800399768223073"
+          ]
+        },
+        "method": "100-digit Decimal recomputation at both endpoints of an explicit pi bracket, padded by 1e-60 and rounded outward",
+        "monotonicity": "the one-loop packet is strictly decreasing in the common log-mass shift; the declared endpoint extremes therefore give the interval endpoints",
+        "outward_quantum": "1E-15",
+        "pi_interval": [
+          "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+          "3.1415926535897932384626433832795028841971693993751058209749445923078165"
+        ],
+        "precision_decimal_digits": 100,
+        "rounding_error_bound": "1E-70",
+        "rounding_error_bound_basis": "the fixed expression has fewer than 200 operations on magnitudes below 1e4; correctly rounded 100-digit Decimal elementary operations contribute less than 1e-90 in total, so 1e-70 is a conservative absolute bound",
+        "safety_margin_over_rounding_error": "1E+10",
+        "safety_pad": "1E-60"
+      },
       "row_class": "target_shape_plus_empirical_transport_coherent_closure",
-      "width_reduction_factor": 3.783726175951906,
+      "width_reduction_factor": 3.7837261759506795,
       "witness_inside": true
     },
+    "epistemic_scope": "target-anchored empirical-closure diagnostics with outward-rounded numerical certificates; not prospective charged-lepton prediction intervals",
     "rectangle": {
       "artifact": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
       "kappa_interval": [
-        -0.06973793154072808,
-        0.0613388407891274
+        -0.069737931540707,
+        0.061338840789106
       ],
       "mass_rows_gev": [
         {
           "central": 0.0005088574871435145,
           "interval": [
-            0.00047657714307519004,
-            0.0005433242990866062
+            0.000476577143075,
+            0.000543324299087
           ],
           "particle": "electron"
         },
         {
           "central": 0.1052155887600104,
           "interval": [
-            0.09854103745176451,
-            0.11234223227591915
+            0.098541037451766,
+            0.112342232275917
           ],
           "particle": "muon"
         },
         {
           "central": 1.76948334905381,
           "interval": [
-            1.657232801948234,
-            1.8893370435933756
+            1.657232801948271,
+            1.889337043593336
           ],
           "particle": "tau"
         }
       ],
+      "numerical_certificate": {
+        "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+        "input_semantics": "serialized decimal inputs are treated as exact values; the certificate encloses the arithmetic consequence of those inputs",
+        "kappa_interval": [
+          "-0.069737931540707",
+          "0.061338840789106"
+        ],
+        "mass_intervals_gev": {
+          "electron": [
+            "0.000476577143075",
+            "0.000543324299087"
+          ],
+          "muon": [
+            "0.098541037451766",
+            "0.112342232275917"
+          ],
+          "tau": [
+            "1.657232801948271",
+            "1.889337043593336"
+          ]
+        },
+        "method": "100-digit Decimal recomputation at both endpoints of an explicit pi bracket, padded by 1e-60 and rounded outward",
+        "monotonicity": "the one-loop packet is strictly decreasing in the common log-mass shift; the declared endpoint extremes therefore give the interval endpoints",
+        "outward_quantum": "1E-15",
+        "pi_interval": [
+          "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+          "3.1415926535897932384626433832795028841971693993751058209749445923078165"
+        ],
+        "precision_decimal_digits": 100,
+        "rounding_error_bound": "1E-70",
+        "rounding_error_bound_basis": "the fixed expression has fewer than 200 operations on magnitudes below 1e4; correctly rounded 100-digit Decimal elementary operations contribute less than 1e-90 in total, so 1e-70 is a conservative absolute bound",
+        "safety_margin_over_rounding_error": "1E+10",
+        "safety_pad": "1E-60"
+      },
       "row_class": "target_shape_plus_empirical_transport",
       "witness_inside": true
     }
@@ -284,7 +353,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-27T07:59:17Z",
+  "generated_utc": "2026-07-28T07:47:56Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",

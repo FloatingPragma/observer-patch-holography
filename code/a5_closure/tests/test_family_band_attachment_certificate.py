@@ -83,9 +83,12 @@ class FamilyBandAttachmentTests(unittest.TestCase):
 
     def test_measured_receipt_realizes_clause_s(self) -> None:
         measured = self.payload["measured_receipt"]
-        self.assertEqual(measured["clause_S"], "measured_realized")
         self.assertEqual(
-            measured["clause_R"], "carrier_component_measured__pole_residue_receipt_open"
+            measured["clause_S"], "simulator_realized_on_declared_channel"
+        )
+        self.assertEqual(
+            measured["clause_R"],
+            "simulator_realized_for_declared_response_resolvent__matter_pole_identification_open",
         )
         self.assertEqual(measured["measured_minimizer"], "frame_band (the 3 band)")
         order = [row["object"] for row in measured["measured_cost_order"]]
@@ -94,10 +97,10 @@ class FamilyBandAttachmentTests(unittest.TestCase):
             self.payload["named_interface"]["clause_status"],
             {
                 "R_realization": (
-                    "measured_realized_for_response_resolvent__"
+                    "simulator_realized_for_declared_response_resolvent__"
                     "matter_pole_identification_open"
                 ),
-                "S_selection": "measured_realized",
+                "S_selection": "simulator_realized_on_declared_channel",
             },
         )
         self.assertEqual(
@@ -191,8 +194,8 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         finally:
             cert.MANIFEST_PATH.write_bytes(original)
 
-    def test_schema_is_v3(self) -> None:
-        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v3")
+    def test_schema_is_v4(self) -> None:
+        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v4")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
 
     def test_pole_residue_receipt_realizes_clause_r(self) -> None:
@@ -203,7 +206,7 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(receipt["attachment_rank"]["complex_rank"], 45)
         self.assertEqual(
             self.payload["named_interface"]["clause_status"]["R_realization"],
-            "measured_realized_for_response_resolvent__matter_pole_identification_open",
+            "simulator_realized_for_declared_response_resolvent__matter_pole_identification_open",
         )
         self.assertEqual(
             self.payload["upstream_pins"]["measured_pole_residue_artifact"]["issue"],

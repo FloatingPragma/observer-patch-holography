@@ -1,10 +1,10 @@
 {
-  "artifact_sha256": "sha256:56ba3dfd18ef33c99d6242327acaff4e306092d7b6ab481d5d52f4f4a9b35734",
+  "artifact_sha256": "sha256:3a55da8e0fa39c6c5079763810231114363ce18bed4d4fdbd884c242ebac0472",
   "carrier_binding": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
     "parent_artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2"
   },
-  "claim_boundary": "Measured pole-residue object of the response resolvent of the propagated screen dynamics, realized inside the screen coefficient space: four pole clusters at the exact band costs, with the rank-three frame residue at the minimal positive pole. This is not a matter-pole measurement; chirality and spin data, matter-pole identification, and laboratory attachment are open. External multiplicity copies remain invisible to the screen response per the standing invisibility theorem.",
+  "claim_boundary": "Simulator pole-residue object of the response resolvent of the propagated screen dynamics, realized inside the screen coefficient space: four pole clusters at the exact band costs, with the rank-three frame residue at the minimal positive pole. This is not a matter-pole measurement; chirality and spin data, matter-pole identification, and laboratory attachment are open. External multiplicity copies remain invisible to the screen response per the standing invisibility theorem.",
   "controls": {
     "doctored_step": {
       "code": "CHANNEL_CONSISTENCY",
@@ -30,7 +30,7 @@
   "dynamics_binding": {
     "dynamics_module": "oph_fpe.core.echosahedral_dynamics",
     "dynamics_sha256": "sha256:a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
-    "generator": "icosahedral coupling (the graph Laplacian) under the unitary one-step channel"
+    "generator": "declared combinatorial icosahedral graph Laplacian under the unitary one-step channel"
   },
   "issue": 569,
   "pole_residue_readback": {
@@ -40,8 +40,9 @@
       "equivariant_under_all_automorphisms": true,
       "faithful_kernel_order": 1,
       "galois_partner_at_maximal_pole": true,
+      "lowest_positive_generator_frequency": true,
       "measured_rank": 3,
-      "slowest_relaxing_nonconstant_mode": true
+      "unitary_mode_norms_conserved": true
     },
     "measured_poles": {
       "frame": {
@@ -72,5 +73,5 @@
       "steps": 8
     }
   },
-  "schema": "oph.charged_response_pole_residue.v1"
+  "schema": "oph.charged_response_pole_residue.v2"
 }

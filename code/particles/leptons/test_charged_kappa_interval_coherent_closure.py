@@ -71,6 +71,54 @@ def test_guards_fail_closed(result):
     assert guards["conditional_on_payload_coherent_anchor_gap"] is True
     assert guards["usable_for_public_final_values"] is False
     assert guards["satisfies_production_constructive_next_artifact"] is False
+    assert guards["outward_decimal_interval_certificate"] is True
+
+
+def test_decimal_certificate_rounds_every_bound_outward(result):
+    certificate = result["numerical_certificate"]
+    assert certificate["precision_decimal_digits"] == 100
+    assert certificate["outward_quantum"] == "1E-15"
+    assert certificate["rounding_error_bound"] == "1E-70"
+    assert certificate["safety_margin_over_rounding_error"] == "1E+10"
+    assert certificate["kappa_interval"] == [
+        "-0.021520668289365",
+        "0.013121577537764",
+    ]
+    expected = {
+        "electron": ["0.000500119399276", "0.000517748246912"],
+        "muon": ["0.103408829337659", "0.107053915889218"],
+        "tau": ["1.739097825850698", "1.800399768223073"],
+    }
+    assert certificate["mass_intervals_gev"] == expected
+    for row in result["conditional_mass_rows"]:
+        assert row["mass_interval"] == [
+            float(value) for value in expected[row["particle"]]
+        ]
+
+
+def test_interval_is_a_diagnostic_not_a_prediction(result):
+    assert "rather than prediction intervals" in result["claim_boundary"]
+    assert "not a source-only" in result["numerical_certificate"]["epistemic_scope"]
+
+
+def test_public_papers_use_outward_display_rounding():
+    particle_paper = (
+        lane.REPO_ROOT
+        / "paper"
+        / "deriving_the_particle_zoo_from_observer_consistency.tex"
+    ).read_text(encoding="utf-8")
+    compact_paper = (
+        lane.REPO_ROOT / "extra" / "compact_proof_of_oph.tex"
+    ).read_text(encoding="utf-8")
+    for expected in (
+        "[0.5001,\\,0.5178]",
+        "[103.40,\\,107.06]",
+        "[1.7390,\\,1.8004]",
+    ):
+        assert expected in particle_paper
+    for source in (particle_paper, compact_paper):
+        assert "logarithmic half-width" in source
+        assert "Target-anchored" in source or "target-anchored" in source
 
 
 def test_parents_cited(result):

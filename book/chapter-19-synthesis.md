@@ -251,11 +251,12 @@ Refinement is what lets the finite screen construction become that smooth field
 theory.
 
 The color triplet is structural on the conditional matter packet. The
-three-generation value is a declared completion inside the open
-three-to-five window,
-while the icosahedral faces supply a canonical rank-three candidate band. The
-physical family attachment and its field-theory evidence are work in
-progress. Gauge
+CP and weak-sector conditions leave a three-to-five window. Under the
+single-band and operational-cost premises, an exact finite theorem selects the
+rank-three screen band, and the declared unitary simulator reconstructs its
+response residue. The three-generation value remains a declared physical
+completion because the matter-pole, chirality, Spin/locality, refinement, and
+laboratory attachments are work in progress. Gauge
 factors organize candidate force directions; independently produced field
 dynamics would supply physical masses and mixing data.
 

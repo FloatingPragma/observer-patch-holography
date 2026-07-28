@@ -38,6 +38,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import charged_interval_decimal_certificate as decimal_certificate
+
 ROOT = Path(__file__).resolve().parents[2]
 REPO_ROOT = ROOT.parent
 RUNS = ROOT / "particles" / "runs"
@@ -249,7 +251,14 @@ def build(
     if not kappa_lo < kappa_central < kappa_hi:
         raise SystemExit("fail closed: kappa interval endpoints are not ordered")
 
-    def mass_rows(k_lo: float, k_hi: float, k_c: float) -> list[dict[str, Any]]:
+    numerical_certificate = decimal_certificate.rectangle_certificate(
+        readout, endpoint, bridge
+    )
+    certified_kappa = decimal_certificate.interval_as_floats(
+        numerical_certificate["kappa_interval"]
+    )
+
+    def mass_rows(k_c: float) -> list[dict[str, Any]]:
         rows = []
         factors = (1.0, ratios[0], ratios[1])
         for particle, factor in zip(MASS_ORDER, factors, strict=True):
@@ -257,10 +266,9 @@ def build(
                 {
                     "particle": particle,
                     "unit": "GeV",
-                    "mass_interval": [
-                        witness[0] * factor * math.exp(k_lo),
-                        witness[0] * factor * math.exp(k_hi),
-                    ],
+                    "mass_interval": decimal_certificate.interval_as_floats(
+                        numerical_certificate["mass_intervals_gev"][particle]
+                    ),
                     "mass_central": witness[0] * factor * math.exp(k_c),
                     "status": "certified_empirical_closure_interval",
                     "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
@@ -307,6 +315,7 @@ def build(
             "usable_for_public_final_values": False,
             "usable_as_diagnostic_route_finder": True,
             "satisfies_production_constructive_next_artifact": False,
+            "outward_decimal_interval_certificate": True,
         },
         "kappa_symmetry_breaking_lemma": {
             "statement": (
@@ -362,7 +371,7 @@ def build(
         },
         "kappa_interval": {
             "definition": "kappa = ln(m_e / m_e_witness)",
-            "interval": [kappa_lo, kappa_hi],
+            "interval": certified_kappa,
             "central_gap_midpoint": kappa_central,
             "reference_deficit_point": {
                 "gap": reference_gap,
@@ -375,7 +384,8 @@ def build(
                 ),
             },
         },
-        "conditional_mass_rows": mass_rows(kappa_lo, kappa_hi, kappa_central),
+        "conditional_mass_rows": mass_rows(kappa_central),
+        "numerical_certificate": numerical_certificate,
         "interval_width_attribution_kappa_units": attribution,
         "stage5_scale_consistency": {
             "frozen_internal_packet": frozen_lepton_packet,
@@ -389,7 +399,9 @@ def build(
         },
         "compare_only": {
             "witness_masses_gev": witness,
-            "witness_inside_certified_intervals": kappa_lo < 0.0 < kappa_hi,
+            "witness_inside_certified_intervals": (
+                certified_kappa[0] < 0.0 < certified_kappa[1]
+            ),
             "witness_point": {
                 "required_anchor_gap_at_witness_inv_alpha": witness_required_gap,
                 "reference_deficit_inv_alpha": reference_gap,
@@ -408,10 +420,11 @@ def build(
             },
         },
         "claim_boundary": (
-            "Absolute charged-lepton masses carry certified intervals on the empirical "
-            "closure surface; the continuum kappa freedom is excluded there. No "
-            "source-only absolute mass is emitted; the trace-lift no-go and its gate "
-            "remain in force unchanged."
+            "The target-anchored empirical closure calculation carries an "
+            "outward-rounded arithmetic enclosure for each charged-lepton mass. "
+            "These are diagnostic intervals rather than prediction intervals. "
+            "No source-only absolute mass is emitted; the trace-lift no-go and "
+            "its gate remain in force unchanged."
         ),
         "constructive_next_artifact": (
             "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge"

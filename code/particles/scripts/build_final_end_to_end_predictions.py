@@ -397,6 +397,11 @@ def build_payload() -> dict[str, Any]:
         "withheld_non_prediction_rows": exact.get("withheld_entries", []),
         "classical_carrier_modes": exact.get("classical_carrier_modes", []),
         "charged_lepton_certified_intervals": {
+            "epistemic_scope": (
+                "target-anchored empirical-closure diagnostics with "
+                "outward-rounded numerical certificates; not prospective "
+                "charged-lepton prediction intervals"
+            ),
             "rectangle": {
                 "row_class": kappa_rectangle["row_class"],
                 "kappa_interval": kappa_rectangle["kappa_interval"]["interval"],
@@ -412,6 +417,7 @@ def build_payload() -> dict[str, Any]:
                     "witness_inside_certified_intervals"
                 ],
                 "artifact": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+                "numerical_certificate": kappa_rectangle["numerical_certificate"],
             },
             "coherent": {
                 "row_class": kappa_coherent["row_class"],
@@ -431,6 +437,7 @@ def build_payload() -> dict[str, Any]:
                     "witness_inside_certified_intervals"
                 ],
                 "artifact": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
+                "numerical_certificate": kappa_coherent["numerical_certificate"],
             },
             "blocking_issues": [425, 545],
         },
@@ -635,9 +642,11 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "",
                 "## Charged-Lepton Certified Intervals",
                 "",
-                "Empirical-closure interval rows; the compare-only witness triple "
-                "lies inside every certified interval. The coherent row is "
-                "conditional on the declared payload-coherent anchor-gap premise.",
+                "Target-anchored empirical-closure diagnostics; the compare-only "
+                "witness triple lies inside every outward-rounded arithmetic "
+                "enclosure. These rows are not prospective charged-lepton "
+                "prediction intervals. The coherent row is conditional on the "
+                "declared payload-coherent anchor-gap premise.",
                 "",
                 "| Lane | Particle | Interval (GeV) | Witness inside |",
                 "| --- | --- | --- | --- |",

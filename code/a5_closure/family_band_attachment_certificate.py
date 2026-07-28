@@ -45,16 +45,16 @@ which carries TWO clauses, each with a control proving it load-bearing:
       cost order (with the excluded form 6I + A the minimizer flips to
       the Galois partner; control `excluded_cone`).
 
-Neither clause is derived from A1-A3.  The measured #599 response
-artifact carries clause S as a measurement: the per-band adjacency
-channels are measured data, the operational cost evaluated on them has
-the frame triplet as strict minimizer, and conjugation swaps the
-measured frame and kernel bands while the measured order separates
-them.  Clause R is realized for the response resolvent by the measured
-pole-residue artifact: the propagated dynamics has exactly four pole
+Neither clause is derived from A1-A3.  The #599 simulator response
+artifact realizes clause S on the declared finite channel: the per-band
+adjacency channels are executable readbacks, the operational cost evaluated
+on them has the frame triplet as strict minimizer, and conjugation swaps the
+frame and kernel bands while the readback order separates them.  Clause R is
+realized for the response resolvent of the declared Laplacian generator by the
+simulator pole-residue artifact.  The propagated dynamics has exactly four pole
 clusters at the band costs, the residue at the minimal positive pole is
 the rank-three frame projector (faithful, equivariant, Galois partner
-at the maximal pole), and the realized attachment object, measured
+at the maximal pole), and the finite screen assembly, simulator-read
 multiplicity times the pinned fifteen-state generation, has complex
 rank exactly forty-five with the generation factor stated as an
 import.  The matter-pole identification, chirality and spin data,
@@ -86,7 +86,7 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.family_band_attachment_certificate.v3"
+SCHEMA = "oph.family_band_attachment_certificate.v4"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "family_band_attachment_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 WINDOW_MANIFEST_NAME = "multiplicity_window_reference.json"
@@ -524,18 +524,19 @@ def pin_pole_residue_artifact(
 def pole_residue_receipt(
     pole_artifact: Mapping[str, Any], generation: Mapping[str, Any]
 ) -> dict[str, Any]:
-    """The measured pole-residue realization of the multiplicity object.
+    """The simulator pole-residue realization of the multiplicity object.
 
-    The simulator artifact carries the measured pole clusters and exact
+    The simulator artifact carries the recorded pole clusters and exact
     reconstructed residues of the response resolvent of the propagated
-    dynamics.  This receipt verifies, against the pinned data: the four
-    measured poles are the Laplacian band costs with multiplicities
+    dynamics. This receipt verifies, against the pinned data, that the four
+    recorded poles are the Laplacian band costs with multiplicities
     1, 3, 3, 5; the residue at the minimal positive pole is the rank-three
     frame projector, faithful, equivariant, with its Galois partner at the
-    maximal pole; and the realized attachment object, measured multiplicity
+    maximal pole; and the finite screen assembly, simulator-read multiplicity
     times the pinned fifteen-state generation, has complex rank exactly
     forty-five.  The generation factor is the pinned exact packet, stated
-    as an import; the simulator measures the multiplicity factor.
+    as an import. The simulator reads the multiplicity factor from its
+    declared generator; this is not a laboratory measurement.
     """
 
     readback = pole_artifact["pole_residue_readback"]
@@ -550,12 +551,12 @@ def pole_residue_receipt(
         require(
             parse_channel(poles[band]["pole"]) == value,
             "POLE_TABLE",
-            f"the measured {band} pole must reconstruct to its band cost",
+            f"the simulator-read {band} pole must reconstruct to its band cost",
         )
         require(
             int(poles[band]["multiplicity"]) == multiplicity,
             "POLE_TABLE",
-            f"the measured {band} pole multiplicity must equal {multiplicity}",
+            f"the simulator-read {band} pole multiplicity must equal {multiplicity}",
         )
     residue = readback["family_band_residue"]
     require(
@@ -564,13 +565,14 @@ def pole_residue_receipt(
             "band": "frame",
             "measured_rank": 3,
             "equals_exact_frame_projector": True,
-            "slowest_relaxing_nonconstant_mode": True,
+            "lowest_positive_generator_frequency": True,
+            "unitary_mode_norms_conserved": True,
             "faithful_kernel_order": 1,
             "equivariant_under_all_automorphisms": True,
             "galois_partner_at_maximal_pole": True,
         },
         "FAMILY_BAND_RESIDUE",
-        "the measured family-band residue receipt does not match its required form",
+        "the simulator family-band residue receipt does not match its required form",
     )
     rank = int(residue["measured_rank"]) * int(generation["weyl_state_count"])
     require(rank == 45, "POLE_RANK_45", "the realized attachment rank must be forty-five")
@@ -586,9 +588,10 @@ def pole_residue_receipt(
         },
         "realization_scope": (
             "the pole-residue object of the response resolvent of the "
-            "propagated screen dynamics, realized inside the screen "
-            "coefficient space; the matter-pole identification, chirality "
-            "and spin data, and laboratory attachment stay open"
+            "declared unitary screen Laplacian, realized inside the screen "
+            "coefficient space; this finite simulator receipt carries no "
+            "relaxation rate, matter-pole identification, chirality or spin "
+            "data, or laboratory attachment"
         ),
     }
 
@@ -607,7 +610,7 @@ def control_pole_table_mutation(pole_artifact: Mapping[str, Any]) -> dict[str, A
             "expected_failure": True,
             "failed": True,
             "code": "POLE_TABLE",
-            "meaning": "the receipt reads the measured pole values; a moved pole is refused",
+            "meaning": "the receipt reads the simulator pole values; a moved pole is refused",
         }
     return {"expected_failure": True, "failed": False}
 
@@ -620,30 +623,27 @@ def measured_band_receipt(
     operational: tuple[int, int],
     kernels: Mapping[str, int],
 ) -> dict[str, Any]:
-    """Clause receipts read from the measured #599 response artifact.
+    """Clause receipts read from the #599 simulator response artifact.
 
     The artifact carries, as exact data: the per-band adjacency channel
     values, the sector dimensions, the Galois pairing, the response band
-    scales, and the antipode polynomial of the measured response
-    operator.  This receipt binds those measurements to the selection:
+    scales, and the antipode polynomial of the recorded response
+    operator. This receipt binds those simulator readbacks to the selection:
 
-    * the measured channel values reproduce the exact band spectrum, so
-      the operational cost evaluated on measured channels gives the
-      measured band costs, and their strict order is a measured fact
-      (clause S realized by measurement);
-    * the measured frame band is the strict minimizer among the faithful
+    * the simulator channel values reproduce the exact band spectrum, so
+      the operational cost evaluated on those channels gives the band costs
+      and their strict order (clause S realized on the declared simulator);
+    * the simulator-read frame band is the strict minimizer among the faithful
       bands, and it is a subobject of the screen coefficient space
-      exhibited by the measured response basis (the carrier component of
-      clause R measured; the pole-residue factorization receipt with
-      complex rank forty-five stays open);
-    * the measured antipode polynomial (A^3 - 4A^2 - 5A + 10I)/10 equals
+      exhibited by the recorded response basis;
+    * the recorded antipode polynomial (A^3 - 4A^2 - 5A + 10I)/10 equals
       the carrier antipode permutation exactly, and the real part of the
       scaled band projector equals ten times identity-minus-antipode, so
-      the measured response algebra and the spectral selection algebra
+      the simulator response algebra and the spectral selection algebra
       are one object;
-    * conjugation swaps the measured frame and kernel bands while the
-      measured cost order separates them, so the Galois resolution is
-      itself measured.
+    * conjugation swaps the recorded frame and kernel bands while the
+      recorded cost order separates them, so the Galois resolution is
+      explicit in the simulator artifact.
     """
 
     basis = artifact["response_basis"]
@@ -747,11 +747,14 @@ def measured_band_receipt(
         "response_double_triplet_scales": scales,
         "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
         "band_response_identity": "Re(40 P3) = 10 (I - antipode)",
-        "clause_S": "measured_realized",
-        "clause_R": "carrier_component_measured__pole_residue_receipt_open",
+        "clause_S": "simulator_realized_on_declared_channel",
+        "clause_R": (
+            "simulator_realized_for_declared_response_resolvent__"
+            "matter_pole_identification_open"
+        ),
         "open_receipt": (
-            "the pole-residue factorization with complex rank forty-five "
-            "through band x generation; its gates are specified on issue #569"
+            "the physical matter-pole identification of the finite rank-forty-five "
+            "screen assembly; its gates are specified on issue #569"
         ),
     }
 
@@ -1255,12 +1258,13 @@ def build_payload() -> dict[str, Any]:
             "operational comparison order has the 3 band as unique strict "
             "minimizer, fixing N_g = 3 with attachment rank forty-five. "
             "The #617 copy-count invisibility for external completions is "
-            "preserved. Clause S is realized by the measured #599 response "
-            "artifact; clause R is realized for the response resolvent by "
-            "the measured pole-residue artifact, whose rank-three frame "
-            "residue sits at the minimal positive pole with the generation "
-            "factor imported. The matter-pole identification, chirality and "
-            "spin data, and laboratory attachment stay open."
+            "preserved. Clause S is simulator-realized by the #599 response "
+            "artifact; clause R is simulator-realized for the response "
+            "resolvent of the declared Laplacian generator by the pole-residue "
+            "artifact. Its rank-three frame residue sits at the lowest positive "
+            "generator frequency with the generation factor imported. The "
+            "matter-pole identification, chirality and spin data, and "
+            "laboratory attachment stay open."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
@@ -1282,7 +1286,7 @@ def build_payload() -> dict[str, Any]:
             },
             "clause_status": {
                 "R_realization": (
-                    "measured_realized_for_response_resolvent__"
+                    "simulator_realized_for_declared_response_resolvent__"
                     "matter_pole_identification_open"
                 ),
                 "S_selection": measured["clause_S"],

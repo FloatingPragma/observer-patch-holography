@@ -80,9 +80,11 @@ The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
 local tensors. The finite result is therefore the maximal faithful matter
 image. A flux-sector menu can become a source-model input for global-form
 selection only when physical line and bundle data are supplied. The generation
-count is open inside its three-to-five window; $N_g=3$ and the absence of
-extra light sectors enter as declared completions, and neither enters that
-finite gauge calculation.
+window is three to five. A separate exact screen theorem selects a rank-three
+band under its single-band and operational-cost premises, and a declared
+unitary simulator reconstructs its response residue. Attaching that finite
+band to three physical matter families and excluding extra light sectors
+remain declared completions. Neither enters the finite gauge calculation.
 
 The simpler reading is that the architecture supplies a cast of possible
 roles. It tells us what kinds of charge and transformation can survive across

@@ -200,9 +200,10 @@ CKM matrix
 mix under the weak interaction, and its complex phase is the Standard Model's
 source of charge-parity violation. Counting its physical phases gives the lower
 bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
-consistency gives $N_g\le5$. The count is open inside that window, and
-three enters as a declared completion. Physical family attachment is a separate
-construction.
+consistency gives $N_g\le5$. Under separate single-band and operational-cost
+premises, an exact finite screen theorem selects a rank-three candidate.
+Physical family attachment remains a separate construction, so three enters
+the physical matter packet as a declared completion.
 
 Classical limit
 :   The classical limit is the regime where quantum

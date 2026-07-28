@@ -69,6 +69,22 @@ def test_guards_fail_closed(result):
     assert guards["usable_for_public_final_values"] is False
     assert guards["usable_as_diagnostic_route_finder"] is True
     assert guards["satisfies_production_constructive_next_artifact"] is False
+    assert guards["outward_decimal_interval_certificate"] is True
+
+
+def test_decimal_certificate_is_outward_and_target_scoped(result):
+    certificate = result["numerical_certificate"]
+    assert certificate["precision_decimal_digits"] == 100
+    assert certificate["rounding_error_bound"] == "1E-70"
+    assert certificate["safety_margin_over_rounding_error"] == "1E+10"
+    assert "not a source-only" in certificate["epistemic_scope"]
+    for row in result["conditional_mass_rows"]:
+        certified = [
+            float(value)
+            for value in certificate["mass_intervals_gev"][row["particle"]]
+        ]
+        assert row["mass_interval"] == certified
+        assert certified[0] < certified[1]
 
 
 def test_ratios_come_from_centered_family_functional(result):

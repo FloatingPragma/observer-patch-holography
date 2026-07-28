@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -300,8 +301,33 @@ def _lepton_rows(
                 / (2.0 * row["mass_central"])
                 for row in mass_rows
             ],
+            "logarithmic_half_width": (
+                lane["kappa_interval"]["interval"][1]
+                - lane["kappa_interval"]["interval"][0]
+            )
+            / 2.0,
+            "one_sided_multiplicative_widths": {
+                "lower": 1.0
+                - math.exp(
+                    -(
+                        lane["kappa_interval"]["interval"][1]
+                        - lane["kappa_interval"]["interval"][0]
+                    )
+                    / 2.0
+                ),
+                "upper": math.exp(
+                    (
+                        lane["kappa_interval"]["interval"][1]
+                        - lane["kappa_interval"]["interval"][0]
+                    )
+                    / 2.0
+                )
+                - 1.0,
+            },
             "tier": "T1_empirical_closure",
             "row_class": lane["row_class"],
+            "epistemic_scope": lane["numerical_certificate"]["epistemic_scope"],
+            "numerical_certificate": lane["numerical_certificate"],
             "artifact_ref": _rel(artifact),
             "blocking_issues": [425, 545],
         }
@@ -442,7 +468,8 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
     alpha = sections["alpha"][0]
     wp = target["witness_point"]
     glo, ghi = alpha["anchor_gap_interval"]
-    hw = coherent["relative_half_widths"][0]
+    log_hw = coherent["logarithmic_half_width"]
+    one_sided = coherent["one_sided_multiplicative_widths"]
     ppm = abs(mcpr["relative_deltas"][0]) * 1.0e6
     mh, mt = ew["ew_mH_gev"], ew["ew_mt_pole_gev"]
     return [
@@ -465,9 +492,12 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
         {
             "id": "lepton_certified_intervals",
             "statement": (
-                "The measured charged-lepton triple lies inside every "
-                "certified interval; the payload-coherent half-width is "
-                f"{hw * 100.0:.2f} percent per lepton, and the conditional "
+                "The target-anchored measured charged-lepton triple lies "
+                "inside every outward-rounded diagnostic interval; the "
+                "payload-coherent logarithmic half-width is "
+                f"{log_hw * 100.0:.3f} percent, with one-sided multiplicative "
+                f"widths -{one_sided['lower'] * 100.0:.2f} and "
+                f"+{one_sided['upper'] * 100.0:.2f} percent. The conditional "
                 f"eight-register triple sits {ppm:.0f} ppm from measurement "
                 "with the architecture declared."
             ),
@@ -644,14 +674,14 @@ def _render_md(ledger: dict[str, Any]) -> str:
                 "declared model input.")
         else:
             kind = "coherent closure" if row["id"].endswith("coherent") else "rectangle"
-            hw = ", ".join(
-                f"{p} `{_fmt(h * 100, 3)}%`"
-                for p, h in zip(row["particles"], row["relative_half_widths"], strict=True)
-            )
             contained = "inside" if row["witness_inside_all_intervals"] else "OUTSIDE"
-            add(f"- Kappa interval, {kind} ({row['tier']}): certified relative "
-                f"half-widths {hw}; the witness triple lies {contained} every "
-                "interval.")
+            one_sided = row["one_sided_multiplicative_widths"]
+            add(f"- Kappa interval, {kind} ({row['tier']}): outward-rounded "
+                "target-anchored diagnostic intervals with logarithmic half-width "
+                f"`{_fmt(row['logarithmic_half_width'] * 100, 4)}%` and one-sided "
+                f"multiplicative widths `-{_fmt(one_sided['lower'] * 100, 3)}%` / "
+                f"`+{_fmt(one_sided['upper'] * 100, 3)}%`; the witness triple lies "
+                f"{contained} every interval.")
             if "width_reduction_factor" in row:
                 add(f"  - Width reduction over the rectangle: "
                     f"`{_fmt(row['width_reduction_factor'], 3)}x`; premise: "

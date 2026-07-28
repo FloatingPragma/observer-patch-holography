@@ -240,6 +240,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `mismatch_repair` | Assumes declared mismatch-repair moves between overlapping patches. | BLINDED_GENERATIVE_REPAIR_KERNEL, Thinking note |
 | `observer_record_continuation` | The paradise continuation assumes observer-record continuation across the transition. | Paradise paper |
 | `one_Higgs_Bouchard_Donagi_massless_cohomology_candidate` | The string selector assumes the one-Higgs Bouchard-Donagi massless cohomology candidate. | String-selector note |
+| `operational_cost_order_selects_between_admissible_complete_bands` | The family-band selector assumes that lower declared operational cost selects between admissible complete bands. | Standard Model gauge paper, Particle paper |
 | `operator_safety_realization_gate` | The string selector assumes the operator-safety realization gate. | String-selector note |
 | `orientation_half_identity` | The cosmological spectrum assumes the orientation half identity. | SCREEN_SPECTRUM_THEOREMS |
 | `physical_quotient_and_public_normal_form` | The typed spine assumes the physical quotient and its public normal form. | specialist derivation papers |
@@ -265,6 +266,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `self_read` | Assumes patches read their own state through the declared interface. | BLINDED_GENERATIVE_REPAIR_KERNEL, Thinking note |
 | `separate_geometry_and_physical_current_readouts` | The typed spine assumes geometry and physical-current readouts stay separate typed surfaces. | specialist derivation papers |
 | `simple_tree_roots_and_frozen_analytic_sheet` | The pole map assumes simple tree-level roots and the frozen analytic-sheet choice. | specialist derivation papers |
+| `single_complete_faithful_band_realizes_the_family_carrier` | The family-band selector assumes that one complete faithful band in the declared rank window realizes the family carrier. | Standard Model gauge paper, Particle paper |
 | `source_bound_cap_flow_and_KMS_normalization_receipts` | The geometry producer assumes source-bound cap-flow and KMS normalization receipts. | specialist derivation papers |
 | `source_bound_refinement_natural_tower` | The typed spine assumes one source-bound refinement-natural tower. | specialist derivation papers |
 | `source_bound_refinement_required_for_physical_promotion` | The carrier bridge assumes physical promotion requires source-bound refinement. | Screen microphysics |

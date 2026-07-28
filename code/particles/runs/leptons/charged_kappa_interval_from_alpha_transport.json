@@ -22,7 +22,7 @@
       "required": "no_target_leak_DAG_and_frozen_mass_triple_before_PDG_comparison"
     }
   },
-  "claim_boundary": "Absolute charged-lepton masses carry certified intervals on the empirical closure surface; the continuum kappa freedom is excluded there. No source-only absolute mass is emitted; the trace-lift no-go and its gate remain in force unchanged.",
+  "claim_boundary": "The target-anchored empirical closure calculation carries an outward-rounded arithmetic enclosure for each charged-lepton mass. These are diagnostic intervals rather than prediction intervals. No source-only absolute mass is emitted; the trace-lift no-go and its gate remain in force unchanged.",
   "compare_only": {
     "witness_inside_certified_intervals": true,
     "witness_masses_gev": [
@@ -43,8 +43,8 @@
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
       "mass_central": 0.0005088574871435145,
       "mass_interval": [
-        0.00047657714307519004,
-        0.0005433242990866062
+        0.000476577143075,
+        0.000543324299087
       ],
       "particle": "electron",
       "status": "certified_empirical_closure_interval",
@@ -54,8 +54,8 @@
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
       "mass_central": 0.1052155887600104,
       "mass_interval": [
-        0.09854103745176451,
-        0.11234223227591915
+        0.098541037451766,
+        0.112342232275917
       ],
       "particle": "muon",
       "status": "certified_empirical_closure_interval",
@@ -65,8 +65,8 @@
       "formula": "m_i = exp(kappa) * R_i * m_e_witness, kappa from transport inversion",
       "mass_central": 1.76948334905381,
       "mass_interval": [
-        1.657232801948234,
-        1.8893370435933756
+        1.657232801948271,
+        1.889337043593336
       ],
       "particle": "tau",
       "status": "certified_empirical_closure_interval",
@@ -74,7 +74,7 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-23T04:02:15Z",
+  "generated_utc": "2026-07-28T07:47:55Z",
   "guards": {
     "blind_normalization_prediction": false,
     "charged_mass_information_in_solve_path": true,
@@ -84,6 +84,7 @@
     "measured_lepton_masses_directly_supplied_to_inversion": false,
     "measured_lepton_triple_used_to_calibrate_higher_order_remainder": true,
     "new_axiom_introduced": false,
+    "outward_decimal_interval_certificate": true,
     "promotable_as_oph_source_theorem": false,
     "satisfies_production_constructive_next_artifact": false,
     "source_only": false,
@@ -154,8 +155,8 @@
     "central_gap_midpoint": -0.00419954537582517,
     "definition": "kappa = ln(m_e / m_e_witness)",
     "interval": [
-      -0.06973793154072808,
-      0.0613388407891274
+      -0.069737931540707,
+      0.061338840789106
     ],
     "reference_deficit_point": {
       "gap": 0.6308936136469185,
@@ -168,6 +169,40 @@
     "packet_derivative_in_kappa": -0.6366197723675814,
     "source_only_no_go_status": "unchanged",
     "statement": "The one-parameter countermodel Y_e -> exp(kappa) Y_e of the charged trace-lift theorem does not extend to the declared electromagnetic transport: the lepton vacuum-polarization packet satisfies d(packet)/d(kappa) = -2/pi, so the emitted Thomson endpoint and the fixed point P = phi + sqrt(pi)/A_Th(P) move with kappa. The no-go's antecedent list omits this closure; source-only the system is the stiff curve (P(kappa), kappa), and on the empirical closure surface kappa is identified up to certified interval width."
+  },
+  "numerical_certificate": {
+    "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+    "input_semantics": "serialized decimal inputs are treated as exact values; the certificate encloses the arithmetic consequence of those inputs",
+    "kappa_interval": [
+      "-0.069737931540707",
+      "0.061338840789106"
+    ],
+    "mass_intervals_gev": {
+      "electron": [
+        "0.000476577143075",
+        "0.000543324299087"
+      ],
+      "muon": [
+        "0.098541037451766",
+        "0.112342232275917"
+      ],
+      "tau": [
+        "1.657232801948271",
+        "1.889337043593336"
+      ]
+    },
+    "method": "100-digit Decimal recomputation at both endpoints of an explicit pi bracket, padded by 1e-60 and rounded outward",
+    "monotonicity": "the one-loop packet is strictly decreasing in the common log-mass shift; the declared endpoint extremes therefore give the interval endpoints",
+    "outward_quantum": "1E-15",
+    "pi_interval": [
+      "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+      "3.1415926535897932384626433832795028841971693993751058209749445923078165"
+    ],
+    "precision_decimal_digits": 100,
+    "rounding_error_bound": "1E-70",
+    "rounding_error_bound_basis": "the fixed expression has fewer than 200 operations on magnitudes below 1e4; correctly rounded 100-digit Decimal elementary operations contribute less than 1e-90 in total, so 1e-70 is a conservative absolute bound",
+    "safety_margin_over_rounding_error": "1E+10",
+    "safety_pad": "1E-60"
   },
   "proof_status": "certified_empirical_closure_interval_kappa_identified",
   "row_class": "target_shape_plus_empirical_transport",
