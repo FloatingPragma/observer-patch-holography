@@ -1,0 +1,303 @@
+{
+  "a2_clauses": {
+    "orientation_covariance": "the seam difference reverses sign with the seam orientation by definition",
+    "relabeling_invariance": "verified on twenty-four permutations per register",
+    "rotation_equivariance": "verified over 60 listed rotations"
+  },
+  "bounded_exit": "exact_named_realization",
+  "candidate_dispositions": {
+    "half_atom_readback": "rejected_by_operational_atomicity_clause",
+    "quadratic_seam_form": "retained_as_distinct_typed_implementation"
+  },
+  "claim_boundary": "Exact operational-source mechanism on the pinned carrier: integer loads arise from atomic signed record transitions, the settling cost arises from the admissible repair dynamics, the mod-twelve load fiber arises as the consensus obstruction, the half-atom candidate is rejected by the atomicity clause, and the #625 quadratic is retained as a distinct typed object with exact separating witnesses. No particle, gauge, capacity, or measured-target label enters the source packet.",
+  "consumer_binding": "downstream consumers of the counting normalization stay bound to the pinned #625 receipt, which this certificate names as its comparison-side source; the settling cost has no prior consumer and binds here",
+  "controls": {
+    "half_atom": {
+      "code": "EVENT_ATOMICITY",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the #625 half-atom readback is rejected by a load-bearing operational clause: its lift requires an event of sign one half, and the grammar has none"
+    },
+    "nonconservative_move": {
+      "code": "PROTECTED_READOUT",
+      "expected_failure": true,
+      "failed": true
+    },
+    "order_dependent_counting": {
+      "code": "RELABELING",
+      "expected_failure": true,
+      "failed": true
+    },
+    "unit_difference_transfer": {
+      "code": "INADMISSIBLE_MOVE",
+      "expected_failure": true,
+      "failed": true,
+      "quadratic_after": 5,
+      "quadratic_before": 5
+    },
+    "wrong_reference": {
+      "code": "A3_TYPING",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "cost_separation": {
+    "adjacent_dipole": {
+      "quadratic": 12,
+      "settle_cost": 1
+    },
+    "distance_two_dipole": {
+      "quadratic": 10,
+      "settle_cost": 0
+    },
+    "quadratic_candidate_disposition": "retained_as_distinct_typed_implementation",
+    "statement": "the settling cost and the quadratic seam form are distinct objects: no scalar multiple maps one to the other on these witnesses; the quadratic stays the pinned A2 comparison form and the settling cost is the repair-dynamics object, so the cost is derived from the dynamics and never identified with an information Hessian"
+  },
+  "evidence_bundle": {
+    "counts": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1
+    ],
+    "log": [
+      {
+        "op": "write",
+        "port": 0,
+        "tick": 0
+      },
+      {
+        "op": "write",
+        "port": 0,
+        "tick": 1
+      },
+      {
+        "op": "write",
+        "port": 4,
+        "tick": 2
+      },
+      {
+        "op": "retract",
+        "port": 4,
+        "tick": 3
+      },
+      {
+        "op": "write",
+        "port": 7,
+        "tick": 4
+      },
+      {
+        "op": "checkpoint",
+        "port": 7,
+        "prefix_counts": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tick": 5
+      },
+      {
+        "op": "write",
+        "port": 7,
+        "tick": 6
+      },
+      {
+        "op": "write",
+        "port": 11,
+        "tick": 7
+      },
+      {
+        "op": "retract",
+        "port": 0,
+        "tick": 8
+      },
+      {
+        "op": "write",
+        "port": 2,
+        "tick": 9
+      }
+    ],
+    "registers": [
+      [
+        1,
+        1,
+        -1
+      ],
+      [],
+      [
+        1
+      ],
+      [],
+      [
+        1,
+        -1
+      ],
+      [],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [],
+      [],
+      [
+        1
+      ]
+    ]
+  },
+  "issue": 628,
+  "manifest_sha256": "sha256:9f5da6f22444f5096bdca08ab2e87a1516ded133d63171aaab8faae172c9f00c",
+  "mechanism": {
+    "counting_map": "per-port register sums; integer image by atomicity",
+    "event_grammar": "append-only atomic signed events with checkpoints",
+    "repair_move": "conservative unit transfer across a seam with difference magnitude at least two",
+    "seam_readback": "oriented seam differences of the counting map",
+    "settled_set": "all seam differences in {-1, 0, 1}",
+    "settling_cost": "minimum admissible-move count, exact breadth-first search"
+  },
+  "schema": "oph.record_counting_mechanism_certificate.v1",
+  "theorems": {
+    "fiber_obstruction": {
+      "rows": [
+        {
+          "consensus": false,
+          "reading": "conservation forbids consensus for every schedule: a consensus state carries total twelve times its level",
+          "total": 6
+        },
+        {
+          "consensus": false,
+          "reading": "conservation forbids consensus for every schedule: a consensus state carries total twelve times its level",
+          "total": 17
+        },
+        {
+          "consensus": true,
+          "reading": "an explicit admissible schedule, replayed and re-verified move by move, reaches consensus from the full pile",
+          "total": 12,
+          "witness_schedule": [
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "witness_schedule_moves": 18
+        }
+      ],
+      "statement": "off the mod-twelve fiber no schedule reaches consensus, by conservation; on the fiber an explicit verified schedule reaches consensus from the full pile: the operational mod-twelve load fiber"
+    },
+    "schedule_exhaustion": {
+      "distinct_states_visited": 224,
+      "start": "adjacent dipole scaled by three",
+      "statement": "every maximal admissible schedule terminates in the settled set",
+      "terminal_states": 22
+    },
+    "settled_characterization": "the settled set is exactly the configurations with every seam difference in {-1, 0, 1}",
+    "strict_descent": {
+      "checked_moves": 1275,
+      "statement": "every admissible move lowers Q by at least two, so every schedule terminates"
+    }
+  },
+  "upstream_pins": {
+    "a3_and_comparison_objects": {
+      "a3_objects": "divergence Taylor coefficient 6I and Hessian/Fisher 12I at unit weight, pinned and separately typed",
+      "issue": 625,
+      "path": "manifests/load_fiber_readback_reference.json",
+      "sha256": "82c32651269daa7416fec18213f20e4761945e85b8b54880a7994364939c2391"
+    },
+    "carrier": {
+      "path": "manifests/echosahedral_federation_reference.json",
+      "sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280"
+    },
+    "refinement_persistence": {
+      "clause": "the twelve defect ports persist bijectively at every measured level, so the counting map commutes with the refinement port maps",
+      "issue": 599,
+      "path": "manifests/charged_response_semantic_artifact.json",
+      "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
+    }
+  }
+}
