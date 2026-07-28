@@ -1,12 +1,12 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-28T04:32:27Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-28T04:46:11Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
 Worker policy: local artifacts first; up to six Chrome Pro workers may be used only after a concrete theorem, audit, or implementation packet exists. Obstruction-only worker output is not accepted.
 
-Open issue count: `50`
+Open issue count: `49`
 
 ## Closed Out-Of-Scope Records
 
@@ -104,5 +104,4 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#593](https://github.com/FloatingPragma/observer-patch-holography/issues/593) [Physical W/Z] Instantiate the strict one-loop external-SM pole receipt stack | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#594](https://github.com/FloatingPragma/observer-patch-holography/issues/594) [Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) [Source law] Attain the five measured Einstein-branch clause targets | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
-| [#620](https://github.com/FloatingPragma/observer-patch-holography/issues/620) [Book] Complete owner voice review and preservation signoff | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#623](https://github.com/FloatingPragma/observer-patch-holography/issues/623) [Scalar sector] Attach the declared one-doublet completion to a physical scalar pole | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
