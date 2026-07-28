@@ -16,6 +16,7 @@ cmds=[
  [sys.executable,str(ROOT/'checkers'/'check_rule_engines.py')],
  [sys.executable,str(ROOT/'producers'/'counterterm_producer.py')],
  [sys.executable,str(ROOT/'checkers'/'check_counterterms.py')],
+ [sys.executable,str(ROOT/'producers'/'fj_direct_engine.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]

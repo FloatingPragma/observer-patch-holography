@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 61,
-  "total_bytes_excluding_manifest_and_runtime_log": 732386,
+  "file_count_excluding_manifest_and_runtime_log": 66,
+  "total_bytes_excluding_manifest_and_runtime_log": 1002816,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -113,6 +113,11 @@
       "sha256": "65f4c1ba52ee4c6625179878a704c74656d59466bea3b556600d7fe79d77f04b"
     },
     {
+      "path": "outputs/fj_direct_vector_blocks.json",
+      "bytes": 215903,
+      "sha256": "d012c4b240bdc098c83845e3f05ed8694c59afbfdd239f01f81c21b69386d1a8"
+    },
+    {
       "path": "outputs/integration_initial_validation.log",
       "bytes": 2447,
       "sha256": "7a90721d62359ffffc8a25e27a30942c8ed89f283fb82a4673ecf4d39e79994c"
@@ -168,6 +173,21 @@
       "sha256": "e8ddde6cfb2efced7e03abe14980b36cd9e4c840d492b459dc44d183c78dd2dd"
     },
     {
+      "path": "producers/fj_direct_engine.py",
+      "bytes": 33891,
+      "sha256": "361c3fb3936e64011187a17a8a8a20170ec754235b211d14aa57aaed3aa97aac"
+    },
+    {
+      "path": "producers/fj_spectrum.py",
+      "bytes": 9156,
+      "sha256": "42bae0e59b3e9d58ce02d6ea83ed76e1f15c14c3bcb97faaa60415f23c31138e"
+    },
+    {
+      "path": "producers/loop_reduction.py",
+      "bytes": 8170,
+      "sha256": "b72a3d3fe3963b631a5b09a6d57d3cc262d8024ee1441b5afefa037a0096136e"
+    },
+    {
       "path": "producers/rule_engine_a.py",
       "bytes": 35466,
       "sha256": "e263adb22f01e60c2708f0eb16c32d4f0b5aa6d9a62b1651f17c24d6ce39ac2d"
@@ -194,8 +214,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1478,
-      "sha256": "b70bce1e96f46dd12f8b73e7a9d6ffbaff255c8f1e210a23dc6ac4bf78af300a"
+      "bytes": 1541,
+      "sha256": "4f74e54655bd34b2ecfdb7dd7f0c402d39c0f9efbc95d7b2e7172d4f42cfd6b4"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -306,6 +326,11 @@
       "path": "tests/test_eft_matching.py",
       "bytes": 2726,
       "sha256": "9f56f7fdf2deb8998ef6064bdf8a26a299a41eb1fd2ae171035a0249d55d6bc5"
+    },
+    {
+      "path": "tests/test_fj_direct.py",
+      "bytes": 3247,
+      "sha256": "af142fdf0669f3767d1d9d77101c1559b27000d36eda31d2e390973ace140365"
     },
     {
       "path": "tests/test_rule_engines.py",
