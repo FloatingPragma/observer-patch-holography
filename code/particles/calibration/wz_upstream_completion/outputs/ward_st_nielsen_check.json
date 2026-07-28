@@ -1,0 +1,23 @@
+{
+  "problems": [],
+  "replays": {
+    "charge_universality_nielsen": "11*g1**2*g2**2/(6*(g1**2 + g2**2))",
+    "ct_reachability": "all block poles linear in p2; no unreachable-direction block emitted",
+    "custodial": "G0G0 equals GpGm in the custodial limit",
+    "fj_equivalence": [
+      "G0G0",
+      "GpGm",
+      "WpWm",
+      "ZZ",
+      "hh"
+    ],
+    "per_diagram_resummation": "all blocks",
+    "photon_ward_full_expression": "0"
+  },
+  "residual": {
+    "gauge_condition_correlator_protection": "the G_Z G_Z combination over {ZZ longitudinal, Z-G0 mixing, G0G0, ghost two-point functions} is the declared residual projection of this target; its inputs (A-G0 and Z-G0 mixings) are emitted, the ghost two-point blocks are the missing input"
+  },
+  "schema": "ward_st_nielsen_check.v1",
+  "status": "PASS",
+  "target": "WARD_ST_NIELSEN_1"
+}

@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 69,
-  "total_bytes_excluding_manifest_and_runtime_log": 1195362,
+  "file_count_excluding_manifest_and_runtime_log": 74,
+  "total_bytes_excluding_manifest_and_runtime_log": 1229057,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -68,6 +68,11 @@
       "sha256": "a77b7af530f668d9f4f2075daa2d6645695d08c5db32b40b6edb731b3af1762e"
     },
     {
+      "path": "checkers/check_ward_st_nielsen.py",
+      "bytes": 10894,
+      "sha256": "080811f0d505cd01cbca41dc8eb411d1439c19e8abf36981d0a64f1641b4d654"
+    },
+    {
       "path": "data/nonlinear_gauge_grid_v1.json",
       "bytes": 11944,
       "sha256": "2cf21849ae3da4f4eb1e8c9802682ac64831a473f95525c7770c38cfef1408af"
@@ -111,6 +116,11 @@
       "path": "outputs/eft_matching_1.json",
       "bytes": 5153,
       "sha256": "65f4c1ba52ee4c6625179878a704c74656d59466bea3b556600d7fe79d77f04b"
+    },
+    {
+      "path": "outputs/fj_converted_equivalence.json",
+      "bytes": 10312,
+      "sha256": "636a4592653fe18cf8b60f0eecdae9d7f16672087229d115ccece92c5abcbb17"
     },
     {
       "path": "outputs/fj_direct_scalar_blocks.json",
@@ -163,6 +173,11 @@
       "sha256": "3c404c10270499b1c89f92c3ca2d85b71d138f48ea84d3f67685e09ea1bc4568"
     },
     {
+      "path": "outputs/ward_st_nielsen_check.json",
+      "bytes": 852,
+      "sha256": "6d06e011efff4535b62029ec0f932f4a62ef739e48533e1491ea72b2e261e2dd"
+    },
+    {
       "path": "producers/counterterm_producer.py",
       "bytes": 24302,
       "sha256": "43132225c6ab73a398a17625aa87fac2d3b672b57bc75ab966a7377d9930758c"
@@ -176,6 +191,11 @@
       "path": "producers/enumerate_diagram_universe.py",
       "bytes": 6099,
       "sha256": "e8ddde6cfb2efced7e03abe14980b36cd9e4c840d492b459dc44d183c78dd2dd"
+    },
+    {
+      "path": "producers/fj_converted_engine.py",
+      "bytes": 9498,
+      "sha256": "de652e49ba28743fa538e1c1ad57f1a86a6e4378e718139075cea7d6af6d42a4"
     },
     {
       "path": "producers/fj_direct_engine.py",
@@ -224,8 +244,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1604,
-      "sha256": "0ccb55f400e7c24ecdd13f8a1811146ec8eb668bb2a9eaf19edb3bdacb791188"
+      "bytes": 1737,
+      "sha256": "c14232ece70d79d253994264484f282abf589a15ec587fca91754b24ce247b8a"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -336,6 +356,11 @@
       "path": "tests/test_eft_matching.py",
       "bytes": 2726,
       "sha256": "9f56f7fdf2deb8998ef6064bdf8a26a299a41eb1fd2ae171035a0249d55d6bc5"
+    },
+    {
+      "path": "tests/test_fj_converted_and_st.py",
+      "bytes": 2006,
+      "sha256": "9f5ba19bb51a7865ab6add419ecf67fbcbb8b13992403989122437c09cae0964"
     },
     {
       "path": "tests/test_fj_direct.py",
