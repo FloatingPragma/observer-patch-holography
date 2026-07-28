@@ -1,0 +1,61 @@
+{
+  "claim_lane": "OPH_CHART_ONLY",
+  "evidence": {
+    "independent_checker": false,
+    "interval_census_complete": false,
+    "jacobian_enclosed": false,
+    "promotion_ready": false,
+    "target_blacklist_passed": false,
+    "threshold_maps_complete": false
+  },
+  "final": {
+    "J_match_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "basis": "SM_MSbar_FJ",
+    "remainder_bound": 0.0,
+    "scale_over_Estar": 1.0,
+    "vector_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "hashes": {
+    "matching_packet": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_dag": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_root": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "intervals": [
+    {
+      "active_field_ids": [
+        "SM_census_uninstantiated"
+      ],
+      "beta": {
+        "derived_from_census": false,
+        "gauge_coefficients": {
+          "g": "-19/6",
+          "gprime": "41/6",
+          "gs": "-7"
+        },
+        "independently_checked": false,
+        "monomial_mask_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "eft_id": "SM_ONE_HIGGS_THREE_GENERATION_TEMPLATE",
+      "hashes": {
+        "action_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+        "field_census": "0000000000000000000000000000000000000000000000000000000000000000",
+        "operator_basis": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "id": "I0_TEMPLATE",
+      "operator_basis_ids": [
+        "dimension_le_4_template"
+      ],
+      "ordering_checked": true,
+      "q_high_over_Estar": 1.0,
+      "q_low_over_Estar": 0.0,
+      "scheme": {
+        "hypercharge_convention": "gprime=gY",
+        "name": "MSbar",
+        "tadpole_coordinate": "FJ"
+      },
+      "thresholds": []
+    }
+  ],
+  "schema_version": "eft_matching_packet_v1",
+  "source_root_unique": false
+}

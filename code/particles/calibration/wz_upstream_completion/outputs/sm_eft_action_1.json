@@ -1,0 +1,705 @@
+{
+  "action_ast": {
+    "excluded": [
+      {
+        "operator": "theta_QCD",
+        "reason": "no source emission exists and the strong-CP packet is open; the term is excluded from the retained basis with this reason recorded"
+      },
+      {
+        "operator": "theta_weak_and_theta_hypercharge",
+        "reason": "removable or unobservable in the retained perturbative lane; excluded with reason"
+      },
+      {
+        "operator": "dimension_gt_4",
+        "reason": "the lane is the renormalizable strict-one-loop contract; every higher-dimension operator is excluded by the declared truncation"
+      },
+      {
+        "operator": "majorana_neutrino_mass",
+        "reason": "no right-handed neutrino is in the census and the Weinberg operator is dimension five; excluded by the truncation"
+      }
+    ],
+    "retained": [
+      {
+        "coefficient": "-1/4",
+        "coupling": null,
+        "expression": "-(1/4) G^a_{munu} G^{a,munu}",
+        "operator": "gauge_kinetic_SU3"
+      },
+      {
+        "coefficient": "-1/4",
+        "coupling": null,
+        "expression": "-(1/4) W^i_{munu} W^{i,munu}",
+        "operator": "gauge_kinetic_SU2"
+      },
+      {
+        "coefficient": "-1/4",
+        "coupling": null,
+        "expression": "-(1/4) B_{munu} B^{munu}",
+        "operator": "gauge_kinetic_U1"
+      },
+      {
+        "coefficient": "1",
+        "coupling": null,
+        "expression": "|D_mu H|^2",
+        "operator": "higgs_kinetic"
+      },
+      {
+        "coefficient": "1",
+        "coupling": null,
+        "expression": "i psibar Dslash psi, one term per census multiplet",
+        "multiplet_count": 15,
+        "operator": "fermion_kinetic"
+      },
+      {
+        "coupling": {
+          "entries": [
+            [
+              {
+                "symbol": "Yu[1][1]"
+              },
+              {
+                "symbol": "Yu[1][2]"
+              },
+              {
+                "symbol": "Yu[1][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Yu[2][1]"
+              },
+              {
+                "symbol": "Yu[2][2]"
+              },
+              {
+                "symbol": "Yu[2][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Yu[3][1]"
+              },
+              {
+                "symbol": "Yu[3][2]"
+              },
+              {
+                "symbol": "Yu[3][3]"
+              }
+            ]
+          ],
+          "matrix": "Yu"
+        },
+        "expression": "- Qbar Yu Htilde u_c + h.c.",
+        "operator": "yukawa_up"
+      },
+      {
+        "coupling": {
+          "entries": [
+            [
+              {
+                "symbol": "Yd[1][1]"
+              },
+              {
+                "symbol": "Yd[1][2]"
+              },
+              {
+                "symbol": "Yd[1][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Yd[2][1]"
+              },
+              {
+                "symbol": "Yd[2][2]"
+              },
+              {
+                "symbol": "Yd[2][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Yd[3][1]"
+              },
+              {
+                "symbol": "Yd[3][2]"
+              },
+              {
+                "symbol": "Yd[3][3]"
+              }
+            ]
+          ],
+          "matrix": "Yd"
+        },
+        "expression": "- Qbar Yd H d_c + h.c.",
+        "operator": "yukawa_down"
+      },
+      {
+        "coupling": {
+          "entries": [
+            [
+              {
+                "symbol": "Ye[1][1]"
+              },
+              {
+                "symbol": "Ye[1][2]"
+              },
+              {
+                "symbol": "Ye[1][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Ye[2][1]"
+              },
+              {
+                "symbol": "Ye[2][2]"
+              },
+              {
+                "symbol": "Ye[2][3]"
+              }
+            ],
+            [
+              {
+                "symbol": "Ye[3][1]"
+              },
+              {
+                "symbol": "Ye[3][2]"
+              },
+              {
+                "symbol": "Ye[3][3]"
+              }
+            ]
+          ],
+          "matrix": "Ye"
+        },
+        "expression": "- Lbar Ye H e_c + h.c.",
+        "operator": "yukawa_lepton"
+      },
+      {
+        "coupling": {
+          "symbol": "mu2"
+        },
+        "expression": "+ mu2 |H|^2",
+        "operator": "higgs_mass"
+      },
+      {
+        "coupling": {
+          "symbol": "lam"
+        },
+        "expression": "- lam |H|^4",
+        "operator": "higgs_quartic"
+      },
+      {
+        "coupling": {
+          "xi": [
+            {
+              "symbol": "xi_1"
+            },
+            {
+              "symbol": "xi_2"
+            },
+            {
+              "symbol": "xi_3"
+            }
+          ]
+        },
+        "expression": "-(1/(2 xi_1)) (partial B)^2 - (1/(2 xi_2)) (partial W)^2 - (1/(2 xi_3)) (partial G)^2, R_xi class",
+        "operator": "gauge_fixing"
+      },
+      {
+        "coupling": null,
+        "expression": "cbar_A (-partial . D^{AB}) c_B for each gauge factor, from the BRST variation of the gauge-fixing fermion",
+        "operator": "ghost_sector"
+      }
+    ]
+  },
+  "claim_boundary": "The declared external Standard Model action for the strict one-loop validation lane: structure only, every coupling a typed symbol, no target value, no mass core, no inverse target adapter. OPH-native source emission is owned by the promotion issue and nothing here promotes.",
+  "controls": {
+    "gut_normalization": {
+      "code": "GUT_NORMALIZATION",
+      "expected_failure": true,
+      "failed": true
+    },
+    "mass_core": {
+      "code": "MASS_CORE_FORBIDDEN",
+      "expected_failure": true,
+      "failed": true
+    },
+    "numeric_yukawa": {
+      "code": "NUMERIC_YUKAWA",
+      "expected_failure": true,
+      "failed": true
+    },
+    "placeholder_zeros": {
+      "code": "PLACEHOLDER_ZEROS",
+      "expected_failure": true,
+      "failed": true
+    },
+    "top_only_yukawa": {
+      "code": "TOP_ONLY_YUKAWA",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "conventions": {
+    "conjugate_doublet": "Htilde = i sigma^2 H^*",
+    "covariant_derivative": "D_mu = partial_mu - i g3 G^a_mu T^a - i g2 W^i_mu tau^i/2 - i gprime Y B_mu",
+    "gamma5_prescription": "BMHV, declared; finite symmetry-restoring counterterms owned by the renormalization workstream",
+    "gauge_fixing": "R_xi class for U1, SU2, SU3 with independent xi symbols; the nonlinear gauge grid of the frozen contract applies downstream",
+    "generator_normalization": "Tr(T^a T^b) = delta^{ab}/2",
+    "gprime_convention": "SM_hypercharge",
+    "gut_normalization": {
+      "reason": "the strict lane freezes the SM hypercharge normalization; the GUT rescaling is recorded and excluded",
+      "relation": "g1_GUT^2 = (5/3) gprime^2",
+      "status": "excluded"
+    },
+    "inverse_propagator_sign": "frozen by the downstream strict pole-map contract; not restated here",
+    "metric_signature": "(+,-,-,-)",
+    "regularization": "dimensional, d = 4 - 2 epsilon"
+  },
+  "field_census": {
+    "anomaly_forms_per_generation": {
+      "grav_u1": "0",
+      "su2_sq_u1": "0",
+      "su3_sq_u1": "0",
+      "u1_cubed": "0"
+    },
+    "fermions": [
+      {
+        "chirality": "left_weyl",
+        "color": "3",
+        "generation": 1,
+        "hypercharge": "1/6",
+        "name": "Q",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 6
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 1,
+        "hypercharge": "-2/3",
+        "name": "u_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 1,
+        "hypercharge": "1/3",
+        "name": "d_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 1,
+        "hypercharge": "-1/2",
+        "name": "L",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 2
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 1,
+        "hypercharge": "1",
+        "name": "e_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 1
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3",
+        "generation": 2,
+        "hypercharge": "1/6",
+        "name": "Q",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 6
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 2,
+        "hypercharge": "-2/3",
+        "name": "u_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 2,
+        "hypercharge": "1/3",
+        "name": "d_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 2,
+        "hypercharge": "-1/2",
+        "name": "L",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 2
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 2,
+        "hypercharge": "1",
+        "name": "e_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 1
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3",
+        "generation": 3,
+        "hypercharge": "1/6",
+        "name": "Q",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 6
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 3,
+        "hypercharge": "-2/3",
+        "name": "u_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "3bar",
+        "generation": 3,
+        "hypercharge": "1/3",
+        "name": "d_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 3
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 3,
+        "hypercharge": "-1/2",
+        "name": "L",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "2",
+        "weyl_states": 2
+      },
+      {
+        "chirality": "left_weyl",
+        "color": "1",
+        "generation": 3,
+        "hypercharge": "1",
+        "name": "e_c",
+        "spin": "1/2",
+        "statistics": "fermi",
+        "weak": "1",
+        "weyl_states": 1
+      }
+    ],
+    "gauge": [
+      {
+        "components": 8,
+        "group": "SU3_color",
+        "name": "G",
+        "representation": "adjoint",
+        "spin": 1,
+        "statistics": "bose"
+      },
+      {
+        "components": 3,
+        "group": "SU2_weak",
+        "name": "W",
+        "representation": "adjoint",
+        "spin": 1,
+        "statistics": "bose"
+      },
+      {
+        "components": 1,
+        "group": "U1_hypercharge",
+        "name": "B",
+        "representation": "singlet",
+        "spin": 1,
+        "statistics": "bose"
+      }
+    ],
+    "ghosts": [
+      {
+        "components": 8,
+        "ghost": true,
+        "group": "SU3_color",
+        "name": "c_G",
+        "representation": "adjoint",
+        "spin": 0,
+        "statistics": "fermi"
+      },
+      {
+        "components": 3,
+        "ghost": true,
+        "group": "SU2_weak",
+        "name": "c_W",
+        "representation": "adjoint",
+        "spin": 0,
+        "statistics": "fermi"
+      },
+      {
+        "components": 1,
+        "ghost": true,
+        "group": "U1_hypercharge",
+        "name": "c_B",
+        "representation": "adjoint",
+        "spin": 0,
+        "statistics": "fermi"
+      }
+    ],
+    "scalars": [
+      {
+        "color": "1",
+        "complex": true,
+        "hypercharge": "1/2",
+        "name": "H",
+        "spin": 0,
+        "statistics": "bose",
+        "weak": "2"
+      }
+    ],
+    "weyl_state_total": 45
+  },
+  "lane": "external_strict_one_loop_wz_validation",
+  "lane_status": "EXTERNAL_SM_DECLARED_ACTION",
+  "packet_hashes": {
+    "action_ast": "ec75e7373fdd995fc0f3d45f8fe95169bac979cb8a55a53a2c0a559b9ac310de",
+    "conventions": "501438741c6bbaa5011d44e38dce4fc3a0e27bf4b452517fa65710fd8a0e3ff8",
+    "field_census": "0a9b524fdf3a726ba2d62aae349759657d6f37bb73a8e468e79d0097bcde43aa",
+    "source_dag": "e2583e9888998b8618272607665b96a1a3388c18d534f28a86c475958557e7f0",
+    "vev_types": "407e04ae36d59925795054b61037020bb3466a56142c9f9fa7e80e4815b82676",
+    "yukawa_packet": "4417b856c8c5e0eaa4d30b57a1caa142ff6bca3ba7fbb402fd8d793b40688063"
+  },
+  "promotion_allowed": false,
+  "schema": "sm_eft_action_1.v1",
+  "source_dag": {
+    "edges": [
+      [
+        "conventions",
+        "action_ast"
+      ],
+      [
+        "field_census",
+        "action_ast"
+      ],
+      [
+        "action_ast",
+        "yukawa_packet"
+      ],
+      [
+        "conventions",
+        "vev_types"
+      ]
+    ],
+    "nodes": [
+      {
+        "ancestry": "declared_external_SM_structure_no_target_values",
+        "id": "conventions"
+      },
+      {
+        "ancestry": "declared_external_SM_structure_no_target_values",
+        "id": "field_census"
+      },
+      {
+        "ancestry": "declared_external_SM_structure_no_target_values",
+        "id": "action_ast"
+      },
+      {
+        "ancestry": "declared_external_SM_structure_no_target_values",
+        "id": "yukawa_packet"
+      },
+      {
+        "ancestry": "declared_external_SM_structure_no_target_values",
+        "id": "vev_types"
+      }
+    ],
+    "target_values_in_ancestry": false
+  },
+  "subject_digest": "2822c158805db038dfe2682508316f100968ce152e47b23062d6e11029607b5e",
+  "vev_types": {
+    "equality_theorem": "absent; the two types stay distinct until a theorem is supplied",
+    "v_F": {
+      "symbol": "v_F",
+      "type": "fermi_normalization_vev"
+    },
+    "v_chart": {
+      "symbol": "v_chart",
+      "type": "chart_coordinate_vev"
+    }
+  },
+  "yukawa_packet": {
+    "basis_rotations": {
+      "description": "unitary field redefinitions per chiral multiplet",
+      "down_left": {
+        "symbol": "UdL"
+      },
+      "down_right": {
+        "symbol": "UdR"
+      },
+      "lepton_left": {
+        "symbol": "UeL"
+      },
+      "lepton_right": {
+        "symbol": "UeR"
+      },
+      "up_left": {
+        "symbol": "UuL"
+      },
+      "up_right": {
+        "symbol": "UuR"
+      }
+    },
+    "ckm": {
+      "definition": "V_CKM = UuL^dagger UdL",
+      "status": "symbolic composition of the basis rotations; no numeric entry exists in this bundle"
+    },
+    "completeness": "full three-by-three per sector; a top-only packet is refused by the checker",
+    "matrices": {
+      "Yd": [
+        [
+          {
+            "symbol": "Yd[1][1]"
+          },
+          {
+            "symbol": "Yd[1][2]"
+          },
+          {
+            "symbol": "Yd[1][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Yd[2][1]"
+          },
+          {
+            "symbol": "Yd[2][2]"
+          },
+          {
+            "symbol": "Yd[2][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Yd[3][1]"
+          },
+          {
+            "symbol": "Yd[3][2]"
+          },
+          {
+            "symbol": "Yd[3][3]"
+          }
+        ]
+      ],
+      "Ye": [
+        [
+          {
+            "symbol": "Ye[1][1]"
+          },
+          {
+            "symbol": "Ye[1][2]"
+          },
+          {
+            "symbol": "Ye[1][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Ye[2][1]"
+          },
+          {
+            "symbol": "Ye[2][2]"
+          },
+          {
+            "symbol": "Ye[2][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Ye[3][1]"
+          },
+          {
+            "symbol": "Ye[3][2]"
+          },
+          {
+            "symbol": "Ye[3][3]"
+          }
+        ]
+      ],
+      "Yu": [
+        [
+          {
+            "symbol": "Yu[1][1]"
+          },
+          {
+            "symbol": "Yu[1][2]"
+          },
+          {
+            "symbol": "Yu[1][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Yu[2][1]"
+          },
+          {
+            "symbol": "Yu[2][2]"
+          },
+          {
+            "symbol": "Yu[2][3]"
+          }
+        ],
+        [
+          {
+            "symbol": "Yu[3][1]"
+          },
+          {
+            "symbol": "Yu[3][2]"
+          },
+          {
+            "symbol": "Yu[3][3]"
+          }
+        ]
+      ]
+    }
+  }
+}

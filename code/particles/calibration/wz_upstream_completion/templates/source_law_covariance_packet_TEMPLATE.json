@@ -1,0 +1,44 @@
+{
+  "active_mode_consistent": false,
+  "deterministic": {
+    "covariance_zero_exact": false,
+    "global_root_unique": false,
+    "matching_deterministic": false,
+    "point_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "primitives_exact": false,
+    "selector_unique": false
+  },
+  "dimension": 1,
+  "evidence": {
+    "independent_checker": false,
+    "promotion_ready": false,
+    "target_blacklist_passed": false
+  },
+  "hashes": {
+    "law_packet": "0000000000000000000000000000000000000000000000000000000000000000",
+    "parent_bundle": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_dag": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "jacobians": {
+    "J_match": "0000000000000000000000000000000000000000000000000000000000000000",
+    "J_pole": "0000000000000000000000000000000000000000000000000000000000000000",
+    "J_source": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "mode": "deterministic_delta",
+  "nonstochastic_error_objects": [
+    "root_enclosure",
+    "matching_remainder",
+    "pole_truncation",
+    "scale_variation",
+    "rounding"
+  ],
+  "schema_version": "source_law_covariance_packet_v1",
+  "stochastic": {
+    "covariance_psd_checked": false,
+    "ensemble_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "target_independent": false,
+    "weights_nonnegative": false,
+    "weights_source_justified": false,
+    "weights_sum_one": false
+  }
+}

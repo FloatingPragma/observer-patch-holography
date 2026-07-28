@@ -1,0 +1,309 @@
+{
+  "$defs": {
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rational": {
+      "pattern": "^-?[0-9]+(/[1-9][0-9]*)?$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/eft_matching_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_lane": {
+      "enum": [
+        "OPH_CHART_ONLY",
+        "EXTERNAL_SM_EFT_VALIDATION",
+        "OPH_NATIVE_DIMENSIONLESS",
+        "OPH_NATIVE_PHYSICAL"
+      ]
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "interval_census_complete": {
+          "type": "boolean"
+        },
+        "jacobian_enclosed": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        },
+        "target_blacklist_passed": {
+          "type": "boolean"
+        },
+        "threshold_maps_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "interval_census_complete",
+        "threshold_maps_complete",
+        "jacobian_enclosed",
+        "target_blacklist_passed",
+        "independent_checker",
+        "promotion_ready"
+      ],
+      "type": "object"
+    },
+    "final": {
+      "additionalProperties": false,
+      "properties": {
+        "J_match_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "basis": {
+          "const": "SM_MSbar_FJ"
+        },
+        "remainder_bound": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "scale_over_Estar": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "vector_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "basis",
+        "scale_over_Estar",
+        "vector_hash",
+        "J_match_hash",
+        "remainder_bound"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "matching_packet": {
+          "$ref": "#/$defs/hash"
+        },
+        "source_dag": {
+          "$ref": "#/$defs/hash"
+        },
+        "source_root": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "source_root",
+        "matching_packet",
+        "source_dag"
+      ],
+      "type": "object"
+    },
+    "intervals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active_field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "beta": {
+            "additionalProperties": false,
+            "properties": {
+              "derived_from_census": {
+                "type": "boolean"
+              },
+              "gauge_coefficients": {
+                "additionalProperties": false,
+                "properties": {
+                  "g": {
+                    "$ref": "#/$defs/rational"
+                  },
+                  "gprime": {
+                    "$ref": "#/$defs/rational"
+                  },
+                  "gs": {
+                    "$ref": "#/$defs/rational"
+                  }
+                },
+                "required": [
+                  "gprime",
+                  "g",
+                  "gs"
+                ],
+                "type": "object"
+              },
+              "independently_checked": {
+                "type": "boolean"
+              },
+              "monomial_mask_hash": {
+                "$ref": "#/$defs/hash"
+              }
+            },
+            "required": [
+              "derived_from_census",
+              "independently_checked",
+              "gauge_coefficients",
+              "monomial_mask_hash"
+            ],
+            "type": "object"
+          },
+          "eft_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "hashes": {
+            "additionalProperties": false,
+            "properties": {
+              "action_ast": {
+                "$ref": "#/$defs/hash"
+              },
+              "field_census": {
+                "$ref": "#/$defs/hash"
+              },
+              "operator_basis": {
+                "$ref": "#/$defs/hash"
+              }
+            },
+            "required": [
+              "action_ast",
+              "field_census",
+              "operator_basis"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "operator_basis_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "ordering_checked": {
+            "type": "boolean"
+          },
+          "q_high_over_Estar": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "q_low_over_Estar": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "scheme": {
+            "additionalProperties": false,
+            "properties": {
+              "hypercharge_convention": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "tadpole_coordinate": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "hypercharge_convention",
+              "tadpole_coordinate"
+            ],
+            "type": "object"
+          },
+          "thresholds": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "checked": {
+                  "type": "boolean"
+                },
+                "finite_map_hash": {
+                  "$ref": "#/$defs/hash"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "jacobian_hash": {
+                  "$ref": "#/$defs/hash"
+                },
+                "remainder_bound": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "scale_hi_over_Estar": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "scale_lo_over_Estar": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "source_ancestry_hash": {
+                  "$ref": "#/$defs/hash"
+                }
+              },
+              "required": [
+                "id",
+                "scale_lo_over_Estar",
+                "scale_hi_over_Estar",
+                "source_ancestry_hash",
+                "finite_map_hash",
+                "jacobian_hash",
+                "remainder_bound",
+                "checked"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "q_low_over_Estar",
+          "q_high_over_Estar",
+          "ordering_checked",
+          "eft_id",
+          "active_field_ids",
+          "operator_basis_ids",
+          "scheme",
+          "beta",
+          "thresholds",
+          "hashes"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "eft_matching_packet_v1"
+    },
+    "source_root_unique": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "claim_lane",
+    "source_root_unique",
+    "intervals",
+    "final",
+    "hashes",
+    "evidence"
+  ],
+  "title": "EFT-MATCHING-1 packet",
+  "type": "object"
+}

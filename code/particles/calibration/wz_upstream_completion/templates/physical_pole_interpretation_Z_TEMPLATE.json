@@ -1,0 +1,51 @@
+{
+  "boson": "Z",
+  "contour": {
+    "argument_count": 1,
+    "boundary_nonzero": false,
+    "rouche_passed": false
+  },
+  "current_amplitude": {
+    "brst_invariant_physical_channel": "NOT_BUILT_NEUTRAL_CURRENT",
+    "nonzero_vertex_contractions": false,
+    "positive_residue_required": false,
+    "same_pole": false
+  },
+  "evidence": {
+    "independent_checker": false,
+    "promotion_ready": false
+  },
+  "hashes": {
+    "brst_receipt": "0000000000000000000000000000000000000000000000000000000000000000",
+    "sheet": "0000000000000000000000000000000000000000000000000000000000000000",
+    "term_mask": "0000000000000000000000000000000000000000000000000000000000000000",
+    "two_point_receipt": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "mass_width": {
+    "branch": "Re(sqrt)>0 and Im(sqrt)<=0",
+    "nonnegative_width": false,
+    "positive_mass": false
+  },
+  "null_vectors": {
+    "laurent_denominator_excludes_zero": false,
+    "left_residual_contains_zero": false,
+    "right_residual_contains_zero": false
+  },
+  "schema_version": "physical_pole_interpretation_receipt_v1",
+  "sheet": {
+    "cut_vector": [],
+    "feynman_i0": "+i0",
+    "path_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "simple_zero": {
+    "derivative_excludes_zero": false,
+    "matrix_dimension": 2,
+    "rank_at_pole": 1,
+    "left_kernel_dimension": 1,
+    "right_kernel_dimension": 1,
+    "s_pole": {
+      "im": 0.0,
+      "re": 0.0
+    }
+  }
+}

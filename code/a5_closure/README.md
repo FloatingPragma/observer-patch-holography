@@ -23,7 +23,7 @@ python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
 python3 bh_log_correction.py             # conditional horizon log-coefficient decision tree
 python3 independent_trichotomy_check.py  # independent re-derivation, trusts nothing above
-python3 survival_boundary_certificates.py # exact Q0 fixtures and physical-boundary controls
+python3 claim_boundary_certificates.py # exact Q0 fixtures and physical-boundary controls
 python3 test_audit.py                    # regression suite
 ```
 
@@ -97,7 +97,7 @@ transport consistency, the unique realized-compatible polarization, and
 screen-scope Spin attachment. Four-dimensional instanton normalization,
 theta periodicity, and laboratory flux measurement stay open named gates.
 
-`survival_boundary_certificates.py` records five exact-small controls at this
+`claim_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
 ten-Majorana rank-15 projector, the distinction between a composite response
 cubic and a fundamental 1PI cubic, complement-complete refinement with a

@@ -1,0 +1,234 @@
+{
+  "$defs": {
+    "complex": {
+      "additionalProperties": false,
+      "properties": {
+        "im": {
+          "type": "number"
+        },
+        "re": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "re",
+        "im"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/physical_pole_interpretation_receipt_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boson": {
+      "enum": [
+        "W",
+        "Z"
+      ]
+    },
+    "contour": {
+      "additionalProperties": false,
+      "properties": {
+        "argument_count": {
+          "const": 1
+        },
+        "boundary_nonzero": {
+          "type": "boolean"
+        },
+        "rouche_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "argument_count",
+        "rouche_passed",
+        "boundary_nonzero"
+      ],
+      "type": "object"
+    },
+    "current_amplitude": {
+      "additionalProperties": false,
+      "properties": {
+        "brst_invariant_physical_channel": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonzero_vertex_contractions": {
+          "type": "boolean"
+        },
+        "positive_residue_required": {
+          "const": false
+        },
+        "same_pole": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "brst_invariant_physical_channel",
+        "nonzero_vertex_contractions",
+        "same_pole",
+        "positive_residue_required"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "promotion_ready",
+        "independent_checker"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "brst_receipt": {
+          "$ref": "#/$defs/hash"
+        },
+        "sheet": {
+          "$ref": "#/$defs/hash"
+        },
+        "term_mask": {
+          "$ref": "#/$defs/hash"
+        },
+        "two_point_receipt": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "two_point_receipt",
+        "brst_receipt",
+        "sheet",
+        "term_mask"
+      ],
+      "type": "object"
+    },
+    "mass_width": {
+      "additionalProperties": false,
+      "properties": {
+        "branch": {
+          "const": "Re(sqrt)>0 and Im(sqrt)<=0"
+        },
+        "nonnegative_width": {
+          "type": "boolean"
+        },
+        "positive_mass": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "branch",
+        "positive_mass",
+        "nonnegative_width"
+      ],
+      "type": "object"
+    },
+    "null_vectors": {
+      "additionalProperties": false,
+      "properties": {
+        "laurent_denominator_excludes_zero": {
+          "type": "boolean"
+        },
+        "left_residual_contains_zero": {
+          "type": "boolean"
+        },
+        "right_residual_contains_zero": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "left_residual_contains_zero",
+        "right_residual_contains_zero",
+        "laurent_denominator_excludes_zero"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "physical_pole_interpretation_receipt_v1"
+    },
+    "sheet": {
+      "additionalProperties": false,
+      "properties": {
+        "cut_vector": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "feynman_i0": {
+          "const": "+i0"
+        },
+        "path_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "cut_vector",
+        "feynman_i0",
+        "path_hash"
+      ],
+      "type": "object"
+    },
+    "simple_zero": {
+      "additionalProperties": false,
+      "properties": {
+        "derivative_excludes_zero": {
+          "type": "boolean"
+        },
+        "left_kernel_dimension": {
+          "const": 1
+        },
+        "matrix_dimension": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "rank_at_pole": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "right_kernel_dimension": {
+          "const": 1
+        },
+        "s_pole": {
+          "$ref": "#/$defs/complex"
+        }
+      },
+      "required": [
+        "s_pole",
+        "derivative_excludes_zero",
+        "matrix_dimension",
+        "rank_at_pole",
+        "left_kernel_dimension",
+        "right_kernel_dimension"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "boson",
+    "sheet",
+    "contour",
+    "simple_zero",
+    "null_vectors",
+    "current_amplitude",
+    "mass_width",
+    "hashes",
+    "evidence"
+  ],
+  "title": "PHYSICAL-CURRENT-POLE-1 receipt",
+  "type": "object"
+}

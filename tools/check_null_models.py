@@ -152,7 +152,7 @@ INPUT_PATHS = (
     Path("code/a5_closure/receipts/echosahedral_federation_reference.receipt.json"),
     Path("code/a5_closure/receipts/port_current_inner_reference.receipt.json"),
     Path("code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"),
-    Path("code/a5_closure/survival_boundary_certificates.py"),
+    Path("code/a5_closure/claim_boundary_certificates.py"),
 )
 
 
@@ -883,7 +883,7 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
     matter_path = (
         root / "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
     )
-    survival_path = root / "code/a5_closure/survival_boundary_certificates.py"
+    survival_path = root / "code/a5_closure/claim_boundary_certificates.py"
     screen = _load_json(screen_path)
     selector = _load_json(selector_path)
     current = _load_json(current_path)

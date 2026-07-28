@@ -1,0 +1,46 @@
+{
+  "schema_version": "renormalization_packet_v1",
+  "dimension": "d=4-2epsilon",
+  "subtraction": "MSbar",
+  "gamma5": {
+    "prescription": "BMHV",
+    "finite_restoration_declared": false
+  },
+  "independent_parameters": [
+    "gs",
+    "g",
+    "gprime",
+    "m2",
+    "lambda",
+    "Yu",
+    "Yd",
+    "Ye"
+  ],
+  "vF_relation": "delta_vF_par/vF = 1/2(delta_m2/m2-delta_lambda/lambda)",
+  "counterterm_generation": {
+    "from_bare_substitution": false,
+    "external_brst_sources": false,
+    "handwritten_vertex_list": false
+  },
+  "uv_poles": {
+    "exact_cancellation": false,
+    "residuals": [
+      "NOT_COMPUTED"
+    ]
+  },
+  "st_restoration": {
+    "linearized_identity_passed": false,
+    "anomaly_parent_passed": true,
+    "finite_counterterms": []
+  },
+  "hashes": {
+    "action_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+    "counterterm_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+    "scheme": "0000000000000000000000000000000000000000000000000000000000000000",
+    "term_mask": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "evidence": {
+    "independent_checker": false,
+    "promotion_ready": false
+  }
+}

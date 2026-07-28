@@ -1,0 +1,234 @@
+{
+  "$defs": {
+    "complex": {
+      "additionalProperties": false,
+      "properties": {
+        "im": {
+          "type": "number"
+        },
+        "re": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "re",
+        "im"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "matrix3": {
+      "items": {
+        "$ref": "#/$defs/row3"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "row3": {
+      "items": {
+        "$ref": "#/$defs/complex"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    }
+  },
+  "$id": "https://oph.local/schemas/full_yukawa_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_fermions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 12,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "approximation": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "full",
+            "massless_light_with_certified_remainder"
+          ]
+        },
+        "remainder_bound_supplied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "mode",
+        "remainder_bound_supplied"
+      ],
+      "type": "object"
+    },
+    "basis": {
+      "type": "string"
+    },
+    "ckm": {
+      "$ref": "#/$defs/matrix3"
+    },
+    "diagonalizations": {
+      "additionalProperties": false,
+      "properties": {
+        "UdL": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "UdR": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "UeL": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "UeR": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "UuL": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "UuR": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "singular_values": {
+          "additionalProperties": false,
+          "properties": {
+            "d": {
+              "items": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "e": {
+              "items": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "u": {
+              "items": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "u",
+            "d",
+            "e"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "UuL",
+        "UuR",
+        "UdL",
+        "UdR",
+        "UeL",
+        "UeR",
+        "singular_values"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_open_channels": {
+          "type": "boolean"
+        },
+        "svd_checked": {
+          "type": "boolean"
+        },
+        "target_blacklist_passed": {
+          "type": "boolean"
+        },
+        "unitarity_checked": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_blacklist_passed",
+        "unitarity_checked",
+        "svd_checked",
+        "complete_open_channels"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "action_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "source_dag": {
+          "$ref": "#/$defs/hash"
+        },
+        "yukawa_packet": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "action_ast",
+        "yukawa_packet",
+        "source_dag"
+      ],
+      "type": "object"
+    },
+    "matrices": {
+      "additionalProperties": false,
+      "properties": {
+        "Yd": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "Ye": {
+          "$ref": "#/$defs/matrix3"
+        },
+        "Yu": {
+          "$ref": "#/$defs/matrix3"
+        }
+      },
+      "required": [
+        "Yu",
+        "Yd",
+        "Ye"
+      ],
+      "type": "object"
+    },
+    "scale_over_Estar": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "schema_version": {
+      "const": "full_yukawa_packet_v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scale_over_Estar",
+    "basis",
+    "matrices",
+    "diagonalizations",
+    "ckm",
+    "active_fermions",
+    "approximation",
+    "hashes",
+    "evidence"
+  ],
+  "title": "FULL-YUKAWA-1 packet",
+  "type": "object"
+}

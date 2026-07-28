@@ -253,6 +253,7 @@ it can enter a claim. A short-expression near hit is not a derivation.
 |---|---|
 | `code/P_derivation/interval_contraction_certificate.py` | `4177208147d18f0c2d36b027ea5acb3a6db15335fa088d610c98163b6bfd7efb` |
 | `code/a5_closure/a5_screen_sm_closure.json` | `33c8edf0e3c12899dfefdf1000efeb489c4ef398d6ffa576b5cbb998d90ed1ec` |
+| `code/a5_closure/claim_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/a5_closure/echosahedral_selector_certificate.py` | `e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7` |
 | `code/a5_closure/manifests/echosahedral_federation_reference.json` | `12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14` |
 | `code/a5_closure/manifests/port_current_response_reference.json` | `b4385017e209fa3b9765e89fdf987089b555d0335572e95e09f6e38f826bc71a` |
@@ -260,7 +261,6 @@ it can enter a claim. A short-expression near hit is not a derivation.
 | `code/a5_closure/receipts/echosahedral_federation_reference.receipt.json` | `bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5` |
 | `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07` |
 | `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81` |
-| `code/a5_closure/survival_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/particles/data/flag_2024_light_quark_ratio_fixture.json` | `82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78` |
 | `code/particles/flavor/audit_quark_rscc_completion_candidate.py` | `8cae451efe3d23b5b6bceda7c756d13d004e1f9ca0a1772ade7d1502b27fbccc` |
 | `code/particles/flavor/derive_clebsch_register_pairing_selection.py` | `0947e1033f405ac564cae2cc4496ac19ce722b9473ffcc9537ee6dcead338a76` |

@@ -1,0 +1,280 @@
+{
+  "$defs": {
+    "complex": {
+      "additionalProperties": false,
+      "properties": {
+        "im": {
+          "type": "number"
+        },
+        "re": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "re",
+        "im"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/gauge_brst_raw_receipt_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocks": {
+      "items": {
+        "enum": [
+          "WW_T",
+          "WW_L",
+          "Wphi",
+          "phiphi",
+          "AA_T",
+          "AZ_T",
+          "ZA_T",
+          "ZZ_T",
+          "neutral_L_Goldstone"
+        ]
+      },
+      "minItems": 9,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "brst": {
+      "additionalProperties": false,
+      "properties": {
+        "extended_doublets": {
+          "type": "boolean"
+        },
+        "gf_ghost_from_sPsi": {
+          "type": "boolean"
+        },
+        "nilpotence_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "nilpotence_passed",
+        "gf_ghost_from_sPsi",
+        "extended_doublets"
+      ],
+      "type": "object"
+    },
+    "diagram_universe": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "diagram_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "enumerator_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "records_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "enumerator_hash",
+        "complete",
+        "diagram_count",
+        "records_hash"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "mutation_suite_passed": {
+          "type": "boolean"
+        },
+        "order": {
+          "const": "strict_one_loop"
+        },
+        "raw_diagrams_present": {
+          "type": "boolean"
+        },
+        "small_checker_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "raw_diagrams_present",
+        "small_checker_passed",
+        "mutation_suite_passed",
+        "order"
+      ],
+      "type": "object"
+    },
+    "gauge_family": {
+      "const": "QCD_Rxi_plus_EW_Rxi_plus_5_parameter_nonlinear"
+    },
+    "gauge_parameters": {
+      "items": {
+        "enum": [
+          "xiA",
+          "xiZ",
+          "xiW",
+          "xiS",
+          "alpha_tilde",
+          "beta_tilde",
+          "delta_tilde",
+          "kappa_tilde",
+          "epsilon_tilde"
+        ]
+      },
+      "maxItems": 9,
+      "minItems": 9,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "action_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "field_census": {
+          "$ref": "#/$defs/hash"
+        },
+        "fj_convention": {
+          "$ref": "#/$defs/hash"
+        },
+        "scheme": {
+          "$ref": "#/$defs/hash"
+        },
+        "sheet": {
+          "$ref": "#/$defs/hash"
+        },
+        "source_root": {
+          "$ref": "#/$defs/hash"
+        },
+        "term_mask": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "action_ast",
+        "field_census",
+        "scheme",
+        "fj_convention",
+        "term_mask",
+        "sheet",
+        "source_root"
+      ],
+      "type": "object"
+    },
+    "identities": {
+      "additionalProperties": false,
+      "properties": {
+        "fj_equivalence": {
+          "type": "boolean"
+        },
+        "gauge_grid_strict_coefficients": {
+          "type": "boolean"
+        },
+        "nielsen_charged": {
+          "type": "boolean"
+        },
+        "nielsen_determinant": {
+          "type": "boolean"
+        },
+        "nielsen_matrix": {
+          "type": "boolean"
+        },
+        "st": {
+          "type": "boolean"
+        },
+        "uv": {
+          "type": "boolean"
+        },
+        "ward": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "uv",
+        "st",
+        "ward",
+        "nielsen_charged",
+        "nielsen_matrix",
+        "nielsen_determinant",
+        "fj_equivalence",
+        "gauge_grid_strict_coefficients"
+      ],
+      "type": "object"
+    },
+    "independence": {
+      "additionalProperties": false,
+      "properties": {
+        "engine_A": {
+          "type": "string"
+        },
+        "engine_B": {
+          "type": "string"
+        },
+        "shared_generated_expressions": {
+          "type": "boolean"
+        },
+        "shared_integral_backend": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "engine_A",
+        "engine_B",
+        "shared_generated_expressions",
+        "shared_integral_backend"
+      ],
+      "type": "object"
+    },
+    "precision": {
+      "additionalProperties": false,
+      "properties": {
+        "bits": {
+          "const": [
+            128,
+            192,
+            256
+          ]
+        },
+        "nested_balls": {
+          "type": "boolean"
+        },
+        "zero_containment": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "bits",
+        "nested_balls",
+        "zero_containment"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "gauge_brst_raw_receipt_v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "gauge_family",
+    "gauge_parameters",
+    "brst",
+    "diagram_universe",
+    "blocks",
+    "identities",
+    "precision",
+    "hashes",
+    "independence",
+    "evidence"
+  ],
+  "title": "GENERAL-GAUGE-BRST-1 raw receipt",
+  "type": "object"
+}

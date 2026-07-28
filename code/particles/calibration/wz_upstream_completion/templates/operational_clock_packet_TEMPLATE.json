@@ -1,0 +1,41 @@
+{
+  "clock_id": "CS133_HYPERFINE_TEMPLATE",
+  "dimensionless_gap_over_Estar": {
+    "hi": 0.0,
+    "lo": 0.0,
+    "positive_gap_certified": false
+  },
+  "evidence": {
+    "independent_checker": false,
+    "promotion_ready": false,
+    "same_source_branch": false
+  },
+  "hashes": {
+    "clock_hamiltonian": "0000000000000000000000000000000000000000000000000000000000000000",
+    "clock_packet": "0000000000000000000000000000000000000000000000000000000000000000",
+    "transition_selector": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "naturality": {
+    "calibration_residual_enclosed": false,
+    "partition_invariant": false,
+    "refinement_checked": false,
+    "schedule_invariant": false,
+    "worldline_identity": false
+  },
+  "schema_version": "operational_clock_packet_v1",
+  "source_ancestry": {
+    "dag_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "target_blacklist_passed": false
+  },
+  "source_parents": [
+    "electromagnetic_endpoint",
+    "absolute_electron_ratio",
+    "Cs133_nuclear_packet",
+    "atomic_many_body_gap"
+  ],
+  "unit_reference": {
+    "frequency_hz": 9192631770.0,
+    "reference_id": "SI_Cs133_9192631770_Hz",
+    "status": "exact_SI_definition"
+  }
+}

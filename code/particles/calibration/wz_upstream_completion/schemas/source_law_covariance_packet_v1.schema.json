@@ -1,0 +1,174 @@
+{
+  "$defs": {
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/source_law_covariance_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_mode_consistent": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_zero_exact": {
+          "type": "boolean"
+        },
+        "global_root_unique": {
+          "type": "boolean"
+        },
+        "matching_deterministic": {
+          "type": "boolean"
+        },
+        "point_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "primitives_exact": {
+          "type": "boolean"
+        },
+        "selector_unique": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "point_hash",
+        "global_root_unique",
+        "selector_unique",
+        "primitives_exact",
+        "matching_deterministic",
+        "covariance_zero_exact"
+      ],
+      "type": "object"
+    },
+    "dimension": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        },
+        "target_blacklist_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_blacklist_passed",
+        "independent_checker",
+        "promotion_ready"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "law_packet": {
+          "$ref": "#/$defs/hash"
+        },
+        "parent_bundle": {
+          "$ref": "#/$defs/hash"
+        },
+        "source_dag": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "source_dag",
+        "law_packet",
+        "parent_bundle"
+      ],
+      "type": "object"
+    },
+    "jacobians": {
+      "additionalProperties": false,
+      "properties": {
+        "J_match": {
+          "$ref": "#/$defs/hash"
+        },
+        "J_pole": {
+          "$ref": "#/$defs/hash"
+        },
+        "J_source": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "J_source",
+        "J_match",
+        "J_pole"
+      ],
+      "type": "object"
+    },
+    "mode": {
+      "enum": [
+        "deterministic_delta",
+        "weighted_ensemble"
+      ]
+    },
+    "nonstochastic_error_objects": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "source_law_covariance_packet_v1"
+    },
+    "stochastic": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_psd_checked": {
+          "type": "boolean"
+        },
+        "ensemble_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "target_independent": {
+          "type": "boolean"
+        },
+        "weights_nonnegative": {
+          "type": "boolean"
+        },
+        "weights_source_justified": {
+          "type": "boolean"
+        },
+        "weights_sum_one": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ensemble_hash",
+        "weights_nonnegative",
+        "weights_sum_one",
+        "weights_source_justified",
+        "target_independent",
+        "covariance_psd_checked"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "mode",
+    "dimension",
+    "deterministic",
+    "stochastic",
+    "active_mode_consistent",
+    "jacobians",
+    "nonstochastic_error_objects",
+    "hashes",
+    "evidence"
+  ],
+  "title": "SOURCE-LAW/COVARIANCE-1 packet",
+  "type": "object"
+}

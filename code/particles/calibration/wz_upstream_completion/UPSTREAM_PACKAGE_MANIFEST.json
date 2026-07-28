@@ -1,0 +1,196 @@
+{
+  "schema_version": "physical_wz_upstream_completion_manifest_v1",
+  "package": "physical_wz_upstream_mathematical_completion_2026-07-20",
+  "date": "2026-07-20",
+  "scientific_status": "THEOREM_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
+  "promotion_allowed": false,
+  "file_count_excluding_manifest": 35,
+  "total_bytes_excluding_manifest": 182686,
+  "validation": {
+    "json_schema_count": 10,
+    "exact_symbolic_checks": 7,
+    "adversarial_tests": 34,
+    "frozen_nonlinear_gauge_points": 45
+  },
+  "canonical_sidecars": {
+    "nonlinear_gauge_grid_sha256": "7b356dbfe16c50bc17719c5e27744c79442bc5cbbb447df09ad913f09821720e",
+    "receipt_dependency_dag_sha256": "a18264070638eb3606a861ee0efaaf2a4c71ba10dab8d38d8dd33b921c557abc"
+  },
+  "files": [
+    {
+      "path": "AGENT_WORK_ORDER_V4.md",
+      "bytes": 6570,
+      "sha256": "123cbf3410b46d902a93b6d51bac6f322648923c6e338ca579f2cd9c3eb78088"
+    },
+    {
+      "path": "OPH_SM_EFT_WZ_COMPLETION_THEOREMS.md",
+      "bytes": 52204,
+      "sha256": "1b02c2ebd7a694a0657d980370bb46664dbeb7df111e33516343975661cf5bd7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1660,
+      "sha256": "740899f020db1d15df5e8437e3408d9c6e334f9a4e01e0bb1a4dfc6809865259"
+    },
+    {
+      "path": "candidate_axioms/OPH_PLUS_SM_EFT_FJ_V1.md",
+      "bytes": 2564,
+      "sha256": "f14da49fffb9b8063163a18f7658c3cae9cde5e228246b281498dfcc3b6fa12a"
+    },
+    {
+      "path": "checkers/check_completion_bundle.py",
+      "bytes": 11277,
+      "sha256": "f460df45ba915b4e155826cb07a61bf699c1091375bbfc8dd2c6bf581a9f68a7"
+    },
+    {
+      "path": "data/nonlinear_gauge_grid_v1.json",
+      "bytes": 11784,
+      "sha256": "ce30e71fe82c343eb0fc541fbadd9419e3f20abf0a81e752b4c795694fc1b0b0"
+    },
+    {
+      "path": "data/receipt_dependency_dag_v4.json",
+      "bytes": 3401,
+      "sha256": "f84a8e94b1abed8c7efff7d7a1da59e2344f175196bc7982446cf05238530fd7"
+    },
+    {
+      "path": "docs/OPH_SOURCE_PARENT_CORRECTIONS.md",
+      "bytes": 3450,
+      "sha256": "255d859aaa0faa0dd9f44c29895e9aea90ae3b60f0c052515f4c5a5302a0d9f5"
+    },
+    {
+      "path": "docs/OPTIONAL_D11_DOUBLE_CRITICALITY_CANDIDATE.md",
+      "bytes": 932,
+      "sha256": "3c6358e53934de392b82f2db910e8cb3fb606c94e0ff09511aa1d1d49f379224"
+    },
+    {
+      "path": "docs/PRIMARY_REFERENCES.md",
+      "bytes": 940,
+      "sha256": "c0afdbda6bd7e0063e75ac2a0d31f5f1af24f9f8d9ce95c55d336d46e3286e5b"
+    },
+    {
+      "path": "outputs/aggregate_status.json",
+      "bytes": 1449,
+      "sha256": "f64c4984aba938d56692ed81da5fdb9cd9a300d9959175f61d274e40b0c76c7b"
+    },
+    {
+      "path": "outputs/scientific_status.json",
+      "bytes": 877,
+      "sha256": "087c3cde8b7ae6c2788ce19145eba7a94578f9406242597aa814043eb67078f9"
+    },
+    {
+      "path": "outputs/validation.log",
+      "bytes": 2282,
+      "sha256": "3c404c10270499b1c89f92c3ca2d85b71d138f48ea84d3f67685e09ea1bc4568"
+    },
+    {
+      "path": "proofs/symbolic_completion_proofs.py",
+      "bytes": 3392,
+      "sha256": "202f484c77c28dc6028c05465b979f0bd67f2ea9b72b8e047e5dad3b1061f5c6"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 831,
+      "sha256": "1440d117763baeb8d0c171923fd3ede52b43b7e45d68f46df613d61e7dc9371d"
+    },
+    {
+      "path": "schemas/eft_matching_packet_v1.schema.json",
+      "bytes": 7775,
+      "sha256": "08e1e28fd29efb3597850eb1c487325d45de9986e23e107f888e13d98284af27"
+    },
+    {
+      "path": "schemas/fj_equivalence_receipt_v1.schema.json",
+      "bytes": 4995,
+      "sha256": "d058c52972455fa2972793ecb66193ef425b0db7696959faaa932d901c790ee7"
+    },
+    {
+      "path": "schemas/full_yukawa_packet_v1.schema.json",
+      "bytes": 4838,
+      "sha256": "0416377f755d4fa209e8bb48018025bf89c7a7ca769c4b8f59e31cb297368e44"
+    },
+    {
+      "path": "schemas/gauge_brst_raw_receipt_v1.schema.json",
+      "bytes": 5835,
+      "sha256": "c00fb49436e5c2aeae014f4744a48cd1df42cd912aa59198946bfc58c19f757a"
+    },
+    {
+      "path": "schemas/operational_clock_packet_v1.schema.json",
+      "bytes": 3767,
+      "sha256": "1f09d66028fdcc607c68fa4b512d1ea53c3a49a6aa72a3c79244231ed6e07f8c"
+    },
+    {
+      "path": "schemas/physical_pole_interpretation_receipt_v1.schema.json",
+      "bytes": 4636,
+      "sha256": "68fd93f6bf96ff26bc2a4993472fe1abcd3949ff0e72236e745219b926a3be7e"
+    },
+    {
+      "path": "schemas/renormalization_packet_v1.schema.json",
+      "bytes": 3986,
+      "sha256": "a04f77435b7a4f3496cfb999cf420809cc78f0218821df98c393cac2e5d05eac"
+    },
+    {
+      "path": "schemas/sm_eft_action_packet_v1.schema.json",
+      "bytes": 5715,
+      "sha256": "ee98cc77ff5efcddd454b834a31d9d6e2063d9ab40f2163d90cb16a7aa602c86"
+    },
+    {
+      "path": "schemas/source_law_covariance_packet_v1.schema.json",
+      "bytes": 3819,
+      "sha256": "fa2ae1e2e0765ede59261805196c7b8b5f064553c09e36125a6f21d97ab35bb8"
+    },
+    {
+      "path": "templates/eft_matching_packet_TEMPLATE.json",
+      "bytes": 2038,
+      "sha256": "27a511161b6cbd88b1b484690cd13aec016c6bd44ef94c983ebf4f6e0f0c3a96"
+    },
+    {
+      "path": "templates/fj_equivalence_receipt_TEMPLATE.json",
+      "bytes": 2028,
+      "sha256": "6fd6ef81b7ba6e8a51ba900caece4aea42d570fac316a54c0fdd245f43a44320"
+    },
+    {
+      "path": "templates/full_yukawa_packet_TEMPLATE.json",
+      "bytes": 7168,
+      "sha256": "9fa36d9a18518406e91344ac460d98c8b7dc95234d40836da1c976aa694def88"
+    },
+    {
+      "path": "templates/gauge_brst_raw_receipt_TEMPLATE.json",
+      "bytes": 2082,
+      "sha256": "f9676bbd832fb23699ea1e4913ed235ea6180553953d64ba6cb5172b44c1667c"
+    },
+    {
+      "path": "templates/operational_clock_packet_TEMPLATE.json",
+      "bytes": 1250,
+      "sha256": "c1470e91fe3ee45655593810324a77ad0f0cd76918298c8d7d1ef824e36cd907"
+    },
+    {
+      "path": "templates/physical_pole_interpretation_TEMPLATE.json",
+      "bytes": 1387,
+      "sha256": "08c11294a038988af441b61d0f5e413870822ccae64194f7d8b1f62abf6b3a78"
+    },
+    {
+      "path": "templates/physical_pole_interpretation_Z_TEMPLATE.json",
+      "bytes": 1387,
+      "sha256": "fb8943509431fe66488efd391cae24dcf10b89d5f07cb243b8c6d48906b717ac"
+    },
+    {
+      "path": "templates/renormalization_packet_TEMPLATE.json",
+      "bytes": 1217,
+      "sha256": "b30aa93caf22751e9705bda5a020d33d96787735ec6e4a513c8826a3ff13d9d7"
+    },
+    {
+      "path": "templates/sm_eft_action_packet_TEMPLATE.json",
+      "bytes": 4898,
+      "sha256": "387a5fc4a5070f747b6383517acb976bfb14ee748060b25d6728d3fc06864da9"
+    },
+    {
+      "path": "templates/source_law_covariance_packet_TEMPLATE.json",
+      "bytes": 1526,
+      "sha256": "34bc3fbb7527806547f3dd5b4168a65e37e84222ba1f04e4b7eb3effdab7c11d"
+    },
+    {
+      "path": "tests/test_completion.py",
+      "bytes": 8726,
+      "sha256": "e6f7e1ffe6fbb7f05781802917e5df672e5a4958e4e03961883008a0f1b4a756"
+    }
+  ]
+}

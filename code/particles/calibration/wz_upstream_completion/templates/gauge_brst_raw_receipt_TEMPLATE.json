@@ -1,0 +1,77 @@
+{
+  "schema_version": "gauge_brst_raw_receipt_v1",
+  "gauge_family": "QCD_Rxi_plus_EW_Rxi_plus_5_parameter_nonlinear",
+  "gauge_parameters": [
+    "xiA",
+    "xiZ",
+    "xiW",
+    "xiS",
+    "alpha_tilde",
+    "beta_tilde",
+    "delta_tilde",
+    "kappa_tilde",
+    "epsilon_tilde"
+  ],
+  "brst": {
+    "nilpotence_passed": false,
+    "gf_ghost_from_sPsi": false,
+    "extended_doublets": false
+  },
+  "diagram_universe": {
+    "enumerator_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "complete": false,
+    "diagram_count": 1,
+    "records_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "blocks": [
+    "WW_T",
+    "WW_L",
+    "Wphi",
+    "phiphi",
+    "AA_T",
+    "AZ_T",
+    "ZA_T",
+    "ZZ_T",
+    "neutral_L_Goldstone"
+  ],
+  "identities": {
+    "uv": false,
+    "st": false,
+    "ward": false,
+    "nielsen_charged": false,
+    "nielsen_matrix": false,
+    "nielsen_determinant": false,
+    "fj_equivalence": false,
+    "gauge_grid_strict_coefficients": false
+  },
+  "precision": {
+    "bits": [
+      128,
+      192,
+      256
+    ],
+    "nested_balls": false,
+    "zero_containment": false
+  },
+  "hashes": {
+    "action_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+    "field_census": "0000000000000000000000000000000000000000000000000000000000000000",
+    "scheme": "0000000000000000000000000000000000000000000000000000000000000000",
+    "fj_convention": "0000000000000000000000000000000000000000000000000000000000000000",
+    "term_mask": "0000000000000000000000000000000000000000000000000000000000000000",
+    "sheet": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_root": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "independence": {
+    "engine_A": "NOT_BUILT",
+    "engine_B": "NOT_BUILT",
+    "shared_generated_expressions": false,
+    "shared_integral_backend": false
+  },
+  "evidence": {
+    "raw_diagrams_present": false,
+    "small_checker_passed": false,
+    "mutation_suite_passed": false,
+    "order": "strict_one_loop"
+  }
+}

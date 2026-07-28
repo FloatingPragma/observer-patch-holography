@@ -1,0 +1,189 @@
+{
+  "$defs": {
+    "complex": {
+      "additionalProperties": false,
+      "properties": {
+        "im": {
+          "type": "number"
+        },
+        "re": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "re",
+        "im"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/renormalization_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterterm_generation": {
+      "additionalProperties": false,
+      "properties": {
+        "external_brst_sources": {
+          "type": "boolean"
+        },
+        "from_bare_substitution": {
+          "type": "boolean"
+        },
+        "handwritten_vertex_list": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "from_bare_substitution",
+        "external_brst_sources",
+        "handwritten_vertex_list"
+      ],
+      "type": "object"
+    },
+    "dimension": {
+      "const": "d=4-2epsilon"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "independent_checker",
+        "promotion_ready"
+      ],
+      "type": "object"
+    },
+    "gamma5": {
+      "additionalProperties": false,
+      "properties": {
+        "finite_restoration_declared": {
+          "type": "boolean"
+        },
+        "prescription": {
+          "enum": [
+            "BMHV",
+            "other_explicit"
+          ]
+        }
+      },
+      "required": [
+        "prescription",
+        "finite_restoration_declared"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "action_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "counterterm_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "scheme": {
+          "$ref": "#/$defs/hash"
+        },
+        "term_mask": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "action_ast",
+        "counterterm_ast",
+        "scheme",
+        "term_mask"
+      ],
+      "type": "object"
+    },
+    "independent_parameters": {
+      "const": [
+        "gs",
+        "g",
+        "gprime",
+        "m2",
+        "lambda",
+        "Yu",
+        "Yd",
+        "Ye"
+      ]
+    },
+    "schema_version": {
+      "const": "renormalization_packet_v1"
+    },
+    "st_restoration": {
+      "additionalProperties": false,
+      "properties": {
+        "anomaly_parent_passed": {
+          "type": "boolean"
+        },
+        "finite_counterterms": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "linearized_identity_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "linearized_identity_passed",
+        "anomaly_parent_passed",
+        "finite_counterterms"
+      ],
+      "type": "object"
+    },
+    "subtraction": {
+      "const": "MSbar"
+    },
+    "uv_poles": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_cancellation": {
+          "type": "boolean"
+        },
+        "residuals": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "exact_cancellation",
+        "residuals"
+      ],
+      "type": "object"
+    },
+    "vF_relation": {
+      "const": "delta_vF_par/vF = 1/2(delta_m2/m2-delta_lambda/lambda)"
+    }
+  },
+  "required": [
+    "schema_version",
+    "dimension",
+    "subtraction",
+    "gamma5",
+    "independent_parameters",
+    "vF_relation",
+    "counterterm_generation",
+    "uv_poles",
+    "st_restoration",
+    "hashes",
+    "evidence"
+  ],
+  "title": "RENORMALIZATION-ST-1 packet",
+  "type": "object"
+}

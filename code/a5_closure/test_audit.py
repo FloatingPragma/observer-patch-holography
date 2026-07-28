@@ -165,8 +165,8 @@ class AuditTests(unittest.TestCase):
         runtime = json.loads((ROOT / "exterior_sm_completion.json").read_text())
         self.assertEqual(runtime, p)
 
-    def test_survival_boundary_certificates(self):
-        m = load("survival_boundary_certificates")
+    def test_claim_boundary_certificates(self):
+        m = load("claim_boundary_certificates")
         no_go = m.source_completion_nonuniqueness_certificate()
         self.assertEqual(no_go["status"], "EXACT_FINITE_NONIDENTIFIABILITY_THEOREM")
         self.assertEqual(len(no_go["inequivalent_current_completions"]), 2)

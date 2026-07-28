@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "complex_ball_equality": false,
+    "imag_parts_checked": false,
+    "precision_nesting": false,
+    "real_parts_checked": false,
+    "tadpole_orientation_checked": false
+  },
+  "coefficients": {
+    "W": {
+      "converted": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      },
+      "direct": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      },
+      "residual": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      }
+    },
+    "Z": {
+      "converted": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      },
+      "direct": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      },
+      "residual": {
+        "mid_im": 0.0,
+        "mid_re": 0.0,
+        "radius": 1.0
+      }
+    }
+  },
+  "engines": {
+    "converted_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "converted_id": "NOT_BUILT",
+    "direct_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "direct_id": "NOT_BUILT",
+    "shared_generated_expressions": false,
+    "shared_integral_backend": false
+  },
+  "evidence": {
+    "independent_checker": false,
+    "mutation_suite_passed": false,
+    "promotion_ready": false,
+    "raw_per_diagram_records": false
+  },
+  "hashes": {
+    "action_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+    "fj_map": "0000000000000000000000000000000000000000000000000000000000000000",
+    "scheme": "0000000000000000000000000000000000000000000000000000000000000000",
+    "term_mask": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "map": {
+    "complete_parameter_map": false,
+    "counterterm_shifts": false,
+    "field_shifts": false,
+    "mass_argument_shifts": false,
+    "reexpanded_before_truncation": false,
+    "tree_derivatives": false
+  },
+  "map_orientation": "p_L=p_F+h*Delta_p",
+  "order": "strict_one_loop",
+  "schema_version": "fj_equivalence_receipt_v1"
+}

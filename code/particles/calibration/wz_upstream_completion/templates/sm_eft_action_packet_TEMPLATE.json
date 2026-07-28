@@ -1,0 +1,228 @@
+{
+  "schema_version": "sm_eft_action_packet_v1",
+  "claim_lane": "OPH_CHART_ONLY",
+  "geometry": {
+    "origin": "imported_minkowski",
+    "dimension": 4,
+    "signature": "mostly_minus",
+    "spin_structure": true
+  },
+  "gauge_group": {
+    "global_form": "(SU3xSU2xU1)/Z6",
+    "hypercharge_convention": "Q=T3+Y; gprime=gY"
+  },
+  "conventions": {
+    "fourier": "exp(-ipx)",
+    "feynman_i0": "+i0",
+    "potential": "V=m2 HdagH + lambda (HdagH)^2"
+  },
+  "fields": [
+    {
+      "id": "G",
+      "spin": "1",
+      "statistics": "boson",
+      "representation": "adjoint SU3",
+      "multiplicity": 8,
+      "active": true
+    },
+    {
+      "id": "W",
+      "spin": "1",
+      "statistics": "boson",
+      "representation": "adjoint SU2",
+      "multiplicity": 3,
+      "active": true
+    },
+    {
+      "id": "B",
+      "spin": "1",
+      "statistics": "boson",
+      "representation": "U1 connection",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "H",
+      "spin": "0",
+      "statistics": "boson",
+      "representation": "(1,2)_{1/2}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "Q_L_1",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,2)_{1/6}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "u_R_1",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{2/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "d_R_1",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{-1/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "L_L_1",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,2)_{-1/2}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "e_R_1",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,1)_{-1}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "Q_L_2",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,2)_{1/6}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "u_R_2",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{2/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "d_R_2",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{-1/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "L_L_2",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,2)_{-1/2}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "e_R_2",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,1)_{-1}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "Q_L_3",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,2)_{1/6}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "u_R_3",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{2/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "d_R_3",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(3,1)_{-1/3}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "L_L_3",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,2)_{-1/2}",
+      "multiplicity": 1,
+      "active": true
+    },
+    {
+      "id": "e_R_3",
+      "spin": "1/2",
+      "statistics": "fermion",
+      "representation": "(1,1)_{-1}",
+      "multiplicity": 1,
+      "active": true
+    }
+  ],
+  "operators": {
+    "retained": [
+      "G2",
+      "W2",
+      "B2",
+      "Hkin",
+      "V",
+      "fermion_kin",
+      "Yu",
+      "Yd",
+      "Ye"
+    ],
+    "excluded_with_reason": [
+      {
+        "operator": "Weinberg_d5",
+        "reason": "template only; source selection missing"
+      },
+      {
+        "operator": "extra_scalars",
+        "reason": "template only; source selection missing"
+      }
+    ]
+  },
+  "parameter_basis": [
+    "Q",
+    "gs",
+    "g",
+    "gprime",
+    "m2",
+    "lambda",
+    "Yu",
+    "Yd",
+    "Ye"
+  ],
+  "source_ancestry": {
+    "dag_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "target_blacklist_passed": false,
+    "forbidden_ancestors": [
+      "W",
+      "Z",
+      "Higgs",
+      "top",
+      "GF"
+    ]
+  },
+  "hashes": {
+    "action_ast": "0000000000000000000000000000000000000000000000000000000000000000",
+    "field_census": "0000000000000000000000000000000000000000000000000000000000000000",
+    "operator_mask": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "evidence": {
+    "source_action_selected": false,
+    "full_yukawa_parent": false,
+    "eft_matching_parent": false
+  }
+}

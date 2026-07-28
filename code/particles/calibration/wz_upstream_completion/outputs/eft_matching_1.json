@@ -1,0 +1,161 @@
+{
+  "action_subject_digest": "2822c158805db038dfe2682508316f100968ce152e47b23062d6e11029607b5e",
+  "claim_boundary": "The interval EFT/RG packet of the validation lane: one pure Standard Model interval with census-derived one-loop gauge beta coefficients, frozen schemes, imported finite maps recorded as imports, a symbolic interval Jacobian, a declared truncation remainder, and one canonical typed output vector. No numeric coupling value exists anywhere in this packet, and nothing promotes.",
+  "controls": {
+    "gut_b1": {
+      "code": "GUT_B1",
+      "expected_failure": true,
+      "failed": true
+    },
+    "missing_generation": {
+      "code": "GENERATION_COUNT",
+      "expected_failure": true,
+      "failed": true
+    },
+    "mssm_beta": {
+      "code": "MSSM_BETA",
+      "expected_failure": true,
+      "failed": true
+    },
+    "scalar_as_weyl": {
+      "code": "SCALAR_WEIGHT",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "gauge_betas": {
+    "coefficients": {
+      "b1": "41/6",
+      "b2": "-19/6",
+      "b3": "-7"
+    },
+    "convention": "d g_i / d ln Q = b_i g_i^3 / (16 pi^2), SM hypercharge normalization for b1",
+    "derivation": {
+      "formula": "b = -(11/3) C2(adjoint) + (2/3) sum_Weyl T(R) + (1/3) sum_complex_scalar T(R)",
+      "su2_scalar_dynkin_sum": "1/2",
+      "su2_weyl_dynkin_sum": "6",
+      "su3_scalar_dynkin_sum": "0",
+      "su3_weyl_dynkin_sum": "6",
+      "u1_scalar_index_sum": "1/2",
+      "u1_weyl_index_sum": "10"
+    },
+    "gut_normalized_b1": {
+      "reason": "the lane freezes the SM hypercharge normalization; the GUT value is recorded for refusal only",
+      "status": "excluded",
+      "value": "41/10"
+    }
+  },
+  "lane": "external_strict_one_loop_wz_validation",
+  "matching": {
+    "intervals": [
+      {
+        "active_fields": {
+          "fermion_multiplets": 15,
+          "gauge": [
+            "G",
+            "W",
+            "B"
+          ],
+          "ghosts": [
+            "c_G",
+            "c_W",
+            "c_B"
+          ],
+          "scalars": [
+            "H"
+          ]
+        },
+        "beta_coefficients": {
+          "b1": "41/6",
+          "b2": "-19/6",
+          "b3": "-7"
+        },
+        "decoupling_maps": {
+          "maps": [],
+          "reason": "no threshold crosses a pure Standard Model interval; the empty list is a recorded statement, not an omission"
+        },
+        "id": "pure_sm_interval",
+        "operator_basis": "the retained renormalizable basis of the action bundle",
+        "range": {
+          "lower": {
+            "symbol": "Q_low"
+          },
+          "upper": {
+            "symbol": "Q_high"
+          }
+        }
+      }
+    ],
+    "jacobian": {
+      "definition": "the one-loop linearization d g_i(Q2) / d g_j(Q1) of the interval flow",
+      "form": "diagonal at one loop in the gauge sector: delta_ij (1 + 3 b_i g_i^2 t / (16 pi^2)) with t = ln(Q2/Q1), symbolic"
+    },
+    "output_vector": {
+      "components": [
+        {
+          "symbol": "g1(Q)"
+        },
+        {
+          "symbol": "g2(Q)"
+        },
+        {
+          "symbol": "g3(Q)"
+        },
+        {
+          "symbol": "Yu(Q)"
+        },
+        {
+          "symbol": "Yd(Q)"
+        },
+        {
+          "symbol": "Ye(Q)"
+        },
+        {
+          "symbol": "lam(Q)"
+        },
+        {
+          "symbol": "mu2(Q)"
+        },
+        {
+          "symbol": "v_chart(Q)"
+        }
+      ],
+      "name": "SM_MSbar_FJ(Q)",
+      "note": "one canonical typed vector; every component is a symbol and the chart vev keeps its type from the action bundle"
+    },
+    "remainder": {
+      "definition": "the two-loop truncation term of the interval flow",
+      "form": {
+        "symbol": "R2[g, t]"
+      },
+      "status": "declared deterministic remainder symbol; it is carried, never estimated without inputs"
+    },
+    "scheme_freeze": {
+      "drbar_to_msbar_finite_maps": {
+        "gauge_shift": "g_DRbar^2 = g_MSbar^2 (1 + C2(adjoint) g^2/(24 pi^2) x epsilon-scheme term), recorded as imported structure with symbolic coupling",
+        "reason": "the finite scheme shifts are standard imported structure; no numeric value is fabricated",
+        "status": "imported_finite_maps"
+      },
+      "output_coordinate": "the frozen FJ coordinate of the downstream strict pole-map contract",
+      "running": "MSbar"
+    }
+  },
+  "promotion_allowed": false,
+  "schema": "eft_matching_1.v1",
+  "subject_digest": "8b143c32c8c44b102df925a2c81f39b6f424fe8ca1b07cb6ad2d89faf5314baf",
+  "yukawa_quartic_structure": {
+    "census_group_factors": {
+      "color_number": 3,
+      "gauge_casimirs": {
+        "C2_fundamental_SU2": "3/4",
+        "C2_fundamental_SU3": "4/3"
+      },
+      "yukawa_trace_multiplicity": "Tr over the full three-by-three sector matrices of the action bundle"
+    },
+    "imported_kernel_shapes": [
+      "one-loop Yukawa beta: (Nc + 3/2) y^3 - like terms minus gauge Casimir subtractions",
+      "one-loop quartic beta: quartic, Yukawa-trace, and gauge-quartic terms"
+    ],
+    "status": "imported_structure_with_census_factors; no numeric coupling value exists in this packet"
+  }
+}

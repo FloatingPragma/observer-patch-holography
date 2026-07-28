@@ -1,0 +1,208 @@
+{
+  "schema_version": "wz_receipt_dependency_dag_v4",
+  "nodes": {
+    "SPACETIME_PARENT": {
+      "status": "open_or_imported"
+    },
+    "SM_EFT_ACTION_1": {
+      "status": "open"
+    },
+    "ANOMALY_AND_PERTURBATIVE_BRST_1": {
+      "status": "defined_not_instantiated"
+    },
+    "FULL_YUKAWA_1": {
+      "status": "open"
+    },
+    "EFT_MATCHING_1": {
+      "status": "open"
+    },
+    "FJ_DIRECT_1": {
+      "status": "open"
+    },
+    "FJ_CONVERTED_1": {
+      "status": "open"
+    },
+    "FJ_EQUIVALENCE_1": {
+      "status": "open"
+    },
+    "RENORMALIZATION_ST_1": {
+      "status": "open"
+    },
+    "GENERAL_GAUGE_BRST_1": {
+      "status": "open"
+    },
+    "WARD_ST_NIELSEN_1": {
+      "status": "open"
+    },
+    "POLE_SERIES_1": {
+      "status": "implemented_downstream"
+    },
+    "ANALYTIC_CONTINUATION_1": {
+      "status": "open"
+    },
+    "PHYSICAL_CURRENT_POLE_W_1": {
+      "status": "open"
+    },
+    "PHYSICAL_CURRENT_POLE_Z_1": {
+      "status": "open"
+    },
+    "SOURCE_LAW_1": {
+      "status": "open"
+    },
+    "SOURCE_COVARIANCE_1": {
+      "status": "open"
+    },
+    "SOURCE_CLOCK_1": {
+      "status": "open"
+    },
+    "NO_TARGET_ANCESTRY_1": {
+      "status": "open"
+    },
+    "OPH_NATIVE_PHYSICAL": {
+      "status": "false"
+    }
+  },
+  "edges": [
+    [
+      "SPACETIME_PARENT",
+      "SM_EFT_ACTION_1"
+    ],
+    [
+      "SM_EFT_ACTION_1",
+      "ANOMALY_AND_PERTURBATIVE_BRST_1"
+    ],
+    [
+      "SM_EFT_ACTION_1",
+      "FULL_YUKAWA_1"
+    ],
+    [
+      "SM_EFT_ACTION_1",
+      "EFT_MATCHING_1"
+    ],
+    [
+      "FULL_YUKAWA_1",
+      "EFT_MATCHING_1"
+    ],
+    [
+      "EFT_MATCHING_1",
+      "FJ_DIRECT_1"
+    ],
+    [
+      "EFT_MATCHING_1",
+      "FJ_CONVERTED_1"
+    ],
+    [
+      "FJ_DIRECT_1",
+      "FJ_EQUIVALENCE_1"
+    ],
+    [
+      "FJ_CONVERTED_1",
+      "FJ_EQUIVALENCE_1"
+    ],
+    [
+      "ANOMALY_AND_PERTURBATIVE_BRST_1",
+      "RENORMALIZATION_ST_1"
+    ],
+    [
+      "FJ_DIRECT_1",
+      "GENERAL_GAUGE_BRST_1"
+    ],
+    [
+      "FJ_CONVERTED_1",
+      "GENERAL_GAUGE_BRST_1"
+    ],
+    [
+      "FJ_EQUIVALENCE_1",
+      "GENERAL_GAUGE_BRST_1"
+    ],
+    [
+      "RENORMALIZATION_ST_1",
+      "GENERAL_GAUGE_BRST_1"
+    ],
+    [
+      "GENERAL_GAUGE_BRST_1",
+      "WARD_ST_NIELSEN_1"
+    ],
+    [
+      "WARD_ST_NIELSEN_1",
+      "POLE_SERIES_1"
+    ],
+    [
+      "POLE_SERIES_1",
+      "ANALYTIC_CONTINUATION_1"
+    ],
+    [
+      "ANALYTIC_CONTINUATION_1",
+      "PHYSICAL_CURRENT_POLE_W_1"
+    ],
+    [
+      "ANALYTIC_CONTINUATION_1",
+      "PHYSICAL_CURRENT_POLE_Z_1"
+    ],
+    [
+      "EFT_MATCHING_1",
+      "SOURCE_LAW_1"
+    ],
+    [
+      "SOURCE_LAW_1",
+      "SOURCE_COVARIANCE_1"
+    ],
+    [
+      "SPACETIME_PARENT",
+      "SOURCE_CLOCK_1"
+    ],
+    [
+      "SM_EFT_ACTION_1",
+      "SOURCE_CLOCK_1"
+    ],
+    [
+      "SOURCE_LAW_1",
+      "SOURCE_CLOCK_1"
+    ],
+    [
+      "SM_EFT_ACTION_1",
+      "NO_TARGET_ANCESTRY_1"
+    ],
+    [
+      "EFT_MATCHING_1",
+      "NO_TARGET_ANCESTRY_1"
+    ],
+    [
+      "FULL_YUKAWA_1",
+      "NO_TARGET_ANCESTRY_1"
+    ],
+    [
+      "SOURCE_LAW_1",
+      "NO_TARGET_ANCESTRY_1"
+    ],
+    [
+      "SOURCE_CLOCK_1",
+      "NO_TARGET_ANCESTRY_1"
+    ],
+    [
+      "PHYSICAL_CURRENT_POLE_W_1",
+      "OPH_NATIVE_PHYSICAL"
+    ],
+    [
+      "PHYSICAL_CURRENT_POLE_Z_1",
+      "OPH_NATIVE_PHYSICAL"
+    ],
+    [
+      "FJ_EQUIVALENCE_1",
+      "OPH_NATIVE_PHYSICAL"
+    ],
+    [
+      "SOURCE_COVARIANCE_1",
+      "OPH_NATIVE_PHYSICAL"
+    ],
+    [
+      "SOURCE_CLOCK_1",
+      "OPH_NATIVE_PHYSICAL"
+    ],
+    [
+      "NO_TARGET_ANCESTRY_1",
+      "OPH_NATIVE_PHYSICAL"
+    ]
+  ],
+  "canonical_sha256": "79a8ec98d77286e8063e57b2395ddc36f9507cdc4e0721eb7995b0b8f519dfca"
+}

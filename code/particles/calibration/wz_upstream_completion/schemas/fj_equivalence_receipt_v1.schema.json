@@ -1,0 +1,232 @@
+{
+  "$defs": {
+    "ball": {
+      "additionalProperties": false,
+      "properties": {
+        "mid_im": {
+          "type": "number"
+        },
+        "mid_re": {
+          "type": "number"
+        },
+        "radius": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "mid_re",
+        "mid_im",
+        "radius"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "pair": {
+      "additionalProperties": false,
+      "properties": {
+        "converted": {
+          "$ref": "#/$defs/ball"
+        },
+        "direct": {
+          "$ref": "#/$defs/ball"
+        },
+        "residual": {
+          "$ref": "#/$defs/ball"
+        }
+      },
+      "required": [
+        "direct",
+        "converted",
+        "residual"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://oph.local/schemas/fj_equivalence_receipt_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "complex_ball_equality": {
+          "type": "boolean"
+        },
+        "imag_parts_checked": {
+          "type": "boolean"
+        },
+        "precision_nesting": {
+          "type": "boolean"
+        },
+        "real_parts_checked": {
+          "type": "boolean"
+        },
+        "tadpole_orientation_checked": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complex_ball_equality",
+        "real_parts_checked",
+        "imag_parts_checked",
+        "tadpole_orientation_checked",
+        "precision_nesting"
+      ],
+      "type": "object"
+    },
+    "coefficients": {
+      "additionalProperties": false,
+      "properties": {
+        "W": {
+          "$ref": "#/$defs/pair"
+        },
+        "Z": {
+          "$ref": "#/$defs/pair"
+        }
+      },
+      "required": [
+        "W",
+        "Z"
+      ],
+      "type": "object"
+    },
+    "engines": {
+      "additionalProperties": false,
+      "properties": {
+        "converted_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "converted_id": {
+          "type": "string"
+        },
+        "direct_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "direct_id": {
+          "type": "string"
+        },
+        "shared_generated_expressions": {
+          "type": "boolean"
+        },
+        "shared_integral_backend": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "direct_id",
+        "converted_id",
+        "direct_hash",
+        "converted_hash",
+        "shared_generated_expressions",
+        "shared_integral_backend"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "mutation_suite_passed": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        },
+        "raw_per_diagram_records": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "raw_per_diagram_records",
+        "independent_checker",
+        "mutation_suite_passed",
+        "promotion_ready"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "action_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "fj_map": {
+          "$ref": "#/$defs/hash"
+        },
+        "scheme": {
+          "$ref": "#/$defs/hash"
+        },
+        "term_mask": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "action_ast",
+        "scheme",
+        "term_mask",
+        "fj_map"
+      ],
+      "type": "object"
+    },
+    "map": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_parameter_map": {
+          "type": "boolean"
+        },
+        "counterterm_shifts": {
+          "type": "boolean"
+        },
+        "field_shifts": {
+          "type": "boolean"
+        },
+        "mass_argument_shifts": {
+          "type": "boolean"
+        },
+        "reexpanded_before_truncation": {
+          "type": "boolean"
+        },
+        "tree_derivatives": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complete_parameter_map",
+        "field_shifts",
+        "mass_argument_shifts",
+        "counterterm_shifts",
+        "tree_derivatives",
+        "reexpanded_before_truncation"
+      ],
+      "type": "object"
+    },
+    "map_orientation": {
+      "const": "p_L=p_F+h*Delta_p"
+    },
+    "order": {
+      "const": "strict_one_loop"
+    },
+    "schema_version": {
+      "const": "fj_equivalence_receipt_v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "order",
+    "map_orientation",
+    "map",
+    "engines",
+    "coefficients",
+    "checks",
+    "hashes",
+    "evidence"
+  ],
+  "title": "FJ-EQUIVALENCE-1 receipt",
+  "type": "object"
+}

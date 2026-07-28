@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/operational_clock_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clock_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dimensionless_gap_over_Estar": {
+      "additionalProperties": false,
+      "properties": {
+        "hi": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "lo": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "positive_gap_certified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "lo",
+        "hi",
+        "positive_gap_certified"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_checker": {
+          "type": "boolean"
+        },
+        "promotion_ready": {
+          "type": "boolean"
+        },
+        "same_source_branch": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "same_source_branch",
+        "independent_checker",
+        "promotion_ready"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_hamiltonian": {
+          "$ref": "#/$defs/hash"
+        },
+        "clock_packet": {
+          "$ref": "#/$defs/hash"
+        },
+        "transition_selector": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "clock_hamiltonian",
+        "transition_selector",
+        "clock_packet"
+      ],
+      "type": "object"
+    },
+    "naturality": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration_residual_enclosed": {
+          "type": "boolean"
+        },
+        "partition_invariant": {
+          "type": "boolean"
+        },
+        "refinement_checked": {
+          "type": "boolean"
+        },
+        "schedule_invariant": {
+          "type": "boolean"
+        },
+        "worldline_identity": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "worldline_identity",
+        "schedule_invariant",
+        "partition_invariant",
+        "refinement_checked",
+        "calibration_residual_enclosed"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "operational_clock_packet_v1"
+    },
+    "source_ancestry": {
+      "additionalProperties": false,
+      "properties": {
+        "dag_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "target_blacklist_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "dag_hash",
+        "target_blacklist_passed"
+      ],
+      "type": "object"
+    },
+    "source_parents": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "unit_reference": {
+      "additionalProperties": false,
+      "properties": {
+        "frequency_hz": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "exact_SI_definition",
+            "imported_frequency",
+            "source_predicted_ratio"
+          ]
+        }
+      },
+      "required": [
+        "reference_id",
+        "frequency_hz",
+        "status"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "clock_id",
+    "dimensionless_gap_over_Estar",
+    "unit_reference",
+    "source_parents",
+    "naturality",
+    "source_ancestry",
+    "hashes",
+    "evidence"
+  ],
+  "title": "SOURCE-CLOCK-1 packet",
+  "type": "object"
+}

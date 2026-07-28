@@ -1,0 +1,256 @@
+{
+  "schema_version": "physical_wz_upstream_integration_manifest_v1",
+  "date": "2026-07-20",
+  "upstream_archive_sha256": "e6184ec1a535244c0f805c14e275b085a64c7ed078d780828c038d4f21c86a0d",
+  "scientific_status": "DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
+  "promotion_allowed": false,
+  "distinct_schema_documents": 9,
+  "receipt_instances": 10,
+  "exact_symbolic_checks": 8,
+  "integration_tests": 38,
+  "runtime_log_excluded": "outputs/latest_validation.log",
+  "file_count_excluding_manifest_and_runtime_log": 48,
+  "total_bytes_excluding_manifest_and_runtime_log": 312495,
+  "files": [
+    {
+      "path": "AGENT_WORK_ORDER_V4.md",
+      "bytes": 7042,
+      "sha256": "885020ed7cc8bb3ca9b6b47e2180a8148265d49e2511e3bde043105acfb99071"
+    },
+    {
+      "path": "INDEPENDENT_AUDIT.md",
+      "bytes": 27168,
+      "sha256": "e528554e5e276efdc132dae8ab8a717355a3e141af2e0566faee1332ab818d98"
+    },
+    {
+      "path": "OPH_SM_EFT_WZ_COMPLETION_THEOREMS.md",
+      "bytes": 57719,
+      "sha256": "1a3bda796629a9976d805b956ba4fec74c2ca2abb2e4d7c8cd066c0ecbed93e8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2535,
+      "sha256": "047fe5008f910f692161fcf22dd571afa7f70a4d0291800d066ba8907b3132a7"
+    },
+    {
+      "path": "UPSTREAM_PACKAGE_MANIFEST.json",
+      "bytes": 6880,
+      "sha256": "5930fede3e5f12b50ec747f69c9ce2600d7802bcfae479cd577119a34be6a390"
+    },
+    {
+      "path": "candidate_axioms/OPH_PLUS_SM_EFT_FJ_V1.md",
+      "bytes": 2792,
+      "sha256": "371d5bcb4076b81608c7c1298956a62ab4919a933bdb90d54f7c6f171137f49c"
+    },
+    {
+      "path": "checkers/check_completion_bundle.py",
+      "bytes": 12665,
+      "sha256": "7c2686235df7b0b7a0c49dffdd2797de66c569b0365d35d0f58f15596277060f"
+    },
+    {
+      "path": "checkers/check_eft_matching.py",
+      "bytes": 6470,
+      "sha256": "d9a7f240819624c4fcd5c307eff930e45650b5bb6a65a47c8f6eedfa3008e28f"
+    },
+    {
+      "path": "checkers/check_sm_eft_action.py",
+      "bytes": 7360,
+      "sha256": "a77b7af530f668d9f4f2075daa2d6645695d08c5db32b40b6edb731b3af1762e"
+    },
+    {
+      "path": "data/nonlinear_gauge_grid_v1.json",
+      "bytes": 11944,
+      "sha256": "2cf21849ae3da4f4eb1e8c9802682ac64831a473f95525c7770c38cfef1408af"
+    },
+    {
+      "path": "data/receipt_dependency_dag_v4.json",
+      "bytes": 3712,
+      "sha256": "afaed6b1684e0919eaa87173559ae92423c7e878cbad9f0f8f12922fcd216df4"
+    },
+    {
+      "path": "docs/OPH_SOURCE_PARENT_CORRECTIONS.md",
+      "bytes": 3450,
+      "sha256": "255d859aaa0faa0dd9f44c29895e9aea90ae3b60f0c052515f4c5a5302a0d9f5"
+    },
+    {
+      "path": "docs/OPTIONAL_D11_DOUBLE_CRITICALITY_CANDIDATE.md",
+      "bytes": 932,
+      "sha256": "3c6358e53934de392b82f2db910e8cb3fb606c94e0ff09511aa1d1d49f379224"
+    },
+    {
+      "path": "docs/PRIMARY_REFERENCES.md",
+      "bytes": 940,
+      "sha256": "c0afdbda6bd7e0063e75ac2a0d31f5f1af24f9f8d9ce95c55d336d46e3286e5b"
+    },
+    {
+      "path": "generate_integration_manifest.py",
+      "bytes": 2268,
+      "sha256": "c07b0e93d633b09ab4fbf084f200d7dbe7c6d6af6c77a4f524fd119fa3bb4828"
+    },
+    {
+      "path": "outputs/aggregate_status.json",
+      "bytes": 1917,
+      "sha256": "4be3e4c53cd270693ee69b534f62d9c9829f99c9812feb464edbe5a3895feab5"
+    },
+    {
+      "path": "outputs/eft_matching_1.json",
+      "bytes": 5153,
+      "sha256": "65f4c1ba52ee4c6625179878a704c74656d59466bea3b556600d7fe79d77f04b"
+    },
+    {
+      "path": "outputs/integration_initial_validation.log",
+      "bytes": 2447,
+      "sha256": "7a90721d62359ffffc8a25e27a30942c8ed89f283fb82a4673ecf4d39e79994c"
+    },
+    {
+      "path": "outputs/scientific_status.json",
+      "bytes": 1152,
+      "sha256": "f096e143aa1c122ca825ec5303a61f8900599658686ff58c1b09d4b7b6ce3b5b"
+    },
+    {
+      "path": "outputs/sm_eft_action_1.json",
+      "bytes": 17203,
+      "sha256": "736bcf6a4812295f1a898e01a6d53bab8367ef7610bfb7dd3e89db7c43900be4"
+    },
+    {
+      "path": "outputs/upstream_validation.log",
+      "bytes": 2282,
+      "sha256": "3c404c10270499b1c89f92c3ca2d85b71d138f48ea84d3f67685e09ea1bc4568"
+    },
+    {
+      "path": "producers/eft_matching_producer.py",
+      "bytes": 14425,
+      "sha256": "c2e0e3b26c10210fbf769aaa42e4baad69c7eb2b811d0faff6430f8e5bdc78f4"
+    },
+    {
+      "path": "producers/sm_eft_action_producer.py",
+      "bytes": 16287,
+      "sha256": "1b0e9dbcc9442df614e86e79903599a5e7805e2c048cb674fb7c483ade31e582"
+    },
+    {
+      "path": "producers/vertex_format.py",
+      "bytes": 2825,
+      "sha256": "46eced5d81eac246ad1896b88f51965e5eb02a28167e03a0e8e751ceb851a886"
+    },
+    {
+      "path": "proofs/symbolic_completion_proofs.py",
+      "bytes": 3988,
+      "sha256": "fb41b383760fb0c8ed73c1f63451df6e7bea2d5f4717c0e2290a78f1794f184a"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 1090,
+      "sha256": "06f5a9a3c67d180f66e75b99d3384f8783ce37979394d932091ca4c78642d8d9"
+    },
+    {
+      "path": "schemas/eft_matching_packet_v1.schema.json",
+      "bytes": 7775,
+      "sha256": "08e1e28fd29efb3597850eb1c487325d45de9986e23e107f888e13d98284af27"
+    },
+    {
+      "path": "schemas/fj_equivalence_receipt_v1.schema.json",
+      "bytes": 4995,
+      "sha256": "d058c52972455fa2972793ecb66193ef425b0db7696959faaa932d901c790ee7"
+    },
+    {
+      "path": "schemas/full_yukawa_packet_v1.schema.json",
+      "bytes": 4838,
+      "sha256": "0416377f755d4fa209e8bb48018025bf89c7a7ca769c4b8f59e31cb297368e44"
+    },
+    {
+      "path": "schemas/gauge_brst_raw_receipt_v1.schema.json",
+      "bytes": 5868,
+      "sha256": "ecbd815d69457d701adcfb5a8732d13dce560a0f8c634f7ea2b713889f22d26f"
+    },
+    {
+      "path": "schemas/operational_clock_packet_v1.schema.json",
+      "bytes": 3767,
+      "sha256": "1f09d66028fdcc607c68fa4b512d1ea53c3a49a6aa72a3c79244231ed6e07f8c"
+    },
+    {
+      "path": "schemas/physical_pole_interpretation_receipt_v1.schema.json",
+      "bytes": 5072,
+      "sha256": "2b6a0de2817db86f09d60651c57562251f3850e73db915b4ff836b8328828ce9"
+    },
+    {
+      "path": "schemas/renormalization_packet_v1.schema.json",
+      "bytes": 3986,
+      "sha256": "a04f77435b7a4f3496cfb999cf420809cc78f0218821df98c393cac2e5d05eac"
+    },
+    {
+      "path": "schemas/sm_eft_action_packet_v1.schema.json",
+      "bytes": 5715,
+      "sha256": "ee98cc77ff5efcddd454b834a31d9d6e2063d9ab40f2163d90cb16a7aa602c86"
+    },
+    {
+      "path": "schemas/source_law_covariance_packet_v1.schema.json",
+      "bytes": 3819,
+      "sha256": "fa2ae1e2e0765ede59261805196c7b8b5f064553c09e36125a6f21d97ab35bb8"
+    },
+    {
+      "path": "templates/eft_matching_packet_TEMPLATE.json",
+      "bytes": 2038,
+      "sha256": "27a511161b6cbd88b1b484690cd13aec016c6bd44ef94c983ebf4f6e0f0c3a96"
+    },
+    {
+      "path": "templates/fj_equivalence_receipt_TEMPLATE.json",
+      "bytes": 2028,
+      "sha256": "6fd6ef81b7ba6e8a51ba900caece4aea42d570fac316a54c0fdd245f43a44320"
+    },
+    {
+      "path": "templates/full_yukawa_packet_TEMPLATE.json",
+      "bytes": 7168,
+      "sha256": "9fa36d9a18518406e91344ac460d98c8b7dc95234d40836da1c976aa694def88"
+    },
+    {
+      "path": "templates/gauge_brst_raw_receipt_TEMPLATE.json",
+      "bytes": 2109,
+      "sha256": "60cfb9e97832c1c28009e86a2f568def8d7db82f81ebe26ddbdcf36f1800433a"
+    },
+    {
+      "path": "templates/operational_clock_packet_TEMPLATE.json",
+      "bytes": 1250,
+      "sha256": "c1470e91fe3ee45655593810324a77ad0f0cd76918298c8d7d1ef824e36cd907"
+    },
+    {
+      "path": "templates/physical_pole_interpretation_TEMPLATE.json",
+      "bytes": 1502,
+      "sha256": "e1bc291d8ae705c23f9ea3f0f89d65247df297e1d0bf4261ef2f1c0a29f641b7"
+    },
+    {
+      "path": "templates/physical_pole_interpretation_Z_TEMPLATE.json",
+      "bytes": 1502,
+      "sha256": "d2582a9823fbe89753ffc23ac5ccf5eb0055f30ba06b978c69f792dc1a9d13a7"
+    },
+    {
+      "path": "templates/renormalization_packet_TEMPLATE.json",
+      "bytes": 1217,
+      "sha256": "b30aa93caf22751e9705bda5a020d33d96787735ec6e4a513c8826a3ff13d9d7"
+    },
+    {
+      "path": "templates/sm_eft_action_packet_TEMPLATE.json",
+      "bytes": 4898,
+      "sha256": "387a5fc4a5070f747b6383517acb976bfb14ee748060b25d6728d3fc06864da9"
+    },
+    {
+      "path": "templates/source_law_covariance_packet_TEMPLATE.json",
+      "bytes": 1526,
+      "sha256": "34bc3fbb7527806547f3dd5b4168a65e37e84222ba1f04e4b7eb3effdab7c11d"
+    },
+    {
+      "path": "tests/test_completion.py",
+      "bytes": 12662,
+      "sha256": "a5e6ee84e28efe924d5329fa24a37e423d7ef69a4538337de9389e9cf9e1d06b"
+    },
+    {
+      "path": "tests/test_eft_matching.py",
+      "bytes": 2726,
+      "sha256": "9f56f7fdf2deb8998ef6064bdf8a26a299a41eb1fd2ae171035a0249d55d6bc5"
+    },
+    {
+      "path": "tests/test_sm_eft_action.py",
+      "bytes": 3388,
+      "sha256": "d1f510a1c855d541a746dc46a3f126f56f921611aa8d49f45b5d62780e52a20c"
+    }
+  ]
+}

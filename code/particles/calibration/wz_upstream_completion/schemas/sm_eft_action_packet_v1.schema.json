@@ -1,0 +1,274 @@
+{
+  "$defs": {
+    "complex": {
+      "additionalProperties": false,
+      "properties": {
+        "im": {
+          "type": "number"
+        },
+        "re": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "re",
+        "im"
+      ],
+      "type": "object"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://oph.local/schemas/sm_eft_action_packet_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_lane": {
+      "enum": [
+        "OPH_CHART_ONLY",
+        "EXTERNAL_SM_EFT_VALIDATION",
+        "OPH_NATIVE_DIMENSIONLESS",
+        "OPH_NATIVE_PHYSICAL"
+      ]
+    },
+    "conventions": {
+      "additionalProperties": false,
+      "properties": {
+        "feynman_i0": {
+          "type": "string"
+        },
+        "fourier": {
+          "type": "string"
+        },
+        "potential": {
+          "const": "V=m2 HdagH + lambda (HdagH)^2"
+        }
+      },
+      "required": [
+        "fourier",
+        "feynman_i0",
+        "potential"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "eft_matching_parent": {
+          "type": "boolean"
+        },
+        "full_yukawa_parent": {
+          "type": "boolean"
+        },
+        "source_action_selected": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source_action_selected",
+        "full_yukawa_parent",
+        "eft_matching_parent"
+      ],
+      "type": "object"
+    },
+    "fields": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "multiplicity": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "representation": {
+            "type": "string"
+          },
+          "spin": {
+            "type": "string"
+          },
+          "statistics": {
+            "enum": [
+              "boson",
+              "fermion"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "spin",
+          "statistics",
+          "representation",
+          "multiplicity",
+          "active"
+        ],
+        "type": "object"
+      },
+      "minItems": 18,
+      "type": "array"
+    },
+    "gauge_group": {
+      "additionalProperties": false,
+      "properties": {
+        "global_form": {
+          "const": "(SU3xSU2xU1)/Z6"
+        },
+        "hypercharge_convention": {
+          "const": "Q=T3+Y; gprime=gY"
+        }
+      },
+      "required": [
+        "global_form",
+        "hypercharge_convention"
+      ],
+      "type": "object"
+    },
+    "geometry": {
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "const": 4
+        },
+        "origin": {
+          "enum": [
+            "oph_receipt",
+            "imported_minkowski"
+          ]
+        },
+        "signature": {
+          "enum": [
+            "mostly_minus",
+            "mostly_plus"
+          ]
+        },
+        "spin_structure": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "origin",
+        "dimension",
+        "signature",
+        "spin_structure"
+      ],
+      "type": "object"
+    },
+    "hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "action_ast": {
+          "$ref": "#/$defs/hash"
+        },
+        "field_census": {
+          "$ref": "#/$defs/hash"
+        },
+        "operator_mask": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "action_ast",
+        "field_census",
+        "operator_mask"
+      ],
+      "type": "object"
+    },
+    "operators": {
+      "additionalProperties": false,
+      "properties": {
+        "excluded_with_reason": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "operator": {
+                "type": "string"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "operator",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "retained": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 8,
+          "type": "array"
+        }
+      },
+      "required": [
+        "retained",
+        "excluded_with_reason"
+      ],
+      "type": "object"
+    },
+    "parameter_basis": {
+      "const": [
+        "Q",
+        "gs",
+        "g",
+        "gprime",
+        "m2",
+        "lambda",
+        "Yu",
+        "Yd",
+        "Ye"
+      ]
+    },
+    "schema_version": {
+      "const": "sm_eft_action_packet_v1"
+    },
+    "source_ancestry": {
+      "additionalProperties": false,
+      "properties": {
+        "dag_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "forbidden_ancestors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "target_blacklist_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "dag_hash",
+        "target_blacklist_passed",
+        "forbidden_ancestors"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "claim_lane",
+    "geometry",
+    "gauge_group",
+    "conventions",
+    "fields",
+    "operators",
+    "parameter_basis",
+    "source_ancestry",
+    "hashes",
+    "evidence"
+  ],
+  "title": "SM-EFT-ACTION-1 packet",
+  "type": "object"
+}
