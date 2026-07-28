@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 66,
-  "total_bytes_excluding_manifest_and_runtime_log": 1007677,
+  "file_count_excluding_manifest_and_runtime_log": 69,
+  "total_bytes_excluding_manifest_and_runtime_log": 1195362,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -113,9 +113,14 @@
       "sha256": "65f4c1ba52ee4c6625179878a704c74656d59466bea3b556600d7fe79d77f04b"
     },
     {
+      "path": "outputs/fj_direct_scalar_blocks.json",
+      "bytes": 159512,
+      "sha256": "9131ce3e1cb8574420ec5072ac0cd0de72530d8ef8049aab11968c8cdbfe318d"
+    },
+    {
       "path": "outputs/fj_direct_vector_blocks.json",
-      "bytes": 217063,
-      "sha256": "beae25ce104992433c6a19feaf4d527c6fb8663e430fcc2d42d2fc63da646816"
+      "bytes": 222296,
+      "sha256": "25de392ec60d1160ecac1899bb39d44c625409188ab9b231f164575ffc19558b"
     },
     {
       "path": "outputs/integration_initial_validation.log",
@@ -174,8 +179,13 @@
     },
     {
       "path": "producers/fj_direct_engine.py",
-      "bytes": 35685,
-      "sha256": "f1ad3c9644ebf5121139cf84fbcfedc6231829bac0a496ab04aefd490b4653d7"
+      "bytes": 36021,
+      "sha256": "655f2097cebaf275cd7cdb027bc6609b16a1d9870d7008aafa8864f22d9a0d1f"
+    },
+    {
+      "path": "producers/fj_scalar_blocks.py",
+      "bytes": 20905,
+      "sha256": "f013c6b0886650a9c83f70a05bf2a1f6b3704fc3f163e177a89a11a5a14bcea9"
     },
     {
       "path": "producers/fj_spectrum.py",
@@ -214,8 +224,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1541,
-      "sha256": "4f74e54655bd34b2ecfdb7dd7f0c402d39c0f9efbc95d7b2e7172d4f42cfd6b4"
+      "bytes": 1604,
+      "sha256": "0ccb55f400e7c24ecdd13f8a1811146ec8eb668bb2a9eaf19edb3bdacb791188"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -331,6 +341,11 @@
       "path": "tests/test_fj_direct.py",
       "bytes": 3247,
       "sha256": "af142fdf0669f3767d1d9d77101c1559b27000d36eda31d2e390973ace140365"
+    },
+    {
+      "path": "tests/test_fj_scalar_blocks.py",
+      "bytes": 1636,
+      "sha256": "508d9d908644615e42219a7604237359e737433234466f39d307ea557addf6cb"
     },
     {
       "path": "tests/test_rule_engines.py",

@@ -384,18 +384,23 @@ class BlockComputer:
     # -- ghost bubbles ----------------------------------------------------
 
     def ghost_bubbles(self) -> None:
-        for ghost in ("cp", "cm", "cZ", "cA"):
-            anti = ghost + "_bar"
-            c1 = self.e.lookup([self.ext1, ghost, anti], "ghost_gauge_derivative")
-            c2 = self.e.lookup([self.ext2, ghost, anti], "ghost_gauge_derivative")
-            if c1 == 0 or c2 == 0:
-                continue
-            # antighost momenta: +q incoming at V1, +k incoming at V2.
-            terms = [(c1 * c2, (("mom", "q", "mu"), ("mom", "k", "nu")))]
-            g_red, p_red = reduce_projections(terms, set(), 1, 1)
-            weight = sp.I * (sp.I * sp.I) * (-1)
-            mass = self.e.spectrum[ghost]
-            self.emit("ghost_bubble", [ghost, anti], weight, g_red, p_red, mass, mass)
+        # Ordered ghost pairs (X, Y): V1 = {ext1, Xbar, Y}, V2 =
+        # {ext2, Ybar, X}; line 1 (momentum k) is the Y line, line 2
+        # (momentum q) the X line; the antighost momenta are +q at V1
+        # and +k at V2.  Diagonal pairs reproduce the neutral-block
+        # loops; the mixed pairs carry the charged-block ghost sector.
+        ghosts = ("cp", "cm", "cZ", "cA")
+        for x in ghosts:
+            for y in ghosts:
+                c1 = self.e.lookup([self.ext1, x + "_bar", y], "ghost_gauge_derivative")
+                c2 = self.e.lookup([self.ext2, y + "_bar", x], "ghost_gauge_derivative")
+                if c1 == 0 or c2 == 0:
+                    continue
+                terms = [(c1 * c2, (("mom", "q", "mu"), ("mom", "k", "nu")))]
+                g_red, p_red = reduce_projections(terms, set(), 1, 1)
+                weight = sp.I * (sp.I * sp.I) * (-1)
+                self.emit(f"ghost_bubble_{x}{y}", [y, x], weight, g_red, p_red,
+                          self.e.spectrum[y], self.e.spectrum[x])
 
     # -- fermion bubbles --------------------------------------------------
 
