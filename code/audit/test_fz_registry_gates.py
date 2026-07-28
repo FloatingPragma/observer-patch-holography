@@ -29,9 +29,9 @@ def test_live_register_validates_and_surface_is_current():
     assert rendered == committed
 
 
-def test_ladder_is_contiguous_fz01_through_fz09():
+def test_ladder_is_contiguous_fz01_through_fz10():
     rows = fz_tool.validate(live_register())
-    assert [row["id"] for row in rows] == [f"FZ-{i:02d}" for i in range(1, 10)]
+    assert [row["id"] for row in rows] == [f"FZ-{i:02d}" for i in range(1, 11)]
 
 
 def test_fz02_hash_is_bound_to_the_live_receipt():
