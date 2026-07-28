@@ -50,14 +50,19 @@ CONTENT.
   kernel `decide` — no `native_decide`.  `KgoodQ := Wgood / 24` is the
   Markov normalisation, certified lumpable by transport and row-stochastic
   by `norm_num`.
+* `fractionalSandboxKernel` is the exact-rational encoding of the concrete
+  three-state fractional quotient sandbox in
+  `muellerberndt/oph-physics-sim@87767593`, `oph_fractional/compare.py:47-61`.
+  The checker accepts it and computes its two-state quotient kernel.
 
 BOUNDARY.  Finite state and quotient types only, exact arithmetic only.
 `push_step_comm` is a single-step statement and `push_iterate_comm` its
 finite iteration; nothing here concerns continuous time, infinite
 presentations, or floating-point kernels.  This file gives the
-`QUOTIENT_LUMPABILITY` receipt a decision procedure; it does not certify
-that any concrete simulator kernel passes it, and it bears no claim on the
-physical campaign of issue #592. -/
+`QUOTIENT_LUMPABILITY` receipt a decision procedure and certifies the
+simulator's concrete fractional sandbox instance below.  That instance is
+explicitly a diagnostic toy presentation, not a material Hamiltonian, a
+physical H3/KMS cell system, or the physical campaign of issue #592. -/
 
 variable {S Q : Type*} [Fintype S] [DecidableEq Q]
 
@@ -381,6 +386,159 @@ theorem kgoodQ_quotient_isMarkov :
     IsMarkov (quotientKernel KgoodQ qHalf repHalf) :=
   quotientKernel_isMarkov kgoodQ_isMarkov repHalf
 
+/-! ## The OPH fractional quotient sandbox
+
+This is a literal exact-rational transcription of the simulator data at
+`muellerberndt/oph-physics-sim@877675938812e26417bb006d5bf3752301f8a3f8`,
+`oph_fractional/compare.py:47-61`:
+
+* representatives, in source order: `a0`, `a1`, `vac`;
+* quotient map: `a0 ↦ anyon_e_over_3`, `a1 ↦ anyon_e_over_3`,
+  `vac ↦ vacuum`;
+* transition rows: `a0 ↦ {a1: 0.5, vac: 0.5}`,
+  `a1 ↦ {a0: 0.5, vac: 0.5}`, `vac ↦ {vac: 1.0}`.
+
+The omitted dictionary entries are zero, exactly as the simulator's
+`quotient_lumpability` implementation initializes missing sector weight to
+zero (`oph_fractional/quotient.py:64-77`).  Decimal `0.5` is exactly `1 / 2`
+as a Python binary float, and `1.0` is exactly `1`; those are encoded in `ℚ`
+below.  This is the repository-linked diagnostic
+`twisted_tmd_fractional_sandbox` at regulator `12`.  It is not a real material
+sample and not the physical H3/KMS presentation requested by issue #592. -/
+
+inductive FractionalSandboxState
+  | a0
+  | a1
+  | vac
+  deriving DecidableEq, Fintype
+
+inductive FractionalSandboxSector
+  | anyonEOver3
+  | vacuum
+  deriving DecidableEq, Fintype
+
+/-- The simulator's `canonical`/`quotient_map` dictionary. -/
+@[reducible] def fractionalSandboxQuotient :
+    FractionalSandboxState → FractionalSandboxSector
+  | .a0 => .anyonEOver3
+  | .a1 => .anyonEOver3
+  | .vac => .vacuum
+
+/-- The simulator's three explicit transition rows, with absent entries zero. -/
+@[reducible] def fractionalSandboxKernel :
+    FractionalSandboxState → FractionalSandboxState → ℚ
+  | .a0, .a1 => 1 / 2
+  | .a0, .vac => 1 / 2
+  | .a1, .a0 => 1 / 2
+  | .a1, .vac => 1 / 2
+  | .vac, .vac => 1
+  | _, _ => 0
+
+@[reducible] def fractionalSandboxStates : List FractionalSandboxState :=
+  [.a0, .a1, .vac]
+
+@[reducible] def fractionalSandboxSectors : List FractionalSandboxSector :=
+  [.anyonEOver3, .vacuum]
+
+/-- Auxiliary Lean section for displaying the quotient kernel.  The simulator
+does not select a section: `a0` is chosen here for the anyon fibre and `vac`
+for the singleton vacuum fibre.  Lumpability makes the result independent of
+this auxiliary choice. -/
+@[reducible] def fractionalSandboxRep :
+    FractionalSandboxSector → FractionalSandboxState
+  | .anyonEOver3 => .a0
+  | .vacuum => .vac
+
+theorem fractionalSandboxStates_complete :
+    ∀ x : FractionalSandboxState, x ∈ fractionalSandboxStates := by
+  decide
+
+theorem fractionalSandboxSectors_complete :
+    ∀ c : FractionalSandboxSector, c ∈ fractionalSandboxSectors := by
+  decide
+
+theorem fractionalSandboxRep_isSection :
+    ∀ c, fractionalSandboxQuotient (fractionalSandboxRep c) = c := by
+  decide
+
+/-- Exact fibre sums show strong lumpability of the simulator kernel. -/
+theorem fractionalSandbox_lumpable :
+    StronglyLumpable fractionalSandboxKernel fractionalSandboxQuotient := by
+  classical
+  have huniv : (univ : Finset FractionalSandboxState) =
+      {.a0, .a1, .vac} := by
+    decide
+  have hsum (f : FractionalSandboxState → ℚ) :
+      ∑ x, f x = f .a0 + (f .a1 + f .vac) := by
+    rw [huniv]
+    rw [Finset.sum_insert
+      (by decide : .a0 ∉ ({.a1, .vac} : Finset FractionalSandboxState))]
+    rw [Finset.sum_insert
+      (by decide : .a1 ∉ ({.vac} : Finset FractionalSandboxState))]
+    simp
+  intro x x' hq c
+  fin_cases x <;> fin_cases x' <;> fin_cases c <;>
+    simp_all [fiberWeight, Finset.sum_filter, fractionalSandboxKernel,
+      fractionalSandboxQuotient]
+
+/-- `QUOTIENT_LUMPABILITY` for the simulator's concrete fractional sandbox:
+the certified checker returns `true` on its exact data. -/
+theorem fractionalSandbox_accepted :
+    checkLumpable fractionalSandboxKernel fractionalSandboxQuotient
+      fractionalSandboxStates fractionalSandboxSectors = true :=
+  (checkLumpable_iff fractionalSandboxKernel fractionalSandboxQuotient
+    fractionalSandboxStates_complete fractionalSandboxSectors_complete).mpr
+      fractionalSandbox_lumpable
+
+/-- The source data is a genuine Markov kernel, not merely nonnegative weights. -/
+theorem fractionalSandbox_isMarkov : IsMarkov fractionalSandboxKernel := by
+  classical
+  have huniv : (univ : Finset FractionalSandboxState) =
+      {.a0, .a1, .vac} := by
+    decide
+  have hsum (f : FractionalSandboxState → ℚ) :
+      ∑ x, f x = f .a0 + (f .a1 + f .vac) := by
+    rw [huniv]
+    rw [Finset.sum_insert
+      (by decide : .a0 ∉ ({.a1, .vac} : Finset FractionalSandboxState))]
+    rw [Finset.sum_insert
+      (by decide : .a1 ∉ ({.vac} : Finset FractionalSandboxState))]
+    simp
+  constructor
+  · intro x y
+    fin_cases x <;> fin_cases y <;> norm_num [fractionalSandboxKernel]
+  · intro x
+    fin_cases x <;>
+      norm_num [hsum, fractionalSandboxKernel]
+
+/-- The quotient transition matrix reported by exact fibre summation:
+the anyon sector stays anyon with probability `1/2` and moves to vacuum with
+probability `1/2`; vacuum is absorbing. -/
+theorem fractionalSandbox_quotientKernel :
+    ∀ c c', quotientKernel fractionalSandboxKernel fractionalSandboxQuotient
+      fractionalSandboxRep c c' =
+        match c, c' with
+        | .anyonEOver3, .anyonEOver3 => 1 / 2
+        | .anyonEOver3, .vacuum => 1 / 2
+        | .vacuum, .anyonEOver3 => 0
+        | .vacuum, .vacuum => 1 := by
+  classical
+  have huniv : (univ : Finset FractionalSandboxState) =
+      {.a0, .a1, .vac} := by
+    decide
+  have hsum (f : FractionalSandboxState → ℚ) :
+      ∑ x, f x = f .a0 + (f .a1 + f .vac) := by
+    rw [huniv]
+    rw [Finset.sum_insert
+      (by decide : .a0 ∉ ({.a1, .vac} : Finset FractionalSandboxState))]
+    rw [Finset.sum_insert
+      (by decide : .a1 ∉ ({.vac} : Finset FractionalSandboxState))]
+    simp
+  intro c c'
+  fin_cases c <;> fin_cases c' <;>
+    simp [quotientKernel, fiberWeight, Finset.sum_filter, hsum,
+      fractionalSandboxKernel, fractionalSandboxQuotient, fractionalSandboxRep]
+
 #print axioms push_step_comm
 #print axioms push_iterate_comm
 #print axioms quotientKernel_section_independent
@@ -399,5 +557,12 @@ theorem kgoodQ_quotient_isMarkov :
 #print axioms kgoodQ_lumpable
 #print axioms kgoodQ_isMarkov
 #print axioms kgoodQ_quotient_isMarkov
+#print axioms fractionalSandboxStates_complete
+#print axioms fractionalSandboxSectors_complete
+#print axioms fractionalSandboxRep_isSection
+#print axioms fractionalSandbox_accepted
+#print axioms fractionalSandbox_lumpable
+#print axioms fractionalSandbox_isMarkov
+#print axioms fractionalSandbox_quotientKernel
 
 end OPH.QuotientLumpability
