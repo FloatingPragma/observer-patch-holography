@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2001`. 61 claims, 22 distinct live gates across 19 gated claims.
+Release: `r2002`. 61 claims, 22 distinct live gates across 19 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -72,7 +72,7 @@ Release: `r2001`. 61 claims, 22 distinct live gates across 19 gated claims.
 | `OPH-SM-Q3-BV-RESTORATION` | `conditional_implication` | `conditional_formal_theorem_defined__oph_restoration_and_validation_open` | none |
 | `OPH-SM-Q4-OS-OBSERVABLE-SECTOR` | `conditional_implication` | `conditional_implication_defined__nonperturbative_G6_tower_open` | none |
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
-| `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `unit_split_exact_in_declared_counting_cost_realization__incidence_outputs_exact_on_declared_carrier` | none |
+| `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier` | none |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_impulse_readback_artifact` | none |
 | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `source_bound_at_finite_scope_conditional_on_declared_scalar_content` | none |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower` | none |
@@ -85,7 +85,7 @@ Release: `r2001`. 61 claims, 22 distinct live gates across 19 gated claims.
 | `OPH-SM-ROUTE-IDENTIFICATION` | `declared_structure` | `open_no_source_bound_commuting_square` | none |
 | `OPH-GAUGE-EXTERIOR-SM-WITNESS` | `conditional_implication` | `proved_conditional_representation_witness` | none |
 | `OPH-Q-PN-CLOSURE` | `declared_structure` | `declared_maps_with_physical_closure_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |
-| `OPH-HIER-EW` | `conditional_implication` | `weak_multiplicity_closed_common_load_and_direct_capacity_open` | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) |
+| `OPH-HIER-EW` | `conditional_implication` | `weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open` | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) |
 | `OPH-SCREEN-24-CLOCK-DETERMINANT` | `conditional_implication` | `rate_no_go_proved_physical_clock_attachment_open` | [#633](https://github.com/FloatingPragma/observer-patch-holography/issues/633), [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) |
 | `OPH-SCREEN-MODULAR-GEARING` | `conditional_implication` | `theorem_proved_source_derived_realization_open` | none |
 | `OPH-ALPHA-PIXEL` | `empirical_implementation` | `source_branch_with_endpoint_boundary` | [#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545) |
