@@ -1,7 +1,7 @@
 {
   "aggregation_policy": "every value and every measured reference is read live from the cited parent artifact; a missing parent aborts the build",
   "artifact": "oph_postdiction_ledger",
-  "generated_utc": "2026-07-28T07:47:56Z",
+  "generated_utc": "2026-07-28T08:44:31Z",
   "guards": {
     "changes_any_solve_path": false,
     "compare_only": true,
@@ -17,6 +17,10 @@
     {
       "id": "lepton_certified_intervals",
       "statement": "The target-anchored measured charged-lepton triple lies inside every outward-rounded diagnostic interval; the payload-coherent logarithmic half-width is 1.732 percent, with one-sided multiplicative widths -1.72 and +1.75 percent. The conditional eight-register triple sits 84 ppm from measurement with the architecture declared."
+    },
+    {
+      "id": "koide_conditional_tau_window",
+      "statement": "Under the balanced-circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV, 0.4336 sigma from measurement; the window is three orders of magnitude narrower than the measurement uncertainty, so improving tau-mass averages test the premise directly. The premise ancestry is declared and the row stays conditional."
     },
     {
       "id": "higgs_top_envelopes",
@@ -290,6 +294,31 @@
         "tier": "T1_empirical_closure",
         "width_reduction_factor": 3.7837261759506795,
         "witness_inside_all_intervals": true
+      },
+      {
+        "artifact_ref": "code/particles/runs/leptons/koide_balance_comparison.json",
+        "balance_distance_half_widths": "0.4335",
+        "balance_target_inside_enclosure": true,
+        "distance_sigma": "0.4336",
+        "forward_test": "the enclosure is three orders of magnitude narrower than the measurement uncertainty; an improving tau-mass average outside the window refutes the balanced-circulant premise",
+        "id": "charged_leptons_koide_conditional_tau",
+        "inputs": "measured (m_e, m_mu) with one-sigma corners, declared imports",
+        "measured_tau_mev": [
+          "1776.93",
+          "0.09"
+        ],
+        "premises": [
+          "balanced positive-chamber circulant (rho/a = 1/sqrt2; the finite-GNS conditional theorem)",
+          "mass ordering m_tau > m_mu (selects the plus root)"
+        ],
+        "row_class": "conditional_postdiction_with_measured_premise_ancestry",
+        "spurious_root_excluded_by": "mass-ordering premise (below the muon mass)",
+        "tau_central_mev": "1776.969027",
+        "tau_enclosure_mev_outward": [
+          "1776.968991",
+          "1776.969063"
+        ],
+        "tier": "T2_conditional"
       }
     ],
     "electroweak": [

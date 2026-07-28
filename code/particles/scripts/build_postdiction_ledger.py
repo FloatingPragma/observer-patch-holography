@@ -47,6 +47,7 @@ PARENTS = {
     "anchor_bridge": RUNTIME / "anchor_scheme_bridge_current.json",
     "kappa_rectangle": RUNS / "leptons" / "charged_kappa_interval_from_alpha_transport.json",
     "kappa_coherent": RUNS / "leptons" / "charged_kappa_interval_coherent_closure.json",
+    "koide_balance": RUNS / "leptons" / "koide_balance_comparison.json",
     "clebsch_lane": RUNS / "flavor" / "down_type_register_clebsch_lane.json",
     "clebsch_selection": RUNS / "flavor" / "clebsch_register_pairing_selection.json",
     "fiber_obstruction": RUNS / "flavor" / "quark_spread_fiber_structure_transport_obstruction.json",
@@ -223,6 +224,7 @@ def _lepton_rows(
     surface: dict[str, Any],
     rectangle: dict[str, Any],
     coherent: dict[str, Any],
+    koide: dict[str, Any],
 ) -> list[dict[str, Any]]:
     witness_point = rectangle["compare_only"].get("witness_point")
     if witness_point is None:
@@ -335,6 +337,31 @@ def _lepton_rows(
             entry["width_reduction_factor"] = lane["kappa_interval"]["width_reduction_factor"]
             entry["premise"] = "payload-coherent anchor-gap premise, declared"
         rows.append(entry)
+
+    tau_row = koide["conditional_tau"]
+    balance = koide["balance_comparison"]
+    rows.append(
+        {
+            "id": "charged_leptons_koide_conditional_tau",
+            "premises": tau_row["premises"],
+            "inputs": tau_row["inputs"],
+            "tau_enclosure_mev_outward": tau_row["tau_enclosure_mev_outward"],
+            "tau_central_mev": tau_row["tau_central_mev"],
+            "measured_tau_mev": tau_row["measured_tau_mev"],
+            "distance_sigma": tau_row["distance_sigma"],
+            "spurious_root_excluded_by": tau_row["spurious_root_excluded_by"],
+            "balance_target_inside_enclosure": balance["target_inside_enclosure"],
+            "balance_distance_half_widths": balance["distance_in_enclosure_half_widths"],
+            "forward_test": (
+                "the enclosure is three orders of magnitude narrower than "
+                "the measurement uncertainty; an improving tau-mass average "
+                "outside the window refutes the balanced-circulant premise"
+            ),
+            "tier": "T2_conditional",
+            "row_class": tau_row["row_class"],
+            "artifact_ref": _rel("koide_balance"),
+        }
+    )
     return rows
 
 
@@ -503,6 +530,20 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
             ),
         },
         {
+            "id": "koide_conditional_tau_window",
+            "statement": (
+                "Under the balanced-circulant and mass-ordering premises the "
+                "measured electron and muon masses fix the tau mass inside "
+                f"[{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][0]}, "
+                f"{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][1]}] MeV, "
+                f"{leptons['charged_leptons_koide_conditional_tau']['distance_sigma']} sigma from "
+                "measurement; the window is three orders of magnitude "
+                "narrower than the measurement uncertainty, so improving "
+                "tau-mass averages test the premise directly. The premise "
+                "ancestry is declared and the row stays conditional."
+            ),
+        },
+        {
             "id": "higgs_top_envelopes",
             "statement": (
                 f"The conditional Higgs envelope [{mh['value_envelope'][0]:.3f}, "
@@ -537,6 +578,7 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
     bridge = _load("anchor_bridge")
     rectangle = _load("kappa_rectangle")
     coherent = _load("kappa_coherent")
+    koide = _load("koide_balance")
     clebsch = _load("clebsch_lane")
     selection = _load("clebsch_selection")
     obstruction = _load("fiber_obstruction")
@@ -547,7 +589,7 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
     sections = {
         "forced_structure": _forced_structure(matter),
         "alpha": _alpha_rows(endpoint, bridge),
-        "charged_leptons": _lepton_rows(surface, rectangle, coherent),
+        "charged_leptons": _lepton_rows(surface, rectangle, coherent, koide),
         "electroweak": _ew_rows(conditional),
         "quarks": _quark_rows(obstruction, clebsch, selection),
         "hadrons": _hadron_rows(payload, standby),
@@ -663,6 +705,17 @@ def _render_md(ledger: dict[str, Any]) -> str:
                 "is the live scheme term of the bridge. The certified width floor "
                 "is the scheme-band ambiguity; no budget is shrunk without the "
                 "source bridge.")
+            continue
+        if row["id"].endswith("koide_conditional_tau"):
+            lo, hi = row["tau_enclosure_mev_outward"]
+            measured, sigma = row["measured_tau_mev"]
+            add(f"- Koide conditional tau ({row['tier']}): under the "
+                "balanced-circulant and mass-ordering premises the measured "
+                "electron and muon masses fix the tau mass inside "
+                f"`[{lo}, {hi}]` MeV, `{row['distance_sigma']}` sigma from "
+                f"the measured `{measured} +- {sigma}` MeV; the premise "
+                "ancestry is declared and improving tau-mass averages test "
+                "the premise directly.")
             continue
         if row["id"].endswith("mcpr_conditional"):
             deltas = ", ".join(

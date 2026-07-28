@@ -143,6 +143,7 @@ def test_principal_results_lead_with_closure_target(result):
     assert {p["id"] for p in principal} == {
         "lepton_closure_target",
         "lepton_certified_intervals",
+        "koide_conditional_tau_window",
         "higgs_top_envelopes",
         "forced_gauge_structure",
     }

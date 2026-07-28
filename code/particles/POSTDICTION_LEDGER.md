@@ -1,6 +1,6 @@
 # Postdiction Ledger
 
-Generated: `2026-07-28T07:47:56Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
+Generated: `2026-07-28T08:44:31Z` by `scripts/build_postdiction_ledger.py`; the JSON artifact is `runs/status/postdiction_ledger.json`.
 
 Every value and every measured reference on this page is read live from the cited certified artifact. The ledger promotes nothing, changes no solve path, and introduces no number of its own. Interval rows report containment of the compare-only witness; conditional rows carry their declared premises; chart coordinates keep their NOT_EVALUABLE physical-comparison status.
 
@@ -8,6 +8,7 @@ Every value and every measured reference on this page is read live from the cite
 
 - The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the certified band [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the live scheme term of the open anchor bridge (issue 545). The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a falsification target: the closure value confirms, a value outside the band refutes.
 - The target-anchored measured charged-lepton triple lies inside every outward-rounded diagnostic interval; the payload-coherent logarithmic half-width is 1.732 percent, with one-sided multiplicative widths -1.72 and +1.75 percent. The conditional eight-register triple sits 84 ppm from measurement with the architecture declared.
+- Under the balanced-circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV, 0.4336 sigma from measurement; the window is three orders of magnitude narrower than the measurement uncertainty, so improving tau-mass averages test the premise directly. The premise ancestry is declared and the row stays conditional.
 - The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection axioms.
 - The gauge sector is pinned before any numeric lane runs: the twelve-port trichotomy forces su(3)+su(2)+u(1), the gluing-class quotient gives the Z6 global form, and the matter lift realizes the exact one-generation hypercharge multiset, with the finite steps machine checked in Lean/Screen and the hypothesis boundaries recorded below.
 
@@ -43,6 +44,7 @@ Hypothesis boundaries:
 - Kappa interval, rectangle (T1_empirical_closure): outward-rounded target-anchored diagnostic intervals with logarithmic half-width `6.554%` and one-sided multiplicative widths `-6.34%` / `+6.77%`; the witness triple lies inside every interval.
 - Kappa interval, coherent closure (T1_empirical_closure): outward-rounded target-anchored diagnostic intervals with logarithmic half-width `1.732%` and one-sided multiplicative widths `-1.72%` / `+1.75%`; the witness triple lies inside every interval.
   - Width reduction over the rectangle: `3.78x`; premise: payload-coherent anchor-gap premise, declared.
+- Koide conditional tau (T2_conditional): under the balanced-circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside `[1776.968991, 1776.969063]` MeV, `0.4336` sigma from the measured `1776.93 +- 0.09` MeV; the premise ancestry is declared and improving tau-mass averages test the premise directly.
 
 ## Electroweak sector
 
