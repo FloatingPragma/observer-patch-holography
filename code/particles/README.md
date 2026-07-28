@@ -94,7 +94,10 @@ sheets, and numerical freezes remain separate producers.
   calibration/derive_d11_forward_seed.py ->
   calibration/derive_d11_forward_seed_promotion_certificate.py ->
   calibration/derive_d11_fixed_ray_no_go_theorem.py ->
-  calibration/derive_d11_live_exact_split_pair_theorem.py`
+  calibration/derive_d11_live_exact_split_pair_theorem.py`. The named
+  promotion certificate closes fixed-ray algebra only. The declared D11
+  surface and conditional split do not emit a source-native or physical-pole
+  mass.
 - charged leptons:
   support and scale artifacts feeding
   `leptons/derive_lepton_excitation_gap_map.py ->

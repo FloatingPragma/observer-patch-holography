@@ -66,11 +66,11 @@ The active calibration scripts open with the same short derivation header:
 - `Chain role`: where the file sits between the D10 core, the reduced
   two-scalar carrier, the selector, and the public readout
 - `Mathematics`: which fixed-point, transport, or Jacobian step is being used
-- `OPH-derived inputs`: which calibration quantities come directly from the D10
-  core emitted in `/particles`
+- `Inputs`: which quantities the artifact consumes and which of them have
+  source-emitted provenance
 - `Output`: which downstream calibration artifact the file is responsible for
 
-For the live branch, the main path is:
+The main audit path is:
 
 - `derive_d10_ew_observable_family.py`
 - `derive_d10_ew_source_transport_pair.py`
@@ -90,6 +90,12 @@ For the live branch, the main path is:
 - `derive_d11_live_exact_higgs_promotion.py`
 - `derive_d11_live_exact_split_pair_theorem.py`
 - `derive_boson_source_prediction_closure_audit.py`
+
+The D11 forward-seed certificate proves fixed-ray algebra on the declared
+surface. It does not promote that surface. The Higgs-only and top-only
+exactifiers consume measured targets and remain compare-only. The split
+artifact is a conditional candidate with source provenance, selector
+rigidity, scale, running, matching, and physical-pole gates open.
 
 The live D10 split is explicit:
 
@@ -195,7 +201,7 @@ pair map on the declared D10/D11 surface.
   stays on disk as the diagonal fixed-ray companion branch on the declared
   D10/D11 surface. Its fixed-ray certificate proves `pi_y = pi_lambda`,
   `eta_HT = 0`, and `w_HT = 0` on that one-scalar branch only.
-- The live pair artifact is `D11SourceSplitForwardExactness`, emitted by
+- The conditional pair artifact is `D11DeclaredSurfaceSplitImplication`, emitted by
   `derive_d11_live_exact_split_pair_theorem.py`. It uses only the forward D10
   tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`
   plus the declared D11 core/Jacobian surface at runtime. The absence of a

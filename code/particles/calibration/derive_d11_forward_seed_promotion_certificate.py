@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Certify the current one-scalar D11 fixed-ray branch.
+"""Certify the algebra of the current one-scalar D11 fixed-ray branch.
 
-Chain role: certify that the already-emitted D11 seed closes its own diagonal
-fixed-ray branch without reopening the legacy diagnostic sidecar.
+Chain role: certify the diagonal fixed-ray identities on the declared D11
+surface without treating algebraic closure as source or predictive promotion.
 
 Mathematics: exact fixed-ray factorization on the forward readout vector,
 showing `pi_y = pi_lambda`, `eta_HT = 0`, and `w_HT = 0` identically on the
 one-scalar branch.
 
-OPH-derived inputs: the emitted D11 forward seed and its core/Jacobian payload.
+Inputs: the emitted D11 forward seed and its declared-surface core/Jacobian
+payload.
 
-Output: an exact fixed-ray branch certificate for the live forward seed.
+Output: an exact, non-promoting fixed-ray algebra certificate.
 """
 
 from __future__ import annotations
@@ -53,8 +54,8 @@ def build_artifact(forward_seed: dict) -> dict:
     return {
         "artifact": "oph_d11_forward_seed_promotion_certificate",
         "generated_utc": _timestamp(),
-        "proof_status": "forward_seed_promotion_closed",
-        "promotion_status": "closed",
+        "proof_status": "fixed_ray_algebra_closed_on_declared_surface",
+        "promotion_status": "blocked_declared_surface_not_source_emitted",
         "certificate_id": "forward_seed_promotion_certificate",
         "forward_seed_artifact": str(DEFAULT_FORWARD_SEED),
         "source_forward_seed_artifact": str(DEFAULT_FORWARD_SEED),
@@ -62,11 +63,15 @@ def build_artifact(forward_seed: dict) -> dict:
         "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
         "proof_scope": "diagonal_fixed_ray_only",
         "diagnostic_center_equality_claimed": False,
-        "status": "closed",
-        "predictive_promotion_allowed": True,
-        "predictive_promotion_scope": "diagonal_fixed_ray_only",
-        "forward_path_closed": True,
-        "fixed_ray_branch_closed": True,
+        "status": "fixed_ray_algebra_closed",
+        "source_surface_promotable": False,
+        "predictive_promotion_allowed": False,
+        "public_surface_candidate_allowed": False,
+        "comparison_surface_allowed": True,
+        "predictive_promotion_scope": None,
+        "forward_path_closed": False,
+        "fixed_ray_branch_closed": False,
+        "fixed_ray_algebra_closed": True,
         "exact_higgs_row_claimed": False,
         "exact_pair_claimed": False,
         "exact_higgs_artifact": str(EXACT_HIGGS_ARTIFACT),
@@ -112,23 +117,32 @@ def build_artifact(forward_seed: dict) -> dict:
             "mt_pole_gev": float(mass_readout["mt_pole_gev"]),
             "mH_gev": float(mass_readout["mH_gev"]),
         },
-        "smallest_predictive_missing_object": None,
+        "smallest_predictive_missing_object": "source_emitted_higgs_yukawa_fj_packet",
         "next_single_residual_object": "one_extra_forward_coordinate_beyond_fixed_ray",
+        "promotion_blockers": [
+            "declared_d11_core_and_jacobian_not_source_emitted",
+            "full_target_clean_yukawa_and_lambda_packet_absent",
+            "v_chart_to_v_F_theorem_absent",
+            "same_branch_rg_threshold_matching_and_pole_receipts_absent",
+        ],
         "strictly_not_claimed": [
+            "oph_native_source_promotion",
+            "predictive_or_public_mass_promotion",
             "exact_higgs_row_on_fixed_ray",
             "exact_higgs_top_pair_on_fixed_ray",
         ],
         "notes": [
-            "This certificate closes the live D11 one-scalar seed on its diagonal fixed-ray branch without reopening the legacy diagnostic sidecar.",
+            "This certificate closes only the algebra of the D11 one-scalar diagonal fixed ray on the declared surface.",
             "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
-            "The same Jacobian surface carries a companion D11 top-side output on that fixed ray, while the exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion.",
+            "The same declared Jacobian surface carries comparison coordinates on that fixed ray; it is not a source-emitted Higgs/top pole surface.",
+            "The target-anchored Higgs and top exactifiers are compare-only artifacts.",
             "The compare-only exact Higgs/top pair lies off this fixed ray and remains a validation surface only.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact D11 forward-seed promotion certificate.")
+    parser = argparse.ArgumentParser(description="Build the exact non-promoting D11 fixed-ray algebra certificate.")
     parser.add_argument("--forward-seed", default=str(DEFAULT_FORWARD_SEED))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()

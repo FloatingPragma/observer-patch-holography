@@ -237,7 +237,7 @@ def test_scale_rg_pole_and_full_source_dag_remain_open() -> None:
     assert scale["legacy_dimensionful_constant"]["value"] == 1.220890e19
 
     rg = report["rg_matching_contract"]
-    assert rg["status"] == "closed_declared_convention_contract_not_rg_matching_theorem"
+    assert rg["status"] == "open_source_rg_frontier_partial"
     assert rg["concrete_transport_receipt_present"] is False
     assert rg["promotion_allowed"] is False
 

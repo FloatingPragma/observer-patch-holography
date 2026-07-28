@@ -8,6 +8,12 @@
     "fixed_ray_value_formula": "pi_y = pi_lambda = sigma_D11_HT",
     "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)"
   },
+  "declared_surface_exactifier_functions": {
+    "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",
+    "c_H_live_value": 0.009651761683632475,
+    "c_T_live_formula": "((3/2 + beta_EW/4) * (log(1 + tau2_tree_exact) - tau2_tree_exact) + top_residual) / delta_n_tree_exact",
+    "c_T_live_value": 0.00029757659531290647
+  },
   "display_allowed_as_conditional": true,
   "exact_split_pair": {
     "Sigma_HT_exact": 0.012474840440673948,
@@ -20,7 +26,8 @@
     "pi_y": 0.012281958891788196,
     "w_HT_exact": -0.00038576309777150347
   },
-  "generated_utc": "2026-07-27T08:32:08Z",
+  "generated_utc": "2026-07-28T18:01:20Z",
+  "legacy_theorem_id": "D11SourceSplitForwardExactness",
   "non_circularity_status": {
     "missing_source_object": "closed_promotable_EWTargetFreeRepairValueLaw_D10",
     "promotion_allowed": false,
@@ -66,12 +73,7 @@
     "d11_declared_surface": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
     "fixed_ray_no_go": "code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json"
   },
-  "source_only_exactifier_functions": {
-    "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",
-    "c_H_live_value": 0.009651761683632475,
-    "c_T_live_formula": "((3/2 + beta_EW/4) * (log(1 + tau2_tree_exact) - tau2_tree_exact) + top_residual) / delta_n_tree_exact",
-    "c_T_live_value": 0.00029757659531290647
-  },
+  "source_surface_promotable": false,
   "source_tuple": {
     "beta_EW": 0.5385291530498766,
     "delta_n_tree_exact": 0.0002346358802434819,
@@ -95,7 +97,7 @@
     "full_source_only_W_Z_H_complex_pole_prediction",
     "source_derivation_of_the_declared_D11_core_and_Jacobian"
   ],
-  "theorem_id": "D11SourceSplitForwardExactness",
+  "theorem_id": "D11DeclaredSurfaceSplitImplication",
   "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
   "upstream_promotion_gate": {
     "actual_artifact": "oph_d10_ew_target_free_repair_value_law",

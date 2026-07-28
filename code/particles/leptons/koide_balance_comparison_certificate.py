@@ -40,9 +40,10 @@ from __future__ import annotations
 
 import argparse
 import json
-from decimal import Decimal, getcontext
+from decimal import Decimal, localcontext
+from functools import wraps
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable, TypeVar
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT_PATH = ROOT / "particles" / "runs" / "leptons" / "koide_balance_comparison.json"
@@ -50,7 +51,7 @@ OUT_PATH = ROOT / "particles" / "runs" / "leptons" / "koide_balance_comparison.j
 SCHEMA = "oph.koide_balance_comparison_certificate.v1"
 ISSUE_CONTEXT = [546]
 
-getcontext().prec = 120
+DECIMAL_PRECISION = 120
 DIGITS = 100
 
 # PDG values in MeV with one-standard-deviation half-widths.
@@ -63,6 +64,20 @@ PDG_SOURCE = "PDG charged-lepton masses, compare-only measured imports"
 
 TWO = Decimal(2)
 THREE = Decimal(3)
+
+ReturnT = TypeVar("ReturnT")
+
+
+def high_precision(function: Callable[..., ReturnT]) -> Callable[..., ReturnT]:
+    """Run certificate arithmetic without reading or mutating global context."""
+
+    @wraps(function)
+    def wrapped(*args: Any, **kwargs: Any) -> ReturnT:
+        with localcontext() as context:
+            context.prec = DECIMAL_PRECISION
+            return function(*args, **kwargs)
+
+    return wrapped
 
 
 class CertificateError(ValueError):
@@ -81,6 +96,7 @@ def dsqrt(value: Decimal) -> Decimal:
     return value.sqrt()
 
 
+@high_precision
 def outward(lo: Decimal, hi: Decimal, places: int = 60) -> tuple[str, str]:
     """Round an enclosure outward at the stated decimal places."""
 
@@ -91,11 +107,13 @@ def outward(lo: Decimal, hi: Decimal, places: int = 60) -> tuple[str, str]:
     return str(lo_out), str(hi_out)
 
 
+@high_precision
 def koide_q(m_e: Decimal, m_mu: Decimal, m_tau: Decimal) -> Decimal:
     roots = dsqrt(m_e) + dsqrt(m_mu) + dsqrt(m_tau)
     return (m_e + m_mu + m_tau) / (roots * roots)
 
 
+@high_precision
 def balance_comparison() -> dict[str, Any]:
     """Lane one: the measured enclosure for Q against the exact 2/3."""
 
@@ -131,6 +149,7 @@ def balance_comparison() -> dict[str, Any]:
     }
 
 
+@high_precision
 def conditional_tau_roots(m_e: Decimal, m_mu: Decimal) -> tuple[Decimal, Decimal]:
     """Solve Q(m_e, m_mu, x^2) = 2/3 for x = sqrt(m_tau), in closed form.
 
@@ -149,6 +168,7 @@ def conditional_tau_roots(m_e: Decimal, m_mu: Decimal) -> tuple[Decimal, Decimal
     return x_plus * x_plus, x_minus * x_minus
 
 
+@high_precision
 def conditional_tau_interval() -> dict[str, Any]:
     """Lane two: the tau enclosure from (m_e, m_mu) under the balance."""
 
@@ -197,6 +217,7 @@ def conditional_tau_interval() -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
+@high_precision
 def control_premise_mutation() -> dict[str, Any]:
     """An unbalanced modulus must move the tau output far outside the
     measured band, so the balance premise is load-bearing and falsifiable."""
@@ -234,6 +255,7 @@ def control_premise_mutation() -> dict[str, Any]:
     return {"expected_failure": True, "failed": False}
 
 
+@high_precision
 def control_tau_not_consumed_in_lane_two() -> dict[str, Any]:
     """Lane two must not read the tau mass: recomputing it with a doctored
     tau value must produce the identical enclosure."""
@@ -278,6 +300,7 @@ def control_tau_not_consumed_in_lane_two() -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
+@high_precision
 def build_payload() -> dict[str, Any]:
     comparison = balance_comparison()
     conditional = conditional_tau_interval()

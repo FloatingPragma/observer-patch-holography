@@ -9,9 +9,9 @@ compare-only exact pair on the same Jacobian surface has nonzero wedge, so it
 lies off the fixed ray. This proves that exact pair promotion requires one
 additional forward coordinate beyond the current one-scalar branch.
 
-OPH-derived inputs: the declared D10/D11 calibration surface, the closed
-one-scalar fixed-ray seed, and the compare-only exact inverse slice used only
-as a witness.
+Inputs: the declared D10/D11 calibration surface, the non-promoting one-scalar
+fixed-ray seed, and the compare-only exact inverse slice used only as a
+witness.
 
 Output: a machine-readable no-go theorem artifact with the smallest supported
 extension contract stated explicitly.
@@ -129,9 +129,9 @@ def build_artifact(d11_surface: dict, forward_seed: dict, exact_adapter: dict) -
             "The smallest supported exact extension is a two-coordinate forward readout object Theta_D11_HT(mu_t) = (delta_y_t, delta_lambda), equivalently (Sigma_HT, eta_HT).",
         ],
         "notes": [
-            "This is a no-go theorem about the current one-scalar fixed ray, not a demotion of the exact Higgs theorem on the declared D10/D11 surface.",
+            "This is a no-go theorem about the current one-scalar fixed ray. It does not promote any Higgs or top coordinate on the declared D10/D11 surface.",
             "The compare-only exact inverse slice remains compare-only and is used here only as a witness that the exact pair is off the fixed ray.",
-            "The exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion.",
+            "The target-anchored Higgs and top exactifiers remain compare-only validation artifacts.",
         ],
     }
 

@@ -373,12 +373,15 @@ def build_status() -> dict[str, Any]:
             {
                 "issue": 32,
                 "title": "RG matching and threshold structure",
-                "state": "closed_declared_convention_contract",
-                "closable_now": True,
+                "state": (rg or {}).get("status", "missing_source_rg_contract"),
+                "closable_now": bool(
+                    (rg or {}).get("closure_gate", {}).get("closable_now", False)
+                ),
                 "local_next_artifact": _rel(RG_CONTRACT),
-                "closed_as_declared_convention_contract": True,
+                "source_frontier": (rg or {}).get("source_frontier"),
+                "closed_as_declared_convention_contract": False,
                 "promotion_allowed": False,
-                "chrome_workers": "not_needed_for_closed_contract",
+                "chrome_workers": "not_needed_for_local_exact_precursor",
             },
             {
                 "issue": 153,

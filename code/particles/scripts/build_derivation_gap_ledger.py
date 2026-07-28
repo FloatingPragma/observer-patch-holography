@@ -432,19 +432,31 @@ def build_gap_rows() -> list[dict[str, Any]]:
         {
             "id": "d10.rg-matching-threshold-scheme",
             "lane": "D10 running and matching",
-            "status": "closed_declared_convention_contract",
+            "status": "open_source_rg_frontier_partial",
             "github_issue": 32,
             "title": "Internalize RG matching, threshold placement, and scheme conversion",
             "current_boundary": (
-                "The D10 branch uses declared running/matching conventions. Issue #32 is closed as "
-                "a declared-convention contract, not as an OPH derivation of every coefficient, "
-                "threshold, and conversion."
+                "The finite matter receipts fix exact per-copy quadratic indices. Under the "
+                "explicitly imported one-loop QFT functional they give a parametric gauge-beta "
+                "law in unresolved family and scalar multiplicities. The D10 branch still uses "
+                "declared running and matching conventions; no source emits its complete "
+                "W/Z-coupled census modulo proved zero-vertex decoupling, thresholds, finite "
+                "maps, Jacobians, masks, or vector remainders."
             ),
             "next_action": (
-                "Keep the declared-convention status visible in prediction surfaces and require "
-                "a separate theorem before treating those conventions as OPH-derived."
+                "Build the generic proof-bearing interval-composition engine, then populate it "
+                "only after #630 emits the source action, #631 emits the physical local carrier, "
+                "#632 emits the coupled-sector census, and #569 closes the family attachment."
             ),
-            "target_surfaces": ["paper compact D10 section", "code/P_derivation", "code/particles/calibration"],
+            "source_frontier": (
+                "code/P_derivation/source_rg_frontier/outputs/"
+                "rg_representation_frontier.json"
+            ),
+            "target_surfaces": [
+                "extra/compact_proof_of_oph.tex",
+                "code/P_derivation",
+                "code/particles/calibration",
+            ],
         },
         {
             "id": "pclosure.certified-codepath-adoption",

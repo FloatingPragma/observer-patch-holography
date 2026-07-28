@@ -64,7 +64,9 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert row_statuses["d10.source-residual-map-and-interval-certificate"] == (
         "closed_blocker_isolated_source_residual_no_go"
     )
-    assert row_statuses["d10.rg-matching-threshold-scheme"] == "closed_declared_convention_contract"
+    assert row_statuses["d10.rg-matching-threshold-scheme"] == (
+        "open_source_rg_frontier_partial"
+    )
     assert row_statuses["pclosure.compressed-trunk-artifact"] == "closed_canonical_guarded_candidate_artifact"
     assert row_statuses["pclosure.certified-codepath-adoption"] == "closed_guarded_codepath_adoption"
     assert row_statuses["quark.selected-class-vs-global-classification"] == (

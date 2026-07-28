@@ -1,13 +1,15 @@
 {
   "artifact": "oph_d11_forward_seed_promotion_certificate",
   "certificate_id": "forward_seed_promotion_certificate",
+  "comparison_surface_allowed": true,
   "diagnostic_center_equality_claimed": false,
   "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
   "discharges_seed_certificate_id": "D11SeedCommonProvenanceCertificate",
   "exact_higgs_artifact": "code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
   "exact_higgs_row_claimed": false,
   "exact_pair_claimed": false,
-  "fixed_ray_branch_closed": true,
+  "fixed_ray_algebra_closed": true,
+  "fixed_ray_branch_closed": false,
   "fixed_ray_no_go_artifact": "code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json",
   "fixed_ray_wedge_vanishing_certificate": {
     "kappa_HT": 1.7777777777777777,
@@ -28,9 +30,9 @@
       "w_HT": 0.0
     }
   },
-  "forward_path_closed": true,
+  "forward_path_closed": false,
   "forward_seed_artifact": "code/particles/runs/calibration/d11_forward_seed.json",
-  "generated_utc": "2026-07-27T08:32:08Z",
+  "generated_utc": "2026-07-28T18:01:20Z",
   "mass_readout_consequence": {
     "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mH_gev": 125.21892206026347,
@@ -39,27 +41,38 @@
   },
   "next_single_residual_object": "one_extra_forward_coordinate_beyond_fixed_ray",
   "notes": [
-    "This certificate closes the live D11 one-scalar seed on its diagonal fixed-ray branch without reopening the legacy diagnostic sidecar.",
+    "This certificate closes only the algebra of the D11 one-scalar diagonal fixed ray on the declared surface.",
     "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
-    "The same Jacobian surface carries a companion D11 top-side output on that fixed ray, while the exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion.",
+    "The same declared Jacobian surface carries comparison coordinates on that fixed ray; it is not a source-emitted Higgs/top pole surface.",
+    "The target-anchored Higgs and top exactifiers are compare-only artifacts.",
     "The compare-only exact Higgs/top pair lies off this fixed ray and remains a validation surface only."
   ],
-  "predictive_promotion_allowed": true,
-  "predictive_promotion_scope": "diagonal_fixed_ray_only",
+  "predictive_promotion_allowed": false,
+  "predictive_promotion_scope": null,
   "promoted_seed_object": "sigma_D11_HT",
-  "promotion_status": "closed",
+  "promotion_blockers": [
+    "declared_d11_core_and_jacobian_not_source_emitted",
+    "full_target_clean_yukawa_and_lambda_packet_absent",
+    "v_chart_to_v_F_theorem_absent",
+    "same_branch_rg_threshold_matching_and_pole_receipts_absent"
+  ],
+  "promotion_status": "blocked_declared_surface_not_source_emitted",
   "proof_scope": "diagonal_fixed_ray_only",
-  "proof_status": "forward_seed_promotion_closed",
+  "proof_status": "fixed_ray_algebra_closed_on_declared_surface",
+  "public_surface_candidate_allowed": false,
   "seed_equality_certificate": {
     "law": "delta_y_t_mt / y_t_core_mt = -(9/16) * delta_lambda_mt / lambda_core_mt = sigma_D11_HT",
     "residual_abs": 0.0,
     "status": "closed_on_forward_seed"
   },
   "sigma_D11_HT": 0.012495107198783639,
-  "smallest_predictive_missing_object": null,
+  "smallest_predictive_missing_object": "source_emitted_higgs_yukawa_fj_packet",
   "source_forward_seed_artifact": "code/particles/runs/calibration/d11_forward_seed.json",
-  "status": "closed",
+  "source_surface_promotable": false,
+  "status": "fixed_ray_algebra_closed",
   "strictly_not_claimed": [
+    "oph_native_source_promotion",
+    "predictive_or_public_mass_promotion",
     "exact_higgs_row_on_fixed_ray",
     "exact_higgs_top_pair_on_fixed_ray"
   ],

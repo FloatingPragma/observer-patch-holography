@@ -4,11 +4,13 @@
     "formula": "(eta_source - (4/3) * tau2_tree_exact) / sqrt(pi)",
     "value": 0.012668999681273585
   },
+  "claim_class": "target_anchored_declared_surface_validation",
   "companion_surfaces": {
     "companion_d11_top_side_output_gev": 172.38864559527133,
     "companion_top_note": "The companion D11 top-side output remains the one-scalar forward-seed row on the same Jacobian surface.",
     "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit"
   },
+  "comparison_surface_allowed": true,
   "d10_repair_inputs": {
     "delta_n_tree_exact": 0.0002346358802434819,
     "eta_source": 0.022147000871961295,
@@ -36,7 +38,8 @@
     "pi_H_exact": 0.01328664697987041,
     "pi_H_exact_formula": "(mH_core_gev - mH_exact_target_gev) / ((16/9) * d_mH_d_lambda * lambda_core_mt)"
   },
-  "generated_utc": "2026-07-12T03:02:00Z",
+  "generated_utc": "2026-07-28T15:57:55Z",
+  "legacy_theorem_id": "D11LiveForwardExactHiggsPromotion",
   "mass_readout": {
     "delta_lambda_mt": -0.0031096458333333445,
     "delta_lambda_mt_formula": "-(16/9) * sigma_D11_H_exact * lambda_core_mt",
@@ -44,21 +47,23 @@
     "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mH_gev": 125.13
   },
+  "native_source_emission": false,
   "notes": [
-    "This is a Higgs-only calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
-    "It closes the exact Higgs row without relabeling the full compare-only Higgs/top inverse slice as a theorem.",
-    "The D11 common forward seed remains on disk as the companion top-side calibration row. The quark lane carries only a separate target-audit top coordinate, not an exact public top row."
+    "This is a Higgs-only target-anchored exactifier on the declared D10/D11 running, matching, and threshold surface.",
+    "It preserves the exact arithmetic fit for validation and cannot promote a source-native or public Higgs row.",
+    "The D11 fixed-ray seed remains a declared-surface comparison coordinate. The quark lane carries a separate target-audit top coordinate."
   ],
+  "predictive_promotion_allowed": false,
   "proof": [
     "The D11 Higgs readout depends only on lambda_core_mt, d_mH_d_lambda, and one scalar delta_lambda_mt.",
     "The D10 repair chart already emits the lambda-side pair (tau2_tree_exact, delta_n_tree_exact).",
     "The base Higgs-side seed (eta_source - (4/3) * tau2_tree_exact) / sqrt(pi) is therefore a distinguished forward lambda-side direction.",
-    "Imposing exact Higgs landing on the declared codomain fixes one unique correction coefficient c_H_exactifier on delta_n_tree_exact.",
+    "Imposing exact Higgs landing on the measured reference codomain fixes one unique correction coefficient c_H_exactifier on delta_n_tree_exact.",
     "Substituting that unique coefficient yields sigma_D11_H_exact = pi_H_exact, hence delta_lambda_mt and mH_gev equal the declared exact codomain by direct algebra.",
-    "No delta_y_t readback and no top target are used anywhere in this theorem."
+    "No delta_y_t readback and no top target are used, but the Higgs target is an explicit solve input, so the result is compare-only."
   ],
-  "proof_status": "closed_target_anchored_live_exact_higgs_promotion",
-  "public_surface_candidate_allowed": true,
+  "proof_status": "compare_only_target_anchored_exactifier",
+  "public_surface_candidate_allowed": false,
   "source_artifacts": {
     "d10_source_pair": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
     "d10_target_free_repair": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
@@ -66,12 +71,21 @@
     "d11_forward_seed": "code/particles/runs/calibration/d11_forward_seed.json",
     "reference_store": "code/particles/data/particle_reference_values.json"
   },
-  "status": "closed",
+  "source_surface_promotable": false,
+  "status": "compare_only",
   "strictly_not_claimed": [
+    "oph_native_higgs_source_emission",
+    "predictive_higgs_promotion",
+    "public_higgs_prediction",
     "full_higgs_top_inverse_slice_promotion",
     "exact_d11_top_promotion_on_this_surface",
     "reference_free_one_scalar_higgs_top_common_ray"
   ],
-  "theorem_id": "D11LiveForwardExactHiggsPromotion",
-  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
+  "target_ancestry": {
+    "consumed_coordinate": "higgs.value_gev",
+    "reference_store": "code/particles/data/particle_reference_values.json",
+    "target_values_consumed": true
+  },
+  "theorem_id": "D11TargetAnchoredHiggsExactifier",
+  "theorem_scope": "target_anchored_declared_surface_validation_only"
 }

@@ -25,6 +25,9 @@ def test_d11_reference_exact_adapter_hits_canonical_targets() -> None:
     assert payload["scope"] == "compare_only_inverse_slice"
     assert payload["promotable"] is False
     assert payload["source_artifact"].endswith("d11_declared_calibration_surface.json")
+    assert payload["fixed_ray_algebra_certificate_artifact"].endswith(
+        "d11_forward_seed_promotion_certificate.json"
+    )
     assert payload["predicted_outputs"]["mH_gev"] == pytest.approx(payload["exact_reference_targets"]["mH_gev"], abs=1.0e-12)
     assert payload["predicted_outputs"]["mt_pole_gev"] == pytest.approx(
         payload["exact_reference_targets"]["mt_pole_gev"], abs=1.0e-12

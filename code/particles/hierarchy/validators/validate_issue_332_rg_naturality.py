@@ -22,8 +22,9 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
         "diagnostic_N_not_source": optional.get("n_crc_source") != "provided",
         "strict_resonance_not_required": optional.get("strict_resonance") is False,
         "selected_normal_form_scope_named": (
-            cert.get("mode") == "exact_selected_OPH_branch"
-            and "normal-form readout" in cert.get("theorem", "")
+            cert.get("mode") == "exact_selected_OPH_branch_conditional_readout"
+            and "selected source-to-Higgs comparison map" in cert.get("theorem", "")
+            and cert.get("claim_boundary", {}).get("receipt_class") == "conditional_identity"
         ),
         "physical_promotions_excluded": (
             any("measured weak scale" in item for item in cert.get("forbidden_calibrations", []))

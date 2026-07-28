@@ -654,8 +654,9 @@ def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     assert cert["accepted"] is True
     assert cert["epsilon_H_interval"] == ["0", "0"]
     assert cert["optional_upstream_resonance_check"]["strict_resonance"] is False
-    assert cert["mode"] == "exact_selected_OPH_branch"
-    assert "normal-form readout" in cert["theorem"]
+    assert cert["mode"] == "exact_selected_OPH_branch_conditional_readout"
+    assert cert["claim_boundary"]["receipt_class"] == "conditional_identity"
+    assert "selected source-to-Higgs comparison map" in cert["theorem"]
     forbidden = cert["forbidden_calibrations"]
     assert any("measured weak scale" in item for item in forbidden)
     assert any("measured Higgs" in item for item in forbidden)

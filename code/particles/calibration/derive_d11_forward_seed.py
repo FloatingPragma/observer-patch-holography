@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Propagate the D10 gauge core into the compact D11 fixed-ray seed.
+"""Propagate the D10 gauge core into a declared-surface D11 fixed-ray seed.
 
 Chain role: reuse the calibrated D10 gauge carrier to produce the current
 one-scalar diagonal branch on the declared D10/D11 surface.
@@ -8,8 +8,10 @@ Mathematics: a one-scalar perturbation of the D11 core followed by linear
 Jacobian readout for the companion D11 top-side row and the companion Higgs
 value on that fixed ray.
 
-OPH-derived inputs: `alpha_u`, `alphaY_mz`, and `alpha2_mz` from the D10 core,
-plus the declared D10/D11 calibration-surface core and Jacobian payload.
+Inputs: `alpha_u`, `alphaY_mz`, and `alpha2_mz` from the D10 core, plus the
+declared D10/D11 calibration-surface core and Jacobian payload. The latter is
+not source-emitted, so the result is a comparison coordinate unless a separate
+certificate explicitly marks its source surface promotable.
 
 Output: the diagonal fixed-ray D11 seed and its fixed-ray certificate gap.
 """
@@ -34,6 +36,17 @@ def _timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _certificate_promotes_source(certificate: dict | None) -> bool:
+    """Require an explicit source-surface gate; algebraic status is insufficient."""
+
+    certificate = certificate or {}
+    return bool(
+        certificate.get("certificate_id") == "forward_seed_promotion_certificate"
+        and certificate.get("source_surface_promotable") is True
+        and certificate.get("predictive_promotion_allowed") is True
+    )
+
+
 def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict | None = None) -> dict:
     core = dict(payload["core"])
     jacobian = dict(payload["jacobian"])
@@ -49,25 +62,40 @@ def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict 
     mt_pole = float(core["mt_pole_core_gev"]) + float(jacobian["d_mt_pole_d_y_t"]) * delta_y
     m_h = float(core["mH_core_gev"]) + float(jacobian["d_mH_d_lambda"]) * delta_lambda
 
-    promotion_certificate = promotion_certificate or {}
-    promotion_closed = promotion_certificate.get("status") == "closed"
+    promotion_closed = _certificate_promotes_source(promotion_certificate)
 
     return {
         "artifact": "oph_d11_forward_seed",
         "generated_utc": _timestamp(),
         "forward_seed_object": "sigma_D11_HT",
-        "seed_status": "closed_fixed_ray_branch_seed" if promotion_closed else "predictive_forward_law_candidate",
+        "seed_status": "source_promoted_fixed_ray_branch" if promotion_closed else "declared_surface_fixed_ray_candidate",
         "predictive_promotion_allowed": promotion_closed,
         "predictive_promotion_scope": "diagonal_fixed_ray_only" if promotion_closed else None,
-        "public_surface_candidate_allowed": True,
+        "source_surface_promotable": promotion_closed,
+        "public_surface_candidate_allowed": promotion_closed,
+        "comparison_surface_allowed": True,
         "public_surface_candidate_scope": ["mH_gev", "mt_pole_gev"],
-        "public_surface_policy": "diagonal_fixed_ray_companion_branch",
-        "smallest_predictive_missing_object": None if promotion_closed else "forward_seed_promotion_certificate",
-        "closure_state": "fixed_ray_branch_closed" if promotion_closed else "forward_seed_open_waiting_certificate",
+        "public_surface_policy": (
+            "source_promoted_diagonal_fixed_ray"
+            if promotion_closed
+            else "compare_only_declared_surface_fixed_ray"
+        ),
+        "smallest_predictive_missing_object": (
+            None if promotion_closed else "source_emitted_higgs_yukawa_fj_packet"
+        ),
+        "closure_state": (
+            "source_promoted_fixed_ray_branch"
+            if promotion_closed
+            else "fixed_ray_algebra_only__source_promotion_open"
+        ),
         "forward_seed_promotion_certificate": str(DEFAULT_PROMOTION_CERTIFICATE) if promotion_closed else None,
         "promotion_certificate_artifact": str(DEFAULT_PROMOTION_CERTIFICATE) if promotion_closed else None,
         "source_artifact": payload.get("artifact"),
-        "source_predictive_status": "reference_free_compact_seed_law",
+        "source_predictive_status": (
+            "source_surface_promoted"
+            if promotion_closed
+            else "runtime_reference_free_declared_surface_candidate"
+        ),
         "branch_scope": "diagonal_fixed_ray_only",
         "kappa_HT": kappa,
         "sigma_D11_HT": sigma,
@@ -103,6 +131,14 @@ def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict 
         "seed_certificate_id": "D11SeedCommonProvenanceCertificate",
         "diagnostic_literals_forbidden": True,
         "strictly_not_claimed": [
+            *(
+                []
+                if promotion_closed
+                else [
+                    "oph_native_higgs_or_top_source_emission",
+                    "predictive_or_public_mass_promotion",
+                ]
+            ),
             "exact_higgs_row_on_fixed_ray",
             "exact_higgs_top_pair_on_fixed_ray",
         ],
@@ -113,12 +149,12 @@ def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict 
         ],
         "notes": [
             "Compact D11 fixed-ray seed emitted from the declared D10/D11 calibration surface.",
-            "This artifact now emits one reference-free compact seed law from the D10 gauge core: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
-            "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is the diagonal fixed-ray branch and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
+            "The seed formula is runtime-reference-free: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
+            "Its mass coordinates still consume the declared D11 core and Jacobian, so runtime target independence does not make the surface source-emitted.",
             (
-                "The one-scalar diagonal branch is closed by the fixed-ray certificate. The exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion."
+                "A separate certificate explicitly marks the source surface promotable."
                 if promotion_closed
-                else "The remaining work beneath this artifact is certification of the one-scalar diagonal branch."
+                else "The fixed-ray algebra is available for comparison; source promotion requires a target-clean Higgs/Yukawa/FJ packet."
             ),
         ],
     }

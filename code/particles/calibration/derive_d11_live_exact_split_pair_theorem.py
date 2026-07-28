@@ -104,23 +104,26 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
         and d10_repair.get("promotion_allowed") is True
         and str(d10_repair.get("proof_status", "")).startswith("closed")
     )
+    source_surface_promotable = False
     proof_status = (
-        "closed_source_only_live_exact_split_pair"
+        "closed_conditional_split_implication__source_surface_open"
         if d10_repair_gate_closed
         else "conditional_on_unpromoted_d10_repair_candidate"
     )
-    status = "closed" if d10_repair_gate_closed else "candidate_only"
+    status = "conditional_theorem_only" if d10_repair_gate_closed else "candidate_only"
 
     return {
         "artifact": "oph_d11_live_exact_split_pair_theorem",
         "generated_utc": _timestamp(),
-        "theorem_id": "D11SourceSplitForwardExactness",
+        "theorem_id": "D11DeclaredSurfaceSplitImplication",
+        "legacy_theorem_id": "D11SourceSplitForwardExactness",
         "proof_status": proof_status,
         "status": status,
         "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
-        "public_surface_candidate_allowed": d10_repair_gate_closed,
-        "prediction_promotion_allowed": d10_repair_gate_closed,
-        "display_allowed_as_conditional": not d10_repair_gate_closed,
+        "source_surface_promotable": source_surface_promotable,
+        "public_surface_candidate_allowed": False,
+        "prediction_promotion_allowed": False,
+        "display_allowed_as_conditional": True,
         "upstream_promotion_gate": {
             "required_artifact": "oph_d10_ew_target_free_repair_value_law",
             "required_status": "closed",
@@ -132,12 +135,18 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "passed": d10_repair_gate_closed,
         },
         "non_circularity_status": {
-            "promotion_allowed": d10_repair_gate_closed,
+            "promotion_allowed": False,
             "target_derived_or_candidate_upstream_used": not d10_repair_gate_closed,
-            "missing_source_object": None
-            if d10_repair_gate_closed
-            else "closed_promotable_EWTargetFreeRepairValueLaw_D10",
-            "strict_audit_label": "source_only" if d10_repair_gate_closed else "conditional_candidate",
+            "missing_source_object": (
+                "source_emitted_D11_core_Jacobian_residual_selectors_scale_and_pole_packet"
+                if d10_repair_gate_closed
+                else "closed_promotable_EWTargetFreeRepairValueLaw_D10"
+            ),
+            "strict_audit_label": (
+                "closed_conditional_implication_nonpromoting"
+                if d10_repair_gate_closed
+                else "conditional_candidate"
+            ),
         },
         "source_artifacts": {
             "d10_source_pair": str(D10_SOURCE_JSON),
@@ -165,7 +174,7 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "higgs_residual_formula": "eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)",
             "higgs_residual_value": higgs_residual,
         },
-        "source_only_exactifier_functions": {
+        "declared_surface_exactifier_functions": {
             "c_T_live_formula": "((3/2 + beta_EW/4) * (log(1 + tau2_tree_exact) - tau2_tree_exact) + top_residual) / delta_n_tree_exact",
             "c_T_live_value": c_t_live,
             "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",

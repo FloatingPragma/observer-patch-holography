@@ -13,7 +13,7 @@
     ],
     "sigma_D11_HT": 0.01256505533755541
   },
-  "closure_state": "diagnostic_sidecar_only__live_forward_path_closed_elsewhere",
+  "closure_state": "diagnostic_center_projection_only__source_forward_open",
   "core": {
     "alpha_s_mt": 0.11018777,
     "lambda_core_mt": 0.13164915,
@@ -35,7 +35,7 @@
     "ref_surface": "code/particles/RESULTS_STATUS.md"
   },
   "exact_missing_object": "D11FixedRayWedgeVanishing",
-  "exact_missing_object_scope": "legacy_diagnostic_sidecar_only",
+  "exact_missing_object_scope": "live_forward_path",
   "fixed_ray_slope_certificate": {
     "closes_when": {
       "eta_HT": 0.0,
@@ -54,8 +54,8 @@
     "wedge_factorization_formula": "omega_HT = prefactor_value * (kappa_candidate - kappa_observed_value)",
     "wedge_value": -1.5051272943336635e-06
   },
-  "forward_path_closed_by": "forward_seed_promotion_certificate",
-  "generated_utc": "2026-07-27T08:32:08Z",
+  "forward_path_closed_by": null,
+  "generated_utc": "2026-07-28T18:01:20Z",
   "jacobian": {
     "d_mH_d_lambda": 480.0,
     "d_mt_pole_d_y_t": 184.97
@@ -65,7 +65,7 @@
     "delta_y_t_mt": 0.01156247,
     "source": "diagnostic_required_to_current_refs"
   },
-  "live_forward_path_missing_object": null,
+  "live_forward_path_missing_object": "source_emitted_higgs_yukawa_fj_packet",
   "mu_eval_gev": 160.61247,
   "mu_sync_gev": 680000000000.0,
   "mu_sync_status": "candidate",
@@ -78,15 +78,16 @@
     "The exact emitted center branch is now closed by single-scalar factorization, with pi_y = pi_lambda = sigma_shared and eta_HT = w_HT = 0 on that branch.",
     "The smallest remaining exact diagnostic object is therefore not the full common-provenance certificate again but the fixed-ray wedge scalar D11FixedRayWedgeVanishing.",
     "At the current boundary, the collapsed shared seed already gives a concrete local forward consequence for mt_pole and mH without reopening any separate Higgs/top residual family.",
-    "The remaining open object lives only on the legacy diagnostic skew; the live forward branch is closed elsewhere by the forward-seed promotion certificate.",
-    "The current center branch remains diagnostic-only inside this sidecar because the live forward closure is recorded on the separate forward-seed certificate."
+    "The fixed-ray algebra does not close the source path; a target-clean Higgs/Yukawa/FJ packet remains required.",
+    "The current center branch remains diagnostic-only because sigma_shared is seeded from diagnostic delta_y_t and delta_lambda readback and its declared D11 surface is not source-emitted."
   ],
   "predicted": {
     "mH_gev": 125.21106404382539,
     "mt_pole_gev": 172.40055484582462
   },
   "predictive_promotion_allowed": false,
-  "predictive_status": "diagnostic_sidecar_only__live_forward_path_closed_elsewhere",
+  "predictive_status": "diagnostic_sidecar_only__source_forward_path_open",
+  "public_surface_candidate_allowed": false,
   "readout_kernel": {
     "antidiagonal_vanishing_certificate": {
       "closes_to": {
@@ -198,5 +199,5 @@
   "readout_vector_symbol": "Theta_D11_HT(mu_t) = (delta_y_t(mu_t), delta_lambda(mu_t))",
   "results_status_surface": "code/particles/RESULTS_STATUS.md",
   "transport_family": "sm_below_sync__mssm_like_gauge_above_sync",
-  "upstream_missing_forward_artifact": null
+  "upstream_missing_forward_artifact": "source_emitted_higgs_yukawa_fj_packet"
 }

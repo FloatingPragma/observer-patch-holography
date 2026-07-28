@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-07-23T06:40:02Z`
+Generated: `2026-07-28T17:22:39Z`
 
 This surface lists exact target matches on declared audit carriers. An exact target match is not, by itself, a source-only prediction.
 For quarks, the selected-class target audit matches its chosen mixed-convention packet. Its GeV-valued matrices are mass textures, not physical dimensionless Yukawas.
@@ -12,7 +12,7 @@ For quarks, the selected-class target audit matches its chosen mixed-convention 
 - Promotable: `false`
 - Source artifact: `code/particles/runs/calibration/d11_reference_exact_adapter.json`
 - Max absolute residual: `0.0`
-- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses a conditional split candidate on the declared D10/D11 surface. That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.
+- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The D11 audit lane retains a conditional split candidate on the declared D10/D11 surface. That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`, but promotion is blocked by the unpromoted D10 repair candidate, the declared D11 core/Jacobian provenance, residual-selector rigidity, and the physical-pole gates. The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |

@@ -29,11 +29,24 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     32: {
         "phase": "particle-rg",
-        "claim_level": "constructive contract",
-        "blocker": "Populate scheme lock, threshold map, beta provenance table, and matching interval certificate.",
-        "closure": "Every running/matching ingredient is OPH-derived, explicitly borrowed, or declared with interval impact.",
-        "falsification": "Hidden threshold or scheme freedom is needed to recover the quantitative rows.",
-        "chrome_policy": "Use only after the local RG packet exists.",
+        "claim_level": "exact finite representation-index frontier; physical RG packet open",
+        "blocker": (
+            "The finite matter packet fixes per-copy representation indices and "
+            "the imported one-loop QFT functional gives a parametric beta law. "
+            "Physical family and scalar multiplicities, the complete field census, "
+            "ordered EFT intervals, thresholds, decoupling, scheme maps, Jacobians, "
+            "term masks, deterministic remainders, and interval effects remain open."
+        ),
+        "closure": (
+            "One target-clean source packet emits the complete same-branch RG, "
+            "threshold, finite matching, scheme, Jacobian, mask, remainder, and "
+            "interval data with independent replay and explicit imported-QFT provenance."
+        ),
+        "falsification": (
+            "A hidden threshold, scalar or family choice, scheme freedom, target-fitted "
+            "remainder, or unbounded truncation is needed to recover a quantitative row."
+        ),
+        "chrome_policy": "Use only to audit a concrete same-branch RG and matching packet.",
     },
     49: {
         "phase": "observer-monograph",
@@ -261,6 +274,43 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "interface shared by the classical and quantum countermodels."
         ),
         "chrome_policy": "Use only to audit a concrete dynamics, pole, or quantization packet.",
+    },
+    334: {
+        "phase": "gravity-scale-composition",
+        "claim_level": "source clock plus gravity readout composition gap",
+        "blocker": (
+            "Issue #633 owns the source energy clock. A source-derived gravity "
+            "length or radius, Einstein attachment, common provenance graph, and "
+            "outward interval composition into G_SI remain open."
+        ),
+        "closure": (
+            "A target-clean #633 energy interval and source gravity readout compose "
+            "on one branch into an independently replayed G_SI interval."
+        ),
+        "falsification": (
+            "The composition imports measured G, Planck units, a cosmological target, "
+            "or incompatible clock and gravity provenance."
+        ),
+        "chrome_policy": "Use only after #633 and a concrete gravity-scale packet exist.",
+    },
+    547: {
+        "phase": "n-dependent-electroweak-balance",
+        "claim_level": "physical N-balance law open",
+        "blocker": (
+            "The local carrier belongs to #631 and direct record capacity belongs "
+            "to #505. Their source-branch composition does not yet derive the "
+            "N-dependent electroweak balance law."
+        ),
+        "closure": (
+            "Completed #505 and #631 packets are bound on one target-clean branch "
+            "and derive the balance equation with refinement, ancestry, stability, "
+            "and deletion controls."
+        ),
+        "falsification": (
+            "A nonzero balance residual is absorbed by redefining the carrier or "
+            "capacity, or the equation is imposed rather than derived."
+        ),
+        "chrome_policy": "Use only after #505 and #631 emit their positive packets.",
     },
     522: {
         "phase": "cosmology-source-clock",
@@ -523,6 +573,120 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "kernel or measured line/flux transport."
         ),
         "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
+    },
+    594: {
+        "phase": "physical-wz-source-to-pole",
+        "claim_level": "OPH-native source-to-pole packet open",
+        "blocker": (
+            "The finite parents and bounded frontiers do not emit one target-clean "
+            "action, complete W/Z-coupled census and Yukawa packet, FJ map, full "
+            "RG/matching law, source point or law, operational clock, and hermetic "
+            "common-digest production replay."
+        ),
+        "closure": (
+            "The positive packets from #634, #569, #630, #631, #632, #32, and #633 "
+            "are substituted into the validated #593 consumer without algorithm "
+            "changes and independently replayed under one recomputed subject digest."
+        ),
+        "falsification": (
+            "Any source choice, branch, tolerance, error budget, or producer depends "
+            "on measured W, Z, Higgs, top, G_F, weak mixing, or a calibrated proxy."
+        ),
+        "chrome_policy": "Use only to audit a complete local source packet and replay bundle.",
+    },
+    630: {
+        "phase": "electroweak-source-action",
+        "claim_level": "bounded non-promoting frontier; positive scalar/Yukawa action open",
+        "blocker": (
+            "Finite current, matter, global-form, family, and negative-control "
+            "receipts classify conditional operator spaces but select no physical "
+            "scalar, normalized potential, vacuum, complete Yukawa matrices, or FJ map."
+        ),
+        "closure": (
+            "One target-clean local source action emits the scalar carrier, kinetic "
+            "normalization, stable potential and vacuum, complete Yu/Yd/Ye, and a "
+            "symbolic v_chart-to-v_F map with scheme and uncertainty."
+        ),
+        "falsification": (
+            "The positive action cannot distinguish the registered scalar and "
+            "Higgs/top countermodels or imports a measured particle target."
+        ),
+        "chrome_policy": "Use only to audit a positive source-action packet; retain all negative controls.",
+    },
+    631: {
+        "phase": "local-electroweak-carrier",
+        "claim_level": "finite line theorem closed; physical common-load attachment open",
+        "blocker": (
+            "The finite screen and weak order-unit lines admit a unique positive "
+            "unital map, but no source receipt identifies them as one physical load "
+            "or derives its normalization."
+        ),
+        "closure": (
+            "The positive #630 action supplies the weak/scalar line and one "
+            "refinement-natural target-clean receipt identifies and normalizes the "
+            "physical local screen/electroweak carrier."
+        ),
+        "falsification": (
+            "A second admissible physical carrier, broken refinement map, wrong "
+            "normalization, or target/cosmological input survives the controls."
+        ),
+        "chrome_policy": "Use only after the #630 positive action and local carrier receipt exist.",
+    },
+    632: {
+        "phase": "electroweak-field-census",
+        "claim_level": "complete W/Z-coupled census gap",
+        "blocker": (
+            "The finite representation inventory does not prove that every omitted "
+            "field or operator has an identically zero W/Z vertex across the selected "
+            "source action and EFT intervals."
+        ),
+        "closure": (
+            "A source-complete field and operator census is emitted with exact "
+            "zero-vertex decoupling certificates for every excluded object and "
+            "mutation tests for sterile or source-invisible direct sums."
+        ),
+        "falsification": (
+            "An omitted sector contributes to a W/Z self-energy, counterterm, "
+            "threshold, mixing, or Yukawa vertex on an admissible completion."
+        ),
+        "chrome_policy": "Use only to audit a complete census and zero-vertex packet.",
+    },
+    633: {
+        "phase": "operational-source-clock",
+        "claim_level": "exact interval inversion closed; physical source energy clock open",
+        "blocker": (
+            "The exact SI chart and interval inversion are finite algebra. No "
+            "target-clean local Hamiltonian or transition, positive gap interval, "
+            "physical reference transition, scheme, or refinement rule is emitted."
+        ),
+        "closure": (
+            "A source-derived operational transition and positive gap produce an "
+            "energy interval whose exact SI conversion is independently replayed "
+            "without measured clocks, particle masses, G, or Planck units."
+        ),
+        "falsification": (
+            "The clock interval depends on a measured frequency, calibrated proxy, "
+            "synthetic fixture, or branch selected by a physical target."
+        ),
+        "chrome_policy": "Use only after a concrete local Hamiltonian or transition packet exists.",
+    },
+    634: {
+        "phase": "lorentzian-spin-local-source",
+        "claim_level": "inhabited local action domain open",
+        "blocker": (
+            "Conditional event, frame, cone, and spin interfaces do not yet construct "
+            "one inhabited refinement-compatible Lorentzian/Spin local action domain."
+        ),
+        "closure": (
+            "One source-derived local domain binds events, Lorentzian frames, Spin "
+            "lifts, locality, Hamiltonian typing, refinement, and public receipts "
+            "with independent replay."
+        ),
+        "falsification": (
+            "The proposed domain is uninhabited, loses locality or Spin/Lorentzian "
+            "compatibility under refinement, or requires a physical target."
+        ),
+        "chrome_policy": "Use only to audit a concrete inhabited local-action construction.",
     },
 }
 

@@ -6,7 +6,7 @@ from __future__ import annotations
 import json
 import sys
 import unittest
-from decimal import Decimal
+from decimal import Decimal, localcontext
 from pathlib import Path
 
 MODULE_DIR = Path(__file__).resolve().parent
@@ -48,12 +48,15 @@ class KoideBalanceTests(unittest.TestCase):
             self.assertTrue(verdict["failed"], name)
 
     def test_tau_solution_solves_the_balance_exactly(self) -> None:
-        m_e = cert.PDG_MEV["electron"][0]
-        m_mu = cert.PDG_MEV["muon"][0]
-        tau_plus, tau_minus = cert.conditional_tau_roots(m_e, m_mu)
-        for tau in (tau_plus, tau_minus):
-            q = cert.koide_q(m_e, m_mu, tau)
-            self.assertLess(abs(q - Decimal(2) / Decimal(3)), Decimal("1e-90"))
+        with localcontext() as context:
+            context.prec = cert.DECIMAL_PRECISION
+            m_e = cert.PDG_MEV["electron"][0]
+            m_mu = cert.PDG_MEV["muon"][0]
+            tau_plus, tau_minus = cert.conditional_tau_roots(m_e, m_mu)
+            target = Decimal(2) / Decimal(3)
+            for tau in (tau_plus, tau_minus):
+                q = cert.koide_q(m_e, m_mu, tau)
+                self.assertLess(abs(q - target), Decimal("1e-90"))
 
     def test_ancestry_is_declared(self) -> None:
         boundary = self.payload["claim_boundary"]

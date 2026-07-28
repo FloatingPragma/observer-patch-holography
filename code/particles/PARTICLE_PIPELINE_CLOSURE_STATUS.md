@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-27T07:59:16Z`
+Generated: `2026-07-28T16:41:54Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -33,7 +33,7 @@ promotable: the OPH-native producer stack listed in
 | `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
 | `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
 | `closed_material_sync_no_live_publish` | `True` | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` | not_needed_for_material_sync |
-| `closed_declared_convention_contract` | `True` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | not_needed_for_closed_contract |
+| `open_source_rg_frontier_partial` | `False` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | not_needed_for_local_exact_precursor |
 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
 | `closed_corpus_limited_charged_end_to_end_no_go` | `True` | `particles/runs/leptons/charged_end_to_end_impossibility_theorem.json` | not_needed_until_new_uncentered_trace_lift_source_exists |

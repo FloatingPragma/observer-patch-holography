@@ -128,7 +128,7 @@
       "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
     ]
   },
-  "generated_utc": "2026-07-27T07:59:16Z",
+  "generated_utc": "2026-07-28T16:41:54Z",
   "p_trunk": {
     "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
     "alpha_inv": "136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341",
@@ -206,14 +206,15 @@
       "title": "Populate the source spectral measure payload and interval certificate"
     },
     {
-      "current_boundary": "The D10 branch uses declared running/matching conventions. Issue #32 is closed as a declared-convention contract, not as an OPH derivation of every coefficient, threshold, and conversion.",
+      "current_boundary": "The finite matter receipts fix exact per-copy quadratic indices. Under the explicitly imported one-loop QFT functional they give a parametric gauge-beta law in unresolved family and scalar multiplicities. The D10 branch still uses declared running and matching conventions; no source emits its complete W/Z-coupled census modulo proved zero-vertex decoupling, thresholds, finite maps, Jacobians, masks, or vector remainders.",
       "github_issue": 32,
       "id": "d10.rg-matching-threshold-scheme",
       "lane": "D10 running and matching",
-      "next_action": "Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived.",
-      "status": "closed_declared_convention_contract",
+      "next_action": "Build the generic proof-bearing interval-composition engine, then populate it only after #630 emits the source action, #631 emits the physical local carrier, #632 emits the coupled-sector census, and #569 closes the family attachment.",
+      "source_frontier": "code/P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
+      "status": "open_source_rg_frontier_partial",
       "target_surfaces": [
-        "paper compact D10 section",
+        "extra/compact_proof_of_oph.tex",
         "code/P_derivation",
         "code/particles/calibration"
       ],

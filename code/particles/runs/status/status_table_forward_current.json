@@ -151,7 +151,7 @@
       "unit": "eV^2"
     }
   ],
-  "generated_utc": "2026-07-27T07:59:17Z",
+  "generated_utc": "2026-07-28T17:31:22Z",
   "inputs": {
     "P": 1.630968209403959,
     "hadron_profile": "suppressed",
@@ -360,19 +360,19 @@
     {
       "delta_display": "n/a",
       "group": "Bosons",
-      "note": "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> derive_d10_ew_target_free_repair_value_law.py -> derive_d11_fixed_ray_no_go_theorem.py -> derive_d11_live_exact_split_pair_theorem.py`, which makes the declared D10/D11 running, matching, and threshold surface explicit, emits the source-side D10 repair tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`, and then emits a conditional Higgs/top split candidate. The old one-scalar fixed ray remains a lower companion branch. The live split theorem uses the shared scalar `rho_HT = log(1 + tau2_tree_exact)` together with the source-only residual selectors `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27` and `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`. The forward split coordinates are `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`, and the declared D11 Jacobian reads out `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. Strict promotion of the Higgs mass row is blocked until the D10 target-free repair closes. The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. The selected-class quark numeric witness uses the PDG 2025 cross-section top entry `Q007TP4`, but its values are withheld from public OPH-value columns because the witness remains target-anchored. The auxiliary direct-top average `Q007TP = 172.56 +- 0.31 GeV` is a compare-only extraction codomain; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. The repo-wide selected-class top witness is audit-only. The quark source equations leave two independent positive spread moduli, and the target packet mixes running-mass and pole-extraction conventions.",
+      "note": "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> derive_d10_ew_target_free_repair_value_law.py -> derive_d11_fixed_ray_no_go_theorem.py -> derive_d11_live_exact_split_pair_theorem.py`, which makes the declared D10/D11 running, matching, and threshold surface explicit, emits the unpromoted D10 repair tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`, and then emits a conditional Higgs/top split candidate. The old one-scalar fixed ray remains a lower companion branch. The conditional split artifact uses the shared scalar `rho_HT = log(1 + tau2_tree_exact)` together with declared residual selectors whose source uniqueness and deformation rigidity remain open: `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27` and `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`. The forward split coordinates are `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`, and the declared D11 Jacobian reads out `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. Promotion of the Higgs mass row is blocked by the D10 repair gate, source provenance for the D11 core, Jacobian, and residual selectors, and the scale, running, matching, and physical-pole gates. The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. The selected-class quark numeric witness uses the PDG 2025 cross-section top entry `Q007TP4`, but its values are withheld from public OPH-value columns because the witness remains target-anchored. The auxiliary direct-top average `Q007TP = 172.56 +- 0.31 GeV` is a compare-only extraction codomain; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this conditional artifact. The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. The repo-wide selected-class top witness is audit-only. The quark source equations leave two independent positive spread moduli, and the target packet mixes running-mass and pole-extraction conventions.",
       "particle": "H",
       "particle_id": "higgs",
       "prediction_display_gev": "n/a",
       "prediction_key": "crit_mH_tree",
-      "prediction_surface": "local_d11_source_split_exact_pair_theorem",
+      "prediction_surface": "conditional_d11_declared_surface_split_candidate",
       "prediction_value_gev": null,
       "reference_display": "125.13 +- 0.11 GeV",
       "reference_kind": "value",
       "reference_source_url": "https://pdgapi.lbl.gov/summaries/S126M",
       "reference_value_gev": 125.13,
-      "status": "declared_surface_theorem",
-      "status_label": "D11 Higgs/top calibration theorem"
+      "status": "conditional_declared_surface_candidate",
+      "status_label": "D11 Higgs/top declared-surface candidate"
     },
     {
       "delta_display": "n/a",
@@ -569,7 +569,7 @@
       "particle_id": "top_quark",
       "prediction_display_gev": "n/a",
       "prediction_key": "m_t",
-      "prediction_surface": "local_d11_forward_seed_candidate",
+      "prediction_surface": "particles_gap",
       "prediction_value_gev": null,
       "reference_display": "172.1 +- 0.6 GeV",
       "reference_kind": "value",
@@ -584,7 +584,7 @@
     "active_local_public_candidates": {
       "charged_local_candidate": false,
       "d10_mass_pair": false,
-      "d11_forward_seed": true,
+      "d11_forward_seed": false,
       "hadrons_enabled": false,
       "neutrino_local_candidate": false,
       "neutrino_repaired_branch": false,

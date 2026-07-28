@@ -84,7 +84,7 @@
       "exact_kind": "conditional_declared_surface_higgs_top_candidate",
       "label": "Higgs Boson",
       "mass_gev": 125.1995304097179,
-      "note": "Conditional Higgs/top split candidate on the declared D10/D11 surface. It emits the same numeric split pair, but strict promotion is blocked until the upstream D10 target-free repair law is closed and promotable.",
+      "note": "Conditional Higgs/top split candidate on the declared D10/D11 surface. It emits the same numeric split pair, but promotion is blocked by the unpromoted D10 repair candidate, the declared D11 core/Jacobian and residual-selector provenance, and the scale, running, matching, and physical-pole gates.",
       "particle_id": "higgs",
       "promotable": false,
       "scope": "declared_d10_d11_running_matching_threshold_surface_only",
@@ -92,7 +92,7 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-07-23T06:40:02Z",
+  "generated_utc": "2026-07-28T17:31:22Z",
   "status": "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld",
   "withheld_entries": [
     {

@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-07-27T07:59:16Z`
+Generated: `2026-07-28T16:41:54Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -74,7 +74,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `pclosure.compressed-trunk-artifact` | P closure | `closed_canonical_guarded_candidate_artifact` | Keep emitting p_closure_trunk_current.json and block live prediction promotion. |
 | `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `closed_blocker_isolated_endpoint_package` | Keep the package as the closed blocker-isolation artifact for issue #223. |
 | `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `closed_blocker_isolated_source_residual_no_go` | Populate the Ward-projected source spectral measure payload, including rho_had(s;P) or an equivalent spectral primitive, matching remainder, certified quadrature bounds, and the interval certificate for the final map. |
-| `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
+| `d10.rg-matching-threshold-scheme` | D10 running and matching | `open_source_rg_frontier_partial` | Build the generic proof-bearing interval-composition engine, then populate it only after #630 emits the source action, #631 emits the physical local carrier, #632 emits the coupled-sector census, and #569 closes the family attachment. |
 | `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
 | `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an declared determinant-sensitive source observable is exhibited that breaks the kappa countermodel; the gate flips only when N_det has the certified singleton interval [0,0]. |
 | `quark.source-spread-identifiability` | Quarks | `closed_corpus_limited_two_modulus_nonidentifiability_obstruction` | Keep all numeric quark rows suppressed. Reopen only if an A1-generated flavor grammar and typed A3 optimizer-to-Yukawa theorem refute the counterfamily and emit both spreads. |

@@ -37,6 +37,20 @@ def test_d10_and_d11_public_candidate_policy_is_explicit() -> None:
     assert module._d10_public_mass_pair_allowed(d10) is False
 
 
+def test_d11_split_requires_source_surface_promotion() -> None:
+    module = _load_module()
+    split = {
+        "source_surface_promotable": False,
+        "public_surface_candidate_allowed": True,
+        "prediction_promotion_allowed": True,
+        "non_circularity_status": {"promotion_allowed": True},
+        "exact_split_pair": {"mH_gev": 1.0, "mt_pole_gev": 2.0},
+    }
+    assert module._d11_exact_pair_allowed(split) is False
+    split["source_surface_promotable"] = True
+    assert module._d11_exact_pair_allowed(split) is True
+
+
 def test_neutrino_repaired_branch_policy_is_explicit() -> None:
     module = _load_module()
     blockers = {

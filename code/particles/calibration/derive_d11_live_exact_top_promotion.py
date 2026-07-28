@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Emit the exact top-side D11 calibration theorem on the declared surface.
+"""Emit the target-anchored top-side D11 exactifier on the declared surface.
 
-Chain role: promote the companion D11 top-side row to the exact local codomain
-on the declared D10/D11 running, matching, and threshold surface without
-relabeling the one-scalar fixed ray as exact.
+Chain role: retain the historical one-coordinate top exact fit as a
+compare-only validation artifact on the declared D10/D11 running, matching,
+and threshold surface.
 
 Mathematics: use the D10 source+repair split beneath the D11 Jacobian, choose
 the clean source+repair top-side direction
@@ -11,11 +11,12 @@ the clean source+repair top-side direction
 unique `delta_n_tree_exact` exactifier coefficient that lands the top row
 exactly on the declared codomain.
 
-OPH-derived inputs: the D10 source transport pair, the D10 target-free repair
-value law, and the declared D10/D11 calibration surface. The exact top codomain
-is the declared local calibration target on that same surface.
+Inputs: the D10 source transport pair, the D10 target-free repair value law,
+the declared D10/D11 calibration surface, and the measured top reference
+value. Consuming that final input makes this a target-anchored exactifier,
+not an OPH-native source theorem.
 
-Output: a machine-readable exact top-side calibration theorem artifact.
+Output: a machine-readable compare-only top exactifier artifact.
 """
 
 from __future__ import annotations
@@ -83,11 +84,22 @@ def build_artifact(
     return {
         "artifact": "oph_d11_live_exact_top_promotion",
         "generated_utc": _timestamp(),
-        "theorem_id": "D11LiveForwardExactTopPromotion",
-        "proof_status": "closed_target_anchored_live_exact_top_promotion",
-        "status": "closed",
-        "public_surface_candidate_allowed": True,
-        "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
+        "theorem_id": "D11TargetAnchoredTopExactifier",
+        "legacy_theorem_id": "D11LiveForwardExactTopPromotion",
+        "proof_status": "compare_only_target_anchored_exactifier",
+        "status": "compare_only",
+        "claim_class": "target_anchored_declared_surface_validation",
+        "native_source_emission": False,
+        "source_surface_promotable": False,
+        "predictive_promotion_allowed": False,
+        "public_surface_candidate_allowed": False,
+        "comparison_surface_allowed": True,
+        "theorem_scope": "target_anchored_declared_surface_validation_only",
+        "target_ancestry": {
+            "target_values_consumed": True,
+            "reference_store": str(REFERENCE_JSON),
+            "consumed_coordinate": "top_quark.value_gev",
+        },
         "source_artifacts": {
             "d10_source_pair": str(D10_SOURCE_PAIR_JSON),
             "d10_target_free_repair": str(D10_REPAIR_JSON),
@@ -147,6 +159,9 @@ def build_artifact(
             "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit",
         },
         "strictly_not_claimed": [
+            "oph_native_top_source_emission",
+            "predictive_top_promotion",
+            "public_top_prediction",
             "full_higgs_top_inverse_slice_promotion",
             "reference_free_one_scalar_higgs_top_common_ray",
             "promotion_of_the_old_fixed_ray_as_exact_pair",
@@ -155,20 +170,20 @@ def build_artifact(
             "The D11 top-side readout depends only on y_t_core_mt, d_mt_pole_d_y_t, and one scalar delta_y_t_mt.",
             "The D10 source+repair split already emits eta_source, beta_EW, tau2_tree_exact, and delta_n_tree_exact.",
             "The clean top-side source+repair direction (eta_source + (3/2 + beta_EW/4) * tau2_tree_exact) / sqrt(pi) is therefore a forward D10/D11 direction beneath the y-side Jacobian.",
-            "Imposing exact top landing on the declared codomain fixes one unique correction coefficient c_T_exactifier on delta_n_tree_exact.",
+            "Imposing exact top landing on the measured reference codomain fixes one unique correction coefficient c_T_exactifier on delta_n_tree_exact.",
             "Substituting that unique coefficient yields sigma_D11_T_exact = pi_T_exact, hence delta_y_t_mt and mt_pole_gev equal the declared exact codomain by direct algebra.",
-            "No Higgs target, no delta_lambda readback, and no compare-only inverse adapter are used as predictive inputs anywhere in this theorem.",
+            "No Higgs target, no delta_lambda readback, and no inverse adapter are used, but the top target is an explicit solve input, so the result is compare-only.",
         ],
         "notes": [
-            "This is a top-side calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
-            "It closes the exact D11 top-side row without relabeling the old one-scalar fixed ray as an exact pair theorem.",
-            "The quark lane carries a separate mixed-convention target-audit top coordinate. It is not a repo-wide exact public top row.",
+            "This is a top-side target-anchored exactifier on the declared D10/D11 running, matching, and threshold surface.",
+            "It preserves the exact arithmetic fit for validation and cannot promote a source-native or public top row.",
+            "The quark lane carries a separate mixed-convention target-audit top coordinate.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact D11 top-side promotion theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the compare-only D11 top exactifier artifact.")
     parser.add_argument("--references", default=str(REFERENCE_JSON))
     parser.add_argument("--d10-source-pair", default=str(D10_SOURCE_PAIR_JSON))
     parser.add_argument("--d10-repair", default=str(D10_REPAIR_JSON))

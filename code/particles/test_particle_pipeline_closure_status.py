@@ -82,8 +82,12 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     companion = {branch["label"]: branch for branch in status["companion_status_branches"]}
     assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert gates[224]["state"] == "closed_canonical_guarded_trunk_adoption"
-    assert gates[32]["state"] == "closed_declared_convention_contract"
-    assert gates[32]["closable_now"] is True
+    assert gates[32]["state"] == "open_source_rg_frontier_partial"
+    assert gates[32]["closable_now"] is False
+    assert gates[32]["closed_as_declared_convention_contract"] is False
+    assert gates[32]["source_frontier"]["status"] == (
+        "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN"
+    )
     assert gates[207]["state"] == "closed_current_corpus_codomain_no_go"
     assert gates[207]["closable_now"] is True
     assert gates[201]["state"] == "closed_current_corpus_charged_end_to_end_no_go"

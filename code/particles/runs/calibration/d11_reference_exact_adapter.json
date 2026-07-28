@@ -8,18 +8,18 @@
     "mH_gev": 125.13,
     "mt_pole_gev": 172.1
   },
+  "fixed_ray_algebra_certificate_artifact": "code/particles/runs/calibration/d11_forward_seed_promotion_certificate.json",
   "formulas": {
     "delta_lambda_mt": "(mH_reference - mH_core_gev) / d_mH_d_lambda",
     "delta_y_t_mt": "(mt_reference - mt_pole_core_gev) / d_mt_pole_d_y_t",
     "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
   },
-  "generated_utc": "2026-07-27T08:32:08Z",
+  "generated_utc": "2026-07-28T18:01:20Z",
   "inverse_slice_coordinates": {
     "delta_lambda_mt": -0.003109645833333345,
     "delta_y_t_mt": 0.009940801211007214
   },
-  "live_predictive_branch_artifact": "code/particles/runs/calibration/d11_forward_seed_promotion_certificate.json",
   "normalized_readback": {
     "eta_HT": -0.00124343961012649,
     "pi_lambda": 0.01328664697987041,
@@ -29,7 +29,7 @@
   "notes": [
     "This is a compare-only inverse slice on the linear D11 Jacobian, not a live predictive D11 theorem.",
     "It exists only to surface an exact Higgs/top reference hit on the current emitted D11 core.",
-    "The live public Higgs row is carried by D11LiveForwardExactHiggsPromotion, while the old one-scalar seed stays on disk as the companion fixed-ray D11 branch. The quark lane carries a separate target-audit top coordinate, not a repo-wide exact public top row."
+    "The target-anchored one-coordinate exactifiers and the fixed-ray seed are compare-only surfaces. The quark lane carries a separate target-audit top coordinate."
   ],
   "predicted_outputs": {
     "mH_gev": 125.13,

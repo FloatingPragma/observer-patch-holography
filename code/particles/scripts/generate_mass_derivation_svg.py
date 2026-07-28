@@ -76,6 +76,7 @@ STATUS_BAR = {
     "candidate_trunk_compare_only": "#06b6d4",
     "secondary_quantitative": "#8b5cf6",
     "declared_surface_theorem": "#8b5cf6",
+    "conditional_declared_surface_candidate": "#f59e0b",
     "target_anchored_witness_no_go_boundary": "#f59e0b",
     "selected_class_theorem": "#14b8a6",
     "source_spread_nonidentifiability_obstruction": "#f59e0b",
@@ -90,6 +91,7 @@ STATUS_TEXT = {
     "candidate_trunk_compare_only": "EW frontier",
     "secondary_quantitative": "secondary",
     "declared_surface_theorem": "declared-surface theorem",
+    "conditional_declared_surface_candidate": "declared-surface candidate",
     "target_anchored_witness_no_go_boundary": "witness boundary",
     "selected_class_theorem": "legacy selected-class audit",
     "source_spread_nonidentifiability_obstruction": "reciprocal-ray rejected",
@@ -136,6 +138,7 @@ STATUS_EXPLAINER = {
     "candidate_trunk_compare_only": "electroweak massive-boson frontier without public W/Z rows",
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
+    "conditional_declared_surface_candidate": "conditional audit surface with source and pole gates open",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
     "selected_class_theorem": "legacy selected-class target audit with numeric witness withheld",
     "source_spread_nonidentifiability_obstruction": "common-scale six-Yukawa audit rejects the reciprocal-ray subfamily; numeric rows withheld",
@@ -150,6 +153,7 @@ STATUS_NEXT_STEP = {
     "candidate_trunk_compare_only": "This row belongs to the electroweak massive-boson frontier.",
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
+    "conditional_declared_surface_candidate": "This row is a non-promoting declared-surface candidate. Source provenance, selector rigidity, and physical-pole gates remain open.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
     "selected_class_theorem": "This legacy status denotes a selected-class target audit; numeric witness values are withheld from public prediction outputs.",
     "source_spread_nonidentifiability_obstruction": "The generic physical interface has six dimensionless Yukawa coordinates at one scale and scheme. The reciprocal-ray restriction fails the common-scale data, and a source-derived flavor-orbit selector is absent.",
@@ -222,8 +226,8 @@ LANES: List[Dict[str, Any]] = [
         "logic": (
             "Take the electroweak substrate, impose the critical-surface condition, then use the synchronized "
             "transport core on the declared running, matching, and threshold surface. The fixed-ray certificate "
-            "is a lower-rank one-scalar branch. The split theorem emits a shared Higgs/top scalar together "
-            "with source-only residual selectors for the top and Higgs channels. The pair remains conditional on the "
+            "is a lower-rank one-scalar algebraic branch. The split artifact emits a shared Higgs/top scalar together "
+            "with declared residual selectors whose source uniqueness and deformation rigidity are not proved. The pair remains conditional on the "
             "declared electroweak running and matching surface and is not a source-only complex-pole result. The quark "
             "spectrum is assessed separately on a common-scale dimensionless Yukawa interface."
         ),

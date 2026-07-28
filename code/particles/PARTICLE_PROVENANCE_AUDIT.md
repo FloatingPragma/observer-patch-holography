@@ -1,6 +1,6 @@
 # Particle Provenance Audit
 
-Generated: `2026-07-23T06:40:02Z`
+Generated: `2026-07-28T17:31:23Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -53,7 +53,7 @@ These zero hard quadratic parameters are branch-conditional mode statements, not
 ## Convention Sensitivity
 
 - Status: `declared_taxonomy_emitted_numeric_sweep_stage_gated`
-- RG contract status: `closed_declared_convention_contract_not_rg_matching_theorem`
+- RG contract status: `open_source_rg_frontier_partial`
 - Endpoint contract status: `closed_blocker_isolated_not_endpoint_theorem`
 - Endpoint package status: `endpoint_package_computed_blocker_isolated`
 - Next artifact: interval composition certificates after the populated source spectral measure payload exists

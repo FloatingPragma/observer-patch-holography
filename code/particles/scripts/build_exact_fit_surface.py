@@ -101,10 +101,11 @@ def build_entries() -> list[dict[str, Any]]:
             ),
             "source_artifact": _repo_ref(D11_EXACT_JSON),
             "note": (
-                "Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses "
+                "Exact only as a compare-only inverse slice on the D11 Jacobian. The D11 audit lane retains "
                 "a conditional split candidate on the declared D10/D11 surface. "
                 "That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate "
-                "`m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. "
+                "`m_t = 172.3523553288312 GeV`, but promotion is blocked by the unpromoted D10 repair candidate, "
+                "the declared D11 core/Jacobian provenance, residual-selector rigidity, and the physical-pole gates. "
                 "The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. "
                 "The auxiliary direct-top average `Q007TP` is compare-only; "
                 "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "

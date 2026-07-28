@@ -96,6 +96,7 @@ def _d11_split_promotable(payload: dict[str, Any] | None) -> bool:
         bool(payload)
         and payload.get("status") == "closed"
         and payload.get("proof_status") == "closed_source_only_live_exact_split_pair"
+        and payload.get("source_surface_promotable") is True
         and payload.get("public_surface_candidate_allowed") is True
         and _non_circularity_promotable(payload, default=True)
     )
@@ -347,7 +348,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             else "conditional_declared_surface_higgs_top_candidate"
         )
     elif d11_exact_higgs:
-        higgs_exact_kind = "exact_target_anchored_higgs_calibration_theorem"
+        higgs_exact_kind = "exact_target_anchored_higgs_compare_only_exactifier"
     else:
         higgs_exact_kind = "exact_target_anchored_compare_only_inverse_slice"
     neutrino_promotable = _neutrino_absolute_promotable(neutrino)
@@ -409,11 +410,11 @@ def build_all_entries() -> list[dict[str, Any]]:
                 "`code/particles/runs/calibration/direct_top_bridge_contract.json`."
                 if d11_split_promotable
                 else
-                "Conditional Higgs/top split candidate on the declared D10/D11 surface. It emits the same numeric split pair, but strict promotion is blocked until the upstream D10 target-free repair law is closed and promotable."
+                "Conditional Higgs/top split candidate on the declared D10/D11 surface. It emits the same numeric split pair, but promotion is blocked by the unpromoted D10 repair candidate, the declared D11 core/Jacobian and residual-selector provenance, and the scale, running, matching, and physical-pole gates."
                 )
                 if d11_exact_pair
                 else (
-                "Exact target-anchored Higgs calibration theorem on the declared D10/D11 surface."
+                "Exact target-anchored Higgs compare-only exactifier on the declared D10/D11 surface."
                 if d11_exact_higgs
                 else "Exact compare-only inverse slice on the D11 Jacobian."
                 )

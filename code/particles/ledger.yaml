@@ -4,8 +4,8 @@ goal: "status-tiered particle-spectrum ledger from the candidate P-closure branc
 notes:
   - "Candidate branch values: P = 1.63097210492078846050203640439 and alpha_cand^-1 = 136.994020662724205139718642793."
   - "This ledger is conservative: compare-only rows, target-anchored witnesses, and corpus-limited no-go boundaries sit outside live target-free predictions."
-  - "Issues #199, #201, #207, #223, #224, #234, #235, and #32 have closed blocker, no-go, guarded-adoption, provenance, or declared-convention status."
-  - "Issue #332 certifies a conditional selected-branch RG/Higgs square, #335 composes the conditional resonance, #337 derives the projection map and residual equivalence, and #547 owns HIERARCHY-SCREEN-READOUT."
+  - "Issues #199, #201, #207, #223, #224, #234, and #235 have closed blocker, no-go, guarded-adoption, or provenance status. Issue #32 is open with an exact finite representation-index frontier; its QFT functional, census specialization, thresholds, maps, and remainder enclosures remain unclosed."
+  - "Issue #332 certifies a conditional selected-branch RG/Higgs square, #335 composes the conditional resonance, and #337 derives the projection map and residual equivalence. Issue #631 owns the local screen/electroweak carrier attachment; #547 owns only the separate N-dependent balance law."
 entries:
   - id: conditional.carrier_mode.photon
     output_keys: []
@@ -49,7 +49,7 @@ entries:
       Z_compare_only_GeV: 91.18797809193725
       W_target_free_continuation_GeV: 80.37700001539531
       Z_target_free_continuation_GeV: 91.18797807794321
-    blocked_by: ["populated source spectral measure payload", "same-scheme interval certificate"]
+    blocked_by: ["populated source spectral measure payload", "source-complete RG/threshold/scheme packet from #32", "same-scheme interval certificate"]
   - id: theorem.hierarchy_naturality.local_global_bridge
     output_keys: ["N_CRC_EW", "B_EW", "epsilon_H"]
     label: "Electroweak hierarchy/naturality bridge"
@@ -67,16 +67,16 @@ entries:
     caveats:
       - "#332 gives epsilon_H=0 on the selected comparison-map branch conditional on HIERARCHY-SCREEN-READOUT."
       - "#335 is exact conditional on HIERARCHY-SCREEN-READOUT and the named screen-selector premises."
-      - "#337 derives the electroweak projection map and the equivalence Pi_EW=4P iff B_EW=0; #547 owns the physical equality."
+      - "#337 derives the electroweak projection map and the equivalence Pi_EW=4P iff B_EW=0; #631 owns the local physical common-load attachment and #547 owns the N-dependent balance."
     blocked_by: ["HIERARCHY-SCREEN-READOUT", "source production of the strict unit cost, inverse pairing, and D-optimal selector"]
   - id: calibration.d11.higgs_top
     output_keys: ["crit_mt_MS", "crit_mt_pole", "crit_mH_tree"]
-    label: "D11 Higgs/top calibration theorem"
-    tier: declared_surface_theorem
+    label: "D11 Higgs/top declared-surface candidate"
+    tier: conditional_declared_surface_candidate
     branch: D11
-    oph_derived_piece: "D10 closure plus the exact Higgs lambda-side seed and the companion one-scalar D11 fixed-ray branch"
-    borrowed_qft_piece: "printed running, matching, threshold, and pole-mass conversion layer"
-    extra_ansatz: "declared D10/D11 calibration surface; top uses the D10/D11 row; the auxiliary Q007TP direct-top codomain is compare-only"
+    oph_derived_piece: "D10 source tuple plus exact fixed-ray algebra and the conditional two-coordinate split implication"
+    borrowed_qft_piece: "declared D11 core and Jacobian, printed running, matching, threshold, and pole-mass conversion layer"
+    extra_ansatz: "declared D10/D11 calibration surface and residual-selector formulas whose source uniqueness and deformation rigidity are not proved; the one-coordinate Higgs/top exactifiers are target-anchored compare-only artifacts"
     numeric_outputs:
       Higgs_GeV: 125.1995304097179
       top_D10_D11_GeV: 172.35235532883115
@@ -87,9 +87,9 @@ entries:
     caveats:
       - "#207 assigns corpus-limited no-go status to the auxiliary direct-top Q007TP codomain; keep it separate from the Q007TP4 top theorem row."
       - "Higgs_GeV and top_D10_D11_GeV are target-anchored fits through the synchronization-scale scan and the live-exact adapters; they validate the formula stack and are never predictions."
-      - "The double-criticality boundary family (lambda = 0 and beta_lambda = 0 at one source scale) makes (m_t, m_H) a zero-continuous-parameter family over the boundary scale; the crit_* rows are its two-loop values. The adopted conditional branch is the log-midpoint anchor E_star*exp(-pi)*P^(-1/6); the m_t to m_H relation along the fit-free curve gives m_H = 125.72 GeV at the measured top (+0.47 percent, inside the declared matching band)."
-      - "Boundary-scale selection is a theorem modulo two finite carrier facts. A variational principle (AR1 the criticality boundary is a record reconciling the model's two anchor records at mu_U and E_cell; AR2 reconciliation cost is quadratic in RG time; AR3 the two records have equal capacity) implies the unique minimizer E_star*exp(-pi)*P^(-1/6), (m_t, m_H) = (172.63, 125.77) at two loops, proved exactly. AR2 is discharged under the canonical Gaussian-MaxEnt record model via chart inverse-affinity (Theorem B); the AR1 placement mechanism follows from port-additivity plus repair minimization (Theorem A, capacity-weighted log-mean barycenter); AR3 reduces to the carrier facts. Remaining open: CF1 (the boundary record carries exactly two parent ports, gauge-unification and transmutation) and CF2 (those two anchor registers are the same class at equal refinement depth). Given RM and CF1 and CF2 the axioms force the boundary scale with no remaining choices. CF1/CF2 are the same D11 carrier census certificate (QT1--QT5 class) the W/Z lane needs; one certificate closes both plus the D10 two-law selection. AR3 is measurable: capacity asymmetry shifts m_H by ~2.1 GeV per e-fold, and the three-loop implied scale reads it off. The flow-internal selection route is closed by a no-go. Artifacts: runs/calibration/d11_boundary_scale_midpoint_selection_theorem.json, d11_anchor_reconciliation_reduction_theorems.json, d11_criticality_boundary_scan.json, d11_criticality_comparison.json."
-    blocked_by: []
+      - "The double-criticality boundary family is a conditional comparison surface. Its boundary-scale selector and carrier premises do not source-emit the declared D11 core, Jacobian, residual selectors, or a physical complex pole."
+      - "The fixed-ray certificate proves only the diagonal algebra on the declared surface. The split artifact is conditional on an unpromoted D10 repair candidate, and its residual-selector source uniqueness is open."
+    blocked_by: ["source-emitted Higgs/Yukawa/FJ packet", "source provenance for the D11 core, Jacobian, and residual selectors", "same-branch RG, threshold, matching, and complex-pole receipts"]
   - id: open.artifact.stage5_charged_surface
     output_keys: ["stage5_artifact_surface"]
     label: "Stage-5 charged-spectrum artifact surface"

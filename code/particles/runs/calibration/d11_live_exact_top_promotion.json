@@ -4,11 +4,13 @@
     "formula": "(eta_source + (3/2 + beta_EW/4) * tau2_tree_exact) / sqrt(pi)",
     "value": 0.012281919498860506
   },
+  "claim_class": "target_anchored_declared_surface_validation",
   "companion_surfaces": {
     "quark_target_audit_top_alignment_residual_gev": 3.410605131648481e-13,
     "quark_target_audit_top_gev": 172.09999999999965,
     "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit"
   },
+  "comparison_surface_allowed": true,
   "d10_repair_inputs": {
     "beta_EW": 0.5385291530498766,
     "delta_n_tree_exact": 0.0002346358802434819,
@@ -36,7 +38,8 @@
     "pi_T_exact": 0.01079976775961743,
     "pi_T_exact_formula": "(mt_exact_target_gev - mt_pole_core_gev) / (d_mt_pole_d_y_t * y_t_core_mt)"
   },
-  "generated_utc": "2026-07-27T08:32:08Z",
+  "generated_utc": "2026-07-28T18:01:20Z",
+  "legacy_theorem_id": "D11LiveForwardExactTopPromotion",
   "mass_readout": {
     "delta_y_t_mt": 0.009940801211007214,
     "delta_y_t_mt_formula": "sigma_D11_T_exact * y_t_core_mt",
@@ -44,21 +47,23 @@
     "mt_pole_formula": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
     "mt_pole_gev": 172.1
   },
+  "native_source_emission": false,
   "notes": [
-    "This is a top-side calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
-    "It closes the exact D11 top-side row without relabeling the old one-scalar fixed ray as an exact pair theorem.",
-    "The quark lane carries a separate mixed-convention target-audit top coordinate. It is not a repo-wide exact public top row."
+    "This is a top-side target-anchored exactifier on the declared D10/D11 running, matching, and threshold surface.",
+    "It preserves the exact arithmetic fit for validation and cannot promote a source-native or public top row.",
+    "The quark lane carries a separate mixed-convention target-audit top coordinate."
   ],
+  "predictive_promotion_allowed": false,
   "proof": [
     "The D11 top-side readout depends only on y_t_core_mt, d_mt_pole_d_y_t, and one scalar delta_y_t_mt.",
     "The D10 source+repair split already emits eta_source, beta_EW, tau2_tree_exact, and delta_n_tree_exact.",
     "The clean top-side source+repair direction (eta_source + (3/2 + beta_EW/4) * tau2_tree_exact) / sqrt(pi) is therefore a forward D10/D11 direction beneath the y-side Jacobian.",
-    "Imposing exact top landing on the declared codomain fixes one unique correction coefficient c_T_exactifier on delta_n_tree_exact.",
+    "Imposing exact top landing on the measured reference codomain fixes one unique correction coefficient c_T_exactifier on delta_n_tree_exact.",
     "Substituting that unique coefficient yields sigma_D11_T_exact = pi_T_exact, hence delta_y_t_mt and mt_pole_gev equal the declared exact codomain by direct algebra.",
-    "No Higgs target, no delta_lambda readback, and no compare-only inverse adapter are used as predictive inputs anywhere in this theorem."
+    "No Higgs target, no delta_lambda readback, and no inverse adapter are used, but the top target is an explicit solve input, so the result is compare-only."
   ],
-  "proof_status": "closed_target_anchored_live_exact_top_promotion",
-  "public_surface_candidate_allowed": true,
+  "proof_status": "compare_only_target_anchored_exactifier",
+  "public_surface_candidate_allowed": false,
   "source_artifacts": {
     "d10_source_pair": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
     "d10_target_free_repair": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
@@ -66,12 +71,21 @@
     "quark_public_exact_surface": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
     "reference_store": "code/particles/data/particle_reference_values.json"
   },
-  "status": "closed",
+  "source_surface_promotable": false,
+  "status": "compare_only",
   "strictly_not_claimed": [
+    "oph_native_top_source_emission",
+    "predictive_top_promotion",
+    "public_top_prediction",
     "full_higgs_top_inverse_slice_promotion",
     "reference_free_one_scalar_higgs_top_common_ray",
     "promotion_of_the_old_fixed_ray_as_exact_pair"
   ],
-  "theorem_id": "D11LiveForwardExactTopPromotion",
-  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
+  "target_ancestry": {
+    "consumed_coordinate": "top_quark.value_gev",
+    "reference_store": "code/particles/data/particle_reference_values.json",
+    "target_values_consumed": true
+  },
+  "theorem_id": "D11TargetAnchoredTopExactifier",
+  "theorem_scope": "target_anchored_declared_surface_validation_only"
 }

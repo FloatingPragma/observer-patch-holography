@@ -51,17 +51,23 @@ def build_artifact(
     kappa_residual = kappa_observed - kappa_candidate
     prefactor = lambda_core * delta_y
     forward_seed_certificate = forward_seed_certificate or {}
-    forward_closed = forward_seed_certificate.get("status") == "closed"
+    forward_closed = bool(
+        forward_seed_certificate.get("certificate_id")
+        == "forward_seed_promotion_certificate"
+        and forward_seed_certificate.get("source_surface_promotable") is True
+        and forward_seed_certificate.get("predictive_promotion_allowed") is True
+    )
 
     return {
         "artifact": "oph_d11_critical_surface_readout",
         "generated_utc": _timestamp(),
         "predictive_status": (
-            "diagnostic_sidecar_only__live_forward_path_closed_elsewhere"
+            "diagnostic_sidecar_only__source_forward_path_closed_elsewhere"
             if forward_closed
-            else "diagnostic_only_until_forward_seed_artifact_exists"
+            else "diagnostic_sidecar_only__source_forward_path_open"
         ),
         "predictive_promotion_allowed": False,
+        "public_surface_candidate_allowed": False,
         "d10_source_artifact": str(d10_source),
         "declared_calibration_surface_artifact": declared_surface.get("artifact"),
         "results_status_surface": str(results_status),
@@ -224,14 +230,18 @@ def build_artifact(
         },
         "exact_missing_object": "D11FixedRayWedgeVanishing",
         "exact_missing_object_scope": "legacy_diagnostic_sidecar_only" if forward_closed else "live_forward_path",
-        "upstream_missing_forward_artifact": None if forward_closed else "sigma_D11_HT_or_full_Theta_D11_HT",
+        "upstream_missing_forward_artifact": (
+            None if forward_closed else "source_emitted_higgs_yukawa_fj_packet"
+        ),
         "forward_path_closed_by": "forward_seed_promotion_certificate" if forward_closed else None,
-        "live_forward_path_missing_object": None if forward_closed else "sigma_D11_HT_or_full_Theta_D11_HT",
+        "live_forward_path_missing_object": (
+            None if forward_closed else "source_emitted_higgs_yukawa_fj_packet"
+        ),
         "readout_vector_symbol": "Theta_D11_HT(mu_t) = (delta_y_t(mu_t), delta_lambda(mu_t))",
         "closure_state": (
-            "diagnostic_sidecar_only__live_forward_path_closed_elsewhere"
+            "diagnostic_sidecar_only__source_forward_path_closed_elsewhere"
             if forward_closed
-            else "diagnostic_center_projection_only__not_forward_closed"
+            else "diagnostic_center_projection_only__source_forward_open"
         ),
         "notes": [
             "The declared D11 calibration surface carries the core and Jacobian payload used here; this artifact remains diagnostic-sidecar only.",
@@ -245,12 +255,12 @@ def build_artifact(
             (
                 "The remaining open object lives only on the legacy diagnostic skew; the live forward branch is closed elsewhere by the forward-seed promotion certificate."
                 if forward_closed
-                else "The remaining open object lives only on the legacy diagnostic skew, not on the emitted exact-center branch."
+                else "The fixed-ray algebra does not close the source path; a target-clean Higgs/Yukawa/FJ packet remains required."
             ),
             (
                 "The current center branch remains diagnostic-only inside this sidecar because the live forward closure is recorded on the separate forward-seed certificate."
                 if forward_closed
-                else "The current center branch remains diagnostic-only because sigma_shared is still seeded from diagnostic delta_y_t and delta_lambda readback rather than a forward-emitted D11 artifact."
+                else "The current center branch remains diagnostic-only because sigma_shared is seeded from diagnostic delta_y_t and delta_lambda readback and its declared D11 surface is not source-emitted."
             ),
         ],
     }

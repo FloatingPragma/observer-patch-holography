@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
-"""Emit the exact Higgs-only D11 calibration theorem on the declared surface.
+"""Emit the target-anchored Higgs-only D11 exactifier on the declared surface.
 
-Chain role: promote the live Higgs row to the exact local codomain on the
-declared D10/D11 running, matching, and threshold surface without reopening a
-full Higgs/top inverse fit.
+Chain role: retain the historical one-coordinate Higgs exact fit as a
+compare-only validation artifact on the declared D10/D11 running, matching,
+and threshold surface.
 
 Mathematics: use the D10 target-free repair chart beneath the D11 Jacobian,
 form the base Higgs-side seed from the lambda-side repair direction, and solve
 one unique delta_n exactifier coefficient that lands the Higgs row exactly on
 the declared local codomain.
 
-OPH-derived inputs: the D10 source transport pair, the D10 target-free repair
-value law, and the declared D10/D11 calibration surface. The Higgs codomain is
-the declared exact local calibration target on that same surface.
+Inputs: the D10 source transport pair, the D10 target-free repair value law,
+the declared D10/D11 calibration surface, and the measured Higgs reference
+value. Consuming that final input makes this a target-anchored exactifier,
+not an OPH-native source theorem.
 
-Output: a machine-readable exact Higgs calibration theorem artifact.
+Output: a machine-readable compare-only Higgs exactifier artifact.
 """
 
 from __future__ import annotations
@@ -80,11 +81,22 @@ def build_artifact(
     return {
         "artifact": "oph_d11_live_exact_higgs_promotion",
         "generated_utc": _timestamp(),
-        "theorem_id": "D11LiveForwardExactHiggsPromotion",
-        "proof_status": "closed_target_anchored_live_exact_higgs_promotion",
-        "status": "closed",
-        "public_surface_candidate_allowed": True,
-        "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
+        "theorem_id": "D11TargetAnchoredHiggsExactifier",
+        "legacy_theorem_id": "D11LiveForwardExactHiggsPromotion",
+        "proof_status": "compare_only_target_anchored_exactifier",
+        "status": "compare_only",
+        "claim_class": "target_anchored_declared_surface_validation",
+        "native_source_emission": False,
+        "source_surface_promotable": False,
+        "predictive_promotion_allowed": False,
+        "public_surface_candidate_allowed": False,
+        "comparison_surface_allowed": True,
+        "theorem_scope": "target_anchored_declared_surface_validation_only",
+        "target_ancestry": {
+            "target_values_consumed": True,
+            "reference_store": str(REFERENCE_JSON),
+            "consumed_coordinate": "higgs.value_gev",
+        },
         "source_artifacts": {
             "d10_source_pair": str(D10_SOURCE_PAIR_JSON),
             "d10_target_free_repair": str(D10_REPAIR_JSON),
@@ -149,6 +161,9 @@ def build_artifact(
             "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit",
         },
         "strictly_not_claimed": [
+            "oph_native_higgs_source_emission",
+            "predictive_higgs_promotion",
+            "public_higgs_prediction",
             "full_higgs_top_inverse_slice_promotion",
             "exact_d11_top_promotion_on_this_surface",
             "reference_free_one_scalar_higgs_top_common_ray",
@@ -157,20 +172,20 @@ def build_artifact(
             "The D11 Higgs readout depends only on lambda_core_mt, d_mH_d_lambda, and one scalar delta_lambda_mt.",
             "The D10 repair chart already emits the lambda-side pair (tau2_tree_exact, delta_n_tree_exact).",
             "The base Higgs-side seed (eta_source - (4/3) * tau2_tree_exact) / sqrt(pi) is therefore a distinguished forward lambda-side direction.",
-            "Imposing exact Higgs landing on the declared codomain fixes one unique correction coefficient c_H_exactifier on delta_n_tree_exact.",
+            "Imposing exact Higgs landing on the measured reference codomain fixes one unique correction coefficient c_H_exactifier on delta_n_tree_exact.",
             "Substituting that unique coefficient yields sigma_D11_H_exact = pi_H_exact, hence delta_lambda_mt and mH_gev equal the declared exact codomain by direct algebra.",
-            "No delta_y_t readback and no top target are used anywhere in this theorem.",
+            "No delta_y_t readback and no top target are used, but the Higgs target is an explicit solve input, so the result is compare-only.",
         ],
         "notes": [
-            "This is a Higgs-only calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
-            "It closes the exact Higgs row without relabeling the full compare-only Higgs/top inverse slice as a theorem.",
-            "The D11 common forward seed remains on disk as the companion top-side calibration row. The quark lane carries only a separate target-audit top coordinate, not an exact public top row.",
+            "This is a Higgs-only target-anchored exactifier on the declared D10/D11 running, matching, and threshold surface.",
+            "It preserves the exact arithmetic fit for validation and cannot promote a source-native or public Higgs row.",
+            "The D11 fixed-ray seed remains a declared-surface comparison coordinate. The quark lane carries a separate target-audit top coordinate.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact D11 Higgs-only promotion theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the compare-only D11 Higgs exactifier artifact.")
     parser.add_argument("--references", default=str(REFERENCE_JSON))
     parser.add_argument("--d10-source-pair", default=str(D10_SOURCE_PAIR_JSON))
     parser.add_argument("--d10-repair", default=str(D10_REPAIR_JSON))

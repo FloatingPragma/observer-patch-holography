@@ -22,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-07-27T07:59:17Z",
+  "generated_utc": "2026-07-28T16:41:54Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -123,13 +123,20 @@
       "title": "Source spectral measure payload and interval certificate"
     },
     "32": {
-      "chrome_workers": "not_needed_for_closed_contract",
-      "closable_now": true,
-      "closed_as_declared_convention_contract": true,
+      "chrome_workers": "not_needed_for_local_exact_precursor",
+      "closable_now": false,
+      "closed_as_declared_convention_contract": false,
       "issue": 32,
       "local_next_artifact": "P_derivation/runtime/rg_matching_threshold_contract_current.json",
       "promotion_allowed": false,
-      "state": "closed_declared_convention_contract",
+      "source_frontier": {
+        "byte_sha256": "e2c54b0b209aacbeee20c1a82763ec216824b13a70b25832cd57d7357e5496c8",
+        "bytes": 13045,
+        "path": "P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
+        "status": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
+        "subject_digest": "21df7aad292aa1677031afbdf98e37d34da9b637c80f109d7f228b5c5a3dd7af"
+      },
+      "state": "open_source_rg_frontier_partial",
       "title": "RG matching and threshold structure"
     },
     "332": {

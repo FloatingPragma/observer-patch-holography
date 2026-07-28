@@ -353,7 +353,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-28T07:47:56Z",
+  "generated_utc": "2026-07-28T16:41:54Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -575,13 +575,20 @@
       "title": "Synchronize derived P closure values across material surfaces"
     },
     {
-      "chrome_workers": "not_needed_for_closed_contract",
-      "closable_now": true,
-      "closed_as_declared_convention_contract": true,
+      "chrome_workers": "not_needed_for_local_exact_precursor",
+      "closable_now": false,
+      "closed_as_declared_convention_contract": false,
       "issue": 32,
       "local_next_artifact": "P_derivation/runtime/rg_matching_threshold_contract_current.json",
       "promotion_allowed": false,
-      "state": "closed_declared_convention_contract",
+      "source_frontier": {
+        "byte_sha256": "e2c54b0b209aacbeee20c1a82763ec216824b13a70b25832cd57d7357e5496c8",
+        "bytes": 13045,
+        "path": "P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
+        "status": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
+        "subject_digest": "21df7aad292aa1677031afbdf98e37d34da9b637c80f109d7f228b5c5a3dd7af"
+      },
+      "state": "open_source_rg_frontier_partial",
       "title": "RG matching and threshold structure"
     },
     {

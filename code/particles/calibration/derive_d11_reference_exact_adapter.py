@@ -69,7 +69,7 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
         "promotable": False,
         "source_artifact": str(D11_SURFACE_JSON),
         "reference_source": str(REFERENCE_JSON),
-        "live_predictive_branch_artifact": str(
+        "fixed_ray_algebra_certificate_artifact": str(
             ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed_promotion_certificate.json"
         ),
         "exact_reference_targets": {
@@ -108,7 +108,7 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
         "notes": [
             "This is a compare-only inverse slice on the linear D11 Jacobian, not a live predictive D11 theorem.",
             "It exists only to surface an exact Higgs/top reference hit on the current emitted D11 core.",
-            "The live public Higgs row is carried by D11LiveForwardExactHiggsPromotion, while the old one-scalar seed stays on disk as the companion fixed-ray D11 branch. The quark lane carries a separate target-audit top coordinate, not a repo-wide exact public top row.",
+            "The target-anchored one-coordinate exactifiers and the fixed-ray seed are compare-only surfaces. The quark lane carries a separate target-audit top coordinate.",
         ],
     }
 

@@ -167,7 +167,7 @@
       "parallel_fibre_identity_residual": 4.531626267810507e-20
     }
   },
-  "generated_utc": "2026-07-27T07:16:35Z",
+  "generated_utc": "2026-07-28T16:41:55Z",
   "input_manifest": [
     {
       "bytes": 5111,
@@ -175,14 +175,14 @@
       "sha256": "b8b5d869083148a6199349408abde07501e199502cc601e66454d7b569355e26"
     },
     {
-      "bytes": 10202,
+      "bytes": 10535,
       "path": "code/P_derivation/runtime/p_closure_trunk_current.json",
-      "sha256": "2af7cace05d45df8ef8f7ae140c57307b0abb502ec2c34d91df3071ff243be9e"
+      "sha256": "a2ba0b67f52cecc09f1f8df01627afa1d493b0a3dd6b1670aa36f95da631e523"
     },
     {
-      "bytes": 3132,
+      "bytes": 4992,
       "path": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
-      "sha256": "98f77e1b70cd068c6c488c40152067be651a0ef2fa70762e48909c2f9ee3738a"
+      "sha256": "caa4b21e6ff81640a4e7c5587dbb7a88c1b9aa2d3ce54e58e7d12e2bfa1af911"
     },
     {
       "bytes": 13732,
@@ -267,7 +267,7 @@
     {
       "bytes": 2883,
       "path": "code/particles/runs/calibration/d10_ew_minimal_conditional_theorem.json",
-      "sha256": "34d91bd80534359b77c190ea8baf09e5fb7ee2b96e7b459352735533cc6d63d6"
+      "sha256": "8aad46852e11b8d1106f31a6abe09021ca29aa7911e098f3dd62880dc43d7514"
     },
     {
       "bytes": 3693,
@@ -282,12 +282,12 @@
     {
       "bytes": 9131,
       "path": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
-      "sha256": "874f9eaeec31789d841a351bd1cea76a838e8f2a9162676323572fa84579b196"
+      "sha256": "56809d40637cdf62dfe1e9b615624b5b89e99de08720600ec83ff14085e93325"
     },
     {
       "bytes": 4725,
       "path": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
-      "sha256": "785431a41777ca0b8e958e13425f3f23cdec403f1cf3c7ddff9496d7f8fd5504"
+      "sha256": "0cd5bb4459b69615e4e16cbe348eb5e9a916713603497165af330b8f2571fb29"
     },
     {
       "bytes": 6484,
@@ -302,17 +302,17 @@
     {
       "bytes": 1696,
       "path": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
-      "sha256": "c8f0d315491f739ab147cbda99c40f9f73680e40e20336071bae7864d88a0087"
+      "sha256": "c3e50061e73bab93c4115120752405d52cc4f1edc97e0ab2bc3c2f94c8a39274"
     },
     {
       "bytes": 6318,
       "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "sha256": "5a1e6c6e7ed391d4a0b581110781e28a3dd1ab0e754d31ff4aa3720ce4643bf9"
+      "sha256": "a1fb352a95b8c0912a6219b2ba3699ff6fe3076b32a7b5b95871312df3c7f4c5"
     },
     {
-      "bytes": 1976,
+      "bytes": 1884,
       "path": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
-      "sha256": "ee8b754e7bbf73271c0912cdf0f20c8a5005f7cb2581e4003cd0437845af3b02"
+      "sha256": "1f5de55ab6ab93e33eb4c9c67515300ff24ab1c7914ca568d7c61c52dd1a4e32"
     }
   ],
   "mass_surfaces": [
@@ -489,13 +489,14 @@
     "loop_order_thresholds_matching_and_scheme_fully_frozen": false,
     "promotion_allowed": false,
     "required_objects": [
+      "representation_index_frontier",
       "scheme_lock",
       "threshold_map",
       "beta_provenance_table",
       "matching_interval_composition_certificate"
     ],
     "source_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
-    "status": "closed_declared_convention_contract_not_rg_matching_theorem"
+    "status": "open_source_rg_frontier_partial"
   },
   "schema_version": "1.0.0",
   "source_branches": {
@@ -768,6 +769,7 @@
       "gate_passed_for_full_source_prediction": false,
       "gate_role": "required",
       "open_requirements": [
+        "representation_index_frontier",
         "scheme_lock",
         "threshold_map",
         "beta_provenance_table",

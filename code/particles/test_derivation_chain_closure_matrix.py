@@ -116,7 +116,10 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert payload["particle_five_gates"]["153"]["state"] == "closed_out_of_scope_computationally_blocked"
     assert payload["particle_five_gates"]["223"]["state"] == "closed_blocker_isolated_endpoint_package"
     assert payload["particle_five_gates"]["235"]["state"] == "closed_blocker_isolated_source_residual_no_go"
-    assert payload["particle_five_gates"]["32"]["state"] == "closed_declared_convention_contract"
+    assert payload["particle_five_gates"]["32"]["state"] == (
+        "open_source_rg_frontier_partial"
+    )
+    assert payload["particle_five_gates"]["32"]["closable_now"] is False
     assert payload["particle_five_gates"]["224"]["state"] == "closed_canonical_guarded_trunk_adoption"
     assert payload["particle_five_gates"]["225"]["state"] == "closed_material_sync_no_live_publish"
     assert payload["particle_five_gates"]["234"]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
