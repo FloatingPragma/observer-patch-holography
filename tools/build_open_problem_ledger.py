@@ -781,7 +781,15 @@ def compare_committed_to_live(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the OPH open-problem ledger from GitHub issues.")
     parser.add_argument("--json-out", default=str(DEFAULT_JSON_OUT))
-    parser.add_argument("--markdown-out", default=str(DEFAULT_MD_OUT))
+    parser.add_argument(
+        "--markdown-out",
+        default=None,
+        help=(
+            "optional path for a rendered Markdown mirror; the committed "
+            "surface is the JSON snapshot, and no mirror is written unless "
+            "this flag is given"
+        ),
+    )
     parser.add_argument("--print-json", action="store_true")
     parser.add_argument(
         "--check",
@@ -802,7 +810,8 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     json_out = Path(args.json_out)
-    markdown_out = Path(args.markdown_out)
+    markdown_out = Path(args.markdown_out) if args.markdown_out else DEFAULT_MD_OUT
+    write_markdown = args.markdown_out is not None
     if args.check and args.check_live:
         raise SystemExit("choose at most one of --check and --check-live")
     if args.check:
@@ -833,13 +842,15 @@ def main() -> int:
     json_out.parent.mkdir(parents=True, exist_ok=True)
     json_out.write_text(json_text, encoding="utf-8")
 
-    markdown_out.write_text(render_markdown(ledger) + "\n", encoding="utf-8")
+    if write_markdown:
+        markdown_out.write_text(render_markdown(ledger) + "\n", encoding="utf-8")
 
     if args.print_json:
         print(json_text, end="")
     else:
         print(f"saved: {json_out}")
-        print(f"saved: {markdown_out}")
+        if write_markdown:
+            print(f"saved: {markdown_out}")
     return 0
 
 

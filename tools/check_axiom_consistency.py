@@ -31,7 +31,6 @@ REGISTRY = ROOT / "claims" / "axiom_registry.yaml"
 ACTIVE_GLOBS = [
     "README.md",
     "README_FR.md",
-    "OPEN_PROBLEMS.md",
     "paper/*.tex",
     "paper/tex_fragments/*.tex",
     "extra/*.tex",
