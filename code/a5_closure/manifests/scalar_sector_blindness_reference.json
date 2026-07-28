@@ -1,0 +1,131 @@
+{
+  "bounded_exit": "conditional_open_interface_with_countermodels_retained",
+  "claim_boundary": "Sharper scalar non-identifiability on the realized observable chain: the measured artifacts are constant across the scalar completions by input closure, the discriminating class is the Yukawa-channel observable interface, which no producer emits, and the physical scalar attachment stays a fail-closed conditional open interface with the #616 countermodels retained. No pole, potential, vacuum value, or discrimination is claimed, and no Higgs-target value enters any gate.",
+  "controls": {
+    "chain_discrimination_attempt": {
+      "code": "NO_CHAIN_DISCRIMINATOR",
+      "expected_failure": true,
+      "failed": true
+    },
+    "scalar_key_mutation": {
+      "code": "SCALAR_KEY_PRESENT",
+      "expected_failure": true,
+      "failed": true
+    },
+    "target_injection": {
+      "code": "TARGET_INJECTION",
+      "expected_failure": true,
+      "failed": true
+    },
+    "wrong_multiplicity": {
+      "code": "WRONG_MULTIPLICITY",
+      "countermodels": [
+        "n0_no_scalar",
+        "n2_duplicate_identical_charge",
+        "n2_one_inert"
+      ],
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "countermodels": {
+    "declared_completion": {
+      "pin": {
+        "path": "manifests/super_tannakian_matter_reference.json",
+        "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+      },
+      "scalar": "one color-singlet weak-doublet scalar on the weak block",
+      "yukawa_channels": [
+        [
+          "Q",
+          "S",
+          "u_c"
+        ],
+        [
+          "Q",
+          "Sbar",
+          "d_c"
+        ],
+        [
+          "L",
+          "Sbar",
+          "e_c"
+        ]
+      ]
+    },
+    "grammar_receipt": {
+      "path": "manifests/multiplicity_window_reference.json",
+      "sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97"
+    },
+    "grammar_statement": "scalar existence and multiplicity are not source-determined: the empty, duplicate-doublet, and inert-doublet configurations pass every grammar-visible check (pinned #616 receipt)",
+    "scalar_block_keys": [
+      "compatibility_block",
+      "countermodel_battery",
+      "verdict"
+    ]
+  },
+  "discriminating_interface": {
+    "channels": [
+      [
+        "Q",
+        "S",
+        "u_c"
+      ],
+      [
+        "Q",
+        "Sbar",
+        "d_c"
+      ],
+      [
+        "L",
+        "Sbar",
+        "e_c"
+      ]
+    ],
+    "class": "Yukawa-channel observables",
+    "interface_class": "conditional_open_interface",
+    "interface_id": "physical_scalar_attachment",
+    "statement": "every scalar discriminator in the declared algebra couples through the three invariant Yukawa channels; the measured chain emits no Yukawa-channel observable, so scalar discrimination is a producer interface that does not exist in the corpus rather than a reading of existing artifacts"
+  },
+  "input_closure": {
+    "carrier": {
+      "path": "manifests/echosahedral_federation_reference.json",
+      "sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280"
+    },
+    "chain": [
+      {
+        "artifact": "charged response",
+        "inputs": [
+          "carrier manifest",
+          "dynamics module"
+        ],
+        "pin": {
+          "path": "manifests/charged_response_semantic_artifact.json",
+          "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
+        }
+      },
+      {
+        "artifact": "pole residue",
+        "inputs": [
+          "carrier manifest",
+          "parent response artifact",
+          "dynamics module"
+        ],
+        "pin": {
+          "path": "manifests/charged_response_pole_residue_artifact.json",
+          "sha256": "fcbc573f373c02e4c0dd9a7527b6cced38bd9bb6c201f78914ae0aa838f007ea"
+        }
+      }
+    ],
+    "completions_covered": [
+      "empty",
+      "one_doublet_declared",
+      "duplicate_doublet",
+      "inert_doublet"
+    ],
+    "statement": "the complete input closure of the measured chain is the carrier and the dynamics; no scalar-sector object is an input and no payload key names one, so every chain value is constant across the scalar completions"
+  },
+  "issue": 623,
+  "manifest_sha256": "sha256:836e5df2351c4ec8d6533de4951feb7d50a82c4312682cda5c797e89dd626239",
+  "schema": "oph.scalar_sector_blindness_certificate.v1"
+}
