@@ -72,8 +72,8 @@
       }
     },
     "receipt_id": "A5-LAYER-SEPARATION-1",
-    "registry": "code/audit/issue_518_receipt_registry.json",
-    "registry_sha256": "779e520edea9a51144b92f08e8c07d6552c5c76c3b33edda0469d694506e8bc0",
+    "registry": "code/audit/receipt_promotion_registry.json",
+    "registry_sha256": "0aad20cf828a4e079c63f963952e81dcafeef4f7ab60385be344bce027d9216a",
     "separate_downstream_gates": {
       "conditional_subreceipt_enforced_but_physical_source_open": [
         "spin lift",
@@ -2843,7 +2843,7 @@
     },
     "receipt_id": "BFT-LOCK-1"
   },
-  "receipt_sha256": "3cd32d82e32ef60122050853c6e03407d8fffd32b99184a4882ef5aadb152e02",
+  "receipt_sha256": "ca839e0c0ee82419eb6e3e082f5efd7fb58e6fdeb7fc2f102584bce077f1c5bf",
   "refinement_moduli": {
     "checks": {
       "arbitrary_depth_telescope_is_exact_on_reference_instances": true,

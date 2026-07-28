@@ -1,4 +1,4 @@
-"""Adversarial tests for the issue #518 receipt promotion firewall."""
+"""Adversarial tests for the receipt-promotion firewall."""
 
 from __future__ import annotations
 
@@ -11,12 +11,12 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
-AUDITOR_PATH = ROOT / "tools" / "audit_issue_518_receipts.py"
-REGISTRY_PATH = Path(__file__).with_name("issue_518_receipt_registry.json")
+AUDITOR_PATH = ROOT / "tools" / "verify_receipt_promotion.py"
+REGISTRY_PATH = Path(__file__).with_name("receipt_promotion_registry.json")
 
-spec = importlib.util.spec_from_file_location("audit_issue_518_receipts", AUDITOR_PATH)
+spec = importlib.util.spec_from_file_location("verify_receipt_promotion", AUDITOR_PATH)
 auditor = importlib.util.module_from_spec(spec)
-sys.modules["audit_issue_518_receipts"] = auditor
+sys.modules["verify_receipt_promotion"] = auditor
 spec.loader.exec_module(auditor)
 
 

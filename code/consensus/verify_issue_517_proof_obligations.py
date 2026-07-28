@@ -2842,7 +2842,7 @@ def selector_receipt() -> dict[str, Any]:
 
 
 def separation_receipt() -> dict[str, Any]:
-    registry_path = ROOT / "code/audit/issue_518_receipt_registry.json"
+    registry_path = ROOT / "code/audit/receipt_promotion_registry.json"
     registry = load_json(registry_path)
     expected = {
         "coefficient_algebra": "a5-coefficient-algebra",

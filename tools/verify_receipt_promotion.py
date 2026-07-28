@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed receipt-class and literal-witness audit for GitHub issue #518.
+"""Fail-closed receipt-class and literal-witness promotion verifier.
 
 The registry is outside every subject artifact. A subject cannot select its own
 receipt class, and a boolean such as ``theorem_grade`` never establishes a
@@ -22,7 +22,7 @@ from typing import Any, Mapping
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_REGISTRY = ROOT / "code" / "audit" / "issue_518_receipt_registry.json"
+DEFAULT_REGISTRY = ROOT / "code" / "audit" / "receipt_promotion_registry.json"
 RECEIPT_CLASSES = {
     "identity",
     "schema",
@@ -564,7 +564,7 @@ def audit_registry(
             overrides=overrides,
         )
         authority = hierarchy_manifest.get("promotion_authority", {})
-        if authority.get("registry") != "code/audit/issue_518_receipt_registry.json":
+        if authority.get("registry") != "code/audit/receipt_promotion_registry.json":
             global_failures.append("hierarchy_manifest_missing_independent_promotion_registry")
         closed_text = "\n".join(
             hierarchy_manifest.get("claim_boundary", {}).get("closed_by_bundle", [])
@@ -715,8 +715,7 @@ def audit_registry(
         for failure in row["failures"]
     ]
     return {
-        "artifact": "issue_518_receipt_promotion_audit",
-        "issue": 518,
+        "artifact": "receipt_promotion_verification",
         "class_source": "independent_registry_only",
         "subject_declared_classes_ignored": True,
         "rows": row_reports,

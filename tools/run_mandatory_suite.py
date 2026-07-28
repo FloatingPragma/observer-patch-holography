@@ -76,7 +76,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         "Validate the null-model scorecard",
         [sys.executable, "tools/check_null_models.py", "--check"],
     ),
-    ("Audit issue-518 receipt promotion", [sys.executable, "tools/audit_issue_518_receipts.py"]),
+    ("Verify receipt promotion", [sys.executable, "tools/verify_receipt_promotion.py"]),
     (
         "Validate source-bound canonical book PDF assets",
         [sys.executable, "tools/book_pdf_assets.py"],
