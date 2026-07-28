@@ -49,9 +49,7 @@ ACTIVE_GLOBS = [
 
 # Path substrings excluded as archives, provenance, or non-active records.
 ALLOWLIST_PATHS = [
-    "docs/UNIFIED_CARRIER_COHERENCE_AUDIT_",
     "docs/THEORY_SYNC_AUDIT_",
-    "docs/FLAVOR_AND_DE_SITTER_TWO_SIDED_AUDIT",
     "docs/AXIOM_REFERENCE.md",       # defines the retired principles
     "docs/STYLE_GUIDE.md",
     "claims/axiom_registry.yaml",    # names the retired principles

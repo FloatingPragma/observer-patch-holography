@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 185,
+  "surface_count": 181,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -449,11 +449,6 @@
       "allowlisted": false
     },
     {
-      "path": "docs/FLAVOR_AND_DE_SITTER_TWO_SIDED_AUDIT.md",
-      "glob": "docs/*.md",
-      "allowlisted": true
-    },
-    {
       "path": "docs/FROZEN_PREDICTION_LADDER.md",
       "glob": "docs/*.md",
       "allowlisted": true
@@ -484,11 +479,6 @@
       "allowlisted": false
     },
     {
-      "path": "docs/PHASE_0_M0_CLEAN_CLONE_AUDIT_2026-07-25.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/PROOF_SPINE.md",
       "glob": "docs/*.md",
       "allowlisted": false
@@ -505,16 +495,6 @@
     },
     {
       "path": "docs/STYLE_GUIDE.md",
-      "glob": "docs/*.md",
-      "allowlisted": true
-    },
-    {
-      "path": "docs/SURVIVAL_PROOF_FINAL_INTEGRATION_2026-07-20.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md",
       "glob": "docs/*.md",
       "allowlisted": true
     },

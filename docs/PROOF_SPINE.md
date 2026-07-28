@@ -6,8 +6,8 @@ The three axioms and the late strange-loop closure hypothesis are stated in the
 [axiom reference](AXIOM_REFERENCE.md), the repository [README](../README.md), and the papers; each quantitative closure
 condition is tracked as a
 [GitHub issue labeled `closure`](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure);
-and [UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md](UNIFIED_CARRIER_COHERENCE_AUDIT_2026-07-20.md)
-carries the three-screen and cross-paper composition audit.
+the typed carrier and cross-paper composition boundaries are stated in the
+papers and the canonical claim registry.
 
 <!-- CLAIM-STATUS-PROJECTION:BEGIN -->
 ## Canonical claims and live-gates projection
