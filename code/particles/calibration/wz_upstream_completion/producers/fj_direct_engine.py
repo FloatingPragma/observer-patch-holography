@@ -725,13 +725,44 @@ def main() -> int:
         "reference": "R_xi vector wave-function formula [13/6 - xi/2] C_A with the machine C_A = 2 of one charged pair",
         "passed": sp.simplify(gauge_p2 - expected_gauge) == 0,
     }
+    # Charge-universality census binding: with dZ_AA = -dPi_T^AA/dp2
+    # at 0 and dZ_ZA = -(2/mZ^2) Pi_T^AZ(0), the combination
+    # dZ_e = -(1/2) dZ_AA - (sw/(2 cw)) dZ_ZA must be xi-independent
+    # and equal (b1 + b2)/2 e^2 from the census betas of the matching
+    # packet.  The AZ block is NOT transverse in R_xi (the charged
+    # gauge-fixing functions break em covariance; the block obeys a
+    # Slavnov-Taylor identity replayed in Workstream G), and exactly
+    # its zero-momentum value completes the gauge-independent charge.
+    matching = json.loads(MATCHING_PATH.read_text(encoding="utf-8"))
+    b1 = sp.Rational(Fraction(matching["gauge_betas"]["coefficients"]["b1"]))
+    b2 = sp.Rational(Fraction(matching["gauge_betas"]["coefficients"]["b2"]))
+    mz_sq = (g1 ** 2 + g2 ** 2) * v ** 2 / 4
+    sw_over_cw = g1 / g2
+    aa_slope = sp.expand(blocks["AA"]["_pi_t_pole"]).coeff(p2)
+    az_zero = sp.simplify(blocks["AZ"]["_pi_t_pole"].subs(p2, 0))
+    # Sign dictionary anchored on QED: the fermion sector alone must
+    # give dZ_e = +16/3 e^2, which fixes dZ_AA = +dPi/dp2 and
+    # dZ_ZA = +2 Pi^AZ(0)/mZ^2 in the engine Pi convention.
+    dz_aa = aa_slope
+    dz_za = 2 * az_zero / mz_sq
+    dz_e = sp.simplify(-sp.Rational(1, 2) * dz_aa - (sw_over_cw / 2) * dz_za)
+    expected_dz_e = sp.simplify((b1 + b2) / 2 * e_sq)
     controls["charge_universality_census_binding"] = {
-        "status": "open_next_stage",
+        "dZ_AA_pole": str(sp.simplify(dz_aa)),
+        "dZ_ZA_pole": str(sp.simplify(dz_za)),
+        "dZ_e_pole": str(dz_e),
+        "expected": str(expected_dz_e),
+        "xi_independent": not dz_e.has(xi),
+        "passed": bool(sp.simplify(dz_e - expected_dz_e) == 0 and not dz_e.has(xi)),
+    }
+    controls["az_longitudinal_is_st_constrained"] = {
+        "value": payload["blocks"]["AZ"]["longitudinal_pole"],
         "statement": (
-            "the b1 + b2 census binding lives in the gauge-independent "
-            "charge-renormalization combination of the AA and AZ blocks; "
-            "its derivation is the declared next stage together with the "
-            "Goldstone and mixing blocks"
+            "nonzero by R_xi structure: the charged gauge-fixing "
+            "functions break em covariance, so the AZ block obeys the "
+            "Slavnov-Taylor identity with ghost-mixing and A-G0 "
+            "functions instead of naive transversality; the identity "
+            "is replayed by the WARD_ST_NIELSEN_1 checker"
         ),
     }
     payload["controls"] = controls

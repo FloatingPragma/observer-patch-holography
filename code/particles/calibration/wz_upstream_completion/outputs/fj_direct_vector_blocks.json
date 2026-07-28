@@ -1436,9 +1436,17 @@
     }
   },
   "controls": {
+    "az_longitudinal_is_st_constrained": {
+      "statement": "nonzero by R_xi structure: the charged gauge-fixing functions break em covariance, so the AZ block obeys the Slavnov-Taylor identity with ghost-mixing and A-G0 functions instead of naive transversality; the identity is replayed by the WARD_ST_NIELSEN_1 checker",
+      "value": "g1*g2**3*v**2*(xi + 3)/8"
+    },
     "charge_universality_census_binding": {
-      "statement": "the b1 + b2 census binding lives in the gauge-independent charge-renormalization combination of the AA and AZ blocks; its derivation is the declared next stage together with the Goldstone and mixing blocks",
-      "status": "open_next_stage"
+      "dZ_AA_pole": "g1**2*g2**2*(-xi - 20/3)/(g1**2 + g2**2)",
+      "dZ_ZA_pole": "g1*g2**3*(xi + 3)/(g1**2 + g2**2)",
+      "dZ_e_pole": "11*g1**2*g2**2/(6*(g1**2 + g2**2))",
+      "expected": "11*g1**2*g2**2/(6*(g1**2 + g2**2))",
+      "passed": true,
+      "xi_independent": true
     },
     "photon_fermion_sector": {
       "engine": "-32*g1**2*g2**2*p2/(3*g1**2 + 3*g2**2)",
