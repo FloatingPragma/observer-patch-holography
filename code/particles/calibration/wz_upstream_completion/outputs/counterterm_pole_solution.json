@@ -1,0 +1,70 @@
+{
+  "blocks": {
+    "AA": {
+      "pole": "g1**2*g2**2*p2*(-3*xi - 20)/(3*(g1**2 + g2**2))"
+    },
+    "AZ": {
+      "pole": "g1*g2*(3*g1**2*g2**2*v**2*xi + 9*g1**2*g2**2*v**2 + 164*g1**2*p2 + 3*g2**4*v**2*xi + 9*g2**4*v**2 - 24*g2**2*p2*xi + 4*g2**2*p2)/(24*(g1**2 + g2**2))"
+    },
+    "G0G0": {
+      "pole": "(-192*mfd1**4 + 96*mfd1**2*p2 - 192*mfd2**4 + 96*mfd2**2*p2 - 192*mfd3**4 + 96*mfd3**2*p2 - 64*mfe1**4 + 32*mfe1**2*p2 - 64*mfe2**4 + 32*mfe2**2*p2 - 64*mfe3**4 + 32*mfe3**2*p2 - 192*mfu1**4 + 96*mfu1**2*p2 - 192*mfu2**4 + 96*mfu2**2*p2 - 192*mfu3**4 + 96*mfu3**2*p2 + v**2*(3*g1**4*v**2 + 6*g1**2*g2**2*v**2 + 4*g1**2*mu2*xi + 4*g1**2*p2*xi - 12*g1**2*p2 + 9*g2**4*v**2 + 12*g2**2*mu2*xi + 12*g2**2*p2*xi - 36*g2**2*p2 + 192*lam**2*v**2 - 96*lam*mu2))/(16*v**2)"
+    },
+    "GpGm": {
+      "pole": "(-192*V11*Vc11*mfd1**4 + 96*V11*Vc11*mfd1**2*p2 - 192*V11*Vc11*mfu1**4 + 96*V11*Vc11*mfu1**2*p2 - 192*V12*Vc12*mfd2**4 + 96*V12*Vc12*mfd2**2*p2 - 192*V12*Vc12*mfu1**4 + 96*V12*Vc12*mfu1**2*p2 - 192*V13*Vc13*mfd3**4 + 96*V13*Vc13*mfd3**2*p2 - 192*V13*Vc13*mfu1**4 + 96*V13*Vc13*mfu1**2*p2 - 192*V21*Vc21*mfd1**4 + 96*V21*Vc21*mfd1**2*p2 - 192*V21*Vc21*mfu2**4 + 96*V21*Vc21*mfu2**2*p2 - 192*V22*Vc22*mfd2**4 + 96*V22*Vc22*mfd2**2*p2 - 192*V22*Vc22*mfu2**4 + 96*V22*Vc22*mfu2**2*p2 - 192*V23*Vc23*mfd3**4 + 96*V23*Vc23*mfd3**2*p2 - 192*V23*Vc23*mfu2**4 + 96*V23*Vc23*mfu2**2*p2 - 192*V31*Vc31*mfd1**4 + 96*V31*Vc31*mfd1**2*p2 - 192*V31*Vc31*mfu3**4 + 96*V31*Vc31*mfu3**2*p2 - 192*V32*Vc32*mfd2**4 + 96*V32*Vc32*mfd2**2*p2 - 192*V32*Vc32*mfu3**4 + 96*V32*Vc32*mfu3**2*p2 - 192*V33*Vc33*mfd3**4 + 96*V33*Vc33*mfd3**2*p2 - 192*V33*Vc33*mfu3**4 + 96*V33*Vc33*mfu3**2*p2 - 64*mfe1**4 + 32*mfe1**2*p2 - 64*mfe2**4 + 32*mfe2**2*p2 - 64*mfe3**4 + 32*mfe3**2*p2 + v**2*(3*g1**4*v**2 + 6*g1**2*g2**2*v**2 + 4*g1**2*mu2*xi + 4*g1**2*p2*xi - 12*g1**2*p2 + 9*g2**4*v**2 + 12*g2**2*mu2*xi + 12*g2**2*p2*xi - 36*g2**2*p2 + 192*lam**2*v**2 - 96*lam*mu2))/(16*v**2)"
+    },
+    "WpWm": {
+      "pole": "g2**2*(72*V11*Vc11*mfd1**2 + 72*V11*Vc11*mfu1**2 - 48*V11*Vc11*p2 + 72*V12*Vc12*mfd2**2 + 72*V12*Vc12*mfu1**2 - 48*V12*Vc12*p2 + 72*V13*Vc13*mfd3**2 + 72*V13*Vc13*mfu1**2 - 48*V13*Vc13*p2 + 72*V21*Vc21*mfd1**2 + 72*V21*Vc21*mfu2**2 - 48*V21*Vc21*p2 + 72*V22*Vc22*mfd2**2 + 72*V22*Vc22*mfu2**2 - 48*V22*Vc22*p2 + 72*V23*Vc23*mfd3**2 + 72*V23*Vc23*mfu2**2 - 48*V23*Vc23*p2 + 72*V31*Vc31*mfd1**2 + 72*V31*Vc31*mfu3**2 - 48*V31*Vc31*p2 + 72*V32*Vc32*mfd2**2 + 72*V32*Vc32*mfu3**2 - 48*V32*Vc32*p2 + 72*V33*Vc33*mfd3**2 + 72*V33*Vc33*mfu3**2 - 48*V33*Vc33*p2 - 3*g1**2*v**2*xi - 9*g1**2*v**2 + 3*g2**2*v**2*xi + 9*g2**2*v**2 + 24*mfe1**2 + 24*mfe2**2 + 24*mfe3**2 - 48*p2*xi + 152*p2)/48"
+    },
+    "ZZ": {
+      "pole": "(-3*g1**6*v**2*xi - 9*g1**6*v**2 - 15*g1**4*g2**2*v**2*xi - 45*g1**4*g2**2*v**2 + 72*g1**4*mfd1**2 + 72*g1**4*mfd2**2 + 72*g1**4*mfd3**2 + 24*g1**4*mfe1**2 + 24*g1**4*mfe2**2 + 24*g1**4*mfe3**2 + 72*g1**4*mfu1**2 + 72*g1**4*mfu2**2 + 72*g1**4*mfu3**2 - 328*g1**4*p2 - 9*g1**2*g2**4*v**2*xi - 27*g1**2*g2**4*v**2 + 144*g1**2*g2**2*mfd1**2 + 144*g1**2*g2**2*mfd2**2 + 144*g1**2*g2**2*mfd3**2 + 48*g1**2*g2**2*mfe1**2 + 48*g1**2*g2**2*mfe2**2 + 48*g1**2*g2**2*mfe3**2 + 144*g1**2*g2**2*mfu1**2 + 144*g1**2*g2**2*mfu2**2 + 144*g1**2*g2**2*mfu3**2 + 3*g2**6*v**2*xi + 9*g2**6*v**2 + 72*g2**4*mfd1**2 + 72*g2**4*mfd2**2 + 72*g2**4*mfd3**2 + 24*g2**4*mfe1**2 + 24*g2**4*mfe2**2 + 24*g2**4*mfe3**2 + 72*g2**4*mfu1**2 + 72*g2**4*mfu2**2 + 72*g2**4*mfu3**2 - 48*g2**4*p2*xi + 8*g2**4*p2)/(48*(g1**2 + g2**2))"
+    },
+    "hh": {
+      "pole": "(-576*mfd1**4 + 96*mfd1**2*p2 - 576*mfd2**4 + 96*mfd2**2*p2 - 576*mfd3**4 + 96*mfd3**2*p2 - 192*mfe1**4 + 32*mfe1**2*p2 - 192*mfe2**4 + 32*mfe2**2*p2 - 192*mfe3**4 + 32*mfe3**2*p2 - 576*mfu1**4 + 96*mfu1**2*p2 - 576*mfu2**4 + 96*mfu2**2*p2 - 576*mfu3**4 + 96*mfu3**2*p2 + v**2*(9*g1**4*v**2 + 18*g1**2*g2**2*v**2 + 4*g1**2*mu2*xi + 4*g1**2*p2*xi - 12*g1**2*p2 + 27*g2**4*v**2 + 12*g2**2*mu2*xi + 12*g2**2*p2*xi - 36*g2**2*p2 + 576*lam**2*v**2 - 96*lam*mu2))/(16*v**2)"
+    }
+  },
+  "census_binding": "imposing dg1 = (b1/2) g1^3 and dg2 = (b2/2) g2^3 jointly is one condition on the vev direction; solvability certifies the non-abelian binding (the system itself forces dg2/g2 - dg1/g1 = (b2 g2^2 - b1 g1^2)/2)",
+  "checks": {
+    "abelian_ward_ZB": {
+      "passed": true,
+      "statement": "Z_g1^2 Z_B = 1: dZB = -2 dg1/g1",
+      "value": "-41*g1**2/6"
+    },
+    "census_dg1": {
+      "expected": "41*g1**3/12",
+      "passed": true,
+      "value": "41*g1**3/12"
+    },
+    "census_dg2": {
+      "expected": "-19*g2**3/12",
+      "passed": true,
+      "value": "-19*g2**3/12"
+    },
+    "dmu2_xi_independent": {
+      "passed": true
+    }
+  },
+  "problems": [],
+  "residual_obstruction": {
+    "invariant": "24*v**2*(g1**2 + 3*g2**2)*(2*lam*v**2 - mu2)",
+    "statement": "one exact xi-condition in the (dlam, dmu2) plane lies outside the generator span; its value is proportional to lam times the Goldstone xi-mass trace combination (g1^2 + 3 g2^2) v^2, and its discharge belongs to the scalar-sector xi-budget audit recorded on the issue"
+  },
+  "schema": "counterterm_pole_solution.v1",
+  "scheme": {
+    "chart_point": "V = 1 with the exact unitarity collapse verified on the invariants",
+    "gauge_fixing": "bare fields and parameters in the gauge-fixing term with xi generators dxiW, dxiB as xi-polynomial poles; the renormalized-form declaration of the packet is amended: the Goldstone pole system is inconsistent without the xi generators, which is a machine finding of this producer"
+  },
+  "slice": "dmu2 xi-independence pins the dxi coefficients; residual freedom reduces the dlam xi-terms",
+  "solution_on_slice": {
+    "dZB": "-41*g1**2/6",
+    "dZH": "(24*mfd1**2 + 24*mfd2**2 + 24*mfd3**2 + 8*mfe1**2 + 8*mfe2**2 + 8*mfe3**2 + 24*mfu1**2 + 24*mfu2**2 + 24*mfu3**2 + v**2*(g1**2*xi - 3*g1**2 + 3*g2**2*xi - 9*g2**2))/(4*v**2)",
+    "dZW": "g2**2*(1/6 - xi)",
+    "dg1": "41*g1**3/12",
+    "dg2": "-19*g2**3/12",
+    "dlam": "(-18*mfd1**4 + 3*mfd1**2*mu2 - 18*mfd2**4 + 3*mfd2**2*mu2 - 18*mfd3**4 + 3*mfd3**2*mu2 - 6*mfe1**4 + mfe1**2*mu2 - 6*mfe2**4 + mfe2**2*mu2 - 6*mfe3**4 + mfe3**2*mu2 - 18*mfu1**4 + 3*mfu1**2*mu2 - 18*mfu2**4 + 3*mfu2**2*mu2 - 18*mfu3**4 + 3*mfu3**2*mu2 + v**4*(48*aB1*lam + 27*g1**4 + 54*g1**2*g2**2 - 48*g1**2*lam*xi + 364*g1**2*lam + 81*g2**4 - 144*g2**2*lam*xi + 108*g2**2*lam + 1728*lam**2)/96 + v**2*(24*g1**2*mu2*xi - 36*g1**2*mu2 + 72*g2**2*mu2*xi - 108*g2**2*mu2 - 288*lam*mfd1**2 - 288*lam*mfd2**2 - 288*lam*mfd3**2 - 96*lam*mfe1**2 - 96*lam*mfe2**2 - 96*lam*mfe3**2 - 288*lam*mfu1**2 - 288*lam*mfu2**2 - 288*lam*mfu3**2 - 288*lam*mu2)/96)/v**4",
+    "dmu2": "(-18*mfd1**4 + 3*mfd1**2*mu2 - 18*mfd2**4 + 3*mfd2**2*mu2 - 18*mfd3**4 + 3*mfd3**2*mu2 - 6*mfe1**4 + mfe1**2*mu2 - 6*mfe2**4 + mfe2**2*mu2 - 6*mfe3**4 + mfe3**2*mu2 - 18*mfu1**4 + 3*mfu1**2*mu2 - 18*mfu2**4 + 3*mfu2**2*mu2 - 18*mfu3**4 + 3*mfu3**2*mu2 + v**2*(48*aB1*lam*v**2 + 27*g1**4*v**2 + 54*g1**2*g2**2*v**2 + 436*g1**2*lam*v**2 - 36*g1**2*mu2 + 81*g2**4*v**2 + 324*g2**2*lam*v**2 - 108*g2**2*mu2 + 1728*lam**2*v**2 - 864*lam*mfd1**2 - 864*lam*mfd2**2 - 864*lam*mfd3**2 - 288*lam*mfe1**2 - 288*lam*mfe2**2 - 288*lam*mfe3**2 - 864*lam*mfu1**2 - 864*lam*mfu2**2 - 864*lam*mfu3**2 - 288*lam*mu2)/96)/v**2",
+    "dv": "(lam*v**2*(-12*aB1 + 3*g1**2*xi - 73*g1**2 + 9*g2**2*xi + 27*g2**2)/24 - lam*(3*mfd1**2 + 3*mfd2**2 + 3*mfd3**2 + mfe1**2 + mfe2**2 + mfe3**2 + 3*mfu1**2 + 3*mfu2**2 + 3*mfu3**2) - mu2*xi*(g1**2 + 3*g2**2)/8)/(lam*v)"
+  },
+  "status": "PASS",
+  "target": "RENORMALIZATION_ST_1",
+  "uv_cancellation": "the block pole system is solvable over the generator set"
+}

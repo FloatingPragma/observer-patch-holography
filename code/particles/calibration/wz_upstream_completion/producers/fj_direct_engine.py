@@ -476,26 +476,32 @@ class BlockComputer:
         pairing = {"12": (0, 1), "34": (2, 3), "13": (0, 2), "24": (1, 3), "14": (0, 3), "23": (1, 2)}
         first = pairing[tag[1]]
         second = pairing[tag[2]]
-        mult = multiplicity_factor(fields)
-        slots: list[str] = []
-        remaining_ext = [self.ext1, self.ext2]
-        remaining_loop = ["li", "lj"]
-        for field in fields:
-            if field in remaining_ext:
-                slots.append("mu" if len(remaining_ext) == 2 else "nu")
-                remaining_ext.remove(field)
-            else:
-                slots.append(remaining_loop.pop(0))
-        if remaining_ext or remaining_loop:
+        # Functional differentiation: sum over every label-preserving
+        # assignment of the record positions to the four leg slots.
+        # The pairing tensor acts on record POSITIONS, so assignments
+        # with identical field labels generate DISTINCT slot tensors
+        # (the degenerate pairing labels of the table merge value
+        # partitions; the assignment sum restores the full Feynman
+        # rule).  The assignment sum replaces the multiplicity factor.
+        import itertools as it
+        slot_names = ["mu", "nu", "li", "lj"]
+        slot_labels = [self.ext1, self.ext2, loop_field, partner]
+        bases = []
+        for perm in it.permutations(range(4)):
+            if all(fields[k] == slot_labels[perm[k]] for k in range(4)):
+                s = [slot_names[perm[k]] for k in range(4)]
+                bases.append((("g", s[first[0]], s[first[1]]),
+                              ("g", s[second[0]], s[second[1]])))
+        if not bases:
             return
-        base = (("g", slots[first[0]], slots[first[1]]), ("g", slots[second[0]], slots[second[1]]))
         for piece in vector_propagator_pieces(self.e.spectrum[loop_field]):
             terms = []
-            if piece["g"]:
-                terms.append((sp.I * record["coefficient"] * mult * piece["g"], base + (("g", "li", "lj"),)))
-            if piece["kk"]:
-                terms.append((sp.I * record["coefficient"] * mult * piece["kk"],
-                              base + (("mom", "k", "li"), ("mom", "k", "lj"))))
+            for base in bases:
+                if piece["g"]:
+                    terms.append((sp.I * record["coefficient"] * piece["g"], base + (("g", "li", "lj"),)))
+                if piece["kk"]:
+                    terms.append((sp.I * record["coefficient"] * piece["kk"],
+                                  base + (("mom", "k", "li"), ("mom", "k", "lj"))))
             closed = contract(expand_q(terms), {"li", "lj"})
             g_proj = lr.project(closed, "g")
             p_proj = lr.project(closed, "p")

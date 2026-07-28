@@ -20,6 +20,7 @@ cmds=[
  [sys.executable,str(ROOT/'producers'/'fj_scalar_blocks.py')],
  [sys.executable,str(ROOT/'producers'/'fj_converted_engine.py')],
  [sys.executable,str(ROOT/'checkers'/'check_ward_st_nielsen.py')],
+ [sys.executable,str(ROOT/'producers'/'counterterm_pole_solution.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]
