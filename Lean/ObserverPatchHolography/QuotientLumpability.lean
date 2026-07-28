@@ -4,12 +4,13 @@ namespace OPH.QuotientLumpability
 
 open Finset
 
-/-! # Exact quotient lumpability: the receipt and its certified checker
+/-! # Exact quotient receipts and their certified checkers
 
 Issue #592 companion lane.  The fractional quotient-sector sandbox
 (`code/particles/fractional/build_fractional_quotient_receipts.py`) records a
-`QUOTIENT_LUMPABILITY` readiness gate.  This file supplies the decision
-procedure that gate names: a machine-checked definition of strong
+`QUOTIENT_LUMPABILITY` readiness gate and its sibling quotient-correctness
+gates.  This file supplies their source-grounded decision procedures,
+beginning with a machine-checked definition of strong
 lumpability for exact finite kernels, the quotient-kernel construction, the
 push-forward commutation theorem it licenses, and a decidable checker that
 is sound, complete, and returns an explicit failing representative pair with
@@ -41,6 +42,14 @@ CONTENT.
 * `lumpabilityWitness_sound`, `lumpabilityWitness_none`,
   `checkLumpable_iff`: the checker is sound and complete whenever the
   enumerations are complete.
+* `canonicalizerWitness` and `representativeWitness`: certificate-producing
+  checkers for the sibling simulator receipts `CANONICALIZER_IDEMPOTENCE`
+  and `REPRESENTATIVE_INVARIANCE`.  The latter follows the simulator source:
+  an explicitly supplied observable must be constant on each quotient fibre.
+* `orbitSizeBiasWitness`: the exact-rational counterpart of
+  `NO_ORBIT_SIZE_BIAS`.  It rejects either a nonpositive declared orbit size
+  or sector weights proportional to genuinely varying hidden orbit sizes,
+  and distinguishes those two failure witnesses.
 * `stronglyLumpable_map`: lumpability transports along any additive monoid
   homomorphism of weights — this carries the `ℤ`-certified control to its
   `ℚ`-probability normalisation.
@@ -58,9 +67,13 @@ CONTENT.
 BOUNDARY.  Finite state and quotient types only, exact arithmetic only.
 `push_step_comm` is a single-step statement and `push_iterate_comm` its
 finite iteration; nothing here concerns continuous time, infinite
-presentations, or floating-point kernels.  This file gives the
-`QUOTIENT_LUMPABILITY` receipt a decision procedure and certifies the
-simulator's concrete fractional sandbox instance below.  That instance is
+presentations, or floating-point kernels.  This file gives
+`QUOTIENT_LUMPABILITY`, `CANONICALIZER_IDEMPOTENCE`,
+`REPRESENTATIVE_INVARIANCE`, and `NO_ORBIT_SIZE_BIAS` decision procedures and
+certifies the simulator's concrete fractional sandbox instance below.
+`MATERIAL_QUOTIENT_NORMAL_FORM_RECEIPT` is intentionally not reinterpreted:
+its four repair-status inputs are absent from this Lean instance.  The
+instance here is
 explicitly a diagnostic toy presentation, not a material Hamiltonian, a
 physical H3/KMS cell system, or the physical campaign of issue #592. -/
 
@@ -264,6 +277,325 @@ instance {R : Type*} [AddCommMonoid R] [DecidableEq R] [Fintype Q]
   unfold StronglyLumpable
   infer_instance
 
+/-! ## Certified checkers for the sibling quotient receipts -/
+
+/-! ### Canonicalizer idempotence -/
+
+/-- A canonicalizer is idempotent when a second canonicalization changes
+nothing.  This is the mathematical property tested by the simulator's
+`canonicalizer_idempotence`. -/
+def CanonicalizerIdempotent {α : Type*} (canon : α → α) : Prop :=
+  ∀ x, canon (canon x) = canon x
+
+/-- A state on which canonicalizing twice differs from canonicalizing once. -/
+def canonicalizerWitness {α : Type*} [DecidableEq α]
+    (canon : α → α) (l : List α) : Option α :=
+  l.find? fun x => decide (canon (canon x) ≠ canon x)
+
+/-- A returned canonicalizer witness is a genuine idempotence failure. -/
+theorem canonicalizerWitness_sound {α : Type*} [DecidableEq α]
+    {canon : α → α} {l : List α} {x : α}
+    (h : canonicalizerWitness canon l = some x) :
+    canon (canon x) ≠ canon x := by
+  have hp := List.find?_some h
+  simpa only [decide_eq_true_eq] using hp
+
+/-- A complete enumeration with no witness proves idempotence. -/
+theorem canonicalizerWitness_none {α : Type*} [DecidableEq α]
+    {canon : α → α} {l : List α} (hl : ∀ x : α, x ∈ l)
+    (h : canonicalizerWitness canon l = none) :
+    CanonicalizerIdempotent canon := by
+  intro x
+  by_contra hne
+  have hnp := List.find?_eq_none.mp h x (hl x)
+  exact hnp (by simpa only [decide_eq_true_eq] using hne)
+
+/-- Boolean face of the canonicalizer checker. -/
+def checkCanonicalizerIdempotent {α : Type*} [DecidableEq α]
+    (canon : α → α) (l : List α) : Bool :=
+  (canonicalizerWitness canon l).isNone
+
+/-- The canonicalizer checker is sound and complete on a complete list. -/
+theorem checkCanonicalizerIdempotent_iff {α : Type*} [DecidableEq α]
+    (canon : α → α) {l : List α} (hl : ∀ x : α, x ∈ l) :
+    checkCanonicalizerIdempotent canon l = true ↔
+      CanonicalizerIdempotent canon := by
+  constructor
+  · intro h
+    exact canonicalizerWitness_none hl (Option.isNone_iff_eq_none.mp h)
+  · intro hcanon
+    cases hw : canonicalizerWitness canon l with
+    | none => simp [checkCanonicalizerIdempotent, hw]
+    | some x =>
+        exact absurd (hcanon x) (canonicalizerWitness_sound hw)
+
+/-! ### Representative invariance -/
+
+/-- An observable is representative-invariant when it is constant on every
+fibre of the quotient map.  This is exactly the generic predicate implemented
+by the simulator's `representative_invariance(schema, observable)`. -/
+def RepresentativeInvariant {α β Ω : Type*}
+    (q : α → β) (observable : α → Ω) : Prop :=
+  ∀ x x', q x = q x' → observable x = observable x'
+
+/-- A pair in one quotient fibre on which the observable differs. -/
+def representativeWitness {α β Ω : Type*}
+    [DecidableEq β] [DecidableEq Ω]
+    (q : α → β) (observable : α → Ω) (l : List α) : Option (α × α) :=
+  (l.flatMap fun x => l.map fun x' => (x, x')).find? fun p =>
+    decide (q p.1 = q p.2) && decide (observable p.1 ≠ observable p.2)
+
+/-- A returned pair is a genuine representative-invariance violation. -/
+theorem representativeWitness_sound {α β Ω : Type*}
+    [DecidableEq β] [DecidableEq Ω]
+    {q : α → β} {observable : α → Ω} {l : List α} {x x' : α}
+    (h : representativeWitness q observable l = some (x, x')) :
+    q x = q x' ∧ observable x ≠ observable x' := by
+  have hp := List.find?_some h
+  simpa only [Bool.and_eq_true, decide_eq_true_eq] using hp
+
+/-- A complete enumeration with no violating pair proves invariance. -/
+theorem representativeWitness_none {α β Ω : Type*}
+    [DecidableEq β] [DecidableEq Ω]
+    {q : α → β} {observable : α → Ω} {l : List α}
+    (hl : ∀ x : α, x ∈ l) (h : representativeWitness q observable l = none) :
+    RepresentativeInvariant q observable := by
+  intro x x' hq
+  by_contra hne
+  have hmem : (x, x') ∈ (l.flatMap fun x => l.map fun x' => (x, x')) :=
+    List.mem_flatMap.mpr
+      ⟨x, hl x, List.mem_map.mpr ⟨x', hl x', rfl⟩⟩
+  have hnp := List.find?_eq_none.mp h _ hmem
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hnp
+  exact hnp ⟨hq, hne⟩
+
+/-- Boolean face of the representative-invariance checker. -/
+def checkRepresentativeInvariant {α β Ω : Type*}
+    [DecidableEq β] [DecidableEq Ω]
+    (q : α → β) (observable : α → Ω) (l : List α) : Bool :=
+  (representativeWitness q observable l).isNone
+
+/-- The representative-invariance checker is sound and complete on a
+complete list. -/
+theorem checkRepresentativeInvariant_iff {α β Ω : Type*}
+    [DecidableEq β] [DecidableEq Ω]
+    (q : α → β) (observable : α → Ω) {l : List α}
+    (hl : ∀ x : α, x ∈ l) :
+    checkRepresentativeInvariant q observable l = true ↔
+      RepresentativeInvariant q observable := by
+  constructor
+  · intro h
+    exact representativeWitness_none hl (Option.isNone_iff_eq_none.mp h)
+  · intro hinv
+    cases hw : representativeWitness q observable l with
+    | none => simp [checkRepresentativeInvariant, hw]
+    | some p =>
+        obtain ⟨x, x'⟩ := p
+        have hs := representativeWitness_sound hw
+        exact absurd (hinv x x' hs.1) hs.2
+
+/-! ### No hidden-orbit-size bias -/
+
+/-- Sector weight per hidden representative, using exact rational arithmetic.
+Orbit sizes are integers so malformed nonpositive declarations remain
+expressible and rejectable. -/
+def perRepresentativeWeight {β : Type*}
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) (c : β) : ℚ :=
+  sectorWeight c / orbitSize c
+
+/-- Exact form of "sector weights are proportional to hidden orbit sizes":
+some declared orbit sizes genuinely vary, at least two sectors have positive
+per-representative weight, and every positive per-representative weight is
+the same.  The four existential fields retain explicit witnesses for both
+the size variation and the nonvacuous positive comparison. -/
+def TracksHiddenOrbitCount {β : Type*}
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) : Prop :=
+  ∃ sizeLeft sizeRight positiveLeft positiveRight,
+    orbitSize sizeLeft ≠ orbitSize sizeRight ∧
+    positiveLeft ≠ positiveRight ∧
+    0 < perRepresentativeWeight orbitSize sectorWeight positiveLeft ∧
+    0 < perRepresentativeWeight orbitSize sectorWeight positiveRight ∧
+    ∀ c, 0 < perRepresentativeWeight orbitSize sectorWeight c →
+      perRepresentativeWeight orbitSize sectorWeight c =
+        perRepresentativeWeight orbitSize sectorWeight positiveLeft
+
+/-- Exact no-orbit-size-bias property implemented by the simulator: every
+declared orbit size is positive, and the sector weights do not track a
+varying hidden count. -/
+def NoOrbitSizeBias {β : Type*}
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) : Prop :=
+  (∀ c, 0 < orbitSize c) ∧ ¬ TracksHiddenOrbitCount orbitSize sectorWeight
+
+/-- Explicit failure certificate for `NoOrbitSizeBias`. -/
+inductive OrbitSizeBiasWitness (β : Type*)
+  | nonpositive (sector : β)
+  | tracksHiddenCount
+      (sizeLeft sizeRight positiveLeft positiveRight : β)
+  deriving DecidableEq
+
+/-- The mathematical proposition certified by each orbit-size-bias witness. -/
+def ValidOrbitSizeBiasWitness {β : Type*}
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) :
+    OrbitSizeBiasWitness β → Prop
+  | .nonpositive c => ¬ 0 < orbitSize c
+  | .tracksHiddenCount sizeLeft sizeRight positiveLeft positiveRight =>
+      orbitSize sizeLeft ≠ orbitSize sizeRight ∧
+      positiveLeft ≠ positiveRight ∧
+      0 < perRepresentativeWeight orbitSize sectorWeight positiveLeft ∧
+      0 < perRepresentativeWeight orbitSize sectorWeight positiveRight ∧
+      ∀ c, 0 < perRepresentativeWeight orbitSize sectorWeight c →
+        perRepresentativeWeight orbitSize sectorWeight c =
+          perRepresentativeWeight orbitSize sectorWeight positiveLeft
+
+/-- Search the four explicit fields of a hidden-count witness. -/
+def hiddenOrbitCountWitness {β : Type*} [Fintype β] [DecidableEq β]
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) (l : List β) :
+    Option (β × β × β × β) :=
+  (l.flatMap fun sizeLeft =>
+    l.flatMap fun sizeRight =>
+    l.flatMap fun positiveLeft =>
+    l.map fun positiveRight =>
+      (sizeLeft, sizeRight, positiveLeft, positiveRight)).find? fun t =>
+        decide (
+          orbitSize t.1 ≠ orbitSize t.2.1 ∧
+          t.2.2.1 ≠ t.2.2.2 ∧
+          0 < perRepresentativeWeight orbitSize sectorWeight t.2.2.1 ∧
+          0 < perRepresentativeWeight orbitSize sectorWeight t.2.2.2) &&
+        l.all fun c => decide (
+          0 < perRepresentativeWeight orbitSize sectorWeight c →
+          perRepresentativeWeight orbitSize sectorWeight c =
+            perRepresentativeWeight orbitSize sectorWeight t.2.2.1)
+
+/-- A returned hidden-count tuple proves the global hidden-count property. -/
+theorem hiddenOrbitCountWitness_sound {β : Type*} [Fintype β] [DecidableEq β]
+    {orbitSize : β → ℤ} {sectorWeight : β → ℚ} {l : List β}
+    {sizeLeft sizeRight positiveLeft positiveRight : β}
+    (hl : ∀ c : β, c ∈ l)
+    (h : hiddenOrbitCountWitness orbitSize sectorWeight l =
+      some (sizeLeft, sizeRight, positiveLeft, positiveRight)) :
+    ValidOrbitSizeBiasWitness orbitSize sectorWeight
+      (.tracksHiddenCount sizeLeft sizeRight positiveLeft positiveRight) := by
+  have hp := List.find?_some h
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at hp
+  refine ⟨hp.1.1, hp.1.2.1, hp.1.2.2.1, hp.1.2.2.2, ?_⟩
+  intro c
+  exact hp.2 c (hl c)
+
+/-- Complete lists make the hidden-count tuple search complete. -/
+theorem hiddenOrbitCountWitness_none {β : Type*} [Fintype β] [DecidableEq β]
+    {orbitSize : β → ℤ} {sectorWeight : β → ℚ} {l : List β}
+    (hl : ∀ c : β, c ∈ l)
+    (h : hiddenOrbitCountWitness orbitSize sectorWeight l = none) :
+    ¬ TracksHiddenOrbitCount orbitSize sectorWeight := by
+  rintro ⟨sizeLeft, sizeRight, positiveLeft, positiveRight, hvalid⟩
+  have hmem : (sizeLeft, sizeRight, positiveLeft, positiveRight) ∈
+      (l.flatMap fun sizeLeft =>
+        l.flatMap fun sizeRight =>
+        l.flatMap fun positiveLeft =>
+        l.map fun positiveRight =>
+          (sizeLeft, sizeRight, positiveLeft, positiveRight)) :=
+    List.mem_flatMap.mpr ⟨sizeLeft, hl sizeLeft,
+      List.mem_flatMap.mpr ⟨sizeRight, hl sizeRight,
+        List.mem_flatMap.mpr ⟨positiveLeft, hl positiveLeft,
+          List.mem_map.mpr ⟨positiveRight, hl positiveRight, rfl⟩⟩⟩⟩
+  have hnp := List.find?_eq_none.mp h _ hmem
+  apply hnp
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true]
+  exact ⟨⟨hvalid.1, hvalid.2.1, hvalid.2.2.1, hvalid.2.2.2.1⟩,
+    fun c _hc => hvalid.2.2.2.2 c⟩
+
+/-- Certificate-producing checker for orbit-size bias.  Nonpositive sizes
+take precedence; otherwise a four-sector tuple certifies hidden-count
+tracking. -/
+def orbitSizeBiasWitness {β : Type*} [Fintype β] [DecidableEq β]
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) (l : List β) :
+    Option (OrbitSizeBiasWitness β) :=
+  match l.find? fun c => decide (¬ 0 < orbitSize c) with
+  | some c => some (.nonpositive c)
+  | none =>
+      match hiddenOrbitCountWitness orbitSize sectorWeight l with
+      | some (sizeLeft, sizeRight, positiveLeft, positiveRight) =>
+          some (.tracksHiddenCount sizeLeft sizeRight positiveLeft positiveRight)
+      | none => none
+
+/-- Every returned orbit-size-bias witness is valid. -/
+theorem orbitSizeBiasWitness_sound {β : Type*} [Fintype β] [DecidableEq β]
+    {orbitSize : β → ℤ} {sectorWeight : β → ℚ} {l : List β}
+    {w : OrbitSizeBiasWitness β}
+    (hl : ∀ c : β, c ∈ l)
+    (h : orbitSizeBiasWitness orbitSize sectorWeight l = some w) :
+    ValidOrbitSizeBiasWitness orbitSize sectorWeight w := by
+  unfold orbitSizeBiasWitness at h
+  split at h
+  next c hc =>
+    have hp := List.find?_some hc
+    cases h
+    simpa only [ValidOrbitSizeBiasWitness, decide_eq_true_eq] using hp
+  next hnonpos =>
+    split at h
+    next sizeLeft sizeRight positiveLeft positiveRight ht =>
+      cases h
+      have htracks := hiddenOrbitCountWitness_sound
+        (orbitSize := orbitSize) (sectorWeight := sectorWeight)
+        (sizeLeft := sizeLeft) (sizeRight := sizeRight)
+        (positiveLeft := positiveLeft) (positiveRight := positiveRight) hl ht
+      exact htracks
+    next hnone => simp at h
+
+/-- A valid explicit witness refutes `NoOrbitSizeBias`. -/
+theorem validOrbitSizeBiasWitness_not_free {β : Type*}
+    {orbitSize : β → ℤ} {sectorWeight : β → ℚ}
+    {w : OrbitSizeBiasWitness β}
+    (h : ValidOrbitSizeBiasWitness orbitSize sectorWeight w) :
+    ¬ NoOrbitSizeBias orbitSize sectorWeight := by
+  intro hfree
+  cases w with
+  | nonpositive c => exact h (hfree.1 c)
+  | tracksHiddenCount sizeLeft sizeRight positiveLeft positiveRight =>
+      apply hfree.2
+      exact ⟨sizeLeft, sizeRight, positiveLeft, positiveRight, h⟩
+
+/-- On a complete list, no witness proves no orbit-size bias. -/
+theorem orbitSizeBiasWitness_none {β : Type*} [Fintype β] [DecidableEq β]
+    {orbitSize : β → ℤ} {sectorWeight : β → ℚ} {l : List β}
+    (hl : ∀ c : β, c ∈ l)
+    (h : orbitSizeBiasWitness orbitSize sectorWeight l = none) :
+    NoOrbitSizeBias orbitSize sectorWeight := by
+  unfold orbitSizeBiasWitness at h
+  split at h
+  next c hc => simp at h
+  next hnonpos =>
+    constructor
+    · intro c
+      have hnp := List.find?_eq_none.mp hnonpos c (hl c)
+      simpa only [decide_eq_true_eq, not_not] using hnp
+    · split at h
+      next t ht => simp at h
+      next hhidden =>
+        exact hiddenOrbitCountWitness_none hl hhidden
+
+/-- Boolean face of the no-orbit-size-bias checker. -/
+def checkNoOrbitSizeBias {β : Type*} [Fintype β] [DecidableEq β]
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) (l : List β) : Bool :=
+  (orbitSizeBiasWitness orbitSize sectorWeight l).isNone
+
+/-- The orbit-size-bias checker is sound and complete on a complete list. -/
+theorem checkNoOrbitSizeBias_iff {β : Type*} [Fintype β] [DecidableEq β]
+    (orbitSize : β → ℤ) (sectorWeight : β → ℚ) {l : List β}
+    (hl : ∀ c : β, c ∈ l) :
+    checkNoOrbitSizeBias orbitSize sectorWeight l = true ↔
+      NoOrbitSizeBias orbitSize sectorWeight := by
+  constructor
+  · intro h
+    exact orbitSizeBiasWitness_none hl (Option.isNone_iff_eq_none.mp h)
+  · intro hfree
+    cases hw : orbitSizeBiasWitness orbitSize sectorWeight l with
+    | none => simp [checkNoOrbitSizeBias, hw]
+    | some w =>
+        exact absurd hfree
+          (validOrbitSizeBiasWitness_not_free
+            (orbitSizeBiasWitness_sound hl hw))
+
 /-! ## Controls
 
 `Fin 4` states, `Fin 2` quotient classes: `{0, 1} ↦ 0`, `{2, 3} ↦ 1`.
@@ -461,6 +793,217 @@ theorem fractionalSandboxRep_isSection :
     ∀ c, fractionalSandboxQuotient (fractionalSandboxRep c) = c := by
   decide
 
+/-! ### `CANONICALIZER_IDEMPOTENCE`
+
+The pinned simulator checks `canonicalize(canonicalize(state)) =
+canonicalize(state)` (`oph_fractional/quotient.py:39-47`) and applies that
+check to this schema (`oph_fractional/compare.py:132`).  Its strings serve as
+both states and canonical sector labels.  In this typed transcription states
+and sectors are separate, so the same-type normal-form map is the section
+after the quotient map, `rep ∘ q`. -/
+
+/-- Same-type normal-form map corresponding to the simulator canonicalizer. -/
+@[reducible] def fractionalSandboxNormalForm :
+    FractionalSandboxState → FractionalSandboxState :=
+  fun x => fractionalSandboxRep (fractionalSandboxQuotient x)
+
+/-- A deliberately non-idempotent canonicalizer:
+`a0 ↦ a1 ↦ vac`. -/
+@[reducible] def fractionalSandboxBadCanonicalizer :
+    FractionalSandboxState → FractionalSandboxState
+  | .a0 => .a1
+  | .a1 => .vac
+  | .vac => .vac
+
+/-- Negative control: the checker names `a0` as the idempotence failure. -/
+theorem fractionalSandboxBadCanonicalizer_rejected :
+    canonicalizerWitness fractionalSandboxBadCanonicalizer
+      fractionalSandboxStates = some .a0 := by
+  decide
+
+/-- The returned canonicalizer witness is valid, through checker soundness. -/
+theorem fractionalSandboxBadCanonicalizer_witness_valid :
+    fractionalSandboxBadCanonicalizer
+        (fractionalSandboxBadCanonicalizer .a0) ≠
+      fractionalSandboxBadCanonicalizer .a0 :=
+  canonicalizerWitness_sound fractionalSandboxBadCanonicalizer_rejected
+
+/-- The constructed canonicalizer really is not idempotent. -/
+theorem fractionalSandboxBadCanonicalizer_not_idempotent :
+    ¬ CanonicalizerIdempotent fractionalSandboxBadCanonicalizer :=
+  fun h => fractionalSandboxBadCanonicalizer_witness_valid (h .a0)
+
+/-- The Boolean checker rejects the constructed canonicalizer. -/
+theorem fractionalSandboxBadCanonicalizer_check_false :
+    checkCanonicalizerIdempotent fractionalSandboxBadCanonicalizer
+      fractionalSandboxStates = false := by
+  decide
+
+/-- `CANONICALIZER_IDEMPOTENCE` verdict for the exact sandbox data: accept. -/
+theorem fractionalSandboxCanonicalizer_accepted :
+    checkCanonicalizerIdempotent fractionalSandboxNormalForm
+      fractionalSandboxStates = true := by
+  decide
+
+/-- The accepted sandbox normal-form map is mathematically idempotent. -/
+theorem fractionalSandboxCanonicalizer_idempotent :
+    CanonicalizerIdempotent fractionalSandboxNormalForm :=
+  (checkCanonicalizerIdempotent_iff fractionalSandboxNormalForm
+    fractionalSandboxStates_complete).mp
+      fractionalSandboxCanonicalizer_accepted
+
+/-! ### `REPRESENTATIVE_INVARIANCE`
+
+The simulator's generic predicate requires an observable to be constant on
+each canonical sector (`oph_fractional/quotient.py:50-61`).  The concrete
+sandbox call supplies `lambda state: schema.canonicalize(state)`
+(`oph_fractional/compare.py:133`), so the observable certified here is exactly
+`fractionalSandboxQuotient`.  This receipt is distinct from auxiliary-section
+independence of `quotientKernel`, already proved above. -/
+
+/-- A deliberately representative-dependent observable. -/
+@[reducible] def fractionalSandboxBadObservable :
+    FractionalSandboxState → FractionalSandboxState :=
+  id
+
+/-- Negative control: `a0` and `a1` share a sector but have different
+observable values. -/
+theorem fractionalSandboxBadObservable_rejected :
+    representativeWitness fractionalSandboxQuotient
+      fractionalSandboxBadObservable fractionalSandboxStates =
+        some (.a0, .a1) := by
+  decide
+
+/-- The returned representative pair is valid, through checker soundness. -/
+theorem fractionalSandboxBadObservable_witness_valid :
+    fractionalSandboxQuotient .a0 = fractionalSandboxQuotient .a1 ∧
+      fractionalSandboxBadObservable .a0 ≠
+        fractionalSandboxBadObservable .a1 :=
+  representativeWitness_sound fractionalSandboxBadObservable_rejected
+
+/-- The constructed observable really is not representative-invariant. -/
+theorem fractionalSandboxBadObservable_not_invariant :
+    ¬ RepresentativeInvariant fractionalSandboxQuotient
+      fractionalSandboxBadObservable :=
+  fun h => fractionalSandboxBadObservable_witness_valid.2
+    (h .a0 .a1 fractionalSandboxBadObservable_witness_valid.1)
+
+/-- The Boolean checker rejects the constructed observable. -/
+theorem fractionalSandboxBadObservable_check_false :
+    checkRepresentativeInvariant fractionalSandboxQuotient
+      fractionalSandboxBadObservable fractionalSandboxStates = false := by
+  decide
+
+/-- `REPRESENTATIVE_INVARIANCE` verdict for the exact sandbox call: accept. -/
+theorem fractionalSandboxRepresentativeInvariant_accepted :
+    checkRepresentativeInvariant fractionalSandboxQuotient
+      fractionalSandboxQuotient fractionalSandboxStates = true := by
+  decide
+
+/-- The sandbox canonical-sector observable is constant on quotient fibres. -/
+theorem fractionalSandboxRepresentativeInvariant :
+    RepresentativeInvariant fractionalSandboxQuotient
+      fractionalSandboxQuotient :=
+  (checkRepresentativeInvariant_iff fractionalSandboxQuotient
+    fractionalSandboxQuotient fractionalSandboxStates_complete).mp
+      fractionalSandboxRepresentativeInvariant_accepted
+
+/-! ### `NO_ORBIT_SIZE_BIAS`
+
+The simulator rejects nonpositive orbit sizes and, when sizes vary, rejects
+sector weights proportional to those hidden sizes
+(`oph_fractional/quotient.py:89-118`).  Its sandbox supplies orbit sizes
+`(1, 1)` and sector weights `(1.0, 1.0)`
+(`oph_fractional/compare.py:54-61,135`).  Here those values are exact integers
+and rationals; the numerical tolerance in the floating-point implementation
+is replaced by exact equality and strict positivity. -/
+
+@[reducible] def fractionalSandboxOrbitSize :
+    FractionalSandboxSector → ℤ
+  | .anyonEOver3 => 1
+  | .vacuum => 1
+
+@[reducible] def fractionalSandboxSectorWeight :
+    FractionalSandboxSector → ℚ
+  | .anyonEOver3 => 1
+  | .vacuum => 1
+
+/-- Proportional-to-hidden-count negative control from the simulator test:
+orbit sizes `(2, 1)` and sector weights `(2, 1)`. -/
+@[reducible] def fractionalSandboxBiasedOrbitSize :
+    FractionalSandboxSector → ℤ
+  | .anyonEOver3 => 2
+  | .vacuum => 1
+
+@[reducible] def fractionalSandboxBiasedSectorWeight :
+    FractionalSandboxSector → ℚ
+  | .anyonEOver3 => 2
+  | .vacuum => 1
+
+/-- Negative control: the checker returns the varying-size pair and the two
+positive sectors whose per-representative weights are both exactly `1`. -/
+theorem fractionalSandboxBiasedOrbit_rejected :
+    orbitSizeBiasWitness fractionalSandboxBiasedOrbitSize
+      fractionalSandboxBiasedSectorWeight fractionalSandboxSectors =
+        some (.tracksHiddenCount .anyonEOver3 .vacuum .anyonEOver3 .vacuum) := by
+  norm_num [orbitSizeBiasWitness, hiddenOrbitCountWitness, List.find?,
+    perRepresentativeWeight, fractionalSandboxBiasedOrbitSize,
+    fractionalSandboxBiasedSectorWeight, fractionalSandboxSectors]
+  simp
+
+/-- The hidden-count witness is valid, through checker soundness. -/
+theorem fractionalSandboxBiasedOrbit_witness_valid :
+    ValidOrbitSizeBiasWitness fractionalSandboxBiasedOrbitSize
+      fractionalSandboxBiasedSectorWeight
+        (.tracksHiddenCount .anyonEOver3 .vacuum .anyonEOver3 .vacuum) :=
+  orbitSizeBiasWitness_sound fractionalSandboxSectors_complete
+    fractionalSandboxBiasedOrbit_rejected
+
+/-- The proportional-weight control fails the mathematical property. -/
+theorem fractionalSandboxBiasedOrbit_not_free :
+    ¬ NoOrbitSizeBias fractionalSandboxBiasedOrbitSize
+      fractionalSandboxBiasedSectorWeight :=
+  validOrbitSizeBiasWitness_not_free
+    fractionalSandboxBiasedOrbit_witness_valid
+
+/-- The Boolean checker rejects the proportional-weight control. -/
+theorem fractionalSandboxBiasedOrbit_check_false :
+    checkNoOrbitSizeBias fractionalSandboxBiasedOrbitSize
+      fractionalSandboxBiasedSectorWeight fractionalSandboxSectors = false := by
+  simp [checkNoOrbitSizeBias, fractionalSandboxBiasedOrbit_rejected]
+
+/-- A second negative route exercises malformed nonpositive orbit sizes. -/
+@[reducible] def fractionalSandboxNonpositiveOrbitSize :
+    FractionalSandboxSector → ℤ
+  | .anyonEOver3 => 0
+  | .vacuum => 1
+
+theorem fractionalSandboxNonpositiveOrbit_rejected :
+    orbitSizeBiasWitness fractionalSandboxNonpositiveOrbitSize
+      fractionalSandboxSectorWeight fractionalSandboxSectors =
+        some (.nonpositive .anyonEOver3) := by
+  decide
+
+theorem fractionalSandboxNonpositiveOrbit_witness_valid :
+    ValidOrbitSizeBiasWitness fractionalSandboxNonpositiveOrbitSize
+      fractionalSandboxSectorWeight (.nonpositive .anyonEOver3) :=
+  orbitSizeBiasWitness_sound fractionalSandboxSectors_complete
+    fractionalSandboxNonpositiveOrbit_rejected
+
+/-- `NO_ORBIT_SIZE_BIAS` verdict for the exact sandbox data: accept. -/
+theorem fractionalSandboxNoOrbitSizeBias_accepted :
+    checkNoOrbitSizeBias fractionalSandboxOrbitSize
+      fractionalSandboxSectorWeight fractionalSandboxSectors = true := by
+  decide
+
+/-- The accepted verdict implies the exact no-bias mathematical property. -/
+theorem fractionalSandboxNoOrbitSizeBias :
+    NoOrbitSizeBias fractionalSandboxOrbitSize
+      fractionalSandboxSectorWeight :=
+  (checkNoOrbitSizeBias_iff fractionalSandboxOrbitSize
+    fractionalSandboxSectorWeight fractionalSandboxSectors_complete).mp
+      fractionalSandboxNoOrbitSizeBias_accepted
+
 /-- Exact fibre sums show strong lumpability of the simulator kernel. -/
 theorem fractionalSandbox_lumpable :
     StronglyLumpable fractionalSandboxKernel fractionalSandboxQuotient := by
@@ -548,6 +1091,18 @@ theorem fractionalSandbox_quotientKernel :
 #print axioms lumpabilityWitness_sound
 #print axioms lumpabilityWitness_none
 #print axioms checkLumpable_iff
+#print axioms canonicalizerWitness_sound
+#print axioms canonicalizerWitness_none
+#print axioms checkCanonicalizerIdempotent_iff
+#print axioms representativeWitness_sound
+#print axioms representativeWitness_none
+#print axioms checkRepresentativeInvariant_iff
+#print axioms hiddenOrbitCountWitness_sound
+#print axioms hiddenOrbitCountWitness_none
+#print axioms orbitSizeBiasWitness_sound
+#print axioms validOrbitSizeBiasWitness_not_free
+#print axioms orbitSizeBiasWitness_none
+#print axioms checkNoOrbitSizeBias_iff
 #print axioms wgood_accepted
 #print axioms wgood_lumpable
 #print axioms wgood_quotient
@@ -560,6 +1115,26 @@ theorem fractionalSandbox_quotientKernel :
 #print axioms fractionalSandboxStates_complete
 #print axioms fractionalSandboxSectors_complete
 #print axioms fractionalSandboxRep_isSection
+#print axioms fractionalSandboxBadCanonicalizer_rejected
+#print axioms fractionalSandboxBadCanonicalizer_witness_valid
+#print axioms fractionalSandboxBadCanonicalizer_not_idempotent
+#print axioms fractionalSandboxBadCanonicalizer_check_false
+#print axioms fractionalSandboxCanonicalizer_accepted
+#print axioms fractionalSandboxCanonicalizer_idempotent
+#print axioms fractionalSandboxBadObservable_rejected
+#print axioms fractionalSandboxBadObservable_witness_valid
+#print axioms fractionalSandboxBadObservable_not_invariant
+#print axioms fractionalSandboxBadObservable_check_false
+#print axioms fractionalSandboxRepresentativeInvariant_accepted
+#print axioms fractionalSandboxRepresentativeInvariant
+#print axioms fractionalSandboxBiasedOrbit_rejected
+#print axioms fractionalSandboxBiasedOrbit_witness_valid
+#print axioms fractionalSandboxBiasedOrbit_not_free
+#print axioms fractionalSandboxBiasedOrbit_check_false
+#print axioms fractionalSandboxNonpositiveOrbit_rejected
+#print axioms fractionalSandboxNonpositiveOrbit_witness_valid
+#print axioms fractionalSandboxNoOrbitSizeBias_accepted
+#print axioms fractionalSandboxNoOrbitSizeBias
 #print axioms fractionalSandbox_accepted
 #print axioms fractionalSandbox_lumpable
 #print axioms fractionalSandbox_isMarkov
