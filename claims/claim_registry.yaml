@@ -1740,7 +1740,12 @@
       "evidence": [
         "extra/yang_mills_gap_clay_problem.tex",
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-        "code/yang_mills/verify_collar_gap_certificate.py"
+        "code/yang_mills/verify_collar_gap_certificate.py",
+        "Lean/ObserverPatchHolography/YangMillsLemma72.lean",
+        "Lean/ObserverPatchHolography/YangMillsProp81.lean",
+        "Lean/ObserverPatchHolography/YangMillsGap.lean",
+        "Lean/ObserverPatchHolography/YangMillsGapWitness.lean",
+        "Lean/ObserverPatchHolography/RepairGapChain.lean"
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
