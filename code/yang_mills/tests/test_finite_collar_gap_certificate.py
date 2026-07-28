@@ -8,7 +8,9 @@ from pathlib import Path
 
 
 HERE = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("collar_gap_certificate", HERE / "collar_gap_certificate.py")
+SPEC = importlib.util.spec_from_file_location(
+    "finite_collar_gap_certificate", HERE / "finite_collar_gap_certificate.py"
+)
 assert SPEC and SPEC.loader
 CERTIFICATE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(CERTIFICATE)
