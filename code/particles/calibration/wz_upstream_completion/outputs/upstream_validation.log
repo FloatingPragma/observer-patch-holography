@@ -1,0 +1,50 @@
+$ /opt/pyvenv/bin/python3 /mnt/data/physical_wz_upstream_mathematical_completion_2026-07-20/proofs/symbolic_completion_proofs.py
+PASS anomaly arithmetic
+PASS pure-SM one-loop gauge beta coefficients
+PASS electroweak neutral mass eigenvalues
+PASS FJ parameter-counterterm identity
+PASS charged strict pole series through two loops
+PASS neutral strict pole series and A-Z mixing order
+PASS strict square-root series
+
+$ /opt/pyvenv/bin/python3 /mnt/data/physical_wz_upstream_mathematical_completion_2026-07-20/checkers/check_completion_bundle.py
+{
+  "status": "THEOREM_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
+  "schemas_valid": true,
+  "schema_count": 10,
+  "promotion_allowed": false,
+  "failed_reasons": [
+    "action lane not OPH-native physical",
+    "spacetime/action geometry is imported or unproved",
+    "action parents incomplete",
+    "target ancestry not cleared",
+    "matching lane not OPH-native physical",
+    "matching source root not unique",
+    "beta functions not independently census-derived: I0_TEMPLATE",
+    "EFT matching evidence incomplete",
+    "full Yukawa/open-channel evidence incomplete",
+    "direct/converted FJ equivalence incomplete",
+    "renormalization/ST incomplete",
+    "counterterms not generated from complete bare action",
+    "diagram universe incomplete",
+    "BRST construction incomplete",
+    "BRST/ST/Ward/Nielsen/FJ identities incomplete",
+    "BRST raw/checker/mutation evidence incomplete",
+    "complex-ball precision certification incomplete",
+    "W physical-current pole interpretation incomplete",
+    "Z physical-current pole interpretation incomplete",
+    "source-law active mode inconsistent",
+    "deterministic delta law lacks uniqueness/exactness proof",
+    "source-law/covariance evidence incomplete",
+    "source clock gap not positively certified",
+    "operational clock naturality/calibration incomplete",
+    "source clock ancestry/evidence incomplete",
+    "placeholder hash present"
+  ]
+}
+
+$ /opt/pyvenv/bin/python3 -m pytest -q /mnt/data/physical_wz_upstream_mathematical_completion_2026-07-20/tests
+..................................                                       [100%]
+34 passed in 1.31s
+
+THEOREM_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION
