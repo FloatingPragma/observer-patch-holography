@@ -1,0 +1,26 @@
+{
+  "control_failures": [],
+  "controls": {
+    "coefficient_mutation_detected": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "dropped_tadpole_rejected": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "reinserted_mixing_rejected": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "unbound_universe_rejected": {
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "entry_count": 123,
+  "problems": [],
+  "schema": "rule_engine_check.v1",
+  "status": "PASS",
+  "table_digest": "def50420c954f768932aedcdda0e61b230a89da11e250a727d63b43cef5b168a"
+}

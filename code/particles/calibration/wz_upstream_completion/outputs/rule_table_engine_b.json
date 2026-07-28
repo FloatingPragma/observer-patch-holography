@@ -1,0 +1,5987 @@
+{
+  "action_subject_digest": "2822c158805db038dfe2682508316f100968ce152e47b23062d6e11029607b5e",
+  "engine": "B_generator_assignment",
+  "entries": [
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cB",
+        "cB_bar",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          },
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "mu2",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp"
+      ],
+      "structure": "scalar_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yud[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "uL",
+        "uR_bar"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "eL",
+        "eL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "W3",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yu[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "h",
+        "uL_bar",
+        "uR"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "cB",
+        "cp_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "cm",
+        "cm_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "dL_bar",
+        "dR",
+        "h"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ye[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "eR",
+        "nuL_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cm",
+        "cm_bar",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "nuL",
+        "nuL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "dL_bar",
+        "uL"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3_bar",
+        "cB",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "dL_bar",
+        "dR"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "dL",
+        "dL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "W3",
+        "W3"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ydd[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "dR_bar",
+        "uL"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gm",
+        "Gp"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "W3"
+      ],
+      "structure": "vector_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "G0",
+        "G0",
+        "W3"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ydd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "dL",
+        "dR_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cp",
+        "cp_bar",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "Wm",
+        "Wp",
+        "Wp"
+      ],
+      "structure": "yang_mills_four_point_12_34"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yud[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "uL",
+        "uR_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "W3",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yu[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "dL_bar",
+        "uR"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "G0",
+        "G0"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Wp",
+        "c3",
+        "cp_bar"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "c3_bar",
+        "cp"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ydd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "dL",
+        "dR_bar",
+        "h"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "-1/8"
+          },
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/8"
+          },
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "mu2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0"
+      ],
+      "structure": "scalar_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "dL_bar",
+        "dR"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "eL",
+        "eL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yed[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "eL",
+        "eR_bar",
+        "h"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3",
+        "c3_bar",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "c3",
+        "cm_bar"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "B",
+        "G0",
+        "G0"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gm",
+        "Gp",
+        "Gp"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yed[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "eL",
+        "eR_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wp",
+        "dL",
+        "uL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "Wp",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "Wm",
+        "Wp"
+      ],
+      "structure": "yang_mills_three_point"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "c3_bar",
+        "cp"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yud[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "h",
+        "uL",
+        "uR_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "B",
+        "h"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "-3/2"
+          },
+          {
+            "powers": [
+              [
+                "mu2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "h",
+        "h"
+      ],
+      "structure": "scalar_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "eR",
+        "eR_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g3",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gl",
+        "uR",
+        "uR_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g3",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gl",
+        "dL",
+        "dL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Wp",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "Gm",
+        "Wp"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp",
+        "W3",
+        "W3"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "Wm",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "W3",
+        "h"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "1/6"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "dL",
+        "dL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "c3",
+        "cp_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gm",
+        "Gp",
+        "W3"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "cp",
+        "cp_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ye[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "eL_bar",
+        "eR"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "cp",
+        "cp_bar"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-2"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g3",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gl",
+        "dR",
+        "dR_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "c3",
+        "cm_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ye[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ye[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "eL_bar",
+        "eR",
+        "h"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "2/3"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "uR",
+        "uR_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Wp",
+        "c3_bar",
+        "cm"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yud[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          },
+          {
+            "powers": [
+              [
+                "Yud[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "dL",
+        "uR_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gp",
+        "Wm"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cB",
+        "cB_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "nuL",
+        "nuL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "W3",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "cm",
+        "cm_bar"
+      ],
+      "structure": "ghost_gauge_derivative"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3_bar",
+        "cB"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "W3",
+        "Wm",
+        "Wp"
+      ],
+      "structure": "yang_mills_four_point_12_34"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yed[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "eR_bar",
+        "nuL"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp",
+        "Wm",
+        "Wp"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Ydd[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Ydd[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "dL",
+        "dR_bar"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g3",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "Gl",
+        "uL",
+        "uL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "Wp",
+        "h"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "B",
+        "Gm",
+        "Gp"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "cB_bar",
+        "cp"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "B"
+      ],
+      "structure": "vector_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                3
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "mu2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "h"
+      ],
+      "structure": "scalar_tadpole"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "cB",
+        "cm_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3",
+        "cB_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "1/6"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "uL",
+        "uL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1/3"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "dR",
+        "dR_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "W3",
+        "h"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "Gm",
+        "Gp"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3",
+        "cB_bar",
+        "h"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "G0",
+        "Gp",
+        "Wm"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "W3"
+      ],
+      "structure": "vector_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gm",
+        "Wp"
+      ],
+      "structure": "scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "Gp",
+        "Wm"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "G0",
+        "Gm",
+        "Wp"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "G0",
+        "Wm",
+        "Wp"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gm",
+        "Wp",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "h",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yed[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yed[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "eL",
+        "eR_bar"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                2
+              ]
+            ],
+            "prefactor": "1/8"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "B",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wp",
+        "eL",
+        "nuL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "Wp"
+      ],
+      "structure": "vector_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yu[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "Yu[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "uL_bar",
+        "uR"
+      ],
+      "structure": "fermion_bilinear_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Ye[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "eL_bar",
+        "eR"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi1",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "cB_bar",
+        "cm"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "G0",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                1
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "1/4"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "c3_bar",
+        "cm"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cm",
+        "cm_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g1",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "B",
+        "Gp",
+        "Wm",
+        "h"
+      ],
+      "structure": "scalar_scalar_gauge_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "Wm",
+        "Wp",
+        "Wp"
+      ],
+      "structure": "yang_mills_four_point_13_24"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[1][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[1][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[1][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[2][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[2][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[2][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[3][1]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[3][2]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          },
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "Yu[3][3]",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "G0",
+        "uL_bar",
+        "uR"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "Yd[1][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[1][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[2][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][1]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][2]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          },
+          {
+            "powers": [
+              [
+                "Yd[3][3]",
+                1
+              ]
+            ],
+            "prefactor": "-1"
+          }
+        ]
+      },
+      "fields": [
+        "Gp",
+        "dR",
+        "uL_bar"
+      ],
+      "structure": "fermion_scalar_yukawa"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "c3",
+        "c3_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ],
+              [
+                "v",
+                2
+              ],
+              [
+                "xi2",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "cp",
+        "cp_bar"
+      ],
+      "structure": "ghost_scalar_mass"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "uL",
+        "uL_bar"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                1
+              ],
+              [
+                "sqrt2",
+                1
+              ]
+            ],
+            "prefactor": "1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Wm",
+        "eL_bar",
+        "nuL"
+      ],
+      "structure": "fermion_vector_current"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "g2",
+                2
+              ]
+            ],
+            "prefactor": "1"
+          }
+        ]
+      },
+      "fields": [
+        "W3",
+        "W3",
+        "Wm",
+        "Wp"
+      ],
+      "structure": "yang_mills_four_point_13_24"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "I",
+                1
+              ],
+              [
+                "g2",
+                1
+              ]
+            ],
+            "prefactor": "-1/2"
+          }
+        ]
+      },
+      "fields": [
+        "Gm",
+        "Gp",
+        "W3"
+      ],
+      "structure": "scalar_scalar_gauge"
+    },
+    {
+      "coefficient": {
+        "monomials": [
+          {
+            "powers": [
+              [
+                "lam",
+                1
+              ]
+            ],
+            "prefactor": "-1/4"
+          }
+        ]
+      },
+      "fields": [
+        "h",
+        "h",
+        "h",
+        "h"
+      ],
+      "structure": "scalar_potential"
+    }
+  ],
+  "entry_count": 123,
+  "gauge_fixing": {
+    "form": "G^a = d.W^a + xi_a (k_a . phi), L_gf = -(1/(2 xi_a)) (G^a)^2",
+    "mixing_cancelled": [
+      {
+        "fields": [
+          "B",
+          "G0"
+        ],
+        "structure": "vector_scalar_mixing"
+      },
+      {
+        "fields": [
+          "G0",
+          "W3"
+        ],
+        "structure": "vector_scalar_mixing"
+      },
+      {
+        "fields": [
+          "Gm",
+          "Wp"
+        ],
+        "structure": "vector_scalar_mixing"
+      },
+      {
+        "fields": [
+          "Gp",
+          "Wm"
+        ],
+        "structure": "vector_scalar_mixing"
+      }
+    ],
+    "solved_kappa": {
+      "B": {
+        "G0": {
+          "couplings": [
+            [
+              "g1",
+              1
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          "value": "1/2"
+        }
+      },
+      "W1": {
+        "r2": {
+          "couplings": [
+            [
+              "g2",
+              1
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          "value": "-1/2"
+        }
+      },
+      "W2": {
+        "r1": {
+          "couplings": [
+            [
+              "g2",
+              1
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          "value": "1/2"
+        }
+      },
+      "W3": {
+        "G0": {
+          "couplings": [
+            [
+              "g2",
+              1
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          "value": "-1/2"
+        }
+      }
+    }
+  },
+  "schema": "rule_table.v2",
+  "table_digest": "def50420c954f768932aedcdda0e61b230a89da11e250a727d63b43cef5b168a"
+}

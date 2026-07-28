@@ -10,6 +10,10 @@ cmds=[
  [sys.executable,str(ROOT/'checkers'/'check_sm_eft_action.py')],
  [sys.executable,str(ROOT/'producers'/'eft_matching_producer.py')],
  [sys.executable,str(ROOT/'checkers'/'check_eft_matching.py')],
+ [sys.executable,str(ROOT/'producers'/'rule_engine_a.py')],
+ [sys.executable,str(ROOT/'producers'/'rule_engine_b.py')],
+ [sys.executable,str(ROOT/'producers'/'enumerate_diagram_universe.py')],
+ [sys.executable,str(ROOT/'checkers'/'check_rule_engines.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]

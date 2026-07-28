@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 48,
-  "total_bytes_excluding_manifest_and_runtime_log": 312495,
+  "file_count_excluding_manifest_and_runtime_log": 57,
+  "total_bytes_excluding_manifest_and_runtime_log": 665029,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -53,6 +53,11 @@
       "sha256": "d9a7f240819624c4fcd5c307eff930e45650b5bb6a65a47c8f6eedfa3008e28f"
     },
     {
+      "path": "checkers/check_rule_engines.py",
+      "bytes": 10387,
+      "sha256": "78193e436dd259db57f574316c9c401f7792e1b59f2bf5a526b93efe85a6a34a"
+    },
+    {
       "path": "checkers/check_sm_eft_action.py",
       "bytes": 7360,
       "sha256": "a77b7af530f668d9f4f2075daa2d6645695d08c5db32b40b6edb731b3af1762e"
@@ -93,6 +98,11 @@
       "sha256": "4be3e4c53cd270693ee69b534f62d9c9829f99c9812feb464edbe5a3895feab5"
     },
     {
+      "path": "outputs/diagram_universe_wz.json",
+      "bytes": 33958,
+      "sha256": "61c4a595e3afae99dd340d019db1f75bd8734489d97e0a65956cacd5116d080a"
+    },
+    {
       "path": "outputs/eft_matching_1.json",
       "bytes": 5153,
       "sha256": "65f4c1ba52ee4c6625179878a704c74656d59466bea3b556600d7fe79d77f04b"
@@ -101,6 +111,21 @@
       "path": "outputs/integration_initial_validation.log",
       "bytes": 2447,
       "sha256": "7a90721d62359ffffc8a25e27a30942c8ed89f283fb82a4673ecf4d39e79994c"
+    },
+    {
+      "path": "outputs/rule_engine_check.json",
+      "bytes": 615,
+      "sha256": "c4615f432bbb3d21c1559eabd89fa7b5d62645f96fe97baf7c46c8a943331d7e"
+    },
+    {
+      "path": "outputs/rule_table_engine_a.json",
+      "bytes": 107935,
+      "sha256": "a24c8b709288a91b591ad1bbce1ac73f7cc7d5d88cb243828a4b70baaf5213c9"
+    },
+    {
+      "path": "outputs/rule_table_engine_b.json",
+      "bytes": 108316,
+      "sha256": "5b838ee77a78e81966fb1a7edae6598fa8ec25a40f4769efd613489c03c7147d"
     },
     {
       "path": "outputs/scientific_status.json",
@@ -123,14 +148,29 @@
       "sha256": "c2e0e3b26c10210fbf769aaa42e4baad69c7eb2b811d0faff6430f8e5bdc78f4"
     },
     {
+      "path": "producers/enumerate_diagram_universe.py",
+      "bytes": 6099,
+      "sha256": "e8ddde6cfb2efced7e03abe14980b36cd9e4c840d492b459dc44d183c78dd2dd"
+    },
+    {
+      "path": "producers/rule_engine_a.py",
+      "bytes": 35466,
+      "sha256": "e263adb22f01e60c2708f0eb16c32d4f0b5aa6d9a62b1651f17c24d6ce39ac2d"
+    },
+    {
+      "path": "producers/rule_engine_b.py",
+      "bytes": 35015,
+      "sha256": "a3fef788c5eab393f433afbc5dc505e8cd3cc836b41f615a578e886c192452f3"
+    },
+    {
       "path": "producers/sm_eft_action_producer.py",
       "bytes": 16287,
       "sha256": "1b0e9dbcc9442df614e86e79903599a5e7805e2c048cb674fb7c483ade31e582"
     },
     {
       "path": "producers/vertex_format.py",
-      "bytes": 2825,
-      "sha256": "46eced5d81eac246ad1896b88f51965e5eb02a28167e03a0e8e751ceb851a886"
+      "bytes": 9789,
+      "sha256": "ba328a51fb34ab6960f1ee7bdb98b92e199e840ec1813423456aa7d9dd79934a"
     },
     {
       "path": "proofs/symbolic_completion_proofs.py",
@@ -139,8 +179,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1090,
-      "sha256": "06f5a9a3c67d180f66e75b99d3384f8783ce37979394d932091ca4c78642d8d9"
+      "bytes": 1347,
+      "sha256": "8cec48ff1758e41a568824bda010778e8f020e8e62635b68c3b2138bf231f53f"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -246,6 +286,11 @@
       "path": "tests/test_eft_matching.py",
       "bytes": 2726,
       "sha256": "9f56f7fdf2deb8998ef6064bdf8a26a299a41eb1fd2ae171035a0249d55d6bc5"
+    },
+    {
+      "path": "tests/test_rule_engines.py",
+      "bytes": 7522,
+      "sha256": "29250895d399fe518011cb38132f5ecd03bd0dbdcea00aa6321bfce8cf46df0e"
     },
     {
       "path": "tests/test_sm_eft_action.py",
