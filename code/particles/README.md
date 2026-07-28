@@ -4,7 +4,7 @@ This directory is the canonical particle-spectrum code path for OPH inside
 `reverse-engineering-reality`.
 
 The single entry point for results is the
-[postdiction ledger](POSTDICTION_LEDGER.md): the forced gauge structure with
+[postdiction ledger](../../docs/POSTDICTION_LEDGER.md): the forced gauge structure with
 its Lean receipts, the charged-lepton closure target (one anchor-gap value
 closes the lane exactly on the measured triple, inside the certified band),
 the certified lepton intervals with the measured triple inside every one,
@@ -52,7 +52,7 @@ sheets, and numerical freezes remain separate producers.
 - [hierarchy](hierarchy)
 - [runs](runs)
 - [scripts](scripts)
-- [POSTDICTION_LEDGER.md](POSTDICTION_LEDGER.md)
+- [docs/POSTDICTION_LEDGER.md](../../docs/POSTDICTION_LEDGER.md)
 - [RESULTS_STATUS.md](RESULTS_STATUS.md)
 - [PARTICLE_PIPELINE_STATUS.md](PARTICLE_PIPELINE_STATUS.md)
 - [PARTICLE_PROVENANCE_AUDIT.md](PARTICLE_PROVENANCE_AUDIT.md)

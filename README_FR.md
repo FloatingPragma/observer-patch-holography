@@ -48,6 +48,15 @@ ci-dessous vous fait traverser ce basculement sans prérequis.
 
 La suite de ce README est l’entrée technique du dépôt.
 
+Deux registres portent le bilan quantitatif. Le
+[registre des postdictions](docs/POSTDICTION_LEDGER.md) est le tableau de
+comparaison : chaque confrontation certifiée à une valeur déjà mesurée, avec
+ses prémisses et l’ascendance de ses entrées sur la ligne. L’
+[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) est
+l’instrument prospectif : des positions enregistrées avec garde
+cryptographique et bandes d’élimination avant tout examen des données de
+comparaison, de sorte qu’une mesure future peut les réfuter.
+
 ## Six reçus reproductibles
 
 Ces six artefacts publics renvoient directement à leurs preuves, données ou
@@ -77,7 +86,7 @@ certificats :
 4. **Un diagnostic des leptons chargés avec un test de clôture déclaré.** La
    surface de clôture empirique porte une cible de confirmation ou de rejet et
    une ascendance explicite des entrées. Elle n’établit aucune prédiction de
-   masse issue de la source. Le [registre des postdictions](code/particles/POSTDICTION_LEDGER.md)
+   masse issue de la source. Le [registre des postdictions](docs/POSTDICTION_LEDGER.md)
    donne la table complète.
 5. **Un théorème exact de Koide dans la chambre positive.** Une réponse
    hermitienne $C_3$ sur la fibre d’une face icosaédrique obéit à

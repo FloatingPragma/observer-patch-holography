@@ -41,6 +41,15 @@ material below takes you through that shift from a standing start.
 
 The rest of this README is the technical entrance to the repository.
 
+Two ledgers carry the quantitative record. The
+[postdiction ledger](docs/POSTDICTION_LEDGER.md) is the compare-only
+scoreboard: every certified comparison against an already measured value,
+with its premises and input ancestry stated on the row. The
+[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) is the forward
+instrument: stances registered with cryptographic custody and kill bands
+before their comparison data is examined, so a future measurement can
+refute them.
+
 ## Six Reproducible Receipts
 
 These six public artifacts carry direct links to their proofs, data, or
@@ -69,7 +78,7 @@ certificates:
    empirical closure surface carries a confirm-or-refute target and explicit
    input ancestry. It does not establish a source-only mass prediction. The
    full comparison table, forced gauge structure included, is the
-   [postdiction ledger](code/particles/POSTDICTION_LEDGER.md).
+   [postdiction ledger](docs/POSTDICTION_LEDGER.md).
 5. **An exact positive-chamber Koide theorem.** A Hermitian $C_3$ response on
    an icosahedral face fiber obeys
    $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when

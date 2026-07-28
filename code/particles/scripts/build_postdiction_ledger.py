@@ -20,7 +20,7 @@ is an obstruction theorem rather than a number.
 
 Run:
     python3 code/particles/scripts/build_postdiction_ledger.py
-writes runs/status/postdiction_ledger.json and POSTDICTION_LEDGER.md.
+writes runs/status/postdiction_ledger.json and docs/POSTDICTION_LEDGER.md.
 """
 
 from __future__ import annotations
@@ -67,7 +67,7 @@ LEAN_RECEIPTS = {
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
-DEFAULT_MD = PARTICLES / "POSTDICTION_LEDGER.md"
+DEFAULT_MD = REPO / "docs" / "POSTDICTION_LEDGER.md"
 
 
 def _load(key: str, override: Path | None = None) -> dict[str, Any]:
