@@ -24,6 +24,11 @@ import ObserverPatchHolography.BridgeBoundaries
 import ObserverPatchHolography.EinsteinBranch
 import ObserverPatchHolography.DeSitterCapacityShock
 import EventAlgebra
+import ObserverPatchHolography.YangMillsLemma72
+import ObserverPatchHolography.YangMillsProp81
+import ObserverPatchHolography.YangMillsGap
+import ObserverPatchHolography.YangMillsGapWitness
+import ObserverPatchHolography.RepairGapChain
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
@@ -78,8 +83,3 @@ only Mathlib and carries no vocabulary from the rest of this repository.
 
 See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
 -/
-import ObserverPatchHolography.YangMillsLemma72
-import ObserverPatchHolography.YangMillsProp81
-import ObserverPatchHolography.YangMillsGap
-import ObserverPatchHolography.YangMillsGapWitness
-import ObserverPatchHolography.RepairGapChain
