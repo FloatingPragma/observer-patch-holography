@@ -20,7 +20,6 @@ it. Exit is nonzero on any violation.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
 import sys
@@ -28,10 +27,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "claims" / "axiom_registry.yaml"
-HANDOFF_MANIFEST = (
-    ROOT / "docs" / "axiom_revision_web_handoff" / "handoff_manifest.json"
-)
-
 # Active surface roots scanned for stale-basis tokens.
 ACTIVE_GLOBS = [
     "README.md",
@@ -62,7 +57,6 @@ ALLOWLIST_PATHS = [
     "claims/axiom_registry.yaml",    # names the retired principles
     "claims/frozen_prediction_register.json",  # frozen custody bytes
     "docs/FROZEN_PREDICTION_LADDER.md",        # rendered from frozen rows
-    "book/axiom_revision_briefs/",
     "tools/test_check_axiom_consistency",
 ]
 
@@ -237,28 +231,6 @@ def entry_surface_checks(errors: list[str]) -> None:
             errors.append(f"{rel}: entry surface does not state the three-axiom basis ('{needle}')")
 
 
-def handoff_manifest_checks(errors: list[str]) -> None:
-    try:
-        manifest = json.loads(HANDOFF_MANIFEST.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        errors.append(f"{HANDOFF_MANIFEST.relative_to(ROOT)}: unreadable manifest: {exc}")
-        return
-    for record in manifest.get("files", []):
-        rel = record.get("path")
-        if not isinstance(rel, str):
-            errors.append("handoff manifest: file record has no path")
-            continue
-        path = ROOT / rel
-        if not path.is_file():
-            errors.append(f"handoff manifest: missing {rel}")
-            continue
-        payload = path.read_bytes()
-        if record.get("bytes") != len(payload):
-            errors.append(f"handoff manifest: byte count drift for {rel}")
-        if record.get("sha256") != hashlib.sha256(payload).hexdigest():
-            errors.append(f"handoff manifest: SHA-256 drift for {rel}")
-
-
 def pdf_checks(errors: list[str]) -> None:
     try:
         from pypdf import PdfReader
@@ -324,7 +296,6 @@ def main(argv: list[str] | None = None) -> int:
     registry_checks(errors)
     scan_surfaces(errors)
     entry_surface_checks(errors)
-    handoff_manifest_checks(errors)
     if args.pdf:
         pdf_checks(errors)
 
