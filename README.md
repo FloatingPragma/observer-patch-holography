@@ -55,7 +55,7 @@ certificates:
    [evidence/einstein_convergence](evidence/einstein_convergence/); every
    number regenerates bit for bit.
 2. **A machine-checked core that polices itself.** A sorry-free Lean 4
-   library of more than 800 theorems and lemmas covers the consensus core, the gauge
+   library of more than 900 theorems and lemmas covers the consensus core, the gauge
    identifiability theorem, the finite screen algebra, and the
    Einstein-branch composition. Every public theorem carries a per-theorem
    axiom report. [Lean/](Lean/)
