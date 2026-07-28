@@ -37,22 +37,28 @@ class ScalarSectorBlindnessTests(unittest.TestCase):
     def test_bounded_exit_and_interface(self) -> None:
         self.assertEqual(
             self.payload["bounded_exit"],
-            "conditional_open_interface_with_countermodels_retained",
+            "limited_subchain_audit_physical_interface_open",
         )
         interface = self.payload["discriminating_interface"]
         self.assertEqual(interface["interface_id"], "physical_scalar_attachment")
         self.assertEqual(interface["interface_class"], "conditional_open_interface")
-        self.assertEqual(len(interface["channels"]), 3)
+        self.assertEqual(len(interface["declared_yukawa_channels"]), 3)
+        self.assertIn("scalar two-point pole and residue observables", interface["classes"])
 
-    def test_input_closure_covers_all_completions(self) -> None:
+    def test_selected_subchain_scope_is_explicit(self) -> None:
         closure = self.payload["input_closure"]
         self.assertEqual(
-            closure["completions_covered"],
+            closure["grammar_countermodel_labels_not_physical_completions"],
             ["empty", "one_doublet_declared", "duplicate_doublet", "inert_doublet"],
         )
         self.assertEqual(len(closure["chain"]), 2)
         for entry in closure["chain"]:
-            self.assertIn("carrier manifest", entry["inputs"])
+            self.assertIn("carrier manifest", entry["declared_inputs"])
+        self.assertIn(
+            "not a physical scalar-sector non-identifiability theorem",
+            closure["scope_limits"],
+        )
+        self.assertFalse(closure["dynamics_hash_semantics"]["interchangeable"])
 
     def test_countermodels_are_retained(self) -> None:
         retained = self.payload["countermodels"]
@@ -66,24 +72,50 @@ class ScalarSectorBlindnessTests(unittest.TestCase):
             self.assertTrue(verdict["expected_failure"], name)
             self.assertTrue(verdict["failed"], name)
         self.assertEqual(
+            self.payload["controls"]["target_injection"]["code"],
+            "EXPLICIT_SCALAR_INPUT",
+        )
+        self.assertEqual(
+            self.payload["controls"]["scalar_key_mutation"]["code"],
+            "EXPLICIT_SCALAR_INPUT",
+        )
+        self.assertEqual(
             sorted(self.payload["controls"]["wrong_multiplicity"]["countermodels"]),
             ["n0_no_scalar", "n2_duplicate_identical_charge", "n2_one_inert"],
         )
 
-    def test_scalar_key_detection_is_live(self) -> None:
-        keys: set[str] = set()
-        cert.collect_keys({"outer": {"scalar_mass": 1}}, keys)
-        offending = [k for k in keys if any(t in k for t in cert.SCALAR_TOKENS)]
-        self.assertTrue(offending)
-
     def test_doctored_parent_pin_fails(self) -> None:
+        carrier = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.CARRIER_MANIFEST_NAME
+        )
         response = cert.load_json(
             cert.MODULE_DIR / "manifests" / cert.RESPONSE_ARTIFACT_NAME
         )
-        keys: set[str] = set()
-        cert.collect_keys(response, keys)
-        for token in cert.SCALAR_TOKENS:
-            self.assertFalse([k for k in keys if token in k], token)
+        pole = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.POLE_RESIDUE_ARTIFACT_NAME
+        )
+        pole["carrier_binding"]["parent_artifact_sha256"] = "sha256:" + "0" * 64
+        pole["artifact_sha256"] = cert.artifact_self_hash(pole)
+        with self.assertRaises(cert.CertificateError):
+            cert.validate_selected_subchain(carrier, response, pole)
+
+    def test_explicit_scalar_input_fails_even_when_rehashed(self) -> None:
+        carrier = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.CARRIER_MANIFEST_NAME
+        )
+        response = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.RESPONSE_ARTIFACT_NAME
+        )
+        pole = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.POLE_RESIDUE_ARTIFACT_NAME
+        )
+        response["inputs"] = {"neutral_name": "inert_doublet_scalar"}
+        response["artifact_sha256"] = cert.artifact_self_hash(response)
+        pole["carrier_binding"]["parent_artifact_sha256"] = response["artifact_sha256"]
+        pole["artifact_sha256"] = cert.artifact_self_hash(pole)
+        with self.assertRaises(cert.CertificateError) as caught:
+            cert.validate_selected_subchain(carrier, response, pole)
+        self.assertEqual(caught.exception.code, "EXPLICIT_SCALAR_INPUT")
 
 
 if __name__ == "__main__":

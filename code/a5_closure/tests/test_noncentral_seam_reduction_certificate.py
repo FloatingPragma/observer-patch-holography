@@ -165,16 +165,16 @@ class NoncentralSeamReductionTests(unittest.TestCase):
             {"2I": 9, "Q8": 5, "S3": 3},
         )
 
-    def test_verdict_records_the_complete_schema_classification(self) -> None:
+    def test_verdict_keeps_complete_schema_classification_open(self) -> None:
         verdict = self.expected["verdict"]
         self.assertEqual(
             verdict["general_grammar"],
-            "classified_at_complete_schema_with_noncontractible_witness",
+            "conditional_open_interface_with_noncontractible_witness",
         )
         self.assertEqual(verdict["centrality_derivation"], "not_established")
         self.assertEqual(
             verdict["flux_menu"],
-            "exhaustive_for_abelian_coefficient_candidates_on_the_complete_carrier",
+            "order_six_exact_in_named_lane_not_exhaustive_over_complete_schema",
         )
         self.assertIn("parameterized", verdict["matter_transport_effect"])
         self.assertEqual(
@@ -185,7 +185,10 @@ class NoncentralSeamReductionTests(unittest.TestCase):
             self.expected["claim_boundary"]["bounded_exit"],
             "exact_named_realization",
         )
-        self.assertFalse(verdict["same_axiom_class_nonidentifiability"])
+        self.assertEqual(
+            verdict["same_axiom_class_nonidentifiability"],
+            "not_established",
+        )
         self.assertTrue(verdict["reduced_interface_nonidentifiability"])
         self.assertTrue(all(verdict["controls"].values()))
 
@@ -200,11 +203,11 @@ class NoncentralSeamReductionTests(unittest.TestCase):
         classification = lift["classification"]
         self.assertEqual(
             classification["z7"]["classification"],
-            "excluded_no_faithful_complete_A1_realization",
+            "excluded_within_two_pinned_lanes_only",
         )
         self.assertEqual(
             classification["z6"]["classification"],
-            "identified_with_measured_central_column",
+            "identified_with_order_six_column_within_pinned_lanes",
         )
         self.assertEqual(
             sorted(classification["z6"]["faithful_embeddings_into_seam_class_lane"]),
@@ -352,12 +355,14 @@ class NoncentralSeamReductionTests(unittest.TestCase):
     def test_every_issue_acceptance_item_has_a_bounded_disposition(self) -> None:
         status = self.expected["acceptance_criteria_status"]
         self.assertTrue(status["source_defined_without_target_group_list"])
-        self.assertTrue(
+        self.assertFalse(
             status["full_axiom_coefficient_group_nonselection_proved"]
         )
         self.assertTrue(status["measured_double_cover_classified"])
         self.assertTrue(
-            status["every_classified_branch_has_sector_and_matter_effect"]
+            status[
+                "every_classified_branch_has_sector_and_matter_effect_disposition"
+            ]
         )
         self.assertIn("physical selection", status["effect_bounded_disposition"])
         self.assertTrue(

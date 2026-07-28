@@ -279,19 +279,45 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use only after a source generator and clock packet exists locally.",
     },
+    623: {
+        "phase": "physical-scalar-attachment",
+        "claim_level": "physical scalar pole, vacuum, and multiplicity-discrimination gap",
+        "blocker": (
+            "The selected charged-response and pole-residue simulator artifacts "
+            "expose no explicit scalar input, but that two-artifact audit is not "
+            "an exhaustive producer inventory or a theorem on physical scalar "
+            "completions. The #616 empty, duplicate, and inert rows are "
+            "countermodels only to the enumerated grammar-visible checks."
+        ),
+        "closure": (
+            "Land a source-derived scalar carrier with a pole or equivalent "
+            "spectral receipt, potential/vacuum attachment, and discrimination "
+            "against the retained grammar-scope countermodels; alternatively "
+            "prove an exhaustive completion-indexed constant-observation theorem "
+            "over a promotion-aware producer inventory."
+        ),
+        "falsification": (
+            "The proposed negative theorem omits a scalar-sensitive pole, gauge "
+            "response, potential/vacuum, multiplicity-rank, or Yukawa producer, "
+            "or a proposed physical attachment imports a Higgs target."
+        ),
+        "chrome_policy": "Use only after a scalar-sensitive source packet or exhaustive producer inventory exists.",
+    },
     624: {
         "phase": "noncentral-seam-classification",
         "claim_level": "full-schema classification gap with exact finite subresults",
         "blocker": (
-            "The Z6/Z7 register controls exercise only a reduced seam interface, "
-            "and id:S3->S3 has contractible 2-type. Neither is a complete A1-A3 "
-            "countermodel to general central reduction or order-six forcing."
+            "Z7 has no faithful homomorphism into the order-two register lane or "
+            "the existing order-six seam-class lane, but these two lanes are not "
+            "proved exhaustive over all complete A1-A3 coefficient constructions. "
+            "The noncontractible Z2->1 witness supplies a sector only through a "
+            "separately supplied matter character."
         ),
         "closure": (
-            "Construct and verify a complete A1/A2/A3 seam-coefficient lift that "
-            "preserves primitive central ports, plus a nontrivial finite 2-type "
-            "with a gauge-invariant sector and typed matter effect, or prove the "
-            "requested classification directly."
+            "Prove an exhaustive classification theorem reducing every complete "
+            "A1-A3 coefficient construction to the pinned lanes, or exhibit and "
+            "classify every additional lane with its operational, refinement, "
+            "meaning, optimizer, sector, and matter-character data."
         ),
         "falsification": (
             "The proposed product register splits a primitive central port, an A2 "
@@ -340,19 +366,20 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "physical-routed-seam-selection",
         "claim_level": "physical grammar and matter-action selection gap",
         "blocker": (
-            "The named order-six realization has no source selector for the physical "
-            "grammar or matter action. The #624 complete-schema classification bounds "
-            "the coefficient menu and the admitted higher mechanisms; selecting one "
-            "physical grammar and matter action from a source packet is the gap."
+            "No source packet selects the physical seam mechanism, character, or "
+            "2-representation. The pure-hypercharge character menus have fixed "
+            "dimensions 15/7, 15/3, and 15/7/3/1, while the canonical diagonal "
+            "global-form kernel fixes all fifteen realized local matter states. "
+            "These actions must not be conflated."
         ),
         "closure": (
             "A target-free source packet selects or classifies the seam grammar, refinement "
             "transport, and representation or 2-representation on realized matter."
         ),
         "falsification": (
-            "A full-schema #624 alternative with a different central menu, or a "
-            "nontrivial 2-type with a different sector or matter effect, survives "
-            "every proposed source selector."
+            "A different complete #624 coefficient lane, character, flux action, "
+            "or 2-representation survives the source selector, or the selected "
+            "action contradicts diagonal-kernel single-valuedness or refinement."
         ),
         "chrome_policy": "Use only after a finite source selector and matter-action packet exists.",
     },
@@ -474,19 +501,26 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "unitary channel conserves mode norms. The finite screen assembly has "
             "complex rank forty-five with the exact rank-15 generation factor "
             "imported. This is not a physical matter-spectrum measurement. The "
-            "#617 copy-count invisibility for external completions is unchanged."
+            "#617 copy-count invisibility for external completions is unchanged. "
+            "The bounded #627 classification also leaves the physical seam "
+            "mechanism, character or 2-representation, and its line/flux action "
+            "unselected."
         ),
         "closure": (
             "The matter-pole identification, chirality and spin data, Spin/locality "
             "receipt, refinement compatibility, exclusion of extra light sectors, "
-            "and laboratory current attachment identify the simulator "
+            "laboratory current attachment, and source-derived seam mechanism "
+            "with its character or 2-representation identify the simulator "
             "response-resolvent realization with the physical matter-pole residue "
-            "object, or a countermodel separates them."
+            "object and synchronize its line/flux action, or a countermodel "
+            "separates them."
         ),
         "falsification": (
             "A physical pole-residue object realized in the screen with a faithful "
             "in-window multiplicity object that is not the rank-three band, or a "
-            "physical comparison order that violates the #625 operational cone."
+            "physical comparison order that violates the #625 operational cone, "
+            "or a selected seam action conflicts with the canonical diagonal "
+            "kernel or measured line/flux transport."
         ),
         "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
     },

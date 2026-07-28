@@ -146,10 +146,11 @@ The listed incidence consequences (inverse port, axes, \(A_5\), frame pair,
 antipode polynomial) are theorems about A1 carriers, proved separately; the
 response law and current algebra are exact results inside a named
 realization. The integer load fiber is exact in a declared counting
-realization. A covariant rational central-readback family separates the
-reduced finite-atomic interface, but its complete A1 operational/refinement,
-A2 naturality, and A3 optimizer lift remains open in issue #625. Equal state weights are
-not A1 content; they follow from A1 and A3 together (see the A3 section).
+realization. The complete additive-readback classification fixes the counting
+map up to one positive unit scale. The half-unit member is a units rescaling,
+not a separate physical readback, and the finite record-repair realization
+supplies a derived settling cost. Equal state weights are not A1 content; they
+follow from A1 and A3 together (see the A3 section).
 No gauge, particle, coupling, measured-target, or fitted coordinate may
 appear in the source packet used for any of these derivations.
 

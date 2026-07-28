@@ -20,7 +20,7 @@
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Within the declared integer record-counting grammar q in Z^12 with sum q=12 and the declared normalized central-readback cost H(q)=sum q_i^2, the executable #565 packet proves that the all-one vector is the unique minimizer over the full integer lattice, with floor 12, next floor 14, and gap 2. `Lean/Screen/UnitSplit12.lean` proves the positive-natural sum-12 special case. Issue #625 carries reduced-interface alternative-readback controls; their complete A1-A3 lift remains open. Issue #628 owns an operational source mechanism. Conditional on row 4 and these named-realization premises.",
+      "where": "Within the declared integer record-counting grammar q in Z^12 with sum q=12 and the declared normalized central-readback cost H(q)=sum q_i^2, the executable #565 packet proves that the all-one vector is the unique minimizer over the full integer lattice, with floor 12, next floor 14, and gap 2. `Lean/Screen/UnitSplit12.lean` proves the positive-natural sum-12 special case. The complete #625 diagram theorem fixes additive record counting up to one positive unit scale. The #628 operational patch mechanism generates integer counts from atomic signed events and derives a move-count settling cost from conservative register repairs. Its exact Lyapunov function is the load square, not the seam quadratic or the A3 Hessian; the readback scale remains a unit convention. Conditional on row 4 and these named-realization premises.",
       "menu": {
         "size": 1352078,
         "alternatives": "weak nonnegative integer compositions of 12 into twelve slots; all 1,352,078 compositions minimize the linear cost sum q_i=12, while the declared quadratic cost selects the all-unit composition uniquely",
@@ -41,8 +41,8 @@
         "removed primitive atoms leave a continuum of line decompositions",
         "unequal port weights or total charge 13 destroy unique all-unit selection",
         "with nonnegative integer entries, a linear cost has 1,352,078 minimizers; without nonnegativity, the integer minimizer set is infinite (`no_unit_split_without_integrality`, `no_unit_split_without_positivity`, `no_unit_split_without_twelve_slots`)",
-        "a covariant half-count family removes the integer fiber on the reduced finite-atomic carrier; complete A1-A3 lift remains open",
-        "an inequivalent equivariant readback changes the exact discrete cost on the reduced carrier; complete A1-A3 lift remains open"
+        "the half-unit readback is the same complete counting ray in a different unit convention and therefore is not an inequivalent countermodel",
+        "the equivariant 6I + A comparison has a positive adjacency coefficient and is excluded from the complete operational comparison cone"
       ],
       "paper_anchors": [
         {

@@ -53,11 +53,14 @@ general noncentral-grammar closure:
   folded into those coefficient groups. The identity crossed module S3 -> S3
   with conjugation action satisfies both Peiffer identities and carries raw
   noncentral face labels, but its kernel and cokernel are trivial. Its 2-type
-  is contractible, so it supplies no nontrivial higher sector. The Z6/Z7
-  models exercise only a reduced seam/register interface; their lift to every
-  clause of the complete A1-A3 schema remains open. These witnesses do not
-  establish an independence-limited exit. Nerves with nontrivial fundamental
-  group provide the separate flat-sector boundary.
+  is contractible, so it supplies no nontrivial higher sector. The explicit
+  Z2, Z3, and Z6 maps to the trivial group carry the corresponding total-sum
+  sectors, while the injective Z2 -> Z4 row has trivial pi_2. A crossed module
+  with nontrivial residual pi_1 action on pi_2 is outside this five-row table.
+  The Z6/Z7 models exercise only a reduced seam/register interface; their lift
+  to every clause of the complete A1-A3 schema remains unproved. These
+  witnesses do not establish an independence-limited exit. Nerves with
+  nontrivial fundamental group provide the separate flat-sector boundary.
 
 An incoherent assignment, a missing triple overlap, an unsupported
 order-six promotion for an injected Z7 centre, and a tampered spin-manifest
@@ -1528,20 +1531,12 @@ def equivariant_register_classification() -> dict[str, Any]:
 
 
 def complete_coefficient_lift_classification() -> dict[str, Any]:
-    """Resolve the Z6/Z7 alternative-coefficient question at the complete schema.
+    """Classify Z6 and Z7 inside the two pinned coefficient lanes.
 
-    The complete A1 carrier offers exactly two lanes for a seam coefficient
-    group: the register lane, bounded by the order-two rotation centralizer,
-    and the seam-class lane, whose class group is the measured order-six
-    column of the routed-seam receipt. The exact homomorphism enumerations:
-    Z7 maps only trivially into either lane, so Z7 admits no faithful
-    complete lift and is excluded as an alternative; Z6 maps isomorphically
-    onto the seam-class group, so its complete lift is the measured central
-    column itself, and it is not an alternative grammar. The A2 and A3
-    surfaces are unchanged by this identification: the meaning diagrams and
-    the information projection of the measured column are the ones already
-    certified by the routed-seam, equal-state-weights, and scheduler
-    receipts.
+    The exact homomorphism calculations settle those lanes only. They do not
+    prove that every complete A1-A3 seam or internal-algebra construction
+    factors through the rotation-centralizer register or the existing
+    order-six seam-class column.
     """
 
     def homs_cyclic(source_order: int, target_order: int) -> list[int]:
@@ -1578,18 +1573,17 @@ def complete_coefficient_lift_classification() -> dict[str, Any]:
         "z7": {
             "homs_into_seam_class_lane": z7_to_z6,
             "homs_into_register_lane": z7_to_z2,
-            "faithful_complete_lift": "none",
-            "classification": "excluded_no_faithful_complete_A1_realization",
+            "faithful_lift_within_pinned_lanes": "none",
+            "classification": "excluded_within_two_pinned_lanes_only",
         },
         "z6": {
             "faithful_embeddings_into_seam_class_lane": faithful_z6,
             "orientation_note": (
-                "the two faithful embeddings are the identity and the "
-                "inversion; the oriented nerve selects the identity and the "
-                "inversion is the conjugate relabeling"
+                "the two faithful embeddings differ by the automorphism "
+                "k -> -k of Z6; no physical orientation is selected here"
             ),
-            "faithful_complete_lift": "the measured central column itself",
-            "classification": "identified_with_measured_central_column",
+            "faithful_lift_within_pinned_lanes": "the order-six central column",
+            "classification": "identified_with_order_six_column_within_pinned_lanes",
             "a2_a3_surfaces": (
                 "unchanged: the meaning diagrams and information projection "
                 "of the measured column are the certified routed-seam, "
@@ -1597,32 +1591,28 @@ def complete_coefficient_lift_classification() -> dict[str, Any]:
             ),
         },
         "conclusion": (
-            "the seam coefficient group is not a free parameter of the "
-            "complete schema: Z7 has no faithful realization and Z6 is the "
-            "measured grammar; the order-six menu is exhaustive for "
-            "cyclic coefficient candidates on the complete carrier"
+            "Z7 has no faithful homomorphism into either pinned lane and Z6 "
+            "maps faithfully to the order-six seam-class lane. Exhaustiveness "
+            "of these two lanes over all complete A1-A3 coefficient "
+            "constructions is not proved"
         ),
+        "general_complete_schema_classification": "open",
     }
 
 
 def two_type_sector_classification(nerve: Mapping[str, Any]) -> dict[str, Any]:
-    """Classify higher seam mechanisms through finite crossed modules.
+    """Classify the five explicit finite crossed-module rows used here.
 
     A strict crossed module delta from H to G has homotopy invariants
-    pi_1 = coker(delta) and pi_2 = ker(delta). On the pinned simply
-    connected nerve the G-part of an exactly coherent 2-assignment is
-    gauge-trivial by the flat theorem, so the sector content is carried by
-    the pi_2-valued face data: the sector group is the total-sum class
-    group H^2(S^2, pi_2), isomorphic to pi_2. The noncontractible witness
-    is the crossed module Z2 -> 1: its nontrivial total-sum class is a
-    gauge-invariant sector (every 1-gauge coboundary has total sum zero
-    because each seam lies in exactly two overlaps with opposite signs),
-    presentation-invariant (the classifying functional is the total sum),
-    and it acts on matter through a supplied central character exactly as
-    the declared central classes do. The identity crossed module on S3 is
-    the contractible control with no sector, and the injective module
-    Z2 -> Z4 has trivial kernel with flat cokernel, hence no sector on the
-    sphere. Physical selection among admitted mechanisms is issue #627.
+    pi_1 = coker(delta) and pi_2 = ker(delta). For the rows Z_n -> 1,
+    pi_1 is trivial and the sector group is H^2(S^2,Z_n)=Z_n. The
+    nontrivial total-sum class is gauge-invariant because every seam lies
+    in two overlaps with opposite signs. The identity crossed module on
+    S3 is contractible, while Z2 -> Z4 has trivial pi_2 and therefore no
+    higher sector on the sphere. No general theorem is asserted for a
+    crossed module with a nontrivial residual pi_1 action on pi_2; unbased
+    sectors can then be pi_1-orbits rather than the group pi_2. Physical
+    selection among the five rows is issue #627.
     """
 
     boundary = nerve["boundary"]
@@ -1758,18 +1748,23 @@ def two_type_sector_classification(nerve: Mapping[str, Any]) -> dict[str, Any]:
             "every seam coboundary has total face sum zero, so the total-sum "
             "sector functional is invariant under all 1-gauge transformations"
         ),
-        "general_theorem": (
-            "on the pinned simply connected nerve, the sector group of a "
-            "strict finite crossed module is the total-sum class group of its "
-            "pi_2: the G-part is gauge-trivial by the flat theorem and the "
-            "pi_2-valued face data classifies by total sum"
+        "classified_row_theorem": (
+            "for each explicit Z_n -> 1 row, pi_1 is trivial and the sector "
+            "group is the total-sum class group H2(S2,Z_n)=Z_n; the identity "
+            "S3 row is contractible and the injective Z2 -> Z4 row has "
+            "trivial pi_2"
+        ),
+        "general_scope_limit": (
+            "a strict crossed module with nontrivial residual pi_1 action on "
+            "pi_2 is not classified here; unbased sectors can be pi_1-orbits "
+            "in pi_2, so no universal sector-group-equals-pi_2 claim is made"
         ),
         "noncontractible_witness": mechanisms[0],
         "mechanism_table": mechanisms,
         "selection_boundary": (
-            "the table classifies every admitted mechanism by its sector "
-            "group and typed matter effect; physical selection of one "
-            "grammar and matter action is issue #627"
+            "the table classifies each of the five explicitly tested rows by "
+            "its sector group and typed matter effect; physical selection of "
+            "one grammar and matter action is issue #627"
         ),
     }
 
@@ -2264,20 +2259,19 @@ def certificate_payload(
                 "central coefficient group; no finite allowed-group list is "
                 "promoted"
             ),
-            "full_axiom_coefficient_group_nonselection_proved": True,
+            "full_axiom_coefficient_group_nonselection_proved": False,
             "full_axiom_reading": (
-                "the complete-schema classification resolves the alternative "
-                "question: Z7 has no faithful realization in the register, "
-                "partition, or seam-class lane, and Z6 identifies with the "
-                "measured central column, so the coefficient group is "
-                "computed by the complete carrier rather than selected"
+                "the exact calculation classifies Z6 and Z7 inside the "
+                "rotation-centralizer register and existing order-six "
+                "seam-class lanes. It does not prove those lanes exhaust "
+                "every complete A1-A3 coefficient construction"
             ),
             "measured_double_cover_classified": True,
             "measured_double_cover_reading": (
                 "classified as a nonsplit Z2 central extension over V4, "
                 "without identifying it with a spherical cellular class"
             ),
-            "every_classified_branch_has_sector_and_matter_effect": True,
+            "every_classified_branch_has_sector_and_matter_effect_disposition": True,
             "effect_reading": (
                 "ordinary flat transport is gauge trivial; central sectors "
                 "are A with matter action chi(a); the noncontractible "
@@ -2286,10 +2280,11 @@ def certificate_payload(
                 "modules supply none"
             ),
             "effect_bounded_disposition": (
-                "the mechanism table classifies every admitted crossed "
-                "module by its sector group and typed matter effect; "
-                "physical selection of one grammar and matter action is "
-                "issue #627"
+                "the mechanism table classifies each of the five explicitly "
+                "tested rows by its sector group and typed matter effect; "
+                "crossed modules with a nontrivial residual pi_1 action on "
+                "pi_2 remain outside this finite table, and physical selection "
+                "of a row remains a conditional interface"
             ),
             "wrong_coherence_missing_overlap_and_injected_group_controls": True,
             "instanton_theta_and_laboratory_attachments_separate": True,
@@ -2301,10 +2296,10 @@ def certificate_payload(
             ),
             "centrality_derivation": "not_established",
             "general_grammar": (
-                "classified_at_complete_schema_with_noncontractible_witness"
+                "conditional_open_interface_with_noncontractible_witness"
             ),
             "flux_menu": (
-                "exhaustive_for_abelian_coefficient_candidates_on_the_complete_carrier"
+                "order_six_exact_in_named_lane_not_exhaustive_over_complete_schema"
             ),
             "measured_order_six_menu": (
                 "retained_measured_menu_with_binary_icosahedral_Z2_compatibility"
@@ -2323,8 +2318,9 @@ def certificate_payload(
             "independence_boundaries": {
                 "unconstrained_centre": (
                     "Z7 gives seven spherical H2 classes on the reduced "
-                    "interface only; the complete carrier admits no faithful "
-                    "Z7 realization"
+                    "interface; it has no faithful map into either pinned "
+                    "lane, while other complete coefficient constructions "
+                    "have not been excluded"
                 ),
                 "higher_gauge_grammar": (
                     "the identity crossed module S3 -> S3 has contractible "
@@ -2332,12 +2328,12 @@ def certificate_payload(
                     "total-sum sector with a character-typed matter effect"
                 ),
             },
-            "same_axiom_class_nonidentifiability": False,
+            "same_axiom_class_nonidentifiability": "not_established",
             "reduced_interface_nonidentifiability": True,
             "reduced_nonidentifiability_scope": (
                 "the reduced Z6/Z7 separation survives as a record of the "
-                "reduced interface; the complete classification removes the "
-                "axiom-level ambiguity"
+                "two pinned lanes; the complete axiom-level classification "
+                "remains open"
             ),
             "out_of_class_boundary": (
                 "nerves with nontrivial fundamental group carry flat sectors "
@@ -2361,6 +2357,7 @@ def certificate_payload(
             ),
             "does_not_close": [
                 "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
+                "exhaustiveness of the rotation-centralizer register and existing order-six seam-class lanes over all complete A1-A3 coefficient constructions",
                 "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
                 "physical selection of one grammar, matter representation, central character, or 2-representation (issue 627)",
                 "nonabelian or non-crossed-module higher mechanisms beyond the classified table",
@@ -2373,10 +2370,11 @@ def certificate_payload(
             "bounded_exit_scope": (
                 "the flat assignment lane and explicitly typed central-"
                 "coefficient lane are exact on the pinned spherical nerve; "
-                "the reduced Z6/Z7 register models and the contractible "
-                "identity-boundary S3 crossed module are controls. Neither is "
-                "a complete countermodel to the revised A1-A3 basis, so the "
-                "axiom-level classification remains open"
+                "the three Z_n -> 1 rows, contractible identity S3 row, and "
+                "trivial-pi_2 Z2 -> Z4 row are classified exactly. The "
+                "reduced Z6/Z7 register models remain controls. These finite "
+                "rows do not classify all crossed modules or all complete "
+                "A1-A3 coefficient constructions"
             ),
         },
         "verifier_command": (

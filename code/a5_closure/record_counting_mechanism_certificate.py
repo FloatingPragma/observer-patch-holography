@@ -20,36 +20,41 @@ THE MECHANISM:
   across a seam whose difference has magnitude at least two, appending a
   retraction on the high side and a write on the low side, so the total
   signed record (the protected public readout) is invariant.
-* Settling: admissible moves strictly decrease the seam quadratic
-  Q(N) = sum over edges of d_ij^2 by at least two per move, so every
-  schedule terminates; the settled set is exactly the configurations with
-  every seam difference in {-1, 0, 1}.  Off the mod-twelve fiber no
-  schedule reaches consensus, by conservation; on the fiber an explicit
-  admissible schedule, replayed and re-verified move by move, reaches
-  consensus from the full pile.  This is the operational origin of the
-  mod-twelve load fiber.
+* Settling: admissible moves strictly decrease the load-square Lyapunov
+  function V(N) = sum_i N_i^2.  A transfer across a difference d >= 2
+  changes V by the exact amount -2(d-1), so every schedule terminates.
+  The seam quadratic Q(N) = sum over edges of d_ij^2 is a separately typed
+  A2 comparison observable and need not decrease.  The settled set is
+  exactly the configurations with every seam difference in {-1, 0, 1}.
+  Conservation makes divisibility by twelve a necessary condition for
+  consensus.  It is not sufficient for every initial state.  An explicit
+  admissible eighteen-move schedule, replayed at record level, reaches
+  consensus from a source-generated twelve-event full pile.
 * The operational settling cost C(N) is the minimum number of admissible
   moves to reach the settled set, computed exactly by breadth-first
   search over configurations.
 
 WHAT THE CLASSIFICATION SETTLES (all exact):
 
-* The half-atom readback candidate of #625 is REJECTED by a load-bearing
-  operational clause: its complete lift requires an event of sign 1/2,
-  and the atomic event grammar has none.
+* The half-unit readback candidate of #625 is RETAINED correctly.  It
+  applies the scale 1/2 to integer event counts and requires no half event.
+  It is the same complete additive readback in a different unit convention,
+  not an inequivalent mechanism.  Atomicity fixes integer event counts but
+  does not select a physical display scale.
 * The quadratic seam form of #625 and the operational settling cost are
   DISTINCT objects with exact separating witnesses: the adjacent dipole
   has C = 1 with Q = 12, while the distance-two dipole sits in the settled set
-  (C = 0) with Q = 10.  The quadratic remains the A2 comparison form and
-  the information-side object; the move count is the settling cost of the
-  repair dynamics.  Neither is identified with the other, and the
-  settling cost is derived from the dynamics rather than from any
-  information Hessian.
+  (C = 0) with Q = 10.  Both dipoles have V = 2, hence the same value under
+  the A3 Hessian 12I, while their settling costs differ.  The seam form,
+  the A3 Hessian, the descent potential, and the move-count cost remain
+  separately typed.  The settling cost is derived from the dynamics rather
+  than from any information Hessian.
 * A2 clauses hold exactly: the counting map is invariant under event
   relabeling (any permutation of a register leaves its sum), equivariant
   under the sixty listed rotations, and stable under the pinned
-  refinement port persistence (the defect ports persist identically, so
-  the counting map commutes with the refinement maps).
+  refinement port persistence.  Each rotation and refinement map is an
+  isomorphism of the admissible repair graph, so it also preserves the
+  minimum settling-move cost.
 * The A3 objects stay separately typed: the pinned #625 receipt carries
   the divergence Taylor coefficient 6I and Hessian 12I at unit weight;
   this certificate pins that receipt and never identifies the settling
@@ -67,6 +72,7 @@ import itertools
 import json
 import sys
 from collections import deque
+from fractions import Fraction
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -81,14 +87,13 @@ sha256_json = e565.sha256_json
 load_json = e565.load_json
 write_json = e565.write_json
 
-SCHEMA = "oph.record_counting_mechanism_certificate.v1"
+SCHEMA = "oph.record_counting_mechanism_certificate.v2"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "record_counting_mechanism_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 READBACK_MANIFEST_NAME = "load_fiber_readback_reference.json"
-RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
-
 ISSUE = 628
 PORTS = 12
+PORT_LABELS = tuple(f"p{index:02d}" for index in range(PORTS))
 
 
 # ---------------------------------------------------------------------------
@@ -111,8 +116,61 @@ def load_carrier() -> tuple[Any, list[tuple[int, ...]], list[tuple[int, int]], d
     return carrier, [tuple(g) for g in plus_group], edges, pin
 
 
+def validate_a3_typing(objects: Mapping[str, Any]) -> None:
+    """Validate every typed A3 field used by this mechanism."""
+
+    objective = objects["objective"]
+    require(
+        objective.get("id") == "relative_entropy_projection"
+        and str(objective.get("expansion", "")).startswith(
+            "D(tau + eps v || tau)"
+        )
+        and "O(eps^3)" in str(objective.get("expansion", "")),
+        "A3_OBJECTIVE",
+        "the pinned objective must be the stated relative-entropy projection jet",
+    )
+    weight = objects["local_weight"]
+    require(
+        weight.get("value") == "1"
+        and "absolute coefficients require unit local weight"
+        in str(weight.get("source_note", "")),
+        "A3_WEIGHT",
+        "the local comparison weight must be the separately typed unit weight",
+    )
+    probabilities = objects["reference"]["probabilities"]
+    require(
+        len(probabilities) == PORTS
+        and all(Fraction(value) == Fraction(1, PORTS) for value in probabilities),
+        "A3_REFERENCE",
+        "the pinned A3 reference must be uniform on twelve ports",
+    )
+    optimizer = objects["optimizer"]
+    require(
+        optimizer.get("tangent_first_order_vanishes") is True
+        and optimizer.get("second_order_diagonal") == ["6"] * PORTS
+        and optimizer.get("hessian_coefficient_per_port") == "12"
+        and optimizer.get("taylor_coefficient") == "C = diag(1 / (2 tau_p)) = 6 I"
+        and optimizer.get("hessian_fisher") == "H = diag(1 / tau_p) = 12 I",
+        "A3_OPTIMIZER",
+        "the pinned optimizer jet must carry the exact 6I/12I coefficients",
+    )
+    bridge = objects["optimizer_to_dynamic_readback"]
+    require(
+        bridge.get("status") == "no identification supplied or used"
+        and bridge.get("codomain") == "record-repair settling cost",
+        "A3_DYNAMIC_BRIDGE",
+        "the A3 optimizer and dynamic settling cost must remain separately typed",
+    )
+
+
 def pin_load_fiber() -> dict[str, Any]:
     manifest = load_json(MODULE_DIR / "manifests" / READBACK_MANIFEST_NAME)
+    require(
+        manifest.get("schema") == "oph.load_fiber_readback_certificate.v4"
+        and manifest.get("issue") == 625,
+        "A3_PIN",
+        "the pinned readback packet must carry the exact #625 schema",
+    )
     require(
         "quadratic_readback_lane" in manifest,
         "A3_PIN",
@@ -126,39 +184,125 @@ def pin_load_fiber() -> dict[str, Any]:
         "A3_PIN",
         "the pinned #625 receipt must carry the seam comparison form",
     )
+    second_order = manifest["quadratic_readback_lane"]["second_order_theorem"]
+    a3_objects = {
+        "objective": {
+            "id": "relative_entropy_projection",
+            "expansion": second_order["expansion"],
+        },
+        "local_weight": {
+            "value": "1",
+            "source_note": second_order["weight_note"],
+        },
+        "reference": {
+            "id": "uniform_twelve_port_reference",
+            "probabilities": second_order["reference_family_tau"],
+        },
+        "optimizer": {
+            "tangent_first_order_vanishes": second_order[
+                "first_order_vanishes_on_tangent_space"
+            ],
+            "second_order_diagonal": second_order["second_order_diagonal"],
+            "hessian_coefficient_per_port": second_order[
+                "hessian_coefficient_per_port"
+            ],
+            "taylor_coefficient": second_order[
+                "second_order_taylor_coefficient_matrix"
+            ],
+            "hessian_fisher": second_order["hessian_matrix"],
+        },
+        "optimizer_to_dynamic_readback": {
+            "status": "no identification supplied or used",
+            "domain": "A3 optimizer on the fixed probability simplex",
+            "codomain": "record-repair settling cost",
+        },
+    }
+    validate_a3_typing(a3_objects)
     return {
         "path": f"manifests/{READBACK_MANIFEST_NAME}",
         "sha256": sha256_json(manifest),
         "issue": 625,
-        "a3_objects": "divergence Taylor coefficient 6I and Hessian/Fisher 12I at unit weight, pinned and separately typed",
+        "a3_objects": a3_objects,
     }
 
 
-def pin_refinement() -> dict[str, Any]:
-    artifact = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
-    maps = artifact["physical_refinement_maps"]
+def _port_permutation(labels: Sequence[str]) -> tuple[int, ...]:
     require(
-        maps["per_level_defect_port_count"] == PORTS
-        and maps["levels_measured"] >= 2,
+        len(labels) == PORTS and set(labels) == set(PORT_LABELS),
         "REFINEMENT_PIN",
-        "the pinned refinement receipt must carry persistent defect ports",
+        "each refinement map must permute the twelve neutral port labels",
     )
-    for payload in maps["port_persistence_maps"]:
+    return tuple(PORT_LABELS.index(label) for label in labels)
+
+
+def validate_refinement_tower(
+    tower: Mapping[str, Any], edges: Sequence[tuple[int, int]]
+) -> list[dict[str, Any]]:
+    """Validate the neutral A1 refinement functor, including composition."""
+
+    require(
+        tower.get("levels") == ["r0", "r1", "r2"],
+        "REFINEMENT_LEVELS",
+        "the neutral refinement tower must carry r0, r1, and r2",
+    )
+    rows: dict[tuple[str, str], tuple[int, ...]] = {}
+    edge_set = set(edges)
+    for row in tower.get("maps", []):
+        key = (str(row.get("source")), str(row.get("target")))
+        require(key not in rows, "REFINEMENT_DUPLICATE", "a refinement map is duplicated")
+        permutation = _port_permutation(row.get("port_map", []))
+        mapped_edges = {
+            tuple(sorted((permutation[left], permutation[right])))
+            for left, right in edges
+        }
         require(
-            sorted(payload["port_map"]) == list(range(PORTS)),
-            "REFINEMENT_PIN",
-            "each persistence map must biject the twelve ports",
+            mapped_edges == edge_set,
+            "REFINEMENT_INCIDENCE",
+            "a refinement map must preserve the seam incidence",
         )
-    return {
-        "path": f"manifests/{RESPONSE_ARTIFACT_NAME}",
-        "sha256": sha256_json(artifact),
-        "issue": 599,
-        "clause": (
-            "the twelve defect ports persist bijectively at every measured "
-            "level, so the counting map commutes with the refinement port "
-            "maps"
-        ),
-    }
+        rows[key] = permutation
+    required = {("r0", "r1"), ("r1", "r2"), ("r0", "r2")}
+    require(
+        set(rows) == required,
+        "REFINEMENT_MAPS",
+        "the neutral refinement tower must carry exactly the three coherent maps",
+    )
+    first = rows[("r0", "r1")]
+    second = rows[("r1", "r2")]
+    composed = tuple(second[first[index]] for index in range(PORTS))
+    require(
+        composed == rows[("r0", "r2")],
+        "REFINEMENT_COMPOSITION",
+        "the r0-to-r2 map must equal the composed refinement map",
+    )
+    return [
+        {
+            "source": source,
+            "target": target,
+            "port_permutation": list(rows[(source, target)]),
+        }
+        for source, target in sorted(rows)
+    ]
+
+
+def pin_refinement(
+    edges: Sequence[tuple[int, int]],
+) -> tuple[dict[str, Any], list[tuple[int, ...]]]:
+    manifest = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    rows = validate_refinement_tower(manifest["refinement_tower"], edges)
+    return (
+        {
+            "path": f"manifests/{CARRIER_MANIFEST_NAME}",
+            "sha256": sha256_json(manifest),
+            "clause": (
+                "the neutral A1 tower carries coherent incidence-preserving "
+                "r0-to-r1, r1-to-r2, and r0-to-r2 port maps; counting and "
+                "signed seam readback commute with all three"
+            ),
+            "maps": rows,
+        },
+        [tuple(row["port_permutation"]) for row in rows],
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -172,6 +316,11 @@ EVENT_SIGNS = (1, -1)
 def counting_map(registers: Sequence[Sequence[int]]) -> tuple[int, ...]:
     """The signed counting map: per-port sums of the event registers."""
 
+    require(
+        len(registers) == PORTS,
+        "REGISTER_ARITY",
+        "the finite patch machine must carry exactly twelve event registers",
+    )
     for register in registers:
         for sign in register:
             require(
@@ -180,6 +329,15 @@ def counting_map(registers: Sequence[Sequence[int]]) -> tuple[int, ...]:
                 "every record event carries a whole sign of plus or minus one",
             )
     return tuple(sum(register) for register in registers)
+
+
+def scaled_counting_map(
+    registers: Sequence[Sequence[int]], scale: Fraction
+) -> tuple[Fraction, ...]:
+    """A units-rescaled complete readback. It does not alter event atomicity."""
+
+    require(scale > 0, "READBACK_SCALE", "a readback unit scale must be positive")
+    return tuple(scale * value for value in counting_map(registers))
 
 
 def demo_transition_log() -> list[dict[str, Any]]:
@@ -205,6 +363,20 @@ def demo_transition_log() -> list[dict[str, Any]]:
     return [{"registers": registers, "log": log, "counts": list(counts)}]
 
 
+def full_pile_registers() -> list[list[int]]:
+    """Generate the twelve-event witness sector from atomic source writes."""
+
+    registers: list[list[int]] = [[] for _ in range(PORTS)]
+    for _ in range(PORTS):
+        registers[0].append(1)
+    require(
+        counting_map(registers) == tuple([PORTS] + [0] * (PORTS - 1)),
+        "SOURCE_SECTOR",
+        "the atomic source writes must generate the full-pile witness",
+    )
+    return registers
+
+
 # ---------------------------------------------------------------------------
 # Seam readback, repair dynamics, and settling
 # ---------------------------------------------------------------------------
@@ -218,6 +390,12 @@ def seam_differences(
 
 def quadratic(counts: Sequence[int], edges: Sequence[tuple[int, int]]) -> int:
     return sum((counts[i] - counts[j]) ** 2 for (i, j) in edges)
+
+
+def descent_potential(counts: Sequence[int]) -> int:
+    """The exact load-square Lyapunov function used by the repair dynamics."""
+
+    return sum(value * value for value in counts)
 
 
 def admissible_moves(
@@ -242,6 +420,37 @@ def apply_move(counts: tuple[int, ...], move: tuple[int, int]) -> tuple[int, ...
     out[src] -= 1
     out[dst] += 1
     return tuple(out)
+
+
+def apply_record_move(
+    registers: Sequence[Sequence[int]],
+    move: tuple[int, int],
+    edges: Sequence[tuple[int, int]],
+) -> list[list[int]]:
+    """Apply one repair to records and verify its count-level projection."""
+
+    before = counting_map(registers)
+    require(
+        move in admissible_moves(before, edges),
+        "RECORD_MOVE",
+        "a record repair must be admissible at its source state",
+    )
+    out = [list(register) for register in registers]
+    source, target = move
+    out[source].append(-1)
+    out[target].append(1)
+    after = counting_map(out)
+    require(
+        after == apply_move(before, move),
+        "RECORD_COUNTING_SQUARE",
+        "record repair followed by counting must equal count-level repair",
+    )
+    require(
+        sum(after) == sum(before),
+        "PROTECTED_READOUT",
+        "a record repair must preserve the total signed record",
+    )
+    return out
 
 
 def is_settled(counts: Sequence[int], edges: Sequence[tuple[int, int]]) -> bool:
@@ -333,38 +542,25 @@ def mechanism_theorems(
 ) -> dict[str, Any]:
     """The exact dynamical statements, each verified by finite computation."""
 
-    # Strict descent: every admissible move on every probed configuration
-    # lowers Q by at least two.
-    probes: list[tuple[int, ...]] = []
-    base = [0] * PORTS
-    for a in range(PORTS):
-        for b in range(PORTS):
-            if a == b:
-                continue
-            probe = list(base)
-            probe[a] += 2
-            probe[b] -= 2
-            probes.append(tuple(probe))
-    probes.append(tuple([3, -1, 0, 2, -2, 0, 1, -1, 0, -2, 0, 0]))
+    # Global strict descent follows from the two-coordinate identity
+    # ΔV = (a-1)^2 + (b+1)^2 - a^2 - b^2 = -2(a-b-1).
     descent_checked = 0
-    for probe in probes:
-        q0 = quadratic(probe, edges)
-        for move in admissible_moves(probe, edges):
-            q1 = quadratic(apply_move(probe, move), edges)
+    for high in range(-6, 7):
+        for low in range(-6, 7):
+            difference = high - low
+            if difference < 2:
+                continue
+            before = high * high + low * low
+            after = (high - 1) ** 2 + (low + 1) ** 2
             require(
-                q1 <= q0 - 2,
+                after - before == -2 * (difference - 1) <= -2,
                 "STRICT_DESCENT",
-                "an admissible move must lower the seam quadratic by at least two",
+                "the load-square descent identity failed",
             )
             descent_checked += 1
-    require(descent_checked > 100, "DESCENT_COVERAGE", "descent probe set too small")
 
-    # Consensus obstruction, both directions exact:
-    # against: a consensus state has total twelve times its level, and every
-    # repair move conserves the total, so no schedule reaches consensus off
-    # the mod-twelve fiber (pure arithmetic, no search);
-    # for: on divisible totals an explicit maximal schedule reaches
-    # consensus, exhibited by the max-difference greedy run.
+    # Consensus obstruction: divisibility by twelve is necessary. A separate
+    # source-generated full-pile witness demonstrates one on-fiber schedule.
     obstruction_rows: list[dict[str, Any]] = []
     for total in (6, 17):
         obstruction_rows.append(
@@ -377,20 +573,55 @@ def mechanism_theorems(
                 ),
             }
         )
-    witness_start = [0] * PORTS
-    witness_start[0] = 12
+    witness_registers = full_pile_registers()
+    witness_start = list(counting_map(witness_registers))
     witness_moves, witness_path = search_consensus_schedule(
         tuple(witness_start), edges
+    )
+    require(
+        witness_moves == 18,
+        "WITNESS_LENGTH",
+        "the source-generated full pile must retain its eighteen-move witness",
+    )
+    seam_quadratic_increase_steps: list[int] = []
+    record_replay = witness_registers
+    for step, move in enumerate(witness_path, start=1):
+        before = counting_map(record_replay)
+        seam_before = quadratic(before, edges)
+        potential_before = descent_potential(before)
+        record_replay = apply_record_move(record_replay, move, edges)
+        after = counting_map(record_replay)
+        seam_after = quadratic(after, edges)
+        potential_after = descent_potential(after)
+        difference = before[move[0]] - before[move[1]]
+        require(
+            potential_after - potential_before == -2 * (difference - 1) <= -2,
+            "WITNESS_DESCENT",
+            "the record-level witness must lower the load-square potential",
+        )
+        if seam_after > seam_before:
+            seam_quadratic_increase_steps.append(step)
+    require(
+        counting_map(record_replay) == tuple([1] * PORTS),
+        "WITNESS_RECORD_REPLAY",
+        "the record-level witness must reach unit consensus",
+    )
+    require(
+        seam_quadratic_increase_steps,
+        "COMPARISON_SEPARATION",
+        "the witness must expose that the seam quadratic is not the Lyapunov function",
     )
     obstruction_rows.append(
         {
             "total": 12,
             "consensus": True,
+            "source_generation": "twelve atomic +1 writes at port p00",
             "witness_schedule_moves": witness_moves,
             "witness_schedule": [list(move) for move in witness_path],
+            "seam_quadratic_increase_steps": seam_quadratic_increase_steps,
             "reading": (
                 "an explicit admissible schedule, replayed and re-verified "
-                "move by move, reaches consensus from the full pile"
+                "at record level, reaches consensus from the source-generated full pile"
             ),
         }
     )
@@ -431,17 +662,23 @@ def mechanism_theorems(
 
     return {
         "strict_descent": {
-            "checked_moves": descent_checked,
-            "statement": "every admissible move lowers Q by at least two, so every schedule terminates",
+            "algebraic_cases_checked": descent_checked,
+            "lyapunov_function": "V(N) = sum_i N_i^2",
+            "exact_delta": "V(after) - V(before) = -2*(d - 1) for source-sink difference d >= 2",
+            "statement": (
+                "every admissible move lowers V by at least two, so every "
+                "schedule terminates; the separately typed seam quadratic "
+                "can increase and is not used for termination"
+            ),
         },
         "settled_characterization": "the settled set is exactly the configurations with every seam difference in {-1, 0, 1}",
         "fiber_obstruction": {
             "rows": obstruction_rows,
             "statement": (
-                "off the mod-twelve fiber no schedule reaches consensus, by "
-                "conservation; on the fiber an explicit verified schedule "
-                "reaches consensus from the full pile: the operational "
-                "mod-twelve load fiber"
+                "divisibility by twelve is a necessary conserved condition "
+                "for consensus, not a sufficient classification of all "
+                "initial states; a source-generated on-fiber full pile has "
+                "an explicit verified eighteen-move consensus schedule"
             ),
         },
         "schedule_exhaustion": {
@@ -481,21 +718,34 @@ def cost_separation(edges: Sequence[tuple[int, int]], carrier: Any) -> dict[str,
     c_far, _ = settle_cost_exact(distant, edges)
     q_adj = quadratic(adjacent, edges)
     q_far = quadratic(distant, edges)
+    v_adj = descent_potential(adjacent)
+    v_far = descent_potential(distant)
     require(
-        (c_adj, q_adj) == (1, 12) and (c_far, q_far) == (0, 10),
+        (c_adj, q_adj, v_adj) == (1, 12, 2)
+        and (c_far, q_far, v_far) == (0, 10, 2),
         "SEPARATION_WITNESS",
         "the dipole witnesses must separate the settling cost from the quadratic",
     )
     return {
-        "adjacent_dipole": {"settle_cost": c_adj, "quadratic": q_adj},
-        "distance_two_dipole": {"settle_cost": c_far, "quadratic": q_far},
+        "adjacent_dipole": {
+            "settle_cost": c_adj,
+            "seam_quadratic": q_adj,
+            "load_square": v_adj,
+            "a3_hessian_12I_value": 12 * v_adj,
+        },
+        "distance_two_dipole": {
+            "settle_cost": c_far,
+            "seam_quadratic": q_far,
+            "load_square": v_far,
+            "a3_hessian_12I_value": 12 * v_far,
+        },
         "statement": (
-            "the settling cost and the quadratic seam form are distinct "
-            "objects: no scalar multiple maps one to the other on these "
-            "witnesses; the quadratic stays the pinned A2 comparison form "
-            "and the settling cost is the repair-dynamics object, so the "
-            "cost is derived from the dynamics and never identified with "
-            "an information Hessian"
+            "the settling cost, seam quadratic, load-square Lyapunov "
+            "function, and A3 Hessian are distinct objects. The two "
+            "witnesses have the same load-square and the same 12I Hessian "
+            "value but different settling costs; they also have different "
+            "seam-quadratic values. The move-count cost is derived from the "
+            "repair dynamics and is not an information Hessian"
         ),
         "quadratic_candidate_disposition": "retained_as_distinct_typed_implementation",
     }
@@ -506,39 +756,318 @@ def cost_separation(edges: Sequence[tuple[int, int]], carrier: Any) -> dict[str,
 # ---------------------------------------------------------------------------
 
 
-def a2_clauses(
-    rotations: Sequence[tuple[int, ...]], edges: Sequence[tuple[int, int]]
-) -> dict[str, Any]:
-    demo = demo_transition_log()[0]
-    registers = demo["registers"]
-    counts = tuple(demo["counts"])
+def transport_counts(
+    counts: Sequence[int], permutation: Sequence[int]
+) -> tuple[int, ...]:
+    transported = [0] * PORTS
+    for source, target in enumerate(permutation):
+        transported[target] = counts[source]
+    return tuple(transported)
 
-    # Relabeling invariance: permuting any register leaves its count.
-    for register in registers:
-        for permuted in itertools.islice(itertools.permutations(register), 24):
+
+def transport_registers(
+    registers: Sequence[Sequence[int]], permutation: Sequence[int]
+) -> list[list[int]]:
+    transported: list[list[int]] = [[] for _ in range(PORTS)]
+    for source, target in enumerate(permutation):
+        transported[target] = list(registers[source])
+    return transported
+
+
+def verify_signed_naturality(
+    permutations: Sequence[tuple[int, ...]],
+    edges: Sequence[tuple[int, int]],
+    code: str,
+) -> int:
+    """Check counting and oriented seam squares on a linear basis."""
+
+    edge_set = set(edges)
+    checks = 0
+    for permutation in permutations:
+        require(
+            sorted(permutation) == list(range(PORTS)),
+            code,
+            "a naturality map must permute the twelve ports",
+        )
+        for left, right in edges:
             require(
-                sum(permuted) == sum(register),
-                "RELABELING",
-                "the counting map must be order-blind on every register",
+                tuple(sorted((permutation[left], permutation[right]))) in edge_set,
+                code,
+                "a naturality map must preserve seam incidence",
             )
+        for basis in range(PORTS):
+            registers = [[1] if index == basis else [] for index in range(PORTS)]
+            counts = counting_map(registers)
+            transported_registers = transport_registers(registers, permutation)
+            transported_counts = transport_counts(counts, permutation)
+            require(
+                counting_map(transported_registers) == transported_counts,
+                code,
+                "counting must commute with port transport",
+            )
+            for left, right in edges:
+                require(
+                    transported_counts[permutation[left]]
+                    - transported_counts[permutation[right]]
+                    == counts[left] - counts[right],
+                    code,
+                    "the signed oriented seam readback must commute with transport",
+                )
+                checks += 1
+    return checks
 
-    # Rotation equivariance: rotating ports permutes counts and preserves
-    # the seam-difference multiset.
-    base_multiset = sorted(abs(counts[i] - counts[j]) for (i, j) in edges)
-    for g in rotations:
-        rotated = tuple(counts[g.index(k)] for k in range(PORTS))
-        rotated_multiset = sorted(
-            abs(rotated[i] - rotated[j]) for (i, j) in edges
+
+def verify_cost_naturality(
+    permutations: Sequence[tuple[int, ...]],
+    edges: Sequence[tuple[int, int]],
+    code: str,
+) -> dict[str, int]:
+    """Prove that each port permutation is an isomorphism of the move graph.
+
+    Admissibility is defined by an oriented edge difference, repair adds the
+    corresponding directed edge delta, and settledness is defined on the same
+    edge set.  Preserving these three objects gives a bijection of paths and
+    therefore preserves their minimum length.
+    """
+
+    edge_set = set(edges)
+    directed_move_squares = 0
+    shortest_path_witnesses = 0
+    first_left, first_right = edges[0]
+    probe = [0] * PORTS
+    probe[first_left] = 1
+    probe[first_right] = -1
+    probe_state = tuple(probe)
+    probe_cost, _ = settle_cost_exact(probe_state, edges)
+    require(probe_cost == 1, code, "the adjacent-dipole cost probe must equal one")
+
+    for permutation in permutations:
+        require(
+            sorted(permutation) == list(range(PORTS)),
+            code,
+            "a cost-naturality map must permute the twelve ports",
+        )
+        mapped_edges = {
+            tuple(sorted((permutation[left], permutation[right])))
+            for left, right in edges
+        }
+        require(
+            mapped_edges == edge_set,
+            code,
+            "a cost-naturality map must preserve the seam graph",
+        )
+        for left, right in edges:
+            for source, target in ((left, right), (right, left)):
+                delta = [0] * PORTS
+                delta[source] = -1
+                delta[target] = 1
+                transported_delta = transport_counts(delta, permutation)
+                mapped_delta = [0] * PORTS
+                mapped_delta[permutation[source]] = -1
+                mapped_delta[permutation[target]] = 1
+                require(
+                    transported_delta == tuple(mapped_delta),
+                    code,
+                    "port transport must intertwine every directed repair delta",
+                )
+
+                difference = [0] * PORTS
+                difference[source] = 1
+                difference[target] = -1
+                transported_difference = transport_counts(
+                    difference, permutation
+                )
+                mapped_difference = [0] * PORTS
+                mapped_difference[permutation[source]] = 1
+                mapped_difference[permutation[target]] = -1
+                require(
+                    transported_difference == tuple(mapped_difference),
+                    code,
+                    "port transport must preserve every admissibility functional",
+                )
+                directed_move_squares += 1
+
+        mapped_probe = transport_counts(probe_state, permutation)
+        mapped_cost, _ = settle_cost_exact(mapped_probe, edges)
+        require(
+            mapped_cost == probe_cost,
+            code,
+            "the exact minimum settling cost must survive port transport",
+        )
+        shortest_path_witnesses += 1
+
+    return {
+        "graph_isomorphisms": len(permutations),
+        "directed_move_squares": directed_move_squares,
+        "shortest_path_witnesses": shortest_path_witnesses,
+    }
+
+
+def displayed_admissible_moves(
+    displayed: Sequence[Fraction],
+    scale: Fraction,
+    edges: Sequence[tuple[int, int]],
+) -> list[tuple[int, int]]:
+    """The same repair rule expressed in displayed readback units."""
+
+    require(scale > 0, "READBACK_SCALE", "a readback unit scale must be positive")
+    moves: list[tuple[int, int]] = []
+    threshold = 2 * scale
+    for left, right in edges:
+        difference = displayed[left] - displayed[right]
+        if difference >= threshold:
+            moves.append((left, right))
+        elif difference <= -threshold:
+            moves.append((right, left))
+    return moves
+
+
+def verify_scale_covariance(
+    scale: Fraction,
+    permutations: Sequence[tuple[int, ...]],
+    edges: Sequence[tuple[int, int]],
+) -> dict[str, Any]:
+    """Verify the complete units change for the retained half-unit branch."""
+
+    require(scale > 0, "READBACK_SCALE", "a readback unit scale must be positive")
+    threshold_checks = 0
+    for difference in range(-8, 9):
+        event_forward = difference >= 2
+        event_reverse = difference <= -2
+        displayed_difference = scale * difference
+        require(
+            event_forward == (displayed_difference >= 2 * scale)
+            and event_reverse == (displayed_difference <= -2 * scale),
+            "SCALE_THRESHOLD",
+            "the repair threshold must transform with the readback unit",
+        )
+        threshold_checks += 1
+
+    first_left, first_right = edges[0]
+    probes: list[tuple[int, ...]] = [
+        tuple([PORTS] + [0] * (PORTS - 1)),
+        tuple(
+            1 if index == first_left else -1 if index == first_right else 0
+            for index in range(PORTS)
+        ),
+        tuple(demo_transition_log()[0]["counts"]),
+    ]
+    move_graph_checks = 0
+    cost_checks = 0
+    for counts in probes:
+        displayed = tuple(scale * value for value in counts)
+        require(
+            displayed_admissible_moves(displayed, scale, edges)
+            == admissible_moves(counts, edges),
+            "SCALE_MOVE_GRAPH",
+            "the displayed-unit rule must induce the same repair moves",
+        )
+        event_cost, _ = settle_cost_exact(counts, edges)
+        recovered = tuple(Fraction(value) / scale for value in displayed)
+        require(
+            all(value.denominator == 1 for value in recovered)
+            and tuple(int(value) for value in recovered) == counts,
+            "SCALE_RECOVERY",
+            "displayed values must recover the same integer event state",
+        )
+        displayed_cost, _ = settle_cost_exact(
+            tuple(int(value) for value in recovered), edges
         )
         require(
-            rotated_multiset == base_multiset,
-            "EQUIVARIANCE",
-            "rotations must preserve the seam-difference multiset",
+            displayed_cost == event_cost,
+            "SCALE_COST",
+            "a units change must leave minimum move count unchanged",
         )
+        move_graph_checks += 1
+        cost_checks += 1
+
+    naturality_checks = 0
+    for permutation in permutations:
+        for basis in range(PORTS):
+            counts = tuple(1 if index == basis else 0 for index in range(PORTS))
+            left = tuple(
+                scale * value for value in transport_counts(counts, permutation)
+            )
+            right = transport_counts(
+                tuple(scale * value for value in counts), permutation
+            )
+            require(
+                left == right,
+                "SCALE_NATURALITY",
+                "readback scaling must commute with rotation and refinement maps",
+            )
+            naturality_checks += 1
+
     return {
-        "relabeling_invariance": "verified on twenty-four permutations per register",
-        "rotation_equivariance": f"verified over {len(rotations)} listed rotations",
-        "orientation_covariance": "the seam difference reverses sign with the seam orientation by definition",
+        "scale": f"{scale.numerator}/{scale.denominator}",
+        "event_threshold": 2,
+        "displayed_threshold": f"{(2 * scale).numerator}/{(2 * scale).denominator}",
+        "threshold_checks": threshold_checks,
+        "move_graph_checks": move_graph_checks,
+        "minimum_cost_checks": cost_checks,
+        "naturality_basis_checks": naturality_checks,
+        "statement": (
+            "seam differences and repair increments scale by c, the event "
+            "threshold two becomes 2c in displayed units, the admissible "
+            "move graph and minimum move-count cost are unchanged, and "
+            "rotation and refinement naturality commute with scaling"
+        ),
+    }
+
+
+def a2_clauses(
+    rotations: Sequence[tuple[int, ...]],
+    refinement_maps: Sequence[tuple[int, ...]],
+    edges: Sequence[tuple[int, int]],
+) -> dict[str, Any]:
+    presentation_checks = 0
+    for length in range(5):
+        for register in itertools.product(EVENT_SIGNS, repeat=length):
+            expected = sum(register)
+            for permuted in set(itertools.permutations(register)):
+                require(
+                    sum(permuted) == expected,
+                    "RELABELING",
+                    "the counting map must be order-blind on every register",
+                )
+                presentation_checks += 1
+
+    rotation_checks = verify_signed_naturality(
+        rotations, edges, "ROTATION_NATURALITY"
+    )
+    refinement_checks = verify_signed_naturality(
+        refinement_maps, edges, "REFINEMENT_NATURALITY"
+    )
+    rotation_cost = verify_cost_naturality(
+        rotations, edges, "ROTATION_COST_NATURALITY"
+    )
+    refinement_cost = verify_cost_naturality(
+        refinement_maps, edges, "REFINEMENT_COST_NATURALITY"
+    )
+    return {
+        "presentation_invariance": {
+            "signed_words_through_length": 4,
+            "permutations_checked": presentation_checks,
+            "theorem": (
+                "finite register addition is commutative, so event "
+                "presentation changes neither the count nor the settling "
+                "cost, which factors through that count"
+            ),
+        },
+        "rotation_naturality": {
+            "rotations": len(rotations),
+            "signed_basis_seam_squares": rotation_checks,
+            "cost_move_graph_isomorphism": rotation_cost,
+        },
+        "refinement_naturality": {
+            "coherent_maps": len(refinement_maps),
+            "signed_basis_seam_squares": refinement_checks,
+            "cost_move_graph_isomorphism": refinement_cost,
+        },
+        "orientation_covariance": (
+            "the oriented seam difference is preserved under transported "
+            "orientation and reverses sign when the seam orientation is reversed"
+        ),
     }
 
 
@@ -547,22 +1076,29 @@ def a2_clauses(
 # ---------------------------------------------------------------------------
 
 
-def control_half_atom() -> dict[str, Any]:
-    """The half-atom candidate's complete lift needs a half event; the
-    atomic grammar refuses it."""
+def control_rational_normalization() -> dict[str, Any]:
+    """The half-scale readback is valid, but cannot be mislabeled as unit scale."""
 
+    registers = [[1], [1, -1]] + [[] for _ in range(PORTS - 2)]
+    unit = scaled_counting_map(registers, Fraction(1))
+    half = scaled_counting_map(registers, Fraction(1, 2))
+    require(
+        half == tuple(value / 2 for value in unit),
+        "RATIONAL_NORMALIZATION",
+        "the half-unit readback must be the valid units rescaling classified by #625",
+    )
     try:
-        counting_map([[1, -1], [0.5]])  # type: ignore[list-item]
+        require(
+            half == unit,
+            "RATIONAL_NORMALIZATION",
+            "a half-unit readback cannot be promoted as the unit-one numerical convention",
+        )
     except CertificateError:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "EVENT_ATOMICITY",
-            "meaning": (
-                "the #625 half-atom readback is rejected by a load-bearing "
-                "operational clause: its lift requires an event of sign "
-                "one half, and the grammar has none"
-            ),
+            "code": "RATIONAL_NORMALIZATION",
+            "candidate_disposition": "retained_as_units_rescaling",
         }
     return {"expected_failure": True, "failed": False}
 
@@ -590,28 +1126,28 @@ def control_nonconservative_move(edges: Sequence[tuple[int, int]]) -> dict[str, 
 
 def control_unit_difference_transfer(edges: Sequence[tuple[int, int]]) -> dict[str, Any]:
     """Transferring across a seam with difference one must be refused: it
-    does not lower the quadratic, so it is not an admissible repair."""
+    does not lower the Lyapunov function, so it is not an admissible repair."""
 
     i0, j0 = edges[0]
     counts = [0] * PORTS
     counts[i0] = 1
     counts = tuple(counts)
-    q0 = quadratic(counts, edges)
+    v0 = descent_potential(counts)
     moved = apply_move(counts, (i0, j0))
-    q1 = quadratic(moved, edges)
+    v1 = descent_potential(moved)
     try:
         require(
-            q1 <= q0 - 2,
+            (i0, j0) in admissible_moves(counts, edges) and v1 <= v0 - 2,
             "INADMISSIBLE_MOVE",
-            "a unit-difference transfer does not lower the quadratic",
+            "a unit-difference transfer does not lower the load-square potential",
         )
     except CertificateError:
         return {
             "expected_failure": True,
             "failed": True,
             "code": "INADMISSIBLE_MOVE",
-            "quadratic_before": q0,
-            "quadratic_after": q1,
+            "potential_before": v0,
+            "potential_after": v1,
         }
     return {"expected_failure": True, "failed": False}
 
@@ -642,23 +1178,68 @@ def control_order_dependent_counting() -> dict[str, Any]:
     return {"expected_failure": True, "failed": False}
 
 
-def control_wrong_reference() -> dict[str, Any]:
-    """A nonuniform A3 reference is a different optimizer input; the
-    mechanism's typing clause flags it rather than absorbing it."""
+def control_register_arity() -> dict[str, Any]:
+    """The fixed patch machine must reject an eleven-register presentation."""
 
-    reference = [2] + [1] * (PORTS - 1)
     try:
-        require(
-            len(set(reference)) == 1,
-            "A3_TYPING",
-            "the declared unit-weight uniform reference is a separate typed input",
-        )
-    except CertificateError:
+        counting_map([[] for _ in range(PORTS - 1)])
+    except CertificateError as error:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "A3_TYPING",
+            "code": error.code,
         }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_wrong_reference(a3_objects: Mapping[str, Any]) -> dict[str, Any]:
+    """Mutate the validated A3 packet to a nonuniform reference."""
+
+    doctored = json.loads(json.dumps(a3_objects))
+    doctored["reference"]["probabilities"][0] = "1/6"
+    try:
+        validate_a3_typing(doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
+    return {"expected_failure": True, "failed": False}
+
+
+def control_alternative_weight(
+    a3_objects: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Mutate the validated A3 packet to a nonunit local weight."""
+
+    doctored = json.loads(json.dumps(a3_objects))
+    doctored["local_weight"]["value"] = "2"
+    try:
+        validate_a3_typing(doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
+    return {"expected_failure": True, "failed": False}
+
+
+def control_higher_order_objective(
+    a3_objects: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Mutate the validated A3 packet to a different objective."""
+
+    doctored = json.loads(json.dumps(a3_objects))
+    doctored["objective"]["id"] = "relative_entropy_projection_plus_quartic"
+    try:
+        validate_a3_typing(doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
+    return {"expected_failure": True, "failed": False}
+
+
+def control_refinement(edges: Sequence[tuple[int, int]]) -> dict[str, Any]:
+    manifest = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    doctored = json.loads(json.dumps(manifest["refinement_tower"]))
+    doctored["maps"][2]["port_map"][0] = doctored["maps"][2]["port_map"][1]
+    try:
+        validate_refinement_tower(doctored, edges)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
     return {"expected_failure": True, "failed": False}
 
 
@@ -684,7 +1265,7 @@ def require_no_floats(value: Any, path: str = "$") -> None:
 def build_payload() -> dict[str, Any]:
     carrier, rotations, edges, carrier_pin = load_carrier()
     load_fiber_pin = pin_load_fiber()
-    refinement_pin = pin_refinement()
+    refinement_pin, refinement_maps = pin_refinement(edges)
 
     demo = demo_transition_log()[0]
     counts = tuple(demo["counts"])
@@ -696,14 +1277,22 @@ def build_payload() -> dict[str, Any]:
 
     theorems = mechanism_theorems(carrier, edges)
     separation = cost_separation(edges, carrier)
-    clauses = a2_clauses(rotations, edges)
+    clauses = a2_clauses(rotations, refinement_maps, edges)
+    half_unit_lift = verify_scale_covariance(
+        Fraction(1, 2), [*rotations, *refinement_maps], edges
+    )
+    a3_objects = load_fiber_pin["a3_objects"]
 
     controls = {
-        "half_atom": control_half_atom(),
+        "rational_normalization": control_rational_normalization(),
         "nonconservative_move": control_nonconservative_move(edges),
         "unit_difference_transfer": control_unit_difference_transfer(edges),
         "order_dependent_counting": control_order_dependent_counting(),
-        "wrong_reference": control_wrong_reference(),
+        "register_arity": control_register_arity(),
+        "wrong_reference": control_wrong_reference(a3_objects),
+        "alternative_weight": control_alternative_weight(a3_objects),
+        "higher_order_objective": control_higher_order_objective(a3_objects),
+        "refinement": control_refinement(edges),
     }
     for name, verdict in controls.items():
         require(
@@ -719,8 +1308,9 @@ def build_payload() -> dict[str, Any]:
             "Exact operational-source mechanism on the pinned carrier: "
             "integer loads arise from atomic signed record transitions, the "
             "settling cost arises from the admissible repair dynamics, the "
-            "mod-twelve load fiber arises as the consensus obstruction, the "
-            "half-atom candidate is rejected by the atomicity clause, and "
+            "mod-twelve congruence is a necessary consensus obstruction with "
+            "an explicit source-generated on-fiber witness, the half-unit "
+            "candidate is retained as a units rescaling, and "
             "the #625 quadratic is retained as a distinct typed object with "
             "exact separating witnesses. No particle, gauge, capacity, or "
             "measured-target label enters the source packet."
@@ -732,6 +1322,8 @@ def build_payload() -> dict[str, Any]:
             "repair_move": "conservative unit transfer across a seam with difference magnitude at least two",
             "settled_set": "all seam differences in {-1, 0, 1}",
             "settling_cost": "minimum admissible-move count, exact breadth-first search",
+            "termination_lyapunov": "load square V(N) = sum_i N_i^2",
+            "seam_quadratic_role": "separately typed A2 comparison observable; not a Lyapunov function",
         },
         "evidence_bundle": demo,
         "upstream_pins": {
@@ -742,8 +1334,9 @@ def build_payload() -> dict[str, Any]:
         "theorems": theorems,
         "cost_separation": separation,
         "a2_clauses": clauses,
+        "half_unit_complete_lift": half_unit_lift,
         "candidate_dispositions": {
-            "half_atom_readback": "rejected_by_operational_atomicity_clause",
+            "half_unit_readback": "retained_as_same_complete_mechanism_under_unit_rescaling",
             "quadratic_seam_form": "retained_as_distinct_typed_implementation",
         },
         "consumer_binding": (

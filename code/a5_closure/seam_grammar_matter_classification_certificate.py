@@ -1,40 +1,23 @@
-"""Seam grammar and matter-action classification on realized matter (#627).
+"""Conditional seam-character menu and matter-action boundary (#627).
 
-The closure clause of issue #627 asks for a target-free source packet that
-selects or classifies three objects: the seam grammar, the refinement
-transport, and the representation or 2-representation on realized matter.
-This certificate assembles that packet from pinned receipts plus new exact
-computations on the realized module, and types the one remaining physical
-choice as a named interface.
+The original v1 certificate silently identified an abstract seam coefficient
+group with the pure hypercharge character.  That produced the exact fixed
+dimensions 7, 3, and 1, but it was not the canonical diagonal Standard Model
+Z6 action.  The diagonal color-weak-hypercharge quotient kernel acts trivially
+on every realized local matter state.
 
-THE THREE CLAUSES:
+This corrected certificate keeps three objects separate:
 
-* Seam grammar: SELECTED by measurement.  The pinned #624 receipt
-  identifies the coefficient group with the measured order-six central
-  column of the routed-seam receipt (Z7 has no faithful complete
-  realization; the order-six menu is exhaustive for cyclic candidates),
-  so the grammar selection is a target-free measured datum, re-pinned
-  here.
-* Refinement transport: CLASSIFIED.  The pinned persistence receipt
-  carries the identity port maps at every measured level, so the
-  classified grammar and the module action transport identically along
-  refinement.
-* Representation on realized matter: CLASSIFIED, new and exact.  The
-  realized fifteen-state module carries the charge spectrum of the
-  matter receipt; the induced action of each order-six subgroup is
-  computed exactly (faithfulness and fixed-subspace dimension per
-  subgroup), and every mechanism row of the pinned #624 two-type table
-  is classified by its induced action on the realized module: rows whose
-  coefficient order divides six act through the computed charge
-  characters, and rows whose coefficient order does not divide six have
-  no induced central action from the realized charge structure.
+* the pinned order-six seam branch, whose general A1-A3 exhaustiveness remains
+  open after the #624 audit;
+* the complete menu of characters of Z2, Z3, and Z6 on the declared
+  hypercharge spectrum, including the trivial character;
+* the canonical diagonal global-form kernel from #567, which fixes all
+  fifteen states.
 
-THE REMAINING CHOICE, typed: physical selection of one sector mechanism
-(the matter ACTION among the admitted ones) stays a named conditional
-open interface on the physical family chain; the pinned #624 selection
-boundary names this issue, and this certificate carries the boundary
-forward as an interface rather than a claim.  No target value enters any
-computation.
+No character or 2-representation is promoted to the physical seam action.
+That selection and its synchronization with the line/flux attachment remain
+a named conditional interface outside this bounded classification.
 """
 
 from __future__ import annotations
@@ -58,13 +41,14 @@ sha256_json = e565.sha256_json
 load_json = e565.load_json
 write_json = e565.write_json
 
-SCHEMA = "oph.seam_grammar_matter_classification_certificate.v1"
+SCHEMA = "oph.seam_grammar_matter_classification_certificate.v2"
 MANIFEST_PATH = (
     MODULE_DIR / "manifests" / "seam_grammar_matter_classification_reference.json"
 )
 SEAM_RECEIPT_PATH = MODULE_DIR / "receipts" / "noncentral_seam_reduction_reference.receipt.json"
 MATTER_RECEIPT_PATH = MODULE_DIR / "receipts" / "super_tannakian_matter_reference.receipt.json"
 RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
+AXIS_RECEIPT_PATH = MODULE_DIR / "receipts" / "axis_center_descent_reference.receipt.json"
 
 ISSUE = 627
 
@@ -78,27 +62,41 @@ def pin_file(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
-# Clause one: the measured grammar selection, re-pinned
+# Clause one: the finite order-six branch, with its scope boundary
 # ---------------------------------------------------------------------------
 
 
-def grammar_selection(seam_receipt: Mapping[str, Any]) -> dict[str, Any]:
+def grammar_branch_status(seam_receipt: Mapping[str, Any]) -> dict[str, Any]:
     lift = seam_receipt["complete_coefficient_lift"]["classification"]
     require(
-        lift["z6"]["classification"] == "identified_with_measured_central_column",
-        "GRAMMAR_SELECTION",
-        "the pinned receipt must identify the coefficient group with the measured column",
+        lift["z6"]["classification"]
+        == "identified_with_order_six_column_within_pinned_lanes",
+        "GRAMMAR_BRANCH",
+        "the pinned receipt must carry its order-six named branch",
     )
     require(
-        "Z7 has no faithful realization" in lift["conclusion"],
-        "GRAMMAR_SELECTION",
-        "the pinned receipt must carry the Z7 exclusion",
+        lift["z6"]["faithful_embeddings_into_seam_class_lane"] == [1, 5],
+        "GRAMMAR_BRANCH",
+        "the order-six branch must retain its two orientation-related embeddings",
+    )
+    require(
+        lift["z7"]["classification"]
+        == "excluded_within_two_pinned_lanes_only"
+        and lift["z7"]["homs_into_seam_class_lane"] == [0]
+        and lift["z7"]["homs_into_register_lane"] == [0],
+        "GRAMMAR_BRANCH",
+        "the pinned two-lane Z7 calculation has drifted",
     )
     return {
-        "selected_group": "Z6",
-        "selection_source": "the measured order-six central column of the routed-seam receipt, pinned through the #624 complete coefficient lift",
-        "excluded": "Z7 (no faithful complete realization); the order-six menu is exhaustive for cyclic candidates",
+        "named_branch": "Z6",
+        "source": "pinned finite order-six central-column receipt",
         "target_free": True,
+        "z7_result_scope": (
+            "Z7 has no nontrivial homomorphism into either pinned lane. This "
+            "does not prove that the two lanes exhaust every complete A1-A3 "
+            "coefficient construction"
+        ),
+        "general_grammar_classification": "open",
     }
 
 
@@ -107,15 +105,8 @@ def grammar_selection(seam_receipt: Mapping[str, Any]) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
-def module_action_table(charge_spectrum: Mapping[str, int]) -> dict[str, Any]:
-    """Exact induced action of every order-six subgroup on the module.
-
-    Charges enter as hypercharges Y; the central column acts through
-    q = 6Y mod 6.  For the subgroup of order d dividing six, the action is
-    by q mod d; it is faithful exactly when gcd of the charges with d is
-    one, and the fixed subspace collects the states with q divisible
-    by d.
-    """
+def hypercharge_character_menu(charge_spectrum: Mapping[str, int]) -> dict[str, Any]:
+    """Enumerate every pure-hypercharge character, without selecting one."""
 
     states = []
     total = 0
@@ -128,42 +119,132 @@ def module_action_table(charge_spectrum: Mapping[str, int]) -> dict[str, Any]:
     require(total == 15, "MODULE_SIZE", "the realized module must carry fifteen states")
 
     table = []
-    for d in (1, 2, 3, 6):
-        charges_mod = [s["q6"] % d for s in states] if d > 1 else [0]
-        g = d
-        for value in charges_mod:
-            g = gcd(g, value)
-        faithful = (d == 1) or (g == 1)
-        fixed = sum(
-            s["multiplicity"] for s in states if s["q6"] % d == 0
-        ) if d > 1 else 15
+    expected_dimensions = {2: [7, 15], 3: [3, 15], 6: [1, 3, 7, 15]}
+    for order in (2, 3, 6):
+        characters = []
+        for exponent in range(order):
+            residues = [
+                (exponent * state["q6"]) % order for state in states
+            ]
+            common = order
+            for value in residues:
+                common = gcd(common, value)
+            fixed = sum(
+                state["multiplicity"]
+                for state, residue in zip(states, residues)
+                if residue == 0
+            )
+            characters.append(
+                {
+                    "character_exponent": exponent,
+                    "faithful_on_module": common == 1,
+                    "fixed_subspace_dimension": fixed,
+                }
+            )
+        dimensions = sorted(
+            {row["fixed_subspace_dimension"] for row in characters}
+        )
+        require(
+            dimensions == expected_dimensions[order],
+            "CHARACTER_MENU",
+            "the exact hypercharge-character fixed-space menu has drifted",
+        )
         table.append(
             {
-                "subgroup_order": d,
-                "faithful_on_module": bool(faithful) if d > 1 else False,
-                "fixed_subspace_dimension": fixed,
+                "group_order": order,
+                "characters": characters,
+                "fixed_dimension_menu": dimensions,
             }
         )
-    by_order = {row["subgroup_order"]: row for row in table}
     require(
-        by_order[6]["faithful_on_module"]
-        and by_order[6]["fixed_subspace_dimension"] == 1
-        and by_order[3]["fixed_subspace_dimension"] == 3
-        and by_order[2]["fixed_subspace_dimension"] == 7,
-        "MODULE_TABLE",
-        "the exact module-action table must match the realized charge spectrum",
+        any(
+            row["faithful_on_module"] and row["fixed_subspace_dimension"] == 1
+            for row in table[-1]["characters"]
+        ),
+        "CHARACTER_MENU",
+        "the order-six pure-hypercharge menu must retain its faithful diagnostic",
     )
-    return {"states": states, "subgroup_actions": table}
+    return {
+        "interpretation": (
+            "conditional pure-U(1)_Y characters; no seam-to-hypercharge "
+            "homomorphism is selected"
+        ),
+        "states": states,
+        "groups": table,
+    }
+
+
+def diagonal_kernel_action(
+    axis_receipt: Mapping[str, Any],
+    matter_receipt: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Verify the canonical diagonal quotient kernel on realized matter."""
+
+    generator = tuple(axis_receipt["kernel_on_realized_tensors"]["cyclic_generator"])
+    require(
+        generator == (1, 1, 1),
+        "DIAGONAL_KERNEL",
+        "the canonical diagonal kernel generator must be (1,1,1)",
+    )
+    weights = axis_receipt["realized_weight_table"]
+    fields = matter_receipt["realized_package"]["fields"]
+    matter_labels = ("Q", "u_c", "e_c", "d_c", "L")
+    rows = []
+    total = 0
+    for label in matter_labels:
+        weight = weights[label]
+        phase = (
+            2 * generator[0] * int(weight["triality"])
+            + 3 * generator[1] * int(weight["duality"])
+            + generator[2] * int(weight["q"])
+        ) % 6
+        require(
+            phase == 0,
+            "DIAGONAL_KERNEL",
+            "the diagonal quotient kernel must fix every realized matter field",
+        )
+        dimension = int(fields[label]["dimension"])
+        total += dimension
+        rows.append(
+            {
+                "field": label,
+                "multiplicity": dimension,
+                "phase_sixths": phase,
+            }
+        )
+    require(total == 15, "DIAGONAL_KERNEL", "the realized matter dimension must be fifteen")
+    return {
+        "generator_color_weak_hypercharge": list(generator),
+        "fields": rows,
+        "module_dimension": total,
+        "faithful_on_module": False,
+        "fixed_subspace_dimension": total,
+        "subgroup_restrictions": [
+            {
+                "group_order": order,
+                "faithful_on_module": False,
+                "fixed_subspace_dimension": total,
+            }
+            for order in (2, 3, 6)
+        ],
+        "boundary": (
+            "this is the local action of the canonical diagonal quotient "
+            "kernel. It does not identify a seam flux or higher-sector "
+            "2-representation with that kernel"
+        ),
+    }
 
 
 def mechanism_classification(
-    seam_receipt: Mapping[str, Any], actions: Mapping[str, Any]
+    seam_receipt: Mapping[str, Any],
+    characters: Mapping[str, Any],
+    diagonal_action: Mapping[str, Any],
 ) -> dict[str, Any]:
-    """Classify every pinned mechanism row by its induced module action."""
+    """Classify each row without silently supplying its matter character."""
 
     rows = seam_receipt["two_type_sector_classification"]["mechanism_table"]
     by_order = {
-        row["subgroup_order"]: row for row in actions["subgroup_actions"]
+        row["group_order"]: row for row in characters["groups"]
     }
     classified = []
     for row in rows:
@@ -180,18 +261,27 @@ def mechanism_classification(
         ):
             order = int(sector["coefficient_order"])
             if 6 % order == 0:
-                action = by_order[order]
                 entry["realized_module_action"] = {
-                    "through": f"charge characters modulo {order}",
-                    "faithful_on_module": action["faithful_on_module"],
-                    "fixed_subspace_dimension": action["fixed_subspace_dimension"],
+                    "status": "supplied_character_required",
+                    "pure_hypercharge_character_menu": by_order[order][
+                        "characters"
+                    ],
+                    "diagonal_kernel_restriction": next(
+                        item
+                        for item in diagonal_action["subgroup_restrictions"]
+                        if item["group_order"] == order
+                    ),
+                    "reading": (
+                        "the abstract coefficient group does not choose "
+                        "between these actions"
+                    ),
                 }
             else:
                 entry["realized_module_action"] = {
                     "through": "none",
                     "reading": (
-                        "the coefficient order does not divide six, so the "
-                        "realized charge structure induces no central action"
+                        "the coefficient order lies outside this finite "
+                        "comparison menu, so its action is not classified here"
                     ),
                 }
         elif row["contractible"]:
@@ -209,22 +299,12 @@ def mechanism_classification(
                 ),
             }
         classified.append(entry)
-    require(
-        any(
-            not row["contractible"]
-            and row["realized_module_action"].get("faithful_on_module")
-            for row in classified
-        ),
-        "MECHANISM_TABLE",
-        "at least one admitted mechanism must act faithfully on the realized module",
-    )
     return {
         "rows": classified,
         "statement": (
-            "every admitted mechanism is classified by its induced action on "
-            "the realized module; the admitted noncontractible sectors with "
-            "coefficient order dividing six act through the exact charge "
-            "characters, and no other central action is induced"
+            "each applicable explicitly tested coefficient row carries an "
+            "exact character menu. No matter character, flux action, or "
+            "2-representation is selected"
         ),
     }
 
@@ -234,21 +314,61 @@ def mechanism_classification(
 # ---------------------------------------------------------------------------
 
 
+def validate_refinement_artifact(artifact: Mapping[str, Any]) -> None:
+    require(
+        artifact.get("schema") == "oph.charged_response_semantic_artifact.v3",
+        "REFINEMENT_SCHEMA",
+        "the pinned response artifact schema has drifted",
+    )
+    body = {
+        key: value for key, value in artifact.items() if key != "artifact_sha256"
+    }
+    require(
+        artifact.get("artifact_sha256") == "sha256:" + sha256_json(body),
+        "REFINEMENT_SELF_HASH",
+        "the pinned response artifact self-hash does not match",
+    )
+    maps = artifact["physical_refinement_maps"]
+    require(
+        maps["levels_measured"] == 3
+        and maps["per_level_defect_port_count"] == 12
+        and maps["equivariant_rotation_count"] == 60,
+        "REFINEMENT_METADATA",
+        "the measured finite refinement metadata has drifted",
+    )
+    level_pairs = []
+    for payload in maps["port_persistence_maps"]:
+        map_body = {
+            key: value for key, value in payload.items() if key != "map_hash"
+        }
+        require(
+            payload.get("map_hash") == "sha256:" + sha256_json(map_body),
+            "REFINEMENT_MAP_HASH",
+            "a stored refinement-map hash does not match",
+        )
+        require(
+            payload["port_map"] == list(range(12)),
+            "REFINEMENT_IDENTITY",
+            "the pinned persistence maps must be the measured identity maps",
+        )
+        level_pairs.append((payload["source_level"], payload["target_level"]))
+    require(
+        level_pairs == [(0, 1), (0, 2)],
+        "REFINEMENT_LEVEL_PAIRS",
+        "the pinned response artifact must carry the two expected level maps",
+    )
+
+
 def refinement_transport() -> dict[str, Any]:
     artifact, pin = pin_file(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
-    maps = artifact["physical_refinement_maps"]
-    for payload in maps["port_persistence_maps"]:
-        require(
-            sorted(payload["port_map"]) == list(range(12)),
-            "REFINEMENT",
-            "each persistence map must biject the twelve ports",
-        )
+    validate_refinement_artifact(artifact)
     return {
         "pin": pin,
         "classification": (
-            "the persistence maps act on the port set bijectively at every "
-            "measured level, so the selected grammar and the classified "
-            "module action transport identically along refinement"
+            "the selected finite response artifact carries hash-verified "
+            "identity port persistence from level zero to levels one and "
+            "two. This proves port-set persistence for that artifact, not "
+            "general seam-character or physical action transport"
         ),
     }
 
@@ -259,48 +379,98 @@ def refinement_transport() -> dict[str, Any]:
 
 
 def control_charge_mutation() -> dict[str, Any]:
-    """A doctored charge spectrum must fail the exact module table."""
+    """A same-size off-grid charge spectrum must fail the character menu."""
 
-    doctored = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 5}
+    doctored = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/7": 6}
     try:
-        module_action_table(doctored)
+        hypercharge_character_menu(doctored)
     except CertificateError as error:
         return {"expected_failure": True, "failed": True, "code": error.code}
     return {"expected_failure": True, "failed": False}
 
 
-def control_seven_injection() -> dict[str, Any]:
-    """Injecting a seven-element coefficient group must be refused by the
-    pinned exclusion."""
-
-    candidate_order = 7
+def control_seam_receipt_mutation() -> dict[str, Any]:
+    seam_receipt = load_json(SEAM_RECEIPT_PATH)
+    doctored = json.loads(json.dumps(seam_receipt))
+    z7 = doctored["complete_coefficient_lift"]["classification"]["z7"]
+    z7["classification"] = "admitted"
+    z7["homs_into_seam_class_lane"] = [1]
     try:
-        require(
-            6 % candidate_order == 0,
-            "SEVEN_EXCLUDED",
-            "a coefficient order that does not divide six has no induced action, and Z7 is excluded by the pinned lift",
-        )
-    except CertificateError:
-        return {"expected_failure": True, "failed": True, "code": "SEVEN_EXCLUDED"}
+        grammar_branch_status(doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
     return {"expected_failure": True, "failed": False}
 
 
-def control_selection_promotion() -> dict[str, Any]:
-    """Promoting one sector mechanism to the physical matter action without
-    the physical chain must be refused."""
+def control_refinement_mutation() -> dict[str, Any]:
+    artifact = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    doctored = json.loads(json.dumps(artifact))
+    row = doctored["physical_refinement_maps"]["port_persistence_maps"][0]
+    row["port_map"][0], row["port_map"][1] = row["port_map"][1], row["port_map"][0]
+    map_body = {key: value for key, value in row.items() if key != "map_hash"}
+    row["map_hash"] = "sha256:" + sha256_json(map_body)
+    artifact_body = {
+        key: value for key, value in doctored.items() if key != "artifact_sha256"
+    }
+    doctored["artifact_sha256"] = "sha256:" + sha256_json(artifact_body)
+    try:
+        validate_refinement_artifact(doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
+    return {"expected_failure": True, "failed": False}
 
-    physical_chain_receipts_present = False
+
+def control_action_conflation(
+    characters: Mapping[str, Any], diagonal: Mapping[str, Any]
+) -> dict[str, Any]:
+    order_six = next(
+        row for row in characters["groups"] if row["group_order"] == 6
+    )
+    faithful = next(
+        row
+        for row in order_six["characters"]
+        if row["faithful_on_module"]
+        and row["fixed_subspace_dimension"] == 1
+    )
     try:
         require(
-            physical_chain_receipts_present,
-            "SELECTION_PROMOTION",
-            "physical selection of one sector mechanism requires the named physical-chain receipts",
+            faithful["fixed_subspace_dimension"]
+            == diagonal["fixed_subspace_dimension"],
+            "ACTION_CONFLATION",
+            "the pure-hypercharge character is not the diagonal quotient-kernel action",
         )
     except CertificateError:
+        return {"expected_failure": True, "failed": True, "code": "ACTION_CONFLATION"}
+    return {"expected_failure": True, "failed": False}
+
+
+def validate_unselected_actions(mechanisms: Mapping[str, Any]) -> None:
+    for row in mechanisms["rows"]:
+        action = row["realized_module_action"]
+        require(
+            "selected_character_exponent" not in action,
+            "SELECTION_PROMOTION",
+            "no matter character may be selected without the open physical interface",
+        )
+
+
+def control_selection_promotion(mechanisms: Mapping[str, Any]) -> dict[str, Any]:
+    """A doctored character promotion must fail the open interface."""
+
+    doctored = json.loads(json.dumps(mechanisms))
+    target = next(
+        row
+        for row in doctored["rows"]
+        if row["module"] == "Z6 -> 1"
+    )
+    target["realized_module_action"]["selected_character_exponent"] = 1
+    try:
+        validate_unselected_actions(doctored)
+    except CertificateError as error:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "SELECTION_PROMOTION",
+            "code": error.code,
         }
     return {"expected_failure": True, "failed": False}
 
@@ -313,10 +483,17 @@ def control_selection_promotion() -> dict[str, Any]:
 def build_payload() -> dict[str, Any]:
     seam_receipt, seam_pin = pin_file(SEAM_RECEIPT_PATH)
     matter_receipt, matter_pin = pin_file(MATTER_RECEIPT_PATH)
+    axis_receipt, axis_pin = pin_file(AXIS_RECEIPT_PATH)
 
-    selection = grammar_selection(seam_receipt)
-    actions = module_action_table(matter_receipt["realized_package"]["charge_spectrum"])
-    mechanisms = mechanism_classification(seam_receipt, actions)
+    branch = grammar_branch_status(seam_receipt)
+    characters = hypercharge_character_menu(
+        matter_receipt["realized_package"]["charge_spectrum"]
+    )
+    diagonal = diagonal_kernel_action(axis_receipt, matter_receipt)
+    mechanisms = mechanism_classification(
+        seam_receipt, characters, diagonal
+    )
+    validate_unselected_actions(mechanisms)
     transport = refinement_transport()
 
     boundary = seam_receipt["two_type_sector_classification"]["selection_boundary"]
@@ -328,8 +505,10 @@ def build_payload() -> dict[str, Any]:
 
     controls = {
         "charge_mutation": control_charge_mutation(),
-        "seven_injection": control_seven_injection(),
-        "selection_promotion": control_selection_promotion(),
+        "seam_receipt_mutation": control_seam_receipt_mutation(),
+        "refinement_mutation": control_refinement_mutation(),
+        "action_conflation": control_action_conflation(characters, diagonal),
+        "selection_promotion": control_selection_promotion(mechanisms),
     }
     for name, verdict in controls.items():
         require(
@@ -342,35 +521,38 @@ def build_payload() -> dict[str, Any]:
         "schema": SCHEMA,
         "issue": ISSUE,
         "claim_boundary": (
-            "The closure clause is met on its stated branches: the seam "
-            "grammar is selected by the measured central column (pinned), "
-            "the refinement transport is classified by the pinned identity "
-            "persistence, and the representation on realized matter is "
-            "classified exactly through the charge characters, with every "
-            "pinned mechanism row classified by its induced module action. "
-            "Physical selection of one sector mechanism as the matter action "
-            "stays a named conditional open interface on the physical family "
-            "chain; no target value enters any computation."
+            "The pinned finite order-six seam branch, the complete "
+            "pure-hypercharge character menus, and the canonical diagonal "
+            "global-form kernel action are separately classified. The "
+            "7/3/1 fixed-space values belong only to particular nontrivial "
+            "pure-hypercharge characters; the diagonal quotient kernel fixes "
+            "all fifteen realized matter states. No seam character, flux "
+            "action, or 2-representation is selected, and general seam-grammar "
+            "exhaustiveness remains open."
         ),
         "upstream_pins": {
             "seam_classification_receipt": seam_pin,
             "matter_receipt": matter_pin,
+            "diagonal_global_form_receipt": axis_pin,
         },
-        "grammar_selection": selection,
-        "module_action_classification": actions,
+        "grammar_branch": branch,
+        "hypercharge_character_menu": characters,
+        "diagonal_kernel_action": diagonal,
         "mechanism_classification": mechanisms,
         "refinement_transport": transport,
         "matter_action_interface": {
             "id": "physical_sector_mechanism_selection",
             "class": "conditional_open_interface",
+            "owner_issue": 569,
             "statement": (
-                "one admitted sector mechanism acts as the physical matter "
-                "action; selection requires the physical family-chain "
-                "receipts and is refused without them"
+                "selection requires a source-derived seam mechanism, a "
+                "character or 2-representation, its relation to the diagonal "
+                "global-form kernel and line/flux data, refinement transport, "
+                "and the physical family-chain receipts"
             ),
         },
         "controls": controls,
-        "bounded_exit": "classification_landed_with_named_selection_interface",
+        "bounded_exit": "exact_named_character_and_diagonal_action_classification",
     }
     return payload
 

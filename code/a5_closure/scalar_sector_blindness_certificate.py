@@ -1,32 +1,31 @@
-"""Scalar-sector blindness of the measured chain (issue #623).
+"""Limited scalar-blindness audit of two simulator artifacts (issue #623).
 
 The #616 receipt proves that scalar existence and multiplicity are not
-source-determined at the grammar level: the empty, duplicate-doublet, and
-inert-doublet configurations pass every grammar-visible check.  This
-certificate proves the sharper statement on the realized observable chain
-and lands the fail-closed conditional exit of issue #623.
+source-determined by its enumerated grammar-visible checks: the empty,
+duplicate-doublet, and inert-doublet rows remain exact countermodels at that
+scope.  This certificate audits a narrower object: the selected charged
+response and pole-residue simulator artifacts.
 
-THE SHARPER NON-IDENTIFIABILITY (exact, by input closure):
+WHAT IS EXACT:
 
-* The measured artifact chain of the corpus consists of the charged
-  response artifact and the pole-residue artifact.  Each records its
-  complete input closure as pins: the carrier manifest and the dynamics
-  module, and for the pole artifact its parent response artifact.  No
-  scalar-sector object is an input, and the payloads carry no
-  scalar-sector key.  The chain values are therefore constant across the
-  empty, one-doublet, duplicate-doublet, and inert-doublet completions:
-  the complete measured chain is scalar-blind, not merely the grammar.
-* The discriminating class is named: every scalar discriminator in the
-  declared algebra must factor through the three Yukawa invariant
-  channels of the pinned matter packet, and no producer in the measured
-  chain emits a Yukawa-channel observable.  Scalar discrimination is
-  therefore a new producer interface, not a reading of the chain.
+* Both selected artifacts have valid schemas and self-hashes.  Their carrier
+  and parent pins agree, and their serialized interfaces contain no explicit
+  scalar-sector input.
+* This proves only that the selected two-artifact screen-response subchain
+  exposes no scalar-completion coordinate.  It is not an exhaustive producer
+  inventory, a transitive source-dependency proof, or a theorem on a typed
+  category of physical scalar completions.
+* Scalar-sensitive observables need not factor through Yukawa channels.
+  Relevant missing interfaces include scalar poles and residues,
+  multiplet-resolved spectral rank, gauge-covariant response, potential and
+  vacuum observables, and Yukawa channels.  The selected pair supplies no
+  source-bound physical scalar attachment; other corpus producers are outside
+  this audit.
 
-THE EXIT: the physical scalar attachment stays a fail-closed conditional
-open interface with the #616 countermodels retained, exactly the second
-bounded exit of issue #623.  The declared one-doublet completion stays
-declared; no pole, potential, vacuum value, or multiplicity
-discrimination is claimed, and no Higgs-target value enters any gate.
+The physical scalar attachment remains a named conditional interface.  The
+declared one-doublet completion stays declared; no pole, potential, vacuum
+value, or multiplicity discrimination is claimed, and no Higgs-target value
+enters any gate.
 """
 
 from __future__ import annotations
@@ -48,7 +47,7 @@ sha256_json = e565.sha256_json
 load_json = e565.load_json
 write_json = e565.write_json
 
-SCHEMA = "oph.scalar_sector_blindness_certificate.v1"
+SCHEMA = "oph.scalar_sector_blindness_certificate.v2"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "scalar_sector_blindness_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 WINDOW_MANIFEST_NAME = "multiplicity_window_reference.json"
@@ -63,14 +62,11 @@ SCALAR_COMPLETIONS = ("empty", "one_doublet_declared", "duplicate_doublet", "ine
 SCALAR_TOKENS = ("scalar", "higgs", "yukawa", "vacuum", "doublet", "potential")
 
 
-def collect_keys(value: Any, out: set[str]) -> None:
-    if isinstance(value, Mapping):
-        for key, item in value.items():
-            out.add(str(key).lower())
-            collect_keys(item, out)
-    elif isinstance(value, list):
-        for item in value:
-            collect_keys(item, out)
+def artifact_self_hash(artifact: Mapping[str, Any]) -> str:
+    body = {
+        key: value for key, value in artifact.items() if key != "artifact_sha256"
+    }
+    return "sha256:" + sha256_json(body)
 
 
 def pin(name: str) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -78,14 +74,36 @@ def pin(name: str) -> tuple[dict[str, Any], dict[str, Any]]:
     return artifact, {"path": f"manifests/{name}", "sha256": sha256_json(artifact)}
 
 
-def input_closure_audit() -> dict[str, Any]:
-    """The measured chain's complete input closure, read from its pins."""
+def validate_selected_subchain(
+    carrier_manifest: Mapping[str, Any],
+    response: Mapping[str, Any],
+    pole: Mapping[str, Any],
+) -> None:
+    """Validate the two selected artifacts without promoting their scope."""
 
-    carrier_manifest, carrier_pin = pin(CARRIER_MANIFEST_NAME)
     e565.validate_carrier(carrier_manifest)
-    response, response_pin = pin(RESPONSE_ARTIFACT_NAME)
-    pole, pole_pin = pin(POLE_RESIDUE_ARTIFACT_NAME)
-
+    require(
+        response.get("schema") == "oph.charged_response_semantic_artifact.v3"
+        and response.get("issue") == 599,
+        "RESPONSE_SCHEMA",
+        "the selected response artifact must carry its exact schema and issue",
+    )
+    require(
+        pole.get("schema") == "oph.charged_response_pole_residue.v2"
+        and pole.get("issue") == 569,
+        "POLE_SCHEMA",
+        "the selected pole artifact must carry its exact schema and issue",
+    )
+    require(
+        response.get("artifact_sha256") == artifact_self_hash(response),
+        "RESPONSE_SELF_HASH",
+        "the selected response artifact self-hash does not match",
+    )
+    require(
+        pole.get("artifact_sha256") == artifact_self_hash(pole),
+        "POLE_SELF_HASH",
+        "the selected pole artifact self-hash does not match",
+    )
     carrier_sha = sha256_json(carrier_manifest)
     require(
         response["carrier_binding"]["carrier_manifest_sha256"] == carrier_sha,
@@ -100,35 +118,58 @@ def input_closure_audit() -> dict[str, Any]:
         "the pole artifact must pin the carrier and its parent artifact",
     )
 
-    response_keys: set[str] = set()
-    collect_keys(response, response_keys)
-    pole_keys: set[str] = set()
-    collect_keys(pole, pole_keys)
+    serialized_interface = json.dumps(
+        {"response": response, "pole": pole},
+        sort_keys=True,
+        separators=(",", ":"),
+    ).lower()
     for token in SCALAR_TOKENS:
-        offending = sorted(
-            key for key in response_keys | pole_keys if token in key
-        )
         require(
-            not offending,
-            "SCALAR_KEY_PRESENT",
-            f"the measured chain must carry no scalar-sector key ({offending})",
+            token not in serialized_interface,
+            "EXPLICIT_SCALAR_INPUT",
+            f"the selected artifact interfaces contain scalar token {token!r}",
         )
+
+
+def selected_subchain_audit() -> dict[str, Any]:
+    """Audit the selected pair and state the unproved closure boundary."""
+
+    carrier_manifest, carrier_pin = pin(CARRIER_MANIFEST_NAME)
+    response, response_pin = pin(RESPONSE_ARTIFACT_NAME)
+    pole, pole_pin = pin(POLE_RESIDUE_ARTIFACT_NAME)
+    validate_selected_subchain(carrier_manifest, response, pole)
 
     return {
         "chain": [
             {"artifact": "charged response", "pin": response_pin,
-             "inputs": ["carrier manifest", "dynamics module"]},
+             "declared_inputs": ["carrier manifest", "runtime dynamics report"]},
             {"artifact": "pole residue", "pin": pole_pin,
-             "inputs": ["carrier manifest", "parent response artifact", "dynamics module"]},
+             "declared_inputs": [
+                 "carrier manifest",
+                 "parent response artifact",
+                 "dynamics module byte digest",
+             ]},
         ],
         "carrier": carrier_pin,
         "statement": (
-            "the complete input closure of the measured chain is the carrier "
-            "and the dynamics; no scalar-sector object is an input and no "
-            "payload key names one, so every chain value is constant across "
-            "the scalar completions"
+            "the selected two-artifact finite simulator screen-response "
+            "subchain has valid self-hashes and carrier/parent pins and "
+            "exposes no explicit scalar-completion input"
         ),
-        "completions_covered": list(SCALAR_COMPLETIONS),
+        "scope_limits": [
+            "not an exhaustive corpus producer inventory",
+            "not a transitive source or import closure proof",
+            "not a completion-indexed observation functor",
+            "not a physical scalar-sector non-identifiability theorem",
+        ],
+        "dynamics_hash_semantics": {
+            "charged_response": "runtime-report payload digest",
+            "pole_residue": "dynamics-module byte digest",
+            "interchangeable": False,
+        },
+        "grammar_countermodel_labels_not_physical_completions": list(
+            SCALAR_COMPLETIONS
+        ),
     }
 
 
@@ -162,14 +203,21 @@ def countermodels_retained() -> dict[str, Any]:
 
 def discriminating_interface(matter_channels: Sequence[Sequence[str]]) -> dict[str, Any]:
     return {
-        "class": "Yukawa-channel observables",
-        "channels": [list(channel) for channel in matter_channels],
+        "status": "non_exhaustive_missing_producer_classes",
+        "classes": [
+            "scalar two-point pole and residue observables",
+            "multiplet-resolved scalar spectral rank",
+            "gauge-covariant kinetic and current response",
+            "scalar potential and vacuum observables",
+            "Yukawa-channel observables",
+        ],
+        "declared_yukawa_channels": [list(channel) for channel in matter_channels],
         "statement": (
-            "every scalar discriminator in the declared algebra couples "
-            "through the three invariant Yukawa channels; the measured "
-            "chain emits no Yukawa-channel observable, so scalar "
-            "discrimination is a producer interface that does not exist in "
-            "the corpus rather than a reading of existing artifacts"
+            "the selected screen-response pair emits none of these "
+            "scalar-sensitive observables. Yukawa channels are one possible "
+            "class, not an exhaustive discriminator. The selected pair "
+            "supplies no source-bound physical scalar attachment; the status "
+            "of other corpus producers is outside this audit"
         ),
         "interface_id": "physical_scalar_attachment",
         "interface_class": "conditional_open_interface",
@@ -181,42 +229,50 @@ def discriminating_interface(matter_channels: Sequence[Sequence[str]]) -> dict[s
 # ---------------------------------------------------------------------------
 
 
-def control_chain_discrimination_attempt() -> dict[str, Any]:
-    """Asserting a scalar discrimination from the measured chain must be
-    refused: the chain is completion-independent by input closure."""
+def control_scope_promotion() -> dict[str, Any]:
+    """The limited interface audit must not be promoted to a category theorem."""
 
-    chain_value_by_completion = {name: "identical" for name in SCALAR_COMPLETIONS}
-    distinct = len(set(chain_value_by_completion.values())) > 1
+    proved_scope = "selected_two_artifact_subchain"
+    requested_scope = "all_scalar_completions_in_typed_source_category"
     try:
         require(
-            distinct,
-            "NO_CHAIN_DISCRIMINATOR",
-            "the measured chain cannot separate scalar completions",
+            proved_scope == requested_scope,
+            "SCOPE_PROMOTION",
+            "the selected artifact audit is not a typed-category non-identifiability theorem",
         )
     except CertificateError:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "NO_CHAIN_DISCRIMINATOR",
+            "code": "SCOPE_PROMOTION",
         }
     return {"expected_failure": True, "failed": False}
 
 
-def control_target_injection() -> dict[str, Any]:
-    """A discriminator built on the measured Higgs mass must be refused."""
+def mutate_response_input(key: str, value: Any) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Return a self-consistently rehashed response and dependent pole."""
 
-    proposed_gate_inputs = ["carrier manifest", "measured_higgs_mass_gev"]
+    response = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    pole = load_json(MODULE_DIR / "manifests" / POLE_RESIDUE_ARTIFACT_NAME)
+    response["explicit_inputs"] = {key: value}
+    response["artifact_sha256"] = artifact_self_hash(response)
+    pole["carrier_binding"]["parent_artifact_sha256"] = response["artifact_sha256"]
+    pole["artifact_sha256"] = artifact_self_hash(pole)
+    return response, pole
+
+
+def control_target_injection() -> dict[str, Any]:
+    """A rehashed artifact importing the measured Higgs mass must be refused."""
+
+    carrier = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    response, pole = mutate_response_input("measured_higgs_mass_gev", 125.25)
     try:
-        require(
-            all("higgs" not in item for item in proposed_gate_inputs),
-            "TARGET_INJECTION",
-            "a scalar discriminator must not consume a Higgs target value",
-        )
-    except CertificateError:
+        validate_selected_subchain(carrier, response, pole)
+    except CertificateError as error:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "TARGET_INJECTION",
+            "code": error.code,
         }
     return {"expected_failure": True, "failed": False}
 
@@ -247,24 +303,47 @@ def control_wrong_multiplicity() -> dict[str, Any]:
 
 
 def control_scalar_key_mutation() -> dict[str, Any]:
-    """A doctored artifact carrying a scalar key must fail the closure audit."""
+    """A self-consistently rehashed explicit scalar input must still fail."""
 
-    doctored = {"carrier_binding": {}, "scalar_vacuum_value": "246"}
-    keys: set[str] = set()
-    collect_keys(doctored, keys)
-    offending = [key for key in keys if any(t in key for t in SCALAR_TOKENS)]
+    carrier = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    response, pole = mutate_response_input(
+        "scalar_completion", "inert_doublet"
+    )
     try:
-        require(
-            not offending,
-            "SCALAR_KEY_PRESENT",
-            "a doctored scalar key must be detected",
-        )
-    except CertificateError:
+        validate_selected_subchain(carrier, response, pole)
+    except CertificateError as error:
         return {
             "expected_failure": True,
             "failed": True,
-            "code": "SCALAR_KEY_PRESENT",
+            "code": error.code,
         }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_parent_pin_mutation() -> dict[str, Any]:
+    carrier = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    response = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    pole = load_json(MODULE_DIR / "manifests" / POLE_RESIDUE_ARTIFACT_NAME)
+    doctored = json.loads(json.dumps(pole))
+    doctored["carrier_binding"]["parent_artifact_sha256"] = "sha256:" + "0" * 64
+    doctored["artifact_sha256"] = artifact_self_hash(doctored)
+    try:
+        validate_selected_subchain(carrier, response, doctored)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
+    return {"expected_failure": True, "failed": False}
+
+
+def control_self_hash_mutation() -> dict[str, Any]:
+    carrier = load_json(MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME)
+    response = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    pole = load_json(MODULE_DIR / "manifests" / POLE_RESIDUE_ARTIFACT_NAME)
+    doctored = json.loads(json.dumps(response))
+    doctored["orientation_convention"] = "doctored"
+    try:
+        validate_selected_subchain(carrier, doctored, pole)
+    except CertificateError as error:
+        return {"expected_failure": True, "failed": True, "code": error.code}
     return {"expected_failure": True, "failed": False}
 
 
@@ -274,17 +353,19 @@ def control_scalar_key_mutation() -> dict[str, Any]:
 
 
 def build_payload() -> dict[str, Any]:
-    closure = input_closure_audit()
+    closure = selected_subchain_audit()
     retained = countermodels_retained()
     interface = discriminating_interface(
         retained["declared_completion"]["yukawa_channels"]
     )
 
     controls = {
-        "chain_discrimination_attempt": control_chain_discrimination_attempt(),
+        "scope_promotion": control_scope_promotion(),
         "target_injection": control_target_injection(),
         "wrong_multiplicity": control_wrong_multiplicity(),
         "scalar_key_mutation": control_scalar_key_mutation(),
+        "parent_pin_mutation": control_parent_pin_mutation(),
+        "self_hash_mutation": control_self_hash_mutation(),
     }
     for name, verdict in controls.items():
         require(
@@ -297,20 +378,20 @@ def build_payload() -> dict[str, Any]:
         "schema": SCHEMA,
         "issue": ISSUE,
         "claim_boundary": (
-            "Sharper scalar non-identifiability on the realized observable "
-            "chain: the measured artifacts are constant across the scalar "
-            "completions by input closure, the discriminating class is the "
-            "Yukawa-channel observable interface, which no producer emits, "
-            "and the physical scalar attachment stays a fail-closed "
-            "conditional open interface with the #616 countermodels "
-            "retained. No pole, potential, vacuum value, or discrimination "
-            "is claimed, and no Higgs-target value enters any gate."
+            "Limited two-artifact finite simulator screen-response audit: "
+            "the selected charged-response and pole-residue artifacts expose "
+            "no explicit scalar-completion input. This is not an exhaustive "
+            "producer inventory, transitive source closure, or typed-category "
+            "non-identifiability theorem. Scalar poles, gauge response, "
+            "potential/vacuum observables, and Yukawa channels remain possible "
+            "discriminators. The physical scalar attachment remains open with "
+            "the #616 grammar-scope countermodels retained."
         ),
         "input_closure": closure,
         "countermodels": retained,
         "discriminating_interface": interface,
         "controls": controls,
-        "bounded_exit": "conditional_open_interface_with_countermodels_retained",
+        "bounded_exit": "limited_subchain_audit_physical_interface_open",
     }
     return payload
 

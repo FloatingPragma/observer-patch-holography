@@ -1,9 +1,24 @@
 {
-  "bounded_exit": "classification_landed_with_named_selection_interface",
-  "claim_boundary": "The closure clause is met on its stated branches: the seam grammar is selected by the measured central column (pinned), the refinement transport is classified by the pinned identity persistence, and the representation on realized matter is classified exactly through the charge characters, with every pinned mechanism row classified by its induced module action. Physical selection of one sector mechanism as the matter action stays a named conditional open interface on the physical family chain; no target value enters any computation.",
+  "bounded_exit": "exact_named_character_and_diagonal_action_classification",
+  "claim_boundary": "The pinned finite order-six seam branch, the complete pure-hypercharge character menus, and the canonical diagonal global-form kernel action are separately classified. The 7/3/1 fixed-space values belong only to particular nontrivial pure-hypercharge characters; the diagonal quotient kernel fixes all fifteen realized matter states. No seam character, flux action, or 2-representation is selected, and general seam-grammar exhaustiveness remains open.",
   "controls": {
+    "action_conflation": {
+      "code": "ACTION_CONFLATION",
+      "expected_failure": true,
+      "failed": true
+    },
     "charge_mutation": {
-      "code": "MODULE_SIZE",
+      "code": "CHARGE_GRID",
+      "expected_failure": true,
+      "failed": true
+    },
+    "refinement_mutation": {
+      "code": "REFINEMENT_IDENTITY",
+      "expected_failure": true,
+      "failed": true
+    },
+    "seam_receipt_mutation": {
+      "code": "GRAMMAR_BRANCH",
       "expected_failure": true,
       "failed": true
     },
@@ -11,80 +26,158 @@
       "code": "SELECTION_PROMOTION",
       "expected_failure": true,
       "failed": true
-    },
-    "seven_injection": {
-      "code": "SEVEN_EXCLUDED",
-      "expected_failure": true,
-      "failed": true
     }
   },
-  "grammar_selection": {
-    "excluded": "Z7 (no faithful complete realization); the order-six menu is exhaustive for cyclic candidates",
-    "selected_group": "Z6",
-    "selection_source": "the measured order-six central column of the routed-seam receipt, pinned through the #624 complete coefficient lift",
-    "target_free": true
-  },
-  "issue": 627,
-  "manifest_sha256": "sha256:a722f9c9de37682516bed694517fcbf6699662e6e3be05696dca9fe18428d7c0",
-  "matter_action_interface": {
-    "class": "conditional_open_interface",
-    "id": "physical_sector_mechanism_selection",
-    "statement": "one admitted sector mechanism acts as the physical matter action; selection requires the physical family-chain receipts and is refused without them"
-  },
-  "mechanism_classification": {
-    "rows": [
+  "diagonal_kernel_action": {
+    "boundary": "this is the local action of the canonical diagonal quotient kernel. It does not identify a seam flux or higher-sector 2-representation with that kernel",
+    "faithful_on_module": false,
+    "fields": [
       {
-        "classification": "noncontractible_pi2_sector_admitted",
-        "contractible": false,
-        "module": "Z2 -> 1",
-        "realized_module_action": {
-          "faithful_on_module": true,
-          "fixed_subspace_dimension": 7,
-          "through": "charge characters modulo 2"
-        }
+        "field": "Q",
+        "multiplicity": 6,
+        "phase_sixths": 0
       },
       {
-        "classification": "noncontractible_pi2_sector_admitted",
-        "contractible": false,
-        "module": "Z3 -> 1",
-        "realized_module_action": {
-          "faithful_on_module": true,
-          "fixed_subspace_dimension": 3,
-          "through": "charge characters modulo 3"
-        }
+        "field": "u_c",
+        "multiplicity": 3,
+        "phase_sixths": 0
       },
       {
-        "classification": "noncontractible_pi2_sector_admitted",
-        "contractible": false,
-        "module": "Z6 -> 1",
-        "realized_module_action": {
-          "faithful_on_module": true,
-          "fixed_subspace_dimension": 1,
-          "through": "charge characters modulo 6"
-        }
+        "field": "e_c",
+        "multiplicity": 1,
+        "phase_sixths": 0
       },
       {
-        "classification": "contractible_no_sector",
-        "contractible": true,
-        "module": "id: S3 -> S3",
-        "realized_module_action": {
-          "reading": "a contractible mechanism carries no sector to act",
-          "through": "none"
-        }
+        "field": "d_c",
+        "multiplicity": 3,
+        "phase_sixths": 0
       },
       {
-        "classification": "flat_pi1_gauge_trivial_no_sector",
-        "contractible": false,
-        "module": "Z2 -> Z4 (doubling)",
-        "realized_module_action": {
-          "reading": "the pinned row carries no central coefficient order (pi_2 is trivial and the flat pi_1 part is gauge-trivial on the simply connected nerve), so no charge character acts",
-          "through": "none"
-        }
+        "field": "L",
+        "multiplicity": 2,
+        "phase_sixths": 0
       }
     ],
-    "statement": "every admitted mechanism is classified by its induced action on the realized module; the admitted noncontractible sectors with coefficient order dividing six act through the exact charge characters, and no other central action is induced"
+    "fixed_subspace_dimension": 15,
+    "generator_color_weak_hypercharge": [
+      1,
+      1,
+      1
+    ],
+    "module_dimension": 15,
+    "subgroup_restrictions": [
+      {
+        "faithful_on_module": false,
+        "fixed_subspace_dimension": 15,
+        "group_order": 2
+      },
+      {
+        "faithful_on_module": false,
+        "fixed_subspace_dimension": 15,
+        "group_order": 3
+      },
+      {
+        "faithful_on_module": false,
+        "fixed_subspace_dimension": 15,
+        "group_order": 6
+      }
+    ]
   },
-  "module_action_classification": {
+  "grammar_branch": {
+    "general_grammar_classification": "open",
+    "named_branch": "Z6",
+    "source": "pinned finite order-six central-column receipt",
+    "target_free": true,
+    "z7_result_scope": "Z7 has no nontrivial homomorphism into either pinned lane. This does not prove that the two lanes exhaust every complete A1-A3 coefficient construction"
+  },
+  "hypercharge_character_menu": {
+    "groups": [
+      {
+        "characters": [
+          {
+            "character_exponent": 0,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15
+          },
+          {
+            "character_exponent": 1,
+            "faithful_on_module": true,
+            "fixed_subspace_dimension": 7
+          }
+        ],
+        "fixed_dimension_menu": [
+          7,
+          15
+        ],
+        "group_order": 2
+      },
+      {
+        "characters": [
+          {
+            "character_exponent": 0,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15
+          },
+          {
+            "character_exponent": 1,
+            "faithful_on_module": true,
+            "fixed_subspace_dimension": 3
+          },
+          {
+            "character_exponent": 2,
+            "faithful_on_module": true,
+            "fixed_subspace_dimension": 3
+          }
+        ],
+        "fixed_dimension_menu": [
+          3,
+          15
+        ],
+        "group_order": 3
+      },
+      {
+        "characters": [
+          {
+            "character_exponent": 0,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15
+          },
+          {
+            "character_exponent": 1,
+            "faithful_on_module": true,
+            "fixed_subspace_dimension": 1
+          },
+          {
+            "character_exponent": 2,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 3
+          },
+          {
+            "character_exponent": 3,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 7
+          },
+          {
+            "character_exponent": 4,
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 3
+          },
+          {
+            "character_exponent": 5,
+            "faithful_on_module": true,
+            "fixed_subspace_dimension": 1
+          }
+        ],
+        "fixed_dimension_menu": [
+          1,
+          3,
+          7,
+          15
+        ],
+        "group_order": 6
+      }
+    ],
+    "interpretation": "conditional pure-U(1)_Y characters; no seam-to-hypercharge homomorphism is selected",
     "states": [
       {
         "hypercharge": "-1/2",
@@ -111,46 +204,162 @@
         "multiplicity": 6,
         "q6": 1
       }
-    ],
-    "subgroup_actions": [
-      {
-        "faithful_on_module": false,
-        "fixed_subspace_dimension": 15,
-        "subgroup_order": 1
-      },
-      {
-        "faithful_on_module": true,
-        "fixed_subspace_dimension": 7,
-        "subgroup_order": 2
-      },
-      {
-        "faithful_on_module": true,
-        "fixed_subspace_dimension": 3,
-        "subgroup_order": 3
-      },
-      {
-        "faithful_on_module": true,
-        "fixed_subspace_dimension": 1,
-        "subgroup_order": 6
-      }
     ]
   },
+  "issue": 627,
+  "manifest_sha256": "sha256:586ae16b484c31ea8320d7080eb680f76399dbd2b82113a682e8c550860568f2",
+  "matter_action_interface": {
+    "class": "conditional_open_interface",
+    "id": "physical_sector_mechanism_selection",
+    "owner_issue": 569,
+    "statement": "selection requires a source-derived seam mechanism, a character or 2-representation, its relation to the diagonal global-form kernel and line/flux data, refinement transport, and the physical family-chain receipts"
+  },
+  "mechanism_classification": {
+    "rows": [
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z2 -> 1",
+        "realized_module_action": {
+          "diagonal_kernel_restriction": {
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15,
+            "group_order": 2
+          },
+          "pure_hypercharge_character_menu": [
+            {
+              "character_exponent": 0,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 15
+            },
+            {
+              "character_exponent": 1,
+              "faithful_on_module": true,
+              "fixed_subspace_dimension": 7
+            }
+          ],
+          "reading": "the abstract coefficient group does not choose between these actions",
+          "status": "supplied_character_required"
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z3 -> 1",
+        "realized_module_action": {
+          "diagonal_kernel_restriction": {
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15,
+            "group_order": 3
+          },
+          "pure_hypercharge_character_menu": [
+            {
+              "character_exponent": 0,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 15
+            },
+            {
+              "character_exponent": 1,
+              "faithful_on_module": true,
+              "fixed_subspace_dimension": 3
+            },
+            {
+              "character_exponent": 2,
+              "faithful_on_module": true,
+              "fixed_subspace_dimension": 3
+            }
+          ],
+          "reading": "the abstract coefficient group does not choose between these actions",
+          "status": "supplied_character_required"
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z6 -> 1",
+        "realized_module_action": {
+          "diagonal_kernel_restriction": {
+            "faithful_on_module": false,
+            "fixed_subspace_dimension": 15,
+            "group_order": 6
+          },
+          "pure_hypercharge_character_menu": [
+            {
+              "character_exponent": 0,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 15
+            },
+            {
+              "character_exponent": 1,
+              "faithful_on_module": true,
+              "fixed_subspace_dimension": 1
+            },
+            {
+              "character_exponent": 2,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 3
+            },
+            {
+              "character_exponent": 3,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 7
+            },
+            {
+              "character_exponent": 4,
+              "faithful_on_module": false,
+              "fixed_subspace_dimension": 3
+            },
+            {
+              "character_exponent": 5,
+              "faithful_on_module": true,
+              "fixed_subspace_dimension": 1
+            }
+          ],
+          "reading": "the abstract coefficient group does not choose between these actions",
+          "status": "supplied_character_required"
+        }
+      },
+      {
+        "classification": "contractible_no_sector",
+        "contractible": true,
+        "module": "id: S3 -> S3",
+        "realized_module_action": {
+          "reading": "a contractible mechanism carries no sector to act",
+          "through": "none"
+        }
+      },
+      {
+        "classification": "flat_pi1_gauge_trivial_no_sector",
+        "contractible": false,
+        "module": "Z2 -> Z4 (doubling)",
+        "realized_module_action": {
+          "reading": "the pinned row carries no central coefficient order (pi_2 is trivial and the flat pi_1 part is gauge-trivial on the simply connected nerve), so no charge character acts",
+          "through": "none"
+        }
+      }
+    ],
+    "statement": "each applicable explicitly tested coefficient row carries an exact character menu. No matter character, flux action, or 2-representation is selected"
+  },
   "refinement_transport": {
-    "classification": "the persistence maps act on the port set bijectively at every measured level, so the selected grammar and the classified module action transport identically along refinement",
+    "classification": "the selected finite response artifact carries hash-verified identity port persistence from level zero to levels one and two. This proves port-set persistence for that artifact, not general seam-character or physical action transport",
     "pin": {
       "path": "code/a5_closure/manifests/charged_response_semantic_artifact.json",
       "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
     }
   },
-  "schema": "oph.seam_grammar_matter_classification_certificate.v1",
+  "schema": "oph.seam_grammar_matter_classification_certificate.v2",
   "upstream_pins": {
+    "diagonal_global_form_receipt": {
+      "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+      "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
+    },
     "matter_receipt": {
       "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
       "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
     },
     "seam_classification_receipt": {
       "path": "code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json",
-      "sha256": "9bb64b064c7a41ec400cc2c17bb9faa42951c57e7227e3d7600672f8b9729de2"
+      "sha256": "46b5d3b32eda79788441294b8db15634f1c39bef9f70500c3668a2511b40545f"
     }
   }
 }

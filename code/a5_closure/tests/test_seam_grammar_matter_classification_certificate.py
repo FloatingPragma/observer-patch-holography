@@ -34,27 +34,36 @@ class SeamGrammarMatterClassificationTests(unittest.TestCase):
             self.assertEqual(cert.main(["--output", str(second)]), 0)
             self.assertEqual(first.read_bytes(), second.read_bytes())
 
-    def test_grammar_selection_is_measured_and_target_free(self) -> None:
-        selection = self.payload["grammar_selection"]
-        self.assertEqual(selection["selected_group"], "Z6")
-        self.assertTrue(selection["target_free"])
-        self.assertIn("Z7", selection["excluded"])
+    def test_grammar_branch_keeps_exhaustiveness_open(self) -> None:
+        branch = self.payload["grammar_branch"]
+        self.assertEqual(branch["named_branch"], "Z6")
+        self.assertTrue(branch["target_free"])
+        self.assertEqual(branch["general_grammar_classification"], "open")
+        self.assertIn("does not prove", branch["z7_result_scope"])
 
-    def test_module_action_table_is_exact(self) -> None:
-        actions = {
-            row["subgroup_order"]: row
-            for row in self.payload["module_action_classification"]["subgroup_actions"]
+    def test_hypercharge_character_menu_is_complete(self) -> None:
+        menus = {
+            row["group_order"]: row
+            for row in self.payload["hypercharge_character_menu"]["groups"]
         }
-        self.assertTrue(actions[6]["faithful_on_module"])
-        self.assertEqual(actions[6]["fixed_subspace_dimension"], 1)
-        self.assertEqual(actions[3]["fixed_subspace_dimension"], 3)
-        self.assertEqual(actions[2]["fixed_subspace_dimension"], 7)
-        self.assertEqual(actions[1]["fixed_subspace_dimension"], 15)
+        self.assertEqual(menus[2]["fixed_dimension_menu"], [7, 15])
+        self.assertEqual(menus[3]["fixed_dimension_menu"], [3, 15])
+        self.assertEqual(menus[6]["fixed_dimension_menu"], [1, 3, 7, 15])
+        self.assertEqual(len(menus[6]["characters"]), 6)
+
+    def test_diagonal_kernel_fixes_all_realized_matter(self) -> None:
+        diagonal = self.payload["diagonal_kernel_action"]
+        self.assertEqual(diagonal["generator_color_weak_hypercharge"], [1, 1, 1])
+        self.assertFalse(diagonal["faithful_on_module"])
+        self.assertEqual(diagonal["fixed_subspace_dimension"], 15)
+        self.assertTrue(all(row["phase_sixths"] == 0 for row in diagonal["fields"]))
 
     def test_mechanism_rows_are_classified(self) -> None:
         rows = {r["module"]: r for r in self.payload["mechanism_classification"]["rows"]}
         for module in ("Z2 -> 1", "Z3 -> 1", "Z6 -> 1"):
-            self.assertTrue(rows[module]["realized_module_action"]["faithful_on_module"])
+            action = rows[module]["realized_module_action"]
+            self.assertEqual(action["status"], "supplied_character_required")
+            self.assertNotIn("selected_character_exponent", action)
         self.assertEqual(rows["id: S3 -> S3"]["realized_module_action"]["through"], "none")
         self.assertEqual(
             rows["Z2 -> Z4 (doubling)"]["realized_module_action"]["through"], "none"
@@ -64,9 +73,10 @@ class SeamGrammarMatterClassificationTests(unittest.TestCase):
         interface = self.payload["matter_action_interface"]
         self.assertEqual(interface["id"], "physical_sector_mechanism_selection")
         self.assertEqual(interface["class"], "conditional_open_interface")
+        self.assertEqual(interface["owner_issue"], 569)
         self.assertEqual(
             self.payload["bounded_exit"],
-            "classification_landed_with_named_selection_interface",
+            "exact_named_character_and_diagonal_action_classification",
         )
 
     def test_every_control_failed_closed(self) -> None:
@@ -76,9 +86,29 @@ class SeamGrammarMatterClassificationTests(unittest.TestCase):
 
     def test_doctored_charges_are_refused(self) -> None:
         with self.assertRaises(cert.CertificateError):
-            cert.module_action_table({"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 5})
+            cert.hypercharge_character_menu(
+                {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 5}
+            )
         with self.assertRaises(cert.CertificateError):
-            cert.module_action_table({"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/7": 6})
+            cert.hypercharge_character_menu(
+                {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/7": 6}
+            )
+
+    def test_nonidentity_refinement_is_refused_even_when_rehashed(self) -> None:
+        artifact = cert.load_json(
+            cert.MODULE_DIR / "manifests" / cert.RESPONSE_ARTIFACT_NAME
+        )
+        row = artifact["physical_refinement_maps"]["port_persistence_maps"][0]
+        row["port_map"][0], row["port_map"][1] = row["port_map"][1], row["port_map"][0]
+        map_body = {key: value for key, value in row.items() if key != "map_hash"}
+        row["map_hash"] = "sha256:" + cert.sha256_json(map_body)
+        body = {
+            key: value for key, value in artifact.items()
+            if key != "artifact_sha256"
+        }
+        artifact["artifact_sha256"] = "sha256:" + cert.sha256_json(body)
+        with self.assertRaises(cert.CertificateError):
+            cert.validate_refinement_artifact(artifact)
 
 
 if __name__ == "__main__":

@@ -1,19 +1,29 @@
 {
-  "bounded_exit": "conditional_open_interface_with_countermodels_retained",
-  "claim_boundary": "Sharper scalar non-identifiability on the realized observable chain: the measured artifacts are constant across the scalar completions by input closure, the discriminating class is the Yukawa-channel observable interface, which no producer emits, and the physical scalar attachment stays a fail-closed conditional open interface with the #616 countermodels retained. No pole, potential, vacuum value, or discrimination is claimed, and no Higgs-target value enters any gate.",
+  "bounded_exit": "limited_subchain_audit_physical_interface_open",
+  "claim_boundary": "Limited two-artifact finite simulator screen-response audit: the selected charged-response and pole-residue artifacts expose no explicit scalar-completion input. This is not an exhaustive producer inventory, transitive source closure, or typed-category non-identifiability theorem. Scalar poles, gauge response, potential/vacuum observables, and Yukawa channels remain possible discriminators. The physical scalar attachment remains open with the #616 grammar-scope countermodels retained.",
   "controls": {
-    "chain_discrimination_attempt": {
-      "code": "NO_CHAIN_DISCRIMINATOR",
+    "parent_pin_mutation": {
+      "code": "INPUT_CLOSURE",
       "expected_failure": true,
       "failed": true
     },
     "scalar_key_mutation": {
-      "code": "SCALAR_KEY_PRESENT",
+      "code": "EXPLICIT_SCALAR_INPUT",
+      "expected_failure": true,
+      "failed": true
+    },
+    "scope_promotion": {
+      "code": "SCOPE_PROMOTION",
+      "expected_failure": true,
+      "failed": true
+    },
+    "self_hash_mutation": {
+      "code": "RESPONSE_SELF_HASH",
       "expected_failure": true,
       "failed": true
     },
     "target_injection": {
-      "code": "TARGET_INJECTION",
+      "code": "EXPLICIT_SCALAR_INPUT",
       "expected_failure": true,
       "failed": true
     },
@@ -65,7 +75,14 @@
     ]
   },
   "discriminating_interface": {
-    "channels": [
+    "classes": [
+      "scalar two-point pole and residue observables",
+      "multiplet-resolved scalar spectral rank",
+      "gauge-covariant kinetic and current response",
+      "scalar potential and vacuum observables",
+      "Yukawa-channel observables"
+    ],
+    "declared_yukawa_channels": [
       [
         "Q",
         "S",
@@ -82,10 +99,10 @@
         "e_c"
       ]
     ],
-    "class": "Yukawa-channel observables",
     "interface_class": "conditional_open_interface",
     "interface_id": "physical_scalar_attachment",
-    "statement": "every scalar discriminator in the declared algebra couples through the three invariant Yukawa channels; the measured chain emits no Yukawa-channel observable, so scalar discrimination is a producer interface that does not exist in the corpus rather than a reading of existing artifacts"
+    "statement": "the selected screen-response pair emits none of these scalar-sensitive observables. Yukawa channels are one possible class, not an exhaustive discriminator. The selected pair supplies no source-bound physical scalar attachment; the status of other corpus producers is outside this audit",
+    "status": "non_exhaustive_missing_producer_classes"
   },
   "input_closure": {
     "carrier": {
@@ -95,9 +112,9 @@
     "chain": [
       {
         "artifact": "charged response",
-        "inputs": [
+        "declared_inputs": [
           "carrier manifest",
-          "dynamics module"
+          "runtime dynamics report"
         ],
         "pin": {
           "path": "manifests/charged_response_semantic_artifact.json",
@@ -106,10 +123,10 @@
       },
       {
         "artifact": "pole residue",
-        "inputs": [
+        "declared_inputs": [
           "carrier manifest",
           "parent response artifact",
-          "dynamics module"
+          "dynamics module byte digest"
         ],
         "pin": {
           "path": "manifests/charged_response_pole_residue_artifact.json",
@@ -117,15 +134,26 @@
         }
       }
     ],
-    "completions_covered": [
+    "dynamics_hash_semantics": {
+      "charged_response": "runtime-report payload digest",
+      "interchangeable": false,
+      "pole_residue": "dynamics-module byte digest"
+    },
+    "grammar_countermodel_labels_not_physical_completions": [
       "empty",
       "one_doublet_declared",
       "duplicate_doublet",
       "inert_doublet"
     ],
-    "statement": "the complete input closure of the measured chain is the carrier and the dynamics; no scalar-sector object is an input and no payload key names one, so every chain value is constant across the scalar completions"
+    "scope_limits": [
+      "not an exhaustive corpus producer inventory",
+      "not a transitive source or import closure proof",
+      "not a completion-indexed observation functor",
+      "not a physical scalar-sector non-identifiability theorem"
+    ],
+    "statement": "the selected two-artifact finite simulator screen-response subchain has valid self-hashes and carrier/parent pins and exposes no explicit scalar-completion input"
   },
   "issue": 623,
-  "manifest_sha256": "sha256:836e5df2351c4ec8d6533de4951feb7d50a82c4312682cda5c797e89dd626239",
-  "schema": "oph.scalar_sector_blindness_certificate.v1"
+  "manifest_sha256": "sha256:e606932897b21a6f7eea461f88578652726861f5e89d3c6e63e619d19eff20b2",
+  "schema": "oph.scalar_sector_blindness_certificate.v2"
 }
