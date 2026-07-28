@@ -1,0 +1,90 @@
+{
+  "boundary_extension": "the stabilizer theorem excludes symmetry geometry alone; this certificate excludes the quartic entropy packet; the open lepton-side object is a source mechanism beyond the quartic entropy truncation",
+  "branches": {
+    "golden": {
+      "S2": "24 + 0*sqrt5",
+      "S3": "24 + 0*sqrt5",
+      "S4": "72 + 0*sqrt5",
+      "double_eigenvalue": false,
+      "eigenvalue_pattern": "proportional to (-(phi^4 - 1), -1, phi^4)",
+      "eigenvalues": [
+        "-5/2 + 0*sqrt5",
+        "5/4 + -3/4*sqrt5",
+        "5/4 + 3/4*sqrt5"
+      ],
+      "orbit": "diagonal_D2_cubic_extremal",
+      "q_diagonal": [
+        "-5/2 + 0*sqrt5",
+        "5/4 + -3/4*sqrt5",
+        "5/4 + 3/4*sqrt5"
+      ],
+      "sorted_gap_ratio": "phi = (1 + sqrt5)/2, exactly",
+      "symmetric_criticality": "the profile (2, -1, -1) is a critical point of the cubic at fixed square sum on the three-value plane, and D2-equivariance lifts stratum criticality to criticality of the full constrained functional"
+    },
+    "prolate": {
+      "S2": "16/15 + 0*sqrt5",
+      "S3": "128/225 + 0*sqrt5",
+      "S4": "448/1125 + 0*sqrt5",
+      "double_eigenvalue": true,
+      "eigenvalue_pattern": "(2, -1, -1)/3 about the vertex axis",
+      "orbit": "vertex_axis_prolate_C5",
+      "port_values": {
+        "pole": "2/3 + 0*sqrt5",
+        "pole_count": 2,
+        "ring": "-2/15 + 0*sqrt5",
+        "ring_count": 10
+      }
+    }
+  },
+  "claim_boundary": "Exact structure theorem for the entropy-derived W5 shape packet and its compare-only exclusion. The packet is derived from the A3 expansion with no free coefficient; its only simple-spectrum orbit has sorted-gap ratio exactly phi; the observed lepton shape excludes it at 16.7 percent in the closest orientation. No mass, ratio, or prediction is emitted, and the source-only charged no-go is unchanged.",
+  "comparison": {
+    "ancestry": "measured PDG charged-lepton masses, compare-only; no lepton value enters any derivation above",
+    "closest_pairing_mismatch": "0.167472",
+    "observed_flipped": "1.8890091445",
+    "observed_sorted_gap_ratio": "0.5293780620",
+    "packet_output": "phi = 1.6180339887 (golden branch); prolate branch degenerate",
+    "relative_mismatch_direct": "0.672826",
+    "relative_mismatch_flipped": "0.167472",
+    "verdict": "EXCLUDED",
+    "verdict_statement": "the quartic-truncated entropy packet's only simple-spectrum orbit has sorted-gap ratio exactly phi; the observed centered log-mass gap ratio differs from it by 16.7 percent in the closest orientation, far outside every stated width, and the prolate branch is excluded by the simple-spectrum gate"
+  },
+  "controls": {
+    "frame_band_cubic": {
+      "code": "FRAME_CUBIC",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the cubic response vanishes on any antipode-odd profile, which pins the shape functional to the quintet band"
+    },
+    "profile_mutation": {
+      "code": "GOLDEN_RATIO",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the golden identity consumes the exact extremal profile; a mutation is refused"
+    },
+    "prolate_simple_spectrum": {
+      "code": "PROLATE_DEGENERATE",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "crossing": {
+    "display_only_note": "r_c_display is a float rendering of the recorded exact equation",
+    "equation": "2*(sqrt(s3n2_prolate) - sqrt(s3n2_golden)) = r_c * (s4n_prolate - s4n_golden)",
+    "r_c_display": "2.775765637888",
+    "s3n2_golden": "1/24 + 0*sqrt5",
+    "s3n2_prolate": "4/15 + 0*sqrt5",
+    "s4n_golden": "1/8 + 0*sqrt5",
+    "s4n_prolate": "7/20 + 0*sqrt5",
+    "selection": "below r_c the prolate branch has the lower shape energy; above r_c the golden branch does"
+  },
+  "issue_context": [
+    546,
+    591
+  ],
+  "packet_derivation": {
+    "band_selection": "S3 vanishes identically on the antipode-odd frame band, so the quintet band is the only nontrivial band with a cubic entropy response",
+    "expansion": "D(u(1+x)||u) = u(S2/2 - S3/6 + S4/12) + O(x^5), u = 1/12",
+    "premise": "the shape functional is the quartic-truncated expansion restricted to the quintet band at fixed band amplitude; the amplitude is a declared parameter of the premise, and the branch selection depends on it only through the recorded exact crossing"
+  },
+  "schema": "oph.entropy_w5_shape_certificate.v1"
+}

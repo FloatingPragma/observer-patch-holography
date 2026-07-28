@@ -1430,7 +1430,9 @@
         "code/particles/flavor/derive_w5_stabiliser_spectrum_bound.py",
         "code/particles/flavor/test_w5_stabiliser_spectrum_bound.py",
         "code/particles/runs/flavor/w5_stabiliser_spectrum_bound.json",
-        "Lean/ObserverPatchHolography/W5Stabilizer.lean"
+        "Lean/ObserverPatchHolography/W5Stabilizer.lean",
+        "code/particles/flavor/entropy_w5_shape_certificate.py",
+        "code/particles/runs/flavor/entropy_w5_shape_certificate.json"
       ],
       "falsifier": "For the declared W5 action, a C3- or C5-fixed point has simple spectrum, the corresponding fixed locus is not one-dimensional, the C2-fixed locus is not three-dimensional/projective dimension two, or no C2-fixed simple-spectrum witness exists. A specific source-derived potential selecting an isolated orbit would close the open dynamical gate without falsifying the fixed-locus boundary.",
       "scope_if_false": "Only the stated W5 stabilizer and potential-derivation boundary is revised. The result neither excludes simple-spectrum points with C2 or trivial stabilizer nor rules out a predictive screen-derived A5-invariant potential, additional dynamics, or other flavor representations.",
