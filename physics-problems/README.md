@@ -1,8 +1,8 @@
 # Physics Problem Notes
 
 This folder holds standalone Markdown writeups for OPH applications to named
-physics problems and narrow certificate questions. They act as supplemental
-articles for public reading and OPH Sage ingestion. They sit outside the
+physics problems. They act as supplemental articles for public reading and
+OPH Sage ingestion. They sit outside the
 TeX/PDF rendering, website paper-index, and GitHub release-asset pipeline.
 Each problem note begins with `## Motivating Result`, naming how the question
 entered the queue and linking the laboratory, observational, or certificate
@@ -37,18 +37,6 @@ Use the following evidence vocabulary consistently:
 
 ## Writeups
 
-- [Issue #565: Twelve-Unit, Antipode, and Icosahedral Selector on a Declared Realization](issue_565_echosahedral_selector.md):
-  exact finite theorem and executable receipt for the declared quotient-visible
-  echosahedral carrier lineage. The additional integer atom-counting grammar
-  and normalized central-readback cost give the unit split and gap. Oriented
-  incidence and refinement cocycles independently give inverse pairing, the
-  proper $A_5$ action, and the rank-three frame without importing downstream
-  gauge or measured targets. Issue #625 records a covariant half-count
-  candidate on the reduced finite-atomic carrier. Its complete A1
-  operational/refinement data, A2 naturality, and A3 optimizer lift are open,
-  so it does not establish full-schema independence. Issue #628 owns the
-  operational source. The result does not force every OPH carrier to be
-  echosahedral or provide the physical current lift.
 - [Finite-Quotient OPH Baryogenesis Source Theorem](oph_baryogenesis_source_theorem.md):
   exact anomaly/current theorem and source no-go for the matter-antimatter
   problem. It identifies \(k_R\) with the mixed electroweak anomaly index,
@@ -57,9 +45,9 @@ Use the following evidence vocabulary consistently:
   the natural hypercharge attachment of the OPH \(\mathbb Z_6\) determinant/deck
   phase. A distinct anomalous record attachment and its CP-odd physical repair
   generator are open. The companion
-  [audit script](oph_baryogenesis_source_anomaly_audit.py) and
-  [receipt](oph_baryogenesis_source_anomaly_receipt.json) recompute the exact
-  attachment arithmetic.
+  [audit script](../code/particles/baryogenesis/source_anomaly_audit.py) and
+  [receipt](../code/particles/baryogenesis/source_anomaly_receipt.json)
+  recompute the exact attachment arithmetic.
 - [Ultraluminous X-Ray Sources as Accretion-Record Normal Forms](ultraluminous_x_ray_sources.md):
   a conditional, factorized, set-valued classifier for accretor identity,
   mass, intrinsic Eddington ratio, anisotropy, viewing geometry, and source
@@ -142,10 +130,6 @@ Use the following evidence vocabulary consistently:
   record. It keeps visual/spectrum diagnostics, source-only finite artifacts,
   conditional imported-FLRW routing, OPH-native geometry readout, and frozen
   likelihood-evaluated physical CMB predictions as separate claim tiers.
-- [Finite E8/Spin8 Triality claim statement for an Alt(9) double cover](e8_spin8_triality_alt9_certificate.md):
-  pending algebraic-certificate specification for the exceptional-symmetry
-  sidecar. The exact matrices, lattice bases, orbit enumeration, triality
-  intertwiner, and reproducible hash bundle are required.
 
 ## Scope Rule
 

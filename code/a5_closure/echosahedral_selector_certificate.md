@@ -1,4 +1,4 @@
-# Issue #565: source-derived twelve-unit, antipode, and icosahedral selector theorem
+# Echosahedral selector certificate
 
 ## Result
 

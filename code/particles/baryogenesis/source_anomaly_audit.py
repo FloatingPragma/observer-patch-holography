@@ -91,7 +91,7 @@ receipt = {
     },
 }
 
-out = Path(__file__).with_name("oph_baryogenesis_source_anomaly_receipt.json")
+out = Path(__file__).with_name("source_anomaly_receipt.json")
 out.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 print(json.dumps(receipt, indent=2, sort_keys=True))
 print(f"\nWrote {out}")

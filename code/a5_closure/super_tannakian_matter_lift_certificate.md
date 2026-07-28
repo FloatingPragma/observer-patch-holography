@@ -1,4 +1,4 @@
-# Issue #314: source-bound super-Tannakian matter lift
+# Super-Tannakian matter-lift certificate
 
 ## Result
 

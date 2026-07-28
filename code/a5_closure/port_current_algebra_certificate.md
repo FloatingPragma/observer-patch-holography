@@ -1,4 +1,4 @@
-# Issue #566: conditional port-current algebra on a declared response representation
+# Port-current algebra certificate
 
 ## Result
 
