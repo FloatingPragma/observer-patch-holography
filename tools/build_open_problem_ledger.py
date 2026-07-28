@@ -439,9 +439,12 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "single complete faithful in-window multiplicity objects inside the screen "
             "coefficient space, the #625 operational cost order has the rank-three band "
             "as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five "
-            "(Lean Screen/A5FamilyBand.lean, kernel-decided). Both interface clauses "
-            "stay premises: realization of the multiplicity object inside the screen, "
-            "and comparison by the operational cost order. The #617 copy-count "
+            "(Lean Screen/A5FamilyBand.lean, kernel-decided). The measured #599 "
+            "response artifact realizes the comparison clause (per-band adjacency "
+            "channels are measured data; the frame triplet is the measured strict "
+            "minimizer; conjugation swaps the measured pair) and the carrier "
+            "component of the realization clause; the rank-forty-five pole-residue "
+            "factorization receipt is the open remainder. The #617 copy-count "
             "invisibility for external completions holds unchanged."
         ),
         "closure": (

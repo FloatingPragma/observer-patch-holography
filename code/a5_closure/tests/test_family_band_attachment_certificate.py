@@ -76,6 +76,60 @@ class FamilyBandAttachmentTests(unittest.TestCase):
             self.payload["controls"]["dropped_faithfulness"]["unguarded_minimizer"],
             "1",
         )
+        self.assertEqual(
+            self.payload["controls"]["measured_channel_swap"]["swapped_minimizer"],
+            "3p",
+        )
+
+    def test_measured_receipt_realizes_clause_s(self) -> None:
+        measured = self.payload["measured_receipt"]
+        self.assertEqual(measured["clause_S"], "measured_realized")
+        self.assertEqual(
+            measured["clause_R"], "carrier_component_measured__pole_residue_receipt_open"
+        )
+        self.assertEqual(measured["measured_minimizer"], "frame_band (the 3 band)")
+        order = [row["object"] for row in measured["measured_cost_order"]]
+        self.assertEqual(order, ["3", "5", "3p"])
+        self.assertEqual(
+            self.payload["named_interface"]["clause_status"],
+            {
+                "R_realization": "carrier_component_measured__pole_residue_receipt_open",
+                "S_selection": "measured_realized",
+            },
+        )
+        self.assertEqual(
+            self.payload["upstream_pins"]["measured_response_artifact"]["issue"], 599
+        )
+
+    def test_artifact_carrier_pin_is_enforced(self) -> None:
+        _, _, carrier_pin = cert.load_carrier()
+        with self.assertRaises(cert.CertificateError) as ctx:
+            cert.pin_response_artifact({"sha256": "sha256:doctored"})
+        self.assertIn("ARTIFACT_CARRIER_MISMATCH", str(ctx.exception))
+        artifact, pin = cert.pin_response_artifact(carrier_pin)
+        self.assertEqual(pin["issue"], 599)
+
+    def test_channel_parser_is_exact(self) -> None:
+        self.assertEqual(cert.parse_channel("5"), cert.F5(5, 0))
+        self.assertEqual(cert.parse_channel("-1"), cert.F5(-1, 0))
+        self.assertEqual(cert.parse_channel("0 + 1*sqrt(5)"), cert.F5(0, 1))
+        self.assertEqual(cert.parse_channel("0 + -1*sqrt(5)"), cert.F5(0, -1))
+
+    def test_doctored_measured_channels_fail(self) -> None:
+        _, rotations, carrier_pin = cert.load_carrier()
+        artifact, _ = cert.pin_response_artifact(carrier_pin)
+        doctored = {k: (dict(v) if isinstance(v, dict) else v) for k, v in artifact.items()}
+        doctored["response_basis"] = dict(artifact["response_basis"])
+        doctored["response_basis"]["adjacency_channel_values"] = dict(
+            artifact["response_basis"]["adjacency_channel_values"]
+        )
+        doctored["response_basis"]["adjacency_channel_values"]["frame_band"] = "5"
+        kernels = {"1": 60, "3": 1, "3p": 1, "5": 1}
+        with self.assertRaises(cert.CertificateError) as ctx:
+            cert.measured_band_receipt(
+                self.carrier, self.adjacency, self.projectors, doctored, (5, -1), kernels
+            )
+        self.assertIn("MEASURED_CHANNEL_MISMATCH", str(ctx.exception))
 
     def test_spectral_gates_reject_a_doctored_adjacency(self) -> None:
         neighbor = sorted(self.carrier.adjacency[0])[0]
@@ -133,6 +187,10 @@ class FamilyBandAttachmentTests(unittest.TestCase):
                 cert.verify_stored()
         finally:
             cert.MANIFEST_PATH.write_bytes(original)
+
+    def test_schema_is_v2(self) -> None:
+        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v2")
+        self.assertEqual(self.payload["schema"], cert.SCHEMA)
 
     def test_window_pin_matches_the_stored_receipt(self) -> None:
         lower, upper, pin = cert.pin_window()

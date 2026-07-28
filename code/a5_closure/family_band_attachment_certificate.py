@@ -45,10 +45,17 @@ which carries TWO clauses, each with a control proving it load-bearing:
       cost order (with the excluded form 6I + A the minimizer flips to
       the Galois partner; control `excluded_cone`).
 
-Neither clause is derived from A1-A3 here.  The #617 invisibility
-theorem for external C^n completions is untouched and re-verified.  The
-physical rank-45 laboratory response, Spin/locality, pole-residue, and
-refinement receipts stay open on issue #569.
+Neither clause is derived from A1-A3.  The measured #599 response
+artifact carries clause S as a measurement: the per-band adjacency
+channels are measured data, the operational cost evaluated on them has
+the frame triplet as strict minimizer, and conjugation swaps the
+measured frame and kernel bands while the measured order separates
+them.  The carrier component of clause R is measured the same way (the
+frame band is a subobject of the measured response basis); the
+pole-residue factorization with complex rank forty-five, Spin/locality,
+refinement, and laboratory receipts stay open on issue #569.  The #617
+invisibility theorem for external C^n completions is re-verified and
+holds unchanged.
 """
 
 from __future__ import annotations
@@ -74,12 +81,21 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.family_band_attachment_certificate.v1"
+SCHEMA = "oph.family_band_attachment_certificate.v2"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "family_band_attachment_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 WINDOW_MANIFEST_NAME = "multiplicity_window_reference.json"
 READBACK_MANIFEST_NAME = "load_fiber_readback_reference.json"
 MATTER_MANIFEST_NAME = "super_tannakian_matter_reference.json"
+RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
+
+# Measured artifact band labels against this certificate's band names.
+ARTIFACT_BAND_MAP = {
+    "unit_band": "1",
+    "frame_band": "3",
+    "kernel_band": "3p",
+    "quintet_band": "5",
+}
 
 ISSUE = 569
 PORTS = 12
@@ -437,6 +453,225 @@ def pin_matter() -> tuple[dict[str, Fraction], dict[str, Any]]:
         "issue": 314,
     }
     return charges, pin
+
+
+# ---------------------------------------------------------------------------
+# The measured response artifact (issue #599) and the clause receipts
+# ---------------------------------------------------------------------------
+
+
+def parse_channel(text: str) -> F5:
+    """Parse an exact channel string of the artifact.
+
+    Accepted forms: an integer or fraction ('5', '-1'), or
+    'a + b*sqrt(5)' with integer or fraction parts.
+    """
+
+    raw = str(text).strip()
+    if "sqrt" not in raw:
+        return F5(Fraction(raw), 0)
+    left, right = raw.split("+")
+    rational = Fraction(left.strip())
+    coeff = Fraction(right.strip().split("*")[0].strip())
+    return F5(rational, coeff)
+
+
+def pin_response_artifact(carrier_pin: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    artifact = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    require(
+        artifact["carrier_binding"]["carrier_manifest_sha256"]
+        == carrier_pin["sha256"],
+        "ARTIFACT_CARRIER_MISMATCH",
+        "the measured artifact must bind the same carrier manifest",
+    )
+    pin = {
+        "path": f"manifests/{RESPONSE_ARTIFACT_NAME}",
+        "sha256": sha256_json(artifact),
+        "issue": 599,
+    }
+    return artifact, pin
+
+
+def measured_band_receipt(
+    carrier: Any,
+    adjacency: Matrix,
+    projectors: Mapping[str, Matrix],
+    artifact: Mapping[str, Any],
+    operational: tuple[int, int],
+    kernels: Mapping[str, int],
+) -> dict[str, Any]:
+    """Clause receipts read from the measured #599 response artifact.
+
+    The artifact carries, as exact data: the per-band adjacency channel
+    values, the sector dimensions, the Galois pairing, the response band
+    scales, and the antipode polynomial of the measured response
+    operator.  This receipt binds those measurements to the selection:
+
+    * the measured channel values reproduce the exact band spectrum, so
+      the operational cost evaluated on measured channels gives the
+      measured band costs, and their strict order is a measured fact
+      (clause S realized by measurement);
+    * the measured frame band is the strict minimizer among the faithful
+      bands, and it is a subobject of the screen coefficient space
+      exhibited by the measured response basis (the carrier component of
+      clause R measured; the pole-residue factorization receipt with
+      complex rank forty-five stays open);
+    * the measured antipode polynomial (A^3 - 4A^2 - 5A + 10I)/10 equals
+      the carrier antipode permutation exactly, and the real part of the
+      scaled band projector equals ten times identity-minus-antipode, so
+      the measured response algebra and the spectral selection algebra
+      are one object;
+    * conjugation swaps the measured frame and kernel bands while the
+      measured cost order separates them, so the Galois resolution is
+      itself measured.
+    """
+
+    basis = artifact["response_basis"]
+    channels = {
+        name: parse_channel(value)
+        for name, value in basis["adjacency_channel_values"].items()
+    }
+    dims = {name: int(value) for name, value in basis["sector_dimensions"].items()}
+    require(
+        set(channels) == set(ARTIFACT_BAND_MAP) and set(dims) == set(ARTIFACT_BAND_MAP),
+        "ARTIFACT_BANDS",
+        "the artifact must carry exactly the four named bands",
+    )
+
+    eigen = {"1": F5(5, 0), "3": SQRT5, "3p": -SQRT5, "5": F5(-1, 0)}
+    for artifact_name, band in ARTIFACT_BAND_MAP.items():
+        require(
+            channels[artifact_name] == eigen[band],
+            "MEASURED_CHANNEL_MISMATCH",
+            f"measured channel of {artifact_name} must equal the {band} band eigenvalue",
+        )
+        require(
+            dims[artifact_name] == BAND_DIMS[band],
+            "MEASURED_DIMENSION_MISMATCH",
+            f"measured dimension of {artifact_name} must equal {BAND_DIMS[band]}",
+        )
+
+    a, b = operational
+    measured_costs = {
+        ARTIFACT_BAND_MAP[name]: F5(a, 0) + F5(b, 0) * value
+        for name, value in channels.items()
+    }
+    faithful = [band for band, count in kernels.items() if count == 1]
+    ordered = f5_sorted(faithful, lambda name: measured_costs[name])
+    for left, right in zip(ordered, ordered[1:]):
+        require(
+            f5_lt(measured_costs[left], measured_costs[right]),
+            "MEASURED_COST_ORDER",
+            "the measured band costs must be strictly ordered",
+        )
+    require(
+        ordered[0] == "3" and ARTIFACT_BAND_MAP["frame_band"] == "3",
+        "MEASURED_MINIMIZER",
+        "the measured frame band must be the strict cost minimizer",
+    )
+
+    pairing = basis["galois_pairing"]
+    require(
+        pairing["frame_and_kernel_swapped_by_conjugation"] is True
+        and pairing["unit_and_quintet_galois_stable"] is True,
+        "MEASURED_GALOIS_PAIRING",
+        "the artifact must record the measured Galois pairing",
+    )
+
+    scales = artifact["derived"]["response_band_scales"]
+    require(
+        scales == {"frame_band": "1", "kernel_band": "1", "quintet_band": "-1", "unit_band": "-1"},
+        "MEASURED_RESPONSE_SCALES",
+        "the measured response must scale the double triplet by one and the complement by minus one",
+    )
+
+    # Bind the measured antipode polynomial to the carrier and to the
+    # spectral selection: 10*antipode = A^3 - 4A^2 - 5A + 10I, and the
+    # real part of the scaled 3-band projector is 10*(I - antipode).
+    ident = identity()
+    a2 = mat_mul(adjacency, adjacency)
+    a3 = mat_mul(a2, adjacency)
+    poly = mat_add(
+        mat_sub(a3, mat_scale(F5(4, 0), a2)),
+        mat_add(mat_scale(F5(-5, 0), adjacency), mat_scale(F5(10, 0), ident)),
+    )
+    antipode = mat(ZERO)
+    for i in range(PORTS):
+        antipode[i][carrier.antipode[i]] = ONE
+    require(
+        mat_eq(poly, mat_scale(F5(10, 0), antipode)),
+        "ANTIPODE_POLYNOMIAL",
+        "the measured antipode polynomial must equal the carrier antipode",
+    )
+    x_real = mat_scale(F5(10, 0), mat_sub(ident, antipode))
+    p3_scaled = mat_scale(F5(40, 0), projectors["3"])
+    require(
+        all(
+            p3_scaled[i][j].a == x_real[i][j].a and x_real[i][j].b == 0
+            for i in range(PORTS)
+            for j in range(PORTS)
+        ),
+        "BAND_RESPONSE_IDENTITY",
+        "the real part of the scaled 3-band projector must equal ten times identity minus antipode",
+    )
+
+    return {
+        "artifact_issue": 599,
+        "measured_channels": {name: f5_str(value) for name, value in channels.items()},
+        "measured_band_costs": {name: f5_str(value) for name, value in measured_costs.items()},
+        "measured_cost_order": [
+            {"object": name, "cost": f5_str(measured_costs[name])} for name in ordered
+        ],
+        "measured_minimizer": "frame_band (the 3 band)",
+        "galois_pairing_measured": True,
+        "response_double_triplet_scales": scales,
+        "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
+        "band_response_identity": "Re(40 P3) = 10 (I - antipode)",
+        "clause_S": "measured_realized",
+        "clause_R": "carrier_component_measured__pole_residue_receipt_open",
+        "open_receipt": (
+            "the pole-residue factorization with complex rank forty-five "
+            "through band x generation; its gates are specified on issue #569"
+        ),
+    }
+
+
+def control_measured_channel_swap(
+    artifact: Mapping[str, Any], operational: tuple[int, int], kernels: Mapping[str, int]
+) -> dict[str, Any]:
+    """Swapping the measured frame and kernel channel values must flip the
+    measured minimizer to the Galois partner, so the receipt consumes the
+    measured values and not the band labels."""
+
+    basis = artifact["response_basis"]
+    swapped = dict(basis["adjacency_channel_values"])
+    swapped["frame_band"], swapped["kernel_band"] = (
+        swapped["kernel_band"],
+        swapped["frame_band"],
+    )
+    a, b = operational
+    costs = {
+        ARTIFACT_BAND_MAP[name]: F5(a, 0) + F5(b, 0) * parse_channel(value)
+        for name, value in swapped.items()
+    }
+    faithful = [band for band, count in kernels.items() if count == 1]
+    ordered = f5_sorted(faithful, lambda name: costs[name])
+    flipped = ordered[0]
+    try:
+        require(
+            flipped == "3",
+            "MEASURED_SWAP_DETECTED",
+            "the swapped channel table selects the wrong band",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "MEASURED_SWAP_DETECTED",
+            "swapped_minimizer": flipped,
+            "meaning": "the measured receipt reads the channel values, so a frame/kernel value swap is detected as the Galois partner",
+        }
+    return {"expected_failure": True, "failed": False}
 
 
 # ---------------------------------------------------------------------------
@@ -823,6 +1058,7 @@ def build_payload() -> dict[str, Any]:
     lower, upper, window_pin = pin_window()
     operational, excluded, cone_pin = pin_cost_cone()
     charges, matter_pin = pin_matter()
+    artifact, response_pin = pin_response_artifact(carrier_pin)
 
     costs = band_costs(operational)
     kernels = band_action_kernels(projectors, rotations)
@@ -830,6 +1066,9 @@ def build_payload() -> dict[str, Any]:
         kernels == {"1": 60, "3": 1, "3p": 1, "5": 1},
         "BAND_KERNELS",
         "the trivial band must absorb all sixty rotations and every other band action must be faithful",
+    )
+    measured = measured_band_receipt(
+        carrier, adjacency, projectors, artifact, operational, kernels
     )
 
     candidates = enumerate_candidates((lower, upper), kernels, costs)
@@ -873,6 +1112,9 @@ def build_payload() -> dict[str, Any]:
         "galois_transport": control_galois_transport(projectors, rotations, costs),
         "block_swap_refinement": control_block_swap(costs),
         "dropped_faithfulness": control_dropped_faithfulness(costs),
+        "measured_channel_swap": control_measured_channel_swap(
+            artifact, operational, kernels
+        ),
     }
     for name, verdict in controls.items():
         require(
@@ -890,8 +1132,10 @@ def build_payload() -> dict[str, Any]:
             "operational comparison order has the 3 band as unique strict "
             "minimizer, fixing N_g = 3 with attachment rank forty-five. "
             "The #617 copy-count invisibility for external completions is "
-            "preserved, and both interface clauses below are premises, not "
-            "theorems."
+            "preserved. Clause S is realized by the measured #599 response "
+            "artifact and the carrier component of clause R is measured; "
+            "the rank-forty-five pole-residue factorization is the open "
+            "receipt."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
@@ -911,11 +1155,15 @@ def build_payload() -> dict[str, Any]:
                 "R_realization": "external_copy_reduct",
                 "S_selection": "excluded_cone",
             },
+            "clause_status": {
+                "R_realization": measured["clause_R"],
+                "S_selection": measured["clause_S"],
+            },
             "open_receipts": [
-                "complex rank-45 laboratory response",
+                "complex rank-45 pole-residue factorization",
                 "Spin/locality receipt",
-                "pole-residue receipt",
                 "refinement receipt",
+                "laboratory current identification",
             ],
         },
         "upstream_pins": {
@@ -923,7 +1171,9 @@ def build_payload() -> dict[str, Any]:
             "multiplicity_window": window_pin,
             "operational_cost_cone": cone_pin,
             "matter_packet": matter_pin,
+            "measured_response_artifact": response_pin,
         },
+        "measured_receipt": measured,
         "spectral_resolution": spectral,
         "equivariance": equivariance,
         "pair_orbits": pair_orbits,

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved, and both interface clauses below are premises, not theorems.",
+  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is realized by the measured #599 response artifact and the carrier component of clause R is measured; the rank-forty-five pole-residue factorization is the open receipt.",
   "controls": {
     "block_swap_refinement": {
       "code": "BLOCK_SWAP_COST_DETECTED",
@@ -183,6 +183,13 @@
       "expected_failure": true,
       "failed": true,
       "meaning": "sqrt5 -> -sqrt5 exchanges the bands abstractly, but it is not an A2 transport and does not preserve the measured cost order, so the 3 versus 3' ambiguity is operationally resolved"
+    },
+    "measured_channel_swap": {
+      "code": "MEASURED_SWAP_DETECTED",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the measured receipt reads the channel values, so a frame/kernel value swap is detected as the Galois partner",
+      "swapped_minimizer": "3p"
     },
     "reducible_object": {
       "code": "NOT_SINGLE_COMPLETE_OBJECT",
@@ -249,7 +256,49 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, strict cost order, minimizer)"
   ],
-  "manifest_sha256": "sha256:a9d049309eecf0e08771db5b7efacbac18c73e8fbfdf0c434c2bd89bdb1b0837",
+  "manifest_sha256": "sha256:ab5aea342c82b6c0e2bb405c0b7e6cbff43085ed2a2d8566aa7592647e6da0be",
+  "measured_receipt": {
+    "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
+    "artifact_issue": 599,
+    "band_response_identity": "Re(40 P3) = 10 (I - antipode)",
+    "clause_R": "carrier_component_measured__pole_residue_receipt_open",
+    "clause_S": "measured_realized",
+    "galois_pairing_measured": true,
+    "measured_band_costs": {
+      "1": "0+0*sqrt5",
+      "3": "5+-1*sqrt5",
+      "3p": "5+1*sqrt5",
+      "5": "6+0*sqrt5"
+    },
+    "measured_channels": {
+      "frame_band": "0+1*sqrt5",
+      "kernel_band": "0+-1*sqrt5",
+      "quintet_band": "-1+0*sqrt5",
+      "unit_band": "5+0*sqrt5"
+    },
+    "measured_cost_order": [
+      {
+        "cost": "5+-1*sqrt5",
+        "object": "3"
+      },
+      {
+        "cost": "6+0*sqrt5",
+        "object": "5"
+      },
+      {
+        "cost": "5+1*sqrt5",
+        "object": "3p"
+      }
+    ],
+    "measured_minimizer": "frame_band (the 3 band)",
+    "open_receipt": "the pole-residue factorization with complex rank forty-five through band x generation; its gates are specified on issue #569",
+    "response_double_triplet_scales": {
+      "frame_band": "1",
+      "kernel_band": "1",
+      "quintet_band": "-1",
+      "unit_band": "-1"
+    }
+  },
   "multiplicity_free": {
     "consequence": "multiplicity-free permutation module; every band embedding is unique up to scalar",
     "distance_matrices": 4,
@@ -262,16 +311,20 @@
       "R_realization": "external_copy_reduct",
       "S_selection": "excluded_cone"
     },
+    "clause_status": {
+      "R_realization": "carrier_component_measured__pole_residue_receipt_open",
+      "S_selection": "measured_realized"
+    },
     "clauses": {
       "R_realization": "the physical pole-residue multiplicity object is realized as a single complete subobject of the source-visible screen coefficient space",
       "S_selection": "the attachment is compared by the #625 operational cost order (quadratic seam-mismatch readback per unit norm)"
     },
     "id": "screen_realized_multiplicity_object",
     "open_receipts": [
-      "complex rank-45 laboratory response",
+      "complex rank-45 pole-residue factorization",
       "Spin/locality receipt",
-      "pole-residue receipt",
-      "refinement receipt"
+      "refinement receipt",
+      "laboratory current identification"
     ]
   },
   "operational_cost": {
@@ -301,7 +354,7 @@
     "source": "pinned #617 receipt",
     "upper": 5
   },
-  "schema": "oph.family_band_attachment_certificate.v1",
+  "schema": "oph.family_band_attachment_certificate.v2",
   "selection": {
     "minimizer": "3",
     "order": [
@@ -350,6 +403,11 @@
       "issue": 314,
       "path": "manifests/super_tannakian_matter_reference.json",
       "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+    },
+    "measured_response_artifact": {
+      "issue": 599,
+      "path": "manifests/charged_response_semantic_artifact.json",
+      "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
     },
     "multiplicity_window": {
       "issue": 617,
