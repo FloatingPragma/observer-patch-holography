@@ -1,0 +1,77 @@
+{
+  "arithmetic": {
+    "decimal_digits": 100,
+    "enclosures": "one-sigma corner enumeration, conservative",
+    "rounding": "outward at the displayed places"
+  },
+  "balance_comparison": {
+    "distance_in_enclosure_half_widths": "0.4335",
+    "measured_Q_central": "0.666664463403",
+    "measured_Q_enclosure_outward": [
+      "0.666659380315637",
+      "0.666669546221701"
+    ],
+    "reading": "the exact balance value 2/3 against the measured one-sigma corner enclosure of Q; a corner enclosure overcovers the one-sigma ellipsoid, so the distance figure is conservative",
+    "target": "2/3",
+    "target_inside_enclosure": true
+  },
+  "claim_boundary": "Two conditional/compare-only lanes on the positive-chamber circulant identity: the measured Q enclosure against the exact balance value 2/3, and the tau interval determined by (m_e, m_mu) under the balanced-circulant and mass-ordering premises. The premise class carries measured-target ancestry, declared above; neither lane is a prospective prediction, no source-only theorem is claimed, and the source-only charged no-go is unchanged.",
+  "conditional_tau": {
+    "distance_sigma": "0.4336",
+    "inputs": "measured (m_e, m_mu) with one-sigma corners, declared imports",
+    "measured_central_inside_one_sigma_of_output": true,
+    "measured_tau_mev": [
+      "1776.93",
+      "0.09"
+    ],
+    "premises": [
+      "balanced positive-chamber circulant (rho/a = 1/sqrt2; the finite-GNS conditional theorem)",
+      "mass ordering m_tau > m_mu (selects the plus root)"
+    ],
+    "row_class": "conditional_postdiction_with_measured_premise_ancestry",
+    "spurious_root_excluded_by": "mass-ordering premise (below the muon mass)",
+    "spurious_root_mev": "3.317357",
+    "tau_central_mev": "1776.969027",
+    "tau_enclosure_mev_outward": [
+      "1776.968991",
+      "1776.969063"
+    ]
+  },
+  "controls": {
+    "premise_mutation": {
+      "code": "PREMISE_MUTATION_DETECTED",
+      "expected_failure": true,
+      "failed": true,
+      "mutated_tau_mev": "2008.852",
+      "shift_sigma": "2576.9"
+    },
+    "tau_not_consumed": {
+      "code": "TAU_NOT_CONSUMED",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the derived enclosure does not read the tau mass; only the comparison fields do"
+    }
+  },
+  "identity": "Q = 1/3 + (2/3)(rho/a)^2 on the positive chamber; Q = 2/3 exactly at rho/a = 1/sqrt2 (extra/koide_identity_from_positive_c3_face_circulants.tex)",
+  "issue_context": [
+    546
+  ],
+  "measured_imports": {
+    "source": "PDG charged-lepton masses, compare-only measured imports",
+    "values_mev": {
+      "electron": [
+        "0.51099895069",
+        "1.6E-10"
+      ],
+      "muon": [
+        "105.6583755",
+        "0.0000023"
+      ],
+      "tau": [
+        "1776.93",
+        "0.09"
+      ]
+    }
+  },
+  "schema": "oph.koide_balance_comparison_certificate.v1"
+}
