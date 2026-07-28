@@ -14,6 +14,8 @@ cmds=[
  [sys.executable,str(ROOT/'producers'/'rule_engine_b.py')],
  [sys.executable,str(ROOT/'producers'/'enumerate_diagram_universe.py')],
  [sys.executable,str(ROOT/'checkers'/'check_rule_engines.py')],
+ [sys.executable,str(ROOT/'producers'/'counterterm_producer.py')],
+ [sys.executable,str(ROOT/'checkers'/'check_counterterms.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]

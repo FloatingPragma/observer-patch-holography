@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 57,
-  "total_bytes_excluding_manifest_and_runtime_log": 665029,
+  "file_count_excluding_manifest_and_runtime_log": 61,
+  "total_bytes_excluding_manifest_and_runtime_log": 732386,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -46,6 +46,11 @@
       "path": "checkers/check_completion_bundle.py",
       "bytes": 12665,
       "sha256": "7c2686235df7b0b7a0c49dffdd2797de66c569b0365d35d0f58f15596277060f"
+    },
+    {
+      "path": "checkers/check_counterterms.py",
+      "bytes": 13788,
+      "sha256": "d64f5a0c6cfa72b60eaa6859a7d1835cef312582d588445d5fa77486e9f1e329"
     },
     {
       "path": "checkers/check_eft_matching.py",
@@ -113,6 +118,11 @@
       "sha256": "7a90721d62359ffffc8a25e27a30942c8ed89f283fb82a4673ecf4d39e79994c"
     },
     {
+      "path": "outputs/renormalization_ct_1.json",
+      "bytes": 24065,
+      "sha256": "0c43dfa7b22bdc867d58b5d09ca3db065ebc96b23a34c8068e0155ca851a2f8b"
+    },
+    {
       "path": "outputs/rule_engine_check.json",
       "bytes": 615,
       "sha256": "c4615f432bbb3d21c1559eabd89fa7b5d62645f96fe97baf7c46c8a943331d7e"
@@ -141,6 +151,11 @@
       "path": "outputs/upstream_validation.log",
       "bytes": 2282,
       "sha256": "3c404c10270499b1c89f92c3ca2d85b71d138f48ea84d3f67685e09ea1bc4568"
+    },
+    {
+      "path": "producers/counterterm_producer.py",
+      "bytes": 24302,
+      "sha256": "43132225c6ab73a398a17625aa87fac2d3b672b57bc75ab966a7377d9930758c"
     },
     {
       "path": "producers/eft_matching_producer.py",
@@ -179,8 +194,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1347,
-      "sha256": "8cec48ff1758e41a568824bda010778e8f020e8e62635b68c3b2138bf231f53f"
+      "bytes": 1478,
+      "sha256": "b70bce1e96f46dd12f8b73e7a9d6ffbaff255c8f1e210a23dc6ac4bf78af300a"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -281,6 +296,11 @@
       "path": "tests/test_completion.py",
       "bytes": 12662,
       "sha256": "a5e6ee84e28efe924d5329fa24a37e423d7ef69a4538337de9389e9cf9e1d06b"
+    },
+    {
+      "path": "tests/test_counterterms.py",
+      "bytes": 5071,
+      "sha256": "af05a2f68de542bb033c9fc6ebc3896e207d0139448eb288fb9147437814b3c2"
     },
     {
       "path": "tests/test_eft_matching.py",

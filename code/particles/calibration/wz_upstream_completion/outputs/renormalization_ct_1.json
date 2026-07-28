@@ -1,0 +1,1126 @@
+{
+  "bindings": {
+    "eft_matching_subject": "2822c158805db038dfe2682508316f100968ce152e47b23062d6e11029607b5e",
+    "rule_engine_check": {
+      "entry_count": 123,
+      "status": "PASS"
+    },
+    "rule_table_digest": "def50420c954f768932aedcdda0e61b230a89da11e250a727d63b43cef5b168a"
+  },
+  "controls": {
+    "beta_mutation_changes_poles": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "foreign_generator_rejected": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "generator_removal_drops_rank": {
+      "expected_failure": true,
+      "failed": true
+    },
+    "numeric_pole_without_receipt_refused": {
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "conventions": {
+    "dimensional_continuation": "d = 4 - 2 eps",
+    "external_sources": "the BRST external-source sector is not part of the record table; its counterterm structure is recomputed inside the WARD_ST_NIELSEN_1 replay and stays open here",
+    "fermion_field_map": "psi -> (1 + dZ/2) psi, barred fields carry the dagger matrix",
+    "gamma5": "BMHV: gamma5 anticommutes with the four-dimensional gamma matrices and commutes with the evanescent ones; chiral vertices are four-dimensional projections; this freeze is the declared prescription for every downstream loop",
+    "gauge_fixing": "the gauge-fixing functions are written in renormalized fields and parameters and receive no independent dxi generator; ghost fields carry dZcW and dZcB"
+  },
+  "ct_matrix": {
+    "columns": 156,
+    "nullspace": [
+      {
+        "dZQL[1][1]": "-1",
+        "dZQL[2][2]": "-1",
+        "dZQL[3][3]": "-1",
+        "dZQLd[1][1]": "1",
+        "dZQLd[2][2]": "1",
+        "dZQLd[3][3]": "1",
+        "dZdR[1][1]": "-1",
+        "dZdR[2][2]": "-1",
+        "dZdR[3][3]": "-1",
+        "dZdRd[1][1]": "1",
+        "dZdRd[2][2]": "1",
+        "dZdRd[3][3]": "1",
+        "dZuR[1][1]": "-1",
+        "dZuR[2][2]": "-1",
+        "dZuR[3][3]": "-1",
+        "dZuRd[1][1]": "1",
+        "dZuRd[2][2]": "1",
+        "dZuRd[3][3]": "1"
+      },
+      {
+        "dZLL[1][1]": "-1",
+        "dZLL[2][2]": "-1",
+        "dZLL[3][3]": "-1",
+        "dZLLd[1][1]": "1",
+        "dZLLd[2][2]": "1",
+        "dZLLd[3][3]": "1",
+        "dZeR[1][1]": "-1",
+        "dZeR[2][2]": "-1",
+        "dZeR[3][3]": "-1",
+        "dZeRd[1][1]": "1",
+        "dZeRd[2][2]": "1",
+        "dZeRd[3][3]": "1"
+      }
+    ],
+    "nullspace_interpretation": "the two null directions are the uniform anti-hermitian diagonal combinations dZ - dZdagger over the quark multiplets and over the lepton multiplets: global baryon- and lepton-number phase rotations, under which every record of the action is invariant",
+    "rank": 154,
+    "rows": 1795
+  },
+  "ct_term_count": 2521,
+  "ct_terms_digest": "21bf20239c2a075e4ed40d240e867a686cb35f809465009f0a7d5700cf68a89a",
+  "general_local_basis": {
+    "dimension_with_flavor": 542,
+    "directions": 190,
+    "statement": "the listed directions receive no counterterm from any generator of the bare map because no table record carries their field content; finite symmetry-restoring counterterms under the frozen BMHV prescription live inside this complement together with the coefficient-relation deviations inside the reachable block",
+    "unreachable": [
+      {
+        "fields": [
+          "G0",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_bilinear_mass"
+      },
+      {
+        "fields": [
+          "G0"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_tadpole"
+      },
+      {
+        "fields": [
+          "G0",
+          "G0",
+          "G0"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "G0",
+          "Gm",
+          "Gp"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "G0",
+          "h",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "G0",
+          "G0",
+          "G0",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "G0",
+          "Gm",
+          "Gp",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "G0",
+          "h",
+          "h",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_potential"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "G0"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "B",
+          "G0",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gp",
+          "W3",
+          "Wm"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gm",
+          "W3",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "Gm",
+          "W3",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "Gp",
+          "W3",
+          "Wm"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "G0",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "B",
+          "G0",
+          "W3",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "W3",
+          "W3",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "G0",
+          "Wm",
+          "Wp",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gm",
+          "Gm",
+          "Wp",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gm",
+          "W3",
+          "Wp",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gp",
+          "Gp",
+          "Wm",
+          "Wm"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "Gp",
+          "W3",
+          "Wm",
+          "h"
+        ],
+        "flavor_dim": 1,
+        "structure": "scalar_scalar_gauge_gauge"
+      },
+      {
+        "fields": [
+          "B",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_three_point"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "B",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "B",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "B",
+          "W3",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "W3",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_12_34"
+      },
+      {
+        "fields": [
+          "W3",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_13_24"
+      },
+      {
+        "fields": [
+          "W3",
+          "W3",
+          "W3",
+          "W3"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "W3",
+          "W3",
+          "Wm",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "Wm",
+          "Wm",
+          "Wp",
+          "Wp"
+        ],
+        "flavor_dim": 1,
+        "structure": "yang_mills_four_point_14_23"
+      },
+      {
+        "fields": [
+          "W3",
+          "uR",
+          "uR_bar"
+        ],
+        "flavor_dim": 9,
+        "structure": "fermion_vector_current"
+      },
+      {
+        "fields": [
+          "Wp",
+          "dR",
+          "uR_bar"
+        ],
+        "flavor_dim": 9,
+        "structure": "fermion_vector_current"
+      },
+      {
+        "fields": [
+          "Wm",
+          "dR_bar",
+          "uR"
+        ],
+        "flavor_dim": 9,
+        "structure": "fermion_vector_current"
+      },
+      {
+        "fields": [
+          "W3",
+          "dR",
+          "dR_bar"
+        ],
+        "flavor_dim": 9,
+        "structure": "fermion_vector_current"
+      },
+      {
+        "fields": [
+          "W3",
+          "eR",
+          "eR_bar"
+        ],
+        "flavor_dim": 9,
+        "structure": "fermion_vector_current"
+      },
+      {
+        "fields": [
+          "B",
+          "cp",
+          "cp_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "Wp",
+          "cB",
+          "cp_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "B",
+          "cm",
+          "cm_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "Wm",
+          "cB",
+          "cm_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "G0",
+          "c3",
+          "c3_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_scalar_mass"
+      },
+      {
+        "fields": [
+          "W3",
+          "c3",
+          "c3_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "B",
+          "c3",
+          "c3_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "G0",
+          "c3_bar",
+          "cB"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_scalar_mass"
+      },
+      {
+        "fields": [
+          "W3",
+          "c3_bar",
+          "cB"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "B",
+          "c3_bar",
+          "cB"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "Wm",
+          "cB_bar",
+          "cp"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "Wp",
+          "cB_bar",
+          "cm"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "G0",
+          "c3",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_scalar_mass"
+      },
+      {
+        "fields": [
+          "W3",
+          "c3",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "B",
+          "c3",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "G0",
+          "cB",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_scalar_mass"
+      },
+      {
+        "fields": [
+          "W3",
+          "cB",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      },
+      {
+        "fields": [
+          "B",
+          "cB",
+          "cB_bar"
+        ],
+        "flavor_dim": 1,
+        "structure": "ghost_gauge_derivative"
+      }
+    ],
+    "unreachable_dimension_with_flavor": 111,
+    "unreachable_directions": 71
+  },
+  "generators": [
+    "dg1",
+    "dv",
+    "dZcB",
+    "dZH",
+    "dg2",
+    "dlam",
+    "dmu2",
+    "dYud[1][1]",
+    "dZuRd[1][1]",
+    "dZuRd[2][1]",
+    "dZuRd[3][1]",
+    "dZQL[1][1]",
+    "dZQL[1][2]",
+    "dZQL[1][3]",
+    "dYud[1][2]",
+    "dZQL[2][1]",
+    "dZQL[2][2]",
+    "dZQL[2][3]",
+    "dYud[1][3]",
+    "dZQL[3][1]",
+    "dZQL[3][2]",
+    "dZQL[3][3]",
+    "dYud[2][1]",
+    "dZuRd[1][2]",
+    "dZuRd[2][2]",
+    "dZuRd[3][2]",
+    "dYud[2][2]",
+    "dYud[2][3]",
+    "dYud[3][1]",
+    "dZuRd[1][3]",
+    "dZuRd[2][3]",
+    "dZuRd[3][3]",
+    "dYud[3][2]",
+    "dYud[3][3]",
+    "dZB",
+    "dZLLd[1][1]",
+    "dZLL[1][1]",
+    "dZLLd[1][2]",
+    "dZLL[1][2]",
+    "dZLLd[1][3]",
+    "dZLL[1][3]",
+    "dZLLd[2][1]",
+    "dZLL[2][1]",
+    "dZLLd[2][2]",
+    "dZLL[2][2]",
+    "dZLLd[2][3]",
+    "dZLL[2][3]",
+    "dZLLd[3][1]",
+    "dZLL[3][1]",
+    "dZLLd[3][2]",
+    "dZLL[3][2]",
+    "dZLLd[3][3]",
+    "dZLL[3][3]",
+    "dZW",
+    "dYu[1][1]",
+    "dZQLd[1][1]",
+    "dZQLd[2][1]",
+    "dZQLd[3][1]",
+    "dZuR[1][1]",
+    "dZuR[1][2]",
+    "dZuR[1][3]",
+    "dYu[1][2]",
+    "dZuR[2][1]",
+    "dZuR[2][2]",
+    "dZuR[2][3]",
+    "dYu[1][3]",
+    "dZuR[3][1]",
+    "dZuR[3][2]",
+    "dZuR[3][3]",
+    "dYu[2][1]",
+    "dZQLd[1][2]",
+    "dZQLd[2][2]",
+    "dZQLd[3][2]",
+    "dYu[2][2]",
+    "dYu[2][3]",
+    "dYu[3][1]",
+    "dZQLd[1][3]",
+    "dZQLd[2][3]",
+    "dZQLd[3][3]",
+    "dYu[3][2]",
+    "dYu[3][3]",
+    "dZcW",
+    "dYd[1][1]",
+    "dZdR[1][1]",
+    "dZdR[1][2]",
+    "dZdR[1][3]",
+    "dYd[1][2]",
+    "dZdR[2][1]",
+    "dZdR[2][2]",
+    "dZdR[2][3]",
+    "dYd[1][3]",
+    "dZdR[3][1]",
+    "dZdR[3][2]",
+    "dZdR[3][3]",
+    "dYd[2][1]",
+    "dYd[2][2]",
+    "dYd[2][3]",
+    "dYd[3][1]",
+    "dYd[3][2]",
+    "dYd[3][3]",
+    "dYe[1][1]",
+    "dZeR[1][1]",
+    "dZeR[1][2]",
+    "dZeR[1][3]",
+    "dYe[1][2]",
+    "dZeR[2][1]",
+    "dZeR[2][2]",
+    "dZeR[2][3]",
+    "dYe[1][3]",
+    "dZeR[3][1]",
+    "dZeR[3][2]",
+    "dZeR[3][3]",
+    "dYe[2][1]",
+    "dYe[2][2]",
+    "dYe[2][3]",
+    "dYe[3][1]",
+    "dYe[3][2]",
+    "dYe[3][3]",
+    "dYdd[1][1]",
+    "dZdRd[1][1]",
+    "dZdRd[2][1]",
+    "dZdRd[3][1]",
+    "dYdd[1][2]",
+    "dYdd[1][3]",
+    "dYdd[2][1]",
+    "dZdRd[1][2]",
+    "dZdRd[2][2]",
+    "dZdRd[3][2]",
+    "dYdd[2][2]",
+    "dYdd[2][3]",
+    "dYdd[3][1]",
+    "dZdRd[1][3]",
+    "dZdRd[2][3]",
+    "dZdRd[3][3]",
+    "dYdd[3][2]",
+    "dYdd[3][3]",
+    "dYed[1][1]",
+    "dZeRd[1][1]",
+    "dZeRd[2][1]",
+    "dZeRd[3][1]",
+    "dYed[1][2]",
+    "dYed[1][3]",
+    "dYed[2][1]",
+    "dZeRd[1][2]",
+    "dZeRd[2][2]",
+    "dZeRd[3][2]",
+    "dYed[2][2]",
+    "dYed[2][3]",
+    "dYed[3][1]",
+    "dZeRd[1][3]",
+    "dZeRd[2][3]",
+    "dZeRd[3][3]",
+    "dYed[3][2]",
+    "dYed[3][3]",
+    "dg3",
+    "dZGl"
+  ],
+  "normalization_conditions": {
+    "scheme": "MSbar minimal subtraction for every generator",
+    "tadpole": "FJ condition on dv: the counterterm tadpole cancels the one-loop tadpole T_h of FJ_DIRECT_1; recorded as an equation, not a value"
+  },
+  "packet_sha256": "8ab197385af852aef0df20d79ebf46ff2872daa0975b713e385c83f0da578e99",
+  "schema": "renormalization_ct.v1",
+  "st_restoration": {
+    "fixed_by": [
+      "FJ_DIRECT_1",
+      "WARD_ST_NIELSEN_1"
+    ],
+    "linearized_system": "restoration counterterms are the solution of the linearized Slavnov-Taylor identity over the reachable block plus the unreachable complement listed above",
+    "status": "structure_emitted_values_open"
+  },
+  "target": "RENORMALIZATION_ST_1",
+  "uv_poles": {
+    "gauge_sector": {
+      "convention": "d = 4 - 2 eps, MSbar, bare = mu^eps (renormalized + pole series)",
+      "derived_from": "eft_matching_1.gauge_betas (census-derived one-loop coefficients)",
+      "poles": {
+        "dg1": {
+          "coupling_power": 3,
+          "expression": "(41/12) * g^3 / (16*pi^2) * (1/eps)",
+          "pole_coefficient": "41/12",
+          "source_beta": "b1"
+        },
+        "dg2": {
+          "coupling_power": 3,
+          "expression": "(-19/12) * g^3 / (16*pi^2) * (1/eps)",
+          "pole_coefficient": "-19/12",
+          "source_beta": "b2"
+        },
+        "dg3": {
+          "coupling_power": 3,
+          "expression": "(-7/2) * g^3 / (16*pi^2) * (1/eps)",
+          "pole_coefficient": "-7/2",
+          "source_beta": "b3"
+        }
+      }
+    },
+    "open_pole_values": {
+      "fixed_by": "FJ_DIRECT_1",
+      "generators": [
+        "dYd[1][1]",
+        "dYd[1][2]",
+        "dYd[1][3]",
+        "dYd[2][1]",
+        "dYd[2][2]",
+        "dYd[2][3]",
+        "dYd[3][1]",
+        "dYd[3][2]",
+        "dYd[3][3]",
+        "dYdd[1][1]",
+        "dYdd[1][2]",
+        "dYdd[1][3]",
+        "dYdd[2][1]",
+        "dYdd[2][2]",
+        "dYdd[2][3]",
+        "dYdd[3][1]",
+        "dYdd[3][2]",
+        "dYdd[3][3]",
+        "dYe[1][1]",
+        "dYe[1][2]",
+        "dYe[1][3]",
+        "dYe[2][1]",
+        "dYe[2][2]",
+        "dYe[2][3]",
+        "dYe[3][1]",
+        "dYe[3][2]",
+        "dYe[3][3]",
+        "dYed[1][1]",
+        "dYed[1][2]",
+        "dYed[1][3]",
+        "dYed[2][1]",
+        "dYed[2][2]",
+        "dYed[2][3]",
+        "dYed[3][1]",
+        "dYed[3][2]",
+        "dYed[3][3]",
+        "dYu[1][1]",
+        "dYu[1][2]",
+        "dYu[1][3]",
+        "dYu[2][1]",
+        "dYu[2][2]",
+        "dYu[2][3]",
+        "dYu[3][1]",
+        "dYu[3][2]",
+        "dYu[3][3]",
+        "dYud[1][1]",
+        "dYud[1][2]",
+        "dYud[1][3]",
+        "dYud[2][1]",
+        "dYud[2][2]",
+        "dYud[2][3]",
+        "dYud[3][1]",
+        "dYud[3][2]",
+        "dYud[3][3]",
+        "dZB",
+        "dZGl",
+        "dZH",
+        "dZLL[1][1]",
+        "dZLL[1][2]",
+        "dZLL[1][3]",
+        "dZLL[2][1]",
+        "dZLL[2][2]",
+        "dZLL[2][3]",
+        "dZLL[3][1]",
+        "dZLL[3][2]",
+        "dZLL[3][3]",
+        "dZLLd[1][1]",
+        "dZLLd[1][2]",
+        "dZLLd[1][3]",
+        "dZLLd[2][1]",
+        "dZLLd[2][2]",
+        "dZLLd[2][3]",
+        "dZLLd[3][1]",
+        "dZLLd[3][2]",
+        "dZLLd[3][3]",
+        "dZQL[1][1]",
+        "dZQL[1][2]",
+        "dZQL[1][3]",
+        "dZQL[2][1]",
+        "dZQL[2][2]",
+        "dZQL[2][3]",
+        "dZQL[3][1]",
+        "dZQL[3][2]",
+        "dZQL[3][3]",
+        "dZQLd[1][1]",
+        "dZQLd[1][2]",
+        "dZQLd[1][3]",
+        "dZQLd[2][1]",
+        "dZQLd[2][2]",
+        "dZQLd[2][3]",
+        "dZQLd[3][1]",
+        "dZQLd[3][2]",
+        "dZQLd[3][3]",
+        "dZW",
+        "dZcB",
+        "dZcW",
+        "dZdR[1][1]",
+        "dZdR[1][2]",
+        "dZdR[1][3]",
+        "dZdR[2][1]",
+        "dZdR[2][2]",
+        "dZdR[2][3]",
+        "dZdR[3][1]",
+        "dZdR[3][2]",
+        "dZdR[3][3]",
+        "dZdRd[1][1]",
+        "dZdRd[1][2]",
+        "dZdRd[1][3]",
+        "dZdRd[2][1]",
+        "dZdRd[2][2]",
+        "dZdRd[2][3]",
+        "dZdRd[3][1]",
+        "dZdRd[3][2]",
+        "dZdRd[3][3]",
+        "dZeR[1][1]",
+        "dZeR[1][2]",
+        "dZeR[1][3]",
+        "dZeR[2][1]",
+        "dZeR[2][2]",
+        "dZeR[2][3]",
+        "dZeR[3][1]",
+        "dZeR[3][2]",
+        "dZeR[3][3]",
+        "dZeRd[1][1]",
+        "dZeRd[1][2]",
+        "dZeRd[1][3]",
+        "dZeRd[2][1]",
+        "dZeRd[2][2]",
+        "dZeRd[2][3]",
+        "dZeRd[3][1]",
+        "dZeRd[3][2]",
+        "dZeRd[3][3]",
+        "dZuR[1][1]",
+        "dZuR[1][2]",
+        "dZuR[1][3]",
+        "dZuR[2][1]",
+        "dZuR[2][2]",
+        "dZuR[2][3]",
+        "dZuR[3][1]",
+        "dZuR[3][2]",
+        "dZuR[3][3]",
+        "dZuRd[1][1]",
+        "dZuRd[1][2]",
+        "dZuRd[1][3]",
+        "dZuRd[2][1]",
+        "dZuRd[2][2]",
+        "dZuRd[2][3]",
+        "dZuRd[3][1]",
+        "dZuRd[3][2]",
+        "dZuRd[3][3]",
+        "dlam",
+        "dmu2",
+        "dv"
+      ],
+      "statement": "every non-gauge pole value is a declared unknown; this packet refuses numeric assignments without a FJ_DIRECT_1 receipt"
+    }
+  },
+  "work_order_discharge": {
+    "item_1_bmhv_freeze": "closed_by_declaration",
+    "item_2_bare_substitution": "closed_for_the_record_table__external_sources_open",
+    "item_3_first_order_no_hand_entry": "closed",
+    "item_4_uv_poles": "gauge_sector_derived__remaining_values_open",
+    "item_5_st_restoration": "structure_emitted__values_open",
+    "item_6_rank_nullspace_normalization": "closed"
+  }
+}
