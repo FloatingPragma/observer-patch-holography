@@ -1,0 +1,156 @@
+{
+  "bounded_exit": "classification_landed_with_named_selection_interface",
+  "claim_boundary": "The closure clause is met on its stated branches: the seam grammar is selected by the measured central column (pinned), the refinement transport is classified by the pinned identity persistence, and the representation on realized matter is classified exactly through the charge characters, with every pinned mechanism row classified by its induced module action. Physical selection of one sector mechanism as the matter action stays a named conditional open interface on the physical family chain; no target value enters any computation.",
+  "controls": {
+    "charge_mutation": {
+      "code": "MODULE_SIZE",
+      "expected_failure": true,
+      "failed": true
+    },
+    "selection_promotion": {
+      "code": "SELECTION_PROMOTION",
+      "expected_failure": true,
+      "failed": true
+    },
+    "seven_injection": {
+      "code": "SEVEN_EXCLUDED",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "grammar_selection": {
+    "excluded": "Z7 (no faithful complete realization); the order-six menu is exhaustive for cyclic candidates",
+    "selected_group": "Z6",
+    "selection_source": "the measured order-six central column of the routed-seam receipt, pinned through the #624 complete coefficient lift",
+    "target_free": true
+  },
+  "issue": 627,
+  "manifest_sha256": "sha256:a722f9c9de37682516bed694517fcbf6699662e6e3be05696dca9fe18428d7c0",
+  "matter_action_interface": {
+    "class": "conditional_open_interface",
+    "id": "physical_sector_mechanism_selection",
+    "statement": "one admitted sector mechanism acts as the physical matter action; selection requires the physical family-chain receipts and is refused without them"
+  },
+  "mechanism_classification": {
+    "rows": [
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z2 -> 1",
+        "realized_module_action": {
+          "faithful_on_module": true,
+          "fixed_subspace_dimension": 7,
+          "through": "charge characters modulo 2"
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z3 -> 1",
+        "realized_module_action": {
+          "faithful_on_module": true,
+          "fixed_subspace_dimension": 3,
+          "through": "charge characters modulo 3"
+        }
+      },
+      {
+        "classification": "noncontractible_pi2_sector_admitted",
+        "contractible": false,
+        "module": "Z6 -> 1",
+        "realized_module_action": {
+          "faithful_on_module": true,
+          "fixed_subspace_dimension": 1,
+          "through": "charge characters modulo 6"
+        }
+      },
+      {
+        "classification": "contractible_no_sector",
+        "contractible": true,
+        "module": "id: S3 -> S3",
+        "realized_module_action": {
+          "reading": "a contractible mechanism carries no sector to act",
+          "through": "none"
+        }
+      },
+      {
+        "classification": "flat_pi1_gauge_trivial_no_sector",
+        "contractible": false,
+        "module": "Z2 -> Z4 (doubling)",
+        "realized_module_action": {
+          "reading": "the pinned row carries no central coefficient order (pi_2 is trivial and the flat pi_1 part is gauge-trivial on the simply connected nerve), so no charge character acts",
+          "through": "none"
+        }
+      }
+    ],
+    "statement": "every admitted mechanism is classified by its induced action on the realized module; the admitted noncontractible sectors with coefficient order dividing six act through the exact charge characters, and no other central action is induced"
+  },
+  "module_action_classification": {
+    "states": [
+      {
+        "hypercharge": "-1/2",
+        "multiplicity": 2,
+        "q6": 3
+      },
+      {
+        "hypercharge": "-2/3",
+        "multiplicity": 3,
+        "q6": 2
+      },
+      {
+        "hypercharge": "1",
+        "multiplicity": 1,
+        "q6": 0
+      },
+      {
+        "hypercharge": "1/3",
+        "multiplicity": 3,
+        "q6": 2
+      },
+      {
+        "hypercharge": "1/6",
+        "multiplicity": 6,
+        "q6": 1
+      }
+    ],
+    "subgroup_actions": [
+      {
+        "faithful_on_module": false,
+        "fixed_subspace_dimension": 15,
+        "subgroup_order": 1
+      },
+      {
+        "faithful_on_module": true,
+        "fixed_subspace_dimension": 7,
+        "subgroup_order": 2
+      },
+      {
+        "faithful_on_module": true,
+        "fixed_subspace_dimension": 3,
+        "subgroup_order": 3
+      },
+      {
+        "faithful_on_module": true,
+        "fixed_subspace_dimension": 1,
+        "subgroup_order": 6
+      }
+    ]
+  },
+  "refinement_transport": {
+    "classification": "the persistence maps act on the port set bijectively at every measured level, so the selected grammar and the classified module action transport identically along refinement",
+    "pin": {
+      "path": "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+      "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
+    }
+  },
+  "schema": "oph.seam_grammar_matter_classification_certificate.v1",
+  "upstream_pins": {
+    "matter_receipt": {
+      "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+    },
+    "seam_classification_receipt": {
+      "path": "code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json",
+      "sha256": "9bb64b064c7a41ec400cc2c17bb9faa42951c57e7227e3d7600672f8b9729de2"
+    }
+  }
+}
