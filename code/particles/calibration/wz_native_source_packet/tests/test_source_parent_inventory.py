@@ -104,7 +104,7 @@ def test_committed_inventory_passes_independent_resolution() -> None:
     )
     assert result["status"] == "PASS"
     assert result["positive_parent_count"] == 4
-    assert result["conditional_context_count"] == 1
+    assert result["conditional_context_count"] == 6
     assert result["promotion_allowed"] is False
 
 
@@ -231,6 +231,75 @@ def test_family_open_receipts_are_load_bearing(tmp_path: Path) -> None:
         )
 
 
+@pytest.mark.parametrize(
+    ("role", "field", "forged_value", "match"),
+    [
+        (
+            "scalar_yukawa_source_frontier",
+            "promotion_allowed",
+            True,
+            "#630 frontier promoted itself",
+        ),
+        (
+            "source_clock_frontier",
+            "physical_promotion_allowed",
+            True,
+            "#633 frontier fabricated",
+        ),
+    ],
+)
+def test_partial_frontier_promotions_fail_closed(
+    tmp_path: Path,
+    role: str,
+    field: str,
+    forged_value,
+    match: str,
+) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    binding = next(item for item in inventory["conditional_context"] if item["role"] == role)
+    relative = binding["files"][0]["path"]
+    path = sealed_root / relative
+    frontier = json.loads(path.read_text(encoding="utf-8"))
+    frontier[field] = forged_value
+    write_json(path, frontier)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(checker.FrontierVerificationError, match=match):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_local_carrier_physical_promotion_fails_closed(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    binding = next(
+        item
+        for item in inventory["conditional_context"]
+        if item["role"] == "local_ew_order_unit_frontier"
+    )
+    relative = binding["files"][0]["path"]
+    path = sealed_root / relative
+    frontier = json.loads(path.read_text(encoding="utf-8"))
+    first_key = next(iter(frontier["promotion"]))
+    frontier["promotion"][first_key] = True
+    body = {key: value for key, value in frontier.items() if key != "manifest_sha256"}
+    frontier["manifest_sha256"] = "sha256:" + canonical_sha256(body)
+    write_json(path, frontier)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="#631 finite line isomorphism was given a physical promotion",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
 def test_v_chart_cannot_be_relabelled_v_f() -> None:
     mutated = load_inventory()
     mutated["coordinate_bridge"]["source_coordinate"] = "v_F"
@@ -293,6 +362,18 @@ def test_acceptance_rows_cannot_self_close() -> None:
     mutated["acceptance_map"][0]["blocking_gates"] = []
     rehash_inventory(mutated)
     assert_rejected(mutated, "schema validation|overpromoted")
+
+
+def test_acceptance_row_nine_cannot_drop_a_native_action_gate() -> None:
+    mutated = load_inventory()
+    row = next(
+        item
+        for item in mutated["acceptance_map"]
+        if item["acceptance_index"] == 9
+    )
+    row["blocking_gates"].remove("full_yukawa_operator_and_coefficients")
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "acceptance row 9 lost")
 
 
 def test_inventory_digest_is_load_bearing() -> None:

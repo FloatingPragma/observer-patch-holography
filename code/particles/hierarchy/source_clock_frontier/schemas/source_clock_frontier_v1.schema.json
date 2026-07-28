@@ -1,0 +1,805 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.local/schemas/source_clock_frontier_v1.schema.json",
+  "title": "OPH source-clock non-promoting frontier",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rational_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lower",
+        "upper"
+      ],
+      "properties": {
+        "lower": {
+          "type": "string",
+          "pattern": "^-?[0-9]+/[0-9]+$"
+        },
+        "upper": {
+          "type": "string",
+          "pattern": "^-?[0-9]+/[0-9]+$"
+        }
+      }
+    },
+    "file_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "path",
+        "expected_artifact",
+        "expected_status",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256",
+        "source_ancestry_allowed"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^code/"
+        },
+        "expected_artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_ancestry_allowed": {
+          "const": false
+        }
+      }
+    },
+    "component_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component_id",
+        "label",
+        "owner_issues",
+        "current_status",
+        "required_fields"
+      ],
+      "properties": {
+        "component_id": {
+          "enum": [
+            "R_U",
+            "R_alpha",
+            "R_e_abs",
+            "R_QCD_nuc_133Cs",
+            "R_atom_133Cs"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_issues": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "current_status": {
+          "enum": [
+            "conditional_declared_packet_not_physical",
+            "absent",
+            "synthetic_theorem_fixture_only"
+          ]
+        },
+        "required_fields": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "source_map",
+              "positive_interval",
+              "scheme",
+              "refinement_rule",
+              "provenance_dag",
+              "target_clean_receipt"
+            ]
+          }
+        }
+      }
+    },
+    "candidate_route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_id",
+        "label",
+        "status",
+        "required_for_issue_633",
+        "owner_issues",
+        "component_contracts"
+      ],
+      "properties": {
+        "route_id": {
+          "const": "cesium_133_hyperfine"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "optional_incomplete_candidate_not_hard_dependency"
+        },
+        "required_for_issue_633": {
+          "const": false
+        },
+        "owner_issues": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 32
+            },
+            {
+              "const": 34
+            },
+            {
+              "const": 317
+            },
+            {
+              "const": 318
+            },
+            {
+              "const": 425
+            },
+            {
+              "const": 522
+            },
+            {
+              "const": 545
+            },
+            {
+              "const": 546
+            },
+            {
+              "const": 569
+            },
+            {
+              "const": 633
+            }
+          ],
+          "minItems": 10,
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "component_contracts": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/component_contract"
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gate_id",
+        "owner_issues"
+      ],
+      "properties": {
+        "gate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_issues": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "dag_node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "class",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "class": {
+          "enum": [
+            "optional_candidate_component",
+            "open_gate",
+            "diagnostic_non_source",
+            "downstream_open_composition",
+            "blocked_candidate_output",
+            "blocked_output",
+            "exact_unit_definition"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dag_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "acceptance_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "acceptance_index",
+        "status",
+        "summary"
+      ],
+      "properties": {
+        "acceptance_index": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        "status": {
+          "enum": [
+            "open",
+            "partial_contract_only",
+            "partial_reduction_only",
+            "partial_boundary_enforced",
+            "partial_fail_closed_gate"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "issue",
+    "status",
+    "claim_boundary",
+    "policy_pin",
+    "dependency_semantics",
+    "candidate_routes",
+    "source_payloads",
+    "diagnostic_reference_pins",
+    "target_firewall",
+    "exact_unit_chart",
+    "interval_inversion_receipt",
+    "open_gates",
+    "downstream_consumers",
+    "provenance_dag",
+    "acceptance_progress",
+    "dimensionless_clock_gap_emitted",
+    "source_energy_interval_emitted",
+    "source_g_si_interval_emitted",
+    "physical_promotion_allowed",
+    "checks",
+    "checks_pass",
+    "frontier_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "oph.source_clock.frontier.v1"
+    },
+    "issue": {
+      "const": 633
+    },
+    "status": {
+      "const": "NONPROMOTING_ROUTE_NEUTRAL_CONTRACT__PHYSICAL_CLOCK_ATTACHMENT_OPEN"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "code/particles/hierarchy/source_clock_frontier/data/source_clock_policy_v1.json"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "dependency_semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hard_issue_dependencies",
+        "alternative_routes_allowed",
+        "optional_route_owner_issues",
+        "downstream_only_issues"
+      ],
+      "properties": {
+        "hard_issue_dependencies": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 634
+            }
+          ],
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true
+        },
+        "alternative_routes_allowed": {
+          "const": true
+        },
+        "optional_route_owner_issues": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 32
+            },
+            {
+              "const": 34
+            },
+            {
+              "const": 317
+            },
+            {
+              "const": 318
+            },
+            {
+              "const": 425
+            },
+            {
+              "const": 522
+            },
+            {
+              "const": 545
+            },
+            {
+              "const": 546
+            },
+            {
+              "const": 569
+            },
+            {
+              "const": 633
+            }
+          ],
+          "minItems": 10,
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "downstream_only_issues": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 334
+            }
+          ],
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "candidate_routes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "$ref": "#/$defs/candidate_route"
+      }
+    },
+    "source_payloads": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "diagnostic_reference_pins": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/$defs/file_pin"
+      }
+    },
+    "target_firewall": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_input_paths",
+        "source_payload_count",
+        "forbidden_source_tokens",
+        "forbidden_source_token_hits",
+        "diagnostic_paths",
+        "diagnostics_excluded_from_source_ancestry",
+        "exact_si_definitions_source_selection_allowed",
+        "exact_si_definitions_final_unit_chart_allowed",
+        "pass"
+      ],
+      "properties": {
+        "source_input_paths": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "code/particles/hierarchy/source_clock_frontier/data/source_clock_policy_v1.json"
+            }
+          ],
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "source_payload_count": {
+          "const": 0
+        },
+        "forbidden_source_tokens": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden_source_token_hits": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "diagnostic_paths": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "pattern": "^code/"
+          }
+        },
+        "diagnostics_excluded_from_source_ancestry": {
+          "const": true
+        },
+        "exact_si_definitions_source_selection_allowed": {
+          "const": false
+        },
+        "exact_si_definitions_final_unit_chart_allowed": {
+          "const": true
+        },
+        "pass": {
+          "const": true
+        }
+      }
+    },
+    "exact_unit_chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "h_J_s",
+        "nu_Cs_Hz",
+        "GeV_J",
+        "c_m_s",
+        "source_selection_input",
+        "physical_clock_gap_input_present"
+      ],
+      "properties": {
+        "status": {
+          "const": "exact_si_definitions_for_final_attachment_only"
+        },
+        "h_J_s": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$"
+        },
+        "nu_Cs_Hz": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$"
+        },
+        "GeV_J": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$"
+        },
+        "c_m_s": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$"
+        },
+        "source_selection_input": {
+          "const": false
+        },
+        "physical_clock_gap_input_present": {
+          "const": false
+        }
+      }
+    },
+    "interval_inversion_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theorem_id",
+        "statement",
+        "arithmetic_domain",
+        "synthetic_fixture_only",
+        "physical_application_input_present",
+        "epsilon_interval",
+        "energy_interval_J",
+        "energy_interval_GeV",
+        "checks",
+        "checks_pass"
+      ],
+      "properties": {
+        "theorem_id": {
+          "const": "SOURCE_CLOCK_POSITIVE_INTERVAL_INVERSION"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arithmetic_domain": {
+          "const": "exact_rationals"
+        },
+        "synthetic_fixture_only": {
+          "const": true
+        },
+        "physical_application_input_present": {
+          "const": false
+        },
+        "epsilon_interval": {
+          "$ref": "#/$defs/rational_interval"
+        },
+        "energy_interval_J": {
+          "$ref": "#/$defs/rational_interval"
+        },
+        "energy_interval_GeV": {
+          "$ref": "#/$defs/rational_interval"
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "positive_input_interval",
+            "lower_endpoint_is_reversed_upper_input",
+            "upper_endpoint_is_reversed_lower_input",
+            "joule_interval_ordered",
+            "gev_conversion_exact_at_lower",
+            "gev_conversion_exact_at_upper"
+          ],
+          "properties": {
+            "positive_input_interval": {
+              "const": true
+            },
+            "lower_endpoint_is_reversed_upper_input": {
+              "const": true
+            },
+            "upper_endpoint_is_reversed_lower_input": {
+              "const": true
+            },
+            "joule_interval_ordered": {
+              "const": true
+            },
+            "gev_conversion_exact_at_lower": {
+              "const": true
+            },
+            "gev_conversion_exact_at_upper": {
+              "const": true
+            }
+          }
+        },
+        "checks_pass": {
+          "const": true
+        }
+      }
+    },
+    "open_gates": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/gate"
+      }
+    },
+    "downstream_consumers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "issue",
+          "role",
+          "required_input",
+          "possible_output",
+          "status"
+        ],
+        "properties": {
+          "issue": {
+            "const": 334
+          },
+          "role": {
+            "const": "newton_g_composition"
+          },
+          "required_input": {
+            "const": "source_energy_interval"
+          },
+          "possible_output": {
+            "const": "source_g_si_interval"
+          },
+          "status": {
+            "const": "downstream_open_not_issue_633_acceptance_gate"
+          }
+        }
+      }
+    },
+    "provenance_dag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes",
+        "edges",
+        "protected_outputs",
+        "diagnostic_to_protected_paths",
+        "optional_candidate_to_generic_paths",
+        "acyclic"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 12,
+          "items": {
+            "$ref": "#/$defs/dag_node"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "minItems": 9,
+          "items": {
+            "$ref": "#/$defs/dag_edge"
+          }
+        },
+        "protected_outputs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "diagnostic_to_protected_paths": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "optional_candidate_to_generic_paths": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "acyclic": {
+          "const": true
+        }
+      }
+    },
+    "acceptance_progress": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "$ref": "#/$defs/acceptance_row"
+      }
+    },
+    "dimensionless_clock_gap_emitted": {
+      "const": false
+    },
+    "source_energy_interval_emitted": {
+      "const": false
+    },
+    "source_g_si_interval_emitted": {
+      "const": false
+    },
+    "physical_promotion_allowed": {
+      "const": false
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_neutral_dependency_semantics_exact",
+        "optional_candidate_contract_complete",
+        "optional_candidate_disconnected_from_generic_gap",
+        "source_payloads_absent",
+        "diagnostics_excluded_from_source_ancestry",
+        "target_firewall_pass",
+        "interval_inversion_exact",
+        "all_physical_outputs_blocked"
+      ],
+      "properties": {
+        "route_neutral_dependency_semantics_exact": {
+          "const": true
+        },
+        "optional_candidate_contract_complete": {
+          "const": true
+        },
+        "optional_candidate_disconnected_from_generic_gap": {
+          "const": true
+        },
+        "source_payloads_absent": {
+          "const": true
+        },
+        "diagnostics_excluded_from_source_ancestry": {
+          "const": true
+        },
+        "target_firewall_pass": {
+          "const": true
+        },
+        "interval_inversion_exact": {
+          "const": true
+        },
+        "all_physical_outputs_blocked": {
+          "const": true
+        }
+      }
+    },
+    "checks_pass": {
+      "const": true
+    },
+    "frontier_digest": {
+      "$ref": "#/$defs/sha256"
+    }
+  }
+}

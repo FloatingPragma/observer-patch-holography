@@ -1,0 +1,115 @@
+{
+  "schema": "oph.source_rg_policy.v1",
+  "issue": 32,
+  "claim_lane": "OPH_NATIVE_RG_REPRESENTATION_FRONTIER",
+  "source_inputs": [
+    {
+      "issue": 314,
+      "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "role": "finite_matter_representation",
+      "status": "positive_finite_parent",
+      "usable_exports": [
+        "rank-fifteen chiral matter module up to charge conjugation",
+        "exact field dimensions and hypercharges",
+        "finite anomaly and Spin typing"
+      ],
+      "excluded_promotions": [
+        "continuum quantum field theory",
+        "family multiplicity",
+        "scalar existence or multiplicity",
+        "kinetic normalization",
+        "particle masses"
+      ]
+    },
+    {
+      "issue": 567,
+      "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+      "role": "global_charge_lattice",
+      "status": "positive_finite_parent",
+      "usable_exports": [
+        "diagonal Z6 global form",
+        "hypercharge convention and common kernel"
+      ],
+      "excluded_promotions": [
+        "continuum local action",
+        "renormalization scheme",
+        "threshold spectrum"
+      ]
+    },
+    {
+      "issues": [
+        616,
+        617
+      ],
+      "path": "code/a5_closure/manifests/multiplicity_window_reference.json",
+      "role": "mandatory_multiplicity_countermodels",
+      "status": "bounded_negative_boundary",
+      "usable_exports": [
+        "family counts three, four, and five survive the registered in-window reduct",
+        "zero, duplicate, and inert scalar-doublet completions survive the registered grammar"
+      ],
+      "excluded_promotions": [
+        "physical family count",
+        "physical scalar count"
+      ]
+    },
+    {
+      "issue": 569,
+      "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+      "role": "conditional_rank_three_screen_context",
+      "status": "conditional_context_only",
+      "usable_exports": [
+        "exact rank-three screen-band arithmetic",
+        "one-generation representation table copied from the finite matter packet"
+      ],
+      "excluded_promotions": [
+        "physical matter-pole attachment",
+        "physical three-family identification",
+        "flavor or Yukawa operator",
+        "laboratory current"
+      ]
+    }
+  ],
+  "imported_qft_premises": [
+    {
+      "id": "standard_4d_one_loop_gauge_beta_functional",
+      "status": "imported_not_derived_from_A1_A3",
+      "formula": "b=-(11/3)C2(G)+(2/3)sum_Weyl T(R)+(1/3)sum_complex_scalar T(R)",
+      "convention": "d g_i/d ln(mu)=b_i g_i^3/(16 pi^2)",
+      "required_but_open_native_parents": [
+        "continuum local QFT action",
+        "canonical gauge kinetic normalization",
+        "complete active field census"
+      ]
+    }
+  ],
+  "target_firewall": {
+    "allowed_source_roots": [
+      "code/a5_closure/manifests",
+      "code/a5_closure/receipts"
+    ],
+    "forbidden_source_paths": [
+      "code/particles/calibration/wz_pdg_2026_target_fixture.json",
+      "code/particles/data/particle_reference_values.json",
+      "code/particles/calibration/wz_upstream_completion/outputs/eft_matching_1.json",
+      "code/particles/runs/calibration/boson_source_prediction_closure_audit.json",
+      "code/particles/runs/status/postdiction_ledger.json"
+    ],
+    "forbidden_structured_tokens": [
+      "experimental_target",
+      "measured_wz_targets",
+      "w_mass_running_width",
+      "z_mass_running_width",
+      "measured_weak_mixing",
+      "g_f",
+      "m_w_gev",
+      "m_z_gev",
+      "wz_pdg_2026_target_fixture"
+    ]
+  },
+  "consumer": {
+    "issue": 594,
+    "work_item": "P594-07",
+    "status_after_this_frontier": "partial_beta_provenance_only"
+  }
+}

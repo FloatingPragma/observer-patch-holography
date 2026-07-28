@@ -10,37 +10,66 @@ an OPH theorem.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
 
 
 DEFAULT_OUT = Path(__file__).resolve().parent / "runtime" / "rg_matching_threshold_contract_current.json"
-
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+FRONTIER = (
+    Path(__file__).resolve().parent
+    / "source_rg_frontier"
+    / "outputs"
+    / "rg_representation_frontier.json"
+)
 
 
 def build_contract() -> dict[str, Any]:
+    frontier_raw = FRONTIER.read_bytes()
+    frontier = json.loads(frontier_raw)
+    if frontier.get("status") != "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN":
+        raise ValueError("the source RG frontier is missing or has an unsafe status")
+    frontier_ref = {
+        "path": FRONTIER.relative_to(Path(__file__).resolve().parent.parent).as_posix(),
+        "bytes": len(frontier_raw),
+        "byte_sha256": hashlib.sha256(frontier_raw).hexdigest(),
+        "subject_digest": frontier["subject_digest"],
+        "status": frontier["status"],
+    }
     return {
         "artifact": "oph_rg_matching_threshold_contract",
-        "generated_utc": _now_utc(),
         "github_issue": 32,
-        "status": "closed_declared_convention_contract_not_rg_matching_theorem",
+        "status": "open_source_rg_frontier_partial",
         "promotion_allowed": False,
-        "github_issue_state": "closed",
+        "github_issue_state": "open",
+        "github_dependencies": [569, 630, 631, 632, 634],
+        "source_frontier": frontier_ref,
         "worker_result_policy": {
-            "obstruction_only_result_allowed": False,
-            "required_if_primary_route_fails": (
-                "emit a smaller scheme-lock, threshold-map, beta-provenance, or interval-composition artifact"
+            "partial_frontier_allowed": True,
+            "closure_requires_complete_source_packet": True,
+            "next_constructive_slice": (
+                "build the generic ordered-interval, map, Jacobian, mask, and "
+                "vector-remainder engine without claiming source threshold inputs"
             ),
         },
         "constructive_objects": [
             {
+                "id": "representation_index_frontier",
+                "kind": "source_bound_exact_precursor",
+                "current_status": "complete_at_finite_representation_scope",
+                "source_artifact": frontier_ref["path"],
+                "boundary": (
+                    "The per-copy quadratic indices are exact. The standard "
+                    "four-dimensional one-loop beta functional is imported, "
+                    "family/scalar multiplicities are not source-selected, "
+                    "and zero gauge indices do not prove full W/Z decoupling."
+                ),
+            },
+            {
                 "id": "scheme_lock",
                 "kind": "certificate_interface",
+                "current_status": "not_emitted",
                 "target_status": "one_scheme_used_by_unification_anchor_endpoint_and_mass_readouts",
                 "required_fields": [
                     "renormalization_scheme",
@@ -53,7 +82,8 @@ def build_contract() -> dict[str, Any]:
             {
                 "id": "threshold_map",
                 "kind": "builder_interface",
-                "target_status": "source_emitted_threshold_placements_or_declared_conventions",
+                "current_status": "not_emitted",
+                "target_status": "source_emitted_threshold_placements_and_decoupling_maps",
                 "required_fields": [
                     "particle_thresholds",
                     "superpartner_or_effective_thresholds",
@@ -65,7 +95,8 @@ def build_contract() -> dict[str, Any]:
             {
                 "id": "beta_provenance_table",
                 "kind": "audit_table",
-                "target_status": "every_beta_coefficient_is_oph_derived_declared_or_borrowed",
+                "current_status": "partial_parametric_gauge_one_loop_only",
+                "target_status": "complete source-derived vector beta provenance at every interval",
                 "required_fields": [
                     "gauge_group",
                     "matter_content",
@@ -78,6 +109,7 @@ def build_contract() -> dict[str, Any]:
             {
                 "id": "matching_interval_composition_certificate",
                 "kind": "certificate_interface",
+                "current_status": "not_emitted",
                 "target_status": "interval_bound_for_composed_running_map",
                 "required_fields": [
                     "input_intervals",
@@ -90,27 +122,35 @@ def build_contract() -> dict[str, Any]:
             },
         ],
         "closure_gate": {
-            "closable_now": True,
-            "closed_as": "declared_convention_contract",
+            "closable_now": False,
+            "closed_as": None,
             "reason": (
-                "The code path has an explicit declared running/matching surface. This closes the "
-                "issue as a declared-convention contract, not as an OPH derivation of every "
-                "coefficient, threshold, and scheme conversion."
+                "The finite source receipts determine exact per-copy representation indices, "
+                "but no target-clean OPH source emits the physical action, family and scalar "
+                "attachments, complete W/Z-coupled census modulo proved zero-vertex "
+                "decoupling, ordered thresholds, finite decoupling and scheme maps, "
+                "Jacobians, masks, or certified vector remainders."
             ),
             "close_issue_when": [
-                "all RG coefficients have source status in beta_provenance_table",
-                "all matching and threshold placements have either OPH derivations or visible declared-convention status",
-                "the composed running map has an interval certificate used by the P fixed-point and particle surfaces",
+                "one target-clean OPH source emits the complete W/Z-coupled active and heavy field census modulo proved zero-vertex decoupling",
+                "the same source emits every ordered interval and threshold location",
+                "finite decoupling and scheme maps, Jacobians, and term masks are executable and independently replayed",
+                "the composed vector running map carries certified deterministic remainders",
+                "no measured electroweak target or external Standard Model packet enters source construction",
             ],
         },
         "local_next_steps": [
-            "Populate beta_provenance_table from the existing D10/D11 builders.",
-            "Split threshold placements into OPH-derived, QFT-borrowed, and declared-convention entries.",
-            "Wire the interval-composition certificate into the compressed P trunk promotion gate.",
+            "Implement a generic exact ordered-interval composition engine while source threshold data remain absent.",
+            "Consume the positive scalar/Yukawa action from #630 when it exists.",
+            "Consume the physical local electroweak carrier from #631 and the coupled-sector census from #632.",
+            "Attach the physical family object from #569 before specializing the parametric beta law.",
+            "Wire a complete independently replayed matching packet into the compressed P trunk only after source closure.",
         ],
         "forbidden_promotions": [
+            "treating_the_conditional_Ng3_NH1_evaluation_as_source_selected",
             "silently_treating_declared_MSSM_running_as_OPH_derived",
             "using_threshold_choices_as_hidden_fit_parameters",
+            "reusing_the_issue_593_external_validation_packet_as_an_OPH_source",
             "promoting_p_closure_root_without_interval_composition_certificate",
         ],
     }

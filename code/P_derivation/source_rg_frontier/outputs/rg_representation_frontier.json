@@ -1,0 +1,370 @@
+{
+  "acceptance_map": [
+    {
+      "criterion": "target_clean_source_emits_complete_matching_packet",
+      "landed": [
+        "target-clean finite representation provenance",
+        "exact parametric one-loop gauge coefficient law under an imported QFT functional",
+        "independent arithmetic replay and non-selection witnesses"
+      ],
+      "missing": [
+        "ordered_eft_intervals",
+        "threshold_locations",
+        "decoupling_maps",
+        "scheme_maps",
+        "jacobians",
+        "finite_order_term_masks",
+        "certified_vector_remainders"
+      ],
+      "status": "open"
+    },
+    {
+      "criterion": "dependencies_imports_and_blockers_explicit",
+      "landed": [
+        "resolved finite-parent hashes",
+        "QFT import boundary",
+        "family, scalar, threshold, and scheme non-selection boundaries"
+      ],
+      "missing": [
+        "positive source action and kinetic normalization",
+        "physical family, scalar, and local carrier attachments",
+        "complete W/Z-coupled census modulo proved zero-vertex decoupling"
+      ],
+      "status": "partial"
+    },
+    {
+      "criterion": "companion_surfaces_aligned",
+      "landed": [
+        "machine contract, P trunk, particle ledgers, completion plan, and issue comments"
+      ],
+      "missing": [
+        "paper prose changes wait for a positive matching theorem"
+      ],
+      "status": "partial"
+    }
+  ],
+  "conditional_evaluations": [
+    {
+      "N_H": 1,
+      "N_g": 3,
+      "coefficients": {
+        "b_2": "-19/6",
+        "b_3": "-7",
+        "b_Y": "41/6"
+      },
+      "gut_normalized_b_1": "41/10",
+      "promotion_allowed": false,
+      "required_open_attachments": [
+        "#634 source-derived local action domain and kinetic normalization",
+        "#569 physical family attachment",
+        "#630 physical scalar/Yukawa action",
+        "#631 local physical screen/electroweak carrier",
+        "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling"
+      ],
+      "status": "conditional_declared_completion_not_OPH_selected"
+    }
+  ],
+  "formal_certificate": {
+    "byte_sha256": "11c46709746ab754b4a4f6e7ab58bd4cdc37b55ea8db8f9f3cb8f625d3f8995e",
+    "bytes": 4048,
+    "path": "Lean/Screen/RGRepresentationFrontier.lean",
+    "scope": "axiom-free rational arithmetic after the imported one-loop QFT functional; no physical multiplicity or matching selection",
+    "theorems": [
+      "representation_indices",
+      "declared_three_one_evaluation",
+      "family_copy_shift",
+      "scalar_copy_shift",
+      "zero_gauge_index_direct_sum_invariance"
+    ]
+  },
+  "invisible_sector_boundary": {
+    "census_rule": "enumerate every W/Z-coupled field and operator; quotient only by summands whose complete interaction and mixing vertices are proved zero",
+    "equivalence_scope": "strict one-loop gauge coefficients modulo direct summands with zero SU(3), SU(2), and U(1) representation indices",
+    "exact_result": {
+      "delta_b_2": "0",
+      "delta_b_3": "0",
+      "delta_b_Y": "0",
+      "status": "proved_after_imported_one_loop_gauge_functional"
+    },
+    "full_WZ_decoupling_proved": false,
+    "missing_for_full_WZ_decoupling": [
+      "source proof of zero Yukawa and scalar vertices",
+      "source proof of zero mass mixing with the retained sector",
+      "all-order or declared-finite-order decoupling map"
+    ],
+    "status": "GAUGE_INDEX_INVARIANCE_PROVED__FULL_WZ_DECOUPLING_OPEN"
+  },
+  "issue": 32,
+  "matching_objects": {
+    "certified_vector_remainders": {
+      "reason": "no source domain, norm, higher-order kernel, or enclosure is emitted",
+      "status": "not_emitted"
+    },
+    "decoupling_maps": {
+      "reason": "no source threshold crossing or heavy-field action is emitted",
+      "status": "not_emitted"
+    },
+    "finite_order_term_masks": {
+      "reason": "the complete action and loop-order source law are absent",
+      "status": "not_emitted"
+    },
+    "jacobians": {
+      "reason": "the finite scheme and threshold maps required for differentiation are absent",
+      "status": "not_emitted"
+    },
+    "ordered_eft_intervals": {
+      "reason": "active light/heavy census and source mass ordering are absent",
+      "status": "not_emitted"
+    },
+    "scheme_maps": {
+      "reason": "no operational renormalization-scheme selector is emitted",
+      "status": "not_emitted"
+    },
+    "threshold_locations": {
+      "reason": "finite parents emit no mass coordinate or physical threshold",
+      "status": "not_emitted"
+    }
+  },
+  "nonidentifiability_witnesses": {
+    "census_nonuniqueness": {
+      "parent_projection_digest": "d713fcd3b986fb3df587db3aa2b4838463f2dfbdd8c9588e109ee205c7e87345",
+      "scope": "registered family and scalar multiplicity interfaces only",
+      "verdict": "current finite reduct does not select a complete beta vector",
+      "witnesses": [
+        {
+          "N_H": 0,
+          "N_g": 3,
+          "coefficients": {
+            "b_2": "-10/3",
+            "b_3": "-7",
+            "b_Y": "20/3"
+          },
+          "physical_selection_status": "not_source_selected",
+          "witness": "zero_scalar_completion"
+        },
+        {
+          "N_H": 1,
+          "N_g": 3,
+          "coefficients": {
+            "b_2": "-19/6",
+            "b_3": "-7",
+            "b_Y": "41/6"
+          },
+          "physical_selection_status": "not_source_selected",
+          "witness": "declared_one_doublet_completion"
+        },
+        {
+          "N_H": 2,
+          "N_g": 3,
+          "coefficients": {
+            "b_2": "-3",
+            "b_3": "-7",
+            "b_Y": "7"
+          },
+          "physical_selection_status": "not_source_selected",
+          "witness": "duplicate_or_inert_doublet_completion"
+        },
+        {
+          "N_H": 1,
+          "N_g": 4,
+          "coefficients": {
+            "b_2": "-11/6",
+            "b_3": "-17/3",
+            "b_Y": "163/18"
+          },
+          "physical_selection_status": "not_source_selected",
+          "witness": "four_family_reduct"
+        },
+        {
+          "N_H": 1,
+          "N_g": 5,
+          "coefficients": {
+            "b_2": "-1/2",
+            "b_3": "-13/3",
+            "b_Y": "203/18"
+          },
+          "physical_selection_status": "not_source_selected",
+          "witness": "five_family_reduct"
+        }
+      ]
+    },
+    "coordinate_nonuniqueness": {
+      "finite_scheme_redefinitions": [
+        {
+          "c": "0",
+          "id": "identity",
+          "jacobian_at_origin": "1",
+          "map": "g'=g+0*g^3+O(g^5)"
+        },
+        {
+          "c": "1/8",
+          "id": "cubic_shift",
+          "jacobian_at_origin": "1",
+          "map": "g'=g+(1/8)*g^3+O(g^5)"
+        }
+      ],
+      "higher_order_coefficients_and_finite_matching_not_selected": true,
+      "one_loop_coefficient_invariant": true,
+      "parent_projection_digest": "d713fcd3b986fb3df587db3aa2b4838463f2dfbdd8c9588e109ee205c7e87345",
+      "verdict": "finite parents do not select scheme maps or higher-loop coordinates"
+    },
+    "threshold_nonuniqueness": {
+      "abstract_extension_witnesses": [
+        {
+          "dimensionless_mass_parameters": [
+            "m",
+            "2*m"
+          ],
+          "id": "mass_assignment_A"
+        },
+        {
+          "dimensionless_mass_parameters": [
+            "2*m",
+            "m"
+          ],
+          "id": "mass_assignment_B"
+        }
+      ],
+      "parent_projection_digest": "d713fcd3b986fb3df587db3aa2b4838463f2dfbdd8c9588e109ee205c7e87345",
+      "physical_threshold_claim": false,
+      "verdict": "the finite representation reduct contains no mass coordinate and therefore emits no threshold location or ordering"
+    }
+  },
+  "parametric_one_loop_law": {
+    "coefficients": {
+      "b_2": "-22/3 + (4/3) N_g + (1/6) N_H",
+      "b_3": "-11 + (4/3) N_g",
+      "b_Y": "(20/9) N_g + (1/6) N_H"
+    },
+    "convention": "d g_i/d ln(mu)=b_i g_i^3/(16 pi^2)",
+    "gut_normalization": {
+      "relation": "b_1_GUT=(3/5)b_Y",
+      "status": "derived_conversion_not_the_active_convention"
+    },
+    "hypercharge_normalization": "SM gprime convention with q=6Y",
+    "imported_functional": "b=-(11/3)C2(G)+(2/3)sum_Weyl T(R)+(1/3)sum_complex_scalar T(R)",
+    "opposite_sign_warning": "Some OPH receipts print B_i=-b_i when testing asymptotic freedom.",
+    "status": "exact_after_imported_one_loop_QFT_functional",
+    "variables": {
+      "N_H": "number of complex color-singlet weak doublets with |Y|=1/2; source selection open",
+      "N_g": "number of rank-fifteen matter copies; source selection open"
+    }
+  },
+  "promotion_allowed": false,
+  "qft_import_boundary": {
+    "convention": "d g_i/d ln(mu)=b_i g_i^3/(16 pi^2)",
+    "external_593_packet_consumed": false,
+    "formula": "b=-(11/3)C2(G)+(2/3)sum_Weyl T(R)+(1/3)sum_complex_scalar T(R)",
+    "id": "standard_4d_one_loop_gauge_beta_functional",
+    "oph_native_one_loop_beta_theorem": false,
+    "required_but_open_native_parents": [
+      "continuum local QFT action",
+      "canonical gauge kinetic normalization",
+      "complete active field census"
+    ],
+    "status": "imported_not_derived_from_A1_A3"
+  },
+  "representation_indices": {
+    "conditional_scalar_doublet": {
+      "absolute_hypercharge": "1/2",
+      "color_dimension": 1,
+      "status": "representation_exact_if_present__existence_and_count_not_selected",
+      "sum_complex_scalar_T_SU2": "1/2",
+      "sum_complex_scalar_T_SU3": "0",
+      "sum_complex_scalar_dim3_dim2_Y2": "1/2",
+      "weak_dimension": 2
+    },
+    "matter_copy": {
+      "charge_conjugation_invariant": true,
+      "rank": 15,
+      "states": [
+        {
+          "color_dimension": 1,
+          "hypercharge": "-1/2",
+          "label": "L",
+          "weak_dimension": 2,
+          "weyl_multiplicity": 2
+        },
+        {
+          "color_dimension": 3,
+          "hypercharge": "1/6",
+          "label": "Q",
+          "weak_dimension": 2,
+          "weyl_multiplicity": 6
+        },
+        {
+          "color_dimension": 3,
+          "hypercharge": "1/3",
+          "label": "d_c",
+          "weak_dimension": 1,
+          "weyl_multiplicity": 3
+        },
+        {
+          "color_dimension": 1,
+          "hypercharge": "1",
+          "label": "e_c",
+          "weak_dimension": 1,
+          "weyl_multiplicity": 1
+        },
+        {
+          "color_dimension": 3,
+          "hypercharge": "-2/3",
+          "label": "u_c",
+          "weak_dimension": 1,
+          "weyl_multiplicity": 3
+        }
+      ],
+      "status": "exact_finite_representation_index",
+      "sum_weyl_T_SU2": "2",
+      "sum_weyl_T_SU3": "2",
+      "sum_weyl_dim3_dim2_Y2": "10/3"
+    }
+  },
+  "schema": "oph.rg_representation_frontier.v1",
+  "source_inputs": {
+    "artifacts": [
+      {
+        "byte_sha256": "e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81",
+        "bytes": 36871,
+        "canonical_json_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70",
+        "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "role": "finite_matter_representation",
+        "status": "positive_finite_parent"
+      },
+      {
+        "byte_sha256": "2014c6d0575f3e5fad95a9e88da8dab4f5cae1ce20914a0ba836614d2767a653",
+        "bytes": 1640,
+        "canonical_json_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
+        "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+        "role": "global_charge_lattice",
+        "status": "positive_finite_parent"
+      },
+      {
+        "byte_sha256": "35aa8ceb43bc33415d2746edddbb7da027bb14b8b9117fca11ebcb93e0ab5818",
+        "bytes": 18116,
+        "canonical_json_sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97",
+        "path": "code/a5_closure/manifests/multiplicity_window_reference.json",
+        "role": "mandatory_multiplicity_countermodels",
+        "status": "bounded_negative_boundary"
+      },
+      {
+        "byte_sha256": "9eafb3bf846e75486b596a87123f703cb431f0cfb321938a1197b16644fa286c",
+        "bytes": 38793,
+        "canonical_json_sha256": "095345bd86b0093e4bb59dce8d2e4f5036237ec920566f21c6613ef096ca71ab",
+        "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+        "role": "conditional_rank_three_screen_context",
+        "status": "conditional_context_only"
+      }
+    ],
+    "input_bundle_digest": "fe795fa0a27568ecd4a12314d07a7d889af9581ea4e5a86ed87388de0bc7401c",
+    "policy": {
+      "byte_sha256": "ab121157eb161b7ebef50d11a19d84d87a43699a3b0f37e68d2fc58f3d49a5bf",
+      "bytes": 3759,
+      "canonical_json_sha256": "7e1d08217d1f186b0a570429efc522d3b9e7d4e9ab9e3f988195cbe548945581",
+      "path": "code/P_derivation/source_rg_frontier/data/source_rg_policy_v1.json"
+    },
+    "target_paths_present": false
+  },
+  "status": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
+  "subject_digest": "21df7aad292aa1677031afbdf98e37d34da9b637c80f109d7f228b5c5a3dd7af"
+}

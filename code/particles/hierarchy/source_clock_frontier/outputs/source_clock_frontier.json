@@ -1,0 +1,457 @@
+{
+  "acceptance_progress": [
+    {
+      "acceptance_index": 1,
+      "status": "partial_contract_only",
+      "summary": "The route-neutral dependency and field contracts are closed; no physical readout is emitted."
+    },
+    {
+      "acceptance_index": 2,
+      "status": "open",
+      "summary": "Issue #634 has not supplied a route-neutral dimensionless clock observable."
+    },
+    {
+      "acceptance_index": 3,
+      "status": "partial_reduction_only",
+      "summary": "The cesium scalar reduction is synthetic and belongs only to an optional incomplete route."
+    },
+    {
+      "acceptance_index": 4,
+      "status": "partial_boundary_enforced",
+      "summary": "Pinned synthetic and checksum artifacts have no source-ancestry path."
+    },
+    {
+      "acceptance_index": 5,
+      "status": "partial_boundary_enforced",
+      "summary": "The source contract excludes measured scales and target residuals."
+    },
+    {
+      "acceptance_index": 6,
+      "status": "open",
+      "summary": "An admissible physical clock route and separate source/comparison process receipts are absent."
+    },
+    {
+      "acceptance_index": 7,
+      "status": "partial_fail_closed_gate",
+      "summary": "No source energy or downstream Newton-G interval is emitted."
+    }
+  ],
+  "candidate_routes": [
+    {
+      "component_contracts": [
+        {
+          "component_id": "R_U",
+          "current_status": "conditional_declared_packet_not_physical",
+          "label": "dimensionless unified and electroweak source readout",
+          "owner_issues": [
+            32,
+            545
+          ],
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_alpha",
+          "current_status": "absent",
+          "label": "same-scheme electromagnetic atomic readout",
+          "owner_issues": [
+            318,
+            425
+          ],
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_e_abs",
+          "current_status": "absent",
+          "label": "absolute electron ratio readout",
+          "owner_issues": [
+            34,
+            546,
+            569
+          ],
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_QCD_nuc_133Cs",
+          "current_status": "absent",
+          "label": "cesium QCD and nuclear source packet",
+          "owner_issues": [
+            317,
+            425
+          ],
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_atom_133Cs",
+          "current_status": "synthetic_theorem_fixture_only",
+          "label": "cesium atomic Hamiltonian and spectral enclosure",
+          "owner_issues": [
+            522,
+            633
+          ],
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        }
+      ],
+      "label": "cesium-133 hyperfine reference-transition construction",
+      "owner_issues": [
+        32,
+        34,
+        317,
+        318,
+        425,
+        522,
+        545,
+        546,
+        569,
+        633
+      ],
+      "required_for_issue_633": false,
+      "route_id": "cesium_133_hyperfine",
+      "status": "optional_incomplete_candidate_not_hard_dependency"
+    }
+  ],
+  "checks": {
+    "all_physical_outputs_blocked": true,
+    "diagnostics_excluded_from_source_ancestry": true,
+    "interval_inversion_exact": true,
+    "optional_candidate_contract_complete": true,
+    "optional_candidate_disconnected_from_generic_gap": true,
+    "route_neutral_dependency_semantics_exact": true,
+    "source_payloads_absent": true,
+    "target_firewall_pass": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "This artifact specifies and verifies a non-promoting, route-neutral source-clock contract for issue #633. The cesium construction is an optional incomplete candidate, not a hard dependency. The artifact emits no physical clock gap, source energy, particle mass, or Newton-constant interval.",
+  "dependency_semantics": {
+    "alternative_routes_allowed": true,
+    "downstream_only_issues": [
+      334
+    ],
+    "hard_issue_dependencies": [
+      634
+    ],
+    "optional_route_owner_issues": [
+      32,
+      34,
+      317,
+      318,
+      425,
+      522,
+      545,
+      546,
+      569,
+      633
+    ]
+  },
+  "diagnostic_reference_pins": [
+    {
+      "byte_sha256": "aa77973aa8e5fc0c58db7035ee165ce04eae0b1d4ce6d5d469929ec33ea1fed2",
+      "bytes": 1063,
+      "canonical_json_sha256": "cf0a6ef5e2b65044f8f584bde140b27311fcb9c7dd7925fa823b4d5b8e61f427",
+      "expected_artifact": "R_gamma_noG_DAG_certificate",
+      "expected_status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates",
+      "path": "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+      "role": "legacy_gravity_checksum_skeleton",
+      "source_ancestry_allowed": false
+    },
+    {
+      "byte_sha256": "1947cc2f92220efff795b5c51a4ffc49ddc115b7ff095f72a3fbc2b79fee7c1e",
+      "bytes": 8206,
+      "canonical_json_sha256": "a59f468a40318d47772013320cf22fe50ec41a6b296d58dc629907c92284bf96",
+      "expected_artifact": "oph_cs133_feshbach_scalarization",
+      "expected_status": "SYNTHETIC_FIXTURE_THEOREM_CHECKS_ONLY",
+      "path": "code/particles/runs/clock/cs133_feshbach_scalarization.json",
+      "role": "synthetic_feshbach_fixture",
+      "source_ancestry_allowed": false
+    }
+  ],
+  "dimensionless_clock_gap_emitted": false,
+  "downstream_consumers": [
+    {
+      "issue": 334,
+      "possible_output": "source_g_si_interval",
+      "required_input": "source_energy_interval",
+      "role": "newton_g_composition",
+      "status": "downstream_open_not_issue_633_acceptance_gate"
+    }
+  ],
+  "exact_unit_chart": {
+    "GeV_J": "801088317/5000000000000000000",
+    "c_m_s": "299792458/1",
+    "h_J_s": "132521403/200000000000000000000000000000000000000000",
+    "nu_Cs_Hz": "9192631770/1",
+    "physical_clock_gap_input_present": false,
+    "source_selection_input": false,
+    "status": "exact_si_definitions_for_final_attachment_only"
+  },
+  "frontier_digest": "ae373cd8f885cf859bf060e5a04dde1a89b086119cd61f5004119ccd68d31f8e",
+  "interval_inversion_receipt": {
+    "arithmetic_domain": "exact_rationals",
+    "checks": {
+      "gev_conversion_exact_at_lower": true,
+      "gev_conversion_exact_at_upper": true,
+      "joule_interval_ordered": true,
+      "lower_endpoint_is_reversed_upper_input": true,
+      "positive_input_interval": true,
+      "upper_endpoint_is_reversed_lower_input": true
+    },
+    "checks_pass": true,
+    "energy_interval_GeV": {
+      "lower": "13535782882475259/178019626000000000000000000000",
+      "upper": "40607348647425777/356039252000000000000000000000"
+    },
+    "energy_interval_J": {
+      "lower": "121822045942277331/10000000000000000000000000000000000000000",
+      "upper": "365466137826831993/20000000000000000000000000000000000000000"
+    },
+    "epsilon_interval": {
+      "lower": "1/3",
+      "upper": "1/2"
+    },
+    "physical_application_input_present": false,
+    "statement": "If 0 < epsilon_lo <= epsilon_clk <= epsilon_hi and DeltaE_clk = h*nu_clk, then E_star lies in [h*nu_clk/epsilon_hi, h*nu_clk/epsilon_lo].",
+    "synthetic_fixture_only": true,
+    "theorem_id": "SOURCE_CLOCK_POSITIVE_INTERVAL_INVERSION"
+  },
+  "issue": 633,
+  "open_gates": [
+    {
+      "gate_id": "route_neutral_dimensionless_clock_observable",
+      "owner_issues": [
+        634
+      ]
+    },
+    {
+      "gate_id": "admissible_physical_clock_route_and_process_receipt",
+      "owner_issues": [
+        633
+      ]
+    },
+    {
+      "gate_id": "target_clean_clock_to_si_attachment",
+      "owner_issues": [
+        633
+      ]
+    }
+  ],
+  "physical_promotion_allowed": false,
+  "policy_pin": {
+    "byte_sha256": "270b7f47de03666a7a70c4bbc71cf2ef75402ef5f512b02946acbb3ef58fd2eb",
+    "bytes": 4943,
+    "canonical_json_sha256": "39f3b909436678b7214fa16974f95d0efbebef92e95d490f555a6ae2f75a44c8",
+    "path": "code/particles/hierarchy/source_clock_frontier/data/source_clock_policy_v1.json"
+  },
+  "provenance_dag": {
+    "acyclic": true,
+    "diagnostic_to_protected_paths": [],
+    "edges": [
+      {
+        "from": "R_U",
+        "to": "cesium_candidate_clock_gap"
+      },
+      {
+        "from": "R_alpha",
+        "to": "cesium_candidate_clock_gap"
+      },
+      {
+        "from": "R_e_abs",
+        "to": "cesium_candidate_clock_gap"
+      },
+      {
+        "from": "R_QCD_nuc_133Cs",
+        "to": "cesium_candidate_clock_gap"
+      },
+      {
+        "from": "R_atom_133Cs",
+        "to": "cesium_candidate_clock_gap"
+      },
+      {
+        "from": "route_neutral_dimensionless_clock_observable",
+        "to": "dimensionless_clock_gap"
+      },
+      {
+        "from": "admissible_physical_clock_route_and_process_receipt",
+        "to": "dimensionless_clock_gap"
+      },
+      {
+        "from": "target_clean_clock_to_si_attachment",
+        "to": "source_energy_interval"
+      },
+      {
+        "from": "dimensionless_clock_gap",
+        "to": "source_energy_interval"
+      },
+      {
+        "from": "exact_si_unit_chart",
+        "to": "source_energy_interval"
+      },
+      {
+        "from": "source_energy_interval",
+        "to": "newton_g_composition"
+      },
+      {
+        "from": "newton_g_composition",
+        "to": "source_g_si_interval"
+      }
+    ],
+    "nodes": [
+      {
+        "class": "optional_candidate_component",
+        "id": "R_U",
+        "status": "conditional_declared_packet_not_physical"
+      },
+      {
+        "class": "optional_candidate_component",
+        "id": "R_alpha",
+        "status": "absent"
+      },
+      {
+        "class": "optional_candidate_component",
+        "id": "R_e_abs",
+        "status": "absent"
+      },
+      {
+        "class": "optional_candidate_component",
+        "id": "R_QCD_nuc_133Cs",
+        "status": "absent"
+      },
+      {
+        "class": "optional_candidate_component",
+        "id": "R_atom_133Cs",
+        "status": "synthetic_theorem_fixture_only"
+      },
+      {
+        "class": "open_gate",
+        "id": "route_neutral_dimensionless_clock_observable",
+        "status": "open"
+      },
+      {
+        "class": "open_gate",
+        "id": "admissible_physical_clock_route_and_process_receipt",
+        "status": "open"
+      },
+      {
+        "class": "open_gate",
+        "id": "target_clean_clock_to_si_attachment",
+        "status": "open"
+      },
+      {
+        "class": "diagnostic_non_source",
+        "id": "legacy_gravity_checksum_skeleton",
+        "status": "excluded_from_source_ancestry"
+      },
+      {
+        "class": "diagnostic_non_source",
+        "id": "synthetic_feshbach_fixture",
+        "status": "excluded_from_source_ancestry"
+      },
+      {
+        "class": "downstream_open_composition",
+        "id": "newton_g_composition",
+        "status": "downstream_open_not_issue_633_acceptance_gate"
+      },
+      {
+        "class": "blocked_candidate_output",
+        "id": "cesium_candidate_clock_gap",
+        "status": "optional_incomplete_candidate_not_selected"
+      },
+      {
+        "class": "blocked_output",
+        "id": "dimensionless_clock_gap",
+        "status": "not_emitted"
+      },
+      {
+        "class": "exact_unit_definition",
+        "id": "exact_si_unit_chart",
+        "status": "available_for_final_attachment_only"
+      },
+      {
+        "class": "blocked_output",
+        "id": "source_energy_interval",
+        "status": "not_emitted"
+      },
+      {
+        "class": "blocked_output",
+        "id": "source_g_si_interval",
+        "status": "not_emitted"
+      }
+    ],
+    "optional_candidate_to_generic_paths": [],
+    "protected_outputs": [
+      "dimensionless_clock_gap",
+      "source_energy_interval",
+      "source_g_si_interval"
+    ]
+  },
+  "schema": "oph.source_clock.frontier.v1",
+  "source_energy_interval_emitted": false,
+  "source_g_si_interval_emitted": false,
+  "source_payloads": [],
+  "status": "NONPROMOTING_ROUTE_NEUTRAL_CONTRACT__PHYSICAL_CLOCK_ATTACHMENT_OPEN",
+  "target_firewall": {
+    "diagnostic_paths": [
+      "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+      "code/particles/runs/clock/cs133_feshbach_scalarization.json"
+    ],
+    "diagnostics_excluded_from_source_ancestry": true,
+    "exact_si_definitions_final_unit_chart_allowed": true,
+    "exact_si_definitions_source_selection_allowed": false,
+    "forbidden_source_token_hits": [],
+    "forbidden_source_tokens": [
+      "g_exp",
+      "measured_g",
+      "planck_area",
+      "planck_mass",
+      "planck_time",
+      "lambda_exp",
+      "codata",
+      "pdg",
+      "measured_w",
+      "measured_z",
+      "measured_higgs",
+      "measured_top",
+      "g_f_measured",
+      "target_residual",
+      "target_score"
+    ],
+    "pass": true,
+    "source_input_paths": [
+      "code/particles/hierarchy/source_clock_frontier/data/source_clock_policy_v1.json"
+    ],
+    "source_payload_count": 0
+  }
+}

@@ -145,7 +145,7 @@
         {
           "role": "candidate_certificate",
           "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
-          "schema": "oph.family_band_attachment_certificate.v4"
+          "schema": "oph.family_band_attachment_certificate.v5"
         },
         {
           "role": "candidate_artifact",
@@ -164,6 +164,137 @@
         "laboratory current identification",
         "source-selected seam action or flavor/Yukawa operator",
         "exclusion of additional light physical sectors"
+      ]
+    },
+    {
+      "role": "matter_completeness_boundary",
+      "issue": 609,
+      "verifier_id": "issue_609_matter_boundary",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "boundary_certificate",
+          "path": "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json",
+          "schema": "oph.matter_menu_spectral_ledger_certificate.v1"
+        }
+      ],
+      "usable_exports": [
+        "complete matter menu inside the declared exterior algebra",
+        "exact sterile direct-sum countermodel beyond the visible algebra",
+        "declared light/heavy classification without a physical decoupling theorem"
+      ],
+      "excluded_promotions": [
+        "source-complete physical field census",
+        "exclusion of neutral sterile or source-invisible direct sums",
+        "physical light/heavy pole threshold",
+        "decoupling map"
+      ]
+    },
+    {
+      "role": "rg_representation_frontier",
+      "issue": 32,
+      "verifier_id": "issue_32_rg_frontier",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "partial_source_frontier",
+          "path": "code/P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
+          "schema": "oph.rg_representation_frontier.v1"
+        }
+      ],
+      "usable_exports": [
+        "exact per-copy finite representation indices",
+        "parametric one-loop gauge coefficient law after an explicit imported QFT functional",
+        "family, scalar, scheme, and threshold non-selection witnesses"
+      ],
+      "excluded_promotions": [
+        "physical family or scalar multiplicity",
+        "complete beta vector",
+        "ordered EFT intervals or thresholds",
+        "finite decoupling or scheme maps",
+        "Jacobians, masks, or certified vector remainders"
+      ]
+    },
+    {
+      "role": "scalar_yukawa_source_frontier",
+      "issue": 630,
+      "verifier_id": "issue_630_scalar_yukawa_frontier",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "partial_source_frontier",
+          "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/higgs_yukawa_source_frontier.json",
+          "schema": "oph.higgs_yukawa_source_frontier.v1"
+        }
+      ],
+      "usable_exports": [
+        "conditional renormalizable scalar and Yukawa coefficient-space classification",
+        "exact two-completion witnesses for scalar, Yukawa, and coordinate non-identifiability",
+        "target and promotion firewall"
+      ],
+      "excluded_promotions": [
+        "physical scalar existence or multiplicity",
+        "numerical scalar coefficients",
+        "numerical Yu, Yd, or Ye entries",
+        "physical vacuum selection",
+        "v_chart to v_F coordinate map"
+      ]
+    },
+    {
+      "role": "local_ew_order_unit_frontier",
+      "issue": 631,
+      "verifier_id": "issue_631_local_carrier_frontier",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "candidate_certificate",
+          "path": "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json",
+          "schema": "oph.common_ew_order_unit_carrier_frontier.v1"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/common_ew_order_unit_carrier_reference.receipt.json",
+          "schema": "oph.common_ew_order_unit_carrier_receipt.v1"
+        }
+      ],
+      "usable_exports": [
+        "one-dimensional invariant screen order-unit line",
+        "four-copy weak multiplicity center",
+        "unique positive unital normalized-trace line isomorphism",
+        "finite refinement and relabelling naturality"
+      ],
+      "excluded_promotions": [
+        "physical common-load semantics",
+        "physical scalar selection",
+        "physical normalization",
+        "screen-load to electroweak-readout intertwiner",
+        "N-dependent bridge equation"
+      ]
+    },
+    {
+      "role": "source_clock_frontier",
+      "issue": 633,
+      "verifier_id": "issue_633_source_clock_frontier",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "partial_source_frontier",
+          "path": "code/particles/hierarchy/source_clock_frontier/outputs/source_clock_frontier.json",
+          "schema": "oph.source_clock.frontier.v1"
+        }
+      ],
+      "usable_exports": [
+        "strict source-clock component contract",
+        "exact positive interval inversion after a source gap is supplied",
+        "target and diagnostic-fixture ancestry firewall",
+        "separation of source-energy and Newton-G compositions"
+      ],
+      "excluded_promotions": [
+        "physical clock gap",
+        "physical atomic transition",
+        "source energy interval",
+        "dimensionful W/Z pole",
+        "Newton constant"
       ]
     }
   ],
@@ -197,12 +328,12 @@
   "open_interfaces": [
     {
       "gate_id": "event_and_spacetime_action_parent",
-      "owner_issues": [503],
+      "owner_issues": [634],
       "required_output": "typed event base, local fields, Lorentzian and Spin data for the action"
     },
     {
       "gate_id": "common_screen_electroweak_carrier",
-      "owner_issues": [547],
+      "owner_issues": [631],
       "required_output": "positive refinement-natural screen-to-electroweak carrier identification and normalization"
     },
     {
@@ -212,17 +343,17 @@
     },
     {
       "gate_id": "source_complete_field_census",
-      "owner_issues": [594, 609],
-      "required_output": "a scoped completeness theorem that resolves surviving source-invisible sterile extensions"
+      "owner_issues": [632],
+      "required_output": "a complete W/Z-coupled field and operator census modulo a proved zero-vertex decoupling relation"
     },
     {
       "gate_id": "scalar_higgs_and_fj_coordinate",
-      "owner_issues": [34, 547, 594],
+      "owner_issues": [630],
       "required_output": "source scalar action and a proved v_chart to v_F coordinate map"
     },
     {
       "gate_id": "full_yukawa_operator_and_coefficients",
-      "owner_issues": [34, 569, 594],
+      "owner_issues": [630],
       "required_output": "target-clean full Yu, Yd, and Ye rather than invariant channel lines alone"
     },
     {
@@ -232,7 +363,7 @@
     },
     {
       "gate_id": "unique_source_root_and_joint_law",
-      "owner_issues": [545, 594],
+      "owner_issues": [594],
       "required_output": "unique deterministic point law or target-independent joint law and covariance"
     },
     {
@@ -242,7 +373,7 @@
     },
     {
       "gate_id": "source_operational_clock",
-      "owner_issues": [334],
+      "owner_issues": [633],
       "required_output": "source transition, positive dimensionless gap, SI ancestry, and calibration receipt"
     },
     {
@@ -255,6 +386,9 @@
     "allowed_source_roots": [
       "code/a5_closure/manifests",
       "code/a5_closure/receipts",
+      "code/P_derivation/source_rg_frontier/outputs",
+      "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs",
+      "code/particles/hierarchy/source_clock_frontier/outputs",
       "code/particles/calibration/wz_upstream_completion/schemas"
     ],
     "forbidden_source_paths": [

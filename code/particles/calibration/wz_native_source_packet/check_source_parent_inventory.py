@@ -30,7 +30,7 @@ POLICY_REL = (
     "data/source_parent_policy_v1.json"
 )
 EXPECTED_POLICY_CANONICAL_SHA256 = (
-    "2a9d4ce1c86574d6bde0310b2660e3101f386c20a321ada13a7627b2e267b132"
+    "ee5e09ebad0243316b2b83cb207e28baa94034859cbed8c703f0ce0250a343a6"
 )
 
 EXPECTED_POSITIVE = {
@@ -88,11 +88,56 @@ EXPECTED_CONDITIONAL = {
         "verifier_id": "issue_569_family_band",
         "files": {
             "code/a5_closure/manifests/family_band_attachment_reference.json":
-                ("candidate_certificate", "oph.family_band_attachment_certificate.v4"),
+                ("candidate_certificate", "oph.family_band_attachment_certificate.v5"),
             "code/a5_closure/manifests/charged_response_pole_residue_artifact.json":
                 ("candidate_artifact", "oph.charged_response_pole_residue.v2"),
         },
-    }
+    },
+    "matter_completeness_boundary": {
+        "issue": 609,
+        "verifier_id": "issue_609_matter_boundary",
+        "files": {
+            "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json":
+                ("boundary_certificate", "oph.matter_menu_spectral_ledger_certificate.v1"),
+        },
+    },
+    "rg_representation_frontier": {
+        "issue": 32,
+        "verifier_id": "issue_32_rg_frontier",
+        "files": {
+            "code/P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json":
+                ("partial_source_frontier", "oph.rg_representation_frontier.v1"),
+        },
+    },
+    "scalar_yukawa_source_frontier": {
+        "issue": 630,
+        "verifier_id": "issue_630_scalar_yukawa_frontier",
+        "files": {
+            "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/"
+            "higgs_yukawa_source_frontier.json":
+                ("partial_source_frontier", "oph.higgs_yukawa_source_frontier.v1"),
+        },
+    },
+    "local_ew_order_unit_frontier": {
+        "issue": 631,
+        "verifier_id": "issue_631_local_carrier_frontier",
+        "files": {
+            "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json":
+                ("candidate_certificate", "oph.common_ew_order_unit_carrier_frontier.v1"),
+            "code/a5_closure/receipts/"
+            "common_ew_order_unit_carrier_reference.receipt.json":
+                ("receipt", "oph.common_ew_order_unit_carrier_receipt.v1"),
+        },
+    },
+    "source_clock_frontier": {
+        "issue": 633,
+        "verifier_id": "issue_633_source_clock_frontier",
+        "files": {
+            "code/particles/hierarchy/source_clock_frontier/outputs/"
+            "source_clock_frontier.json":
+                ("partial_source_frontier", "oph.source_clock.frontier.v1"),
+        },
+    },
 }
 
 EXPECTED_CONSUMER_SCHEMAS = {
@@ -149,6 +194,26 @@ NATIVE_VERIFIER_COMMANDS = {
     "issue_569_family_band": [
         "code/a5_closure/family_band_attachment_certificate.py",
         "--verify",
+    ],
+    "issue_609_matter_boundary": [
+        "code/a5_closure/matter_menu_spectral_ledger_certificate.py",
+        "verify",
+        "--manifest",
+        "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json",
+    ],
+    "issue_32_rg_frontier": [
+        "code/P_derivation/source_rg_frontier/check_rg_representation_frontier.py",
+    ],
+    "issue_630_scalar_yukawa_frontier": [
+        "code/particles/hierarchy/higgs_yukawa_source_frontier/"
+        "check_higgs_yukawa_source_frontier.py",
+    ],
+    "issue_631_local_carrier_frontier": [
+        "code/a5_closure/check_common_ew_order_unit_carrier.py",
+    ],
+    "issue_633_source_clock_frontier": [
+        "code/particles/hierarchy/source_clock_frontier/"
+        "check_source_clock_frontier.py",
     ],
 }
 
@@ -460,14 +525,36 @@ def _verify_conditional_family(
     require(
         {
             "matter-pole identification",
-            "Spin/locality receipt",
+            "continuum Spin/locality receipt",
+            "physical seam action selection",
             "laboratory current identification",
         }.issubset(open_receipts),
         "#569 physical-family boundary is incomplete",
     )
     require(
+        certificate.get("open_gates")
+        == [
+            "matter_pole_identification",
+            "continuum_Spin_locality",
+            "physical_seam_action_selection",
+            "laboratory_current_identification",
+        ],
+        "#569 open physical gates drifted",
+    )
+    require(
+        certificate.get("promotion")
+        == {
+            "matter_pole_identified": False,
+            "continuum_spin_locality_derived": False,
+            "physical_seam_action_selected": False,
+            "laboratory_current_identified": False,
+            "promotion_allowed": False,
+        },
+        "#569 conditional finite attachment was physically promoted",
+    )
+    require(
         "matter-pole identification"
-        in certificate.get("claim_boundary", ""),
+        in certificate.get("claim_boundary", "").lower(),
         "#569 claim boundary lost the matter-pole gate",
     )
     artifact_boundary = artifact.get("claim_boundary", "")
@@ -475,6 +562,179 @@ def _verify_conditional_family(
         "not a matter-pole measurement" in artifact_boundary
         and "matter-pole identification" in artifact_boundary,
         "#569 pole-residue artifact was overpromoted",
+    )
+
+
+def _verify_matter_completeness_boundary(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json"
+    boundary = loaded["matter_completeness_boundary"][path]
+    require(
+        boundary.get("verdicts", {}).get("menu_completeness_inside_declared_algebra")
+        == "exact",
+        "#609 in-algebra completeness verdict drifted",
+    )
+    require(
+        boundary.get("verdicts", {}).get("beyond_declared_algebra")
+        == "independence_limited",
+        "#609 beyond-algebra boundary was overpromoted",
+    )
+    sterile = boundary.get("off_menu_controls", {}).get(
+        "neutral_singlet_sterile", {}
+    )
+    require(
+        sterile.get("verdict") == "sterile_countermodel_source_invisible"
+        and sterile.get("all_current_observable_couplings_zero") is True,
+        "#609 sterile countermodel is missing",
+    )
+    require(
+        boundary.get("light_heavy_threshold", {})
+        .get("physical_decoupling_interface", {})
+        .get("status")
+        == "separate_open_physical_interface",
+        "#609 declared threshold was relabeled as physical decoupling",
+    )
+
+
+def _verify_rg_representation_frontier(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = (
+        "code/P_derivation/source_rg_frontier/outputs/"
+        "rg_representation_frontier.json"
+    )
+    frontier = loaded["rg_representation_frontier"][path]
+    require(
+        frontier.get("status")
+        == "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
+        "#32 source frontier status drifted",
+    )
+    require(frontier.get("promotion_allowed") is False, "#32 frontier promoted itself")
+    require(
+        frontier.get("qft_import_boundary", {}).get("oph_native_one_loop_beta_theorem")
+        is False,
+        "#32 imported QFT functional was relabeled as OPH-native",
+    )
+    require(
+        all(
+            item.get("status") == "not_emitted"
+            for item in frontier.get("matching_objects", {}).values()
+        ),
+        "#32 frontier fabricated a matching object",
+    )
+
+
+def _verify_scalar_yukawa_source_frontier(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = (
+        "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/"
+        "higgs_yukawa_source_frontier.json"
+    )
+    frontier = loaded["scalar_yukawa_source_frontier"][path]
+    require(frontier.get("issue") == 630, "#630 frontier has the wrong owner")
+    require(
+        frontier.get("status")
+        == "BOUNDED_NONPROMOTING_FRONTIER__POSITIVE_SOURCE_ACTION_OPEN",
+        "#630 frontier status drifted",
+    )
+    require(frontier.get("promotion_allowed") is False, "#630 frontier promoted itself")
+    require(
+        frontier.get("coefficient_assignments_emitted") is False
+        and frontier.get("physical_source_action_emitted") is False,
+        "#630 frontier fabricated a physical action or coefficient assignment",
+    )
+    require(
+        all(row.get("status") != "complete" for row in frontier.get("acceptance_map", [])),
+        "#630 acceptance was overpromoted",
+    )
+
+
+def _verify_local_ew_order_unit_frontier(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json"
+    frontier = loaded["local_ew_order_unit_frontier"][path]
+    require(frontier.get("issue") == 631, "#631 frontier has the wrong owner")
+    require(
+        frontier.get("status")
+        == "FINITE_ORDER_UNIT_INTERTWINER__PHYSICAL_COMMON_CARRIER_OPEN",
+        "#631 frontier status drifted",
+    )
+    promotion = frontier.get("promotion", {})
+    require(
+        promotion
+        and all(value is False for value in promotion.values()),
+        "#631 finite line isomorphism was given a physical promotion",
+    )
+    require(
+        all(row.get("status") == "open" for row in frontier.get("open_gates", [])),
+        "#631 physical gate was self-attested closed",
+    )
+
+
+def _verify_source_clock_frontier(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = (
+        "code/particles/hierarchy/source_clock_frontier/outputs/"
+        "source_clock_frontier.json"
+    )
+    frontier = loaded["source_clock_frontier"][path]
+    require(frontier.get("issue") == 633, "#633 frontier has the wrong owner")
+    require(
+        frontier.get("status")
+        == "NONPROMOTING_ROUTE_NEUTRAL_CONTRACT__PHYSICAL_CLOCK_ATTACHMENT_OPEN",
+        "#633 frontier status drifted",
+    )
+    require(
+        frontier.get("dependency_semantics")
+        == {
+            "hard_issue_dependencies": [634],
+            "alternative_routes_allowed": True,
+            "optional_route_owner_issues": [
+                32,
+                34,
+                317,
+                318,
+                425,
+                522,
+                545,
+                546,
+                569,
+                633,
+            ],
+            "downstream_only_issues": [334],
+        },
+        "#633 route dependency semantics drifted",
+    )
+    routes = frontier.get("candidate_routes", [])
+    require(
+        len(routes) == 1
+        and routes[0].get("route_id") == "cesium_133_hyperfine"
+        and routes[0].get("required_for_issue_633") is False,
+        "#633 optional cesium route became mandatory or malformed",
+    )
+    require(
+        frontier.get("dimensionless_clock_gap_emitted") is False
+        and frontier.get("source_energy_interval_emitted") is False
+        and frontier.get("source_g_si_interval_emitted") is False
+        and frontier.get("physical_promotion_allowed") is False,
+        "#633 frontier fabricated a clock, source energy, or gravity output",
+    )
+    require(
+        frontier.get("downstream_consumers")
+        == [
+            {
+                "issue": 334,
+                "role": "newton_g_composition",
+                "required_input": "source_energy_interval",
+                "possible_output": "source_g_si_interval",
+                "status": "downstream_open_not_issue_633_acceptance_gate",
+            }
+        ],
+        "#334 was not confined to the downstream gravity composition",
     )
 
 
@@ -738,6 +998,11 @@ def verify_inventory(
     )
     _verify_transitive_pins(positive)
     _verify_conditional_family(conditional)
+    _verify_matter_completeness_boundary(conditional)
+    _verify_rg_representation_frontier(conditional)
+    _verify_scalar_yukawa_source_frontier(conditional)
+    _verify_local_ew_order_unit_frontier(conditional)
+    _verify_source_clock_frontier(conditional)
     _verify_consumer_schemas(repo_root, inventory["consumer_contract"]["schemas"])
     _verify_firewall(inventory, policy, positive, conditional)
 
@@ -772,6 +1037,23 @@ def verify_inventory(
     require(
         all(row["blocking_gates"] for row in inventory["acceptance_map"]),
         "acceptance row lost its blockers",
+    )
+    acceptance_nine = next(
+        row
+        for row in inventory["acceptance_map"]
+        if row["acceptance_index"] == 9
+    )
+    require(
+        acceptance_nine["blocking_gates"]
+        == [
+            "event_and_spacetime_action_parent",
+            "physical_family_and_matter_pole_attachment",
+            "scalar_higgs_and_fj_coordinate",
+            "full_yukawa_operator_and_coefficients",
+            "common_screen_electroweak_carrier",
+            "source_complete_field_census",
+        ],
+        "acceptance row 9 lost a live native-action attachment",
     )
 
     dag_acyclic, forbidden_paths = _acyclic_and_forbidden_paths(inventory["source_dag"])

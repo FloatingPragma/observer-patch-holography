@@ -1,0 +1,852 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/higgs_yukawa_source_frontier_v1.schema.json",
+  "title": "OPH Higgs/Yukawa bounded source frontier",
+  "type": "object",
+  "required": [
+    "schema",
+    "issue",
+    "status",
+    "promotion_allowed",
+    "physical_source_action_emitted",
+    "coefficient_assignments_emitted",
+    "issue_topology",
+    "source_inputs",
+    "target_firewall",
+    "conditional_coefficient_space",
+    "nonidentifiability_witnesses",
+    "positive_source_objects",
+    "acceptance_map",
+    "consumer_effect",
+    "strictly_not_claimed",
+    "subject_digest"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "oph.higgs_yukawa_source_frontier.v1"
+    },
+    "issue": {
+      "const": 630
+    },
+    "status": {
+      "const": "BOUNDED_NONPROMOTING_FRONTIER__POSITIVE_SOURCE_ACTION_OPEN"
+    },
+    "promotion_allowed": {
+      "const": false
+    },
+    "physical_source_action_emitted": {
+      "const": false
+    },
+    "coefficient_assignments_emitted": {
+      "const": false
+    },
+    "issue_topology": {
+      "$ref": "#/$defs/issueTopology"
+    },
+    "source_inputs": {
+      "type": "object",
+      "required": [
+        "policy",
+        "artifacts",
+        "input_bundle_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "$ref": "#/$defs/jsonPin"
+        },
+        "artifacts": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/jsonSourcePin"
+              },
+              {
+                "$ref": "#/$defs/textSourcePin"
+              }
+            ]
+          }
+        },
+        "input_bundle_digest": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "target_firewall": {
+      "type": "object",
+      "required": [
+        "status",
+        "target_paths_present",
+        "forbidden_structured_keys_present",
+        "physical_reference_store_consumed",
+        "external_593_packet_consumed"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "closed_allowlist_and_structured_key_scan"
+        },
+        "target_paths_present": {
+          "const": false
+        },
+        "forbidden_structured_keys_present": {
+          "const": false
+        },
+        "physical_reference_store_consumed": {
+          "const": false
+        },
+        "external_593_packet_consumed": {
+          "const": false
+        }
+      }
+    },
+    "conditional_coefficient_space": {
+      "$ref": "#/$defs/coefficientSpace"
+    },
+    "nonidentifiability_witnesses": {
+      "$ref": "#/$defs/witnessBundle"
+    },
+    "positive_source_objects": {
+      "type": "object",
+      "required": [
+        "physical_scalar_carrier_and_multiplicity",
+        "canonical_scalar_kinetic_normalization",
+        "scalar_potential_coefficients",
+        "complete_Yu_Yd_Ye_matrices",
+        "stable_vacuum_branch",
+        "v_chart_to_v_F_map",
+        "source_uncertainty_packet"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "physical_scalar_carrier_and_multiplicity": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "canonical_scalar_kinetic_normalization": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "scalar_potential_coefficients": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "complete_Yu_Yd_Ye_matrices": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "stable_vacuum_branch": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "v_chart_to_v_F_map": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "source_uncertainty_packet": {
+          "$ref": "#/$defs/notEmitted"
+        }
+      }
+    },
+    "acceptance_map": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "criterion",
+          "status",
+          "evidence"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "frontier_only"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "consumer_effect": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "issue",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "issue": {
+            "enum": [
+              32,
+              34,
+              594
+            ]
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "strictly_not_claimed": {
+      "type": "array",
+      "minItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "subject_digest": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "issueTopology": {
+      "type": "object",
+      "required": [
+        "semantic_dependencies",
+        "open_blocking_dependencies",
+        "non_gating_partial_receipt_ancestry",
+        "boundary_controls"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "semantic_dependencies": {
+          "const": [314, 566, 567, 569, 634]
+        },
+        "open_blocking_dependencies": {
+          "const": [569, 634]
+        },
+        "non_gating_partial_receipt_ancestry": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["issue", "path", "closure_required", "scope"],
+            "additionalProperties": false,
+            "properties": {
+              "issue": {
+                "const": 503
+              },
+              "path": {
+                "const": "code/geometry/runs/realized_event_receipt_report.json"
+              },
+              "closure_required": {
+                "const": false
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "boundary_controls": {
+          "const": [521, 616, 617, 623]
+        }
+      }
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "jsonPin": {
+      "type": "object",
+      "required": [
+        "path",
+        "kind",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "json"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "jsonSourcePin": {
+      "type": "object",
+      "required": [
+        "path",
+        "kind",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256",
+        "role",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "json"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "textSourcePin": {
+      "type": "object",
+      "required": [
+        "path",
+        "kind",
+        "bytes",
+        "byte_sha256",
+        "role",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "text"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "notEmitted": {
+      "type": "object",
+      "required": [
+        "status",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "not_emitted"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "coefficientSpace": {
+      "type": "object",
+      "required": [
+        "status",
+        "classification_scope",
+        "premises",
+        "scalar_kinetic",
+        "scalar_potential",
+        "yukawa_sector",
+        "product_space",
+        "normalization_quotient_status",
+        "flavor_basis_quotient_status",
+        "physical_coefficient_assignments_emitted"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "exact_conditional_operator_basis__all_physical_coefficients_open"
+        },
+        "classification_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "premises": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scalar_kinetic": {
+          "type": "object",
+          "required": [
+            "operator_basis",
+            "real_basis_dimension",
+            "coefficient_domain",
+            "source_selection"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "operator_basis": {
+              "$ref": "#/$defs/nonemptyStrings"
+            },
+            "real_basis_dimension": {
+              "const": 1
+            },
+            "coefficient_domain": {
+              "const": "positive real ray"
+            },
+            "source_selection": {
+              "const": "not_emitted"
+            }
+          }
+        },
+        "scalar_potential": {
+          "type": "object",
+          "required": [
+            "operator_basis",
+            "real_basis_dimension",
+            "coefficient_domain",
+            "source_selection",
+            "stable_branch_selection"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "operator_basis": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "real_basis_dimension": {
+              "const": 2
+            },
+            "coefficient_domain": {
+              "const": "real plane with a stability subcone"
+            },
+            "source_selection": {
+              "const": "not_emitted"
+            },
+            "stable_branch_selection": {
+              "const": "not_emitted"
+            }
+          }
+        },
+        "yukawa_sector": {
+          "type": "object",
+          "required": [
+            "channel_types",
+            "invariant_channel_type_count",
+            "family_space",
+            "coefficient_space_per_channel",
+            "complex_dimension_per_channel",
+            "complete_coefficient_space",
+            "total_complex_dimension",
+            "source_selection"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "channel_types": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "invariant_channel_type_count": {
+              "const": 3
+            },
+            "family_space": {
+              "const": "C^3"
+            },
+            "coefficient_space_per_channel": {
+              "const": "Mat_3(C)"
+            },
+            "complex_dimension_per_channel": {
+              "const": 9
+            },
+            "complete_coefficient_space": {
+              "const": "Mat_3(C)^3"
+            },
+            "total_complex_dimension": {
+              "const": 27
+            },
+            "source_selection": {
+              "const": "not_emitted"
+            }
+          }
+        },
+        "product_space": {
+          "const": "R_positive x R^2 x Mat_3(C)^3"
+        },
+        "normalization_quotient_status": {
+          "const": "not_formed_without_a_source_kinetic_and_field_redefinition_rule"
+        },
+        "flavor_basis_quotient_status": {
+          "const": "not_formed_without_source-selected family bases and equivalence maps"
+        },
+        "physical_coefficient_assignments_emitted": {
+          "const": false
+        }
+      }
+    },
+    "witnessCommonProperties": {
+      "parent_projection_digest": {
+        "$ref": "#/$defs/sha256"
+      },
+      "physical_promotion_allowed": {
+        "const": false
+      },
+      "coefficient_assignments_emitted": {
+        "const": false
+      }
+    },
+    "witnessBundle": {
+      "type": "object",
+      "required": [
+        "scalar_content",
+        "yukawa_matrices",
+        "v_chart_to_v_F",
+        "issue_521_exact_separation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "scalar_content": {
+          "$ref": "#/$defs/scalarWitness"
+        },
+        "yukawa_matrices": {
+          "$ref": "#/$defs/yukawaWitness"
+        },
+        "v_chart_to_v_F": {
+          "$ref": "#/$defs/fjWitness"
+        },
+        "issue_521_exact_separation": {
+          "$ref": "#/$defs/issue521Witness"
+        }
+      }
+    },
+    "scalarWitness": {
+      "type": "object",
+      "required": [
+        "parent_projection_digest",
+        "physical_promotion_allowed",
+        "coefficient_assignments_emitted",
+        "completion_A",
+        "completion_B",
+        "common_finite_parent",
+        "distinguishing_projection",
+        "exact_relation",
+        "status",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "parent_projection_digest": {
+          "$ref": "#/$defs/sha256"
+        },
+        "physical_promotion_allowed": {
+          "const": false
+        },
+        "coefficient_assignments_emitted": {
+          "const": false
+        },
+        "completion_A": {
+          "const": "registered_empty_scalar_extension"
+        },
+        "completion_B": {
+          "const": "declared_one_weak_doublet_extension"
+        },
+        "common_finite_parent": {
+          "const": true
+        },
+        "distinguishing_projection": {
+          "const": "scalar_carrier_multiplicity"
+        },
+        "exact_relation": {
+          "const": "rank_scalar(A) != rank_scalar(B)"
+        },
+        "status": {
+          "const": "current_finite_parent_not_constant_on_scalar_content_fiber"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "yukawaWitness": {
+      "type": "object",
+      "required": [
+        "parent_projection_digest",
+        "physical_promotion_allowed",
+        "coefficient_assignments_emitted",
+        "completion_A",
+        "completion_B",
+        "common_finite_parent",
+        "witness_domain",
+        "exact_relation",
+        "existence_reason",
+        "distinguishing_projection",
+        "status",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "parent_projection_digest": {
+          "$ref": "#/$defs/sha256"
+        },
+        "physical_promotion_allowed": {
+          "const": false
+        },
+        "coefficient_assignments_emitted": {
+          "const": false
+        },
+        "completion_A": {
+          "const": "formal_family_matrix_point_Y_A"
+        },
+        "completion_B": {
+          "const": "formal_family_matrix_point_Y_B"
+        },
+        "common_finite_parent": {
+          "const": true
+        },
+        "witness_domain": {
+          "const": "Mat_3(C)^3"
+        },
+        "exact_relation": {
+          "const": "Y_A != Y_B"
+        },
+        "existence_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "distinguishing_projection": {
+          "const": "family_matrix_coordinate_projection"
+        },
+        "status": {
+          "const": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "fjWitness": {
+      "type": "object",
+      "required": [
+        "parent_projection_digest",
+        "physical_promotion_allowed",
+        "coefficient_assignments_emitted",
+        "completion_A",
+        "completion_B",
+        "common_finite_parent",
+        "witness_domain",
+        "exact_relation",
+        "existence_reason",
+        "distinguishing_projection",
+        "status",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "parent_projection_digest": {
+          "$ref": "#/$defs/sha256"
+        },
+        "physical_promotion_allowed": {
+          "const": false
+        },
+        "coefficient_assignments_emitted": {
+          "const": false
+        },
+        "completion_A": {
+          "const": "formal_invertible_coordinate_jet_Phi_A"
+        },
+        "completion_B": {
+          "const": "formal_invertible_coordinate_jet_Phi_B"
+        },
+        "common_finite_parent": {
+          "const": true
+        },
+        "witness_domain": {
+          "const": "invertible_local_coordinate_one_jets"
+        },
+        "exact_relation": {
+          "const": "jet(Phi_A) != jet(Phi_B)"
+        },
+        "existence_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "distinguishing_projection": {
+          "const": "coordinate_one_jet"
+        },
+        "status": {
+          "const": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "issue521Witness": {
+      "type": "object",
+      "required": [
+        "parent_projection_digest",
+        "physical_promotion_allowed",
+        "coefficient_assignments_emitted",
+        "source_coordinate_domain",
+        "completion_A",
+        "completion_B",
+        "squared_lift_relations",
+        "formal_readouts",
+        "exact_separation",
+        "status",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "parent_projection_digest": {
+          "$ref": "#/$defs/sha256"
+        },
+        "physical_promotion_allowed": {
+          "const": false
+        },
+        "coefficient_assignments_emitted": {
+          "const": false
+        },
+        "source_coordinate_domain": {
+          "const": "0 < u < 1"
+        },
+        "completion_A": {
+          "const": "linear_probability_lift"
+        },
+        "completion_B": {
+          "const": "Born_amplitude_lift"
+        },
+        "squared_lift_relations": {
+          "type": "object",
+          "required": [
+            "linear",
+            "Born"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "linear": {
+              "const": "a_linear^2 = u^2"
+            },
+            "Born": {
+              "const": "a_Born^2 = u"
+            }
+          }
+        },
+        "formal_readouts": {
+          "type": "object",
+          "required": [
+            "Higgs",
+            "top"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "Higgs": {
+              "const": "r_H = 2(1-a^2)"
+            },
+            "top": {
+              "const": "r_t = a^2/2"
+            }
+          }
+        },
+        "exact_separation": {
+          "type": "object",
+          "required": [
+            "Higgs",
+            "top"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "Higgs": {
+              "const": "r_H(linear)-r_H(Born)=2u(1-u)>0"
+            },
+            "top": {
+              "const": "r_t(Born)-r_t(linear)=u(1-u)/2>0"
+            }
+          }
+        },
+        "status": {
+          "const": "exact_current_reduct_nonidentifiability"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "nonemptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

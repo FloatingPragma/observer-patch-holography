@@ -1,0 +1,221 @@
+{
+  "schema": "oph.higgs_yukawa_source_policy.v1",
+  "issue": 630,
+  "claim_lane": "HIGGS_YUKAWA_SOURCE_ACTION_FRONTIER",
+  "issue_topology": {
+    "semantic_dependencies": [314, 566, 567, 569, 634],
+    "open_blocking_dependencies": [569, 634],
+    "non_gating_partial_receipt_ancestry": [
+      {
+        "issue": 503,
+        "path": "code/geometry/runs/realized_event_receipt_report.json",
+        "closure_required": false,
+        "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used"
+      }
+    ],
+    "boundary_controls": [521, 616, 617, 623]
+  },
+  "source_inputs": [
+    {
+      "issue": 503,
+      "kind": "json",
+      "path": "code/geometry/runs/realized_event_receipt_report.json",
+      "role": "typed_realized_event_domain",
+      "status": "finite_non_gating_context_with_bulk_depth_open",
+      "usable_exports": [
+        "finite realized screen event population",
+        "finite chart and causal readback receipts"
+      ],
+      "excluded_promotions": [
+        "rank-four bulk-depth completion",
+        "continuum local scalar action",
+        "physical scalar attachment"
+      ]
+    },
+    {
+      "issue": 566,
+      "kind": "json",
+      "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "role": "finite_current_algebra",
+      "status": "finite_positive_parent",
+      "usable_exports": [
+        "source-bound finite port-current algebra",
+        "charged response representation and refinement maps"
+      ],
+      "excluded_promotions": [
+        "continuum quantum field theory",
+        "scalar action",
+        "Yukawa coefficients",
+        "laboratory attachment"
+      ]
+    },
+    {
+      "issue": 314,
+      "kind": "json",
+      "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "role": "finite_chiral_matter",
+      "status": "finite_positive_parent",
+      "usable_exports": [
+        "rank-fifteen chiral matter module",
+        "conditional scalar charge pair",
+        "three invariant Yukawa channel types"
+      ],
+      "excluded_promotions": [
+        "scalar existence or multiplicity",
+        "family-space Yukawa matrices",
+        "kinetic normalization",
+        "scalar potential or vacuum"
+      ]
+    },
+    {
+      "issue": 567,
+      "kind": "json",
+      "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+      "role": "finite_global_form",
+      "status": "finite_positive_parent",
+      "usable_exports": [
+        "diagonal Z6 global form",
+        "q equals six Y charge convention"
+      ],
+      "excluded_promotions": [
+        "continuum local action",
+        "renormalization prescription",
+        "vacuum coordinate"
+      ]
+    },
+    {
+      "issue": 569,
+      "kind": "json",
+      "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+      "role": "conditional_family_attachment",
+      "status": "finite_conditional_parent",
+      "usable_exports": [
+        "exact rank-three screen-band selection",
+        "rank-fifteen representation table per family"
+      ],
+      "excluded_promotions": [
+        "physical matter-pole identification",
+        "laboratory current identification",
+        "family-space Yukawa operator"
+      ]
+    },
+    {
+      "issues": [
+        616,
+        617
+      ],
+      "kind": "json",
+      "path": "code/a5_closure/manifests/multiplicity_window_reference.json",
+      "role": "scalar_multiplicity_boundary",
+      "status": "finite_negative_boundary",
+      "usable_exports": [
+        "zero-scalar completion",
+        "duplicate-doublet completion",
+        "inert-doublet completion"
+      ],
+      "excluded_promotions": [
+        "physical scalar existence",
+        "physical scalar multiplicity"
+      ]
+    },
+    {
+      "issue": 623,
+      "kind": "json",
+      "path": "code/a5_closure/manifests/scalar_sector_blindness_reference.json",
+      "role": "scalar_chain_boundary",
+      "status": "bounded_negative_boundary",
+      "usable_exports": [
+        "limited screen-response chain input closure",
+        "open scalar-sensitive discriminator classes"
+      ],
+      "excluded_promotions": [
+        "exhaustive producer closure",
+        "physical scalar-sector nonidentifiability"
+      ]
+    },
+    {
+      "issue": 521,
+      "kind": "text",
+      "path": "code/particles/calibration/source_completion_no_go.py",
+      "role": "higgs_top_fiber_boundary",
+      "status": "exact_current_reduct_boundary",
+      "usable_exports": [
+        "exact linear-versus-Born lift separation on the current reduct"
+      ],
+      "excluded_promotions": [
+        "unique probability-to-amplitude lift",
+        "physical Higgs or top coefficient",
+        "positive source action"
+      ]
+    }
+  ],
+  "conditional_classification_premises": [
+    {
+      "id": "one_complex_weak_doublet",
+      "status": "declared_not_source_selected"
+    },
+    {
+      "id": "rank_three_family_space",
+      "status": "screen_selected_matter_pole_attachment_open"
+    },
+    {
+      "id": "four_dimensional_power_counting_through_degree_four",
+      "status": "imported_classification_premise"
+    },
+    {
+      "id": "positive_local_scalar_kinetic_form",
+      "status": "imported_classification_premise"
+    }
+  ],
+  "target_firewall": {
+    "allowed_source_roots": [
+      "code/geometry/runs",
+      "code/a5_closure/receipts",
+      "code/a5_closure/manifests",
+      "code/particles/calibration"
+    ],
+    "forbidden_source_paths": [
+      "code/particles/data/particle_reference_values.json",
+      "code/particles/calibration/wz_pdg_2026_target_fixture.json",
+      "code/particles/runs/status/postdiction_ledger.json",
+      "code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
+      "code/particles/runs/calibration/d11_live_exact_top_promotion.json",
+      "code/particles/calibration/wz_upstream_completion/outputs/eft_matching_1.json"
+    ],
+    "forbidden_structured_keys": [
+      "experimental_target",
+      "measured_mass",
+      "target_value",
+      "target_values",
+      "reference_values",
+      "pdg_target",
+      "w_mass_running_width",
+      "z_mass_running_width",
+      "fermi_constant_target"
+    ],
+    "forbidden_output_keys": [
+      "coefficient_value",
+      "coefficient_values",
+      "selected_value",
+      "selected_values",
+      "matrix_entries",
+      "physical_mass",
+      "physical_masses",
+      "prediction"
+    ]
+  },
+  "consumers": [
+    {
+      "issue": 32,
+      "status_after_this_frontier": "scalar_and_yukawa_source_action_open"
+    },
+    {
+      "issue": 34,
+      "status_after_this_frontier": "positive_higgs_top_source_action_open"
+    },
+    {
+      "issue": 594,
+      "status_after_this_frontier": "producer_side_scalar_yukawa_and_fj_map_open"
+    }
+  ]
+}

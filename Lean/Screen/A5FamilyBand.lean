@@ -4,7 +4,7 @@ import PortFrameGram
 
 namespace OPH.A5FamilyBand
 
-open OPH.A5PortAction (perms)
+open OPH.A5PortAction (app comp perms)
 
 /-! # The canonical rank-three family band, exactly (issue #569)
 
@@ -197,6 +197,131 @@ theorem band_equivariant :
       fixedBy Xt p && fixedBy Yt p && fixedBy M5t p) = true := by
   decide
 
+/-- Lexicographically least graph isomorphism from the serialized #565
+carrier labels to the `PortFrameGram` labels.  This is a coordinate bridge,
+not a physical choice. -/
+def carrierToLean : List Nat :=
+  [0, 5, 6, 11, 1, 9, 2, 10, 3, 7, 4, 8]
+
+/-- Inverse coordinate bridge and the three maps exactly as serialized by
+the #565 carrier manifest. -/
+def leanToCarrier : List Nat :=
+  [0, 4, 6, 8, 10, 1, 2, 9, 11, 5, 7, 3]
+
+def rawRefine01 : List Nat :=
+  [1, 0, 3, 2, 6, 7, 4, 5, 11, 10, 9, 8]
+
+def rawRefine12 : List Nat :=
+  [1, 5, 6, 2, 9, 0, 3, 10, 4, 8, 11, 7]
+
+def rawRefine02 : List Nat :=
+  [5, 1, 2, 6, 3, 10, 9, 0, 7, 11, 8, 4]
+
+/-- The three actual maps conjugated into the Lean carrier coordinates. -/
+def refine01 : List Nat :=
+  [5, 2, 1, 8, 7, 0, 11, 4, 3, 10, 9, 6]
+
+def refine12 : List Nat :=
+  [5, 7, 11, 1, 8, 9, 2, 3, 10, 0, 4, 6]
+
+def refine02 : List Nat :=
+  [9, 11, 7, 10, 3, 5, 6, 8, 1, 4, 0, 2]
+
+/-- The displayed coordinate tables are inverse, and conjugating each raw
+serialized map gives the displayed Lean-coordinate map.  The executable
+certificate independently checks that `carrierToLean` is a graph
+isomorphism between the two carrier tables. -/
+theorem refinement_coordinate_bridge :
+    comp carrierToLean leanToCarrier = List.range 12 ∧
+      comp leanToCarrier carrierToLean = List.range 12 ∧
+      comp carrierToLean (comp rawRefine01 leanToCarrier) = refine01 ∧
+      comp carrierToLean (comp rawRefine12 leanToCarrier) = refine12 ∧
+      comp carrierToLean (comp rawRefine02 leanToCarrier) = refine02 := by
+  decide
+
+/-- All three actual refinement maps lie in the listed rotation action. -/
+theorem refinement_maps_listed :
+    refine01 ∈ perms ∧ refine12 ∈ perms ∧ refine02 ∈ perms := by
+  decide
+
+/-- Exact refinement cocycle: the map through `r1` equals the direct map. -/
+theorem refinement_cocycle :
+    comp refine12 refine01 = refine02 := by
+  decide
+
+/-- The selected rank-three projector is natural under every actual
+refinement map.  `Xt + sqrt5*Yt` is the scaled projector table. -/
+theorem family_projector_refinement_natural :
+    fixedBy Xt refine01 = true ∧ fixedBy Yt refine01 = true ∧
+      fixedBy Xt refine12 = true ∧ fixedBy Yt refine12 = true ∧
+      fixedBy Xt refine02 = true ∧ fixedBy Yt refine02 = true := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> decide
+
+/-- Coordinate action of `U tensor I_15` on the abstract fifteen-state label
+factor.  The actual #314 transport is `U tensor gamma|M15` and carries its
+binary-lift centre cocycle.  This bookkeeping action does not replace that
+intertwiner or select a physical matter frame. -/
+def tensorTransport (p : List Nat) : List Nat :=
+  (List.range 180).map fun n =>
+    15 * app p (n / 15) + n % 15
+
+def comp180 (p q : List Nat) : List Nat :=
+  (List.range 180).map fun n => app p (app q n)
+
+def isPerm180 (p : List Nat) : Bool :=
+  p.length == 180 && (List.range 180).all p.contains
+
+set_option maxHeartbeats 16000000 in
+set_option maxRecDepth 16384 in
+/-- The three label-bookkeeping transports are bijective and satisfy the same
+exact cocycle.  This is not a strict-section theorem for the #314 spin lift. -/
+theorem tensor_transport_cocycle :
+    isPerm180 (tensorTransport refine01) = true ∧
+      isPerm180 (tensorTransport refine12) = true ∧
+      isPerm180 (tensorTransport refine02) = true ∧
+      comp180 (tensorTransport refine12) (tensorTransport refine01) =
+        tensorTransport refine02 := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> decide
+
+/-- The selected tensor projector has rank `3 * 15 = 45`. -/
+theorem family_matter_rank : 3 * 15 = 45 := by
+  decide
+
+/-- Carrier transport and any conditional matter action commute because
+they act on separate tensor factors. -/
+def familyFactorTransport (p : List Nat) (x : Nat × Nat) : Nat × Nat :=
+  (app p x.1, x.2)
+
+def matterFactorAction (chi : List Nat) (x : Nat × Nat) : Nat × Nat :=
+  (x.1, app chi x.2)
+
+theorem factor_transports_commute
+    (p chi : List Nat) (x : Nat × Nat) :
+    familyFactorTransport p (matterFactorAction chi x) =
+      matterFactorAction chi (familyFactorTransport p x) := by
+  rfl
+
+/-- Integer-scaled one-generation anomaly forms and their three-copy
+versions vanish. -/
+theorem three_copy_anomaly_forms :
+    3 * (6 * (1 : Int)^3 + 3 * (-4)^3 + 6^3 + 3 * 2^3 +
+      2 * (-3)^3) = 0 ∧
+    3 * (6 * (1 : Int) + 3 * (-4) + 6 + 3 * 2 + 2 * (-3)) = 0 ∧
+    3 * ((-4 : Int) + 2 * 1 + 2) = 0 ∧
+    3 * (3 * (1 : Int) + (-3)) = 0 := by
+  norm_num
+
+/-- The diagonal `(1,1,1)` center generator fixes every field in the
+fifteen-state generation, and hence all three copies. -/
+theorem diagonal_z6_fixes_three_copies :
+    (2 * (1 : Int) + 3 * 1 + 1) % 6 = 0 ∧
+      (2 * (2 : Int) + 3 * 0 - 4) % 6 = 0 ∧
+      (2 * (0 : Int) + 3 * 0 + 6) % 6 = 0 ∧
+      (2 * (2 : Int) + 3 * 0 + 2) % 6 = 0 ∧
+      (2 * (0 : Int) + 3 * 1 - 3) % 6 = 0 ∧
+      3 * 15 = 45 := by
+  norm_num
+
 /-- A rotation acts as the identity on a band exactly when permuting the
 rows of its symmetric projector table changes nothing. -/
 def actsTrivially (m : List (List Int)) (p : List Nat) : Bool :=
@@ -270,6 +395,15 @@ theorem trivial_band_without_faithfulness :
 #print axioms resolution_complete
 #print axioms band_traces
 #print axioms band_equivariant
+#print axioms refinement_coordinate_bridge
+#print axioms refinement_maps_listed
+#print axioms refinement_cocycle
+#print axioms family_projector_refinement_natural
+#print axioms tensor_transport_cocycle
+#print axioms family_matter_rank
+#print axioms factor_transports_commute
+#print axioms three_copy_anomaly_forms
+#print axioms diagonal_z6_fixes_three_copies
 #print axioms band_kernels
 #print axioms cost_order_strict
 #print axioms family_band_selected

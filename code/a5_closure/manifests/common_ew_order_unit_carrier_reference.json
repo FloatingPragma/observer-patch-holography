@@ -1,0 +1,365 @@
+{
+  "arithmetic": "exact integer and rational arithmetic; no floating point",
+  "claim_boundary": {
+    "does_not_prove": [
+      "that the screen and weak order units have one physical meaning",
+      "a source-selected scalar carrier, scalar pole, or scalar multiplicity",
+      "a physical screen-load law to electroweak-readout intertwiner",
+      "the physical normalization of a common load carrier",
+      "the N-dependent bridge equation or a source-only cosmic capacity",
+      "a Higgs, W, Z, coupling, vacuum, or mass prediction"
+    ],
+    "proves": "the pinned finite screen has one invariant normalized order-unit line, the four-copy weak restriction has one central normalized order-unit line, and the unique positive unital trace-preserving linear isomorphism between those lines is refinement-natural"
+  },
+  "claim_class": "conditional_open_interface",
+  "controls": {
+    "capacity_injection": {
+      "code": "CAPACITY_INPUT_FORBIDDEN",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "a cosmic-capacity or issue-505 artifact is outside the local precursor"
+    },
+    "nonunital_scale": {
+      "code": "INTERTWINER_NOT_UNITAL",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "the map T(1_12)=2 I_4 is not unital"
+    },
+    "physical_common_carrier_promotion": {
+      "code": "PHYSICAL_COMMON_CARRIER_OPEN",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "the abstract line isomorphism is not a physical common-load identification"
+    },
+    "scalar_promotion": {
+      "code": "SCALAR_NOT_SOURCE_SELECTED",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "the #314/#616 packets do not select a physical scalar"
+    },
+    "unequal_screen_weights": {
+      "code": "SCREEN_UNIT_NOT_INVARIANT",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "an unequal port-weight vector is not fixed by the transitive action"
+    },
+    "weak_copy_mutation": {
+      "code": "WEAK_MULTIPLICITY",
+      "expected_failure": true,
+      "failed": true,
+      "statement": "a five-copy weak multiplicity does not match the pinned matter packet"
+    }
+  },
+  "dependency_chain": [
+    "issue 565: finite twelve-port carrier and refinement",
+    "issue 566: source-bound current center and natural unit line",
+    "issue 314: finite matter module and four weak-doublet copies",
+    "issue 567: finite global-form compatibility",
+    "issue 616: scalar existence and multiplicity nonselection boundary"
+  ],
+  "electroweak_order_unit_line": {
+    "basis": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "center_dimension": 1,
+    "central_constraint_rank": 15,
+    "copy_derivation": {
+      "L_dimension": 2,
+      "L_weak_doublet_copies": 1,
+      "Q_dimension": 6,
+      "Q_weak_doublet_copies": 3,
+      "total_weak_doublet_copies": 4
+    },
+    "global_form_compatible": true,
+    "multiplicity_algebra": "End(C^4)",
+    "multiplicity_algebra_dimension": 16,
+    "normalized_trace": "tau_EW(c * I_4) = Tr_4(c * I_4) / 4 = c",
+    "positive_ray": "c * I_4 with c >= 0",
+    "refinement_natural": true,
+    "restriction": "the one-generation matter module restricted to the weak factor",
+    "scalar_boundary": {
+      "one_doublet_completion": "declared_only",
+      "physical_scalar_selected": false,
+      "scalar_existence": "not_source_determined",
+      "scalar_multiplicity": "independence_limited"
+    }
+  },
+  "issue": 631,
+  "local_order_unit_intertwiner": {
+    "bijective": true,
+    "codomain": "span(I_4)",
+    "domain": "span(1_12)",
+    "formula": "T(c * 1_12) = c * I_4",
+    "inverse": "T_inv(c * I_4) = c * 1_12",
+    "linear": true,
+    "normalized_trace_preserving": true,
+    "positive": true,
+    "refinement_natural_on_the_pinned_finite_towers": true,
+    "scope": "unique abstract normalized order-unit isomorphism after the two lines have been constructed; no physical common-load identity or physical readout intertwining is inferred",
+    "unique_among_unital_linear_maps_between_the_two_lines": true,
+    "unital": true
+  },
+  "manifest_sha256": "sha256:0a2d935c06eab9c77b12335d4077825b2018763ddf7933cceb7c99b598049035",
+  "open_gates": [
+    {
+      "gate": "source_selected_scalar_carrier",
+      "owners": [
+        630
+      ],
+      "status": "open"
+    },
+    {
+      "gate": "physical_common_load_semantics",
+      "owners": [
+        631
+      ],
+      "status": "open"
+    },
+    {
+      "gate": "physical_screen_load_to_electroweak_readout_intertwiner",
+      "owners": [
+        631
+      ],
+      "status": "open"
+    },
+    {
+      "gate": "N_dependent_bridge_equation",
+      "owners": [
+        505,
+        547
+      ],
+      "status": "open"
+    }
+  ],
+  "promotion": {
+    "N_consumed": false,
+    "R_EW_evaluated": false,
+    "physical_common_load_carrier_identified": false,
+    "physical_higgs_carrier_identified": false,
+    "physical_normalization_derived": false,
+    "physical_scalar_selected": false,
+    "promotion_allowed": false,
+    "screen_load_law_intertwined_with_ew_readout": false
+  },
+  "schema": "oph.common_ew_order_unit_carrier_frontier.v1",
+  "screen_order_unit_line": {
+    "basis": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "carrier": "twelve primitive port units on the pinned oriented screen",
+    "current_center_binding": "the #566 current center is the same constant even-port line",
+    "fixed_space_dimension": 1,
+    "fixed_space_reason": "the listed order-sixty action is transitive, so every invariant port function is constant",
+    "normalized_trace": "tau_screen(c * 1_12) = c",
+    "normalized_trace_weights": [
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12"
+    ],
+    "orbit_of_p00": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "positive_ray": "c * 1_12 with c >= 0",
+    "refinement": {
+      "all_maps_in_A5": true,
+      "antipode_natural": true,
+      "checked_cocycle_triangles": 1,
+      "declared_nonidentity_maps": 3,
+      "frame_gram_natural": true,
+      "levels": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "maps": [
+        {
+          "order_unit_fixed": true,
+          "permutation": [
+            1,
+            0,
+            3,
+            2,
+            6,
+            7,
+            4,
+            5,
+            11,
+            10,
+            9,
+            8
+          ],
+          "source": "r0",
+          "target": "r1"
+        },
+        {
+          "order_unit_fixed": true,
+          "permutation": [
+            1,
+            5,
+            6,
+            2,
+            9,
+            0,
+            3,
+            10,
+            4,
+            8,
+            11,
+            7
+          ],
+          "source": "r1",
+          "target": "r2"
+        },
+        {
+          "order_unit_fixed": true,
+          "permutation": [
+            5,
+            1,
+            2,
+            6,
+            3,
+            10,
+            9,
+            0,
+            7,
+            11,
+            8,
+            4
+          ],
+          "source": "r0",
+          "target": "r2"
+        }
+      ],
+      "order_unit_natural": true,
+      "unit_lines_natural": true
+    },
+    "rotation_checks": 60
+  },
+  "source_firewall": {
+    "allowed_issue_inputs": [
+      565,
+      566,
+      314,
+      567,
+      616
+    ],
+    "cosmic_capacity_consumed": false,
+    "issue_505_consumed": false,
+    "measured_cosmology_consumed": false,
+    "measured_particle_targets_consumed": false,
+    "physical_common_carrier_assumed": false,
+    "physical_scalar_assumed": false,
+    "target_residual_consumed": false
+  },
+  "status": "FINITE_ORDER_UNIT_INTERTWINER__PHYSICAL_COMMON_CARRIER_OPEN",
+  "upstream_pins": {
+    "carrier_manifest": {
+      "issue": 565,
+      "path": "manifests/echosahedral_federation_reference.json",
+      "role": "screen_carrier_manifest",
+      "sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280"
+    },
+    "carrier_receipt": {
+      "issue": 565,
+      "path": "receipts/echosahedral_federation_reference.receipt.json",
+      "role": "screen_carrier_receipt",
+      "sha256": "b3f8bc306471334c0dc75d38b2f9c1b7b1dd4247ff02cbe2980c0caad07b3506"
+    },
+    "current_manifest": {
+      "issue": 566,
+      "path": "manifests/port_current_response_reference.json",
+      "role": "port_current_manifest",
+      "sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c"
+    },
+    "current_receipt": {
+      "issue": 566,
+      "path": "receipts/port_current_inner_reference.receipt.json",
+      "role": "port_current_receipt",
+      "sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb"
+    },
+    "global_form_manifest": {
+      "issue": 567,
+      "path": "manifests/axis_center_descent_reference.json",
+      "role": "global_form_manifest",
+      "sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d"
+    },
+    "global_form_receipt": {
+      "issue": 567,
+      "path": "receipts/axis_center_descent_reference.receipt.json",
+      "role": "global_form_receipt",
+      "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
+    },
+    "matter_manifest": {
+      "issue": 314,
+      "path": "manifests/super_tannakian_matter_reference.json",
+      "role": "matter_manifest",
+      "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+    },
+    "matter_receipt": {
+      "issue": 314,
+      "path": "receipts/super_tannakian_matter_reference.receipt.json",
+      "role": "matter_receipt",
+      "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+    },
+    "scalar_boundary": {
+      "issue": 616,
+      "path": "manifests/multiplicity_window_reference.json",
+      "role": "scalar_nonselection_boundary",
+      "sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97"
+    }
+  }
+}

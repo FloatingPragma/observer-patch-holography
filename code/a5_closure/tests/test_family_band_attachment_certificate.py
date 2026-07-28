@@ -43,7 +43,9 @@ class FamilyBandAttachmentTests(unittest.TestCase):
     def test_schema_issue_and_bounded_exit(self) -> None:
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
         self.assertEqual(self.payload["issue"], 569)
-        self.assertEqual(self.payload["bounded_exit"], "exact_named_realization")
+        self.assertEqual(
+            self.payload["bounded_exit"], "exact_finite_refinement_transport"
+        )
         self.assertTrue(self.payload["invisibility_preserved"])
         interface = self.payload["named_interface"]
         self.assertEqual(interface["class"], "conditional_open_interface")
@@ -194,9 +196,73 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         finally:
             cert.MANIFEST_PATH.write_bytes(original)
 
-    def test_schema_is_v4(self) -> None:
-        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v4")
+    def test_schema_is_v5(self) -> None:
+        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v5")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
+
+    def test_actual_refinement_triangle_and_rank45_transport(self) -> None:
+        transport = self.payload["refinement_transport"]
+        self.assertEqual(transport["actual_map_count"], 3)
+        self.assertTrue(transport["port_cocycle_checked"])
+        self.assertTrue(transport["all_projectors_refinement_natural"])
+        self.assertEqual(transport["tensor_projector_rank"], 45)
+        self.assertTrue(transport["tensor_cocycle_checked"])
+        self.assertFalse(transport["actual_gamma_strict_triangle_claimed"])
+        self.assertTrue(transport["binary_lift_centre_cocycle_retained"])
+        self.assertFalse(transport["one_conjugate_projector_selected"])
+        for row in transport["maps"]:
+            self.assertEqual(len(row["port_permutation"]), 12)
+            self.assertEqual(len(row["tensor_permutation"]), 180)
+            self.assertTrue(row["rank45_projector_intertwined"])
+
+    def test_physical_persistence_maps_are_separate_and_hash_bound(self) -> None:
+        physical = self.payload["physical_persistence_transport"]
+        self.assertTrue(physical["distinct_from_algebraic_r_tower"])
+        self.assertTrue(physical["matter_gamma_intertwined_mapwise"])
+        self.assertFalse(physical["laboratory_current_identified"])
+        self.assertEqual(len(physical["maps"]), 2)
+        for row in physical["maps"]:
+            self.assertEqual(row["port_map"], list(range(12)))
+            self.assertTrue(row["map_hash"].startswith("sha256:"))
+
+    def test_three_copy_anomalies_and_z6_are_exact(self) -> None:
+        consistency = self.payload["three_copy_consistency"]
+        self.assertEqual(len(consistency["three_copy_anomaly_forms"]), 5)
+        self.assertTrue(consistency["all_listed_anomalies_zero"])
+        self.assertEqual(consistency["three_copy_weak_doublets"], 12)
+        self.assertEqual(consistency["center_candidates_replayed"], 36)
+        self.assertEqual(consistency["kernel_order"], 6)
+        self.assertEqual(consistency["kernel_generator"], [1, 1, 1])
+        self.assertTrue(consistency["triplication_does_not_change_kernel"])
+        self.assertEqual(consistency["fixed_subspace_dimension"], 45)
+
+    def test_all_conditional_seam_characters_transport_without_selection(self) -> None:
+        seam = self.payload["conditional_seam_menu_transport"]
+        self.assertEqual(seam["characters_checked"], 11)
+        self.assertEqual(
+            [row["group_order"] for row in seam["groups"]], [2, 3, 6]
+        )
+        self.assertFalse(seam["physical_seam_action_selected"])
+        self.assertIsNone(seam["selected_character"])
+        self.assertEqual(seam["selection_status"], "open")
+
+    def test_all_physical_promotions_remain_false(self) -> None:
+        self.assertTrue(
+            all(value is False for value in self.payload["promotion"].values())
+        )
+        self.assertEqual(
+            self.payload["open_gates"],
+            [
+                "matter_pole_identification",
+                "continuum_Spin_locality",
+                "physical_seam_action_selection",
+                "laboratory_current_identification",
+            ],
+        )
+        self.assertEqual(
+            self.payload["controls"]["strict_matter_cocycle_promotion"]["code"],
+            "STRICT_MATTER_COCYCLE_NOT_DERIVED",
+        )
 
     def test_pole_residue_receipt_realizes_clause_r(self) -> None:
         receipt = self.payload["pole_residue_receipt"]

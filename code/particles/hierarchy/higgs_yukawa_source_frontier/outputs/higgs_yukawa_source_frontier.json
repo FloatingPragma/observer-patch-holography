@@ -1,0 +1,338 @@
+{
+  "acceptance_map": [
+    {
+      "criterion": "all physical coefficients emitted before target mounting",
+      "evidence": "coefficient assignments are not emitted",
+      "status": "open"
+    },
+    {
+      "criterion": "physical scalar existence and multiplicity selected",
+      "evidence": "scalar-content witness pair survives the finite parent projection",
+      "status": "open"
+    },
+    {
+      "criterion": "complete Yu Yd Ye matrices emitted",
+      "evidence": "three channel types classify Mat_3(C)^3 but do not choose a point",
+      "status": "open"
+    },
+    {
+      "criterion": "kinetic normalization potential stability and vacuum selected on one action",
+      "evidence": "the conditional operator basis has no source coefficient assignment",
+      "status": "open"
+    },
+    {
+      "criterion": "symbolic v_chart to v_F map with scheme scale Jacobian and uncertainty",
+      "evidence": "two formal coordinate one-jets survive",
+      "status": "open"
+    },
+    {
+      "criterion": "existing scalar and Higgs/top countermodels distinguished by positive source data",
+      "evidence": "countermodels are retained and explicitly separated",
+      "status": "open"
+    },
+    {
+      "criterion": "independent replay rejects target and promotion mutations",
+      "evidence": "independent checker and mutation tests guard this bounded packet",
+      "status": "frontier_only"
+    }
+  ],
+  "coefficient_assignments_emitted": false,
+  "conditional_coefficient_space": {
+    "classification_scope": "scalar and Yukawa operators for one declared complex weak doublet on the conditional rank-three family branch, modulo field-independent constants and total derivatives",
+    "flavor_basis_quotient_status": "not_formed_without_source-selected family bases and equivalence maps",
+    "normalization_quotient_status": "not_formed_without_a_source_kinetic_and_field_redefinition_rule",
+    "physical_coefficient_assignments_emitted": false,
+    "premises": [
+      "one_complex_weak_doublet",
+      "rank_three_family_space",
+      "four_dimensional_power_counting_through_degree_four",
+      "positive_local_scalar_kinetic_form"
+    ],
+    "product_space": "R_positive x R^2 x Mat_3(C)^3",
+    "scalar_kinetic": {
+      "coefficient_domain": "positive real ray",
+      "operator_basis": [
+        "(D S)^dagger (D S)"
+      ],
+      "real_basis_dimension": 1,
+      "source_selection": "not_emitted"
+    },
+    "scalar_potential": {
+      "coefficient_domain": "real plane with a stability subcone",
+      "operator_basis": [
+        "S^dagger S",
+        "(S^dagger S)^2"
+      ],
+      "real_basis_dimension": 2,
+      "source_selection": "not_emitted",
+      "stable_branch_selection": "not_emitted"
+    },
+    "status": "exact_conditional_operator_basis__all_physical_coefficients_open",
+    "yukawa_sector": {
+      "channel_types": [
+        [
+          "L",
+          "Sbar",
+          "e_c"
+        ],
+        [
+          "Q",
+          "S",
+          "u_c"
+        ],
+        [
+          "Q",
+          "Sbar",
+          "d_c"
+        ]
+      ],
+      "coefficient_space_per_channel": "Mat_3(C)",
+      "complete_coefficient_space": "Mat_3(C)^3",
+      "complex_dimension_per_channel": 9,
+      "family_space": "C^3",
+      "invariant_channel_type_count": 3,
+      "source_selection": "not_emitted",
+      "total_complex_dimension": 27
+    }
+  },
+  "consumer_effect": [
+    {
+      "issue": 32,
+      "status": "scalar_and_yukawa_source_action_open"
+    },
+    {
+      "issue": 34,
+      "status": "positive_higgs_top_source_action_open"
+    },
+    {
+      "issue": 594,
+      "status": "producer_side_scalar_yukawa_and_fj_map_open"
+    }
+  ],
+  "issue": 630,
+  "issue_topology": {
+    "boundary_controls": [
+      521,
+      616,
+      617,
+      623
+    ],
+    "non_gating_partial_receipt_ancestry": [
+      {
+        "closure_required": false,
+        "issue": 503,
+        "path": "code/geometry/runs/realized_event_receipt_report.json",
+        "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used"
+      }
+    ],
+    "open_blocking_dependencies": [
+      569,
+      634
+    ],
+    "semantic_dependencies": [
+      314,
+      566,
+      567,
+      569,
+      634
+    ]
+  },
+  "nonidentifiability_witnesses": {
+    "issue_521_exact_separation": {
+      "coefficient_assignments_emitted": false,
+      "completion_A": "linear_probability_lift",
+      "completion_B": "Born_amplitude_lift",
+      "exact_separation": {
+        "Higgs": "r_H(linear)-r_H(Born)=2u(1-u)>0",
+        "top": "r_t(Born)-r_t(linear)=u(1-u)/2>0"
+      },
+      "formal_readouts": {
+        "Higgs": "r_H = 2(1-a^2)",
+        "top": "r_t = a^2/2"
+      },
+      "parent_projection_digest": "20f945852c6b14a0ed5bedc5c87ec2362920b3702cb2956e51f3e50b450af7ce",
+      "physical_promotion_allowed": false,
+      "scope": "dimensionless formal readout coefficients only; no physical source action or pole value",
+      "source_coordinate_domain": "0 < u < 1",
+      "squared_lift_relations": {
+        "Born": "a_Born^2 = u",
+        "linear": "a_linear^2 = u^2"
+      },
+      "status": "exact_current_reduct_nonidentifiability"
+    },
+    "scalar_content": {
+      "coefficient_assignments_emitted": false,
+      "common_finite_parent": true,
+      "completion_A": "registered_empty_scalar_extension",
+      "completion_B": "declared_one_weak_doublet_extension",
+      "distinguishing_projection": "scalar_carrier_multiplicity",
+      "exact_relation": "rank_scalar(A) != rank_scalar(B)",
+      "parent_projection_digest": "20f945852c6b14a0ed5bedc5c87ec2362920b3702cb2956e51f3e50b450af7ce",
+      "physical_promotion_allowed": false,
+      "scope": "grammar and declared-completion level; no physical scalar is selected",
+      "status": "current_finite_parent_not_constant_on_scalar_content_fiber"
+    },
+    "v_chart_to_v_F": {
+      "coefficient_assignments_emitted": false,
+      "common_finite_parent": true,
+      "completion_A": "formal_invertible_coordinate_jet_Phi_A",
+      "completion_B": "formal_invertible_coordinate_jet_Phi_B",
+      "distinguishing_projection": "coordinate_one_jet",
+      "exact_relation": "jet(Phi_A) != jet(Phi_B)",
+      "existence_reason": "the finite parents impose no scheme, scale, Jacobian, or finite-shift equation",
+      "parent_projection_digest": "20f945852c6b14a0ed5bedc5c87ec2362920b3702cb2956e51f3e50b450af7ce",
+      "physical_promotion_allowed": false,
+      "scope": "formal coordinate completion only; no FJ map is emitted",
+      "status": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber",
+      "witness_domain": "invertible_local_coordinate_one_jets"
+    },
+    "yukawa_matrices": {
+      "coefficient_assignments_emitted": false,
+      "common_finite_parent": true,
+      "completion_A": "formal_family_matrix_point_Y_A",
+      "completion_B": "formal_family_matrix_point_Y_B",
+      "distinguishing_projection": "family_matrix_coordinate_projection",
+      "exact_relation": "Y_A != Y_B",
+      "existence_reason": "the classified complex coefficient space has positive dimension",
+      "parent_projection_digest": "20f945852c6b14a0ed5bedc5c87ec2362920b3702cb2956e51f3e50b450af7ce",
+      "physical_promotion_allowed": false,
+      "scope": "formal coefficient completion only; no matrix entries are emitted",
+      "status": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber",
+      "witness_domain": "Mat_3(C)^3"
+    }
+  },
+  "physical_source_action_emitted": false,
+  "positive_source_objects": {
+    "canonical_scalar_kinetic_normalization": {
+      "reason": "no source normalization functional is present",
+      "status": "not_emitted"
+    },
+    "complete_Yu_Yd_Ye_matrices": {
+      "reason": "channel types do not select family-space matrix entries",
+      "status": "not_emitted"
+    },
+    "physical_scalar_carrier_and_multiplicity": {
+      "reason": "finite parents retain scalar-content countermodels",
+      "status": "not_emitted"
+    },
+    "scalar_potential_coefficients": {
+      "reason": "operator basis is classified but coefficients are not selected",
+      "status": "not_emitted"
+    },
+    "source_uncertainty_packet": {
+      "reason": "no positive source action has been emitted",
+      "status": "not_emitted"
+    },
+    "stable_vacuum_branch": {
+      "reason": "potential coefficients and stability selector are absent",
+      "status": "not_emitted"
+    },
+    "v_chart_to_v_F_map": {
+      "reason": "scheme, scale, Jacobian, and finite-shift data are absent",
+      "status": "not_emitted"
+    }
+  },
+  "promotion_allowed": false,
+  "schema": "oph.higgs_yukawa_source_frontier.v1",
+  "source_inputs": {
+    "artifacts": [
+      {
+        "byte_sha256": "a93d36404739e821946ee7ea692eff1fe6aa26522db9ce856769411cf4365734",
+        "bytes": 2110,
+        "canonical_json_sha256": "65bf7e1fe2ff677cf258f02558e21263e49809b0182bef9b17a00ee3c5d3b4a5",
+        "kind": "json",
+        "path": "code/geometry/runs/realized_event_receipt_report.json",
+        "role": "typed_realized_event_domain",
+        "status": "finite_non_gating_context_with_bulk_depth_open"
+      },
+      {
+        "byte_sha256": "ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07",
+        "bytes": 77299,
+        "canonical_json_sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb",
+        "kind": "json",
+        "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "role": "finite_current_algebra",
+        "status": "finite_positive_parent"
+      },
+      {
+        "byte_sha256": "e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81",
+        "bytes": 36871,
+        "canonical_json_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70",
+        "kind": "json",
+        "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "role": "finite_chiral_matter",
+        "status": "finite_positive_parent"
+      },
+      {
+        "byte_sha256": "2014c6d0575f3e5fad95a9e88da8dab4f5cae1ce20914a0ba836614d2767a653",
+        "bytes": 1640,
+        "canonical_json_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
+        "kind": "json",
+        "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+        "role": "finite_global_form",
+        "status": "finite_positive_parent"
+      },
+      {
+        "byte_sha256": "9eafb3bf846e75486b596a87123f703cb431f0cfb321938a1197b16644fa286c",
+        "bytes": 38793,
+        "canonical_json_sha256": "095345bd86b0093e4bb59dce8d2e4f5036237ec920566f21c6613ef096ca71ab",
+        "kind": "json",
+        "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+        "role": "conditional_family_attachment",
+        "status": "finite_conditional_parent"
+      },
+      {
+        "byte_sha256": "35aa8ceb43bc33415d2746edddbb7da027bb14b8b9117fca11ebcb93e0ab5818",
+        "bytes": 18116,
+        "canonical_json_sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97",
+        "kind": "json",
+        "path": "code/a5_closure/manifests/multiplicity_window_reference.json",
+        "role": "scalar_multiplicity_boundary",
+        "status": "finite_negative_boundary"
+      },
+      {
+        "byte_sha256": "92ab7cd942f2f80b1799c4a4dcb35337426e9d89660bb30fb73278443dc89dfd",
+        "bytes": 5410,
+        "canonical_json_sha256": "776a9740fb61381e8f915ada2db02cd0a8e77e9ec2d04ec56af5882f3cb7c8c1",
+        "kind": "json",
+        "path": "code/a5_closure/manifests/scalar_sector_blindness_reference.json",
+        "role": "scalar_chain_boundary",
+        "status": "bounded_negative_boundary"
+      },
+      {
+        "byte_sha256": "115042194a16c3296db7b997837c690f86eb8498943c4f475ca8635d2294d98d",
+        "bytes": 1804,
+        "kind": "text",
+        "path": "code/particles/calibration/source_completion_no_go.py",
+        "role": "higgs_top_fiber_boundary",
+        "status": "exact_current_reduct_boundary"
+      }
+    ],
+    "input_bundle_digest": "a2b4456398fdb95ec0a2014efe0be86429db97aa015fd2f847419166c354ba89",
+    "policy": {
+      "byte_sha256": "a74bc4c818ac3fcd3c56013fef1475c023397e30c9a09c85dec18f592ac447a2",
+      "bytes": 6822,
+      "canonical_json_sha256": "99423ef40226b5afb2b2cb3f22b63984b0edef0f43948c540d40a155063ebfa5",
+      "kind": "json",
+      "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/data/higgs_yukawa_source_policy_v1.json"
+    }
+  },
+  "status": "BOUNDED_NONPROMOTING_FRONTIER__POSITIVE_SOURCE_ACTION_OPEN",
+  "strictly_not_claimed": [
+    "physical scalar existence or multiplicity",
+    "canonical scalar kinetic normalization",
+    "scalar potential or stable vacuum",
+    "any Yukawa matrix entry",
+    "a v_chart to v_F coordinate map",
+    "a Higgs top W or Z source value",
+    "closure of issue 630"
+  ],
+  "subject_digest": "dbec7df7412492eb6020c7fe1d83cd6989f8ca20b457559cc92aae18befca48c",
+  "target_firewall": {
+    "external_593_packet_consumed": false,
+    "forbidden_structured_keys_present": false,
+    "physical_reference_store_consumed": false,
+    "status": "closed_allowlist_and_structured_key_scan",
+    "target_paths_present": false
+  }
+}

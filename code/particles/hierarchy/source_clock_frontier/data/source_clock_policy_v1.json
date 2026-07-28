@@ -1,0 +1,196 @@
+{
+  "schema": "oph.source_clock.frontier_policy.v1",
+  "issue": 633,
+  "status": "NONPROMOTING_ROUTE_NEUTRAL_CONTRACT__PHYSICAL_CLOCK_ATTACHMENT_OPEN",
+  "dependency_semantics": {
+    "hard_issue_dependencies": [
+      634
+    ],
+    "alternative_routes_allowed": true,
+    "optional_route_owner_issues": [
+      32,
+      34,
+      317,
+      318,
+      425,
+      522,
+      545,
+      546,
+      569,
+      633
+    ],
+    "downstream_only_issues": [
+      334
+    ]
+  },
+  "candidate_routes": [
+    {
+      "route_id": "cesium_133_hyperfine",
+      "label": "cesium-133 hyperfine reference-transition construction",
+      "status": "optional_incomplete_candidate_not_hard_dependency",
+      "required_for_issue_633": false,
+      "owner_issues": [
+        32,
+        34,
+        317,
+        318,
+        425,
+        522,
+        545,
+        546,
+        569,
+        633
+      ],
+      "component_contracts": [
+        {
+          "component_id": "R_U",
+          "label": "dimensionless unified and electroweak source readout",
+          "owner_issues": [
+            32,
+            545
+          ],
+          "current_status": "conditional_declared_packet_not_physical",
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_alpha",
+          "label": "same-scheme electromagnetic atomic readout",
+          "owner_issues": [
+            318,
+            425
+          ],
+          "current_status": "absent",
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_e_abs",
+          "label": "absolute electron ratio readout",
+          "owner_issues": [
+            34,
+            546,
+            569
+          ],
+          "current_status": "absent",
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_QCD_nuc_133Cs",
+          "label": "cesium QCD and nuclear source packet",
+          "owner_issues": [
+            317,
+            425
+          ],
+          "current_status": "absent",
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        },
+        {
+          "component_id": "R_atom_133Cs",
+          "label": "cesium atomic Hamiltonian and spectral enclosure",
+          "owner_issues": [
+            522,
+            633
+          ],
+          "current_status": "synthetic_theorem_fixture_only",
+          "required_fields": [
+            "source_map",
+            "positive_interval",
+            "scheme",
+            "refinement_rule",
+            "provenance_dag",
+            "target_clean_receipt"
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnostic_references": [
+    {
+      "role": "legacy_gravity_checksum_skeleton",
+      "path": "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+      "expected_artifact": "R_gamma_noG_DAG_certificate",
+      "expected_status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates",
+      "source_ancestry_allowed": false
+    },
+    {
+      "role": "synthetic_feshbach_fixture",
+      "path": "code/particles/runs/clock/cs133_feshbach_scalarization.json",
+      "expected_artifact": "oph_cs133_feshbach_scalarization",
+      "expected_status": "SYNTHETIC_FIXTURE_THEOREM_CHECKS_ONLY",
+      "source_ancestry_allowed": false
+    }
+  ],
+  "forbidden_source_tokens": [
+    "g_exp",
+    "measured_g",
+    "planck_area",
+    "planck_mass",
+    "planck_time",
+    "lambda_exp",
+    "codata",
+    "pdg",
+    "measured_w",
+    "measured_z",
+    "measured_higgs",
+    "measured_top",
+    "g_f_measured",
+    "target_residual",
+    "target_score"
+  ],
+  "open_gates": [
+    {
+      "gate_id": "route_neutral_dimensionless_clock_observable",
+      "owner_issues": [
+        634
+      ]
+    },
+    {
+      "gate_id": "admissible_physical_clock_route_and_process_receipt",
+      "owner_issues": [
+        633
+      ]
+    },
+    {
+      "gate_id": "target_clean_clock_to_si_attachment",
+      "owner_issues": [
+        633
+      ]
+    }
+  ],
+  "downstream_consumers": [
+    {
+      "issue": 334,
+      "role": "newton_g_composition",
+      "required_input": "source_energy_interval",
+      "possible_output": "source_g_si_interval",
+      "status": "downstream_open_not_issue_633_acceptance_gate"
+    }
+  ]
+}

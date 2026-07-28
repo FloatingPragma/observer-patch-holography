@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/rg_representation_frontier_v1.schema.json",
+  "title": "OPH RG representation frontier",
+  "type": "object",
+  "required": [
+    "schema",
+    "issue",
+    "status",
+    "promotion_allowed",
+    "source_inputs",
+    "qft_import_boundary",
+    "formal_certificate",
+    "representation_indices",
+    "parametric_one_loop_law",
+    "invisible_sector_boundary",
+    "conditional_evaluations",
+    "nonidentifiability_witnesses",
+    "matching_objects",
+    "acceptance_map",
+    "subject_digest"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "oph.rg_representation_frontier.v1"
+    },
+    "issue": {
+      "const": 32
+    },
+    "status": {
+      "const": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN"
+    },
+    "promotion_allowed": {
+      "const": false
+    },
+    "source_inputs": {
+      "type": "object",
+      "required": [
+        "policy",
+        "artifacts",
+        "input_bundle_digest",
+        "target_paths_present"
+      ],
+      "properties": {
+        "policy": {
+          "$ref": "#/$defs/filePin"
+        },
+        "artifacts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/sourceArtifact"
+          }
+        },
+        "input_bundle_digest": {
+          "$ref": "#/$defs/sha256"
+        },
+        "target_paths_present": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "qft_import_boundary": {
+      "type": "object"
+    },
+    "formal_certificate": {
+      "type": "object",
+      "required": [
+        "path",
+        "bytes",
+        "byte_sha256",
+        "theorems",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "const": "Lean/Screen/RGRepresentationFrontier.lean"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "theorems": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string"
+        }
+      }
+    },
+    "representation_indices": {
+      "type": "object"
+    },
+    "parametric_one_loop_law": {
+      "type": "object"
+    },
+    "invisible_sector_boundary": {
+      "type": "object"
+    },
+    "conditional_evaluations": {
+      "type": "array",
+      "minItems": 1
+    },
+    "nonidentifiability_witnesses": {
+      "type": "object"
+    },
+    "matching_objects": {
+      "type": "object",
+      "required": [
+        "ordered_eft_intervals",
+        "threshold_locations",
+        "decoupling_maps",
+        "scheme_maps",
+        "jacobians",
+        "finite_order_term_masks",
+        "certified_vector_remainders"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ordered_eft_intervals": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "threshold_locations": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "decoupling_maps": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "scheme_maps": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "jacobians": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "finite_order_term_masks": {
+          "$ref": "#/$defs/notEmitted"
+        },
+        "certified_vector_remainders": {
+          "$ref": "#/$defs/notEmitted"
+        }
+      }
+    },
+    "acceptance_map": {
+      "type": "array",
+      "minItems": 3
+    },
+    "subject_digest": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "filePin": {
+      "type": "object",
+      "required": [
+        "path",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "sourceArtifact": {
+      "type": "object",
+      "required": [
+        "path",
+        "bytes",
+        "byte_sha256",
+        "canonical_json_sha256",
+        "role",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_json_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "notEmitted": {
+      "type": "object",
+      "required": [
+        "status",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "not_emitted"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

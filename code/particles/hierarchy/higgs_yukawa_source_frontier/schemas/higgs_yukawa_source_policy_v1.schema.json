@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/higgs_yukawa_source_policy_v1.schema.json",
+  "title": "OPH Higgs/Yukawa source-frontier policy",
+  "type": "object",
+  "required": [
+    "schema",
+    "issue",
+    "claim_lane",
+    "issue_topology",
+    "source_inputs",
+    "conditional_classification_premises",
+    "target_firewall",
+    "consumers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "oph.higgs_yukawa_source_policy.v1"
+    },
+    "issue": {
+      "const": 630
+    },
+    "claim_lane": {
+      "const": "HIGGS_YUKAWA_SOURCE_ACTION_FRONTIER"
+    },
+    "issue_topology": {
+      "$ref": "#/$defs/issueTopology"
+    },
+    "source_inputs": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/sourceInput"
+      }
+    },
+    "conditional_classification_premises": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "$ref": "#/$defs/statusRow"
+      }
+    },
+    "target_firewall": {
+      "type": "object",
+      "required": [
+        "allowed_source_roots",
+        "forbidden_source_paths",
+        "forbidden_structured_keys",
+        "forbidden_output_keys"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "allowed_source_roots": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden_source_paths": {
+          "type": "array",
+          "minItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden_structured_keys": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden_output_keys": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "consumers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "issue",
+          "status_after_this_frontier"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "issue": {
+            "enum": [
+              32,
+              34,
+              594
+            ]
+          },
+          "status_after_this_frontier": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "issueTopology": {
+      "type": "object",
+      "required": [
+        "semantic_dependencies",
+        "open_blocking_dependencies",
+        "non_gating_partial_receipt_ancestry",
+        "boundary_controls"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "semantic_dependencies": {
+          "const": [314, 566, 567, 569, 634]
+        },
+        "open_blocking_dependencies": {
+          "const": [569, 634]
+        },
+        "non_gating_partial_receipt_ancestry": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["issue", "path", "closure_required", "scope"],
+            "additionalProperties": false,
+            "properties": {
+              "issue": {
+                "const": 503
+              },
+              "path": {
+                "const": "code/geometry/runs/realized_event_receipt_report.json"
+              },
+              "closure_required": {
+                "const": false
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "boundary_controls": {
+          "const": [521, 616, 617, 623]
+        }
+      }
+    },
+    "stringList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "statusRow": {
+      "type": "object",
+      "required": [
+        "id",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sourceInput": {
+      "type": "object",
+      "required": [
+        "kind",
+        "path",
+        "role",
+        "status",
+        "usable_exports",
+        "excluded_promotions"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "issue"
+          ],
+          "not": {
+            "required": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "required": [
+            "issues"
+          ],
+          "not": {
+            "required": [
+              "issue"
+            ]
+          }
+        }
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "issue": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "issues": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "kind": {
+          "enum": [
+            "json",
+            "text"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "usable_exports": {
+          "$ref": "#/$defs/stringList"
+        },
+        "excluded_promotions": {
+          "$ref": "#/$defs/stringList"
+        }
+      }
+    }
+  }
+}

@@ -27,10 +27,18 @@ WHAT IS PROVED (exact, on the pinned carrier):
   evaluates on the three candidates to 5 - sqrt5, 5 + sqrt5, and 6.  The
   order is strict, so the comparison selects a unique minimizer: the
   3 band, of complex dimension exactly three.
-* The realized attachment object, band tensor generation, has complex
-  rank exactly 3 x 15 = 45; the fifteen-state generation is recomputed
-  from the pinned block charges, every per-family anomaly form is zero,
-  three-family weak parity is even, and the common kernel is unchanged.
+* All three actual carrier refinements preserve the four exact projectors
+  and satisfy their declared cocycle.  Their tensor transports U x I_15
+  preserve the rank-forty-five projector P_3 x I_15 exactly.
+* The realized attachment object, band tensor generation, has complex rank
+  exactly 3 x 15 = 45.  The fifteen-state generation is recomputed from the
+  pinned block charges, every three-copy anomaly form is zero, and exhaustive
+  replay of the thirty-six center candidates leaves the same diagonal Z6
+  kernel after triplication.
+* Every character in the pinned #627 Z2, Z3, and Z6 seam menus transports
+  uniformly because carrier refinement acts on the family factor and the
+  conditional character acts on the matter factor.  This classifies the
+  finite conditional menu without selecting a physical seam action.
 
 THE NAMED INTERFACE (this is the boundary; read it before citing):
 
@@ -58,9 +66,9 @@ at the maximal pole), and the finite screen assembly, simulator-read
 multiplicity times the pinned fifteen-state generation, has complex
 rank exactly forty-five with the generation factor stated as an
 import.  The matter-pole identification, chirality and spin data,
-Spin/locality, and laboratory receipts stay open on issue #569.  The
-#617 invisibility theorem for external C^n completions is re-verified
-and holds unchanged.
+Spin/locality, physical seam selection, and laboratory-current receipts stay
+open on issue #569.  The #617 invisibility theorem for external C^n
+completions is re-verified and holds unchanged.
 """
 
 from __future__ import annotations
@@ -86,12 +94,19 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.family_band_attachment_certificate.v4"
+SCHEMA = "oph.family_band_attachment_certificate.v5"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "family_band_attachment_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
+CARRIER_RECEIPT_NAME = "echosahedral_federation_reference.receipt.json"
+CURRENT_MANIFEST_NAME = "port_current_response_reference.json"
+CURRENT_RECEIPT_NAME = "port_current_inner_reference.receipt.json"
 WINDOW_MANIFEST_NAME = "multiplicity_window_reference.json"
 READBACK_MANIFEST_NAME = "load_fiber_readback_reference.json"
 MATTER_MANIFEST_NAME = "super_tannakian_matter_reference.json"
+MATTER_RECEIPT_NAME = "super_tannakian_matter_reference.receipt.json"
+GLOBAL_FORM_MANIFEST_NAME = "axis_center_descent_reference.json"
+GLOBAL_FORM_RECEIPT_NAME = "axis_center_descent_reference.receipt.json"
+SEAM_CLASSIFICATION_NAME = "seam_grammar_matter_classification_reference.json"
 RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
 POLE_RESIDUE_ARTIFACT_NAME = "charged_response_pole_residue_artifact.json"
 
@@ -196,6 +211,41 @@ def f5_sorted(names: Sequence[str], key: Callable[[str], F5]) -> list[str]:
     return ordered
 
 
+def compose_permutations(
+    left: Sequence[int], right: Sequence[int]
+) -> tuple[int, ...]:
+    """Composition `left` after `right` in the carrier convention."""
+
+    require(
+        len(left) == len(right),
+        "PERMUTATION_SIZE",
+        "permutation composition requires equal finite carriers",
+    )
+    return tuple(int(left[int(right[index])]) for index in range(len(right)))
+
+
+def tensor_identity_permutation(
+    port_permutation: Sequence[int], matter_dimension: int
+) -> tuple[int, ...]:
+    """The exact basis permutation U tensor I on port-major tensor indices."""
+
+    require(
+        sorted(int(value) for value in port_permutation) == list(range(PORTS)),
+        "REFINEMENT_BIJECTION",
+        "a carrier transport must be a twelve-port permutation",
+    )
+    require(
+        matter_dimension > 0,
+        "MATTER_DIMENSION",
+        "the tensor identity factor must have positive dimension",
+    )
+    return tuple(
+        int(port_permutation[port]) * matter_dimension + matter
+        for port in range(PORTS)
+        for matter in range(matter_dimension)
+    )
+
+
 # ---------------------------------------------------------------------------
 # Carrier, rotations, and orbit structure
 # ---------------------------------------------------------------------------
@@ -209,6 +259,7 @@ def load_carrier() -> tuple[Any, list[tuple[int, ...]], dict[str, Any]]:
     pin = {
         "path": f"manifests/{CARRIER_MANIFEST_NAME}",
         "sha256": sha256_json(manifest),
+        "issue": 565,
     }
     return carrier, [tuple(g) for g in plus_group], pin
 
@@ -397,6 +448,270 @@ def verify_multiplicity_free(carrier: Any) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 # Pinned upstream receipts
 # ---------------------------------------------------------------------------
+
+
+def _pin_named(
+    directory: str, name: str, issue: int, role: str
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    path = MODULE_DIR / directory / name
+    payload = load_json(path)
+    return payload, {
+        "path": f"{directory}/{name}",
+        "sha256": sha256_json(payload),
+        "issue": issue,
+        "role": role,
+    }
+
+
+def _verify_self_hash(payload: Mapping[str, Any], code: str) -> None:
+    body = {key: value for key, value in payload.items() if key != "manifest_sha256"}
+    require(
+        payload.get("manifest_sha256") == "sha256:" + sha256_json(body),
+        code,
+        "the generated parent manifest does not match its self-hash",
+    )
+
+
+def pin_structural_chain(
+    carrier_manifest_sha256: str,
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    """Resolve #565/#566/#314/#567/#627 as one exact finite chain."""
+
+    carrier_receipt, carrier_receipt_pin = _pin_named(
+        "receipts",
+        CARRIER_RECEIPT_NAME,
+        565,
+        "carrier_refinement_receipt",
+    )
+    current_manifest, current_manifest_pin = _pin_named(
+        "manifests",
+        CURRENT_MANIFEST_NAME,
+        566,
+        "current_manifest",
+    )
+    current_receipt, current_receipt_pin = _pin_named(
+        "receipts",
+        CURRENT_RECEIPT_NAME,
+        566,
+        "current_refinement_receipt",
+    )
+    matter_manifest, matter_manifest_pin = _pin_named(
+        "manifests",
+        MATTER_MANIFEST_NAME,
+        314,
+        "matter_manifest",
+    )
+    matter_receipt, matter_receipt_pin = _pin_named(
+        "receipts",
+        MATTER_RECEIPT_NAME,
+        314,
+        "matter_refinement_receipt",
+    )
+    global_manifest, global_manifest_pin = _pin_named(
+        "manifests",
+        GLOBAL_FORM_MANIFEST_NAME,
+        567,
+        "global_form_manifest",
+    )
+    global_receipt, global_receipt_pin = _pin_named(
+        "receipts",
+        GLOBAL_FORM_RECEIPT_NAME,
+        567,
+        "global_form_receipt",
+    )
+    seam_manifest, seam_manifest_pin = _pin_named(
+        "manifests",
+        SEAM_CLASSIFICATION_NAME,
+        627,
+        "conditional_seam_menu",
+    )
+
+    require(
+        carrier_receipt.get("schema")
+        == "oph.echosahedral_selector_receipt.v1"
+        and carrier_receipt.get("issue") == 565
+        and carrier_receipt.get("manifest_sha256")
+        == carrier_manifest_sha256,
+        "CARRIER_RECEIPT_CHAIN",
+        "the #565 receipt is not bound to the selected carrier manifest",
+    )
+    require(
+        current_manifest.get("schema") == "oph.port_current_response_manifest.v5"
+        and current_manifest.get("carrier_manifest_sha256")
+        == carrier_manifest_sha256,
+        "CURRENT_MANIFEST_CHAIN",
+        "the #566 current manifest is not bound to the selected carrier",
+    )
+    require(
+        current_receipt.get("schema") == "oph.port_current_inner_receipt.v5"
+        and current_receipt.get("issue") == 566
+        and current_receipt.get("manifest_sha256")
+        == sha256_json(current_manifest)
+        and current_receipt.get("carrier_manifest_sha256")
+        == carrier_manifest_sha256,
+        "CURRENT_RECEIPT_CHAIN",
+        "the #566 receipt does not resolve to its manifest and carrier",
+    )
+
+    expected_maps = [
+        {"source": "r0", "target": "r1", "intertwined": True},
+        {"source": "r1", "target": "r2", "intertwined": True},
+        {"source": "r0", "target": "r2", "intertwined": True},
+    ]
+    expected_physical_maps = [
+        {
+            "source_level": 0,
+            "target_level": 1,
+            "origin": "defect_port_persistence_in_geodesic_tower",
+            "intertwined": True,
+        },
+        {
+            "source_level": 0,
+            "target_level": 2,
+            "origin": "defect_port_persistence_in_geodesic_tower",
+            "intertwined": True,
+        },
+    ]
+    current_refinement = current_receipt.get("refinement", {})
+    require(
+        current_refinement.get("natural") is True
+        and current_refinement.get("naturality") == expected_maps
+        and current_refinement.get("physical_naturality")
+        == expected_physical_maps
+        and current_refinement.get("carrier_tower", {}).get(
+            "checked_cocycle_triangles"
+        )
+        == 1,
+        "CURRENT_REFINEMENT_CHAIN",
+        "the #566 current packet lost exact three-map refinement naturality",
+    )
+
+    require(
+        matter_manifest.get("schema")
+        == "oph.super_tannakian_matter_manifest.v5"
+        and matter_manifest.get("current_manifest_sha256")
+        == sha256_json(current_manifest)
+        and matter_manifest.get("current_receipt_sha256")
+        == sha256_json(current_receipt),
+        "MATTER_MANIFEST_CHAIN",
+        "the #314 matter manifest is not bound to the #566 current packet",
+    )
+    require(
+        matter_receipt.get("schema")
+        == "oph.super_tannakian_matter_receipt.v5"
+        and matter_receipt.get("issue") == 314
+        and matter_receipt.get("manifest_sha256")
+        == sha256_json(matter_manifest)
+        and matter_receipt.get("refinement", {}).get("natural") is True
+        and matter_receipt.get("refinement", {}).get("maps") == expected_maps
+        and matter_receipt.get("refinement", {}).get("physical_maps")
+        == expected_physical_maps,
+        "MATTER_RECEIPT_CHAIN",
+        "the #314 matter receipt lost its exact #566 refinement binding",
+    )
+
+    require(
+        global_manifest.get("schema") == "oph.axis_center_descent_manifest.v4"
+        and global_manifest.get("matter_receipt_sha256")
+        == sha256_json(matter_receipt),
+        "GLOBAL_FORM_MANIFEST_CHAIN",
+        "the #567 global-form manifest is not bound to the matter receipt",
+    )
+    kernel = global_receipt.get("kernel_on_realized_tensors", {})
+    expected_kernel = [
+        [0, 0, 0],
+        [0, 1, 3],
+        [1, 0, 4],
+        [1, 1, 1],
+        [2, 0, 2],
+        [2, 1, 5],
+    ]
+    require(
+        global_receipt.get("schema") == "oph.axis_center_descent_receipt.v4"
+        and global_receipt.get("issue") == 567
+        and global_receipt.get("manifest_sha256")
+        == sha256_json(global_manifest)
+        and global_receipt.get("matter_receipt_sha256")
+        == sha256_json(matter_receipt)
+        and kernel.get("candidates_enumerated") == 36
+        and kernel.get("kernel_order") == 6
+        and kernel.get("cyclic_generator") == [1, 1, 1]
+        and kernel.get("kernel_elements") == expected_kernel
+        and kernel.get("matches_emitted_kernel_data") is True
+        and global_receipt.get("weight_level_refinement_invariance", {}).get(
+            "physical_loop_or_bundle_refinement_naturality_derived"
+        )
+        is True
+        and global_receipt.get("sector_transport_consistency", {}).get(
+            "unique_menu_matching_form"
+        )
+        == "z6_quotient",
+        "GLOBAL_FORM_RECEIPT_CHAIN",
+        "the #567 receipt does not resolve to the matter packet and Z6 kernel",
+    )
+
+    _verify_self_hash(seam_manifest, "SEAM_MANIFEST_HASH")
+    seam_pins = seam_manifest.get("upstream_pins", {})
+    require(
+        seam_manifest.get("schema")
+        == "oph.seam_grammar_matter_classification_certificate.v2"
+        and seam_manifest.get("issue") == 627
+        and seam_pins.get("matter_receipt", {}).get("sha256")
+        == sha256_json(matter_receipt)
+        and seam_pins.get("diagonal_global_form_receipt", {}).get("sha256")
+        == sha256_json(global_receipt),
+        "SEAM_MANIFEST_CHAIN",
+        "the #627 seam menu is not bound to #314 and #567",
+    )
+    interface = seam_manifest.get("matter_action_interface", {})
+    diagonal = seam_manifest.get("diagonal_kernel_action", {})
+    character_groups = seam_manifest.get(
+        "hypercharge_character_menu", {}
+    ).get("groups", [])
+    require(
+        interface.get("class") == "conditional_open_interface"
+        and interface.get("owner_issue") == 569
+        and "selection requires" in interface.get("statement", ""),
+        "SEAM_SELECTION_BOUNDARY",
+        "the #627 menu must leave physical seam action selection open on #569",
+    )
+    require(
+        diagonal.get("generator_color_weak_hypercharge") == [1, 1, 1]
+        and diagonal.get("module_dimension") == 15
+        and diagonal.get("fixed_subspace_dimension") == 15
+        and all(
+            row.get("phase_sixths") == 0
+            for row in diagonal.get("fields", [])
+        )
+        and len(diagonal.get("fields", [])) == 5
+        and [row.get("group_order") for row in character_groups]
+        == [2, 3, 6]
+        and [len(row.get("characters", [])) for row in character_groups]
+        == [2, 3, 6],
+        "SEAM_MENU_CONTENT",
+        "the #627 diagonal action or complete character menu has drifted",
+    )
+
+    payloads = {
+        "current_manifest": current_manifest,
+        "current_receipt": current_receipt,
+        "matter_manifest": matter_manifest,
+        "matter_receipt": matter_receipt,
+        "global_form_manifest": global_manifest,
+        "global_form_receipt": global_receipt,
+        "seam_manifest": seam_manifest,
+    }
+    pins = {
+        "carrier_refinement_receipt": carrier_receipt_pin,
+        "current_manifest": current_manifest_pin,
+        "current_receipt": current_receipt_pin,
+        "matter_manifest": matter_manifest_pin,
+        "matter_receipt": matter_receipt_pin,
+        "global_form_manifest": global_manifest_pin,
+        "global_form_receipt": global_receipt_pin,
+        "seam_classification": seam_manifest_pin,
+    }
+    return payloads, pins
 
 
 def pin_window() -> tuple[int, int, dict[str, Any]]:
@@ -876,6 +1191,617 @@ def generation_certificate(charges: Mapping[str, Fraction]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Exact refinement, rank-45 tensor, anomaly, and seam-menu transport
+# ---------------------------------------------------------------------------
+
+
+def projector_fixed_by(
+    projector: Matrix, permutation: Sequence[int]
+) -> bool:
+    return all(
+        projector[int(permutation[i])][int(permutation[j])] == projector[i][j]
+        for i in range(PORTS)
+        for j in range(PORTS)
+    )
+
+
+def verify_refinement_transport(
+    carrier: Any,
+    rotations: Sequence[tuple[int, ...]],
+    projectors: Mapping[str, Matrix],
+    matter_dimension: int,
+    matter_receipt: Mapping[str, Any],
+) -> tuple[dict[str, Any], dict[tuple[str, str], tuple[int, ...]]]:
+    """Replay all three #565 maps on P_band and P3 tensor I_15."""
+
+    carrier_manifest = load_json(
+        MODULE_DIR / "manifests" / CARRIER_MANIFEST_NAME
+    )
+    refinement_summary = e565.validate_refinement(
+        carrier_manifest,
+        carrier,
+        rotations,
+        e565.gram_matrix(carrier),
+    )
+    require(
+        refinement_summary.get("declared_nonidentity_maps") == 3
+        and refinement_summary.get("checked_cocycle_triangles") == 1,
+        "REFINEMENT_TOWER",
+        "the carrier must expose the three-map refinement triangle",
+    )
+
+    rotation_set = set(rotations)
+    maps: dict[tuple[str, str], tuple[int, ...]] = {}
+    rows = []
+    tensor_dimension = PORTS * matter_dimension
+    for item in carrier_manifest["refinement_tower"]["maps"]:
+        source = str(item["source"])
+        target = str(item["target"])
+        permutation = e565.parse_port_permutation(item["port_map"], carrier)
+        require(
+            permutation in rotation_set,
+            "REFINEMENT_ROTATION",
+            "each actual refinement must lie in the listed order-sixty action",
+        )
+        require(
+            all(
+                projector_fixed_by(projector, permutation)
+                for projector in projectors.values()
+            ),
+            "REFINEMENT_PROJECTOR",
+            "each actual refinement must preserve all four exact projectors",
+        )
+        tensor_permutation = tensor_identity_permutation(
+            permutation, matter_dimension
+        )
+        require(
+            sorted(tensor_permutation) == list(range(tensor_dimension)),
+            "TENSOR_TRANSPORT_BIJECTION",
+            "U tensor I_15 must be a permutation of the tensor basis",
+        )
+
+        p3 = projectors["3"]
+        tensor_checks = 0
+        for i in range(PORTS):
+            for j in range(PORTS):
+                for matter_left in range(matter_dimension):
+                    for matter_right in range(matter_dimension):
+                        lhs = (
+                            p3[permutation[i]][permutation[j]]
+                            if matter_left == matter_right
+                            else ZERO
+                        )
+                        rhs = (
+                            p3[i][j]
+                            if matter_left == matter_right
+                            else ZERO
+                        )
+                        require(
+                            lhs == rhs,
+                            "RANK45_PROJECTOR_TRANSPORT",
+                            "U tensor I_15 must intertwine P3 tensor I_15",
+                        )
+                        tensor_checks += 1
+
+        maps[(source, target)] = permutation
+        rows.append(
+            {
+                "source": source,
+                "target": target,
+                "port_permutation": list(permutation),
+                "all_four_projectors_natural": True,
+                "tensor_formula": (
+                    "U_refinement tensor I_15 in refinement-transported "
+                    "coordinates on M15"
+                ),
+                "tensor_dimension": tensor_dimension,
+                "tensor_permutation": list(tensor_permutation),
+                "tensor_permutation_sha256": sha256_json(
+                    list(tensor_permutation)
+                ),
+                "rank45_projector_intertwined": True,
+                "rank45_entry_checks": tensor_checks,
+            }
+        )
+
+    expected_keys = {("r0", "r1"), ("r1", "r2"), ("r0", "r2")}
+    require(
+        set(maps) == expected_keys,
+        "REFINEMENT_MAP_SET",
+        "the exact r0/r1/r2 refinement triangle must be present",
+    )
+    require(
+        compose_permutations(maps[("r1", "r2")], maps[("r0", "r1")])
+        == maps[("r0", "r2")],
+        "REFINEMENT_COCYCLE",
+        "U_12 after U_01 must equal the direct U_02 transport",
+    )
+    tensor_maps = {
+        key: tensor_identity_permutation(value, matter_dimension)
+        for key, value in maps.items()
+    }
+    require(
+        compose_permutations(
+            tensor_maps[("r1", "r2")], tensor_maps[("r0", "r1")]
+        )
+        == tensor_maps[("r0", "r2")],
+        "TENSOR_REFINEMENT_COCYCLE",
+        "the U tensor I_15 transports must satisfy the same cocycle",
+    )
+
+    p3_trace = mat_trace(projectors["3"])
+    require(
+        p3_trace == F5(3, 0),
+        "FAMILY_PROJECTOR_RANK",
+        "the selected family projector must have exact rank three",
+    )
+    tensor_rank = int(p3_trace.a) * matter_dimension
+    require(
+        tensor_rank == 45,
+        "RANK_45_TRANSPORT",
+        "P3 tensor I_15 must have exact rank forty-five",
+    )
+    fock_dimension = int(
+        matter_receipt.get("auxiliary_car_fock", {}).get("dimension", 0)
+    )
+    require(
+        fock_dimension == 32,
+        "FOCK_DIMENSION",
+        "the #314 ambient CAR Fock carrier must have dimension thirty-two",
+    )
+    return (
+        {
+            "carrier_levels": ["r0", "r1", "r2"],
+            "actual_map_count": len(rows),
+            "maps": rows,
+            "projectors_checked": ["1", "3", "3p", "5"],
+            "all_projectors_refinement_natural": True,
+            "port_cocycle": "U_12 after U_01 = U_02",
+            "port_cocycle_checked": True,
+            "invariant_transport": (
+                "mapwise U_3 tensor (gamma_refinement restricted to M15)"
+            ),
+            "ambient_projector": "P3 tensor Q15",
+            "coordinate_transport": (
+                "U_refinement tensor I_15 on the abstract fifteen-state "
+                "label-copy carrier"
+            ),
+            "coordinate_trivialization_scope": (
+                "finite label bookkeeping only; it does not replace the "
+                "nontrivial #314 gamma intertwiner"
+            ),
+            "restricted_label_carrier_dimension": tensor_dimension,
+            "full_fock_ambient_dimension": PORTS * fock_dimension,
+            "restricted_tensor_projector": "P3 tensor I_M15",
+            "tensor_projector_rank": tensor_rank,
+            "tensor_projector_refinement_natural": True,
+            "tensor_cocycle_checked": True,
+            "matter_intertwiner_source": (
+                "hash-pinned #314 gamma refinement on the unordered "
+                "conjugate rank-fifteen projector pair"
+            ),
+            "matter_maps_intertwined": (
+                matter_receipt["refinement"]["maps"]
+            ),
+            "physical_persistence_maps_intertwined": (
+                matter_receipt["refinement"]["physical_maps"]
+            ),
+            "actual_gamma_strict_triangle_claimed": False,
+            "binary_lift_centre_cocycle_retained": True,
+            "one_conjugate_projector_selected": False,
+            "physical_identification_promoted": False,
+        },
+        maps,
+    )
+
+
+def physical_persistence_transport(
+    artifact: Mapping[str, Any],
+    matter_receipt: Mapping[str, Any],
+) -> dict[str, Any]:
+    rows = artifact["physical_refinement_maps"]["port_persistence_maps"]
+    require(
+        len(rows) == 2,
+        "PHYSICAL_REFINEMENT_MAPS",
+        "the #599 artifact must carry both physical persistence maps",
+    )
+    emitted = []
+    for row in rows:
+        body = {key: value for key, value in row.items() if key != "map_hash"}
+        require(
+            row["port_map"] == list(range(PORTS))
+            and row["map_hash"] == "sha256:" + sha256_json(body),
+            "PHYSICAL_REFINEMENT_HASH",
+            "a physical persistence map or its hash has drifted",
+        )
+        emitted.append(dict(row))
+    require(
+        matter_receipt["refinement"]["physical_maps"]
+        == [
+            {
+                "source_level": row["source_level"],
+                "target_level": row["target_level"],
+                "origin": row["origin"],
+                "intertwined": True,
+            }
+            for row in rows
+        ],
+        "PHYSICAL_MATTER_REFINEMENT",
+        "the #314 physical matter maps do not bind the #599 persistence maps",
+    )
+    return {
+        "namespace": "artifact_physical_persistence",
+        "maps": emitted,
+        "distinct_from_algebraic_r_tower": True,
+        "matter_gamma_intertwined_mapwise": True,
+        "laboratory_current_identified": False,
+    }
+
+
+def verify_tripled_anomaly_and_z6(
+    generation: Mapping[str, Any],
+    matter_receipt: Mapping[str, Any],
+    global_receipt: Mapping[str, Any],
+    seam_manifest: Mapping[str, Any],
+    families: int,
+) -> dict[str, Any]:
+    """Recompute three-copy anomaly forms and the complete Z6 kernel."""
+
+    recorded_anomalies = matter_receipt["anomalies"]
+    require(
+        recorded_anomalies["traces"]
+        == {
+            "SU3_cubed": "0",
+            "SU3_squared_U1": "0",
+            "SU2_squared_U1": "0",
+            "U1_cubed": "0",
+            "gravity_squared_U1": "0",
+        }
+        and recorded_anomalies["witten_parity"]["weak_doublets"] == 4
+        and recorded_anomalies["witten_parity"]["even"] is True,
+        "MATTER_ANOMALY_PACKET",
+        "the #314 five-form anomaly and Witten packet has drifted",
+    )
+    three_copy_forms = {
+        key: str(families * Fraction(value))
+        for key, value in recorded_anomalies["traces"].items()
+    }
+    require(
+        all(Fraction(value) == 0 for value in three_copy_forms.values()),
+        "THREE_COPY_ANOMALY",
+        "every listed anomaly form must remain zero under triplication",
+    )
+
+    weights = global_receipt["realized_weight_table"]
+    state_rows = generation["states"]
+    labels = {str(row["label"]) for row in state_rows}
+    require(
+        labels == {"Q", "u_c", "e_c", "d_c", "L"},
+        "Z6_GENERATION_LABELS",
+        "the generation and #567 weight table must name the same five fields",
+    )
+
+    kernel = []
+    for color in range(3):
+        for weak in range(2):
+            for hypercharge in range(6):
+                fixed = True
+                for label in labels:
+                    weight = weights[label]
+                    phase = (
+                        2 * color * int(weight["triality"])
+                        + 3 * weak * int(weight["duality"])
+                        + hypercharge * int(weight["q"])
+                    ) % 6
+                    fixed = fixed and phase == 0
+                if fixed:
+                    kernel.append((color, weak, hypercharge))
+
+    recorded_kernel = sorted(
+        tuple(int(value) for value in row)
+        for row in global_receipt["kernel_on_realized_tensors"][
+            "kernel_elements"
+        ]
+    )
+    require(
+        sorted(kernel) == recorded_kernel
+        and len(kernel) == 6,
+        "Z6_KERNEL_REPLAY",
+        "the exhaustive thirty-six-candidate replay must recover the #567 Z6",
+    )
+    generator = tuple(
+        int(value)
+        for value in global_receipt["kernel_on_realized_tensors"][
+            "cyclic_generator"
+        ]
+    )
+    require(
+        generator == (1, 1, 1),
+        "Z6_GENERATOR",
+        "the pinned diagonal kernel generator must remain (1,1,1)",
+    )
+
+    tripled_rows = []
+    fixed_states = 0
+    for row in state_rows:
+        label = str(row["label"])
+        weight = weights[label]
+        phase = (
+            2 * generator[0] * int(weight["triality"])
+            + 3 * generator[1] * int(weight["duality"])
+            + generator[2] * int(weight["q"])
+        ) % 6
+        require(
+            phase == 0,
+            "Z6_TRIPLED_ACTION",
+            "the diagonal Z6 generator must fix each tripled matter field",
+        )
+        multiplicity = families * int(row["weyl_states"])
+        fixed_states += multiplicity
+        tripled_rows.append(
+            {
+                "field": label,
+                "phase_sixths": phase,
+                "one_family_states": int(row["weyl_states"]),
+                "three_copy_states": multiplicity,
+            }
+        )
+    require(
+        fixed_states == 45,
+        "Z6_TRIPLED_RANK",
+        "the diagonal kernel must fix all forty-five tensor states",
+    )
+
+    diagonal = seam_manifest["diagonal_kernel_action"]
+    require(
+        tuple(diagonal["generator_color_weak_hypercharge"]) == generator
+        and diagonal["module_dimension"] == 15
+        and diagonal["fixed_subspace_dimension"] == 15,
+        "Z6_SEAM_CONSISTENCY",
+        "the #627 diagonal action must agree with the #567 kernel replay",
+    )
+    weak_doublets = families * int(generation["weak_doublets_per_family"])
+    require(
+        weak_doublets == 12 and weak_doublets % 2 == 0,
+        "THREE_COPY_WEAK_PARITY",
+        "three generations must carry twelve weak doublets",
+    )
+    return {
+        "family_copies": families,
+        "three_copy_anomaly_forms": three_copy_forms,
+        "all_listed_anomalies_zero": True,
+        "three_copy_weak_doublets": weak_doublets,
+        "weak_parity_even": True,
+        "center_candidates_replayed": 36,
+        "kernel_elements": [list(row) for row in sorted(kernel)],
+        "kernel_order": len(kernel),
+        "kernel_generator": list(generator),
+        "kernel_after_triplication": "same diagonal Z6",
+        "triplication_does_not_change_kernel": True,
+        "tripled_field_action": tripled_rows,
+        "fixed_subspace_dimension": fixed_states,
+    }
+
+
+def uniform_seam_menu_transport(
+    seam_manifest: Mapping[str, Any],
+    refinement: Mapping[str, Any],
+    families: int,
+) -> dict[str, Any]:
+    """Transport every #627 conditional character, without choosing one."""
+
+    menu = seam_manifest["hypercharge_character_menu"]["groups"]
+    require(
+        [int(row["group_order"]) for row in menu] == [2, 3, 6],
+        "SEAM_MENU_GROUPS",
+        "the conditional seam menu must contain exactly Z2, Z3, and Z6",
+    )
+    map_count = int(refinement["actual_map_count"])
+    require(
+        map_count == 3
+        and refinement["tensor_projector_refinement_natural"] is True,
+        "SEAM_REFINEMENT_INPUT",
+        "the seam menu requires the exact three-map rank-45 transport",
+    )
+
+    rows = []
+    character_count = 0
+    for group in menu:
+        characters = []
+        for character in group["characters"]:
+            fixed = int(character["fixed_subspace_dimension"])
+            require(
+                0 <= fixed <= 15,
+                "SEAM_FIXED_DIMENSION",
+                "a conditional character has an invalid fixed-space dimension",
+            )
+            characters.append(
+                {
+                    "character_exponent": int(
+                        character["character_exponent"]
+                    ),
+                    "faithful_on_module": bool(
+                        character["faithful_on_module"]
+                    ),
+                    "matter_fixed_dimension": fixed,
+                    "rank3_family_tensor_fixed_dimension": families * fixed,
+                    "refinement_maps_checked": map_count,
+                    "label_transport_commutes_with_U_tensor_I15": True,
+                    "full_gamma_transport_status": (
+                        "conditional_on_supplied_character_compatibility"
+                    ),
+                }
+            )
+            character_count += 1
+        rows.append(
+            {
+                "group_order": int(group["group_order"]),
+                "characters": characters,
+                "uniform_transport": True,
+            }
+        )
+    require(
+        character_count == 11,
+        "SEAM_MENU_SIZE",
+        "the complete conditional Z2/Z3/Z6 character menu has eleven rows",
+    )
+    return {
+        "source_issue": 627,
+        "classification": "uniform_conditional_tensor_transport",
+        "factorization": (
+            "carrier refinement acts as U on the family factor; each "
+            "conditional seam character acts on the fifteen-state matter "
+            "factor, so U tensor I_15 commutes with I_family tensor chi"
+        ),
+        "groups": rows,
+        "characters_checked": character_count,
+        "refinement_maps_checked_per_character": map_count,
+        "physical_seam_action_selected": False,
+        "selected_character": None,
+        "selected_two_representation": None,
+        "selection_interface": "physical_sector_mechanism_selection",
+        "selection_status": "open",
+    }
+
+
+def control_refinement_projector_mutation(
+    maps: Mapping[tuple[str, str], tuple[int, ...]],
+    projectors: Mapping[str, Matrix],
+) -> dict[str, Any]:
+    doctored = list(maps[("r0", "r1")])
+    doctored[0], doctored[2] = doctored[2], doctored[0]
+    try:
+        require(
+            all(
+                projector_fixed_by(projector, doctored)
+                for projector in projectors.values()
+            ),
+            "REFINEMENT_PROJECTOR",
+            "a doctored port map must not preserve the exact projector packet",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "REFINEMENT_PROJECTOR",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_refinement_cocycle_mutation(
+    maps: Mapping[tuple[str, str], tuple[int, ...]],
+) -> dict[str, Any]:
+    doctored_direct = tuple(range(PORTS))
+    try:
+        require(
+            compose_permutations(
+                maps[("r1", "r2")], maps[("r0", "r1")]
+            )
+            == doctored_direct,
+            "REFINEMENT_COCYCLE",
+            "the direct map may not be replaced by the identity",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "REFINEMENT_COCYCLE",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_matter_factor_mutation(
+    maps: Mapping[tuple[str, str], tuple[int, ...]],
+    matter_dimension: int,
+) -> dict[str, Any]:
+    port_map = maps[("r0", "r1")]
+    expected = tensor_identity_permutation(port_map, matter_dimension)
+    doctored = tuple(
+        int(port_map[port]) * matter_dimension
+        + ((matter + 1) % matter_dimension)
+        for port in range(PORTS)
+        for matter in range(matter_dimension)
+    )
+    try:
+        require(
+            doctored == expected,
+            "LABEL_FACTOR_IDENTITY",
+            "the declared label-bookkeeping map must retain I_15",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "LABEL_FACTOR_IDENTITY",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_z6_generator_mutation(
+    generation: Mapping[str, Any],
+    global_receipt: Mapping[str, Any],
+) -> dict[str, Any]:
+    weights = global_receipt["realized_weight_table"]
+    mutated_generator = (1, 1, 0)
+    try:
+        for row in generation["states"]:
+            weight = weights[row["label"]]
+            phase = (
+                2 * mutated_generator[0] * int(weight["triality"])
+                + 3 * mutated_generator[1] * int(weight["duality"])
+                + mutated_generator[2] * int(weight["q"])
+            ) % 6
+            require(
+                phase == 0,
+                "Z6_GENERATOR_MUTATION",
+                "a mutated center generator must fail on realized matter",
+            )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "Z6_GENERATOR_MUTATION",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_seam_selection_promotion(
+    seam_transport: Mapping[str, Any],
+) -> dict[str, Any]:
+    try:
+        require(
+            seam_transport["physical_seam_action_selected"] is True,
+            "PHYSICAL_SEAM_SELECTION_OPEN",
+            "uniform conditional transport does not select a physical seam action",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "PHYSICAL_SEAM_SELECTION_OPEN",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_strict_matter_cocycle_promotion(
+    refinement: Mapping[str, Any],
+) -> dict[str, Any]:
+    try:
+        require(
+            refinement["actual_gamma_strict_triangle_claimed"] is True,
+            "STRICT_MATTER_COCYCLE_NOT_DERIVED",
+            "mapwise #314 intertwiners do not supply a strict spin-lift section",
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "STRICT_MATTER_COCYCLE_NOT_DERIVED",
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+# ---------------------------------------------------------------------------
 # Candidate enumeration and the selection theorem
 # ---------------------------------------------------------------------------
 
@@ -1171,6 +2097,7 @@ def require_no_floats(value: Any, path: str = "$") -> None:
 def build_payload() -> dict[str, Any]:
     carrier, rotations, carrier_pin = load_carrier()
     adjacency = lift(adjacency_int(carrier))
+    structural, structural_pins = pin_structural_chain(carrier_pin["sha256"])
 
     projectors = spectral_projectors(adjacency)
     spectral = verify_spectral_resolution(adjacency, projectors)
@@ -1181,6 +2108,11 @@ def build_payload() -> dict[str, Any]:
     lower, upper, window_pin = pin_window()
     operational, excluded, cone_pin = pin_cost_cone()
     charges, matter_pin = pin_matter()
+    require(
+        matter_pin["sha256"] == structural_pins["matter_manifest"]["sha256"],
+        "MATTER_PIN_CHAIN",
+        "the generation charge packet and structural matter packet differ",
+    )
     artifact, response_pin = pin_response_artifact(carrier_pin)
     pole_artifact, pole_pin = pin_pole_residue_artifact(carrier_pin, artifact)
 
@@ -1202,27 +2134,53 @@ def build_payload() -> dict[str, Any]:
     generation = generation_certificate(charges)
     pole_receipt = pole_residue_receipt(pole_artifact, generation)
     families = BAND_DIMS["3"]
-    three_family_forms = {
-        key: str(Fraction(value) * families)
-        for key, value in generation["per_family_anomaly_forms"].items()
-    }
-    require(
-        all(Fraction(value) == 0 for value in three_family_forms.values()),
-        "THREE_FAMILY_ANOMALY",
-        "the realized three-family tensors must cancel every listed anomaly form",
+    refinement_transport, refinement_maps = verify_refinement_transport(
+        carrier,
+        rotations,
+        projectors,
+        int(generation["weyl_state_count"]),
+        structural["matter_receipt"],
     )
-    doublets_total = int(generation["weak_doublets_per_family"]) * families
+    physical_transport = physical_persistence_transport(
+        artifact, structural["matter_receipt"]
+    )
+    three_copy_consistency = verify_tripled_anomaly_and_z6(
+        generation,
+        structural["matter_receipt"],
+        structural["global_form_receipt"],
+        structural["seam_manifest"],
+        families,
+    )
+    seam_transport = uniform_seam_menu_transport(
+        structural["seam_manifest"],
+        refinement_transport,
+        families,
+    )
     attachment = {
         "family_object": "the 3 band of the screen coefficient space",
         "family_dimension": families,
         "generation_weyl_states": generation["weyl_state_count"],
         "complex_rank": families * int(generation["weyl_state_count"]),
-        "three_family_anomaly_forms": three_family_forms,
-        "three_family_weak_doublets": doublets_total,
-        "weak_parity_even": doublets_total % 2 == 0,
-        "common_kernel": "Z6, unchanged under family triplication (per-family forms are zero and the kernel is charge-determined)",
+        "invariant_projector": "P3 tensor Q15",
+        "coordinate_projector": (
+            "P3 tensor I_M15 in a #314 refinement-transported basis"
+        ),
+        "one_conjugate_matter_projector_selected": False,
+        "three_family_anomaly_forms": three_copy_consistency[
+            "three_copy_anomaly_forms"
+        ],
+        "three_family_weak_doublets": three_copy_consistency[
+            "three_copy_weak_doublets"
+        ],
+        "weak_parity_even": three_copy_consistency["weak_parity_even"],
+        "common_kernel": "Z6, unchanged under family triplication",
+        "common_kernel_recomputed": True,
     }
-    require(attachment["complex_rank"] == 45, "RANK_45", "the realized attachment must have complex rank forty-five")
+    require(
+        attachment["complex_rank"] == 45,
+        "RANK_45",
+        "the realized attachment must have complex rank forty-five",
+    )
 
     uniqueness = {
         "embedding": "multiplicity one: the equivariant embedding of the 3 band is unique up to a scalar",
@@ -1241,6 +2199,26 @@ def build_payload() -> dict[str, Any]:
             artifact, operational, kernels
         ),
         "pole_table_mutation": control_pole_table_mutation(pole_artifact),
+        "refinement_projector_mutation": (
+            control_refinement_projector_mutation(
+                refinement_maps, projectors
+            )
+        ),
+        "refinement_cocycle_mutation": control_refinement_cocycle_mutation(
+            refinement_maps
+        ),
+        "matter_factor_mutation": control_matter_factor_mutation(
+            refinement_maps, int(generation["weyl_state_count"])
+        ),
+        "z6_generator_mutation": control_z6_generator_mutation(
+            generation, structural["global_form_receipt"]
+        ),
+        "seam_selection_promotion": control_seam_selection_promotion(
+            seam_transport
+        ),
+        "strict_matter_cocycle_promotion": (
+            control_strict_matter_cocycle_promotion(refinement_transport)
+        ),
     }
     for name, verdict in controls.items():
         require(
@@ -1262,9 +2240,12 @@ def build_payload() -> dict[str, Any]:
             "artifact; clause R is simulator-realized for the response "
             "resolvent of the declared Laplacian generator by the pole-residue "
             "artifact. Its rank-three frame residue sits at the lowest positive "
-            "generator frequency with the generation factor imported. The "
-            "matter-pole identification, chirality and spin data, and "
-            "laboratory attachment stay open."
+            "generator frequency with the generation factor imported. All "
+            "three actual refinements preserve the finite projector and its "
+            "rank-forty-five tensor transport. The #627 seam character menu "
+            "transports conditionally without selecting an action. Matter-pole "
+            "identification, continuum Spin/locality, physical seam selection, "
+            "and laboratory-current attachment stay open."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
@@ -1293,13 +2274,14 @@ def build_payload() -> dict[str, Any]:
             },
             "open_receipts": [
                 "matter-pole identification",
-                "chirality and spin data",
-                "Spin/locality receipt",
+                "continuum Spin/locality receipt",
+                "physical seam action selection",
                 "laboratory current identification",
             ],
         },
         "upstream_pins": {
             "carrier": carrier_pin,
+            **structural_pins,
             "multiplicity_window": window_pin,
             "operational_cost_cone": cone_pin,
             "matter_packet": matter_pin,
@@ -1310,6 +2292,10 @@ def build_payload() -> dict[str, Any]:
         "pole_residue_receipt": pole_receipt,
         "spectral_resolution": spectral,
         "equivariance": equivariance,
+        "refinement_transport": refinement_transport,
+        "physical_persistence_transport": physical_transport,
+        "three_copy_consistency": three_copy_consistency,
+        "conditional_seam_menu_transport": seam_transport,
         "pair_orbits": pair_orbits,
         "multiplicity_free": multiplicity_free,
         "band_action_kernels": kernels,
@@ -1326,12 +2312,28 @@ def build_payload() -> dict[str, Any]:
         "attachment": attachment,
         "uniqueness": uniqueness,
         "controls": controls,
+        "promotion": {
+            "matter_pole_identified": False,
+            "continuum_spin_locality_derived": False,
+            "physical_seam_action_selected": False,
+            "laboratory_current_identified": False,
+            "promotion_allowed": False,
+        },
+        "open_gates": [
+            "matter_pole_identification",
+            "continuum_Spin_locality",
+            "physical_seam_action_selection",
+            "laboratory_current_identification",
+        ],
         "invisibility_preserved": True,
-        "bounded_exit": "exact_named_realization",
+        "bounded_exit": "exact_finite_refinement_transport",
         "lean_spine": [
             "Screen/A5PortAction.lean (sixty listed rotations, kernel-decided)",
             "Screen/A5Commutant.lean (four-dimensional commutant)",
-            "Screen/A5FamilyBand.lean (spectral split, strict cost order, minimizer)",
+            (
+                "Screen/A5FamilyBand.lean (spectral split, actual refinement "
+                "cocycle, rank-45 tensor transport, anomaly and Z6 checks)"
+            ),
         ],
     }
     require_no_floats(payload)

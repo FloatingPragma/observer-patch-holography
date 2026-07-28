@@ -332,7 +332,7 @@ def acceptance_map() -> list[dict[str, Any]]:
         {
             "acceptance_index": 1,
             "status": "open",
-            "summary": "finite group and matter types are bound, but no unique OPH action, complete census, or full Yukawa packet is emitted",
+            "summary": "finite group, matter, and conditional coefficient spaces are bound, but no unique OPH action, complete coupled-sector census, or numerical Yukawa packet is emitted",
             "blocking_gates": [
                 "event_and_spacetime_action_parent",
                 "common_screen_electroweak_carrier",
@@ -344,13 +344,18 @@ def acceptance_map() -> list[dict[str, Any]]:
         {
             "acceptance_index": 2,
             "status": "open",
-            "summary": "v_chart and v_F remain distinct typed coordinates with no equality receipt",
+            "summary": "v_chart and v_F remain distinct typed coordinates; the #630 two-completion witness proves that the current parents do not select their map",
             "blocking_gates": ["scalar_higgs_and_fj_coordinate"],
         },
         {
             "acceptance_index": 3,
-            "status": "open",
-            "summary": "source-derived running, thresholds, finite maps, Jacobians, masks, and remainders are absent",
+            "status": "partial",
+            "summary": (
+                "the #32 frontier supplies exact per-copy representation indices "
+                "and a parametric one-loop gauge law under an imported QFT "
+                "functional; the complete census, ordered intervals, thresholds, "
+                "finite maps, Jacobians, masks, and remainders are absent"
+            ),
             "blocking_gates": ["target_clean_rg_threshold_matching"],
         },
         {
@@ -367,8 +372,8 @@ def acceptance_map() -> list[dict[str, Any]]:
         },
         {
             "acceptance_index": 6,
-            "status": "open",
-            "summary": "the inventory emits no pole coordinates or physical units; source clock attachment is absent",
+            "status": "partial",
+            "summary": "the #633 frontier proves the exact interval inversion and isolates the SI chart, but emits no physical clock gap, source energy interval, pole coordinate, or physical unit",
             "blocking_gates": ["source_operational_clock"],
         },
         {
@@ -390,10 +395,13 @@ def acceptance_map() -> list[dict[str, Any]]:
         {
             "acceptance_index": 9,
             "status": "partial",
-            "summary": "four finite source parents are hash-bound; the common carrier and physical family attachment remain open",
+            "summary": "four finite source parents are hash-bound; the local action, pre-Yukawa family attachment, scalar/FJ and full-Yukawa source action, physical common-load semantics, and source-complete coupled census remain open",
             "blocking_gates": [
-                "common_screen_electroweak_carrier",
+                "event_and_spacetime_action_parent",
                 "physical_family_and_matter_pole_attachment",
+                "scalar_higgs_and_fj_coordinate",
+                "full_yukawa_operator_and_coefficients",
+                "common_screen_electroweak_carrier",
                 "source_complete_field_census",
             ],
         },

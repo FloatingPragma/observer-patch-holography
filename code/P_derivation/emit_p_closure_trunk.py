@@ -152,8 +152,17 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
             {
                 "id": "rg_matching_threshold_scheme",
                 "github_issue": 32,
-                "issue_status": "closed_declared_convention_contract",
-                "required_status": "declared_convention_status_visible_until_OPH_internal_theorem_exists",
+                "issue_status": "open_source_rg_frontier_partial",
+                "upstream_issues": [569, 630, 631, 632, 634],
+                "current_progress": (
+                    "exact finite representation indices and the parametric "
+                    "one-loop gauge law are source-bound; the QFT functional "
+                    "and the N_g=3,N_H=1 specialization remain conditional"
+                ),
+                "required_status": (
+                    "target-clean source-emitted ordered intervals, thresholds, "
+                    "finite maps, Jacobians, masks, and vector remainders"
+                ),
             },
             {
                 "id": "interval_fixed_point_certificate",
