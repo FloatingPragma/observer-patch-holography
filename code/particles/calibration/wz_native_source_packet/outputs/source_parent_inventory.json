@@ -1,0 +1,734 @@
+{
+  "acceptance_map": [
+    {
+      "acceptance_index": 1,
+      "blocking_gates": [
+        "event_and_spacetime_action_parent",
+        "common_screen_electroweak_carrier",
+        "source_complete_field_census",
+        "scalar_higgs_and_fj_coordinate",
+        "full_yukawa_operator_and_coefficients"
+      ],
+      "status": "open",
+      "summary": "finite group and matter types are bound, but no unique OPH action, complete census, or full Yukawa packet is emitted"
+    },
+    {
+      "acceptance_index": 2,
+      "blocking_gates": [
+        "scalar_higgs_and_fj_coordinate"
+      ],
+      "status": "open",
+      "summary": "v_chart and v_F remain distinct typed coordinates with no equality receipt"
+    },
+    {
+      "acceptance_index": 3,
+      "blocking_gates": [
+        "target_clean_rg_threshold_matching"
+      ],
+      "status": "open",
+      "summary": "source-derived running, thresholds, finite maps, Jacobians, masks, and remainders are absent"
+    },
+    {
+      "acceptance_index": 4,
+      "blocking_gates": [
+        "unique_source_root_and_joint_law"
+      ],
+      "status": "open",
+      "summary": "no unique deterministic source point or target-independent joint law and covariance is emitted"
+    },
+    {
+      "acceptance_index": 5,
+      "blocking_gates": [
+        "validated_qft_consumer"
+      ],
+      "status": "open",
+      "summary": "substitution into unchanged validated QFT algorithms waits for the production consumer"
+    },
+    {
+      "acceptance_index": 6,
+      "blocking_gates": [
+        "source_operational_clock"
+      ],
+      "status": "open",
+      "summary": "the inventory emits no pole coordinates or physical units; source clock attachment is absent"
+    },
+    {
+      "acceptance_index": 7,
+      "blocking_gates": [
+        "runtime_and_human_target_firewall"
+      ],
+      "status": "partial",
+      "summary": "source paths and structured ancestry are allowlisted and target-free; hermetic runtime and human-selection receipts remain open"
+    },
+    {
+      "acceptance_index": 8,
+      "blocking_gates": [
+        "unique_source_root_and_joint_law",
+        "validated_qft_consumer",
+        "runtime_and_human_target_firewall"
+      ],
+      "status": "open",
+      "summary": "the full conjunction cannot be replayed before the source packet and production consumer exist"
+    },
+    {
+      "acceptance_index": 9,
+      "blocking_gates": [
+        "common_screen_electroweak_carrier",
+        "physical_family_and_matter_pole_attachment",
+        "source_complete_field_census"
+      ],
+      "status": "partial",
+      "summary": "four finite source parents are hash-bound; the common carrier and physical family attachment remain open"
+    }
+  ],
+  "campaign_classification": "post_exposure_validation",
+  "claim_lane": "OPH_NATIVE_DIMENSIONLESS_SOURCE_FRONTIER",
+  "conditional_context": [
+    {
+      "excluded_promotions": [
+        "physical matter-pole identification",
+        "family chirality, Spin/locality, and physical refinement attachment",
+        "laboratory current identification",
+        "source-selected seam action or flavor/Yukawa operator",
+        "exclusion of additional light physical sectors"
+      ],
+      "files": [
+        {
+          "byte_sha256": "8f9ad1b329390130d42a9982f2e7570e96fdf917f3ac4a47c40da48c323edb68",
+          "bytes": 15295,
+          "canonical_json_sha256": "bf950f6ae48286263a0cd16164f57251d76bc0aec6904c2551864ff05124635e",
+          "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+          "role": "candidate_certificate",
+          "schema": "oph.family_band_attachment_certificate.v4"
+        },
+        {
+          "byte_sha256": "7d2727ca89784f7fe2b5dcef0e1d64c66bd5f16727141d04be67877d4999b978",
+          "bytes": 2746,
+          "canonical_json_sha256": "fcbc573f373c02e4c0dd9a7527b6cced38bd9bb6c201f78914ae0aa838f007ea",
+          "path": "code/a5_closure/manifests/charged_response_pole_residue_artifact.json",
+          "role": "candidate_artifact",
+          "schema": "oph.charged_response_pole_residue.v2"
+        }
+      ],
+      "issue": 569,
+      "role": "family_band_candidate",
+      "status": "conditional_context_only",
+      "usable_exports": [
+        "exact rank-three screen-band selection under the named finite realization",
+        "rank-forty-five finite screen assembly with imported rank-fifteen generation factor",
+        "rank-three residue of the declared screen response resolvent"
+      ],
+      "verifier_id": "issue_569_family_band"
+    }
+  ],
+  "conditional_context_digest": "6b2f329d3b43882515be165ca1749dc352e780388661d13b71ae38017f57c329",
+  "consumer_contract": {
+    "common_subject_digest_ready": false,
+    "frozen_algorithm_substitution_ready": false,
+    "issue": 593,
+    "schemas": [
+      {
+        "byte_sha256": "ee98cc77ff5efcddd454b834a31d9d6e2063d9ab40f2163d90cb16a7aa602c86",
+        "bytes": 5715,
+        "path": "code/particles/calibration/wz_upstream_completion/schemas/sm_eft_action_packet_v1.schema.json",
+        "slot": "canonical_action",
+        "status": "provisional_external_validation_schema"
+      },
+      {
+        "byte_sha256": "0416377f755d4fa209e8bb48018025bf89c7a7ca769c4b8f59e31cb297368e44",
+        "bytes": 4838,
+        "path": "code/particles/calibration/wz_upstream_completion/schemas/full_yukawa_packet_v1.schema.json",
+        "slot": "full_yukawa",
+        "status": "provisional_external_validation_schema"
+      },
+      {
+        "byte_sha256": "08e1e28fd29efb3597850eb1c487325d45de9986e23e107f888e13d98284af27",
+        "bytes": 7775,
+        "path": "code/particles/calibration/wz_upstream_completion/schemas/eft_matching_packet_v1.schema.json",
+        "slot": "eft_matching",
+        "status": "provisional_external_validation_schema"
+      },
+      {
+        "byte_sha256": "fa2ae1e2e0765ede59261805196c7b8b5f064553c09e36125a6f21d97ab35bb8",
+        "bytes": 3819,
+        "path": "code/particles/calibration/wz_upstream_completion/schemas/source_law_covariance_packet_v1.schema.json",
+        "slot": "source_law_covariance",
+        "status": "nonpromoting_specification_schema"
+      },
+      {
+        "byte_sha256": "1f09d66028fdcc607c68fa4b512d1ea53c3a49a6aa72a3c79244231ed6e07f8c",
+        "bytes": 3767,
+        "path": "code/particles/calibration/wz_upstream_completion/schemas/operational_clock_packet_v1.schema.json",
+        "slot": "operational_clock",
+        "status": "nonpromoting_specification_schema"
+      }
+    ],
+    "status": "open_dependency"
+  },
+  "coordinate_bridge": {
+    "equality_receipt": null,
+    "relabel_allowed": false,
+    "renormalized_coordinate": "v_F",
+    "source_coordinate": "v_chart",
+    "status": "open"
+  },
+  "finite_parent_bundle_digest": "f77c493437db6197debaf135ede5a310f7ed380a7453e05910a8b18cf90bf363",
+  "inventory_digest": "eac603bda1e9ace252b08b44f5334fb193d3d84fd1bfeda3cd75524db8dc8197",
+  "issue": 594,
+  "open_interfaces": [
+    {
+      "evidence": [],
+      "gate_id": "event_and_spacetime_action_parent",
+      "owner_issues": [
+        503
+      ],
+      "required_output": "typed event base, local fields, Lorentzian and Spin data for the action",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "common_screen_electroweak_carrier",
+      "owner_issues": [
+        547
+      ],
+      "required_output": "positive refinement-natural screen-to-electroweak carrier identification and normalization",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "physical_family_and_matter_pole_attachment",
+      "owner_issues": [
+        569
+      ],
+      "required_output": "rank-forty-five physical matter-pole attachment with chirality, locality, refinement, and laboratory current",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "source_complete_field_census",
+      "owner_issues": [
+        594,
+        609
+      ],
+      "required_output": "a scoped completeness theorem that resolves surviving source-invisible sterile extensions",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "scalar_higgs_and_fj_coordinate",
+      "owner_issues": [
+        34,
+        547,
+        594
+      ],
+      "required_output": "source scalar action and a proved v_chart to v_F coordinate map",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "full_yukawa_operator_and_coefficients",
+      "owner_issues": [
+        34,
+        569,
+        594
+      ],
+      "required_output": "target-clean full Yu, Yd, and Ye rather than invariant channel lines alone",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "target_clean_rg_threshold_matching",
+      "owner_issues": [
+        32
+      ],
+      "required_output": "ordered source-derived running, thresholds, finite maps, Jacobians, masks, and remainders",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "unique_source_root_and_joint_law",
+      "owner_issues": [
+        545,
+        594
+      ],
+      "required_output": "unique deterministic point law or target-independent joint law and covariance",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "validated_qft_consumer",
+      "owner_issues": [
+        593
+      ],
+      "required_output": "frozen production verifier accepting the native packet without algorithm changes",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "source_operational_clock",
+      "owner_issues": [
+        334
+      ],
+      "required_output": "source transition, positive dimensionless gap, SI ancestry, and calibration receipt",
+      "status": "open"
+    },
+    {
+      "evidence": [],
+      "gate_id": "runtime_and_human_target_firewall",
+      "owner_issues": [
+        594
+      ],
+      "required_output": "hermetic execution receipt plus formula-selection ancestry audit",
+      "status": "open"
+    }
+  ],
+  "policy": {
+    "byte_sha256": "e5a8576f4c851cec585b06ba00c66dd2b9b4732a8d105a3d5a56822cad382e91",
+    "bytes": 10879,
+    "canonical_json_sha256": "2a9d4ce1c86574d6bde0310b2660e3101f386c20a321ada13a7627b2e267b132",
+    "path": "code/particles/calibration/wz_native_source_packet/data/source_parent_policy_v1.json"
+  },
+  "positive_parent_bindings": [
+    {
+      "excluded_promotions": [
+        "universal selection of this carrier from A1-A3",
+        "physical electroweak load-carrier identification",
+        "continuum currents, matter, couplings, or masses"
+      ],
+      "files": [
+        {
+          "byte_sha256": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+          "bytes": 3646,
+          "canonical_json_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+          "path": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+          "role": "manifest",
+          "schema": "oph.echosahedral_selector_manifest.v1"
+        },
+        {
+          "byte_sha256": "bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5",
+          "bytes": 15457,
+          "canonical_json_sha256": "b3f8bc306471334c0dc75d38b2f9c1b7b1dd4247ff02cbe2980c0caad07b3506",
+          "path": "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+          "role": "receipt",
+          "schema": "oph.echosahedral_selector_receipt.v1"
+        }
+      ],
+      "issue": 565,
+      "role": "screen_carrier",
+      "status": "verified_finite_parent",
+      "usable_exports": [
+        "twelve primitive port units and exact incidence",
+        "inverse port pairing and six axes",
+        "orientation-preserving A5 action and rank-three Gram frame",
+        "finite refinement port maps"
+      ],
+      "verifier_id": "issue_565_carrier"
+    },
+    {
+      "excluded_promotions": [
+        "continuum or laboratory gauge-current identification",
+        "gauge couplings or kinetic-action normalization",
+        "particle masses or measured Standard-Model currents"
+      ],
+      "files": [
+        {
+          "byte_sha256": "b4385017e209fa3b9765e89fdf987089b555d0335572e95e09f6e38f826bc71a",
+          "bytes": 1860,
+          "canonical_json_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+          "path": "code/a5_closure/manifests/port_current_response_reference.json",
+          "role": "manifest",
+          "schema": "oph.port_current_response_manifest.v5"
+        },
+        {
+          "byte_sha256": "ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07",
+          "bytes": 77299,
+          "canonical_json_sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb",
+          "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+          "role": "receipt",
+          "schema": "oph.port_current_inner_receipt.v5"
+        },
+        {
+          "byte_sha256": "74a1fe722a4e6634987e0a6e5a026c43dd9f076126dd62c5e530012712756997",
+          "bytes": 7630,
+          "canonical_json_sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99",
+          "path": "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+          "role": "semantic_artifact",
+          "schema": "oph.charged_response_semantic_artifact.v3"
+        }
+      ],
+      "issue": 566,
+      "role": "finite_port_current_algebra",
+      "status": "verified_finite_parent",
+      "usable_exports": [
+        "finite u(1)+su(3)+su(2) current algebra",
+        "faithful rank-twelve finite action",
+        "source-model response coefficients and A5 inner action",
+        "finite carrier refinement intertwiners"
+      ],
+      "verifier_id": "issue_566_currents"
+    },
+    {
+      "excluded_promotions": [
+        "scalar existence, economy, or potential",
+        "preferred charge-conjugation representative",
+        "numerical Yukawa matrices or coefficients",
+        "physical family attachment, pole masses, or laboratory particle identification",
+        "continuum spin-statistics or quantum field theory"
+      ],
+      "files": [
+        {
+          "byte_sha256": "8c9364ca7d4a8b7c58f7b39f395e273e9ad806f2bc2fc2eb0b8fc41cc2665981",
+          "bytes": 3559,
+          "canonical_json_sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2",
+          "path": "code/a5_closure/manifests/super_tannakian_matter_reference.json",
+          "role": "manifest",
+          "schema": "oph.super_tannakian_matter_manifest.v5"
+        },
+        {
+          "byte_sha256": "e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81",
+          "bytes": 36871,
+          "canonical_json_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70",
+          "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+          "role": "receipt",
+          "schema": "oph.super_tannakian_matter_receipt.v5"
+        },
+        {
+          "byte_sha256": "a757219196e18504488a93ac9dce0d4c599edba96b14f1c7ba52ae95e5b317ff",
+          "bytes": 7293,
+          "canonical_json_sha256": "d82c28b6977f4b07d1530dca5f84b4646b646e9e47e8d3621cd87e373aa0af84",
+          "path": "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
+          "role": "semantic_artifact",
+          "schema": "oph.spin_statistics_semantic_artifact.v1"
+        }
+      ],
+      "issue": 314,
+      "role": "finite_matter_module",
+      "status": "verified_finite_parent",
+      "usable_exports": [
+        "unordered charge-conjugate rank-fifteen chiral matter pair",
+        "finite Spin/odd-Weyl typing and exact anomaly checks",
+        "field representations and hypercharges up to simultaneous conjugation",
+        "three invariant Yukawa channel lines conditional on a weak-doublet scalar",
+        "common cover kernel emitted as data"
+      ],
+      "verifier_id": "issue_314_matter"
+    },
+    {
+      "excluded_promotions": [
+        "four-dimensional instanton normalization or theta periodicity",
+        "continuum spacetime Spin bundle or continuum quantum field theory",
+        "laboratory global-form or flux attachment",
+        "monopole or dyon dynamics"
+      ],
+      "files": [
+        {
+          "byte_sha256": "2014c6d0575f3e5fad95a9e88da8dab4f5cae1ce20914a0ba836614d2767a653",
+          "bytes": 1640,
+          "canonical_json_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
+          "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+          "role": "manifest",
+          "schema": "oph.axis_center_descent_manifest.v4"
+        },
+        {
+          "byte_sha256": "d890c8750bdfe306466e0dc30b4d38902b5028f8fa3a7825524252f2ac29bc9e",
+          "bytes": 15874,
+          "canonical_json_sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39",
+          "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+          "role": "receipt",
+          "schema": "oph.axis_center_descent_receipt.v4"
+        },
+        {
+          "byte_sha256": "612af75b78fb4245936a3bcb0905aa0366a5beffc1ba533cd1f9e8bc040963f3",
+          "bytes": 8646,
+          "canonical_json_sha256": "8847575ed5563bad61bc7865e9b9c0cfe147074075d9afce0416384e42f5926c",
+          "path": "code/a5_closure/manifests/global_form_semantic_artifact.json",
+          "role": "semantic_artifact",
+          "schema": "oph.global_form_semantic_artifact.v1"
+        }
+      ],
+      "issue": 567,
+      "role": "finite_global_form",
+      "status": "verified_finite_parent",
+      "usable_exports": [
+        "finite-source-model diagonal Z6 global form and common kernel",
+        "exact character and cocharacter lattices",
+        "screen sector menu and electric line polarization",
+        "screen-scope Spin and refinement transport"
+      ],
+      "verifier_id": "issue_567_global_form"
+    }
+  ],
+  "promotion_allowed": false,
+  "schema": "oph.wz.source_parent_inventory.v1",
+  "source_dag": {
+    "acyclic": true,
+    "edges": [
+      {
+        "from": "screen_carrier",
+        "to": "finite_port_current_algebra"
+      },
+      {
+        "from": "finite_port_current_algebra",
+        "to": "finite_matter_module"
+      },
+      {
+        "from": "finite_matter_module",
+        "to": "finite_global_form"
+      },
+      {
+        "from": "screen_carrier",
+        "to": "family_band_candidate"
+      },
+      {
+        "from": "finite_matter_module",
+        "to": "family_band_candidate"
+      },
+      {
+        "from": "screen_carrier",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "finite_port_current_algebra",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "finite_matter_module",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "finite_global_form",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "family_band_candidate",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "event_and_spacetime_action_parent",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "common_screen_electroweak_carrier",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "physical_family_and_matter_pole_attachment",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "source_complete_field_census",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "scalar_higgs_and_fj_coordinate",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "full_yukawa_operator_and_coefficients",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "target_clean_rg_threshold_matching",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "unique_source_root_and_joint_law",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "validated_qft_consumer",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "source_operational_clock",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "runtime_and_human_target_firewall",
+        "to": "oph_native_dimensionless_packet"
+      },
+      {
+        "from": "oph_native_dimensionless_packet",
+        "to": "external_qft_pole_consumer"
+      }
+    ],
+    "forbidden_ancestry_paths": [],
+    "forbidden_node_classes": [
+      "experimental_target",
+      "post_exposure_comparison",
+      "calibrated_proxy",
+      "inverse_target_adapter"
+    ],
+    "nodes": [
+      {
+        "class": "verified_finite_parent",
+        "id": "screen_carrier",
+        "issue": 565,
+        "status": "verified_finite_parent"
+      },
+      {
+        "class": "verified_finite_parent",
+        "id": "finite_port_current_algebra",
+        "issue": 566,
+        "status": "verified_finite_parent"
+      },
+      {
+        "class": "verified_finite_parent",
+        "id": "finite_matter_module",
+        "issue": 314,
+        "status": "verified_finite_parent"
+      },
+      {
+        "class": "verified_finite_parent",
+        "id": "finite_global_form",
+        "issue": 567,
+        "status": "verified_finite_parent"
+      },
+      {
+        "class": "conditional_context",
+        "id": "family_band_candidate",
+        "issue": 569,
+        "status": "conditional_open_interface"
+      },
+      {
+        "class": "open_interface",
+        "id": "event_and_spacetime_action_parent",
+        "issue": 503,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "common_screen_electroweak_carrier",
+        "issue": 547,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "physical_family_and_matter_pole_attachment",
+        "issue": 569,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "source_complete_field_census",
+        "issue": 594,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "scalar_higgs_and_fj_coordinate",
+        "issue": 34,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "full_yukawa_operator_and_coefficients",
+        "issue": 34,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "target_clean_rg_threshold_matching",
+        "issue": 32,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "unique_source_root_and_joint_law",
+        "issue": 545,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "validated_qft_consumer",
+        "issue": 593,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "source_operational_clock",
+        "issue": 334,
+        "status": "open"
+      },
+      {
+        "class": "open_interface",
+        "id": "runtime_and_human_target_firewall",
+        "issue": 594,
+        "status": "open"
+      },
+      {
+        "class": "candidate_output",
+        "id": "oph_native_dimensionless_packet",
+        "issue": 594,
+        "status": "blocked"
+      },
+      {
+        "class": "external_validation_consumer",
+        "id": "external_qft_pole_consumer",
+        "issue": 593,
+        "status": "open_dependency"
+      }
+    ],
+    "protected_outputs": [
+      "oph_native_dimensionless_packet"
+    ]
+  },
+  "status": "FINITE_SOURCE_PARENTS_BOUND__NATIVE_ACTION_AND_PHYSICAL_ATTACHMENT_OPEN",
+  "target_firewall": {
+    "allowed_source_roots": [
+      "code/a5_closure/manifests",
+      "code/a5_closure/receipts",
+      "code/particles/calibration/wz_upstream_completion/schemas"
+    ],
+    "comparison_channel_present": false,
+    "forbidden_source_paths": [
+      "code/particles/calibration/wz_pdg_2026_target_fixture.json",
+      "code/particles/data/particle_reference_values.json",
+      "code/particles/runs/calibration/boson_source_prediction_closure_audit.json",
+      "code/particles/runs/status/postdiction_ledger.json"
+    ],
+    "forbidden_structured_tokens": [
+      "experimental_target",
+      "measured_wz_targets",
+      "w_mass_running_width",
+      "z_mass_running_width",
+      "measured_weak_mixing",
+      "g_f",
+      "m_w_gev",
+      "m_z_gev",
+      "wz_pdg_2026_target_fixture"
+    ],
+    "full_gate_satisfied": false,
+    "human_formula_selection_ancestry": "open",
+    "network_required": false,
+    "path_and_content_scan_passed": true,
+    "resolved_source_paths": [
+      "code/a5_closure/manifests/axis_center_descent_reference.json",
+      "code/a5_closure/manifests/charged_response_pole_residue_artifact.json",
+      "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+      "code/a5_closure/manifests/echosahedral_federation_reference.json",
+      "code/a5_closure/manifests/family_band_attachment_reference.json",
+      "code/a5_closure/manifests/global_form_semantic_artifact.json",
+      "code/a5_closure/manifests/port_current_response_reference.json",
+      "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
+      "code/a5_closure/manifests/super_tannakian_matter_reference.json",
+      "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+      "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+      "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "code/particles/calibration/wz_upstream_completion/schemas/eft_matching_packet_v1.schema.json",
+      "code/particles/calibration/wz_upstream_completion/schemas/full_yukawa_packet_v1.schema.json",
+      "code/particles/calibration/wz_upstream_completion/schemas/operational_clock_packet_v1.schema.json",
+      "code/particles/calibration/wz_upstream_completion/schemas/sm_eft_action_packet_v1.schema.json",
+      "code/particles/calibration/wz_upstream_completion/schemas/source_law_covariance_packet_v1.schema.json"
+    ],
+    "runtime_execution_receipt": "open",
+    "sealed_input_replay_supported": true
+  },
+  "unit_scope": {
+    "dimensionful_values_present": false,
+    "emitted_observables": [],
+    "native_coordinates": "E_star_normalized_dimensionless",
+    "physical_clock_required": true
+  }
+}

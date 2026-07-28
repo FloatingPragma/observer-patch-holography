@@ -1,0 +1,286 @@
+{
+  "schema": "oph.wz.source_parent_policy.v1",
+  "issue": 594,
+  "claim_lane": "OPH_NATIVE_DIMENSIONLESS_SOURCE_FRONTIER",
+  "positive_parents": [
+    {
+      "role": "screen_carrier",
+      "issue": 565,
+      "verifier_id": "issue_565_carrier",
+      "files": [
+        {
+          "role": "manifest",
+          "path": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+          "schema": "oph.echosahedral_selector_manifest.v1"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+          "schema": "oph.echosahedral_selector_receipt.v1"
+        }
+      ],
+      "usable_exports": [
+        "twelve primitive port units and exact incidence",
+        "inverse port pairing and six axes",
+        "orientation-preserving A5 action and rank-three Gram frame",
+        "finite refinement port maps"
+      ],
+      "excluded_promotions": [
+        "universal selection of this carrier from A1-A3",
+        "physical electroweak load-carrier identification",
+        "continuum currents, matter, couplings, or masses"
+      ]
+    },
+    {
+      "role": "finite_port_current_algebra",
+      "issue": 566,
+      "verifier_id": "issue_566_currents",
+      "files": [
+        {
+          "role": "manifest",
+          "path": "code/a5_closure/manifests/port_current_response_reference.json",
+          "schema": "oph.port_current_response_manifest.v5"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+          "schema": "oph.port_current_inner_receipt.v5"
+        },
+        {
+          "role": "semantic_artifact",
+          "path": "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+          "schema": "oph.charged_response_semantic_artifact.v3"
+        }
+      ],
+      "usable_exports": [
+        "finite u(1)+su(3)+su(2) current algebra",
+        "faithful rank-twelve finite action",
+        "source-model response coefficients and A5 inner action",
+        "finite carrier refinement intertwiners"
+      ],
+      "excluded_promotions": [
+        "continuum or laboratory gauge-current identification",
+        "gauge couplings or kinetic-action normalization",
+        "particle masses or measured Standard-Model currents"
+      ]
+    },
+    {
+      "role": "finite_matter_module",
+      "issue": 314,
+      "verifier_id": "issue_314_matter",
+      "files": [
+        {
+          "role": "manifest",
+          "path": "code/a5_closure/manifests/super_tannakian_matter_reference.json",
+          "schema": "oph.super_tannakian_matter_manifest.v5"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+          "schema": "oph.super_tannakian_matter_receipt.v5"
+        },
+        {
+          "role": "semantic_artifact",
+          "path": "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
+          "schema": "oph.spin_statistics_semantic_artifact.v1"
+        }
+      ],
+      "usable_exports": [
+        "unordered charge-conjugate rank-fifteen chiral matter pair",
+        "finite Spin/odd-Weyl typing and exact anomaly checks",
+        "field representations and hypercharges up to simultaneous conjugation",
+        "three invariant Yukawa channel lines conditional on a weak-doublet scalar",
+        "common cover kernel emitted as data"
+      ],
+      "excluded_promotions": [
+        "scalar existence, economy, or potential",
+        "preferred charge-conjugation representative",
+        "numerical Yukawa matrices or coefficients",
+        "physical family attachment, pole masses, or laboratory particle identification",
+        "continuum spin-statistics or quantum field theory"
+      ]
+    },
+    {
+      "role": "finite_global_form",
+      "issue": 567,
+      "verifier_id": "issue_567_global_form",
+      "files": [
+        {
+          "role": "manifest",
+          "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+          "schema": "oph.axis_center_descent_manifest.v4"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+          "schema": "oph.axis_center_descent_receipt.v4"
+        },
+        {
+          "role": "semantic_artifact",
+          "path": "code/a5_closure/manifests/global_form_semantic_artifact.json",
+          "schema": "oph.global_form_semantic_artifact.v1"
+        }
+      ],
+      "usable_exports": [
+        "finite-source-model diagonal Z6 global form and common kernel",
+        "exact character and cocharacter lattices",
+        "screen sector menu and electric line polarization",
+        "screen-scope Spin and refinement transport"
+      ],
+      "excluded_promotions": [
+        "four-dimensional instanton normalization or theta periodicity",
+        "continuum spacetime Spin bundle or continuum quantum field theory",
+        "laboratory global-form or flux attachment",
+        "monopole or dyon dynamics"
+      ]
+    }
+  ],
+  "conditional_context": [
+    {
+      "role": "family_band_candidate",
+      "issue": 569,
+      "verifier_id": "issue_569_family_band",
+      "status": "conditional_open_interface",
+      "files": [
+        {
+          "role": "candidate_certificate",
+          "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+          "schema": "oph.family_band_attachment_certificate.v4"
+        },
+        {
+          "role": "candidate_artifact",
+          "path": "code/a5_closure/manifests/charged_response_pole_residue_artifact.json",
+          "schema": "oph.charged_response_pole_residue.v2"
+        }
+      ],
+      "usable_exports": [
+        "exact rank-three screen-band selection under the named finite realization",
+        "rank-forty-five finite screen assembly with imported rank-fifteen generation factor",
+        "rank-three residue of the declared screen response resolvent"
+      ],
+      "excluded_promotions": [
+        "physical matter-pole identification",
+        "family chirality, Spin/locality, and physical refinement attachment",
+        "laboratory current identification",
+        "source-selected seam action or flavor/Yukawa operator",
+        "exclusion of additional light physical sectors"
+      ]
+    }
+  ],
+  "consumer_schemas": [
+    {
+      "slot": "canonical_action",
+      "path": "code/particles/calibration/wz_upstream_completion/schemas/sm_eft_action_packet_v1.schema.json",
+      "status": "provisional_external_validation_schema"
+    },
+    {
+      "slot": "full_yukawa",
+      "path": "code/particles/calibration/wz_upstream_completion/schemas/full_yukawa_packet_v1.schema.json",
+      "status": "provisional_external_validation_schema"
+    },
+    {
+      "slot": "eft_matching",
+      "path": "code/particles/calibration/wz_upstream_completion/schemas/eft_matching_packet_v1.schema.json",
+      "status": "provisional_external_validation_schema"
+    },
+    {
+      "slot": "source_law_covariance",
+      "path": "code/particles/calibration/wz_upstream_completion/schemas/source_law_covariance_packet_v1.schema.json",
+      "status": "nonpromoting_specification_schema"
+    },
+    {
+      "slot": "operational_clock",
+      "path": "code/particles/calibration/wz_upstream_completion/schemas/operational_clock_packet_v1.schema.json",
+      "status": "nonpromoting_specification_schema"
+    }
+  ],
+  "open_interfaces": [
+    {
+      "gate_id": "event_and_spacetime_action_parent",
+      "owner_issues": [503],
+      "required_output": "typed event base, local fields, Lorentzian and Spin data for the action"
+    },
+    {
+      "gate_id": "common_screen_electroweak_carrier",
+      "owner_issues": [547],
+      "required_output": "positive refinement-natural screen-to-electroweak carrier identification and normalization"
+    },
+    {
+      "gate_id": "physical_family_and_matter_pole_attachment",
+      "owner_issues": [569],
+      "required_output": "rank-forty-five physical matter-pole attachment with chirality, locality, refinement, and laboratory current"
+    },
+    {
+      "gate_id": "source_complete_field_census",
+      "owner_issues": [594, 609],
+      "required_output": "a scoped completeness theorem that resolves surviving source-invisible sterile extensions"
+    },
+    {
+      "gate_id": "scalar_higgs_and_fj_coordinate",
+      "owner_issues": [34, 547, 594],
+      "required_output": "source scalar action and a proved v_chart to v_F coordinate map"
+    },
+    {
+      "gate_id": "full_yukawa_operator_and_coefficients",
+      "owner_issues": [34, 569, 594],
+      "required_output": "target-clean full Yu, Yd, and Ye rather than invariant channel lines alone"
+    },
+    {
+      "gate_id": "target_clean_rg_threshold_matching",
+      "owner_issues": [32],
+      "required_output": "ordered source-derived running, thresholds, finite maps, Jacobians, masks, and remainders"
+    },
+    {
+      "gate_id": "unique_source_root_and_joint_law",
+      "owner_issues": [545, 594],
+      "required_output": "unique deterministic point law or target-independent joint law and covariance"
+    },
+    {
+      "gate_id": "validated_qft_consumer",
+      "owner_issues": [593],
+      "required_output": "frozen production verifier accepting the native packet without algorithm changes"
+    },
+    {
+      "gate_id": "source_operational_clock",
+      "owner_issues": [334],
+      "required_output": "source transition, positive dimensionless gap, SI ancestry, and calibration receipt"
+    },
+    {
+      "gate_id": "runtime_and_human_target_firewall",
+      "owner_issues": [594],
+      "required_output": "hermetic execution receipt plus formula-selection ancestry audit"
+    }
+  ],
+  "firewall_policy": {
+    "allowed_source_roots": [
+      "code/a5_closure/manifests",
+      "code/a5_closure/receipts",
+      "code/particles/calibration/wz_upstream_completion/schemas"
+    ],
+    "forbidden_source_paths": [
+      "code/particles/calibration/wz_pdg_2026_target_fixture.json",
+      "code/particles/data/particle_reference_values.json",
+      "code/particles/runs/calibration/boson_source_prediction_closure_audit.json",
+      "code/particles/runs/status/postdiction_ledger.json"
+    ],
+    "forbidden_structured_tokens": [
+      "experimental_target",
+      "measured_wz_targets",
+      "w_mass_running_width",
+      "z_mass_running_width",
+      "measured_weak_mixing",
+      "g_f",
+      "m_w_gev",
+      "m_z_gev",
+      "wz_pdg_2026_target_fixture"
+    ],
+    "execution_policy": {
+      "network": "none",
+      "input_mount": "read_only_allowlisted_files_only",
+      "output_mount": "single_writable_scratch",
+      "comparison_mount": "absent",
+      "environment": "allowlisted_nonphysics_runtime_variables_only",
+      "status": "policy_defined_execution_receipt_open"
+    }
+  }
+}
