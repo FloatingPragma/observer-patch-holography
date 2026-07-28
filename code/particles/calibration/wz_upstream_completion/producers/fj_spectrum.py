@@ -103,13 +103,52 @@ def specialized_records() -> list[dict[str, Any]]:
     table = json.loads(TABLE_PATH.read_text(encoding="utf-8"))
     out: list[dict[str, Any]] = []
     merged: dict[tuple, sp.Expr] = {}
-    structures: dict[tuple, str] = {}
+    pairing_of = {
+        "yang_mills_four_point_12_34": ((0, 1), (2, 3)),
+        "yang_mills_four_point_13_24": ((0, 2), (1, 3)),
+        "yang_mills_four_point_14_23": ((0, 3), (1, 2)),
+    }
+    label_order = tuple(pairing_of)
     for entry in table["entries"]:
         coefficient = coefficient_to_sympy(entry["coefficient"]["monomials"])
+        if entry["structure"] in pairing_of:
+            # The pairing label is positional on the sorted field list,
+            # so the rotation must transport the VALUE partition and
+            # re-derive the label for the rotated sorted multiset with
+            # the same canonical-first degeneracy rule as the engines.
+            pairs = pairing_of[entry["structure"]]
+            expansions = [((), coefficient)]
+            for field in entry["fields"]:
+                expansions = [
+                    (prefix + (label,), coeff * weight)
+                    for prefix, coeff in expansions
+                    for label, weight in NEUTRAL_ROTATION.get(field, ((field, sp.Integer(1)),))
+                ]
+            for positional, coeff in expansions:
+                coeff = sp.simplify(coeff)
+                if coeff == 0:
+                    continue
+                partition = tuple(sorted(
+                    tuple(sorted((positional[i], positional[j]))) for i, j in pairs
+                ))
+                multiset = tuple(sorted(positional))
+                new_label = None
+                for candidate in label_order:
+                    c_pairs = pairing_of[candidate]
+                    c_partition = tuple(sorted(
+                        tuple(sorted((multiset[i], multiset[j]))) for i, j in c_pairs
+                    ))
+                    if c_partition == partition:
+                        new_label = candidate
+                        break
+                if new_label is None:
+                    raise SystemExit(f"rotation: no pairing label for {multiset} {partition}")
+                key = (multiset, new_label)
+                merged[key] = sp.simplify(merged.get(key, sp.Integer(0)) + coeff)
+            continue
         for labels, coeff in rotate_record(entry["fields"], coefficient):
             key = (labels, entry["structure"])
             merged[key] = sp.simplify(merged.get(key, sp.Integer(0)) + coeff)
-            structures[key] = entry["structure"]
     for (labels, structure), coefficient in sorted(merged.items(), key=lambda kv: (kv[0][1], kv[0][0])):
         coefficient = sp.simplify(coefficient)
         if coefficient == 0:
