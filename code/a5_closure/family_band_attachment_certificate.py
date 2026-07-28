@@ -50,12 +50,17 @@ artifact carries clause S as a measurement: the per-band adjacency
 channels are measured data, the operational cost evaluated on them has
 the frame triplet as strict minimizer, and conjugation swaps the
 measured frame and kernel bands while the measured order separates
-them.  The carrier component of clause R is measured the same way (the
-frame band is a subobject of the measured response basis); the
-pole-residue factorization with complex rank forty-five, Spin/locality,
-refinement, and laboratory receipts stay open on issue #569.  The #617
-invisibility theorem for external C^n completions is re-verified and
-holds unchanged.
+them.  Clause R is realized for the response resolvent by the measured
+pole-residue artifact: the propagated dynamics has exactly four pole
+clusters at the band costs, the residue at the minimal positive pole is
+the rank-three frame projector (faithful, equivariant, Galois partner
+at the maximal pole), and the realized attachment object, measured
+multiplicity times the pinned fifteen-state generation, has complex
+rank exactly forty-five with the generation factor stated as an
+import.  The matter-pole identification, chirality and spin data,
+Spin/locality, and laboratory receipts stay open on issue #569.  The
+#617 invisibility theorem for external C^n completions is re-verified
+and holds unchanged.
 """
 
 from __future__ import annotations
@@ -81,13 +86,14 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.family_band_attachment_certificate.v2"
+SCHEMA = "oph.family_band_attachment_certificate.v3"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "family_band_attachment_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 WINDOW_MANIFEST_NAME = "multiplicity_window_reference.json"
 READBACK_MANIFEST_NAME = "load_fiber_readback_reference.json"
 MATTER_MANIFEST_NAME = "super_tannakian_matter_reference.json"
 RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
+POLE_RESIDUE_ARTIFACT_NAME = "charged_response_pole_residue_artifact.json"
 
 # Measured artifact band labels against this certificate's band names.
 ARTIFACT_BAND_MAP = {
@@ -490,6 +496,120 @@ def pin_response_artifact(carrier_pin: Mapping[str, Any]) -> tuple[dict[str, Any
         "issue": 599,
     }
     return artifact, pin
+
+
+def pin_pole_residue_artifact(
+    carrier_pin: Mapping[str, Any], response_artifact: Mapping[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    artifact = load_json(MODULE_DIR / "manifests" / POLE_RESIDUE_ARTIFACT_NAME)
+    binding = artifact["carrier_binding"]
+    require(
+        binding["carrier_manifest_sha256"] == carrier_pin["sha256"],
+        "POLE_ARTIFACT_CARRIER_MISMATCH",
+        "the pole-residue artifact must bind the same carrier manifest",
+    )
+    require(
+        binding["parent_artifact_sha256"] == response_artifact["artifact_sha256"],
+        "POLE_ARTIFACT_CHAIN",
+        "the pole-residue artifact must pin the response artifact it extends",
+    )
+    pin = {
+        "path": f"manifests/{POLE_RESIDUE_ARTIFACT_NAME}",
+        "sha256": sha256_json(artifact),
+        "issue": 569,
+    }
+    return artifact, pin
+
+
+def pole_residue_receipt(
+    pole_artifact: Mapping[str, Any], generation: Mapping[str, Any]
+) -> dict[str, Any]:
+    """The measured pole-residue realization of the multiplicity object.
+
+    The simulator artifact carries the measured pole clusters and exact
+    reconstructed residues of the response resolvent of the propagated
+    dynamics.  This receipt verifies, against the pinned data: the four
+    measured poles are the Laplacian band costs with multiplicities
+    1, 3, 3, 5; the residue at the minimal positive pole is the rank-three
+    frame projector, faithful, equivariant, with its Galois partner at the
+    maximal pole; and the realized attachment object, measured multiplicity
+    times the pinned fifteen-state generation, has complex rank exactly
+    forty-five.  The generation factor is the pinned exact packet, stated
+    as an import; the simulator measures the multiplicity factor.
+    """
+
+    readback = pole_artifact["pole_residue_readback"]
+    poles = readback["measured_poles"]
+    expected = {
+        "unit": (F5(0, 0), 1),
+        "frame": (F5(5, -1), 3),
+        "quintet": (F5(6, 0), 5),
+        "kernel": (F5(5, 1), 3),
+    }
+    for band, (value, multiplicity) in expected.items():
+        require(
+            parse_channel(poles[band]["pole"]) == value,
+            "POLE_TABLE",
+            f"the measured {band} pole must reconstruct to its band cost",
+        )
+        require(
+            int(poles[band]["multiplicity"]) == multiplicity,
+            "POLE_TABLE",
+            f"the measured {band} pole multiplicity must equal {multiplicity}",
+        )
+    residue = readback["family_band_residue"]
+    require(
+        residue
+        == {
+            "band": "frame",
+            "measured_rank": 3,
+            "equals_exact_frame_projector": True,
+            "slowest_relaxing_nonconstant_mode": True,
+            "faithful_kernel_order": 1,
+            "equivariant_under_all_automorphisms": True,
+            "galois_partner_at_maximal_pole": True,
+        },
+        "FAMILY_BAND_RESIDUE",
+        "the measured family-band residue receipt does not match its required form",
+    )
+    rank = int(residue["measured_rank"]) * int(generation["weyl_state_count"])
+    require(rank == 45, "POLE_RANK_45", "the realized attachment rank must be forty-five")
+    return {
+        "measured_poles": {
+            band: dict(poles[band]) for band in ("unit", "frame", "quintet", "kernel")
+        },
+        "family_band_residue": dict(residue),
+        "attachment_rank": {
+            "measured_multiplicity_rank": int(residue["measured_rank"]),
+            "generation_weyl_states_imported": int(generation["weyl_state_count"]),
+            "complex_rank": rank,
+        },
+        "realization_scope": (
+            "the pole-residue object of the response resolvent of the "
+            "propagated screen dynamics, realized inside the screen "
+            "coefficient space; the matter-pole identification, chirality "
+            "and spin data, and laboratory attachment stay open"
+        ),
+    }
+
+
+def control_pole_table_mutation(pole_artifact: Mapping[str, Any]) -> dict[str, Any]:
+    """A doctored pole table (frame pole moved onto the quintet cost) must be
+    refused by the pole gate."""
+
+    doctored = json.loads(json.dumps(dict(pole_artifact)))
+    doctored["pole_residue_readback"]["measured_poles"]["frame"]["pole"] = "6"
+    generation_stub = {"weyl_state_count": 15}
+    try:
+        pole_residue_receipt(doctored, generation_stub)
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "POLE_TABLE",
+            "meaning": "the receipt reads the measured pole values; a moved pole is refused",
+        }
+    return {"expected_failure": True, "failed": False}
 
 
 def measured_band_receipt(
@@ -1059,6 +1179,7 @@ def build_payload() -> dict[str, Any]:
     operational, excluded, cone_pin = pin_cost_cone()
     charges, matter_pin = pin_matter()
     artifact, response_pin = pin_response_artifact(carrier_pin)
+    pole_artifact, pole_pin = pin_pole_residue_artifact(carrier_pin, artifact)
 
     costs = band_costs(operational)
     kernels = band_action_kernels(projectors, rotations)
@@ -1076,6 +1197,7 @@ def build_payload() -> dict[str, Any]:
     require(minimizer["minimizer"] == "3", "SELECTED_BAND", "the strict minimizer must be the 3 band")
 
     generation = generation_certificate(charges)
+    pole_receipt = pole_residue_receipt(pole_artifact, generation)
     families = BAND_DIMS["3"]
     three_family_forms = {
         key: str(Fraction(value) * families)
@@ -1115,6 +1237,7 @@ def build_payload() -> dict[str, Any]:
         "measured_channel_swap": control_measured_channel_swap(
             artifact, operational, kernels
         ),
+        "pole_table_mutation": control_pole_table_mutation(pole_artifact),
     }
     for name, verdict in controls.items():
         require(
@@ -1133,9 +1256,11 @@ def build_payload() -> dict[str, Any]:
             "minimizer, fixing N_g = 3 with attachment rank forty-five. "
             "The #617 copy-count invisibility for external completions is "
             "preserved. Clause S is realized by the measured #599 response "
-            "artifact and the carrier component of clause R is measured; "
-            "the rank-forty-five pole-residue factorization is the open "
-            "receipt."
+            "artifact; clause R is realized for the response resolvent by "
+            "the measured pole-residue artifact, whose rank-three frame "
+            "residue sits at the minimal positive pole with the generation "
+            "factor imported. The matter-pole identification, chirality and "
+            "spin data, and laboratory attachment stay open."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
@@ -1156,13 +1281,16 @@ def build_payload() -> dict[str, Any]:
                 "S_selection": "excluded_cone",
             },
             "clause_status": {
-                "R_realization": measured["clause_R"],
+                "R_realization": (
+                    "measured_realized_for_response_resolvent__"
+                    "matter_pole_identification_open"
+                ),
                 "S_selection": measured["clause_S"],
             },
             "open_receipts": [
-                "complex rank-45 pole-residue factorization",
+                "matter-pole identification",
+                "chirality and spin data",
                 "Spin/locality receipt",
-                "refinement receipt",
                 "laboratory current identification",
             ],
         },
@@ -1172,8 +1300,10 @@ def build_payload() -> dict[str, Any]:
             "operational_cost_cone": cone_pin,
             "matter_packet": matter_pin,
             "measured_response_artifact": response_pin,
+            "measured_pole_residue_artifact": pole_pin,
         },
         "measured_receipt": measured,
+        "pole_residue_receipt": pole_receipt,
         "spectral_resolution": spectral,
         "equivariance": equivariance,
         "pair_orbits": pair_orbits,

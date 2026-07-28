@@ -1,0 +1,76 @@
+{
+  "artifact_sha256": "sha256:56ba3dfd18ef33c99d6242327acaff4e306092d7b6ab481d5d52f4f4a9b35734",
+  "carrier_binding": {
+    "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+    "parent_artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2"
+  },
+  "claim_boundary": "Measured pole-residue object of the response resolvent of the propagated screen dynamics, realized inside the screen coefficient space: four pole clusters at the exact band costs, with the rank-three frame residue at the minimal positive pole. This is not a matter-pole measurement; chirality and spin data, matter-pole identification, and laboratory attachment are open. External multiplicity copies remain invisible to the screen response per the standing invisibility theorem.",
+  "controls": {
+    "doctored_step": {
+      "code": "CHANNEL_CONSISTENCY",
+      "expected_failure": true,
+      "failed": true
+    },
+    "lattice_near_miss": {
+      "code": "LATTICE_RECONSTRUCTION",
+      "expected_failure": true,
+      "failed": true
+    },
+    "swapped_residues": {
+      "code": "RESIDUE_SWAP_DETECTED",
+      "expected_failure": true,
+      "failed": true
+    },
+    "truncated_series": {
+      "code": "CHANNEL_CONSISTENCY",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "dynamics_binding": {
+    "dynamics_module": "oph_fpe.core.echosahedral_dynamics",
+    "dynamics_sha256": "sha256:a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "generator": "icosahedral coupling (the graph Laplacian) under the unitary one-step channel"
+  },
+  "issue": 569,
+  "pole_residue_readback": {
+    "family_band_residue": {
+      "band": "frame",
+      "equals_exact_frame_projector": true,
+      "equivariant_under_all_automorphisms": true,
+      "faithful_kernel_order": 1,
+      "galois_partner_at_maximal_pole": true,
+      "measured_rank": 3,
+      "slowest_relaxing_nonconstant_mode": true
+    },
+    "measured_poles": {
+      "frame": {
+        "multiplicity": 3,
+        "pole": "5 + -1*sqrt(5)"
+      },
+      "kernel": {
+        "multiplicity": 3,
+        "pole": "5 + 1*sqrt(5)"
+      },
+      "quintet": {
+        "multiplicity": 5,
+        "pole": "6"
+      },
+      "unit": {
+        "multiplicity": 1,
+        "pole": "0"
+      }
+    },
+    "pole_order": "0 < 5 - sqrt5 < 6 < 5 + sqrt5",
+    "series": {
+      "channel_tolerance": "1e-09",
+      "coefficient_bound": 15,
+      "intrinsic_step": "1/4",
+      "reconstruction_margin": "0.001",
+      "reconstruction_tolerance": "1e-06",
+      "residue_scale": 120,
+      "steps": 8
+    }
+  },
+  "schema": "oph.charged_response_pole_residue.v1"
+}

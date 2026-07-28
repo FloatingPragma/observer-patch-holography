@@ -93,7 +93,10 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(
             self.payload["named_interface"]["clause_status"],
             {
-                "R_realization": "carrier_component_measured__pole_residue_receipt_open",
+                "R_realization": (
+                    "measured_realized_for_response_resolvent__"
+                    "matter_pole_identification_open"
+                ),
                 "S_selection": "measured_realized",
             },
         )
@@ -188,9 +191,38 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         finally:
             cert.MANIFEST_PATH.write_bytes(original)
 
-    def test_schema_is_v2(self) -> None:
-        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v2")
+    def test_schema_is_v3(self) -> None:
+        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v3")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
+
+    def test_pole_residue_receipt_realizes_clause_r(self) -> None:
+        receipt = self.payload["pole_residue_receipt"]
+        self.assertEqual(receipt["family_band_residue"]["band"], "frame")
+        self.assertEqual(receipt["family_band_residue"]["measured_rank"], 3)
+        self.assertTrue(receipt["family_band_residue"]["equals_exact_frame_projector"])
+        self.assertEqual(receipt["attachment_rank"]["complex_rank"], 45)
+        self.assertEqual(
+            self.payload["named_interface"]["clause_status"]["R_realization"],
+            "measured_realized_for_response_resolvent__matter_pole_identification_open",
+        )
+        self.assertEqual(
+            self.payload["upstream_pins"]["measured_pole_residue_artifact"]["issue"],
+            569,
+        )
+
+    def test_pole_artifact_chain_pin_is_enforced(self) -> None:
+        _, _, carrier_pin = cert.load_carrier()
+        response, _ = cert.pin_response_artifact(carrier_pin)
+        doctored = dict(response)
+        doctored["artifact_sha256"] = "sha256:doctored"
+        with self.assertRaises(cert.CertificateError) as ctx:
+            cert.pin_pole_residue_artifact(carrier_pin, doctored)
+        self.assertIn("POLE_ARTIFACT_CHAIN", str(ctx.exception))
+
+    def test_pole_table_mutation_control_fired(self) -> None:
+        verdict = self.payload["controls"]["pole_table_mutation"]
+        self.assertTrue(verdict["expected_failure"])
+        self.assertTrue(verdict["failed"])
 
     def test_window_pin_matches_the_stored_receipt(self) -> None:
         lower, upper, pin = cert.pin_window()

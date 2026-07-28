@@ -120,7 +120,7 @@
       }
     ]
   },
-  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is realized by the measured #599 response artifact and the carrier component of clause R is measured; the rank-forty-five pole-residue factorization is the open receipt.",
+  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is realized by the measured #599 response artifact; clause R is realized for the response resolvent by the measured pole-residue artifact, whose rank-three frame residue sits at the minimal positive pole with the generation factor imported. The matter-pole identification, chirality and spin data, and laboratory attachment stay open.",
   "controls": {
     "block_swap_refinement": {
       "code": "BLOCK_SWAP_COST_DETECTED",
@@ -191,6 +191,12 @@
       "meaning": "the measured receipt reads the channel values, so a frame/kernel value swap is detected as the Galois partner",
       "swapped_minimizer": "3p"
     },
+    "pole_table_mutation": {
+      "code": "POLE_TABLE",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the receipt reads the measured pole values; a moved pole is refused"
+    },
     "reducible_object": {
       "code": "NOT_SINGLE_COMPLETE_OBJECT",
       "expected_failure": true,
@@ -256,7 +262,7 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, strict cost order, minimizer)"
   ],
-  "manifest_sha256": "sha256:ab5aea342c82b6c0e2bb405c0b7e6cbff43085ed2a2d8566aa7592647e6da0be",
+  "manifest_sha256": "sha256:85186f705992b7c2416095f3c2fb99a6ea4d5ba764b83235f6d008e0d4df8345",
   "measured_receipt": {
     "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
     "artifact_issue": 599,
@@ -312,7 +318,7 @@
       "S_selection": "excluded_cone"
     },
     "clause_status": {
-      "R_realization": "carrier_component_measured__pole_residue_receipt_open",
+      "R_realization": "measured_realized_for_response_resolvent__matter_pole_identification_open",
       "S_selection": "measured_realized"
     },
     "clauses": {
@@ -321,9 +327,9 @@
     },
     "id": "screen_realized_multiplicity_object",
     "open_receipts": [
-      "complex rank-45 pole-residue factorization",
+      "matter-pole identification",
+      "chirality and spin data",
       "Spin/locality receipt",
-      "refinement receipt",
       "laboratory current identification"
     ]
   },
@@ -354,7 +360,42 @@
     "source": "pinned #617 receipt",
     "upper": 5
   },
-  "schema": "oph.family_band_attachment_certificate.v2",
+  "pole_residue_receipt": {
+    "attachment_rank": {
+      "complex_rank": 45,
+      "generation_weyl_states_imported": 15,
+      "measured_multiplicity_rank": 3
+    },
+    "family_band_residue": {
+      "band": "frame",
+      "equals_exact_frame_projector": true,
+      "equivariant_under_all_automorphisms": true,
+      "faithful_kernel_order": 1,
+      "galois_partner_at_maximal_pole": true,
+      "measured_rank": 3,
+      "slowest_relaxing_nonconstant_mode": true
+    },
+    "measured_poles": {
+      "frame": {
+        "multiplicity": 3,
+        "pole": "5 + -1*sqrt(5)"
+      },
+      "kernel": {
+        "multiplicity": 3,
+        "pole": "5 + 1*sqrt(5)"
+      },
+      "quintet": {
+        "multiplicity": 5,
+        "pole": "6"
+      },
+      "unit": {
+        "multiplicity": 1,
+        "pole": "0"
+      }
+    },
+    "realization_scope": "the pole-residue object of the response resolvent of the propagated screen dynamics, realized inside the screen coefficient space; the matter-pole identification, chirality and spin data, and laboratory attachment stay open"
+  },
+  "schema": "oph.family_band_attachment_certificate.v3",
   "selection": {
     "minimizer": "3",
     "order": [
@@ -403,6 +444,11 @@
       "issue": 314,
       "path": "manifests/super_tannakian_matter_reference.json",
       "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+    },
+    "measured_pole_residue_artifact": {
+      "issue": 569,
+      "path": "manifests/charged_response_pole_residue_artifact.json",
+      "sha256": "1c21ee95b66469877d04241f7addc7a78361e71d99f96ddeb4f745c2cb073b45"
     },
     "measured_response_artifact": {
       "issue": 599,
