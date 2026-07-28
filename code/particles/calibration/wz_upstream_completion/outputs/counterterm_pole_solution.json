@@ -31,11 +31,13 @@
     },
     "census_dg1": {
       "expected": "41*g1**3/12",
+      "note": "imposed input echoed back; the independent content is the joint solvability certificate and the system-forced difference identity dg2/g2 - dg1/g1 = (b2 g2^2 - b1 g1^2)/2",
       "passed": true,
       "value": "41*g1**3/12"
     },
     "census_dg2": {
       "expected": "-19*g2**3/12",
+      "note": "imposed input echoed back; the independent content is the joint solvability certificate and the system-forced difference identity dg2/g2 - dg1/g1 = (b2 g2^2 - b1 g1^2)/2",
       "passed": true,
       "value": "-19*g2**3/12"
     },

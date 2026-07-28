@@ -19,8 +19,8 @@ sympy algebra:
   (b1 + b2)/2 e^2 from the census betas;
 * custodial replay: the G0G0 and G+G- poles coincide at g1 -> 0,
   unit mixing, degenerate quark masses;
-* FJ-equivalence replay: each tadpole-insertion value equals the
-  derived v-shift of its tree record under the converted chart;
+* FJ-equivalence replay: the subtraction insertion minus v-shift is
+  recomputed here from the receipt fields for every block;
 * counterterm reachability: every block pole is polynomial in p2 of
   degree at most one (renormalizable structure), and no pole
   component lies on a structurally unreachable direction of the
@@ -191,9 +191,12 @@ def check() -> dict[str, Any]:
         problems.append("custodial replay fails")
     replays["custodial"] = "G0G0 equals GpGm in the custodial limit"
 
-    # 5. FJ-equivalence replay.
+    # 5. FJ-equivalence replay: the subtraction is recomputed from the
+    # receipt's own insertion and v-shift fields, never trusted from
+    # its difference field.
     for name, receipt in converted["equivalence_receipts"].items():
-        if sp.simplify(parse(receipt["difference"])) != 0:
+        recomputed = sp.expand(parse(receipt["insertion"]) - parse(receipt["v_shift_of_tree_record"]))
+        if sp.simplify(recomputed) != 0:
             problems.append(f"FJ equivalence residual in {name}")
     replays["fj_equivalence"] = sorted(converted["equivalence_receipts"])
 

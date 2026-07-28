@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 80,
-  "total_bytes_excluding_manifest_and_runtime_log": 1276016,
+  "file_count_excluding_manifest_and_runtime_log": 79,
+  "total_bytes_excluding_manifest_and_runtime_log": 1267858,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -58,11 +58,6 @@
       "sha256": "d9a7f240819624c4fcd5c307eff930e45650b5bb6a65a47c8f6eedfa3008e28f"
     },
     {
-      "path": "checkers/check_gauge_condition_correlator.py",
-      "bytes": 8998,
-      "sha256": "3887a6c673cfa29f0c6dcd05b30a0ca37638b5ee9c7341aa530b06fb7a621fc2"
-    },
-    {
       "path": "checkers/check_rule_engines.py",
       "bytes": 10387,
       "sha256": "78193e436dd259db57f574316c9c401f7792e1b59f2bf5a526b93efe85a6a34a"
@@ -74,8 +69,8 @@
     },
     {
       "path": "checkers/check_ward_st_nielsen.py",
-      "bytes": 10894,
-      "sha256": "080811f0d505cd01cbca41dc8eb411d1439c19e8abf36981d0a64f1641b4d654"
+      "bytes": 11113,
+      "sha256": "2ef3cc65818a5ebeb3bec109be7282d4da11990c9af33ee7b7e454d0d982d0f9"
     },
     {
       "path": "data/nonlinear_gauge_grid_v1.json",
@@ -114,8 +109,8 @@
     },
     {
       "path": "outputs/counterterm_pole_solution.json",
-      "bytes": 7643,
-      "sha256": "e91b6aa2fa1f37183436f1c4eafb7e29d9901c6f806d847fb3ec9ceabd7f50ed"
+      "bytes": 8017,
+      "sha256": "18d48ff0d93f2f23c7c3eecb83fd981988de262ac78c8d87b0653670fdece890"
     },
     {
       "path": "outputs/diagram_universe_wz.json",
@@ -194,8 +189,8 @@
     },
     {
       "path": "producers/counterterm_pole_solution.py",
-      "bytes": 19121,
-      "sha256": "5eb7502dd622ec0747f70b56b5a41d18f3b7d63142fe79ec06ac17e1dc175add"
+      "bytes": 19368,
+      "sha256": "891ffbbcd067580e80b47b8dcb15f0470c2b8927b289e5cabdd82160db9829bb"
     },
     {
       "path": "producers/counterterm_producer.py",

@@ -28,10 +28,14 @@ Cross-checks recorded in the payload:
 
 * the solved dg1 and dg2 equal the census beta values (b/2) g^3 in
   loop units, binding the non-abelian sector to the matching packet;
-* the solved parameter poles dg1, dg2, dlam, dmu2 are xi-independent
-  (gauge-invariant couplings), while the field poles and dv may carry
-  xi;
-* the solved dv equals the FJ tadpole condition value -T_pole/m_h^2.
+* the solved dmu2 pole is xi-independent on the emitted slice, and
+  the one exact xi-obstruction in the (dlam, dmu2) plane is recorded
+  with its closed-form invariant.
+
+The vev pole dv on the slice is an MSbar scheme choice; the FJ
+tadpole condition of the counterterm packet stays recorded there as
+an equation, and the two vev charts differ by a declared offset that
+no check here equates.
 """
 
 from __future__ import annotations
@@ -382,17 +386,21 @@ def main() -> int:
 
     problems: list[str] = []
     checks: dict[str, Any] = {}
+    echo_note = (
+        "imposed input echoed back; the independent content is the joint "
+        "solvability certificate and the system-forced difference identity "
+        "dg2/g2 - dg1/g1 = (b2 g2^2 - b1 g1^2)/2"
+    )
     checks["census_dg1"] = {
         "value": str(values["dg1"]), "expected": str(sp.simplify(b1 / 2 * g1 ** 3)),
+        "note": echo_note,
         "passed": sp.simplify(values["dg1"] - b1 / 2 * g1 ** 3) == 0,
     }
     checks["census_dg2"] = {
         "value": str(values["dg2"]), "expected": str(sp.simplify(b2 / 2 * g2 ** 3)),
+        "note": echo_note,
         "passed": sp.simplify(values["dg2"] - b2 / 2 * g2 ** 3) == 0,
     }
-    abelian = sp.simplify(values["dZB"] + 2 * values["dg1"] / g1 * g1 ** 2 / g1)
-    abelian = sp.simplify(values["dZB"] + 2 * values["dg1"] * g1)
-    abelian = sp.simplify(values["dZB"] + 2 * values["dg1"] / g1)
     checks["abelian_ward_ZB"] = {
         "statement": "Z_g1^2 Z_B = 1: dZB = -2 dg1/g1",
         "value": str(values["dZB"]),
