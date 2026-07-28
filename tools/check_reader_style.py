@@ -24,7 +24,6 @@ READER_GLOBS = [
     "Lean/docs/LIBRARY_GUIDE.md",
     "code/README.md",
     "docs/README.md",
-    "docs/APPLICATIONS.md",
     "docs/COMMON_OBJECTIONS.md",
     "docs/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md",
     "docs/STRANGE_LOOP.md",

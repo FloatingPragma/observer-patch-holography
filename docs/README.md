@@ -32,7 +32,6 @@ run data so you can watch the universe assemble itself.
 ## Reader Support
 
 - [Common Objections](COMMON_OBJECTIONS.md) answers recurring technical and conceptual criticisms.
-- [Applications](APPLICATIONS.md) maps OPH’s observer-like self-reading architecture to proposed technology programs.
 
 ## Proof And Verification Maps
 

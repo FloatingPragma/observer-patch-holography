@@ -263,5 +263,4 @@ self-reading structure stated in Section 1.
 The issue-509 IBM bundle is an independently replayable engineering specimen
 against its frozen controller nulls. This verifier does not bind or promote
 that bundle, and its programmed circuit is non-discriminating between OPH and
-standard quantum mechanics. The application concepts in
-[APPLICATIONS.md](APPLICATIONS.md) are design documents.
+standard quantum mechanics.
