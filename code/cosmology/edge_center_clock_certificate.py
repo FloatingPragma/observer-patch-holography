@@ -898,7 +898,7 @@ def build(
                 "binding_theorem_present": False,
             },
             "presence_reading": {
-                "artifact": "extra/chi_nu_collar_survival_presence_correction.md",
+                "artifact": "extra/chi_nu_susceptibility_bounds.tex",
                 "statement": (
                     "the finite one-step survival is the presence value 1 - P/24; "
                     "e^(-P/24) is the depth limit, unreachable at any finite regulator"
