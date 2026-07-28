@@ -431,6 +431,31 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "falsification": "The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum.",
         "chrome_policy": "Use for independent audit only after a local attachment packet exists.",
     },
+    546: {
+        "phase": "charged-lepton-physical-landing",
+        "claim_level": "target-anchored empirical closure with source landing open",
+        "blocker": (
+            "The charged ratios and higher-order remainder in the interval lane "
+            "have measured-target ancestry. The 100-decimal-digit certificate "
+            "proves outward arithmetic enclosure conditional on those inputs; it "
+            "does not emit a source-only Yukawa operator, determinant character, "
+            "physical scale, or scheme."
+        ),
+        "closure": (
+            "A source-only physical charged Yukawa landing emits the centered "
+            "operator, determinant line, labels, scale, and scheme with a "
+            "no-target-leak dependency receipt."
+        ),
+        "falsification": (
+            "A claimed source-only landing depends on measured charged masses, "
+            "current-family checksums, a target-calibrated remainder, or an "
+            "unfixed determinant normalization."
+        ),
+        "chrome_policy": (
+            "Use the interval artifacts only as empirical-closure diagnostics; "
+            "do not present them as prospective charged-lepton predictions."
+        ),
+    },
     569: {
         "phase": "physical-family-attachment",
         "claim_level": "two-clause conditional selection with exact in-interface theorem",
@@ -438,27 +463,30 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "The family_band_attachment certificate proves the exact selection: among "
             "single complete faithful in-window multiplicity objects inside the screen "
             "coefficient space, the #625 operational cost order has the rank-three band "
-            "as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five "
-            "(Lean Screen/A5FamilyBand.lean, kernel-decided). The measured #599 "
-            "response artifact realizes the comparison clause, and the measured "
+            "as unique strict minimizer, selecting a finite rank-three candidate "
+            "(Lean Screen/A5FamilyBand.lean, kernel-decided). The #599 simulator "
+            "response artifact realizes the comparison clause, and the simulator "
             "pole-residue artifact realizes the realization clause for the response "
             "resolvent: the propagated dynamics has four pole clusters at the band "
-            "costs, the rank-three frame residue sits at the minimal positive pole "
+            "costs, the rank-three frame residue sits at the lowest positive "
+            "generator frequency "
             "(faithful, equivariant, Galois partner at the maximal pole), and the "
-            "attachment object has complex rank forty-five with the generation "
-            "factor imported. The #617 copy-count invisibility for external "
-            "completions holds unchanged."
+            "unitary channel conserves mode norms. The finite screen assembly has "
+            "complex rank forty-five with the exact rank-15 generation factor "
+            "imported. This is not a physical matter-spectrum measurement. The "
+            "#617 copy-count invisibility for external completions is unchanged."
         ),
         "closure": (
             "The matter-pole identification, chirality and spin data, Spin/locality "
-            "receipt, and laboratory current attachment identify the measured "
+            "receipt, refinement compatibility, exclusion of extra light sectors, "
+            "and laboratory current attachment identify the simulator "
             "response-resolvent realization with the physical matter-pole residue "
             "object, or a countermodel separates them."
         ),
         "falsification": (
-            "A measured pole-residue object realized in the screen with a faithful "
+            "A physical pole-residue object realized in the screen with a faithful "
             "in-window multiplicity object that is not the rank-three band, or a "
-            "measured comparison order that violates the #625 operational cone."
+            "physical comparison order that violates the #625 operational cone."
         ),
         "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
     },
