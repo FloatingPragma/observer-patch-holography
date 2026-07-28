@@ -80,11 +80,17 @@ def a0_fin(m2, mu2, precision: int = 192) -> Ball:
 
 
 def b0_fin(p2, m1, m2, mu2, precision: int = 192) -> Ball:
-    """B0 finite part with the frozen branch (+i pi above threshold)."""
+    """B0 finite part with the frozen branch (+i pi above threshold).
+
+    Accepts complex p2: the root formula continues analytically off the
+    real axis with the same -i eps branch selection, which is the
+    declared continuation path of the pole receipts."""
 
     if precision not in PRECISIONS:
         raise ValueError(f"precision {precision} outside the presets {PRECISIONS}")
     with mp.workprec(precision):
+        if isinstance(p2, complex) or (hasattr(p2, "imag") and getattr(p2, "imag", 0) != 0):
+            return _b0_fin_complex(mp.mpc(p2), mp.mpf(m1), mp.mpf(m2), mp.mpf(mu2))
         p2 = mp.mpf(p2)
         m1 = mp.mpf(m1)
         m2 = mp.mpf(m2)
@@ -167,3 +173,17 @@ def certify_winding(f: Callable[[complex], complex], corners: tuple[complex, com
         if quadrant_steps % 4 != 0:
             raise RuntimeError("open quadrant walk; refine subdivisions")
         return quadrant_steps // 4
+
+
+def _b0_fin_complex(p2: mp.mpc, m1: mp.mpf, m2: mp.mpf, mu2: mp.mpf) -> Ball:
+    ieps = mp.mpc(0, mp.mpf(2) ** (16 - mp.mp.prec))
+    a = p2
+    b = -(p2 + m1 - m2)
+    c = mp.mpc(m1) - ieps
+    disc = mp.sqrt(b * b - 4 * a * c)
+    x1 = (-b + disc) / (2 * a)
+    x2 = (-b - disc) / (2 * a)
+    total = mp.mpc(2) - mp.log(p2 / mu2)
+    for x in (x1, x2):
+        total += x * mp.log((x - 1) / x) - mp.log(x - 1)
+    return _complex_ball(total, extra=_ulp_envelope(abs(total)) * 8)
