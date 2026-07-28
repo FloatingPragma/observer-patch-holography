@@ -634,7 +634,7 @@ triplet-doublet structure.
 The distinction is sharp: no completion clause enters this conditional
 current, charge, or $\mathbb Z_6$ kernel calculation. The declared completion
 attaches the rank-three screen candidate to physical families and assumes the
-absence of extra light sectors. Both carry open physical status. Physical
+absence of extra light sectors. Neither has a physical source construction. Physical
 matter typing and global-form selection require independent constructions.
 
 ### The Icosahedral Closure Route
@@ -1061,10 +1061,10 @@ therefore enters the physical packet as a declared completion:
 
 $$\boxed{N_g = 3}$$
 
-This boxed value has open physical status. Anomaly cancellation and the
-target-free source reduct do not force it. The strengthened finite screen
-interface selects the rank-three candidate under its named premises, while
-physical family attachment remains a separate construction.
+This boxed value is the conditional rank-three screen candidate. Anomaly
+cancellation and the target-free source reduct do not force it. The finite
+screen interface selects it under named premises, while physical family
+attachment requires a separate construction.
 
 The one-Higgs slot also has a clean local geometric carrier, though the
 count of one doublet is itself a declared completion, not a derivation:
@@ -1463,11 +1463,10 @@ The [FLAG Review 2024](https://arxiv.org/abs/2411.04268) gives two applicable
 lattice averages. Combining its light-quark ratios produces central values
 $m_s/m_d=19.9438$ with four active sea-quark flavors and $20.3594$ with
 three. The conditional result is therefore 15.2% and 12.8% high. A
-non-preregistered conservative comparison gate using experimental errors alone rejects all
+conservative comparison using experimental errors alone rejects all
 six assignments against both FLAG rows. The unavailable covariance and absent
-theory uncertainty preclude a covariance-aware significance, and the gate has
-no preregistered theory-wide falsification status. The result closes only this
-common-transport assignment family. Other coefficient relations, alphabets,
+theory uncertainty preclude a covariance-aware significance. The result
+concerns only this common-transport assignment family. Other coefficient relations, alphabets,
 physical charged-family attachments, and generation-dependent threshold
 transport define different classes. The retained results are the conditional
 pairing of separate quark and lepton channels, the target-free unordered

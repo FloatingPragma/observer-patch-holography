@@ -112,13 +112,13 @@ certified, the physical transport step is open). The remaining
 gap has an explicit address: the hadronic transport needed in the same
 electromagnetic convention as the source map. This split is the contribution: a fixed-point
 equation for the pixel branch with no adjustable form, a visible address for the missing low-energy
-QCD step, and a clear boundary between source theorem, empirical endpoint
-closure, and measured comparison.
+QCD step, and a clear boundary between a source theorem, empirical endpoint
+input, and measured comparison.
 
 \section{Introduction}
 
 The screen cell in this calculation is not free-floating. On the declared
-carrier branch of the OPH stack it is a cell of the federated screen built
+carrier branch of the OPH framework it is a cell of the federated screen built
 from twelve-port icosahedral carriers, the same lineage whose port algebra
 witnesses the Standard Model gauge structure in the compact
 paper~\cite{oph-smgr}; the local pixel equation reads back the
@@ -136,7 +136,7 @@ source calculation, as an endpoint test.
 There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
 
 \begin{quote}\small
-\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\), with relative residual \(2.5\times10^{-6}\), about \(1.6\times10^{4}\) measurement sigma. The combination \(A_{\alpha_U}^{\mathrm{fp}}=137.035959513609\ldots\) mixes the certified source root with \(\alpha_U(\Ppub)\) evaluated at the CODATA-derived comparison pixel; it is not a fixed point of a single declared map. The measured value is a downstream endpoint test and does not fix either source root.
+\textbf{Certified source roots.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (public interval certificate \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\), with relative residual \(2.5\times10^{-6}\), about \(1.6\times10^{4}\) measurement sigma. The combination \(A_{\alpha_U}^{\mathrm{fp}}=137.035959513609\ldots\) mixes the certified source root with \(\alpha_U(\Ppub)\) evaluated at the CODATA-derived comparison pixel; it is not a fixed point of a single declared map. The measured value is a downstream endpoint test and does not fix either source root.
 
 \textbf{CODATA\slash NIST measured endpoint.} CODATA\slash NIST reports the value \(137.035999177(21)\) for \(\alphainv(0)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
@@ -161,7 +161,7 @@ or numerically,
 \]
 The first two values are the interval-certified fixed points of the declared
 source map and of the declared self-consistent gauge-width map
-(interval contraction certificate shipped with the code release \cite{oph-code}).
+(public interval contraction certificate \cite{oph-code}).
 The root value \(\alpha_{\mathrm{root}}^{-1}\) is the naked source/root inverse
 coupling: the electromagnetic width emitted when one screen cell closes as a
 geometric self-consistency object before the low-energy charged vacuum is
@@ -198,7 +198,7 @@ The OPH background used here is spread across three papers. The observer-overlap
 
 Why this split matters: the fixed-point equation and the hadronic transport calculation answer different questions. The fixed-point equation says how a local screen cell must close on itself. The hadronic calculation says how the electromagnetic current is transported through low-energy QCD. These are different layers of the calculation. A non-arbitrary endpoint calculation must either evaluate the same-scheme hadronic spectral functional directly, or derive the scheme bridge from OPH source data.
 
-\begin{proposition}[Maxwell normalization of the endpoint lane]
+\begin{proposition}[Maxwell normalization of the endpoint branch]
 On the ordinary electromagnetic branch used by the fixed-point equation, the Ward-projected
 \(\U(1)_Q\) channel carries
 \[
@@ -282,7 +282,7 @@ only after the same-collar shared-edge budget and one-class \(\mathbb Z_6\)
 trace receipts pass in the screen microphysics and susceptibility papers.  This
 does not make \(P/4\) a primitive Hilbert-space dimension.  In this paper,
 \(P/4\) is the local screen-cell entropy budget used by the electromagnetic
-fixed-point lane; \(P_\chi/24\) is the shared scalar-reserve density used by the
+fixed-point branch; \(P_\chi/24\) is the shared scalar-reserve density used by the
 \(\chi_\nu\) collar branch.
 
 \section{Step 1: The OPH Starting Rule}
@@ -457,8 +457,7 @@ and run the couplings by
 The triple \((33/5,1,-3)\) is the one-loop MSSM beta-coefficient set. Its use
 is a declared structural selection: the Standard Model coefficient triple has
 no pixel-residual root in the declared scan, no supersymmetric threshold
-matching enters the map, and the convention's status is a counted structural
-selection.
+matching enters the map, and the convention is a counted structural selection.
 
 Informally: once \(\alpha_U\) is guessed, all three gauge couplings at lower scales are fixed. The same high-scale coupling determines \(\alpha_1\), \(\alpha_2\), and \(\alpha_3\).
 
@@ -532,8 +531,9 @@ The pixel-closure equation is
 For a trial \(P\), Eq.~\eqref{eq:pixelclosure} is solved for \(\alpha_U(P)\).
 The closure sums the \(\SU(2)\) and \(\SU(3)\) representation towers only; the
 selection that hypercharge carries no representation entropy against the
-\(P/4\) budget is a declared choice. The repair round count used elsewhere in
-the corpus counts the \(\mathfrak u(1)\) generator (\(8+3+1=12\)); the two
+\(P/4\) budget is a declared choice. The repair round count used by the
+finite current construction counts the \(\mathfrak u(1)\) generator
+(\(8+3+1=12\)); the two
 conventions are distinct declared choices.
 
 Informally: the representation entropy carried by the weak and color sectors must match the pixel capacity assigned to the cell. This step is what locks the unified coupling to the same \(P\) that appears in the outer equation.
@@ -612,7 +612,7 @@ amplitude gives
 \]
 The connected register fixes the normalization left free by the direct-sum
 MaxEnt model. Minimality of this response-local register is an explicit
-declared hypothesis. Physical promotion requires
+declared hypothesis. A physical charged-lepton conclusion requires
 a chiral regular-\(C_3\) carrier and faithful trace-preserving unital
 completely positive maps \(\Phi,\Psi\) between the source and physical
 response algebras, with \(\Psi\Phi=\mathrm{id}\). If they intertwine the
@@ -715,7 +715,7 @@ maps this coordinate to physical pole masses.
 Informally: this section specifies a phenomenological spectrum used by the
 transport diagnostic.  The lepton vacuum-polarization kernel is an exact
 one-loop calculation conditional on those masses; that exactness does not
-promote the masses themselves.  The quark part is also a perturbative
+determine the masses themselves.  The quark part is also a perturbative
 continuation. The confined hadronic QCD spectral measure is a separate
 low-energy object.
 
@@ -842,7 +842,7 @@ P_{\mathrm{root}}
 \end{align}
 The fixed point is interval-certified as
 existing and unique on its interval (interval certificate,
-shipped with the code release \cite{oph-code};
+available in the public artifact bundle \cite{oph-code};
 enclosure widths \(6.8\times10^{-28}\) in \(P\) and \(7.2\times10^{-24}\) in
 \(\alpha^{-1}\), Lipschitz bound \(L\le0.0724\)).
 The source anchor at the certified root point is
@@ -956,7 +956,8 @@ A_{\mathrm{calc}}(P_{\mathrm{root}})
 \decnum{136.994835177412937295289429464436902857561206151035393184502}.
 \label{eq:Acalcfp}
 \end{equation}
-The interval certificate and CI identity test ship with the code release \cite{oph-code}.
+The interval certificate and continuous-integration identity test are included
+in the public artifact bundle \cite{oph-code}.
 At the CODATA-derived comparison pixel, the finite-screen unified gauge-width contribution is
 \[
 \alpha_U(\Ppub)=0.041124336195630495.
@@ -1229,7 +1230,7 @@ does not select the spectral measure that fixes its exact value.
 The hadronic precision audit sharpens the no-go statement. The
 \(\rho_Q(s;P)\) object used here is the two-current marginal of a larger source-derived hadronic spectral
 hadronic backend: a source QCD quotient ensemble, source parameter map, Ward-normalized current
-ledger, Stieltjes/Jacobi export, same-scheme remainder, and systematics/no-target-leak receipt
+data, Stieltjes/Jacobi export, same-scheme remainder, and systematics/no-target-leak receipt
 bundle. That marginal can close the running-\(\alpha\)/HVP transport only after it is emitted by
 the backend. It cannot be recycled as a full hadronic precision source, because HLbL and rare
 decay long-distance amplitudes require four-current and transition spectral data from the same
@@ -1296,7 +1297,8 @@ or equivalently the source-emitted spectral density \(\rho_Q(s;P)\) plus the sam
 remainder. The required dependency graph has no path from the measured Thomson endpoint into
 \(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\). The available execution embeds target
 constants, uses a mismatched \(P\), conflates the closure residual with the total payload, and
-supplies a sampled envelope rather than a certified interval. It has no promotion weight.
+supplies a sampled envelope rather than a certified interval. It does not
+support a physical conclusion.
 A qualifying contract fixes one coordinate schema, requires a source-emitted function over the
 same \(P\), certifies quadrature and interval bounds, and scores a detached artifact.
 
@@ -1337,8 +1339,8 @@ The interval form of assumptions (iii)--(iv) is direct: on any interval \(I\)
 where interval-arithmetic evaluation
 certifies \(G(I)\subseteq I\) together with a derivative bound
 \(|G'|\le L<1\), the Banach fixed-point theorem gives both existence and
-uniqueness of the fixed point in \(I\). The interval contraction certificate shipped with
-the code release \cite{oph-code},
+uniqueness of the fixed point in \(I\). The public interval contraction certificate
+\cite{oph-code}
 proves \(G(I)\subseteq\operatorname{int}(I)\) and \(L\le0.0724\) for both
 readout modes by a direct Banach argument in mean-value (centered) form, with
 \texttt{mpmath.iv} outward rounding on every elementary operation and with the
@@ -1347,13 +1349,12 @@ enclosure covers the infinite-cutoff sums. The certified unique fixed points
 are \(\alpha^{-1}=136.994835177413\ldots\) for the source map (enclosure width
 \(7.2\times10^{-24}\)) and \(\alpha^{-1}=137.035660136946577\ldots\) for the
 gauge-width map. The certificate certifies the declared numerical map; it does
-not relate either fixed point to the measured constant, and the stage-3
-landing verdict of the basin-then-contract protocol is unchanged (outside the
-measured comparison basin). The global at-most-one statement is
+not relate either fixed point to the measured constant. Both roots lie outside
+the measured comparison basin. The global at-most-one statement is
 discharged on the declared physical domain (\(\alpha^{-1}\in[100,200]\)):
 \(\sup|g'|<1\) on all 256 certified pieces, both readout maps, zero
 exceptional set
-(domain-global uniqueness certificate in the same release), so
+(domain-global uniqueness certificate in the same artifact bundle), so
 each map has exactly one fixed point on the domain.
 A maximal-domain extension certificate closes the exterior. An envelope
 lemma built from the declared solver windows (the pixel scan window
@@ -1368,8 +1369,7 @@ Each declared map therefore has exactly one fixed point on its maximal
 analytic domain, and the set of fixed points outside the declared interval
 is empty; the headline enclosures above are unchanged.
 
-Promoting this row from empirical endpoint comparison to a source-only theorem
-requires a source-derived Ward-current spectral measure, the source Jacobi
+A source-only theorem requires a source-derived Ward-current spectral measure, the source Jacobi
 kernel, electromagnetic normalization, a same-scheme finite remainder, a
 dependency graph excluding Thomson-target leakage, a full contraction interval
 for the pixel map, and a prediction interval narrower than the adopted direct
@@ -1380,7 +1380,7 @@ result of Morel, Yao, Cladé, and Guellati-Khélifa reports
 \[
 \operatorname{rad}(\alpha_{\mathrm{pred}}^{-1})<1.1\times10^{-8}
 \]
-in inverse-alpha units, unless a later release updates the adopted direct-measurement interval.
+in inverse-alpha units for the cited direct rubidium recoil interval.
 
 \section{Step 22: The CODATA/NIST Comparison Endpoint}
 
@@ -1433,11 +1433,11 @@ python3 fine_structure_fixed_point_demo.py --compare-alpha-inv 137.035999177
 
 Informally: the command line separates the pure source value, the CODATA/NIST comparison value, and the diagnostic values. The mathematical paper uses the same separation.
 
-\section{Checklist of Non-Omitted Steps}
+\section{Complete Source-to-Fixed-Point Chain}
 
 \begin{longtable}{@{}L{0.18\textwidth}L{0.44\textwidth}L{0.28\textwidth}@{}}
 \toprule
-Step & Mathematical object & Status \\
+Step & Mathematical object & Scope \\
 \midrule
 \endhead
 Overlap rule & Eq.~\eqref{eq:overlap} & OPH starting structure. \\
@@ -1457,13 +1457,13 @@ Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Declar
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
 Screening ansatz & Eq.~\eqref{eq:Scalc} & Declared selection of the quark continuation; asserted rather than derived, with no perturbative derivation. \\
 Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron diagnostic conditional on the supplied charged-spectrum continuation. \\
-Bare-\(\alpha_U\) closure status & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Mixed-provenance display packet; the certified gauge-width fixed point is \(137.035660136946577\ldots\), without constituting a derivation of \(\alpha\). \\
+Bare-\(\alpha_U\) closure & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Mixed-provenance display packet; the certified gauge-width fixed point is \(137.035660136946577\ldots\), without constituting a derivation of \(\alpha\). \\
 Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
 CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\
 Two-\(P\) provenance & \(P_{\mathrm{root}}\) versus \(\Ppub\) & Source-branch root and measured-endpoint comparison pixel are distinct; \(\Ppub\) inherits CODATA/NIST by definition. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
-Interval theorem & Banach/contraction certificate for full \(G\) & Discharged for the declared numerical map (shipped certificate, both readout modes); required for the full source map with the hadronic term. \\
+Interval theorem & Banach/contraction certificate for full \(G\) & Discharged for the declared numerical map (public certificate, both readout modes); required for the full source map with the hadronic term. \\
 \bottomrule
 \end{longtable}
 
@@ -1509,9 +1509,9 @@ same-scheme bridge, and the interval-certificate step.
 
 \textbf{Consent to Publish declaration.} Not applicable.
 
-\textbf{Author Contribution declaration.} Bernhard M\"uller conceived the OPH fine-structure fixed-point formulation, prepared the mathematical derivation, wrote and checked the numerical calculation, wrote the manuscript, and prepared the reproducibility materials. Alexander Osika contributed OPH research-program framing, manuscript review, and approval of the final manuscript.
+\textbf{Author Contribution declaration.} Bernhard M\"uller conceived the OPH fine-structure fixed-point formulation, prepared the mathematical derivation, wrote and checked the numerical calculation, wrote the manuscript, and prepared the reproducibility materials. Alexander Osika contributed conceptual framing, manuscript review, and approval of the final manuscript.
 
-\textbf{Data Availability declaration.} No new experimental data were generated. The manuscript cites the 2022 CODATA/NIST inverse fine-structure constant \cite{nist-value,nist-2022}, public hadronic cross-section and vacuum-polarization references \cite{pdg-xsect,dhmz,knt19}, and the OPH source materials cited below. The TeX source, OPH paper sources, and executable derivation code are available in the public GitHub repository:
+\textbf{Data Availability declaration.} No experimental data were generated. The manuscript cites the 2022 CODATA/NIST inverse fine-structure constant \cite{nist-value,nist-2022}, public hadronic cross-section and vacuum-polarization references \cite{pdg-xsect,dhmz,knt19}, and the OPH source materials cited below. The TeX source, OPH paper sources, and executable derivation code are available in the public GitHub repository:
 \url{https://github.com/FloatingPragma/observer-patch-holography}.
 
 \textbf{Code Availability declaration.} The fixed-point code and runtime artifacts are available at

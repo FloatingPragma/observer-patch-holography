@@ -63,7 +63,6 @@
 \author{Bernhard Mueller\\Pragma Research \and Alexander Osika\\SNRGY Studios}
 \date{\OPHPaperReleaseDate}
 
-% #542 typesetting hardening (layout only, no claim change)
 \setlength{\emergencystretch}{3em}
 \begin{document}
 \maketitle
@@ -73,9 +72,13 @@
 \end{center}
 
 \begin{abstract}
-Proof-of-work mining has an unusually clean judge: the SHA-256d verifier. The question here is narrow enough to test. An optical patch machine in the Observer-Patch Holography (OPH) style proposes candidates, and the exact digital verifier decides whether the candidate stream has been enriched.
+Proof-of-work mining has an unusually clean judge: the verifier for a double
+application of the Secure Hash Algorithm 256, usually written SHA-256d. An
+optical patch machine in the Observer-Patch Holography (OPH) style proposes
+candidates, and the exact digital verifier decides whether the candidate
+stream has been enriched.
 
-One mining instance is compiled into constraint patches for nonce choice, message schedule, compression, and target checking. The deliverable is the scorebook: verifier-ready candidate enrichment per settling event, checked under blinded routes, label shuffles, operator-alignment controls, and exact SHA-256d receipts.
+One mining instance is compiled into constraint patches for nonce choice, message schedule, compression, and target checking. A scorebook records verifier-ready candidate enrichment per settling event under blinded routes, label shuffles, operator-alignment controls, and exact SHA-256d receipts.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -86,7 +89,7 @@ SHA-256d, exact verification, blinded controls, and the ideal-hash baseline.
 The OPH addition is a physical patch representation that may enrich the stream
 of candidates before the exact verifier sees them.
 
-The contribution is the scorebook. It states what counts as enrichment, what
+The scorebook states what counts as enrichment, what
 controls can expose route leakage or operator alignment, and which receipts
 must be public. A positive result would be verifier-ready candidate enrichment
 per settling event. A null result would be published as a hardware-negative
@@ -632,7 +635,7 @@ a one-to-one four-chamber implementation of \(A,B,C,D\). The four-constraint-pat
 produces a scorebook, candidate grammar, collar residuals, and exact-verifier
 interface. The OMEGA-I1 runtime executes that program on five host-routed
 modules with the
-same architecture used by the software reference and the contractor build package
+same architecture used by the software reference and the independent build specification
 described in this paper.
 The public OMEGA educational guide gives a broader visual introduction to
 chamber families, collars, and candidate-set narrowing \cite{OmegaEducationalGuide2026}.
@@ -684,7 +687,7 @@ The default optimized route is:
 \]
 All arrows in this route are host messages. OMEGA-I1 has no direct
 module-to-module optical path, timing wire, or shared chamber power rail in the
-contractor acceptance build. That constraint is useful: every boundary update is
+specified acceptance configuration. That constraint makes every boundary update
 recorded as a replayable scorebook transition with module IDs, firmware hashes,
 coupling-matrix hashes, operator-probe hashes, input and output beam hashes, and
 the host verifier receipt.
@@ -983,7 +986,7 @@ measurement feedback for the same reason \cite{Yamamoto2017,CIM100k2021}.
 
 \subsection{Classical OMEGA-I1 wave variant}
 
-The OMEGA-I1 classical variant is LED-first and contractor-buildable. Each
+The OMEGA-I1 classical variant is LED-first and reproducible from the stated parts. Each
 module is an enclosed 12-port optical body with co-located red LED source and
 BPW34-class detector channels, an RP2350-class USB controller, bounded LED
 current, and exact host-side records. Laser, OPO, strict same-electrode
@@ -1299,7 +1302,7 @@ M_{64\times64}\text{ nibble multiply}
 Its most chamber-friendly portion is a matrix operator bracketed by Keccak
 permutations. Linear mixing, routing, and phase transport map naturally to a
 wave body, while the \(\chi\) layer localizes the nonlinear part that the
-ports must supply. The 2026-05-05 firmware handoff records a bit-exact
+ports must supply. The firmware evidence bundle dated 2026-05-05 records a bit-exact
 chamber-plus-MCU decomposition: full kHeavyHash matched the digital reference
 on \(30/30\) tests, the SHA3 chamber-plus-MCU path matched Python hashlib, and
 the local-quadratic \(\chi\) form matched textbook \(\chi\). SHA-256d has a different nonlinear core:
@@ -1341,7 +1344,7 @@ with mean leading-zero count \(11.83\) for the chamber-selected stream versus
 \(0.92\) for random replay. In this notation, \(\widehat\beta(k)\) is the
 observed exact-verifier success rate for the event \(\mathrm{lz}\ge k\), divided
 by the uniform-random rate \(2^{-k}\). The exact headline number used in this
-comparison lane is therefore \(\widehat\beta(12)=2{,}434\), meaning that
+comparison is therefore \(\widehat\beta(12)=2{,}434\), meaning that
 \(\mathrm{lz}\ge12\) candidates appeared \(2{,}434\) times the uniform-random
 baseline in that selected stream. The boundary is important:
 this is a controlled candidate-enrichment result on shuffle-replay-selected
@@ -1426,7 +1429,7 @@ The speedup has four measurable inputs: verifier rate, physical settling time,
 packet size, and candidate bias. For OMEGA-I1, \(m_{\mathrm{pkt}}\) counts
 distinct candidates that exit the full selected route. Raw LED emission counts
 from a single module are excluded. A high bias loses value if settling is slow.
-The Kaspa comparison lane supplies one candidate-bias datum,
+The Kaspa comparison supplies one candidate-bias datum,
 \(\widehat\beta(12)=2{,}434\), measured on shuffle-replay-selected
 chord-promote output. Equivalently, for the \(k=12\) exact-verifier predicate,
 the selected stream's estimated success probability was \(2{,}434\times2^{-12}\)
@@ -1622,7 +1625,7 @@ format, drive regime, receive regime, scorer, verifier, and duration.
 hard-decoded patch/collar residual \(\Phi\) before exact verification.
 \item Verify every distinct candidate with an independent SHA-256d
 implementation for the Bitcoin target, or with independent kHeavyHash for the
-Kaspa comparison lane. Report the exact digest and leading-zero count for every
+Kaspa comparison. Report the exact digest and leading-zero count for every
 hit.
 \item Report the number of distinct candidates \(N_{\mathrm{dist}}\), duplicate
 rate, number of successes \(S\), expected random baseline
@@ -1634,7 +1637,7 @@ rate, number of successes \(S\), expected random baseline
 \[
 p_{\mathrm{val}}=\Pr\left[\operatorname{Binomial}(N_{\mathrm{dist}},p)\ge S\right]
 \]
-for enrichment claims. A promoted enrichment claim also reports a binomial or beta-binomial lower
+for enrichment claims. An enrichment claim also reports a binomial or beta-binomial lower
 confidence bound \(\underline p_Q(\alpha)\) and requires
 \(\underline p_Q(\alpha)>p\) at the stated confidence level. Plot \(\widehat\beta(k)\) across a
 high-\(k\) shoulder instead of only at easy targets.
@@ -1693,8 +1696,8 @@ the operator-specific geometry and scaling law. Its claim class is gated by
 operator alignment, nonlinear commitment, and per-distinct high-\(k\)
 enrichment.
 
-The final verifier is decisive. OMEGA-I1 proposes, filters, and shadows
-candidate beams before the host spends exact hashes. The accepted Kaspa shares
+OMEGA-I1 proposes, filters, and shadows candidate beams before the host spends
+exact hashes, and the final verifier decides every claimed survivor. The accepted Kaspa shares
 matter because an external pool verified the result. The same standard applies
 to SHA-256d. Every claimed survivor must pass the real double hash. For
 optimization, the most important levers are larger independently checked
@@ -1718,18 +1721,18 @@ shadow, and verifier roles explicit and replayable.
 The SHA-256d attack has five moving parts: the Patch A through Patch D operator
 compiler, the OMEGA-I1 candidate route, independent double-SHA-256
 verification, operator-alignment evidence, and full route controls. The Kaspa
-result is the proof-of-work precedent. The optimized SHA-256d path is a
-sampler-class OMEGA-I1 campaign. A block-level claim requires exact-verifier
+result is the proof-of-work precedent. The optimized SHA-256d path uses a
+sampler-class OMEGA-I1 configuration. A block-level claim requires exact-verifier
 lift at useful target strengths.
 
 \appendix
 
-\section{OMEGA-I1 Contractor Build Target}
+\section{OMEGA-I1 Implementation Specification}
 \label{app:omega-i1-build}
 
 The SHA-256d experiments specified in this paper are intended to run on
 OMEGA-I1. The architecture optimized here is the five-module, LED-first,
-host-routed federation with exact run records and contractor-buildable
+host-routed federation with exact run records and independently reproducible
 electronics. The reversible-LED Echosahedron bench is a component test, not an
 OMEGA-I1 result.
 
@@ -1765,7 +1768,7 @@ equivalent. The acceptance build uses 5 V USB,
 nominal LED current, and \(10\,\mathrm{mA}\) maximum LED current.
 
 The optical bodies are clean, fully cured clear SLA parts inside matte black,
-openable, labeled, ambient-light-baffled enclosures. The contractor build
+openable, labeled, ambient-light-baffled enclosures. The specified build
 contains no clearcoat, polish, tint, dye, extra lenses, diffusers, laser modules,
 or free-space inter-module beams unless explicitly approved in writing. This
 keeps the measurement bundle interpretable.

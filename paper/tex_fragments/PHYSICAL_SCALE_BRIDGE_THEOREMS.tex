@@ -1,11 +1,11 @@
 \section{Physical Scale Bridge and Mode Calibration}\label{sec:physical-scale-bridge}
 
-This fragment owns the OPH physical scale bridge used by the staged cosmology branch.  It separates
+The OPH physical scale bridge separates
 physical comoving wavenumber, source-screen angular sectors, observed-sky transfer multipoles,
 finite graph labels, cap labels, and repair-cycle labels.
 
-\begin{definition}[cosmology claim tiers]\label{def:cosmology-claim-tiers}
-Every cosmology artifact has one of three claim tiers:
+\begin{definition}[cosmological interpretation classes]\label{def:cosmology-claim-tiers}
+Every cosmology artifact has one of three interpretation classes:
 \[
 \text{diagnostic proxy},\qquad
 \text{conditional physical},\qquad
@@ -450,10 +450,11 @@ k_{r,I},\ell_{\rm src},a_r(\tau_n),z_r(\tau_n),\eta_r(\tau_n),
 \]
 is unique modulo the declared spatial diffeomorphism/isometry quotient, unitary rotations inside
 degenerate spectral projectors, frozen topology and boundary sector, curvature convention, and
-solver convention.  It converges on the declared safe physical band.  The tier is
-\(\text{conditional physical}\) when \(\mathfrak G_r\) is imported and frozen.  The tier is
-\(\text{source-native physical}\) when \(\mathsf{CosmoGeomRead}_r\) and the source embedding are
-proved from the OPH quotient carrier.
+solver convention.  It converges on the declared safe physical band. The
+bridge is conditional on imported frozen geometry when \(\mathfrak G_r\) is
+supplied externally. It is source-derived when
+\(\mathsf{CosmoGeomRead}_r\) and the source embedding are proved from the OPH
+quotient carrier.
 \end{theorem}
 
 \begin{target}[exact physical-scale receipt conjunctions]\label{target:physical-scale-receipts}
@@ -526,15 +527,15 @@ convention, freezeout-surface, and source-DAG hashes.  An empty cross-receipt ma
 \end{target}
 
 \begin{target}[native geometry extraction]\label{target:cosmo-geometry-extraction}
-\(\text{source-native physical}\) requires
+A source-derived physical bridge requires
 \[
 \mathsf{CosmoGeomRead}_r:\operatorname{nf}(\Sigma_r/\Gamma_r)
 \to(\mathfrak G_r,\mathfrak E_r)
 \]
 as a quotient-natural, positive, nondegenerate, causal-order-compatible, observer-clock-compatible,
-executor-independent, refinement-convergent, physically scaled source embedding.  Without that
-construction, the physical route has tier \(\text{conditional physical}\) with an imported
-frozen FLRW geometry packet.
+executor-independent, refinement-convergent, physically scaled source embedding. Without that
+construction, the physical route is conditional on an imported frozen
+Friedmann--Lema\^itre--Robertson--Walker geometry packet.
 \end{target}
 
 \begin{target}[falsifiers]\label{target:physical-scale-falsifiers}

@@ -1,8 +1,10 @@
 \section{Finite Screen Spectrum Theorem Package}\label{sec:screen-spectrum-theorems}
 
-This fragment owns the screen-level spectrum theorem used by the staged cosmology branch.  It does
-not own TT, TE, EE, lensing, likelihoods, or physical CMB promotion.  Those remain downstream
-Boltzmann and data-contract gates.
+The screen-level spectrum theorem supplies the finite source object used by
+the cosmology branch. It does not supply temperature-temperature,
+temperature-polarization, polarization-polarization, lensing, likelihoods, or
+a physical cosmic microwave background interpretation. Those require the
+Boltzmann and data-contract theorems.
 
 \begin{definition}[finite screen regulator]\label{def:oph-screen-regulator}
 For regulator \(r\), a finite screen regulator is
@@ -349,11 +351,11 @@ then
 \begin{proposition}[radial non-identifiability]\label{prop:oph-radial-null}
 For a finite radial basis, \(C=Ap\).  If \(A\in\mathbb R^{N_\ell\times N_k}\) has rank \(r\),
 then \(\dim\ker A=N_k-r\), and every \(p+v\) with \(v\in\ker A\) gives the same screen spectrum.
-Radial promotion therefore requires either a source theorem restricting \(p\), or a declared prior
+A physical radial reconstruction therefore requires either a source theorem restricting \(p\), or a declared prior
 with a published null basis, resolution kernels, positivity checks, and prior-sensitivity report.
 \end{proposition}
 
-\begin{theorem}[conditional source-spectrum promotion]\label{thm:oph-screen-spectrum-promotion}
+\begin{theorem}[conditional source spectrum]\label{thm:oph-screen-spectrum-promotion}
 One hash-locked source DAG may emit
 \[
 (q_r,S_{{\rm scr},r},\theta,A_{q,r},C_{\ell,r}^q,A_{\zeta,r},
@@ -368,9 +370,9 @@ spectra require the independent Boltzmann, recombination, nuisance, covariance, 
 gates.
 \end{theorem}
 
-\begin{target}[screen-spectrum receipt set]\label{target:oph-screen-spectrum-receipts}
+\begin{target}[requirements for a source-derived screen spectrum]\label{target:oph-screen-spectrum-receipts}
 A concrete source-derived spectrum requires the following receipt families before primordial
-promotion:
+interpretation:
 \begin{enumerate}[leftmargin=2em]
 \item geometry, scalar quotient, low-mode projector, scalar precision, and operator normalization;
 \item quotient ensemble selection, scalar release energy, and MaxEnt screen covariance;

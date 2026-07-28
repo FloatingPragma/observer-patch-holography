@@ -183,9 +183,9 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-The gauge chapters built the finite structure behind this census; attaching
-its patterns to the measured particle families is work in progress, and the
-synthesis chapter keeps the ledger.
+The gauge chapters give the finite structure behind this census. Attaching
+its patterns to measured particle families is work in progress, with the
+required physical interfaces stated explicitly.
 
 The survival ladder continues into composite matter. QCD binds quarks and
 gluons into protons, neutrons, and mesons, with confinement supplying most of

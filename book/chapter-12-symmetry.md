@@ -263,9 +263,9 @@ intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
 tensors, so physical global-form selection needs additional global data.
 
 No selection principle enters this conditional finite calculation. The
-family count is open inside its three-to-five window, with three entering as
-a declared completion; one Higgs and the absence of extra light sectors are
-declarations with open physical status.
+family count lies inside a three-to-five window, with three entering as a
+declared completion. One Higgs and the absence of extra light sectors are
+also declared completions without physical source constructions.
 Physical matter typing, global-form selection, laboratory current
 identification, and attachment of three families to physical chiral matter
 are separate constructions.

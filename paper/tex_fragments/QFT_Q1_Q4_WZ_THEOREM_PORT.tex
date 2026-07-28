@@ -1,57 +1,59 @@
 \subsubsection*{Quantization steps and the \(W/Z\) landing}
 
-The table below names the Standard-Model field-theory steps used in this
-section, together with what each one implies, what its construction requires,
-and its present status. The labels \(\mathrm{QFT}\text{-}\mathrm{Q0}\) through
-\(\mathrm{QFT}\text{-}\mathrm{Q4}\) are local to this section and stay distinct
-from the particle-receipt clauses \((Q1)\)--\((Q3)\). Their dependency
-structure is a graph rather than a single ordered ladder:
+The Standard Model field-theory implications split into a perturbative branch
+and an observable-reconstruction branch. Their dependency structure is:
 \begingroup\small
 \[
-\begin{array}{rcl}
-\mathsf{declared\ finite\ action}&\longrightarrow&\mathsf{QFT\!-\!Q1}
- \longrightarrow
- \left\{\begin{array}{l}
- \mathsf{QFT\!-\!Q2E/QFT\!-\!Q2H},\\
- \mathsf{QFT\!-\!Q3\ BV/ST}\longrightarrow
- \mathsf{strict\ finite\!-\!order\ }W/Z;
- \end{array}\right.\\[3pt]
-\mathsf{nonperturbative\ observable\ tower}&\longrightarrow&
-\mathsf{QFT\!-\!Q4\ OS}\\
-&&\longrightarrow\mathsf{QFT\!-\!Q4\ resonance}.
-\end{array}
+\begin{aligned}
+\mathsf{source\ matter\ and\ declared\ action}
+  &\longrightarrow \mathsf{finite\ local\ classical\ action},\\
+\mathsf{finite\ local\ classical\ action}
+  &\longrightarrow \mathsf{finite\ chiral\ quantum\ object},\\
+\mathsf{finite\ local\ classical\ action}
+  &\longrightarrow \mathsf{formal\ BV/ST\ restoration}
+  \longrightarrow \mathsf{strict\ finite\!-\!order\ }W/Z,\\
+\mathsf{nonperturbative\ observable\ tower}
+  &\longrightarrow \mathsf{observable\ reconstruction}
+  \longrightarrow \mathsf{continued\!-\!sheet\ resonance}.
+\end{aligned}
 \]
 \endgroup
-Native provenance on QFT-Q1 additionally requires QFT-Q0 and a
-source/action-identity receipt.  No QFT-Q2-to-QFT-Q3,
-QFT-Q3-to-QFT-Q2, or QFT-Q3-\(W/Z\)-to-QFT-Q4 arrow is automatic.
+Source provenance for the classical action additionally requires the finite
+matter result and a source/action-identity receipt. A finite chiral measure or
+Hamiltonian does not follow from perturbative restoration, and perturbative
+restoration does not follow from either finite quantum construction. Strict
+finite-order poles do not supply a nonperturbative observable tower or a
+continued-sheet resonance theorem.
 
 \begin{center}
 \small
-\begin{tabular}{@{}p{0.10\textwidth}p{0.31\textwidth}p{0.25\textwidth}p{0.24\textwidth}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}
+>{\raggedright\arraybackslash}p{0.29\textwidth}
+>{\raggedright\arraybackslash}p{0.24\textwidth}
+>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
 \toprule
-Tier & Mathematical implication & Required construction & Present status \\
+Construction & Mathematical implication & Required input & State \\
 \midrule
-QFT-Q0 & finite representation, charge, anomaly, lattice, and selector consequences on the declared packet
+Finite matter packet & finite representation, charge, anomaly, lattice, and selector consequences on the declared packet
 & physical source selection and attachment
-& conditional finite pass; producer incomplete \\
-QFT-Q1 & finite local classical \(G_6\) action is gauge invariant and local; the standard tree kernel also needs canonical continuum normalization
+& exact finite result; physical attachment is work in progress \\
+Local classical action & finite local classical \(G_6\) action is gauge invariant and local; the standard tree kernel also needs canonical continuum normalization
 & source-selected action, coefficients, regulator, normalization, and ancestry
-& implication specified; producer open \\
-QFT-Q2-E/H & an equivariant determinant-line section or a noncollapsing constrained Hamiltonian supplies an exact finite quantum object
+& conditional implication; source production is work in progress \\
+Finite quantum object & an equivariant determinant-line section or a noncollapsing constrained Hamiltonian supplies an exact finite quantum object
 & full operator, measure/current or Hamiltonian/nonvacuum packet, and refinement controls
-& criteria specified; constructions open \\
-QFT-Q3 & stable anomaly-free BV/ST theory is formally restorable order by order; strict \(W/Z\) poles land here
-& counterterm basis, matching and Faddeev--Jackiw (FJ) engines, identities, currents, and numerical freeze
-& implication specified; imported validation possible; OPH producer open \\
-QFT-Q4 & OS reconstruction and a separate continued-sheet resonance theorem
+& criteria proved; constructions are work in progress \\
+Perturbative renormalization and poles & stable anomaly-free BV/ST theory is formally restorable order by order; strict \(W/Z\) poles follow from the complete finite-order packet
+& counterterm basis, matching and Fleischer--Jegerlehner (FJ) engines, identities, currents, and numerical freeze
+& implications proved; external validation and OPH source production are work in progress \\
+Observable reconstruction & Osterwalder--Schrader reconstruction and a separate continued-sheet resonance theorem
 & reflection-positive tower and analytic-continuation packet
-& implications specified; constructions open \\
+& implications proved; constructions are work in progress \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\begin{theorem}[Finite local classical \(G_6\) action at QFT-Q1]
+\begin{theorem}[Finite local classical \(G_6\) action]
 \label{thm:qft-q1-finite-local-g6}
 Let \(K_r\) be a finite oriented spin four-complex with bounded incidence,
 positive cell weights, declared boundary conditions, paired edge orientations,
@@ -90,14 +92,14 @@ w=\frac{g^2v^2}{4},\qquad
 and the other neutral eigenvalue is zero.
 \end{corollary}
 
-\begin{remark}[QFT-Q1 boundary]
+\begin{remark}[Classical-action boundary]
 This is a classical existence template after the complex, fields,
 coefficients, boundary data, and normalization bridge are supplied. It does
 not show that OPH selects them, construct a chiral measure, remove mirrors or
 doublers, or produce a complex pole.
 \end{remark}
 
-\begin{theorem}[QFT-Q2-E equivariant determinant-line criterion]
+\begin{theorem}[Equivariant determinant-line criterion]
 \label{thm:qft-q2e-determinant-line}
 At a fixed finite stage, let \(D_r(U)\) be a local gauge-covariant,
 \(\gamma_5\)-Hermitian Ginsparg--Wilson operator on a connected admissible
@@ -120,7 +122,7 @@ compatible nonzero fiber vectors. The curvature equation and loop condition
 are the local and global integrability conditions for that section.
 \end{proof}
 
-\begin{theorem}[QFT-Q2-H finite Hamiltonian soundness]
+\begin{theorem}[Finite Hamiltonian soundness]
 \label{thm:qft-q2h-hamiltonian-soundness}
 Let \(\mathcal H_{\rm kin}\) be finite dimensional and let local Gauss
 generators exponentiate to the complete local \(G_6\) action. Define
@@ -152,13 +154,13 @@ index, gap, completeness, and refinement clauses. Thus neither an identity
 projector nor a vacuum-only physical sector passes.
 \end{proof}
 
-\begin{remark}[QFT-Q2 boundary]
-The QFT-Q2-E and QFT-Q2-H results are criteria and soundness theorems. The
-current OPH corpus supplies neither full-\(G_6\) construction. Anomaly
+\begin{remark}[Finite-quantum boundary]
+The determinant-line and Hamiltonian results are criteria and soundness
+theorems. Neither complete \(G_6\) construction is supplied. Anomaly
 arithmetic alone instantiates neither theorem.
 \end{remark}
 
-\begin{theorem}[Formal QFT-Q3 Slavnov--Taylor restoration]
+\begin{theorem}[Formal Slavnov--Taylor restoration]
 \label{thm:qft-q3-formal-st-restoration}
 Let \(S_0\) be the complete canonically normalized Standard-Model BV action,
 including the gauge-fixing and antifield sectors, and suppose
@@ -186,11 +188,12 @@ cancels the second. Stability and the normalization conditions fix the
 remaining invariant freedom, so induction proves the formal statement.
 \end{proof}
 
-\begin{remark}[QFT-Q3 boundary]
-This is a formal power-series theorem, not a convergence theorem, QFT-Q2
-construction, or QFT-Q4 Wightman construction. A numerical implementation
-must produce its regulator-specific restoration transcript and verify
-the Ward, Slavnov--Taylor, and Nielsen identities.
+\begin{remark}[Perturbative boundary]
+This is a formal power-series theorem. It supplies no convergence theorem,
+finite chiral measure, finite constrained Hamiltonian, or Wightman
+construction. A numerical implementation must produce its regulator-specific
+restoration transcript and verify the Ward, Slavnov--Taylor, and Nielsen
+identities.
 \end{remark}
 
 \begin{lemma}[Conditional first-order FJ coordinate change]
@@ -247,7 +250,7 @@ sector use the Schur complement of the photon block; both off-diagonal
 entries begin at order \(\kappa\).
 \end{proof}
 
-\begin{theorem}[Nielsen control and physical current pole at QFT-Q3]
+\begin{theorem}[Nielsen control and physical current pole]
 \label{thm:qft-q3-nielsen-current-pole}
 Suppose the inverse matrix and Nielsen insertions are holomorphic near a
 simple massive root on the frozen sheet and, through retained order \(N\),
@@ -287,7 +290,7 @@ amplitude pole. This is not a positivity claim for an unstable elementary
 field.
 \end{proof}
 
-\begin{theorem}[Gauge-invariant QFT-Q4 reconstruction]
+\begin{theorem}[Gauge-invariant observable reconstruction]
 \label{thm:qft-q4-gauge-invariant-os}
 A compatible cofinal Schwinger family for a complete declared
 gauge-invariant observable algebra that satisfies distributional convergence,
@@ -304,7 +307,7 @@ fields, charged infrared sectors, confinement, asymptotic completeness, an
 \(S\)-matrix, or a second-sheet resonance.
 \end{remark}
 
-\begin{theorem}[QFT-Q4 resonance and residue stability]
+\begin{theorem}[Resonance and residue stability]
 \label{thm:qft-q4-resonance-stability}
 On one common continued sheet, write
 \[
@@ -337,8 +340,15 @@ its own poles is neither assumed nor valid.
 \end{proof}
 
 \begin{remark}[Producer boundary]
-These results specify conditional implications only. The current corpus does
-not instantiate the source-selected QFT-Q1 action, either full QFT-Q2 object,
-the QFT-Q3 matching/FJ/two-engine/current and uncertainty packet, or the
-QFT-Q4 tower and continued-sheet data.
+These results specify conditional implications. A target-free
+shared-\(\xi\) external Standard Model harness supplies a declared action and
+active census, a frozen effective-field-theory interval, dual rule tables,
+direct and converted FJ blocks, and payload-replayed Ward and
+Slavnov--Taylor controls. It supplies no artifact-resolved complex-ball
+\(W/Z\) contour and Laurent packet, dressed-current residue,
+independent-\(\xi\) cross-check, or complete identity-control transcript.
+Those validation objects are work in progress. The source-selected classical
+action, either complete finite quantum object, the OPH matching and current
+packet, and the observable tower with continued-sheet data are also work in
+progress.
 \end{remark}

@@ -66,7 +66,6 @@
 \and David Matscheko \and Jonathan Hill}
 \date{\PaperReleaseDate}
 
-% #542 typesetting hardening (layout only, no claim change)
 \setlength{\emergencystretch}{3em}
 \begin{document}
 \maketitle
@@ -135,7 +134,13 @@ The distinction becomes more consequential under perturbation.  Exact injectivit
 \item an error-bound modulus carrying a constraint residual to distance from $C$;
 \item an inverse-observation modulus carrying observation discrepancy within $C$ to state discrepancy.
 \end{enumerate}
-The first is an error-bound or metric-subregularity object in the sense of variational analysis \citep{Hoffman1952,Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014}.  The second is the modulus of continuity of the inverse of $B|_C$.  We do not claim either notion as new.  The object studied here is their use as an \emph{observation-determined normal-form certificate} for constraint and rewrite systems and, especially, the uniform and multi-stage refinement calculus that results.
+The first is an error-bound or metric-subregularity object in the sense of
+variational analysis
+\citep{Hoffman1952,Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014}.
+The second is the modulus of continuity of the inverse of $B|_C$.  Both notions
+are standard.  Their use as an \emph{observation-determined normal-form
+certificate} for constraint and rewrite systems yields the uniform and
+multi-stage refinement calculus developed here.
 
 \subsection{Main contributions}
 
@@ -170,23 +175,17 @@ Ranked functional-audit systems have singleton-or-empty fibers, terminate under 
 A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.
 \end{enumerate}
 
-\subsection{Novelty boundary and intended venue}
+\subsection{Relation to existing theory}
 
 The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
 
-Accordingly, the paper makes no claim that a triangle inequality, an error
-bound, inverse continuity, a section criterion, or boundary-indexed unique
-normal forms are individually new.  The contribution advanced for review is
-the integrated certificate architecture, particularly the explicit
+The triangle inequality, error bounds, inverse continuity, section criteria,
+boundary-indexed unique normal forms, and the Lipschitz telescope are standard.
+The integrated certificate architecture combines them with an explicit
 anchor-optimized cross-level receipt comparison and its cofinal-limit
-consequence.  Taken in isolation, the triangle inequality and the Lipschitz
-telescope are classical.  Approximate inverse-system theory is important neighboring prior
-art, and the displayed estimate itself is elementary; we therefore claim an
-organizing synthesis, not priority for approximate commutativity or inverse
-limits.  External specialist review remains necessary.
-The intended contribution belongs to automated reasoning, rewriting, and
-semantics, with the corresponding mathematical communities as the primary
-audience.
+consequence.  Approximate inverse-system theory supplies the neighboring
+framework, while the result here is an organizing synthesis for automated
+reasoning, rewriting, and semantics.
 
 \section{Relation to existing theories}\label{sec:related}
 
@@ -417,8 +416,11 @@ When $T=C$, \cref{thm:audited-terminal} reduces to the realizable part of
 failure from being misreported as nontermination or as a consistent normal
 form.
 
-\begin{remark}[Classical status]
-Part (iii) is the invariant-fiber form of the classical implication from weak normalization and uniqueness of normal forms with respect to reduction to confluence.  It is included to identify the exact hypotheses needed for observable reconstruction; it is not part of the novelty claim.
+\begin{remark}[Classical scope]
+Part (iii) is the invariant-fiber form of the classical implication from weak
+normalization and uniqueness of normal forms with respect to reduction to
+confluence.  It identifies the exact hypotheses needed for observable
+reconstruction.
 \end{remark}
 
 \section{Observational stability moduli}\label{sec:stability}
@@ -757,15 +759,16 @@ inverse-observation control are independent requirements.
 \end{example}
 
 \paragraph{Executable uniformity controls.}
-The \(\mathsf{REFINEMENT\text{-}MODULUS\text{-}1}\) section of
-\path{code/consensus/runs/issue_517_proof_obligations.json} stores finite
-descriptions of both infinite counterfamilies and an executable witness
+The accompanying finite proof-obligation certificate stores descriptions of
+both infinite counterfamilies and an executable witness
 constructor: for every positive integer \(m\), choose stage \(n=m\) and
 radius or residual threshold \(1/m\).  The exact witness has observation or
 residual gap \(1/m\) and state error one.  Since \(1/m\to0\), the quantified
 examples above, rather than any fixed finite prefix, prove that the family
 moduli do not vanish.  The receipt regression-checks exact instances and
 records the cross-multiplied null-sequence proof schema.
+% Executable certificate:
+% code/consensus/runs/issue_517_proof_obligations.json
 
 Further controls describe the infinite unit-defect tower
 \(p_j=j,a_j=1\), whose tail from \(n\) to \(n+M\) is \(M\), and a restriction
@@ -1971,8 +1974,8 @@ global checkpoint kernel, and capacity-carrier projection ranks, then it
 transports the compound confusability graph and every approximate decoder.
 The functional \(M_\varepsilon\) and the readback set are therefore invariant
 under that full packet isomorphism. A normal-form hash, stagewise singleton,
-or implementation relabeling alone supplies no such theorem. Refinement-limit
-promotion additionally requires uniform stable separation or an explicit
+or implementation relabeling alone supplies no such theorem. A
+refinement-limit statement additionally requires uniform stable separation or an explicit
 capacity-packet naturality receipt, in accord with the general refinement
 results above.
 

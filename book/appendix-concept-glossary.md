@@ -753,8 +753,8 @@ path back to the measured answer. A validation borrows measured Standard
 Model numbers to test a conditional result; it can build confidence but
 never counts as a prediction. The full quantum field theory behind the
 matter chapters, with its action, quantization, and continuum limit, is work
-in progress, so most current numerical claims live in the validation
-category.
+in progress. Most numerical results in those chapters are therefore
+validation comparisons.
 
 Presentation invariance and structure sensitivity
 :   Hidden labels, paint colors, or circuit layouts can vary without changing

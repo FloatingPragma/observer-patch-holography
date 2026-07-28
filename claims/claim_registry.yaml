@@ -1129,21 +1129,22 @@
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
-      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, an additional integer total-charge-twelve counting grammar, a declared normalized central-readback quadratic cost, and refinement cocycle, the named packet uniquely derives the one-unit-per-port split with exact gap two. The incidence packet separately derives the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture, integer counting normalization, or discrete physical cost from arbitrary OPH data, and it does not supply a physical gauge-current lift.",
+      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, an integer total-charge-twelve counting grammar, a normalized central-readback quadratic cost, and refinement cocycle, the named packet uniquely derives the one-unit-per-port split with exact gap two. An append-only signed-event machine realizes integer loads and conservative whole-unit repairs. The load-square Lyapunov function proves termination, minimum settling-move cost is natural under every carrier rotation and declared refinement, and the half-unit display is a unit rescaling of the same event graph. The incidence packet separately derives the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture, integer normalization, positive readback scale, quadratic readback cost, or dynamic settling cost from arbitrary OPH data, and it does not supply a physical gauge-current lift.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "exact_named_realization_and_finite_incidence_theorem",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
         "declared_integer_port_counting_grammar",
-        "declared_normalized_central_readback_quadratic_cost"
+        "declared_normalized_central_readback_quadratic_cost",
+        "declared_signed_event_and_conservative_repair_machine"
       ],
       "imported_results": [
         "finite_graph_automorphism_enumeration",
         "finite_group_classification",
         "exact_Gram_matrix_linear_algebra"
       ],
-      "oph_specific_delta": "Inside the declared integer counting and cost realization, the unit split is computed from primitive port records without measured targets. The inverse pairing, proper A5 action, and Gram frame follow separately from oriented incidence. Reduced-carrier rational readback candidates show that finite atomicity alone is not an integrality proof; no complete A1-A3 lift is supplied.",
-      "novelty_type": "named_counting_realization_plus_finite_incidence_certificate",
+      "oph_specific_delta": "Inside the declared integer counting and cost realization, the unit split is computed from primitive port records without measured targets. The signed-event realization generates integer counts operationally and derives a minimum-move settling cost from conservative repairs. The dynamic cost, load-square Lyapunov function, seam quadratic, quadratic readback cost, and A3 Hessian remain distinct. The half-unit branch is the same complete additive readback in different units. The inverse pairing, proper A5 action, and Gram frame follow separately from oriented incidence. The named realization supplies no theorem that arbitrary A1-A3 carriers select this architecture or its unit scale.",
+      "novelty_type": "named_operational_counting_and_repair_realization_plus_finite_incidence_certificate",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
@@ -1152,11 +1153,14 @@
         "code/a5_closure/manifests/echosahedral_federation_reference.json",
         "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
         "code/a5_closure/negative_controls/issue_565_negative_controls.json",
-        "code/a5_closure/tests/test_echosahedral_selector_certificate.py"
+        "code/a5_closure/tests/test_echosahedral_selector_certificate.py",
+        "code/a5_closure/record_counting_mechanism_certificate.py",
+        "code/a5_closure/manifests/record_counting_mechanism_reference.json",
+        "code/a5_closure/tests/test_record_counting_mechanism_certificate.py"
       ],
-      "falsifier": "Under the declared source packet, the cost has another minimum or a different next floor, a port lacks a unique distance-three inverse, the positive incidence automorphism group is not A5, the exact Gram matrix is not positive rank three with G squared equal to 4G, or a valid relabeling/refinement fails naturality.",
+      "falsifier": "Under the declared source packet, signed atomic events fail to produce the recorded integer loads, an admissible repair fails strict load-square descent, minimum move count changes under a declared rotation or refinement, the quadratic readback cost has another minimum or next floor, a port lacks a unique distance-three inverse, the positive incidence automorphism group is not A5, the exact Gram matrix is not positive rank three with G squared equal to 4G, or a valid relabeling/refinement fails naturality.",
       "scope_if_false": "The echosahedral source-selector theorem and its use in the finite A5 branch fall. Generic observer-patch, consensus, relativity, and independently assumed icosahedral calculations are assessed separately.",
-      "status": "unit_split_exact_in_declared_counting_cost_realization__incidence_outputs_exact_on_declared_carrier",
+      "status": "operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier",
       "claim_class": "conditional_implication",
       "gates": []
     },
@@ -1577,7 +1581,7 @@
     },
     {
       "claim_id": "OPH-HIER-EW",
-      "statement": "The exterior Standard Model representation witness has exactly four weak-doublet copies per generation and hence additive weak load 4P under the normalized load law. Conditional on an independently obtained direct public-record fixed point, the screen-sieve relation, the source transmutation relation, and a common physical screen/electroweak load carrier, this implies N_CRC=pi exp(6 pi/(P alpha_U(P))). It does not construct the direct cosmic capacity map.",
+      "statement": "The exterior Standard Model representation witness has exactly four weak-doublet copies per generation and hence additive weak load 4P under the normalized load law. The screen invariant line and the four-copy weak center line admit a unique abstract positive unital normalized-trace-preserving isomorphism after both one-dimensional order-unit lines are constructed. That algebraic map does not identify their physical meanings or intertwine the screen load law with electroweak readout. Conditional on an independently obtained direct public-record fixed point, the screen-sieve relation, the source transmutation relation, and a separately supplied physical common screen/electroweak load carrier, the quantitative branch implies N_CRC=pi exp(6 pi/(P alpha_U(P))). It does not construct the physical common-load bridge or the direct cosmic capacity map.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "conditional_quantitative_branch_theorem",
       "assumptions": [
@@ -1593,15 +1597,20 @@
       "imported_results": [
         "standard_electroweak_display_conventions"
       ],
-      "oph_specific_delta": "The exact factor four is the representation multiplicity three colored weak doublets plus one lepton doublet. A refinement-natural positive unital isomorphism between the screen and weak order-unit lines supplies the only admitted physical bridge. The unsupported ratio 24/6 supplies none.",
+      "oph_specific_delta": "The exact factor four is the representation multiplicity three colored weak doublets plus one lepton doublet. The refinement-natural positive unital isomorphism is the unique abstract normalized map between two declared one-dimensional lines. It supplies neither physical common-load semantics nor a screen-load-to-electroweak-readout intertwiner. The unsupported ratio 24/6 supplies none.",
       "novelty_type": "conditional_quantitative_comparison",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-        "code/particles/hierarchy/manifest.json"
+        "code/particles/hierarchy/manifest.json",
+        "code/a5_closure/common_ew_order_unit_carrier_certificate.py",
+        "code/a5_closure/check_common_ew_order_unit_carrier.py",
+        "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json",
+        "code/a5_closure/receipts/common_ew_order_unit_carrier_reference.receipt.json",
+        "code/a5_closure/tests/test_common_ew_order_unit_carrier_certificate.py"
       ],
       "falsifier": "The weak-doublet multiplicity certificate fails, a branch satisfying direct record closure and every common-load premise violates the displayed bridge, or the load carrier imports the electroweak or cosmic target.",
       "scope_if_false": "The electroweak hierarchy comparison falls; the exterior field branching and cosmological capacity branch are separate unless they import the failed step.",
-      "status": "weak_multiplicity_closed_common_load_and_direct_capacity_open",
+      "status": "weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
         547

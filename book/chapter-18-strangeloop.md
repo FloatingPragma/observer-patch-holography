@@ -199,8 +199,8 @@ This source map has one interval-certified fixed point on its physical
 interval. Its comparison with the measured low-energy fine-structure constant
 is within a few parts per million. A physical low-energy prediction requires a
 same-scheme hadronic spectral transport. That transport is work in progress,
-so the result has precise source-map status. A completed laboratory prediction
-requires that transport.
+so the result is a source-map fixed point rather than a laboratory
+fine-structure prediction.
 
 The global number works the same way one scale up, but the finite variable is
 the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every

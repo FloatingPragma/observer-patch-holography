@@ -1,4 +1,4 @@
-\paragraph{Finite quotient ensemble theorem surface.}
+\paragraph{Finite quotient ensemble theorem.}
 Fix a finite regulator \(r\).  The physical presentation space is \(\Sigma_r\), the
 presentation redundancy groupoid is \(\Gamma_r\), and the finite physical quotient is
 \[
@@ -11,7 +11,7 @@ only settled configurations carry probability, the probability space is the norm
 \[
 N_r=n_r(Q_r).
 \]
-The map \(n_r\) is a normal-form map, not a probability law. Any promoted physical branch inherits
+The map \(n_r\) is a normal-form map, not a probability law. Any physical branch inherits
 this firewall: it must declare the quotient-intrinsic source law or action before a normal form can
 be read as a selection or prediction claim.
 
@@ -246,10 +246,10 @@ and the refinement defects sum to \(\epsilon_{\rm ref}\), then
 Continuum-facing observables require a realization map and correlation Cauchy bound in addition to a
 finite histogram.
 
-\paragraph{Vacuum promotion gate.}
+\paragraph{Physical-vacuum requirement.}
 A stationary sampler is not a physical vacuum.  For any faithful target law one can build a
 positive transfer operator with that law as ground state, so positivity alone is not a selector.
-Vacuum promotion requires source Euclidean slab data
+A physical-vacuum interpretation requires source Euclidean slab data
 \[
 \mathfrak S_r^E=(Q_r,m_r^0,J_r,V_r,a_{t,r})
 \]
@@ -270,7 +270,7 @@ positivity improving.  Perron--Frobenius gives a unique positive normalized grou
 \mu_r^{\rm vac}(q)=|\Omega_r(q)|^2m_r^0(q).
 \]
 For \(T_r=e^{-a_{t,r}(H_r^E-E_{0,r})}\), the Doob kernel is stochastic and detailed-balanced with
-\(\mu_r^{\rm vac}\).  Continuum promotion additionally requires reflection positivity or
+\(\mu_r^{\rm vac}\).  A continuum interpretation additionally requires reflection positivity or
 equivalent reconstruction plus refinement compatibility of the transfer family.
 
 \paragraph{Primordial and cosmological prediction firewall.}
@@ -285,7 +285,7 @@ C_\ell
 \Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 \]
 has an infinite-dimensional kernel that persists under positivity. OPH
-primordial promotion requires the source-only stress, single-clock,
+physical primordial interpretation requires the source-only stress, single-clock,
 entropy-repair, curvature-evolution, adiabatic-mode, phase-coherence, physical
 mode, radial-null-space, and forward-projection receipts together with a
 scale-natural physical dilation intertwiner or complete radial cross-covariance
@@ -293,20 +293,20 @@ tomography. A finite radial prior produces a conditional continuation.
 Observable CMB comparison also requires declared source, solver,
 dataset, covariance, nuisance, data-use, and pooled-reducer provenance.
 
-\paragraph{Claim tiers and required receipts.}
-Every ensemble-facing run records its ensemble id, claim tier, regulator, representative
+\paragraph{Interpretation classes and required receipts.}
+Every ensemble-facing run records its ensemble id, interpretation class, regulator, representative
 schema, gauge action, canonicalizer, base measure, action coefficients, coarse maps,
 zero-mode projector, amplitude convention, sampler, smoothing policy, source provenance, and
 explicit nonclaims. The seed belongs to the run receipt rather than the ensemble definition. The
-claim tiers are
+interpretation classes are
 \[
-\begin{array}{ll}
-E0:&\text{seed noise, proposal noise, repair jitter},\\
-E1:&\text{conventional reference ensemble},\\
-E2:&\text{OPH-native quotient ensemble},\\
-E3:&\text{OPH vacuum},\\
-E4:&\text{OPH primordial field},\\
-E5:&\text{observable cosmological prediction}.
+\begin{array}{l}
+\text{seed, proposal, or repair noise},\\
+\text{conventional reference ensemble},\\
+\text{OPH-native quotient ensemble},\\
+\text{OPH physical vacuum},\\
+\text{OPH primordial field},\\
+\text{observable cosmological prediction}.
 \end{array}
 \]
 The evidence bundle must keep separate receipts for stationary-law schedule invariance, detailed balance

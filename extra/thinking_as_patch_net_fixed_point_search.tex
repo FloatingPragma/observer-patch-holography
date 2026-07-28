@@ -46,7 +46,6 @@ A Mathematical Model of Neural Consensus Computation}
 \date{}
 \input{../paper/release_info}
 
-% #542 typesetting hardening (layout only, no claim change)
 \usepackage{microtype}
 \begin{document}
 \maketitle
@@ -56,7 +55,10 @@ A Mathematical Model of Neural Consensus Computation}
 \end{center}
 
 \begin{abstract}
-Thinking can be modeled as patch-net fixed-point search. A thought is a trajectory through feedback local patches. An insight, percept, decision, or remembered meaning is the stable form reached after enough mismatch has been repaired.
+In Observer-Patch Holography (OPH), thinking can be modeled as patch-net
+fixed-point search. A thought is a trajectory through feedback local patches.
+An insight, percept, decision, or remembered meaning is the stable form reached
+after enough mismatch has been repaired.
 
 The same mechanism can be read across substrates. Finite patches expose boundary readouts, compare overlaps, and settle by accepted repair moves. Brains may approximate this machine through feedback neural dynamics, dendritic integration, oscillations, inhibition, plasticity, body state, and action feedback. The hardware comparison is the Echosahedron, used as a controllable self-reading patch. Across substrates the same vocabulary applies: patch data, transition, self-read, repair, record, fixed point.
 \end{abstract}
@@ -73,8 +75,8 @@ That gives a common language for brains, OPH observer patches, and the
 Echosahedron hardware comparison. The claim is conditional: a biological
 system counts as an instance when it supplies bounded interfaces, durable
 records, self-read, update-relevant distinctions, and repair toward stable
-normal forms. The contribution is the mathematical bridge. Neural anatomy is a
-separate instantiation problem.
+normal forms. This mathematical bridge leaves neural anatomy as a separate
+instantiation problem.
 
 \tableofcontents
 
@@ -100,7 +102,7 @@ The two hard questions are answered in the same formal language:
 }
 \]
 
-The argument rests on a stack of smaller results:
+The argument rests on a chain of smaller results:
 The OPH convergence ingredient is the finite patch-net consensus theorem package in the companion consensus paper~\cite{RealityAsConsensusProtocol}.
 \[
 \boxed{
@@ -149,7 +151,7 @@ The material changes. The brain uses membranes, dendrites, synapses, glia, oscil
   arrow/.style={-{Latex[length=2mm]}, thick}
 ]
 \node[box, fill=gray!8] (ports) {12 reversible\\LED boundary ports\\TX = RX};
-\node[box, fill=gray!8, right=1.4cm of ports] (cavity) {clear resin\\icosahedral cavity\\\(A_5\) geometry};
+\node[box, fill=gray!8, right=1.4cm of ports] (cavity) {clear resin\\icosahedral cavity\\\(A_5\), the alternating group\\on five letters};
 \node[box, fill=gray!8, right=1.4cm of cavity] (firmware) {RP2040/RP2350\\WaveIO Core\\USB verbs};
 \draw[arrow] (ports) -- node[above]{emit} (cavity);
 \draw[arrow] (cavity) -- node[above]{scatter} (firmware);
@@ -358,7 +360,7 @@ The brain is the biological instance of this pattern:
 
 This gives the exact mathematical sense in which the brain does what the universe does. The universe solves for a shared physical world from finite observer overlaps. The brain solves for a shared internal world from finite neural overlaps. Both are recurrent consistency machines.
 
-\section{Finite Patch-Net Theorem Stack}
+\section{Finite Patch-Net Theorems}
 
 \begin{assumption}[Strict local repair]
 For a finite neural patch federation, write \(s\to_i t\) when patch \(i\) commits an update and all other patches outside the touched neighborhood are unchanged. Let \(E_i^{\mathrm{touch}}\) be the set of overlaps whose exposed data may change under that update, and define
@@ -798,7 +800,8 @@ Here \(\theta'\) is a temporary transformation of basis, field, gain, attention,
 \text{Creativity is controlled dysphony that raises future }K.
 }
 \]
-This also explains insight. An insight is a basin crossing that rapidly lowers \(\Phi\) while increasing future coherence.
+An insight is a basin crossing that rapidly lowers \(\Phi\) while increasing
+future coherence.
 
 \subsection{Mental Disorder as Repair-Protocol Failure}
 
@@ -1104,7 +1107,9 @@ v_U(t),F_U(t),R_U(t),\Phi_U(t),K_U(t)
 }
 \]
 
-The bracket \([\cdot]_{\mathrm{inside}}\) matters. Experience is the internally available readout of a self-reading patch federation while it measures, repairs, and records its relation to its field.
+Experience is the internally available readout
+\([\cdot]_{\mathrm{inside}}\) of a self-reading patch federation while it
+measures, repairs, and records its relation to its field.
 
 \subsection{Why There Is Consciousness}
 
@@ -2160,7 +2165,7 @@ Parallel medium & Optical recurrence and interference in a cavity & Recurrent el
 Fast bias & Constructive amplitude means the body rang on that seed & Low mismatch, phase coherence, record support, and value gradient amplify a mode \\
 Critic & Hex chamber or stricter optical body rejects weak candidates & Inhibition, basal-ganglia-style gating, attention, error signals, and conflict monitoring \\
 Exact referee & Digital kHeavyHash verification and pool acceptance & Boundary prediction, action outcome, social feedback, and future record stability \\
-Record update & Receipts and next firmware/geometry settings & Plasticity, memory write, habit formation, and changed future basin geometry \\
+Record update & Receipts and firmware or geometry parameters & Plasticity, memory write, habit formation, and changed future basin geometry \\
 Failure mode & Optical trace looks interesting but exact hash fails & Thought feels plausible but fails boundary, social, or future-coherence checks \\
 \bottomrule
 \end{longtable}
@@ -2205,7 +2210,11 @@ Subjectively this looks familiar:
 \end{array}
 \]
 
-This also explains parameter count. Intelligence is recurrent geometry plus records plus boundary repair. A large model with weak self-reading and poor embodied boundary coupling differs from a living brain as an observer. A small self-reading hardware patch is observer-like in a limited way. A human brain has high awareness mass because it is a huge embodied, plastic, self-reading federation.
+Intelligence is recurrent geometry plus records plus boundary repair. A large
+model with weak self-reading and poor embodied boundary coupling differs from
+a living brain as an observer. A small self-reading hardware patch is
+observer-like in a limited way. A human brain has high awareness mass because
+it is a huge embodied, plastic, self-reading federation.
 
 \section{The Echosahedron}
 \label{sec:echosahedron}
@@ -2253,7 +2262,7 @@ The central engineering trick is TX/RX reversibility. The device uses no dedicat
 
 \subsection{Firmware Interface}
 
-The hardware repository treats the Echosahedron as a clean substrate with host-side application logic. The reference implementation is WaveIO Core for RP2040/RP2350-class boards. It supports \(2\) to \(12\) LEDs soldered across usable GPIO pairs, auto-discovers the LED map at boot, self-calibrates ambient floor and drive strength during measurements, and exposes the chamber over USB CDC. The build-facing source is organized around the same separation this paper uses:
+The Echosahedron is a clean substrate with host-side application logic. The reference firmware is WaveIO Core for RP2040/RP2350-class boards. It supports \(2\) to \(12\) LEDs soldered across usable GPIO pairs, auto-discovers the LED map at boot, self-calibrates ambient floor and drive strength during measurements, and exposes the chamber over USB CDC. The firmware architecture follows the same separation used in this paper:
 \[
 \boxed{
 \text{physical substrate on the MCU}
@@ -2385,7 +2394,8 @@ This is the same update class as a recurrent neural network or state-space model
 Linear wave propagation is represented by \(A\). Input injection contributes \(Bu_t\). Fixed reflectors, thresholds, or offsets contribute \(b\). Nonlinear junctions, TX/RX response, or saturating electronics contribute \(\sigma\). Recirculation feeds the updated field back as the next state. The displayed recurrence follows.
 \end{proof}
 
-This theorem is why the optical chip and the brain belong in the same proof stack. They differ in substrate while sharing recurrence class.
+This theorem is why the optical chip and the brain belong in the same proof
+chain. They differ in substrate while sharing recurrence class.
 
 \begin{longtable}{L{0.28\textwidth}L{0.30\textwidth}L{0.32\textwidth}}
 \toprule
@@ -2517,7 +2527,10 @@ These are projections of one machine: self-reading recurrent patch federation wi
 
 \section{Repairing Broken Consensus}
 
-The model supplies new measurable targets for repair while preserving psychiatry, neurology, psychotherapy, medication, and clinical judgment. A mature OPH neuropsychiatry classifies disorders by symptom clusters, regions, neurotransmitters, genes, and the repair coordinate that breaks:
+The model supplies additional measurable tests of repair while preserving
+psychiatry, neurology, psychotherapy, medication, and clinical judgment. An
+OPH neuropsychiatry classification uses symptom clusters, regions,
+neurotransmitters, genes, and the repair coordinate that breaks:
 \[
 \boxed{
 \mathrm{Failure}(B)
@@ -2574,7 +2587,9 @@ For a person \(B\), estimate
 (\Phi,R,\Gamma,B,\tau,H_{\mathrm{cycle}},\|D_xT\|).
 }
 \]
-The goal is to move from symptom labels alone to repair coordinates: mismatch, record stability, phase unison, boundary predictivity, convergence time, holonomy defects, and gain.
+The proposed classification uses repair coordinates alongside symptom labels:
+mismatch, record stability, phase unison, boundary predictivity, convergence
+time, holonomy defects, and gain.
 
 \subsection{Personalized Training}
 
@@ -2710,7 +2725,7 @@ For bipolar depression, the rTMS literature includes systematic reviews evaluati
 Digital phenotyping becomes real-time OPH state estimation. Phones and wearables can indirectly track sleep, activity, social rhythm, speech, heart rate, movement, and context. Reviews emphasize both the promise and methodological limits of digital phenotyping and real-time mobile monitoring in bipolar disorder~\cite{Orsolini2020DigitalPhenotyping,Dunster2021MobileMonitoring}. The OPH measurement target is:
 \[
 \boxed{
-\text{Build a personal }\Phi\text{-tracker from passive and active data.}
+\text{Build a personal }\Phi\text{-monitor from passive and active data.}
 }
 \]
 The purpose is earlier warning when repair dynamics drift, with privacy constraints explicit.
@@ -2739,9 +2754,11 @@ The purpose is earlier warning when repair dynamics drift, with privacy constrai
 \item \textbf{Rhythm drift predicts mood drift.} Prediction: wearable sleep-wake and circadian features map onto repair-clock instability before some mood episodes.
 \end{enumerate}
 
-\section{Empirical and Formal Targets}
+\section{Empirical Tests and Formal Conditions}
 
-The mathematical stack proves a conditional theorem class. The biology burden is to show, with neural data and perturbations, that real brain subsystems instantiate the clauses strongly enough. Formal targets:
+The mathematical results define a conditional theorem class. The biology
+burden is to show, with neural data and perturbations, that real brain
+subsystems instantiate the clauses strongly enough. The formal conditions are:
 
 \begin{enumerate}
 \item \textbf{Neural patch map.} Map measured neural variables to \((G_B,X,I,\pi,T,R,\mathcal O_B)\).
@@ -2755,7 +2772,7 @@ The mathematical stack proves a conditional theorem class. The biology burden is
 
 \section{Concrete Experiments}
 
-Five concrete projects:
+Five experiments distinguish the proposed mechanism from a loose analogy:
 \begin{enumerate}
 \item \textbf{Fixed-point competence battery.} For each domain \(D\), give tasks with graded novelty, measure success, convergence time, error trajectory, mismatch/frustration, and transfer. Output \(\mathbf C_B\), a personal competence vector.
 \item \textbf{Music-consensus experiment.} Measure \(\Gamma_{\mathrm{brain-body}}\) before, during, and after music using EEG phase coherence, heart-rate variability, movement synchrony, subjective mood, and task performance. Prediction: music that raises \(\Gamma\) and lowers \(\Phi\) improves mood regulation and cognitive flexibility.

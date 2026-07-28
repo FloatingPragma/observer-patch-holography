@@ -68,6 +68,7 @@ PAPER_GLOBS = [
     "paper/**/*.tex",
     "extra/**/*.tex",
     "cosmology/**/*.tex",
+    "extra/hacking-the-simulation-anti-gravity-exploit/**/*.md",
 ]
 
 PROGRESS_PATTERNS = [
@@ -138,6 +139,77 @@ ABSTRACT_IDENTIFIER_PATTERNS = [
     (re.compile(r"\bMGNS-1\b", re.IGNORECASE), "internal modular-state identifier in abstract"),
 ]
 
+PAPER_TRACKING_PATTERNS = [
+    (
+        re.compile(
+            r"(?:GitHub[\s~]+)?issues?[\s~]*(?:\\#|#)?[\s~]*\d+",
+            re.IGNORECASE,
+        ),
+        "project issue reference in paper",
+    ),
+    (re.compile(r"\\#\s*\d+"), "project issue number in paper"),
+    (
+        re.compile(r"\bPhase[\s~]+(?:[IVX]+|\d+)\b", re.IGNORECASE),
+        "project phase reference in paper",
+    ),
+    (re.compile(r"\bmilestones?\b", re.IGNORECASE), "project milestone reference in paper"),
+    (re.compile(r"\broad[\s-]?maps?\b", re.IGNORECASE), "project roadmap reference in paper"),
+    (re.compile(r"\bwork orders?\b", re.IGNORECASE), "project work-order reference in paper"),
+    (re.compile(r"\bcompletion plan\b", re.IGNORECASE), "completion-plan reference in paper"),
+    (re.compile(r"\bopen issues?\b", re.IGNORECASE), "open-issue reference in paper"),
+    (
+        re.compile(r"\b(?:pull requests?|PRs?)[\s~]*(?:\\#|#)?[\s~]*\d+\b", re.IGNORECASE),
+        "pull-request reference in paper",
+    ),
+    (
+        re.compile(r"\bproject (?:tracker|tracking|status)\b", re.IGNORECASE),
+        "project-tracking reference in paper",
+    ),
+    (
+        re.compile(
+            r"\b(?:claim[\s-]?tiers?|paper stack|status surface|audit surface|"
+            r"evidence ledger|closure ledger|promotion gate|completion gate)\b",
+            re.IGNORECASE,
+        ),
+        "project-workflow language in paper",
+    ),
+    (
+        re.compile(
+            r"\b(?:(?:OPH|theorem|proof|source|carrier|consistency) stack|"
+            r"sidecars?|corpus|open work|remaining work|public theorem|"
+            r"public-output policy|audit-only|source-audit|target-audit)\b",
+            re.IGNORECASE,
+        ),
+        "project-workflow language in paper",
+    ),
+    (
+        re.compile(r"\blanes?\b(?![\s~]+permutation)", re.IGNORECASE),
+        "project-lane language in paper",
+    ),
+    (
+        re.compile(r"\b(?:QFT-Q\d+|MGNS-1|RSCC|CFQ|NI[1-9]|RP[1-9]|D\d+[A-Za-z]?)\b"),
+        "internal project identifier in paper",
+    ),
+    (
+        re.compile(
+            r"\b(?:theorem agenda|continuation (?:tasks?|questions?)|"
+            r"quantitative tasks?|status boards?|workstreams?|work lists?|"
+            r"working contract|firmware handoff|internal logs?|public OPH release|"
+            r"build-facing|deliverables?)\b",
+            re.IGNORECASE,
+        ),
+        "project-planning or delivery language in paper",
+    ),
+    (
+        re.compile(r"\bissue_\d+\b", re.IGNORECASE),
+        "issue-number-bearing artifact label in paper",
+    ),
+    (
+        re.compile(r"\b(?:SM_Q0|UD12|RP-A5|F1/F2)\b", re.IGNORECASE),
+        "opaque internal label in paper",
+    ),
+]
+
 INFORMAL_IDENTIFIER_PATTERNS = [
     (re.compile(r"\bQFT-Q\d+\b", re.IGNORECASE), "internal QFT-stage identifier in informal prose"),
     (re.compile(r"\bMGNS-1\b", re.IGNORECASE), "internal modular-state identifier in informal prose"),
@@ -176,6 +248,41 @@ def abstracts(text: str) -> list[tuple[int, str]]:
     for match in pattern.finditer(text):
         out.append((match.start(1), match.group(1)))
     return out
+
+
+def without_tex_comments(text: str) -> str:
+    """Blank TeX comments while preserving offsets and line numbers."""
+
+    out: list[str] = []
+    for line in text.splitlines(keepends=True):
+        comment_at: int | None = None
+        for index, char in enumerate(line):
+            if char != "%":
+                continue
+            backslashes = 0
+            cursor = index - 1
+            while cursor >= 0 and line[cursor] == "\\":
+                backslashes += 1
+                cursor -= 1
+            if backslashes % 2 == 0:
+                comment_at = index
+                break
+        if comment_at is None:
+            out.append(line)
+            continue
+        ending = "\n" if line.endswith("\n") else ""
+        body_length = len(line) - len(ending)
+        out.append(line[:comment_at] + " " * (body_length - comment_at) + ending)
+    return "".join(out)
+
+
+def without_nonrendered_tex_commands(text: str) -> str:
+    """Blank common command arguments that do not appear in the PDF."""
+
+    pattern = re.compile(
+        r"\\(?:label|(?:eq|page|auto)?ref|cite\w*|input|include)\s*\{[^{}]*\}"
+    )
+    return pattern.sub(lambda match: " " * len(match.group(0)), text)
 
 
 def book_prose_paragraphs(text: str) -> list[tuple[int, str]]:
@@ -228,6 +335,8 @@ def main() -> int:
 
     for path in iter_paths(PAPER_GLOBS):
         text = path.read_text(encoding="utf-8", errors="ignore")
+        rendered_text = without_nonrendered_tex_commands(without_tex_comments(text))
+        add_matches(issues, path, rendered_text, PAPER_TRACKING_PATTERNS)
         for offset, abstract in abstracts(text):
             for pattern, label in ABSTRACT_IDENTIFIER_PATTERNS:
                 for match in pattern.finditer(abstract):

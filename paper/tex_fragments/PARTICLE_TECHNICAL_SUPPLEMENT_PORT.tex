@@ -1,17 +1,16 @@
-\section{D10 Heat-Kernel Calibration Supplement}
+\section{Heat-Kernel Calibration Supplement}
 \label{app:particle-d10-heat-kernel}
 
-This appendix carries the D10 compact-group heat-kernel items needed by the particle surface.
-The theorem-bearing leaf for the same-overlap thermal/Casimir law sits on the
-screen-microphysics paper surface at fixed cutoff. What is recorded here is the
-compact-group / Peter--Weyl lift and beta-shift bookkeeping used by the particle-side
-calibration branch. This claim tier does not derive the physical one-loop beta coefficients
-from edge sectors alone.
+This appendix gives the compact-group heat-kernel calculation used by the
+particle calibration. The fixed-cutoff same-overlap thermal/Casimir law is
+proved in Ref.~\cite{ophmicrophysics}. The calculation below supplies the
+compact-group Peter--Weyl lift and beta-shift bookkeeping. It does not derive
+the physical one-loop beta coefficients from edge sectors alone.
 
 \subsection{\texorpdfstring{\(\mathcal R_U\)}{R\_U} Unified-Coupling Certificate}
 
-The \(\mathcal R_U\) certificate is the D10 gate needed by the hierarchy discussion in the
-synthesis paper. It certifies the unified diffusion coupling used in the electroweak
+The \(\mathcal R_U\) certificate supplies the unified diffusion coupling used
+by the hierarchy discussion in the synthesis paper and by the electroweak
 transmutation factor
 \[
 \frac{v}{E_\star}
@@ -26,19 +25,20 @@ It does not certify the full clock branch
 +\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
 +\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
 \]
-The full \(\mathcal R_\gamma\) stack requires source-only electromagnetic endpoint,
-charged-lepton absolute-scale, cesium nuclear, and atomic spectral enclosures. The numerical package is
-a numerical witness for \(\mathcal R_U\), with formal promotion gated by outward-rounded interval
+The complete \(\mathcal R_\gamma\) construction requires a source-only electromagnetic endpoint,
+charged-lepton absolute scale, cesium nuclear data, and atomic spectral
+enclosures. The numerical package is a witness for \(\mathcal R_U\). Its
+mathematical conclusion requires the stated outward-rounded interval
 arithmetic.
 
-\paragraph{Frozen source packet.}
+\paragraph{Declared source packet.}
 The public-pixel branch uses
 \[
 P_C
 =
 \decnum{1.6309682094039593248792798477826489413359828516279250606661507533907793398933432}.
 \]
-The source-audit branch uses the certified coordinate
+The source-only branch uses the certified coordinate
 \[
 P_{\mathrm{fwd}}
 =
@@ -60,8 +60,8 @@ N_c=3,
 \qquad
 \beta_{\mathrm{EW}}=N_c+1=4.
 \]
-This packet is frozen in the certificate. It is not silently derived in this appendix from the
-recovered OPH core.
+This packet is an explicit premise of the certificate. This appendix does not
+derive it from the recovered OPH core.
 
 \begin{definition}[No-hidden-free-variable rule for \(\mathcal R_U\)]
 The following objects must be fixed before comparison with electroweak or gravity data:
@@ -209,7 +209,7 @@ With \(\delta=10^{-6}\), the bracket signs are
 \Phi_U(P_C,\alpha_U+\delta)=-1.0990300680135956\times10^{-5}.
 \]
 
-For the certified source-audit pixel,
+For the certified source-only pixel,
 \[
 \begin{aligned}
 P_{\mathrm{fwd}}&=1.630972095858897\ldots,\\
@@ -221,7 +221,7 @@ This branch is the one to cite when avoiding the measured Thomson endpoint in th
 solve.
 
 \begin{theorem}[Electroweak unified-coupling numerical witness]\label{thm:particle-ru-witness}
-Assume the frozen source map, running packet, heat-kernel cutoff policy, and
+Assume the declared source map, running packet, heat-kernel cutoff policy, and
 no-hidden-free-variable rule above. Let
 \[
 I_U=[0.041123336195630494,\;0.041125336195630496].
@@ -245,8 +245,8 @@ measured low-energy gauge coupling.
 Continuity follows because the running couplings, self-consistent \(Z\)-scale solution, and
 finite heat-kernel sums are continuous on the declared positive interval. The endpoint sign
 change gives existence by the intermediate value theorem. The derivative exclusion gives
-uniqueness. The dependency statement follows by inspection of the frozen source map: the residual
-is built only from \(P_C\), the frozen running packet, the self-consistent \(Z\)-scale equation,
+uniqueness. The dependency statement follows by inspection of the declared source map: the residual
+is built only from \(P_C\), the declared running packet, the self-consistent \(Z\)-scale equation,
 and finite compact-group representation sums.
 \end{proof}
 
@@ -275,13 +275,14 @@ At one loop, if couplings unify at \((M_U,\alpha_U)\),
 \[
 \alpha_i^{-1}(M_Z)=\alpha_U^{-1}+\frac{b_i}{2\pi}\ln\frac{M_U}{M_Z}.
 \]
-On the D10 branch these are the branch values \((M_U(P),\alpha_U(P))\) emitted by the forward
-D10 solve; they are not inferred by inverse readback from measured low-energy couplings.
+On the forward calibration branch these are the values
+\((M_U(P),\alpha_U(P))\) emitted by the source solve. They are not inferred by
+inverse readback from measured low-energy couplings.
 Writing \(A_i:=\alpha_i^{-1}(M_Z)\) and \(L:=\ln(M_U/M_Z)\), one finds
 \[
 L=\frac{2\pi}{b_1-b_2}(A_1-A_2),
 \]
-and the corresponding consistency relation for the D10 lane is
+and the corresponding consistency relation for this calibration is
 \[
 A_3^{\mathrm{pred}}
 =
@@ -299,14 +300,15 @@ For the standard one-loop benchmark coefficients,
 \begin{array}{c|c|c}
 \text{Model} & (b_1,b_2,b_3) & \alpha_s(M_Z)^{\mathrm{pred}} \\
 \hline
-\text{SM} & (41/10,-19/6,-7) & \approx 0.071 \\
-\text{MSSM} & (33/5,1,-3) & \approx 0.116 \\
+\text{Standard Model} & (41/10,-19/6,-7) & \approx 0.071 \\
+\text{minimal supersymmetric Standard Model} & (33/5,1,-3) & \approx 0.116 \\
 \text{Observed} & & 0.1179\pm 0.0010
 \end{array}
 \]
-At one loop, the printed MSSM-style coefficients reproduce the observed closure far better than
-the plain SM coefficients. On this D10 branch this is a benchmark matched by the D10
-calibration branch, not a theorem that OPH derives a supersymmetric UV spectrum.
+At one loop, the printed minimal supersymmetric Standard Model (MSSM)
+coefficients reproduce the observed closure far better than the plain
+Standard Model coefficients. The forward calibration matches this benchmark.
+It does not imply that OPH derives a supersymmetric ultraviolet spectrum.
 
 \subsection{Heat-Kernel Sector Law}
 
@@ -356,7 +358,7 @@ The one-loop beta shift from edge sectors is then
 \Delta b_a=\sum_R p_R\,d_R\,T_a(R),
 \]
 where \(T_a(R)\) is the Dynkin index for gauge factor \(a\). This is the exact mathematical point
-on the D10 lane where edge-sector heat-kernel weights feed the calibration branch. Matching to
+where edge-sector heat-kernel weights feed the calibration branch. Matching to
 MSSM-like one-loop running is a comparison benchmark, not a theorem-level
 MSSM spectrum claim.
 
@@ -370,8 +372,8 @@ rather than nearby alternatives. The declared runtime surface does not emit the
 full RG/matching/threshold/scheme packet: scheme lock, threshold map,
 beta provenance, and interval composition are separate certificate requirements.
 
-At the branch unification diffusion parameter \(t_U(P)\approx 1.64\) selected by the forward D10
-solve, the benchmark shift is
+At the branch unification diffusion parameter \(t_U(P)\approx 1.64\) selected
+by the forward source solve, the benchmark shift is
 \[
 \Delta b\approx (2.49,4.38,3.97)
 \qquad
@@ -379,7 +381,7 @@ solve, the benchmark shift is
 \qquad
 (2.50,4.17,4.00).
 \]
-With the additional D10 calibration assumption of a fermionic-grading restriction to
+With the additional calibration assumption of a fermionic-grading restriction to
 half-integer \(\mathrm{SU}(2)\) sectors, this sharpens to
 \[
 \Delta b\approx (2.50,4.17,3.97),
@@ -394,7 +396,7 @@ sits close to the MSSM comparison value \(0.96\).
 \section{H3 Worldline-Stitch Certificate}\label{app:h3-worldline-certificate}
 
 This appendix records the finite evidence-facing certificate for
-Theorem~\ref{thm:h3-record-worldline-stitching}. It is separate from the D10 heat-kernel
+Theorem~\ref{thm:h3-record-worldline-stitching}. It is separate from the heat-kernel
 calibration package above. A passing certificate is a record-continuation statement in a declared
 \(H^3\) observer chart, not a particle-species, mass, charge, or scattering-amplitude theorem.
 
@@ -433,7 +435,7 @@ is present, the terminal label is \(\text{H3 interaction required}\) and the eve
 to the interaction solver.
 \end{enumerate}
 
-The allowed terminal statuses are
+The allowed terminal outcomes are
 \[
 \begin{gathered}
 \text{H3 stitch certified},\quad
@@ -449,5 +451,5 @@ assignment gap is positive. Equal-cost matchings, preserved nontrivial permutati
 data, or coarse/fine gaps below margin force \(\text{H3 stitch ambiguous}\). Missing fields
 force \(\text{H3 certificate incomplete}\). Failed atlas, interface, metric, or transport gates
 force rejection or atlas invalidity. In particular, Euclidean distances on
-\(\texttt{h3SpatialPoint}\) coordinates are not certificate distances; the certificate distance is
+the stored coordinate triples are not certificate distances; the certificate distance is
 the hyperboloid geodesic \(d_H\) from Section~\ref{sec:h3-record-worldlines}.

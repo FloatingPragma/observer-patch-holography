@@ -26,7 +26,6 @@ The Fixed-Point Computation That Implements Physics}
 \author{B.\ M\"uller \and Kai Xue \and Kale Arnav Anirudha \and David Matscheko \and Jonathan Hill}
 \date{\OPHPaperReleaseDate}
 
-% #542 typesetting hardening (layout only, no claim change)
 \usepackage{microtype}
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -36,7 +35,7 @@ The Fixed-Point Computation That Implements Physics}
 \begin{abstract}
 The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that form.
 
-The paper proves the finite mechanics used by the rest of the OPH stack:
+The paper proves the finite mechanics used by the companion results:
 validated repair, exact descent, schedule-independent normal forms under the
 declared hypotheses, loop obstructions, stable records, refinement control, and
 a fair-block theorem for noisy consensus.
@@ -53,15 +52,16 @@ the separately declared branch structure of the companion papers.
 The fixed-cutoff consensus theorem supplies a finite observer-like
 self-reading system only on the declared recovery, record, feedback,
 selected-fiber, and implementation-invariance packet. It does not select the
-physical twelve-port \(A_5\) carrier, attach a canonical rank-three screen band
+physical twelve-port carrier based on the alternating group \(A_5\) on five
+letters, attach a canonical rank-three screen band
 to matter, construct a chiral quantum field theory, or determine a W/Z pole.
 Those claims require separately typed physical producers. In the companion
 paper, explicit finite inverse-port response and rank-15 matter contracts,
 anomaly balance, and tensor descent imply the Standard Model gauge chain
 from those contracts alone. Physical source binding of those contracts,
 laboratory current identification, family attachment, scalar
-multiplicity/dynamics, and QFT remain separate; the W/Z sufficiency stack has
-no OPH-native pole promotion.
+multiplicity and dynamics, and quantum field theory remain separate. No
+OPH-native \(W/Z\) pole follows.
 
 This boundary does not make consensus carrier-neutral. The repair theorem is
 invariant under hidden presentation changes preserving the complete visible
@@ -85,7 +85,7 @@ repair move that must descend to the quotient seen by neighboring observers.
 That turns consensus into the implementation layer of the theory. The paper proves when finite
 patch repair terminates, when the terminal public state is schedule-independent, how boundary data
 control uniqueness, and how cycle holonomy records the exact obstruction to global agreement. Its
-finite results support the stack's mathematical core. The paper also explains why
+finite results support the framework's mathematical core. The paper also explains why
 a bare overlap graph is only a finite constraint code. Stronger language such as
 quantum error correction, min-cut distance, BFT liveness, or hardware speedup needs its own
 certificate.
@@ -158,7 +158,7 @@ its codewords are exactly the globally consistent states, and \(C=\Phi^{-1}(0)\)
 (Proposition~\ref{prop:constraint-code}). This is the default meaning of ``the overlap network is
 a code.'' It is not, by itself, a quantum error-correcting code and does not imply a graph
 min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}). The same firewall blocks semantic
-promotion by relabeling: a finite constraint, archive, repair spectrum, or reconstruction threshold
+upgrade by relabeling: a finite constraint, archive, repair spectrum, or reconstruction threshold
 remains a finite diagnostic until a source-separated physical bridge supplies the relevant readout,
 residual ledger, controls, and frozen validation target.
 \item \textbf{Asynchronous confluence.} For the declared accepted repair law, primitive recovery proposals pass through transactional snapshot/read/write validation, semantic-dependency-complete boundary, sector, history, and checkpoint preservation, and exact descent. The accepted relation induces a total local quotient repair map \(\operatorname{locRep}_\lambda:Q\to Q\) and a total idempotent global repair map \(\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda:Q\to Q\). A coherent canonical aggregate per conflict component and semantic-complete revalidation prove the quotient local diamond. The implementation receipt checks these premises and the concrete finite peaks. With repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Proposition~\ref{prop:local-quotient-repair}, Proposition~\ref{prop:local-confluence}, and Theorems~\ref{thm:quotient-repair-normal-form} and \ref{thm:confluence}).
@@ -853,7 +853,7 @@ has a schedule-independent repaired value
 \[
 M(\operatorname{nf}(s)),
 \]
-and this value depends only on the quotient class of \(s\). Hence the promoted normal-form map is
+and this value depends only on the quotient class of \(s\). Hence the normal-form map is
 usable as physical law on this verified packet branch without adding a representative-level
 gauge-covariance assumption.
 \end{corollary}
@@ -1010,7 +1010,7 @@ t\longleftarrow s\longrightarrow u
 \]
 admits a quotient state \(v\) with \(t\to v\leftarrow u\). Hence the transactional repair
 relation is locally confluent.  The finite implementation receipt
-\(\mathsf{TXN\text{-}DIAMOND\text{-}1}\) exports the functional supports, dependency closures,
+records the functional supports, dependency closures,
 read/write sets, support-closed conflict components, aggregate payload hashes, finite state
 transitions, and recomputed protected-record and descent checks needed to check that its concrete
 reference engine realizes these premises.
@@ -1041,10 +1041,10 @@ This is the local diamond on the physical quotient.
 \end{proof}
 
 \paragraph{Finite premise receipt.}
-The executable \(\mathsf{TXN\text{-}DIAMOND\text{-}1}\) receipt is generated by
-\path{code/consensus/verify_issue_517_proof_obligations.py} and stored in
-\path{code/consensus/runs/issue_517_proof_obligations.json}.  It
-enumerates all states and one-step peaks of a finite conflict-component
+% Verification source and stored receipt:
+% code/consensus/verify_issue_517_proof_obligations.py
+% code/consensus/runs/issue_517_proof_obligations.json
+The executable check enumerates all states and one-step peaks of a finite conflict-component
 reference engine and recomputes separate countermodels for semantic closure,
 atomic component commits, canonical aggregate coherence, aggregate-support reclosure,
 surviving prepared components, snapshot-determined payloads, strict descent, repair
@@ -2472,7 +2472,7 @@ about the word ``simulation.''
 
 \begin{remark}[Scope]\label{rem:oph-simulation-scope}
 Theorem~\ref{thm:oph-simulation} certifies the named finite fixed-cutoff branch and selected
-boundary/sector fiber. It does not promote the finite packet closure to an arbitrary habitat-level
+boundary/sector fiber. It does not extend the finite packet closure to an arbitrary habitat-level
 state-and-law space, and it does not remove the branch and record hypotheses stated in the
 theorem.
 \end{remark}
@@ -3184,7 +3184,7 @@ its higher-overlap \v{C}ech condition is vacuous. Its seam/hash,
 phase-to-repair, and structural support checks do not certify a physical
 federation, a source-bound spherical support, or the \(S^2\) bridge.
 
-The bridge to physics works as follows in the broader companion corpus:
+The bridge to physics works as follows in the companion papers:
 
 \begin{itemize}
 \item The patch net becomes a net of support-visible subregion algebras; \(S^2\) is the standard
@@ -3206,12 +3206,14 @@ incidence and target-blind port readback derive the finite current algebra.
 Under the declared fermionic Spin category, anomaly-forced determinant
 balance and exhaustive tensor descent imply the exact hypercharge lattice,
 \(N_c=3\), a common \(\mathbb Z_6\) kernel, and the maximal faithful matter
-image from those premises alone. On this lane, the CKM and weak-sector clauses
+image from those premises alone. On this branch, the CKM and weak-sector clauses
 give the window \(3\le N_g\le5\), and the count inside it together with the
-extra-sector statement are declared completions. Physical matter typing, global-form selection,
-laboratory current identification, equality with the independently
-reconstructed Tannaka current, scalar multiplicity, and the complex rank-45
-family attachment remain separate.
+extra-sector statement are declared completions. The measured non-split deck
+cover forces the odd-Weyl Spin typing, and the measured finite flux-sector
+menu selects the \(\mathbb Z_6\) quotient on the declared carrier. Laboratory
+current and flux identification, equality with the independently reconstructed
+Tannaka current, four-dimensional topological normalization, scalar
+multiplicity, and the complex rank-45 family attachment remain separate.
 \item On the declared support-visible compact-gauge branch, the Standard Model gauge paper obtains
 the four-dimensional Euclidean Yang--Mills form from compact-gauge holonomy data and the local
 MaxEnt/Gibbs continuum limit only with the branch's renormalized four-dimensional identification
@@ -3240,7 +3242,8 @@ separately named continuum-identification, transfer, OS/noncollapse, and
 uniform-gap receipts, and a controlled large-\(N_{\mathrm{edge}}\) worldsheet
 effective-description branch above the heat-kernel edge-sector identity. The cosmological capacity branch defines direct readback by the correctable code of reachable public records, \(M_0(q)=\alpha(G_q)\). A source-derived fixed-cutoff simulator packet at \(D=24\) scalarizes its complete declared terminal fiber and supplies reversible extension/refinement receipts inside its declared source category. When the whole capacity-indexed terminal fiber scalarizes, \(M_0(\mathfrak U_N)=\widehat F_{r,0}(e^N)\) and the universe-level equation is \(N=\log M_0(\mathfrak U_N)\); its stable finite form is \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\). Physical-universe attachment, the capacity-indexed family, unique finite-size slack zero, horizon--record identification, and common screen/electroweak load-carrier identification are kept explicitly separate from that recovered-core claim set.
 
-This paper provides the finite patch-net foundation for the broader companion corpus.
+This paper provides the finite patch-net foundation for the companion
+constructions.
 
 
 \section{Discussion and Scope Boundaries}
@@ -3262,12 +3265,13 @@ structural chain are the recovered core. The capacity relation is a separate imp
 with universe-level equation \(N=\log M_0(\mathfrak U_N)\), stable whole-fiber target \(\mathfrak F_{r,0}(D_\star)=\{D_\star\}\), and an independent EW/Higgs comparison bridge. Downstream phenomenology requires additional assumptions
 beyond the consensus results proved here.
 
-The unified carrier hypothesis assigns this paper one exact role. Consensus turns a routed,
-self-reading carrier federation into a public quotient normal form. The support-screen producer
-may then read geometry from that normal form, and the physical-current producer may read compact
-charge response from it. Neither readout is created by confluence. Their physical composition
-requires one source manifest and refinement tower so that geometry, current, records, and clocks
-refer to the same system rather than to isomorphic fixtures assembled after the fact.
+Under the unified carrier hypothesis, consensus turns a routed, self-reading
+carrier federation into a quotient-visible normal form. Separate maps read
+support geometry and compact charge response from that normal form. Confluence
+does not create either readout. Their physical composition requires one source
+manifest and refinement tower so that geometry, current, records, and clocks
+refer to the same system rather than to isomorphic fixtures assembled after
+the fact.
 
 \paragraph{Complexity boundary.}
 On a fixed finite patch net, the accepted reconciliation dynamics is a finite-state asynchronous
@@ -3306,34 +3310,56 @@ mechanism. A universality claim would require an explicit uniform family of patc
 simulates arbitrary circuits or machines with stated encoding overhead and stability under
 asynchronous schedules. No such theorem is supplied here.
 
-With those boundaries explicit, the consensus-paper boundaries and companion interfaces are:
+\paragraph{Refinement and observable boundaries.}
+Theorem~\ref{thm:coarse-grain-consensus} gives an abstract reconciliation
+square under coarse-graining once its normal-form and obstruction
+defects are supplied. Model-specific or uniform bounds for
+\(\varepsilon^n_{sr}\) and \(\varepsilon^h_{sr}\) are not derived from
+concrete coarse-graining channels and recovery decoders. The fixed-cutoff
+defect hierarchy extends from abelian frustrations to crossed-module classes
+\(q\in\check H^2(N,H\to G)\), without an identification theorem relating
+those classes to the refinement-stable transportable sector category.
+Theorem~\ref{thm:obsconfluence} applies when microscopic representatives
+differ by gauge relabelings globally or by sector or higher-gauge relabelings
+on the same declared quotient-local glued state. It does not cover approximate
+union-collar compatibility or a physical observable algebra that changes
+under refinement.
 
-\begin{enumerate}
-\item \textbf{Sharper RG-shadowing estimates.} Theorem~\ref{thm:coarse-grain-consensus} closes the abstract reconciliation/coarse-graining square once its normal-form and obstruction defects are supplied. The quantitative task is to derive model-specific or uniform bounds for \(\varepsilon^n_{sr}\) and \(\varepsilon^h_{sr}\) from concrete OPH coarse-graining channels and recovery decoders.
+\paragraph{Distributed and noisy implementations.}
+Theorem~\ref{thm:distributed-one-universe} proves worker-presentation
+invariance only when the implementation supplies one global carrier,
+authoritative ownership, cut interfaces, projection-preserving events,
+rollback roots, and final monolithic normal-form and readout certificates.
+Shard-local seeds, missing cut artifacts, stale manifests, synthetic seam
+trajectories, or worker-identifier histories do not certify a one-universe
+realization. Theorems~\ref{thm:splice} and~\ref{thm:crdt} give collar-local
+perturbative controls, while the rooted-tree packet domain gives an exact
+finite repair package on one nontrivial domain.
+Theorem~\ref{thm:noisy-fair-block-consensus} gives long-run noisy control only
+under a fair-block contraction certificate. Arbitrary approximate recovery
+moves do not inherit repair completeness, transactional validation, a
+quotient local diamond, the support/completely-positive trace-preserving
+clause on every Petz branch, or fair-block contraction.
 
-\item \textbf{Defect classification and refinement-limit transportability.} The fixed-cutoff hierarchy extends from abelian frustrations to crossed-module classes \(q\in \check H^2(N,H\to G)\). The continuation task is to connect those higher-gauge defect sectors to the refinement-stable transportable sector category used in the broader compact-gauge reconstruction lane.
+\paragraph{Universality and applications.}
+There is no uniform simulation construction, encoding-overhead theorem, or
+universality result. The fixed-point theorem classifies quotient normal forms
+and obstructions once a physical quotient and repair law are declared. It
+does not select a Hall sector, material order, confinement regime, nuclear
+yield, or hardware performance number without a quotient-intrinsic ensemble,
+source action, repair ledger, and evidence receipts.
 
-\item \textbf{Observable-level confluence beyond the declared fixed-cutoff physical algebra.} Theorem~\ref{thm:obsconfluence} closes the fixed-cutoff quantum-lift statement when microscopic representatives differ by gauge relabelings globally or by sector/higher-gauge relabelings on the same declared quotient-local glued state. The continuation question is whether an analogous observable theorem survives on broader refinement-stable branches where the union-collar compatibility is only approximate or where the physical observable algebra itself changes under refinement.
-
-\item \textbf{Distributed implementation certificates.} Theorem~\ref{thm:distributed-one-universe} proves invariance for a worker presentation only after the implementation supplies one global carrier, authoritative ownership, cut interfaces, projection-preserving events, rollback roots, and final monolithic normal-form/readout certificates. Shard-local seeds, missing cut artifacts, stale manifests, synthetic seam trajectories, or worker-id histories do not certify a one-universe realization.
-
-\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. Theorem~\ref{thm:noisy-fair-block-consensus} closes the long-run noisy branch only after a fair-block contraction certificate is supplied. No automatic theorem is supplied showing that arbitrary approximate recovery moves on arbitrary packet-closed exported overlap nets are repair-complete, preserve transactional validation, satisfy an independent quotient local diamond, satisfy the support/CPTP clause on every Petz branch used there, and meet that fair-block contraction certificate.
-
-\item \textbf{Expressive power / universality.} The paper supplies no uniform simulation construction, so universality is outside the theorem-grade output.
-
-\item \textbf{Applied material, plasma, and device branches.} The fixed-point theorem classifies
-quotient normal forms and obstructions once a physical quotient and repair law are declared. It
-does not select a Hall sector, material order, confinement regime, nuclear yield, or hardware
-performance number without a quotient-intrinsic ensemble, source action, repair ledger, and
-evidence receipts for that branch.
-
-\item \textbf{Interface to the companion gravity/gauge stack.} The spacetime and Einstein paper derives the gravity chain through the support-visible BW scaling theorem on the geometric cap subnet. This consensus paper supplies the finite-state and refinement-consensus spine used by that bridge. The finite-quotient baryogenesis theorem uses that spine to define an oriented repair current, while also proving that quotient settlement and an oriented register select no CP sign. The natural \(\mathbb Z_6\) gauge/deck attachment has zero electroweak anomaly coefficient. A nonzero baryogenesis branch, dark-sector proposals, spectroscopy, and string/worldsheet topics require their own declared physical inputs beyond what this paper proves.
-\end{enumerate}
-
-The last item is an interface statement instead of an extra consensus premise. The fixed-point
-theorems proved here stand on their stated finite and refinement-consensus hypotheses, while
-companion gravity, gauge, and continuation sectors add their own theorem surfaces and declared
-inputs.
+\paragraph{Gravity and gauge interfaces.}
+The support-visible Bisognano--Wichmann scaling theorem on the geometric cap
+subnet supplies the gravity interface. The finite-state and
+refinement-consensus results supply its consensus input. The finite-quotient
+baryogenesis theorem uses the same input to define an oriented repair current
+and proves that quotient settlement with an oriented register selects no
+charge-parity sign. The natural \(\mathbb Z_6\) gauge/deck attachment has zero
+electroweak anomaly coefficient. A nonzero baryogenesis result, dark-sector
+model, spectroscopy result, or string/worldsheet construction requires
+separate physical inputs. These are interfaces rather than extra consensus
+premises.
 
 \subsection{Assumption-Dependent BFT and QECC Extensions}
 \label{subsec:assumption-dependent-bft-qecc}

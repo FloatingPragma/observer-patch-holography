@@ -50,12 +50,13 @@ La suite de ce README est l’entrée technique du dépôt.
 
 Deux registres portent le bilan quantitatif. Le
 [registre des postdictions](docs/POSTDICTION_LEDGER.md) est le tableau de
-comparaison : chaque confrontation certifiée à une valeur déjà mesurée, avec
+comparaison : chaque confrontation certifiée à une valeur mesurée, avec
 ses prémisses et l’ascendance de ses entrées sur la ligne. L’
 [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) est
 l’instrument prospectif : des positions enregistrées avec garde
 cryptographique et bandes d’élimination avant tout examen des données de
-comparaison, de sorte qu’une mesure future peut les réfuter.
+comparaison, avec des règles fixes qui permettent leur réfutation par des
+mesures admissibles.
 
 ## Six reçus reproductibles
 
@@ -82,7 +83,7 @@ certificats :
    ajustée. Son identification physique à la limite de Thomson exige un
    transport hadronique issu de la source. La comparaison enregistrée est un
    diagnostic, dont la portée et les preuves figurent dans le
-   [tableau de suivi des affirmations](tracking/claims_scoreboard.md).
+   [registre des affirmations](tracking/claims_scoreboard.md).
 4. **Un diagnostic des leptons chargés avec un test de clôture déclaré.** La
    surface de clôture empirique porte une cible de confirmation ou de rejet et
    une ascendance explicite des entrées. Elle n’établit aucune prédiction de
@@ -197,11 +198,11 @@ valeur continue ajustée par la théorie. Le contrat fini de l’observateur et
 chaque condition de branche discrète sont explicites. Les nombres doivent
 sortir de la même boucle de cohérence qui produit les lois.
 
-## Suivi des affirmations
+## Portée des affirmations
 
-Le [tableau de suivi des affirmations](tracking/claims_scoreboard.md) enregistre
-le statut, la portée, les dépendances et les preuves de chaque branche suivie.
-Ce README se concentre sur les reçus exacts et mesurés les plus forts.
+Le [registre des affirmations](tracking/claims_scoreboard.md) précise la
+portée, les prémisses et la classe de preuve de chaque branche. Ce README se
+concentre sur les reçus exacts et mesurés les plus forts.
 
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
@@ -234,11 +235,11 @@ analytique complet. L’identification avec la limite physique de Thomson exige
 le transport hadronique issu de la source dans le même schéma. Sa construction
 est en cours.
 
-Le [tableau de suivi des affirmations](tracking/claims_scoreboard.md) donne la
+Le [registre des affirmations](tracking/claims_scoreboard.md) donne la
 racine, la comparaison externe, le résidu et la classe de l’énoncé. La
 comparaison emploie $P_C$, défini à partir de la limite mesurée. Le transport
-hadronique issu de la source dans le même schéma est une dépendance ouverte du
-ticket #425. La comparaison enregistrée a un statut de diagnostic, hors du
+hadronique issu de la source dans le même schéma est absent. La comparaison
+enregistrée a un statut de diagnostic, hors du
 champ d’un énoncé sur la constante de structure fine physique.
 
 **$N$ est la capacité de registres publics** de l’ensemble du système
@@ -250,8 +251,7 @@ résultat de la reconstruction centrale ne dépend de sa dérivation à partir d
 premiers principes. Une condition conditionnelle d’auto-lecture,
 $N=\log M_0(\mathfrak U_N)$, propose de la retrouver depuis la capacité des
 registres publics corrigibles ; sa branche de comptage finie est exacte et son
-attachement physique est ouvert, suivi sur le
-[suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
+attachement physique n’est pas établi.
 
 ## Un univers complet imposé par la cohérence
 
@@ -309,7 +309,7 @@ Le dossier de preuves réunit des dérivations finies exactes, des preuves
 vérifiées par machine et des mesures déterministes accompagnées de leurs
 données primaires. Les énoncés mathématiques, les lectures physiques
 conditionnelles et les propriétés mesurées portent des classes distinctes
-dans le [tableau de suivi des affirmations](tracking/claims_scoreboard.md).
+dans le [registre des affirmations](tracking/claims_scoreboard.md).
 
 La géométrie du porteur accomplit ensuite un travail exact surprenant. Sur la
 lignée échosaédrique certifiée, la grammaire déclarée de comptage entier des
@@ -355,9 +355,7 @@ qu’à portée de source finie ; l’identification aux courants de laboratoire
 l’attachement physique des familles, l’exclusion des secteurs légers
 supplémentaires, la multiplicité scalaire, la tour source d’Einstein et les
 paquets physiques de clôture
-sont ouverts. Le
-[suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues)
-enregistre leurs lots de travail. Les clauses CP et du secteur faible donnent
+ne sont pas dérivés. Les clauses CP et du secteur faible donnent
 la fenêtre conditionnelle exacte $3\le N_g\le5$ sans sélectionner un élément.
 Sous deux prémisses supplémentaires explicites, l’ordre exact des coûts
 $5-\sqrt5<6<5+\sqrt5$ sélectionne uniquement la bande de rang trois de
@@ -552,7 +550,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | L’identité exacte de Koide dans la chambre positive et l’équilibre tracial fini | [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](extra/koide_identity_from_positive_c3_face_circulants.pdf) |
 | La loi exacte de capacité d’un écran fini en espace de Sitter et l’attachement conditionnel du signe du choc | [The de Sitter Time-Advance Sign from a Finite Screen with Fixed Capacity](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | L’architecture de l’écran à douze ports et le théorème fini d’engrenage modulaire | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Les preuves exécutables | [`code/`](code) et le [suivi des tickets](https://github.com/FloatingPragma/observer-patch-holography/issues) |
+| Les preuves exécutables | [`code/`](code) et le [guide de reproduction](REPRODUCE.md) |
 | L’interprétation et la continuation des observateurs | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
 L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent la carte complète des publications.
@@ -616,8 +614,8 @@ Le bonus est quantitatif : si la boucle se ferme, $P$ et $N$ ne peuvent pas
 partie de cette clôture est vérifiée machine en Lean. L’application déclarée
 de $P$ possède un point fixe certifié, tandis que sa comparaison à la
 constante de structure fine physique conserve un statut de diagnostic. Les
-conditions de clôture sont suivies comme
-[tickets GitHub](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
+conditions de clôture et leurs données physiques absentes sont précisées dans
+le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md).
 Une clôture physique des deux constantes donnerait une branche sans paramètre
 continu, les deux valeurs étant rendues par l’architecture. Cet attachement
 physique est ouvert. Les théorèmes de point fixe certifient les racines des

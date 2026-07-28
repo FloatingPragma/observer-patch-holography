@@ -38,7 +38,7 @@
 
 \title{Boltzmann Transport from Observer-Patch Consistency:\\
 a Theorem-Conditional Reduction}
-\author{OPH cosmology program}
+\author{B.\ M\"uller}
 \date{Release \texttt{\OPHPaperReleaseID}, \OPHPaperReleaseDate}
 
 \begin{document}
@@ -55,30 +55,30 @@ transfer functions, and likelihood closure.
 
 \section{Claim boundary}
 Everything below is conditional on the branch theorems it cites. The
-derivation upgrades the status of the \emph{transport form} used by the
-diagnostic CAMB lane from ``imported wholesale'' to ``theorem-conditional
-reduction with declared imports.'' It does not certify the initial spectrum
+\emph{transport form} used by the diagnostic calculation with the Code for
+Anisotropies in the Microwave Background (CAMB) is a theorem-conditional reduction with
+declared imports. It does not certify the initial spectrum
 (amplitude or tilt), the recombination history, the absolute Thomson
-normalization, or any likelihood statement. Those remain the gates tracked in
-issues \#330, \#522, \#374, and \#363 respectively. No statement in this note
-reads Planck data.
+normalization, or any likelihood statement. Those require a finite primordial
+source, a physical radial lift, active-kernel and clock receipts, and an
+immutable likelihood contract. No statement in this note reads Planck data.
 
 \section{Branch inputs}
 
-\begin{assumption}[A-GEOM: Einstein branch]\label{a:geom}
+\begin{assumption}[Einstein branch]\label{a:geom}
 The observer-facing normal form carries a Lorentzian metric $g_{ab}$
 satisfying $G_{ab}+\Lambda g_{ab}=8\pi G_{\rm geom}\langle T_{ab}\rangle$,
 with $G_{\rm geom}=\ell_\star^2$ from the edge-entropy/area-law theorem and
 $\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. $N_\star$ is the
-capacity-identity estimate read from measured $\Lambda$ with the scale bridge of the
-strange-loop principle register; $\Lambda$ is an input to this assumption, not an
-OPH output. Promotion of $N_\star$ beyond that capacity-identity estimate runs through
-generator G2 of the project consistency stack: constructing the readback
-map $F$ and its contraction certificate. Provenance:
-branch theorem (paper stack A22/A5); not re-proved here.
+capacity-identity estimate read from measured $\Lambda$ through a declared
+capacity-to-scale bridge; $\Lambda$ is an input to this assumption, not an
+OPH output. A physical interpretation of $N_\star$ beyond that estimate
+requires the readback map $F$ and its contraction
+certificate. The cited branch theorem supplies the other geometry and
+capacity premises.
 \end{assumption}
 
-\begin{assumption}[A-QED: electromagnetic action and photon-pole receipt]\label{a:qed}
+\begin{assumption}[Electromagnetic action and photon pole]\label{a:qed}
 The realized branch carries the Standard Model quotient and the Maxwell
 kinetic action with a $\mathrm U(1)$ vertex of strength
 $\alpha=\alpha_{\rm root}$ (source-side). In addition, this transport note
@@ -87,11 +87,12 @@ states and a positive-residue isolated pole at $k^2=0$ on the ordinary
 Lorentz-vacuum, unbroken electromagnetic phase. This extra photon-pole
 receipt is not implied by the reconstructed abstract group. Charged-lepton
 \emph{ratios} are branch outputs; the absolute electron mass $m_e$ is
-empirically anchored. Provenance: branch theorem (A20/A21), the explicit
-quantum-pole assumption just stated, and one declared import ($m_e$).
+empirically anchored. The inputs are the cited electroweak branch theorem,
+the explicit quantum-pole assumption just stated, and the declared import
+$m_e$.
 \end{assumption}
 
-\begin{assumption}[A-BG: background]\label{a:bg}
+\begin{assumption}[Cosmological background]\label{a:bg}
 The homogeneous limit of the branch is spatially flat FRW,
 $\Dd s^2=a^2(\tau)\,[-\Dd\tau^2+\delta_{ij}\Dd x^i\Dd x^j]$, with Friedmann
 dynamics from Assumption~\ref{a:geom}. Scalar perturbations are written in
@@ -103,7 +104,7 @@ x^i\Dd x^j\right],
 with conventions of Ma--Bertschinger (1995). Overdots are $\partial_\tau$.
 \end{assumption}
 
-\begin{assumption}[A-REC: recombination import]\label{a:rec}
+\begin{assumption}[Recombination import]\label{a:rec}
 The free-electron history $n_e(\tau)$ (equivalently $x_e(\tau)$) is computed
 from standard atomic physics (Saha/Peebles-class) using imported atomic data.
 This is the same import class as the cesium-clock wall in the gravity stack:
@@ -111,21 +112,19 @@ it contains no CMB-target information, so it is a permissible declared input
 under the anti-fitting rule, but it is an import, not a branch output.
 \end{assumption}
 
-\begin{assumption}[A-INIT: initial conditions (gated)]\label{a:init}
+\begin{assumption}[Conditional initial spectrum]\label{a:init}
 Initial curvature perturbations $\zeta(\mathbf k)$ are Gaussian with spectrum
 $\Delta^2_\zeta(k)=A_s\,(k/k_\ast)^{\,n_s-1}$. The Gaussian and
-statistically isotropic character is the MaxEnt screen-covariance theorem;
-issue \#522 owns the work-in-progress source generator, weighted
-orientation-half identity, and clock receipt needed for a finite tilt
-certificate. The radial theorem packet in issue
-\#330 proves that one-shell inversion is nonunique and supplies physical
+statistically isotropic character is the maximum-entropy screen-covariance
+theorem. A finite tilt certificate requires a source generator, the weighted
+orientation-half identity, and a physical clock receipt. The radial theorem
+proves that one-shell inversion is nonunique and supplies physical
 source-dilation and cross-covariance tomography as conditional uniqueness
-routes. Finite source instantiation in issue \#579 is work in progress. This
-note consumes \(A_s\) and \(n_s\) as gated inputs and derives no initial
-spectrum.
+routes. Finite source instantiation is work in progress. This note consumes
+\(A_s\) and \(n_s\) as gated inputs and derives no initial spectrum.
 \end{assumption}
 
-\section{Theorem B1: conditional refinement Liouville transport}
+\section{Conditional Refinement Liouville Transport}
 
 \begin{definition}[One-photon record density]
 Conditional on the physical pole in Assumption~\ref{a:qed}, let
@@ -139,7 +138,7 @@ direction.
 
 \begin{theorem}[Refinement Liouville]\label{t:liouville}
 On a branch with the Maxwell action, quantum photon-pole receipt, and overlap
-Lorentz kinematics (A-QED, A-GEOM), let $P_r$ be the quotient-lumpable
+Lorentz kinematics from Assumptions~\ref{a:qed} and~\ref{a:geom}, let $P_r$ be the quotient-lumpable
 free-flow transition kernel at step $h_r$. For every frozen smooth compactly
 supported test function $\phi$, set
 \[
@@ -148,7 +147,7 @@ L_r\phi=\frac{P_r\phi-\phi}{h_r},
 \Gamma_r(\phi)=
 \frac{P_r(\phi^2)-(P_r\phi)^2}{h_r}.
 \]
-Receipt \textsc{Boltz-R1} consists of compact containment/tightness,
+The photon refinement convergence condition consists of compact containment/tightness,
 convergence of initial laws, uniform-on-compact generator convergence
 $L_r\phi\to X_H\phi$ to the null-geodesic Hamiltonian vector field,
 vanishing quadratic variation $\Gamma_r(\phi)\to0$, uniqueness of the
@@ -168,7 +167,7 @@ supported on record commits only. In particular the collisionless flow
 preserves the Liouville measure.
 \end{theorem}
 
-\begin{proof}[Proof sketch, with the open receipt named]
+\begin{proof}[Proof sketch under the convergence condition]
 For every test function, the discrete process minus the time integral of
 $L_r\phi$ is a martingale whose quadratic variation is controlled by
 $\Gamma_r(\phi)$. Tightness gives subsequential limits and vanishing
@@ -190,12 +189,12 @@ an inverse between-commit dynamics nor a phase-space Jacobian. The
 orientation doubling of a finite label register is bookkeeping and does not
 produce either property.
 
-\emph{Receipt status.} Photon-sector convergence of the finite patch flow to
+\emph{Convergence premise.} Photon-sector convergence of the finite patch flow to
 the displayed generator and zero-quadratic-variation limits is work in progress. The abstract Lean
 layer proves the corresponding schedule-independence and refinement-naturality
-statement in its setting. The photon receipt is named \textsc{Boltz-R1}, and
-\S\ref{s:receipts} gives its simulator test. Theorem~\ref{t:liouville} is
-conditional on this receipt.
+statement in its setting. Section~\ref{s:premises} gives the corresponding
+simulator test. Theorem~\ref{t:liouville} is conditional on this convergence
+premise.
 \end{proof}
 
 \begin{corollary}[Collision and diffusion alternatives]
@@ -213,14 +212,15 @@ The transport model places the collision functional at record commits and
 uses the independently certified measure-preserving flow between them. Claims
 about entropy production therefore refer to the commit terms counted by
 $C[f]$. The accepted repair relation and the reversible equilibrium or
-between-commit dynamics remain separate structures.
+between-commit dynamics are separate structures.
 \end{remark}
 
-\section{Theorem B2: record commits give the Thomson collision functional}
+\section{Record Commits and the Thomson Collision Functional}
 
 \begin{theorem}[Scalar-intensity commit-collision functional]\label{t:collision}
 Let commits between photon-class and electron-class records occur with the
-soft-limit matrix element of the recovered $\mathrm U(1)$ vertex (A-QED).
+soft-limit matrix element of the recovered $\mathrm U(1)$ vertex from
+Assumption~\ref{a:qed}.
 Then, to first order in perturbations and at low occupancy, the collision
 functional in Theorem~\ref{t:liouville} is the Thomson functional: in the
 electron rest frame,
@@ -287,8 +287,8 @@ spectral uniqueness from angular detailed balance.
 $\alpha=\alpha_{\rm root}$ is source-side. $m_e$ is an import
 (Assumption~\ref{a:qed}): OPH supplies no source-derived charged-lepton
 absolute mass, so $\sigma_T$'s normalization is
-import-tagged (\textsc{Boltz-N1} in the ledger). $n_e(\tau)$ is
-import-tagged by Assumption~\ref{a:rec} (\textsc{Boltz-X1}).
+an explicit import. The recombination history $n_e(\tau)$ is imported under
+Assumption~\ref{a:rec}.
 \end{remark}
 
 \begin{remark}[OPH-specific channels]\label{r:channels}
@@ -296,14 +296,14 @@ Two and only two places exist where OPH kernels can modify this functional
 at linear order:
 (i) a number-changing repair-exchange channel $\Gamma_{\rm rec}(k,a)$ adds a
 monopole source and a spectral-distortion term; it enters $C[f]$
-additively and is gated by the \#374 receipts (active fiber, physical clock,
-common-parent response);
+additively and requires an active fiber, a physical clock, and a
+common-parent response;
 (ii) a collar-packet stress $\rho_A,B_A(k,a)$ enters only the gravitational
 source side (the Einstein constraints in \S\ref{s:hierarchy}), never $C[f]$.
 With both gates closed at zero, the transport below is exactly standard.
 \end{remark}
 
-\section{Theorem B3: the linear multipole hierarchy}\label{s:hierarchy}
+\section{The Linear Multipole Hierarchy}\label{s:hierarchy}
 
 \begin{theorem}[Reduction to the standard hierarchy]\label{t:hierarchy}
 Linearize Theorems~\ref{t:liouville}--\ref{t:collision} on the background of
@@ -351,11 +351,11 @@ Einstein--Boltzmann system.
 For scalar intensity, insert the geodesic characteristics of
 Theorem~\ref{t:liouville} on the perturbed metric, the collision functional
 of Theorem~\ref{t:collision}, keep first order, and project on Legendre
-multipoles.  The $G_{\gamma\ell}$ equations additionally use the imported
-polarized Thomson matrix stated above.  The remaining steps are the textbook
-computation (Ma--Bertschinger 1995; Dodelson, \emph{Modern Cosmology}); no
-OPH-specific term survives except the two gated channels, which we have
-displayed at their unique insertion points.
+multipoles. The $G_{\gamma\ell}$ equations additionally use the imported
+polarized Thomson matrix stated above. The subsequent calculation is the
+textbook computation (Ma--Bertschinger 1995; Dodelson, \emph{Modern
+Cosmology}). The two conditional OPH channels appear at their unique insertion
+points.
 \end{proof}
 
 \section{Acoustic normal form, damping, and the line of sight}
@@ -416,79 +416,79 @@ $j_\ell$ has argument $k(\tau_0-\tau)$), and
 C_\ell^{TT}=4\pi\!\int\!\frac{\Dd k}{k}\,
 \Delta_\zeta^2(k)\,\left|\frac{\Theta_\ell(k,\tau_0)}{\zeta(k)}\right|^2 .
 \]
-Given Assumption~\ref{a:init}'s gated $(A_s,n_s)$ and the imports of
+Given the conditional $(A_s,n_s)$ of Assumption~\ref{a:init} and the imports of
 Assumptions~\ref{a:qed}--\ref{a:rec}, this reproduces the curve computed by
-the diagnostic CAMB lane; agreement of an independent implementation with
-CAMB at the sub-percent level is receipt \textsc{Boltz-V1}.
+the diagnostic CAMB calculation. Agreement of an independent implementation
+with CAMB at the sub-percent level is the numerical acceptance test.
 \end{proposition}
 
-\section{Receipts and simulator tests}\label{s:receipts}
+\section{Premises and Numerical Tests}\label{s:premises}
 
 \begin{longtable}{@{}p{0.16\linewidth}p{0.5\linewidth}p{0.26\linewidth}@{}}
 \toprule
-\textbf{Receipt} & \textbf{Statement} & \textbf{Status}\\
+\textbf{Condition} & \textbf{Statement} & \textbf{Classification}\\
 \midrule
-\textsc{Boltz-R1} &
+Photon refinement convergence &
 Finite-lattice refinement Liouville: coarse-grained photon-class record
 transport has quotient lumpability, tightness, convergent initial laws and
 first conditional moments, vanishing scaled second conditional moments,
 generator convergence on a frozen test basis, unique geodesic characteristics,
 and vanishing schedule, refinement, boundary, mass-shell, and measure defects.
-This receipt is independent
+This condition is independent
 of repair confluence and of the orientation-doubled label count. &
 open; simulator test below\\
-\textsc{Boltz-N1} &
+Thomson normalization &
 $\sigma_T$ normalization: absolute $m_e$ is a declared import; the
 charged-family absolute-scale theorem is work in progress. &
 declared import\\
-\textsc{Boltz-X1} &
+Recombination history &
 $x_e(\tau)$ recombination history from imported atomic data; contains no
 CMB-target information. &
 declared import\\
-\textsc{Boltz-V1} &
-Independent hierarchy implementation matches CAMB TT/TE/EE at stated
+Numerical transfer test &
+Independent hierarchy implementation matches CAMB temperature and polarization spectra at stated
 tolerances with identical inputs. &
 open; engineering\\
 Tilt certificate &
 Conditional \(n_s=1-P_\star/48\); source generator, weighted half, and clock
 normalization are work in progress. &
-issue \#522, open\\
+open\\
 Amplitude + lift &
 $A_s$ and radial screen-to-$k$ map. &
-conditional radial mathematics \#330; finite source receipt \#579 is work in progress\\
+conditional radial theorem; finite source receipt is work in progress\\
 Kernels &
 $\Gamma_{\rm rec}$, $\rho_A$, $B_A$ physical receipts. &
-issue \#374\\
+open\\
 Likelihood &
 Official likelihood, provenance, and data-use contract. &
-issue \#580\\
+open\\
 \bottomrule
 \end{longtable}
 
-\textbf{Simulator test for \textsc{Boltz-R1}.} Freeze a smooth compactly
+\textbf{Simulator test for photon refinement convergence.} Freeze a smooth compactly
 supported test basis. At each regulator estimate the first conditional moment
 $\widehat L_r\phi$ and scaled conditional variance
 $\widehat\Gamma_r(\phi)$, together with quotient-measure, mass-shell,
 schedule, refinement, boundary-leakage, and collision/free-channel residuals.
 Pass requires $\widehat L_r\phi\to X_H\phi$ and
 $\widehat\Gamma_r(\phi)\to0$ on the frozen basis with the preregistered
-uniform compact envelopes. Random schedule packet tests are supplemental.
+uniform compact envelopes. Random-schedule tests are supplemental.
 A nonzero second-moment limit selects the diffusion alternative rather than
 the Liouville theorem.
 
-\section{What this note does and does not close}
-It records, conditionally on the cited branch theorems, the \emph{scalar
-angular form} of the transport and the locations where the two gated OPH
-kernels would enter.  The polarization hierarchy, blackbody background,
-absolute normalizations, and recombination history remain imported.  Thus
-the physical-CMB prediction gate contains a source-level polarized
-collision bridge, blackbody/thermalization provenance, \textsc{Boltz-R1},
-and \textsc{Boltz-V1}, in addition to the pre-existing gates (\#330, \#522,
-\#374, \#363). It does not certify initial conditions, normalizations,
-recombination, or likelihoods, and nothing here reads Planck data. Under the
-anti-fitting rule, the acoustic peak structure remains attributable to
-standard plasma physics; OPH's falsifiable exposure stays concentrated in
-the primordial inputs, exactly where issues \#330 and \#522 put it.
+\section{Scope of the Conditional Reduction}
+The cited branch theorems supply the \emph{scalar angular form} of the
+transport and locate the two conditional OPH kernels. The polarization
+hierarchy, blackbody background, absolute normalizations, and recombination
+history are imported. A physical cosmic microwave background prediction
+requires a source-level polarized collision bridge, blackbody and
+thermalization provenance, photon refinement convergence, the numerical
+transfer test, a physical radial lift, a finite primordial source,
+active-kernel evidence, and an immutable likelihood contract. This reduction
+certifies no initial conditions, normalizations, recombination history, or
+likelihood, and it reads no Planck data. Under the anti-fitting rule, the
+acoustic peak structure is attributable to standard plasma physics. OPH's
+falsifiable exposure is concentrated in the primordial inputs.
 
 \section*{References}
 \begin{itemize}[leftmargin=1.2em]
@@ -500,10 +500,10 @@ Press (2020).
 Approach to Cosmic Microwave Background Anisotropies}, ApJ 469, 437 (1996).
 \item W. Hu and M. White, \emph{CMB Anisotropies: Total Angular Momentum
 Method}, Phys. Rev. D 56, 596 (1997).
-\item OPH paper stack: \emph{Observers Are All You Need}; \emph{Reality as a
+\item Related OPH papers: \emph{Observers Are All You Need}; \emph{Reality as a
 Consensus Protocol}; \emph{Recovering Observer Spacetime and Einstein Dynamics
-from Overlap Consistency}; \emph{OPH Cosmology Finite-Source CMB
-Program} (this repository).
+from Overlap Consistency}; \emph{Finite-Source Cosmology from
+Observer-Patch Holography}.
 \end{itemize}
 
 \end{document}

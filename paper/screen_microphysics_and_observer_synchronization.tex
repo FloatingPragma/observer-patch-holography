@@ -25,11 +25,10 @@
 \theoremstyle{plain}
 
 \title{Federated Echosahedral Screen Microphysics:\\
-Patch Hardware, Records, and Observer Synchronization in OPH}
+Patch Hardware, Records, and Observer Synchronization in Observer-Patch Holography}
 \author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie \and Maarten Antonie Visser \and David Matscheko}
 \date{\OPHPaperReleaseDate}
 
-% #542 typesetting hardening (layout only, no claim change)
 \usepackage{microtype}
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -50,24 +49,27 @@ embedding.
 On the declared echosahedral carrier lineage, an integer atom-counting grammar
 and normalized central-readback cost give twelve unit lines and an exact gap.
 Oriented incidence and refinement maps derive inverse pairing, the proper
-\(A_5\) action, and a rank-three frame. Target-blind
+action of the alternating group \(A_5\) on five letters, and a rank-three
+frame. Target-blind
 impulse and port readback derive the inverse-port response. Its compact
 current algebra is
 \(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\).
 Under the declared fifteen-state matter contract, anomaly balance and tensor
 descent give the Standard Model charge lattice and maximal faithful matter image
 \((\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1))/\mathbb Z_6\)
-from the stated contracts alone. Physical matter typing, global-form selection,
-laboratory current identification, scalar multiplicity, family attachment,
-and continuum quantum-field realization are open. Hardware evidence enters
-only with public device, calibration, circuit, data, and independent checks.
+from the stated contracts alone. The finite source model fixes the matter
+typing and the \(\mathbb Z_6\) quotient on its declared carrier. Laboratory
+current identification, physical seam and family attachment, scalar
+multiplicity, and continuum quantum-field realization are work in progress.
+Hardware evidence enters only with public device, calibration, circuit, data,
+and independent checks.
 \end{abstract}
 
 \input{tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex}
 
 \section*{What This Paper Contributes}
 
-The rest of the OPH stack talks about observer patches, records, repairs, and screen cuts. This
+The companion OPH papers use observer patches, records, repairs, and screen cuts. This
 paper gives those words a finite carrier. It separates the abstract observer patch from its
 geometric support chart and from its physical or digital implementation. The separation removes
 dependence on hidden coordinates, labels, materials, and wiring choices only when the complete
@@ -83,17 +85,21 @@ after repair. The finite modular-gearing package keeps strict-descent normalizat
 reversible proposal rates, tests whether the oriented \(24\)-slot register is an invariant channel
 space, and fixes only symmetry-protected degeneracies rather than numerical gaps or clock units.
 The finite echosahedral selector gives the exact unit split within the
-declared integer counting and normalized readback-cost realization. Oriented
-incidence separately gives the proper-\(A_5\) result without using downstream
-particle or gauge targets.
+declared integer counting and normalized readback-cost realization. Atomic
+signed record events generate the integer loads, while conservative whole-unit
+repairs terminate by strict quadratic descent. Their minimum move count is
+natural under rotations and the declared refinements. Oriented incidence
+separately gives the proper-\(A_5\) result without using downstream particle
+or gauge targets.
 Incidence and target-blind port readback derive the finite response, compact
 current, and refinement maps. Under the declared fermionic Spin category,
 the anomaly and descent certificates imply the Standard Model charge lattice
 and common \(\mathbb Z_6\) tensor kernel from the stated premises alone. The
 corresponding quotient is the maximal faithful
-matter image. Physical matter typing, global-form selection,
-laboratory identification, scalar multiplicity, and equality with the
-distinct Tannaka current are open. The generation-count,
+matter image. The finite source model fixes the matter typing and quotient on
+the declared carrier. Laboratory identification, the physical seam mechanism,
+scalar multiplicity, and equality with the distinct Tannaka current are work
+in progress. The generation-count,
 extra-sector, charged-lepton, and quantitative
 selector/gap branches carry their own declared completions.
 Hardware claims are kept behind a public evidence rule: manifests, hashes,
@@ -114,19 +120,17 @@ overlap-facing observer patches, with echosahedral local interfaces and recurren
 subchannels.
 \end{quote}
 
-The paper's contract is:
-\begin{enumerate}[leftmargin=2em]
-\item state the fixed-cutoff theorem exports used by the other OPH papers;
-\item use federated patch carriers as the microphysical architecture;
-\item keep mathematical theorem surfaces separate from public hardware evidence surfaces;
-\item keep the octahedral \(\mathbb Z_2/S_3\) finite-group model at appendix-level calibration scope;
-\item require a public hardware evidence protocol before hardware claims receive paper
-weight.
-\end{enumerate}
+At fixed cutoff, federated patch carriers provide the microphysical
+architecture. Mathematical statements use the finite algebras and declared
+interfaces given below. Hardware statements require separate public evidence
+with stable provenance and exact checks. The octahedral
+\(\mathbb Z_2/S_3\) finite-group model is a calibration chart rather than a
+physical identification.
 
 \section{Canonical Observer-Patch Semantics}
 
-This paper owns the fixed-cutoff observer vocabulary used by the rest of the OPH stack. An
+This paper defines the fixed-cutoff observer vocabulary used by the OPH
+framework. An
 observer patch is first an operational algebraic object:
 \[
 \mathsf O_i=
@@ -209,35 +213,24 @@ future behavior, boundary prediction better than shuffled-record controls, and c
 continuation within a declared error.
 \end{definition}
 
-\section{Claim Taxonomy}
+\section{Mathematical and Empirical Scope}
 
-The paper uses five claim levels.
+The finite-algebra results concern patches, overlaps, records, repair
+interfaces, event algebras, and checkpoint laws. Finite representation and
+lattice calculations support those results when their matrices, exact checks,
+and quotient-visible invariants are public. A generic overlap network is only
+a finite constraint code. Quantum error-correcting distance, min-cut
+resilience, spectral convergence, Byzantine-fault-tolerant liveness, and
+hardware speedup require their own hypotheses and certificates.
 
-\begin{enumerate}[leftmargin=2em,label=\textbf{C\arabic*.}]
-\item \textbf{Mathematical fixed-cutoff claims.} These are finite-algebra statements about
-patches, overlaps, records, repair interfaces, event algebras, and checkpoint laws. They are
-allowed to be theorem-bearing. Finite representation and lattice audit instruments belong here
-when their matrices, exact checks, and quotient-visible invariants are public. The generic overlap
-network is a finite constraint code only;
-QECC distance, min-cut resilience, spectral convergence, BFT liveness, and hardware speedup need
-their own certificates.
-
-\item \textbf{Regulator-chart claims.} These identify a convenient finite model, such as a
-spherical cellulation or a digital finite-group calibration chart, as a calculational chart. Their claim
-level is regulator geometry and calibration.
-
-\item \textbf{Federated-carrier claims.} These define a candidate implementation architecture:
-observer patches with echosahedral multi-port interfaces, recurrent toroidal subchannels, exposed
-overlap data, records, and repair loops.
-
-\item \textbf{Public hardware-evidence claims.} These may be cited only when the raw or reduced
-evidence is present in a public OPH evidence bundle with stable hashes, manifests, calibration
-files, and exact-verifier receipts.
-
-\item \textbf{Boundary statements.} This paper leaves laboratory-hardware identification, unique
-UV completion, hardware solution of the Yang--Mills mass gap, computational complexity collapse,
-and first-principles hadron masses outside its support boundary.
-\end{enumerate}
+Spherical cellulations and digital finite-group models are calculational
+charts. Federated echosahedral carriers are candidate implementations with
+multi-port interfaces, recurrent toroidal subchannels, exposed overlap data,
+records, and repair loops. A hardware result enters only through public raw or
+reduced evidence with stable hashes, manifests, calibration files, and exact
+verification. These finite results do not identify laboratory hardware, select
+a unique ultraviolet completion, solve the Yang--Mills mass gap by hardware,
+collapse a complexity class, or derive first-principles hadron masses.
 
 \section{The Public Evidence Rule}
 
@@ -753,16 +746,18 @@ Subtracting the two commutator equations gives
 \([K-K',V_a]=0\) for every \(a\); the generated-algebra statement follows.
 \end{proof}
 
-\begin{remark}[Rate scale, clock scale, and BW promotion]
+\begin{remark}[Rate scale, clock scale, and geometric modular identification]
 Multiplying every equilibrium rate by one constant leaves every affinity,
 the reconstructed stationary law, \(K\), and \(\Omega_{24}\) unchanged, while
 rescaling the relaxation generator.  Rate ratios therefore determine a
 dimensionless potential; rate magnitudes determine kinetics.  Neither fixes a
 frequency in hertz.  Operational time requires the independent clock
-instrument and affine calibration used later in this paper.  Physical BW
-promotion further requires a refinement-natural comparison showing that the
+instrument and affine calibration used later in this paper. A physical
+Bisognano--Wichmann (BW) identification further requires a
+refinement-natural comparison showing that the
 gear-derived state is the same support-visible cap state used by the geometric
-modular theorem, the independently complete \(\mathsf{MGNS\text{-}1}\) package
+modular theorem, the independently complete mixed
+Gelfand--Naimark--Segal common-comparison package
 on that same tower, its regularized cutoff schedule, and the independent
 \(2\pi\)-normalization receipt.
 \end{remark}
@@ -799,15 +794,14 @@ paper: the carrier is a quotient-visible finite implementation surface, and hidd
 substrate coordinates are silent when visible interface data, record statistics, repair maps, and
 checkpoint continuation are preserved.
 
-In the terminology of the program's consistency stack, this record/repair
-architecture is the carrier of two rows of the forcing chain. Row C1 (self-reading): a world that
+This record/repair architecture realizes two consistency requirements. A world that
 is the fixed point of its own description must contain observers, records of their readings, and
 a mechanism that keeps those records consistent under continued reading; the patch federation
 above, with its record algebras, readout maps, and repair interfaces, is that mechanism made
-explicit at fixed cutoff. Row C6 (record existence): a screen at exact self-similar balance
+explicit at fixed cutoff. A screen at exact self-similar balance
 carries no events, so records require detuning; the register constructions below give the
 fixed-cutoff surface on which that detuning has a declared carrier. Both mappings hold on the
-declared branches and gates of this paper, including the named MaxEnt-hypothesis caveat where it
+declared branches of this paper, including the named MaxEnt-hypothesis caveat where it
 applies.
 
 \subsection{Edge-center scalar-slot register}
@@ -878,7 +872,7 @@ A first-order scalar observable on the slot register has the form
 \[
 F(q)=\alpha+\sum_{e\in E_{\nu,r}(C)}b_e\,p_{e,\nu}(q).
 \]
-Quotient-visible scalar status requires invariance under \(G_C\). If \(G_C\)
+Quotient visibility of a scalar requires invariance under \(G_C\). If \(G_C\)
 acts transitively on the scalar slot orbit, invariance forces \(b_e/a_e\) to be
 constant on that orbit. Therefore
 \[
@@ -905,7 +899,7 @@ The scalar-slot theorem above is the rank-one first-order export.  The
 dark-sector and coherent-matter papers also need the local event-algebra
 realization: scalar activation, the protected \(\mathbb Z_6\) reserve, and
 finite-thickness collar survival have to live on one quotient-visible
-edge-center register before any coefficient can be promoted.
+edge-center register before any physical coefficient follows.
 
 \paragraph{Trace convention.}
 Throughout this subsection, \(\tau_{q,r,C}\) denotes the normalized quotient
@@ -1868,7 +1862,7 @@ occupancy law: \(\Pr[N\ge1]\le\epsilon\) gives
 The coefficient is order one and bounded away from zero on every reading; the
 exact value is reading-dependent, and the presence reading is the one the
 receipt semantics of this branch supply. Which reading nature uses is a
-physical gate of the susceptibility lane, recorded there.
+physical gate of the susceptibility branch, recorded there.
 \end{remark}
 
 \begin{definition}[Uniform product-thickening branch]
@@ -2183,8 +2177,8 @@ underdetermined by bare confluence.
 
 In particular, a finite carrier patch, graph vertex, implementation point, or
 worker-local shard is not one canonical OPH screen cell unless a separate
-measure-realization theorem proves that identification. A promotable evidence
-bundle must expose a geometry manifest, metric-form hashes, orientation and
+measure-realization theorem proves that identification. Evidence sufficient
+for that identification must expose a geometry manifest, metric-form hashes, orientation and
 topology, boundary conditions, lineage maps, lapse and shift, source embedding,
 operator assembly, scale certificate, and refinement maps.
 
@@ -2292,7 +2286,7 @@ for the GNS/OS limit after positive energy and the declared vacuum-sector unique
 superselection condition have been proved.
 \end{remark}
 
-\begin{remark}[Regulator promotion rule]
+\begin{remark}[Regulator-to-continuum identification rule]
 A finite evidence bundle implements this regulator branch only when it exports the factor list,
 presentation circuit, refinement maps, conditional-expectation identities, transported state errors,
 renormalized observable tails, and positive-transfer or reflected-Gram certificates. A finite
@@ -2356,14 +2350,19 @@ incidence packet, with degree-five vertices and five-cycle links;
 fiber \(\mathcal Q_r=\{q\in\mathbb Z^{12}:\sum_pq_p=12\}\), and the
 normalized central-readback Hilbert--Schmidt cost
 \(H_r(q)=\sum_pq_p^2\);
+\item an append-only twelve-register event packet in which writes and
+retractions carry signs \(+1\) and \(-1\), together with conservative
+whole-unit seam repairs and minimum-move settling cost;
 \item orientation-preserving incidence isomorphisms along refinement that
 preserve the port-center/readback packet and obey the refinement cocycle; and
 \item a source manifest that rejects Standard Model, product-adjoint, gauge,
 coupling, particle, measured-target, and fitted-coordinate fields, is closed
 to undeclared fields, and encodes trace fractions with exact JSON integers.
 \end{enumerate}
-The integer grammar and cost normalization in item (iii) are realization
-data. Their derivation from the complete three-axiom schema is open.
+The signed-event packet realizes integer loads and its separate dynamic
+settling cost. The total-charge fiber, quadratic cost normalization, and
+positive readback scale are named realization data. An arbitrary carrier
+satisfying the three axioms need not select them.
 \end{definition}
 
 \begin{theorem}[Echosahedral counting-and-incidence selector theorem]
@@ -2375,6 +2374,10 @@ canonically determines:
 \item the twelve coefficient lines \(\mathbb R e_{r,p}\) and the unique
 all-one defect allocation, with \(H_{\min}=12\), next floor \(14\), and exact
 gap \(2\);
+\item integer loads generated by the signed atomic events, termination of
+every conservative repair path by strict descent of
+\(V(q)=\sum_pq_p^2\), and a minimum settling-move cost natural under every
+carrier rotation and declared refinement;
 \item the unique fixed-point-free inverse pairing by graph distance three and
 the resulting six axes;
 \item the full incidence group \(A_5\times C_2\) and its
@@ -2393,8 +2396,9 @@ whose oriented factorization is the regular six-axis icosahedral frame up to
 \item refinement naturality and arbitrary simultaneous port-relabeling
 equivariance of all these objects.
 \end{enumerate}
-Thus the finite \(\mathrm{UD12}\) and \(\mathrm{RP\text{-}A5}\) receipts are
-exact on this named realization.
+Thus this realization gives the exact twelve-line unit allocation and gap,
+integer settling dynamics, inverse pairing, proper \(A_5\) action, and
+rank-three Gram frame stated above.
 \end{theorem}
 
 \begin{proof}
@@ -2404,7 +2408,11 @@ fiber,
 H(q)=12+\sum_p(q_p-1)^2,
 \]
 so the all-one allocation is unique and the least nonzero integral zero-sum
-deviation has squared norm two.  The exact incidence distance profile is
+deviation has squared norm two. A seam repair with oriented mismatch
+\(d\geq2\) changes the load square by \(-2(d-1)\), which proves termination.
+Every declared rotation and refinement is an isomorphism of the repair graph
+and therefore preserves shortest-path cost. The explicit full-pile witness
+settles in eighteen moves. The exact incidence distance profile is
 \((1,5,5,1)\), giving a unique distance-three involution.  Enumeration gives
 \(120\) incidence automorphisms and \(60\) orientation-preserving ones;
 conjugation on the five Klein-four subgroups identifies the latter faithfully
@@ -2428,12 +2436,20 @@ physical gauge-current algebra.  The executable controls recompute the finite
 countermodel values and reject both an opaque undeclared numeric input and a
 floating-point trace fraction that could otherwise be truncated.
 
-At the reduced finite-atomic carrier level, the family
-\(\{\tfrac12 e_{r,p}\}_{p=0}^{11}\) is a covariant half-count candidate and is
-not an integer atom counter. A complete lift with the operational and
-refinement data required by A1, the naturality required by A2, and an A3
-optimizer is open. The candidate therefore does not establish a full
-three-axiom independence theorem. For a separately declared uniform
+An append-only record machine supplies an operational realization of the
+integer loads. Each write contributes \(+1\), each retraction contributes
+\(-1\), and the port readback sums the signed atomic events. A repair transfers
+one whole unit along an oriented seam when its mismatch has magnitude at least
+two. The load square \(V(N)=\sum_iN_i^2\) decreases by \(2(d-1)\) on a repair
+with mismatch \(d\geq2\), which proves termination. The total load modulo
+twelve is a necessary consensus obstruction, with an explicit eighteen-move
+settling path for the declared full-pile state. Minimum settling cost is
+preserved by the sixty rotations and the declared refinement maps. The family
+\(\{\tfrac12 e_{r,p}\}_{p=0}^{11}\) rescales the event values, seam readback,
+and repair threshold together. It is the same event mechanism in different
+readback units, not a half-event countermodel.
+
+For a separately declared uniform
 twelve-port reference \(\tau_p=1/12\), a feasible perturbation
 \(\rho=\tau+\varepsilon v\), with \(\sum_pv_p=0\), satisfies
 \[
@@ -2442,7 +2458,9 @@ D(\rho\Vert\tau)
 \]
 The second-order Taylor coefficient is \(6I\), while the Hessian, equivalently
 the Fisher matrix, is \(12I\). The A3 weight fixes their common scale. This
-infinitesimal curvature does not supply the exact discrete cost \(H_r\).
+infinitesimal curvature supplies neither the exact discrete cost \(H_r\) nor
+the minimum settling-move cost. Exact separating witnesses distinguish all
+three objects.
 \end{remark}
 
 \begin{theorem}[Alternative variational icosahedral screen sieve]\label{thm:icosahedral-screen-sieve}
@@ -2502,10 +2520,10 @@ additivity gives the local read \(X/12\).
 \end{proof}
 
 \begin{remark}[External identification of the load]
-The identification \(X=\log(N/\pi)\) is imported from the D6 radius identity
-of the capacity lane; this paper does not construct that object. The theorem
-itself constrains only invariant screen loads that are additive across the
-twelve ports.
+The identification \(X=\log(N/\pi)\) is imported from the companion
+capacity relation; this paper does not construct that object. The theorem
+itself constrains invariant screen loads that are additive across the twelve
+ports.
 \end{remark}
 
 \begin{remark}[Source-selector boundary]
@@ -2591,14 +2609,14 @@ The binary event-to-record channel is
 \]
 Sixty proper-icosahedral charts verify the declared graph intertwiners, and the
 evidence artifact verifies normalized-trace invariance under inert ancillary
-stabilization. Its theorem status is schema existence plus a fixed-cutoff
+stabilization. The construction proves schema existence plus a fixed-cutoff
 bridge from noncentral event to central public record. The register dimensions,
 path automaton, coupling character, grading, unit clock, and scalar response
 are authored inputs. The evidence checker does not enforce every source-law
 and provenance field, and its negative-control wrapper can count an unrelated
 nonzero exit as a successful rejection. Path exhaustion is internal to that automaton; inert
 stabilization supplies no cofinal physical screen refinement. The construction
-has no frozen receipt excluding target dependence. A global
+has no precommitted source packet excluding target dependence. A global
 mutually exclusive response law, physical charged-source selection, recovery
 dynamics, family attachment, and a pole map are outside this model.
 A separate conditional nature/pole interface shows how a supplied chiral
@@ -2700,9 +2718,9 @@ The total visible mismatch is
 \Phi(s)=\sum_{e\in E}\Phi_e\bigl(\rho_{i,a}(s_i),\rho_{j,b}(s_j)\bigr).
 \]
 
-The local repair contract is the consensus-paper contract: accepted repairs do not increase the
-declared touched-overlap mismatch, and exact fixed-cutoff branches lower the relevant mismatch
-unless the local visible datum is repaired. The implementation is a bounded patch operation:
+Accepted repairs do not increase the declared touched-overlap mismatch, and
+exact fixed-cutoff branches lower the relevant mismatch unless the local
+visible datum is repaired. The implementation is a bounded patch operation:
 \begin{enumerate}[leftmargin=2em]
 \item read the exposed overlap packets;
 \item compare them through a declared commensurability map;
@@ -2728,8 +2746,9 @@ liveness bound follows unless the corresponding extra certificate is supplied.
 The first sentence is the finite Lyapunov argument: \(\Phi\) takes values in a finite ordered set
 of declared mismatch scores and strictly decreases on nontrivial accepted repairs. The second
 sentence consumes the quotient-local confluence package of the OPH consensus theorem. Atomic
-commits alone do not supply its protected-support, coherent-payload, or local-diamond receipts.
-This paper supplies the federated carrier and visible interface on which that theorem is read.
+commits alone do not supply its protected-support, coherent-payload, or
+local-diamond receipts. The result applies to the federated carrier and
+visible interface defined above.
 \end{proof}
 
 The schedule-independent conclusion above is a same-source statement.  Equality of endpoints
@@ -2917,7 +2936,7 @@ the same calibrated response vector and the same \(H^3\) localization ball. A fi
 does not clear held-out cap residuals, mixture controls, and the declared error bound is a failed
 or approximate point-source branch, not a populated-\(H^3\) theorem receipt.
 
-\section{Edge Sectors and the Casimir Handoff}
+\section{Edge Sectors and Casimir Continuation}
 
 The edge heat-kernel/Casimir package is a fixed-cutoff theorem package tied to an overlap
 collar with a finite exposed sector algebra.
@@ -2928,22 +2947,22 @@ overlap collar. Suppose the local thermalized edge dynamics has stationary weigh
 \pi_\beta(\alpha)=\frac{d_\alpha e^{-\beta C_2(\alpha)}}{Z(\beta)}.
 \]
 For finite groups, \(C_2(\alpha)\) is the declared sector penalty or finite-group Casimir
-surrogate. For compact groups, the Peter--Weyl lift belongs to the companion D10/compact-gauge
-handoff instead of hardware evidence.
+surrogate. For compact groups, the Peter--Weyl lift belongs to the companion
+compact-gauge construction and cannot be supplied by hardware evidence.
 
-\begin{theorem}[Fixed-cutoff edge-sector handoff]
+\begin{theorem}[Fixed-cutoff edge-sector law]
 If a declared finite overlap collar has sector labels \(\alpha\), degeneracies \(d_\alpha\), and
 a local repair/thermalization generator whose detailed-balance stationary law is
-\(\pi_\beta(\alpha)\propto d_\alpha e^{-\beta C_2(\alpha)}\), then the collar exports the
-fixed-cutoff Casimir edge law required by the D10 handoff. The compact-group heat-kernel lift is a
-separate companion-branch step.
+\(\pi_\beta(\alpha)\propto d_\alpha e^{-\beta C_2(\alpha)}\), then the collar gives the
+fixed-cutoff Casimir edge law used by the compact-gauge construction. The
+compact-group heat-kernel lift requires the separate companion theorem.
 \end{theorem}
 
 \begin{proof}
 This is a finite Markov or finite instrument stationary-measure statement on the declared sector
-algebra. The theorem exports only the finite overlap law. The compact-group lift uses the
-Peter--Weyl continuation and normalization conventions supplied on the companion compact/D10
-surface.
+algebra. The theorem gives only the finite overlap law. The compact-group lift uses the
+Peter--Weyl construction and normalization conventions supplied by the
+companion compact-gauge construction.
 \end{proof}
 
 \section{Bell/CHSH Event Surfaces}
@@ -2959,7 +2978,8 @@ package here is a finite event-algebra statement inside the OPH microphysics sur
 
 \section{Relation to Yang--Mills}
 
-The Yang--Mills repair-gap argument belongs to the compact theorem surface. Echosahedral geometry
+The compact-gauge theorem gives the Yang--Mills repair-gap argument.
+Echosahedral geometry
 supplies:
 \begin{enumerate}[leftmargin=2em]
 \item the fixed-cutoff patch, overlap, record, and repair interface;
@@ -2968,39 +2988,42 @@ supplies:
 quotient form.
 \end{enumerate}
 
-The finite cylinder system and its projective weak-* / GNS extraction belong to the
-compact/Yang--Mills theorem surface. Identification with the four-dimensional Yang--Mills state,
-reflection-positive OS reconstruction, noncollapse, and equality between the Yang--Mills gap and
-the repair gap are conditional on that surface's separately named receipts. Hardware evidence may test implementation discipline, but it
-does not supply the Clay-admissible construction. A public evidence bundle that is used for any
+The finite cylinder system and its projective weak-* / GNS extraction are
+proved under the compact-gauge premises. Identification with the
+four-dimensional Yang--Mills state, reflection-positive
+Osterwalder--Schrader reconstruction, noncollapse, and equality between the
+Yang--Mills gap and the repair gap require separate receipts. Hardware
+evidence can test implementation discipline. It does not supply the
+Clay-admissible construction. A public evidence bundle that is used for any
 continuum or Lorentzian claim must therefore include the multiresolution regulator certificate:
 factor manifest, presentation-circuit hash, refinement/expectation identity defects,
 transported-state errors, renormalized-observable tails, and positive-transfer or reflected-Gram
 receipts.
 Conventional free-field or lattice-gauge vacuum baselines used for calibration are
-reference ensembles only. They are not OPH-native vacuum promotion unless the quotient-ensemble
-selector, source Euclidean slab data, and transfer/reflection-positive reconstruction gate are
-supplied on the compact theorem surface.
+reference ensembles only. An OPH-native vacuum identification requires the
+quotient-ensemble selector, source Euclidean slab data, and
+transfer/reflection-positive reconstruction under the compact-gauge premises.
 
 \section{Relation to Hadrons and Strong-Binding Execution}
 
-First-principles hadron masses require a working OPH strong-binding construction. This microphysics states the
-record and evidence requirements for such a construction. A construction fit for promotion must emit:
+First-principles hadron masses require a working OPH strong-binding
+construction with:
 \begin{enumerate}[leftmargin=2em]
 \item Ward-projected hadronic spectral data;
 \item provenance tying every spectrum to body, controller, firmware, geometry, and scorebook;
 \item finite-volume, continuum, chiral, and production-systematics fields where applicable;
-\item exact replay or verification receipts for the pipeline stage being claimed;
-\item a non-promotion boundary for surrogate or calibration runs.
+\item exact replay or verification receipts for the calculation being claimed;
+\item an explicit scope boundary for surrogate or calibration runs.
 \end{enumerate}
 
 Echosahedral or related hardware can be described as a candidate construction family only through
 public evidence bundles. Without those bundles, it is an architectural target and a design
-motivation. First-principles hadron theorem promotion requires the evidence listed above.
+motivation. A first-principles hadron theorem requires the evidence listed
+above.
 
-\section{Validation Program}
+\section{Validation criteria}
 
-The validation program has two independent tracks.
+Validation has two independent parts.
 
 \subsection{Mathematical and Digital Calibration}
 
@@ -3032,8 +3055,9 @@ duplicate-body checks, symmetric-reference or echosahedral shadow checks, exact-
 and negative controls against hidden duplicate amplification or host-side filtering.
 
 Material, plasma, and topological-phase claims need the same discipline. The evidence bundle must
-name the physical quotient, source action or repair ledger, readouts, controls, and promotion
-gates. A carrier that passes self-reading tests certifies the carrier branch only; it does not by
+name the physical quotient, source action or repair ledger, readouts, controls,
+and physical-identification conditions. A carrier that passes self-reading
+tests certifies the carrier branch only; it does not by
 itself certify a material selector, nuclear yield, delivered power, or condensed-matter order.
 
 \section{Finite Packet Source Bridge Schema}
@@ -3074,7 +3098,7 @@ symmetry chart for observer-facing cuts. \(A_5\)-icosahedral and \(E_8\)-type st
 the geometry data and representation-closure data. The echosahedral patch is the reference local
 interface: a bounded multi-port patch with symmetry, records, readout, repair, and checkpoint
 data. Toroidal subchannels supply local recurrence and winding-sensitive dynamics. The mathematical
-exports are fixed-cutoff patch-net embedding, edge-sector Casimir handoff, central-record
+outputs are fixed-cutoff patch-net embedding, an edge-sector Casimir law, central-record
 measurement, Bell/CHSH event surfaces, and checkpoint/restoration.
 
 The carrier architecture is physical data up to its declared quotient. Hidden labels and material
@@ -3082,20 +3106,23 @@ presentations may vary, while the visible incidence, response, repair, record, c
 refinement signature may not be discarded. The local twelve-port theorem constrains the
 \(A_5\)-current branch. A separate carrier-to-support bridge constrains the spherical
 Lorentz/Einstein branch. The consensus normal form is their common finite hinge. Operational
-observer promotion requires readback, durable records, feedback or repair,
+observer-like behavior requires readback, durable records, feedback or repair,
 prediction/control, and checkpoint continuation. The source-derived
 incidence nerve passes those observer controls together with twenty
 nonvacuous face cocycles and a refinement-natural oriented support limit.
 \(H^3\), event-manifold, BW/KMS, physical-scale, and laboratory bridges are
-open. The
+work in progress. The
 finite current implication is exact under the explicit response and matter
-contracts, while physical matter typing, global-form selection, laboratory identification,
-equality with the distinct Tannaka current, scalar multiplicity, rank-45
-family attachment, and continuum QFT realization are open.
+contracts. The measured non-split deck cover forces the odd-Weyl Spin typing,
+and the measured finite flux-sector menu selects the \(\mathbb Z_6\) quotient
+on the declared carrier. Laboratory current and flux identification, equality
+with the distinct Tannaka current, four-dimensional topological normalization,
+scalar multiplicity, rank-45 family attachment, and continuum quantum field
+realization are work in progress.
 
-The claim discipline is the main point. Hardware can guide the architecture and supply public
-evidence through hash-stable evidence bundles. The theorem surface stands on finite algebras and
-declared OPH branch assumptions.
+Hardware can guide the architecture and supply public evidence through
+hash-stable evidence bundles. The mathematical conclusions stand on finite
+algebras and their declared branch assumptions.
 
 \appendix
 
@@ -3131,8 +3158,8 @@ evidence/hardware/<bundle-id>/
   claim.md
 \end{verbatim}
 
-The manifest should state the strongest allowed claim and the non-claims. The paper may cite the
-bundle only at that claim level.
+The manifest should state the strongest supported result and its exclusions.
+The evidence bundle supports only that stated result.
 
 \section{Digital Calibration Compatibility}
 

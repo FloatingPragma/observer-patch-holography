@@ -56,8 +56,9 @@ the ripple is a pattern that moves, interacts, and keeps its identity without
 owning any fixed set of water molecules. Particles play the same role in the
 emergent effective theory.
 
-Everything in this chapter is the pattern layer; attaching it to measured
-particles is work in progress, and the synthesis chapter keeps the ledger.
+Everything in this chapter is the pattern layer. Its attachment to measured
+particles is work in progress, with the required physical interfaces stated
+where they enter.
 
 ## 16.4 From Stable Patterns to the Particle World
 
@@ -227,11 +228,10 @@ $m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. Against the two central light-quark
 ratios derived from [FLAG 2024](https://arxiv.org/abs/2411.04268), it is 15.2%
 and 12.8% high.
 
-A non-preregistered conservative comparison gate using experimental errors
-alone rejects every assignment against both FLAG rows. The unavailable
-covariance and absent theory uncertainty preclude a covariance-aware
-significance, and the gate has no preregistered theory-wide falsification
-status. The result closes only this common-transport assignment family.
+A conservative comparison using experimental errors alone rejects every
+assignment against both FLAG rows. The unavailable covariance and absent
+theory uncertainty preclude a covariance-aware significance. This result
+concerns only the declared common-transport assignment family.
 
 Other coefficient
 relations, alphabets, physical charged-family attachments, and
@@ -264,8 +264,8 @@ $m_1,m_2,m_3$ name mass directions, and the PMNS matrix is the rotation
 between those two descriptions.
 
 One qualification covers this whole chain. Physical response and matter
-selection, the family attachment, laboratory-current identification, promotion
-of the W and Z running coordinates to predictions, and identification of the
+selection, the family attachment, laboratory-current identification, a
+physical interpretation of the W and Z running coordinates, and identification of the
 face triplet and its eigenmodes with the measured electron, muon, and tau are
 work in progress.
 

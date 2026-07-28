@@ -43,12 +43,12 @@ The rest of this README is the technical entrance to the repository.
 
 Two ledgers carry the quantitative record. The
 [postdiction ledger](docs/POSTDICTION_LEDGER.md) is the compare-only
-scoreboard: every certified comparison against an already measured value,
+scoreboard: every certified comparison against a measured value,
 with its premises and input ancestry stated on the row. The
 [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) is the forward
 instrument: stances registered with cryptographic custody and kill bands
-before their comparison data is examined, so a future measurement can
-refute them.
+before their comparison data is examined, with fixed rules that permit
+refutation by qualifying measurements.
 
 ## Six Reproducible Receipts
 
@@ -352,9 +352,8 @@ and global-form selection are measured at finite source scope only;
 laboratory current identification,
 physical family attachment, exclusion of extra light sectors, scalar
 multiplicity,
-the Einstein source tower, and the physical closure packets are open. The
-[issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
-records their work packages. The CP and weak-sector clauses give the exact
+the Einstein source tower, and the physical closure packets are not derived.
+The CP and weak-sector clauses give the exact
 conditional window $3\le N_g\le5$ without selecting within it. Under two
 additional named premises, the exact band-cost order
 $5-\sqrt5<6<5+\sqrt5$ uniquely selects the rank-three screen band. A finite
@@ -364,11 +363,11 @@ data, and exclusion of extra light sectors are open. Local
 icosahedral incidence constrains the carrier, while the federation nerve
 requires its own construction.
 
-## Claim Tracking
+## Claim Scope
 
-The [claim scoreboard](tracking/claims_scoreboard.md) records the status,
-scope, dependencies, and evidence of every tracked branch. This README
-concentrates on the strongest exact and measured receipts.
+The [claim scoreboard](tracking/claims_scoreboard.md) states the scope,
+premises, and evidence class of each branch. This README concentrates on the
+strongest exact and measured receipts.
 
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
@@ -395,10 +394,10 @@ self-map of the physical interval with contraction constant below one has
 exactly one fixed point. Outward-rounded interval certificates verify those
 hypotheses for each declared $P$ map and exclude a second root across its
 full analytic domain. The [claim scoreboard](tracking/claims_scoreboard.md)
-records the root, external comparison, residual, and claim class. The
+states the root, external comparison, residual, and claim class. The
 comparison uses $P_C$, which is defined from the measured endpoint.
-Source-derived same-scheme hadronic transport is an open dependency under
-#425. The registered comparison has diagnostic status, with a physical
+Source-derived same-scheme hadronic transport is absent. The registered
+comparison has diagnostic status, with a physical
 fine-structure constant claim outside its scope.
 
 **$N$ is the public-record capacity** of the whole observer system, or in
@@ -409,7 +408,7 @@ machine's behavior, and no result in the core reconstruction depends on
 deriving it from first principles. A conditional self-read condition,
 $N=\log M_0(\mathfrak U_N)$, proposes to return it from the correctable
 public-record capacity; its finite counting branch is exact and its physical
-attachment is open, tracked on the issue tracker.
+attachment is not established.
 
 ## Results At A Glance
 
@@ -509,10 +508,8 @@ must agree with the observation process it supports, and the record capacity
 must agree with the records the system keeps about itself. Part of that
 closure is machine-checked in Lean. The declared $P$ map has a certified fixed
 point, while its comparison with the physical fine-structure constant has
-diagnostic status. Closure conditions are tracked as
-[GitHub issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure)
-with their evaluation boundaries and required completions stated, and the
-mature falsification surface is collected in the
+diagnostic status. The evaluation boundaries of the closure conditions and
+their missing physical inputs are stated in the
 [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 
 A physical closure of both constants would give a zero-continuous-parameter
@@ -585,7 +582,7 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 | The exact positive-chamber Koide identity and finite tracial balance | [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](extra/koide_identity_from_positive_c3_face_circulants.pdf) |
 | The exact finite de Sitter capacity law and conditional shock-sign attachment | [The de Sitter Time-Advance Sign from a Finite Screen with Fixed Capacity](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | The twelve-port screen architecture and finite modular-gearing theorem | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Supporting evidence | [`code/`](code) and the [issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues) |
+| Supporting evidence | [`code/`](code) and the [reproduction guide](REPRODUCE.md) |
 | Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
 The [paper index](paper/) and [supplement index](extra/) give the complete curated publication map.
@@ -628,14 +625,13 @@ cited here.
 
 ## Contribute
 
-OPH is an open research program, and contributions are wanted: proofs,
-counterexamples, simulations, audits, and readable explanations all move it
-forward. A good first hour is the [reproduction guide](REPRODUCE.md), which
-rebuilds the certificates and checks from a clean clone. The open problems
-live on the
-[issue tracker](https://github.com/FloatingPragma/observer-patch-holography/issues)
-and in the [selection ledger](docs/SELECTION_LEDGER.md), which lists exactly
-what is proved and exactly what is left. Pick a row and take it.
+OPH welcomes proofs, counterexamples, simulations, audits, and readable
+explanations. The [reproduction guide](REPRODUCE.md) rebuilds the certificates
+and checks from a clean clone. The
+[scoped research questions](https://github.com/FloatingPragma/observer-patch-holography/issues)
+identify suitable contributions, while the
+[selection ledger](docs/SELECTION_LEDGER.md) states their exact theorem
+premises and unresolved mathematical inputs.
 
 ## License
 

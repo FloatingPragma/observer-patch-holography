@@ -40,8 +40,8 @@
 \newcommand{\pathref}[1]{\nolinkurl{#1}}
 \newcommand{\SimSourceRepo}{\url{https://github.com/muellerberndt/oph-physics-sim}}
 
-\title{OPH Cosmological Vacuum and Structure Formation:\\
-Finite Transfer Gates, Fluctuation Ensembles, and Proto-Object Receipts}
+\title{Observer-Patch Holography Cosmological Vacuum and Structure Formation:\\
+Finite Transfer Conditions, Fluctuation Ensembles, and Proto-Objects}
 \author{B.\ M\"uller}
 \date{\OPHPaperReleaseDate}
 
@@ -64,22 +64,19 @@ cosmological prediction.
 
 \section{Scope}
 
-This is a technical companion outside the release bundle. It coordinates the
+This technical companion states the
 vacuum and fluctuation boundary for finite-source cosmology, screen
-microphysics, the compact theorem stack, and OPH-FPE simulator outputs.
+microphysics, the compact results, and finite-patch simulations.
 
-\section{Shared Finite Quotient Theorem Surface}
+\section{Finite Quotient Ensemble Theorem}
 
 \input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
 
 \section{Vacuum Claim Boundary}
 
-The strongest allowed simulator labels are:
-\[
-E0:\hbox{ seed noise or repair jitter},\qquad
-E1:\hbox{ conventional reference ensemble}.
-\]
-An OPH-native vacuum label requires an E3 receipt.  The source data must include
+A simulated field is classified as seed noise, repair jitter, or a conventional
+reference ensemble unless it satisfies the finite quotient ensemble
+conditions. An OPH-native vacuum requires source data of the form
 \[
 \mathfrak S_r^E=(Q_r,m_r^0,J_r,V_r,a_{t,r})
 \]
@@ -96,38 +93,40 @@ Object & Required source-side label\\
 \endhead
 \bottomrule
 \endfoot
-Fluctuating screen field & E0 or E1 unless an E2 quotient ensemble receipt passes.\\
-OPH vacuum field & E3 only after source Euclidean slab, ground-state, Doob, reflection-positivity,
-and transfer-refinement receipts.\\
+Fluctuating screen field & Seed noise or a conventional reference ensemble unless the quotient
+ensemble conditions hold.\\
+OPH vacuum field & Source Euclidean slab, ground-state, Doob, reflection-positivity,
+and transfer-refinement conditions.\\
 Proto-object worldlines & Diagnostic until production matter/particle and observer-facing object
-population receipts pass.\\
-Growth seeds & E4 only after the primordial bridge, physical mode basis,
+population conditions hold.\\
+Growth seeds & Primordial bridge, physical mode basis,
 radial-null, positivity, forward-projection, and source-dilation or tomography
-receipts pass.\\
-LSS comparison & Diagnostic; source, transfer, and official likelihood/data contracts are work in progress.\\
+conditions.\\
+Large-scale structure comparison & Diagnostic; source, transfer, and official likelihood/data
+contracts are work in progress.\\
 \end{longtable}
 
-\section{Simulator Contract}
+\section{Numerical Acceptance Conditions}
 
-The simulator should emit the following receipt names even when they fail:
+The finite-patch calculation reports the following five conditions separately:
 \begin{itemize}[leftmargin=2em]
-\item \pathref{TRACIALLY_POINTED_QUOTIENT_RECEIPT}
-\item \pathref{SOURCE_EUCLIDEAN_SLAB_RECEIPT}
-\item \pathref{TRANSFER_REFINEMENT_RECEIPT}
-\item \pathref{STATIONARY_LAW_SCHEDULE_INVARIANCE_RECEIPT}
-\item \pathref{PATHWISE_PARTITION_INVARIANCE_RECEIPT}
+\item a tracially pointed quotient;
+\item a source-derived Euclidean slab;
+\item transfer stability under refinement;
+\item schedule invariance of the stationary law;
+\item pathwise invariance under partition changes.
 \end{itemize}
-False receipts are part of the scientific result.  They prevent a reference baseline or rendering
-field from being mislabeled as an OPH vacuum.
+A failed condition is part of the scientific result and excludes the physical
+vacuum classification for a reference baseline or rendering field.
 
-\section{Unclosed Claim Boundaries}
+\section{Open Premises}
 
-\begin{enumerate}[leftmargin=2em]
-\item Derive the reversible source conductances \(J_r\), potential \(V_r\), and slab thickness
-\(a_{t,r}\) from finite OPH source data.
-\item Prove reflection positivity or an equivalent reconstruction theorem on the selected branch.
-\item Relate passed E3 vacuum receipts to E4 primordial growth seeds without using CMB or LSS data.
-\item Specify proto-object/worldline receipts that remain distinct from production particle claims.
-\end{enumerate}
+Finite OPH source data do not supply the reversible conductances \(J_r\), the
+potential \(V_r\), or the slab thickness \(a_{t,r}\). Reflection positivity,
+or an equivalent reconstruction theorem on the selected branch, is work in
+progress. The bridge from a source-derived vacuum to primordial growth seeds
+without cosmic microwave background or large-scale structure data is work in
+progress. A physical proto-object or worldline requires conditions distinct
+from those used for production particle claims.
 
 \end{document}

@@ -509,11 +509,10 @@ central light-quark ratios derived from
 [FLAG 2024](https://arxiv.org/abs/2411.04268). The absolute down-type values
 disagree by 30–50%.
 
-A non-preregistered conservative comparison gate using experimental
-errors alone rejects every assignment against both FLAG rows. The unavailable
-covariance and absent theory uncertainty preclude a covariance-aware
-significance, and the gate has no preregistered theory-wide falsification
-status. This closes only the common-transport assignment family.
+A conservative comparison using experimental errors alone rejects every
+assignment against both FLAG rows. The unavailable covariance and absent
+theory uncertainty preclude a covariance-aware significance. This result
+concerns only the common-transport assignment family.
 
 Other coefficient relations,
 alphabets, physical charged-family attachments, and generation-dependent

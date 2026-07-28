@@ -19,7 +19,7 @@
 \setlength{\parskip}{0.55em}
 \setlength{\emergencystretch}{3em}
 
-\title{OPH Cosmology Data and Likelihood Contracts\\
+\title{Observer-Patch Holography Cosmology Data and Likelihood Contracts\\
 \large Provenance, Comparability, and Claim Boundaries}
 \author{B.\ M\"uller}
 \date{\OPHPaperReleaseDate}
@@ -76,7 +76,7 @@ calibration model, nuisance parameters, priors, and combination rule. Dataset
 overlap and shared calibration must be included. A diagonal sum is not a joint
 likelihood when the covariance is non-diagonal.
 
-The model and data layers must remain separate. Measured values that select
+The model and data layers are separate. Measured values that select
 a source formula, normalization, branch, or applicability domain are inputs to
 that comparison rather than OPH outputs.
 
@@ -87,13 +87,13 @@ that comparison rather than OPH outputs.
 \toprule
 Observable family & Required theory output & Required comparison object \\
 \midrule
-CMB & $C_\ell^{TT}$, $C_\ell^{TE}$, $C_\ell^{EE}$, lensing, foreground model &
+Cosmic microwave background (CMB) & $C_\ell^{TT}$, $C_\ell^{TE}$, $C_\ell^{EE}$, lensing, foreground model &
 map or band-power likelihood with covariance and nuisance model \\
-BAO and supernovae & $H(z)$, $D_A(z)$, luminosity distance, sound horizon &
+Baryon acoustic oscillations (BAO) and supernovae & $H(z)$, $D_A(z)$, luminosity distance, sound horizon &
 survey likelihood with calibration covariance \\
 Weak lensing & metric potentials, nonlinear matter power, intrinsic alignments &
 tomographic likelihood with masks and covariance \\
-Growth and RSD & $P_m(k,z)$ and $f\sigma_8(z)$ &
+Growth and redshift-space distortions (RSD) & $P_m(k,z)$ and $f\sigma_8(z)$ &
 windowed survey likelihood with cross-bin covariance \\
 Clusters & mass function, selection, observable--mass map, lensing calibration &
 count and calibration likelihood \\
@@ -105,10 +105,10 @@ galaxy-level likelihood with selection and covariance \\
 
 \section{Diagnostic Results}
 
-The repository contains CMB overlays, compressed background comparisons, and
-galaxy scaling checks. Their formulas or inputs are selected with knowledge of
+The reported CMB overlays, compressed background comparisons, and galaxy
+scaling checks are diagnostic. Their formulas or inputs are selected with knowledge of
 the comparison data, omit required covariance or nuisance structure, or lack a
-physical source map. They test numerical paths and conditional formulas. They
+physical source map. They test numerical paths and conditional formulas and
 do not establish a cosmological prediction.
 
 \section{No-Data-Use Boundary}
@@ -121,14 +121,14 @@ an output, a fit to that quantity, or a proxy calibrated from the same dataset.
 This provenance rule is enforced through the declared dependency graph and
 data-use classification.
 
-\section{Status}
+\section{Theorem scope}
 
-The screen-spectrum and radial-lift mathematics have a conditional theorem
-packet. One-shell inversion is nonunique; physical source dilation and radial
+The screen-spectrum and radial-lift mathematics are conditional theorems.
+One-shell inversion is nonunique; physical source dilation and radial
 cross-covariance tomography are the two uniqueness routes.
 Finite source instantiation, repair-charge cosmological source, Boltzmann
 bridge, and joint likelihood are work in progress. All cosmological
-data products remain diagnostic. Cosmology is outside the OPH falsification
-program.
+data products are diagnostic. No cosmological result carries an OPH
+falsification verdict.
 
 \end{document}
