@@ -15,6 +15,7 @@ A freeze is registered before its comparison data is examined, carries a kill ba
 | FZ-07 | Rotor RAR/BTFR scatter law stance | registered_pending_freeze | to freeze | [#561](https://github.com/FloatingPragma/observer-patch-holography/issues/561) (M5) | to freeze at M5 before comparison data is examined |
 | FZ-08 | DESI w(z) stance | registered_pending_freeze | to freeze | [#563](https://github.com/FloatingPragma/observer-patch-holography/issues/563) (M5) | to freeze at M5 before comparison data is examined |
 | FZ-09 | Vacuum birefringence null | registered_pending_freeze | to freeze | [#560](https://github.com/FloatingPragma/observer-patch-holography/issues/560) (M5) | to freeze at M5 before comparison data is examined; the FZ-01 registry row is THEOREM-TARGET until the emission theorem exists |
+| FZ-10 | Koide conditional tau window: under the balanced positive-chamber circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV (central 1776.969027), a window three orders of magnitude narrower than the 2026 world-average uncertainty; premise ancestry declared (the balance was first abstracted from the measured triple), so the kill direction carries the full weight | frozen_stamped_upgrade_pending | 2026-07-28T08:58:33Z | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) (M2) | FZ10-R01: a future charged-tau world average or dedicated measurement whose central value differs from 1776.969027 MeV by more than three standard uncertainties kills the balanced-circulant premise; COMPATIBLE requires agreement within two standard uncertainties at sigma <= 0.045 MeV; every other outcome is INCONCLUSIVE with no verdict at insufficient precision |
 
 ## Custody and attestation
 
@@ -24,6 +25,8 @@ A freeze is registered before its comparison data is examined, carries a kill ba
   Content hash: `d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82`. Comparison protocol: dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution
 - **FZ-06**: oph-meta falsification/frozen_targets/fz01_2026-07-17 (integer-k comb target of the FZ-01 registration; per-event re-test record kept with the tracker) covered by the FZ-01 Bitcoin attestations.
   Content hash: `manifest-bound through the FZ-01 registration manifest`. Comparison protocol: per-event scoring under the registered protocol; the GW250114 lean is in the record
+- **FZ-10**: oph-meta falsification/frozen_targets/fz10_2026-07-28 (frozen target statement with decision policy, byte copy of the producing artifact at source commit bbc2cebe, and registration manifest) OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass.
+  Content hash: `09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898`. Comparison protocol: reference observable, verdict thresholds, and precision floor frozen in the custody target statement before examination of any post-registration measurement
 
 ## Custody verification contracts
 
@@ -31,6 +34,7 @@ A freeze is registered before its comparison data is examined, carries a kill ba
 | --- | --- | --- | --- |
 | FZ-01 | FZ-01, FZ-06 | Bitcoin block attestation present | `falsification/frozen_targets/fz01_2026-07-17` |
 | FZ-02 | FZ-02 | calendar commitments present; Bitcoin upgrade pending | `falsification/frozen_targets/fz02_2026-07-26` |
+| FZ-10 | FZ-10 | calendar commitments present; Bitcoin upgrade pending | `falsification/frozen_targets/fz10_2026-07-28` |
 
 FZ-02 is bound to oph-meta custody commit `1e7d7c73dadeef9aa10ec60061a85cee8426c5b1` at `2026-07-26T06:41:53Z` and source commit `091658ce585c107a260e7b980352be904d2419b2`. Its append-only erratum corrects the original timestamp, source-commit, and whole-file-versus-fenced-block hash metadata without modifying any stamped artifact.
 

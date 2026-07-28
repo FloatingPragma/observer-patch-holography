@@ -165,8 +165,8 @@ def validate_custody_contracts(
     register: dict, rows_by_id: dict[str, dict]
 ) -> dict[str, dict]:
     contracts = register.get("external_custody_contracts")
-    if not isinstance(contracts, dict) or set(contracts) != {"FZ-01", "FZ-02"}:
-        fail("external_custody_contracts must contain exactly FZ-01 and FZ-02")
+    if not isinstance(contracts, dict) or set(contracts) != {"FZ-01", "FZ-02", "FZ-10"}:
+        fail("external_custody_contracts must contain exactly FZ-01, FZ-02, and FZ-10")
 
     claimed_rows: set[str] = set()
     for contract_id, contract in contracts.items():

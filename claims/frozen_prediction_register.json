@@ -1,174 +1,203 @@
 {
-  "schema": "oph.frozen_prediction_register.v2",
-  "issue": 607,
-  "generated_surface": "docs/FROZEN_PREDICTION_LADDER.md",
-  "policy": "A freeze is registered before its comparison data is examined, carries a kill band, and a kill is published with the same prominence as a confirmation, after the audit / re-audit / repair ladder of the kill-condition protocol. Retrospective negative results are tracked separately and never backdated into this ladder.",
   "external_custody_contracts": {
     "FZ-01": {
+      "artifact_sha256": {
+        "frozen_target_acceleration_scale_2026-07-17.md": "d219fb4f5493b6f5b693a9afa365fb54ec0a04f412da5300fd6b94b88a7832c4",
+        "frozen_target_capacity_band_2026-07-17.md": "a4b66fb8aa2e30bf3bb0eea95c7848d8878fca097813bf94ed5d18ffbd1e46dc",
+        "frozen_target_dark_energy_wlaw_2026-07-17.md": "3fc830cf2a43cdf0d55e2acebb826ee952c8db4bbfad1231b8b2d00bea220e39",
+        "frozen_target_integer_k_comb_2026-07-17.md": "f55dc7fb72797da4a2a25d31870c668e39db6e3579bc2f5b09ac6d4b683de2d7",
+        "frozen_target_scalar_tilt_2026-07-17.md": "7efdb588224a848c22019dc5dfae6faea30b0f7a3d47ed544313dacfb3032e9a",
+        "fz01_freeze_registry_2026-07-17.json": "8eb71663383aa7927448188e62337ae46ede676d11fad72450c013c2fa570c91",
+        "tracker_section8_pinned_text.md": "54b216b52afe25895552a04b450c3cb33e303802e99618f24361b2bf2b9e0737"
+      },
+      "attestation_state": "bitcoin_attested",
+      "custody_path": "falsification/frozen_targets/fz01_2026-07-17",
+      "in_repo_artifact_sha256": {},
+      "registration_manifest": "registration_manifest_2026-07-17.json",
+      "registration_manifest_sha256": "80fa5f1e5372067e6f2d034d1a012080322f1d697594d644145c694409c1d09e",
       "rows": [
         "FZ-01",
         "FZ-06"
-      ],
-      "custody_path": "falsification/frozen_targets/fz01_2026-07-17",
-      "registration_manifest": "registration_manifest_2026-07-17.json",
-      "registration_manifest_sha256": "80fa5f1e5372067e6f2d034d1a012080322f1d697594d644145c694409c1d09e",
-      "attestation_state": "bitcoin_attested",
-      "artifact_sha256": {
-        "fz01_freeze_registry_2026-07-17.json": "8eb71663383aa7927448188e62337ae46ede676d11fad72450c013c2fa570c91",
-        "tracker_section8_pinned_text.md": "54b216b52afe25895552a04b450c3cb33e303802e99618f24361b2bf2b9e0737",
-        "frozen_target_capacity_band_2026-07-17.md": "a4b66fb8aa2e30bf3bb0eea95c7848d8878fca097813bf94ed5d18ffbd1e46dc",
-        "frozen_target_scalar_tilt_2026-07-17.md": "7efdb588224a848c22019dc5dfae6faea30b0f7a3d47ed544313dacfb3032e9a",
-        "frozen_target_acceleration_scale_2026-07-17.md": "d219fb4f5493b6f5b693a9afa365fb54ec0a04f412da5300fd6b94b88a7832c4",
-        "frozen_target_dark_energy_wlaw_2026-07-17.md": "3fc830cf2a43cdf0d55e2acebb826ee952c8db4bbfad1231b8b2d00bea220e39",
-        "frozen_target_integer_k_comb_2026-07-17.md": "f55dc7fb72797da4a2a25d31870c668e39db6e3579bc2f5b09ac6d4b683de2d7"
-      },
-      "in_repo_artifact_sha256": {}
+      ]
     },
     "FZ-02": {
-      "rows": [
-        "FZ-02"
-      ],
-      "custody_path": "falsification/frozen_targets/fz02_2026-07-26",
-      "registration_manifest": "registration_manifest_2026-07-26.json",
-      "registration_manifest_sha256": "278dedcabe9b242b21a1f0ea0d0ceb8899dd279acf9b579eb0c5bae8af858ddf",
+      "artifact_sha256": {
+        "A5AngularMultiplets_pinned.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726",
+        "a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89",
+        "frozen_target_angular_multiplet_signature_2026-07-26.md": "abff4289459a53be63808210b37fd4025af2abf73bc82a2b2a41594953742a57",
+        "fz02_freeze_registry_2026-07-26.json": "bf755a072641eeff3ac000f7abd15f4eb0360175d8fa738a73c31495f98447c4"
+      },
       "attestation_state": "calendar_pending",
       "custody_commit": "1e7d7c73dadeef9aa10ec60061a85cee8426c5b1",
       "custody_commit_utc": "2026-07-26T06:41:53Z",
-      "source_commit": "091658ce585c107a260e7b980352be904d2419b2",
       "custody_erratum": "CUSTODY_ERRATUM_2026-07-26.md",
       "custody_erratum_sha256": "80a7bf46431ba630b08841a203752f643906a06b130b6d2d5d4f650539e025aa",
-      "target_file": "frozen_target_angular_multiplet_signature_2026-07-26.md",
-      "target_block_sha256": "cdfd9ff814b19b3f70d2594299cd0047b2fdcd94a9fbcd90e8d42a46a1dee10d",
-      "target_payload_sha256": "a38b63c52e21625ce961ece55357865ee2148e625d416e6ff7885f4723ee48d8",
-      "artifact_sha256": {
-        "frozen_target_angular_multiplet_signature_2026-07-26.md": "abff4289459a53be63808210b37fd4025af2abf73bc82a2b2a41594953742a57",
-        "fz02_freeze_registry_2026-07-26.json": "bf755a072641eeff3ac000f7abd15f4eb0360175d8fa738a73c31495f98447c4",
-        "a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89",
-        "A5AngularMultiplets_pinned.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726"
-      },
+      "custody_path": "falsification/frozen_targets/fz02_2026-07-26",
       "in_repo_artifact_sha256": {
-        "code/a5_closure/receipts/a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89",
-        "Lean/Screen/A5AngularMultiplets.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726"
-      }
+        "Lean/Screen/A5AngularMultiplets.lean": "e18f8874ea1fdf3a0a74289951a5f6d8bce5763eefaba0e3c9360e0dc659d726",
+        "code/a5_closure/receipts/a5_angular_multiplet_reference.receipt.json": "93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89"
+      },
+      "registration_manifest": "registration_manifest_2026-07-26.json",
+      "registration_manifest_sha256": "278dedcabe9b242b21a1f0ea0d0ceb8899dd279acf9b579eb0c5bae8af858ddf",
+      "rows": [
+        "FZ-02"
+      ],
+      "source_commit": "091658ce585c107a260e7b980352be904d2419b2",
+      "target_block_sha256": "cdfd9ff814b19b3f70d2594299cd0047b2fdcd94a9fbcd90e8d42a46a1dee10d",
+      "target_file": "frozen_target_angular_multiplet_signature_2026-07-26.md",
+      "target_payload_sha256": "a38b63c52e21625ce961ece55357865ee2148e625d416e6ff7885f4723ee48d8"
+    },
+    "FZ-10": {
+      "artifact_sha256": {
+        "frozen_target_koide_conditional_tau_2026-07-28.md": "1b15fdc304223bc7b4c6e3916e222a67564b6bd6edc128414b66c450b259a5ee",
+        "koide_balance_comparison_frozen_2026-07-28.json": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898"
+      },
+      "attestation_state": "calendar_pending",
+      "custody_path": "falsification/frozen_targets/fz10_2026-07-28",
+      "in_repo_artifact_sha256": {
+        "code/particles/runs/leptons/koide_balance_comparison.json": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898"
+      },
+      "registration_manifest": "registration_manifest_2026-07-28.json",
+      "registration_manifest_sha256": "5c2e2750931b28cb9f1fbcc9c5ccbc53b99d05dd238aa7b0b06312c4c20fb79d",
+      "rows": [
+        "FZ-10"
+      ]
     }
   },
+  "generated_surface": "docs/FROZEN_PREDICTION_LADDER.md",
+  "issue": 607,
+  "policy": "A freeze is registered before its comparison data is examined, carries a kill band, and a kill is published with the same prominence as a confirmation, after the audit / re-audit / repair ladder of the kill-condition protocol. Retrospective negative results are tracked separately and never backdated into this ladder.",
   "rows": [
     {
-      "id": "FZ-01",
-      "content": "Anchored registration: twenty-row registry with five frozen targets (capacity band, scalar tilt n_s = 1 - P/48, acceleration scale, dark-energy w-law on (-1, 0), integer-k Kerr ringdown comb)",
-      "status": "frozen_attested",
-      "frozen_utc": "2026-07-17T07:18:00Z",
-      "custody": "oph-meta falsification/frozen_targets/fz01_2026-07-17 (registration manifest plus per-target statements, decision policies, and integrity hashes)",
       "attestation": "complete Bitcoin attestations on every artifact and on the registration manifest; pre-upgrade calendar proofs retained",
-      "content_sha256": "manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256",
-      "kill_band": "per-target decision policies frozen with each target, with explicit no-verdict clauses at insufficient precision",
       "comparison_protocol": "per-target reference observables and z/sigma thresholds frozen before comparison",
-      "owning_issue": null,
-      "milestone": "done"
-    },
-    {
-      "id": "FZ-02",
-      "content": "Angular multiplet signature: the exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, first nonconstant invariant at l = 6 frame-locked to l = 3, and the face-phase multiplicity vector (0, 1, 1, 1, 2) with the N_g = 3 slot",
-      "status": "frozen_stamped_upgrade_pending",
-      "frozen_utc": "2026-07-26T06:41:53Z",
-      "custody": "oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, and append-only custody erratum)",
-      "attestation": "OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass",
-      "content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
-      "kill_band": "FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03: nonconstant invariant below l = 6 or l = 6 / l = 3 frame misalignment beyond registered tolerance fails; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route",
-      "comparison_protocol": "dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution",
-      "owning_issue": null,
-      "milestone": "M1"
-    },
-    {
-      "id": "FZ-03",
-      "content": "Neutrino ordering and mixing stance from the frozen likelihood",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
-      "attestation": null,
-      "content_sha256": null,
-      "kill_band": "to freeze with the stance, before comparison",
-      "comparison_protocol": "to freeze with the stance",
-      "owning_issue": 508,
-      "milestone": "M2"
-    },
-    {
-      "id": "FZ-04",
-      "content": "Alpha/HVP same-scheme kill band",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
-      "attestation": null,
-      "content_sha256": null,
-      "kill_band": "to freeze with the test",
-      "comparison_protocol": "to freeze with the test",
-      "owning_issue": 506,
-      "milestone": "M2"
-    },
-    {
-      "id": "FZ-05",
-      "content": "Lambda bridge resolution receipt or kill declaration",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
-      "attestation": null,
-      "content_sha256": null,
-      "kill_band": "either branch is a milestone: a derived closure supports the bridge, a clean public kill fixes its failure boundary",
-      "comparison_protocol": "to declare at M3 with the slack-law receipt",
-      "owning_issue": 551,
-      "milestone": "M3"
-    },
-    {
-      "id": "FZ-06",
-      "content": "Ringdown alpha = 4 integer-k comb, standing freeze re-tested per loud event",
-      "status": "standing_frozen",
+      "content": "Anchored registration: twenty-row registry with five frozen targets (capacity band, scalar tilt n_s = 1 - P/48, acceleration scale, dark-energy w-law on (-1, 0), integer-k Kerr ringdown comb)",
+      "content_sha256": "manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256",
+      "custody": "oph-meta falsification/frozen_targets/fz01_2026-07-17 (registration manifest plus per-target statements, decision policies, and integrity hashes)",
       "frozen_utc": "2026-07-17T07:18:00Z",
-      "custody": "oph-meta falsification/frozen_targets/fz01_2026-07-17 (integer-k comb target of the FZ-01 registration; per-event re-test record kept with the tracker)",
-      "attestation": "covered by the FZ-01 Bitcoin attestations",
-      "content_sha256": "manifest-bound through the FZ-01 registration manifest",
-      "kill_band": "per the frozen comb target decision policy; each loud ringdown event is scored under the registered protocol",
-      "comparison_protocol": "per-event scoring under the registered protocol; the GW250114 lean is in the record",
+      "id": "FZ-01",
+      "kill_band": "per-target decision policies frozen with each target, with explicit no-verdict clauses at insufficient precision",
+      "milestone": "done",
       "owning_issue": null,
-      "milestone": "standing"
+      "status": "frozen_attested"
     },
     {
-      "id": "FZ-07",
+      "attestation": "OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass",
+      "comparison_protocol": "dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution",
+      "content": "Angular multiplet signature: the exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, first nonconstant invariant at l = 6 frame-locked to l = 3, and the face-phase multiplicity vector (0, 1, 1, 1, 2) with the N_g = 3 slot",
+      "content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
+      "custody": "oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, and append-only custody erratum)",
+      "frozen_utc": "2026-07-26T06:41:53Z",
+      "id": "FZ-02",
+      "kill_band": "FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03: nonconstant invariant below l = 6 or l = 6 / l = 3 frame misalignment beyond registered tolerance fails; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route",
+      "milestone": "M1",
+      "owning_issue": null,
+      "status": "frozen_stamped_upgrade_pending"
+    },
+    {
+      "attestation": null,
+      "comparison_protocol": "to freeze with the stance",
+      "content": "Neutrino ordering and mixing stance from the frozen likelihood",
+      "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-03",
+      "kill_band": "to freeze with the stance, before comparison",
+      "milestone": "M2",
+      "owning_issue": 508,
+      "status": "registered_pending_freeze"
+    },
+    {
+      "attestation": null,
+      "comparison_protocol": "to freeze with the test",
+      "content": "Alpha/HVP same-scheme kill band",
+      "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-04",
+      "kill_band": "to freeze with the test",
+      "milestone": "M2",
+      "owning_issue": 506,
+      "status": "registered_pending_freeze"
+    },
+    {
+      "attestation": null,
+      "comparison_protocol": "to declare at M3 with the slack-law receipt",
+      "content": "Lambda bridge resolution receipt or kill declaration",
+      "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-05",
+      "kill_band": "either branch is a milestone: a derived closure supports the bridge, a clean public kill fixes its failure boundary",
+      "milestone": "M3",
+      "owning_issue": 551,
+      "status": "registered_pending_freeze"
+    },
+    {
+      "attestation": "covered by the FZ-01 Bitcoin attestations",
+      "comparison_protocol": "per-event scoring under the registered protocol; the GW250114 lean is in the record",
+      "content": "Ringdown alpha = 4 integer-k comb, standing freeze re-tested per loud event",
+      "content_sha256": "manifest-bound through the FZ-01 registration manifest",
+      "custody": "oph-meta falsification/frozen_targets/fz01_2026-07-17 (integer-k comb target of the FZ-01 registration; per-event re-test record kept with the tracker)",
+      "frozen_utc": "2026-07-17T07:18:00Z",
+      "id": "FZ-06",
+      "kill_band": "per the frozen comb target decision policy; each loud ringdown event is scored under the registered protocol",
+      "milestone": "standing",
+      "owning_issue": null,
+      "status": "standing_frozen"
+    },
+    {
+      "attestation": null,
+      "comparison_protocol": "to freeze at M5",
       "content": "Rotor RAR/BTFR scatter law stance",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
-      "attestation": null,
       "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-07",
       "kill_band": "to freeze at M5 before comparison data is examined",
-      "comparison_protocol": "to freeze at M5",
+      "milestone": "M5",
       "owning_issue": 561,
-      "milestone": "M5"
+      "status": "registered_pending_freeze"
     },
     {
-      "id": "FZ-08",
+      "attestation": null,
+      "comparison_protocol": "to freeze at M5",
       "content": "DESI w(z) stance",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
-      "attestation": null,
       "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-08",
       "kill_band": "to freeze at M5 before comparison data is examined",
-      "comparison_protocol": "to freeze at M5",
+      "milestone": "M5",
       "owning_issue": 563,
-      "milestone": "M5"
+      "status": "registered_pending_freeze"
     },
     {
-      "id": "FZ-09",
-      "content": "Vacuum birefringence null",
-      "status": "registered_pending_freeze",
-      "frozen_utc": null,
-      "custody": null,
       "attestation": null,
-      "content_sha256": null,
-      "kill_band": "to freeze at M5 before comparison data is examined; the FZ-01 registry row is THEOREM-TARGET until the emission theorem exists",
       "comparison_protocol": "to freeze at M5",
+      "content": "Vacuum birefringence null",
+      "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-09",
+      "kill_band": "to freeze at M5 before comparison data is examined; the FZ-01 registry row is THEOREM-TARGET until the emission theorem exists",
+      "milestone": "M5",
       "owning_issue": 560,
-      "milestone": "M5"
+      "status": "registered_pending_freeze"
+    },
+    {
+      "attestation": "OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass",
+      "comparison_protocol": "reference observable, verdict thresholds, and precision floor frozen in the custody target statement before examination of any post-registration measurement",
+      "content": "Koide conditional tau window: under the balanced positive-chamber circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV (central 1776.969027), a window three orders of magnitude narrower than the 2026 world-average uncertainty; premise ancestry declared (the balance was first abstracted from the measured triple), so the kill direction carries the full weight",
+      "content_sha256": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898",
+      "custody": "oph-meta falsification/frozen_targets/fz10_2026-07-28 (frozen target statement with decision policy, byte copy of the producing artifact at source commit bbc2cebe, and registration manifest)",
+      "frozen_utc": "2026-07-28T08:58:33Z",
+      "id": "FZ-10",
+      "kill_band": "FZ10-R01: a future charged-tau world average or dedicated measurement whose central value differs from 1776.969027 MeV by more than three standard uncertainties kills the balanced-circulant premise; COMPATIBLE requires agreement within two standard uncertainties at sigma <= 0.045 MeV; every other outcome is INCONCLUSIVE with no verdict at insufficient precision",
+      "milestone": "M2",
+      "owning_issue": 546,
+      "status": "frozen_stamped_upgrade_pending"
     }
-  ]
+  ],
+  "schema": "oph.frozen_prediction_register.v2"
 }
