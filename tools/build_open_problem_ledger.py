@@ -431,6 +431,32 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "falsification": "The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum.",
         "chrome_policy": "Use for independent audit only after a local attachment packet exists.",
     },
+    569: {
+        "phase": "physical-family-attachment",
+        "claim_level": "two-clause conditional selection with exact in-interface theorem",
+        "blocker": (
+            "The family_band_attachment certificate proves the exact selection: among "
+            "single complete faithful in-window multiplicity objects inside the screen "
+            "coefficient space, the #625 operational cost order has the rank-three band "
+            "as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five "
+            "(Lean Screen/A5FamilyBand.lean, kernel-decided). Both interface clauses "
+            "stay premises: realization of the multiplicity object inside the screen, "
+            "and comparison by the operational cost order. The #617 copy-count "
+            "invisibility for external completions holds unchanged."
+        ),
+        "closure": (
+            "A measured family-sensitive pole-residue artifact realizes the two clauses: "
+            "complex rank exactly forty-five with the residue map factoring through the "
+            "canonical rank-three band, with copy-count, block-swap, and excluded-cone "
+            "controls failing closed."
+        ),
+        "falsification": (
+            "A measured pole-residue object realized in the screen with a faithful "
+            "in-window multiplicity object that is not the rank-three band, or a "
+            "measured comparison order that violates the #625 operational cone."
+        ),
+        "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
+    },
 }
 
 

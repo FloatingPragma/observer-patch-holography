@@ -145,6 +145,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/capacity_readback/test_capacity_semantics_menu_certificate.py",
             "code/a5_closure/tests/test_load_fiber_readback_certificate.py",
             "code/a5_closure/tests/test_noncentral_seam_reduction_certificate.py",
+            "code/a5_closure/tests/test_family_band_attachment_certificate.py",
             "code/a5_closure/tests/test_flux_defect_criterion_certificate.py",
             "code/cosmology/test_edge_center_clock_certificate.py",
             "code/consensus/test_compiled_lattice_settling_certificate.py",

@@ -1,0 +1,365 @@
+{
+  "attachment": {
+    "common_kernel": "Z6, unchanged under family triplication (per-family forms are zero and the kernel is charge-determined)",
+    "complex_rank": 45,
+    "family_dimension": 3,
+    "family_object": "the 3 band of the screen coefficient space",
+    "generation_weyl_states": 15,
+    "three_family_anomaly_forms": {
+      "grav_u1": "0",
+      "su2_sq_u1": "0",
+      "su3_sq_u1": "0",
+      "u1_cubed": "0"
+    },
+    "three_family_weak_doublets": 12,
+    "weak_parity_even": true
+  },
+  "band_action_kernels": {
+    "1": 60,
+    "3": 1,
+    "3p": 1,
+    "5": 1
+  },
+  "bounded_exit": "exact_named_realization",
+  "candidate_enumeration": {
+    "admissible": [
+      "3",
+      "3p",
+      "5"
+    ],
+    "rows": [
+      {
+        "dimension": 1,
+        "excluded_by": "faithful_family_exchange",
+        "object": "1",
+        "reason": "every listed rotation acts as the identity"
+      },
+      {
+        "admissible": true,
+        "cost_per_unit_norm": "5+-1*sqrt5",
+        "dimension": 3,
+        "object": "3"
+      },
+      {
+        "dimension": 4,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "admissible": true,
+        "cost_per_unit_norm": "5+1*sqrt5",
+        "dimension": 3,
+        "object": "3p"
+      },
+      {
+        "dimension": 4,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3p",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 6,
+        "excluded_by": "single_complete_object_clause",
+        "object": "3+3p",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 7,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3+3p",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "admissible": true,
+        "cost_per_unit_norm": "6+0*sqrt5",
+        "dimension": 5,
+        "object": "5"
+      },
+      {
+        "dimension": 6,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 8,
+        "excluded_by": "single_complete_object_clause",
+        "object": "3+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 9,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 8,
+        "excluded_by": "single_complete_object_clause",
+        "object": "3p+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 9,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3p+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 11,
+        "excluded_by": "single_complete_object_clause",
+        "object": "3+3p+5",
+        "reason": "a source-visible proper splitting projector exists"
+      },
+      {
+        "dimension": 12,
+        "excluded_by": "single_complete_object_clause",
+        "object": "1+3+3p+5",
+        "reason": "a source-visible proper splitting projector exists"
+      }
+    ]
+  },
+  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved, and both interface clauses below are premises, not theorems.",
+  "controls": {
+    "block_swap_refinement": {
+      "code": "BLOCK_SWAP_COST_DETECTED",
+      "cost_after": "5+1*sqrt5",
+      "cost_before": "5+-1*sqrt5",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the refinement witness that defeated the 2026-07-20 closure attempt is detected by the cost readback; in-band relabellings preserve the cost exactly"
+    },
+    "dropped_faithfulness": {
+      "code": "TRIVIAL_BAND_WITHOUT_FAITHFULNESS",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the faithfulness clause is load-bearing; the selection is cost minimization among faithful in-window single objects, not cost minimization alone",
+      "unguarded_cost": "0+0*sqrt5",
+      "unguarded_minimizer": "1"
+    },
+    "excluded_cone": {
+      "code": "COST_CONE_VIOLATION",
+      "excluded_readback_costs": {
+        "3": "6+1*sqrt5",
+        "3p": "6+-1*sqrt5",
+        "5": "5+0*sqrt5"
+      },
+      "excluded_readback_minimizer": "3p",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the selection genuinely consumes the #625 operational cone; the imported-only form 6I + A picks the Galois partner instead"
+    },
+    "external_copy_reduct": {
+      "code": "REDUCT_COUNT_NOT_SELECTED",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the #617 invisibility theorem is preserved; without clause (R) nothing is selected",
+      "reduct_rows": {
+        "3": {
+          "anomaly_forms_scaled": {
+            "grav_u1": "0",
+            "su2_sq_u1": "0",
+            "su3_sq_u1": "0",
+            "u1_cubed": "0"
+          },
+          "kernel": "Z6",
+          "weak_parity": 0
+        },
+        "4": {
+          "anomaly_forms_scaled": {
+            "grav_u1": "0",
+            "su2_sq_u1": "0",
+            "su3_sq_u1": "0",
+            "u1_cubed": "0"
+          },
+          "kernel": "Z6",
+          "weak_parity": 0
+        }
+      }
+    },
+    "galois_transport": {
+      "code": "GALOIS_NOT_A_TRANSPORT",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "sqrt5 -> -sqrt5 exchanges the bands abstractly, but it is not an A2 transport and does not preserve the measured cost order, so the 3 versus 3' ambiguity is operationally resolved"
+    },
+    "reducible_object": {
+      "code": "NOT_SINGLE_COMPLETE_OBJECT",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the window alone does not exclude reducible objects; the single-complete-object clause is load-bearing"
+    }
+  },
+  "equivariance": {
+    "all_projectors_equivariant": true,
+    "rotations_checked": 60
+  },
+  "generation": {
+    "per_family_anomaly_forms": {
+      "grav_u1": "0",
+      "su2_sq_u1": "0",
+      "su3_sq_u1": "0",
+      "u1_cubed": "0"
+    },
+    "states": [
+      {
+        "color": 3,
+        "hypercharge": "-2/3",
+        "label": "u_c",
+        "weak": 1,
+        "weyl_states": 3
+      },
+      {
+        "color": 3,
+        "hypercharge": "1/6",
+        "label": "Q",
+        "weak": 2,
+        "weyl_states": 6
+      },
+      {
+        "color": 1,
+        "hypercharge": "1",
+        "label": "e_c",
+        "weak": 1,
+        "weyl_states": 1
+      },
+      {
+        "color": 3,
+        "hypercharge": "1/3",
+        "label": "d_c",
+        "weak": 1,
+        "weyl_states": 3
+      },
+      {
+        "color": 1,
+        "hypercharge": "-1/2",
+        "label": "L",
+        "weak": 2,
+        "weyl_states": 2
+      }
+    ],
+    "weak_doublets_per_family": 4,
+    "weyl_state_count": 15
+  },
+  "invisibility_preserved": true,
+  "issue": 569,
+  "lean_spine": [
+    "Screen/A5PortAction.lean (sixty listed rotations, kernel-decided)",
+    "Screen/A5Commutant.lean (four-dimensional commutant)",
+    "Screen/A5FamilyBand.lean (spectral split, strict cost order, minimizer)"
+  ],
+  "manifest_sha256": "sha256:a9d049309eecf0e08771db5b7efacbac18c73e8fbfdf0c434c2bd89bdb1b0837",
+  "multiplicity_free": {
+    "consequence": "multiplicity-free permutation module; every band embedding is unique up to scalar",
+    "distance_matrices": 4,
+    "lean_companion": "Screen/A5Commutant.lean carries the same commutant independently",
+    "pairwise_commuting": true
+  },
+  "named_interface": {
+    "class": "conditional_open_interface",
+    "clause_controls": {
+      "R_realization": "external_copy_reduct",
+      "S_selection": "excluded_cone"
+    },
+    "clauses": {
+      "R_realization": "the physical pole-residue multiplicity object is realized as a single complete subobject of the source-visible screen coefficient space",
+      "S_selection": "the attachment is compared by the #625 operational cost order (quadratic seam-mismatch readback per unit norm)"
+    },
+    "id": "screen_realized_multiplicity_object",
+    "open_receipts": [
+      "complex rank-45 laboratory response",
+      "Spin/locality receipt",
+      "pole-residue receipt",
+      "refinement receipt"
+    ]
+  },
+  "operational_cost": {
+    "band_costs": {
+      "1": "0+0*sqrt5",
+      "3": "5+-1*sqrt5",
+      "3p": "5+1*sqrt5",
+      "5": "6+0*sqrt5"
+    },
+    "coefficients": [
+      5,
+      -1
+    ],
+    "excluded_comparison_form": [
+      6,
+      1
+    ],
+    "form": "5I - A per unit norm on each band"
+  },
+  "pair_orbits": {
+    "consequence": "the commutant of the listed action is the span of the four distance matrices",
+    "orbits_are_distance_classes": true,
+    "ordered_pair_orbits": 4
+  },
+  "physical_window": {
+    "lower": 3,
+    "source": "pinned #617 receipt",
+    "upper": 5
+  },
+  "schema": "oph.family_band_attachment_certificate.v1",
+  "selection": {
+    "minimizer": "3",
+    "order": [
+      {
+        "cost": "5+-1*sqrt5",
+        "object": "3"
+      },
+      {
+        "cost": "6+0*sqrt5",
+        "object": "5"
+      },
+      {
+        "cost": "5+1*sqrt5",
+        "object": "3p"
+      }
+    ],
+    "strict": true
+  },
+  "spectral_resolution": {
+    "band_dimensions": {
+      "1": 1,
+      "3": 3,
+      "3p": 3,
+      "5": 5
+    },
+    "eigenvalues": {
+      "1": "5+0*sqrt5",
+      "3": "0+1*sqrt5",
+      "3p": "0+-1*sqrt5",
+      "5": "-1+0*sqrt5"
+    },
+    "galois_pair": "sqrt5 -> -sqrt5 exchanges P3 and P3'",
+    "idempotent_orthogonal_complete": true
+  },
+  "uniqueness": {
+    "embedding": "multiplicity one: the equivariant embedding of the 3 band is unique up to a scalar",
+    "galois_branch": "the 3' band is the Galois partner; it is operationally separated by the strict cost order and by the absence of any listed transport realizing the swap",
+    "relabellings": "the induced family-exchange image is the faithful icosahedral rotation image on the band; in-band relabellings preserve the cost exactly"
+  },
+  "upstream_pins": {
+    "carrier": {
+      "path": "manifests/echosahedral_federation_reference.json",
+      "sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280"
+    },
+    "matter_packet": {
+      "issue": 314,
+      "path": "manifests/super_tannakian_matter_reference.json",
+      "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+    },
+    "multiplicity_window": {
+      "issue": 617,
+      "path": "manifests/multiplicity_window_reference.json",
+      "sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97"
+    },
+    "operational_cost_cone": {
+      "issue": 625,
+      "path": "manifests/load_fiber_readback_reference.json",
+      "sha256": "82c32651269daa7416fec18213f20e4761945e85b8b54880a7994364939c2391"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # OPH Open Problem Ledger
 
-Generated: `2026-07-28T04:46:11Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
+Generated: `2026-07-28T05:23:35Z` from live GitHub issues in `FloatingPragma/observer-patch-holography`.
 
 This is the public boundary between closed OPH claims, conditional claims, and open work. Dedicated GitHub issues remain canonical for task state; this ledger records the current claim level, missing artifact, closure criterion, falsification route, and Chrome Pro worker policy.
 
@@ -53,6 +53,12 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | --- | --- | --- | --- | --- | --- |
 | [#32](https://github.com/FloatingPragma/observer-patch-holography/issues/32) [OPH Task] papers.compact.e.26-derive-rg-matching-and-threshold-structure-from-oph: 26. Derive RG matching and threshold structure from OPH | `constructive contract` | Populate scheme lock, threshold map, beta provenance table, and matching interval certificate. | Every running/matching ingredient is OPH-derived, explicitly borrowed, or declared with interval impact. | Hidden threshold or scheme freedom is needed to recover the quantitative rows. | Use only after the local RG packet exists. |
 
+## physical-family-attachment
+
+| Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
+| --- | --- | --- | --- | --- | --- |
+| [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [Family attachment] Attach the icosahedral screen action to three physical families | `two-clause conditional selection with exact in-interface theorem` | The family_band_attachment certificate proves the exact selection: among single complete faithful in-window multiplicity objects inside the screen coefficient space, the #625 operational cost order has the rank-three band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five (Lean Screen/A5FamilyBand.lean, kernel-decided). Both interface clauses stay premises: realization of the multiplicity object inside the screen, and comparison by the operational cost order. The #617 copy-count invisibility for external completions holds unchanged. | A measured family-sensitive pole-residue artifact realizes the two clauses: complex rank exactly forty-five with the residue map factoring through the canonical rank-three band, with copy-count, block-swap, and excluded-cone controls failing closed. | A measured pole-residue object realized in the screen with a faithful in-window multiplicity object that is not the rank-three band, or a measured comparison order that violates the #625 operational cone. | Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation. |
+
 ## physical-routed-seam-selection
 
 | Issue | Claim level | Missing artifact / blocker | Closure criterion | Falsification route | Chrome policy |
@@ -95,7 +101,6 @@ These are not solved derivations. They are closed as non-current-scope tasks bec
 | [#562](https://github.com/FloatingPragma/observer-patch-holography/issues/562) [Rotor source] Derive the baryonic repair demand from the BW/modular gravity bridge | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#563](https://github.com/FloatingPragma/observer-patch-holography/issues/563) [Rotor cosmology] Construct the joint CMB, lensing, cluster, and growth likelihood program | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#564](https://github.com/FloatingPragma/observer-patch-holography/issues/564) [Rotor program] Derive the repair-charge dark sector from finite OPH | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
-| [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [Family attachment] Attach the icosahedral screen action to three physical families | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#579](https://github.com/FloatingPragma/observer-patch-holography/issues/579) [Cosmology] Instantiate the source-screen spectrum receipts on one finite DAG | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#580](https://github.com/FloatingPragma/observer-patch-holography/issues/580) [Cosmology] Close physical TT/TE/EE transfer and frozen likelihood | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
 | [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) [N-horizon bridge] Identify public-record capacity with horizon area | `open` | Classify blocker from the live issue body. | Add exact closure criterion to this ledger. | Add exact falsification criterion to this ledger. | Do not launch workers until the issue has a concrete local packet. |
