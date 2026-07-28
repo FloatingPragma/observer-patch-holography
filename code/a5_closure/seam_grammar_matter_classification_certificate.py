@@ -72,7 +72,7 @@ ISSUE = 627
 def pin_file(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     payload = load_json(path)
     return payload, {
-        "path": str(path.relative_to(MODULE_DIR.parent.parent)),
+        "path": path.relative_to(MODULE_DIR.parent.parent).as_posix(),
         "sha256": sha256_json(payload),
     }
 
