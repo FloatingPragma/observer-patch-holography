@@ -380,23 +380,6 @@
     "all_projectors_equivariant": true,
     "rotations_checked": 60
   },
-  "finite_spin_locality_attachment": {
-    "chirality_nondegenerate": true,
-    "continuum_gate_unchanged": true,
-    "domain": "issue-634 typed local domain, bound by capture hash to the frozen stage receipts",
-    "gap_inherited_exact": true,
-    "generation_recomputed_states": 15,
-    "layer_clauses_all_true": true,
-    "lift_ambiguity_rank": 3117,
-    "receipt": {
-      "issue": 569,
-      "path": "manifests/matter_attachment_receipt.json",
-      "scope": "finite Spin/locality layer on the issue-634 local domain",
-      "sha256": "88c388c0fb04dfb9aea2166a4a11a5a993d2e1f5f9d20333ca7cc6f628dca847"
-    },
-    "scope_note": "the finite layer types chirality, spin data, locality, and refinement on the local domain; the continuum Spin/locality receipt, matter-pole identification, physical seam selection, and laboratory identification stay open",
-    "z6_all_states_fixed": true
-  },
   "generation": {
     "per_family_anomaly_forms": {
       "grav_u1": "0",
@@ -451,7 +434,26 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, actual refinement cocycle, rank-45 tensor transport, anomaly and Z6 checks)"
   ],
-  "manifest_sha256": "sha256:c1449ce63eb750cdf98d2f2aad6f5ca086fc78120d96542281376ee05e8149d6",
+  "local_domain_boundary_packet": {
+    "chirality_nondegenerate": true,
+    "continuum_gate_unchanged": true,
+    "domain": "issue-634 typed local domain, bound by capture hash to the frozen stage receipts",
+    "gap_inherited_exact": true,
+    "generation_recomputed_states": 15,
+    "layer_clauses_all_true": true,
+    "lift_ambiguity_rank": 3117,
+    "receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "finite Spin/locality layer on the issue-634 local domain",
+      "sha256": "313e84a1924248d8d5ea60f2fa3e20d6fbf7e64db48450faae0c45b79d694053"
+    },
+    "scope_note": "the assembled boundary packet recomputes chirality, the Z6 fixing, and the rank-45 tensor on the local domain under its declared extension; the issue-314 spin packet stays a separate pinned packet on its twelve-vertex support with no certified transport bridge to the issue-634 operator domain, and the physical Spin/locality bridge, matter-pole identification, physical seam selection, and laboratory identification stay open",
+    "spin_packet_status": "separate_pinned_issue_314_packet",
+    "spin_to_local_domain_bridge_certified": false,
+    "z6_all_states_fixed": true
+  },
+  "manifest_sha256": "sha256:95fde914a548dd95d3aaf76cc164ce3a2cc64dbbd40a2384b6159d1a886c638b",
   "measured_receipt": {
     "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
     "artifact_issue": 599,
@@ -1480,12 +1482,6 @@
       "role": "current_refinement_receipt",
       "sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb"
     },
-    "finite_spin_locality_receipt": {
-      "issue": 569,
-      "path": "manifests/matter_attachment_receipt.json",
-      "scope": "finite Spin/locality layer on the issue-634 local domain",
-      "sha256": "88c388c0fb04dfb9aea2166a4a11a5a993d2e1f5f9d20333ca7cc6f628dca847"
-    },
     "global_form_manifest": {
       "issue": 567,
       "path": "manifests/axis_center_descent_reference.json",
@@ -1497,6 +1493,12 @@
       "path": "receipts/axis_center_descent_reference.receipt.json",
       "role": "global_form_receipt",
       "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
+    },
+    "local_domain_boundary_receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "finite Spin/locality layer on the issue-634 local domain",
+      "sha256": "313e84a1924248d8d5ea60f2fa3e20d6fbf7e64db48450faae0c45b79d694053"
     },
     "matter_manifest": {
       "issue": 314,

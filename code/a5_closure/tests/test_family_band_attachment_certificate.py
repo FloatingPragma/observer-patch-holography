@@ -200,8 +200,8 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v6")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
 
-    def test_finite_spin_locality_attachment_bound(self) -> None:
-        section = self.payload["finite_spin_locality_attachment"]
+    def test_local_domain_boundary_packet_bound(self) -> None:
+        section = self.payload["local_domain_boundary_packet"]
         self.assertTrue(section["layer_clauses_all_true"])
         self.assertEqual(section["generation_recomputed_states"], 15)
         self.assertTrue(section["z6_all_states_fixed"])
@@ -210,7 +210,7 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertTrue(section["continuum_gate_unchanged"])
         pins = self.payload["upstream_pins"]
         self.assertEqual(
-            pins["finite_spin_locality_receipt"]["path"],
+            pins["local_domain_boundary_receipt"]["path"],
             "manifests/matter_attachment_receipt.json",
         )
         control = self.payload["controls"]["matter_attachment_mutation"]

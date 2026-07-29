@@ -2381,11 +2381,11 @@ def build_payload() -> dict[str, Any]:
             "matter_packet": matter_pin,
             "measured_response_artifact": response_pin,
             "measured_pole_residue_artifact": pole_pin,
-            "finite_spin_locality_receipt": attachment_pin,
+            "local_domain_boundary_receipt": attachment_pin,
         },
         "measured_receipt": measured,
         "pole_residue_receipt": pole_receipt,
-        "finite_spin_locality_attachment": {
+        "local_domain_boundary_packet": {
             "receipt": attachment_pin,
             "domain": (
                 "issue-634 typed local domain, bound by capture hash to "
@@ -2405,15 +2405,24 @@ def build_payload() -> dict[str, Any]:
                 "gap_inheritance_certificate"
             ]["inherited"],
             "lift_ambiguity_rank": attachment_receipt["spin_layer"][
-                "lift_ambiguity_rank"
+                "local_domain_stage2_context"
+            ]["lift_ambiguity_rank"],
+            "spin_packet_status": attachment_receipt["spin_layer"][
+                "packet_status"
             ],
+            "spin_to_local_domain_bridge_certified": attachment_receipt[
+                "spin_layer"
+            ]["spin_to_local_domain_bridge_certified"],
             "continuum_gate_unchanged": True,
             "scope_note": (
-                "the finite layer types chirality, spin data, locality, "
-                "and refinement on the local domain; the continuum "
-                "Spin/locality receipt, matter-pole identification, "
-                "physical seam selection, and laboratory identification "
-                "stay open"
+                "the assembled boundary packet recomputes chirality, the "
+                "Z6 fixing, and the rank-45 tensor on the local domain "
+                "under its declared extension; the issue-314 spin packet "
+                "stays a separate pinned packet on its twelve-vertex "
+                "support with no certified transport bridge to the "
+                "issue-634 operator domain, and the physical Spin/locality "
+                "bridge, matter-pole identification, physical seam "
+                "selection, and laboratory identification stay open"
             ),
         },
         "spectral_resolution": spectral,
