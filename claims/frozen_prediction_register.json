@@ -42,6 +42,8 @@
       "rows": [
         "FZ-02"
       ],
+      "scientific_erratum": "SCIENTIFIC_ERRATUM_2026-07-29.md",
+      "scientific_erratum_sha256": "6535de4f0459a67004f37799d676e6af5712e4b684ad500deabe1046254aa8f9",
       "source_commit": "091658ce585c107a260e7b980352be904d2419b2",
       "target_block_sha256": "cdfd9ff814b19b3f70d2594299cd0047b2fdcd94a9fbcd90e8d42a46a1dee10d",
       "target_file": "frozen_target_angular_multiplet_signature_2026-07-26.md",
@@ -97,13 +99,13 @@
     },
     {
       "attestation": "OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass",
-      "comparison_protocol": "dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution",
-      "content": "Angular multiplet signature: the exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, first nonconstant invariant at l = 6 frame-locked to l = 3, and the face-phase multiplicity vector (0, 1, 1, 1, 2) with the N_g = 3 slot",
+      "comparison_protocol": "Dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution. The level-six/level-three frame-lock clause is ineligible for comparison pending issue #643, and no frame-lock verdict may be issued from the attested packet.",
+      "content": "Angular multiplet packet: exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, the first nonconstant invariant at l = 6, and the face-phase multiplicity vector (0, 1, 1, 1, 2). The registered level-six/level-three frame-lock clause is not established by the pinned theorem or receipt and is ineligible pending issue #643.",
       "content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
-      "custody": "oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, and append-only custody erratum)",
+      "custody": "oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, append-only custody erratum, and append-only scientific erratum dated 2026-07-29; the scientific erratum does not modify any stamped artifact)",
       "frozen_utc": "2026-07-26T06:41:53Z",
       "id": "FZ-02",
-      "kill_band": "FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03: nonconstant invariant below l = 6 or l = 6 / l = 3 frame misalignment beyond registered tolerance fails; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route",
+      "kill_band": "FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03a: a nonconstant invariant below l = 6 at three or more registered sigma fails; FZ02-R03b (INELIGIBLE; #643): no frame-misalignment verdict is permitted unless issue #643 supplies a target-clean derivation; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route",
       "milestone": "M1",
       "owning_issue": null,
       "status": "frozen_stamped_upgrade_pending"
@@ -123,13 +125,13 @@
     },
     {
       "attestation": null,
-      "comparison_protocol": "pending the direct capacity-return receipt and the issue-639 sealed comparison; no cosmological comparison is registered",
-      "content": "Direct correctable-public-record N closure output or complete stated-domain non-identifiability verdict",
+      "comparison_protocol": "Pending the direct capacity-return receipt, an inhabited issue-503 Einstein/de Sitter carrier, the issue-589 horizon-record identity, and the issue-639 exposure-typed comparison. The public cosmological value predates this campaign, so any present comparison is retrospective. No cosmological comparison is registered.",
+      "content": "Direct correctable-public-record N closure output or complete stated-domain non-identifiability verdict. A positive finite N is not a cosmological observable until issues #503 and #589 complete the horizon-record attachment.",
       "content_sha256": null,
       "custody": null,
       "frozen_utc": null,
       "id": "FZ-05",
-      "kill_band": "no verdict is registered; a source-positive value must be frozen before cosmological comparison, while complete stated-domain non-identifiability closes the candidate as a reproducible negative result",
+      "kill_band": "No verdict is registered. A source-positive finite N remains unscored without positive #503 and #589 packets. Complete stated-domain non-identifiability or NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT closes the candidate reproducibly; an attached present-day Lambda comparison is retrospective.",
       "milestone": "C3",
       "owning_issue": 639,
       "status": "registered_pending_freeze"

@@ -84,6 +84,39 @@ def test_fz02_hash_is_bound_to_the_live_receipt():
         fz_tool.validate(register)
 
 
+def test_fz02_frame_lock_is_ineligible_pending_issue_643():
+    register = live_register()
+    fz02 = next(row for row in register["rows"] if row["id"] == "FZ-02")
+    assert "frame-lock clause is not established" in fz02["content"]
+    assert "ineligible pending issue #643" in fz02["content"]
+    assert "no frame-lock verdict may be issued" in fz02["comparison_protocol"]
+    assert "FZ02-R03a" in fz02["kill_band"]
+    assert "FZ02-R03b (INELIGIBLE; #643)" in fz02["kill_band"]
+    fz_tool.validate(register)
+
+    register = live_register()
+    fz02 = next(row for row in register["rows"] if row["id"] == "FZ-02")
+    fz02["comparison_protocol"] = (
+        "The registered frame-lock clause is READY for comparison."
+    )
+    with pytest.raises(SystemExit, match="unsupported frame-lock clause"):
+        fz_tool.validate(register)
+
+
+def test_fz05_requires_physical_attachment_and_retrospective_exposure():
+    register = live_register()
+    fz05 = next(row for row in register["rows"] if row["id"] == "FZ-05")
+    assert "#503 and #589" in fz05["content"]
+    assert "retrospective" in fz05["comparison_protocol"].lower()
+    assert (
+        "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT" in fz05["kill_band"]
+    )
+
+    fz05["content"] = "A positive finite N is a cosmological prediction."
+    with pytest.raises(SystemExit, match="FZ-05 must keep"):
+        fz_tool.validate(register)
+
+
 def test_frozen_row_requires_attestation_fields():
     register = live_register()
     register["rows"][0]["attestation"] = None
@@ -326,6 +359,21 @@ def test_external_custody_rejects_artifact_tampering(tmp_path: Path):
     )
     target.write_bytes(target.read_bytes() + b"\n")
     with pytest.raises(SystemExit, match="custody artifact hash mismatch"):
+        fz_tool.verify_external_custody(register, custody_root)
+
+
+def test_external_custody_rejects_scientific_erratum_tampering(tmp_path: Path):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    erratum = (
+        custody_root
+        / "falsification"
+        / "frozen_targets"
+        / "fz02_2026-07-26"
+        / "SCIENTIFIC_ERRATUM_2026-07-29.md"
+    )
+    erratum.write_bytes(erratum.read_bytes() + b"\n")
+    with pytest.raises(SystemExit, match="scientific erratum hash mismatch"):
         fz_tool.verify_external_custody(register, custody_root)
 
 

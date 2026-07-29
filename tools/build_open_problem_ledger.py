@@ -652,17 +652,21 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "physical-wz-source-to-pole",
         "claim_level": "OPH-native source-to-pole packet open",
         "blocker": (
-            "The finite parents and bounded frontiers do not emit one target-clean "
-            "action, complete W/Z-coupled census and Yukawa packet, FJ map, full "
-            "RG/matching law, source point or law, operational clock, and hermetic "
-            "common-digest production replay."
+            "Issue #646 has not emitted the minimal scale-free source contract, "
+            "and the finite parents do not emit one target-clean action, complete "
+            "W/Z-coupled census and Yukawa packet, FJ map, full RG/matching law, "
+            "Lorentzian/Spin quantum-EFT transfer, or hermetic common-digest "
+            "production replay. The physical-unit row is not evaluable on the "
+            "declared clock interface."
         ),
         "closure": (
-            "The bounded #634 domain and positive packets from #569, #630, "
-            "#631, #632, and #32, including the physical transition selected "
-            "on the extended matter domain, are substituted into the validated "
-            "#593 consumer without algorithm changes and independently "
-            "replayed under one recomputed subject digest."
+            "Issue #646 first emits the minimal scale-free source-input or "
+            "non-identifiability verdict. Issues #569, #630, #631, #632, #32, "
+            "and #635 then emit final positive or negative source verdicts. Any "
+            "positive native row is substituted into the validated #593 consumer "
+            "without algorithm changes and replays one recomputed subject digest; "
+            "both output rows must end in final positive, rigorous negative, or "
+            "NOT_EVALUABLE verdicts."
         ),
         "falsification": (
             "Any source choice, branch, tolerance, error budget, or producer depends "
@@ -708,30 +712,77 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use only after the #630 positive action and local carrier receipt exist.",
     },
-    639: {
-        "phase": "blind-dimensionless-forecast",
-        "claim_level": "draft governance packet with no eligible candidate",
+    503: {
+        "phase": "direct-n-physical-carrier",
+        "claim_level": "conditional Einstein theorem complete; inhabited source carrier open",
         "blocker": (
-            "The candidate inventory is provisional and no eligible source-only "
-            "candidate exists. Direct N is blocked on #551 and #505; executable "
-            "generator validation, independent scoring, comparison quarantine, "
-            "durable custody, and single-use unsealing are not implemented."
+            "No single target-clean source-derived tower instantiates every "
+            "geometry, modular, event, stress, entropy, vacuum, scale, and "
+            "refinement premise. A finite direct N cannot supply that tower."
         ),
         "closure": (
-            "Freeze and score exactly one eligible target-quarantined dimensionless "
-            "forecast, or close with the complete bounded no-go or not-evaluable "
-            "ledger after every low-cost candidate and ancestry route is covered."
+            "Emit one inhabited common-domain Einstein/de Sitter tower with "
+            "independent source provenance and certified tails, or the final "
+            "bounded negative or not-evaluable verdict."
         ),
         "falsification": (
-            "A target or comparison byte enters before freeze, inventory omissions "
-            "alter selection, generator and checker are not independent, a branch "
-            "changes after exposure, or a claimed negative exit omits an eligible "
-            "low-cost source candidate."
+            "The tower reads N, Lambda, a cosmological target, or a conclusion "
+            "coordinate while constructing any source premise."
         ),
         "chrome_policy": (
-            "Do not launch forecast evaluation until #551/#505 or a lower-ranked "
-            "candidate emits a concrete target-clean packet; use workers only for "
-            "adversarial ancestry and checker audits."
+            "Use only to audit a complete local source tower; #589, not #503, "
+            "owns any downstream cosmological comparison."
+        ),
+    },
+    589: {
+        "phase": "direct-n-horizon-attachment",
+        "claim_level": "finite N and horizon-area identity open",
+        "blocker": (
+            "Issue #505 has not emitted a positive finite N together with an "
+            "inhabited compatible #503 Einstein/de Sitter carrier, and no "
+            "refinement-natural horizon-record order-unit identity is proved."
+        ),
+        "closure": (
+            "Prove the target-clean horizon-record identity and emit the physical "
+            "Lambda-times-Planck-area relation, or close bounded no-go or "
+            "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT."
+        ),
+        "falsification": (
+            "A finite N is compared with Lambda before the #503 carrier and "
+            "#589 identity exist, or the public cosmological value is described "
+            "as an unexposed prospective target."
+        ),
+        "chrome_policy": (
+            "Use for attachment audit only after positive #505 and #503 packets; "
+            "any present-day Lambda comparison is retrospective."
+        ),
+    },
+    639: {
+        "phase": "exposure-typed-dimensionless-forecast",
+        "claim_level": "exposure-typed governance complete; invariant production and scoring open",
+        "blocker": (
+            "The first-ranked direct N candidate still depends on #551, #505, "
+            "#503, and #589. No physically typed row from the complete frozen "
+            "#647 registry has passed exposure classification, durable custody, "
+            "minimum-power review, and single-use unsealing."
+        ),
+        "closure": (
+            "Score at most one eligible attached dimensionless candidate under "
+            "its prospective, blind-postdiction, or exposed-retrospective class, "
+            "or close with the complete bounded no-go or not-evaluable ledger. "
+            "Exploratory rows are catalog-only."
+        ),
+        "falsification": (
+            "An exposed target is called blind, producer strata become sequential "
+            "second chances, a finite N bypasses #503/#589, minimum power or "
+            "multiplicity is omitted, a post-unseal defect is repaired in place, "
+            "or a composite failure is attributed to one auxiliary branch without "
+            "an independent premise-isolation test."
+        ),
+        "chrome_policy": (
+            "Use workers for adversarial ancestry and checker audits on the "
+            "#647 inventory. Do not launch comparison evaluation until one "
+            "attached packet passes the exposure, ranking, power, and freeze gates."
         ),
     },
     641: {
@@ -756,6 +807,155 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "chrome_policy": (
             "Use only to audit a local symbolic operator basis and its completeness "
             "proof; no hadron or proton-lifetime computation is required."
+        ),
+    },
+    642: {
+        "phase": "global-form-discriminator",
+        "claim_level": "finite Z6 packet closed; laboratory discriminator open",
+        "blocker": (
+            "The exact finite character, cocharacter, and line-class arithmetic "
+            "has no completed continuum or laboratory attachment, particle mass, "
+            "production rate, or discovery-level comparison rule."
+        ),
+        "closure": (
+            "Emit the exact charge and line-operator incompatibility packet, "
+            "physicalization verdict, frozen decision rule, independent replay, "
+            "and explicit nondetection boundary."
+        ),
+        "falsification": (
+            "A representation or line class is omitted, conventions are mixed, "
+            "a source rate is invented, or experimental nondetection is counted "
+            "as positive evidence without a predicted tested region."
+        ),
+        "chrome_policy": (
+            "Use only to audit the exact finite discriminator and a read-only "
+            "experimental crosswalk."
+        ),
+    },
+    643: {
+        "phase": "a5-angular-discriminator",
+        "claim_level": (
+            "finite branching and first invariant exact; frame lock and "
+            "screen-to-sky observable open"
+        ),
+        "blocker": (
+            "The pinned FZ-02 theorem packet does not separately prove the "
+            "registered level-three/level-six frame lock. The A5 action may be "
+            "internal, and no source-forced nonzero sky statistic or physical "
+            "screen-to-sky map exists."
+        ),
+        "closure": (
+            "Derive or remove the frame-lock clause, decide internal versus "
+            "spatial action, and emit one nonzero rotation-controlled statistic "
+            "with frozen foreground, covariance, trials, data manifest, and "
+            "comparison contract for #639, or close with the exact no-go."
+        ),
+        "falsification": (
+            "Known low-multipole anomalies select the statistic or frame, a free "
+            "amplitude is promoted, or A5 invariance shared by isotropy is treated "
+            "as a differentiating prediction."
+        ),
+        "chrome_policy": (
+            "Use only to audit the frozen statistic and comparison contract. "
+            "Issue #639 alone may access and score the comparison payload."
+        ),
+    },
+    644: {
+        "phase": "structural-specificity-audit",
+        "claim_level": "bounded alternative-carrier specificity score open",
+        "blocker": (
+            "No carrier and response-law null ensemble is frozen, so the rarity "
+            "of the finite gauge, quotient, matter, and family hit tuple is not "
+            "computable."
+        ),
+        "closure": (
+            "Freeze an exhaustive bounded grammar and equal algorithm budget, "
+            "run every model, independently replay the full hit table, and emit "
+            "the finite specificity or exact non-computability verdict."
+        ),
+        "falsification": (
+            "Models are added or removed after scoring, isomorphic duplicates "
+            "remain, target-aware pruning occurs, or the OPH carrier receives a "
+            "larger selector or repair budget."
+        ),
+        "chrome_policy": (
+            "Use only to audit a frozen local ensemble and independently "
+            "recomputed full result table."
+        ),
+    },
+    645: {
+        "phase": "observer-overlap-interferometer",
+        "claim_level": "source-to-readout and normalized cross-spectrum open",
+        "blocker": (
+            "No source map identifies a finite overlap observable with optical "
+            "path or phase. Auto-spectrum detector noise also prevents the "
+            "normalized measured cross-spectrum from being amplitude-free."
+        ),
+        "closure": (
+            "Derive one nonconstant geometry-dependent source cross-spectrum, "
+            "the source-to-readout coupling, signal/background decomposition, "
+            "calibrated likelihood, and frozen comparison contract for #639, or "
+            "close immediately with the declared no-map verdict."
+        ),
+        "falsification": (
+            "An excluded holographic-noise template is relabelled as OPH, "
+            "instrument noise is omitted, or a free amplitude or shape absorbs "
+            "the comparison."
+        ),
+        "chrome_policy": (
+            "Use only to audit a local source-to-readout packet and frozen "
+            "comparison contract. Issue #639 alone may score public Holometer data."
+        ),
+    },
+    646: {
+        "phase": "electroweak-invariant-search",
+        "claim_level": "scale-free W/Z invariant or no-go open",
+        "blocker": (
+            "The dependence of pole, width, residue, and asymmetry combinations "
+            "on clock, vacuum scale, normalization, scheme, threshold, scalar, "
+            "Yukawa, family, and continuum directions is not classified."
+        ),
+        "closure": (
+            "Emit an exact or interval-certified invariant multi-output vector "
+            "with its minimal source-input contract, or prove every frozen "
+            "candidate remains non-identifiable."
+        ),
+        "falsification": (
+            "A cancellation holds only at one point, measured W/Z values select "
+            "the combination, weak-angle schemes are mixed, or a surviving open "
+            "direction is omitted."
+        ),
+        "chrome_policy": (
+            "Use only to audit the local dependency/Jacobian packet and "
+            "target-free invariant proof."
+        ),
+    },
+    647: {
+        "phase": "oph-invariant-mining",
+        "claim_level": "systematic OPH-only observable mine open",
+        "blocker": (
+            "The source-feature, typed nuisance, source-admissible completion, "
+            "candidate-specific baseline, end-to-end physicalization, and exposed-"
+            "data registries are not complete, and no candidate has entered #639."
+        ),
+        "closure": (
+            "Freeze deterministic ranking and the bounded grammar before "
+            "candidate generation, certify each OPH model-image inclusion "
+            "globally and each baseline non-inclusion by counterexample, repeat "
+            "the nuisance audit after physicalization, then emit exposure-typed "
+            "candidates or the complete negative verdict."
+        ),
+        "falsification": (
+            "A discrete branch is removed by a Jacobian, an exposed value "
+            "influences mining, ranking remains discretionary, historical "
+            "multiplicity or minimum power is omitted, direct N re-enters the "
+            "fallback registry, or retrospective agreement is promoted to "
+            "prospective survival. A composite failure cannot identify one "
+            "auxiliary branch without an independent premise-isolation test."
+        ),
+        "chrome_policy": (
+            "Use only for proof and ancestry audits against the frozen local "
+            "grammar; #639 owns all comparison access and one-shot scoring."
         ),
     },
     632: {

@@ -15,9 +15,9 @@ its recomputed payload digest. Committed custody contracts bind the source-side
 FZ-02 receipt and Lean module even in an isolated clone. When the sibling
 oph-meta custody checkout is present, the tool additionally verifies every
 manifest artifact, detached OpenTimestamps digest, attestation class, and the
-append-only FZ-02 erratum. When it is absent, the tool reports
-``external_custody_not_present`` explicitly rather than claiming that the
-external artifact set was verified.
+append-only FZ-02 custody and scientific errata. When it is absent, the tool
+reports ``external_custody_not_present`` explicitly rather than claiming that
+the external artifact set was verified.
 """
 
 from __future__ import annotations
@@ -120,6 +120,8 @@ FZ02_CONTRACT_EXTRA_KEYS = {
     "source_commit",
     "custody_erratum",
     "custody_erratum_sha256",
+    "scientific_erratum",
+    "scientific_erratum_sha256",
     "target_file",
     "target_block_sha256",
     "target_payload_sha256",
@@ -326,6 +328,7 @@ def validate_custody_contracts(
             for key in (
                 "registration_manifest_sha256",
                 "custody_erratum_sha256",
+                "scientific_erratum_sha256",
                 "target_block_sha256",
                 "target_payload_sha256",
             ):
@@ -356,7 +359,7 @@ def validate_custody_contracts(
                 )
             if contract["target_file"] not in artifacts:
                 fail("FZ-02 target_file must be present in its artifact hash contract")
-            for key in ("custody_erratum", "target_file"):
+            for key in ("custody_erratum", "scientific_erratum", "target_file"):
                 value = contract[key]
                 if not isinstance(value, str) or Path(value).name != value:
                     fail(f"external_custody_contracts[FZ-02].{key} must be a file name")
@@ -556,7 +559,32 @@ def validate(register: dict) -> list[dict]:
 
     validate_custody_contracts(register, rows_by_id)
 
-    fz02 = rows[1]
+    fz02 = rows_by_id.get("FZ-02", {})
+    if (
+        "frame-lock clause is not established" not in fz02.get("content", "")
+        or "ineligible pending issue #643" not in fz02.get("content", "")
+        or "no frame-lock verdict may be issued" not in fz02.get(
+            "comparison_protocol", ""
+        )
+        or "FZ02-R03a" not in fz02.get("kill_band", "")
+        or "FZ02-R03b (INELIGIBLE; #643)" not in fz02.get("kill_band", "")
+    ):
+        fail(
+            "FZ-02 must keep the unsupported frame-lock clause ineligible "
+            "pending issue #643"
+        )
+
+    fz05 = rows_by_id.get("FZ-05", {})
+    if (
+        "#503 and #589" not in fz05.get("content", "")
+        or "retrospective" not in fz05.get("comparison_protocol", "").lower()
+        or "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT"
+        not in fz05.get("kill_band", "")
+    ):
+        fail(
+            "FZ-05 must keep the Einstein/de Sitter and horizon-record "
+            "physicalization gates and retrospective exposure boundary"
+        )
     receipt = load_json(FZ02_RECEIPT_PATH)
     live_hash = receipt.get("receipt_sha256")
     if fz02["content_sha256"] != live_hash:
@@ -675,6 +703,14 @@ def verify_external_custody(
                 fail("FZ-02 append-only custody erratum is missing")
             if sha256_file(erratum_path) != contract["custody_erratum_sha256"]:
                 fail("FZ-02 custody erratum hash mismatch")
+            scientific_erratum_path = directory / contract["scientific_erratum"]
+            if not scientific_erratum_path.is_file():
+                fail("FZ-02 append-only scientific erratum is missing")
+            if (
+                sha256_file(scientific_erratum_path)
+                != contract["scientific_erratum_sha256"]
+            ):
+                fail("FZ-02 scientific erratum hash mismatch")
             target_path = directory / contract["target_file"]
             block_hash, payload_hash = fenced_target_hashes(target_path)
             if block_hash != contract["target_block_sha256"]:
@@ -809,9 +845,12 @@ def render(register: dict, rows: list[dict]) -> str:
         "FZ-02 is bound to oph-meta custody commit"
         f" `{fz02_contract['custody_commit']}` at"
         f" `{fz02_contract['custody_commit_utc']}` and source commit"
-        f" `{fz02_contract['source_commit']}`. Its append-only erratum corrects"
+        f" `{fz02_contract['source_commit']}`. Its append-only custody erratum"
+        " corrects"
         " the original timestamp, source-commit, and whole-file-versus-fenced-"
-        "block hash metadata without modifying any stamped artifact."
+        "block hash metadata. Its append-only scientific erratum marks the"
+        " unsupported level-six/level-three frame-lock clause ineligible"
+        " pending issue #643. Neither erratum modifies any stamped artifact."
     )
     lines.append("")
     lines.append(
