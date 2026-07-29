@@ -146,7 +146,7 @@ données et certificats :
    [article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
    et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
 
-La bibliothèque Lean associée contient plus de 900 théorèmes et lemmes, avec
+La bibliothèque Lean associée contient plus de 1000 théorèmes et lemmes, avec
 un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
