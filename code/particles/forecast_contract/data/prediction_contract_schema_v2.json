@@ -1,7 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "oph.prediction_contract.v2",
-  "title": "OPH blind prediction contract",
+  "title": "OPH target-quarantined prediction contract v2",
+  "description": "Legacy C1 contract mechanics for prospective or genuinely quarantined comparisons. This schema has no exposure taxonomy and cannot represent an exposed-retrospective C3 score.",
   "type": "object",
   "additionalProperties": false,
   "required": [

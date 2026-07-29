@@ -24,14 +24,15 @@
   },
   "c1_direct_public_record_capacity": {
    "ancestry_hits": [],
-   "blocking_condition": "Issues 551 and 505 do not emit a source-derived capacity-indexed family or a unique slack zero. The separate common-load closure candidate does not instantiate the correctable-record map. Horizon comparison requires the separate issue-589 identification.",
+   "blocking_condition": "Issues 551 and 505 do not emit a source-derived capacity-indexed family or a unique slack zero. Even a positive finite N remains unscored until issue 503 supplies an inhabited compatible Einstein/de Sitter carrier and issue 589 proves the horizon-record identity. The separate common-load closure candidate does not instantiate the correctable-record map. The public Lambda value predates this campaign, so a present-day attached comparison is retrospective.",
    "candidate_class": 1,
    "check_type": "bounded_declared_vocabulary_warning",
    "declared_vocabulary_hit_free": true,
-   "eligibility": "BLOCKED_PENDING_DIRECT_FIXED_POINT",
+   "eligibility": "BLOCKED_PENDING_DIRECT_FIXED_POINT_AND_PHYSICAL_ATTACHMENT",
    "potential_upgrade_issues": [
     551,
     505,
+    503,
     589
    ],
    "selection_priority": 10,
@@ -190,9 +191,14 @@
    "semantic_input_closure_proved": false
   }
  },
- "claim_boundary": "Draft issue-639 governance packet with deterministic state replay, complete JSON Schema enforcement for the draft contract, bounded declared-vocabulary warnings, and fail-closed freeze-time gates for exhaustive inventory evidence, deterministic selection, real repository-commit blobs, canonical contract payload integrity, an immutable issue-policy anchor, a caller-supplied digest check, exact custody declarations, source pins, and bounded declared-ancestry eligibility. The external digest input is not durable custody. The candidate inventory is provisional and not proved exhaustive. Generator execution, checker independence, comparison quarantine, scoring, and durable single-use recording are not implemented. This validator covers declared pre-freeze controls and does not establish scoring readiness. No contract, prediction output, independent score, or persistent single-use unsealing record is emitted.",
+ "claim_boundary": "Legacy C1 draft issue-639 governance packet with deterministic state replay, complete JSON Schema enforcement for the draft contract, bounded declared-vocabulary warnings, and fail-closed freeze-time gates for exhaustive inventory evidence, deterministic selection, real repository-commit blobs, canonical contract payload integrity, an immutable issue-policy anchor, a caller-supplied digest check, exact custody declarations, source pins, and bounded declared-ancestry eligibility. The external digest input is not durable custody. The static candidate inventory is provisional and not proved exhaustive. It does not pin the complete issue-647 registry, type exposed-retrospective comparisons, freeze the C3 ranking before candidate generation, exclude direct N from fallback re-entry, or enforce one physical comparison across the campaign. Generator execution, checker independence, comparison quarantine, scoring, and durable single-use recording are not implemented. This validator covers C1 draft pre-freeze controls and does not establish C3 scoring readiness. No contract, prediction output, independent score, or persistent single-use unsealing record is emitted.",
  "contract_freeze_status": "DRAFT_GOVERNANCE_PACKET__NO_ELIGIBLE_CANDIDATE",
  "controls": {
+  "c3_campaign_wide_one_physical_comparison_stop": "NOT_IMPLEMENTED",
+  "c3_complete_issue_647_registry_pin": "NOT_IMPLEMENTED",
+  "c3_direct_n_fallback_reentry_exclusion": "NOT_IMPLEMENTED",
+  "c3_exposure_typed_comparison_contract": "NOT_IMPLEMENTED",
+  "c3_pre_generation_numerical_ranking_policy": "NOT_IMPLEMENTED",
   "candidate_inventory_exhaustiveness": "NOT_ESTABLISHED",
   "checker_true_independence_validation": "NOT_IMPLEMENTED",
   "comparison_access_quarantine": "NOT_IMPLEMENTED",
@@ -210,7 +216,7 @@
   "freeze_time_file_pin_resolution": "IMPLEMENTED",
   "freeze_time_inventory_exhaustiveness_gate": "IMPLEMENTED_REQUIRES_FROZEN_CRITERION_AND_PINNED_POSITIVE_OMISSION_AUDIT",
   "freeze_time_repository_commit_blob_verification": "IMPLEMENTED",
-  "freeze_validator_scope": "DECLARED_PRE_FREEZE_CONTROLS_ONLY__NOT_SCORING_READY",
+  "freeze_validator_scope": "C1_STATIC_DRAFT_CONTROLS_ONLY__NOT_C3_SCORING_READY",
   "full_json_schema_validation": "IMPLEMENTED",
   "immutable_issue_freeze_policy_anchor": "IMPLEMENTED_EXACT_SCOPE_FORBIDDEN_MAP_CANDIDATES_NONPROMOTABLE_STATUSES_CROSSWALK_CONTENT_ORDER_AND_LIVE_REGISTER_PROJECTION",
   "non_self_referential_canonical_contract_digest": "IMPLEMENTED"
@@ -285,11 +291,11 @@
   }
  },
  "inventory_completeness": {
-  "closure_criterion": "Crosswalk every required candidate, every required static surface, and every prospective and retrospective row of the pinned frozen-prediction register before comparison access.",
+  "closure_criterion": "Crosswalk every required C1 static candidate, every required static surface, and every active or retrospective row of the pinned frozen-prediction register. This criterion cannot close C3 or admit the complete issue-647 registry.",
   "closure_criterion_frozen": false,
-  "closure_criterion_id": "issue-639-constraint-bounded-corpus-crosswalk-v1",
-  "reason": "The registered rows and known-surface crosswalk cover the identified low-cost corpus candidates, but no theorem proves that the search space is exhaustive.",
-  "required_for_negative_exit": "Freeze an inventory closure criterion, crosswalk every quantitative registry, and obtain an adversarial deletion and omission audit before claiming a complete negative ledger.",
+  "closure_criterion_id": "issue-639-c1-static-draft-crosswalk-v2",
+  "reason": "The registered rows and known-surface crosswalk cover the identified C1 seed candidates. The complete issue-647 source-feature grammar, target-free ranking, exposure registry, and physically typed survivor set are not pinned.",
+  "required_for_negative_exit": "Use a versioned C3 policy to pin the complete issue-647 registry, pre-generation ranking contract, exposure classes, and one-comparison stop; crosswalk every quantitative registry; and obtain an adversarial deletion and omission audit before claiming a complete negative ledger.",
   "status": "PROVISIONAL_NOT_EXHAUSTIVE"
  },
  "inventory_scope": {
@@ -299,9 +305,10 @@
    "3": "finite cosmology and clock ratios",
    "4": "other response quantities and excluded diagnostics"
   },
-  "inclusion_rule": "A row must name a laptop-scale numerical or discrete output, a source-visible generator path, and an independently meaningful comparison that could distinguish the branch.",
-  "live_register_crosswalk": "Prospective FZ rows and retrospective results are projected from claims/frozen_prediction_register.json v3 during state generation rather than duplicated here.",
-  "priority_policy": "Within class one, the direct source-derived public-record N producer has first priority. The common-load algebraic coordinate remains in class one for coverage but is ineligible and non-blind. Remaining candidates follow their explicit integer selection_priority.",
+  "governance_boundary": "C1_STATIC_DRAFT_ONLY__NO_C3_REGISTRY_PIN__NO_EXPOSURE_TYPED_SCORING__NO_CAMPAIGN_WIDE_ONE_COMPARISON_STOP",
+  "inclusion_rule": "This C1 static draft records a laptop-scale numerical or discrete output, a source-visible generator path, and an independently meaningful comparison that could distinguish the branch. It is a seed inventory rather than the complete C3 invariant-miner registry.",
+  "live_register_crosswalk": "Active FZ rows and retrospective results are projected from claims/frozen_prediction_register.json v3 during state generation rather than duplicated here. Active-register membership is not a target-exposure classification.",
+  "priority_policy": "Within this C1 static draft, the direct source-derived public-record N producer has first priority. The common-load algebraic coordinate remains in class one for coverage but is ineligible and non-blind. This ordering does not implement the frozen numerical weights, eligibility rule, tie breaker, skip policy, or complete fallback registry required from issue 647 before C3 scoring.",
   "resource_policy": "QCD production, SI attachment, continuum pole construction, cluster-scale simulation, and target-driven sweeps are excluded.",
   "scope_id": "constraint_bounded_dimensionless_forecast_candidates",
   "structural_known_value_policy": "Known structural matches are crosswalked as postdictions and are not relabeled as novel forecasts."
@@ -309,34 +316,34 @@
  "issue": 639,
  "known_surface_crosswalk": [
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_ATTESTED",
+   "classification": "ACTIVE_REGISTER_ROW__FROZEN_ATTESTED",
    "forecast_use": "Use only under the live registered comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison for the four retained targets; the ringdown row is excluded from scoring",
    "owning_issue": null,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "frozen_attested",
    "surface": "FZ-01"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
-   "forecast_use": "Use only under the live registered comparison protocol: dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution",
+   "classification": "ACTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
+   "forecast_use": "Use only under the live registered comparison protocol: Dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution. The level-six/level-three frame-lock clause is ineligible for comparison pending issue #643, and no frame-lock verdict may be issued from the attested packet.",
    "owning_issue": null,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "frozen_stamped_upgrade_pending",
    "surface": "FZ-02"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "classification": "ACTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
    "forecast_use": "Use only under the live registered comparison protocol: no comparison protocol is frozen",
    "owning_issue": 508,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "registered_pending_freeze",
    "surface": "FZ-03"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
-   "forecast_use": "Use only under the live registered comparison protocol: pending the direct capacity-return receipt and the issue-639 sealed comparison; no cosmological comparison is registered",
+   "classification": "ACTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "forecast_use": "Use only under the live registered comparison protocol: Pending the direct capacity-return receipt, an inhabited issue-503 Einstein/de Sitter carrier, the issue-589 horizon-record identity, and the issue-639 exposure-typed comparison. The public cosmological value predates this campaign, so any present comparison is retrospective. No cosmological comparison is registered.",
    "owning_issue": 639,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "registered_pending_freeze",
    "surface": "FZ-05"
   },
@@ -349,34 +356,34 @@
    "surface": "FZ-06"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "classification": "ACTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
    "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
    "owning_issue": null,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "resource_deferred",
    "surface": "FZ-07"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "classification": "ACTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
    "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
    "owning_issue": null,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "resource_deferred",
    "surface": "FZ-08"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "classification": "ACTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
    "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
    "owning_issue": null,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "resource_deferred",
    "surface": "FZ-09"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
+   "classification": "ACTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
    "forecast_use": "Use only under the live registered comparison protocol: reference observable, verdict thresholds, and precision floor frozen in the custody target statement before examination of any post-registration measurement",
    "owning_issue": 546,
-   "registry_kind": "prospective",
+   "registry_kind": "active_register",
    "registry_status": "frozen_stamped_upgrade_pending",
    "surface": "FZ-10"
   },
@@ -400,8 +407,8 @@
    "surface": "Higgs/top dimensionless ratio"
   },
   {
-   "classification": "BLOCKED_DIRECT_CAPACITY_MAP",
-   "forecast_use": "The equation N = log M_0(U_N) has no capacity-indexed source family or selected cosmic solution.",
+   "classification": "BLOCKED_DIRECT_CAPACITY_AND_HORIZON_RECORD_MAP",
+   "forecast_use": "The equation N = log M_0(U_N) has no capacity-indexed source family or selected finite solution. A positive finite solution remains non-cosmological without an inhabited issue-503 carrier and the issue-589 horizon-record identity; comparison with the present public Lambda value is retrospective.",
    "surface": "direct correctable-record N fixed point"
   },
   {
@@ -431,15 +438,17 @@
   }
  ],
  "pins": {
-  "candidate_inventory_sha256": "sha256:378380405dd28f5197e293f3e8095e163784f7bf2651b792ccb9b6030bf2236d",
-  "contract_schema_sha256": "sha256:abe6893b3f03adc58251b3f64fed0f1e4c62a4ed06420ce68d1db16178d12149",
-  "forecast_freeze_policy_sha256": "sha256:dec2a4b647e5212d7b54101d41cdb50b4f477e6df21ab9a8cfe3d89620f6e594",
-  "frozen_prediction_register_sha256": "sha256:f767bc4b4332a0ad7154023af336d88475ab699a02f3716a4f1545225b587cc5",
-  "module_sha256": "sha256:b5612910a39ab999fd69b2c28bb3fabeed75be7ced1aedd295a7112b5e054089"
+  "candidate_inventory_sha256": "sha256:12c8a569a92f265f0b033a9df4b20fa59adce6c05b8d63d918e81ce553731752",
+  "contract_schema_sha256": "sha256:518ca92a84a073f25f0e967e8b4cedf92f7243d56d6c9e10c958cbe9a460ae62",
+  "forecast_freeze_policy_sha256": "sha256:ae9508d362de40dec25c2935d96606ce3cb4d9d7d40f255b6c00576abeb9b2c5",
+  "frozen_prediction_register_sha256": "sha256:dacef64c9df5c03b76e36e037a48b07fa279fd8e6a32e0d48ef88ce250dc5794",
+  "module_sha256": "sha256:27cf76a626733e58c5246d13d87cb8ce0904b954f63887fd03d7c73399441a35"
  },
  "potential_upgrade_routes": {
-  "dependency_status": "candidate-specific routes only; none is a hard issue dependency before selection",
+  "dependency_status": "candidate-specific C1 routes plus the nonblocking issue-647 C3 fallback-registry producer; none is a hard dependency for draft governance work",
+  "fallback_registry_issue": 647,
   "issues": [
+   503,
    505,
    522,
    547,
@@ -453,8 +462,8 @@
  "schema": "oph.forecast_contract_state.v2",
  "selection_rule": {
   "algorithm": "candidate_class_then_priority_then_candidate_id_first_eligible_v1",
-  "rule": "After the inventory closure criterion is frozen, select the first ELIGIBLE_SOURCE_VISIBLE candidate by candidate_class, integer selection_priority, and candidate_id. The direct source-derived N lane has the first class-one priority. Validate the bounded declared-ancestry review, every source pin, the repository-state commit, comparison custody declaration, and externally supplied contract digest before comparison access. No reselection follows a valid freeze.",
+  "rule": "This C1 draft orders its static seed rows by candidate_class, integer selection_priority, and candidate_id. It is not the C3 ranking contract. Before any C3 candidate generation or evaluation, a successor policy must pin the complete issue-647 grammar, numerical weights, eligibility, tie breaker, skip policy, exposure class, direct-N non-reentry rule, and campaign-wide one-comparison stop.",
   "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:f8772aa3687510d4b1f89cc6ded3d3b623ac1095598a64ddfddfe9996a678ba6"
+ "state_sha256": "sha256:dac449dd1999ff831fc82a5154c0f9ce8783408c642b79a4eeb9a50419d2bf8a"
 }

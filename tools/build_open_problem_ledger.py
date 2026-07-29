@@ -759,12 +759,18 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     639: {
         "phase": "exposure-typed-dimensionless-forecast",
-        "claim_level": "exposure-typed governance complete; invariant production and scoring open",
+        "claim_level": (
+            "C1 static draft controls complete; C3 invariant registry, "
+            "exposure typing, custody, and scoring open"
+        ),
         "blocker": (
             "The first-ranked direct N candidate still depends on #551, #505, "
             "#503, and #589. No physically typed row from the complete frozen "
             "#647 registry has passed exposure classification, durable custody, "
-            "minimum-power review, and single-use unsealing."
+            "minimum-power review, and single-use unsealing. The executable v2 "
+            "packet is a legacy C1 static draft and does not implement the C3 "
+            "registry pin, pre-generation ranking, exposure taxonomy, direct-N "
+            "non-reentry, or campaign-wide one-comparison stop."
         ),
         "closure": (
             "Score at most one eligible attached dimensionless candidate under "

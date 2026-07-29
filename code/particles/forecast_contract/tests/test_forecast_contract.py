@@ -1171,7 +1171,7 @@ class ForecastContractTests(unittest.TestCase):
             expected_kind = (
                 "historical_superseded"
                 if source_row["status"] == "superseded_void"
-                else "prospective"
+                else "active_register"
             )
             self.assertEqual(projected["registry_kind"], expected_kind)
             self.assertEqual(
@@ -1198,6 +1198,12 @@ class ForecastContractTests(unittest.TestCase):
             "HISTORICAL_REGISTER_ROW__SUPERSEDED_VOID",
         )
         self.assertIn("No forecast or comparison use", fz06["forecast_use"])
+        fz05 = crosswalk["FZ-05"]
+        self.assertEqual(fz05["registry_kind"], "active_register")
+        self.assertTrue(
+            fz05["classification"].startswith("ACTIVE_REGISTER_ROW__")
+        )
+        self.assertIn("retrospective", fz05["forecast_use"].lower())
 
     def test_common_load_row_is_not_promoted_as_target_clean(self) -> None:
         state = fc.build_state()
@@ -1236,6 +1242,45 @@ class ForecastContractTests(unittest.TestCase):
         self.assertIn(
             "direct source-derived public-record N producer has first priority",
             inventory["inventory_scope"]["priority_policy"],
+        )
+        self.assertNotIn("cosmic capacity", direct["description"])
+        self.assertIn(503, direct["potential_upgrade_issues"])
+        self.assertIn(589, direct["potential_upgrade_issues"])
+        self.assertEqual(
+            direct["comparison_exposure"],
+            "EXPOSED_RETROSPECTIVE_IF_USING_PRESENT_PUBLIC_LAMBDA",
+        )
+        self.assertEqual(
+            direct["fallback_reentry"],
+            "FORBIDDEN_AFTER_DIRECT_N_PRECEDENCE_TEST",
+        )
+
+    def test_c3_scoring_controls_are_explicitly_unimplemented(self) -> None:
+        state = fc.build_state()
+        self.assertEqual(
+            state["inventory_scope"]["governance_boundary"],
+            (
+                "C1_STATIC_DRAFT_ONLY__NO_C3_REGISTRY_PIN__"
+                "NO_EXPOSURE_TYPED_SCORING__"
+                "NO_CAMPAIGN_WIDE_ONE_COMPARISON_STOP"
+            ),
+        )
+        for control in (
+            "c3_complete_issue_647_registry_pin",
+            "c3_pre_generation_numerical_ranking_policy",
+            "c3_exposure_typed_comparison_contract",
+            "c3_direct_n_fallback_reentry_exclusion",
+            "c3_campaign_wide_one_physical_comparison_stop",
+        ):
+            self.assertEqual(state["controls"][control], "NOT_IMPLEMENTED")
+        self.assertEqual(
+            state["potential_upgrade_routes"]["fallback_registry_issue"],
+            647,
+        )
+        self.assertIn("Legacy C1 draft", state["claim_boundary"])
+        self.assertIn(
+            "does not establish C3 scoring readiness",
+            state["claim_boundary"],
         )
 
     def test_potential_upgrade_routes_are_derived_from_inventory(self) -> None:

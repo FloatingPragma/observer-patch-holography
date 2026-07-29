@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Issue-639 forecast-governance packet.
+"""Legacy C1 issue-639 forecast-governance packet.
 
 This module validates the draft contract format, records the provisional
 candidate inventory, checks declared vocabulary for forbidden inputs, and
@@ -8,6 +8,11 @@ claim comparison quarantine, execute a forecast, score a verdict, or enforce
 single-use unsealing.  Those controls require an eligible source-visible
 candidate, independent custody, two executable implementations, and a durable
 scoring record.
+
+The packet predates the C3 invariant-mining protocol. It does not pin an
+issue-647 registry, classify exposed-retrospective comparisons, freeze the C3
+ranking before candidate generation, or enforce one physical comparison
+across the campaign. A versioned successor is required before C3 scoring.
 """
 
 from __future__ import annotations
@@ -1129,7 +1134,7 @@ def unseal_and_score(*_args: Any, **_kwargs: Any) -> dict[str, Any]:
 
 
 def build_fz_crosswalk(register: dict[str, Any]) -> list[dict[str, Any]]:
-    """Project live prospective, superseded, and retrospective register surfaces."""
+    """Project active, superseded, and retrospective register surfaces."""
 
     require(
         register.get("schema") == "oph.frozen_prediction_register.v3",
@@ -1143,7 +1148,7 @@ def build_fz_crosswalk(register: dict[str, Any]) -> list[dict[str, Any]]:
         require(
             surface not in seen,
             "FZ_REGISTER_DUPLICATE_ID",
-            f"duplicate live prospective register row: {surface}",
+            f"duplicate active register row: {surface}",
         )
         seen.add(surface)
         if row["status"] == "superseded_void":
@@ -1165,14 +1170,14 @@ def build_fz_crosswalk(register: dict[str, Any]) -> list[dict[str, Any]]:
                 {
                     "surface": surface,
                     "classification": (
-                        "PROSPECTIVE_REGISTER_ROW__"
+                        "ACTIVE_REGISTER_ROW__"
                         + str(row["status"]).upper()
                     ),
                     "forecast_use": (
                         "Use only under the live registered comparison protocol: "
                         + str(row["comparison_protocol"])
                     ),
-                    "registry_kind": "prospective",
+                    "registry_kind": "active_register",
                     "registry_status": row["status"],
                     "owning_issue": row.get("owning_issue"),
                 }
@@ -1384,32 +1389,43 @@ def build_state() -> dict[str, Any]:
             "executable_independent_scorer": "NOT_IMPLEMENTED",
             "durable_single_use_unsealing_record": "NOT_IMPLEMENTED",
             "candidate_inventory_exhaustiveness": "NOT_ESTABLISHED",
+            "c3_complete_issue_647_registry_pin": "NOT_IMPLEMENTED",
+            "c3_pre_generation_numerical_ranking_policy": "NOT_IMPLEMENTED",
+            "c3_exposure_typed_comparison_contract": "NOT_IMPLEMENTED",
+            "c3_direct_n_fallback_reentry_exclusion": "NOT_IMPLEMENTED",
+            "c3_campaign_wide_one_physical_comparison_stop": "NOT_IMPLEMENTED",
             "freeze_validator_scope": (
-                "DECLARED_PRE_FREEZE_CONTROLS_ONLY__NOT_SCORING_READY"
+                "C1_STATIC_DRAFT_CONTROLS_ONLY__NOT_C3_SCORING_READY"
             ),
         },
         "potential_upgrade_routes": {
             "issues": sorted(potential_upgrade_issues),
+            "fallback_registry_issue": 647,
             "dependency_status": (
-                "candidate-specific routes only; none is a hard issue "
-                "dependency before selection"
+                "candidate-specific C1 routes plus the nonblocking issue-647 "
+                "C3 fallback-registry producer; none is a hard dependency for "
+                "draft governance work"
             ),
         },
         "claim_boundary": (
-            "Draft issue-639 governance packet with deterministic state replay, "
+            "Legacy C1 draft issue-639 governance packet with deterministic "
+            "state replay, "
             "complete JSON Schema enforcement for the draft contract, bounded "
             "declared-vocabulary warnings, and fail-closed freeze-time gates "
             "for exhaustive inventory evidence, deterministic selection, real "
             "repository-commit blobs, canonical contract payload integrity, "
             "an immutable issue-policy anchor, a caller-supplied digest check, "
             "exact custody declarations, source pins, and bounded declared-"
-            "ancestry eligibility. The external "
-            "digest input is not durable custody. The candidate inventory is "
-            "provisional and not proved exhaustive. Generator execution, "
-            "checker independence, comparison quarantine, scoring, and durable "
-            "single-use recording are not implemented. This validator covers "
-            "declared pre-freeze controls and does not establish scoring "
-            "readiness. No "
+            "ancestry eligibility. The external digest input is not durable "
+            "custody. The static candidate inventory is provisional and not "
+            "proved exhaustive. It does not pin the complete issue-647 "
+            "registry, type exposed-retrospective comparisons, freeze the C3 "
+            "ranking before candidate generation, exclude direct N from "
+            "fallback re-entry, or enforce one physical comparison across the "
+            "campaign. Generator execution, checker independence, comparison "
+            "quarantine, scoring, and durable single-use recording are not "
+            "implemented. This validator covers C1 draft pre-freeze controls "
+            "and does not establish C3 scoring readiness. No "
             "contract, prediction output, independent score, or persistent "
             "single-use unsealing record is emitted."
         ),
