@@ -1256,7 +1256,11 @@ def write_runtime_receipts(output_dir: str | Path) -> dict[str, str]:
         "certificate": bundle["certificate"],
     }
     for key, path in paths.items():
-        path.write_text(json.dumps(payloads[key], indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        path.write_bytes(
+            (json.dumps(payloads[key], indent=2, sort_keys=True) + "\n").encode(
+                "utf-8"
+            )
+        )
     return {key: str(path) for key, path in paths.items()}
 
 
@@ -1276,4 +1280,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
