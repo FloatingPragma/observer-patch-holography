@@ -9,8 +9,8 @@
   "exact_symbolic_checks": 8,
   "integration_tests": 38,
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 79,
-  "total_bytes_excluding_manifest_and_runtime_log": 1268711,
+  "file_count_excluding_manifest_and_runtime_log": 81,
+  "total_bytes_excluding_manifest_and_runtime_log": 1287760,
   "files": [
     {
       "path": "AGENT_WORK_ORDER_V4.md",
@@ -183,6 +183,11 @@
       "sha256": "6d06e011efff4535b62029ec0f932f4a62ef739e48533e1491ea72b2e261e2dd"
     },
     {
+      "path": "outputs/wz_pole_receipts.json",
+      "bytes": 4556,
+      "sha256": "14bb66e1b1bb20672b751aa4c61d5b90a29feffa96c57eb9a52e293ba22c2d20"
+    },
+    {
       "path": "producers/ball_arithmetic.py",
       "bytes": 7796,
       "sha256": "75b8e8c987ad7ad6678495a4b303180e06ad8700b8d46562c9889d777647ca18"
@@ -251,6 +256,11 @@
       "path": "producers/vertex_format.py",
       "bytes": 9789,
       "sha256": "ba328a51fb34ab6960f1ee7bdb98b92e199e840ec1813423456aa7d9dd79934a"
+    },
+    {
+      "path": "producers/wz_pole_receipts.py",
+      "bytes": 14493,
+      "sha256": "d387264e4b3967fa72a1f48983ac2f0030e6d9cc97178935db213adbc85a0d66"
     },
     {
       "path": "proofs/symbolic_completion_proofs.py",
