@@ -397,14 +397,19 @@ quotient by a shared discrete center in the full global structure. Under its
 transport and refinement premises, OPH reconstructs a compact group from
 persistent charge bookkeeping across patches. Independently, twelve-port
 incidence and target-blind port readback derive an exact current with the
-Standard Model Lie type. The exhaustive selection scan and the measured
+Standard Model Lie type.
+
+The exhaustive selection scan and the measured
 transport double cover fix the matter content and its fermionic Spin typing
 from source, and the matter and central-descent receipts fix the charge
 lattice up to conjugation and the maximal faithful matter image. The cover
-and its intermediate quotients carry the same local tensors. A flux-sector
-menu can be a source-model input for global-form selection when physical line
-and bundle data are supplied. Family count and extra-light-sector completeness
-require source-complete attachment and matter-menu theorems.
+and its intermediate quotients carry the same local tensors. The measured
+flux-sector menu selects the $\mathbb Z_6$ quotient on the declared finite
+carrier, and the realized matter transports single-valuedly through every
+measured sector. Laboratory current and flux identification and the continuum
+global form require separate physical attachments. Family count and
+extra-light-sector completeness require source-complete attachment and
+matter-menu theorems.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -797,9 +802,12 @@ purpose at hand. The realized Standard Model tensors have a common
 $\mathbb Z_6$ kernel, so their maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
 $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors.
-Selecting the physical global form requires line, bundle, or equivalent
-ultraviolet data. The commuting square identifying the local current group
-with the independent Tannaka group is work in progress.
+The measured flux-sector menu selects the $\mathbb Z_6$ quotient on the
+declared finite carrier, where the realized matter transports
+single-valuedly. Laboratory current and flux identification and the continuum
+global form require separate physical attachments. The commuting square
+identifying the local current group with the independent Tannaka group is work
+in progress.
 
 Record
 :   A record is physical information that can be consulted later or

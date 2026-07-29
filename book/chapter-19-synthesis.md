@@ -198,9 +198,13 @@ $$
 The $\mathbb Z_6$ is the six-element set of transformations that acts
 trivially on every tensor in the declared matter package. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors. Physical global-form selection therefore needs additional line or
-bundle data. On the twelve-port icosahedral
-carrier boundary, the port readings split as
+tensors. The measured flux-sector menu selects the $\mathbb Z_6$ quotient on
+the declared finite carrier, and the realized matter transports
+single-valuedly through every measured sector. Laboratory current and flux
+identification and the continuum global form require separate physical
+attachments.
+
+On the twelve-port icosahedral carrier boundary, the port readings split as
 $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
 triplet. Pulling a compact block commutator back to those coefficients gives
@@ -553,8 +557,9 @@ identification remains separate.
 The same separation holds elsewhere: a finite theorem explains what follows
 from a good refinement tower, while source evidence must show that the tower
 exists. On the branches where those tests pass, smooth refinement gives
-Lorentz geometry, entropy equilibrium gives gravity, and the local and global
-fixed points set the proposed electromagnetic grain and cosmic capacity.
+Lorentz geometry, and entropy equilibrium gives gravity. The local fixed point
+sets the proposed electromagnetic grain. The cosmic-capacity claim is
+conditional on a capacity-indexed source map with a unique zero.
 
 One question has been standing quietly behind every chapter: if observation
 is this structural, what is the observer? Chapter 20 stops postponing it.

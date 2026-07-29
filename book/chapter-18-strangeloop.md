@@ -307,13 +307,16 @@ work.
 ## 18.8 Where the Loop Leads
 
 The strange loop converts the structure of the argument into the argument. The
-measured constants are the loop's readings through the observers it produced.
-Those observers work out the architecture of the world from inside it, making
-the self-description explicit. Escher's hands are holding instruments.
+local closure supplies a finite mathematical reading that can be compared with
+the measured electromagnetic constant once the physical transport is supplied.
+The analogous global reading is conditional on a capacity-indexed source map
+with a unique zero. Observers work out the architecture of the world from
+inside it, making the self-description explicit. Escher's hands are holding
+instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
 finite port carrier and its screen chart to the shared public world, and reads
-the two-number closure as the compression claim at the center of the program.
-The chapter after it asks what a self-reading universe means for experience,
-existence, and the observers who turn out to be one of the ways reality
-reflects on itself.
+the local closure and conditional cosmic-capacity proposal as the compression
+claim at the center of the program. The chapter after it asks what a
+self-reading universe means for experience, existence, and the observers who
+turn out to be one of the ways reality reflects on itself.

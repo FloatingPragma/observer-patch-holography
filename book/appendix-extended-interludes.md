@@ -696,15 +696,20 @@ vacuum, and scale conditions.
 The fourth handle is matter. The twelve port readings split exactly as
 $1+3+3'+5$. Incidence fixes the antipode as a polynomial in adjacency.
 A target-blind impulse and port readback therefore derive the signed response
-and its oriented $U(1)$, $SU(2)$, and $SU(3)$ current algebra. Under a declared
-fermionic Spin category and a conjugate rank-fifteen projector pair, anomaly
-balance supplies the Standard Model hypercharges and scalar compatibility.
-The realized tensors have a common central kernel of order six and hence a
-maximal faithful image isomorphic to the usual Standard Model quotient.
-Those tensors also descend through the cover and the order-two, order-three,
-and order-six quotients, so the physical global form is work in progress.
-Physical fermionic typing, three-family attachment, scalar multiplicity, exclusion
-of extra light sectors, and quantum field-theory construction remain separate.
+and its oriented $U(1)$, $SU(2)$, and $SU(3)$ current algebra. The exhaustive
+matter scan and measured non-split transport double cover select the
+rank-fifteen matter pair and its odd-Weyl Spin typing at finite source-model
+scope.
+
+Anomaly balance supplies the Standard Model hypercharges and scalar
+compatibility. The realized tensors have a common central kernel of order six
+and hence a maximal faithful image isomorphic to the usual Standard Model
+quotient. Those tensors also descend through the cover and the order-two,
+order-three, and order-six quotients. The measured flux-sector menu selects
+the order-six quotient on the declared finite carrier. Laboratory current and
+flux identification, the continuum global form, three-family attachment,
+scalar multiplicity, exclusion of extra light sectors, and quantum
+field-theory construction remain separate.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -762,8 +767,13 @@ the twelve port readings split as $1+3+3'+5$. Incidence expresses the antipode
 as a polynomial in adjacency. The target-blind impulse and port readback then
 derive the signed response, oriented bracket, and
 $U(1)$, $SU(2)$, and $SU(3)$ Lie type. The realized matter tensors determine
-a common kernel of order six and a maximal faithful image. They do not select
-one physical global form among the four compatible central quotients.
+a common kernel of order six and a maximal faithful image. The measured
+non-split transport double cover selects their odd-Weyl Spin typing at finite
+source-model scope. The measured flux-sector menu selects the order-six
+quotient on the declared finite carrier, and the realized matter transports
+single-valuedly through every measured sector. Laboratory current and flux
+identification and the continuum global form require separate physical
+attachments.
 
 Modular theory gives every suitable algebra-state pair a canonical flow. It
 becomes the geometric boost flow on a round cap only when the finite cap-flow

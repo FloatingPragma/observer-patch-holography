@@ -78,10 +78,12 @@ $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
 no selection principle.
 
 The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
-local tensors. The finite result is therefore the maximal faithful matter
-image. A flux-sector menu can become a source-model input for global-form
-selection only when physical line and bundle data are supplied. The generation
-window is three to five. A separate exact screen theorem selects a rank-three
+local tensors. The measured flux-sector menu selects the $\mathbb Z_6$
+quotient on the declared finite carrier, and the realized matter transports
+single-valuedly through every measured sector. Laboratory identification of
+the current and flux sectors and the continuum global form require separate
+physical attachments. The generation window is three to five. A separate
+exact screen theorem selects a rank-three
 band under its single-band and operational-cost premises, and a declared
 unitary simulator reconstructs its response residue. Attaching that finite
 band to three physical matter families and excluding extra light sectors

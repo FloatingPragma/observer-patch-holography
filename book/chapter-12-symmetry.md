@@ -257,18 +257,22 @@ one-generation exterior modules, anomaly balance fixes the primitive charge
 pair up to conjugation, and exactly six shared center transformations act
 trivially. Quotienting by all six gives the maximal faithful matter image
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
+
 Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
 the quotient says those six shared moves are one move. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors, so physical global-form selection needs additional global data.
+tensors. The measured non-split transport double cover selects the odd-Weyl
+Spin typing at finite source-model scope. The measured flux-sector menu
+selects the $\mathbb Z_6$ quotient on the declared finite carrier, where the
+realized matter transports single-valuedly through every measured sector.
 
-No selection principle enters this conditional finite calculation. The
-family count lies inside a three-to-five window, with three entering as a
-declared completion. One Higgs and the absence of extra light sectors are
-also declared completions without physical source constructions.
-Physical matter typing, global-form selection, laboratory current
-identification, and attachment of three families to physical chiral matter
-are separate constructions.
+The family count lies inside a three-to-five window. Under the complete-band
+and operational-cost premises, a separate exact screen theorem selects the
+rank-three response band. Its identification with three physical chiral
+families requires a separate construction. One Higgs and the absence of extra
+light sectors are also declared completions without physical source
+constructions. Laboratory current and flux identification and continuum
+fermion and global-form attachment are separate constructions.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting

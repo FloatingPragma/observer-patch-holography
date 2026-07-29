@@ -1270,13 +1270,13 @@ neutrino comparisons. Hadrons come later because protons and mesons are bound
 states. Their masses live in the strong-binding problem, away from the bare
 quark table.
 
-For that reason, a laboratory does not measure the bare first-principles number
-as the fine-structure constant. A real low-energy measurement sees the
-electromagnetic coupling after it has been dressed by the cloud of virtual
-particles around a charge, including the contribution from confined quarks.
-Running and threshold matching would carry a completed source value to the
-Thomson limit measured in the laboratory. The required source spectral
-payload has not been constructed.
+For that reason, the certified finite root is a source-side coordinate rather
+than a laboratory fine-structure prediction. A low-energy measurement sees the
+electromagnetic coupling after virtual-particle dressing, including the
+contribution from confined quarks. Running and threshold matching can carry a
+source value to the Thomson limit only when the source construction supplies
+the required spectral payload. Construction of that payload is work in
+progress.
 
 The local closure proposal compares a golden-ratio balance point with a small
 screen displacement that can carry records and lasting measurement traces.
@@ -1294,11 +1294,11 @@ descriptions without changing the shared data. The recovered charge
 bookkeeping closes on an unbroken $U(1)$ factor. That result identifies the
 electromagnetic symmetry and connection role.
 
-The low-energy action contains the usual positive $F^2$ kinetic term, and the
-selected vacuum has no Higgs,
-Stueckelberg, medium, or nonlocal mass operator, gauge reduction leaves two
-transverse classical waves. Their quadratic Green function has a pole at
-$\omega^2=c_*^2|\mathbf k|^2$. This is a precise massless classical
+The massless-carrier result uses a separately declared low-energy branch: a
+positive $F^2$ Maxwell kinetic term and an unbroken vacuum with no Higgs,
+Stueckelberg, medium, or nonlocal mass operator. Gauge reduction on that branch
+leaves two transverse classical waves. Their quadratic Green function has a
+pole at $\omega^2=c_*^2|\mathbf k|^2$. This is a precise massless classical
 carrier-mode statement.
 
 A positive-energy quantization would turn that classical mode into the photon:
