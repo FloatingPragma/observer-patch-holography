@@ -1760,11 +1760,9 @@
       ],
       "falsifier": "The source map imports the Thomson target, the fixed point is nonunique, or the hadronic endpoint gap cannot be represented in the stated scheme.",
       "scope_if_false": "The fine-structure endpoint claim is downgraded; the structural OPH core and separate hierarchy branch are not automatically affected.",
-      "status": "source_branch_with_endpoint_boundary",
+      "status": "source_branch_with_deferred_endpoint_boundary",
       "claim_class": "empirical_implementation",
-      "gates": [
-        545
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-DM-CONT",
@@ -1789,11 +1787,9 @@
       ],
       "falsifier": "No binding falsifier exists while the source law, constants, relativistic completion, and joint likelihood are open. After those objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
-      "status": "work_in_progress",
+      "status": "resource_deferred",
       "claim_class": "declared_structure",
-      "gates": [
-        564
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-YM-GAP",
@@ -1828,12 +1824,9 @@
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
-      "status": "conditional_gap_identity__finite_transfer_and_continuum_receipts_open",
+      "status": "resource_deferred__finite_transfer_results_not_promoted_to_continuum_gap",
       "claim_class": "conditional_implication",
-      "gates": [
-        294,
-        295
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-CHI-NU",
@@ -1855,11 +1848,9 @@
       ],
       "falsifier": "No binding force falsifier exists until the coherent-source receipt, dimensional coupling, ambient repair field, and momentum ledger are operational. Once those objects are fixed, repeated receipt-complete null force results retire the coherent-matter force continuation.",
       "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
-      "status": "work_in_progress",
+      "status": "resource_deferred",
       "claim_class": "empirical_implementation",
-      "gates": [
-        560
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
@@ -1890,12 +1881,9 @@
       ],
       "falsifier": "Failure of the critical edge, OPH comparison registry, safety layer, stable completion, thresholds, decoupling, augmented isolation, or branch coverage retracts the BD witness. Its five-row proxy has rank zero on the published pre-completion slice, while the completed constraints, stable point, physical forward map, augmented Jacobian, and interval box are absent.",
       "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
-      "status": "rank_gate_failed_structural_benchmark_only",
+      "status": "resource_deferred__rank_gate_failed_structural_benchmark_only",
       "claim_class": "emitted_artifact",
-      "gates": [
-        364,
-        365
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-POW-PHOTONIC",

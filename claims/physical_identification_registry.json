@@ -13,19 +13,9 @@
       ],
       "blocking_issues": [
         {
-          "number": 318,
-          "disposition": "open_work_item",
-          "role": "same-scheme hadronic endpoint transport packet"
-        },
-        {
-          "number": 545,
-          "disposition": "open_work_item",
-          "role": "physical pixel readback and unique physical-map root"
-        },
-        {
           "number": 425,
-          "disposition": "parked_computational_blocker",
-          "role": "source-only QCD spectral and mass backend"
+          "disposition": "resource_deferred_blocker",
+          "role": "source-only QCD spectral and mass backend, including the deferred same-scheme endpoint transport and physical readback"
         }
       ]
     },
@@ -138,12 +128,12 @@
       "blocking_issues": [
         {
           "number": 294,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "Osterwalder-Schrader reconstruction and nontriviality"
         },
         {
           "number": 295,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "finite repair-gap floor"
         }
       ]

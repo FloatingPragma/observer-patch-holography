@@ -29,6 +29,7 @@ import ObserverPatchHolography.YangMillsProp81
 import ObserverPatchHolography.YangMillsGap
 import ObserverPatchHolography.YangMillsGapWitness
 import ObserverPatchHolography.RepairGapChain
+import ObserverPatchHolography.QuotientLumpability
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

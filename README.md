@@ -138,7 +138,7 @@ certificates:
    [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
    and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
 
-The supporting Lean library contains more than 900 theorems and lemmas, with
+The supporting Lean library contains more than 1000 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.
