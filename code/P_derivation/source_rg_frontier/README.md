@@ -53,12 +53,13 @@ as empty lists or trusted booleans:
 - finite-order term masks;
 - certified vector remainders.
 
-The complete issue remains open. A source-complete action and light/heavy
-census for every W/Z-coupled field and operator modulo proved zero-vertex
-decoupling, physical family, scalar, and local carrier attachment, mass
-spectrum, scheme selection, and remainder-producing RG engine are required
-for closure. These positive inputs are owned by #634, #569, #630, #631, and
-#632.
+The complete issue remains open. Issue #634 supplies the bounded finite
+action-domain context. The open positive inputs are the physical family
+attachment in #569, scalar action and kinetic normalization in #636, complete
+source Yukawa matrices in #637, physical local carrier in #631, and the
+W/Z-coupled census in #632. The mass spectrum, scheme selection, and
+remainder-producing RG engine remain part of #32. The #630 integration packet
+and #638 source-to-FJ map are not RG prerequisites.
 
 ## Evidence
 

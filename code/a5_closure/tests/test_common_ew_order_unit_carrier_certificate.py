@@ -99,6 +99,14 @@ class CommonEWOrderUnitCarrierTests(unittest.TestCase):
         self.assertEqual(boundary["scalar_multiplicity"], "independence_limited")
         self.assertEqual(boundary["one_doublet_completion"], "declared_only")
         self.assertFalse(boundary["physical_scalar_selected"])
+        self.assertEqual(
+            self.payload["open_gates"][0],
+            {
+                "gate": "source_selected_scalar_carrier",
+                "status": "open",
+                "owners": [636],
+            },
+        )
 
     def test_every_control_fails_closed(self) -> None:
         self.assertEqual(len(self.payload["controls"]), 6)

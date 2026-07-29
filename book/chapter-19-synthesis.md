@@ -254,12 +254,14 @@ The color triplet is structural on the conditional matter packet. The
 CP and weak-sector conditions leave a three-to-five window. Under the
 single-band and operational-cost premises, an exact finite theorem selects the
 rank-three screen band, and the declared unitary simulator reconstructs its
-response residue. On the finite local domain, that band and the exact
-generation witness form a rank-45 chiral carrier with local signed operators
-and the inherited positive gap of the finite signed seam operator. The
-three-generation physical interpretation requires matter-pole identification,
-a continuum Spin/locality limit, physical seam selection, refinement
-persistence, and laboratory attachment. Gauge
+response residue. Combining that band with the declared generation table gives
+a conditional forty-five-direction candidate; the table supplies its
+chirality and sixfold central action. A separate finite local domain checks a
+declared repeated signed operator and conditional inheritance of the positive
+gap. The source does not choose this matter action or transport the finite
+spin packet to that domain. Three-generation physical interpretation requires
+matter-pole identification, a continuum account of spin and locality,
+physical seam selection, refinement persistence, and laboratory attachment. Gauge
 factors organize candidate force directions; independently produced field
 dynamics would supply physical masses and mixing data.
 

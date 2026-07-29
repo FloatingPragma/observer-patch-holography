@@ -140,7 +140,7 @@
       "role": "family_band_candidate",
       "issue": 569,
       "verifier_id": "issue_569_family_band",
-      "status": "conditional_open_interface",
+      "status": "open_finite_candidate",
       "files": [
         {
           "role": "candidate_certificate",
@@ -151,18 +151,27 @@
           "role": "candidate_artifact",
           "path": "code/a5_closure/manifests/charged_response_pole_residue_artifact.json",
           "schema": "oph.charged_response_pole_residue.v2"
+        },
+        {
+          "role": "finite_domain_attachment_receipt",
+          "path": "code/a5_closure/manifests/matter_attachment_receipt.json",
+          "schema": "oph.local-domain-matter-attachment.v1"
         }
       ],
       "usable_exports": [
         "exact rank-three screen-band selection under the named finite realization",
         "rank-forty-five finite screen assembly with imported rank-fifteen generation factor",
-        "rank-three residue of the declared screen response resolvent"
+        "rank-three residue of the declared screen response resolvent",
+        "declared conditional rank-forty-five tensor extension equal to the scalar signed operator tensored with the identity; not source-selected",
+        "separately pinned issue-314 twelve-port spin packet and issue-634 local operator packet with no certified bridge"
       ],
       "excluded_promotions": [
         "physical matter-pole identification",
+        "identity or transport of the issue-314 spin packet onto the issue-634 local domain",
         "family chirality, Spin/locality, and physical refinement attachment",
         "laboratory current identification",
         "source-selected seam action or flavor/Yukawa operator",
+        "a chiral gauge interaction or family-sensitive kinetic action",
         "exclusion of additional light physical sectors"
       ]
     },
@@ -170,7 +179,7 @@
       "role": "matter_completeness_boundary",
       "issue": 609,
       "verifier_id": "issue_609_matter_boundary",
-      "status": "conditional_open_interface",
+      "status": "closed_bounded_context",
       "files": [
         {
           "role": "boundary_certificate",
@@ -191,10 +200,41 @@
       ]
     },
     {
+      "role": "finite_flux_and_local_domain_classical_context",
+      "issue": 311,
+      "verifier_id": "issue_311_finite_spectral_classical_control",
+      "status": "closed_bounded_context",
+      "files": [
+        {
+          "role": "boundary_certificate",
+          "path": "code/a5_closure/manifests/flux_defect_criterion_reference.json",
+          "schema": "oph.flux_defect_criterion_certificate.v3"
+        },
+        {
+          "role": "receipt",
+          "path": "code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json",
+          "schema": "oph.flux_defect_criterion_receipt.v3"
+        }
+      ],
+      "usable_exports": [
+        "exact finite Z6 sector arithmetic and twisted spectral partition",
+        "exact same-support classical stiffness realization K_k = 5 I - A_k for the twelve-vertex twisted adjacency spectral family, with positive hex-lattice metric and edge-Hessian proof",
+        "separate bounded vector-spring realization of the issue-634 local-domain sector and scalar spectral interface"
+      ],
+      "excluded_promotions": [
+        "an identity bridge between the twelve-vertex exact support and the 8662-node/1052-node local-domain spectral complexes",
+        "quantum dynamics",
+        "a continuum particle pole or asymptotic state",
+        "a mass or laboratory particle identification",
+        "a claim that the complete exported interface is classically and quantum mechanically indistinguishable",
+        "a no-go for particle ontology on any extended physical domain"
+      ]
+    },
+    {
       "role": "rg_representation_frontier",
       "issue": 32,
       "verifier_id": "issue_32_rg_frontier",
-      "status": "conditional_open_interface",
+      "status": "open_partial_context",
       "files": [
         {
           "role": "partial_source_frontier",
@@ -219,7 +259,7 @@
       "role": "scalar_yukawa_source_frontier",
       "issue": 630,
       "verifier_id": "issue_630_scalar_yukawa_frontier",
-      "status": "conditional_open_interface",
+      "status": "open_partial_context",
       "files": [
         {
           "role": "partial_source_frontier",
@@ -244,7 +284,7 @@
       "role": "local_ew_order_unit_frontier",
       "issue": 631,
       "verifier_id": "issue_631_local_carrier_frontier",
-      "status": "conditional_open_interface",
+      "status": "open_finite_candidate",
       "files": [
         {
           "role": "candidate_certificate",
@@ -275,7 +315,7 @@
       "role": "source_clock_frontier",
       "issue": 633,
       "verifier_id": "issue_633_source_clock_frontier",
-      "status": "conditional_open_interface",
+      "status": "bounded_clock_contract",
       "files": [
         {
           "role": "partial_source_frontier",
@@ -325,61 +365,189 @@
       "status": "nonpromoting_specification_schema"
     }
   ],
+  "resolved_boundaries": [
+    {
+      "boundary_id": "finite_local_domain_boundary",
+      "owner_issue": 634,
+      "outcome": "closed_bounded",
+      "scope": "finite_declared_source_domain",
+      "effect": "finite causal, section, and local-operator typing is available; continuum Lorentzian and quantum-EFT promotion is absent",
+      "scientific_parent_status": "bounded_context_only",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
+      "expected_verdict": "ATTAINED",
+      "files": [
+        {
+          "role": "boundary_receipt",
+          "path": "code/a5_closure/manifests/stage4_receipt.json",
+          "schema": "oph.local-domain-stage4.v1"
+        }
+      ]
+    },
+    {
+      "boundary_id": "finite_spectral_quantum_discrimination_boundary",
+      "owner_issue": 311,
+      "outcome": "closed_no_go",
+      "scope": "declared_six_sector_and_scalar_spectral_outputs",
+      "effect": "the separate issue-634 local-domain six-sector and scalar spectral projection has an explicit two-component harmonic vector-spring realization and therefore does not by itself force a quantum particle interpretation; it is not identified with the twelve-vertex exact flux packet, and no complete-interface or extended-domain no-go is claimed",
+      "scientific_parent_status": "bounded_context_only",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
+      "expected_verdict": "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE",
+      "files": [
+        {
+          "role": "boundary_receipt",
+          "path": "code/a5_closure/manifests/classical_realization_receipt.json",
+          "schema": "oph.local-domain-classical-realization.v1"
+        }
+      ]
+    },
+    {
+      "boundary_id": "physical_unit_boundary",
+      "owner_issue": 633,
+      "outcome": "closed_not_evaluable",
+      "scope": "declared_serialized_interface",
+      "effect": "a bounded schema and source scan plus one named channel-nonuse experiment find no SI attachment, so every GeV pole row is NOT_EVALUABLE on this interface; no complete-domain clock non-identifiability theorem is claimed",
+      "scientific_parent_status": "nonpromoting_final_boundary",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
+      "expected_verdict": "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE",
+      "files": [
+        {
+          "role": "boundary_receipt",
+          "path": "code/a5_closure/manifests/clock_unit_verdict.json",
+          "schema": "oph.local-domain-clock-unit-verdict.v1"
+        }
+      ]
+    }
+  ],
   "open_interfaces": [
     {
-      "gate_id": "event_and_spacetime_action_parent",
-      "owner_issues": [634],
-      "required_output": "typed event base, local fields, Lorentzian and Spin data for the action"
+      "gate_id": "physical_family_and_matter_pole_attachment",
+      "owner_issues": [569],
+      "required_output": "physical family multiplicity, chirality, seam and gauge action, matter-pole identification, refinement, and laboratory-current attachment",
+      "prerequisites": [
+        "family_band_candidate",
+        "finite_local_domain_boundary"
+      ],
+      "terminal_for_dimensionless_output": true
+    },
+    {
+      "gate_id": "source_scalar_action",
+      "owner_issues": [636],
+      "required_output": "source-selected scalar carrier, multiplicity, normalized action, potential, stable branch, and vacuum coordinate",
+      "prerequisites": [
+        "finite_local_domain_boundary",
+        "matter_completeness_boundary",
+        "scalar_yukawa_source_frontier"
+      ],
+      "terminal_for_dimensionless_output": false
+    },
+    {
+      "gate_id": "full_yukawa_operator_and_coefficients",
+      "owner_issues": [637],
+      "required_output": "target-clean complete Yu, Yd, and Ye matrices with basis covariance and refinement transport",
+      "prerequisites": [
+        "physical_family_and_matter_pole_attachment",
+        "source_scalar_action",
+        "scalar_yukawa_source_frontier"
+      ],
+      "terminal_for_dimensionless_output": false
+    },
+    {
+      "gate_id": "source_to_fj_coordinate_map",
+      "owner_issues": [638],
+      "required_output": "symbolic v_chart to v_F map with scheme, scale, Jacobian, term mask, and controlled remainder",
+      "prerequisites": [
+        "source_scalar_action",
+        "finite_to_lorentzian_quantum_eft_transfer",
+        "scalar_yukawa_source_frontier"
+      ],
+      "terminal_for_dimensionless_output": false
+    },
+    {
+      "gate_id": "scalar_yukawa_fj_integration",
+      "owner_issues": [630],
+      "required_output": "one compatible target-clean action packet integrating the scalar, Yukawa, and FJ source verdicts",
+      "prerequisites": [
+        "source_scalar_action",
+        "full_yukawa_operator_and_coefficients",
+        "source_to_fj_coordinate_map"
+      ],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "common_screen_electroweak_carrier",
       "owner_issues": [631],
-      "required_output": "positive refinement-natural screen-to-electroweak carrier identification and normalization"
-    },
-    {
-      "gate_id": "physical_family_and_matter_pole_attachment",
-      "owner_issues": [569],
-      "required_output": "rank-forty-five physical matter-pole attachment with chirality, locality, refinement, and laboratory current"
+      "required_output": "positive refinement-natural screen-to-electroweak carrier identification and physical normalization",
+      "prerequisites": [
+        "local_ew_order_unit_frontier",
+        "source_scalar_action"
+      ],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "source_complete_field_census",
       "owner_issues": [632],
-      "required_output": "a complete W/Z-coupled field and operator census modulo a proved zero-vertex decoupling relation"
-    },
-    {
-      "gate_id": "scalar_higgs_and_fj_coordinate",
-      "owner_issues": [630],
-      "required_output": "source scalar action and a proved v_chart to v_F coordinate map"
-    },
-    {
-      "gate_id": "full_yukawa_operator_and_coefficients",
-      "owner_issues": [630],
-      "required_output": "target-clean full Yu, Yd, and Ye rather than invariant channel lines alone"
+      "required_output": "a complete W/Z-coupled field and operator census modulo a proved zero-vertex decoupling relation",
+      "prerequisites": [
+        "finite_local_domain_boundary",
+        "physical_family_and_matter_pole_attachment",
+        "source_scalar_action",
+        "full_yukawa_operator_and_coefficients",
+        "matter_completeness_boundary"
+      ],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "target_clean_rg_threshold_matching",
       "owner_issues": [32],
-      "required_output": "ordered source-derived running, thresholds, finite maps, Jacobians, masks, and remainders"
+      "required_output": "ordered source-derived running, thresholds, finite maps, Jacobians, masks, and remainders",
+      "prerequisites": [
+        "rg_representation_frontier",
+        "finite_local_domain_boundary",
+        "physical_family_and_matter_pole_attachment",
+        "source_scalar_action",
+        "full_yukawa_operator_and_coefficients",
+        "common_screen_electroweak_carrier",
+        "source_complete_field_census"
+      ],
+      "terminal_for_dimensionless_output": true
+    },
+    {
+      "gate_id": "finite_to_lorentzian_quantum_eft_transfer",
+      "owner_issues": [635],
+      "required_output": "regulator-controlled Lorentzian and Spin quantum-EFT transfer accepted by the pole consumer, or a complete stated-domain no-go",
+      "prerequisites": [
+        "finite_local_domain_boundary",
+        "finite_spectral_quantum_discrimination_boundary"
+      ],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "unique_source_root_and_joint_law",
       "owner_issues": [594],
-      "required_output": "unique deterministic point law or target-independent joint law and covariance"
+      "required_output": "unique deterministic point law or target-independent joint law and covariance",
+      "prerequisites": [
+        "physical_family_and_matter_pole_attachment",
+        "scalar_yukawa_fj_integration",
+        "common_screen_electroweak_carrier",
+        "source_complete_field_census",
+        "target_clean_rg_threshold_matching",
+        "finite_to_lorentzian_quantum_eft_transfer"
+      ],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "validated_qft_consumer",
       "owner_issues": [593],
-      "required_output": "frozen production verifier accepting the native packet without algorithm changes"
-    },
-    {
-      "gate_id": "source_operational_clock",
-      "owner_issues": [633],
-      "required_output": "source transition, positive dimensionless gap, SI ancestry, and calibration receipt"
+      "required_output": "frozen production verifier accepting the native packet without algorithm changes",
+      "prerequisites": [],
+      "terminal_for_dimensionless_output": true
     },
     {
       "gate_id": "runtime_and_human_target_firewall",
       "owner_issues": [594],
-      "required_output": "hermetic execution receipt plus formula-selection ancestry audit"
+      "required_output": "hermetic execution receipt plus formula-selection ancestry audit",
+      "prerequisites": [],
+      "terminal_for_dimensionless_output": true
     }
   ],
   "firewall_policy": {

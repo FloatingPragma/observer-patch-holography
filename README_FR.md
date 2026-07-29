@@ -63,13 +63,16 @@ mesures admissibles.
 Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
 
-1. **Une signature d’espace-temps quadridimensionnel, mesurée en train
-   d’émerger.** Un parcours ajusté à 16k, 65k et 262k porteurs donne à la forme
-   d’événement tenue à l’écart l’inertie $(1,3)$, une direction temporelle et
-   trois directions spatiales, avec des marges de cône de $-5{,}62$,
-   $-3{,}22$ et $-1{,}41$. À 262k porteurs, réduire la largeur du support de
-   384 à 96 fait passer le nombre d’arêtes inter-observateurs de 1 062 à 312
-   et l’inertie de $(1,3)$ à $(2,2)$. Les marges négatives maintiennent la
+1. **Un test de signature lorentzienne sur un instrument événementiel
+   fini.** L’instrument fixe une coordonnée d’ascendance et trois coordonnées
+   spectrales. Sur cette carte déclarée, un parcours ajusté à 16k, 65k et
+   262k porteurs donne à la forme d’événement tenue à l’écart l’inertie
+   $(1,3)$, avec des marges de cône de $-5{,}62$, $-3{,}22$ et $-1{,}41$.
+   À 262k porteurs, réduire la largeur du support de 384 à 96 fait passer le
+   nombre d’arêtes inter-observateurs de 1 062 à 312 et l’inertie de $(1,3)$
+   à $(2,2)$. Le calcul mesure la signature et sa sensibilité au support sur
+   l’instrument à quatre coordonnées ; il ne sélectionne pas le nombre de
+   dimensions de l’espace-temps. Les marges négatives maintiennent la
    conclusion d’espace-temps continu sous conditions. Voir l’
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
    et les [données liées par empreinte avec leurs scripts](evidence/einstein_convergence/).
@@ -92,17 +95,21 @@ données et certificats :
    et les preuves Lean de la
    [trichotomie de jauge](Lean/Screen/A5OPH.lean) et du
    [quotient Z₆](Lean/Screen/Z6Exact.lean).
-4. **Une génération chirale du Modèle standard et un candidat de rang trois
-   pour les familles.** Le relèvement fini de la matière réalise exactement
-   les quinze états et les hypercharges d’une génération avec annulation des
-   anomalies. Sous les prémisses distinctes de bande complète et de coût
+4. **L’arithmétique exacte des anomalies d’une génération et un candidat de
+   rang trois pour les familles.** Le relèvement fini de la matière prend comme entrée
+   les quinze états et les hypercharges connus d’une génération, puis
+   recalcule exactement l’annulation de leurs anomalies. Il ne dérive pas
+   cette table de charges depuis la source. Sous les prémisses distinctes de bande complète et de coût
    opérationnel, le théorème de bande sélectionne uniquement le rang trois,
    et la réponse unitaire déclarée place son résidu à la plus basse fréquence
-   positive du générateur. Sur le même domaine fini issu de la source, leur
-   produit tensoriel a le rang complexe 45, une graduation chirale non
-   dégénérée, l’action diagonale exacte de $\mathbb Z_6$, des opérateurs
-   signés locaux et l’écart spectral positif hérité de l’opérateur fini de
-   coutures signées.
+   positive du générateur. Le produit tensoriel de cette bande avec la table
+   déclarée donne un candidat conditionnel de rang complexe 45. La table
+   porte une graduation chirale non dégénérée et l’action diagonale exacte de
+   $\mathbb Z_6$. Un reçu distinct sur le domaine local vérifie l’opérateur
+   déclaré $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de son écart
+   spectral. La source ne sélectionne pas cette action de matière. Le paquet
+   de Spin sur douze ports et le domaine local de 8 662 nœuds ne disposent
+   d’aucun pont certifié de source, de domaine ou de transport.
    L’identification aux pôles de matière, la limite continue de Spin et de
    localité, la sélection physique de l’action de couture et l’attachement au
    laboratoire sont ouverts. Voir l’
@@ -564,7 +571,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Théorème fini de courant $A_5$ | La réalisation déclarée avec comptage entier et coût normalisé de Hilbert--Schmidt donne la séparation exacte en douze unités. Indépendamment, l’incidence orientée donne l’appariement inverse, l’action propre de $A_5$, un repère de rang trois et l’unique involution centrale du graphe. La dérivation de la normalisation entière et du coût physique discret à partir du schéma complet des trois axiomes est ouverte. Sous le contrat explicite de réponse centrale signée et involutive, les réponses admissibles sont $\pm J$, avec des signes sectoriels relatifs exacts, et un relèvement compact explicite réalise $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. La sélection physique indépendante de la réponse et l’identification aux courants de laboratoire sont ouvertes ; aucune conclusion automatique sur un support global $S^2$ | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; la sélection physique de la forme globale est portée par les données de secteurs de flux mesurées du certificat de descente à portée de source finie. Cette implication finie n’utilise que ses prémisses énoncées | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. L’attachement au domaine local fini tensorise cette bande avec la génération à quinze états pour donner le rang complexe 45, une chiralité non dégénérée, l’action diagonale exacte de $\mathbb Z_6$, des opérateurs signés locaux et l’écart spectral positif hérité de l’opérateur fini de coutures signées. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. Le produit tensoriel de cette bande avec la table déclarée à quinze états donne un candidat conditionnel de rang complexe 45. La table porte la graduation chirale non dégénérée et l’action diagonale exacte de $\mathbb Z_6$. Un reçu distinct sur le domaine local de 8 662 nœuds vérifie l’extension déclarée $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de l’écart spectral positif. Cette action n’est pas sélectionnée par la source. Le paquet de Spin sur douze ports et le domaine local ne disposent d’aucun pont certifié de source, de domaine ou de transport. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition. Deux moteurs bruts de boucles véritablement indépendants, un troisième vérificateur de production, des contours complexes et données de Laurent certifiés, la covariance, les amplitudes de courant physique, l’appariement à la source et l’horloge sont absents. Aucun pôle natif d’OPH n’est donc promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

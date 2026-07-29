@@ -452,10 +452,13 @@ operator identity can be replayed from the source data.
 
 The rehearsal also explains why the continuum claim has more conditions. Five
 neighborhoods fit one time direction and three space directions, while one
-fits four Euclidean directions. The fitted light cones have negative safety
-margins. Closed finite neighborhoods are not open coordinate charts. The
-result is a real finite causal and operator domain, with the failed geometry
-checks left visible. A smooth four-dimensional spacetime requires the
+fits four Euclidean directions. The instrument was given four coordinates to
+test: one from causal ancestry and three extracted from the visible graph. It
+therefore measures the fitted signature without choosing the number of
+dimensions. The fitted light cones have negative safety margins. Closed
+finite neighborhoods are not open coordinate charts. The result is a real
+finite causal and operator domain, with the failed geometry checks left
+visible. A smooth four-dimensional spacetime requires the
 population, cone, chart, overlap, and refinement conditions stated above.
 
 ### Why There Is No Privileged Reference Frame

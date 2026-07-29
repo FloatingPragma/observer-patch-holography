@@ -145,10 +145,10 @@ def check_policy_and_sources(
         "semantic dependency set changed",
     )
     require(
-        topology["open_blocking_dependencies"] == [569, 634]
+        topology["open_blocking_dependencies"] == [636, 637, 638]
         and 503 not in topology["open_blocking_dependencies"],
         "POLICY_OPEN_DEPENDENCIES",
-        "#503 was promoted from partial-receipt ancestry to a closure dependency",
+        "#630 child ownership drifted or #503 was promoted to a closure dependency",
     )
     require(
         topology["non_gating_partial_receipt_ancestry"]

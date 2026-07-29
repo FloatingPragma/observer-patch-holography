@@ -26,8 +26,10 @@
         "family, scalar, threshold, and scheme non-selection boundaries"
       ],
       "missing": [
-        "positive source action and kinetic normalization",
-        "physical family, scalar, and local carrier attachments",
+        "physical family attachment",
+        "physical scalar action and kinetic normalization",
+        "complete source Yukawa matrices",
+        "physical local carrier attachment",
         "complete W/Z-coupled census modulo proved zero-vertex decoupling"
       ],
       "status": "partial"
@@ -52,14 +54,21 @@
         "b_3": "-7",
         "b_Y": "41/6"
       },
+      "explicit_non_dependencies": [
+        "#630 scalar/Yukawa/FJ integration",
+        "#638 source-to-FJ coordinate map"
+      ],
       "gut_normalized_b_1": "41/10",
       "promotion_allowed": false,
       "required_open_attachments": [
-        "#634 source-derived local action domain and kinetic normalization",
         "#569 physical family attachment",
-        "#630 physical scalar/Yukawa action",
+        "#636 physical scalar action and kinetic normalization",
+        "#637 complete source Yukawa matrices",
         "#631 local physical screen/electroweak carrier",
         "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling"
+      ],
+      "resolved_bounded_context": [
+        "#634 finite local action domain; continuum promotion and physical coefficients absent"
       ],
       "status": "conditional_declared_completion_not_OPH_selected"
     }
@@ -348,15 +357,15 @@
         "status": "bounded_negative_boundary"
       },
       {
-        "byte_sha256": "d9fd5f42d9c5ef3a478b257750f85ec916e8bfcb2b9870b3bf6586c4502dbffa",
+        "byte_sha256": "62748d1c45de13d0ce90488f01fd242a944188f0cd74454adbfb750eea8305cc",
         "bytes": 40227,
-        "canonical_json_sha256": "9b4a12952ff83aebcb995c8130c92b27ba55f0d5e278b86949ada28823f9fb80",
+        "canonical_json_sha256": "394c6b9886f19844684ecdec8244273dbbaf728fe1c5e505f327cea5ca69ce98",
         "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
         "role": "conditional_rank_three_screen_context",
         "status": "conditional_context_only"
       }
     ],
-    "input_bundle_digest": "7924e647f12816058acee259ef76bb4b11f262dc9566c84da7b35f0a62d5291d",
+    "input_bundle_digest": "50b1fdac24bed5d74805f1f3004f8ff04ff0748074713a9d005f25f58798582c",
     "policy": {
       "byte_sha256": "ab121157eb161b7ebef50d11a19d84d87a43699a3b0f37e68d2fc58f3d49a5bf",
       "bytes": 3759,
@@ -366,5 +375,5 @@
     "target_paths_present": false
   },
   "status": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
-  "subject_digest": "cbb9b19c3d911afc1c435077fe1afed1d51f425275d410f9d51e6ad569d41566"
+  "subject_digest": "0e79ac00bb4905f83e9d7a2d4f4b6fccd010b0d0dc888ff38483e3558eb977c5"
 }

@@ -200,22 +200,70 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v6")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
 
-    def test_finite_spin_locality_attachment_bound(self) -> None:
-        section = self.payload["finite_spin_locality_attachment"]
-        self.assertTrue(section["layer_clauses_all_true"])
-        self.assertEqual(section["generation_recomputed_states"], 15)
-        self.assertTrue(section["z6_all_states_fixed"])
-        self.assertTrue(section["chirality_nondegenerate"])
-        self.assertTrue(section["gap_inherited_exact"])
-        self.assertTrue(section["continuum_gate_unchanged"])
+    def test_spin_and_local_domain_packets_remain_separate(self) -> None:
+        section = self.payload["separate_spin_and_local_domain_context"]
+        self.assertEqual(
+            section["packet_status"],
+            "separate_pinned_issue_314_packet",
+        )
+        self.assertTrue(section["conditional_rank_forty_five_tensor_candidate"])
+        self.assertEqual(
+            section["issue_314_spin_packet"][
+                "generation_recomputed_states"
+            ],
+            15,
+        )
+        self.assertTrue(
+            section["issue_314_spin_packet"]["z6_all_states_fixed"]
+        )
+        self.assertTrue(
+            section["issue_314_spin_packet"]["chirality_nondegenerate"]
+        )
+        self.assertTrue(
+            section["issue_634_local_operator_packet"][
+                "local_stage2_same_source_domain_binding"
+            ]
+        )
+        self.assertTrue(
+            section["issue_634_local_operator_packet"][
+                "conditional_gap_inheritance_exact"
+            ]
+        )
+        self.assertFalse(
+            section["issue_634_local_operator_packet"][
+                "matter_action_source_selected"
+            ]
+        )
+        self.assertFalse(section["spin_to_local_domain_bridge_certified"])
+        self.assertFalse(section["same_source_domain_certified"])
+        self.assertEqual(
+            section["open_interface"],
+            "physical Spin/locality bridge",
+        )
         pins = self.payload["upstream_pins"]
         self.assertEqual(
-            pins["finite_spin_locality_receipt"]["path"],
+            pins["separate_matter_context_receipt"]["path"],
             "manifests/matter_attachment_receipt.json",
         )
         control = self.payload["controls"]["matter_attachment_mutation"]
         self.assertTrue(control["failed"])
         self.assertEqual(control["code"], "MATTER_ATTACHMENT_RANK")
+        bridge_control = self.payload["controls"][
+            "matter_domain_bridge_promotion"
+        ]
+        self.assertTrue(bridge_control["failed"])
+        self.assertEqual(
+            bridge_control["code"],
+            "MATTER_ATTACHMENT_DOMAIN_BRIDGE",
+        )
+        selection_control = self.payload["controls"][
+            "matter_source_selection_promotion"
+        ]
+        self.assertTrue(selection_control["failed"])
+        self.assertEqual(
+            selection_control["code"],
+            "MATTER_ATTACHMENT_SELECTION",
+        )
         promotion = self.payload["promotion"]
         self.assertFalse(promotion["continuum_spin_locality_derived"])
         self.assertFalse(promotion["promotion_allowed"])

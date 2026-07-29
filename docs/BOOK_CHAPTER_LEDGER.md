@@ -39,8 +39,11 @@ form. Local $A_5$ incidence does not supply the global $S^2$ support.
 On the particle side, the A5 screen-current route and the D7-D9 Tannaka
 route are two compatible conditional outputs. Their identity as one physical
 group requires a source-bound commuting square. The generation count
-$N_g=3$ enters only as a declared completion inside the conditional window
-$3 \le N_g \le 5$; a physical rank-45 three-family attachment is open.
+$N_g=3$ follows from separate complete-band and cost-order premises inside
+the conditional window $3 \le N_g \le 5$. Tensoring the selected band with
+the declared generation table gives a conditional rank-45 candidate. The
+local operator packet is separate and does not source-select that matter
+action. A physical three-family attachment is open.
 
 Finally, the relativity chapters keep the repaired BW dependency explicit.
 `FiniteCapBWCertificate` supplies the cap and support-flow certificate.
@@ -779,14 +782,15 @@ independent mixing status.
 
 The generation-count diagram marks a conditional window: it begins at three
 for intrinsic CP capability and closes above five from the declared
-weak-sector ultraviolet clause. Inside that window, three generations enter
-as a declared completion. This is not a theorem of the
-icosahedral graph. Turning the canonical rank-three candidate band into three
-physical chiral families requires a complex rank-45 attachment, the
-right locality and residue, compatible symmetry breaking or descent, and
-refinement control. The chapter is careful about which entries are proved,
-which are declared completions, which are benchmark checks, and which require
-physical construction or external data.
+weak-sector ultraviolet clause. Inside that window, a separate complete-band
+theorem and operational cost order select rank three. This is not a theorem of
+the icosahedral graph by itself. Tensoring the selected band with the declared
+generation table gives a conditional rank-45 candidate. Its chirality and
+diagonal quotient action come from that table. A separate local-domain receipt
+checks a declared tensor-identity operator and conditional gap inheritance,
+without selecting the action or transporting the twelve-port Spin packet to
+that domain. Physical chiral families still require the right poles, locality,
+symmetry breaking or descent, and refinement control.
 
 The builders are too many for a short list, but the relay includes Dirac,
 Pauli, Fermi, Yang, Mills, Gell-Mann, Zweig, Glashow, Salam, Weinberg,

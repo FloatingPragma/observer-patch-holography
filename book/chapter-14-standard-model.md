@@ -288,8 +288,10 @@ The fermions come in a strange pattern: three copies. The up and down quarks, pl
 
 The Standard Model by itself does not explain why there are three generations.
 In OPH, on the declared one-Higgs class, the CP and weak-sector conditions
-leave three, four, or five generations. The count is open, and three enters
-as a declared completion; section 14.12 states its standing precisely. The charged members of the second and
+leave three, four, or five generations. A separate screen theorem selects a
+rank-three response candidate under two named premises. Its identification
+with three physical families is open; section 14.12 states its standing
+precisely. The charged members of the second and
 third observed generations are heavier copies of the first, while the
 neutrino sector has its own mixing pattern. Almost all ordinary matter uses
 only first-generation particles.
@@ -475,13 +477,17 @@ declared twelve-port carrier and its current and matter premises, the
 construction recognizes the Standard Model gauge symmetry type, its sixfold
 global quotient, and the fifteen chiral states of one generation. The
 icosahedral faces also supply a natural three-place candidate for the family
-slot. On one finite source domain, those two pieces fit into a forty-five
-direction matter carrier with chirality, local operators, and a positive
-dimensionless gap.
+slot under two additional premises. Combining those ranks gives a conditional
+forty-five-direction candidate. Its chirality and sixfold central action come
+from the generation table. A separate finite domain checks what happens if a
+signed local operator is repeated across those forty-five directions: its
+positive dimensionless gap survives. The source does not choose that matter
+action, and the finite spin packet has not been transported to the operator
+domain.
 
 This is architectural recognition. Think of working out a machine's
 instruction set from its wiring before anyone has connected it to a motor.
-Turning that finite carrier into three physical particle families requires a
+Turning that finite candidate into three physical particle families requires a
 matter-pole map, a continuum account of spin and locality, and a
 laboratory current. Scalar multiplicity and interacting fields require
 additional constructions as well.
@@ -647,17 +653,14 @@ CP capability requires at least three generations and weak-sector ultraviolet
 consistency permits at most five. Those conditions leave three, four, or
 five generations. The graph and anomaly equations do not choose among them.
 A separate screen-band calculation does choose rank three under two additional
-premises, as described below. On the finite source domain, the band is tied to
-three copies of the fifteen-state pattern. Connecting that carrier to three
-physical matter families is open, so $N_g=3$ enters the physical packet as a
-declared completion. The Witten anomaly is a consistency check on the
-resulting triplet-doublet structure.
+premises, as described below. Combining that band with three copies of the
+fifteen-state pattern gives a conditional forty-five-direction candidate.
+Connecting the candidate to three physical matter families is open. The
+Witten anomaly is a consistency check on the triplet-doublet arithmetic.
 
-The distinction is sharp: no completion clause enters this conditional
-current, charge, or $\mathbb Z_6$ kernel calculation. The declared completion
-identifies the finite rank-45 carrier with physical families and assumes the
-absence of extra light sectors. Neither statement follows from the finite
-carrier construction. Physical matter typing and global-form selection
+The distinction is sharp: no physical family clause enters this conditional
+current, charge, or $\mathbb Z_6$ kernel calculation. Identifying the
+rank-three candidate with physical families and excluding extra light sectors
 require independent constructions.
 
 ### The Icosahedral Closure Route
@@ -809,12 +812,14 @@ declared unitary screen channel and reconstructs the same rank-three residue at
 its lowest positive frequency. Since the channel is unitary, its mode sizes do
 not decay; this is a frequency result, not a relaxation result.
 
-This result selects a finite screen object. On the finite source domain, its
-product with the fifteen-state generation has forty-five complex directions.
-The charge pattern is chiral, its anomalies cancel, the sixfold central action
-is exact, and the local signed operator inherits the positive dimensionless
-gap of the underlying domain. These are finite statements about the declared
-carrier. A physical family claim needs a matter-pole map, continuum
+This result selects a finite screen object. Combining it with the
+fifteen-state generation table gives a conditional object with forty-five
+complex directions. The table is chiral, its anomalies cancel, and its
+sixfold central action is exact. A separate finite domain checks a declared
+signed operator repeated across all forty-five directions. Its positive
+dimensionless gap is inherited from that domain. The source does not choose
+this matter action, and there is no certified transport from the finite spin
+packet to the operator domain. A physical family claim needs a matter-pole map, continuum
 spin and locality, the physical seam choice, persistence under a further
 comparison, and a laboratory identification. It must also show that no extra
 light sectors have slipped in through a side door.
@@ -1072,7 +1077,7 @@ Combining the lower and upper bounds gives the viable window:
 
 $$3 \le N_g \le 5.$$
 
-### The Window, the Screen Band, and the Declared Completion
+### The Window, the Screen Band, and the Physical Bridge
 
 CKM CP capability and weak-sector UV completability define the viable window.
 Here UV completability means that the theory can keep making sense at shorter
@@ -1082,19 +1087,19 @@ is increased.
 Those conditions leave three, four, or five generations. The three axioms and
 the target-free matter reduct do not narrow the window. The separate
 screen-band theorem does: under its single-band and cost premises, rank three
-is the unique finite candidate. The finite source-domain construction ties it
-to the fifteen-state generation pattern. The physical family count is open
-because the map from that rank-45 carrier to matter poles has not been
-established. Three
-therefore enters the physical packet as a declared completion:
+is the unique finite candidate. Combining it with the fifteen-state
+generation pattern gives a conditional forty-five-direction candidate. The
+physical family count is open because the map from that candidate to matter
+poles has not been established. The finite theorem says:
 
-$$\boxed{N_g = 3}$$
+$$\boxed{r_{\text{candidate}} = 3}$$
 
-This boxed value is the conditional rank-three screen candidate. Anomaly
+This is the conditional rank-three screen candidate. Anomaly
 cancellation and the target-free source reduct do not force it. The finite
-screen interface selects it under named premises and the finite local-domain
-receipt builds its rank-45 carrier. Physical family identification requires a
-separate construction.
+screen interface selects it under named premises. A separate local-domain
+receipt checks a declared operator copied across forty-five components. It
+does not choose the matter action or carry the finite spin packet onto that
+domain. Physical family identification requires a separate construction.
 
 The one-Higgs slot also has a clean local geometric carrier, though the
 count of one doublet is itself a declared completion, not a derivation:
@@ -1134,12 +1139,12 @@ those belong to the OPH hierarchy and Higgs/top quantitative branch.
 
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
-The declared completion carries no extra unfixed Yukawa structure; whether
-nature agrees is an open physical question.
-With $N_c=3$ and the declared value $N_g=3$, each generation
+The conditional physical-family branch carries no extra unfixed Yukawa
+structure; its source derivation is open.
+With $N_c=3$ and three physical generations, each generation
 carries four left-handed weak doublets, an even number, so the Witten anomaly
 is satisfied generation by generation. This check does not identify the
-finite carrier with physical particle families.
+rank-three response candidate with physical particle families.
 
 ## 14.13 Why Chirality?
 
@@ -1211,10 +1216,11 @@ which of those roles propagate as particles.
 
 The particle picture can be told as one continuous line. The framework first
 rebuilds a conditional gauge structure from charge sectors that fit together
-around every loop. The matter receipts then fix a declared Standard
-Model packet, its charge lattice, and the color carrier, and a declared
-completion identifies the exact finite rank-45 carrier with physical matter
-inside the three-to-five window. The same structure
+around every loop. The matter receipts then fix a Standard Model charge
+packet, its charge lattice, and the color carrier. Separate screen premises
+select a rank-three response candidate inside the three-to-five window.
+Combining it with the generation table gives a conditional
+forty-five-direction candidate whose physical identification is open. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
 positive-energy quantum sectors give the corresponding particles.
@@ -1418,12 +1424,14 @@ framework accounts for several concrete facts.
 modules, anomaly freedom forces determinant balance, primitive integrality
 fixes the charge lattice up to conjugation, and the coupled carrier fixes the
 color triplet. CKM CP capability and weak-sector ultraviolet consistency give
-$3\le N_g\le5$; the count is open inside that window, and three enters as a
-declared physical completion. A separate exact screen-band theorem selects
-rank three under its single-band and operational-cost premises. A finite
-source-domain construction tensors that band with the fifteen-state
-generation pattern. The map from the resulting rank-45 carrier to physical
-matter families is open.
+$3\le N_g\le5$; the physical count is open inside that window. A separate
+exact screen-band theorem selects rank three under its single-band and
+operational-cost premises. Combining that band with the fifteen-state
+generation pattern gives a conditional forty-five-direction candidate. A
+different finite-domain calculation checks a declared repeated local operator
+and its inherited gap. It neither selects the matter action nor supplies the
+missing transport from the spin packet. The map to physical matter families
+is open.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives

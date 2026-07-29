@@ -426,12 +426,19 @@ def build_frontier() -> dict[str, Any]:
         "gut_normalized_b_1": "41/10",
         "status": "conditional_declared_completion_not_OPH_selected",
         "promotion_allowed": False,
+        "resolved_bounded_context": [
+            "#634 finite local action domain; continuum promotion and physical coefficients absent"
+        ],
         "required_open_attachments": [
-            "#634 source-derived local action domain and kinetic normalization",
             "#569 physical family attachment",
-            "#630 physical scalar/Yukawa action",
+            "#636 physical scalar action and kinetic normalization",
+            "#637 complete source Yukawa matrices",
             "#631 local physical screen/electroweak carrier",
             "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling",
+        ],
+        "explicit_non_dependencies": [
+            "#630 scalar/Yukawa/FJ integration",
+            "#638 source-to-FJ coordinate map",
         ],
     }
     lean_raw = LEAN_PATH.read_bytes()
@@ -490,8 +497,10 @@ def build_frontier() -> dict[str, Any]:
                     "family, scalar, threshold, and scheme non-selection boundaries",
                 ],
                 "missing": [
-                    "positive source action and kinetic normalization",
-                    "physical family, scalar, and local carrier attachments",
+                    "physical family attachment",
+                    "physical scalar action and kinetic normalization",
+                    "complete source Yukawa matrices",
+                    "physical local carrier attachment",
                     "complete W/Z-coupled census modulo proved zero-vertex decoupling",
                 ],
             },

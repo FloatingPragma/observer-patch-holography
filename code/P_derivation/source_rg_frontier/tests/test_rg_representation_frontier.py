@@ -60,6 +60,32 @@ def test_exact_parametric_law_and_declared_evaluation() -> None:
     assert payload["promotion_allowed"] is False
 
 
+def test_rg_dependencies_exclude_fj_integration_and_map() -> None:
+    row = load()["conditional_evaluations"][0]
+    assert row["resolved_bounded_context"] == [
+        "#634 finite local action domain; continuum promotion and physical coefficients absent"
+    ]
+    assert row["required_open_attachments"] == [
+        "#569 physical family attachment",
+        "#636 physical scalar action and kinetic normalization",
+        "#637 complete source Yukawa matrices",
+        "#631 local physical screen/electroweak carrier",
+        "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling",
+    ]
+    assert row["explicit_non_dependencies"] == [
+        "#630 scalar/Yukawa/FJ integration",
+        "#638 source-to-FJ coordinate map",
+    ]
+
+
+def test_rg_dependency_reintroduction_fails_closed() -> None:
+    payload = load()
+    payload["conditional_evaluations"][0]["required_open_attachments"].append(
+        "#638 source-to-FJ coordinate map"
+    )
+    must_fail(payload, "DEPENDENCY_ATTACHMENTS")
+
+
 def test_zero_gauge_index_boundary_does_not_overclaim_full_decoupling() -> None:
     boundary = load()["invisible_sector_boundary"]
     assert boundary["exact_result"]["delta_b_Y"] == "0"

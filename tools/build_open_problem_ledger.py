@@ -258,20 +258,31 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     311: {
         "phase": "particle-ontology",
-        "claim_level": "physical particle criterion open after finite-interface no-go",
+        "claim_level": (
+            "bounded classical spectral match; physical particle criterion open"
+        ),
         "blocker": (
-            "The exact finite flux chains, twisted spectra, fusion rows, and one-step "
-            "refinement data have hash-identical classical-lattice and quantum-Hilbert "
-            "interpretations. No asymptotic dynamics, pole, or all-depth intertwiner is emitted."
+            "On the exact twelve-vertex support, K_k = 5 I - A_k gives an "
+            "explicit classical vector-spring realization in the positive "
+            "hex-lattice metric, with an exact edge-Hessian proof, from which "
+            "the twisted adjacency spectral family is recoverable. A separate "
+            "issue-634 local-domain receipt matches its own six-sector and "
+            "scalar spectra. No identity bridge joins those finite domains. "
+            "Neither result covers a complete interface or extended source "
+            "domain, and no measurement semantics, asymptotic dynamics, pole, "
+            "or cofinal refinement family is emitted."
         ),
         "closure": (
-            "A source-defined quantum dynamics or equivalent physical spectral criterion "
-            "excludes the same-flux classical model and controls composition, asymptotic "
-            "states, and refinement."
+            "An extended source-defined quantum measurement, state-update, dynamics, "
+            "or equivalent physical spectral criterion excludes the relevant "
+            "same-domain vector-spring completion and controls composition, "
+            "asymptotic states, and refinement."
         ),
         "falsification": (
-            "The proposed particle discriminator remains a function only of the finite "
-            "interface shared by the classical and quantum countermodels."
+            "The proposed particle discriminator remains a function only of "
+            "the exact-support spectral family or of the separate matched "
+            "local-domain sector/scalar projection, without an extended "
+            "measurement or state-update interface."
         ),
         "chrome_policy": "Use only to audit a concrete dynamics, pole, or quantization packet.",
     },
@@ -279,11 +290,13 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "gravity-scale-composition",
         "claim_level": "source clock plus gravity readout composition gap",
         "blocker": (
-            "Issue #633 proves PHYSICAL_UNITS_NOT_EVALUABLE on the complete declared "
-            "finite domain. The extended matter and scalar/Yukawa domains in #569 "
-            "and #630 must select a physical transition. A source-derived gravity "
-            "length or radius, Einstein attachment, common provenance graph, and "
-            "outward interval composition into G_SI remain open."
+            "Issue #633 proves "
+            "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE. This "
+            "bounded verdict is not a complete-domain theorem. The extended matter "
+            "and scalar/Yukawa domains in #569 and #630 must select a physical "
+            "transition. A source-derived gravity length or radius, Einstein "
+            "attachment, common provenance graph, and outward interval composition "
+            "into G_SI remain open."
         ),
         "closure": (
             "A target-clean physical transition from the extended source domain and "
@@ -539,8 +552,8 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     569: {
         "phase": "physical-family-attachment",
         "claim_level": (
-            "exact finite rank-45 chirality, Spin-data, locality, and gap "
-            "attachment; physical and continuum attachment open"
+            "exact finite rank-45 tensor candidate with separate spin and "
+            "local-operator packets; physical attachment open"
         ),
         "blocker": (
             "The family_band_attachment certificate proves the exact selection: among "
@@ -556,11 +569,15 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "(faithful, equivariant, Galois partner at the maximal pole), and the "
             "unitary channel conserves mode norms. The finite screen assembly has "
             "complex rank forty-five with the exact rank-15 generation factor "
-            "imported. The finite issue-634 matter attachment recomputes the fifteen "
-            "states and anomaly cancellation, fixes the diagonal Z6 action, gives a "
-            "nondegenerate chirality grading, acts on the full rank-45 fiber with "
-            "support-radius-one signed operators, inherits the exact positive "
-            "dimensionless gap, and records the finite Spin data and lift ambiguity. "
+            "imported. A conditional finite tensor construction recomputes the "
+            "fifteen states and anomaly cancellation, fixes the diagonal Z6 action, "
+            "and gives a nondegenerate chirality grading on the separate issue-314 "
+            "twelve-port packet. The issue-634 local signed operator tensors with "
+            "the rank-45 identity by a declared algebraic extension, which "
+            "conditionally copies its exact positive dimensionless gap. This "
+            "tensor extension is not source-selected. No source, domain, or "
+            "transport bridge attaches the issue-314 "
+            "spin packet to that local operator domain. "
             "This is not a physical matter-spectrum measurement. The "
             "#617 copy-count invisibility for external completions is unchanged. "
             "The bounded #627 classification also leaves the physical seam "
@@ -568,7 +585,7 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "unselected."
         ),
         "closure": (
-            "The matter-pole identification, continuum Spin/locality limit, third "
+            "The matter-pole identification, physical Spin/locality bridge, third "
             "physical persistence leg, laboratory current attachment, exclusion of "
             "extra light sectors, and source-derived seam mechanism with its "
             "character or 2-representation identify the finite rank-45 "
@@ -595,11 +612,11 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "common-digest production replay."
         ),
         "closure": (
-            "The positive packets from #634, #569, #630, #631, #632, and #32, "
-            "including the physical transition selected on the extended matter "
-            "domain, are substituted into the validated #593 consumer without "
-            "algorithm changes and independently replayed under one recomputed "
-            "subject digest."
+            "The bounded #634 domain and positive packets from #569, #630, "
+            "#631, #632, and #32, including the physical transition selected "
+            "on the extended matter domain, are substituted into the validated "
+            "#593 consumer without algorithm changes and independently "
+            "replayed under one recomputed subject digest."
         ),
         "falsification": (
             "Any source choice, branch, tolerance, error budget, or producer depends "
@@ -666,40 +683,58 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     633: {
         "phase": "operational-source-clock",
-        "claim_level": "positive dimensionless gap closed; physical SI clock non-identifiable on the declared domain",
+        "claim_level": (
+            "positive dimensionless gap retained; physical units not evaluable "
+            "on the declared serialized interface"
+        ),
         "blocker": (
-            "The declared source domain emits an exact positive dimensionless gap "
-            "and admits source-indistinguishable SI attachments. It therefore cannot "
-            "select a physical reference transition or SI chart."
+            "The bounded serialized-interface audit finds no emitted physical-unit "
+            "field, and two attained producer runs ignore the named SI attachment "
+            "channel. This is not a transitive source-closure or complete-domain "
+            "non-identifiability theorem."
         ),
         "closure": (
-            "The source classification and same-domain countermodels certify "
-            "PHYSICAL_UNITS_NOT_EVALUABLE while retaining the positive dimensionless "
-            "gap. Any matter-anchored extension is owned separately by #569 and #630."
+            "The receipt certifies "
+            "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE "
+            "while retaining the positive dimensionless gap. Any physical "
+            "transition on an extended matter domain is owned separately by "
+            "#569 and #630."
         ),
         "falsification": (
-            "The declared source domain uniquely selects an SI attachment, or the "
-            "same-domain alternatives cease to be source-indistinguishable."
+            "A field in the declared serialized interface carries a physical-unit "
+            "attachment, or the attained producer demonstrably consumes the named "
+            "SI channel."
         ),
-        "chrome_policy": "Closed on the complete negative exit; use successor issues for extended source domains.",
+        "chrome_policy": (
+            "Treat the closure as a bounded interface verdict; never cite it as "
+            "a complete-domain clock no-go."
+        ),
     },
     634: {
         "phase": "lorentzian-spin-local-source",
-        "claim_level": "inhabited local action domain open",
+        "claim_level": (
+            "finite causal and local-operator domain attained; continuum "
+            "Lorentzian/Spin quantum-EFT promotion open"
+        ),
         "blocker": (
-            "Conditional event, frame, cone, and spin interfaces do not yet construct "
-            "one inhabited refinement-compatible Lorentzian/Spin local action domain."
+            "The finite event complex, typed sections, seam topology, and local "
+            "operators are inhabited. Negative cone margins, one Euclidean "
+            "neighborhood fit, and the missing cofinal refinement limit block "
+            "continuum promotion."
         ),
         "closure": (
-            "One source-derived local domain binds events, Lorentzian frames, Spin "
-            "lifts, locality, Hamiltonian typing, refinement, and public receipts "
-            "with independent replay."
+            "The bounded finite-domain receipt remains closed. A separate "
+            "regulator-controlled transfer must establish the continuum "
+            "Lorentzian/Spin quantum-EFT domain."
         ),
         "falsification": (
-            "The proposed domain is uninhabited, loses locality or Spin/Lorentzian "
-            "compatibility under refinement, or requires a physical target."
+            "The finite receipt fails replay or silently promotes its fitted "
+            "finite coordinates to a continuum manifold."
         ),
-        "chrome_policy": "Use only to audit a concrete inhabited local-action construction.",
+        "chrome_policy": (
+            "Use only to audit the bounded local-domain construction and exact "
+            "bundle replay; #635 owns continuum transfer."
+        ),
     },
 }
 

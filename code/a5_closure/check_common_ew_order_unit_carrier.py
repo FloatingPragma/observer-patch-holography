@@ -401,7 +401,7 @@ def verify_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
             {
                 "gate": "source_selected_scalar_carrier",
                 "status": "open",
-                "owners": [630],
+                "owners": [636],
             },
             {
                 "gate": "physical_common_load_semantics",
