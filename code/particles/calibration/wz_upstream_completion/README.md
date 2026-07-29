@@ -16,6 +16,8 @@ specification**, not a production scientific receipt system.
 - `templates/` — deliberately incomplete, non-promotable packet templates.
 - `proofs/symbolic_completion_proofs.py` — exact algebraic checks.
 - `checkers/check_completion_bundle.py` — fail-closed fixed-template linter. It is unconditionally non-promoting because external artifact resolution is not implemented.
+- `producers/wz_pole_receipts.py` — a target-free sampled W/Z boundary diagnostic. Its fixed false certification flags prevent the sampled winding from being used as a root, Laurent, current-pole, or OPH-native receipt.
+- `checkers/check_wz_pole_diagnostic.py` — independent schema, source-pin, exact-correction, contour, self-digest, and fail-closed flag replay for that diagnostic.
 - `tests/test_completion.py` — schema/dependency tests plus a regression proving that forged self-attestation can satisfy the candidate predicate but can never promote.
 - `data/nonlinear_gauge_grid_v1.json` — frozen 45-point gauge stress grid.
 - `data/receipt_dependency_dag_v4.json` — acyclic receipt dependency graph.
@@ -36,6 +38,12 @@ The templates are not physics inputs. They define a preliminary data shape and
 intentionally keep evidence gates false. Even a forged all-true template remains
 non-promoting. A future verifier must resolve immutable artifacts, recompute
 digests and equations, and derive every evidence result itself.
+
+The sampled W/Z contour output is also non-promoting. Its mpmath radii are
+roundoff heuristics without directed rounding, and its finite regulator does not
+certify an analytic continuation sheet. The exact finite
+`d = 4 - 2 epsilon` prefactor correction is replayed separately from those
+numerical samples.
 
 `UPSTREAM_PACKAGE_MANIFEST.json` records Pro's pristine 35-file archive. The
 post-audit integrated file identities are recorded separately in

@@ -30,7 +30,7 @@ POLICY_REL = (
     "data/source_parent_policy_v1.json"
 )
 EXPECTED_POLICY_CANONICAL_SHA256 = (
-    "ee5e09ebad0243316b2b83cb207e28baa94034859cbed8c703f0ce0250a343a6"
+    "d1a824a7fba641b2ff3116e566c2ea120023495f2f34ca4340420e8867b547f5"
 )
 
 EXPECTED_POSITIVE = {
@@ -88,7 +88,7 @@ EXPECTED_CONDITIONAL = {
         "verifier_id": "issue_569_family_band",
         "files": {
             "code/a5_closure/manifests/family_band_attachment_reference.json":
-                ("candidate_certificate", "oph.family_band_attachment_certificate.v5"),
+                ("candidate_certificate", "oph.family_band_attachment_certificate.v6"),
             "code/a5_closure/manifests/charged_response_pole_residue_artifact.json":
                 ("candidate_artifact", "oph.charged_response_pole_residue.v2"),
         },

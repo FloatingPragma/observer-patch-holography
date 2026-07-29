@@ -358,9 +358,10 @@ compact-gauge patch bookkeeping.
 
 The mass-gap proposal has a simple image. At finite resolution, local repair
 removes inconsistencies from the gauge data and returns the system toward its
-repaired vacuum. The Yang-Mills gap is then the repair gap: the least
-nontrivial energy needed to leave the repaired vacuum survives as the least
-nontrivial gauge excitation in the continuum,
+repaired vacuum. On a branch carrying the finite-transfer, vacuum,
+reconstruction, noncollapse, and uniform-gap certificates, the least
+nontrivial repair cost survives as the least nontrivial gauge excitation in
+the continuum,
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.

@@ -28,7 +28,9 @@ sympy algebra:
 
 The remaining full gauge-condition correlator protection identity
 (the G_Z G_Z combination with the ghost two-point functions) is
-recorded as the declared residual item of this target.
+recorded as the declared residual item of this target.  A successful
+replay therefore reports a partial result rather than an unqualified
+acceptance verdict.
 """
 
 from __future__ import annotations
@@ -219,7 +221,13 @@ def check() -> dict[str, Any]:
     verdict = {
         "schema": "ward_st_nielsen_check.v1",
         "target": "WARD_ST_NIELSEN_1",
-        "status": "PASS" if not problems else "FAIL",
+        "status": (
+            "PARTIAL_REPLAY_PASS__GHOST_ST_RESIDUAL_OPEN"
+            if not problems
+            else "FAIL"
+        ),
+        "replay_checks_passed": not problems,
+        "acceptance_complete": False,
         "replays": replays,
         "problems": problems,
         "residual": {
@@ -239,7 +247,7 @@ def main() -> int:
     verdict = check()
     OUT_PATH.write_text(json.dumps(verdict, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"status": verdict["status"], "problems": verdict["problems"][:4]}))
-    return 0 if verdict["status"] == "PASS" else 1
+    return 0 if verdict["replay_checks_passed"] else 1
 
 
 if __name__ == "__main__":

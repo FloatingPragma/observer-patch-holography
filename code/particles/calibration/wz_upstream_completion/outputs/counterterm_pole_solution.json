@@ -1,4 +1,5 @@
 {
+  "acceptance_complete": false,
   "blocks": {
     "AA": {
       "pole": "g1**2*g2**2*p2*(-3*xi - 20)/(3*(g1**2 + g2**2))"
@@ -56,6 +57,7 @@
     "gauge_fixing": "bare fields and parameters in the gauge-fixing term with xi generators dxiW, dxiB as xi-polynomial poles; the renormalized-form declaration of the packet is amended: the Goldstone pole system is inconsistent without the xi generators, which is a machine finding of this producer"
   },
   "slice": "dmu2 xi-independence pins the dxi coefficients; residual freedom reduces the dlam xi-terms",
+  "slice_checks_passed": true,
   "solution_on_slice": {
     "dZB": "-41*g1**2/6",
     "dZH": "(24*mfd1**2 + 24*mfd2**2 + 24*mfd3**2 + 8*mfe1**2 + 8*mfe2**2 + 8*mfe3**2 + 24*mfu1**2 + 24*mfu2**2 + 24*mfu3**2 + v**2*(g1**2*xi - 3*g1**2 + 3*g2**2*xi - 9*g2**2))/(4*v**2)",
@@ -66,7 +68,7 @@
     "dmu2": "(-18*mfd1**4 + 3*mfd1**2*mu2 - 18*mfd2**4 + 3*mfd2**2*mu2 - 18*mfd3**4 + 3*mfd3**2*mu2 - 6*mfe1**4 + mfe1**2*mu2 - 6*mfe2**4 + mfe2**2*mu2 - 6*mfe3**4 + mfe3**2*mu2 - 18*mfu1**4 + 3*mfu1**2*mu2 - 18*mfu2**4 + 3*mfu2**2*mu2 - 18*mfu3**4 + 3*mfu3**2*mu2 + v**2*(48*aB1*lam*v**2 + 27*g1**4*v**2 + 54*g1**2*g2**2*v**2 + 436*g1**2*lam*v**2 - 36*g1**2*mu2 + 81*g2**4*v**2 + 324*g2**2*lam*v**2 - 108*g2**2*mu2 + 1728*lam**2*v**2 - 864*lam*mfd1**2 - 864*lam*mfd2**2 - 864*lam*mfd3**2 - 288*lam*mfe1**2 - 288*lam*mfe2**2 - 288*lam*mfe3**2 - 864*lam*mfu1**2 - 864*lam*mfu2**2 - 864*lam*mfu3**2 - 288*lam*mu2)/96)/v**2",
     "dv": "(lam*v**2*(-12*aB1 + 3*g1**2*xi - 73*g1**2 + 9*g2**2*xi + 27*g2**2)/24 - lam*(3*mfd1**2 + 3*mfd2**2 + 3*mfd3**2 + mfe1**2 + mfe2**2 + mfe3**2 + 3*mfu1**2 + 3*mfu2**2 + 3*mfu3**2) - mu2*xi*(g1**2 + 3*g2**2)/8)/(lam*v)"
   },
-  "status": "PASS",
+  "status": "PARTIAL_SOLVABLE_SLICE__SCALAR_XI_OBSTRUCTION_OPEN",
   "target": "RENORMALIZATION_ST_1",
   "uv_cancellation": "the block pole system is solvable over the generator set"
 }

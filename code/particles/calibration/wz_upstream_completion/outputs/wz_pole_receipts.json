@@ -1,0 +1,363 @@
+{
+  "acceptance_row_discharged": false,
+  "arithmetic_scope": "binary64 contour coordinates with mpmath midpoint evaluation and heuristic roundoff radii; no directed interval arithmetic",
+  "artifact_sha256": "sha256:c807db94895805bb0ab6c7d76deb108859cf60ecfa7931dbc56fe0a15796ff17",
+  "certification": {
+    "analytic_sheet": false,
+    "laurent_data": false,
+    "physical_current_pole": false,
+    "precision_enclosure": false,
+    "root_count": false,
+    "simple_root": false
+  },
+  "ckm_fixture": {
+    "V11": "1",
+    "V12": "0",
+    "V13": "0",
+    "V21": "0",
+    "V22": "1",
+    "V23": "0",
+    "V31": "0",
+    "V32": "0",
+    "V33": "1"
+  },
+  "conventions": {
+    "dimensional_prefactor_finite_correction": {
+      "AZ": "(8880000*p2 + 11104571)/648000000",
+      "W": "(312000*p2 + 90163)/1944000",
+      "Z": "(292020000*p2 + 79268959)/1944000000"
+    },
+    "mask": "strict one loop: Pi enters once; the AZ^2 determinant term is second loop order and dropped; the AZ block is recorded at the contour center",
+    "sheet": "precision-dependent finite -i eps principal-log sampling; no second-sheet continuation path or holomorphic contour domain is certified"
+  },
+  "diagnostic_checks_passed": true,
+  "fixture": {
+    "g1": "1/4",
+    "g2": "1/3",
+    "lam": "1/8",
+    "mfd1": "1/60",
+    "mfd2": "1/25",
+    "mfd3": "1/10",
+    "mfe1": "1/80",
+    "mfe2": "1/30",
+    "mfe3": "1/15",
+    "mfu1": "1/50",
+    "mfu2": "1/20",
+    "mfu3": "1/5",
+    "mu2": "1/2",
+    "mu_ren2": "1",
+    "v": "2",
+    "xi": "1"
+  },
+  "fixture_statement": "declared synthetic admissible rationals; not the measured Standard-Model point; no target mounts anywhere; xi = 1; V is the exact identity matrix and Vc equals V",
+  "input": {
+    "bytes": 222276,
+    "path": "outputs/fj_direct_vector_blocks.json",
+    "schema": "fj_direct_vector_blocks.v1",
+    "sha256": "bbff3823b2b3c4a2f2fd1cd3feba407df3a762966a74cb43c9a4d213a5c8c80d",
+    "target": "FJ_DIRECT_1"
+  },
+  "promotion": {
+    "oph_native": false,
+    "unit_claim": false
+  },
+  "receipts": {
+    "W_128": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0005563100299361793,
+        -2.3006764088353247e-05,
+        1.7635548901837591e-38
+      ],
+      "boson": "W",
+      "contour_binary64": {
+        "lower_left": [
+          0.09722222222222222,
+          -0.013888888888888888
+        ],
+        "upper_right": [
+          0.125,
+          0.013888888888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "7/72",
+          "-1/72"
+        ],
+        "upper_right": [
+          "1/8",
+          "1/72"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(312000*p2 + 90163)/1944000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 128,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 6.466714744562534e-38,
+      "sampled_boundary_min_modulus": 0.01305449716724063,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "1/9"
+    },
+    "W_192": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0005563100299361793,
+        -2.3006764088353247e-05,
+        9.560250216173334e-58
+      ],
+      "boson": "W",
+      "contour_binary64": {
+        "lower_left": [
+          0.09722222222222222,
+          -0.013888888888888888
+        ],
+        "upper_right": [
+          0.125,
+          0.013888888888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "7/72",
+          "-1/72"
+        ],
+        "upper_right": [
+          "1/8",
+          "1/72"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(312000*p2 + 90163)/1944000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 192,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 3.505613087449372e-57,
+      "sampled_boundary_min_modulus": 0.01305449716724063,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "1/9"
+    },
+    "W_256": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0005563100299361793,
+        -2.3006764088353247e-05,
+        5.182622026940071e-77
+      ],
+      "boson": "W",
+      "contour_binary64": {
+        "lower_left": [
+          0.09722222222222222,
+          -0.013888888888888888
+        ],
+        "upper_right": [
+          0.125,
+          0.013888888888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "7/72",
+          "-1/72"
+        ],
+        "upper_right": [
+          "1/8",
+          "1/72"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(312000*p2 + 90163)/1944000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 256,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 1.9003966626531127e-76,
+      "sampled_boundary_min_modulus": 0.01305449716724063,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "1/9"
+    },
+    "Z_128": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0007590038029529117,
+        -4.058093242720595e-05,
+        2.6753558120247027e-38
+      ],
+      "boson": "Z",
+      "contour_binary64": {
+        "lower_left": [
+          0.1519097222222222,
+          -0.021701388888888888
+        ],
+        "upper_right": [
+          0.1953125,
+          0.021701388888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "175/1152",
+          "-25/1152"
+        ],
+        "upper_right": [
+          "25/128",
+          "25/1152"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(292020000*p2 + 79268959)/1944000000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 128,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 6.745528144104994e-38,
+      "sampled_boundary_min_modulus": 0.020995996858882652,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "25/144"
+    },
+    "Z_192": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0007590038029529117,
+        -4.058093242720595e-05,
+        1.4503132917844517e-57
+      ],
+      "boson": "Z",
+      "contour_binary64": {
+        "lower_left": [
+          0.1519097222222222,
+          -0.021701388888888888
+        ],
+        "upper_right": [
+          0.1953125,
+          0.021701388888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "175/1152",
+          "-25/1152"
+        ],
+        "upper_right": [
+          "25/128",
+          "25/1152"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(292020000*p2 + 79268959)/1944000000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 192,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 3.6567581342003734e-57,
+      "sampled_boundary_min_modulus": 0.020995996858882652,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "25/144"
+    },
+    "Z_256": {
+      "analytic_sheet_certified": false,
+      "az_block_at_center": [
+        0.0007590038029529117,
+        -4.058093242720595e-05,
+        7.86216410868653e-77
+      ],
+      "boson": "Z",
+      "contour_binary64": {
+        "lower_left": [
+          0.1519097222222222,
+          -0.021701388888888888
+        ],
+        "upper_right": [
+          0.1953125,
+          0.021701388888888888
+        ]
+      },
+      "contour_exact": {
+        "lower_left": [
+          "175/1152",
+          "-25/1152"
+        ],
+        "upper_right": [
+          "25/128",
+          "25/1152"
+        ]
+      },
+      "diagnostic_checks_passed": true,
+      "dimensional_prefactor_finite_correction": "(292020000*p2 + 79268959)/1944000000",
+      "edge_sample_counts": {
+        "bottom": 32,
+        "left": 32,
+        "right": 32,
+        "top": 32
+      },
+      "laurent_data_certified": false,
+      "physical_current_pole_certified": false,
+      "precision_bits": 256,
+      "precision_enclosure_certified": false,
+      "root_count_certified": false,
+      "roundoff_heuristic_max_radius": 1.9823325566770423e-76,
+      "sampled_boundary_min_modulus": 0.020995996858882652,
+      "sampled_boundary_winding": 1,
+      "sampled_points_exclude_zero": true,
+      "samples_per_edge": 32,
+      "simple_root_certified": false,
+      "tree_mass_sq": "25/144"
+    }
+  },
+  "schema": "wz_pole_boundary_diagnostic.v3",
+  "status": "SAMPLED_BOUNDARY_DIAGNOSTIC__NO_ROOT_CERTIFICATE",
+  "type": "EXTERNAL_SM_EFT_DIAGNOSTIC"
+}

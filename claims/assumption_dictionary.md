@@ -154,6 +154,10 @@ This dictionary gives stable names to the assumptions used in the claim registry
 | `compare_only_Cabibbo_abs_Vus_coordinate` | The no-go receipt compares the finite axis menu with the declared \(|V_{us}|=0.2250\) coordinate only after constructing every axis and angle. The value does not construct or select an axis. | Particle paper quark-mixing no-go boundary |
 | `W5_real_symmetric_traceless_A5_representation` | The real \(A_5\) five-dimensional module is represented as \(W_5=\operatorname{Sym}^2_0(\mathbb R^3)\), with rotations acting by \(A\mapsto RAR^\mathsf{T}\). | Particle paper flavor-orbit boundary |
 | `simple_spectrum_W5_orbit_requirement` | A proposed \(W_5\) family-mass orbit must have three distinct eigenvalues. A doubly degenerate fixed point does not supply three charged-family ratios. | Particle paper flavor-orbit boundary |
+| `target_clean_finite_local_domain_capture` | The finite-domain receipt uses the frozen deterministic source capture whose provenance DAG contains no target or laboratory input. | Screen microphysics, particle paper |
+| `observer_visible_seam_complex` | Seam transport is evaluated on the declared observer-visible complex with 8,662 vertices and 11,816 edges. This object is not identified with an event-touched subcomplex or a continuum bundle. | Screen microphysics |
+| `declared_reversing_seam_transport` | The finite local operators use the declared sign reversal on every seam and the emitted transition data. Physical Spin structure and continuum transport are separate questions. | Screen microphysics, particle paper |
+| `declared_unit_counting_measure` | The finite section inner products assign unit weight to every carrier and seam in the named local-domain realization. The twelve-port equal-state-weight theorem does not force this measure on the full observer-visible complex, and no continuum volume form is inferred from it. | Screen microphysics |
 
 ## Registry completion, 2026-07-23
 

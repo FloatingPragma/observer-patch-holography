@@ -15,7 +15,9 @@ PAYLOAD = json.loads((ROOT / "outputs" / "counterterm_pole_solution.json").read_
 
 
 def test_status_and_certificates() -> None:
-    assert PAYLOAD["status"] == "PASS"
+    assert PAYLOAD["status"] == "PARTIAL_SOLVABLE_SLICE__SCALAR_XI_OBSTRUCTION_OPEN"
+    assert PAYLOAD["slice_checks_passed"] is True
+    assert PAYLOAD["acceptance_complete"] is False
     assert "solvable" in PAYLOAD["uv_cancellation"]
     assert "non-abelian binding" in PAYLOAD["census_binding"]
 

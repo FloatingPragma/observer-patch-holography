@@ -1578,9 +1578,9 @@ def complete_coefficient_lift_classification() -> dict[str, Any]:
         },
         "z6": {
             "faithful_embeddings_into_seam_class_lane": faithful_z6,
-            "orientation_note": (
-                "the two faithful embeddings differ by the automorphism "
-                "k -> -k of Z6; no physical orientation is selected here"
+            "embedding_relation": (
+                "the two faithful embeddings are related by the automorphism "
+                "k -> -k of Z6; this calculation does not distinguish them"
             ),
             "faithful_lift_within_pinned_lanes": "the order-six central column",
             "classification": "identified_with_order_six_column_within_pinned_lanes",
@@ -2271,7 +2271,7 @@ def certificate_payload(
                 "classified as a nonsplit Z2 central extension over V4, "
                 "without identifying it with a spherical cellular class"
             ),
-            "every_classified_branch_has_sector_and_matter_effect_disposition": True,
+            "five_explicit_rows_have_typed_sector_and_effect_dispositions": True,
             "effect_reading": (
                 "ordinary flat transport is gauge trivial; central sectors "
                 "are A with matter action chi(a); the noncontractible "

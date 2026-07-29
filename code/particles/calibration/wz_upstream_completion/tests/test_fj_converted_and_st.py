@@ -26,8 +26,10 @@ def test_chart_markers_distinct() -> None:
     assert "gauge_fixing_v" in CONVERTED["chart"]
 
 
-def test_st_replay_passes() -> None:
-    assert VERDICT["status"] == "PASS"
+def test_st_replay_is_scoped_to_the_completed_projections() -> None:
+    assert VERDICT["status"] == "PARTIAL_REPLAY_PASS__GHOST_ST_RESIDUAL_OPEN"
+    assert VERDICT["replay_checks_passed"] is True
+    assert VERDICT["acceptance_complete"] is False
     assert VERDICT["problems"] == []
 
 

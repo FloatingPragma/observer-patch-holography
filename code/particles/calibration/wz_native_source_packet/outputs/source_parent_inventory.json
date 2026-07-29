@@ -97,12 +97,12 @@
       ],
       "files": [
         {
-          "byte_sha256": "9eafb3bf846e75486b596a87123f703cb431f0cfb321938a1197b16644fa286c",
-          "bytes": 38793,
-          "canonical_json_sha256": "095345bd86b0093e4bb59dce8d2e4f5036237ec920566f21c6613ef096ca71ab",
+          "byte_sha256": "d9fd5f42d9c5ef3a478b257750f85ec916e8bfcb2b9870b3bf6586c4502dbffa",
+          "bytes": 40227,
+          "canonical_json_sha256": "9b4a12952ff83aebcb995c8130c92b27ba55f0d5e278b86949ada28823f9fb80",
           "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
           "role": "candidate_certificate",
-          "schema": "oph.family_band_attachment_certificate.v5"
+          "schema": "oph.family_band_attachment_certificate.v6"
         },
         {
           "byte_sha256": "7d2727ca89784f7fe2b5dcef0e1d64c66bd5f16727141d04be67877d4999b978",
@@ -160,9 +160,9 @@
       ],
       "files": [
         {
-          "byte_sha256": "e2c54b0b209aacbeee20c1a82763ec216824b13a70b25832cd57d7357e5496c8",
+          "byte_sha256": "66b05e7eb283c71b327f0c618c683562906e0cd194df36c76050e52088a81c68",
           "bytes": 13045,
-          "canonical_json_sha256": "62e332685663ffe5728bbf085c21cb1a4d6f5eeec60bb3a8e2951b5bdf668321",
+          "canonical_json_sha256": "1ca3aa8fa2ccdb2edccf3b158af74f6e147350d961586083e931dcfd39a02fd6",
           "path": "code/P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
           "role": "partial_source_frontier",
           "schema": "oph.rg_representation_frontier.v1"
@@ -188,9 +188,9 @@
       ],
       "files": [
         {
-          "byte_sha256": "7148e95cf82e6a19fedd6aa2b77d0caeaf147207897ec58b1e0620c590b29189",
+          "byte_sha256": "620de83f5797b901109a6e31fc22bc7ef9a0a4b952870aa48bcc9aa5cdd3088d",
           "bytes": 13232,
-          "canonical_json_sha256": "0b69b7b74b64acd81258af9961b84634f02f62583de5e9d10e2d9121db8c9d33",
+          "canonical_json_sha256": "25213097f4de0adb2eb1a2d9327502bff0ab13b460334e5c2b0e09fded12dbc2",
           "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/higgs_yukawa_source_frontier.json",
           "role": "partial_source_frontier",
           "schema": "oph.higgs_yukawa_source_frontier.v1"
@@ -273,7 +273,7 @@
       "verifier_id": "issue_633_source_clock_frontier"
     }
   ],
-  "conditional_context_digest": "67c97ca4f46aa139ed72432c0fbc5f4623006f4f470ea9d28b576100609fb3ae",
+  "conditional_context_digest": "15f489c2887bbb969ef1de28a7a459289496caf553cced6b6dcccbedb04a2cb3",
   "consumer_contract": {
     "common_subject_digest_ready": false,
     "frozen_algorithm_substitution_ready": false,
@@ -325,7 +325,7 @@
     "status": "open"
   },
   "finite_parent_bundle_digest": "f77c493437db6197debaf135ede5a310f7ed380a7453e05910a8b18cf90bf363",
-  "inventory_digest": "f8fc113dc5f83712372007012883879463fb67ecf9686d99eb91d3544bb18946",
+  "inventory_digest": "f4a78c6bece6cd219f40b3ebfe1996b220a48fe2db7ba94d0a9ca72e9e3bd41c",
   "issue": 594,
   "open_interfaces": [
     {
@@ -429,9 +429,9 @@
     }
   ],
   "policy": {
-    "byte_sha256": "dfe3c58d405215589ed2bddec4a5e9e07a5cff0375f0158c5e1d60f6ec1cecc0",
+    "byte_sha256": "b83b3735a98ed70497429bbd5148c42f66d6642334076cfedaed105e196bb160",
     "bytes": 15927,
-    "canonical_json_sha256": "ee5e09ebad0243316b2b83cb207e28baa94034859cbed8c703f0ce0250a343a6",
+    "canonical_json_sha256": "d1a824a7fba641b2ff3116e566c2ea120023495f2f34ca4340420e8867b547f5",
     "path": "code/particles/calibration/wz_native_source_packet/data/source_parent_policy_v1.json"
   },
   "positive_parent_bindings": [

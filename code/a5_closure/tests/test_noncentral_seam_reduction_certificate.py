@@ -213,6 +213,14 @@ class NoncentralSeamReductionTests(unittest.TestCase):
             sorted(classification["z6"]["faithful_embeddings_into_seam_class_lane"]),
             [1, 5],
         )
+        self.assertEqual(
+            classification["z6"]["embedding_relation"],
+            (
+                "the two faithful embeddings are related by the automorphism "
+                "k -> -k of Z6; this calculation does not distinguish them"
+            ),
+        )
+        self.assertNotIn("orientation_note", classification["z6"])
 
     def test_two_type_sector_classification(self) -> None:
         two_type = self.expected["two_type_sector_classification"]
@@ -360,9 +368,7 @@ class NoncentralSeamReductionTests(unittest.TestCase):
         )
         self.assertTrue(status["measured_double_cover_classified"])
         self.assertTrue(
-            status[
-                "every_classified_branch_has_sector_and_matter_effect_disposition"
-            ]
+            status["five_explicit_rows_have_typed_sector_and_effect_dispositions"]
         )
         self.assertIn("physical selection", status["effect_bounded_disposition"])
         self.assertTrue(

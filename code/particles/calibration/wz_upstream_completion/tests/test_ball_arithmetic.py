@@ -1,4 +1,4 @@
-"""Exact-case tests for the ball-arithmetic loop layer and contours."""
+"""Exact cases and refusal checks for the sampled loop diagnostic."""
 
 from __future__ import annotations
 
@@ -18,8 +18,8 @@ def test_a0_exact_value_and_enclosure() -> None:
     ball = ba.a0_fin(4, 1, precision=192)
     with mp.workprec(192):
         exact = mp.mpf(4) * (1 - mp.log(4))
-        assert ball.contains(exact, mp.mpf(0))
-        assert ball.width_bound() < mp.mpf(2) ** -150
+        assert ball.within_reported_radius(exact, mp.mpf(0))
+        assert ball.reported_radius() < mp.mpf(2) ** -150
 
 
 def test_a0_scaleless_zero() -> None:
@@ -31,7 +31,7 @@ def test_b0_zero_momentum_equal_masses() -> None:
     ball = ba.b0_fin(0, 9, 9, 1, precision=192)
     with mp.workprec(192):
         exact = -mp.log(mp.mpf(9))
-        assert ball.contains(exact, mp.mpf(0))
+        assert ball.within_reported_radius(exact, mp.mpf(0))
 
 
 def test_b0_below_threshold_real() -> None:
@@ -52,18 +52,18 @@ def test_b0_precision_presets_only() -> None:
         ba.b0_fin(1, 1, 1, 1, precision=64)
 
 
-def test_winding_counts_zeros() -> None:
+def test_sampled_winding_counts_simple_examples() -> None:
     def f(z: complex) -> complex:
         return (z - (1 + 1j)) * (z + 2)
 
-    assert ba.certify_winding(f, (0.5 + 0.5j, 1.5 + 1.5j), subdivisions=256) == 1
-    assert ba.certify_winding(f, (-3 - 1j, 2 + 2j), subdivisions=512) == 2
-    assert ba.certify_winding(f, (3 + 3j, 4 + 4j), subdivisions=128) == 0
+    assert ba.sample_winding(f, (0.5 + 0.5j, 1.5 + 1.5j), subdivisions=256) == 1
+    assert ba.sample_winding(f, (-3 - 1j, 2 + 2j), subdivisions=512) == 2
+    assert ba.sample_winding(f, (3 + 3j, 4 + 4j), subdivisions=128) == 0
 
 
-def test_winding_refuses_boundary_zero() -> None:
+def test_sampled_winding_refuses_boundary_zero() -> None:
     def f(z: complex) -> complex:
         return z - 1
 
     with pytest.raises(RuntimeError):
-        ba.certify_winding(f, (1 - 1j, 3 + 1j), subdivisions=8)
+        ba.sample_winding(f, (1 - 1j, 3 + 1j), subdivisions=8)
