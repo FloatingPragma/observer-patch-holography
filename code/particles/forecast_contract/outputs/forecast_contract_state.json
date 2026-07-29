@@ -1,0 +1,126 @@
+{
+ "candidate_ledger": {
+  "c1_koide_balanced_circulant_ratio": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "the balance and ordering premises are abstracted from the measured lepton triple; discharge requires a source derivation through the issue-569 discriminator sprint",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "INELIGIBLE_TARGET_ANCESTRY"
+  },
+  "c1_screen_band_response_ratio": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "the realization lives on a prescribed simulator chart; a source-visible discriminator from the issue-569 sprint is required before any forecast typing",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "BLOCKED_SOURCE_INVISIBLE"
+  },
+  "c2_family_multiplicity_three": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "clause R is simulator-realized; source visibility through the issue-569 discriminator is required",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "CONDITIONAL_NAMED_INTERFACE"
+  },
+  "c3_edge_center_clock_ratio": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "the generator and clock binding are not emitted without the consumer-policy P packet",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "BLOCKED_PENDING_GENERATOR"
+  },
+  "c4_sector_gap_ratio": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "no independently meaningful public comparison object exists for these finite-graph ratios",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "NOT_EVALUABLE_NO_INDEPENDENT_COMPARISON"
+  },
+  "x_charged_lepton_anchor_gap": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "declared ineligible by the issue-639 claim boundary; the interval is a target-anchored diagnostic",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "INELIGIBLE_TARGET_ANCESTRY"
+  },
+  "x_p_certificate_alpha": {
+   "ancestry_clean": true,
+   "ancestry_hits": [],
+   "blocking_condition": "declared ineligible by the issue-639 claim boundary until its consumer-policy boundary is discharged before a contract freeze",
+   "check_type": "bounded_declared_vocabulary_audit",
+   "eligibility": "INELIGIBLE_CONSUMER_POLICY_BOUNDARY"
+  }
+ },
+ "claim_boundary": "Frozen issue-639 contract infrastructure: the prediction contract format, the complete low-cost candidate ledger with ancestry and eligibility, the target-ancestry checker, the selection rule fixed before comparison access, and the single-use sealed-comparison protocol with fail-closed guards. No forecast is selected, frozen, or scored by this receipt, and no candidate is promoted past its recorded eligibility.",
+ "contract_freeze_status": "NO_CANDIDATE_ELIGIBLE_YET",
+ "eligible_candidates": [],
+ "forbidden_input_classes": {
+  "comparison_payloads_before_unsealing": {
+   "description": "any comparison payload before the recorded unsealing",
+   "match_fragments": [
+    "comparison payload",
+    "comparison value"
+   ]
+  },
+  "consumer_policy_p_packet": {
+   "description": "the consumer-policy P packet",
+   "match_fragments": [
+    "p packet",
+    "forbidden p packet"
+   ]
+  },
+  "measured_atomic_and_si_constants": {
+   "description": "measured atomic frequencies and SI constants",
+   "match_fragments": [
+    "si constant",
+    "atomic frequency",
+    "caesium",
+    "cesium"
+   ]
+  },
+  "measured_mixing_angles_and_widths": {
+   "description": "measured mixing angles, CKM or PMNS entries, widths",
+   "match_fragments": [
+    "measured mixing",
+    "measured ckm",
+    "measured pmns",
+    "measured width"
+   ]
+  },
+  "measured_particle_masses": {
+   "description": "measured lepton, quark, boson, or hadron masses",
+   "match_fragments": [
+    "measured lepton",
+    "measured mass",
+    "measured triple",
+    "pole mass"
+   ]
+  },
+  "prescribed_target_matched_simulator_charts": {
+   "description": "simulator charts prescribed to match a target",
+   "match_fragments": [
+    "target-matched chart"
+   ]
+  },
+  "target_residuals_and_fitted_exactifiers": {
+   "description": "target residuals and target-fitted exactifiers",
+   "match_fragments": [
+    "target residual",
+    "fitted exactifier",
+    "target-fitted"
+   ]
+  }
+ },
+ "gate": "a contract freeze and sealed comparison happen only after a discriminator receipt upgrades a candidate to source visibility; the issue-569 and issue-636 sprints are the named upgrade paths",
+ "issue": 639,
+ "pins": {
+  "candidate_inventory_sha256": "sha256:f18b79fc7a63efd70979b3f00cdfb96ff5de0dec1ac448cbd64d5f86eff5b610",
+  "contract_schema_sha256": "sha256:686d24622c6a864d21ac2d778d851d021f962c2eb1489f112b8be9fd4d63babb",
+  "module_sha256": "sha256:5b227add25f2bd6fd5921b6f64a201f728d0a8f7548661f170067eeedc20b2fc"
+ },
+ "schema": "oph.forecast_contract_state.v1",
+ "selection_rule": {
+  "fixed_before_comparison_access": true,
+  "rule": "select the first candidate, in the candidate-class order one through four and lexicographic candidate_id within a class, whose eligibility becomes ELIGIBLE_SOURCE_VISIBLE through a discriminator receipt; freeze its contract and sealed comparison before any comparison access; no reselection after the first freeze"
+ },
+ "state_sha256": "sha256:e8af0ec05b0c61a7ce91eefc5aff9f8770e2292aaaa88e554f62488df65727c1"
+}

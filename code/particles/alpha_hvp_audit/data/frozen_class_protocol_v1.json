@@ -1,0 +1,46 @@
+{
+  "schema": "oph.alpha_hvp_class_protocol.v1",
+  "issue": 506,
+  "statement": "One shared endpoint-and-gap protocol for four independent HVP classes. The comparison rule and band are fixed by this file before any class evaluation under it, and the tabulated-class band was declared on the postdiction ledger before this file existed. A class without a frozen in-repository ingest cannot be evaluated and receives the explicit not-evaluable verdict with its exact ingest requirement.",
+  "shared_protocol": {
+    "endpoint_object": "alpha_inv at the Thomson endpoint under the self-consistent insertion convention",
+    "gap_object": "same-scheme anchor gap between the physical on-shell reference and the OPH one-loop unification anchor",
+    "comparison_rule": "a class confirms when its reference deficit lies inside the certified same-scheme anchor-gap interval of the pinned endpoint payload; it refutes when the deficit lies outside; missing covariance is reported, never imputed",
+    "kill_band": {
+      "certified_gap_interval": [
+        "0.6198609040759308",
+        "0.6505569678915788"
+      ],
+      "declared_before_this_evaluation": true,
+      "declaration_site": "postdiction ledger anchor-gap row and the pinned anchor-scheme bridge artifact"
+    },
+    "promotion": {
+      "empirical_input_to_source_output": false,
+      "physical_alpha_prediction": false
+    }
+  },
+  "classes": {
+    "tabulated_dispersive": {
+      "description": "published tabulated dispersive compilation, KNT19 pinned shape carrier",
+      "ingest": "code/particles/reference_store is not consumed; the pinned payload enters through hadron/ingest_empirical_ee_hadrons.py with Delta alpha_had5 = 0.027609 +- 0.000112 and the recorded pin factor",
+      "evaluation_mode": "replay_of_recorded_instrument",
+      "blind_status": "the band was declared before this protocol file; the class value was recorded before this file, so this row is a replayed comparison, not a fresh blind evaluation"
+    },
+    "raw_dispersive": {
+      "description": "raw e+e- hadronic cross-section data with kernel, exclusions, and covariance",
+      "ingest_requirement": "frozen channel-level cross-section tables with covariance and an explicit kernel specification, none of which is in the repository",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    },
+    "independent_code": {
+      "description": "an independent published evaluation code distinct from the pinned compilation chain",
+      "ingest_requirement": "a pinned independent implementation with its release, inputs, and license, none of which is in the repository",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    },
+    "lattice_hvp": {
+      "description": "lattice HVP determination with windowed data and covariance",
+      "ingest_requirement": "frozen lattice windowed data files with covariance and continuum, volume, and scale-setting documentation, none of which is in the repository",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    }
+  },
+  "fabrication_exclusion": "class values recalled from literature memory are not ingests; a class row without a frozen repository ingest cannot be marked evaluated"
+}

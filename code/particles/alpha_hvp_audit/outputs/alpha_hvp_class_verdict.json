@@ -1,0 +1,72 @@
+{
+ "claim_boundary": "Fixed multi-class verdict of the empirical same-scheme alpha/HVP audit under the frozen protocol: the tabulated dispersive class replays confirmed inside the certified band that was declared before this evaluation, the raw-dispersive, independent-code, and lattice classes are explicitly not evaluable for want of frozen repository ingests, and cross-class agreement is not evaluable with a single class. No empirical input is promoted to a source output and no physical alpha prediction is emitted.",
+ "class_matrix": {
+  "independent_code": {
+   "class": "independent_code",
+   "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
+   "evaluation_mode": "not_evaluable_without_frozen_ingest",
+   "fabrication_excluded": true,
+   "ingest_requirement": "a pinned independent implementation with its release, inputs, and license, none of which is in the repository"
+  },
+  "lattice_hvp": {
+   "class": "lattice_hvp",
+   "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
+   "evaluation_mode": "not_evaluable_without_frozen_ingest",
+   "fabrication_excluded": true,
+   "ingest_requirement": "frozen lattice windowed data files with covariance and continuum, volume, and scale-setting documentation, none of which is in the repository"
+  },
+  "raw_dispersive": {
+   "class": "raw_dispersive",
+   "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
+   "evaluation_mode": "not_evaluable_without_frozen_ingest",
+   "fabrication_excluded": true,
+   "ingest_requirement": "frozen channel-level cross-section tables with covariance and an explicit kernel specification, none of which is in the repository"
+  },
+  "tabulated_dispersive": {
+   "certified_gap_interval": [
+    "0.6198609040759308",
+    "0.6505569678915788"
+   ],
+   "class": "tabulated_dispersive",
+   "class_verdict": "CONFIRMED_WITHIN_FROZEN_BAND",
+   "deficit_inside_certified_gap": true,
+   "deficit_recomputation_agrees": true,
+   "endpoint_alpha_inv_central": "136.382754817494662370479418916147111181710023890516298258133378965167042756472084878009875",
+   "endpoint_central_inside_interval": true,
+   "endpoint_interval": [
+    "136.367048060251178903399632329454207944956665265734947634634108589194836286375103302111047",
+    "136.398465193363687004545868664540945129015634237624214633376401737893902751173939873856064"
+   ],
+   "evaluation_mode": "replay_of_recorded_instrument",
+   "recomputed_reference_deficit": "0.63089361364692",
+   "recorded_flag_agrees": true,
+   "recorded_reference_deficit": "0.6308936136469185"
+  }
+ },
+ "cross_class_agreement": {
+  "evaluated_class_count": 1,
+  "note": "cross-class agreement requires at least two independently evaluated classes under the shared protocol",
+  "verdict": "NOT_EVALUABLE_SINGLE_CLASS"
+ },
+ "guards": {
+  "empirical_input_promoted_to_source_output": false,
+  "payload_guards_verified": true,
+  "physical_alpha_prediction_emitted": false
+ },
+ "issue": 506,
+ "pins": {
+  "bridge_sha256": "sha256:7c86ee75ec6e18d29cd42007938db25c36f123934abf4528f3320a9491841e15",
+  "endpoint_sha256": "sha256:c424e873550cf81d2faab4491ff128833034877f73fb70d5e0cb3aec0002f719",
+  "protocol_sha256": "sha256:32b795d89b564c20cf2eef7f911c32febbc8ac2eccc2850ff73aaa84877ce5f0"
+ },
+ "reactivation": {
+  "independent_code": "a pinned independent implementation with its release, inputs, and license, none of which is in the repository",
+  "lattice_hvp": "frozen lattice windowed data files with covariance and continuum, volume, and scale-setting documentation, none of which is in the repository",
+  "raw_dispersive": "frozen channel-level cross-section tables with covariance and an explicit kernel specification, none of which is in the repository",
+  "rule": "landing any frozen ingest reopens only its class row; the frozen band and shared protocol stay unchanged"
+ },
+ "row_class": "empirical_same_scheme_falsification_instrument",
+ "schema": "oph.alpha_hvp_class_verdict.v1",
+ "verdict": "TABULATED_CLASS_CONFIRMED__OTHER_CLASSES_NOT_EVALUABLE",
+ "verdict_sha256": "sha256:6722cf49a7c40f5ad010a4f6732a64c6301ab6ec498d6f4a518833864fe93fda"
+}

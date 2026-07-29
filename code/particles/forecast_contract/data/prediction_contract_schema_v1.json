@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "oph.prediction_contract.v1",
+  "title": "OPH blind prediction contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_id",
+    "candidate_id",
+    "output_type",
+    "allowed_ancestry",
+    "forbidden_input_classes",
+    "generator",
+    "independent_checker",
+    "branch_rule",
+    "verdict_rule",
+    "stop_rule",
+    "sealed_comparison",
+    "freeze",
+    "promotion_conditions"
+  ],
+  "properties": {
+    "schema": {"const": "oph.prediction_contract.v1"},
+    "contract_id": {"type": "string", "minLength": 4},
+    "candidate_id": {"type": "string", "minLength": 4},
+    "output_type": {
+      "enum": ["dimensionless_real_interval", "discrete_verdict"]
+    },
+    "allowed_ancestry": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact", "sha256", "role"],
+        "properties": {
+          "artifact": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "role": {"type": "string"}
+        }
+      }
+    },
+    "forbidden_input_classes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["module", "sha256"],
+      "properties": {
+        "module": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "independent_checker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["module", "sha256"],
+      "properties": {
+        "module": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "branch_rule": {"type": "string", "minLength": 8},
+    "verdict_rule": {"type": "string", "minLength": 8},
+    "stop_rule": {"type": "string", "minLength": 8},
+    "sealed_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payload_sha256", "byte_count", "storage_note"],
+      "properties": {
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "byte_count": {"type": "integer", "minimum": 1},
+        "storage_note": {"type": "string"}
+      }
+    },
+    "freeze": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frozen_by_commit", "unsealing_after_commit_only"],
+      "properties": {
+        "frozen_by_commit": {"type": "boolean"},
+        "unsealing_after_commit_only": {"type": "boolean"}
+      }
+    },
+    "promotion_conditions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "public_knowledge_caveat": {"type": "string"}
+  }
+}
