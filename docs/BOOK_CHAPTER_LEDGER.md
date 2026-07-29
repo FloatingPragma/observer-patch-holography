@@ -789,7 +789,7 @@ generation table gives a conditional rank-45 candidate. Its chirality and
 diagonal quotient action come from that table. A separate local-domain receipt
 checks a declared tensor-identity operator and conditional gap inheritance,
 without selecting the action or transporting the twelve-port Spin packet to
-that domain. Physical chiral families still require the right poles, locality,
+that domain. Physical chiral families require the right poles, locality,
 symmetry breaking or descent, and refinement control.
 
 The builders are too many for a short list, but the relay includes Dirac,

@@ -874,6 +874,46 @@ def pin_matter_attachment_receipt(
         "the attachment receipt must bind the pinned response and "
         "pole-residue artifacts",
     )
+    local_parent_pins = pins.get("local_domain_parent_sha256", {})
+    expected_local_parents = {
+        "source_gap_receipt.json",
+        "stage1_arrays.npz.gz",
+        "stage1_receipt.json",
+        "stage2_receipt.json",
+        "stage3_receipt.json",
+    }
+    require(
+        isinstance(local_parent_pins, dict)
+        and set(local_parent_pins) == expected_local_parents
+        and all(
+            isinstance(value, str)
+            and value.startswith("sha256:")
+            and len(value) == 71
+            for value in local_parent_pins.values()
+        )
+        and pins.get("source_gap_receipt_sha256")
+        == local_parent_pins["source_gap_receipt.json"]
+        and pins.get("stage2_receipt_sha256")
+        == local_parent_pins["stage2_receipt.json"]
+        and isinstance(pins.get("bundle_manifest_projection_sha256"), str)
+        and pins["bundle_manifest_projection_sha256"].startswith("sha256:")
+        and len(pins["bundle_manifest_projection_sha256"]) == 71
+        and "stage-1 receipt" in str(
+            pins.get("bundle_manifest_projection_scope", "")
+        ).lower()
+        and "stage-1 arrays" in str(
+            pins.get("bundle_manifest_projection_scope", "")
+        ).lower()
+        and "stage-2 receipt" in str(
+            pins.get("bundle_manifest_projection_scope", "")
+        ).lower()
+        and "stage-3 receipt" in str(
+            pins.get("bundle_manifest_projection_scope", "")
+        ).lower(),
+        "MATTER_ATTACHMENT_TRANSITIVE_PINS",
+        "the attachment receipt must expose every local-domain parent byte "
+        "pin consumed by bundle verification",
+    )
     require(
         receipt["attachment"]["complex_rank"] == 45
         and receipt["attachment"]["band_rank_measured"] == 3,
@@ -911,6 +951,19 @@ def pin_matter_attachment_receipt(
         "the attachment receipt must keep the issue-314 spin packet "
         "separate from the issue-634 local domain",
     )
+    bounded_scan = receipt.get("bounded_declared_key_scan", {})
+    require(
+        bounded_scan.get("fragments")
+        == ["yukawa", "pole_mass", "mass_gev", "mev"]
+        and bounded_scan.get("hits") == []
+        and "declared mapping keys only"
+        in str(bounded_scan.get("scope", "")).lower()
+        and "no transitive input-closure claim"
+        in str(bounded_scan.get("scope", "")).lower(),
+        "MATTER_ATTACHMENT_BOUNDED_SCAN",
+        "the configured-key scan must remain bounded and must not claim "
+        "semantic or transitive input closure",
+    )
     require(
         receipt["verdict"] == "ATTAINED"
         and receipt["MATTER_ATTACHMENT_RECEIPT"] is True
@@ -945,7 +998,9 @@ def pin_matter_attachment_receipt(
     require(
         "source does not select a matter action" in claim_boundary
         and "no source, domain, or transport bridge" in claim_boundary
-        and "physical spin/locality bridge" in claim_boundary,
+        and "physical spin/locality bridge" in claim_boundary
+        and "bounded declared-key scan" in claim_boundary
+        and "not semantic input closure" in claim_boundary,
         "MATTER_ATTACHMENT_SCOPE",
         "the attachment receipt lost its conditional tensor or cross-domain "
         "boundary",
@@ -1137,6 +1192,80 @@ def control_matter_source_selection_promotion(
             "meaning": (
                 "the same loader rejects promotion of the declared "
                 "conditional tensor extension to a source-selected action"
+            ),
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_matter_transitive_parent_pin_mutation(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """An incomplete local-domain parent closure must be refused."""
+
+    doctored = json.loads(
+        json.dumps(
+            load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+        )
+    )
+    del doctored["upstream_pins"]["local_domain_parent_sha256"][
+        "stage3_receipt.json"
+    ]
+    try:
+        pin_matter_attachment_receipt(
+            response_artifact,
+            pole_artifact,
+            receipt_override=doctored,
+        )
+    except CertificateError as exc:
+        require(
+            exc.code == "MATTER_ATTACHMENT_TRANSITIVE_PINS",
+            "CONTROL_WRONG_FAILURE",
+            "the parent-pin control failed for the wrong reason",
+        )
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": exc.code,
+            "meaning": (
+                "the same loader rejects a matter receipt that omits one "
+                "local-domain parent consumed by bundle verification"
+            ),
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_matter_bounded_scan_mutation(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """A fabricated declared-key scan hit must be refused."""
+
+    doctored = json.loads(
+        json.dumps(
+            load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+        )
+    )
+    doctored["bounded_declared_key_scan"]["hits"] = ["mass_gev"]
+    try:
+        pin_matter_attachment_receipt(
+            response_artifact,
+            pole_artifact,
+            receipt_override=doctored,
+        )
+    except CertificateError as exc:
+        require(
+            exc.code == "MATTER_ATTACHMENT_BOUNDED_SCAN",
+            "CONTROL_WRONG_FAILURE",
+            "the bounded-scan control failed for the wrong reason",
+        )
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": exc.code,
+            "meaning": (
+                "the same loader rejects a configured-key scan with a "
+                "declared target-bearing hit"
             ),
         }
     return {"expected_failure": True, "failed": False}
@@ -2444,6 +2573,18 @@ def build_payload() -> dict[str, Any]:
         ),
         "matter_source_selection_promotion": (
             control_matter_source_selection_promotion(
+                artifact,
+                pole_artifact,
+            )
+        ),
+        "matter_transitive_parent_pin_mutation": (
+            control_matter_transitive_parent_pin_mutation(
+                artifact,
+                pole_artifact,
+            )
+        ),
+        "matter_bounded_scan_mutation": (
+            control_matter_bounded_scan_mutation(
                 artifact,
                 pole_artifact,
             )

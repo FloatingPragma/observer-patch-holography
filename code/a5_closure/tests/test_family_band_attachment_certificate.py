@@ -264,6 +264,22 @@ class FamilyBandAttachmentTests(unittest.TestCase):
             selection_control["code"],
             "MATTER_ATTACHMENT_SELECTION",
         )
+        transitive_pin_control = self.payload["controls"][
+            "matter_transitive_parent_pin_mutation"
+        ]
+        self.assertTrue(transitive_pin_control["failed"])
+        self.assertEqual(
+            transitive_pin_control["code"],
+            "MATTER_ATTACHMENT_TRANSITIVE_PINS",
+        )
+        bounded_scan_control = self.payload["controls"][
+            "matter_bounded_scan_mutation"
+        ]
+        self.assertTrue(bounded_scan_control["failed"])
+        self.assertEqual(
+            bounded_scan_control["code"],
+            "MATTER_ATTACHMENT_BOUNDED_SCAN",
+        )
         promotion = self.payload["promotion"]
         self.assertFalse(promotion["continuum_spin_locality_derived"])
         self.assertFalse(promotion["promotion_allowed"])

@@ -129,7 +129,7 @@ données et certificats :
    particule. Voir l’
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
    et le
-   [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json).
+   [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
 6. **Un théorème exact de Koide dans la chambre positive avec un test gelé de
    la masse du tau.** Une réponse hermitienne $C_3$ obéit à
    $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut exactement à

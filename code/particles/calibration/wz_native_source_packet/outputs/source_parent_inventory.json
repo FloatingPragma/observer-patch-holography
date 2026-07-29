@@ -10,7 +10,7 @@
       "acceptance_index": 2,
       "blocking_gates": [],
       "status": "closed_not_evaluable",
-      "summary": "issue 633 closes the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE on the declared serialized interface under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows"
+      "summary": "issue 633 closes the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows"
     },
     {
       "acceptance_index": 3,
@@ -83,6 +83,7 @@
       "context_status": "open_finite_candidate",
       "excluded_promotions": [
         "physical matter-pole identification",
+        "identity or transport of the issue-314 spin packet onto the issue-634 local domain",
         "family chirality, Spin/locality, and physical refinement attachment",
         "laboratory current identification",
         "source-selected seam action or flavor/Yukawa operator",
@@ -91,9 +92,9 @@
       ],
       "files": [
         {
-          "byte_sha256": "62748d1c45de13d0ce90488f01fd242a944188f0cd74454adbfb750eea8305cc",
-          "bytes": 40227,
-          "canonical_json_sha256": "394c6b9886f19844684ecdec8244273dbbaf728fe1c5e505f327cea5ca69ce98",
+          "byte_sha256": "55ce674753bb633090f0151f5b17ee8edb076b7d956cdad456154425cba5e302",
+          "bytes": 42670,
+          "canonical_json_sha256": "b591d5dd839bd4f43eee89b3581c3794d7195a6788833a3410dadb3c212b5eb3",
           "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
           "role": "candidate_certificate",
           "schema": "oph.family_band_attachment_certificate.v6"
@@ -107,9 +108,9 @@
           "schema": "oph.charged_response_pole_residue.v2"
         },
         {
-          "byte_sha256": "ec4bfb04540a6fa6d9aad8a2c85de7730e5361bb66b922db228c4d04718442ed",
-          "bytes": 5246,
-          "canonical_json_sha256": "88c388c0fb04dfb9aea2166a4a11a5a993d2e1f5f9d20333ca7cc6f628dca847",
+          "byte_sha256": "c576f8568738c32195957b9ace6542d2a6df3591f92718d392d6241f6cfb41bf",
+          "bytes": 8616,
+          "canonical_json_sha256": "66e2a5bd1de9ac73b62929646b62579b906950ce6447799de5729226094eb619",
           "path": "code/a5_closure/manifests/matter_attachment_receipt.json",
           "role": "finite_domain_attachment_receipt",
           "schema": "oph.local-domain-matter-attachment.v1"
@@ -122,7 +123,8 @@
         "exact rank-three screen-band selection under the named finite realization",
         "rank-forty-five finite screen assembly with imported rank-fifteen generation factor",
         "rank-three residue of the declared screen response resolvent",
-        "finite rank-forty-five matter operator equal to the scalar signed operator tensored with the identity"
+        "declared conditional rank-forty-five tensor extension equal to the scalar signed operator tensored with the identity; not source-selected",
+        "separately pinned issue-314 twelve-port spin packet and issue-634 local operator packet with no certified bridge"
       ],
       "verifier_id": "issue_569_family_band"
     },
@@ -157,6 +159,7 @@
     {
       "context_status": "closed_bounded_context",
       "excluded_promotions": [
+        "an identity bridge between the twelve-vertex exact support and the 8662-node/1052-node local-domain spectral complexes",
         "quantum dynamics",
         "a continuum particle pole or asymptotic state",
         "a mass or laboratory particle identification",
@@ -165,28 +168,29 @@
       ],
       "files": [
         {
-          "byte_sha256": "8c1965cda3a3d80346be1fdde1cb01527b0ba3f0bbd29461943ec04d600e8687",
-          "bytes": 1422,
-          "canonical_json_sha256": "4a8899e57e1087b47a8ab0bfa189883d8e747d312c7d61134dcd097607a015e9",
+          "byte_sha256": "a3ae8c95efcb017dc634107c3d80e1a582f1b0925e83ce38d25b8543f0d8675e",
+          "bytes": 2243,
+          "canonical_json_sha256": "4eb198759d538df07ee9e232bba5db659530d536aaf5a2eb8a0cf08a59ac0158",
           "path": "code/a5_closure/manifests/flux_defect_criterion_reference.json",
           "role": "boundary_certificate",
           "schema": "oph.flux_defect_criterion_certificate.v3"
         },
         {
-          "byte_sha256": "77553597790b398ad9476c75f1772167ecf4702eeb21f7e022897109f966da25",
-          "bytes": 18643,
-          "canonical_json_sha256": "f409f27c50c44bd69a496a8022585c3f8a15b3cb4fa247ebadd18a56e3420d69",
+          "byte_sha256": "928283eecc2e78c8443dd7ee9725864a86842f74284676b372fffc1178715ab3",
+          "bytes": 35862,
+          "canonical_json_sha256": "5b4de9d50bf8cd9cf3d3c7dc606b339f7329fc84ec02802f6e98ad6d7153c3aa",
           "path": "code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json",
           "role": "receipt",
           "schema": "oph.flux_defect_criterion_receipt.v3"
         }
       ],
       "issue": 311,
-      "role": "finite_flux_spectral_classical_control",
+      "role": "finite_flux_and_local_domain_classical_context",
       "status": "conditional_context_only",
       "usable_exports": [
         "exact finite Z6 sector arithmetic and twisted spectral partition",
-        "an explicit classical realization of the declared finite spectral outputs"
+        "exact same-support classical stiffness realization K_k = 5 I - A_k for the twelve-vertex twisted adjacency spectral family, with positive hex-lattice metric and edge-Hessian proof",
+        "separate bounded vector-spring realization of the issue-634 local-domain sector and scalar spectral interface"
       ],
       "verifier_id": "issue_311_finite_spectral_classical_control"
     },
@@ -201,9 +205,9 @@
       ],
       "files": [
         {
-          "byte_sha256": "004f0cb86ec0ccce63cb8ae567a43bd31f05ab5fae95d2921d4b68cfa34ffe3b",
+          "byte_sha256": "883759e5ab8ab947cc068964c708a8e4193bd5fb1ac0b21a9928cca4cfae685b",
           "bytes": 13370,
-          "canonical_json_sha256": "fb72fd787a9a5d0f88adc25cb0a8d08f3ff68ac2b7c4eab4961eb7bdae6c43de",
+          "canonical_json_sha256": "b71ea075dd419c7bafdee713a18336adc7e00bbd5757e02f978a7efa634730d5",
           "path": "code/P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
           "role": "partial_source_frontier",
           "schema": "oph.rg_representation_frontier.v1"
@@ -230,9 +234,9 @@
       ],
       "files": [
         {
-          "byte_sha256": "620de83f5797b901109a6e31fc22bc7ef9a0a4b952870aa48bcc9aa5cdd3088d",
-          "bytes": 13232,
-          "canonical_json_sha256": "25213097f4de0adb2eb1a2d9327502bff0ab13b460334e5c2b0e09fded12dbc2",
+          "byte_sha256": "3ae11674dcda673add7f981bec5c19a29feec509afeefc933fb86d9ab182a0cd",
+          "bytes": 13243,
+          "canonical_json_sha256": "d95169676f84d7291e6e0574310c48c4e1bec9dc31390a3889e9550015ce87dd",
           "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/higgs_yukawa_source_frontier.json",
           "role": "partial_source_frontier",
           "schema": "oph.higgs_yukawa_source_frontier.v1"
@@ -259,17 +263,17 @@
       ],
       "files": [
         {
-          "byte_sha256": "1893afe7591a01e1a3f5b61ddf47ae5f2b56bed49344b6aaf51d5c49684125e9",
+          "byte_sha256": "66db1c18cec32cc1b99c425d59117c047024203e2ea6b1fd8e2b85f3c5ce1595",
           "bytes": 10320,
-          "canonical_json_sha256": "dd4844e916404dbf9423b65b3c0ad6d7a417ec513e0f410f7b1c945963102f50",
+          "canonical_json_sha256": "9cc0f8cdcedb098322376498c79d917a4e8afc3a0f39237c89bf15e39eb50c1f",
           "path": "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json",
           "role": "candidate_certificate",
           "schema": "oph.common_ew_order_unit_carrier_frontier.v1"
         },
         {
-          "byte_sha256": "62c1a0fbff22db59ce67b8a23ecc3ec0efc38b9bb0c3d1c232d78fe047d0f6d7",
+          "byte_sha256": "d9658e5e2f357fccdfc43b920c1840508caac94812b4918359e431791b3c19e0",
           "bytes": 1209,
-          "canonical_json_sha256": "3df48b20421ab879ba1f8d63a4ba29a349ef5154468ef725bbace2383728b242",
+          "canonical_json_sha256": "74e76300414508d9cc7e9100991df64f4427eef1088748b59333e402c43ec084",
           "path": "code/a5_closure/receipts/common_ew_order_unit_carrier_reference.receipt.json",
           "role": "receipt",
           "schema": "oph.common_ew_order_unit_carrier_receipt.v1"
@@ -317,7 +321,7 @@
       "verifier_id": "issue_633_source_clock_frontier"
     }
   ],
-  "conditional_context_digest": "8cdb36c3720a1430354e203d2659bc15fcbdbedecff36b0bd5d1abf3c03ca522",
+  "conditional_context_digest": "244fcc8e63c3796b86554f08438ab0d1e700cab144cf60eff7e44b0587fe7573",
   "consumer_contract": {
     "common_subject_digest_ready": false,
     "frozen_algorithm_substitution_ready": false,
@@ -369,7 +373,7 @@
     "status": "open"
   },
   "finite_parent_bundle_digest": "f77c493437db6197debaf135ede5a310f7ed380a7453e05910a8b18cf90bf363",
-  "inventory_digest": "32a428b6ee5732bbe7b19e00103ff36997f638c3eace822c255cc9b3afde20e9",
+  "inventory_digest": "780d7f401657ac6ee26e57f4299b5a124d2beac9384dda106bba59a1de982c9c",
   "issue": 594,
   "open_interfaces": [
     {
@@ -552,9 +556,9 @@
     }
   ],
   "policy": {
-    "byte_sha256": "76cc16cf1d978deb2e41c0083908c2c4981d39179cd94c8206876ea54c4ea4f5",
-    "bytes": 21915,
-    "canonical_json_sha256": "2d5e8639a8edc6525791ed1ff8cf987d23a1a4762df4c826b0a204ab5d532b40",
+    "byte_sha256": "4a54b331ba3c88b63a9210dbe79200fcff4f2d0f35dc32f946dbe72595fdf615",
+    "bytes": 23617,
+    "canonical_json_sha256": "4729fdc68168f31482e24dcf94f4db5e61a4702d053bb88cfc937eae40f4d12f",
     "path": "code/particles/calibration/wz_native_source_packet/data/source_parent_policy_v1.json"
   },
   "positive_parent_bindings": [
@@ -732,29 +736,62 @@
     {
       "boundary_id": "finite_local_domain_boundary",
       "effect": "finite causal, section, and local-operator typing is available; continuum Lorentzian and quantum-EFT promotion is absent",
+      "files": [
+        {
+          "byte_sha256": "f491e70b0ce2706f5cf27bc515af71705fbddc2731a6883ccb3743259fc9659b",
+          "bytes": 7121,
+          "canonical_json_sha256": "20e459fed8b925a38993a418b8b67f229e42820713e91fda0f1d5933bce25e10",
+          "path": "code/a5_closure/manifests/stage4_receipt.json",
+          "role": "boundary_receipt",
+          "schema": "oph.local-domain-stage4.v1"
+        }
+      ],
       "outcome": "closed_bounded",
       "owner_issue": 634,
-      "resolution_authority": "live_github_issue_tracking",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
       "scientific_parent_status": "bounded_context_only",
-      "scope": "finite_declared_source_domain"
+      "scope": "finite_declared_source_domain",
+      "verdict": "ATTAINED"
     },
     {
       "boundary_id": "finite_spectral_quantum_discrimination_boundary",
-      "effect": "the declared spectral outputs have an explicit classical realization and therefore do not force a quantum particle interpretation; no complete-interface indistinguishability claim is made",
+      "effect": "the separate issue-634 local-domain six-sector and scalar spectral projection has an explicit two-component harmonic vector-spring realization and therefore does not by itself force a quantum particle interpretation; it is not identified with the twelve-vertex exact flux packet, and no complete-interface or extended-domain no-go is claimed",
+      "files": [
+        {
+          "byte_sha256": "0071d986e31f9df89c6a06605238d5d10903194e6ffe95f1cc5760e2152caa5a",
+          "bytes": 12969,
+          "canonical_json_sha256": "f43bca1e59f4491215e51e36a82928dae625e74ace519f6c73092812258467e8",
+          "path": "code/a5_closure/manifests/classical_realization_receipt.json",
+          "role": "boundary_receipt",
+          "schema": "oph.local-domain-classical-realization.v1"
+        }
+      ],
       "outcome": "closed_no_go",
       "owner_issue": 311,
-      "resolution_authority": "live_github_issue_tracking",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
       "scientific_parent_status": "bounded_context_only",
-      "scope": "declared_six_sector_and_scalar_spectral_outputs"
+      "scope": "declared_six_sector_and_scalar_spectral_outputs",
+      "verdict": "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE"
     },
     {
       "boundary_id": "physical_unit_boundary",
       "effect": "a bounded schema and source scan plus one named channel-nonuse experiment find no SI attachment, so every GeV pole row is NOT_EVALUABLE on this interface; no complete-domain clock non-identifiability theorem is claimed",
+      "files": [
+        {
+          "byte_sha256": "9cc884694cffd9070fba61b859c5e1bb3312e4a939642ecc537300b6a9156e49",
+          "bytes": 9252,
+          "canonical_json_sha256": "5a58ca68dd93ed60cc791ba5d638ca5d986cda4f1d2c5d1bbbc3982bd195ef08",
+          "path": "code/a5_closure/manifests/clock_unit_verdict.json",
+          "role": "boundary_receipt",
+          "schema": "oph.local-domain-clock-unit-verdict.v1"
+        }
+      ],
       "outcome": "closed_not_evaluable",
       "owner_issue": 633,
-      "resolution_authority": "live_github_issue_tracking",
+      "resolution_authority": "pinned_receipt_plus_live_github_issue_tracking",
       "scientific_parent_status": "nonpromoting_final_boundary",
-      "scope": "declared_serialized_interface"
+      "scope": "declared_serialized_interface",
+      "verdict": "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
     }
   ],
   "schema": "oph.wz.source_parent_inventory.v1",
@@ -1024,7 +1061,7 @@
       },
       {
         "class": "conditional_context",
-        "id": "finite_flux_spectral_classical_control",
+        "id": "finite_flux_and_local_domain_classical_context",
         "issue": 311,
         "status": "closed_bounded_context"
       },
@@ -1153,7 +1190,7 @@
       "oph_native_dimensionless_packet"
     ]
   },
-  "status": "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__PHYSICAL_UNITS_NOT_EVALUABLE",
+  "status": "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE",
   "target_firewall": {
     "allowed_source_roots": [
       "code/a5_closure/manifests",
@@ -1190,6 +1227,8 @@
       "code/a5_closure/manifests/axis_center_descent_reference.json",
       "code/a5_closure/manifests/charged_response_pole_residue_artifact.json",
       "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+      "code/a5_closure/manifests/classical_realization_receipt.json",
+      "code/a5_closure/manifests/clock_unit_verdict.json",
       "code/a5_closure/manifests/common_ew_order_unit_carrier_reference.json",
       "code/a5_closure/manifests/echosahedral_federation_reference.json",
       "code/a5_closure/manifests/family_band_attachment_reference.json",
@@ -1199,6 +1238,7 @@
       "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json",
       "code/a5_closure/manifests/port_current_response_reference.json",
       "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
+      "code/a5_closure/manifests/stage4_receipt.json",
       "code/a5_closure/manifests/super_tannakian_matter_reference.json",
       "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
       "code/a5_closure/receipts/common_ew_order_unit_carrier_reference.receipt.json",
@@ -1222,6 +1262,6 @@
     "emitted_observables": [],
     "native_coordinates": "E_star_normalized_dimensionless",
     "physical_clock_required": true,
-    "physical_unit_verdict": "PHYSICAL_UNITS_NOT_EVALUABLE"
+    "physical_unit_verdict": "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
   }
 }

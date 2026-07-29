@@ -151,7 +151,7 @@
         "Higgs": "r_H = 2(1-a^2)",
         "top": "r_t = a^2/2"
       },
-      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
+      "parent_projection_digest": "a2c88cf86bbee5c3c52c4e185211256faf8ef03342d7039642c76a7fe953b096",
       "physical_promotion_allowed": false,
       "scope": "dimensionless formal readout coefficients only; no physical source action or pole value",
       "source_coordinate_domain": "0 < u < 1",
@@ -168,7 +168,7 @@
       "completion_B": "declared_one_weak_doublet_extension",
       "distinguishing_projection": "scalar_carrier_multiplicity",
       "exact_relation": "rank_scalar(A) != rank_scalar(B)",
-      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
+      "parent_projection_digest": "a2c88cf86bbee5c3c52c4e185211256faf8ef03342d7039642c76a7fe953b096",
       "physical_promotion_allowed": false,
       "scope": "grammar and declared-completion level; no physical scalar is selected",
       "status": "current_finite_parent_not_constant_on_scalar_content_fiber"
@@ -181,7 +181,7 @@
       "distinguishing_projection": "coordinate_one_jet",
       "exact_relation": "jet(Phi_A) != jet(Phi_B)",
       "existence_reason": "the finite parents impose no scheme, scale, Jacobian, or finite-shift equation",
-      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
+      "parent_projection_digest": "a2c88cf86bbee5c3c52c4e185211256faf8ef03342d7039642c76a7fe953b096",
       "physical_promotion_allowed": false,
       "scope": "formal coordinate completion only; no FJ map is emitted",
       "status": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber",
@@ -195,7 +195,7 @@
       "distinguishing_projection": "family_matrix_coordinate_projection",
       "exact_relation": "Y_A != Y_B",
       "existence_reason": "the classified complex coefficient space has positive dimension",
-      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
+      "parent_projection_digest": "a2c88cf86bbee5c3c52c4e185211256faf8ef03342d7039642c76a7fe953b096",
       "physical_promotion_allowed": false,
       "scope": "formal coefficient completion only; no matrix entries are emitted",
       "status": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber",
@@ -274,9 +274,9 @@
         "status": "finite_positive_parent"
       },
       {
-        "byte_sha256": "62748d1c45de13d0ce90488f01fd242a944188f0cd74454adbfb750eea8305cc",
-        "bytes": 40227,
-        "canonical_json_sha256": "394c6b9886f19844684ecdec8244273dbbaf728fe1c5e505f327cea5ca69ce98",
+        "byte_sha256": "55ce674753bb633090f0151f5b17ee8edb076b7d956cdad456154425cba5e302",
+        "bytes": 42670,
+        "canonical_json_sha256": "b591d5dd839bd4f43eee89b3581c3794d7195a6788833a3410dadb3c212b5eb3",
         "kind": "json",
         "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
         "role": "conditional_family_attachment",
@@ -309,7 +309,7 @@
         "status": "exact_current_reduct_boundary"
       }
     ],
-    "input_bundle_digest": "e08496115053f4c8fe6ed702283eaac1a3bafffef5508e6f6fb9593faf1d9b99",
+    "input_bundle_digest": "d3c07b3bb14d2bf896542c4e0a2c01681df0c7e5ecb9c4d90e666a91197c5123",
     "policy": {
       "byte_sha256": "b704323335c9e9558c3700f4dac6a125548cbd5e70a17d3a7acecbd532db1b35",
       "bytes": 6827,
@@ -328,7 +328,7 @@
     "a Higgs top W or Z source value",
     "closure of issue 630"
   ],
-  "subject_digest": "0a359b7f25188f5415c9f1b402d741cc9a4a239f6ee154cc7d5466ec4d54d461",
+  "subject_digest": "258d16bf4c47313b123684bd53c37375982fc5d12faa13fc171a73c13a2a5e4b",
   "target_firewall": {
     "external_593_packet_consumed": false,
     "forbidden_structured_keys_present": false,

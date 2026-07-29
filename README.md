@@ -115,7 +115,7 @@ certificates:
    Yang–Mills mass gap. It supplies no physical clock or particle mass. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
    and the pinned
-   [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json).
+   [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
 6. **An exact positive-chamber Koide theorem with a frozen tau test.** A
    Hermitian $C_3$ response obeys
    $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when

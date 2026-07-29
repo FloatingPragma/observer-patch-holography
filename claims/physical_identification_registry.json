@@ -13,9 +13,19 @@
       ],
       "blocking_issues": [
         {
+          "number": 318,
+          "disposition": "resource_deferred_blocker",
+          "role": "same-scheme hadronic endpoint transport packet"
+        },
+        {
+          "number": 545,
+          "disposition": "resource_deferred_blocker",
+          "role": "physical pixel readback and unique physical-map root"
+        },
+        {
           "number": 425,
           "disposition": "resource_deferred_blocker",
-          "role": "source-only QCD spectral and mass backend, including the deferred same-scheme endpoint transport and physical readback"
+          "role": "source-only QCD spectral and mass backend"
         }
       ]
     },

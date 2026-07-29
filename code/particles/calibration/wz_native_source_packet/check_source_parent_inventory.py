@@ -813,12 +813,39 @@ def _verify_conditional_family(
         "#569 attained clauses conflate the spin and local-domain packets",
     )
     attachment_boundary = attachment.get("claim_boundary", "").lower()
+    bounded_scan = attachment.get("bounded_declared_key_scan", {})
+    local_parent_pins = attachment.get("upstream_pins", {}).get(
+        "local_domain_parent_sha256",
+        {},
+    )
     require(
         "source does not select a matter action" in attachment_boundary
         and "no source, domain, or transport bridge" in attachment_boundary
         and "physical seam-action selection" in attachment_boundary
         and "matter-pole identification" in attachment_boundary
-        and "no yukawa coefficient" in attachment_boundary,
+        and "bounded declared-key scan" in attachment_boundary
+        and "not semantic input closure" in attachment_boundary
+        and bounded_scan.get("fragments")
+        == ["yukawa", "pole_mass", "mass_gev", "mev"]
+        and bounded_scan.get("hits") == []
+        and "declared mapping keys only"
+        in str(bounded_scan.get("scope", "")).lower()
+        and "no transitive input-closure claim"
+        in str(bounded_scan.get("scope", "")).lower()
+        and set(local_parent_pins)
+        == {
+            "source_gap_receipt.json",
+            "stage1_arrays.npz.gz",
+            "stage1_receipt.json",
+            "stage2_receipt.json",
+            "stage3_receipt.json",
+        }
+        and all(
+            isinstance(value, str)
+            and value.startswith("sha256:")
+            and len(value) == 71
+            for value in local_parent_pins.values()
+        ),
         "#569 finite attachment was overpromoted to a physical matter action",
     )
 

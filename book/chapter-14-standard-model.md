@@ -524,9 +524,10 @@ seam complex contains thirty-eight frustrated triangles, so the signs cannot
 all be removed by changing local conventions. Scalar, chiral, and gauge
 sections live on the same finite object, and their local signed operators obey
 the tested adjoint, kinetic, covariance, boundary, and refinement relations on
-declared deterministic sections. The lift ambiguity is counted by two
-independent elimination methods, and the signed-graph theorem fixes the
-kernel. This
+declared deterministic sections. Two coordinate routes through the same
+finite-field rank calculation agree on the lift-ambiguity count and verify its
+rank identity. This is one implementation with an algebraic cross-check.
+The signed-graph theorem fixes the kernel. This
 constructs finite twisted sectors and their operators. Physical spin,
 continuum quantum fields, particles, and detector couplings require separate
 attachments.

@@ -499,7 +499,12 @@ def render(register: dict, rows: list[dict]) -> str:
             if row["owning_issue"] is not None
             else row["milestone"]
         )
-        frozen = row["frozen_utc"] if row["frozen_utc"] else "to freeze"
+        if row["frozen_utc"]:
+            frozen = row["frozen_utc"]
+        elif row["status"] == "resource_deferred":
+            frozen = "not registered"
+        else:
+            frozen = "to freeze"
         lines.append(
             f"| {row['id']} | {row['content']} | {row['status']} | {frozen} |"
             f" {owner} | {row['kill_band']} |"

@@ -220,7 +220,9 @@ def test_declared_parent_scope_cannot_be_rewritten() -> None:
     mutated["conditional_context"][0]["usable_exports"] = [
         "physical family and chiral gauge action",
     ]
-    mutated["conditional_context"][0]["excluded_promotions"] = []
+    mutated["conditional_context"][0]["excluded_promotions"] = [
+        "no excluded physical promotions"
+    ]
     rehash_inventory(mutated)
     assert_rejected(mutated, "declared export scope drifted")
 

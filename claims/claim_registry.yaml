@@ -485,7 +485,7 @@
     },
     {
       "claim_id": "OPH-GR-FINITE-LOCAL-DOMAIN",
-      "statement": "One target-clean deterministic 16384-carrier source capture produces an exact finite causal order on 2304 events, a six-neighborhood closed observer cover with affine wiring transitions, an observer-visible seam complex, typed scalar, chiral, and gauge section spaces, and sign-twisted local operators. The declared chart contains one ancestry-depth coordinate and three spectral embedding columns; the certificate checks that those four columns are nondegenerate, but does not select the number of dimensions. Exact integer evaluations on declared deterministic sections test the adjoint, kinetic, gauge-covariance, boundary, and restriction relations, while the signed-graph theorem fixes the kernel. The held-out global quadratic fit has inertia (1,3), while one local neighborhood has inertia (0,4) and every measured cone margin is negative. The seam complex has 8662 vertices, 11816 edges, and 38 frustrated triangles; its lift-ambiguity rank is 3117 by two independent eliminations. A provenance DAG binds the bundle, and an isolated rerun of the same producers reproduces canonical receipt content. This artifact is not an open-chart atlas, a continuum Lorentzian manifold, a physical Spin structure, a quantum field theory, or a laboratory attachment.",
+      "statement": "One target-clean deterministic 16384-carrier source capture produces an exact finite causal order on 2304 events, a six-neighborhood closed observer cover with induced affine wiring transitions, an observer-visible seam complex, typed scalar, chiral, and gauge section spaces, and sign-twisted local operators. The declared chart contains one ancestry-depth coordinate and three spectral embedding columns; the certificate checks that those four columns are nondegenerate, but does not select the number of dimensions. Exact integer evaluations on declared deterministic sections test the adjoint, kinetic, gauge-covariance, boundary, and restriction relations, while the signed-graph theorem fixes the kernel. The held-out global quadratic fit has inertia (1,3), while one local neighborhood has inertia (0,4) and every measured cone margin is negative. The seam complex has 8662 vertices, 11816 edges, and 38 frustrated triangles; two coordinate routes through the same GF(2) rank implementation agree with the exact rank identity and give lift-ambiguity rank 3117. A provenance DAG binds the bundle, and an isolated rerun of the same producers reproduces canonical receipt content. This is one producer implementation with a semantic replay. This artifact is not an open-chart atlas, a continuum Lorentzian manifold, a physical Spin structure, a quantum field theory, or a laboratory attachment.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "exact_finite_executed_receipt",
       "assumptions": [
@@ -503,10 +503,10 @@
       "novelty_type": "target_clean_finite_local_domain_receipt",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex",
-        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/oph_fpe/local_domain/stage1_event_complex.py",
-        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/stage4_receipt.json"
+        "https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/oph_fpe/local_domain/stage1_event_complex.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/stage4_receipt.json"
       ],
-      "falsifier": "Canonical-content replay fails, an independent recomputation changes a stated count, inertia, ambiguity rank, or deterministic operator evaluation, either elimination gives a different lift rank, the source DAG has a target-aware ancestor, or a continuum or physical conclusion is attributed to this finite receipt.",
+      "falsifier": "Canonical-content replay fails, an independent recomputation changes a stated count, inertia, ambiguity rank, or deterministic operator evaluation, either coordinate route disagrees with the exact rank identity, the source DAG has a target-aware ancestor, or a continuum or physical conclusion is attributed to this finite receipt.",
       "scope_if_false": "The finite local-domain artifact is withdrawn. The conditional event-manifold, gauge, and matter theorems remain subject to their own premises.",
       "status": "attained_on_one_frozen_target_clean_finite_source_capture",
       "claim_class": "emitted_artifact",
@@ -1700,8 +1700,8 @@
       "novelty_type": "exact_finite_source_gap_receipt",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/oph_fpe/local_domain/source_gap.py",
-        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json"
+        "https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/oph_fpe/local_domain/source_gap_receipt.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json"
       ],
       "falsifier": "An exact replay gives a nonzero kernel, the determinant lower-bound proof fails for the emitted integer matrix, the numerical value falls outside its residual certificate, or the dimensionless gap is presented as a physical clock or mass without the missing attachment.",
       "scope_if_false": "The finite source-gap claim is withdrawn. The local-domain operator identities and the separate 24-register scaling no-go remain intact.",
