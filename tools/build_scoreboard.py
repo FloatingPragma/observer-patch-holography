@@ -183,6 +183,7 @@ def validate_accounting(
                 "open_work_item",
                 "parked_computational_blocker",
                 "closed_out_of_scope_blocker",
+                "resource_deferred_blocker",
             }:
                 raise SystemExit(
                     f"{blocker_where}: disposition is outside the controlled vocabulary"
@@ -195,7 +196,10 @@ def validate_accounting(
                         f"{blocker_where}: closed blocker is absent from the canonical "
                         "closed-out-of-scope ledger"
                     )
-            elif blocker["number"] not in open_issues:
+            elif (
+                disposition != "resource_deferred_blocker"
+                and blocker["number"] not in open_issues
+            ):
                 raise SystemExit(
                     f"{blocker_where}: open or parked blocker is absent from the "
                     "canonical open-issue ledger"

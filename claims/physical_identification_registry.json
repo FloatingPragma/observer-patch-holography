@@ -4,14 +4,20 @@
     {
       "identification_id": "alpha_in_thomson",
       "label": "alpha_in / Thomson endpoint",
-      "status": "resource_deferred",
+      "status": "undischarged",
       "claim_ids": [
         "OPH-ALPHA-PIXEL"
       ],
       "source_anchors": [
         "physical Thomson readback contract"
       ],
-      "blocking_issues": []
+      "blocking_issues": [
+        {
+          "number": 425,
+          "disposition": "resource_deferred_blocker",
+          "role": "source-only QCD spectral and mass backend, including the deferred same-scheme endpoint transport and physical readback"
+        }
+      ]
     },
     {
       "identification_id": "beta_ew_common_load_carrier",
@@ -122,12 +128,12 @@
       "blocking_issues": [
         {
           "number": 294,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "Osterwalder-Schrader reconstruction and nontriviality"
         },
         {
           "number": 295,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "finite repair-gap floor"
         }
       ]
