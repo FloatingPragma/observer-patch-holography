@@ -5,6 +5,7 @@ import ObserverPatchHolography.Rule90
 import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
+import ObserverPatchHolography.CapacityNonidentifiability
 import ObserverPatchHolography.SeedPi
 import ObserverPatchHolography.ClebschRatio
 import ObserverPatchHolography.KoideCirculant

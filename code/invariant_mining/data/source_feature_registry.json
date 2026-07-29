@@ -1,0 +1,219 @@
+{
+  "schema": "oph.invariant_mining.source_feature_registry.v1",
+  "issue": 647,
+  "registry_id": "oph-invariant-source-seed-v1",
+  "completeness": {
+    "scope": "bounded_seed_surfaces_required_before_candidate_generation",
+    "status": "BOUNDED_SEED_REGISTRY__NOT_FINAL",
+    "finalization_required_before_generation": true
+  },
+  "features": [
+    {
+      "feature_id": "oriented_twelve_port_carrier",
+      "feature_class": "finite_carrier",
+      "statement": "The registered finite carrier exposes twelve oriented ports together with its exact incidence-response surface.",
+      "premises": [
+        "finite oriented carrier specification",
+        "declared port and incidence conventions"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "FINITE_EXACT__LABORATORY_ATTACHMENT_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/Screen/A5PortModule.lean",
+          "kind": "lean_proof",
+          "role": "finite_port_module"
+        },
+        {
+          "path": "Lean/Screen/A5IncidenceResponse.lean",
+          "kind": "lean_proof",
+          "role": "incidence_response_spectrum"
+        }
+      ]
+    },
+    {
+      "feature_id": "finite_port_action",
+      "feature_class": "finite_action",
+      "statement": "The registered finite port action and its exact receipt provide a source-side current-action surface.",
+      "premises": [
+        "declared finite current-action premises",
+        "registered carrier conventions"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "CONDITIONAL_FINITE_ACTION__LABORATORY_CURRENT_MAP_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/Screen/A5PortAction.lean",
+          "kind": "lean_proof",
+          "role": "port_action_theorems"
+        },
+        {
+          "path": "code/a5_closure/port_current_inner_certificate.py",
+          "kind": "certificate_producer",
+          "role": "finite_current_action_evaluator"
+        },
+        {
+          "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+          "kind": "receipt",
+          "role": "pinned_current_action_result"
+        }
+      ]
+    },
+    {
+      "feature_id": "diagonal_z6_descent",
+      "feature_class": "finite_global_form",
+      "statement": "The registered diagonal order-six descent supplies exact finite character and quotient data.",
+      "premises": [
+        "registered port action",
+        "declared descent action on the finite matter module"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "FINITE_EXACT__PHYSICAL_SECTOR_SELECTION_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/Screen/Z6Exact.lean",
+          "kind": "lean_proof",
+          "role": "exact_diagonal_z6_quotient"
+        },
+        {
+          "path": "code/a5_closure/noncentral_seam_reduction_certificate.py",
+          "kind": "certificate_producer",
+          "role": "seam_reduction_evaluator"
+        },
+        {
+          "path": "code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json",
+          "kind": "receipt",
+          "role": "pinned_seam_reduction_result"
+        }
+      ]
+    },
+    {
+      "feature_id": "observer_agreement_and_readback",
+      "feature_class": "observer_semantics",
+      "statement": "The observer axioms and readback specification define agreement, public records, repair, and capacity without importing a measured target.",
+      "premises": [
+        "three-axiom observer basis",
+        "declared operational readback semantics"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "FORMAL_AND_OPERATIONAL__COSMOLOGICAL_IDENTIFICATION_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/ObserverPatchHolography/CoreAxioms.lean",
+          "kind": "lean_proof",
+          "role": "three_axiom_core"
+        },
+        {
+          "path": "code/capacity_readback/F_READBACK_SPEC.md",
+          "kind": "formal_specification",
+          "role": "operational_capacity_contract"
+        }
+      ]
+    },
+    {
+      "feature_id": "direct_n_bounded_counterfamily_nonidentifiability",
+      "feature_class": "countermodel_or_nogo",
+      "statement": "The target-clean base-agreement, positivity, and carrier-bound capacity completion class admits continuations with different exact slack-zero sets. The complete A1-A3 packet lift remains open.",
+      "premises": [
+        "declared finite capacity source antecedent",
+        "target-clean all-rung continuation grammar"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "EXACT_BOUNDED_NEGATIVE__FULL_A1_A3_LIFT_OPEN__NO_COSMOLOGICAL_COMPARISON",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+          "kind": "lean_proof",
+          "role": "bounded_all_rung_arithmetic_counterfamily"
+        },
+        {
+          "path": "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+          "kind": "receipt",
+          "role": "symbolic_source_family_result"
+        },
+        {
+          "path": "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+          "kind": "independent_receipt",
+          "role": "finite_graph_replay"
+        },
+        {
+          "path": "code/capacity_readback/runtime/direct_n_closure_verdict.json",
+          "kind": "verdict",
+          "role": "direct_n_incomplete_source_antecedent_boundary"
+        }
+      ]
+    },
+    {
+      "feature_id": "conditional_maximum_randomness",
+      "feature_class": "information_projection",
+      "statement": "The registered equal-state-weight surface records the finite consequence of conditional maximum randomness.",
+      "premises": [
+        "feasible finite state set",
+        "conditional maximum-randomness rule"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "FINITE_EXACT__CONTINUUM_STATE_MAP_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/Screen/EqualStateWeights.lean",
+          "kind": "lean_proof",
+          "role": "equal_weight_theorems"
+        },
+        {
+          "path": "code/a5_closure/manifests/equal_state_weights_reference.json",
+          "kind": "receipt",
+          "role": "pinned_equal_weight_result"
+        }
+      ]
+    },
+    {
+      "feature_id": "family_band_response",
+      "feature_class": "finite_response",
+      "statement": "The registered family-band surface supplies exact finite multiplicities and a conditional rank-three response selection.",
+      "premises": [
+        "complete faithful in-window band premise",
+        "declared operational cost order"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "CONDITIONAL_FINITE_RESPONSE__MATTER_POLE_MAP_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "Lean/Screen/A5FamilyBand.lean",
+          "kind": "lean_proof",
+          "role": "family_band_selection_theorems"
+        },
+        {
+          "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
+          "kind": "receipt",
+          "role": "pinned_family_band_result"
+        }
+      ]
+    },
+    {
+      "feature_id": "finite_local_domain_boundary",
+      "feature_class": "finite_local_domain",
+      "statement": "The registered classical-realization receipt bounds the finite local-domain surface without identifying it with the twelve-port carrier or a continuum spacetime.",
+      "premises": [
+        "declared finite source capture",
+        "separate classical-realization boundary"
+      ],
+      "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
+      "physical_attachment_status": "FINITE_RECEIPT__CARRIER_AND_CONTINUUM_BRIDGES_OPEN",
+      "candidate_generation_eligible": false,
+      "artifacts": [
+        {
+          "path": "code/a5_closure/manifests/classical_realization_receipt.json",
+          "kind": "receipt",
+          "role": "finite_local_domain_boundary"
+        }
+      ]
+    }
+  ]
+}

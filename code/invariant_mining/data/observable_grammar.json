@@ -1,0 +1,88 @@
+{
+  "schema": "oph.invariant_mining.observable_grammar.v1",
+  "issue": 647,
+  "grammar_id": "oph-invariant-observable-grammar-v1",
+  "freeze_status": "FROZEN_BEFORE_CANDIDATE_GENERATION",
+  "scalar_domains": [
+    "integer",
+    "rational",
+    "declared_exact_algebraic",
+    "certified_real_interval"
+  ],
+  "class_ids": [
+    "exact_zero_forbidden_transition",
+    "discrete_congruence_parity_ordering_multiplicity",
+    "homogeneous_scale_free_combination",
+    "normalized_residue_asymmetry_cross_spectrum",
+    "trace_determinant_character_index",
+    "rg_invariant_combination",
+    "angular_selection_cross_level_correlation",
+    "refinement_scaling_exponent",
+    "shared_response_identity"
+  ],
+  "operators": {
+    "terminals": [
+      "registered_integer",
+      "registered_exact_algebraic",
+      "registered_certified_interval",
+      "registered_trace",
+      "registered_determinant",
+      "registered_character",
+      "registered_index",
+      "registered_pole",
+      "registered_residue",
+      "registered_gap",
+      "registered_multiplicity",
+      "registered_correlation"
+    ],
+    "unary": [
+      "negate",
+      "absolute_value",
+      "square",
+      "trace",
+      "determinant",
+      "normalize_by_declared_norm",
+      "finite_difference",
+      "parity",
+      "declared_modulus_class"
+    ],
+    "binary": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide_by_certified_nonzero",
+      "inner_product",
+      "tensor_contract"
+    ]
+  },
+  "complexity_budget": {
+    "maximum_ast_depth": 3,
+    "maximum_ast_nodes": 9,
+    "maximum_distinct_registered_terminals": 4,
+    "maximum_generated_candidates": 4096,
+    "operator_costs": {
+      "terminal": 1,
+      "unary": 2,
+      "binary": 3,
+      "division": 5,
+      "normalization": 5,
+      "congruence": 4
+    }
+  },
+  "equivalence_relation": {
+    "commutative_operands_sorted": true,
+    "associative_nodes_flattened": true,
+    "exact_rational_factors_reduced": true,
+    "overall_nonzero_scale_quotiented_only_for_homogeneous_classes": true,
+    "registered_coordinate_equivalence_quotiented": true,
+    "physical_parameters_or_branch_selectors_never_quotiented": true
+  },
+  "forbidden_terminals": [
+    "measured_value",
+    "public_comparison_payload",
+    "target_residual",
+    "fitted_exactifier",
+    "comparison_covariance",
+    "post_unseal_repair_constant"
+  ]
+}

@@ -530,7 +530,7 @@
         505,
         551
       ],
-      "where": "Source-only correctable public-record closure and the unique slack zero are the targets of issues #505 and #551.",
+      "where": "The bounded base-agreement, positivity, and carrier-bound counterfamily has incompatible exact zero sets. Issues #505 and #551 own the complete A1-A3 packet lift and the unique slack-zero or complete-source-class nonidentifiability verdict.",
       "menu": {
         "size": null,
         "alternatives": "the closure-selector menu is not enumerated before the slack law exists",
@@ -538,11 +538,22 @@
       },
       "compression_input": true,
       "receipts": [
-        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
+        "code/capacity_readback/ISSUE_551_RESULT.md",
+        "code/capacity_readback/capacity_indexed_source_family.py",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "code/capacity_readback/runtime/direct_n_closure_verdict.json"
       ],
-      "lean": [],
+      "lean": [
+        {
+          "module": "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+          "declaration": "boundedCompletionClass_doesNotForceUniqueZero"
+        }
+      ],
       "negative_controls": [
-        "the readback no-go proves capacity is not determined by the terminal quotient normal form and local checkpoint marginals"
+        "the readback no-go proves capacity is not determined by the terminal quotient normal form and local checkpoint marginals",
+        "the all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique slack zero; it does not complete the A1-A3 packet lift"
       ],
       "paper_anchors": []
     },
@@ -559,7 +570,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 3,
         "alternatives": "poisson survival e^(-P/24), presence survival 1 - P/24, or no exclusion",
@@ -588,7 +599,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 2,
         "alternatives": "one reserve unit per equal-area cell, or reserve priced on the 3K shared edges",
@@ -617,7 +628,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 4,
         "alternatives": "port multiplicity X+, delta constraint X0, record cost X-, write plus check cost X=",
@@ -646,7 +657,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 3,
         "alternatives": "unmarked K0, one marked chain K1, chain plus checkpoint K2",
@@ -675,7 +686,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 3,
         "alternatives": "A5 quotient S-, quotient representatives S0, flag multiplicity S+",
@@ -704,7 +715,7 @@
       "owner_issues": [
         551
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7; the full source law must decide whether this branch axis survives. Owner: issue #551.",
       "menu": {
         "size": 4,
         "alternatives": "CAP-L log-count readback and three declared alternative Cap_read families; CAP-B is barred before evaluation",

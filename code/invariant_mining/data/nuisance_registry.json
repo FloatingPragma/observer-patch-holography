@@ -1,0 +1,96 @@
+{
+  "schema": "oph.invariant_mining.nuisance_registry.v1",
+  "issue": 647,
+  "registry_id": "oph-invariant-nuisance-registry-v1",
+  "freeze_status": "FROZEN_BEFORE_CANDIDATE_GENERATION",
+  "taxonomy": [
+    {
+      "type_id": "coordinate_equivalence_nuisance",
+      "quotient_allowed": true,
+      "promotion_rule": "A registered exact equivalence action and canonical quotient certificate are required."
+    },
+    {
+      "type_id": "continuous_physical_parameter",
+      "quotient_allowed": false,
+      "promotion_rule": "The relation must hold globally over the declared parameter domain."
+    },
+    {
+      "type_id": "discrete_branch_selector",
+      "quotient_allowed": false,
+      "promotion_rule": "The relation must cover every admitted branch or carry a named conditional-branch label."
+    },
+    {
+      "type_id": "alternative_source_admissible_completion",
+      "quotient_allowed": false,
+      "promotion_rule": "The relation must cover every registered completion or carry a named completion premise."
+    },
+    {
+      "type_id": "measurement_calibration_nuisance",
+      "quotient_allowed": false,
+      "promotion_rule": "A second end-to-end nuisance audit is required after physicalization."
+    }
+  ],
+  "unresolved_directions": [
+    {
+      "nuisance_id": "basis_and_coordinate_choice",
+      "type_id": "coordinate_equivalence_nuisance",
+      "applies_to_slot_ids": [
+        "z6_charge_line_congruences",
+        "wz_scale_free_response",
+        "a5_angular_rules",
+        "observer_overlap_cross_spectra",
+        "family_trace_mixing_invariants",
+        "cross_channel_source_identities"
+      ],
+      "status": "QUOTIENT_REQUIRES_CANDIDATE_SPECIFIC_CERTIFICATE"
+    },
+    {
+      "nuisance_id": "common_dimensionful_scale",
+      "type_id": "continuous_physical_parameter",
+      "applies_to_slot_ids": [
+        "wz_scale_free_response",
+        "observer_overlap_cross_spectra",
+        "family_trace_mixing_invariants",
+        "cross_channel_source_identities"
+      ],
+      "status": "GLOBAL_CANCELLATION_NOT_YET_CERTIFIED"
+    },
+    {
+      "nuisance_id": "physical_sector_choice",
+      "type_id": "discrete_branch_selector",
+      "applies_to_slot_ids": [
+        "z6_charge_line_congruences",
+        "a5_angular_rules",
+        "family_trace_mixing_invariants"
+      ],
+      "status": "UNRESOLVED"
+    },
+    {
+      "nuisance_id": "source_admissible_completion",
+      "type_id": "alternative_source_admissible_completion",
+      "applies_to_slot_ids": [
+        "direct_n_capacity_closure",
+        "z6_charge_line_congruences",
+        "wz_scale_free_response",
+        "a5_angular_rules",
+        "observer_overlap_cross_spectra",
+        "family_trace_mixing_invariants",
+        "cross_channel_source_identities"
+      ],
+      "status": "GLOBAL_COMPLETION_COVERAGE_NOT_YET_CERTIFIED"
+    },
+    {
+      "nuisance_id": "detector_transfer_calibration",
+      "type_id": "measurement_calibration_nuisance",
+      "applies_to_slot_ids": [
+        "z6_charge_line_congruences",
+        "wz_scale_free_response",
+        "a5_angular_rules",
+        "observer_overlap_cross_spectra",
+        "family_trace_mixing_invariants",
+        "cross_channel_source_identities"
+      ],
+      "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+    }
+  ]
+}

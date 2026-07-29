@@ -1,0 +1,38 @@
+{
+  "schema": "oph.capacity_indexed_source_family_independent_custody.v1",
+  "issue": 551,
+  "status": "PASS",
+  "repository": "https://github.com/muellerberndt/oph-physics-sim",
+  "commit": "dc773d927de0ab17ded3fe696d64d55f6d505fa3",
+  "artifacts": [
+    {
+      "path": "data/capacity_readback/capacity_indexed_source_family_projection.json",
+      "sha256": "7e597986a5c33add41424894610903759ea78fb77ab63e93dca523bcf15d808e"
+    },
+    {
+      "path": "data/capacity_readback/capacity_indexed_source_family_independent_receipt.json",
+      "sha256": "5bce51ccee2f4dd548075e9625c8ce5afb3a1f976e2800b58c3c2a018fd5e3e3"
+    },
+    {
+      "path": "oph_fpe/cosmology/capacity_indexed_family_verifier.py",
+      "sha256": "359f70a8cbf5a018579e5690bb96afff6f10a45e1989bce7779a38721e8f8803"
+    },
+    {
+      "path": "schemas/cosmology/capacity_indexed_source_family_projection.schema.json",
+      "sha256": "b36129d7be46a4f7f062efeb33826056e70c116c8449a97d701e6bd91e9eabbb"
+    },
+    {
+      "path": "tests/test_capacity_indexed_family_verifier.py",
+      "sha256": "30444e672b05c52834af563e00c0231b08139a5b881903f5f218d1f53e074bcd"
+    }
+  ],
+  "verification": {
+    "focused_tests_at_commit": "11 passed",
+    "parent_full_suite": "2044 passed, 1 skipped",
+    "parent_full_suite_commit": "e9fb6f78bd75529d15cafb9ef9f2666f146b8de2",
+    "all_positive_integer_rungs_proved_by_replay": false,
+    "finite_projection_replayed_independently": true,
+    "full_a1_a3_packet_lift_replayed": false
+  },
+  "claim_boundary": "The simulator independently reconstructs the finite sample graphs and capacities. The all-rung formulas are proved separately in Lean and by the symbolic producer."
+}

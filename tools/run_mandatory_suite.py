@@ -77,6 +77,59 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the bounded capacity-indexed counterfamily",
+        [
+            sys.executable,
+            "code/capacity_readback/capacity_indexed_source_family.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the bounded capacity-family mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_capacity_indexed_source_family.py",
+        ],
+    ),
+    (
+        "Validate the incomplete direct N source verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/direct_n_closure_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the direct N verdict mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_direct_n_closure_verdict.py",
+        ],
+    ),
+    (
+        "Validate the invariant-mining pre-generation source lock",
+        [
+            sys.executable,
+            "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
+        ],
+    ),
+    (
+        "Execute the invariant-mining pre-generation mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/invariant_mining/tests/test_pregeneration_lock.py",
+        ],
+    ),
+    (
         "Validate the forecast-contract generated state",
         [
             sys.executable,

@@ -669,13 +669,16 @@ The chapter's capacity numbers are enormous but finite, around
 $10^{122}$ to $10^{123}$ depending on convention. In the cosmic record proposal,
 OPH reads dimensionless cosmological-constant products as global
 capacity data. The measured cosmological constant and selected scale bridge
-locate the working screen capacity, while the SI curvature scale also uses the
-selected OPH scale certificate. The input-free global closure target is robust
+locate the comparison screen capacity, while the SI curvature scale also uses
+the selected OPH scale certificate. The input-free global closure target is
 whole-fiber saturation
 $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
 $N_{\mathrm{CRC}}=\log D_\star$ and finite-size slack
-$s_r(D)=\log D-\log M_{0,r}(D)$. The public checkpoint packet, unique physical
-zero of the slack, and horizon-record saturation are the remaining physical receipts.
+$s_r(D)=\log D-\log M_{0,r}(D)$. The fixed $D=24$ public checkpoint packet is
+exact. The bounded base-agreement, positivity, and carrier-bound completion
+class has continuations with incompatible slack-zero sets. A full
+capacity-indexed A1--A3 packet lift, a universe carrier attachment, a unique
+physical zero, and horizon-record saturation are open.
 
 The section records a proposed repair-charge condensate action. Its current
 balance, dilute dust-like branch, and spherical deep-galaxy scaling are
@@ -976,16 +979,22 @@ global target is $N=\log M_0(\mathfrak U_N)$: the logarithmic record capacity
 $N$ must equal the logarithm of the correctable public-record code size read
 from within the trial universe. A source-derived fixed-cutoff simulator packet
 at $D=24$ verifies the finite evaluator contract inside its declared source
-category. Its physical-universe attachment, the capacity-indexed family, and
-the unique finite-size selector are absent. Self-reading motivates both targets. It
-does not supply either missing physical construction. Chapter 18 tells that subtraction as a story, and Chapter 19
+category. A target-clean bounded completion class contains reversible,
+copy-collapse, two-class, and hidden-spectator branches with different exact
+fixed sets. These branches share base agreement, positivity, and the carrier
+bound. The Lean theorem proves the corresponding arithmetic
+nonidentifiability. It does not lift the full A1--A3 packet across capacities.
+Self-reading motivates both targets. It does not select the missing
+continuation law. Chapter 18 tells that subtraction as a story, and Chapter 19
 folds the same chain into the synthesis.
 
 The chapter is careful about status. The uniqueness of $P$ on the declared
 domain is a certified result for the declared incomplete map. The missing
 hadronic transport prevents promotion to a physical Thomson prediction. The
-capacity map has not been constructed, and its fixed point is conditional on
-three premises. The first hadronic bracket exercise is exploratory rather than
+fixed $D=24$ capacity packet is exact. Its executable bounded counterfamily
+rules out uniqueness under base agreement, positivity, and the carrier bound.
+The full capacity-indexed A1--A3 packet lift and the universe carrier
+attachment are open, so no direct cosmic $N$ follows. The first hadronic bracket exercise is exploratory rather than
 blind because its target numerics were exposed, its registered and verdict
 coordinates differ, and its comparison pixel moved. The no-landscape corollary
 therefore remains conditional on completing both maps and proving unique
@@ -1138,8 +1147,8 @@ converts time and space units. In natural units physicists often set $c=1$.
 gravity and appears in Einstein's equation and gravitational entropy.
 
 **$\Lambda$** is the cosmological constant. In the de Sitter chapters it sets
-the horizon radius and locates a working global screen capacity through the
-selected scale bridge. The robust cosmic record equation
+the horizon radius and locates a comparison global screen capacity through the
+selected scale bridge. The cosmic record equation
 $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
 $N_{\mathrm{CRC}}=\log D_\star$, is the closure target for deriving that capacity
 rather than borrowing it from measurement.

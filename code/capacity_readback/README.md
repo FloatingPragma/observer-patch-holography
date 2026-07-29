@@ -14,7 +14,9 @@ lines are its typed finite implementation.
 
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
-define the direct map. The universe-level physical `N` closure remains open.
+define the direct map. The bounded counterfamily is represented by
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`, so it emits no
+universe-level physical `N` and does not close the complete source class.
 
 The independent finite (A_5) control is summarized in
 [`A5_FINITE_CONTROL_STATUS_2026-07-20.md`](A5_FINITE_CONTROL_STATUS_2026-07-20.md).
@@ -77,16 +79,27 @@ second physical packet or a cosmic selector.
   checks the full issue #548 acceptance surface.
 - [`ISSUE_548_SOLUTION.md`](ISSUE_548_SOLUTION.md) maps every acceptance item
   to the executable receipt.
+- [`capacity_indexed_source_family.py`](capacity_indexed_source_family.py)
+  generates four target-clean continuation completions at every positive
+  rung. Reversible identity, copy collapse, a two-class cap, and hidden
+  spectator multiplicity have different exact slack-zero sets while sharing
+  the declared bounded antecedent.
+- [`ISSUE_551_RESULT.md`](ISSUE_551_RESULT.md) states the bounded
+  counterfamily theorem and its boundary. The all-rung fixed-set
+  disagreement is also proved in
+  `Lean/ObserverPatchHolography/CapacityNonidentifiability.lean`.
+- [`direct_n_closure_verdict.py`](direct_n_closure_verdict.py) consumes that
+  result in the official direct equation and records that no numeric cosmic
+  value or cosmological comparison is permitted.
 - [`public_record_capacity.py`](public_record_capacity.py) and its tests retain
   the superseded Pro4 checkpoint-fixed projection branch as a control. A cyclic
   permutation proves that it is not the canonical capacity definition.
 
-The identity family fixes every dimension; the erasure family fixes only the
-bottom dimension. Monotonicity and deflation therefore do not select the
-cosmic value. The `D=24` artifact is a source-derived fixed-cutoff packet in
-the declared simulator category. Its attachment to the physical universe, an
-exact finite-size slack law, and a universe-level selection theorem remain
-separate obligations.
+The `D=24` artifact is a source-derived fixed-cutoff packet in the declared
+simulator category. The all-rung counterfamily proves nonidentifiability for
+the base-agreement, positivity, and carrier-bound completion class. The
+complete A1--A3 packet has not been lifted across the regulator family. The
+screen value 24 is not a cosmic result.
 
 ## Generate the issue #548 receipts
 
@@ -138,12 +151,14 @@ count, affine, and Banach candidates. They have diagnostic value only. The
 `CP*` and `G2_GAP_1` notes likewise do not supply the exact finite-size
 selector.
 
-## Open gates after issue #548
+## Positive route beyond the bounded verdict
 
-- extend the source construction from the first frozen `D=24` packet to the
-  declared capacity-indexed regulator family;
-- construct an exact finite-size slack law with one regulator-stable physical
-  zero;
+- lift the complete A1--A3 packet across capacity and decide its admissible
+  completion class;
+- if the lifted class remains nonunique, state and justify a stronger source
+  law that selects one continuation completion;
+- prove an exact finite-size slack law with one regulator-stable physical zero
+  for that stronger law;
 - independently certify the horizon-record, EW/Higgs load-carrier, and
   operational-resolution bridges;
 - supply public hardware-realization evidence if a carrier implementation is
@@ -156,6 +171,8 @@ python3 -m pytest test_correctable_public_record_capacity.py -q
 python3 -m pytest test_public_record_csp.py -q
 python3 -m pytest test_reversible_public_checkpoint_packet.py -q
 python3 -m pytest test_source_derived_public_checkpoint_packet.py -q
+python3 -m pytest test_capacity_indexed_source_family.py -q
+python3 -m pytest test_direct_n_closure_verdict.py -q
 python3 -m pytest test_operational_readback_contract.py -q
 python3 -m pytest test_public_record_capacity.py -q
 ```

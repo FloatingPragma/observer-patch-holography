@@ -5,7 +5,7 @@ At regulator \(r\), freeze one capacity-carrier type and set
 D=\dim\mathcal H_{{\rm cap},r,D},
 \qquad N=\log D.
 \]
-The official universe-level N equation is
+The universe-level \(N\) equation is
 \[
 \boxed{N=\log M_0(\mathfrak U_N)},
 \qquad
@@ -98,21 +98,34 @@ independent-set transport arguments. Full proofs and receipt schemas are in
 Ref.~\cite{ophsynthesis}.
 \end{proof}
 
-\begin{theorem}[Capacity definitions do not select a cosmic dimension]
+\begin{theorem}[Bounded capacity-continuation counterfamily]
 \label{thm:capacity-protocol-nonidentifiability}
-The finite implication theorem does not force a unique physical \(D\).
-Identity continuation on \(D\) reachable labels gives
-\(\widehat F(D)=D\) for every \(D\), while a compatible erasure family gives
-\(\widehat F(D)=1\). Both are monotone and deflationary. In addition, a cyclic
-permutation of \(m\) labels has a one-dimensional fixed function algebra but
-correctable capacity \(m\), and arbitrarily small full-support noise collapses
-zero-error capacity from \(m\) to one.
+At rung \(k\), each of the twenty-four visible base records has \(k\) copies,
+so \(D_{\rm pub}(k)=24k\); the spectator control has raw dimension
+\(D_{\rm raw}(k,s)=24ks\). One target-clean generator emits several
+continuation completions. Reversible identity gives
+\(M_{\rm id}(k)=24k\), copy collapse gives \(M_{\rm erase}(k)=24\), and a
+two-class completion gives \(M_2(k)=24\min(k,2)\). A hidden spectator of
+multiplicity \(s\) gives raw rank \(24ks\) and public capacity \(24k\). The
+completions share base agreement, positivity, the carrier bound, and
+executable finite incidence, publicness, reversible-action, projection,
+composition, extension, and sewing controls. Their exact slack-zero sets
+are respectively every positive \(k\), \(\{1\}\), \(\{1,2\}\), and every
+positive \(k\) only when \(s=1\). This bounded structure does not entail one
+physical \(D\).
 \end{theorem}
 
 \begin{proof}
-Identity and erasure give the stated support graphs. A cycle is invertible even
-though only constant functions are invariant. Full-support noise makes every
-pair of inputs confusable.
+Each deterministic collapse channel produces a disjoint union of complete
+confusability components, so one representative per component is both an
+independent-set witness and a matching upper bound. The collapse is
+idempotent, commutes with the forty reversible slot actions, and preserves the
+old induced graph under rung extension. Lean checks the all-rung arithmetic
+consequence of base agreement, positivity, and the carrier bound. The
+executable certificate checks the remaining finite controls. A separate
+simulator implementation reconstructs held-out finite sample graphs without
+importing the producer. The complete A1--A3 packet lift is absent across
+capacity, so this is not a verdict on the complete source class.
 \end{proof}
 
 \begin{remark}[Physical producer, scaling law, and downstream bridges]
@@ -129,9 +142,12 @@ problem is the finite-size slack
 \boxed{s_r(D)=\log D-\log M_{0,r}(D)}.
 \]
 Unit asymptotic capacity density does not locate a zero: \(M(D)=D\) and
-\(M(D)=D-1\) have the same limiting density. A physical \(N\)-closure needs
-an exact transfer or fiber-product recurrence, or a seam theorem with a sharp
-subleading term, proving one physical zero of \(s(D)\).
+\(M(D)=D-1\) have the same limiting density. The common \(D=24\) screen
+packet is not a cosmic selection. Strange-loop self-identification forces
+equality after the two typed readings are proved to refer to the same
+invariant quantity. A physical \(N\)-closure needs a separately stated source
+law that selects the continuation completion and proves one physical zero of
+\(s(D)\).
 
 After stable direct closure, identifying the correctable-record carrier with
 the de Sitter horizon record gives
@@ -153,11 +169,10 @@ N_{\rm bridge}=
 Neither bridge constructs \(M_0\). The operational residual
 \(R_\rho=\log M_0-\pi/\rho_{\rm op}^2\) is also downstream.
 
-The open source objects are the record-atom restrictions, endogenous
-reachability, frozen publicness policy, global checkpoint coupling,
-capacity-carrier representation, whole-fiber scalar producer,
-confusability-reflecting extension/refinement maps, the finite-size slack law,
-the horizon--record identification, and the common screen/electroweak
-load-carrier identification. QCD
+The open physical objects are the complete capacity-indexed A1--A3 packet
+lift, the universe-level carrier attachment, a source law selecting one
+continuation completion and proving one physical slack zero, the
+horizon--record identification, and the common screen/electroweak load-carrier
+identification. QCD
 and hadronic transport are not dependencies of this closure program.
 \end{remark}

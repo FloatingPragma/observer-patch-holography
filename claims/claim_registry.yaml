@@ -657,9 +657,9 @@
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",
-      "statement": "The official universe-level closure equation is N=log M_0(U_N), with M_0 always a multiplicative code size. At frozen carrier dimension D, its typed finite implementation uses record-atom interface maps to define compatible public sections, endogenous histories to define the reachable set, and a frozen publicness policy plus source-supplied global joint checkpoint kernels to define a compound confusability graph G_q with exact correctable code size M_0(q)=alpha(G_q). The complete terminal fiber gives the set-valued readback F_set,r,epsilon(D). Under the stated receipts M_epsilon(q)<=D, zero-error saturation is a complete rank-one code, finite support semigroups close, approximate capacity is TV-robust, no-new-confusability injections preserve codes, and fixed-D refinement eventually stabilizes. A monotone deflationary scalar map has a greatest fixed point, but uniqueness requires an exact finite-size slack selector.",
+      "statement": "The official universe-level closure equation is N=log M_0(U_N), with M_0 always a multiplicative code size. At frozen carrier dimension D, its typed finite implementation uses record-atom interface maps to define compatible public sections, endogenous histories to define the reachable set, and a frozen publicness policy plus source-supplied global joint checkpoint kernels to define a compound confusability graph G_q with exact correctable code size M_0(q)=alpha(G_q). The complete terminal fiber gives the set-valued readback F_set,r,epsilon(D). Under the stated receipts M_epsilon(q)<=D, zero-error saturation is a complete rank-one code, finite support semigroups close, approximate capacity is stable in total variation, no-new-confusability injections preserve codes, and fixed-D refinement eventually stabilizes. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not entail a unique slack zero. The complete A1-A3 packet lift across the regulator family is absent, so this bounded theorem supplies no verdict for the full source class and no cosmic N.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "conditional_direct_public_record_capacity_theorem",
+      "tier": "finite_capacity_theorems_with_bounded_counterfamily",
       "assumptions": [
         "reachable_terminal_capacity_fiber",
         "whole_fiber_readback_scalarization",
@@ -677,19 +677,25 @@
         "finite_rank_additivity",
         "finite_monotone_iteration"
       ],
-      "oph_specific_delta": "The map is computed from correctability under globally coupled public checkpoints, not from checkpoint invariants, local marginals, geometry, or the EW target. Terminal-fiber scalarization, the unique finite-size slack zero, the D6 area bridge, and the EW/Higgs bridge remain separate typed obligations.",
-      "novelty_type": "conditional_direct_capacity_theorem_package",
+      "oph_specific_delta": "The map is computed from correctability under globally coupled public checkpoints, not from checkpoint invariants, local marginals, geometry, or the electroweak target. The all-rung counterfamily rules out uniqueness from base agreement, positivity, and the carrier bound alone. The full A1-A3 packet lift, unique-zero or complete-source-class negative verdict, universe-level carrier attachment, D6 area bridge, and electroweak bridge remain separate typed obligations.",
+      "novelty_type": "finite_capacity_theorem_and_bounded_nonidentifiability_control",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-        "extra/compact_proof_of_oph.tex",
         "code/capacity_readback/F_READBACK_SPEC.md",
         "code/capacity_readback/correctable_public_record_capacity.py",
-        "code/capacity_readback/test_correctable_public_record_capacity.py"
+        "code/capacity_readback/test_correctable_public_record_capacity.py",
+        "code/capacity_readback/capacity_indexed_source_family.py",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_custody.json",
+        "code/capacity_readback/direct_n_closure_verdict.py",
+        "code/capacity_readback/runtime/direct_n_closure_verdict.json",
+        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean"
       ],
-      "falsifier": "A finite packet satisfying the stated receipts violates M_0=alpha(G_q), admits a correctable code larger than D, saturates without a complete rank-one carrier code, violates TV robustness, loses a code under a no-new-confusability injection, or a monotone deflationary finite map fails to reach its greatest fixed point from the top.",
+      "falsifier": "A finite packet satisfying the stated receipts violates M_0=alpha(G_q), admits a correctable code larger than D, saturates without a complete rank-one carrier code, violates total-variation stability, loses a code under a no-new-confusability injection, or a monotone deflationary finite map fails to reach its greatest fixed point from the top. The bounded counterfamily falls if an exact capacity formula, fixed-set disagreement, finite incidence/action control, oriented-record fiber product, or independent replay fails.",
       "scope_if_false": "The corresponding finite direct-capacity implication reopens. Independent consensus, gravity, exterior matter, and geometric-estimator statements survive unless they import that step.",
-      "status": "conditional_finite_theorems_closed_physical_direct_map_and_receipts_open",
+      "status": "finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_a1_a3_lift_open",
       "claim_class": "conditional_implication",
       "gates": [
         505
@@ -697,7 +703,7 @@
     },
     {
       "claim_id": "OPH-GR-D6-READBACK-NOGO",
-      "statement": "A terminal quotient normal form and local checkpoint marginals do not determine public-record capacity because different global joint couplings can have different correctable capacities. Checkpoint-fixed projectors can undercount a reversible cyclic channel. A positive deflationary active-capacity map cannot attract a fixed point from below, while identity and erasure families show that monotonicity and deflation do not imply uniqueness. Separately, deriving rho from M_0 or using the electroweak bridge as the capacity producer is circular.",
+      "statement": "A terminal quotient normal form and local checkpoint marginals do not determine public-record capacity because different global joint couplings can have different correctable capacities. Checkpoint-fixed projectors can undercount a reversible cyclic channel. A positive deflationary active-capacity map cannot attract a fixed point from below. A target-clean all-rung family has identity, copy-collapse, two-class, and hidden-spectator continuations with different exact fixed sets, so base agreement, positivity, and the carrier bound cannot entail a unique N. This does not decide the complete A1-A3 packet class. Separately, deriving rho from M_0 or using the electroweak bridge as the capacity producer is circular.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "direct_capacity_and_estimator_no_go_package",
       "assumptions": [
@@ -714,17 +720,21 @@
         "smooth_monotone_threshold_functions",
         "elementary_function_composition"
       ],
-      "oph_specific_delta": "The no-gos force global joint checkpoint kernels into the producer receipt, replace fixed-projector counting by decoder capacity, separate greatest-fixed-point order theory from singleton uniqueness, and demote geometric resolution to an independent commuting-square test.",
+      "oph_specific_delta": "The no-gos force global joint checkpoint kernels into the producer receipt, replace fixed-projector counting by decoder capacity, separate greatest-fixed-point order theory from singleton uniqueness, prove nonidentifiability for the bounded completion class, and demote geometric resolution to an independent commuting-square test.",
       "novelty_type": "no_go_and_negative_control",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "code/capacity_readback/F_READBACK_SPEC.md",
         "code/capacity_readback/test_correctable_public_record_capacity.py",
-        "code/capacity_readback/test_operational_readback_contract.py"
+        "code/capacity_readback/test_operational_readback_contract.py",
+        "code/capacity_readback/capacity_indexed_source_family.py",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean"
       ],
-      "falsifier": "The parity and independent joint channels with identical local marginals have the same capacity, a reversible cyclic channel has only its fixed-projector capacity, a deflationary map reaches a larger positive fixed point from below, identity and erasure fail as countermodels, or a target-derived estimator fails to return its inserted target.",
-      "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map requires the complete public checkpoint and code receipt.",
+      "falsifier": "The parity and independent joint channels with identical local marginals have the same capacity, a reversible cyclic channel has only its fixed-projector capacity, a deflationary map reaches a larger positive fixed point from below, the exact bounded counterfamily fails to satisfy its stated base, positivity, carrier, or finite-control premises, its fixed sets agree, or a target-derived estimator fails to return its inserted target.",
+      "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map requires the complete capacity-indexed A1-A3 public-checkpoint and code receipt.",
       "status": "proved_no_go",
       "claim_class": "conditional_implication",
       "gates": []
@@ -760,7 +770,7 @@
     },
     {
       "claim_id": "OPH-GR-D6-HORIZON-RECORD",
-      "statement": "Conditional on robust direct public-record closure F_set,r,0(D_star)={D_star}, N_star=log D_star, and HORIZON-RECORD-SATURATION on the same refinement family, the de Sitter branch implies Lambda times ell_star squared equals 3 pi divided by N_star.",
+      "statement": "Conditional on stable whole-fiber direct public-record closure F_set,r,0(D_star)={D_star}, N_star=log D_star, and HORIZON-RECORD-SATURATION on the same refinement family, the de Sitter branch implies Lambda times ell_star squared equals 3 pi divided by N_star. The fixed-cutoff packet and bounded counterfamily do not attain the direct-closure antecedent.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_horizon_record_identification",
       "assumptions": [
@@ -772,7 +782,7 @@
         "Gibbons_Hawking_de_Sitter_entropy",
         "standard_static_patch_relations"
       ],
-      "oph_specific_delta": "The cosmological bridge equates the independently computed correctable public-record capacity with the gravitational area law through an explicit refinement receipt, rather than defining the record map from geometric resolution.",
+      "oph_specific_delta": "On a positive direct branch, the cosmological bridge equates an independently computed correctable public-record capacity with the gravitational area law through an explicit refinement receipt. It does not define the record map from geometric resolution. No such capacity value is emitted by the incomplete source packet.",
       "novelty_type": "conditional_physical_commuting_square",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -1612,7 +1622,7 @@
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the typed robust form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). The physical packet and the exact regulator-stable slack law s(D_star)=0<s(D) elsewhere are open. Greatest-fixed-point order theory does not supply singleton uniqueness.",
+      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the selector-free set-valued form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). Exact code and an independent finite replay check a bounded counterfamily, while Lean proves all-rung nonuniqueness for the typed base-agreement, positivity, and carrier-bound structure. The complete A1-A3 packet lift across the regulator family is absent. Greatest-fixed-point order theory does not supply singleton uniqueness.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_quantitative_closure_program",
       "assumptions": [
@@ -1628,16 +1638,19 @@
         "finite_fixed_point_order_theory",
         "standard_display_units"
       ],
-      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints come from the physical Thomson map and the direct correctable public-record packet. Electroweak/Higgs, geometric-resolution, and count-density expressions are downstream comparison or audit surfaces.",
+      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints must come from the physical Thomson map and a complete direct correctable public-record law. The bounded counterfamily excludes one weak uniqueness argument without deciding the full A1-A3 source class. Electroweak/Higgs, geometric-resolution, and count-density expressions remain downstream comparison or audit surfaces and cannot construct the missing lift.",
       "novelty_type": "quantitative_prediction_protocol",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
-        "extra/compact_proof_of_oph.tex",
-        "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/capacity_readback/runtime/direct_n_closure_verdict.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean"
       ],
       "falsifier": "A completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
-      "status": "declared_maps_with_physical_closure_open",
+      "status": "local_P_physical_map_open__direct_N_complete_a1_a3_packet_lift_open",
       "claim_class": "declared_structure",
       "gates": [
         551

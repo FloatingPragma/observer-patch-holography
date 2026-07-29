@@ -815,31 +815,36 @@ quantum foam is needed.
 
 This is like asking "what happens to temperature below one molecule?" The question is malformed. Temperature is emergent. Below a certain scale, you switch to the microscopic description. The same applies to geometry.
 
-### The Cosmological Constant: Not a Problem
+### The Cosmological Constant as a Capacity Question
 
 The "cosmological constant problem" assumes quantum field theory is fundamental. QFT predicts vacuum energy 10^120 times larger than observed. Something must cancel it.
 
-QFT is an effective description of observer-facing patch dynamics. The effective
-cosmological constant is tied to the reference
+QFT is an effective description of observer-facing patch dynamics. The OPH
+proposal relates the effective cosmological constant to the reference
 curvature and global screen capacity discussed in Chapter 13 through
 dimensionless products such as $\Lambda\ell_\star^2$. In natural units, the
 Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter horizon,
-after the OPH scale branch is expressed in SI units, this gives a bare
-radius-squared ratio near $1.05\times10^{122}$ and an entropy capacity near
-$3.31\times10^{122}$.
+the measured curvature and declared comparison scale give a bare radius-squared ratio
+near $1.05\times10^{122}$ and an entropy capacity near
+$3.31\times10^{122}$. These are comparison values, not a derived $N$.
 
-The "problem" exists only if you compute vacuum energy using QFT and assume
-that calculation is fundamental. OPH proposes a dimensionless global-capacity
-relation. The numerical SI value of Lambda also needs the selected scale that
-connects the screen units to laboratory units, rather than a local QFT
-vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
-fundamental contributions to the stress tensor.
+Treating QFT as an effective description changes the bookkeeping behind the
+discrepancy. OPH proposes a dimensionless global-capacity relation instead of
+defining Lambda by a local vacuum-energy sum. The numerical SI value also
+needs the scale that connects screen units to laboratory units. This reframes
+the question. It does not determine the observed value until the capacity
+closure and physical attachments are supplied.
 
 In OPH the small value of Lambda belongs to a conditional global
 capacity-closure branch rather than to a cancellation between enormous local
-vacuum-energy terms. The finite capacity definition is exact; its physical
-attachments are work in progress, and under them the selected de Sitter
-capacity and scale display Lambda in laboratory units.
+vacuum-energy terms. One finite screen packet has an exact capacity of
+twenty-four records. A bounded capacity family shares that base count, remains
+positive, and respects the carrier size while producing incompatible
+fixed-point sets.
+The complete observer construction across carrier sizes, its universe
+attachment, the horizon ledger, and the scale bridge are work in progress.
+Under those premises a selected de Sitter capacity and scale would display
+Lambda in laboratory units.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 

@@ -56,7 +56,7 @@ Release: `r2003`. 64 claims, 15 distinct live gates across 14 gated claims.
 | `OPH-GR-D4D-ENTROPY-BRIDGE` | `conditional_implication` | `proved_finite_plus_receipt_branch` | none |
 | `OPH-GR-D5A-ABSOLUTE-EINSTEIN` | `conditional_implication` | `proved_on_receipt_branch` | none |
 | `OPH-GR-E2E-BRANCH-ENTRY` | `branch_entry` | `conditional_composed_theorem_nonemptiness_open` | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) |
-| `OPH-GR-D6-CAPACITY` | `conditional_implication` | `conditional_finite_theorems_closed_physical_direct_map_and_receipts_open` | [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) |
+| `OPH-GR-D6-CAPACITY` | `conditional_implication` | `finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_a1_a3_lift_open` | [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) |
 | `OPH-GR-D6-READBACK-NOGO` | `conditional_implication` | `proved_no_go` | none |
 | `OPH-GR-D6-A5-FINITE-CONTROL` | `conditional_implication` | `finite_control_closed_physical_N_closure_false_for_this_packet` | none |
 | `OPH-GR-D6-HORIZON-RECORD` | `conditional_implication` | `conditional_theorem_horizon_record_saturation_open` | [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) |
@@ -86,7 +86,7 @@ Release: `r2003`. 64 claims, 15 distinct live gates across 14 gated claims.
 | `OPH-SCREEN-A5-SM-RECOGNITION` | `conditional_implication` | `source_bound_finite_current_z6_and_one_generation_data__rank_three_selection_conditional_rank_45_candidate__laboratory_continuum_and_family_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-SM-ROUTE-IDENTIFICATION` | `declared_structure` | `open_no_source_bound_commuting_square` | none |
 | `OPH-GAUGE-EXTERIOR-SM-WITNESS` | `conditional_implication` | `proved_conditional_representation_witness` | none |
-| `OPH-Q-PN-CLOSURE` | `declared_structure` | `declared_maps_with_physical_closure_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |
+| `OPH-Q-PN-CLOSURE` | `declared_structure` | `local_P_physical_map_open__direct_N_complete_a1_a3_packet_lift_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |
 | `OPH-HIER-EW` | `conditional_implication` | `weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open` | [#547](https://github.com/FloatingPragma/observer-patch-holography/issues/547) |
 | `OPH-SCREEN-24-CLOCK-DETERMINANT` | `conditional_implication` | `rate_no_go_and_declared_domain_nonidentifiability_proved__extended_physical_clock_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569), [#630](https://github.com/FloatingPragma/observer-patch-holography/issues/630), [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) |
 | `OPH-SOURCE-DIMENSIONLESS-GAP` | `emitted_artifact` | `exact_positive_dimensionless_gap__physical_transition_and_SI_binding_absent` | none |

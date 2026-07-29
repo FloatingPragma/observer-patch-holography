@@ -202,27 +202,28 @@ same-scheme hadronic spectral transport. That transport is work in progress,
 so the result is a source-map fixed point rather than a laboratory
 fine-structure prediction.
 
-The global number works the same way one scale up, but the finite variable is
-the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
-reachable terminal observer world, and ask how many public records remain
-jointly decodable through every authorized checkpoint. At universe level the
-closure equation is
+The proposed global number works the same way one scale up. Its finite
+variable is the carrier dimension $D$, with $N=\log D$. Supply a carrier,
+construct every reachable terminal observer world, and ask how many public
+records remain jointly decodable through every authorized checkpoint. The
+universe-level closure target is
 
 $$
 \boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 $M_0$ counts the public records that survive every checkpoint; $\mathfrak U_N$
-is the universe built on a carrier of capacity $N$. The local loop reads the
-grain of one screen cell. The global loop reads the total record capacity of
-the horizon.
+is the trial universe built on a carrier of capacity $N$. One exact finite
+construction uses twelve ports with two record orientations. It has
+$D=24$ and returns all twenty-four records. This certifies one screen packet,
+not the capacity of the universe.
 
-The closure adopted in this book demands more than one favorable branch:
-every terminal world the construction can reach has to read the same
-saturated capacity, and the capacity equation has to have exactly one
-solution. Horizon-record saturation then turns that capacity into curvature,
-fixing the cosmological constant $\Lambda$ in terms of $N$ and the horizon's
-natural length unit $\ell_\star$:
+A physical global closure demands more than one favorable branch. Every
+terminal world the construction can reach has to read the same saturated
+capacity, and the capacity equation has to have exactly one solution. A
+separate horizon-record identification would then turn that capacity into
+curvature, relating the cosmological constant $\Lambda$ to $N$ and the
+horizon's natural length unit $\ell_\star$:
 
 $$
 \Lambda\ell_\star^2=\frac{3\pi}{N} .
@@ -244,10 +245,10 @@ hard to kill and hard to trust.
 
 A self-reading loop leaves nowhere to relocate once both uniqueness statements
 and their physical attachments are in place. The local map has one fixed point,
-so one cell cannot support several competing electromagnetic readings. The
-adopted global capacity equation has one solution, so the horizon cannot
-choose among several saturated record budgets. Under those premises they select one
-self-consistent universe.
+so one cell cannot support several competing electromagnetic readings. If a
+complete global source law has one solution, the horizon cannot choose among
+several saturated record budgets. Under those premises the two closures select
+one self-consistent universe.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
 data inside out. Constants are readings of the architecture rather than settings
@@ -274,12 +275,13 @@ second is the experimental value used for comparison. The residual is a few
 parts per million. A same-scheme hadronic spectral transport is required for a
 physical low-energy prediction and is work in progress.
 
-The global equation identifies two descriptions of one horizon. From the
+The global equation proposes two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
-world it is the correctable public record reconstructed by observers. A
-separate consistency check asks whether the screen's record load and the weak
-sector's load are one and the same carrier; the two readings differ
-by about $6.6$ percent, and reconciling them is work in progress.
+world it is the correctable public record reconstructed by observers. Proving
+that these are readings of one universe-level carrier is work in progress. A
+separate comparison asks whether the screen's record load and the weak
+sector's load are one and the same carrier; the two readings differ by about
+$6.6$ percent.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the
@@ -290,13 +292,25 @@ Measurement can tell us where to look, but it cannot do the work of a closure
 proof. A value located by observation remains a diagnostic until one
 target-free rule builds the return map and the fixed point is shown to be
 unique. The local map has a certified mathematical root, with its physical
-low-energy transport open. Construction of the capacity-indexed global map
-and its unique finite-size zero is work in progress. The reconstruction in
-the earlier chapters does not depend on that numerical closure.
+low-energy transport open. The global side has a sharper obstacle. Alongside
+the exact twenty-four-record packet, a finite counterfamily is fixed without
+looking at cosmological data. Its branches agree on the base capacity, keep
+capacity positive, and never exceed the carrier size. One keeps every copy, one
+collapses copies, one keeps two classes, and one hides spectator copies. Their
+fixed-point sets disagree.
+
+This finite counterfamily proves that those three requirements do not select a
+unique capacity. The machine-checked proof covers that arithmetic
+disagreement. It does not carry the complete observer packet, agreement maps,
+randomness constraints, and refinement controls through every carrier size.
+That full three-axiom construction is work in progress. So is the attachment
+between any selected carrier and the universe. No direct cosmic value of $N$
+follows from the finite packet or its counterfamily.
 
 The two numbers have different jobs. $P_\star$ is the local grain of
-observation. $N$ is the global capacity for records. The first sets the
-electromagnetic readout of a screen cell. The second sets the cosmic
+observation. $N$ would be the global capacity for records. The first sets the
+electromagnetic readout of a screen cell. After the source law, universe
+carrier, horizon ledger, and scale are identified, the second would set cosmic
 curvature through $\Lambda=3\pi/(GN)$, with $G$ Newton's constant.
 The strange loop motivates the same demand for both numbers: the outside
 construction and the inside public readback must describe one invariant. Once
@@ -309,10 +323,12 @@ work.
 The strange loop converts the structure of the argument into the argument. The
 local closure supplies a finite mathematical reading that can be compared with
 the measured electromagnetic constant once the physical transport is supplied.
-The analogous global reading is conditional on a capacity-indexed source map
-with a unique zero. Observers work out the architecture of the world from
-inside it, making the self-description explicit. Escher's hands are holding
-instruments.
+The analogous global reading needs a stronger source law that says which
+continuation the universe uses and why the inside and outside readings refer
+to the same quantity. Self-reference demands equality after that
+identification. It does not choose the measuring instrument. Observers work
+out the architecture of the world from inside it, making the self-description
+explicit. Escher's hands are holding instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
 finite port carrier and its screen chart to the shared public world, and reads

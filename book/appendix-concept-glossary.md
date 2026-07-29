@@ -626,10 +626,12 @@ support locality. OPH uses it as a constraint on how screen correlations knit
 into geometry.
 
 N
-:   N is the horizon's record capacity counted in logarithmic units, roughly
-the number of elementary records the cosmological horizon can hold. The
-book's later chapters pin it down with a closure argument. Until that
-argument arrives, treat it as a labeled unknown rather than a measured input.
+:   $N$ denotes the proposed horizon record capacity in logarithmic units. If
+the record carrier has dimension $D$, then $N$ is the logarithm of $D$. The book
+gives its closure equation and an exact twenty-four-record screen example. A
+bounded family of continuations has incompatible fixed sets, while the
+complete observer construction and its universe attachment are work in
+progress. Treat $N$ as a labeled unknown rather than a derived cosmic value.
 
 No-cloning
 :   The no-cloning theorem says an unknown quantum state cannot be

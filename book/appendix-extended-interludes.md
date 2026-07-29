@@ -334,9 +334,11 @@ cross-checks.
 The late-time acceleration changed the picture again. Type Ia supernova teams
 found that distant supernovae were dimmer than expected in a decelerating
 universe. A positive cosmological constant gives a de Sitter horizon radius
-$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. In OPH, the universe
-supplies that capacity to its observer network, and a scale bridge turns the
-capacity into the curvature observers measure.
+$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. OPH proposes
+identifying that entropy with the correctable record capacity of the observer
+network. A scale bridge would then turn the selected capacity into the
+curvature observers measure. The record-ledger identification, capacity
+selection, and scale bridge are open.
 
 The dark sector is the repair-charge side of the same architecture. A modular
 mismatch becomes an integer occupation with a compact phase. The dilute branch

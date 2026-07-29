@@ -1,0 +1,68 @@
+{
+  "direct_n_fallback_contract": {
+    "execution_status": "REGISTERED_DISABLED",
+    "fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
+    "slot_id": "direct_n_capacity_closure"
+  },
+  "document_bindings": [
+    {
+      "bytes": 3292,
+      "path": "code/invariant_mining/data/nuisance_registry.json",
+      "sha256": "sha256:d215bc74110c7f6f22ef1beeeeca8555a1f26a35912c24a355bc1081031ca426"
+    },
+    {
+      "bytes": 2384,
+      "path": "code/invariant_mining/data/observable_grammar.json",
+      "sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383"
+    },
+    {
+      "bytes": 4599,
+      "path": "code/invariant_mining/data/producer_slots.json",
+      "sha256": "sha256:d998b6c0994531cd139c25d5506c761044e2d6a05e7d697b0c04809427f3cbd0"
+    },
+    {
+      "bytes": 1696,
+      "path": "code/invariant_mining/data/ranking_policy.json",
+      "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
+    },
+    {
+      "bytes": 8598,
+      "path": "code/invariant_mining/data/source_feature_registry.json",
+      "sha256": "sha256:65ae0ebd6a71f5a53b21c5a6fc9f01fee8352f69d46446f525ca7df8ccc5939e"
+    },
+    {
+      "bytes": 3582,
+      "path": "code/invariant_mining/policy/pregeneration_policy.json",
+      "sha256": "sha256:0787a7539c578bd382cdd7bc7f16538a48883191fa18b8a49f83ceece3157cad"
+    },
+    {
+      "bytes": 6255,
+      "path": "code/invariant_mining/schemas/pregeneration_documents.schema.json",
+      "sha256": "sha256:8589a078577c4129bed4bd8bd5d759210c1eb17b24707991cd60048a1f929c8f"
+    },
+    {
+      "bytes": 870,
+      "path": "code/invariant_mining/schemas/pregeneration_outputs.schema.json",
+      "sha256": "sha256:a6e2c7a5021b8e200623a2a18903ff8c178b28b620c7d13b6d41dd6b64728fc5"
+    }
+  ],
+  "execution_boundary": {
+    "candidate_count": 0,
+    "candidate_evaluator_enabled": false,
+    "candidate_generator_enabled": false,
+    "comparison_scoring_enabled": false,
+    "public_data_access_enabled": false,
+    "registry_finalization_complete": false,
+    "target_payloads_registered": false
+  },
+  "freeze_id": "sha256:150cc3fc0d57473e5099c49000645434fc9871dd3774a6128109648ac114f460",
+  "issue": 647,
+  "promotion_rule": "Registry finalization and generator enablement require a separately reviewed successor policy and a pre-generation commit boundary.",
+  "schema": "oph.invariant_mining.pregeneration_freeze.v1",
+  "source_projection": {
+    "bytes": 6940,
+    "path": "code/invariant_mining/outputs/source_projection.json",
+    "sha256": "sha256:602a1616c0e3d425b69a04923159cc04bb0b3e448883af4dadfea7cc12a33f8c"
+  },
+  "status": "PREGENERATION_POLICY_LOCKED__GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION"
+}

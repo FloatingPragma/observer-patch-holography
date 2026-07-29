@@ -195,6 +195,16 @@ s(D)>0 for every other admissible D.
 Unit asymptotic capacity density is insufficient because subleading terms can
 change the exact zero set.
 
+A target-clean all-rung generator proves a narrower non-entailment result.
+Reversible identity, copy-collapse, two-class, and hidden-spectator
+completions share base agreement, positivity, the carrier bound, finite
+incidence and action controls, and an oriented-record fiber product. Their
+exact zero sets differ. The complete A1--A3 capacity source antecedent has not
+been lifted across the regulator family: terminal fibers, joint kernels,
+meaning maps, and A3 feasible-set data remain to be transported. The
+counterfamily therefore does not select a cosmic value and does not establish
+nonidentifiability for that stronger source class.
+
 ## 9. Independent downstream bridges
 
 After robust direct closure, identifying the correctable record carrier with
@@ -297,7 +307,11 @@ Issue #548 supplies the first source-only fixed-`D` packet at `D=24` over
 its complete declared one-fault terminal fiber, together with separate
 no-new-confusability capacity-extension and fixed-`D` refinement receipts.
 
-Open physical work: extend the packet to the declared capacity-indexed regulator
-family, derive the exact finite-size slack law with one regulator-stable zero,
-and then test the horizon and common-EW identifications. No cosmic prediction is
-promoted before those receipts exist.
+Open source work: lift the complete fixed packet across the
+capacity-indexed regulator family, including terminal-fiber completeness,
+observer/interface maps, global joint kernels, A2 meaning maps, A3
+feasible-set projections, and exact continuation and refinement controls.
+Only then can the full source class receive a unique-zero or
+nonidentifiability verdict. Horizon and common-EW identifications remain
+downstream of a positive result. No cosmic prediction is promoted before
+those receipts exist.
