@@ -1,7 +1,7 @@
 {
-  "aggregation_policy": "every value and every measured reference is read live from the cited parent artifact; a missing parent aborts the build",
+  "aggregation_policy": "numeric values and measured references are read live from cited parents; structural rows are derived from validated structured parents and identify direct algebraic corollaries explicitly; a missing or inconsistent parent aborts the build",
   "artifact": "oph_postdiction_ledger",
-  "generated_utc": "2026-07-28T09:01:29Z",
+  "generator": "code/particles/scripts/build_postdiction_ledger.py",
   "guards": {
     "changes_any_solve_path": false,
     "compare_only": true,
@@ -12,7 +12,7 @@
   "principal_results": [
     {
       "id": "lepton_closure_target",
-      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the certified band [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the live scheme term of the open anchor bridge (issue 545). The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a falsification target: the closure value confirms, a value outside the band refutes."
+      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the retrospective accounting interval [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the live scheme term of the open anchor bridge (issue 545). The lepton scale is localized only under that recorded accounting packet. A source-emitted bridge value is a falsification target: the closure value would satisfy the conditional lane, while a value outside the interval refutes the declared decomposition."
     },
     {
       "id": "lepton_certified_intervals",
@@ -24,15 +24,15 @@
     },
     {
       "id": "higgs_top_envelopes",
-      "statement": "The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection axioms."
+      "statement": "The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection premises."
     },
     {
       "id": "forced_gauge_structure",
-      "statement": "The gauge sector is pinned before any numeric lane runs: the twelve-port trichotomy forces su(3)+su(2)+u(1), the gluing-class quotient gives the Z6 global form, and the matter lift realizes the exact one-generation hypercharge multiset, with the finite steps machine checked in Lean/Screen and the hypothesis boundaries recorded below."
+      "statement": "The gauge sector is pinned before any numeric lane runs: the twelve-port trichotomy forces su(3)+su(2)+u(1), the gluing-class quotient gives the Z6 global form, and the exhaustive scan inside the declared exterior-response algebra selects the charge-conjugate rank-15 chiral anomaly-free pair and its one-generation hypercharge multiset. The finite steps are machine checked in Lean/Screen, with the hypothesis boundaries recorded below."
     }
   ],
   "row_class": "compare_only_postdiction_ledger",
-  "schema_version": 1,
+  "schema_version": 2,
   "sections": {
     "alpha": [
       {
@@ -42,20 +42,28 @@
         ],
         "artifact_refs": [
           "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
-          "code/P_derivation/runtime/anchor_scheme_bridge_current.json"
+          "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
+          "code/particles/alpha_hvp_audit/outputs/alpha_hvp_class_verdict.json"
         ],
+        "audit_verdict": "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE",
         "blocking_issues": [
           425,
           545
         ],
+        "cross_class_agreement": {
+          "independently_evaluated_class_count": 0,
+          "note": "cross-class agreement requires at least two genuinely independent evaluated classes under one protocol",
+          "recorded_accounting_replay_count": 1,
+          "verdict": "NOT_EVALUABLE_NO_INDEPENDENT_CLASS"
+        },
         "id": "alpha_inv_thomson_endpoint",
         "measured": 137.035999177,
         "measured_source": "CODATA 2022 via the endpoint artifact, compare-only",
         "payload_release": "knt19_pinned_v1",
-        "reading": "the endpoint carries the full measured deficit into the certified same-scheme anchor gap; the standard reference deficit sits inside the certified interval, so the residual is the one-loop anchor running deficit, not a payload or solve defect",
-        "reference_deficit_inside_certified_gap": true,
+        "reading": "one retrospective KNT19 accounting row is arithmetically compatible with the recorded same-scheme interval. The multi-class HVP test is not evaluable because no independent frozen class is present. Containment does not identify the physical source of the gap or close source-only transport",
+        "reference_deficit_inside_recorded_accounting_interval": true,
         "row_class": "oph_plus_empirical_hadron_closure",
-        "tier": "T1_empirical_closure",
+        "tier": "retrospective_empirical_same_scheme_accounting_audit",
         "value_central": 136.38275481749466,
         "value_interval": [
           136.3670480602512,
@@ -74,7 +82,7 @@
           425
         ],
         "id": "charged_leptons_closure_target",
-        "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the certified band, and its distance to the standard on-shell reference deficit is the live scheme term of the open anchor bridge. The lepton scale is localized to the width of the scheme band, and a source-emitted bridge value is a sharp falsification target: landing on the closure value closes the lane on the witness, landing outside the certified band refutes the decomposition.",
+        "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the retrospective accounting interval, and its distance to the standard on-shell reference deficit is the live scheme term of the open anchor bridge. The lepton scale is localized only under the recorded accounting packet. A source-emitted bridge value is a sharp falsification target: landing on the closure value satisfies the conditional lane on the witness, while landing outside the recorded interval refutes the decomposition.",
         "tier": "T1_empirical_closure",
         "width_floor": "the certified width floor at the current premise set is the anchor scheme-bridge ambiguity (issue 545, source branch); the payload term cancels in this lane and the higher-order band is a level convention pinned by the open bridge",
         "witness_point": {
@@ -389,6 +397,24 @@
       {
         "hypothesis_boundary": "the compact-simple classification, the torus/cocharacter step of the rationality lemma, and irreducibility of the five-dimensional summand stay declared classical inputs on paper; the physical inner current action is the open premise of issues 567 and 599",
         "id": "gauge_lie_algebra",
+        "lean_declarations": {
+          "A5CharacterField": [
+            "multiplicities_equal_of_galoisStable",
+            "centreDim_mem_trichotomy_list"
+          ],
+          "A5OPH": [
+            "sum_eq_eleven",
+            "sum_eq_twelve",
+            "action_trivial_of_card_le_four",
+            "sum_not_mem_excluded",
+            "quintet_noncentral"
+          ],
+          "A5SixAxes": [
+            "two_transitive",
+            "V5_irreducible",
+            "no_three_plus_three_split"
+          ]
+        },
         "lean_receipts": [
           "Lean/Screen/A5OPH.lean",
           "Lean/Screen/A5CharacterField.lean",
@@ -403,6 +429,18 @@
       {
         "hypothesis_boundary": "the quotient isomorphism and both invariance clauses are machine checked; the identification with the physical global form rides on the same inner current action premise as the Lie-algebra row",
         "id": "global_form_z6",
+        "lean_declarations": {
+          "A5OPH": [
+            "screen_gluing_class",
+            "q_perm_invariant",
+            "q_neg"
+          ],
+          "Z6Exact": [
+            "gauge_eq_kernel",
+            "residue_surjective",
+            "representative_formula"
+          ]
+        },
         "lean_receipts": [
           "Lean/Screen/Z6Exact.lean",
           "Lean/Screen/A5OPH.lean"
@@ -413,9 +451,28 @@
         "statement": "The screen gluing-class quotient Lambda_+/(Lambda_1 + Lambda_5) is Z/6 with proper-rotation invariance and antipodal sign reversal, matching the global form (SU(3) x SU(2) x U(1))/Z6"
       },
       {
-        "artifact_ref": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
-        "hypothesis_boundary": "conditional on the declared super-Tannakian lift premises recorded in the receipt claim boundary (issue 314); the generation count is an input, not a consequence",
+        "artifact_refs": [
+          "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+          "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json"
+        ],
+        "derived_block_charges": {
+          "a": -2,
+          "b": 3,
+          "normalization": 6
+        },
+        "hypothesis_boundary": "the selection is exhaustive inside the declared exterior algebra; completeness beyond that algebra, selection of one charge-conjugate representative, light-sector attachment, family multiplicity, scalar content, and laboratory identification remain separate",
         "id": "hypercharge_spectrum",
+        "lean_declarations": {
+          "ExteriorSelection": [
+            "selection_unique",
+            "parity_sectors_survive",
+            "conj_exchanges_survivors",
+            "witten_automatic"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/ExteriorSelection.lean"
+        ],
         "match": "exact",
         "observed_counterpart": "Standard Model one-generation hypercharge assignment",
         "paper_ref": "zoo paper, matter lift section",
@@ -426,11 +483,27 @@
           "1/3": 3,
           "1/6": 6
         },
-        "statement": "The super-Tannakian matter lift realizes the one-generation left-chiral hypercharge multiset {Q: 1/6 x6, u_c: -2/3 x3, d_c: 1/3 x3, L: -1/2 x2, e_c: 1 x1}"
+        "statement": "Inside the declared 10-component exterior-response algebra, an exhaustive scan of all 1024 subsets selects exactly one unordered charge-conjugate pair of nonempty chiral anomaly-free rank-15 projectors. Primitive determinant balance fixes the block charges up to conjugation, and the selected representative has multiset {Q: 1/6 x6, u_c: -2/3 x3, d_c: 1/3 x3, L: -1/2 x2, e_c: 1 x1}",
+        "subset_count": 1024,
+        "survivor_count": 2,
+        "survivor_dimension": 15
       },
       {
         "hypothesis_boundary": "reduces the universality clause to A5-equivariance of the implemented source law; no coupling value is implied",
         "id": "coupling_universality",
+        "lean_declarations": {
+          "A5CouplingSymmetry": [
+            "groupAverage_port_independent",
+            "coupling_ratio_universal"
+          ],
+          "A5PortAction": [
+            "transitive_on_ports"
+          ],
+          "PortFrameGram": [
+            "degree_five",
+            "gram_sq"
+          ]
+        },
         "lean_receipts": [
           "Lean/Screen/A5CouplingSymmetry.lean",
           "Lean/Screen/A5PortAction.lean",
@@ -440,6 +513,61 @@
         "observed_counterpart": "universality clause of the Einstein-branch coupling law",
         "paper_ref": "Standard Model gauge paper, coupling symmetry section",
         "statement": "A5-invariant readouts have port-independent group-averaged cap sums, so the per-cap ratio of any two averaged readouts is universal with zero spread"
+      },
+      {
+        "artifact_ref": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "hypothesis_boundary": "the Maxwell action, positive kinetic coefficient, field content, and phase are supplied branch data; no photon Hilbert space, positive-residue pole, or universal zero-mass particle theorem is emitted",
+        "id": "maxwell_classical_massless_kernel",
+        "match": "conditional structural",
+        "observed_counterpart": "massless classical electromagnetic propagation",
+        "paper_ref": "Observers paper, carrier-mode acceptance section",
+        "statement": "On the declared unbroken Maxwell action and deconfined phase branch, the quadratic operator has zero hard mass parameter and two transverse classical modes with characteristic surface k^2=0"
+      },
+      {
+        "artifact_ref": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "hypothesis_boundary": "this is not a free asymptotic-gluon claim and supplies neither a continuum Yang-Mills gap nor a hadron mass",
+        "id": "yang_mills_classical_massless_kernel",
+        "match": "conditional structural",
+        "observed_counterpart": "perturbative color-gauge kernel before confinement",
+        "paper_ref": "Observers paper, carrier-mode acceptance section",
+        "statement": "On the declared pure Yang-Mills quadratic branch before nonperturbative confinement, every color generator has two transverse perturbative modes and zero hard quadratic mass parameter"
+      },
+      {
+        "artifact_ref": "code/particles/runs/status/carrier_mode_acceptance.json",
+        "hypothesis_boundary": "the action and background are supplied branch data; no graviton Hilbert space, quantum pole, or exclusion of additional massive modes is emitted",
+        "id": "einstein_classical_massless_kernel",
+        "match": "conditional structural",
+        "observed_counterpart": "two massless classical gravitational-wave polarizations",
+        "paper_ref": "Observers paper, carrier-mode acceptance section",
+        "statement": "On the declared pure Einstein-Hilbert linearization about a suitable Ricci-flat background, the transverse-traceless quadratic operator has zero hard mass parameter and two classical modes with null characteristic"
+      },
+      {
+        "adjoint_branching": {
+          "abelian": [
+            1,
+            1,
+            0
+          ],
+          "color_adjoint": [
+            8,
+            1,
+            0
+          ],
+          "mixed_xy_bifundamental_dimension": 0,
+          "weak_adjoint": [
+            1,
+            3,
+            0
+          ]
+        },
+        "artifact_ref": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "derivation_kind": "direct_executable_algebraic_corollary",
+        "hypothesis_boundary": "the corollary applies to the source-bound selected finite current algebra. General proton stability does not follow; higher-dimensional baryon violation, scalar mediators, and other ultraviolet gauge mechanisms are not excluded",
+        "id": "simple_gut_xy_channel_absent",
+        "match": "structural channel exclusion",
+        "observed_counterpart": "no observed proton decay through the minimal simple-GUT X/Y channel",
+        "paper_ref": "Observers paper, gauge-channel boundary",
+        "statement": "The selected direct-sum current algebra has adjoint branch dimensions 8, 3, and 1. Its adjoint therefore contains no mixed (3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the ordinary minimal simple-GUT X/Y exchange channel is absent"
       }
     ],
     "hadrons": [

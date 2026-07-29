@@ -1,57 +1,220 @@
 {
  "candidate_ledger": {
-  "c1_koide_balanced_circulant_ratio": {
-   "ancestry_clean": true,
+  "c1_common_load_global_closure": {
+   "ancestry_hits": [
+    {
+     "entry": "The displayed evaluation contains no measured Lambda and has a unique positive real root. Its cited source-audit P and alpha_U(P) witness is not a frozen transitive provenance receipt, does not select the repair law, and is explicitly not a full endpoint proof. Issue 631 has not identified the two finite order-unit lines as one physical accepted load. Any architectural-closure reading must remain separate from the direct-capacity blind forecast and requires an explicit governance rule. Horizon comparison remains separate in issue 589.",
+     "field": "blocking_condition",
+     "forbidden_class": "measured_cosmology_and_horizon_scale",
+     "fragment": "measured lambda"
+    }
+   ],
+   "blocking_condition": "The displayed evaluation contains no measured Lambda and has a unique positive real root. Its cited source-audit P and alpha_U(P) witness is not a frozen transitive provenance receipt, does not select the repair law, and is explicitly not a full endpoint proof. Issue 631 has not identified the two finite order-unit lines as one physical accepted load. Any architectural-closure reading must remain separate from the direct-capacity blind forecast and requires an explicit governance rule. Horizon comparison remains separate in issue 589.",
+   "candidate_class": 1,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "INELIGIBLE_NON_BLIND_TARGET_ANCESTRY_AND_OPEN_PHYSICAL_IDENTITY",
+   "potential_upgrade_issues": [
+    631,
+    547,
+    589
+   ],
+   "selection_priority": 20,
+   "semantic_input_closure_proved": false
+  },
+  "c1_direct_public_record_capacity": {
    "ancestry_hits": [],
-   "blocking_condition": "the balance and ordering premises are abstracted from the measured lepton triple; discharge requires a source derivation through the issue-569 discriminator sprint",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "INELIGIBLE_TARGET_ANCESTRY"
+   "blocking_condition": "Issues 551 and 505 do not emit a source-derived capacity-indexed family or a unique slack zero. The separate common-load closure candidate does not instantiate the correctable-record map. Horizon comparison requires the separate issue-589 identification.",
+   "candidate_class": 1,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": true,
+   "eligibility": "BLOCKED_PENDING_DIRECT_FIXED_POINT",
+   "potential_upgrade_issues": [
+    551,
+    505,
+    589
+   ],
+   "selection_priority": 10,
+   "semantic_input_closure_proved": false
+  },
+  "c1_koide_balanced_circulant_ratio": {
+   "ancestry_hits": [
+    {
+     "entry": "The balance and ordering premises were abstracted from the measured lepton triple. A source derivation through issue 569 would be required.",
+     "field": "blocking_condition",
+     "forbidden_class": "measured_particle_masses",
+     "fragment": "measured lepton"
+    }
+   ],
+   "blocking_condition": "The balance and ordering premises were abstracted from the measured lepton triple. A source derivation through issue 569 would be required.",
+   "candidate_class": 1,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "INELIGIBLE_TARGET_ANCESTRY",
+   "potential_upgrade_issues": [
+    569
+   ],
+   "selection_priority": 30,
+   "semantic_input_closure_proved": false
   },
   "c1_screen_band_response_ratio": {
-   "ancestry_clean": true,
-   "ancestry_hits": [],
-   "blocking_condition": "the realization lives on a prescribed simulator chart; a source-visible discriminator from the issue-569 sprint is required before any forecast typing",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "BLOCKED_SOURCE_INVISIBLE"
+   "ancestry_hits": [
+    {
+     "entry": "The realization lives on a prescribed simulator chart. A source-visible discriminator from issue 569 is required.",
+     "field": "blocking_condition",
+     "forbidden_class": "prescribed_target_matched_simulator_charts",
+     "fragment": "prescribed simulator chart"
+    }
+   ],
+   "blocking_condition": "The realization lives on a prescribed simulator chart. A source-visible discriminator from issue 569 is required.",
+   "candidate_class": 1,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "BLOCKED_SOURCE_INVISIBLE",
+   "potential_upgrade_issues": [
+    569
+   ],
+   "selection_priority": 40,
+   "semantic_input_closure_proved": false
   },
   "c2_family_multiplicity_three": {
-   "ancestry_clean": true,
-   "ancestry_hits": [],
-   "blocking_condition": "clause R is simulator-realized; source visibility through the issue-569 discriminator is required",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "CONDITIONAL_NAMED_INTERFACE"
+   "ancestry_hits": [
+    {
+     "entry": "The comparison value three is public knowledge, so this is a consistency postdiction unless the source selector predates and excludes that knowledge.",
+     "field": "public_knowledge_caveat",
+     "forbidden_class": "comparison_payloads_before_unsealing",
+     "fragment": "comparison value"
+    }
+   ],
+   "blocking_condition": "The realization clause is simulator-realized. Source visibility through issue 569 is required.",
+   "candidate_class": 2,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "CONDITIONAL_NAMED_INTERFACE",
+   "potential_upgrade_issues": [
+    569
+   ],
+   "selection_priority": 10,
+   "semantic_input_closure_proved": false
   },
   "c3_edge_center_clock_ratio": {
-   "ancestry_clean": true,
+   "ancestry_hits": [
+    {
+     "entry": "the issue-522 generator and clock binding, only if emitted without the forbidden P packet",
+     "field": "allowed_ancestry/0",
+     "forbidden_class": "consumer_policy_p_packet",
+     "fragment": "p packet"
+    },
+    {
+     "entry": "the issue-522 generator and clock binding, only if emitted without the forbidden P packet",
+     "field": "allowed_ancestry/0",
+     "forbidden_class": "consumer_policy_p_packet",
+     "fragment": "forbidden p packet"
+    },
+    {
+     "entry": "The generator and clock binding are not emitted without the consumer-policy P packet.",
+     "field": "blocking_condition",
+     "forbidden_class": "consumer_policy_p_packet",
+     "fragment": "p packet"
+    }
+   ],
+   "blocking_condition": "The generator and clock binding are not emitted without the consumer-policy P packet.",
+   "candidate_class": 3,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "BLOCKED_PENDING_GENERATOR",
+   "potential_upgrade_issues": [
+    522
+   ],
+   "selection_priority": 10,
+   "semantic_input_closure_proved": false
+  },
+  "c4_scalar_completion_response_ratio": {
    "ancestry_hits": [],
-   "blocking_condition": "the generator and clock binding are not emitted without the consumer-policy P packet",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "BLOCKED_PENDING_GENERATOR"
+   "blocking_condition": "Issue 636 has not emitted a unique source scalar completion or an independently meaningful comparison object.",
+   "candidate_class": 4,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": true,
+   "eligibility": "BLOCKED_SOURCE_INVISIBLE",
+   "potential_upgrade_issues": [
+    636
+   ],
+   "selection_priority": 10,
+   "semantic_input_closure_proved": false
   },
   "c4_sector_gap_ratio": {
-   "ancestry_clean": true,
    "ancestry_hits": [],
-   "blocking_condition": "no independently meaningful public comparison object exists for these finite-graph ratios",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "NOT_EVALUABLE_NO_INDEPENDENT_COMPARISON"
+   "blocking_condition": "No independently meaningful public comparison object exists for these finite-graph ratios.",
+   "candidate_class": 4,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": true,
+   "eligibility": "NOT_EVALUABLE_NO_INDEPENDENT_COMPARISON",
+   "potential_upgrade_issues": [],
+   "selection_priority": 20,
+   "semantic_input_closure_proved": false
   },
   "x_charged_lepton_anchor_gap": {
-   "ancestry_clean": true,
-   "ancestry_hits": [],
-   "blocking_condition": "declared ineligible by the issue-639 claim boundary; the interval is a target-anchored diagnostic",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "INELIGIBLE_TARGET_ANCESTRY"
+   "ancestry_hits": [
+    {
+     "entry": "The interval is a target-anchored diagnostic built from the measured lepton triple.",
+     "field": "blocking_condition",
+     "forbidden_class": "measured_particle_masses",
+     "fragment": "measured lepton"
+    }
+   ],
+   "blocking_condition": "The interval is a target-anchored diagnostic built from the measured lepton triple.",
+   "candidate_class": 4,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "INELIGIBLE_TARGET_ANCESTRY",
+   "potential_upgrade_issues": [],
+   "selection_priority": 90,
+   "semantic_input_closure_proved": false
   },
   "x_p_certificate_alpha": {
-   "ancestry_clean": true,
-   "ancestry_hits": [],
-   "blocking_condition": "declared ineligible by the issue-639 claim boundary until its consumer-policy boundary is discharged before a contract freeze",
-   "check_type": "bounded_declared_vocabulary_audit",
-   "eligibility": "INELIGIBLE_CONSUMER_POLICY_BOUNDARY"
+   "ancestry_hits": [
+    {
+     "entry": "The consumer-policy P packet is not eligible unless its source and physical-map boundary closes before a contract freeze.",
+     "field": "blocking_condition",
+     "forbidden_class": "consumer_policy_p_packet",
+     "fragment": "p packet"
+    }
+   ],
+   "blocking_condition": "The consumer-policy P packet is not eligible unless its source and physical-map boundary closes before a contract freeze.",
+   "candidate_class": 4,
+   "check_type": "bounded_declared_vocabulary_warning",
+   "declared_vocabulary_hit_free": false,
+   "eligibility": "INELIGIBLE_CONSUMER_POLICY_BOUNDARY",
+   "potential_upgrade_issues": [],
+   "selection_priority": 100,
+   "semantic_input_closure_proved": false
   }
  },
- "claim_boundary": "Frozen issue-639 contract infrastructure: the prediction contract format, the complete low-cost candidate ledger with ancestry and eligibility, the target-ancestry checker, the selection rule fixed before comparison access, and the single-use sealed-comparison protocol with fail-closed guards. No forecast is selected, frozen, or scored by this receipt, and no candidate is promoted past its recorded eligibility.",
- "contract_freeze_status": "NO_CANDIDATE_ELIGIBLE_YET",
+ "claim_boundary": "Draft issue-639 governance packet with deterministic state replay, complete JSON Schema enforcement for the draft contract, bounded declared-vocabulary warnings, and fail-closed freeze-time gates for exhaustive inventory evidence, deterministic selection, real repository-commit blobs, canonical contract payload integrity, an immutable issue-policy anchor, a caller-supplied digest check, exact custody declarations, source pins, and bounded declared-ancestry eligibility. The external digest input is not durable custody. The candidate inventory is provisional and not proved exhaustive. Generator execution, checker independence, comparison quarantine, scoring, and durable single-use recording are not implemented. This validator covers declared pre-freeze controls and does not establish scoring readiness. No contract, prediction output, independent score, or persistent single-use unsealing record is emitted.",
+ "contract_freeze_status": "DRAFT_GOVERNANCE_PACKET__NO_ELIGIBLE_CANDIDATE",
+ "controls": {
+  "candidate_inventory_exhaustiveness": "NOT_ESTABLISHED",
+  "checker_true_independence_validation": "NOT_IMPLEMENTED",
+  "comparison_access_quarantine": "NOT_IMPLEMENTED",
+  "comparison_integrity_digest": "IMPLEMENTED",
+  "cross_field_checker_separation": "IMPLEMENTED_PATH_AND_BYTE_INEQUALITY_ONLY",
+  "declared_vocabulary_scan": "IMPLEMENTED_BOUNDED_WARNING_NOT_SEMANTIC_CLOSURE",
+  "durable_external_contract_digest_custody": "NOT_IMPLEMENTED",
+  "durable_single_use_unsealing_record": "NOT_IMPLEMENTED",
+  "executable_generator_validation": "NOT_IMPLEMENTED",
+  "executable_independent_scorer": "NOT_IMPLEMENTED",
+  "external_contract_digest_input_validation": "IMPLEMENTED_CALLER_SUPPLIED_INPUT_NOT_DURABLE_CUSTODY",
+  "freeze_time_comparison_custody_declaration_validation": "IMPLEMENTED_EXACT_SCHEMA_BINDING_AND_PRE_FREEZE_DENIAL",
+  "freeze_time_deterministic_first_eligible_selection": "IMPLEMENTED",
+  "freeze_time_discriminator_verification": "IMPLEMENTED_EXACT_BINDINGS_AND_PINNED_BOUNDED_EVIDENCE",
+  "freeze_time_file_pin_resolution": "IMPLEMENTED",
+  "freeze_time_inventory_exhaustiveness_gate": "IMPLEMENTED_REQUIRES_FROZEN_CRITERION_AND_PINNED_POSITIVE_OMISSION_AUDIT",
+  "freeze_time_repository_commit_blob_verification": "IMPLEMENTED",
+  "freeze_validator_scope": "DECLARED_PRE_FREEZE_CONTROLS_ONLY__NOT_SCORING_READY",
+  "full_json_schema_validation": "IMPLEMENTED",
+  "immutable_issue_freeze_policy_anchor": "IMPLEMENTED_EXACT_SCOPE_FORBIDDEN_MAP_CANDIDATES_NONPROMOTABLE_STATUSES_CROSSWALK_CONTENT_ORDER_AND_LIVE_REGISTER_PROJECTION",
+  "non_self_referential_canonical_contract_digest": "IMPLEMENTED"
+ },
  "eligible_candidates": [],
  "forbidden_input_classes": {
   "comparison_payloads_before_unsealing": {
@@ -77,6 +240,16 @@
     "cesium"
    ]
   },
+  "measured_cosmology_and_horizon_scale": {
+   "description": "measured cosmological parameters, inferred horizon area, or a Planck posterior",
+   "match_fragments": [
+    "measured lambda",
+    "measured cosmological",
+    "cosmological constant",
+    "planck posterior",
+    "horizon area"
+   ]
+  },
   "measured_mixing_angles_and_widths": {
    "description": "measured mixing angles, CKM or PMNS entries, widths",
    "match_fragments": [
@@ -98,7 +271,8 @@
   "prescribed_target_matched_simulator_charts": {
    "description": "simulator charts prescribed to match a target",
    "match_fragments": [
-    "target-matched chart"
+    "target-matched chart",
+    "prescribed simulator chart"
    ]
   },
   "target_residuals_and_fitted_exactifiers": {
@@ -110,17 +284,177 @@
    ]
   }
  },
- "gate": "a contract freeze and sealed comparison happen only after a discriminator receipt upgrades a candidate to source visibility; the issue-569 and issue-636 sprints are the named upgrade paths",
+ "inventory_completeness": {
+  "closure_criterion": "Crosswalk every required candidate, every required static surface, and every prospective and retrospective row of the pinned frozen-prediction register before comparison access.",
+  "closure_criterion_frozen": false,
+  "closure_criterion_id": "issue-639-constraint-bounded-corpus-crosswalk-v1",
+  "reason": "The registered rows and known-surface crosswalk cover the identified low-cost corpus candidates, but no theorem proves that the search space is exhaustive.",
+  "required_for_negative_exit": "Freeze an inventory closure criterion, crosswalk every quantitative registry, and obtain an adversarial deletion and omission audit before claiming a complete negative ledger.",
+  "status": "PROVISIONAL_NOT_EXHAUSTIVE"
+ },
+ "inventory_scope": {
+  "candidate_class_legend": {
+   "1": "global or source-derived dimensionless quantities",
+   "2": "discrete structural quantities",
+   "3": "finite cosmology and clock ratios",
+   "4": "other response quantities and excluded diagnostics"
+  },
+  "inclusion_rule": "A row must name a laptop-scale numerical or discrete output, a source-visible generator path, and an independently meaningful comparison that could distinguish the branch.",
+  "live_register_crosswalk": "Prospective FZ rows and retrospective results are projected from claims/frozen_prediction_register.json v3 during state generation rather than duplicated here.",
+  "priority_policy": "Within class one, the direct source-derived public-record N producer has first priority. The common-load algebraic coordinate remains in class one for coverage but is ineligible and non-blind. Remaining candidates follow their explicit integer selection_priority.",
+  "resource_policy": "QCD production, SI attachment, continuum pole construction, cluster-scale simulation, and target-driven sweeps are excluded.",
+  "scope_id": "constraint_bounded_dimensionless_forecast_candidates",
+  "structural_known_value_policy": "Known structural matches are crosswalked as postdictions and are not relabeled as novel forecasts."
+ },
  "issue": 639,
+ "known_surface_crosswalk": [
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_ATTESTED",
+   "forecast_use": "Use only under the live registered comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "frozen_attested",
+   "surface": "FZ-01"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
+   "forecast_use": "Use only under the live registered comparison protocol: dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "frozen_stamped_upgrade_pending",
+   "surface": "FZ-02"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "forecast_use": "Use only under the live registered comparison protocol: no comparison protocol is frozen",
+   "owning_issue": 508,
+   "registry_kind": "prospective",
+   "registry_status": "registered_pending_freeze",
+   "surface": "FZ-03"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "forecast_use": "Use only under the live registered comparison protocol: pending the slack-law receipt; no comparison is registered",
+   "owning_issue": 551,
+   "registry_kind": "prospective",
+   "registry_status": "registered_pending_freeze",
+   "surface": "FZ-05"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__STANDING_FROZEN",
+   "forecast_use": "Use only under the live registered comparison protocol: per-event scoring under the registered protocol; the GW250114 lean is in the record",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "standing_frozen",
+   "surface": "FZ-06"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "resource_deferred",
+   "surface": "FZ-07"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "resource_deferred",
+   "surface": "FZ-08"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__RESOURCE_DEFERRED",
+   "forecast_use": "Use only under the live registered comparison protocol: inactive while resource-deferred; no comparison is registered",
+   "owning_issue": null,
+   "registry_kind": "prospective",
+   "registry_status": "resource_deferred",
+   "surface": "FZ-09"
+  },
+  {
+   "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
+   "forecast_use": "Use only under the live registered comparison protocol: reference observable, verdict thresholds, and precision floor frozen in the custody target statement before examination of any post-registration measurement",
+   "owning_issue": 546,
+   "registry_kind": "prospective",
+   "registry_status": "frozen_stamped_upgrade_pending",
+   "surface": "FZ-10"
+  },
+  {
+   "classification": "RETROSPECTIVE_RESULT__RETROSPECTIVE_NOT_EVALUABLE",
+   "forecast_use": "No prospective kill band was frozen. Any future raw-dispersive, independent-code, or lattice-HVP class requires a new target-quarantined registration before evaluation",
+   "former_ladder_reservation": "FZ-04",
+   "owning_issue": 506,
+   "registry_kind": "retrospective",
+   "registry_status": "retrospective_not_evaluable",
+   "surface": "RR-506-ALPHA-HVP"
+  },
+  {
+   "classification": "BLOCKED_PHYSICAL_CURRENT_AND_POLE_MAP",
+   "forecast_use": "Reassess only after an OPH-native source-to-pole producer exists.",
+   "surface": "W/Z ratio and weak-angle coordinates"
+  },
+  {
+   "classification": "CONDITIONAL_TARGET_EXPOSED",
+   "forecast_use": "Source-scale, scalar selection, and pole attachment remain open.",
+   "surface": "Higgs/top dimensionless ratio"
+  },
+  {
+   "classification": "BLOCKED_DIRECT_CAPACITY_MAP",
+   "forecast_use": "The equation N = log M_0(U_N) has no capacity-indexed source family or selected cosmic solution.",
+   "surface": "direct correctable-record N fixed point"
+  },
+  {
+   "classification": "INELIGIBLE_NON_BLIND_ALGEBRAIC_ROOT__TARGET_ANCESTRY_AND_PHYSICAL_COMMON_LOAD_OPEN",
+   "forecast_use": "The screen/electroweak load equation has the unique evaluated value 3.5321315434e122 without measured Lambda as a direct input. The cited source-audit P and alpha_U(P) witness lacks frozen transitive provenance and repair-law selection, and the theorem-level electroweak bridge is public, so the value is not a blind target-clean forecast. The source-bound same-load identification and closure-governance parity decision are also open; the value differs from the Lambda-inferred coordinate by 6.63 percent.",
+   "surface": "common-load N closure and Lambda comparison"
+  },
+  {
+   "classification": "ARCHIVED_EXCLUDED_AGGREGATE",
+   "forecast_use": "The deterministic declared-before-comparison run in code/capacity_readback/F_CONSTRUCTION_2026-07-14.md evaluated 180 CAP-L, six CAP-P, and four CAP-K rows. Its 102 certified positive fixed points all missed the cosmic reference basin by at least 119.36 decimal orders; the aggregate is excluded and cannot be selected as a forecast candidate.",
+   "surface": "archived CAP-L/P/K 190-row capacity-map lattice"
+  },
+  {
+   "classification": "INTERNAL_MECHANISM_TEST",
+   "forecast_use": "No independent physical comparison has been identified.",
+   "surface": "edge-sector Casimir ratios"
+  },
+  {
+   "classification": "PRESCRIBED_CHART_MEASUREMENT",
+   "forecast_use": "The four-coordinate chart is not source-selected.",
+   "surface": "finite Einstein signature"
+  },
+  {
+   "classification": "KNOWN_VALUE_STRUCTURAL_POSTDICTIONS",
+   "forecast_use": "Track visibly as structural consequences, not novel sealed forecasts.",
+   "surface": "gauge group, Z6, hypercharge, classical zero hard masses, and X/Y-channel absence"
+  }
+ ],
  "pins": {
-  "candidate_inventory_sha256": "sha256:f18b79fc7a63efd70979b3f00cdfb96ff5de0dec1ac448cbd64d5f86eff5b610",
-  "contract_schema_sha256": "sha256:686d24622c6a864d21ac2d778d851d021f962c2eb1489f112b8be9fd4d63babb",
-  "module_sha256": "sha256:5b227add25f2bd6fd5921b6f64a201f728d0a8f7548661f170067eeedc20b2fc"
+  "candidate_inventory_sha256": "sha256:378380405dd28f5197e293f3e8095e163784f7bf2651b792ccb9b6030bf2236d",
+  "contract_schema_sha256": "sha256:abe6893b3f03adc58251b3f64fed0f1e4c62a4ed06420ce68d1db16178d12149",
+  "forecast_freeze_policy_sha256": "sha256:dec2a4b647e5212d7b54101d41cdb50b4f477e6df21ab9a8cfe3d89620f6e594",
+  "frozen_prediction_register_sha256": "sha256:2a8ffb95d83bdcdeb2aca4ae04ad5958ff5bf0b67634fffea141ffc82f59da3f",
+  "module_sha256": "sha256:9d33e89027d3b0eb9d528f985df3e4782c959fc478a48c05073a39d6c770aff1"
  },
- "schema": "oph.forecast_contract_state.v1",
+ "potential_upgrade_routes": {
+  "dependency_status": "candidate-specific routes only; none is a hard issue dependency before selection",
+  "issues": [
+   505,
+   522,
+   547,
+   551,
+   569,
+   589,
+   631,
+   636
+  ]
+ },
+ "schema": "oph.forecast_contract_state.v2",
  "selection_rule": {
-  "fixed_before_comparison_access": true,
-  "rule": "select the first candidate, in the candidate-class order one through four and lexicographic candidate_id within a class, whose eligibility becomes ELIGIBLE_SOURCE_VISIBLE through a discriminator receipt; freeze its contract and sealed comparison before any comparison access; no reselection after the first freeze"
+  "algorithm": "candidate_class_then_priority_then_candidate_id_first_eligible_v1",
+  "rule": "After the inventory closure criterion is frozen, select the first ELIGIBLE_SOURCE_VISIBLE candidate by candidate_class, integer selection_priority, and candidate_id. The direct source-derived N lane has the first class-one priority. Validate the bounded declared-ancestry review, every source pin, the repository-state commit, comparison custody declaration, and externally supplied contract digest before comparison access. No reselection follows a valid freeze.",
+  "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:e8af0ec05b0c61a7ce91eefc5aff9f8770e2292aaaa88e554f62488df65727c1"
+ "state_sha256": "sha256:1af76ff0474a6f00c8d0e2e23cc9d648ea2179ffa9b3d2409472108c80a2ac69"
 }

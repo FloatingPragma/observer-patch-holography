@@ -35,6 +35,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # The alpha/HVP retrospective audit proves that its source snapshot
+          # is a real ancestor and hashes blobs at that commit.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v7

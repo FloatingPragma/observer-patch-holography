@@ -1,72 +1,209 @@
 {
- "claim_boundary": "Fixed multi-class verdict of the empirical same-scheme alpha/HVP audit under the frozen protocol: the tabulated dispersive class replays confirmed inside the certified band that was declared before this evaluation, the raw-dispersive, independent-code, and lattice classes are explicitly not evaluable for want of frozen repository ingests, and cross-class agreement is not evaluable with a single class. No empirical input is promoted to a source output and no physical alpha prediction is emitted.",
+ "claim_boundary": "The multi-class independent alpha/HVP test is not evaluable. One byte-pinned KNT19 accounting row is compatible under a secondary arithmetic replay. Raw-dispersive, independent-code, and lattice-HVP classes lack frozen repository ingests. The result is retrospective and supplies neither a prospective freeze nor a physical OPH alpha prediction.",
  "class_matrix": {
   "independent_code": {
    "class": "independent_code",
    "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
    "evaluation_mode": "not_evaluable_without_frozen_ingest",
    "fabrication_excluded": true,
-   "ingest_requirement": "a pinned independent implementation with its release, inputs, and license, none of which is in the repository"
+   "independent_hvp_implementation": false,
+   "ingest_requirement": "a pinned independent implementation with release, inputs, license, units, kernel convention, exclusions, and covariance policy"
   },
   "lattice_hvp": {
    "class": "lattice_hvp",
    "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
    "evaluation_mode": "not_evaluable_without_frozen_ingest",
    "fabrication_excluded": true,
-   "ingest_requirement": "frozen lattice windowed data files with covariance and continuum, volume, and scale-setting documentation, none of which is in the repository"
+   "independent_hvp_implementation": false,
+   "ingest_requirement": "frozen lattice windowed data files with covariance, release, units, kernel mapping, and continuum, finite-volume, and scale-setting documentation"
   },
   "raw_dispersive": {
    "class": "raw_dispersive",
    "class_verdict": "NOT_EVALUABLE_MISSING_FROZEN_INGEST",
    "evaluation_mode": "not_evaluable_without_frozen_ingest",
    "fabrication_excluded": true,
-   "ingest_requirement": "frozen channel-level cross-section tables with covariance and an explicit kernel specification, none of which is in the repository"
+   "independent_hvp_implementation": false,
+   "ingest_requirement": "frozen channel-level cross-section tables with covariance, release identifiers, units, exclusions, radiative-correction policy, and an explicit kernel specification"
   },
   "tabulated_dispersive": {
-   "certified_gap_interval": [
-    "0.6198609040759308",
-    "0.6505569678915788"
-   ],
+   "all_internal_gates_pass": true,
+   "claim_boundary": "A secondary arithmetic implementation reproduces one recorded KNT19-based accounting row. It is not an independent HVP implementation, not a blind comparison, and not a physical alpha prediction.",
    "class": "tabulated_dispersive",
-   "class_verdict": "CONFIRMED_WITHIN_FROZEN_BAND",
-   "deficit_inside_certified_gap": true,
-   "deficit_recomputation_agrees": true,
+   "class_verdict": "COMPATIBLE_RECORDED_ACCOUNTING_REPLAY",
    "endpoint_alpha_inv_central": "136.382754817494662370479418916147111181710023890516298258133378965167042756472084878009875",
-   "endpoint_central_inside_interval": true,
    "endpoint_interval": [
     "136.367048060251178903399632329454207944956665265734947634634108589194836286375103302111047",
     "136.398465193363687004545868664540945129015634237624214633376401737893902751173939873856064"
    ],
-   "evaluation_mode": "replay_of_recorded_instrument",
-   "recomputed_reference_deficit": "0.63089361364692",
-   "recorded_flag_agrees": true,
-   "recorded_reference_deficit": "0.6308936136469185"
+   "evaluation_mode": "recorded_accounting_replay",
+   "gates": {
+    "anchor_matches_bridge": {
+     "detail": "endpoint and bridge use the same serialized anchor",
+     "passed": true,
+     "status": "PASS"
+    },
+    "endpoint_recomputed_exactly": {
+     "detail": "central value and interval recomputed from anchor, lepton packet, and tabulated HVP value",
+     "passed": true,
+     "status": "PASS"
+    },
+    "exclusions_scope_explicit": {
+     "detail": "this is a scalar-table replay, not a raw-channel dispersive ingest",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_covariance_scope_explicit": {
+     "detail": "the tabulated scalar replay records its uncertainty policy; no raw channel covariance is claimed",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_kernel_explicit": {
+     "detail": "kernel, convention, and target quantity are serialized",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_provenance_explicit": {
+     "detail": "published compilation, URL, citation, and equation are identified",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_release_matches": {
+     "detail": "endpoint, payload, and protocol identify one KNT19 release",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_uncertainty_matches": {
+     "detail": "tabulated HVP uncertainty agrees across all pinned surfaces",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_units_explicit": {
+     "detail": "the HVP moment is dimensionless",
+     "passed": true,
+     "status": "PASS"
+    },
+    "payload_value_matches": {
+     "detail": "tabulated HVP central value agrees across all pinned surfaces",
+     "passed": true,
+     "status": "PASS"
+    },
+    "protocol_gap_matches_recomputed_gap": {
+     "detail": "packet accounting interval matches the byte-pinned source row",
+     "passed": true,
+     "status": "PASS"
+    },
+    "reference_decomposition_recomputed": {
+     "detail": "on-shell reference recomputed from its four primitive decimal terms; tolerance covers the producer's serialized binary float",
+     "passed": true,
+     "status": "PASS"
+    },
+    "reference_deficit_recomputed": {
+     "detail": "reference deficit recomputed rather than trusted",
+     "passed": true,
+     "status": "PASS"
+    },
+    "reference_flag_recomputed": {
+     "detail": "stored containment flag agrees with recomputation",
+     "passed": true,
+     "status": "PASS"
+    },
+    "same_scheme_gap_recomputed_exactly": {
+     "detail": "gap interval recomputed from the recorded CODATA comparison, anchor, lepton packet, and HVP uncertainty",
+     "passed": true,
+     "status": "PASS"
+    },
+    "spectral_export_moment_matches": {
+     "detail": "spectral export reproduces the pinned tabulated moment",
+     "passed": true,
+     "status": "PASS"
+    },
+    "spectral_export_release_matches": {
+     "detail": "spectral export and tabulated payload identify one release",
+     "passed": true,
+     "status": "PASS"
+    },
+    "spectral_export_requadrature_gate": {
+     "detail": "the producer's declared requadrature check is attained",
+     "passed": true,
+     "status": "PASS"
+    },
+    "target_and_promotion_guards": {
+     "detail": "serialized producer guards prohibit source or prediction promotion",
+     "passed": true,
+     "status": "PASS"
+    }
+   },
+   "independent_hvp_implementation": false,
+   "prospective_comparison": false,
+   "reference_deficit": "0.630893613646905578",
+   "reference_deficit_inside_gap": true,
+   "same_scheme_gap_interval": [
+    "0.6198609040759307629071473607087944109058081590769662204754254946822541269913529133871",
+    "0.6505569678915787629071473607087944109058081590769662204754254946822541269913529133871"
+   ]
   }
  },
  "cross_class_agreement": {
-  "evaluated_class_count": 1,
-  "note": "cross-class agreement requires at least two independently evaluated classes under the shared protocol",
-  "verdict": "NOT_EVALUABLE_SINGLE_CLASS"
- },
- "guards": {
-  "empirical_input_promoted_to_source_output": false,
-  "payload_guards_verified": true,
-  "physical_alpha_prediction_emitted": false
+  "independently_evaluated_class_count": 0,
+  "note": "cross-class agreement requires at least two genuinely independent evaluated classes under one protocol",
+  "recorded_accounting_replay_count": 1,
+  "verdict": "NOT_EVALUABLE_NO_INDEPENDENT_CLASS"
  },
  "issue": 506,
- "pins": {
-  "bridge_sha256": "sha256:7c86ee75ec6e18d29cd42007938db25c36f123934abf4528f3320a9491841e15",
-  "endpoint_sha256": "sha256:c424e873550cf81d2faab4491ff128833034877f73fb70d5e0cb3aec0002f719",
-  "protocol_sha256": "sha256:32b795d89b564c20cf2eef7f911c32febbc8ac2eccc2850ff73aaa84877ce5f0"
- },
  "reactivation": {
-  "independent_code": "a pinned independent implementation with its release, inputs, and license, none of which is in the repository",
-  "lattice_hvp": "frozen lattice windowed data files with covariance and continuum, volume, and scale-setting documentation, none of which is in the repository",
-  "raw_dispersive": "frozen channel-level cross-section tables with covariance and an explicit kernel specification, none of which is in the repository",
-  "rule": "landing any frozen ingest reopens only its class row; the frozen band and shared protocol stay unchanged"
+  "independent_code": "a pinned independent implementation with release, inputs, license, units, kernel convention, exclusions, and covariance policy",
+  "lattice_hvp": "frozen lattice windowed data files with covariance, release, units, kernel mapping, and continuum, finite-volume, and scale-setting documentation",
+  "raw_dispersive": "frozen channel-level cross-section tables with covariance, release identifiers, units, exclusions, radiative-correction policy, and an explicit kernel specification",
+  "rule": "A new frozen ingest creates a new versioned evaluation. This retrospective packet and its source pins do not move."
  },
- "row_class": "empirical_same_scheme_falsification_instrument",
- "schema": "oph.alpha_hvp_class_verdict.v1",
- "verdict": "TABULATED_CLASS_CONFIRMED__OTHER_CLASSES_NOT_EVALUABLE",
- "verdict_sha256": "sha256:6722cf49a7c40f5ad010a4f6732a64c6301ab6ec498d6f4a518833864fe93fda"
+ "row_class": "retrospective_empirical_same_scheme_accounting_audit",
+ "schema": "oph.alpha_hvp_class_verdict.v2",
+ "scope": {
+  "comparison_timing": "retrospective",
+  "empirical_input_promoted_to_source_output": false,
+  "independent_hvp_implementation_supplied": false,
+  "physical_alpha_prediction_emitted": false,
+  "prospective_freeze": false
+ },
+ "serialized_acceptance_gates": {
+  "exact_source_pins": {
+   "detail": "the snapshot commit is ancestral and all declared commit blobs and working-tree source bytes match its pins",
+   "passed": true,
+   "status": "PASS"
+  },
+  "independent_multi_class_evaluation": {
+   "detail": "zero independent HVP implementations are evaluable; three required frozen ingests are absent",
+   "passed": false,
+   "status": "NOT_ATTAINED"
+  },
+  "prediction_or_freeze_promotion": {
+   "detail": "comparison data predate the packet, so no prospective freeze or prediction status is available",
+   "passed": true,
+   "status": "PROHIBITED"
+  },
+  "recorded_accounting_replay": {
+   "detail": "one tabulated accounting row is arithmetically replayed",
+   "passed": true,
+   "status": "PASS"
+  }
+ },
+ "source_snapshot": {
+  "all_exact_pins_verified": true,
+  "commit": "fca13c1fb0d1ccb305a4929396761577bdf645ea",
+  "commit_ancestor_verified": true,
+  "commit_blob_pins_verified": true,
+  "sha256": {
+   "code/P_derivation/anchor_scheme_bridge.py": "sha256:ba11d43fba3ff78c4932cfb57eb052dcb84e9a184754e30904d4cc7689dea020",
+   "code/P_derivation/empirical_thomson_endpoint.py": "sha256:ed2466a47e15b46fbf13599d2b0bb8855d6d9baff4346d615e2e2158c4f8d44a",
+   "code/P_derivation/runtime/anchor_scheme_bridge_current.json": "sha256:7c86ee75ec6e18d29cd42007938db25c36f123934abf4528f3320a9491841e15",
+   "code/P_derivation/runtime/empirical_thomson_endpoint_current.json": "sha256:c424e873550cf81d2faab4491ff128833034877f73fb70d5e0cb3aec0002f719",
+   "code/particles/hadron/derive_empirical_ward_projected_spectral_measure.py": "sha256:bb8b97cd080f9a718458cef9ee8429880e18bc96702f3894b6c6f4091a0bd565",
+   "code/particles/hadron/empirical_ee_hadrons_sources.yaml": "sha256:070531b74255ec83db61d7b174cca8ca7ffddb43b4aca5c0e0567484841057f8",
+   "code/particles/hadron/ingest_empirical_ee_hadrons.py": "sha256:3b1966ead5b752f754f28a4c96560b1ba796de996a669152810c9cbeeb294817",
+   "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json": "sha256:dee2f5d161b5f09493965d67e3a5a7806d4b91ab71987f43cf6f4a4678463b9f",
+   "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json": "sha256:05194b5b04b5f740efc0915b6f5507e9e3b141e877ad4f173bd225fda8ea7d4b"
+  }
+ },
+ "verdict": "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE",
+ "verdict_sha256": "sha256:3eb95cf50c89b92abff662c14707e7ff3eca6b85270c64a7cfe0cb63237d2d65"
 }

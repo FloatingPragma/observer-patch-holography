@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "oph.prediction_contract.v2",
+  "title": "OPH blind prediction contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_id",
+    "candidate_id",
+    "output_type",
+    "freeze_policy",
+    "candidate_inventory",
+    "live_fz_register",
+    "allowed_ancestry",
+    "forbidden_input_classes",
+    "discriminator_receipt",
+    "generator",
+    "independent_checker",
+    "branch_rule",
+    "verdict_rule",
+    "stop_rule",
+    "sealed_comparison",
+    "freeze",
+    "readiness_status",
+    "promotion_conditions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "oph.prediction_contract.v2"
+    },
+    "contract_id": {
+      "type": "string",
+      "minLength": 4
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 4
+    },
+    "output_type": {
+      "enum": [
+        "dimensionless_real_interval",
+        "discrete_verdict"
+      ]
+    },
+    "candidate_inventory": {
+      "$ref": "#/$defs/artifactPin"
+    },
+    "freeze_policy": {
+      "$ref": "#/$defs/artifactPin"
+    },
+    "live_fz_register": {
+      "$ref": "#/$defs/artifactPin"
+    },
+    "allowed_ancestry": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifactPin"
+      }
+    },
+    "forbidden_input_classes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "discriminator_receipt": {
+      "$ref": "#/$defs/artifactPin"
+    },
+    "generator": {
+      "$ref": "#/$defs/modulePin"
+    },
+    "independent_checker": {
+      "$ref": "#/$defs/modulePin"
+    },
+    "branch_rule": {
+      "type": "string",
+      "minLength": 8
+    },
+    "verdict_rule": {
+      "type": "string",
+      "minLength": 8
+    },
+    "stop_rule": {
+      "type": "string",
+      "minLength": 8
+    },
+    "sealed_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "payload_sha256",
+        "byte_count",
+        "storage_note",
+        "seal_scope",
+        "custody_record",
+        "producer_access_before_freeze"
+      ],
+      "properties": {
+        "payload_sha256": {
+          "$ref": "#/$defs/taggedSha256"
+        },
+        "byte_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "storage_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seal_scope": {
+          "const": "integrity_and_external_custody"
+        },
+        "custody_record": {
+          "$ref": "#/$defs/artifactPin"
+        },
+        "producer_access_before_freeze": {
+          "const": false
+        }
+      }
+    },
+    "freeze": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository_state_commit_sha",
+        "canonical_payload_sha256",
+        "digest_scope",
+        "external_digest_input_required",
+        "unsealing_after_commit_only"
+      ],
+      "properties": {
+        "repository_state_commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "canonical_payload_sha256": {
+          "$ref": "#/$defs/taggedSha256"
+        },
+        "digest_scope": {
+          "const": "canonical_contract_without_freeze_canonical_payload_sha256"
+        },
+        "external_digest_input_required": {
+          "const": true
+        },
+        "unsealing_after_commit_only": {
+          "const": true
+        }
+      }
+    },
+    "promotion_conditions": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "readiness_status": {
+      "const": "DECLARED_PRE_FREEZE_CONTROLS_ONLY__NOT_SCORING_READY"
+    },
+    "public_knowledge_caveat": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "taggedSha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "artifactPin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact",
+        "sha256",
+        "role"
+      ],
+      "properties": {
+        "artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/taggedSha256"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "modulePin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "module",
+        "sha256"
+      ],
+      "properties": {
+        "module": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/taggedSha256"
+        }
+      }
+    }
+  }
+}

@@ -41,6 +41,60 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/build_fz_registry.py", "--check"],
     ),
     (
+        "Validate the deterministic postdiction ledger",
+        [
+            sys.executable,
+            "code/particles/scripts/build_postdiction_ledger.py",
+            "--check",
+        ],
+    ),
+    (
+        "Validate the retrospective alpha/HVP accounting verdict",
+        [
+            sys.executable,
+            "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the alpha/HVP provenance and mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/alpha_hvp_audit/tests/test_alpha_hvp_verdict.py",
+        ],
+    ),
+    (
+        "Execute the source-derived fixed-capacity receipt gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_source_derived_public_checkpoint_packet.py",
+        ],
+    ),
+    (
+        "Validate the forecast-contract generated state",
+        [
+            sys.executable,
+            "code/particles/forecast_contract/forecast_contract.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the forecast-contract adversarial gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/forecast_contract/tests/test_forecast_contract.py",
+        ],
+    ),
+    (
         "Validate the gravity premise ladder and its generated surface",
         [sys.executable, "tools/build_gravity_ladder.py", "--check"],
     ),

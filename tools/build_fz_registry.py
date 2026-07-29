@@ -8,7 +8,10 @@ page differs from the render, and the mandatory suite runs that check.
 Fail-closed rules: frozen rows carry a parseable, non-future UTC freeze time,
 custody, a typed attestation state, content hash, kill band, and comparison
 protocol; pending rows carry an owning issue that is open in the committed
-snapshot and a milestone. Committed custody contracts bind the source-side
+snapshot and a milestone. Retrospective results occupy a separate collection;
+their former reservations cannot also occur as ladder rows. The issue-506
+record is checked against a fresh replay of its canonical producer as well as
+its recomputed payload digest. Committed custody contracts bind the source-side
 FZ-02 receipt and Lean module even in an isolated clone. When the sibling
 oph-meta custody checkout is present, the tool additionally verifies every
 manifest artifact, detached OpenTimestamps digest, attestation class, and the
@@ -21,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import re
 import sys
@@ -39,9 +43,20 @@ FZ02_RECEIPT_PATH = (
     / "receipts"
     / "a5_angular_multiplet_reference.receipt.json"
 )
+FZ04_VERDICT_REL = (
+    "code/particles/alpha_hvp_audit/outputs/alpha_hvp_class_verdict.json"
+)
+FZ04_VERDICT_PATH = ROOT / FZ04_VERDICT_REL
+FZ04_BUILDER_PATH = (
+    ROOT
+    / "code"
+    / "particles"
+    / "alpha_hvp_audit"
+    / "build_alpha_hvp_verdict.py"
+)
 DEFAULT_CUSTODY_ROOT = ROOT.parent
 
-SCHEMA = "oph.frozen_prediction_register.v2"
+SCHEMA = "oph.frozen_prediction_register.v3"
 STATUSES = {
     "frozen_attested",
     "frozen_stamped_upgrade_pending",
@@ -74,7 +89,20 @@ REGISTER_KEYS = {
     "generated_surface",
     "policy",
     "external_custody_contracts",
+    "retrospective_results",
     "rows",
+}
+RETROSPECTIVE_RESULT_KEYS = {
+    "id",
+    "former_ladder_reservation",
+    "content",
+    "status",
+    "payload_path",
+    "payload_sha256",
+    "comparison_protocol",
+    "evidential_boundary",
+    "owning_issue",
+    "milestone",
 }
 COMMON_CONTRACT_KEYS = {
     "rows",
@@ -98,6 +126,21 @@ FZ02_CONTRACT_EXTRA_KEYS = {
 ATTESTATION_STATES = {"calendar_pending", "bitcoin_attested"}
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 GIT_COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+
+FZ04_SCOPE = {
+    "comparison_timing": "retrospective",
+    "prospective_freeze": False,
+    "independent_hvp_implementation_supplied": False,
+    "empirical_input_promoted_to_source_output": False,
+    "physical_alpha_prediction_emitted": False,
+}
+FZ04_CLAIM_BOUNDARY = (
+    "The multi-class independent alpha/HVP test is not evaluable. One "
+    "byte-pinned KNT19 accounting row is compatible under a secondary "
+    "arithmetic replay. Raw-dispersive, independent-code, and lattice-HVP "
+    "classes lack frozen repository ingests. The result is retrospective and "
+    "supplies neither a prospective freeze nor a physical OPH alpha prediction."
+)
 
 # DetachedTimestampFile header followed by the SHA-256 operation tag and the
 # 32-byte digest of the paired file. Reading this prefix does not require the
@@ -130,6 +173,31 @@ def sha256_bytes(payload: bytes) -> str:
 
 def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
+
+
+def canonical_json_bytes(value: Any) -> bytes:
+    return (
+        json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n"
+    ).encode("utf-8")
+
+
+def rebuild_issue506_verdict() -> dict[str, Any]:
+    """Replay the canonical producer instead of trusting its stored digest."""
+
+    spec = importlib.util.spec_from_file_location(
+        "_oph_alpha_hvp_verdict_builder", FZ04_BUILDER_PATH
+    )
+    if spec is None or spec.loader is None:
+        fail("cannot import the issue-506 canonical verdict producer")
+    module = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(module)
+        rebuilt = module.build_verdict()
+    except Exception as error:
+        fail(f"issue-506 canonical verdict replay failed: {error}")
+    if not isinstance(rebuilt, dict):
+        fail("issue-506 canonical verdict producer did not return an object")
+    return rebuilt
 
 
 def require_sha256(value: Any, where: str) -> str:
@@ -290,6 +358,99 @@ def validate_custody_contracts(
     return contracts
 
 
+def validate_retrospective_results(register: dict) -> set[str]:
+    results = register.get("retrospective_results")
+    if not isinstance(results, list) or not results:
+        fail("retrospective_results must be a nonempty list")
+
+    seen_ids: set[str] = set()
+    former_reservations: set[str] = set()
+    for index, result in enumerate(results):
+        where = f"retrospective_results[{index}] ({result.get('id')})"
+        if not isinstance(result, dict) or set(result) != RETROSPECTIVE_RESULT_KEYS:
+            fail(f"{where}: keys mismatch")
+        result_id = result["id"]
+        if (
+            not isinstance(result_id, str)
+            or not result_id
+            or result_id in seen_ids
+        ):
+            fail(f"{where}: id must be a unique nonempty string")
+        seen_ids.add(result_id)
+        former = result["former_ladder_reservation"]
+        if (
+            not isinstance(former, str)
+            or re.fullmatch(r"FZ-\d{2}", former) is None
+            or former in former_reservations
+        ):
+            fail(f"{where}: former_ladder_reservation must be a unique FZ id")
+        former_reservations.add(former)
+        if result["status"] != "retrospective_not_evaluable":
+            fail(f"{where}: unsupported retrospective status")
+        for key in (
+            "content",
+            "payload_path",
+            "comparison_protocol",
+            "evidential_boundary",
+            "milestone",
+        ):
+            if not isinstance(result[key], str) or not result[key].strip():
+                fail(f"{where}: {key} must be nonempty")
+        payload_path = Path(result["payload_path"])
+        if payload_path.is_absolute() or ".." in payload_path.parts:
+            fail(f"{where}: payload_path must be a repository-relative path")
+        require_sha256(result["payload_sha256"], f"{where}.payload_sha256")
+        if not isinstance(result["owning_issue"], int):
+            fail(f"{where}: owning_issue must identify the closed source issue")
+
+    fz04 = results[0]
+    if (
+        len(results) != 1
+        or fz04["id"] != "RR-506-ALPHA-HVP"
+        or fz04["former_ladder_reservation"] != "FZ-04"
+        or fz04["owning_issue"] != 506
+        or fz04["payload_path"] != FZ04_VERDICT_REL
+    ):
+        fail("the issue-506 retrospective result binding is malformed")
+
+    verdict = load_json(FZ04_VERDICT_PATH)
+    if (
+        verdict.get("schema") != "oph.alpha_hvp_class_verdict.v2"
+        or verdict.get("issue") != 506
+        or verdict.get("row_class")
+        != "retrospective_empirical_same_scheme_accounting_audit"
+        or verdict.get("verdict")
+        != "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE"
+    ):
+        fail("the issue-506 payload has the wrong retrospective verdict identity")
+    if verdict.get("scope") != FZ04_SCOPE:
+        fail("the issue-506 payload scope differs from the bounded retrospective scope")
+    if verdict.get("claim_boundary") != FZ04_CLAIM_BOUNDARY:
+        fail("the issue-506 payload claim boundary differs from the bounded statement")
+
+    payload_without_digest = {
+        key: value for key, value in verdict.items() if key != "verdict_sha256"
+    }
+    computed_hash = sha256_bytes(canonical_json_bytes(payload_without_digest))
+    reported_hash = verdict.get("verdict_sha256")
+    if reported_hash != f"sha256:{computed_hash}":
+        fail(
+            "the issue-506 payload self-digest does not equal its canonical "
+            f"content hash {computed_hash}"
+        )
+    if fz04["payload_sha256"] != computed_hash:
+        fail(
+            "the issue-506 retrospective payload hash does not equal the "
+            f"canonical content hash {computed_hash}"
+        )
+    rebuilt_verdict = rebuild_issue506_verdict()
+    if verdict != rebuilt_verdict:
+        fail(
+            "the issue-506 stored payload does not equal the canonical producer replay"
+        )
+    return former_reservations
+
+
 def validate(register: dict) -> list[dict]:
     if set(register) != REGISTER_KEYS:
         fail("top-level keys mismatch")
@@ -304,10 +465,29 @@ def validate(register: dict) -> list[dict]:
     snapshot = load_json(SNAPSHOT_PATH)
     open_issues = {row["number"] for row in snapshot["rows"]}
 
-    expected_ids = [f"FZ-{index:02d}" for index in range(1, len(rows) + 1)]
     seen_ids = [row.get("id") for row in rows]
-    if seen_ids != expected_ids:
-        fail(f"rows must be the contiguous ladder {expected_ids}, got {seen_ids}")
+    if (
+        any(not isinstance(row_id, str) for row_id in seen_ids)
+        or len(set(seen_ids)) != len(seen_ids)
+        or any(re.fullmatch(r"FZ-\d{2}", row_id) is None for row_id in seen_ids)
+        or seen_ids != sorted(seen_ids)
+    ):
+        fail("rows must carry unique ascending FZ identifiers")
+
+    former_reservations = validate_retrospective_results(register)
+    overlap = set(seen_ids) & former_reservations
+    if overlap:
+        fail(
+            "retrospective reservations must not appear as prospective ladder "
+            f"rows: {sorted(overlap)}"
+        )
+    allocated = sorted(set(seen_ids) | former_reservations)
+    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 11)]
+    if allocated != expected_allocated:
+        fail(
+            "ladder rows and explicitly retired reservations must account for "
+            f"{expected_allocated}, got {allocated}"
+        )
 
     rows_by_id: dict[str, dict] = {}
     for index, row in enumerate(rows):
@@ -510,6 +690,40 @@ def render(register: dict, rows: list[dict]) -> str:
             f" {owner} | {row['kill_band']} |"
         )
     lines.append("")
+    lines.append("## Retrospective results outside the ladder")
+    lines.append("")
+    lines.append(
+        "These records were evaluated after their comparison inputs were known."
+        " They are not freezes, ladder rungs, predictions, or evidence from a"
+        " prospective test. A former reservation remains visible only to make"
+        " the bookkeeping transition traceable."
+    )
+    lines.append("")
+    lines.append(
+        "| Record | Former reservation | Result | Status | Source | Payload hash |"
+    )
+    lines.append("| --- | --- | --- | --- | --- | --- |")
+    for result in register["retrospective_results"]:
+        owner = (
+            f"[#{result['owning_issue']}](https://github.com/FloatingPragma/"
+            "observer-patch-holography/issues/"
+            f"{result['owning_issue']}) ({result['milestone']})"
+        )
+        lines.append(
+            f"| {result['id']} | {result['former_ladder_reservation']} |"
+            f" {result['content']} | {result['status']} | {owner} |"
+            f" `{result['payload_sha256']}` |"
+        )
+    lines.append("")
+    for result in register["retrospective_results"]:
+        lines.append(
+            f"- **{result['id']} protocol**: {result['comparison_protocol']}"
+        )
+        lines.append(
+            f"  Evidential boundary: {result['evidential_boundary']}"
+        )
+        lines.append(f"  Payload: `{result['payload_path']}`.")
+    lines.append("")
     lines.append("## Custody and attestation")
     lines.append("")
     for row in rows:
@@ -564,6 +778,10 @@ def render(register: dict, rows: list[dict]) -> str:
         "is examined; the register validation requires each pending row to name"
     )
     lines.append("a live owning issue and fails closed otherwise.")
+    lines.append(
+        "Retrospective results are validated and rendered in their separate"
+        " section. Their former reservations do not occur in the ladder table."
+    )
     return "\n".join(lines) + "\n"
 
 

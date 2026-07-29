@@ -9,12 +9,15 @@ one central thesis: **observers are primary, and objective reality is
 emergent.** Physics normally begins by supplying spacetime, quantum fields, a
 gauge group, and a table of measured constants. OPH begins with observers:
 bounded systems that carry local state, read part of themselves and their
-neighbors, keep records, and repair disagreement. From this it derives the rest.
-Reality emerges from observer overlap repair on a holographic screen. From
-three axioms and two constants, $P$ and $N$, the observed universe arises:
-quantum measurement, Lorentzian spacetime, the conditional Einstein branch,
-gauge symmetry, and matter are readouts of one finite observer-consistency
-system on their stated premises.
+neighbors, keep records, and repair disagreement. Reality emerges from
+observer overlap repair on a holographic screen. From this architecture OPH
+reconstructs an exact finite structural core: quantum event rules, Lorentz
+kinematics on the stated global-support branch, the Standard Model gauge
+algebra and faithful global form, and a selected one-generation exterior
+matter pair. Einstein dynamics and the numerical closures for $P$ and $N$
+are conditional branches with their physical identifications stated
+separately. The three axioms supply the observer system; they do not silently
+select every action, continuum limit, or laboratory attachment.
 
 ## Start Here
 
@@ -23,8 +26,9 @@ absolute until it was relative; matter was continuous until it was quantized.
 Each revision looked outrageous from inside the previous picture and obvious
 from inside the next one. OPH makes the next revision. The observer, treated
 for a century as a nuisance at the edge of quantum mechanics, moves to the
-foundation, and spacetime, matter, and the constants follow as outputs. The
-material below takes you through that shift from a standing start.
+foundation. Spacetime, matter, and the constants become precise reconstruction
+problems, with exact finite results and open physical identifications kept
+apart. The material below takes you through that shift from a standing start.
 
 - **The book.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/),
   also available as a [print-quality PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf),
@@ -79,30 +83,38 @@ certificates:
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. Exact
    central descent gives the faithful global form
    $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Laboratory-current
-   identification is a separate physical attachment. See the
+   identification is a separate physical attachment. As a direct algebraic
+   corollary, the selected product current algebra has no connected
+   $(3,2,-5/6)\oplus(\bar 3,2,+5/6)$ simple-GUT $X/Y$ generator, so the
+   ordinary minimal $X/Y$ proton-decay channel is absent.
+   This does not establish general proton stability. See the
+   [source-bound current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
    and the Lean proofs of the
    [gauge trichotomy](Lean/Screen/A5OPH.lean) and
    [Z₆ quotient](Lean/Screen/Z6Exact.lean).
-4. **Exact one-generation anomaly arithmetic and a rank-three family
-   candidate.** The finite matter lift takes the known fifteen-state
-   hypercharge multiset as an input and exactly recomputes its anomaly
-   cancellations. It does not derive that charge table from the source. Under
-   the separate complete-band and operational-cost premises, the screen-band
-   theorem selects rank three uniquely, and the declared unitary response
-   places its residue at the lowest positive generator frequency. Tensoring
-   the rank-three band with the declared generation table gives a conditional
-   complex rank-45 candidate. The charge table has a nondegenerate chirality
-   grading and the exact diagonal $\mathbb Z_6$ action. A separate local-domain
-   receipt checks a declared operator $D_\sigma\otimes I_{45}$ and conditional
-   gap inheritance. The source does not select that matter action. The
-   twelve-port Spin packet and the 8,662-node local operator domain have no
-   certified source, domain, or transport bridge. Matter-pole identification,
-   continuum Spin/locality, physical seam selection, and laboratory
-   attachment are open. See the
+4. **An exact one-generation exterior selection and a rank-three family
+   candidate.** Inside the declared ten-component exterior-response algebra,
+   an exhaustive scan of all 1,024 subsets leaves exactly one unordered
+   charge-conjugate pair of nonempty chiral anomaly-free rank-15 projectors.
+   Primitive determinant balance fixes the block charges up to conjugation,
+   giving the fifteen-state Standard Model hypercharge multiset and its exact
+   anomaly cancellations. Completeness beyond the declared algebra and
+   physical light-matter attachment are separate. Under the complete-band and
+   operational-cost premises, the screen-band theorem selects rank three
+   uniquely, and the declared unitary response places its residue at the
+   lowest positive generator frequency. Tensoring that band with the selected
+   rank-15 table gives a conditional complex rank-45 candidate with a
+   nondegenerate chirality grading and the exact diagonal $\mathbb Z_6$
+   action. A separate local-domain receipt checks the declared operator
+   $D_\sigma\otimes I_{45}$ and conditional gap inheritance. The source does
+   not select that matter action. Matter-pole identification, continuum
+   Spin/locality, the cross-domain transport bridge, physical seam selection,
+   and laboratory attachment are open. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
+   the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
 5. **An exact positive finite-domain gap for the signed seam operator.**
    One target-clean source capture supplies an exact causal order,
@@ -137,6 +149,14 @@ certificates:
    dictionaries. See the
    [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
    and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+
+The structural ledger records three further action-level consequences. On
+separately declared unbroken Maxwell, perturbative Yang--Mills, and pure
+Einstein branches, the quadratic kernels have zero hard mass parameters and
+the expected transverse or transverse-traceless classical modes. These are
+classical carrier statements, not quantum photon, gluon, or graviton pole
+predictions. See the
+[forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
 The supporting Lean library contains more than 1000 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
@@ -428,11 +448,13 @@ Here $A_T(P)$ is the Thomson-limit inverse electromagnetic coupling emitted
 by a trial cell. If $P$ were changed by hand, the cell geometry, repair
 spectrum, gauge widths, and particle-side hierarchy would cease to describe
 the same observer system. The closure equation makes $P$ an output of the
-architecture. The fixed-point theorem used by the calculation states that a
-self-map of the physical interval with contraction constant below one has
-exactly one fixed point. Outward-rounded interval certificates verify those
-hypotheses for each declared $P$ map and exclude a second root across its
-full analytic domain. The [claim scoreboard](tracking/claims_scoreboard.md)
+declared self-read map. The detuning and inside/outside identification laws
+are architectural closure premises rather than theorems of the three axioms.
+The fixed-point theorem states that a self-map of the physical interval with
+contraction constant below one has exactly one fixed point. Outward-rounded
+interval certificates verify those hypotheses for each declared $P$ map and
+exclude a second root across its full analytic domain. The
+[claim scoreboard](tracking/claims_scoreboard.md)
 states the root, external comparison, residual, and claim class. The
 comparison uses $P_C$, which is defined from the measured endpoint.
 Source-derived same-scheme hadronic transport is absent. The registered
@@ -447,7 +469,16 @@ machine's behavior, and no result in the core reconstruction depends on
 deriving it from first principles. A conditional self-read condition,
 $N=\log M_0(\mathfrak U_N)$, proposes to return it from the correctable
 public-record capacity; its finite counting branch is exact and its physical
-attachment is not established.
+attachment is not established. A separate named common-load closure equates
+the screen and electroweak readings and has the unique conditional root
+$N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward
+branch. It contains no measured cosmological constant. Its coupling to the
+electroweak bridge excludes it from the independent direct-$N$ blindness
+protocol. The source-bound same-load identification and horizon attachment
+are open, and the result is $6.63$ percent above the
+$\Lambda$-located comparison coordinate. The direct correctable-record map
+remains the canonical producer in the proof spine; the common-load result is a
+conditional closure candidate and downstream test.
 
 ## Results At A Glance
 
@@ -465,8 +496,8 @@ attachment is not established.
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Conditional global $N$ extension | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch; the physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| $N$–Higgs bridge | Conditional relation $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ from the common screen/weak load carrier | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch; the capacity-indexed physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Conditional common-load $N$ candidate | The named screen/electroweak self-read law has the unique root $N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward branch. It uses no measured $\Lambda$. Its theorem-level coupling to the electroweak bridge excludes it from the blind direct-$N$ forecast class. The direct-capacity producer, physical same-load identity, and horizon attachment are open; the bridge root is $6.63$ percent above the $\Lambda$-located comparison coordinate | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?
@@ -556,7 +587,10 @@ A physical closure of both constants would give a zero-continuous-parameter
 branch with both values returned by the architecture. That physical
 attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
-physical derivation. The first-principles $N$ closure is work in progress.
+physical derivation. The source-derived direct correctable-record realization
+of $N$ is work in progress. The named common-load closure has a unique
+conditional root, with its physical same-load and horizon identifications
+open.
 Reading $N$ from the universe leaves every consequence of the three axioms
 intact.
 

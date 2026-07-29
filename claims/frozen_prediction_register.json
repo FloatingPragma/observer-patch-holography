@@ -66,7 +66,21 @@
   },
   "generated_surface": "docs/FROZEN_PREDICTION_LADDER.md",
   "issue": 607,
-  "policy": "A freeze is registered before its comparison data is examined, carries a kill band, and a kill is published with the same prominence as a confirmation, after the audit / re-audit / repair ladder of the kill-condition protocol. Retrospective negative results are tracked separately and never backdated into this ladder.",
+  "policy": "A freeze is registered before its comparison data is examined, carries a kill band, and a kill is published with the same prominence as a confirmation, after the audit / re-audit / repair ladder of the kill-condition protocol. Retrospective or otherwise non-prospective results are tracked separately and never backdated into this ladder.",
+  "retrospective_results": [
+    {
+      "comparison_protocol": "Retrospective accounting protocol v2 over one pre-existing KNT19 scalar row; no prospective comparison protocol or independent HVP implementation is frozen",
+      "content": "Alpha/HVP multi-class test not evaluable; one recorded accounting replay is compatible",
+      "evidential_boundary": "No prospective kill band was frozen. Any future raw-dispersive, independent-code, or lattice-HVP class requires a new target-quarantined registration before evaluation",
+      "former_ladder_reservation": "FZ-04",
+      "id": "RR-506-ALPHA-HVP",
+      "milestone": "C1",
+      "owning_issue": 506,
+      "payload_path": "code/particles/alpha_hvp_audit/outputs/alpha_hvp_class_verdict.json",
+      "payload_sha256": "3eb95cf50c89b92abff662c14707e7ff3eca6b85270c64a7cfe0cb63237d2d65",
+      "status": "retrospective_not_evaluable"
+    }
+  ],
   "rows": [
     {
       "attestation": "complete Bitcoin attestations on every artifact and on the registration manifest; pre-upgrade calendar proofs retained",
@@ -105,19 +119,6 @@
       "kill_band": "none frozen; comparison is forbidden until the neutrino stance and its decision rule are registered",
       "milestone": "C4",
       "owning_issue": 508,
-      "status": "registered_pending_freeze"
-    },
-    {
-      "attestation": null,
-      "comparison_protocol": "no comparison protocol is frozen",
-      "content": "Alpha/HVP same-scheme kill band",
-      "content_sha256": null,
-      "custody": null,
-      "frozen_utc": null,
-      "id": "FZ-04",
-      "kill_band": "none frozen; comparison is forbidden until the same-scheme alpha/HVP test and its decision rule are registered",
-      "milestone": "C1",
-      "owning_issue": 506,
       "status": "registered_pending_freeze"
     },
     {
@@ -199,5 +200,5 @@
       "status": "frozen_stamped_upgrade_pending"
     }
   ],
-  "schema": "oph.frozen_prediction_register.v2"
+  "schema": "oph.frozen_prediction_register.v3"
 }

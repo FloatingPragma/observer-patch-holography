@@ -29,9 +29,22 @@ def test_live_register_validates_and_surface_is_current():
     assert rendered == committed
 
 
-def test_ladder_is_contiguous_fz01_through_fz10():
+def test_ladder_excludes_the_retrospective_fz04_reservation():
     rows = fz_tool.validate(live_register())
-    assert [row["id"] for row in rows] == [f"FZ-{i:02d}" for i in range(1, 11)]
+    assert [row["id"] for row in rows] == [
+        "FZ-01",
+        "FZ-02",
+        "FZ-03",
+        "FZ-05",
+        "FZ-06",
+        "FZ-07",
+        "FZ-08",
+        "FZ-09",
+        "FZ-10",
+    ]
+    result = live_register()["retrospective_results"][0]
+    assert result["id"] == "RR-506-ALPHA-HVP"
+    assert result["former_ladder_reservation"] == "FZ-04"
 
 
 def test_fz02_hash_is_bound_to_the_live_receipt():
@@ -101,6 +114,126 @@ def test_pending_row_requires_a_kill_band():
     register = live_register()
     register["rows"][3]["kill_band"] = ""
     with pytest.raises(SystemExit, match="kill_band must be nonempty"):
+        fz_tool.validate(register)
+
+
+def test_issue506_result_is_retrospective_and_bound_to_live_verdict():
+    register = live_register()
+    result = register["retrospective_results"][0]
+    assert result["status"] == "retrospective_not_evaluable"
+    assert result["former_ladder_reservation"] not in {
+        row["id"] for row in register["rows"]
+    }
+    fz_tool.validate(register)
+
+    register["retrospective_results"][0]["payload_sha256"] = "0" * 64
+    with pytest.raises(SystemExit, match="retrospective payload hash"):
+        fz_tool.validate(register)
+
+
+def test_retrospective_reservation_cannot_be_inserted_into_ladder():
+    register = live_register()
+    register["rows"].insert(
+        3,
+        {
+            "attestation": None,
+            "comparison_protocol": "retrospective",
+            "content": "not a prospective freeze",
+            "content_sha256": None,
+            "custody": None,
+            "frozen_utc": None,
+            "id": "FZ-04",
+            "kill_band": "none",
+            "milestone": "C1",
+            "owning_issue": 506,
+            "status": "registered_pending_freeze",
+        },
+    )
+    with pytest.raises(SystemExit, match="must not appear"):
+        fz_tool.validate(register)
+
+
+def write_verdict(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+
+def refresh_verdict_digest(payload: dict) -> None:
+    canonical = {
+        key: value for key, value in payload.items() if key != "verdict_sha256"
+    }
+    payload["verdict_sha256"] = "sha256:" + fz_tool.sha256_bytes(
+        fz_tool.canonical_json_bytes(canonical)
+    )
+
+
+def test_issue506_self_reported_digest_is_not_trusted(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["class_matrix"]["tabulated_dispersive"]["claim_boundary"] += " altered"
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match="self-digest"):
+        fz_tool.validate(live_register())
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("prospective_freeze", True, "scope differs"),
+        ("physical_alpha_prediction_emitted", True, "scope differs"),
+    ],
+)
+def test_issue506_scope_mutations_fail_even_with_refreshed_self_digest(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: bool,
+    message: str,
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["scope"][field] = value
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match=message):
+        fz_tool.validate(live_register())
+
+
+def test_issue506_claim_mutation_fails_even_with_refreshed_self_digest(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["claim_boundary"] = "A stronger claim."
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match="claim boundary"):
+        fz_tool.validate(live_register())
+
+
+def test_issue506_payload_mutation_fails_with_both_digests_refreshed(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    canonical = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload = json.loads(json.dumps(canonical))
+    payload["class_matrix"]["tabulated_dispersive"]["claim_boundary"] += " altered"
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+
+    register = live_register()
+    register["retrospective_results"][0]["payload_sha256"] = payload[
+        "verdict_sha256"
+    ].removeprefix("sha256:")
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    monkeypatch.setattr(
+        fz_tool, "rebuild_issue506_verdict", lambda: canonical
+    )
+    with pytest.raises(SystemExit, match="canonical producer replay"):
         fz_tool.validate(register)
 
 
