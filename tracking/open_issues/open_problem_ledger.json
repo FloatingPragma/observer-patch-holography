@@ -29,8 +29,8 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-07-29T15:18:36Z",
-  "open_issue_count": 29,
+  "generated_utc": "2026-07-29T16:50:42Z",
+  "open_issue_count": 30,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
@@ -145,18 +145,18 @@
       "labels": [
         "enhancement",
         "surface: compact",
-        "priority: secondary-extension",
+        "priority: quantitative-core",
         "closure",
         "program:core",
         "resource:laptop",
         "exit:integration",
         "campaign:constraint-closeout",
-        "closeout:p2"
+        "closeout:p0"
       ],
       "number": 505,
       "phase": "unclassified",
       "title": "[N closure] Prove robust source-only correctable public-record closure",
-      "updated_at": "2026-07-29T14:58:47Z",
+      "updated_at": "2026-07-29T16:49:24Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/505"
     },
     {
@@ -267,7 +267,7 @@
       "number": 547,
       "phase": "n-dependent-electroweak-balance",
       "title": "[N-Higgs bridge] Derive the N-dependent screen/electroweak balance law",
-      "updated_at": "2026-07-29T14:58:45Z",
+      "updated_at": "2026-07-29T15:28:17Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/547"
     },
     {
@@ -280,18 +280,18 @@
         "enhancement",
         "surface: compact",
         "dag:ready-now",
-        "priority: secondary-extension",
+        "priority: quantitative-core",
         "closure",
         "program:core",
         "resource:laptop",
         "exit:theorem-or-no-go",
         "campaign:constraint-closeout",
-        "closeout:p2"
+        "closeout:p0"
       ],
       "number": 551,
       "phase": "unclassified",
       "title": "[N closure selector] Derive the exact finite-size slack law and unique zero",
-      "updated_at": "2026-07-29T09:02:44Z",
+      "updated_at": "2026-07-29T16:49:23Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/551"
     },
     {
@@ -312,7 +312,7 @@
       "number": 552,
       "phase": "unclassified",
       "title": "[Quantum carriers] Construct pole receipts for photon, gluon, and graviton sectors",
-      "updated_at": "2026-07-29T09:03:04Z",
+      "updated_at": "2026-07-29T16:49:22Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/552"
     },
     {
@@ -335,7 +335,7 @@
       "number": 569,
       "phase": "physical-family-attachment",
       "title": "[Family attachment] Decide the physical pre-Yukawa family carrier and multiplicity",
-      "updated_at": "2026-07-29T14:58:03Z",
+      "updated_at": "2026-07-29T15:28:14Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/569"
     },
     {
@@ -378,7 +378,7 @@
       "number": 589,
       "phase": "unclassified",
       "title": "[N-horizon bridge] Identify public-record capacity with horizon area",
-      "updated_at": "2026-07-29T09:03:06Z",
+      "updated_at": "2026-07-29T15:28:24Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/589"
     },
     {
@@ -424,7 +424,7 @@
       "number": 593,
       "phase": "unclassified",
       "title": "[W/Z validator] Certify the strict one-loop external-SM pole receipt stack",
-      "updated_at": "2026-07-29T13:51:17Z",
+      "updated_at": "2026-07-29T16:16:08Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/593"
     },
     {
@@ -464,12 +464,13 @@
         "resource:small-sim",
         "exit:theorem-or-no-go",
         "campaign:constraint-closeout",
-        "closeout:p1"
+        "closeout:p1",
+        "closeout:parallel"
       ],
       "number": 595,
       "phase": "unclassified",
       "title": "[Source law] Attain the five measured Einstein-branch clause targets",
-      "updated_at": "2026-07-29T12:03:54Z",
+      "updated_at": "2026-07-29T16:25:01Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/595"
     },
     {
@@ -535,7 +536,7 @@
       "number": 631,
       "phase": "local-electroweak-carrier",
       "title": "[EW carrier] Decide the physical screen-to-electroweak load attachment",
-      "updated_at": "2026-07-29T14:58:05Z",
+      "updated_at": "2026-07-29T15:28:16Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/631"
     },
     {
@@ -654,19 +655,40 @@
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "surface: particles",
-        "dag:ready-now",
         "priority: quantitative-core",
         "program:core",
         "resource:laptop",
         "exit:fixed-verdict",
         "campaign:constraint-closeout",
-        "closeout:p0"
+        "closeout:p1"
       ],
       "number": 639,
       "phase": "unclassified",
       "title": "[Blind forecast] Freeze one source-only dimensionless prediction and sealed comparison",
-      "updated_at": "2026-07-29T14:58:46Z",
+      "updated_at": "2026-07-29T16:49:25Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/639"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: particles",
+        "dag:ready-now",
+        "program:core",
+        "resource:laptop",
+        "exit:theorem-or-no-go",
+        "campaign:constraint-closeout",
+        "closeout:p3"
+      ],
+      "number": 641,
+      "phase": "unclassified",
+      "title": "[Baryon boundary] Classify gauge-invariant baryon-violating operators through dimension six",
+      "updated_at": "2026-07-29T16:34:34Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/641"
     }
   ],
   "worker_policy": {
