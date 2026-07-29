@@ -1270,8 +1270,8 @@ neutrino comparisons. Hadrons come later because protons and mesons are bound
 states. Their masses live in the strong-binding problem, away from the bare
 quark table.
 
-For that reason, the certified finite root is a source-side coordinate rather
-than a laboratory fine-structure prediction. A low-energy measurement sees the
+For that reason, the certified finite root is a source-side coordinate. It is
+not a laboratory fine-structure prediction. A low-energy measurement sees the
 electromagnetic coupling after virtual-particle dressing, including the
 contribution from confined quarks. Running and threshold matching can carry a
 source value to the Thomson limit only when the source construction supplies
