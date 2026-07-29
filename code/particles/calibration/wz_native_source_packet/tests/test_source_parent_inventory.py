@@ -68,7 +68,12 @@ def update_pin_for_path(inventory: dict, root: Path, relative: str) -> None:
     path = root / relative
     raw = path.read_bytes()
     parsed = json.loads(raw)
-    for binding in inventory["positive_parent_bindings"] + inventory["conditional_context"]:
+    pin_groups = (
+        inventory["positive_parent_bindings"]
+        + inventory["conditional_context"]
+        + inventory["resolved_boundaries"]
+    )
+    for binding in pin_groups:
         for pin in binding["files"]:
             if pin["path"] == relative:
                 pin["bytes"] = len(raw)
@@ -104,7 +109,7 @@ def test_committed_inventory_passes_independent_resolution() -> None:
     )
     assert result["status"] == "PASS"
     assert result["positive_parent_count"] == 4
-    assert result["conditional_context_count"] == 6
+    assert result["conditional_context_count"] == 7
     assert result["promotion_allowed"] is False
 
 
@@ -210,6 +215,16 @@ def test_family_candidate_cannot_be_promoted_to_positive_parent() -> None:
     assert_rejected(mutated, "wrong binding status")
 
 
+def test_declared_parent_scope_cannot_be_rewritten() -> None:
+    mutated = load_inventory()
+    mutated["conditional_context"][0]["usable_exports"] = [
+        "physical family and chiral gauge action",
+    ]
+    mutated["conditional_context"][0]["excluded_promotions"] = []
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "declared export scope drifted")
+
+
 def test_family_open_receipts_are_load_bearing(tmp_path: Path) -> None:
     inventory = load_inventory()
     sealed_root = copy_input_closure(tmp_path, inventory)
@@ -224,6 +239,177 @@ def test_family_open_receipts_are_load_bearing(tmp_path: Path) -> None:
     write_json(path, certificate)
     update_pin_for_path(inventory, sealed_root, relative)
     with pytest.raises(checker.FrontierVerificationError, match="physical-family boundary"):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_family_tensor_identity_limitation_is_load_bearing(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/matter_attachment_receipt.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["gap_inheritance_certificate"]["structure"] = (
+        "physical family-sensitive chiral gauge operator"
+    )
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="tensor-identity limitation",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_spin_packet_cannot_be_promoted_onto_local_domain(
+    tmp_path: Path,
+) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/matter_attachment_receipt.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["spin_layer"]["spin_to_local_domain_bridge_certified"] = True
+    receipt["spin_layer"]["same_source_domain_certified"] = True
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="silently attached",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_ambiguous_matter_domain_clause_is_rejected(
+    tmp_path: Path,
+) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/matter_attachment_receipt.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["clause_verdicts"]["same_source_domain_binding"] = True
+    receipt["clause_verdicts"].pop(
+        "local_stage2_same_source_domain_binding",
+        None,
+    )
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="conflate the spin and local-domain packets",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_declared_matter_tensor_cannot_be_marked_source_selected(
+    tmp_path: Path,
+) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/matter_attachment_receipt.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["matter_operator_certificate"]["source_selected"] = True
+    receipt["gap_inheritance_certificate"][
+        "matter_action_source_selected"
+    ] = True
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="relabeled as source-selected",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_finite_classical_spectral_control_is_load_bearing(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = (
+        "code/a5_closure/receipts/"
+        "flux_defect_criterion_reference.receipt.json"
+    )
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["exact_support_classical_realification"][
+        "declared_adjacency_spectral_family_recoverable"
+    ] = False
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="exact-support vector-spring realification",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_local_and_exact_flux_domains_cannot_be_identified(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = (
+        "code/a5_closure/receipts/"
+        "flux_defect_criterion_reference.receipt.json"
+    )
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["local_domain_classical_spectral_context"][
+        "exact_flux_identity_bridge"
+    ] = True
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="separate local-domain vector-spring context",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_exact_flux_classical_metric_is_load_bearing(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = (
+        "code/a5_closure/receipts/"
+        "flux_defect_criterion_reference.receipt.json"
+    )
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["exact_support_classical_realification"]["per_class"][0][
+        "classical_hessian_certificate"
+    ]["coordinate_metric"] = [[1, 0], [0, 1]]
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="positive-metric edge-Hessian proof",
+    ):
         checker.verify_inventory(
             inventory,
             repo_root=sealed_root,
@@ -316,6 +502,100 @@ def test_physical_units_or_poles_cannot_be_emitted() -> None:
     assert_rejected(mutated, "schema validation")
 
 
+def test_physical_unit_verdict_cannot_be_reopened() -> None:
+    mutated = load_inventory()
+    mutated["unit_scope"]["physical_unit_verdict"] = "OPEN"
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "schema validation|physical-unit row drifted")
+
+
+def test_resolved_finite_boundary_cannot_be_promoted_to_continuum() -> None:
+    mutated = load_inventory()
+    boundary = next(
+        item
+        for item in mutated["resolved_boundaries"]
+        if item["owner_issue"] == 634
+    )
+    boundary["outcome"] = "closed_positive"
+    boundary["effect"] = "continuum Lorentzian spacetime attained"
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "schema validation|boundary state drifted")
+
+
+def test_resolved_boundary_receipt_verdict_is_load_bearing(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/clock_unit_verdict.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["verdict"] = "PHYSICAL_UNITS_EVALUABLE"
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="receipt verdict drift",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_local_classical_receipt_cannot_claim_exact_flux_identity(
+    tmp_path: Path,
+) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = (
+        "code/a5_closure/manifests/classical_realization_receipt.json"
+    )
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["spectral_interface_identity"][
+        "rer_exact_flux_12_42_vertex_identity_bridge"
+    ] = True
+    receipt["spectral_interface_identity"][
+        "separate_from_rer_exact_flux_certificate"
+    ] = False
+    write_json(path, receipt)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="conflated with the exact flux support",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
+def test_resolved_boundary_target_injection_fails_closed(tmp_path: Path) -> None:
+    inventory = load_inventory()
+    sealed_root = copy_input_closure(tmp_path, inventory)
+    relative = "code/a5_closure/manifests/classical_realization_receipt.json"
+    path = sealed_root / relative
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    receipt["experimental_target"] = {"mounted": True}
+    write_json(path, receipt)
+    with pytest.raises(
+        builder.FrontierBuildError,
+        match="forbidden structured target content",
+    ):
+        builder.build_inventory(sealed_root)
+    update_pin_for_path(inventory, sealed_root, relative)
+    with pytest.raises(
+        checker.FrontierVerificationError,
+        match="structured target content",
+    ):
+        checker.verify_inventory(
+            inventory,
+            repo_root=sealed_root,
+            run_native_verifiers=False,
+        )
+
+
 def test_forged_promotion_flag_fails_closed() -> None:
     mutated = load_inventory()
     mutated["promotion_allowed"] = True
@@ -329,6 +609,15 @@ def test_consumer_cannot_be_marked_frozen_early() -> None:
     mutated["consumer_contract"]["common_subject_digest_ready"] = True
     rehash_inventory(mutated)
     assert_rejected(mutated, "schema validation|marked ready")
+
+
+def test_consumer_schema_cannot_be_promoted_or_reclassified() -> None:
+    mutated = load_inventory()
+    mutated["consumer_contract"]["schemas"][0]["status"] = (
+        "nonpromoting_specification_schema"
+    )
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "consumer schema status drift")
 
 
 def test_target_path_cannot_enter_resolved_input_closure() -> None:
@@ -348,12 +637,52 @@ def test_source_dag_cycle_fails_closed() -> None:
     mutated = load_inventory()
     mutated["source_dag"]["edges"].append(
         {
-            "from": "external_qft_pole_consumer",
-            "to": "oph_native_dimensionless_packet",
+            "from": "oph_native_dimensionless_packet",
+            "to": "physical_family_and_matter_pole_attachment",
         }
     )
     rehash_inventory(mutated)
-    assert_rejected(mutated, "source DAG is cyclic")
+    assert_rejected(mutated, "dependency edges drifted|source DAG is cyclic")
+
+
+def test_field_census_does_not_depend_on_common_carrier() -> None:
+    mutated = load_inventory()
+    mutated["source_dag"]["edges"].append(
+        {
+            "from": "common_screen_electroweak_carrier",
+            "to": "source_complete_field_census",
+        }
+    )
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "dependency edges drifted|incorrectly depends")
+
+
+def test_current_issue_owners_are_explicit() -> None:
+    inventory = load_inventory()
+    gates = {
+        row["gate_id"]: row
+        for row in inventory["open_interfaces"]
+    }
+    owners = {
+        gate_id: row["owner_issues"]
+        for gate_id, row in gates.items()
+    }
+    assert owners["finite_to_lorentzian_quantum_eft_transfer"] == [635]
+    assert owners["source_scalar_action"] == [636]
+    assert owners["full_yukawa_operator_and_coefficients"] == [637]
+    assert owners["source_to_fj_coordinate_map"] == [638]
+    assert owners["scalar_yukawa_fj_integration"] == [630]
+    rg_prerequisites = set(gates["target_clean_rg_threshold_matching"]["prerequisites"])
+    assert {
+        "finite_local_domain_boundary",
+        "physical_family_and_matter_pole_attachment",
+        "source_scalar_action",
+        "full_yukawa_operator_and_coefficients",
+        "common_screen_electroweak_carrier",
+        "source_complete_field_census",
+    }.issubset(rg_prerequisites)
+    assert "scalar_yukawa_fj_integration" not in rg_prerequisites
+    assert "source_to_fj_coordinate_map" not in rg_prerequisites
 
 
 def test_acceptance_rows_cannot_self_close() -> None:
@@ -364,16 +693,25 @@ def test_acceptance_rows_cannot_self_close() -> None:
     assert_rejected(mutated, "schema validation|overpromoted")
 
 
-def test_acceptance_row_nine_cannot_drop_a_native_action_gate() -> None:
+def test_acceptance_summary_cannot_overclaim() -> None:
+    mutated = load_inventory()
+    mutated["acceptance_map"][0]["summary"] = (
+        "issue 634 supplies a physical Lorentzian quantum field theory"
+    )
+    rehash_inventory(mutated)
+    assert_rejected(mutated, "claim scope drifted")
+
+
+def test_acceptance_row_nine_cannot_drop_a_replay_gate() -> None:
     mutated = load_inventory()
     row = next(
         item
         for item in mutated["acceptance_map"]
         if item["acceptance_index"] == 9
     )
-    row["blocking_gates"].remove("full_yukawa_operator_and_coefficients")
+    row["blocking_gates"].remove("runtime_and_human_target_firewall")
     rehash_inventory(mutated)
-    assert_rejected(mutated, "acceptance row 9 lost")
+    assert_rejected(mutated, "acceptance row 9 status, blockers, or claim scope drifted")
 
 
 def test_inventory_digest_is_load_bearing() -> None:

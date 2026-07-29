@@ -99,7 +99,7 @@ def test_artifact_emits_no_coefficient_assignment_or_physical_promotion() -> Non
 
 def test_issue_503_is_non_gating_partial_receipt_ancestry() -> None:
     topology = load_output()["issue_topology"]
-    assert topology["open_blocking_dependencies"] == [569, 634]
+    assert topology["open_blocking_dependencies"] == [636, 637, 638]
     assert 503 not in topology["semantic_dependencies"]
     assert topology["non_gating_partial_receipt_ancestry"] == [
         {

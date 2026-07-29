@@ -67,8 +67,10 @@ multiplicity times the pinned fifteen-state generation, has complex
 rank exactly forty-five with the generation factor stated as an
 import.  The matter-pole identification, chirality and spin data,
 Spin/locality, physical seam selection, and laboratory-current receipts stay
-open on issue #569.  The #617 invisibility theorem for external C^n
-completions is re-verified and holds unchanged.
+open on issue #569.  The separately pinned issue-314 twelve-port spin packet
+and issue-634 local operator packet have no certified identity or transport
+bridge.  The #617 invisibility theorem for external C^n completions is
+re-verified and holds unchanged.
 """
 
 from __future__ import annotations
@@ -842,13 +844,14 @@ def pin_matter_attachment_receipt(
     pole_artifact: Mapping[str, Any],
     receipt_override: Mapping[str, Any] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    """Pin the finite Spin/locality attachment receipt of the local domain.
+    """Pin the separate-packet finite matter candidate receipt.
 
-    The receipt is produced on the issue-634 typed domain and must bind
-    the same response and pole-residue artifacts this certificate pins,
-    carry the attained verdict with every clause true, and record the
-    rank forty-five attachment with the measured rank-three band.  The
-    override parameter exists for the mutation control only."""
+    The receipt binds the issue-634 local operator packet and a distinct
+    issue-314 twelve-port spin packet. It must keep their physical
+    Spin/locality bridge explicitly uncertified. The rank-forty-five tensor
+    candidate and its tensor-identity gap inheritance remain finite algebraic
+    outputs. The override parameter exists for the mutation control only.
+    """
 
     receipt = (
         json.loads(json.dumps(dict(receipt_override)))
@@ -879,18 +882,82 @@ def pin_matter_attachment_receipt(
         "from the measured rank-three band",
     )
     require(
+        receipt["declared_matter_packet"]["status"]
+        == "declared_imported_matter_packet"
+        and receipt["declared_matter_packet"]["source_selected"] is False
+        and receipt["matter_operator_certificate"]["status"]
+        == "declared_tensor_extension"
+        and receipt["matter_operator_certificate"]["source_selected"] is False
+        and receipt["gap_inheritance_certificate"]["status"]
+        == (
+            "conditional_algebraic_inheritance_under_declared_"
+            "tensor_extension"
+        )
+        and receipt["gap_inheritance_certificate"][
+            "matter_action_source_selected"
+        ]
+        is False,
+        "MATTER_ATTACHMENT_SELECTION",
+        "the finite rank-forty-five tensor extension must remain declared, "
+        "conditional, and not source-selected",
+    )
+    spin_layer = receipt["spin_layer"]
+    require(
+        spin_layer["packet_status"] == "separate_pinned_issue_314_packet"
+        and spin_layer["spin_to_local_domain_bridge_certified"] is False
+        and spin_layer["same_source_domain_certified"] is False
+        and spin_layer["open_interface"] == "physical Spin/locality bridge",
+        "MATTER_ATTACHMENT_DOMAIN_BRIDGE",
+        "the attachment receipt must keep the issue-314 spin packet "
+        "separate from the issue-634 local domain",
+    )
+    require(
         receipt["verdict"] == "ATTAINED"
+        and receipt["MATTER_ATTACHMENT_RECEIPT"] is True
+        and receipt["controls_fail_closed"] is True
         and bool(receipt["clause_verdicts"])
         and all(receipt["clause_verdicts"].values())
+        and receipt["clause_verdicts"].get(
+            "separate_issue_314_spin_packet_resolved"
+        )
+        is True
+        and receipt["clause_verdicts"].get(
+            "local_domain_stage2_context_recorded"
+        )
+        is True
+        and receipt["clause_verdicts"].get(
+            "local_stage2_same_source_domain_binding"
+        )
+        is True
+        and receipt["clause_verdicts"].get(
+            "conditional_gap_inheritance_exact"
+        )
+        is True
+        and "same_source_domain_binding"
+        not in receipt["clause_verdicts"]
+        and "spin_gates_consumed" not in receipt["clause_verdicts"]
+        and "gap_inherited_exact" not in receipt["clause_verdicts"]
         and receipt["blockers"] == [],
         "MATTER_ATTACHMENT_VERDICT",
         "the attachment receipt must be attained with every clause true",
+    )
+    claim_boundary = receipt["claim_boundary"].lower()
+    require(
+        "source does not select a matter action" in claim_boundary
+        and "no source, domain, or transport bridge" in claim_boundary
+        and "physical spin/locality bridge" in claim_boundary,
+        "MATTER_ATTACHMENT_SCOPE",
+        "the attachment receipt lost its conditional tensor or cross-domain "
+        "boundary",
     )
     pin = {
         "path": f"manifests/{MATTER_ATTACHMENT_RECEIPT_NAME}",
         "sha256": sha256_json(receipt),
         "issue": 569,
-        "scope": "finite Spin/locality layer on the issue-634 local domain",
+        "scope": (
+            "conditional rank-forty-five local tensor candidate plus a "
+            "separate issue-314 spin packet; physical Spin/locality bridge open"
+        ),
     }
     return receipt, pin
 
@@ -994,6 +1061,82 @@ def control_matter_attachment_mutation(
             "meaning": (
                 "the pin path reads the receipt rank; a doctored rank is "
                 "refused by the same loader the certificate uses"
+            ),
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_matter_domain_bridge_promotion(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """A fabricated spin-to-local-domain bridge must be refused."""
+
+    doctored = json.loads(
+        json.dumps(
+            load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+        )
+    )
+    doctored["spin_layer"]["spin_to_local_domain_bridge_certified"] = True
+    doctored["spin_layer"]["same_source_domain_certified"] = True
+    try:
+        pin_matter_attachment_receipt(
+            response_artifact,
+            pole_artifact,
+            receipt_override=doctored,
+        )
+    except CertificateError as exc:
+        require(
+            exc.code == "MATTER_ATTACHMENT_DOMAIN_BRIDGE",
+            "CONTROL_WRONG_FAILURE",
+            "the bridge-promotion control failed for the wrong reason",
+        )
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": exc.code,
+            "meaning": (
+                "the same loader rejects promotion of the separate "
+                "issue-314 spin packet onto the issue-634 local domain"
+            ),
+        }
+    return {"expected_failure": True, "failed": False}
+
+
+def control_matter_source_selection_promotion(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """A fabricated source selection of the tensor extension must fail."""
+
+    doctored = json.loads(
+        json.dumps(
+            load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+        )
+    )
+    doctored["matter_operator_certificate"]["source_selected"] = True
+    doctored["gap_inheritance_certificate"][
+        "matter_action_source_selected"
+    ] = True
+    try:
+        pin_matter_attachment_receipt(
+            response_artifact,
+            pole_artifact,
+            receipt_override=doctored,
+        )
+    except CertificateError as exc:
+        require(
+            exc.code == "MATTER_ATTACHMENT_SELECTION",
+            "CONTROL_WRONG_FAILURE",
+            "the source-selection control failed for the wrong reason",
+        )
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": exc.code,
+            "meaning": (
+                "the same loader rejects promotion of the declared "
+                "conditional tensor extension to a source-selected action"
             ),
         }
     return {"expected_failure": True, "failed": False}
@@ -2293,6 +2436,18 @@ def build_payload() -> dict[str, Any]:
         "matter_attachment_mutation": control_matter_attachment_mutation(
             artifact, pole_artifact
         ),
+        "matter_domain_bridge_promotion": (
+            control_matter_domain_bridge_promotion(
+                artifact,
+                pole_artifact,
+            )
+        ),
+        "matter_source_selection_promotion": (
+            control_matter_source_selection_promotion(
+                artifact,
+                pole_artifact,
+            )
+        ),
         "refinement_projector_mutation": (
             control_refinement_projector_mutation(
                 refinement_maps, projectors
@@ -2337,9 +2492,11 @@ def build_payload() -> dict[str, Any]:
             "generator frequency with the generation factor imported. All "
             "three actual refinements preserve the finite projector and its "
             "rank-forty-five tensor transport. The #627 seam character menu "
-            "transports conditionally without selecting an action. Matter-pole "
-            "identification, continuum Spin/locality, physical seam selection, "
-            "and laboratory-current attachment stay open."
+            "transports conditionally without selecting an action. The pinned "
+            "issue-314 twelve-port spin packet and issue-634 local operator "
+            "packet have no certified identity or transport bridge. "
+            "Matter-pole identification, physical Spin/locality, physical "
+            "seam selection, and laboratory-current attachment stay open."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
@@ -2368,7 +2525,7 @@ def build_payload() -> dict[str, Any]:
             },
             "open_receipts": [
                 "matter-pole identification",
-                "continuum Spin/locality receipt",
+                "physical Spin/locality bridge",
                 "physical seam action selection",
                 "laboratory current identification",
             ],
@@ -2381,48 +2538,57 @@ def build_payload() -> dict[str, Any]:
             "matter_packet": matter_pin,
             "measured_response_artifact": response_pin,
             "measured_pole_residue_artifact": pole_pin,
-            "local_domain_boundary_receipt": attachment_pin,
+            "separate_matter_context_receipt": attachment_pin,
         },
         "measured_receipt": measured,
         "pole_residue_receipt": pole_receipt,
-        "local_domain_boundary_packet": {
+        "separate_spin_and_local_domain_context": {
             "receipt": attachment_pin,
-            "domain": (
-                "issue-634 typed local domain, bound by capture hash to "
-                "the frozen stage receipts"
-            ),
-            "layer_clauses_all_true": True,
-            "generation_recomputed_states": attachment_receipt[
-                "generation_certificate"
-            ]["weyl_state_count"],
-            "z6_all_states_fixed": attachment_receipt[
-                "z6_kernel_certificate"
-            ]["all_states_fixed"],
-            "chirality_nondegenerate": attachment_receipt[
-                "chirality_certificate"
-            ]["chirality_nondegenerate"],
-            "gap_inherited_exact": attachment_receipt[
-                "gap_inheritance_certificate"
-            ]["inherited"],
-            "lift_ambiguity_rank": attachment_receipt["spin_layer"][
-                "local_domain_stage2_context"
-            ]["lift_ambiguity_rank"],
-            "spin_packet_status": attachment_receipt["spin_layer"][
+            "packet_status": attachment_receipt["spin_layer"][
                 "packet_status"
             ],
-            "spin_to_local_domain_bridge_certified": attachment_receipt[
-                "spin_layer"
-            ]["spin_to_local_domain_bridge_certified"],
-            "continuum_gate_unchanged": True,
+            "conditional_rank_forty_five_tensor_candidate": True,
+            "issue_314_spin_packet": {
+                "support_identity": attachment_receipt["spin_layer"][
+                    "spin_support_identity"
+                ],
+                "generation_recomputed_states": attachment_receipt[
+                    "generation_certificate"
+                ]["weyl_state_count"],
+                "z6_all_states_fixed": attachment_receipt[
+                    "z6_kernel_certificate"
+                ]["all_states_fixed"],
+                "chirality_nondegenerate": attachment_receipt[
+                    "chirality_certificate"
+                ]["chirality_nondegenerate"],
+            },
+            "issue_634_local_operator_packet": {
+                "domain_identity": attachment_receipt["spin_layer"][
+                    "local_domain_identity"
+                ],
+                "stage2_context": attachment_receipt["spin_layer"][
+                    "local_domain_stage2_context"
+                ],
+                "local_stage2_same_source_domain_binding":
+                    attachment_receipt["clause_verdicts"][
+                        "local_stage2_same_source_domain_binding"
+                    ],
+                "conditional_gap_inheritance_exact": attachment_receipt[
+                    "gap_inheritance_certificate"
+                ]["inherited"],
+                "matter_action_source_selected": attachment_receipt[
+                    "gap_inheritance_certificate"
+                ]["matter_action_source_selected"],
+            },
+            "spin_to_local_domain_bridge_certified": False,
+            "same_source_domain_certified": False,
+            "open_interface": "physical Spin/locality bridge",
             "scope_note": (
-                "the assembled boundary packet recomputes chirality, the "
-                "Z6 fixing, and the rank-45 tensor on the local domain "
-                "under its declared extension; the issue-314 spin packet "
-                "stays a separate pinned packet on its twelve-vertex "
-                "support with no certified transport bridge to the "
-                "issue-634 operator domain, and the physical Spin/locality "
-                "bridge, matter-pole identification, physical seam "
-                "selection, and laboratory identification stay open"
+                "the issue-314 twelve-port spin packet and issue-634 local "
+                "operator packet are resolved independently; no transport "
+                "or identity bridge joins them. Physical Spin/locality, "
+                "matter-pole identification, physical seam selection, and "
+                "laboratory identification stay open"
             ),
         },
         "spectral_resolution": spectral,

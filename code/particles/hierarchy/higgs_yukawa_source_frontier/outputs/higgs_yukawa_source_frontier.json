@@ -126,8 +126,9 @@
       }
     ],
     "open_blocking_dependencies": [
-      569,
-      634
+      636,
+      637,
+      638
     ],
     "semantic_dependencies": [
       314,
@@ -150,7 +151,7 @@
         "Higgs": "r_H = 2(1-a^2)",
         "top": "r_t = a^2/2"
       },
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
       "physical_promotion_allowed": false,
       "scope": "dimensionless formal readout coefficients only; no physical source action or pole value",
       "source_coordinate_domain": "0 < u < 1",
@@ -167,7 +168,7 @@
       "completion_B": "declared_one_weak_doublet_extension",
       "distinguishing_projection": "scalar_carrier_multiplicity",
       "exact_relation": "rank_scalar(A) != rank_scalar(B)",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
       "physical_promotion_allowed": false,
       "scope": "grammar and declared-completion level; no physical scalar is selected",
       "status": "current_finite_parent_not_constant_on_scalar_content_fiber"
@@ -180,7 +181,7 @@
       "distinguishing_projection": "coordinate_one_jet",
       "exact_relation": "jet(Phi_A) != jet(Phi_B)",
       "existence_reason": "the finite parents impose no scheme, scale, Jacobian, or finite-shift equation",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
       "physical_promotion_allowed": false,
       "scope": "formal coordinate completion only; no FJ map is emitted",
       "status": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber",
@@ -194,7 +195,7 @@
       "distinguishing_projection": "family_matrix_coordinate_projection",
       "exact_relation": "Y_A != Y_B",
       "existence_reason": "the classified complex coefficient space has positive dimension",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "e5a22054d64db94adee1dfccde9d5e3da26ab9e72d6451202c0a759027e39ddd",
       "physical_promotion_allowed": false,
       "scope": "formal coefficient completion only; no matrix entries are emitted",
       "status": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber",
@@ -273,9 +274,9 @@
         "status": "finite_positive_parent"
       },
       {
-        "byte_sha256": "69b85b3c368247e308dc010f6d0b5d66b28a7969359399022788eaadfe03d3ab",
-        "bytes": 40545,
-        "canonical_json_sha256": "cde0c76189e10ecbaf4a1673cb1b0557f94c8658a9bbcc4d24723dd69b31e156",
+        "byte_sha256": "62748d1c45de13d0ce90488f01fd242a944188f0cd74454adbfb750eea8305cc",
+        "bytes": 40227,
+        "canonical_json_sha256": "394c6b9886f19844684ecdec8244273dbbaf728fe1c5e505f327cea5ca69ce98",
         "kind": "json",
         "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
         "role": "conditional_family_attachment",
@@ -308,11 +309,11 @@
         "status": "exact_current_reduct_boundary"
       }
     ],
-    "input_bundle_digest": "f8bdb41007ce7d62447ef6cf0cfd8955a0631867208dd110931c6ab23594ec63",
+    "input_bundle_digest": "e08496115053f4c8fe6ed702283eaac1a3bafffef5508e6f6fb9593faf1d9b99",
     "policy": {
-      "byte_sha256": "a74bc4c818ac3fcd3c56013fef1475c023397e30c9a09c85dec18f592ac447a2",
-      "bytes": 6822,
-      "canonical_json_sha256": "99423ef40226b5afb2b2cb3f22b63984b0edef0f43948c540d40a155063ebfa5",
+      "byte_sha256": "b704323335c9e9558c3700f4dac6a125548cbd5e70a17d3a7acecbd532db1b35",
+      "bytes": 6827,
+      "canonical_json_sha256": "752149a81a691141c5327ef51a881653e6d627d264ae435a5f112e71b12a1777",
       "kind": "json",
       "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/data/higgs_yukawa_source_policy_v1.json"
     }
@@ -327,7 +328,7 @@
     "a Higgs top W or Z source value",
     "closure of issue 630"
   ],
-  "subject_digest": "7baf872770cc0a098b8892e066d2e78048b820560b7f1f6b56764babe0101e52",
+  "subject_digest": "0a359b7f25188f5415c9f1b402d741cc9a4a239f6ee154cc7d5466ec4d54d461",
   "target_firewall": {
     "external_593_packet_consumed": false,
     "forbidden_structured_keys_present": false,

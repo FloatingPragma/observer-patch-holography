@@ -94,7 +94,7 @@ def validate_policy(policy: dict[str, Any]) -> None:
     topology = policy["issue_topology"]
     require(
         topology["semantic_dependencies"] == [314, 566, 567, 569, 634]
-        and topology["open_blocking_dependencies"] == [569, 634],
+        and topology["open_blocking_dependencies"] == [636, 637, 638],
         "POLICY_DEPENDENCIES",
         "semantic or open blocking dependency set changed",
     )

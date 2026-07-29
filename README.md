@@ -55,13 +55,16 @@ refutation by qualifying measurements.
 These public results link directly to their papers, proofs, data, and
 certificates:
 
-1. **Four-dimensional spacetime signature, measured emerging.** A
-   support-adjusted path at 16k, 65k, and 262k carriers gives the held-out
-   event form inertia $(1,3)$, one time direction and three space directions,
-   with cone margins $-5.62$, $-3.22$, and $-1.41$. At 262k carriers, reducing
-   the support width from 384 to 96 changes the cross-observer edge count from
-   1,062 to 312 and the inertia from $(1,3)$ to $(2,2)$. The negative margins
-   keep the continuum spacetime claim conditional. See the
+1. **A Lorentzian signature test on a finite event instrument.** The
+   instrument fixes one ancestry coordinate and three spectral coordinates.
+   On that declared chart, a support-adjusted path at 16k, 65k, and 262k
+   carriers gives held-out event-form inertia $(1,3)$, with cone margins
+   $-5.62$, $-3.22$, and $-1.41$. At 262k carriers, reducing the support width
+   from 384 to 96 changes the cross-observer edge count from 1,062 to 312 and
+   the inertia from $(1,3)$ to $(2,2)$. The run measures signature and
+   support sensitivity on the four-coordinate instrument; it does not select
+   the number of spacetime dimensions. The negative margins keep the
+   continuum spacetime claim conditional. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
    and the [hash-bound data and regeneration scripts](evidence/einstein_convergence/).
 2. **Quantum event rules from public observer records.** On the finite central
@@ -82,18 +85,22 @@ certificates:
    and the Lean proofs of the
    [gauge trichotomy](Lean/Screen/A5OPH.lean) and
    [Z₆ quotient](Lean/Screen/Z6Exact.lean).
-4. **One chiral Standard Model generation and a rank-three family
-   candidate.** The finite matter lift realizes the exact fifteen-state
-   hypercharge multiset of one generation and its anomaly cancellations. Under
+4. **Exact one-generation anomaly arithmetic and a rank-three family
+   candidate.** The finite matter lift takes the known fifteen-state
+   hypercharge multiset as an input and exactly recomputes its anomaly
+   cancellations. It does not derive that charge table from the source. Under
    the separate complete-band and operational-cost premises, the screen-band
    theorem selects rank three uniquely, and the declared unitary response
-   places its residue at the lowest positive generator frequency. On the same
-   finite source domain, their tensor product has complex rank 45, a
-   nondegenerate chirality grading, the exact diagonal $\mathbb Z_6$ action,
-   local signed operators, and the inherited positive finite-domain gap of
-   the signed seam operator.
-   Matter-pole identification, the continuum Spin/locality limit, physical
-   seam selection, and laboratory attachment are open. See the
+   places its residue at the lowest positive generator frequency. Tensoring
+   the rank-three band with the declared generation table gives a conditional
+   complex rank-45 candidate. The charge table has a nondegenerate chirality
+   grading and the exact diagonal $\mathbb Z_6$ action. A separate local-domain
+   receipt checks a declared operator $D_\sigma\otimes I_{45}$ and conditional
+   gap inheritance. The source does not select that matter action. The
+   twelve-port Spin packet and the 8,662-node local operator domain have no
+   certified source, domain, or transport bridge. Matter-pole identification,
+   continuum Spin/locality, physical seam selection, and laboratory
+   attachment are open. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
@@ -453,7 +460,7 @@ attachment is not established.
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Echosahedral selector and finite $A_5$ current theorem | The declared integer-counting and normalized Hilbert--Schmidt-cost realization gives the exact twelve-unit split. Independently, oriented incidence gives inverse pairing, proper $A_5$ action, a rank-three frame, and the unique central graph involution. Derivation of the integer normalization and physical discrete cost from the full three-axiom schema is open. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. The finite local-domain attachment tensors that band with the fifteen-state generation to complex rank 45, with nondegenerate chirality, exact diagonal $\mathbb Z_6$ action, local signed operators, and the inherited positive finite-domain gap of the signed seam operator. Physical matter-pole identification, the continuum Spin/locality limit, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Tensoring that band with the declared fifteen-state table gives a conditional complex rank-45 candidate. The table carries the nondegenerate chirality grading and exact diagonal $\mathbb Z_6$ action. A separate 8,662-node local-domain receipt checks the declared extension $D_\sigma\otimes I_{45}$ and its conditional inheritance of the positive finite-domain gap. This action is not source-selected. The twelve-port Spin packet and local operator domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

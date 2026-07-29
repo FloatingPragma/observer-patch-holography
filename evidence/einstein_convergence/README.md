@@ -1,7 +1,9 @@
 # Evidence E1: Einstein-Cone Convergence Ladder
 
-Compressed primary evidence for the Lorentzian-signature emergence
-measurements cited by the papers as [E1]. Each rung is one deterministic run
+Compressed primary evidence for the Lorentzian-signature tests cited by the
+papers as [E1]. The instrument fixes one ancestry coordinate and three
+spectral coordinates. It tests the fitted form on that declared chart and
+does not select the number of spacetime dimensions. Each rung is one deterministic run
 of the fixed federated source capture; the stored artifact carries the event
 chart, the causal and spacelike pair samples, the fitted quadratic form, and
 the flux and normalization vectors needed to recheck every printed number
@@ -42,7 +44,7 @@ invariant-density convergence law, or determine an infinite-scale limit.
 ## Claim boundary
 
 These are finite measurements of the declared repair dynamics under frozen
-instruments with a same-size support-width control (see the simulator's
+four-coordinate instruments with a same-size support-width control (see the simulator's
 Einstein-branch guide). They license statements about the measured event
 forms on the four archived configurations. They do not by themselves
 construct the continuum Einstein equation, whose named receipts are tracked

@@ -243,6 +243,35 @@ def check(payload: dict[str, Any]) -> None:
         "CONDITIONAL_STATUS",
         "declared completion must stay unselected",
     )
+    require(
+        row.get("resolved_bounded_context")
+        == [
+            "#634 finite local action domain; continuum promotion and physical coefficients absent"
+        ],
+        "DEPENDENCY_CONTEXT",
+        "the bounded finite-domain context drifted",
+    )
+    require(
+        row.get("required_open_attachments")
+        == [
+            "#569 physical family attachment",
+            "#636 physical scalar action and kinetic normalization",
+            "#637 complete source Yukawa matrices",
+            "#631 local physical screen/electroweak carrier",
+            "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling",
+        ],
+        "DEPENDENCY_ATTACHMENTS",
+        "the open RG attachment set drifted",
+    )
+    require(
+        row.get("explicit_non_dependencies")
+        == [
+            "#630 scalar/Yukawa/FJ integration",
+            "#638 source-to-FJ coordinate map",
+        ],
+        "DEPENDENCY_EXCLUSIONS",
+        "#630 or #638 was incorrectly restored as an RG prerequisite",
+    )
 
     multiplicity = resolved["mandatory_multiplicity_countermodels"]
     require(

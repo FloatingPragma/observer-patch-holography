@@ -22,9 +22,9 @@ firewall.
 
 The #503 file is non-gating partial-receipt ancestry. Closing #503 is not a
 dependency of #630 or #594. Only its completed finite E1/E2/E4 screen-sheet
-receipts are consumed; E3 bulk depth remains false and unused. The positive
-Lorentzian/Spin local action domain required for physical promotion is owned
-separately by #634.
+receipts are consumed; E3 bulk depth remains false and unused. Issue #634
+supplies a bounded finite local field and operator domain. It does not supply
+a continuum Lorentzian/Spin quantum EFT. That transfer is owned by #635.
 
 ## Exact conditional classification
 
@@ -71,14 +71,16 @@ action.
 BOUNDED_NONPROMOTING_FRONTIER__POSITIVE_SOURCE_ACTION_OPEN
 ```
 
-The open positive objects are:
+The open positive objects and their owners are:
 
-- physical scalar carrier and multiplicity;
-- canonical scalar kinetic normalization;
-- scalar potential coefficients and a stable vacuum branch;
-- complete `Yu`, `Yd`, and `Ye` matrices;
-- the scheme- and scale-defined `v_chart` to `v_F` map;
-- a source uncertainty packet.
+- #636: physical scalar carrier and multiplicity, canonical scalar kinetic
+  normalization, scalar potential coefficients, and a stable vacuum branch;
+- #637: complete `Yu`, `Yd`, and `Ye` matrices;
+- #638: the scheme- and scale-defined `v_chart` to `v_F` map.
+
+Issue #630 integrates the three final packets. The physical family and matter
+attachment remains in #569 and is consumed by #637. The finite #634 domain is
+resolved context, not an open positive dependency.
 
 ## Replay
 
