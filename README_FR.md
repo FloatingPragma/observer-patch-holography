@@ -58,61 +58,93 @@ cryptographique et bandes d’élimination avant tout examen des données de
 comparaison, avec des règles fixes qui permettent leur réfutation par des
 mesures admissibles.
 
-## Six reçus reproductibles
+## Sept reçus de physique reproductibles
 
-Ces six artefacts publics renvoient directement à leurs preuves, données ou
-certificats :
+Ces résultats publics renvoient directement à leurs articles, preuves,
+données et certificats :
 
-1. **Un espace-temps quadridimensionnel, mesuré en train d’émerger.** Un
-   parcours ajusté par la largeur du support à 16k, 65k et 262k porteurs donne
-   à la forme d’événement tenue à l’écart la signature lorentzienne $(1,3)$
-   (un temps, trois espaces), avec des marges de cône de $-5{,}62$,
+1. **Une signature d’espace-temps quadridimensionnel, mesurée en train
+   d’émerger.** Un parcours ajusté à 16k, 65k et 262k porteurs donne à la forme
+   d’événement tenue à l’écart l’inertie $(1,3)$, une direction temporelle et
+   trois directions spatiales, avec des marges de cône de $-5{,}62$,
    $-3{,}22$ et $-1{,}41$. À 262k porteurs, réduire la largeur du support de
    384 à 96 fait passer le nombre d’arêtes inter-observateurs de 1 062 à 312
-   et la signature de $(1,3)$ à $(2,2)$. Données brutes :
-   [evidence/einstein_convergence](evidence/einstein_convergence/) ; chaque
-   nombre se régénère bit à bit.
-2. **Un noyau vérifié machine qui se surveille lui-même.** Une bibliothèque
-   Lean 4 sans `sorry` de plus de 900 théorèmes et lemmes couvre le noyau de
-   consensus, le théorème d’identifiabilité de jauge, l’algèbre finie de
-   l’écran et la composition de la branche d’Einstein. Chaque théorème public
-   porte son rapport d’axiomes. [Lean/](Lean/)
-3. **Une clôture sans dimension avec un statut arithmétique certifié.** La
-   clôture de pixel $P=\varphi+\sqrt\pi/A_T(P)$ possède une racine unique
-   certifiée machine pour chaque application déclarée, sans valeur continue
-   ajustée. Son identification physique à la limite de Thomson exige un
-   transport hadronique issu de la source. La comparaison enregistrée est un
-   diagnostic, dont la portée et les preuves figurent dans le
-   [registre des affirmations](tracking/claims_scoreboard.md).
-4. **Un diagnostic des leptons chargés avec un test de clôture déclaré.** La
-   surface de clôture empirique porte une cible de confirmation ou de rejet et
-   une ascendance explicite des entrées. Elle n’établit aucune prédiction de
-   masse issue de la source. Le [registre des postdictions](docs/POSTDICTION_LEDGER.md)
-   donne la table complète.
-5. **Un théorème exact de Koide dans la chambre positive.** Une réponse
-   hermitienne $C_3$ sur la fibre d’une face icosaédrique obéit à
+   et l’inertie de $(1,3)$ à $(2,2)$. Les marges négatives maintiennent la
+   conclusion d’espace-temps continu sous conditions. Voir l’
+   [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+   et les [données liées par empreinte avec leurs scripts](evidence/einstein_convergence/).
+2. **Les règles des événements quantiques issues des registres publics.** Sur
+   la surface centrale finie des registres, la mise à jour des observateurs
+   donne les probabilités de Born, le conditionnement de Lüders et la borne de
+   Tsirelson. Ces énoncés sont exacts sur l’algèbre d’événements déclarée. Voir
+   [Observers Are All You Need](paper/observers_are_all_you_need.pdf), l’
+   [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
+   [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean).
+3. **La structure de jauge du Modèle standard issue de douze ports.** Sous les
+   prémisses énoncées pour l’action finie des courants, le module icosaédrique
+   des ports force
+   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. La descente
+   centrale exacte donne la forme globale fidèle
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. L’identification aux courants
+   de laboratoire est un attachement physique distinct. Voir l’
+   [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+   le [tableau de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure)
+   et les preuves Lean de la
+   [trichotomie de jauge](Lean/Screen/A5OPH.lean) et du
+   [quotient $\mathbb Z_6$](Lean/Screen/Z6Exact.lean).
+4. **Une génération chirale du Modèle standard et un candidat de rang trois
+   pour les familles.** Le relèvement fini de la matière réalise exactement
+   les quinze états et les hypercharges d’une génération avec annulation des
+   anomalies. Sous les prémisses distinctes de bande complète et de coût
+   opérationnel, le théorème de bande sélectionne uniquement le rang trois,
+   et la réponse unitaire déclarée place son résidu à la plus basse fréquence
+   positive du générateur. Sur le même domaine fini issu de la source, leur
+   produit tensoriel a le rang complexe 45, une graduation chirale non
+   dégénérée, l’action diagonale exacte de $\mathbb Z_6$, des opérateurs
+   signés locaux et l’écart spectral adimensionnel positif hérité.
+   L’identification aux pôles de matière, la limite continue de Spin et de
+   localité, la sélection physique de l’action de couture et l’attachement au
+   laboratoire sont ouverts. Voir l’
+   [article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
+   le [reçu fini d’attachement de matière](code/a5_closure/manifests/matter_attachment_receipt.json)
+   et la [preuve Lean de la bande familiale](Lean/Screen/A5FamilyBand.lean).
+5. **Un domaine fini d’action locale avec un écart spectral adimensionnel
+   exactement positif.** Une capture issue de la source et sans donnée cible
+   fournit un ordre causal exact, une topologie de coutures visible aux
+   observateurs, des sections finies typées, 38 triangles frustrés et un noyau
+   tordu nul. Pour l’opérateur signé muni du comptage unitaire déclaré, le
+   théorème de graphe donne
+   $\lambda_{\min}\geq24^{-8661}>0$. Un calcul creux donne $0{,}1175367$
+   comme raffinement numérique non certifié. Ce résultat ne fournit ni
+   horloge physique, ni masse de particule, ni écart de Yang–Mills. Voir l’
+   [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
+   et le
+   [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json).
+6. **Un théorème exact de Koide dans la chambre positive avec un test gelé de
+   la masse du tau.** Une réponse hermitienne $C_3$ obéit à
    $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut exactement à
-   $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non négatives. Des
-   blocs de rang deux égaux et l’application finie de
-   Gelfand–Naimark–Segal traciale donnent cet équilibre sous les prémisses du
-   paquet d’événements déclaré. L’attachement physique aux familles chirales,
-   la phase et les rapports numériques sont ouverts. L’[article autonome sur
-   l’identité de Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf)
-   expose le théorème, sa preuve, la frontière de formalisation et la
-   provenance du diagnostic numérique informé par la cible.
-6. **Une loi exacte de capacité finie et une normalisation exacte du choc en
-   espace de Sitter.** La maximisation de l’entropie généralisée finie sur les
-   probabilités de secteur donne exactement $\log M$. Le transfert uniforme
-   d’une fraction $f$ de la capacité de l’écran modifie l’entropie extrémale
-   et la coordonnée logarithmique uniforme des secteurs de $\log(1-f)<0$.
-   Dans l’espace-temps de Sitter pur, le coefficient du choc vérifie
-   $\mu^2=d-2$, exactement la valeur propre $\ell=1$ du laplacien sphérique,
-   indépendamment du rayon de l’horizon. Lean vérifie le noyau algébrique. La
-   lecture du transfert comme
-   choc physique produisant une avance temporelle exige les dictionnaires
-   déclarés pour l’horizon, la masse de l’observateur, la gravitation, les
-   modes de jauge et l’opérateur cinétique. L’[article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-   donne le théorème fini et sa frontière physique.
+   $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non négatives. Sous
+   les prémisses déclarées d’équilibre et d’ordre, les masses mesurées de
+   l’électron et du muon fixent celle du tau dans un intervalle de 72 eV, à
+   0,43 écart-type de la valeur comparée. L’ascendance des prémisses et la
+   règle prospective de rejet sont gelées. Voir l’
+   [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
+   la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
+   [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
+7. **Une loi exacte de capacité finie et une normalisation exacte du choc en
+   espace de Sitter.** La maximisation de l’entropie généralisée finie donne
+   exactement $\log M$. Le transfert uniforme d’une fraction $f$ de la
+   capacité modifie l’entropie extrémale de $\log(1-f)$. Dans l’espace de
+   Sitter pur, $\mu^2=d-2$ est la valeur propre sphérique $\ell=1$,
+   indépendamment du rayon de l’horizon. La lecture physique comme avance
+   temporelle exige les dictionnaires déclarés de l’horizon, de la masse de
+   l’observateur, de la gravitation, des modes de jauge et de l’opérateur
+   cinétique. Voir l’
+   [article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+   et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+
+La bibliothèque Lean associée contient plus de 900 théorèmes et lemmes, avec
+un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 
@@ -524,14 +556,15 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface d’événements quantiques | Probabilités de Born, conditionnement de Lüders et borne de Tsirelson sur la surface finie des registres | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur cinétique signé muni du comptage unitaire déclaré possède un écart spectral adimensionnel strictement positif ; son raffinement mesuré vaut 0,1175367. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Théorème fini de courant $A_5$ | La réalisation déclarée avec comptage entier et coût normalisé de Hilbert--Schmidt donne la séparation exacte en douze unités. Indépendamment, l’incidence orientée donne l’appariement inverse, l’action propre de $A_5$, un repère de rang trois et l’unique involution centrale du graphe. La dérivation de la normalisation entière et du coût physique discret à partir du schéma complet des trois axiomes est ouverte. Sous le contrat explicite de réponse centrale signée et involutive, les réponses admissibles sont $\pm J$, avec des signes sectoriels relatifs exacts, et un relèvement compact explicite réalise $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. La sélection physique indépendante de la réponse et l’identification aux courants de laboratoire sont ouvertes ; aucune conclusion automatique sur un support global $S^2$ | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; la sélection physique de la forme globale est portée par les données de secteurs de flux mesurées du certificat de descente à portée de source finie. Cette implication finie n’utilise que ses prémisses énoncées | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction ; la multiplicité scalaire, la sélection physique de la matière, l’attachement des trois familles et l’exclusion de secteurs légers supplémentaires sont ouverts. Le nombre de générations est une complétion déclarée à l’intérieur de la fenêtre conditionnelle $3\le N_g\le5$ jusqu’à la dérivation de son attachement familial | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. L’attachement au domaine local fini tensorise cette bande avec la génération à quinze états pour donner le rang complexe 45, une chiralité non dégénérée, l’action diagonale exacte de $\mathbb Z_6$, des opérateurs signés locaux et l’écart spectral adimensionnel hérité. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
-| Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition ; l’appariement à la source, un moteur indépendant de symétrie de jauge, la covariance, les amplitudes de courant physique et l’horloge sont ouverts, donc aucun pôle natif d’OPH n’est promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition. Deux moteurs bruts de boucles véritablement indépendants, un troisième vérificateur de production, des contours complexes et données de Laurent certifiés, la covariance, les amplitudes de courant physique, l’appariement à la source et l’horloge sont absents. Aucun pôle natif d’OPH n’est donc promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
 | Extension globale conditionnelle $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible ; un paquet de simulateur issu de la source à coupure fixe $D=24$ est certifié, tandis que son attachement physique, la famille indexée et le zéro unique du défaut sont en cours | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Pont $N$--Higgs | Relation conditionnelle $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ issue du porteur de charge commun à l’écran et au secteur faible | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

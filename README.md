@@ -50,57 +50,87 @@ instrument: stances registered with cryptographic custody and kill bands
 before their comparison data is examined, with fixed rules that permit
 refutation by qualifying measurements.
 
-## Six Reproducible Receipts
+## Seven Reproducible Physics Receipts
 
-These six public artifacts carry direct links to their proofs, data, or
+These public results link directly to their papers, proofs, data, and
 certificates:
 
-1. **Four-dimensional spacetime, measured emerging.** A support-adjusted path
-   at 16k, 65k, and 262k carriers gives the held-out event form Lorentzian
-   signature $(1,3)$ (one time, three space), with cone margins $-5.62$,
-   $-3.22$, and $-1.41$. At 262k carriers, reducing support width from 384 to
-   96 changes the cross-observer edge count from 1,062 to 312 and the
-   signature from $(1,3)$ to $(2,2)$. Raw data:
-   [evidence/einstein_convergence](evidence/einstein_convergence/); every
-   number regenerates bit for bit.
-2. **A machine-checked core that polices itself.** A sorry-free Lean 4
-   library of more than 900 theorems and lemmas covers the consensus core, the gauge
-   identifiability theorem, the finite screen algebra, and the
-   Einstein-branch composition. Every public theorem carries a per-theorem
-   axiom report. [Lean/](Lean/)
-3. **A dimensionless closure with a certified arithmetic status.** The pixel
-   closure $P=\varphi+\sqrt\pi/A_T(P)$ has a machine-certified unique root for
-   each declared map, with zero fitted continuous values. Its physical
-   Thomson identification requires source-derived hadronic transport. The
-   registered comparison is diagnostic, with its scope and evidence recorded
-   in the [claim scoreboard](tracking/claims_scoreboard.md).
-4. **A charged-lepton diagnostic with a declared closure test.** The
-   empirical closure surface carries a confirm-or-refute target and explicit
-   input ancestry. It does not establish a source-only mass prediction. The
-   full comparison table, forced gauge structure included, is the
-   [postdiction ledger](docs/POSTDICTION_LEDGER.md).
-5. **An exact positive-chamber Koide theorem.** A Hermitian $C_3$ response on
-   an icosahedral face fiber obeys
+1. **Four-dimensional spacetime signature, measured emerging.** A
+   support-adjusted path at 16k, 65k, and 262k carriers gives the held-out
+   event form inertia $(1,3)$, one time direction and three space directions,
+   with cone margins $-5.62$, $-3.22$, and $-1.41$. At 262k carriers, reducing
+   the support width from 384 to 96 changes the cross-observer edge count from
+   1,062 to 312 and the inertia from $(1,3)$ to $(2,2)$. The negative margins
+   keep the continuum spacetime claim conditional. See the
+   [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+   and the [hash-bound data and regeneration scripts](evidence/einstein_convergence/).
+2. **Quantum event rules from public observer records.** On the finite central
+   record surface, the observer update law gives Born probabilities, Lüders
+   conditioning, and the Tsirelson bound. These are exact statements about
+   the declared event algebra. See
+   [Observers Are All You Need](paper/observers_are_all_you_need.pdf), the
+   [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
+   [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean).
+3. **The Standard Model gauge structure from twelve ports.** Under the stated
+   finite current-action premises, the icosahedral port module forces
+   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. Exact
+   central descent gives the faithful global form
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Laboratory-current
+   identification is a separate physical attachment. See the
+   [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+   the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
+   and the Lean proofs of the
+   [gauge trichotomy](Lean/Screen/A5OPH.lean) and
+   [$\mathbb Z_6$ quotient](Lean/Screen/Z6Exact.lean).
+4. **One chiral Standard Model generation and a rank-three family
+   candidate.** The finite matter lift realizes the exact fifteen-state
+   hypercharge multiset of one generation and its anomaly cancellations. Under
+   the separate complete-band and operational-cost premises, the screen-band
+   theorem selects rank three uniquely, and the declared unitary response
+   places its residue at the lowest positive generator frequency. On the same
+   finite source domain, their tensor product has complex rank 45, a
+   nondegenerate chirality grading, the exact diagonal $\mathbb Z_6$ action,
+   local signed operators, and the inherited positive dimensionless gap.
+   Matter-pole identification, the continuum Spin/locality limit, physical
+   seam selection, and laboratory attachment are open. See the
+   [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
+   the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
+   and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
+5. **A finite local action domain with an exact positive dimensionless
+   gap.** One target-clean source capture supplies an exact causal order,
+   observer-visible seam topology, typed finite sections, 38 frustrated
+   triangles, and a zero twisted kernel. For the declared unit-counting signed
+   operator, the graph theorem gives
+   $\lambda_{\min}\geq24^{-8661}>0$. A sparse numerical run gives
+   $0.1175367$ as an uncertified refinement. The result supplies no physical
+   clock, particle mass, or Yang–Mills gap. See the
+   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
+   and the pinned
+   [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json).
+6. **An exact positive-chamber Koide theorem with a frozen tau test.** A
+   Hermitian $C_3$ response obeys
    $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
-   $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Equal rank-two
-   blocks and the finite tracial Gelfand–Naimark–Segal map supply that balance
-   under the declared event-packet premises. Physical chiral-family
-   attachment, phase, and numerical ratios are open. The standalone
-   [positive-chamber Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf)
-   states the theorem, proof, formalization boundary, and provenance of the
-   target-informed numerical diagnostic.
-6. **An exact finite de Sitter capacity law and shock normalization.**
+   $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Under the declared
+   balance and ordering premises, the measured electron and muon masses fix
+   the tau mass inside a 72-eV interval, 0.43 standard deviations from the
+   comparison value. The premise ancestry and prospective rejection rule are
+   frozen. See the
+   [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
+   [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
+   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
+7. **An exact finite de Sitter capacity law and shock normalization.**
    Maximizing finite generalized entropy over sector probabilities gives
-   $\log M$ exactly. Uniform transfer of a fraction $f$ of the screen
-   capacity changes the extremal entropy and the uniform logarithmic sector
-   coordinate by $\log(1-f)<0$. In pure de Sitter space, the shock
-   coefficient satisfies $\mu^2=d-2$, exactly the $\ell=1$ spherical
-   Laplacian eigenvalue, independent of the horizon radius. Lean checks the
-   algebraic core.
-   Reading the transfer as a physical time-advance shock requires the stated
-   horizon, observer-mass, gravitational, gauge-mode, and kinetic-operator
-   dictionaries. The [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-   gives the finite theorem and the physical boundary.
+   $\log M$ exactly. Uniform transfer of a fraction $f$ of the screen capacity
+   changes the extremal entropy by $\log(1-f)$. In pure de Sitter space,
+   $\mu^2=d-2$ equals the $\ell=1$ spherical Laplacian eigenvalue independently
+   of the horizon radius. The physical time-advance reading requires the
+   stated horizon, observer-mass, gravitational, gauge-mode, and kinetic
+   dictionaries. See the
+   [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+   and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+
+The supporting Lean library contains more than 900 theorems and lemmas, with
+per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.
 
@@ -416,14 +446,15 @@ attachment is not established.
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting kinetic operator has a rigorously positive dimensionless gap; the measured refinement is 0.1175367. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Echosahedral selector and finite $A_5$ current theorem | The declared integer-counting and normalized Hilbert--Schmidt-cost realization gives the exact twelve-unit split. Independently, oriented incidence gives inverse pairing, proper $A_5$ action, a rank-three frame, and the unique central graph involution. Derivation of the integer normalization and physical discrete cost from the full three-axiom schema is open. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Physical matter selection, family attachment, Spin/locality data, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. The finite local-domain attachment tensors that band with the fifteen-state generation to complex rank 45, with nondegenerate chirality, exact diagonal $\mathbb Z_6$ action, local signed operators, and the inherited dimensionless gap. Physical matter-pole identification, the continuum Spin/locality limit, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
-| Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression; source matching, an independent gauge-symmetry engine, covariance, physical-current amplitudes, and the clock are open, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Conditional global $N$ extension | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch; the physical packet and unique slack zero are work in progress | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | $N$–Higgs bridge | Conditional relation $R_{\rm EW}=\alpha_U(P)\log(N/\pi)-6\pi/P$ from the common screen/weak load carrier | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |

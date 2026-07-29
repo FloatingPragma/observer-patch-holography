@@ -484,6 +484,35 @@
       "gates": []
     },
     {
+      "claim_id": "OPH-GR-FINITE-LOCAL-DOMAIN",
+      "statement": "One target-clean deterministic 16384-carrier source capture produces an exact finite causal order on 2304 events, a six-neighborhood closed observer cover with affine wiring transitions, an observer-visible seam complex, typed scalar, chiral, and gauge section spaces, and sign-twisted local operators. Exact integer evaluations on declared deterministic sections test the adjoint, kinetic, gauge-covariance, boundary, and restriction relations, while the signed-graph theorem fixes the kernel. The held-out global quadratic fit has inertia (1,3), while one local neighborhood has inertia (0,4) and every measured cone margin is negative. The seam complex has 8662 vertices, 11816 edges, and 38 frustrated triangles; its lift-ambiguity rank is 3117 by two independent eliminations. A provenance DAG binds the bundle, and an isolated rerun of the same producers reproduces canonical receipt content. This artifact is not an open-chart atlas, a continuum Lorentzian manifold, a physical Spin structure, a quantum field theory, or a laboratory attachment.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_finite_executed_receipt",
+      "assumptions": [
+        "target_clean_finite_local_domain_capture",
+        "observer_visible_seam_complex",
+        "declared_reversing_seam_transport",
+        "declared_unit_counting_measure"
+      ],
+      "imported_results": [
+        "finite_partial_order_and_matrix_rank_algorithms",
+        "finite_GF2_cohomology_and_elimination",
+        "finite_incidence_operator_identities"
+      ],
+      "oph_specific_delta": "A single replayable source capture carries causal, atlas, seam, section, and operator objects on one finite typed domain, with failed continuum diagnostics retained in the same evidence bundle.",
+      "novelty_type": "target_clean_finite_local_domain_receipt",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/oph_fpe/local_domain/stage1_event_complex.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/stage4_receipt.json"
+      ],
+      "falsifier": "Canonical-content replay fails, an independent recomputation changes a stated count, inertia, ambiguity rank, or deterministic operator evaluation, either elimination gives a different lift rank, the source DAG has a target-aware ancestor, or a continuum or physical conclusion is attributed to this finite receipt.",
+      "scope_if_false": "The finite local-domain artifact is withdrawn. The conditional event-manifold, gauge, and matter theorems remain subject to their own premises.",
+      "status": "attained_on_one_frozen_target_clean_finite_source_capture",
+      "claim_class": "emitted_artifact",
+      "gates": []
+    },
+    {
       "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
       "statement": "On the event region with the MI/assembly branch, the smeared endpoint-derivative modular charges satisfy the null-tomography linearity relations and define a symmetric, local, Poincare-covariant, commonly normalized semiclassical stress tensor whose null projections equal the positive Borchers generators on a common core and which is weakly conserved on the C11 atlas; the ambiguity is exactly phi*g plus improvement terms; per-direction generators without the linearity relations admit no rank-two source, and scalar CMI is never promoted.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
@@ -1448,7 +1477,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, attach the rank-three band to physical families, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. On the separately declared finite local-domain branch, the tensor product of this band with the generation witness has complex rank 45. Its exact charge table has vanishing anomalies and even Witten parity, its charge multiset has nondegenerate chirality, the diagonal Z6 action is exact, and its local signed operator inherits the scalar operator's zero kernel and positive dimensionless gap with multiplicity 45. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg or laboratory current, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
@@ -1458,7 +1487,11 @@
         "inner_action_or_physical_noncentral_five_band",
         "declared_determinant_balance_cover_and_exterior_packet_for_global_and_matter_conclusions",
         "single_complete_faithful_band_realizes_the_family_carrier",
-        "operational_cost_order_selects_between_admissible_complete_bands"
+        "operational_cost_order_selects_between_admissible_complete_bands",
+        "target_clean_finite_local_domain_capture",
+        "observer_visible_seam_complex",
+        "declared_reversing_seam_transport",
+        "declared_unit_counting_measure"
       ],
       "imported_results": [
         "A5_representation_theory",
@@ -1466,7 +1499,7 @@
         "covering_group_and_lattice_algebra",
         "exterior_representation_and_anomaly_algebra"
       ],
-      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. The same finite packet supplies an exact conditional rank-three screen selector and a simulator realization on its declared unitary generator. It provides a second route to Standard Model Lie type without importing the independent categorical group reconstruction or treating the screen candidate as a physical family attachment.",
+      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. The same finite packet supplies an exact conditional rank-three screen selector and a simulator realization on its declared unitary generator. A finite local-domain receipt tensors the selected band with the exact generation witness and checks the rank-45 chiral, anomaly, diagonal-Z6, local-support, and inherited-gap data. This provides a second route to Standard Model Lie type without importing the independent categorical group reconstruction or promoting the finite carrier to physical particle families.",
       "novelty_type": "conditional_finite_screen_current_recognition",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1478,11 +1511,12 @@
         "code/a5_closure/claim_boundary_certificates.py",
         "Lean/Screen/PhysicalA5ForcingNoGo.lean",
         "code/a5_closure/family_band_attachment_certificate.py",
-        "Lean/Screen/A5FamilyBand.lean"
+        "Lean/Screen/A5FamilyBand.lean",
+        "code/a5_closure/manifests/matter_attachment_receipt.json"
       ],
-      "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, exterior witness, exact band order, or rank-three selection fails under its stated premises, or a promoted physical conclusion omits its current, selection, attachment, or refinement receipt.",
+      "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, exterior witness, exact band order, rank-three selection, finite rank-45 tensor attachment, anomaly cancellation, chirality grading, diagonal Z6 action, local support, or inherited gap fails under its stated premises, or a promoted physical conclusion omits its current, selection, matter-pole, continuum, persistence, or laboratory receipt.",
       "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
-      "status": "exact_finite_implications_and_conditional_rank_three_screen_selection__physical_family_attachment_open",
+      "status": "exact_finite_implications_rank_three_selection_and_rank_45_local_attachment__physical_family_identification_open",
       "claim_class": "conditional_implication",
       "gates": [
         569
@@ -1644,6 +1678,35 @@
         633,
         522
       ]
+    },
+    {
+      "claim_id": "OPH-SOURCE-DIMENSIONLESS-GAP",
+      "statement": "On the frozen finite local domain, the sign-twisted incidence operator D has full rank 8662, so H=D*D is an integer symmetric positive-definite matrix. The exact determinant argument gives lambda_min(H) at least 24^(-8661), hence a strictly positive dimensionless source gap. A numerical eigensolve gives 0.11753670336118684 with the recorded residual, as a measured refinement rather than the exact lower bound. No physical reference transition, SI frequency, mass scale, or charged-determinant attachment follows from this finite result.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_finite_gap_plus_numerical_refinement",
+      "assumptions": [
+        "target_clean_finite_local_domain_capture",
+        "observer_visible_seam_complex",
+        "declared_reversing_seam_transport",
+        "declared_unit_counting_measure"
+      ],
+      "imported_results": [
+        "signed_graph_laplacian_kernel_theorem",
+        "integer_positive_definite_determinant_bound",
+        "symmetric_eigenvalue_residual_bound"
+      ],
+      "oph_specific_delta": "The finite source action supplies an exact positive dimensionless gap on the same target-clean local domain as the seam and section receipts, while keeping its numerical refinement and physical clock interpretation in separate epistemic classes.",
+      "novelty_type": "exact_finite_source_gap_receipt",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/oph_fpe/local_domain/source_gap.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json"
+      ],
+      "falsifier": "An exact replay gives a nonzero kernel, the determinant lower-bound proof fails for the emitted integer matrix, the numerical value falls outside its residual certificate, or the dimensionless gap is presented as a physical clock or mass without the missing attachment.",
+      "scope_if_false": "The finite source-gap claim is withdrawn. The local-domain operator identities and the separate 24-register scaling no-go remain intact.",
+      "status": "exact_positive_dimensionless_gap__physical_transition_and_SI_binding_absent",
+      "claim_class": "emitted_artifact",
+      "gates": []
     },
     {
       "claim_id": "OPH-SCREEN-MODULAR-GEARING",

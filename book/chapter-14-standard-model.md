@@ -248,10 +248,13 @@ That low-energy number lives in the same electroweak theory as the W and Z
 bosons. Once the electroweak structure is fixed, electromagnetism is the
 unbroken piece left after the weak and hypercharge parts mix together. The OPH
 code includes running-coordinate and finite-order pole prescription checks.
-One note covers this whole construction: the physical source matching and
-same-scheme transport, together with the independent gauge-identity checks,
-uncertainty law, physical-current amplitudes, and clock, are work in
-progress, and no OPH-native physical W or Z pole is promoted.
+One note covers this whole construction. The bounded calculation harness
+consumes an externally supplied Standard Model packet. Two independent raw
+loop calculations, a separate production verifier, certified complex
+contours, source matching, gauge identities, physical-current amplitudes, and
+an observer clock are work in progress. The checked algebra is a demanding
+test of the pole calculation, rather than an OPH prediction of a physical W
+or Z mass.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -306,10 +309,13 @@ There are eight color components. The pure Yang-Mills quadratic action has no
 hard mass term, but confined QCD has no isolated free-gluon particle pole.
 
 The Yang-Mills mass gap is a statement about the spectrum of the strong
-interaction, separate from assigning a hard mass to the gluon. In OPH the gap
-comes from the repair dynamics that keep neighboring observer patches in
-agreement. Mending a local disagreement always costs a positive amount of
-energy, and the smallest such cost is the first rung of the Yang-Mills spectrum.
+interaction, separate from assigning a hard mass to the gluon. OPH has a
+conditional route in which a compact gauge action and a uniform positive
+repair gap would supply that spectrum. A finite signed seam operator on one
+source capture does have an exact positive dimensionless gap. It is a
+different finite graph operator. It does not supply the continuum gauge
+theory, its vacuum, or the uniform limiting bound required by the Yang-Mills
+problem.
 
 **Higgs boson** (spin 0): The source of mass for W, Z, and fermions. Discovered at CERN in 2012. Mass about 125 GeV.
 
@@ -470,12 +476,16 @@ declared twelve-port carrier and its current and matter premises, the
 construction recognizes the Standard Model gauge symmetry type, its sixfold
 global quotient, and the fifteen chiral states of one generation. The
 icosahedral faces also supply a natural three-place candidate for the family
-slot.
+slot. On one finite source domain, those two pieces fit into a forty-five
+direction matter carrier with chirality, local operators, and a positive
+dimensionless gap.
 
 This is architectural recognition. Think of working out a machine's
 instruction set from its wiring before anyone has connected it to a motor.
-Physical family attachment, scalar multiplicity, interacting fields, and
-laboratory current identification require additional constructions.
+Turning that finite carrier into three physical particle families requires a
+matter-pole map, a continuum account of spin and locality, and a
+laboratory current. Scalar multiplicity and interacting fields require
+additional constructions as well.
 
 The finite W and Z pole algebra has a separate machine-checked theorem once a
 complete renormalized electroweak theory is supplied. A physical resonance
@@ -503,6 +513,18 @@ Different observers describe the same overlap region using different frames. The
 
 This is gauge-as-gluing. Gauge symmetry becomes the grammar of how charged
 patch descriptions fit together.
+
+One finite source run makes part of this picture tangible. Its observer-visible
+seam complex contains thirty-eight frustrated triangles, so the signs cannot
+all be removed by changing local conventions. Scalar, chiral, and gauge
+sections live on the same finite object, and their local signed operators obey
+the tested adjoint, kinetic, covariance, boundary, and refinement relations on
+declared deterministic sections. The lift ambiguity is counted by two
+independent elimination methods, and the signed-graph theorem fixes the
+kernel. This
+constructs finite twisted sectors and their operators. Physical spin,
+continuum quantum fields, particles, and detector couplings require separate
+attachments.
 
 The gluing rules support a conditional route to the Yang-Mills action. Once the
 edge transports form a physically constructed compact current system and the
@@ -626,16 +648,18 @@ CP capability requires at least three generations and weak-sector ultraviolet
 consistency permits at most five. Those conditions leave three, four, or
 five generations. The graph and anomaly equations do not choose among them.
 A separate screen-band calculation does choose rank three under two additional
-premises, as described below. Connecting that finite band to three physical
-matter families is open, so $N_g=3$ enters the physical packet as a
-declared completion. The Witten anomaly is a consistency check on the resulting
-triplet-doublet structure.
+premises, as described below. On the finite source domain, the band is tied to
+three copies of the fifteen-state pattern. Connecting that carrier to three
+physical matter families is open, so $N_g=3$ enters the physical packet as a
+declared completion. The Witten anomaly is a consistency check on the
+resulting triplet-doublet structure.
 
 The distinction is sharp: no completion clause enters this conditional
 current, charge, or $\mathbb Z_6$ kernel calculation. The declared completion
-attaches the rank-three screen candidate to physical families and assumes the
-absence of extra light sectors. Neither has a physical source construction. Physical
-matter typing and global-form selection require independent constructions.
+identifies the finite rank-45 carrier with physical families and assumes the
+absence of extra light sectors. Neither statement follows from the finite
+carrier construction. Physical matter typing and global-form selection
+require independent constructions.
 
 ### The Icosahedral Closure Route
 
@@ -786,11 +810,15 @@ declared unitary screen channel and reconstructs the same rank-three residue at
 its lowest positive frequency. Since the channel is unitary, its mode sizes do
 not decay; this is a frequency result, not a relaxation result.
 
-This result selects a finite screen object. It does not identify that object
-with three matter families. That step needs a matter-pole map, chirality,
-Spin and locality data, refinement compatibility, and a laboratory
-identification. It must also show that no extra light sectors have slipped in
-through a side door.
+This result selects a finite screen object. On the finite source domain, its
+product with the fifteen-state generation has forty-five complex directions.
+The charge pattern is chiral, its anomalies cancel, the sixfold central action
+is exact, and the local signed operator inherits the positive dimensionless
+gap of the underlying domain. These are finite statements about the declared
+carrier. A physical family claim needs a matter-pole map, continuum
+spin and locality, the physical seam choice, persistence under a further
+comparison, and a laboratory identification. It must also show that no extra
+light sectors have slipped in through a side door.
 
 Put together, the carrier and target-blind readback supply an exact
 gauge-adjoint symmetry type. The fermionic typing is measured at finite source
@@ -881,11 +909,11 @@ the ports. Laboratory-current attachment, physical selection of the matter
 projector, and the commuting action square identifying this route with the
 independent Tannaka group are work in progress.
 
-The family story carries its own fine print. Promoting the three-place face
-slot to three physical generations requires one complex family space tying
-three copies of the fifteen-state pattern together, proof that no extra
-family band survives, and proof that the identification holds up under
-refinement; a physical CKM phase
+The family story carries its own fine print. The finite construction ties the
+three-place band to three copies of the fifteen-state pattern. Promoting that
+carrier to three physical generations requires proof that no extra family
+band survives and that the identification holds under continuum refinement; a
+physical CKM phase
 further needs family breaking and a genuine interacting vertex structure. The
 four-dimensional representation of $A_5$ cannot sneak in as a hidden Higgs,
 because it has no complex structure compatible with the hypercharge action.
@@ -1055,16 +1083,19 @@ is increased.
 Those conditions leave three, four, or five generations. The three axioms and
 the target-free matter reduct do not narrow the window. The separate
 screen-band theorem does: under its single-band and cost premises, rank three
-is the unique finite candidate. The physical family count is open because
-the map from that screen band to matter poles has not been established. Three
+is the unique finite candidate. The finite source-domain construction ties it
+to the fifteen-state generation pattern. The physical family count is open
+because the map from that rank-45 carrier to matter poles has not been
+established. Three
 therefore enters the physical packet as a declared completion:
 
 $$\boxed{N_g = 3}$$
 
 This boxed value is the conditional rank-three screen candidate. Anomaly
 cancellation and the target-free source reduct do not force it. The finite
-screen interface selects it under named premises, while physical family
-attachment requires a separate construction.
+screen interface selects it under named premises and the finite local-domain
+receipt builds its rank-45 carrier. Physical family identification requires a
+separate construction.
 
 The one-Higgs slot also has a clean local geometric carrier, though the
 count of one doublet is itself a declared completion, not a derivation:
@@ -1108,8 +1139,8 @@ The declared completion carries no extra unfixed Yukawa structure; whether
 nature agrees is an open physical question.
 With $N_c=3$ and the declared value $N_g=3$, each generation
 carries four left-handed weak doublets, an even number, so the Witten anomaly
-is satisfied generation by generation. This check does not construct the
-physical family attachment.
+is satisfied generation by generation. This check does not identify the
+finite carrier with physical particle families.
 
 ## 14.13 Why Chirality?
 
@@ -1183,7 +1214,7 @@ The particle picture can be told as one continuous line. The framework first
 rebuilds a conditional gauge structure from charge sectors that fit together
 around every loop. The matter receipts then fix a declared Standard
 Model packet, its charge lattice, and the color carrier, and a declared
-completion attaches the exact rank-three screen candidate to physical matter
+completion identifies the exact finite rank-45 carrier with physical matter
 inside the three-to-five window. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
 carrier roles. Their field equations give the classical wave modes, and their
@@ -1390,8 +1421,10 @@ fixes the charge lattice up to conjugation, and the coupled carrier fixes the
 color triplet. CKM CP capability and weak-sector ultraviolet consistency give
 $3\le N_g\le5$; the count is open inside that window, and three enters as a
 declared physical completion. A separate exact screen-band theorem selects
-rank three under its single-band and operational-cost premises. The map from
-that finite band to physical matter families is open.
+rank three under its single-band and operational-cost premises. A finite
+source-domain construction tensors that band with the fifteen-state
+generation pattern. The map from the resulting rank-45 carrier to physical
+matter families is open.
 
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives

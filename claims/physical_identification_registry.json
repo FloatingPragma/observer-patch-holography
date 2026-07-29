@@ -153,16 +153,28 @@
       "label": "G_SI / source-derived physical clock",
       "status": "undischarged",
       "claim_ids": [
-        "OPH-SCREEN-24-CLOCK-DETERMINANT"
+        "OPH-SCREEN-24-CLOCK-DETERMINANT",
+        "OPH-SOURCE-DIMENSIONLESS-GAP"
       ],
       "source_anchors": [
+        "exact finite dimensionless source gap",
         "G_SI clock chain"
       ],
       "blocking_issues": [
         {
           "number": 633,
           "disposition": "open_work_item",
-          "role": "source energy interval and exact SI frequency chart"
+          "role": "select an observer-readable physical reference transition and bind its exact SI frequency; the finite dimensionless source gap is supplied"
+        },
+        {
+          "number": 569,
+          "disposition": "open_work_item",
+          "role": "promote the finite rank-45 matter and family carrier to an observer-readable physical transition"
+        },
+        {
+          "number": 630,
+          "disposition": "open_work_item",
+          "role": "supply the physical scalar and Yukawa action used to identify the transition"
         },
         {
           "number": 522,

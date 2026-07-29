@@ -535,7 +535,10 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     569: {
         "phase": "physical-family-attachment",
-        "claim_level": "two-clause conditional selection with exact in-interface theorem",
+        "claim_level": (
+            "exact finite rank-45 chirality, Spin-data, locality, and gap "
+            "attachment; physical and continuum attachment open"
+        ),
         "blocker": (
             "The family_band_attachment certificate proves the exact selection: among "
             "single complete faithful in-window multiplicity objects inside the screen "
@@ -550,20 +553,25 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "(faithful, equivariant, Galois partner at the maximal pole), and the "
             "unitary channel conserves mode norms. The finite screen assembly has "
             "complex rank forty-five with the exact rank-15 generation factor "
-            "imported. This is not a physical matter-spectrum measurement. The "
+            "imported. The finite issue-634 matter attachment recomputes the fifteen "
+            "states and anomaly cancellation, fixes the diagonal Z6 action, gives a "
+            "nondegenerate chirality grading, acts on the full rank-45 fiber with "
+            "support-radius-one signed operators, inherits the exact positive "
+            "dimensionless gap, and records the finite Spin data and lift ambiguity. "
+            "This is not a physical matter-spectrum measurement. The "
             "#617 copy-count invisibility for external completions is unchanged. "
             "The bounded #627 classification also leaves the physical seam "
             "mechanism, character or 2-representation, and its line/flux action "
             "unselected."
         ),
         "closure": (
-            "The matter-pole identification, chirality and spin data, Spin/locality "
-            "receipt, refinement compatibility, exclusion of extra light sectors, "
-            "laboratory current attachment, and source-derived seam mechanism "
-            "with its character or 2-representation identify the simulator "
+            "The matter-pole identification, continuum Spin/locality limit, third "
+            "physical persistence leg, laboratory current attachment, exclusion of "
+            "extra light sectors, and source-derived seam mechanism with its "
+            "character or 2-representation identify the finite rank-45 "
             "response-resolvent realization with the physical matter-pole residue "
-            "object and synchronize its line/flux action, or a countermodel "
-            "separates them."
+            "object and synchronize its line/flux action, or a countermodel separates "
+            "them."
         ),
         "falsification": (
             "A physical pole-residue object realized in the screen with a faithful "
