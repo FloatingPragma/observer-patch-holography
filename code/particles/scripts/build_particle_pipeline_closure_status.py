@@ -548,7 +548,7 @@ def build_status() -> dict[str, Any]:
                 (results_status or {}).get("inputs", {}).get("hadron_profile", "suppressed") == "suppressed"
             ),
             "empirical_hadron_closure_policy_documented": True,
-            "empirical_hadron_spectral_dataset_integrated": (
+            "empirical_hadron_spectral_endpoint_packet_available": (
                 PARTICLES_ROOT / "runs" / "hadron"
                 / "empirical_ee_hadronic_spectral_measure.json"
             ).exists() and (

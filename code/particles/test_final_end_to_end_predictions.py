@@ -39,7 +39,18 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     )
     assert payload["fine_structure"]["oph_plus_empirical_hadron_closure"]["alpha_inv"] == "137.035999177"
     assert payload["fine_structure"]["empirical_payload_policy"]["source_only_theorem_status"] == "not_promoted"
-    assert payload["fine_structure"]["empirical_payload_policy"]["external_cross_section_data_integrated"] is False
+    assert (
+        payload["fine_structure"]["empirical_payload_policy"][
+            "raw_cross_section_data_used_in_this_calibration"
+        ]
+        is False
+    )
+    assert (
+        payload["finalization_gates"][
+            "empirical_hadron_spectral_endpoint_packet_available"
+        ]
+        is True
+    )
     hierarchy = payload["hierarchy_and_naturality"]
     assert hierarchy["status"]["resonance_status"] == "exact_conditional_local_global_hierarchy_resonance"
     assert hierarchy["status"]["full_theorem_grade_resonance_promoted"] is False

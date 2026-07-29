@@ -56,6 +56,7 @@ PARENTS = {
     "matter_receipt": CODE / "a5_closure" / "receipts" / "super_tannakian_matter_reference.receipt.json",
     "matter_menu": CODE / "a5_closure" / "manifests" / "matter_menu_spectral_ledger_reference.json",
     "port_current": CODE / "a5_closure" / "receipts" / "port_current_inner_reference.receipt.json",
+    "axis_center_descent": CODE / "a5_closure" / "receipts" / "axis_center_descent_reference.receipt.json",
     "carrier_modes": RUNS / "status" / "carrier_mode_acceptance.json",
     "alpha_hvp_verdict": PARTICLES / "alpha_hvp_audit" / "outputs" / "alpha_hvp_class_verdict.json",
     "hadron_payload": RUNS / "hadron" / "empirical_ee_hadronic_spectral_measure.json",
@@ -67,6 +68,7 @@ LEAN_RECEIPTS = {
     "A5CharacterField": LEAN_SCREEN / "A5CharacterField.lean",
     "A5SixAxes": LEAN_SCREEN / "A5SixAxes.lean",
     "Z6Exact": LEAN_SCREEN / "Z6Exact.lean",
+    "Z6Descent": LEAN_SCREEN / "Z6Descent.lean",
     "A5CouplingSymmetry": LEAN_SCREEN / "A5CouplingSymmetry.lean",
     "A5PortAction": LEAN_SCREEN / "A5PortAction.lean",
     "PortFrameGram": LEAN_SCREEN / "PortFrameGram.lean",
@@ -125,6 +127,7 @@ def _forced_structure(
     matter: dict[str, Any],
     matter_menu: dict[str, Any],
     port_current: dict[str, Any],
+    axis_center_descent: dict[str, Any],
     carrier_modes: dict[str, Any],
 ) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
@@ -175,7 +178,18 @@ def _forced_structure(
     weak_adjoint_dimension = derived_dimensions["kernel_block_so3"]
     abelian_dimension = current_closure["center_dimension"]
     if (
-        current_map["compact_lie_type"]
+        port_current["claim_boundary"]["status"]
+        != "proved_on_source_bound_impulse_readback_artifact"
+        or port_current["physical_source_gate"]["passed"] is not True
+        or port_current["physical_source_gate"][
+            "target_blind_impulse_readback_recomputed"
+        ]
+        is not True
+        or port_current["source_definedness"][
+            "response_model_declared_as_branch_premise"
+        ]
+        is not False
+        or current_map["compact_lie_type"]
         != "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)"
         or current_map["block_dimensions_verified"] is not True
         or current_map["injective"] is not True
@@ -196,6 +210,31 @@ def _forced_structure(
         "mixed_xy_bifundamental_dimension": 0,
     }
 
+    descent_gate = axis_center_descent["physical_global_form_gate"]
+    measured_loop = axis_center_descent["source_deck_loop_measurement"]
+    tensor_kernel = axis_center_descent["kernel_on_realized_tensors"]
+    effective_image = axis_center_descent["maximal_effective_image"]
+    z6_bridge = axis_center_descent["two_z6_constructions"]
+    if (
+        axis_center_descent["claim_boundary"]["status"]
+        != "source_bound_at_finite_scope_with_continuum_and_laboratory_gates_open"
+        or descent_gate["passed"] is not True
+        or descent_gate["laboratory_global_form_attachment"] is not False
+        or descent_gate["theta_periodicity_derived"] is not False
+        or descent_gate["source_derived_deck_loop_class"] is not True
+        or descent_gate["screen_flux_sector_lattice_and_witnesses_measured"]
+        is not True
+        or tensor_kernel["kernel_order"] != 6
+        or tensor_kernel["matches_emitted_kernel_data"] is not True
+        or effective_image["group"] != "(SU(3) x SU(2) x U(1)) / Z6"
+        or measured_loop["six_axis_class_group_order"] != 6
+        or measured_loop["measured_source_admissible_menu"] != list(range(6))
+        or z6_bridge["physical_loop_intertwiner_derived"] is not True
+    ):
+        raise SystemExit(
+            "axis-centre descent parent has left its finite source-bound boundary"
+        )
+
     carrier_by_id = {
         row["carrier_id"]: row for row in carrier_modes["carriers"]
     }
@@ -213,16 +252,22 @@ def _forced_structure(
         {
             "id": "gauge_lie_algebra",
             "statement": (
-                "Compact-Lie trichotomy on the twelve-port screen: a compact "
-                "connected group with a group-level A5 action equivalent to P12 "
-                "has Lie algebra u(1)^12, su(2)^2+u(1)^6, or su(3)+su(2)+u(1); "
-                "the noncentral quintet and the inner-action closure each select "
-                "su(3)+su(2)+u(1)"
+                "Target-blind impulse and readback on the certified twelve-port "
+                "carrier determine the involution R=-J and an injective "
+                "rank-twelve compact current algebra "
+                "u(3)+so(3)=u(1)+su(3)+su(2). The independent compact-Lie "
+                "trichotomy contains the same product algebra as its "
+                "noncentral inner-action branch"
             ),
             "observed_counterpart": "Standard Model gauge Lie algebra su(3)+su(2)+u(1)",
-            "match": "exact",
+            "match": "exact finite source-bound structure",
+            "artifact_ref": _rel("port_current"),
             "machine_checked_steps": (
-                "triviality of A5-actions on at most four objects; unique "
+                "the source-bound response coefficients, current frame, "
+                "injectivity, compactness, commutator closure, and the "
+                "8+3 derived-block split are recomputed in the executable "
+                "receipt; Lean checks triviality of A5-actions on at most "
+                "four objects; unique "
                 "partitions 11 = 8+3 and 12 = 3+3+3+3 over the compact-simple "
                 "dimension list {3, 8, 10}; no compact semisimple algebra in "
                 "dimensions 1, 2, 4, 5, 7; the characteristic-centre step; "
@@ -274,59 +319,76 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "the compact-simple classification, the torus/cocharacter step "
-                "of the rationality lemma, and irreducibility of the "
-                "five-dimensional summand stay declared classical inputs on "
-                "paper; the physical inner current action is the open premise "
-                "of issues 567 and 599"
+                "the direct receipt is restricted to the named certified "
+                "carrier and its source-bound impulse/readback realization. "
+                "It does not identify these source currents with laboratory "
+                "Standard Model currents. The compact-simple classification, "
+                "the torus/cocharacter step of the rationality lemma, and "
+                "irreducibility of the five-dimensional summand are declared "
+                "classical inputs to the independent Lean trichotomy"
             ),
             "paper_ref": "Standard Model gauge paper, Compact-Lie trichotomy section",
         },
         {
             "id": "global_form_z6",
             "statement": (
-                "The screen gluing-class quotient Lambda_+/(Lambda_1 + Lambda_5) "
-                "is Z/6 with proper-rotation invariance and antipodal sign "
-                "reversal, matching the global form (SU(3) x SU(2) x U(1))/Z6"
+                "The common central kernel on every realized tensor is the "
+                "order-six diagonal subgroup, so the maximal faithful image "
+                "is (SU(3) x SU(2) x U(1))/Z6. The measured six-axis "
+                "deck/loop class has order six, carries the complete six-sector "
+                "source menu, and is intertwined exactly with that tensor "
+                "kernel. The source flux and line-polarization receipts select "
+                "the Z6 quotient at finite source-model scope"
             ),
             "observed_counterpart": (
                 "Standard Model global gauge-group form and its charge "
                 "quantization pattern"
             ),
-            "match": "exact",
+            "match": "exact finite source-model structure",
+            "artifact_refs": [
+                _rel("matter_receipt"),
+                _rel("axis_center_descent"),
+            ],
             "lean_declarations": {
                 "Z6Exact": [
                     "gauge_eq_kernel",
                     "residue_surjective",
                     "representative_formula",
                 ],
-                "A5OPH": [
-                    "screen_gluing_class",
-                    "q_perm_invariant",
-                    "q_neg",
+                "Z6Descent": [
+                    "kernel_on_realized_weights",
+                    "four_admissible_global_forms",
+                    "sixAxis_generator_maps_to_kernel_generator",
+                    "sixAxisToKernel_intertwines_involutions",
+                    "sixAxisToKernel_injective",
+                    "sixAxisToKernel_range",
                 ],
             },
             "lean_receipts": _lean_receipt(
                 "Z6Exact",
-                "A5OPH",
+                "Z6Descent",
                 declarations={
                     "Z6Exact": (
                         "gauge_eq_kernel",
                         "residue_surjective",
                         "representative_formula",
                     ),
-                    "A5OPH": (
-                        "screen_gluing_class",
-                        "q_perm_invariant",
-                        "q_neg",
+                    "Z6Descent": (
+                        "kernel_on_realized_weights",
+                        "four_admissible_global_forms",
+                        "sixAxis_generator_maps_to_kernel_generator",
+                        "sixAxisToKernel_intertwines_involutions",
+                        "sixAxisToKernel_injective",
+                        "sixAxisToKernel_range",
                     ),
                 },
             ),
             "hypothesis_boundary": (
-                "the quotient isomorphism and both invariance clauses are "
-                "machine checked; the identification with the physical global "
-                "form rides on the same inner current action premise as the "
-                "Lie-algebra row"
+                "the selection is source-bound at finite carrier, matter, "
+                "deck/loop, flux-sector, and line-category scope. Laboratory "
+                "attachment, continuum quantum field theory, four-dimensional "
+                "instanton normalization, monopole dynamics, and theta "
+                "periodicity remain outside this result"
             ),
             "paper_ref": "Standard Model gauge paper, Z6 global-form section",
         },
@@ -481,8 +543,8 @@ def _forced_structure(
                     "ordinary minimal simple-GUT X/Y exchange channel is absent"
                 ),
                 "observed_counterpart": (
-                    "no observed proton decay through the minimal simple-GUT "
-                    "X/Y channel"
+                    "the Standard Model product adjoint contains no connected "
+                    "simple-GUT X/Y generator"
                 ),
                 "match": "structural channel exclusion",
                 "artifact_ref": _rel("port_current"),
@@ -902,14 +964,15 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
         {
             "id": "forced_gauge_structure",
             "statement": (
-                "The gauge sector is pinned before any numeric lane runs: "
-                "the twelve-port trichotomy forces su(3)+su(2)+u(1), the "
-                "gluing-class quotient gives the Z6 global form, and the "
-                "exhaustive scan inside the declared exterior-response algebra "
-                "selects the charge-conjugate rank-15 chiral anomaly-free pair "
-                "and its one-generation hypercharge multiset. The finite steps "
-                "are machine checked in Lean/Screen, with the hypothesis "
-                "boundaries recorded below."
+                "Target-blind source readback on the certified twelve-port "
+                "carrier yields the exact current algebra "
+                "su(3)+su(2)+u(1). The realized tensors, measured deck/loop "
+                "class, flux sectors, and line polarization select the Z6 "
+                "quotient at finite source-model scope. An exhaustive scan "
+                "inside the declared exterior-response algebra selects the "
+                "charge-conjugate rank-15 chiral anomaly-free pair and its "
+                "one-generation hypercharge multiset. Laboratory attachment "
+                "and continuum quantum field theory remain separate."
             ),
         },
     ]
@@ -934,6 +997,7 @@ def build(
     matter = _load("matter_receipt")
     matter_menu = _load("matter_menu")
     port_current = _load("port_current")
+    axis_center_descent = _load("axis_center_descent")
     carrier_modes = _load("carrier_modes")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
@@ -941,7 +1005,11 @@ def build(
 
     sections = {
         "forced_structure": _forced_structure(
-            matter, matter_menu, port_current, carrier_modes
+            matter,
+            matter_menu,
+            port_current,
+            axis_center_descent,
+            carrier_modes,
         ),
         "alpha": _alpha_rows(endpoint, bridge, alpha_hvp_verdict),
         "charged_leptons": _lepton_rows(surface, rectangle, coherent, koide),

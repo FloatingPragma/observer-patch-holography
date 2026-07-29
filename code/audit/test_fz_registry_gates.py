@@ -47,6 +47,36 @@ def test_ladder_excludes_the_retrospective_fz04_reservation():
     assert result["former_ladder_reservation"] == "FZ-04"
 
 
+def test_fz06_is_attested_history_without_prediction_eligibility():
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    assert fz06["status"] == "superseded_void"
+    assert fz06["frozen_utc"] is None
+    assert fz06["comparison_protocol"].lower().startswith("none;")
+    assert fz06["kill_band"].lower().startswith("none;")
+    assert "alpha = 4" in fz06["content"]
+    assert "void" in fz06["content"].lower()
+    fz_tool.validate(register)
+
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    fz06["comparison_protocol"] = "score every loud event"
+    with pytest.raises(SystemExit, match="must refuse comparison"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    fz06["frozen_utc"] = "2026-07-17T07:18:00Z"
+    with pytest.raises(SystemExit, match="cannot retain a freeze time"):
+        fz_tool.validate(register)
+
+    rendered = fz_tool.render(live_register(), fz_tool.validate(live_register()))
+    active_table = rendered.split("## Superseded records outside the ladder", 1)[0]
+    assert "| FZ-06 |" not in active_table
+    assert "These identifiers preserve attested historical bytes" in rendered
+    assert "| FZ-06 |" in rendered
+
+
 def test_fz02_hash_is_bound_to_the_live_receipt():
     register = live_register()
     register["rows"][1]["content_sha256"] = "0" * 64

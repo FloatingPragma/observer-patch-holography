@@ -462,19 +462,30 @@ def _static_families(status_rows: list[dict]) -> list[dict[str, Any]]:
             ],
         },
         {
-            "family": "massless carriers (photon, gluon)",
+            "family": "conditional classical carrier modes",
             "rows": [
                 {
-                    "lane": "structural masslessness",
-                    "tier": "structural (receipt pending)",
+                    "lane": "declared action-branch mode receipts",
+                    "tier": "conditional classical mode theorem",
                     "explanation": (
-                        "Exact masslessness follows from unbroken gauge "
-                        "invariance in the recovered core; the receipt is "
-                        "bookkeeping, never a numerical program."
+                        "Separately supplied Maxwell, perturbative "
+                        "Yang--Mills, and pure-Einstein actions have "
+                        "classical transverse modes with zero hard quadratic "
+                        "mass parameter on their declared phase and "
+                        "background branches. The recovered group does not "
+                        "supply those premises. No OPH quantum-particle or "
+                        "positive-pole receipt is available."
                     ),
-                    "statuses": statuses("Bosons", ["gamma", "g (8 color states)"]),
+                    "statuses": statuses(
+                        "Bosons",
+                        ["gamma", "g (8 color states)", "graviton"],
+                    ),
+                    "artifact": "runs/status/carrier_mode_acceptance.json",
                     "blocking_objects": [
-                        "exact masslessness theorem receipts on the carrier lane"
+                        "OPH quantum construction",
+                        "positive physical Hilbert space",
+                        "positive-residue massless pole",
+                        "asymptotic or deconfined particle-state receipt",
                     ],
                 }
             ],

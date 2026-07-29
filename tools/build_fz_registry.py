@@ -63,6 +63,7 @@ STATUSES = {
     "standing_frozen",
     "registered_pending_freeze",
     "resource_deferred",
+    "superseded_void",
 }
 FROZEN_STATUSES = {
     "frozen_attested",
@@ -311,6 +312,11 @@ def validate_custody_contracts(
                     or "bitcoin-attested" in attestation
                 ):
                     fail(f"{row_id} must not claim a completed Bitcoin attestation")
+            elif row["status"] == "superseded_void":
+                if row["frozen_utc"] is not None:
+                    fail(f"{row_id} superseded-void custody cannot retain a freeze time")
+                if "bitcoin" not in attestation:
+                    fail(f"{row_id} must name the attestation on its historical bytes")
             elif row["status"] not in {"frozen_attested", "standing_frozen"}:
                 fail(f"{row_id} Bitcoin custody requires an attested frozen status")
             elif "bitcoin" not in attestation:
@@ -512,12 +518,41 @@ def validate(register: dict) -> list[dict]:
                 fail(f"{where}: owning issue #{owning} is not open in the snapshot")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a pending row requires a milestone")
-        else:
+        elif row["status"] == "resource_deferred":
             if row["owning_issue"] is not None:
                 fail(f"{where}: a resource-deferred row cannot retain an open owner")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a resource-deferred row requires a disposition")
+        else:
+            if row["status"] != "superseded_void":
+                raise AssertionError("unreachable status branch")
+            if row["frozen_utc"] is not None:
+                fail(f"{where}: a superseded-void row cannot retain a freeze time")
+            if row["owning_issue"] is not None:
+                fail(f"{where}: a superseded-void row cannot retain an open owner")
+            if row["milestone"] != "superseded":
+                fail(f"{where}: a superseded-void row requires milestone superseded")
+            if row["comparison_protocol"].lower().startswith("none;") is False:
+                fail(f"{where}: a superseded-void row must refuse comparison")
+            if row["kill_band"].lower().startswith("none;") is False:
+                fail(f"{where}: a superseded-void row must carry no kill band")
         rows_by_id[row["id"]] = row
+
+    fz01 = rows_by_id.get("FZ-01", {})
+    if (
+        "four retained frozen targets" not in str(fz01.get("content", ""))
+        or "ringdown row is excluded from scoring"
+        not in str(fz01.get("comparison_protocol", ""))
+    ):
+        fail("FZ-01 must exclude the superseded ringdown row from its retained targets")
+    fz06 = rows_by_id.get("FZ-06", {})
+    if (
+        fz06.get("status") != "superseded_void"
+        or fz06.get("frozen_utc") is not None
+        or "VOID/MISATTRIBUTED" not in str(fz06.get("content", ""))
+        or "no frozen numeric prediction" not in str(fz06.get("content", ""))
+    ):
+        fail("FZ-06 must retain the alpha=4 record only as superseded void history")
 
     validate_custody_contracts(register, rows_by_id)
 
@@ -672,7 +707,9 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append("| Freeze | Content | Status | Frozen (UTC) | Owner | Kill band |")
     lines.append("| --- | --- | --- | --- | --- | --- |")
-    for row in rows:
+    active_rows = [row for row in rows if row["status"] != "superseded_void"]
+    superseded_rows = [row for row in rows if row["status"] == "superseded_void"]
+    for row in active_rows:
         owner = (
             f"[#{row['owning_issue']}](https://github.com/FloatingPragma/observer-patch-holography/issues/{row['owning_issue']})"
             f" ({row['milestone']})"
@@ -683,11 +720,29 @@ def render(register: dict, rows: list[dict]) -> str:
             frozen = row["frozen_utc"]
         elif row["status"] == "resource_deferred":
             frozen = "not registered"
+        elif row["status"] == "superseded_void":
+            frozen = "not a valid freeze"
         else:
             frozen = "to freeze"
         lines.append(
             f"| {row['id']} | {row['content']} | {row['status']} | {frozen} |"
             f" {owner} | {row['kill_band']} |"
+        )
+    lines.append("")
+    lines.append("## Superseded records outside the ladder")
+    lines.append("")
+    lines.append(
+        "These identifiers preserve attested historical bytes and their current"
+        " scientific disposition. They are not predictions, freezes, or scoring"
+        " surfaces."
+    )
+    lines.append("")
+    lines.append("| Record | Content | Status | Comparison authority |")
+    lines.append("| --- | --- | --- | --- |")
+    for row in superseded_rows:
+        lines.append(
+            f"| {row['id']} | {row['content']} | {row['status']} |"
+            f" {row['comparison_protocol']} |"
         )
     lines.append("")
     lines.append("## Retrospective results outside the ladder")

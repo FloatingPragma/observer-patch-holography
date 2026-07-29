@@ -104,8 +104,10 @@ u(1)+su(2)+su(3) is available on the source-bound twelve-port response branch, n
 For the only executable port-response entry (the 12-port icosahedron),
 the exact coefficient classification leaves three viable compact Lie
 types: `su(3)+su(2)+u(1)`, `su(2)+su(2)+u(1)^6`, and `u(1)^12`.
-The conditional response construction realizes the first, but its physical
-source binding remains false. The source reduct also admits both
+The declared finite response construction realizes the first and its
+source-binding gate passes on the twelve-port carrier. Laboratory
+gauge-current identification remains open, and the bare source reduct
+admits both
 `abelian_12` and `compact_sm_lie_type`.
 
 Matter completion is likewise non-unique: the same reduct admits

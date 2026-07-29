@@ -1229,6 +1229,32 @@
       "gates": []
     },
     {
+      "claim_id": "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
+      "statement": "On the exact source-bound finite current algebra u(3)+so(3)=u(1)+su(3)+su(2), the adjoint is the direct sum (8,1,0)+(1,3,0)+(1,1,0). It contains no mixed (3,2,-5/6) or conjugate X/Y generator. The ordinary minimal simple-GUT gauge-exchange channel is therefore absent from this selected product adjoint. This finite algebraic corollary does not establish general proton stability or a proton lifetime and does not exclude scalar mediators, higher-dimensional baryon violation, or other ultraviolet gauge mechanisms.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "exact_finite_source_bound_product_adjoint_corollary",
+      "assumptions": [
+        "hash_pinned_source_bound_port_current_packet"
+      ],
+      "imported_results": [
+        "adjoint_of_a_direct_sum_of_Lie_algebras",
+        "standard_su3_su2_u1_representation_labels"
+      ],
+      "oph_specific_delta": "The exact source-bound current receipt fixes the selected product adjoint. Its executable dimension split excludes the connected simple-GUT X/Y generator without making a general proton-stability claim.",
+      "novelty_type": "scoped_product_adjoint_channel_exclusion",
+      "evidence": [
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "code/particles/runs/status/postdiction_ledger.json",
+        "docs/POSTDICTION_LEDGER.md",
+        "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex"
+      ],
+      "falsifier": "The selected source-bound current algebra contains a mixed (3,2,-5/6) or conjugate generator, or its adjoint does not decompose as (8,1,0)+(1,3,0)+(1,1,0).",
+      "scope_if_false": "Only the product-adjoint X/Y-channel exclusion and the current classification supporting it are reopened. No general proton-stability or lifetime claim is made.",
+      "status": "exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
       "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/multiplicity are not source-determined (campaign #616, receipt multiplicity_window_reference) and absence of extra light sectors is independence-limited beyond the declared algebra with the sterile countermodel (campaign #609, receipt matter_menu_spectral_ledger_reference); the one-doublet completion stays declared.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1477,14 +1503,13 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. Tensoring the band with the declared generation table gives a conditional complex rank-45 candidate. Its anomaly, Witten-parity, chirality, and diagonal-Z6 statements are arithmetic properties of the imported table. A separate 8662-node local-domain receipt checks the declared extension D_sigma tensor I_45 and conditional inheritance of the signed seam operator's positive finite-domain gap. The source does not select that matter action. The issue-314 Spin packet remains on its twelve-port support, and no certified source, domain, or transport bridge joins it to the local operator domain. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg or laboratory current, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. The target-blind source-bound impulse/readback packet realizes an injective rank-twelve current u(3)+so(3) with inner A5 action on the named finite carrier, giving Lie algebra su(3)+su(2)+u(1). The source-bound matter packet and axis-centre descent receipt compute the order-six common tensor kernel and select (SU(3)xSU(2)xU(1))/Z6 at finite source-model scope. The exhaustive scan inside the declared 3+2 exterior algebra gives the unique unordered charge-conjugate pair of rank-15 chiral anomaly-free projectors and the exact one-generation hypercharge multiset. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. Tensoring the band with the declared generation table gives a conditional complex rank-45 candidate. A separate 8662-node local-domain receipt checks the declared extension D_sigma tensor I_45 and conditional inheritance of the signed seam operator's positive finite-domain gap. The source does not select that matter action. The issue-314 Spin packet remains on its twelve-port support, and no certified source, domain, or transport bridge joins it to the local operator domain. These finite results do not identify the source current with laboratory currents, prove the exterior-module menu complete beyond the declared algebra, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
         "strengthened_oriented_A5_current_packet",
-        "full_rank_commutator_closed_physical_current",
-        "inner_action_or_physical_noncentral_five_band",
+        "hash_pinned_source_bound_port_current_packet",
         "declared_determinant_balance_cover_and_exterior_packet_for_global_and_matter_conclusions",
         "single_complete_faithful_band_realizes_the_family_carrier",
         "operational_cost_order_selects_between_admissible_complete_bands",
@@ -1499,7 +1524,7 @@
         "covering_group_and_lattice_algebra",
         "exterior_representation_and_anomaly_algebra"
       ],
-      "oph_specific_delta": "The local twelve-port incidence is converted into a compact current-algebra recognition theorem with an explicit physical-current boundary. The same finite packet supplies an exact conditional rank-three screen selector and a simulator realization on its declared unitary generator. Tensoring the selected band with the declared generation table gives a conditional rank-45 candidate. A separate local-domain receipt checks a declared tensor-identity operator and conditional gap inheritance without selecting the matter action or bridging the twelve-port Spin packet to the local domain. This provides a second route to Standard Model Lie type without importing the independent categorical group reconstruction or promoting the finite candidate to physical particle families.",
+      "oph_specific_delta": "Target-blind source readback on the named carrier realizes the compact current algebra, the source-bound matter and axis-centre packets fix its finite-scope Z6 descent and one-generation charge data, and the same finite architecture supplies an exact conditional rank-three screen selector. The laboratory-current, continuum, pole, family-attachment, and cross-domain transport boundaries remain explicit. This provides a second route to Standard Model Lie type without importing the independent categorical reconstruction or promoting the finite candidate to physical particle families.",
       "novelty_type": "conditional_finite_screen_current_recognition",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1507,6 +1532,11 @@
         "code/a5_closure/README.md",
         "code/a5_closure/echosahedral_selector_certificate.py",
         "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+        "Lean/Screen/Z6Descent.lean",
+        "Lean/Screen/ExteriorSelection.lean",
         "code/a5_closure/exterior_sm_completion.py",
         "code/a5_closure/claim_boundary_certificates.py",
         "Lean/Screen/PhysicalA5ForcingNoGo.lean",
@@ -1516,7 +1546,7 @@
       ],
       "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, exterior witness, exact band order, rank-three selection, conditional rank-45 tensor arithmetic, anomaly cancellation, chirality grading, diagonal Z6 action, declared local tensor-extension identity, or conditional inherited gap fails under its stated premises, or a promoted physical conclusion omits its current, source-selection, cross-domain transport, matter-pole, continuum, persistence, or laboratory receipt.",
       "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
-      "status": "exact_finite_implications_rank_three_selection_and_conditional_rank_45_candidate__local_matter_action_and_physical_family_identification_open",
+      "status": "source_bound_finite_current_z6_and_one_generation_data__rank_three_selection_conditional_rank_45_candidate__laboratory_continuum_and_family_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
         569

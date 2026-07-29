@@ -109,13 +109,13 @@
     },
     {
       "identification_id": "port_bracket_physical_current",
-      "label": "twelve-port bracket / physical gauge current",
+      "label": "source-bound twelve-port current / laboratory gauge-current attachment",
       "status": "undischarged",
       "claim_ids": [
         "OPH-SCREEN-PORT-CURRENT-INNER"
       ],
       "source_anchors": [
-        "physical port-current source-binding contract"
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
       ],
       "blocking_issues": [
         {

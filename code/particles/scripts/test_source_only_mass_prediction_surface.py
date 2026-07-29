@@ -14,7 +14,7 @@ def test_surface_covers_every_family():
         "Higgs boson and top quark",
         "quarks (u, d, s, c, b)",
         "neutrinos",
-        "massless carriers (photon, gluon)",
+        "conditional classical carrier modes",
         "quarks, conditional lanes",
         "hadrons",
         "operational scale E_star",
@@ -46,6 +46,25 @@ def test_boson_block_carries_the_discrete_two_law_pair():
     zero = next(r for r in bosons["rows"] if "zero-selector" in r["lane"])
     assert abs(zero["MW_GeV_display"] - 80.3301) < 0.001
     assert abs(zero["MZ_GeV_display"] - 91.1191) < 0.001
+
+
+def test_classical_carrier_modes_are_not_promoted_to_particle_predictions():
+    surface = lane.build()
+    family = next(
+        row
+        for row in surface["families"]
+        if row["family"] == "conditional classical carrier modes"
+    )
+    carrier = family["rows"][0]
+    assert carrier["tier"] == "conditional classical mode theorem"
+    assert set(carrier["statuses"]) == {
+        "gamma",
+        "g (8 color states)",
+        "graviton",
+    }
+    assert "recovered group does not supply" in carrier["explanation"]
+    assert "No OPH quantum-particle" in carrier["explanation"]
+    assert carrier["artifact"] == "runs/status/carrier_mode_acceptance.json"
 
 
 def test_markdown_renders_with_tier_ladder_and_all_families():

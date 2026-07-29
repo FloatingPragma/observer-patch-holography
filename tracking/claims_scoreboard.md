@@ -13,7 +13,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 2. **`beta_ew_common_load_carrier`: beta_EW = 4 / common screen-electroweak load carrier.** Status: `undischarged`. Canonical claims: `OPH-HIER-EW`. Source anchors: `common electroweak load-carrier contract`. Blocking issues: [#631](https://github.com/FloatingPragma/observer-patch-holography/issues/631) [open work item] physical local screen-electroweak order-unit carrier and normalization.
 3. **`capacity_horizon`: correctable public-record capacity / horizon area.** Status: `undischarged`. Canonical claims: `OPH-GR-D6-HORIZON-RECORD`. Source anchors: `horizon-record saturation contract`. Blocking issues: [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) [open work item] physical horizon-record identification.
 4. **`de_sitter_capacity_transfer_shock_sign`: finite screen-capacity transfer / gravitational de Sitter shock sign.** Status: `undischarged`. Canonical claims: `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`. Source anchors: `de_Sitter_fixed_total_capacity_horizon_dictionary`, `capacity_ledger_to_observer_mass_dictionary`, `de_Sitter_shock_coefficient_scale_dictionary`, `Einstein_branch_D5`, `independent_physical_scale_receipt`. Blocking issues: [#334](https://github.com/FloatingPragma/observer-patch-holography/issues/334) [open work item] Newton-constant composition of the source clock and gravity-scale readout; [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) [open work item] source-only correctable public-record capacity; [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) [open work item] fixed total screen-capacity and horizon-area identification; [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) [open work item] source-bound Einstein-branch clause realization; [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) [open work item] de Sitter gauge, kinetic, ledger-to-source, and response-coefficient attachments.
-5. **`port_bracket_physical_current`: twelve-port bracket / physical gauge current.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-PORT-CURRENT-INNER`. Source anchors: `physical port-current source-binding contract`. Blocking issues: [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [open work item] physical attachment of the source-bound current to laboratory gauge currents.
+5. **`port_bracket_physical_current`: source-bound twelve-port current / laboratory gauge-current attachment.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-PORT-CURRENT-INNER`. Source anchors: `code/a5_closure/receipts/port_current_inner_reference.receipt.json`. Blocking issues: [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [open work item] physical attachment of the source-bound current to laboratory gauge currents.
 6. **`repair_generator_yang_mills_hamiltonian`: repair generator / Yang-Mills Hamiltonian.** Status: `undischarged`. Canonical claims: `OPH-YM-GAP`. Source anchors: `Assumption 20`. Blocking issues: [#294](https://github.com/FloatingPragma/observer-patch-holography/issues/294) [resource deferred blocker] Osterwalder-Schrader reconstruction and nontriviality; [#295](https://github.com/FloatingPragma/observer-patch-holography/issues/295) [resource deferred blocker] finite repair-gap floor.
 7. **`g_si_clock`: G_SI / source-derived physical clock.** Status: `undischarged`. Canonical claims: `OPH-SCREEN-24-CLOCK-DETERMINANT`, `OPH-SOURCE-DIMENSIONLESS-GAP`. Source anchors: `exact positive finite-domain signed-seam gap`, `G_SI clock chain`. Blocking issues: [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) [open work item] select and attach a physical matter action, then identify an observer-readable family transition across the distinct finite packets; [#630](https://github.com/FloatingPragma/observer-patch-holography/issues/630) [open work item] supply the physical scalar and Yukawa action used to identify the transition; [#522](https://github.com/FloatingPragma/observer-patch-holography/issues/522) [open work item] optional 24-stage edge-center implementation route; the current receipt is a conditional construction from the declared P/24 branch input.
 
@@ -23,7 +23,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2003`. 63 claims, 15 distinct live gates across 14 gated claims.
+Release: `r2003`. 64 claims, 15 distinct live gates across 14 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -31,7 +31,7 @@ Release: `r2003`. 63 claims, 15 distinct live gates across 14 gated claims.
 | `empirical_implementation` | 2 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 44 |
+| `conditional_implication` | 45 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -75,6 +75,7 @@ Release: `r2003`. 63 claims, 15 distinct live gates across 14 gated claims.
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier` | none |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `proved_on_source_bound_impulse_readback_artifact` | none |
+| `OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE` | `conditional_implication` | `exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed` | none |
 | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `source_bound_at_finite_scope_conditional_on_declared_scalar_content` | none |
 | `OPH-SCREEN-CARRIER-SUPPORT-BRIDGE` | `conditional_implication` | `proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower` | none |
 | `OPH-GAUGE-D7-D9` | `conditional_implication` | `conditional_D7_D9_tannaka_chain__z6_descent_source_bound_at_finite_scope__continuum_and_family_gates_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
@@ -82,7 +83,7 @@ Release: `r2003`. 63 claims, 15 distinct live gates across 14 gated claims.
 | `OPH-KOIDE-CIRCULANT-IDENTITY` | `conditional_implication` | `exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic` | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) |
 | `OPH-A5-REAL-AXIS-CABIBBO-NOGO` | `conditional_implication` | `proved_narrow_no_go_for_direct_Cabibbo_identification_with_31_real_3d_icosahedral_residual_axes` | none |
 | `OPH-W5-STABILISER-POTENTIAL-BOUNDARY` | `conditional_implication` | `exact_C3_C5_double_degeneracy_and_C2_projective_two_parameter_boundary_closed__screen_derived_A5_invariant_potential_open` | [#591](https://github.com/FloatingPragma/observer-patch-holography/issues/591) |
-| `OPH-SCREEN-A5-SM-RECOGNITION` | `conditional_implication` | `exact_finite_implications_rank_three_selection_and_conditional_rank_45_candidate__local_matter_action_and_physical_family_identification_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
+| `OPH-SCREEN-A5-SM-RECOGNITION` | `conditional_implication` | `source_bound_finite_current_z6_and_one_generation_data__rank_three_selection_conditional_rank_45_candidate__laboratory_continuum_and_family_attachment_open` | [#569](https://github.com/FloatingPragma/observer-patch-holography/issues/569) |
 | `OPH-SM-ROUTE-IDENTIFICATION` | `declared_structure` | `open_no_source_bound_commuting_square` | none |
 | `OPH-GAUGE-EXTERIOR-SM-WITNESS` | `conditional_implication` | `proved_conditional_representation_witness` | none |
 | `OPH-Q-PN-CLOSURE` | `declared_structure` | `declared_maps_with_physical_closure_open` | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) |

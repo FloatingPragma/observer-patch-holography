@@ -202,6 +202,11 @@ def test_selector_menu_is_available_not_unique_and_fails_closed() -> None:
     assert icosahedron["status"] == "AVAILABLE_NOT_UNIQUELY_SELECTED"
     assert icosahedron["physical_source_binding"] is True
     assert len(icosahedron["compatible_compact_lie_types"]) == 3
+    scorecard = (nulls.ROOT / nulls.DEFAULT_SCORECARD).read_text(encoding="utf-8")
+    assert "source-binding gate passes" in scorecard
+    assert "Laboratory" in scorecard
+    assert "gauge-current identification remains open" in scorecard
+    assert "physical source binding remains false" not in scorecard
     assert report["matter_nonuniqueness"] == {
         "rank15_projector_verified": True,
         "inequivalent_completions": [

@@ -1168,7 +1168,12 @@ class ForecastContractTests(unittest.TestCase):
         }
         for source_row in register["rows"]:
             projected = crosswalk[source_row["id"]]
-            self.assertEqual(projected["registry_kind"], "prospective")
+            expected_kind = (
+                "historical_superseded"
+                if source_row["status"] == "superseded_void"
+                else "prospective"
+            )
+            self.assertEqual(projected["registry_kind"], expected_kind)
             self.assertEqual(
                 projected["registry_status"], source_row["status"]
             )
@@ -1187,6 +1192,12 @@ class ForecastContractTests(unittest.TestCase):
         self.assertIn(
             "archived CAP-L/P/K 190-row capacity-map lattice", crosswalk
         )
+        fz06 = crosswalk["FZ-06"]
+        self.assertEqual(
+            fz06["classification"],
+            "HISTORICAL_REGISTER_ROW__SUPERSEDED_VOID",
+        )
+        self.assertIn("No forecast or comparison use", fz06["forecast_use"])
 
     def test_common_load_row_is_not_promoted_as_target_clean(self) -> None:
         state = fc.build_state()

@@ -1129,7 +1129,7 @@ def unseal_and_score(*_args: Any, **_kwargs: Any) -> dict[str, Any]:
 
 
 def build_fz_crosswalk(register: dict[str, Any]) -> list[dict[str, Any]]:
-    """Project the live v3 prospective and retrospective register surfaces."""
+    """Project live prospective, superseded, and retrospective register surfaces."""
 
     require(
         register.get("schema") == "oph.frozen_prediction_register.v3",
@@ -1146,22 +1146,37 @@ def build_fz_crosswalk(register: dict[str, Any]) -> list[dict[str, Any]]:
             f"duplicate live prospective register row: {surface}",
         )
         seen.add(surface)
-        projected.append(
-            {
-                "surface": surface,
-                "classification": (
-                    "PROSPECTIVE_REGISTER_ROW__"
-                    + str(row["status"]).upper()
-                ),
-                "forecast_use": (
-                    "Use only under the live registered comparison protocol: "
-                    + str(row["comparison_protocol"])
-                ),
-                "registry_kind": "prospective",
-                "registry_status": row["status"],
-                "owning_issue": row.get("owning_issue"),
-            }
-        )
+        if row["status"] == "superseded_void":
+            projected.append(
+                {
+                    "surface": surface,
+                    "classification": "HISTORICAL_REGISTER_ROW__SUPERSEDED_VOID",
+                    "forecast_use": (
+                        "No forecast or comparison use is permitted: "
+                        + str(row["comparison_protocol"])
+                    ),
+                    "registry_kind": "historical_superseded",
+                    "registry_status": row["status"],
+                    "owning_issue": row.get("owning_issue"),
+                }
+            )
+        else:
+            projected.append(
+                {
+                    "surface": surface,
+                    "classification": (
+                        "PROSPECTIVE_REGISTER_ROW__"
+                        + str(row["status"]).upper()
+                    ),
+                    "forecast_use": (
+                        "Use only under the live registered comparison protocol: "
+                        + str(row["comparison_protocol"])
+                    ),
+                    "registry_kind": "prospective",
+                    "registry_status": row["status"],
+                    "owning_issue": row.get("owning_issue"),
+                }
+            )
     for row in register.get("retrospective_results", []):
         surface = row["id"]
         require(

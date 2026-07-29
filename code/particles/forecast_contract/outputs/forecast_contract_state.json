@@ -310,7 +310,7 @@
  "known_surface_crosswalk": [
   {
    "classification": "PROSPECTIVE_REGISTER_ROW__FROZEN_ATTESTED",
-   "forecast_use": "Use only under the live registered comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison",
+   "forecast_use": "Use only under the live registered comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison for the four retained targets; the ringdown row is excluded from scoring",
    "owning_issue": null,
    "registry_kind": "prospective",
    "registry_status": "frozen_attested",
@@ -334,18 +334,18 @@
   },
   {
    "classification": "PROSPECTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
-   "forecast_use": "Use only under the live registered comparison protocol: pending the slack-law receipt; no comparison is registered",
-   "owning_issue": 551,
+   "forecast_use": "Use only under the live registered comparison protocol: pending the direct capacity-return receipt and the issue-639 sealed comparison; no cosmological comparison is registered",
+   "owning_issue": 639,
    "registry_kind": "prospective",
    "registry_status": "registered_pending_freeze",
    "surface": "FZ-05"
   },
   {
-   "classification": "PROSPECTIVE_REGISTER_ROW__STANDING_FROZEN",
-   "forecast_use": "Use only under the live registered comparison protocol: per-event scoring under the registered protocol; the GW250114 lean is in the record",
+   "classification": "HISTORICAL_REGISTER_ROW__SUPERSEDED_VOID",
+   "forecast_use": "No forecast or comparison use is permitted: none; the required strain likelihood, line weights, covariance treatment, event list, and trials accounting were not completed before comparison",
    "owning_issue": null,
-   "registry_kind": "prospective",
-   "registry_status": "standing_frozen",
+   "registry_kind": "historical_superseded",
+   "registry_status": "superseded_void",
    "surface": "FZ-06"
   },
   {
@@ -434,8 +434,8 @@
   "candidate_inventory_sha256": "sha256:378380405dd28f5197e293f3e8095e163784f7bf2651b792ccb9b6030bf2236d",
   "contract_schema_sha256": "sha256:abe6893b3f03adc58251b3f64fed0f1e4c62a4ed06420ce68d1db16178d12149",
   "forecast_freeze_policy_sha256": "sha256:dec2a4b647e5212d7b54101d41cdb50b4f477e6df21ab9a8cfe3d89620f6e594",
-  "frozen_prediction_register_sha256": "sha256:2a8ffb95d83bdcdeb2aca4ae04ad5958ff5bf0b67634fffea141ffc82f59da3f",
-  "module_sha256": "sha256:9d33e89027d3b0eb9d528f985df3e4782c959fc478a48c05073a39d6c770aff1"
+  "frozen_prediction_register_sha256": "sha256:f767bc4b4332a0ad7154023af336d88475ab699a02f3716a4f1545225b587cc5",
+  "module_sha256": "sha256:b5612910a39ab999fd69b2c28bb3fabeed75be7ced1aedd295a7112b5e054089"
  },
  "potential_upgrade_routes": {
   "dependency_status": "candidate-specific routes only; none is a hard issue dependency before selection",
@@ -456,5 +456,5 @@
   "rule": "After the inventory closure criterion is frozen, select the first ELIGIBLE_SOURCE_VISIBLE candidate by candidate_class, integer selection_priority, and candidate_id. The direct source-derived N lane has the first class-one priority. Validate the bounded declared-ancestry review, every source pin, the repository-state commit, comparison custody declaration, and externally supplied contract digest before comparison access. No reselection follows a valid freeze.",
   "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:1af76ff0474a6f00c8d0e2e23cc9d648ea2179ffa9b3d2409472108c80a2ac69"
+ "state_sha256": "sha256:f8772aa3687510d4b1f89cc6ded3d3b623ac1095598a64ddfddfe9996a678ba6"
 }

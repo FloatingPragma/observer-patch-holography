@@ -29,7 +29,15 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     ).exists() and (
         ROOT / "P_derivation" / "runtime" / "empirical_thomson_endpoint_current.json"
     ).exists()
-    assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is expected
+    assert (
+        status["finalization_gates"][
+            "empirical_hadron_spectral_endpoint_packet_available"
+        ]
+        is expected
+    )
+    assert "empirical_hadron_spectral_dataset_integrated" not in status[
+        "finalization_gates"
+    ]
     assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is False
     assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
     assert status["finalization_gates"]["pixel_screen_resonance_summary_closed"] is True

@@ -279,7 +279,7 @@
   },
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
-    "empirical_hadron_spectral_dataset_integrated": true,
+    "empirical_hadron_spectral_endpoint_packet_available": true,
     "hierarchy_local_global_resonance_closed": false,
     "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
@@ -293,10 +293,11 @@
   },
   "fine_structure": {
     "empirical_payload_policy": {
-      "dispersion_payload_status": "schema_and_source_registry_present_without_integrated_dataset",
+      "dispersion_payload_status": "separate_empirical_spectral_endpoint_not_consumed_by_this_measured_endpoint_calibration",
       "empirical_payload_schema": "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
-      "external_cross_section_data_integrated": false,
+      "external_input_scope": "measured_thomson_endpoint_only",
       "measured_thomson_endpoint_used": true,
+      "raw_cross_section_data_used_in_this_calibration": false,
       "row_class": "oph_plus_empirical_hadron_closure",
       "source_only_theorem_status": "not_promoted",
       "source_registry": "code/particles/hadron/empirical_ee_hadrons_sources.yaml"
@@ -353,7 +354,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-28T16:41:54Z",
+  "generated_utc": "2026-07-29T16:25:40Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",

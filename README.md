@@ -93,7 +93,7 @@ certificates:
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
    and the Lean proofs of the
    [gauge trichotomy](Lean/Screen/A5OPH.lean) and
-   [Z₆ quotient](Lean/Screen/Z6Exact.lean).
+   [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
 4. **An exact one-generation exterior selection and a rank-three family
    candidate.** Inside the declared ten-component exterior-response algebra,
    an exhaustive scan of all 1,024 subsets leaves exactly one unordered

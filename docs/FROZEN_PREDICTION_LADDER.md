@@ -6,15 +6,22 @@ A freeze is registered before its comparison data is examined, carries a kill ba
 
 | Freeze | Content | Status | Frozen (UTC) | Owner | Kill band |
 | --- | --- | --- | --- | --- | --- |
-| FZ-01 | Anchored registration: twenty-row registry with five frozen targets (capacity band, scalar tilt n_s = 1 - P/48, acceleration scale, dark-energy w-law on (-1, 0), integer-k Kerr ringdown comb) | frozen_attested | 2026-07-17T07:18:00Z | done | per-target decision policies frozen with each target, with explicit no-verdict clauses at insufficient precision |
+| FZ-01 | Anchored historical twenty-row registry with four retained frozen targets (capacity band, scalar tilt n_s = 1 - P/48, acceleration scale, and dark-energy w-law on (-1, 0)); the alpha = 4 ringdown row is scientifically superseded and void | frozen_attested | 2026-07-17T07:18:00Z | done | per-target decision policies for the four retained targets, with explicit no-verdict clauses at insufficient precision; no ringdown verdict is registered |
 | FZ-02 | Angular multiplet signature: the exact A5 branching of rotation levels l = 0..6, scalar invariant covariance at l = 2, first nonconstant invariant at l = 6 frame-locked to l = 3, and the face-phase multiplicity vector (0, 1, 1, 1, 2) with the N_g = 3 slot | frozen_stamped_upgrade_pending | 2026-07-26T06:41:53Z | M1 | FZ02-R01: resolved l = 2 quintet splitting under A5-preserving conditions fails; FZ02-R02: nonscalar invariant l = 2 covariance at three or more registered sigma fails; FZ02-R03: nonconstant invariant below l = 6 or l = 6 / l = 3 frame misalignment beyond registered tolerance fails; FZ02-R04 (THEOREM-TARGET): a quotient-visible family fiber that is not the minimal three-dimensional extension kills the face-phase N_g = 3 route |
 | FZ-03 | Neutrino ordering and mixing stance from the frozen likelihood | registered_pending_freeze | to freeze | [#508](https://github.com/FloatingPragma/observer-patch-holography/issues/508) (C4) | none frozen; comparison is forbidden until the neutrino stance and its decision rule are registered |
-| FZ-05 | Lambda bridge resolution receipt or kill declaration | registered_pending_freeze | to freeze | [#551](https://github.com/FloatingPragma/observer-patch-holography/issues/551) (C5) | no verdict is registered; a derived closure supports the bridge, while a clean public negative receipt fixes its failure boundary |
-| FZ-06 | Ringdown alpha = 4 integer-k comb, standing freeze re-tested per loud event | standing_frozen | 2026-07-17T07:18:00Z | standing | per the frozen comb target decision policy; each loud ringdown event is scored under the registered protocol |
+| FZ-05 | Direct correctable-public-record N closure output or complete stated-domain non-identifiability verdict | registered_pending_freeze | to freeze | [#639](https://github.com/FloatingPragma/observer-patch-holography/issues/639) (C3) | no verdict is registered; a source-positive value must be frozen before cosmological comparison, while complete stated-domain non-identifiability closes the candidate as a reproducible negative result |
 | FZ-07 | Rotor RAR/BTFR scatter law stance | resource_deferred | not registered | resource-deferred | none registered while resource-deferred |
 | FZ-08 | DESI w(z) stance | resource_deferred | not registered | resource-deferred | none registered while resource-deferred |
 | FZ-09 | Vacuum birefringence null | resource_deferred | not registered | resource-deferred | none registered while resource-deferred; the FZ-01 registry row is classified THEOREM-TARGET because no emission theorem exists |
 | FZ-10 | Koide conditional tau window: under the balanced positive-chamber circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV (central 1776.969027), a window three orders of magnitude narrower than the 2026 world-average uncertainty; premise ancestry declared (the balance was first abstracted from the measured triple), so the kill direction carries the full weight | frozen_stamped_upgrade_pending | 2026-07-28T08:58:33Z | [#546](https://github.com/FloatingPragma/observer-patch-holography/issues/546) (C4) | FZ10-R01: a charged-tau world average or dedicated measurement whose central value differs from 1776.969027 MeV by more than three standard uncertainties kills the balanced-circulant premise; COMPATIBLE requires agreement within two standard uncertainties at sigma <= 0.045 MeV; every other outcome is INCONCLUSIVE with no verdict at insufficient precision |
+
+## Superseded records outside the ladder
+
+These identifiers preserve attested historical bytes and their current scientific disposition. They are not predictions, freezes, or scoring surfaces.
+
+| Record | Content | Status | Comparison authority |
+| --- | --- | --- | --- |
+| FZ-06 | VOID/MISATTRIBUTED historical alpha = 4 ringdown line; the integer-k Kerr template remains BUILD with no frozen numeric prediction | superseded_void | none; the required strain likelihood, line weights, covariance treatment, event list, and trials accounting were not completed before comparison |
 
 ## Retrospective results outside the ladder
 
@@ -31,11 +38,9 @@ These records were evaluated after their comparison inputs were known. They are 
 ## Custody and attestation
 
 - **FZ-01**: oph-meta falsification/frozen_targets/fz01_2026-07-17 (registration manifest plus per-target statements, decision policies, and integrity hashes) complete Bitcoin attestations on every artifact and on the registration manifest; pre-upgrade calendar proofs retained.
-  Content hash: `manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256`. Comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison
+  Content hash: `manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256`. Comparison protocol: per-target reference observables and z/sigma thresholds frozen before comparison for the four retained targets; the ringdown row is excluded from scoring
 - **FZ-02**: oph-meta custody commit 1e7d7c73 at 2026-07-26T06:41:53Z, falsification/frozen_targets/fz02_2026-07-26 (frozen target, freeze registry, executable receipt, pinned Lean module, registration manifest, and append-only custody erratum) OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass.
   Content hash: `d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82`. Comparison protocol: dataset declaration, estimator, and tolerance registered before data examination; verdicts COMPATIBLE, FAIL, INCONCLUSIVE; no verdict at insufficient resolution
-- **FZ-06**: oph-meta falsification/frozen_targets/fz01_2026-07-17 (integer-k comb target of the FZ-01 registration; per-event re-test record kept with the tracker) covered by the FZ-01 Bitcoin attestations.
-  Content hash: `manifest-bound through the FZ-01 registration manifest`. Comparison protocol: per-event scoring under the registered protocol; the GW250114 lean is in the record
 - **FZ-10**: oph-meta falsification/frozen_targets/fz10_2026-07-28 (frozen target statement with decision policy, byte copy of the producing artifact at source commit bbc2cebe, and registration manifest) OpenTimestamps calendar stamps on every artifact and the manifest; Bitcoin upgrade pending on the standard ots upgrade pass.
   Content hash: `09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898`. Comparison protocol: reference observable, verdict thresholds, and precision floor frozen in the custody target statement before examination of any post-registration measurement
 

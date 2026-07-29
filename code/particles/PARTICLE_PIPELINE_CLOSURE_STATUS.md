@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-28T16:41:54Z`
+Generated: `2026-07-29T16:25:40Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -92,7 +92,7 @@ promotable: the OPH-native producer stack listed in
 - `nonhadron_prediction_surface_buildable`: `True`
 - `source_only_hadrons_suppressed_by_default`: `True`
 - `empirical_hadron_closure_policy_documented`: `True`
-- `empirical_hadron_spectral_dataset_integrated`: `True`
+- `empirical_hadron_spectral_endpoint_packet_available`: `True`
 - `p_trunk_candidate_only`: `True`
 - `obstruction_only_worker_result_allowed`: `True`
 - `paper_material_sync_complete_without_live_publish`: `True`

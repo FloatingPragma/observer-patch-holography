@@ -786,11 +786,14 @@ every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
 the full kernel produces the maximal faithful matter image.
 
 The same local tensors also descend through the cover and its intermediate
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients. The finite calculation therefore
-identifies the maximal faithful image of the declared matter package. It does
-not select the physical global form. A flux-sector menu can serve as a
-source-model condition for a later selection, provided it is tied to physical
-line and bundle data. That physical attachment is work in progress.
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients, so the local tensor table by itself
+does not select among the four compatible global forms. The source-bound
+deck/loop receipt measures an order-six axis class and the complete six-sector
+flux menu. Its exact intertwiner with the tensor kernel and the selected line
+polarization pick the $\mathbb Z_6$ quotient at finite source-model scope.
+Laboratory flux measurements, continuum quantum field theory,
+four-dimensional instanton normalization, monopole dynamics, and theta
+periodicity are separate.
 
 The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold symmetry of each face cycles its corners. The only
@@ -1405,14 +1408,15 @@ interesting. The protons have declined to cooperate. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
 simplest GUTs are dead.
 
-The realized connected gauge adjoint is the product branch
+The selected finite source-current quotient is the product branch
 
-$$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
+$$G_{\mathrm{source}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 
 Its adjoint contains no connected $(3,2,\pm5/6)$ X/Y generator, so the standard
 simple-GUT gauge-mediated proton-decay channel is absent. Baryon-number change,
 when present, belongs to the matter and repair dynamics rather than to a hidden
-connected X/Y gauge direction.
+connected X/Y gauge direction. This result supplies no proton lifetime and
+does not exclude scalar, higher-dimensional, or other ultraviolet mechanisms.
 
 ## 14.20 The Big Picture
 
@@ -1437,8 +1441,10 @@ is open.
 **The carrier modes.** The Maxwell action gives electromagnetism two
 transverse massless modes. The Einstein action around flat space gives
 gravity two transverse-traceless modes, the plus and cross polarizations.
-Positive-energy quantization turns these recurring carrier patterns into the
-photon and graviton sectors, stable and detectable.
+These are conditional classical action-branch statements. Identifying them
+with photon and graviton particles requires positive-energy Hilbert spaces and
+positive-residue pole receipts. The corresponding OPH quantum-particle
+receipts are open.
 
 **The particle structure.** The $A_5$ screen fixes the gauge-adjoint
 coefficient geometry and a canonical rank-three candidate family band. Under
@@ -1461,7 +1467,9 @@ dynamical monopole follows from the lattice or the sector menu.
 
 **Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
 generator, so the standard simple-GUT channel is absent. Baryon-number
-dynamics lives in the matter and repair sectors instead.
+dynamics lives in the matter and repair sectors instead. The result supplies
+no proton lifetime and excludes no scalar, higher-dimensional, or other
+ultraviolet mechanism.
 
 **Why hadrons are harder.** Quark masses are short-distance parameters, while
 hadrons are bound states. Most of the proton's mass comes from confinement
@@ -1542,10 +1550,10 @@ into one common structure.
 The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
-The declared-response certificate verifies the compact-current algebraic
-conditions under its stated premises. Source binding of the certificate
-inputs, the cosmic-capacity selector, and the calibrated clock-and-curvature
-map are work in progress.
+Target-blind impulse and readback on the certified carrier produce the
+source-bound compact current algebra. Its identification with laboratory
+currents, the cosmic-capacity selector, and the calibrated
+clock-and-curvature map are work in progress.
 
 The result is an organized conditional particle packet: a specific gauge
 group, charge pattern, color carrier, declared generation count, carrier

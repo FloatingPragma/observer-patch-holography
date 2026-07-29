@@ -31,10 +31,11 @@
     "p_gap_implemented_minus_calibrated": "0.0000038864549380520852340557243066871431434032110276241990092466092206601066568"
   },
   "empirical_hadron_closure": {
-    "dispersion_payload_status": "schema_and_source_registry_present_without_integrated_dataset",
+    "dispersion_payload_status": "separate_empirical_spectral_endpoint_not_consumed_by_this_measured_endpoint_calibration",
     "empirical_payload_schema": "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
-    "external_cross_section_data_integrated": false,
+    "external_input_scope": "measured_thomson_endpoint_only",
     "measured_thomson_endpoint_used": true,
+    "raw_cross_section_data_used_in_this_calibration": false,
     "row_class": "oph_plus_empirical_hadron_closure",
     "source_only_theorem_status": "not_promoted",
     "source_registry": "code/particles/hadron/empirical_ee_hadrons_sources.yaml"
@@ -42,7 +43,7 @@
   "exact_alpha_promoted": false,
   "external_input_role": "The measured Thomson-limit inverse fine-structure constant supplies the empirical hadron-completed endpoint for numeric tables and displays. It is excluded from the source-only solver and from theorem promotion.",
   "external_input_used": true,
-  "generated_utc": "2026-07-18T05:01:02Z",
+  "generated_utc": "2026-07-29T16:25:40Z",
   "promotion_allowed": false,
   "row_class": "oph_plus_empirical_hadron_closure",
   "source_only_guard": {
