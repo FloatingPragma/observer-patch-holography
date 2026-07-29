@@ -47,6 +47,7 @@ STATUSES = {
     "frozen_stamped_upgrade_pending",
     "standing_frozen",
     "registered_pending_freeze",
+    "resource_deferred",
 }
 FROZEN_STATUSES = {
     "frozen_attested",
@@ -323,7 +324,7 @@ def validate(register: dict) -> list[dict]:
                 if not isinstance(row[key], str) or not row[key].strip():
                     fail(f"{where}: a frozen row requires {key}")
             parse_utc(row["frozen_utc"], f"{where}.frozen_utc")
-        else:
+        elif row["status"] == "registered_pending_freeze":
             owning = row["owning_issue"]
             if not isinstance(owning, int):
                 fail(f"{where}: a pending row requires an owning issue")
@@ -331,6 +332,11 @@ def validate(register: dict) -> list[dict]:
                 fail(f"{where}: owning issue #{owning} is not open in the snapshot")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a pending row requires a milestone")
+        else:
+            if row["owning_issue"] is not None:
+                fail(f"{where}: a resource-deferred row cannot retain an open owner")
+            if not isinstance(row["milestone"], str) or not row["milestone"].strip():
+                fail(f"{where}: a resource-deferred row requires a disposition")
         rows_by_id[row["id"]] = row
 
     validate_custody_contracts(register, rows_by_id)

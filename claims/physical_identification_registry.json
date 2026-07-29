@@ -4,30 +4,14 @@
     {
       "identification_id": "alpha_in_thomson",
       "label": "alpha_in / Thomson endpoint",
-      "status": "undischarged",
+      "status": "resource_deferred",
       "claim_ids": [
         "OPH-ALPHA-PIXEL"
       ],
       "source_anchors": [
         "physical Thomson readback contract"
       ],
-      "blocking_issues": [
-        {
-          "number": 318,
-          "disposition": "open_work_item",
-          "role": "same-scheme hadronic endpoint transport packet"
-        },
-        {
-          "number": 545,
-          "disposition": "open_work_item",
-          "role": "physical pixel readback and unique physical-map root"
-        },
-        {
-          "number": 425,
-          "disposition": "parked_computational_blocker",
-          "role": "source-only QCD spectral and mass backend"
-        }
-      ]
+      "blocking_issues": []
     },
     {
       "identification_id": "beta_ew_common_load_carrier",
