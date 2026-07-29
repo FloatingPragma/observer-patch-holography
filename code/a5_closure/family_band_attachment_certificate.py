@@ -94,7 +94,7 @@ write_json = e565.write_json
 
 F5 = p566.F5
 
-SCHEMA = "oph.family_band_attachment_certificate.v5"
+SCHEMA = "oph.family_band_attachment_certificate.v6"
 MANIFEST_PATH = MODULE_DIR / "manifests" / "family_band_attachment_reference.json"
 CARRIER_MANIFEST_NAME = "echosahedral_federation_reference.json"
 CARRIER_RECEIPT_NAME = "echosahedral_federation_reference.receipt.json"
@@ -109,6 +109,7 @@ GLOBAL_FORM_RECEIPT_NAME = "axis_center_descent_reference.receipt.json"
 SEAM_CLASSIFICATION_NAME = "seam_grammar_matter_classification_reference.json"
 RESPONSE_ARTIFACT_NAME = "charged_response_semantic_artifact.json"
 POLE_RESIDUE_ARTIFACT_NAME = "charged_response_pole_residue_artifact.json"
+MATTER_ATTACHMENT_RECEIPT_NAME = "matter_attachment_receipt.json"
 
 # Measured artifact band labels against this certificate's band names.
 ARTIFACT_BAND_MAP = {
@@ -836,6 +837,64 @@ def pin_pole_residue_artifact(
     return artifact, pin
 
 
+def pin_matter_attachment_receipt(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+    receipt_override: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Pin the finite Spin/locality attachment receipt of the local domain.
+
+    The receipt is produced on the issue-634 typed domain and must bind
+    the same response and pole-residue artifacts this certificate pins,
+    carry the attained verdict with every clause true, and record the
+    rank forty-five attachment with the measured rank-three band.  The
+    override parameter exists for the mutation control only."""
+
+    receipt = (
+        json.loads(json.dumps(dict(receipt_override)))
+        if receipt_override is not None
+        else load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+    )
+    require(
+        receipt["schema"] == "oph.local-domain-matter-attachment.v1"
+        and receipt["issue"] == 569
+        and receipt["physical_promotion_allowed"] is False,
+        "MATTER_ATTACHMENT_SCHEMA",
+        "the attachment receipt must carry the declared schema and issue",
+    )
+    pins = receipt["upstream_pins"]
+    require(
+        pins["response_artifact_sha256"] == response_artifact["artifact_sha256"]
+        and pins["pole_residue_artifact_sha256"]
+        == pole_artifact["artifact_sha256"],
+        "MATTER_ATTACHMENT_CHAIN",
+        "the attachment receipt must bind the pinned response and "
+        "pole-residue artifacts",
+    )
+    require(
+        receipt["attachment"]["complex_rank"] == 45
+        and receipt["attachment"]["band_rank_measured"] == 3,
+        "MATTER_ATTACHMENT_RANK",
+        "the attachment receipt must carry the rank forty-five object "
+        "from the measured rank-three band",
+    )
+    require(
+        receipt["verdict"] == "ATTAINED"
+        and bool(receipt["clause_verdicts"])
+        and all(receipt["clause_verdicts"].values())
+        and receipt["blockers"] == [],
+        "MATTER_ATTACHMENT_VERDICT",
+        "the attachment receipt must be attained with every clause true",
+    )
+    pin = {
+        "path": f"manifests/{MATTER_ATTACHMENT_RECEIPT_NAME}",
+        "sha256": sha256_json(receipt),
+        "issue": 569,
+        "scope": "finite Spin/locality layer on the issue-634 local domain",
+    }
+    return receipt, pin
+
+
 def pole_residue_receipt(
     pole_artifact: Mapping[str, Any], generation: Mapping[str, Any]
 ) -> dict[str, Any]:
@@ -909,6 +968,35 @@ def pole_residue_receipt(
             "data, or laboratory attachment"
         ),
     }
+
+
+def control_matter_attachment_mutation(
+    response_artifact: Mapping[str, Any],
+    pole_artifact: Mapping[str, Any],
+) -> dict[str, Any]:
+    """A doctored attachment rank must be refused by the receipt pin."""
+
+    doctored = json.loads(
+        json.dumps(
+            load_json(MODULE_DIR / "manifests" / MATTER_ATTACHMENT_RECEIPT_NAME)
+        )
+    )
+    doctored["attachment"]["complex_rank"] = 60
+    try:
+        pin_matter_attachment_receipt(
+            response_artifact, pole_artifact, receipt_override=doctored
+        )
+    except CertificateError:
+        return {
+            "expected_failure": True,
+            "failed": True,
+            "code": "MATTER_ATTACHMENT_RANK",
+            "meaning": (
+                "the pin path reads the receipt rank; a doctored rank is "
+                "refused by the same loader the certificate uses"
+            ),
+        }
+    return {"expected_failure": True, "failed": False}
 
 
 def control_pole_table_mutation(pole_artifact: Mapping[str, Any]) -> dict[str, Any]:
@@ -2115,6 +2203,9 @@ def build_payload() -> dict[str, Any]:
     )
     artifact, response_pin = pin_response_artifact(carrier_pin)
     pole_artifact, pole_pin = pin_pole_residue_artifact(carrier_pin, artifact)
+    attachment_receipt, attachment_pin = pin_matter_attachment_receipt(
+        artifact, pole_artifact
+    )
 
     costs = band_costs(operational)
     kernels = band_action_kernels(projectors, rotations)
@@ -2199,6 +2290,9 @@ def build_payload() -> dict[str, Any]:
             artifact, operational, kernels
         ),
         "pole_table_mutation": control_pole_table_mutation(pole_artifact),
+        "matter_attachment_mutation": control_matter_attachment_mutation(
+            artifact, pole_artifact
+        ),
         "refinement_projector_mutation": (
             control_refinement_projector_mutation(
                 refinement_maps, projectors
@@ -2287,9 +2381,41 @@ def build_payload() -> dict[str, Any]:
             "matter_packet": matter_pin,
             "measured_response_artifact": response_pin,
             "measured_pole_residue_artifact": pole_pin,
+            "finite_spin_locality_receipt": attachment_pin,
         },
         "measured_receipt": measured,
         "pole_residue_receipt": pole_receipt,
+        "finite_spin_locality_attachment": {
+            "receipt": attachment_pin,
+            "domain": (
+                "issue-634 typed local domain, bound by capture hash to "
+                "the frozen stage receipts"
+            ),
+            "layer_clauses_all_true": True,
+            "generation_recomputed_states": attachment_receipt[
+                "generation_certificate"
+            ]["weyl_state_count"],
+            "z6_all_states_fixed": attachment_receipt[
+                "z6_kernel_certificate"
+            ]["all_states_fixed"],
+            "chirality_nondegenerate": attachment_receipt[
+                "chirality_certificate"
+            ]["chirality_nondegenerate"],
+            "gap_inherited_exact": attachment_receipt[
+                "gap_inheritance_certificate"
+            ]["inherited"],
+            "lift_ambiguity_rank": attachment_receipt["spin_layer"][
+                "lift_ambiguity_rank"
+            ],
+            "continuum_gate_unchanged": True,
+            "scope_note": (
+                "the finite layer types chirality, spin data, locality, "
+                "and refinement on the local domain; the continuum "
+                "Spin/locality receipt, matter-pole identification, "
+                "physical seam selection, and laboratory identification "
+                "stay open"
+            ),
+        },
         "spectral_resolution": spectral,
         "equivariance": equivariance,
         "refinement_transport": refinement_transport,

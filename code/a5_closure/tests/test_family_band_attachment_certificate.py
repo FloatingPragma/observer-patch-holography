@@ -196,9 +196,29 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         finally:
             cert.MANIFEST_PATH.write_bytes(original)
 
-    def test_schema_is_v5(self) -> None:
-        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v5")
+    def test_schema_is_v6(self) -> None:
+        self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v6")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
+
+    def test_finite_spin_locality_attachment_bound(self) -> None:
+        section = self.payload["finite_spin_locality_attachment"]
+        self.assertTrue(section["layer_clauses_all_true"])
+        self.assertEqual(section["generation_recomputed_states"], 15)
+        self.assertTrue(section["z6_all_states_fixed"])
+        self.assertTrue(section["chirality_nondegenerate"])
+        self.assertTrue(section["gap_inherited_exact"])
+        self.assertTrue(section["continuum_gate_unchanged"])
+        pins = self.payload["upstream_pins"]
+        self.assertEqual(
+            pins["finite_spin_locality_receipt"]["path"],
+            "manifests/matter_attachment_receipt.json",
+        )
+        control = self.payload["controls"]["matter_attachment_mutation"]
+        self.assertTrue(control["failed"])
+        self.assertEqual(control["code"], "MATTER_ATTACHMENT_RANK")
+        promotion = self.payload["promotion"]
+        self.assertFalse(promotion["continuum_spin_locality_derived"])
+        self.assertFalse(promotion["promotion_allowed"])
 
     def test_actual_refinement_triangle_and_rank45_transport(self) -> None:
         transport = self.payload["refinement_transport"]

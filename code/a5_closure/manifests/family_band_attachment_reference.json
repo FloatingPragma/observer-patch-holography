@@ -320,6 +320,12 @@
       "failed": true,
       "meaning": "sqrt5 -> -sqrt5 exchanges the bands abstractly, but it is not an A2 transport and does not preserve the measured cost order, so the 3 versus 3' ambiguity is operationally resolved"
     },
+    "matter_attachment_mutation": {
+      "code": "MATTER_ATTACHMENT_RANK",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the pin path reads the receipt rank; a doctored rank is refused by the same loader the certificate uses"
+    },
     "matter_factor_mutation": {
       "code": "LABEL_FACTOR_IDENTITY",
       "expected_failure": true,
@@ -373,6 +379,23 @@
   "equivariance": {
     "all_projectors_equivariant": true,
     "rotations_checked": 60
+  },
+  "finite_spin_locality_attachment": {
+    "chirality_nondegenerate": true,
+    "continuum_gate_unchanged": true,
+    "domain": "issue-634 typed local domain, bound by capture hash to the frozen stage receipts",
+    "gap_inherited_exact": true,
+    "generation_recomputed_states": 15,
+    "layer_clauses_all_true": true,
+    "lift_ambiguity_rank": 3117,
+    "receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "finite Spin/locality layer on the issue-634 local domain",
+      "sha256": "88c388c0fb04dfb9aea2166a4a11a5a993d2e1f5f9d20333ca7cc6f628dca847"
+    },
+    "scope_note": "the finite layer types chirality, spin data, locality, and refinement on the local domain; the continuum Spin/locality receipt, matter-pole identification, physical seam selection, and laboratory identification stay open",
+    "z6_all_states_fixed": true
   },
   "generation": {
     "per_family_anomaly_forms": {
@@ -428,7 +451,7 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, actual refinement cocycle, rank-45 tensor transport, anomaly and Z6 checks)"
   ],
-  "manifest_sha256": "sha256:8fe0049eb486074796a9d8d29314ca626693bb4d2cac8e710e8c6a374af781eb",
+  "manifest_sha256": "sha256:add389ce01a458e220e26f337cf0ca943d6722ceb83bdb6f896a08604337e098",
   "measured_receipt": {
     "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
     "artifact_issue": 599,
@@ -1306,7 +1329,7 @@
     "tensor_projector_rank": 45,
     "tensor_projector_refinement_natural": true
   },
-  "schema": "oph.family_band_attachment_certificate.v5",
+  "schema": "oph.family_band_attachment_certificate.v6",
   "selection": {
     "minimizer": "3",
     "order": [
@@ -1456,6 +1479,12 @@
       "path": "receipts/port_current_inner_reference.receipt.json",
       "role": "current_refinement_receipt",
       "sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb"
+    },
+    "finite_spin_locality_receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "finite Spin/locality layer on the issue-634 local domain",
+      "sha256": "88c388c0fb04dfb9aea2166a4a11a5a993d2e1f5f9d20333ca7cc6f628dca847"
     },
     "global_form_manifest": {
       "issue": 567,
