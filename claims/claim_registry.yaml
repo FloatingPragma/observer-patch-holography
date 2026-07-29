@@ -1477,7 +1477,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. On the separately declared finite local-domain branch, the tensor product of this band with the generation witness has complex rank 45. Its exact charge table has vanishing anomalies and even Witten parity, its charge multiset has nondegenerate chirality, the diagonal Z6 action is exact, and its local signed operator inherits the scalar operator's zero kernel and positive dimensionless gap with multiplicity 45. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg or laboratory current, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
+      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. A full-rank physical current whose A5 action is inner, or whose canonical five-band is physically noncentral under the weaker group-action branch, selects Lie algebra su(3)+su(2)+u(1). Determinant balance and the stated cover data conditionally give the Z6 quotient, while the declared 3+2 exterior packet gives one exact rank-15 generation witness. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. On the separately declared finite local-domain branch, the tensor product of this band with the generation witness has complex rank 45. Its exact charge table has vanishing anomalies and even Witten parity, its charge multiset has nondegenerate chirality, the diagonal Z6 action is exact, and its local signed operator inherits the scalar operator's zero kernel and positive finite-domain signed-seam gap with multiplicity 45. These finite implications do not produce the physical current, prove the exterior-module menu complete, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg or laboratory current, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_A5_screen_current_recognition_chain",
       "assumptions": [
@@ -1681,7 +1681,7 @@
     },
     {
       "claim_id": "OPH-SOURCE-DIMENSIONLESS-GAP",
-      "statement": "On the frozen finite local domain, the sign-twisted incidence operator D has full rank 8662, so H=D*D is an integer symmetric positive-definite matrix. The exact determinant argument gives lambda_min(H) at least 24^(-8661), hence a strictly positive dimensionless source gap. A numerical eigensolve gives 0.11753670336118684 with the recorded residual, as a measured refinement rather than the exact lower bound. No physical reference transition, SI frequency, mass scale, or charged-determinant attachment follows from this finite result.",
+      "statement": "On the frozen finite local domain, the sign-twisted incidence operator D has full rank 8662, so H=D*D is an integer symmetric positive-definite matrix. The exact determinant argument gives lambda_min(H) at least 24^(-8661), hence a strictly positive finite-domain signed-seam gap. A numerical eigensolve gives 0.11753670336118684 with the recorded residual, as a measured refinement rather than the exact lower bound. This graph operator is distinct from the compact-gauge repair generator and the continuum Yang-Mills Hamiltonian. No physical reference transition, SI frequency, mass scale, or charged-determinant attachment follows from this finite result.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "exact_finite_gap_plus_numerical_refinement",
       "assumptions": [
@@ -1695,7 +1695,7 @@
         "integer_positive_definite_determinant_bound",
         "symmetric_eigenvalue_residual_bound"
       ],
-      "oph_specific_delta": "The finite source action supplies an exact positive dimensionless gap on the same target-clean local domain as the seam and section receipts, while keeping its numerical refinement and physical clock interpretation in separate epistemic classes.",
+      "oph_specific_delta": "The finite source action supplies an exact positive finite-domain gap for the signed seam operator on the same target-clean local domain as the seam and section receipts. Its numerical refinement, the compact-gauge repair spectrum, the continuum Yang-Mills spectrum, and physical clock interpretation remain separate objects.",
       "novelty_type": "exact_finite_source_gap_receipt",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
@@ -1796,7 +1796,7 @@
     },
     {
       "claim_id": "OPH-YM-GAP",
-      "statement": "On the support-visible compact-gauge branch, the Yang-Mills mass gap is identified with the OPH repair gap.",
+      "statement": "On the support-visible compact-gauge branch carrying the finite-transfer, vacuum, Osterwalder-Schrader reconstruction, noncollapse, and uniform-gap certificates, the continuum Yang-Mills Hamiltonian mass gap is identified with the limiting OPH repair gap.",
       "owner_paper": "extra/yang_mills_gap_clay_problem.tex",
       "tier": "branch_theorem_conditional_on_construction",
       "assumptions": [
@@ -1814,7 +1814,7 @@
         "standard_compact_gauge_language"
       ],
       "oph_specific_delta": "Exact atomic heat-bath collars supply a positive Euclidean relaxation generator. A finite source-type table and uniform L2 approximate-tensorization receipt give the explicit floor delta_*=c_*/A_*, which transfers to the compact-gauge Hamiltonian only through the separate continuum receipts.",
-      "novelty_type": "problem_solution_on_declared_branch",
+      "novelty_type": "conditional_problem_solution_implication",
       "evidence": [
         "extra/yang_mills_gap_clay_problem.tex",
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1827,7 +1827,7 @@
       ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
-      "status": "proved_on_branch",
+      "status": "conditional_gap_identity__finite_transfer_and_continuum_receipts_open",
       "claim_class": "conditional_implication",
       "gates": [
         294,

@@ -312,10 +312,9 @@ The Yang-Mills mass gap is a statement about the spectrum of the strong
 interaction, separate from assigning a hard mass to the gluon. OPH has a
 conditional route in which a compact gauge action and a uniform positive
 repair gap would supply that spectrum. A finite signed seam operator on one
-source capture does have an exact positive dimensionless gap. It is a
-different finite graph operator. It does not supply the continuum gauge
-theory, its vacuum, or the uniform limiting bound required by the Yang-Mills
-problem.
+source capture has an exact positive finite-domain gap. That finite graph
+operator supplies neither the continuum gauge theory and its vacuum nor the
+uniform limiting bound required by the Yang-Mills problem.
 
 **Higgs boson** (spin 0): The source of mass for W, Z, and fermions. Discovered at CERN in 2012. Mass about 125 GeV.
 

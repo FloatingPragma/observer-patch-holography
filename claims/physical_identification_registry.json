@@ -157,14 +157,14 @@
         "OPH-SOURCE-DIMENSIONLESS-GAP"
       ],
       "source_anchors": [
-        "exact finite dimensionless source gap",
+        "exact positive finite-domain signed-seam gap",
         "G_SI clock chain"
       ],
       "blocking_issues": [
         {
           "number": 633,
           "disposition": "open_work_item",
-          "role": "select an observer-readable physical reference transition and bind its exact SI frequency; the finite dimensionless source gap is supplied"
+          "role": "select an observer-readable physical reference transition and bind its exact SI frequency; the positive finite-domain signed-seam gap is supplied"
         },
         {
           "number": 569,

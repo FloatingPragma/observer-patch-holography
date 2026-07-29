@@ -81,7 +81,7 @@ certificates:
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
    and the Lean proofs of the
    [gauge trichotomy](Lean/Screen/A5OPH.lean) and
-   [$\mathbb Z_6$ quotient](Lean/Screen/Z6Exact.lean).
+   [Z₆ quotient](Lean/Screen/Z6Exact.lean).
 4. **One chiral Standard Model generation and a rank-three family
    candidate.** The finite matter lift realizes the exact fifteen-state
    hypercharge multiset of one generation and its anomaly cancellations. Under
@@ -90,20 +90,22 @@ certificates:
    places its residue at the lowest positive generator frequency. On the same
    finite source domain, their tensor product has complex rank 45, a
    nondegenerate chirality grading, the exact diagonal $\mathbb Z_6$ action,
-   local signed operators, and the inherited positive dimensionless gap.
+   local signed operators, and the inherited positive finite-domain gap of
+   the signed seam operator.
    Matter-pole identification, the continuum Spin/locality limit, physical
    seam selection, and laboratory attachment are open. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
-5. **A finite local action domain with an exact positive dimensionless
-   gap.** One target-clean source capture supplies an exact causal order,
+5. **An exact positive finite-domain gap for the signed seam operator.**
+   One target-clean source capture supplies an exact causal order,
    observer-visible seam topology, typed finite sections, 38 frustrated
    triangles, and a zero twisted kernel. For the declared unit-counting signed
    operator, the graph theorem gives
    $\lambda_{\min}\geq24^{-8661}>0$. A sparse numerical run gives
-   $0.1175367$ as an uncertified refinement. The result supplies no physical
-   clock, particle mass, or Yang–Mills gap. See the
+   $0.1175367$ as an uncertified refinement. This signed-graph spectrum is
+   distinct from the compact-gauge repair spectrum and from the continuum
+   Yang–Mills mass gap. It supplies no physical clock or particle mass. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
    and the pinned
    [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/877675938812e26417bb006d5bf3752301f8a3f8/data/local_domain/source_gap_receipt.json).
@@ -446,12 +448,12 @@ attachment is not established.
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting kinetic operator has a rigorously positive dimensionless gap; the measured refinement is 0.1175367. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
+| Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Echosahedral selector and finite $A_5$ current theorem | The declared integer-counting and normalized Hilbert--Schmidt-cost realization gives the exact twelve-unit split. Independently, oriented incidence gives inverse pairing, proper $A_5$ action, a rank-three frame, and the unique central graph involution. Derivation of the integer normalization and physical discrete cost from the full three-axiom schema is open. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. The finite local-domain attachment tensors that band with the fifteen-state generation to complex rank 45, with nondegenerate chirality, exact diagonal $\mathbb Z_6$ action, local signed operators, and the inherited dimensionless gap. Physical matter-pole identification, the continuum Spin/locality limit, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. The finite local-domain attachment tensors that band with the fifteen-state generation to complex rank 45, with nondegenerate chirality, exact diagonal $\mathbb Z_6$ action, local signed operators, and the inherited positive finite-domain gap of the signed seam operator. Physical matter-pole identification, the continuum Spin/locality limit, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
