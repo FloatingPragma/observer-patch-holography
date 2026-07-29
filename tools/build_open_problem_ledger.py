@@ -279,19 +279,22 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "gravity-scale-composition",
         "claim_level": "source clock plus gravity readout composition gap",
         "blocker": (
-            "Issue #633 owns the source energy clock. A source-derived gravity "
+            "Issue #633 proves PHYSICAL_UNITS_NOT_EVALUABLE on the complete declared "
+            "finite domain. The extended matter and scalar/Yukawa domains in #569 "
+            "and #630 must select a physical transition. A source-derived gravity "
             "length or radius, Einstein attachment, common provenance graph, and "
             "outward interval composition into G_SI remain open."
         ),
         "closure": (
-            "A target-clean #633 energy interval and source gravity readout compose "
-            "on one branch into an independently replayed G_SI interval."
+            "A target-clean physical transition from the extended source domain and "
+            "a source gravity readout compose on one branch into an independently "
+            "replayed G_SI interval."
         ),
         "falsification": (
             "The composition imports measured G, Planck units, a cosmological target, "
             "or incompatible clock and gravity provenance."
         ),
-        "chrome_policy": "Use only after #633 and a concrete gravity-scale packet exist.",
+        "chrome_policy": "Use only after #569 and #630 supply a physical transition and a concrete gravity-scale packet exists.",
     },
     547: {
         "phase": "n-dependent-electroweak-balance",
@@ -592,9 +595,11 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "common-digest production replay."
         ),
         "closure": (
-            "The positive packets from #634, #569, #630, #631, #632, #32, and #633 "
-            "are substituted into the validated #593 consumer without algorithm "
-            "changes and independently replayed under one recomputed subject digest."
+            "The positive packets from #634, #569, #630, #631, #632, and #32, "
+            "including the physical transition selected on the extended matter "
+            "domain, are substituted into the validated #593 consumer without "
+            "algorithm changes and independently replayed under one recomputed "
+            "subject digest."
         ),
         "falsification": (
             "Any source choice, branch, tolerance, error budget, or producer depends "
@@ -661,22 +666,22 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     633: {
         "phase": "operational-source-clock",
-        "claim_level": "exact interval inversion closed; physical source energy clock open",
+        "claim_level": "positive dimensionless gap closed; physical SI clock non-identifiable on the declared domain",
         "blocker": (
-            "The exact SI chart and interval inversion are finite algebra. No "
-            "target-clean local Hamiltonian or transition, positive gap interval, "
-            "physical reference transition, scheme, or refinement rule is emitted."
+            "The declared source domain emits an exact positive dimensionless gap "
+            "and admits source-indistinguishable SI attachments. It therefore cannot "
+            "select a physical reference transition or SI chart."
         ),
         "closure": (
-            "A source-derived operational transition and positive gap produce an "
-            "energy interval whose exact SI conversion is independently replayed "
-            "without measured clocks, particle masses, G, or Planck units."
+            "The source classification and same-domain countermodels certify "
+            "PHYSICAL_UNITS_NOT_EVALUABLE while retaining the positive dimensionless "
+            "gap. Any matter-anchored extension is owned separately by #569 and #630."
         ),
         "falsification": (
-            "The clock interval depends on a measured frequency, calibrated proxy, "
-            "synthetic fixture, or branch selected by a physical target."
+            "The declared source domain uniquely selects an SI attachment, or the "
+            "same-domain alternatives cease to be source-indistinguishable."
         ),
-        "chrome_policy": "Use only after a concrete local Hamiltonian or transition packet exists.",
+        "chrome_policy": "Closed on the complete negative exit; use successor issues for extended source domains.",
     },
     634: {
         "phase": "lorentzian-spin-local-source",

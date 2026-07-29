@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "release_id": "r2002",
+  "release_id": "r2003",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -1652,7 +1652,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-24-CLOCK-DETERMINANT",
-      "statement": "A 24-stage register does not determine a physical frequency, spectral gap, or mass scale because uniform Hamiltonian rescaling preserves the register and changes every energy scale. Conditional on a source-derived operational clock line L_24 with calibrated gap Delta_24 and a natural norm-preserving map from its tensor cube to det M_e, the charged-lepton determinant scale satisfies (det M_e)^(1/3)=Delta_24 up to a separately derived normalization factor.",
+      "statement": "A 24-stage register does not determine a physical frequency, spectral gap, or mass scale because uniform Hamiltonian rescaling preserves the register and changes every energy scale. The complete declared finite local domain supplies an exact positive dimensionless signed-seam gap but admits source-indistinguishable SI attachments, so its physical-unit verdict is PHYSICAL_UNITS_NOT_EVALUABLE. Conditional on an extended source domain that selects an operational clock line L_24 with calibrated gap Delta_24 and a natural norm-preserving map from its tensor cube to det M_e, the charged-lepton determinant scale satisfies (det M_e)^(1/3)=Delta_24 up to a separately derived normalization factor.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "rate_no_go_plus_conditional_scale_implication",
       "assumptions": [
@@ -1672,10 +1672,11 @@
       ],
       "falsifier": "A Hamiltonian rescaling changes the 24-stage register structure, or the stated norm-preserving determinant-line map exists while the induced determinant scale differs from the calibrated clock gap after the declared normalization is applied.",
       "scope_if_false": "The register-rate no-go or conditional charged determinant attachment reopens. The exterior Standard Model representation witness and charged-lepton shape relations remain separate.",
-      "status": "rate_no_go_proved_physical_clock_attachment_open",
+      "status": "rate_no_go_and_declared_domain_nonidentifiability_proved__extended_physical_clock_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        633,
+        569,
+        630,
         522
       ]
     },
