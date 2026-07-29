@@ -303,6 +303,15 @@
       "summary": "The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
     }
   ],
+  "conditional_nonpromotable_rows": {
+    "higgs": {
+      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
+      "promotable": false,
+      "scope": "declared_d10_d11_running_matching_threshold_surface_only",
+      "unit": "GeV",
+      "value": 125.1995304097179
+    }
+  },
   "current_surface": {
     "builder": "code/particles/compute_current_output_table.py",
     "default_runtime_root": "temp/particles_runtime",
@@ -323,7 +332,7 @@
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
     "symmetry_only_particle_promotion_blocked": true
   },
-  "generated_utc": "2026-07-29T16:25:40Z",
+  "generated_utc": "2026-07-29T17:21:23Z",
   "issue_gates": [
     {
       "chrome_workers": "not_needed_for_analytic_claim_gate",
@@ -577,15 +586,7 @@
       "title": "Strong-CP branch status"
     }
   ],
-  "latest_nonhadron_predictions": {
-    "higgs": {
-      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
-      "promotable": false,
-      "scope": "declared_d10_d11_running_matching_threshold_surface_only",
-      "unit": "GeV",
-      "value": 125.1995304097179
-    }
-  },
+  "latest_nonhadron_predictions": {},
   "purpose": "Single closure gate for source-only rows and empirical hadron closure rows.",
   "scope": {
     "chrome_workers_needed": false,

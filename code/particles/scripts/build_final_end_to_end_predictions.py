@@ -320,7 +320,15 @@ def build_payload() -> dict[str, Any]:
     quark_axiom_level_obstruction = _load_optional_json(QUARK_AXIOM_LEVEL_OBSTRUCTION) or {}
     quark_scheme_obstruction = _load_optional_json(QUARK_SCHEME_OBSTRUCTION) or {}
     by_id = {entry["particle_id"]: _prediction_entry(entry) for entry in exact["entries"]}
-    predictions = [by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id]
+    ordered_outputs = [
+        by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id
+    ]
+    predictions = [
+        entry for entry in ordered_outputs if entry.get("promotable") is True
+    ]
+    conditional_nonpromotable_rows = [
+        entry for entry in ordered_outputs if entry.get("promotable") is not True
+    ]
     particle_five_gates = [
         gate
         for gate in pipeline["issue_gates"]
@@ -331,7 +339,10 @@ def build_payload() -> dict[str, Any]:
         "artifact": "oph_final_current_end_to_end_particle_predictions",
         "generated_utc": _now_utc(),
         "scope": "nonhadron_particle_pipeline_with_empirical_hadron_closure_policy",
-        "claim_status": "final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated",
+        "claim_status": (
+            "no_promotable_numerical_particle_predictions__conditional_candidates_"
+            "classical_carriers_and_empirical_hadrons_separated"
+        ),
         "source_surfaces": {
             "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
             "measured_endpoint_calibration": (
@@ -516,6 +527,7 @@ def build_payload() -> dict[str, Any]:
         "particle_five_issue_gates": particle_five_gates,
         "companion_open_branches": list(pipeline.get("companion_status_branches", [])),
         "predictions": predictions,
+        "conditional_nonpromotable_rows": conditional_nonpromotable_rows,
         "hadron_policy": {
             "source_only_hadron_predictions_emitted": False,
             "empirical_hadron_closure_allowed_for_display": True,
@@ -580,20 +592,39 @@ def render_markdown(payload: dict[str, Any]) -> str:
             lines.append(
                 f"| {branch['label']} | `{_display_status(branch['state'])}` | {branch['summary']} | {branch['next_action']} |"
             )
-    lines.extend(
-        [
-            "",
-            "## Predictions",
-            "",
-            "| Particle | Prediction | Claim label | Scope | Promotable |",
-            "| --- | ---: | --- | --- | --- |",
-        ]
-    )
-    for entry in payload["predictions"]:
-        lines.append(
-            f"| `{entry['particle_id']}` | `{entry['value']} {entry['unit']}` | "
-            f"`{entry['exact_kind']}` | `{entry['scope']}` | `{entry['promotable']}` |"
+    lines.extend(["", "## Promotable Numerical Predictions", ""])
+    if payload["predictions"]:
+        lines.extend(
+            [
+                "| Particle | Prediction | Claim label | Scope |",
+                "| --- | ---: | --- | --- |",
+            ]
         )
+        for entry in payload["predictions"]:
+            lines.append(
+                f"| `{entry['particle_id']}` | `{entry['value']} {entry['unit']}` | "
+                f"`{entry['exact_kind']}` | `{entry['scope']}` |"
+            )
+    else:
+        lines.append("No promotable numerical particle prediction is emitted on the current corpus.")
+    conditional_rows = payload.get("conditional_nonpromotable_rows") or []
+    if conditional_rows:
+        lines.extend(
+            [
+                "",
+                "## Conditional Non-Promotable Candidates",
+                "",
+                "These numerical rows remain visible as conditional audit candidates. They are not predictions.",
+                "",
+                "| Particle | Candidate | Claim label | Scope |",
+                "| --- | ---: | --- | --- |",
+            ]
+        )
+        for entry in conditional_rows:
+            lines.append(
+                f"| `{entry['particle_id']}` | `{entry['value']} {entry['unit']}` | "
+                f"`{entry['exact_kind']}` | `{entry['scope']}` |"
+            )
     carrier_modes = payload.get("classical_carrier_modes") or []
     if carrier_modes:
         lines.extend(

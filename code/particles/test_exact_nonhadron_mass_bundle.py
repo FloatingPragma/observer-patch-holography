@@ -63,7 +63,7 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         payload = json.loads(js.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_exact_nonhadron_mass_bundle"
         assert payload["status"] == (
-            "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
+            "conditional_nonhadron_candidates_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
         )
         entries = {entry["particle_id"]: entry for entry in payload["entries"]}
         carriers = {entry["carrier_id"]: entry for entry in payload["classical_carrier_modes"]}
@@ -90,7 +90,8 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
         assert withheld["tau_neutrino"]["reason"] == "target_informed_candidate_rejected_by_correlated_profile"
         markdown = md.read_text(encoding="utf-8")
-        assert "Public Non-Hadron Mass Outputs" in markdown
+        assert "Non-Hadron Mass Candidate Audit" in markdown
+        assert "No displayed row has that status" in markdown
         assert "Separated Classical Carrier Modes" in markdown
         assert "not emitted as `0 GeV` particle predictions" in markdown
         assert "Bottom Quark" not in markdown

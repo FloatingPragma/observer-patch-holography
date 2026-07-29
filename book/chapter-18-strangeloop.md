@@ -281,22 +281,28 @@ separate consistency check asks whether the screen's record load and the weak
 sector's load are one and the same carrier; the two readings differ
 by about $6.6$ percent, and reconciling them is work in progress.
 
-If both equations land, OPH is a fully zero-parameter theory, with both
-numbers returned by the architecture rather than measured. The closure proofs
-are not strictly necessary, though. The loop is a closed mathematical
-structure either way, and living inside a closed structure licenses reading
-values off it: locate a constant in its basin by observation, then prove
-exact fixed-point-ness afterward. The theorems certify the located value;
-they do not have to manufacture it. Even if a first-principles closure for
-$N$ is never found, the reconstruction of the earlier chapters stands. $N$ is
-read from the universe the way any machine setting is read from the machine.
+If both equations land on source-derived maps, the two constants come back
+from the architecture rather than from measurement. That would remove the
+continuous dials from this closure branch. It would not select every physical
+action, particle attachment, or continuum limit elsewhere in the theory.
+
+Measurement can tell us where to look, but it cannot do the work of a closure
+proof. A value located by observation remains a diagnostic until one
+target-free rule builds the return map and the fixed point is shown to be
+unique. The local map has a certified mathematical root, with its physical
+low-energy transport open. Construction of the capacity-indexed global map
+and its unique finite-size zero is work in progress. The reconstruction in
+the earlier chapters does not depend on that numerical closure.
 
 The two numbers have different jobs. $P_\star$ is the local grain of
 observation. $N$ is the global capacity for records. The first sets the
 electromagnetic readout of a screen cell. The second sets the cosmic
 curvature through $\Lambda=3\pi/(GN)$, with $G$ Newton's constant.
-The strange loop fixes both by demanding that the universe return the same
-numbers it was given.
+The strange loop motivates the same demand for both numbers: the outside
+construction and the inside public readback must describe one invariant. Once
+that identification is established, equality follows. Constructing the two
+readings and proving that they refer to the same thing contains the physical
+work.
 
 ## 18.8 Where the Loop Leads
 

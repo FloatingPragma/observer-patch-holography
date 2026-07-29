@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build the public non-hadron mass-output bundle.
+"""Build the non-hadron mass-candidate audit bundle.
 
-The public `entries` list is deliberately stricter than the exact-fit audit
-surface: target-anchored witnesses and compare-only absolute attachments are
-withheld from prediction tables. They remain available in `EXACT_FITS_ONLY`
-and in the generated `withheld_entries` metadata for audit/debug use.
+The `entries` list is deliberately stricter than the exact-fit audit surface:
+target-anchored witnesses and compare-only absolute attachments are withheld.
+An entry remains a conditional candidate unless its explicit promotion gate
+passes. Withheld rows remain available in `EXACT_FITS_ONLY` and in the
+generated `withheld_entries` metadata for audit/debug use.
 """
 
 from __future__ import annotations
@@ -661,18 +662,19 @@ def build_markdown(
     carrier_modes: list[dict[str, Any]],
 ) -> str:
     lines = [
-        "# Public Non-Hadron Mass Outputs",
+        "# Non-Hadron Mass Candidate Audit",
         "",
         f"Generated: `{generated_utc}`",
         "",
-        "This bundle gives numeric non-hadron mass outputs that are not target-anchored witness rows.",
-        "Target-anchored exact fits and compare-only absolute attachments are withheld from this prediction table and kept in `EXACT_FITS_ONLY.md` for audit/debug use.",
+        "This bundle records numeric non-hadron candidates that are not target-anchored witness rows.",
+        "A row is a prediction only when its explicit promotion gate passes. No displayed row has that status on the current corpus.",
+        "Target-anchored exact fits and compare-only absolute attachments are withheld from this candidate table and kept in `EXACT_FITS_ONLY.md` for audit/debug use.",
         "Charged-lepton and quark exact same-family/current-family surfaces remain available as exact-fit audit witnesses, but their numeric values are not public mass outputs under the strict non-circularity policy.",
         "Absolute neutrino masses are likewise withheld here while the absolute attachment remains compare-only; dimensionless PMNS and mass-splitting-ratio comparisons stay in `RESULTS_STATUS.md`.",
         "Photon, gluon, and graviton labels are not emitted as `0 GeV` particle predictions. Their zero hard quadratic parameters are tracked separately as conditional classical/perturbative carrier modes in `CARRIER_MODE_ACCEPTANCE.md`; the quantum-particle gate remains open.",
         "",
-        "| Particle | Mass Output | Kind | Scope | Source |",
-        "| --- | ---: | --- | --- | --- |",
+        "| Particle | Candidate | Kind | Scope | Promotable | Source |",
+        "| --- | ---: | --- | --- | --- | --- |",
     ]
     for entry in entries:
         if "mass_gev" in entry:
@@ -680,7 +682,8 @@ def build_markdown(
         else:
             value = f"`{entry['mass_eV']} eV`"
         lines.append(
-            f"| {entry['label']} | {value} | `{entry['exact_kind']}` | `{entry['scope']}` | `{entry['source_artifact']}` |"
+            f"| {entry['label']} | {value} | `{entry['exact_kind']}` | "
+            f"`{entry['scope']}` | `{entry['promotable']}` | `{entry['source_artifact']}` |"
         )
     lines.extend(
         [
@@ -718,7 +721,7 @@ def main() -> int:
     payload = {
         "artifact": "oph_exact_nonhadron_mass_bundle",
         "generated_utc": generated_utc,
-        "status": "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld",
+        "status": "conditional_nonhadron_candidates_with_classical_carriers_separated_and_target_anchored_witnesses_withheld",
         "entries": entries,
         "withheld_entries": withheld_entries,
         "classical_carrier_modes": carrier_modes,

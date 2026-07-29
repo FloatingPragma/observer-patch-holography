@@ -4,12 +4,12 @@
 
 [Read in English](README.md) · [Livre](https://oph-book.floatingpragma.io/) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
-L’Holographie des parcelles d’observateur, ou OPH, est une théorie du tout
-sans boutons de réglage, construite sur une thèse centrale : **les
-observateurs sont premiers, et la réalité objective est émergente.** La
-physique commence habituellement en fournissant un espace-temps, des champs
-quantiques, un groupe de jauge et une table de constantes mesurées. OPH
-commence par des observateurs : des systèmes bornés dotés d’un état local,
+L’Holographie des parcelles d’observateur, ou OPH, est un programme de
+recherche pour une théorie du tout sans boutons de réglage, construit sur une
+thèse centrale : **les observateurs sont premiers, et la réalité objective est
+émergente.** La physique commence habituellement en fournissant un espace-temps,
+des champs quantiques, un groupe de jauge et une table de constantes mesurées.
+OPH commence par des observateurs : des systèmes bornés dotés d’un état local,
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
@@ -48,9 +48,9 @@ prérequis.
   et à mesure. Des volumes couvrent la gravité, le Modèle Standard et
   l’unification, chacun lisible en ligne ou en PDF.
 - **La simulation.** Les [visualisations interactives](https://simulation.floatingpragma.io/)
-  affichent des données réelles de la dynamique de réparation. Vous regardez
-  l’espace-temps et la matière émerger à l’écran au lieu de croire les
-  articles sur parole.
+  affichent des données réelles de la dynamique de réparation. Elles montrent
+  le règlement fini, les tests de signature et les structures porteuses
+  candidates, ce qui permet d’examiner les reçus directement.
 
 La suite de ce README est l’entrée technique du dépôt.
 

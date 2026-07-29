@@ -1,6 +1,6 @@
 # Particle Derivation Chain Closure Matrix
 
-Generated: `2026-07-27T07:59:17Z`
+Generated: `2026-07-29T17:21:23Z`
 
 Status: `executable_nonhadron_chain_matrix_emitted`
 All derivation chains claimed closed: `False`

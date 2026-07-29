@@ -124,8 +124,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[117]["state"] == "rejected_candidate_source_basis_and_kernel_open"
     assert gates[117]["closable_now"] is False
     assert gates[198]["closable_now"] is True
-    assert status["latest_nonhadron_predictions"]["higgs"]["value"] == 125.1995304097179
-    assert status["latest_nonhadron_predictions"]["higgs"]["unit"] == "GeV"
+    assert status["latest_nonhadron_predictions"] == {}
+    assert status["conditional_nonpromotable_rows"]["higgs"]["value"] == 125.1995304097179
+    assert status["conditional_nonpromotable_rows"]["higgs"]["unit"] == "GeV"
+    assert status["conditional_nonpromotable_rows"]["higgs"]["promotable"] is False
     assert "photon" not in status["latest_nonhadron_predictions"]
     carrier_modes = {row["carrier_id"]: row for row in status["classical_carrier_modes"]}
     assert set(carrier_modes) == {"photon", "gluon", "graviton"}

@@ -1207,10 +1207,11 @@ they do not, the theory should call the history ambiguous instead of inventing
 one.
 
 In ordinary language, a particle is a recurring role in the patch federation,
-displayed through the screen chart. Its
-proper quantum state space has a positive energy spectrum and a stable,
-long-lived excitation that a detector can register. The electron fills one such
-matter role. The photon fills the matching massless spin-one carrier role.
+displayed through the screen chart. Its proper quantum state space has a
+positive energy spectrum and a stable, long-lived excitation that a detector
+can register. The electron is the familiar matter example. OPH's unbroken
+electromagnetic branch supplies the matching classical spin-one carrier role;
+the physical photon also needs its positive-energy quantum pole.
 
 The model reads charge and carrier roles from
 the way the algebra net closes on itself; actions and physical spectra decide
@@ -1226,21 +1227,25 @@ select a rank-three response candidate inside the three-to-five window.
 Combining it with the generation table gives a conditional
 forty-five-direction candidate whose physical identification is open. The same structure
 picks out which patterns play the electromagnetic, color, and gravitational
-carrier roles. Their field equations give the classical wave modes, and their
-positive-energy quantum sectors give the corresponding particles.
+carrier roles. Their field equations give classical wave modes. A
+positive-energy quantum construction with the right poles would turn those
+roles into particles.
 
-Mass enters in layers. Electroweak symmetry breaking gives the weak carriers
-and the Higgs sector. The icosahedral face construction organizes the charged
-leptons. Flavor transport organizes quarks and neutrinos. Strong binding then
-builds hadrons such as protons and mesons from quarks and gluons.
+Mass enters in layers. Electroweak symmetry breaking explains the weak
+carriers once a scalar action and vacuum are supplied. The icosahedral face
+construction organizes conditional charged-lepton patterns. Flavor transport
+organizes candidate quark and neutrino structures. Strong binding builds
+hadrons such as protons and mesons, and that binding calculation lies outside
+the finite source packets used here.
 
 The sphere ladder from Chapter 3 is useful here only as a logic map. It says
 seed, loop, screen, bulk. It does not say photon, gluon, graviton, hadron.
 Those role labels come from the recovered Lorentz and gauge structure. The
 unbroken electromagnetic direction, color directions, and metric tensor mode
-become the photon, gluon, and graviton sectors. $W$ and $Z$ are massive weak
-carriers, the Higgs is the scalar electroweak excitation, and hadrons are QCD
-composites.
+name the classical carrier candidates for the photon, color field, and
+graviton. Their quantum poles are separate constructions. The physical $W$,
+$Z$, Higgs, and hadron sectors additionally need the actions, vacuum, scales,
+and strong dynamics appropriate to them.
 
 ### How the Concrete Particle Entries Arise
 
@@ -1253,25 +1258,25 @@ they decide which charged excitations can exist and how they transform.
 
 Then comes the local detuning. The screen sits a tiny distance off perfect
 golden-ratio balance, and the width of the boundary sets the size of that
-departure. The proposed forward map carries that value down through the
-high-energy unification of forces, electroweak mixing, and the hadronic
-vacuum response to the electromagnetism measured at long distance, and its
-unique root lands near $137$.
+departure. A declared forward map carries the coordinate through gauge and
+electroweak bookkeeping. Its certified root lands near $137$. The
+source-derived hadronic transport required to identify that root with the
+long-distance laboratory coupling is work in progress.
 
-The fine-structure constant belongs here beside the weak sector. It is the local
-electromagnetic strength of the patch of screen that supports an observer. From
-there the same construction continues into the weak, Higgs, and top sectors.
-Flavor geometry separates the six quark coordinates and the neutrino mixing
-directions. Hadrons come later, because protons and mesons are bound states of
-quarks and gluons. Their masses live in the strong-binding problem, away from
-the bare quark table.
+The fine-structure proposal belongs here beside the weak sector. It asks
+whether the local electromagnetic strength can be read from the screen
+coordinate. Conditional maps continue into weak, Higgs, top, quark, and
+neutrino comparisons. Hadrons come later because protons and mesons are bound
+states. Their masses live in the strong-binding problem, away from the bare
+quark table.
 
 For that reason, a laboratory does not measure the bare first-principles number
 as the fine-structure constant. A real low-energy measurement sees the
 electromagnetic coupling after it has been dressed by the cloud of virtual
 particles around a charge, including the contribution from confined quarks.
-Running and threshold matching carry the screen value to the Thomson limit
-measured in the laboratory.
+Running and threshold matching would carry a completed source value to the
+Thomson limit measured in the laboratory. The required source spectral
+payload has not been constructed.
 
 The local closure proposal compares a golden-ratio balance point with a small
 screen displacement that can carry records and lasting measurement traces.
@@ -1296,9 +1301,10 @@ transverse classical waves. Their quadratic Green function has a pole at
 $\omega^2=c_*^2|\mathbf k|^2$. This is a precise massless classical
 carrier-mode statement.
 
-A positive-energy quantization turns that classical mode into the photon: a
-stable asymptotic state represented by a positive-residue pole in the physical
-two-point function.
+A positive-energy quantization would turn that classical mode into the photon:
+a stable asymptotic state represented by a positive-residue pole in the
+physical two-point function. OPH's quantum Hilbert-space and pole receipt for
+this branch is work in progress.
 
 ## 14.16 What the Gravitational Branch Supplies
 
@@ -1308,9 +1314,10 @@ be linearized and gauge-reduced. The result has two transverse-traceless
 classical wave modes, conventionally called the plus and cross polarizations,
 with the same invariant null speed $c_*$.
 
-Quantizing those two positive-energy tensor modes gives the graviton sector.
-The same construction fixes the physical Hilbert space and the corresponding
-massless spin-two pole.
+A compatible positive-energy quantization would give the graviton sector and
+its massless spin-two pole. The classical modes are exact on the stated
+Einstein branch. Construction of the physical Hilbert space and graviton pole
+is work in progress.
 
 ## 14.17 Why This Matters: Comparison to String Theory
 
@@ -1318,11 +1325,11 @@ String theory provides a useful contrast. After the worldsheet theory is
 quantized, its physical spectrum can contain a massless spin-two state. The
 state, its norm, and its pole belong to the same quantum construction.
 
-OPH reaches the same particle language from the observer side. It reconstructs
-the gauge classification, the electromagnetic action, and the Einstein branch,
-then quantizes their stable carrier modes. String theory begins from the
-worldsheet; OPH begins from records, overlaps, and repair. Both routes reach
-particles as stable representations with definite poles and energies.
+OPH approaches the same particle language from the observer side. It
+reconstructs the finite gauge classification and conditional classical
+electromagnetic and Einstein branches. Their quantization remains a separate
+test. String theory begins from the worldsheet; OPH begins from records,
+overlaps, and repair.
 
 ## 14.18 Why Composite Masses Are Different
 

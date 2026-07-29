@@ -328,6 +328,52 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use only after #505 and #631 emit their positive packets.",
     },
+    505: {
+        "phase": "direct-n-capacity-closure",
+        "claim_level": "direct source-only record-capacity integration target",
+        "blocker": (
+            "The fixed-D=24 source checkpoint packet is complete, but #551 has "
+            "not emitted one capacity-indexed source family with a regulator-stable "
+            "unique slack zero or a complete stated-domain non-identifiability theorem."
+        ),
+        "closure": (
+            "Consume the #551 verdict and certify robust direct closure "
+            "F_set,r,0(D_star)={D_star}, with capacity extension, refinement, "
+            "whole-fiber, ambiguity, and target-exclusion controls kept distinct."
+        ),
+        "falsification": (
+            "The constructor reads an expected answer, a second admissible closure "
+            "survives, capacity extension creates confusability, or the claimed "
+            "cosmic value is imported from cosmology or the electroweak bridge."
+        ),
+        "chrome_policy": (
+            "Use only to audit the composed #551 packet and fixed-D primitives; "
+            "do not substitute target-guided equation search."
+        ),
+    },
+    551: {
+        "phase": "direct-n-capacity-closure",
+        "claim_level": "capacity-indexed selector theorem-or-no-go",
+        "blocker": (
+            "The source corpus supplies a fixed-D checkpoint construction, not one "
+            "target-clean rule D -> packet_r(D) -> M_0,r(D) with the exact "
+            "subleading slack and regulator control."
+        ),
+        "closure": (
+            "Prove existence, nontriviality, uniqueness, and cutoff independence "
+            "of one slack zero, or give a complete same-antecedent counterfamily "
+            "proving non-identifiability over the declared source class."
+        ),
+        "falsification": (
+            "A second zero, regulator-dependent zero, separately authored per-D "
+            "fixture, target input, or admissible same-source counterfamily survives "
+            "a claimed positive selector theorem."
+        ),
+        "chrome_policy": (
+            "Use for independent theorem or countermodel audit after a local "
+            "capacity-indexed packet exists; local exact construction comes first."
+        ),
+    },
     522: {
         "phase": "cosmology-source-clock",
         "claim_level": "source generator and operational clock gap",
@@ -661,6 +707,56 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "normalization, or target/cosmological input survives the controls."
         ),
         "chrome_policy": "Use only after the #630 positive action and local carrier receipt exist.",
+    },
+    639: {
+        "phase": "blind-dimensionless-forecast",
+        "claim_level": "draft governance packet with no eligible candidate",
+        "blocker": (
+            "The candidate inventory is provisional and no eligible source-only "
+            "candidate exists. Direct N is blocked on #551 and #505; executable "
+            "generator validation, independent scoring, comparison quarantine, "
+            "durable custody, and single-use unsealing are not implemented."
+        ),
+        "closure": (
+            "Freeze and score exactly one eligible target-quarantined dimensionless "
+            "forecast, or close with the complete bounded no-go or not-evaluable "
+            "ledger after every low-cost candidate and ancestry route is covered."
+        ),
+        "falsification": (
+            "A target or comparison byte enters before freeze, inventory omissions "
+            "alter selection, generator and checker are not independent, a branch "
+            "changes after exposure, or a claimed negative exit omits an eligible "
+            "low-cost source candidate."
+        ),
+        "chrome_policy": (
+            "Do not launch forecast evaluation until #551/#505 or a lower-ranked "
+            "candidate emits a concrete target-clean packet; use workers only for "
+            "adversarial ancestry and checker audits."
+        ),
+    },
+    641: {
+        "phase": "baryon-violation-boundary",
+        "claim_level": "dimension-six operator census open; minimal X/Y channel absence closed",
+        "blocker": (
+            "The selected product adjoint excludes the ordinary minimal simple-GUT "
+            "X/Y gauge-exchange generator, but no complete gauge-invariant baryon-"
+            "violating operator basis through dimension six is classified on the "
+            "selected matter and scalar boundary."
+        ),
+        "closure": (
+            "Enumerate every gauge-invariant baryon-violating operator through "
+            "dimension six, classify its OPH source status and mediators, and "
+            "separate exact absences from open coefficients and ultraviolet channels."
+        ),
+        "falsification": (
+            "A gauge-invariant operator or admitted mediator is omitted, an open "
+            "coefficient is treated as zero, or the minimal X/Y channel result is "
+            "promoted to general proton stability or a lifetime bound."
+        ),
+        "chrome_policy": (
+            "Use only to audit a local symbolic operator basis and its completeness "
+            "proof; no hadron or proton-lifetime computation is required."
+        ),
     },
     632: {
         "phase": "electroweak-field-census",

@@ -122,6 +122,8 @@ def _latest_nonhadron_predictions(exact_payload: dict[str, Any] | None) -> dict[
         return {}
     predictions: dict[str, dict[str, Any]] = {}
     for entry in exact_payload.get("entries", []):
+        if entry.get("promotable") is not True:
+            continue
         if entry.get("mass_gev") is not None:
             predictions[entry["particle_id"]] = {
                 "value": float(entry["mass_gev"]),
@@ -139,6 +141,34 @@ def _latest_nonhadron_predictions(exact_payload: dict[str, Any] | None) -> dict[
                 "promotable": entry.get("promotable"),
             }
     return predictions
+
+
+def _conditional_nonpromotable_rows(
+    exact_payload: dict[str, Any] | None,
+) -> dict[str, dict[str, Any]]:
+    if not exact_payload:
+        return {}
+    rows: dict[str, dict[str, Any]] = {}
+    for entry in exact_payload.get("entries", []):
+        if entry.get("promotable") is True:
+            continue
+        if entry.get("mass_gev") is not None:
+            rows[entry["particle_id"]] = {
+                "value": float(entry["mass_gev"]),
+                "unit": "GeV",
+                "exact_kind": entry.get("exact_kind"),
+                "scope": entry.get("scope"),
+                "promotable": False,
+            }
+        elif entry.get("mass_eV") is not None:
+            rows[entry["particle_id"]] = {
+                "value": float(entry["mass_eV"]),
+                "unit": "eV",
+                "exact_kind": entry.get("exact_kind"),
+                "scope": entry.get("scope"),
+                "promotable": False,
+            }
+    return rows
 
 
 def _carrier_summaries(payload: dict[str, Any] | None) -> list[dict[str, Any]]:
@@ -578,6 +608,7 @@ def build_status() -> dict[str, Any]:
             ),
         },
         "latest_nonhadron_predictions": _latest_nonhadron_predictions(exact),
+        "conditional_nonpromotable_rows": _conditional_nonpromotable_rows(exact),
         "withheld_non_prediction_rows": (exact or {}).get("withheld_entries", []),
         "classical_carrier_modes": _carrier_summaries(carrier_acceptance),
     }
@@ -635,17 +666,34 @@ def render_markdown(status: dict[str, Any]) -> str:
                 f"| {branch['label']} | `{_display_status(branch['state'])}` | {branch['summary']} | {branch['next_action']} |"
             )
 
-    lines.extend(
-        [
-            "",
-            "## Latest Non-Hadron Predictions",
-            "",
-            "| Particle ID | Mass |",
-            "| --- | ---: |",
-        ]
-    )
-    for particle_id, prediction in sorted(status["latest_nonhadron_predictions"].items()):
-        lines.append(f"| `{particle_id}` | `{prediction['value']} {prediction['unit']}` |")
+    lines.extend(["", "## Promotable Non-Hadron Predictions", ""])
+    if status["latest_nonhadron_predictions"]:
+        lines.extend(["| Particle ID | Mass |", "| --- | ---: |"])
+        for particle_id, prediction in sorted(
+            status["latest_nonhadron_predictions"].items()
+        ):
+            lines.append(
+                f"| `{particle_id}` | `{prediction['value']} {prediction['unit']}` |"
+            )
+    else:
+        lines.append("No promotable numerical particle prediction is emitted on the current corpus.")
+
+    conditional_rows = status.get("conditional_nonpromotable_rows") or {}
+    if conditional_rows:
+        lines.extend(
+            [
+                "",
+                "## Conditional Non-Promotable Candidates",
+                "",
+                "| Particle ID | Candidate | Claim label | Scope |",
+                "| --- | ---: | --- | --- |",
+            ]
+        )
+        for particle_id, candidate in sorted(conditional_rows.items()):
+            lines.append(
+                f"| `{particle_id}` | `{candidate['value']} {candidate['unit']}` | "
+                f"`{candidate['exact_kind']}` | `{candidate['scope']}` |"
+            )
 
     carrier_modes = status.get("classical_carrier_modes") or []
     if carrier_modes:

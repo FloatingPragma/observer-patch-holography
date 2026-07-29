@@ -101,24 +101,31 @@ explained asymptotic freedom. The Higgs mechanism was built by several groups,
 and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
-The force carriers enter first. The unbroken electromagnetic direction has two
-transverse photon modes. The eight color directions carry the gluons. The
-smooth gravitational branch has two transverse gravitational-wave modes. The
-Higgs field changes the weak sector by selecting a vacuum direction, which
-separates the charged $W$ carriers from the neutral $Z$ carrier and gives them
-mass. The electroweak calculation places their running coordinates at
+The force-carrier roles enter first. On the declared Maxwell action branch,
+the unbroken electromagnetic direction has two transverse classical modes.
+The eight color directions form the finite color-current algebra; confinement
+prevents a free-gluon interpretation. The smooth Einstein branch has two
+transverse-traceless classical waves. Physical photon and graviton particles
+need positive-energy quantum poles, which are work in progress.
+
+A scalar action and vacuum would separate the charged $W$ carriers from the
+neutral $Z$ carrier. The comparison calculation places their chart
+coordinates at
 
 $$
 (m_W^{\mathrm{chart}},m_Z^{\mathrm{chart}})
 =(80.330,\ 91.119)\,\mathrm{GeV}.
 $$
 
-$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
+$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. The calculation produces those two coordinates.
+through $E=mc^2$. No certified chart-to-pole map turns them into OPH
+predictions of the measured masses.
 
-The strength of electromagnetism turns out to be readable off the screen's
-geometry, for a reason the book holds until it can be stated properly.
+The local closure proposal asks whether electromagnetic strength can be read
+from the screen's geometry. Its declared map has a certified root. Physical
+identification with the laboratory coupling requires the missing source and
+transport steps.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction

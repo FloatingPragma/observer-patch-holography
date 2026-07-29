@@ -109,7 +109,13 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert carrier_modes["photon"]["particle_promotion_allowed"] is False
     assert "w_boson" not in predictions
     assert "z_boson" not in predictions
-    assert predictions["higgs"]["value"] == 125.1995304097179
+    assert "higgs" not in predictions
+    conditional = {
+        entry["particle_id"]: entry
+        for entry in payload["conditional_nonpromotable_rows"]
+    }
+    assert conditional["higgs"]["value"] == 125.1995304097179
+    assert conditional["higgs"]["promotable"] is False
     assert "electron" not in predictions
     assert "top_quark" not in predictions
     assert "electron_neutrino" not in predictions

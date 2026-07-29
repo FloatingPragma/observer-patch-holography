@@ -4,12 +4,12 @@
 
 [Read in French](README_FR.md) · [Book](https://oph-book.floatingpragma.io/) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
 
-Observer Patch Holography (OPH) is a zero-dial theory of everything built on
-one central thesis: **observers are primary, and objective reality is
-emergent.** Physics normally begins by supplying spacetime, quantum fields, a
-gauge group, and a table of measured constants. OPH begins with observers:
-bounded systems that carry local state, read part of themselves and their
-neighbors, keep records, and repair disagreement. Reality emerges from
+Observer Patch Holography (OPH) is a zero-dial theory-of-everything research
+program built on one central thesis: **observers are primary, and objective
+reality is emergent.** Physics normally begins by supplying spacetime, quantum
+fields, a gauge group, and a table of measured constants. OPH begins with
+observers: bounded systems that carry local state, read part of themselves and
+their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
 reconstructs an exact finite structural core: quantum event rules, Lorentz
 kinematics on the stated global-support branch, the Standard Model gauge
@@ -40,8 +40,9 @@ apart. The material below takes you through that shift from a standing start.
   with the required math built up as you go. Volumes cover gravity, the
   Standard Model, and unification, each readable online or as a PDF.
 - **The simulation.** The [interactive visualizations](https://simulation.floatingpragma.io/)
-  render real data from the repair dynamics. You watch spacetime and matter
-  emerge on screen instead of taking the papers' word for it.
+  render real data from the repair dynamics. They expose finite settling,
+  signature tests, and candidate carrier structure, with each finite receipt
+  available for direct inspection.
 
 The rest of this README is the technical entrance to the repository.
 
