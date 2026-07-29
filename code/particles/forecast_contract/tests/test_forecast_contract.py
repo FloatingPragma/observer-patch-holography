@@ -106,9 +106,10 @@ def _valid_contract_shape() -> dict:
 
 
 def _write_json(path: Path, payload: dict) -> None:
-    path.write_text(
-        json.dumps(payload, sort_keys=True, indent=1) + "\n",
-        encoding="utf-8",
+    path.write_bytes(
+        (json.dumps(payload, sort_keys=True, indent=1) + "\n").encode(
+            "utf-8"
+        )
     )
 
 
@@ -145,12 +146,10 @@ def _freeze_fixture(
 ) -> tuple[dict, dict, str]:
     contract = _valid_contract_shape()
     contract["candidate_id"] = selected_candidate
-    (root / "band_decomposition.json").write_text(
-        '{"rank":3}\n', encoding="utf-8"
-    )
-    (root / "gen.py").write_text("print(3)\n", encoding="utf-8")
-    (root / "check.py").write_text(
-        "assert int('3') == 3\n", encoding="utf-8"
+    (root / "band_decomposition.json").write_bytes(b'{"rank":3}\n')
+    (root / "gen.py").write_bytes(b"print(3)\n")
+    (root / "check.py").write_bytes(
+        b"assert int('3') == 3\n"
     )
 
     ancestry_pin = _pin(
@@ -323,6 +322,7 @@ def _freeze_fixture(
     )
 
     _git(root, "init", "-q")
+    _git(root, "config", "core.autocrlf", "false")
     _git(root, "config", "user.email", "forecast-test@example.invalid")
     _git(root, "config", "user.name", "Forecast Test")
     _git(root, "add", ".")
@@ -1081,7 +1081,7 @@ class ForecastContractTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             contract, inventory, _ = _freeze_fixture(root)
-            (root / "gen.py").write_text("print(4)\n", encoding="utf-8")
+            (root / "gen.py").write_bytes(b"print(4)\n")
             contract["generator"] = _module_pin(root, "gen.py")
             external_digest = fc.canonical_contract_payload_sha256(contract)
             contract["freeze"]["canonical_payload_sha256"] = external_digest
