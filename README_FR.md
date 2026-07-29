@@ -73,7 +73,7 @@ certificats :
    [evidence/einstein_convergence](evidence/einstein_convergence/) ; chaque
    nombre se régénère bit à bit.
 2. **Un noyau vérifié machine qui se surveille lui-même.** Une bibliothèque
-   Lean 4 sans `sorry` de plus de 900 théorèmes et lemmes couvre le noyau de
+   Lean 4 sans `sorry` de plus de 1000 théorèmes et lemmes couvre le noyau de
    consensus, le théorème d’identifiabilité de jauge, l’algèbre finie de
    l’écran et la composition de la branche d’Einstein. Chaque théorème public
    porte son rapport d’axiomes. [Lean/](Lean/)
