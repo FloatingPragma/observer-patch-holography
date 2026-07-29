@@ -4,14 +4,44 @@
   "upstream_archive_sha256": "e6184ec1a535244c0f805c14e275b085a64c7ed078d780828c038d4f21c86a0d",
   "scientific_status": "DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
   "promotion_allowed": false,
-  "distinct_schema_documents": 9,
-  "receipt_instances": 10,
-  "exact_symbolic_checks": 8,
-  "integration_tests": 38,
+  "baseline_specification_schema_documents": 9,
+  "diagnostic_schema_documents": 1,
+  "total_schema_documents": 10,
+  "baseline_specification_receipt_instances": 10,
+  "wz_boundary_diagnostic_receipts": 6,
+  "baseline_exact_symbolic_checks": 8,
+  "wz_exact_finite_corrections": 3,
+  "baseline_specification_tests": 38,
+  "package_test_count_policy": "the current executable count is reported by pytest collection; 38 is the preserved baseline specification-suite count",
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 81,
-  "total_bytes_excluding_manifest_and_runtime_log": 1287760,
+  "file_count_excluding_manifest_and_runtime_log": 89,
+  "total_bytes_excluding_manifest_and_runtime_log": 1331673,
   "files": [
+    {
+      "path": ".ruff_cache/.gitignore",
+      "bytes": 35,
+      "sha256": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316"
+    },
+    {
+      "path": ".ruff_cache/0.14.4/2340555012928595117",
+      "bytes": 220,
+      "sha256": "b0dff07d1d76d531ab01d9151b0969d21a72d6016cda283439affcdd42ef19db"
+    },
+    {
+      "path": ".ruff_cache/0.14.4/2915535154731998085",
+      "bytes": 256,
+      "sha256": "85625c394bf5b00cbb39d32cb878a549bf770647aecb01aa0a9c928401f62fc2"
+    },
+    {
+      "path": ".ruff_cache/0.14.4/3980258345570854365",
+      "bytes": 305,
+      "sha256": "d1dbf88ef0fefc1baf3bbf09c3798e620655272c99c5b8b4bdce40eec19ca457"
+    },
+    {
+      "path": ".ruff_cache/CACHEDIR.TAG",
+      "bytes": 43,
+      "sha256": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae"
+    },
     {
       "path": "AGENT_WORK_ORDER_V4.md",
       "bytes": 7042,
@@ -29,8 +59,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2535,
-      "sha256": "047fe5008f910f692161fcf22dd571afa7f70a4d0291800d066ba8907b3132a7"
+      "bytes": 3231,
+      "sha256": "576d1f93e0197900256234ca8e0c91b5e80f24733f68339f8221401d3f680ec1"
     },
     {
       "path": "UPSTREAM_PACKAGE_MANIFEST.json",
@@ -69,8 +99,13 @@
     },
     {
       "path": "checkers/check_ward_st_nielsen.py",
-      "bytes": 11113,
-      "sha256": "2ef3cc65818a5ebeb3bec109be7282d4da11990c9af33ee7b7e454d0d982d0f9"
+      "bytes": 11391,
+      "sha256": "88e6d48a4307defed2093b21f09999dce66e13d03000a1c7b84c715ca17ec247"
+    },
+    {
+      "path": "checkers/check_wz_pole_diagnostic.py",
+      "bytes": 8154,
+      "sha256": "35841ea1bbb8c97a0554e0e58a1328d85bcd726bfeb8205add5b56d5d03e7879"
     },
     {
       "path": "data/nonlinear_gauge_grid_v1.json",
@@ -99,8 +134,8 @@
     },
     {
       "path": "generate_integration_manifest.py",
-      "bytes": 2268,
-      "sha256": "c07b0e93d633b09ab4fbf084f200d7dbe7c6d6af6c77a4f524fd119fa3bb4828"
+      "bytes": 2690,
+      "sha256": "4e6029d3dad6d55340543deb7458d380cbf6fa6ee57d2efc5258a49d0ed1a54e"
     },
     {
       "path": "outputs/aggregate_status.json",
@@ -109,8 +144,8 @@
     },
     {
       "path": "outputs/counterterm_pole_solution.json",
-      "bytes": 8017,
-      "sha256": "18d48ff0d93f2f23c7c3eecb83fd981988de262ac78c8d87b0653670fdece890"
+      "bytes": 8126,
+      "sha256": "ccb426fc5bf1990e1f171a398c3d7b23e2a7a5f2ceb7a38f0eb90dcf1d21d952"
     },
     {
       "path": "outputs/diagram_universe_wz.json",
@@ -164,8 +199,8 @@
     },
     {
       "path": "outputs/scientific_status.json",
-      "bytes": 1152,
-      "sha256": "f096e143aa1c122ca825ec5303a61f8900599658686ff58c1b09d4b7b6ce3b5b"
+      "bytes": 1525,
+      "sha256": "4ed36702d3ed103bbbfc2cc5ec0c13a079bf8875330b6e0499438611e1fcf0d3"
     },
     {
       "path": "outputs/sm_eft_action_1.json",
@@ -179,23 +214,23 @@
     },
     {
       "path": "outputs/ward_st_nielsen_check.json",
-      "bytes": 852,
-      "sha256": "6d06e011efff4535b62029ec0f932f4a62ef739e48533e1491ea72b2e261e2dd"
+      "bytes": 955,
+      "sha256": "4da0694ef68b514852b348d6931b924a3b11bd09ac51f1ee01dadbf56b34d8ea"
     },
     {
       "path": "outputs/wz_pole_receipts.json",
-      "bytes": 4556,
-      "sha256": "14bb66e1b1bb20672b751aa4c61d5b90a29feffa96c57eb9a52e293ba22c2d20"
+      "bytes": 10360,
+      "sha256": "23a8732dd48e265aea887be49f6751013c6d1d0efed70291efcfdc89d0c60218"
     },
     {
       "path": "producers/ball_arithmetic.py",
-      "bytes": 7796,
-      "sha256": "75b8e8c987ad7ad6678495a4b303180e06ad8700b8d46562c9889d777647ca18"
+      "bytes": 7775,
+      "sha256": "aa34a9ed89664d1801679d8abbad4d6a13d8e724794e542962b095de3494c68d"
     },
     {
       "path": "producers/counterterm_pole_solution.py",
-      "bytes": 19368,
-      "sha256": "891ffbbcd067580e80b47b8dcb15f0470c2b8927b289e5cabdd82160db9829bb"
+      "bytes": 19601,
+      "sha256": "07d62696fe7e08aea0ab9f3b424ba890cdc07ac638f26d6a591a26a6d0ee13bb"
     },
     {
       "path": "producers/counterterm_producer.py",
@@ -259,8 +294,8 @@
     },
     {
       "path": "producers/wz_pole_receipts.py",
-      "bytes": 14493,
-      "sha256": "d387264e4b3967fa72a1f48983ac2f0030e6d9cc97178935db213adbc85a0d66"
+      "bytes": 23641,
+      "sha256": "1a332f12c34b9ff612eb786652fb34fdeb37c7ef32cdbbe36b6960a7088592b5"
     },
     {
       "path": "proofs/symbolic_completion_proofs.py",
@@ -269,8 +304,8 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1809,
-      "sha256": "93e93063efef088d267d9c4fe42f52f220f21de079687a3e901787e1dc00f4d6"
+      "bytes": 1963,
+      "sha256": "6c08394ebedb0fa459d61a5b93cd6844ee268f46a6cd6ec06e4148e5c4420303"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -316,6 +351,11 @@
       "path": "schemas/source_law_covariance_packet_v1.schema.json",
       "bytes": 3819,
       "sha256": "fa2ae1e2e0765ede59261805196c7b8b5f064553c09e36125a6f21d97ab35bb8"
+    },
+    {
+      "path": "schemas/wz_pole_boundary_diagnostic_v3.schema.json",
+      "bytes": 11232,
+      "sha256": "96dc0f93c9bcebf7cd8fd242ce14782bc8becbf589075579b524f099c7b2d5df"
     },
     {
       "path": "templates/eft_matching_packet_TEMPLATE.json",
@@ -369,13 +409,13 @@
     },
     {
       "path": "tests/test_ball_arithmetic.py",
-      "bytes": 2034,
-      "sha256": "5f1d370d0771d5ba28401104676d53fdc3fd0679f239c261b1682dde8659ae48"
+      "bytes": 2086,
+      "sha256": "f2373a58047e2c676c7c25c5e6bd824fe60f57e3c5b65fb82f996dc571ec21fb"
     },
     {
       "path": "tests/test_completion.py",
-      "bytes": 12662,
-      "sha256": "a5e6ee84e28efe924d5329fa24a37e423d7ef69a4538337de9389e9cf9e1d06b"
+      "bytes": 13130,
+      "sha256": "ce9a448917d80f9688ec00ac7d11412eb25dfa17359e34cc5a7ad596a6da448d"
     },
     {
       "path": "tests/test_counterterms.py",
@@ -389,8 +429,8 @@
     },
     {
       "path": "tests/test_fj_converted_and_st.py",
-      "bytes": 2006,
-      "sha256": "9f5ba19bb51a7865ab6add419ecf67fbcbb8b13992403989122437c09cae0964"
+      "bytes": 2179,
+      "sha256": "454190a98b146b77cf492b35d1971e6575fe578700cf385af8367491b3f1328f"
     },
     {
       "path": "tests/test_fj_direct.py",
@@ -404,8 +444,8 @@
     },
     {
       "path": "tests/test_pole_solution.py",
-      "bytes": 1713,
-      "sha256": "218f988c7514173c625707e3231ccb312a509bec9214a762e2f7482781d02757"
+      "bytes": 1860,
+      "sha256": "2084f02248b2bd2751a6194aea01c8a37a61dc52d909b1837b4e897c4f78b798"
     },
     {
       "path": "tests/test_rule_engines.py",
@@ -416,6 +456,11 @@
       "path": "tests/test_sm_eft_action.py",
       "bytes": 3388,
       "sha256": "d1f510a1c855d541a746dc46a3f126f56f921611aa8d49f45b5d62780e52a20c"
+    },
+    {
+      "path": "tests/test_wz_pole_diagnostic.py",
+      "bytes": 5529,
+      "sha256": "7921dcaf71dd5847b229afbcf6b6c39a4da5735c2c2a727e2d3072712afac767"
     }
   ]
 }

@@ -50,10 +50,18 @@ def build() -> dict:
         "upstream_archive_sha256": "e6184ec1a535244c0f805c14e275b085a64c7ed078d780828c038d4f21c86a0d",
         "scientific_status": "DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
         "promotion_allowed": False,
-        "distinct_schema_documents": 9,
-        "receipt_instances": 10,
-        "exact_symbolic_checks": 8,
-        "integration_tests": 38,
+        "baseline_specification_schema_documents": 9,
+        "diagnostic_schema_documents": 1,
+        "total_schema_documents": 10,
+        "baseline_specification_receipt_instances": 10,
+        "wz_boundary_diagnostic_receipts": 6,
+        "baseline_exact_symbolic_checks": 8,
+        "wz_exact_finite_corrections": 3,
+        "baseline_specification_tests": 38,
+        "package_test_count_policy": (
+            "the current executable count is reported by pytest collection; "
+            "38 is the preserved baseline specification-suite count"
+        ),
         "runtime_log_excluded": "outputs/latest_validation.log",
         "file_count_excluding_manifest_and_runtime_log": len(records),
         "total_bytes_excluding_manifest_and_runtime_log": sum(

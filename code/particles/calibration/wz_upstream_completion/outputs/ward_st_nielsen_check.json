@@ -1,5 +1,7 @@
 {
+  "acceptance_complete": false,
   "problems": [],
+  "replay_checks_passed": true,
   "replays": {
     "charge_universality_nielsen": "11*g1**2*g2**2/(6*(g1**2 + g2**2))",
     "ct_reachability": "all block poles linear in p2; no unreachable-direction block emitted",
@@ -18,6 +20,6 @@
     "gauge_condition_correlator_protection": "the G_Z G_Z combination over {ZZ longitudinal, Z-G0 mixing, G0G0, ghost two-point functions} is the declared residual projection of this target; its inputs (A-G0 and Z-G0 mixings) are emitted, the ghost two-point blocks are the missing input"
   },
   "schema": "ward_st_nielsen_check.v1",
-  "status": "PASS",
+  "status": "PARTIAL_REPLAY_PASS__GHOST_ST_RESIDUAL_OPEN",
   "target": "WARD_ST_NIELSEN_1"
 }

@@ -22,8 +22,9 @@ Counterterm contributions at tree level to a block:
 
 The unknown pole values are dg1, dg2, dlam, dmu2, dv, dZW, dZB, dZH.
 The system over the blocks {AA, AZ, ZZ, W+W-, hh, G0G0, G+G-} is
-overdetermined; sympy solves the expanded monomial-coordinate system,
-and solvability IS the UV-cancellation certificate of the work order.
+overdetermined; sympy solves the expanded monomial-coordinate system.
+This establishes cancellation on the reported slice.  It does not close
+the exact scalar-xi obstruction retained in the payload.
 Cross-checks recorded in the payload:
 
 * the solved dg1 and dg2 equal the census beta values (b/2) g^3 in
@@ -422,11 +423,17 @@ def main() -> int:
         ),
     }
     payload["problems"] = problems
-    payload["status"] = "PASS" if not problems else "FAIL"
+    payload["status"] = (
+        "PARTIAL_SOLVABLE_SLICE__SCALAR_XI_OBSTRUCTION_OPEN"
+        if not problems
+        else "FAIL"
+    )
+    payload["slice_checks_passed"] = not problems
+    payload["acceptance_complete"] = False
     OUT_PATH.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"status": payload["status"], "problems": problems,
                       "obstruction": payload["residual_obstruction"]["invariant"][:80]}))
-    return 0 if payload["status"] == "PASS" else 1
+    return 0 if payload["slice_checks_passed"] else 1
 
 
 if __name__ == "__main__":

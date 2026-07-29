@@ -21,6 +21,8 @@ cmds=[
  [sys.executable,str(ROOT/'producers'/'fj_converted_engine.py')],
  [sys.executable,str(ROOT/'checkers'/'check_ward_st_nielsen.py')],
  [sys.executable,str(ROOT/'producers'/'counterterm_pole_solution.py')],
+ [sys.executable,str(ROOT/'producers'/'wz_pole_receipts.py'),'--check-byte-exact'],
+ [sys.executable,str(ROOT/'checkers'/'check_wz_pole_diagnostic.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]

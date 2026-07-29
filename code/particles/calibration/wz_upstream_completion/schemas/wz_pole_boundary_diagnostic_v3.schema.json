@@ -1,0 +1,517 @@
+{
+  "$defs": {
+    "binary64_pair": {
+      "items": false,
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "type": "array"
+    },
+    "exact_pair": {
+      "items": false,
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/rational"
+        },
+        {
+          "$ref": "#/$defs/rational"
+        }
+      ],
+      "type": "array"
+    },
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rational": {
+      "pattern": "^-?[0-9]+(/[1-9][0-9]*)?$",
+      "type": "string"
+    },
+    "receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "analytic_sheet_certified": {
+          "const": false
+        },
+        "az_block_at_center": {
+          "items": false,
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "minimum": 0,
+              "type": "number"
+            }
+          ],
+          "type": "array"
+        },
+        "boson": {
+          "enum": [
+            "W",
+            "Z"
+          ]
+        },
+        "contour_binary64": {
+          "additionalProperties": false,
+          "properties": {
+            "lower_left": {
+              "$ref": "#/$defs/binary64_pair"
+            },
+            "upper_right": {
+              "$ref": "#/$defs/binary64_pair"
+            }
+          },
+          "required": [
+            "lower_left",
+            "upper_right"
+          ],
+          "type": "object"
+        },
+        "contour_exact": {
+          "additionalProperties": false,
+          "properties": {
+            "lower_left": {
+              "$ref": "#/$defs/exact_pair"
+            },
+            "upper_right": {
+              "$ref": "#/$defs/exact_pair"
+            }
+          },
+          "required": [
+            "lower_left",
+            "upper_right"
+          ],
+          "type": "object"
+        },
+        "diagnostic_checks_passed": {
+          "type": "boolean"
+        },
+        "dimensional_prefactor_finite_correction": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "edge_sample_counts": {
+          "additionalProperties": false,
+          "properties": {
+            "bottom": {
+              "const": 32
+            },
+            "left": {
+              "const": 32
+            },
+            "right": {
+              "const": 32
+            },
+            "top": {
+              "const": 32
+            }
+          },
+          "required": [
+            "bottom",
+            "right",
+            "top",
+            "left"
+          ],
+          "type": "object"
+        },
+        "laurent_data_certified": {
+          "const": false
+        },
+        "physical_current_pole_certified": {
+          "const": false
+        },
+        "precision_bits": {
+          "enum": [
+            128,
+            192,
+            256
+          ]
+        },
+        "precision_enclosure_certified": {
+          "const": false
+        },
+        "root_count_certified": {
+          "const": false
+        },
+        "roundoff_heuristic_max_radius": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "sampled_boundary_min_modulus": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "sampled_boundary_winding": {
+          "type": "integer"
+        },
+        "sampled_points_exclude_zero": {
+          "type": "boolean"
+        },
+        "samples_per_edge": {
+          "const": 32
+        },
+        "simple_root_certified": {
+          "const": false
+        },
+        "tree_mass_sq": {
+          "$ref": "#/$defs/rational"
+        }
+      },
+      "required": [
+        "boson",
+        "precision_bits",
+        "tree_mass_sq",
+        "contour_exact",
+        "contour_binary64",
+        "sampled_boundary_winding",
+        "sampled_boundary_min_modulus",
+        "roundoff_heuristic_max_radius",
+        "sampled_points_exclude_zero",
+        "samples_per_edge",
+        "edge_sample_counts",
+        "az_block_at_center",
+        "dimensional_prefactor_finite_correction",
+        "diagnostic_checks_passed",
+        "root_count_certified",
+        "simple_root_certified",
+        "analytic_sheet_certified",
+        "precision_enclosure_certified",
+        "laurent_data_certified",
+        "physical_current_pole_certified"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://oph.local/schemas/wz_pole_boundary_diagnostic_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_row_discharged": {
+      "const": false
+    },
+    "arithmetic_scope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "certification": {
+      "additionalProperties": false,
+      "properties": {
+        "analytic_sheet": {
+          "const": false
+        },
+        "laurent_data": {
+          "const": false
+        },
+        "physical_current_pole": {
+          "const": false
+        },
+        "precision_enclosure": {
+          "const": false
+        },
+        "root_count": {
+          "const": false
+        },
+        "simple_root": {
+          "const": false
+        }
+      },
+      "required": [
+        "root_count",
+        "simple_root",
+        "analytic_sheet",
+        "precision_enclosure",
+        "laurent_data",
+        "physical_current_pole"
+      ],
+      "type": "object"
+    },
+    "ckm_fixture": {
+      "additionalProperties": false,
+      "properties": {
+        "V11": {
+          "$ref": "#/$defs/rational"
+        },
+        "V12": {
+          "$ref": "#/$defs/rational"
+        },
+        "V13": {
+          "$ref": "#/$defs/rational"
+        },
+        "V21": {
+          "$ref": "#/$defs/rational"
+        },
+        "V22": {
+          "$ref": "#/$defs/rational"
+        },
+        "V23": {
+          "$ref": "#/$defs/rational"
+        },
+        "V31": {
+          "$ref": "#/$defs/rational"
+        },
+        "V32": {
+          "$ref": "#/$defs/rational"
+        },
+        "V33": {
+          "$ref": "#/$defs/rational"
+        }
+      },
+      "required": [
+        "V11",
+        "V12",
+        "V13",
+        "V21",
+        "V22",
+        "V23",
+        "V31",
+        "V32",
+        "V33"
+      ],
+      "type": "object"
+    },
+    "conventions": {
+      "additionalProperties": false,
+      "properties": {
+        "dimensional_prefactor_finite_correction": {
+          "additionalProperties": false,
+          "properties": {
+            "AZ": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "W": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "Z": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "W",
+            "Z",
+            "AZ"
+          ],
+          "type": "object"
+        },
+        "mask": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sheet": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "mask",
+        "sheet",
+        "dimensional_prefactor_finite_correction"
+      ],
+      "type": "object"
+    },
+    "diagnostic_checks_passed": {
+      "type": "boolean"
+    },
+    "fixture": {
+      "additionalProperties": false,
+      "properties": {
+        "g1": {
+          "$ref": "#/$defs/rational"
+        },
+        "g2": {
+          "$ref": "#/$defs/rational"
+        },
+        "lam": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfd1": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfd2": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfd3": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfe1": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfe2": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfe3": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfu1": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfu2": {
+          "$ref": "#/$defs/rational"
+        },
+        "mfu3": {
+          "$ref": "#/$defs/rational"
+        },
+        "mu2": {
+          "$ref": "#/$defs/rational"
+        },
+        "mu_ren2": {
+          "$ref": "#/$defs/rational"
+        },
+        "v": {
+          "$ref": "#/$defs/rational"
+        },
+        "xi": {
+          "$ref": "#/$defs/rational"
+        }
+      },
+      "required": [
+        "g1",
+        "g2",
+        "v",
+        "lam",
+        "xi",
+        "mu2",
+        "mfu1",
+        "mfu2",
+        "mfu3",
+        "mfd1",
+        "mfd2",
+        "mfd3",
+        "mfe1",
+        "mfe2",
+        "mfe3",
+        "mu_ren2"
+      ],
+      "type": "object"
+    },
+    "fixture_statement": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "input": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "path": {
+          "const": "outputs/fj_direct_vector_blocks.json"
+        },
+        "schema": {
+          "const": "fj_direct_vector_blocks.v1"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "target": {
+          "const": "FJ_DIRECT_1"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "schema",
+        "target"
+      ],
+      "type": "object"
+    },
+    "promotion": {
+      "additionalProperties": false,
+      "properties": {
+        "oph_native": {
+          "const": false
+        },
+        "unit_claim": {
+          "const": false
+        }
+      },
+      "required": [
+        "oph_native",
+        "unit_claim"
+      ],
+      "type": "object"
+    },
+    "receipts": {
+      "additionalProperties": false,
+      "properties": {
+        "W_128": {
+          "$ref": "#/$defs/receipt"
+        },
+        "W_192": {
+          "$ref": "#/$defs/receipt"
+        },
+        "W_256": {
+          "$ref": "#/$defs/receipt"
+        },
+        "Z_128": {
+          "$ref": "#/$defs/receipt"
+        },
+        "Z_192": {
+          "$ref": "#/$defs/receipt"
+        },
+        "Z_256": {
+          "$ref": "#/$defs/receipt"
+        }
+      },
+      "required": [
+        "W_128",
+        "W_192",
+        "W_256",
+        "Z_128",
+        "Z_192",
+        "Z_256"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "wz_pole_boundary_diagnostic.v3"
+    },
+    "status": {
+      "const": "SAMPLED_BOUNDARY_DIAGNOSTIC__NO_ROOT_CERTIFICATE"
+    },
+    "type": {
+      "const": "EXTERNAL_SM_EFT_DIAGNOSTIC"
+    }
+  },
+  "required": [
+    "schema",
+    "type",
+    "status",
+    "diagnostic_checks_passed",
+    "acceptance_row_discharged",
+    "promotion",
+    "certification",
+    "input",
+    "fixture",
+    "ckm_fixture",
+    "fixture_statement",
+    "arithmetic_scope",
+    "conventions",
+    "receipts",
+    "artifact_sha256"
+  ],
+  "type": "object"
+}

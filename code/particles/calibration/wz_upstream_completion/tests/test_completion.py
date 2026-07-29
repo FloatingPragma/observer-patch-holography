@@ -347,10 +347,18 @@ def test_post_audit_integration_manifest_is_complete_and_current():
     }
     records = {record["path"]: record for record in manifest["files"]}
     assert set(records) == expected_paths
-    assert manifest["distinct_schema_documents"] == 9
-    assert manifest["receipt_instances"] == 10
-    assert manifest["exact_symbolic_checks"] == 8
-    assert manifest["integration_tests"] == 38
+    assert manifest["baseline_specification_schema_documents"] == 9
+    assert manifest["diagnostic_schema_documents"] == 1
+    assert manifest["total_schema_documents"] == 10
+    assert manifest["total_schema_documents"] == len(
+        list((ROOT / "schemas").glob("*.schema.json"))
+    )
+    assert manifest["baseline_specification_receipt_instances"] == 10
+    assert manifest["wz_boundary_diagnostic_receipts"] == 6
+    assert manifest["baseline_exact_symbolic_checks"] == 8
+    assert manifest["wz_exact_finite_corrections"] == 3
+    assert manifest["baseline_specification_tests"] == 38
+    assert "pytest collection" in manifest["package_test_count_policy"]
     assert manifest["promotion_allowed"] is False
     for rel, record in records.items():
         path = ROOT / rel
