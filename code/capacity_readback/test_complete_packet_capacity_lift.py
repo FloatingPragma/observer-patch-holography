@@ -54,12 +54,44 @@ def test_terminal_gate_rejects_wrong_generation_count() -> None:
 def test_sections_histories_and_sewing_track_the_register() -> None:
     for k in (1, 3):
         sections = public_sections_receipt(k)
-        assert sections["section_count"] == 24 * k
-        assert sections["interface_forcing_violations"] == 0
+        assert sections["equalizer_section_count"] == 24 * k
+        assert sections["connected_components"] == 1
+        assert sections["one_section_per_record"] is True
+        assert sections["readout_injective"] is True
         histories = reachability_receipt(k)
         assert histories["all_sections_have_histories"] is True
         sewing = sewing_receipt(k)
+        assert sewing["regions_connected"] is True
+        assert sewing["glued_section_count"] == 24 * k
+        assert sewing["fiber_product_count"] == 24 * k
         assert sewing["fiber_product_matches"] is True
+    assert sewing_receipt(2, corrupt_seam_readout=True)[
+        "fiber_product_matches"
+    ] is False
+
+
+def test_publicness_refinement_and_pinned_reconciliation() -> None:
+    from complete_packet_capacity_lift import (
+        publicness_receipt,
+        refinement_receipt,
+        joint_kernel_consistency_receipt,
+    )
+
+    publicness = publicness_receipt("reversible_identity", 2)
+    assert publicness["publicness_frozen"] is True
+    assert publicness["family_matches_pinned_packet"] is True
+    assert publicness["kernels_authorized_by_collective_set"] is True
+
+    refinement = refinement_receipt("copy_collapse_erasure", 3)
+    assert refinement["capacity_stable_along_refinement"] is True
+    assert refinement["capacity_before"] == refinement["capacity_after"] == 24
+    broken = refinement_receipt("reversible_identity", 2, corrupt_transport=True)
+    assert broken["capacity_stable_along_refinement"] is False
+
+    kernels = joint_kernel_consistency_receipt("reversible_identity", 2)
+    reconciliation = kernels["pinned_packet_reconciliation"]
+    assert reconciliation["pinned_packet_reconciled"] is True
+    assert reconciliation["compared_rows"] == 40 * 12 * 24
 
 
 def test_lifted_group_order_is_forty_at_every_sampled_rung() -> None:

@@ -25,9 +25,11 @@ Two admissibility readings of the continuation manifest carry the verdict:
 
 Two candidate directions fail named transported controls, with exact
 witnesses in the receipt: hidden spectator multiplicity above one fails A3
-state determinacy (4,096 raw families per public class at multiplicity two),
-and parity oscillation fails the A2 extension square and the
-no-new-confusability control at the odd-to-even rung step.
+state determinacy (4,096 raw families per public class at multiplicity two,
+by constrained enumeration over all thirty interfaces), and parity
+oscillation fails the A2 extension square at every step from rung two
+upward and additionally fails the no-new-confusability control at the
+odd-to-even steps from rung three.
 
 Under both readings the completed declared source class does not select a
 unique capacity. A rung selector is an additional named source law, which is

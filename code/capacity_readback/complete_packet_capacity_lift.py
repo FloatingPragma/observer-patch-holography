@@ -403,34 +403,68 @@ def atom_diagram(k: int) -> dict[str, Any]:
     return {"records": records, "observers": observers, "interfaces": interfaces}
 
 
+def _observer_components(
+    observers: Sequence[str], interface_pairs: Sequence[tuple[str, str]]
+) -> int:
+    """Connected components of the observer graph under the given interfaces."""
+
+    parent = {observer: observer for observer in observers}
+
+    def find(node: str) -> str:
+        while parent[node] != node:
+            parent[node] = parent[parent[node]]
+            node = parent[node]
+        return node
+
+    for left, right in interface_pairs:
+        root_left, root_right = find(left), find(right)
+        if root_left != root_right:
+            parent[root_left] = root_right
+    return len({find(observer) for observer in observers})
+
+
+def equalizer_section_count(
+    observers: Sequence[str],
+    interface_pairs: Sequence[tuple[str, str]],
+    record_count: int,
+) -> int:
+    """Exact equalizer count for record-valued sections.
+
+    Each interface forces equality of the record coordinate across its two
+    observers, so sections choose one record per connected component of the
+    observer graph.
+    """
+
+    components = _observer_components(observers, interface_pairs)
+    return record_count ** components
+
+
 def public_sections_receipt(k: int) -> dict[str, Any]:
-    """Exact equalizer sections: one per record, forced by connectivity."""
+    """Exact equalizer sections computed from the interface graph."""
 
     records = lifted_records(k)
     diagram = atom_diagram(k)
-    section_ids = [f"section::{record}" for record in records]
+    interface_pairs = [tuple(pair) for pair in icosahedral_edges()]
+    components = _observer_components(list(PORTS), interface_pairs)
+    section_count = equalizer_section_count(
+        list(PORTS), interface_pairs, len(records)
+    )
 
-    edge_pairs = [tuple(pair) for pair in icosahedral_edges()]
-    adjacency_connected_checked = 0
-    forcing_violations = 0
-    for left, right in edge_pairs:
-        for record_left in records[: min(len(records), 3)]:
-            for record_right in records[: min(len(records), 3)]:
-                if record_left == record_right:
-                    continue
-                interface_id = f"{left}--{right}"
-                left_image = _interface_atom(interface_id, record_left)
-                right_image = _interface_atom(interface_id, record_right)
-                adjacency_connected_checked += 1
-                if left_image == right_image:
-                    forcing_violations += 1
+    readout_images: set[str] = set()
+    readout_collisions = 0
+    for interface in diagram["interfaces"]:
+        for atom in interface["interface_atoms"]:
+            if atom in readout_images:
+                readout_collisions += 1
+            readout_images.add(atom)
     return {
         "rung": k,
-        "section_count": len(section_ids),
-        "section_ids_sample": section_ids[: 2 * BASE_PUBLIC_ATOMS],
-        "records_equal_sections": len(section_ids) == len(records),
-        "interface_forcing_checked_pairs": adjacency_connected_checked,
-        "interface_forcing_violations": forcing_violations,
+        "connected_components": components,
+        "equalizer_section_count": section_count,
+        "one_section_per_record": components == 1
+        and section_count == len(records),
+        "readout_collisions": readout_collisions,
+        "readout_injective": readout_collisions == 0,
         "interface_count": len(diagram["interfaces"]),
         "observer_count": len(diagram["observers"]),
     }
@@ -598,6 +632,40 @@ def _parity_channel_control() -> dict[str, Any]:
     }
 
 
+def _pinned_local_packet_reconciliation(branch_id: str, k: int) -> dict[str, Any]:
+    """Reconcile lifted local packets against the pinned issue #548 packet.
+
+    The pinned packet stores independent local checkpoint receipts for the
+    forty reversible continuations. The lifted local packets, projected
+    through the semantic map, must reproduce them for every continuation,
+    observer, and slot. This is a cross-source check: the pinned bytes were
+    produced by the issue #548 producer, not by this module.
+    """
+
+    packet = json.loads(FIXED_PACKET_PATH.read_text(encoding="utf-8"))
+    pinned = packet["local_checkpoint_packets"]
+    manifest = manifest_for_branch(branch_id, k)
+    mismatches = 0
+    compared = 0
+    for continuation_id, action in continuation_actions().items():
+        lifted = manifest[f"lifted::{continuation_id}"]
+        pinned_rows = pinned[continuation_id]
+        for observer in PORTS:
+            for slot in oriented_slots():
+                record = f"{slot}|copy=0"
+                lifted_image_slot = semantic_projection(lifted[record])
+                pinned_atom = next(iter(pinned_rows[observer][slot]))
+                expected_atom = f"{observer}::record::{lifted_image_slot}"
+                compared += 1
+                if pinned_atom != expected_atom or action[slot] != lifted_image_slot:
+                    mismatches += 1
+    return {
+        "compared_rows": compared,
+        "mismatches": mismatches,
+        "pinned_packet_reconciled": mismatches == 0,
+    }
+
+
 def joint_kernel_consistency_receipt(branch_id: str, k: int) -> dict[str, Any]:
     manifest = manifest_for_branch(branch_id, k)
     inconsistencies = 0
@@ -623,12 +691,16 @@ def joint_kernel_consistency_receipt(branch_id: str, k: int) -> dict[str, Any]:
             }
             derived_first = _marginal_from_joint(joint_rows, first_observer)
             tamper_detected = derived_first != tampered[first_observer]
+    reconciliation = _pinned_local_packet_reconciliation(branch_id, k)
     return {
         "rung": k,
         "branch_id": branch_id,
         "kernel_count": kernel_count,
+        "joint_marginal_derivation_consistent": inconsistencies == 0,
         "local_marginal_inconsistencies": inconsistencies,
-        "local_marginals_consistent": inconsistencies == 0,
+        "local_marginals_consistent": inconsistencies == 0
+        and reconciliation["pinned_packet_reconciled"],
+        "pinned_packet_reconciliation": reconciliation,
         "local_packet_tamper_detected": tamper_detected,
         "parity_independent_channel_control": _parity_channel_control(),
     }
@@ -684,25 +756,82 @@ def a2_naturality_receipt(branch_id: str, k: int) -> dict[str, Any]:
     }
 
 
+def _spectator_class_enumeration(record: str, multiplicity: int) -> dict[str, Any]:
+    """Constrained enumeration of raw families over one public section class.
+
+    Local atoms carry a spectator index that the interface readout forgets,
+    so an assignment must satisfy every interface constraint through the
+    spectator-forgetting image. Every same-record assignment passes all
+    thirty constraints and every cross-record assignment fails at least one;
+    both facts are checked against the actual interface list rather than
+    assumed.
+    """
+
+    interface_pairs = [tuple(pair) for pair in icosahedral_edges()]
+
+    def readout_image(observer_record: str) -> str:
+        return observer_record.rsplit("|spectator=", 1)[0]
+
+    passing = 0
+    for combo in product(range(multiplicity), repeat=len(PORTS)):
+        assignment = {
+            observer: f"{record}|spectator={combo[index]}"
+            for index, observer in enumerate(PORTS)
+        }
+        satisfied = all(
+            readout_image(assignment[left]) == readout_image(assignment[right])
+            for left, right in interface_pairs
+        )
+        if satisfied:
+            passing += 1
+
+    other_record = next(
+        candidate for candidate in lifted_records(2) if candidate != record
+    )
+    mixed_assignment = {
+        observer: (
+            f"{other_record}|spectator=0"
+            if index == 0
+            else f"{record}|spectator=0"
+        )
+        for index, observer in enumerate(PORTS)
+    }
+    cross_record_fails = not all(
+        readout_image(mixed_assignment[left]) == readout_image(mixed_assignment[right])
+        for left, right in interface_pairs
+    )
+    return {
+        "public_class": f"section::{record}",
+        "constrained_enumeration_size": multiplicity ** len(PORTS),
+        "passing_raw_families": passing,
+        "cross_record_assignment_rejected": cross_record_fails,
+    }
+
+
 def a3_feasible_receipt(branch_id: str, k: int, spectator_multiplicity: int = 1) -> dict[str, Any]:
     section_count = BASE_PUBLIC_ATOMS * k
     if branch_id == "hidden_spectator" and spectator_multiplicity > 1:
+        first_record = lifted_records(k)[0]
         if spectator_multiplicity == 2:
-            observers = list(PORTS)
-            assignments = 0
-            for combo in product(range(2), repeat=len(observers)):
-                assignments += 1
-            multiplicity = assignments
-            enumeration = "explicit-2^12-enumeration"
+            enumeration = _spectator_class_enumeration(first_record, 2)
+            multiplicity = enumeration["passing_raw_families"]
+            method = "constrained-2^12-enumeration-over-all-interfaces"
         else:
+            enumeration = {
+                "public_class": f"section::{first_record}",
+                "cross_record_assignment_rejected": True,
+            }
             multiplicity = spectator_multiplicity ** len(PORTS)
-            enumeration = "per-observer-independence-formula"
+            method = "per-observer-product-formula"
         determinate = multiplicity == 1
         witness = {
-            "public_class": "section::first-slot|copy=0",
+            "public_class": enumeration["public_class"],
             "raw_family_multiplicity": multiplicity,
             "distinct_raw_families_same_public_class": multiplicity > 1,
-            "enumeration": enumeration,
+            "method": method,
+            "cross_record_assignment_rejected": enumeration[
+                "cross_record_assignment_rejected"
+            ],
         }
     else:
         multiplicity = 1
@@ -762,24 +891,95 @@ def extension_receipt(branch_id: str, k: int) -> dict[str, Any]:
     }
 
 
-def refinement_receipt(branch_id: str, k: int) -> dict[str, Any]:
-    packet = build_capacity_packet(
-        branch_id if branch_id != "parity_oscillation" else "reversible_identity",
-        k,
-    )
-    kernel = branch_completion_kernel(branch_id, k)
+def refinement_receipt(
+    branch_id: str, k: int, corrupt_transport: bool = False
+) -> dict[str, Any]:
+    """Fixed-rung refinement with an executed no-new-confusability check.
+
+    The declared refinement relabels each record with a refinement tag. The
+    branch kernel is transported through the relabeling, and the receipt
+    checks injectivity of the embedding, exact preservation of the
+    confusability fibers, and capacity stability. The ``corrupt_transport``
+    flag merges two refined records and must be detected; it exists for the
+    mutation control.
+    """
+
     records = lifted_records(k)
-    capacity_before = len(records) - sum(
-        len(fiber) - 1
-        for fiber in _fibers(kernel, records).values()
+    refine = {record: f"{record}|refine=1" for record in records}
+    if corrupt_transport and len(records) >= 2:
+        refine[records[1]] = refine[records[0]]
+    kernel = branch_completion_kernel(branch_id, k)
+    injective = len(set(refine.values())) == len(records)
+    refined_kernel = {
+        refine[record]: refine[record if kernel is None else kernel[record]]
+        for record in records
+    }
+    base_fibers = {
+        frozenset(fiber) for fiber in _fibers(kernel, records).values()
+    }
+    refined_fibers = {
+        frozenset(
+            record
+            for record in records
+            if refine[record] in fiber
+        )
+        for fiber in _fibers(
+            {value: refined_kernel[value] for value in set(refine.values())},
+            sorted(set(refine.values())),
+        ).values()
+    }
+    fibers_preserved = injective and base_fibers == refined_fibers
+    base_capacity = len(_fibers(kernel, records))
+    refined_capacity = len(
+        _fibers(
+            {value: refined_kernel[value] for value in set(refine.values())},
+            sorted(set(refine.values())),
+        )
     )
     return {
         "rung": k,
         "branch_id": branch_id,
-        "refinement_chain": "identity-refinement-at-fixed-generation-count",
-        "capacity_stable_along_refinement": True,
-        "capacity_value": capacity_before,
-        "bounded_family_cross_check_packet": packet["packet_sha256"],
+        "refinement_chain": "record-relabeling-at-fixed-generation-count",
+        "embedding_injective": injective,
+        "confusability_fibers_preserved": fibers_preserved,
+        "capacity_before": base_capacity,
+        "capacity_after": refined_capacity,
+        "capacity_stable_along_refinement": injective
+        and fibers_preserved
+        and base_capacity == refined_capacity,
+    }
+
+
+def publicness_receipt(branch_id: str, k: int) -> dict[str, Any]:
+    """Frozen collective publicness family checked against the pinned packet."""
+
+    packet = json.loads(FIXED_PACKET_PATH.read_text(encoding="utf-8"))
+    pinned_policy_id = packet.get("publicness_policy_id")
+    pinned_family = packet.get("publicness_policy")
+    lifted_family = [sorted(PORTS)]
+    pinned_kernels = packet.get("global_checkpoint_kernels", [])
+    authorized_consistent = bool(pinned_kernels) and all(
+        sorted(kernel.get("authorized_observers", [])) == sorted(PORTS)
+        for kernel in pinned_kernels
+    )
+    family_matches = (
+        isinstance(pinned_family, list)
+        and [sorted(group) for group in pinned_family] == lifted_family
+    )
+    return {
+        "rung": k,
+        "branch_id": branch_id,
+        "policy_id": pinned_policy_id,
+        "policy_id_matches_pinned": pinned_policy_id
+        == "universal-twelve-port-publicness/v1",
+        "family_nonempty": bool(lifted_family) and all(lifted_family),
+        "family_matches_pinned_packet": family_matches,
+        "kernels_authorized_by_collective_set": authorized_consistent,
+        "publicness_frozen": bool(
+            family_matches
+            and pinned_policy_id == "universal-twelve-port-publicness/v1"
+            and lifted_family
+        ),
     }
 
 
@@ -791,32 +991,85 @@ def _fibers(kernel: Mapping[str, str] | None, records: Sequence[str]) -> dict[st
     return fibers
 
 
-def sewing_receipt(k: int) -> dict[str, Any]:
-    """Exact fiber-product count over a declared two-hemisphere split."""
+def sewing_receipt(
+    k: int, corrupt_seam_readout: bool = False
+) -> dict[str, Any]:
+    """Exact fiber-product sewing over the connected two-cap split.
 
-    ports = list(PORTS)
-    half = len(ports) // 2
-    region_a = set(ports[:half])
-    region_b = set(ports[half:])
-    seam_interfaces = [
-        (left, right)
-        for left, right in icosahedral_edges()
-        if (left in region_a) != (right in region_a)
-    ]
+    Region A is the north cap, region B the south cap; the seam is the ten
+    upper-lower interfaces. Per-region equalizer sections are computed from
+    the region interface graphs, seam readouts restrict each region section
+    to its seam-value tuple, and the fiber-product sum over seam values is
+    compared with the directly computed glued equalizer count. The
+    ``corrupt_seam_readout`` flag misroutes one region-B seam readout and
+    must break the identity; it exists for the mutation control.
+    """
+
     records = lifted_records(k)
-    seam_values = len(records)
-    sections_a = len(records)
-    sections_b = len(records)
-    glued = sum(1 for _ in records)
+    region_a = ["north", "upper_0", "upper_1", "upper_2", "upper_3", "upper_4"]
+    region_b = ["south", "lower_0", "lower_1", "lower_2", "lower_3", "lower_4"]
+    edges = [tuple(pair) for pair in icosahedral_edges()]
+    internal_a = [
+        pair for pair in edges if pair[0] in region_a and pair[1] in region_a
+    ]
+    internal_b = [
+        pair for pair in edges if pair[0] in region_b and pair[1] in region_b
+    ]
+    seam = [
+        pair
+        for pair in edges
+        if (pair[0] in region_a) != (pair[1] in region_a)
+    ]
+
+    components_a = _observer_components(region_a, internal_a)
+    components_b = _observer_components(region_b, internal_b)
+    sections_a = [
+        {"record": record} for record in records
+    ] if components_a == 1 else None
+    sections_b = [
+        {"record": record} for record in records
+    ] if components_b == 1 else None
+    if sections_a is None or sections_b is None:
+        return {
+            "rung": k,
+            "regions_connected": False,
+            "fiber_product_matches": False,
+        }
+
+    def seam_value_a(section: Mapping[str, str]) -> tuple[str, ...]:
+        return tuple(
+            _interface_atom(f"{left}--{right}", section["record"])
+            for left, right in seam
+        )
+
+    def seam_value_b(section: Mapping[str, str]) -> tuple[str, ...]:
+        value = list(seam_value_a(section))
+        if corrupt_seam_readout:
+            other = records[0] if section["record"] != records[0] else records[-1]
+            left, right = seam[0]
+            value[0] = _interface_atom(f"{left}--{right}", other)
+        return tuple(value)
+
+    fibers_a: dict[tuple[str, ...], int] = {}
+    for section in sections_a:
+        fibers_a[seam_value_a(section)] = fibers_a.get(seam_value_a(section), 0) + 1
+    fibers_b: dict[tuple[str, ...], int] = {}
+    for section in sections_b:
+        fibers_b[seam_value_b(section)] = fibers_b.get(seam_value_b(section), 0) + 1
     product_count = sum(
-        (sections_a // seam_values) * (sections_b // seam_values)
-        for _ in range(seam_values)
+        count_a * fibers_b.get(value, 0) for value, count_a in fibers_a.items()
     )
+
+    glued = equalizer_section_count(list(PORTS), edges, len(records))
     return {
         "rung": k,
-        "region_a_ports": sorted(region_a),
-        "region_b_ports": sorted(region_b),
-        "seam_interface_count": len(seam_interfaces),
+        "regions_connected": True,
+        "region_a_ports": region_a,
+        "region_b_ports": region_b,
+        "seam_interface_count": len(seam),
+        "region_a_section_count": len(sections_a),
+        "region_b_section_count": len(sections_b),
+        "seam_value_count": len(fibers_a),
         "glued_section_count": glued,
         "fiber_product_count": product_count,
         "fiber_product_matches": glued == product_count,
@@ -908,11 +1161,35 @@ def mutation_controls() -> dict[str, Any]:
     controls["spectator_determinacy_fails"] = (
         spectator_a3["cover_state_determining"] is False
         and spectator_a3["raw_family_multiplicity_per_public_class"] == 4096
+        and spectator_a3["witness"]["cross_record_assignment_rejected"] is True
     )
 
     dropped_history = reachability_receipt(2)
     controls["history_completeness_checked"] = (
         dropped_history["all_sections_have_histories"] is True
+    )
+
+    controls["sewing_tamper_detected"] = (
+        sewing_receipt(2, corrupt_seam_readout=True)["fiber_product_matches"]
+        is False
+        and sewing_receipt(2)["fiber_product_matches"] is True
+    )
+
+    controls["refinement_tamper_detected"] = (
+        refinement_receipt("reversible_identity", 2, corrupt_transport=True)[
+            "capacity_stable_along_refinement"
+        ]
+        is False
+        and refinement_receipt("reversible_identity", 2)[
+            "capacity_stable_along_refinement"
+        ]
+        is True
+    )
+
+    disconnected_sections = equalizer_section_count(list(PORTS), [], 48)
+    controls["section_connectivity_required"] = (
+        disconnected_sections != 48
+        and public_sections_receipt(2)["one_section_per_record"] is True
     )
 
     controls["all_mutations_detected"] = all(
@@ -948,12 +1225,15 @@ def _control_table() -> list[dict[str, Any]]:
     table = []
     for branch_id in WIDE_BRANCH_IDS:
         rows = {}
-        for k in SAMPLE_RUNGS[:4]:
+        for k in SAMPLE_RUNGS:
             spectator = 2 if branch_id == "hidden_spectator" else 1
             rows[str(k)] = {
                 "terminal_fiber": terminal_fiber_receipt(k)["unique_terminal_world"],
-                "sections": public_sections_receipt(k)["records_equal_sections"],
+                "sections": public_sections_receipt(k)["one_section_per_record"],
                 "histories": reachability_receipt(k)["all_sections_have_histories"],
+                "publicness_frozen": publicness_receipt(branch_id, k)[
+                    "publicness_frozen"
+                ],
                 "manifest_closed": manifest_closure_receipt(branch_id, k)["closure_size"]
                 in (40, 80),
                 "source_ancestry_complete": manifest_closure_receipt(branch_id, k)[
@@ -969,6 +1249,9 @@ def _control_table() -> list[dict[str, Any]]:
                 "extension_no_new_confusability": extension_receipt(branch_id, k)[
                     "no_new_confusability"
                 ],
+                "refinement_stable": refinement_receipt(branch_id, k)[
+                    "capacity_stable_along_refinement"
+                ],
                 "sewing_exact": sewing_receipt(k)["fiber_product_matches"],
             }
         transported = all(
@@ -980,12 +1263,51 @@ def _control_table() -> list[dict[str, Any]]:
                 "branch_id": branch_id,
                 "per_rung_controls": rows,
                 "passes_all_transported_controls": transported,
-                "source_closed_admissible": all(
+                "source_closed_admissible": transported
+                and all(
                     row["source_ancestry_complete"] for row in rows.values()
                 ),
             }
         )
     return table
+
+
+def exclusion_witnesses() -> dict[str, Any]:
+    """Exact witnesses for the two excluded directions."""
+
+    spectator = a3_feasible_receipt(
+        "hidden_spectator", 1, spectator_multiplicity=2
+    )
+    oscillation_square_k2 = a2_naturality_receipt("parity_oscillation", 2)
+    oscillation_square_k3 = a2_naturality_receipt("parity_oscillation", 3)
+    oscillation_extension = extension_receipt("parity_oscillation", 3)
+    return {
+        "hidden_spectator": {
+            "control": "a3_state_determining",
+            "witness": spectator["witness"],
+        },
+        "parity_oscillation": {
+            "a2_extension_square": {
+                "failure_counts_by_rung": {
+                    "2": oscillation_square_k2["extension_square_failure_count"],
+                    "3": oscillation_square_k3["extension_square_failure_count"],
+                },
+                "witnesses": oscillation_square_k3["extension_square_witness"],
+                "note": (
+                    "the square fails at every step with k at least two; "
+                    "only the first step is clean"
+                ),
+            },
+            "no_new_confusability": {
+                "failing_step": "rung 3 to rung 4",
+                "new_edge_count": oscillation_extension[
+                    "new_confusability_edge_count"
+                ],
+                "witnesses": oscillation_extension["new_confusability_witness"],
+                "note": "fails exactly at the odd-to-even steps from rung three",
+            },
+        },
+    }
 
 
 def build_receipt() -> dict[str, Any]:
@@ -1053,13 +1375,19 @@ def build_receipt() -> dict[str, Any]:
         "source_closed_reading": {
             "admissibility": (
                 "manifest elements must be compositions of the declared "
-                "reversible generators"
+                "reversible generators, and every transported control must "
+                "pass"
             ),
             "admissible_branches": [
                 row["branch_id"]
                 for row in control_table
                 if row["source_closed_admissible"]
             ],
+            "coincidence_note": (
+                "the hidden-spectator branch coincides with the reversible "
+                "identity at multiplicity one and fails A3 state determinacy "
+                "above it"
+            ),
             "forced_capacity_rows": source_closed_rows,
             "slack_identically_zero": all(
                 row["slack_zero"] for row in source_closed_rows
@@ -1070,6 +1398,7 @@ def build_receipt() -> dict[str, Any]:
                 "selector would be an additional source law"
             ),
         },
+        "exclusion_witnesses": exclusion_witnesses(),
         "nonidentifiability_mechanisms": {
             "source_closed": "SLACK_IDENTICALLY_ZERO_DEGENERATE_ZERO_SET",
             "widened": "INEQUIVALENT_ZERO_SETS_SAME_ANTECEDENT",
@@ -1096,6 +1425,13 @@ def build_receipt() -> dict[str, Any]:
             "OPH.CapacityNonidentifiability.oscillation_fixed_iff_odd",
             "OPH.CapacityNonidentifiability.completeClass_doesNotEntailUniqueZero",
         ],
+        "lean_binding_scope": (
+            "the class theorem is parameterized over any admissibility "
+            "predicate that retains the reversible identity completion; the "
+            "bridge facts, identity admissibility under both executable "
+            "readings and source-closed saturation from generator "
+            "bijectivity, are checked by this producer rather than in Lean"
+        ),
     }
     receipt["receipt_sha256"] = tagged_sha256(canonical_json_bytes(receipt))
     return receipt

@@ -6,14 +6,14 @@ The verifier imports no producer module and shares no helper with
 family from first principles: the twenty-four oriented slots are read from
 the pinned issue #548 packet, records at rung ``k`` are slot-copy pairs, and
 the completion kernels are reconstructed from their declared formulas. It
-then recomputes every capacity, every slack-zero set, the survivor logic,
-the exclusion witnesses, and the two-reading non-entailment implication, and
-fails closed on any disagreement with the committed receipt.
+recomputes every capacity, every slack-zero set, the zero-set inequivalence,
+and the forced source-closed rows, compares the survivor list and the
+exclusion table against its own independently declared constants, and fails
+closed on any disagreement with the committed receipt.
 """
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 from typing import Any, Mapping
@@ -48,19 +48,6 @@ def _load(path: Path) -> dict[str, Any]:
     if not path.is_file():
         raise VerificationError("RECEIPT_MISSING", str(path))
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _canonical_bytes(value: Any) -> bytes:
-    return (
-        json.dumps(
-            value,
-            allow_nan=False,
-            ensure_ascii=True,
-            separators=(",", ":"),
-            sort_keys=True,
-        )
-        + "\n"
-    ).encode("ascii")
 
 
 def _oriented_slots() -> list[str]:
@@ -200,12 +187,6 @@ def verify() -> None:
             raise VerificationError(
                 "CROSS_CHECK_ROW", f"{row['branch_id']} rung {row['rung']}"
             )
-
-    digest_input = {key: value for key, value in receipt.items() if key != "receipt_sha256"}
-    recomputed_digest = "sha256:" + hashlib.sha256(
-        _canonical_bytes({**digest_input, "receipt_sha256": receipt["receipt_sha256"]})
-    ).hexdigest()
-    del recomputed_digest
 
     certificate = _load(CERTIFICATE_PATH)
     if certificate.get("schema") != EXPECTED_CERTIFICATE_SCHEMA:
