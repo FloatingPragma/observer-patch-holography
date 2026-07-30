@@ -348,15 +348,20 @@ twelve primitive boundary ports, and the ports form an oriented triangular
 boundary with 30 edges and 20 faces, combinatorially the boundary of an
 icosahedron. Carriers join through typed seams and triple overlaps, refine
 together onto a spherical support, and expose local state, readback, records,
-repair moves, and checkpoints.
+repair moves, and checkpoints. Their complete reversible port response has a
+faithful finite-dimensional unitary description. The twelve port directions
+exhaust its public infinitesimal response, and their ordered compositions
+close on the same response space.
 
 **Axiom 2: Observer Agreement**
 If you look at a star and I look at the same star, we have to agree on what we can jointly check. Precisely: observers agree on the meaning of the data they
 jointly interpret. Wherever two patches share an overlap, interpreting
 accepted shared data commutes with every restriction, translation between the
 two interfaces, and refinement, so a public record means the same thing to
-every observer who can reach it. That single constraint shapes almost
-everything.
+every observer who can reach it. Every proper recharting of a complete carrier
+can also be performed by closed overlap transport on that same response,
+rather than by an unrelated spectator system. That single constraint shapes
+almost everything.
 
 **Axiom 3: Conditional Maximum Randomness**
 Where its checks run out, an observer assumes as little as possible.
@@ -425,8 +430,10 @@ On the geometric branch, controlled refinement of the shared records supports
 the spherical chart, Lorentz kinematics, and the conditional gravity
 construction. On the gauge branch, the twelve-port incidence determines the
 finite symmetry blocks and its unique central graph involution. A target-blind
-impulse and port readback derive the response, and an exact compact lift turns
-it into the Standard Model current algebra. Laboratory attachment and
+impulse and port readback derive the inverse-port response. The complete
+response and internal recharting clauses force the Standard Model compact Lie
+type, while the published matrix current is a conditional witness of that
+type. Source reconstruction of the matrix current, laboratory attachment, and
 particles require later constructions. Observers
 are bounded self-reading patterns that maintain records, compare interfaces,
 and condition later behavior on what they read. These outputs share an

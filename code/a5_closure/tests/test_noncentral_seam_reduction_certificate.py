@@ -143,6 +143,11 @@ class NoncentralSeamReductionTests(unittest.TestCase):
     def test_consequence_keeps_only_measured_order_six_compatibility(self) -> None:
         consequence = self.expected["consequence"]
         self.assertEqual(consequence["measured_flux_menu"], [0, 1, 2, 3, 4, 5])
+        self.assertFalse(consequence["axis_coefficient_system_source_selected"])
+        self.assertFalse(consequence["physical_global_form_selected"])
+        self.assertFalse(
+            consequence["same_source_loop_to_tensor_kernel_identified"]
+        )
         self.assertFalse(consequence["flux_menu_exhausted_by_central_classes"])
         self.assertEqual(
             consequence["general_exhaustiveness_status"], "not_established"
@@ -155,6 +160,13 @@ class NoncentralSeamReductionTests(unittest.TestCase):
         self.assertEqual(
             consequence["axis_class_lattice"]["smith_invariants"], [1, 1, 1, 1, 1, 6]
         )
+
+    def test_upstream_global_form_scope_remains_open(self) -> None:
+        scope = self.expected["consumed_upstream"]["physical_scope"]
+        self.assertTrue(scope["declared_axis_coefficient_system_exact"])
+        self.assertFalse(scope["axis_relation_lattice_source_selected"])
+        self.assertFalse(scope["physical_global_form_selected"])
+        self.assertFalse(scope["same_source_loop_to_tensor_kernel_identification"])
 
     def test_out_of_class_control_records_the_flat_sectors(self) -> None:
         control = self.expected["consequence"]["out_of_class_control"]

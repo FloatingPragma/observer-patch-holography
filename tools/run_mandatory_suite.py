@@ -373,7 +373,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [
     ("Execute the conditional port-current certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_port_current_inner_certificate.py"]),
-    ("Execute the source-bound matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
+    ("Execute the conditional matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
     ("Execute the axis-center-descent certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_axis_center_descent_certificate.py"]),
     ("Execute the matter-menu spectral-ledger certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_matter_menu_spectral_ledger_certificate.py"]),
 ]

@@ -396,20 +396,21 @@ structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
 quotient by a shared discrete center in the full global structure. Under its
 transport and refinement premises, OPH reconstructs a compact group from
 persistent charge bookkeeping across patches. Independently, twelve-port
-incidence and target-blind port readback derive an exact current with the
-Standard Model Lie type.
+incidence derives the port module, while target-blind port readback derives
+the inverse-port response. The complete compact response and internal
+transport clauses force the Standard Model Lie type.
 
-The exhaustive selection scan and the measured
-transport double cover fix the matter content and its fermionic Spin typing
-from source, and the matter and central-descent receipts fix the charge
-lattice up to conjugation and the maximal faithful matter image. The cover
-and its intermediate quotients carry the same local tensors. The measured
-flux-sector menu selects the $\mathbb Z_6$ quotient on the declared finite
-carrier, and the realized matter transports single-valuedly through every
-measured sector. Laboratory current and flux identification and the continuum
-global form require separate physical attachments. Family count and
-extra-light-sector completeness require source-complete attachment and
-matter-menu theorems.
+Inside a declared exterior menu, the exhaustive scan fixes one conjugate
+matter pair. A separate finite transport packet fixes its Spin typing within
+that construction. The matter and central-descent
+receipts fix the charge lattice up to conjugation and the maximal faithful
+matter image. The cover and its intermediate quotients carry the same local
+tensors. The six-axis residue uses declared coefficient relations, so a
+complete source character category and a loop-to-kernel theorem are needed
+to select the physical $\mathbb Z_6$ quotient. Laboratory current and flux
+identification and the continuum global form require separate physical
+attachments. Family count and extra-light-sector completeness require
+source-complete attachment and matter-menu theorems.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -804,10 +805,11 @@ purpose at hand. The realized Standard Model tensors have a common
 $\mathbb Z_6$ kernel, so their maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
 $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors.
-The measured flux-sector menu selects the $\mathbb Z_6$ quotient on the
-declared finite carrier, where the realized matter transports
-single-valuedly. Laboratory current and flux identification and the continuum
-global form require separate physical attachments. The commuting square
+The six-axis calculation has order six after its coefficient relations are
+declared. Selecting the physical quotient requires a complete source
+character category and a same-source identification between the carrier loop
+and the matter kernel. Laboratory current and flux identification and the
+continuum global form require separate physical attachments. The commuting square
 identifying the local current group with the independent Tannaka group is work
 in progress.
 

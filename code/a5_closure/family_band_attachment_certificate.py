@@ -30,11 +30,11 @@ WHAT IS PROVED (exact, on the pinned carrier):
 * All three actual carrier refinements preserve the four exact projectors
   and satisfy their declared cocycle.  Their tensor transports U x I_15
   preserve the rank-forty-five projector P_3 x I_15 exactly.
-* The realized attachment object, band tensor generation, has complex rank
-  exactly 3 x 15 = 45.  The fifteen-state generation is recomputed from the
-  pinned block charges, every three-copy anomaly form is zero, and exhaustive
-  replay of the thirty-six center candidates leaves the same diagonal Z6
-  kernel after triplication.
+* The conditional attachment object, band tensor the declared generation
+  fixture, has complex rank exactly 3 x 15 = 45.  The fifteen-state fixture is
+  recomputed from the pinned block charges, every three-copy anomaly form is
+  zero, and exhaustive replay of the thirty-six center candidates leaves the
+  same conditional diagonal Z6 kernel after triplication.
 * Every character in the pinned #627 Z2, Z3, and Z6 seam menus transports
   uniformly because carrier refinement acts on the family factor and the
   conditional character acts on the matter factor.  This classifies the
@@ -45,10 +45,11 @@ THE NAMED INTERFACE (this is the boundary; read it before citing):
 The selection binds only under `screen_realized_multiplicity_object`,
 which carries TWO clauses, each with a control proving it load-bearing:
 
-  (R) realization: the physical pole-residue multiplicity object is a
+  (R) realization: the finite response pole-residue multiplicity object is a
       single complete subobject of the source-visible screen coefficient
-      space (without it, the #617 copy-count invisibility applies and
-      nothing is selected; control `external_copy_reduct`);
+      space.  Identifying this object with physical matter remains open.
+      Without the finite realization, the #617 copy-count invisibility
+      applies and nothing is selected (control `external_copy_reduct`);
   (S) selection: the attachment is compared by the #625 operational
       cost order (with the excluded form 6I + A the minimizer flips to
       the Galois partner; control `excluded_cone`).
@@ -64,7 +65,7 @@ clusters at the band costs, the residue at the minimal positive pole is
 the rank-three frame projector (faithful, equivariant, Galois partner
 at the maximal pole), and the finite screen assembly, simulator-read
 multiplicity times the pinned fifteen-state generation, has complex
-rank exactly forty-five with the generation factor stated as an
+rank exactly forty-five with the conditional generation factor stated as an
 import.  The matter-pole identification, chirality and spin data,
 Spin/locality, physical seam selection, and laboratory-current receipts stay
 open on issue #569.  The separately pinned issue-314 twelve-port spin packet
@@ -555,6 +556,17 @@ def pin_structural_chain(
         "CURRENT_RECEIPT_CHAIN",
         "the #566 receipt does not resolve to its manifest and carrier",
     )
+    current_conditional = current_receipt.get("conditional_algebraic_gate", {})
+    current_physical = current_receipt.get("physical_source_gate", {})
+    require(
+        current_conditional.get("passed") is True
+        and current_physical.get("passed") is False
+        and current_physical.get("response_model_source_bound") is False
+        and current_physical.get("same_current_internal_implementers_source_bound")
+        is False,
+        "CURRENT_SCOPE",
+        "the #566 packet must retain its declared-current scope",
+    )
 
     expected_maps = [
         {"source": "r0", "target": "r1", "intertwined": True},
@@ -612,6 +624,19 @@ def pin_structural_chain(
         "MATTER_RECEIPT_CHAIN",
         "the #314 matter receipt lost its exact #566 refinement binding",
     )
+    matter_conditional = matter_receipt.get("conditional_algebraic_gate", {})
+    matter_physical = matter_receipt.get("physical_source_gate", {})
+    require(
+        matter_conditional.get("passed") is True
+        and matter_physical.get("passed") is False
+        and matter_physical.get("upstream_current_representation_source_bound")
+        is False
+        and matter_physical.get("matter_lift_source_bound") is False
+        and matter_physical.get("physical_refinement_intertwining_source_bound")
+        is False,
+        "MATTER_SCOPE",
+        "the #314 packet must retain its declared conditional matter scope",
+    )
 
     require(
         global_manifest.get("schema") == "oph.axis_center_descent_manifest.v4"
@@ -642,15 +667,28 @@ def pin_structural_chain(
         and kernel.get("kernel_elements") == expected_kernel
         and kernel.get("matches_emitted_kernel_data") is True
         and global_receipt.get("weight_level_refinement_invariance", {}).get(
-            "physical_loop_or_bundle_refinement_naturality_derived"
+            "declared_loop_system_refinement_naturality_derived"
         )
         is True
         and global_receipt.get("sector_transport_consistency", {}).get(
-            "unique_menu_matching_form"
+            "unique_menu_matching_form_within_declared_system"
         )
         == "z6_quotient",
         "GLOBAL_FORM_RECEIPT_CHAIN",
         "the #567 receipt does not resolve to the matter packet and Z6 kernel",
+    )
+    global_conditional = global_receipt.get("conditional_algebraic_gate", {})
+    global_physical = global_receipt.get("physical_global_form_gate", {})
+    require(
+        global_conditional.get("passed") is True
+        and global_physical.get("passed") is False
+        and global_physical.get("upstream_response_physically_source_bound") is False
+        and global_physical.get("upstream_matter_physically_source_bound") is False
+        and global_physical.get("axis_relation_lattice_source_selected") is False
+        and global_physical.get("same_source_loop_to_tensor_kernel_identification")
+        is False,
+        "GLOBAL_FORM_SCOPE",
+        "the #567 packet must retain its declared-system physical boundary",
     )
 
     _verify_self_hash(seam_manifest, "SEAM_MANIFEST_HASH")
@@ -677,6 +715,16 @@ def pin_structural_chain(
         and "selection requires" in interface.get("statement", ""),
         "SEAM_SELECTION_BOUNDARY",
         "the #627 menu must leave physical seam action selection open on #569",
+    )
+    seam_scope = seam_manifest.get("conditional_scope", {})
+    require(
+        seam_scope.get("conditional_current_matter_kernel_arithmetic") is True
+        and seam_scope.get("physical_matter_lift_source_bound") is False
+        and seam_scope.get("physical_global_form_source_selected") is False
+        and seam_scope.get("same_source_seam_to_tensor_kernel_identification")
+        is False,
+        "SEAM_SCOPE",
+        "the #627 packet must retain its declared-table scope",
     )
     require(
         diagonal.get("generator_color_weak_hypercharge") == [1, 1, 1]
@@ -802,6 +850,24 @@ def parse_channel(text: str) -> F5:
 
 def pin_response_artifact(carrier_pin: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     artifact = load_json(MODULE_DIR / "manifests" / RESPONSE_ARTIFACT_NAME)
+    body = {key: value for key, value in artifact.items() if key != "artifact_sha256"}
+    require(
+        artifact.get("artifact_sha256") == "sha256:" + sha256_json(body)
+        and artifact.get("source_response", {})
+        .get("impulse_readback_protocol", {})
+        .get("status")
+        == "source_bound_operational_producer"
+        and artifact.get("source_response", {})
+        .get("impulse_readback_protocol", {})
+        .get("downstream_labels_used")
+        is False
+        and artifact.get("source_response", {})
+        .get("impulse_readback_protocol", {})
+        .get("target_labels_used")
+        is False,
+        "ARTIFACT_SCOPE",
+        "the response artifact must retain its target-free source-bound finite-channel scope",
+    )
     require(
         artifact["carrier_binding"]["carrier_manifest_sha256"]
         == carrier_pin["sha256"],
@@ -820,6 +886,14 @@ def pin_pole_residue_artifact(
     carrier_pin: Mapping[str, Any], response_artifact: Mapping[str, Any]
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     artifact = load_json(MODULE_DIR / "manifests" / POLE_RESIDUE_ARTIFACT_NAME)
+    body = {key: value for key, value in artifact.items() if key != "artifact_sha256"}
+    require(
+        artifact.get("artifact_sha256") == "sha256:" + sha256_json(body)
+        and "not a matter-pole measurement"
+        in str(artifact.get("claim_boundary", "")).lower(),
+        "POLE_ARTIFACT_SCOPE",
+        "the pole artifact must retain its self-hash and non-matter boundary",
+    )
     binding = artifact["carrier_binding"]
     require(
         binding["carrier_manifest_sha256"] == carrier_pin["sha256"],
@@ -1737,13 +1811,13 @@ def verify_refinement_transport(
             "tensor_projector_refinement_natural": True,
             "tensor_cocycle_checked": True,
             "matter_intertwiner_source": (
-                "hash-pinned #314 gamma refinement on the unordered "
-                "conjugate rank-fifteen projector pair"
+                "hash-pinned conditional #314 gamma refinement on the "
+                "unordered conjugate rank-fifteen projector pair"
             ),
             "matter_maps_intertwined": (
                 matter_receipt["refinement"]["maps"]
             ),
-            "physical_persistence_maps_intertwined": (
+            "artifact_persistence_maps_conditionally_intertwined": (
                 matter_receipt["refinement"]["physical_maps"]
             ),
             "actual_gamma_strict_triangle_claimed": False,
@@ -1790,10 +1864,11 @@ def physical_persistence_transport(
         "the #314 physical matter maps do not bind the #599 persistence maps",
     )
     return {
-        "namespace": "artifact_physical_persistence",
+        "namespace": "artifact_bound_persistence",
         "maps": emitted,
         "distinct_from_algebraic_r_tower": True,
-        "matter_gamma_intertwined_mapwise": True,
+        "declared_matter_gamma_intertwined_mapwise": True,
+        "physical_refinement_intertwining_source_bound": False,
         "laboratory_current_identified": False,
     }
 
@@ -1936,7 +2011,7 @@ def verify_tripled_anomaly_and_z6(
         "kernel_elements": [list(row) for row in sorted(kernel)],
         "kernel_order": len(kernel),
         "kernel_generator": list(generator),
-        "kernel_after_triplication": "same diagonal Z6",
+        "kernel_after_triplication": "same conditional diagonal Z6",
         "triplication_does_not_change_kernel": True,
         "tripled_field_action": tripled_rows,
         "fixed_subspace_dimension": fixed_states,
@@ -2520,9 +2595,9 @@ def build_payload() -> dict[str, Any]:
         families,
     )
     attachment = {
-        "family_object": "the 3 band of the screen coefficient space",
+        "family_object": "the selected finite 3 band of the screen coefficient space",
         "family_dimension": families,
-        "generation_weyl_states": generation["weyl_state_count"],
+        "declared_generation_fixture_weyl_states": generation["weyl_state_count"],
         "complex_rank": families * int(generation["weyl_state_count"]),
         "invariant_projector": "P3 tensor Q15",
         "coordinate_projector": (
@@ -2536,13 +2611,13 @@ def build_payload() -> dict[str, Any]:
             "three_copy_weak_doublets"
         ],
         "weak_parity_even": three_copy_consistency["weak_parity_even"],
-        "common_kernel": "Z6, unchanged under family triplication",
+        "conditional_common_kernel": "Z6, unchanged under family triplication",
         "common_kernel_recomputed": True,
     }
     require(
         attachment["complex_rank"] == 45,
         "RANK_45",
-        "the realized attachment must have complex rank forty-five",
+        "the conditional attachment candidate must have complex rank forty-five",
     )
 
     uniqueness = {
@@ -2624,7 +2699,9 @@ def build_payload() -> dict[str, Any]:
             "Exact selection inside the source-visible screen: among single "
             "complete faithful in-window multiplicity objects the #625 "
             "operational comparison order has the 3 band as unique strict "
-            "minimizer, fixing N_g = 3 with attachment rank forty-five. "
+            "minimizer, fixing the finite candidate multiplicity rank at "
+            "three. Tensoring with the declared conditional fifteen-state "
+            "matter fixture gives an attachment candidate of rank forty-five. "
             "The #617 copy-count invisibility for external completions is "
             "preserved. Clause S is simulator-realized by the #599 response "
             "artifact; clause R is simulator-realized for the response "
@@ -2632,21 +2709,25 @@ def build_payload() -> dict[str, Any]:
             "artifact. Its rank-three frame residue sits at the lowest positive "
             "generator frequency with the generation factor imported. All "
             "three actual refinements preserve the finite projector and its "
-            "rank-forty-five tensor transport. The #627 seam character menu "
-            "transports conditionally without selecting an action. The pinned "
+            "conditional rank-forty-five tensor transport. The #627 seam "
+            "character menu transports conditionally without selecting an "
+            "action or physical global form. The pinned "
             "issue-314 twelve-port spin packet and issue-634 local operator "
             "packet have no certified identity or transport bridge. "
-            "Matter-pole identification, physical Spin/locality, physical "
-            "seam selection, and laboratory-current attachment stay open."
+            "Physical current and matter-source binding, physical global-form "
+            "selection, matter-pole identification, physical Spin/locality, "
+            "physical seam selection, and laboratory-current attachment stay "
+            "open."
         ),
         "named_interface": {
             "id": "screen_realized_multiplicity_object",
             "class": "conditional_open_interface",
             "clauses": {
                 "R_realization": (
-                    "the physical pole-residue multiplicity object is realized "
-                    "as a single complete subobject of the source-visible "
-                    "screen coefficient space"
+                    "the finite response pole-residue multiplicity object is "
+                    "realized as a single complete subobject of the "
+                    "source-visible screen coefficient space; physical "
+                    "matter-pole identification remains open"
                 ),
                 "S_selection": (
                     "the attachment is compared by the #625 operational cost "
@@ -2665,6 +2746,9 @@ def build_payload() -> dict[str, Any]:
                 "S_selection": measured["clause_S"],
             },
             "open_receipts": [
+                "physical current-source binding",
+                "physical matter-source binding",
+                "physical global-form selection",
                 "matter-pole identification",
                 "physical Spin/locality bridge",
                 "physical seam action selection",
@@ -2680,6 +2764,16 @@ def build_payload() -> dict[str, Any]:
             "measured_response_artifact": response_pin,
             "measured_pole_residue_artifact": pole_pin,
             "separate_matter_context_receipt": attachment_pin,
+        },
+        "conditional_structural_scope": {
+            "current_algebra_exact_in_declared_fixture": True,
+            "matter_lift_exact_in_declared_fixture": True,
+            "global_kernel_exact_in_declared_tables": True,
+            "seam_menu_exact_in_declared_tables": True,
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
+            "same_source_seam_to_matter_kernel_identified": False,
         },
         "measured_receipt": measured,
         "pole_residue_receipt": pole_receipt,
@@ -2728,8 +2822,9 @@ def build_payload() -> dict[str, Any]:
                 "the issue-314 twelve-port spin packet and issue-634 local "
                 "operator packet are resolved independently; no transport "
                 "or identity bridge joins them. Physical Spin/locality, "
-                "matter-pole identification, physical seam selection, and "
-                "laboratory identification stay open"
+                "physical current and matter-source binding, physical "
+                "global-form selection, matter-pole identification, physical "
+                "seam selection, and laboratory identification stay open"
             ),
         },
         "spectral_resolution": spectral,
@@ -2755,6 +2850,9 @@ def build_payload() -> dict[str, Any]:
         "uniqueness": uniqueness,
         "controls": controls,
         "promotion": {
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
             "matter_pole_identified": False,
             "continuum_spin_locality_derived": False,
             "physical_seam_action_selected": False,
@@ -2762,6 +2860,9 @@ def build_payload() -> dict[str, Any]:
             "promotion_allowed": False,
         },
         "open_gates": [
+            "physical_current_source_binding",
+            "physical_matter_lift_source_binding",
+            "physical_global_form_selection",
             "matter_pole_identification",
             "continuum_Spin_locality",
             "physical_seam_action_selection",

@@ -679,30 +679,35 @@ certified twelve-port carrier
 -> incidence theorem: unique central graph involution J
 -> target-blind impulse/readback: solve the common farthest-shell filter,
    hence R = -J up to charge conjugation
--> exact source-model compact current algebra su(3)+su(2)+u(1)
+-> complete compact port response plus endogenous overlap transport
+-> abstract compact Lie type su(3)+su(2)+u(1)
+-> declared matrix witness; source tomography and same-current holonomy open
 -> conditional conjugate pair of fifteen-state exterior modules
 -> common central kernel computed on every declared tensor
--> maximal faithful matter image (SU(3) x SU(2) x U(1))/Z_6
+-> conditional maximal faithful matter image
 ```
 
 Every finite algebraic arrow has a named executable receipt or Lean boundary.
 Incidence alone leaves a four-dimensional $A_5$-equivariant linear
 commutant. The target-blind producer adds the operational inverse-port
 readback rule and derives \(J\) from adjacency histories. No
-matter-content selection rule enters the resulting finite implication.
-Physical matter typing, global-form selection, laboratory current
-identification, three-family attachment, exclusion of extra light sectors,
-the common-group map to the Tannaka route, and quantum field-theory
-realization are open.
+matter-content selection rule enters the abstract Lie-type implication.
+The matrix current is not reconstructed by the inverse-port receipt. Physical
+matter typing, complete source characters, the loop-to-kernel identity,
+global-form selection, laboratory current identification, three-family
+attachment, exclusion of extra light sectors, the common-group map to the
+Tannaka route, and quantum field-theory realization are open.
 
 ### The theorem-level bookkeeping
 
 The compact and main papers state this as theorem-level bookkeeping. Under the
-finite response and matter contracts, the current certificate supplies the
-connected abelian factor, anomaly freedom forces determinant balance,
+A1 response and A2 transport clauses, compact classification supplies the
+abstract connected abelian factor and the simple factor dimensions. Within
+the declared matter construction, anomaly freedom forces determinant balance,
 primitive integrality fixes a conjugate pair of charge lattices, and exhaustive
-central-action enumeration gives the conjugation-insensitive `Z_6` kernel,
-character lattice, and dual cocharacter lattice. The cover and its
+central-action enumeration gives the conjugation-insensitive `Z_6` kernel and
+its central descent congruence. The full character lattice retains the
+nonabelian weights; the short central triple is not a replacement for it. The cover and its
 intermediate quotients carry the same local tensors. No matter-content
 selection rule is consumed by that
 conditional implication. Generation count is different: `N_g=3` is a declared

@@ -1,6 +1,13 @@
 {
   "bounded_exit": "exact_named_character_and_diagonal_action_classification",
-  "claim_boundary": "The pinned finite order-six seam branch, the complete pure-hypercharge character menus, and the canonical diagonal global-form kernel action are separately classified. The 7/3/1 fixed-space values belong only to particular nontrivial pure-hypercharge characters; the diagonal quotient kernel fixes all fifteen realized matter states. No seam character, flux action, or 2-representation is selected, and general seam-grammar exhaustiveness remains open.",
+  "claim_boundary": "The pinned finite order-six seam branch, the complete pure-hypercharge character menus, and the conditional common kernel action of the declared current and matter tables are separately classified. The 7/3/1 fixed-space values belong only to particular nontrivial pure-hypercharge characters; the declared-table kernel fixes all fifteen matter states. No physical global form, seam character, flux action, or 2-representation is selected, and general seam-grammar exhaustiveness remains open.",
+  "conditional_scope": {
+    "conditional_current_matter_kernel_arithmetic": true,
+    "physical_global_form_source_selected": false,
+    "physical_matter_lift_source_bound": false,
+    "same_source_seam_to_tensor_kernel_identification": false,
+    "scope": "declared current, matter, and weight-table fixture; no physical matter action, global form, or seam-to-kernel identification"
+  },
   "controls": {
     "action_conflation": {
       "code": "ACTION_CONFLATION",
@@ -29,7 +36,7 @@
     }
   },
   "diagonal_kernel_action": {
-    "boundary": "this is the local action of the canonical diagonal quotient kernel. It does not identify a seam flux or higher-sector 2-representation with that kernel",
+    "boundary": "this is the common stabilizer action computed from the declared current and matter tables. It does not select a physical global form or identify a seam flux or higher-sector 2-representation with that kernel",
     "faithful_on_module": false,
     "fields": [
       {
@@ -207,12 +214,12 @@
     ]
   },
   "issue": 627,
-  "manifest_sha256": "sha256:6aab0824d6be7b7ac533ea6465c056bc5da38a14b83eaaf9ad0405f5e016e396",
+  "manifest_sha256": "sha256:71278335762f57a83a0cc0c5c2213c225bfad165f361b8ed54deaee05fa768e4",
   "matter_action_interface": {
     "class": "conditional_open_interface",
     "id": "physical_sector_mechanism_selection",
     "owner_issue": 569,
-    "statement": "selection requires a source-derived seam mechanism, a character or 2-representation, its relation to the diagonal global-form kernel and line/flux data, refinement transport, and the physical family-chain receipts"
+    "statement": "selection requires a source-derived seam mechanism, a character or 2-representation, its relation to the diagonal table kernel and line/flux data, a source-selected physical global form, refinement transport, and the physical family-chain receipts"
   },
   "mechanism_classification": {
     "rows": [
@@ -344,22 +351,22 @@
     "classification": "the selected finite response artifact carries hash-verified identity port persistence from level zero to levels one and two. This proves port-set persistence for that artifact, not general seam-character or physical action transport",
     "pin": {
       "path": "code/a5_closure/manifests/charged_response_semantic_artifact.json",
-      "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
+      "sha256": "1ff0fd17f74fe1add88c8d35b4882ae5c06e05c474a0fb1dbc95764c0554107b"
     }
   },
   "schema": "oph.seam_grammar_matter_classification_certificate.v2",
   "upstream_pins": {
     "diagonal_global_form_receipt": {
       "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
-      "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
+      "sha256": "7c854d56af7bdadbae699871542080a740e8fa0856695b0dc453c9e1baee04de"
     },
     "matter_receipt": {
       "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
-      "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+      "sha256": "ac2be496ee7a1d4434bdff5c7c07f208c3e85b5564b0a179f71e1a54c141e462"
     },
     "seam_classification_receipt": {
       "path": "code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json",
-      "sha256": "d2ecbef7e86bebcd6b24a8541069cb89fad71f37bfa54da15116cbd0244b237d"
+      "sha256": "2c3a8839567b4788d4be717b5420f9d43b7272ec34a970132ee3256d7cd7fdb4"
     }
   }
 }

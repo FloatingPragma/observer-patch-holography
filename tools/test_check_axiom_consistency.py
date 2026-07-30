@@ -19,6 +19,15 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertEqual(registry["core_axiom_count"], 3)
         self.assertEqual([a["id"] for a in registry["axioms"]], ["A1", "A2", "A3"])
+        a1, a2, _ = registry["axioms"]
+        self.assertIn("commutator-closed", a1["formal_concise"])
+        self.assertIn(
+            "complete for the declared quotient-visible infinitesimal port response",
+            a1["formal_concise"],
+        )
+        self.assertIn("one projective implementer", a2["formal_concise"])
+        self.assertIn("PU(H)", a2["formal_concise"])
+        self.assertIn("endogenous", a2["formal_concise"])
 
     def test_active_tree_is_clean(self) -> None:
         errors: list[str] = []

@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+  "artifact_sha256": "sha256:0bfdacce8a4714d0d0a518fdf96fbb47b2aea5a0f508d97f51f97dd2e97fb30d",
   "carrier_binding": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
     "incidence_edge_count": 30,
@@ -63,17 +63,22 @@
   },
   "issue": 567,
   "physical_source_gate": {
+    "axis_relation_lattice_source_selected": false,
+    "complete_character_category_source_derived": false,
     "deck_action_on_federation_measured": true,
-    "flux_tube_sector_menu_realized": true,
+    "declared_axis_relation_lattice_computed_exactly": true,
+    "finite_declared_coefficient_system_gate_passed": true,
+    "flux_tube_sector_menu_realized_in_declared_system": true,
     "four_dimensional_instanton_attachment": false,
     "laboratory_line_measurement": false,
-    "passed": true,
-    "reference_federation_sector_class_measured": true,
-    "refinement_natural_sector_menu": true,
-    "scope": "finite source-model scope: the gate aggregates the seven measured rows above; the two false rows are separate lanes (laboratory attachment #569, continuum/4d instanton normalization) and never enter 'passed'",
+    "passed": false,
+    "reference_federation_sector_class_computed_in_declared_system": true,
+    "refinement_natural_declared_sector_menu": true,
+    "same_source_loop_to_tensor_kernel_identification": false,
+    "scope": "the exact finite gate covers carrier deck measurements and arithmetic inside the declared axis coefficient system; the physical source gate fails until source selection, character completeness, and the loop-to-kernel identity are certified",
     "single_puncture_impossibility_verified": true,
-    "six_axis_class_group_measured": true,
-    "subgroup_obstruction_menu_exact": true
+    "six_antipodal_axes_measured": true,
+    "subgroup_obstruction_menu_exact_in_declared_system": true
   },
   "provenance": {
     "deterministic": true,
@@ -303,9 +308,11 @@
     ],
     "axis_count": 6,
     "class_group_order": 6,
+    "coefficient_system_status": "declared_axis_relation_lattice",
     "lattice": "free rank six on the axes modulo diagonal and zero-sum relations",
-    "note": "the class group order is measured as the last Smith invariant of the axis relation lattice; its identification with any tensor-action kernel is a paper-side step",
+    "note": "the class group order is computed as the last Smith invariant of the declared axis relation lattice; the carrier does not select that lattice, and identification with a tensor-action kernel is a separate same-source theorem",
     "orientation_reversal_class_shadow": "reversing every oriented axis negates the oriented-axis generators, which descends to negation on the order-six class group",
+    "relations_source_selected": false,
     "rotation_action_faithful_order": 60,
     "rotation_action_transitive": true,
     "rotations_act_trivially_on_class_group": true,
@@ -318,5 +325,5 @@
       6
     ]
   },
-  "target_firewall": "no_gauge_label_charge_table_matter_module_or_quotient_choice_enters_the_producer"
+  "target_firewall": "no_gauge_label_charge_table_or_matter_module_enters_the_producer; the_axis_relation_lattice_is_an_explicit_declared_input"
 }

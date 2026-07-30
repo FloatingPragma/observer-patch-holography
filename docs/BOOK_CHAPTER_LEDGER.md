@@ -714,13 +714,16 @@ group. A representation tells how a field transforms under the symmetry.
 In OPH there are two routes that must not be blended. Transportable sectors
 reconstruct a compact group on the refinement branch, with the one-Higgs
 Standard Model packet entering as a declared completion with open physical
-status. Separately, the oriented twelve-port coefficient module
-recognizes the Standard Model Lie type through the target-blind finite
-inverse-port response producer. The common $\mathbb Z_6$ kernel on the matter
-side comes from the transformations that act trivially on the realized
-fields. Quotienting by the full kernel gives the maximal faithful matter
-image; the physical global form requires independent global data. The
-icosahedral screen has a separate sixfold residue.
+status. Separately, complete compact response on the oriented twelve-port
+carrier and endogenous transport of its proper symmetries force the Standard
+Model Lie type. A target-blind finite producer derives the inverse-port
+response $R=-J$, which is a carrier result rather than a source reconstruction
+of the matrix current. The common $\mathbb Z_6$ kernel on the matter side comes
+from the transformations that act trivially on the declared fields.
+Quotienting by the full kernel gives the maximal faithful image of that
+representation; the physical global form requires independent source
+characters and loop data. The icosahedral screen has a separate sixfold
+residue.
 Identifying the two groups, actions, and quotients requires a source-bound
 commuting square; matching dimensions or Lie types is not enough.
 

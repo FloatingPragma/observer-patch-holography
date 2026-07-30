@@ -9,9 +9,9 @@
       "model": "K(f) = i*diag(f) on C^12 with permutation implementers"
     },
     "artifact": {
-      "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
+      "construction_fixture": "a production manifest without an explicit charged-double-triplet fixture fails closed; the response artifact does not select a matrix current",
       "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
-      "structure_binding": "old schemas, missing sectors, swapped channels, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed"
+      "structure_binding": "all inline artifact mutations run through production validation; old schemas, missing sectors, swapped channels, forged source selection, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed"
     },
     "equivariance": {
       "per_axis_rescaling": "breaks K(g.f) = Pi(g) K(f) Pi(g)* on any element moving the rescaled axis",
@@ -93,7 +93,7 @@
     {
       "actual_error": "CONSTRUCTION_MODEL_STRING",
       "expected_error": "CONSTRUCTION_MODEL_STRING",
-      "name": "production_construction_model_string",
+      "name": "production_missing_construction_fixture",
       "passed": true
     },
     {
@@ -130,6 +130,12 @@
       "actual_error": "COEFFICIENT_MISMATCH",
       "expected_error": "COEFFICIENT_MISMATCH",
       "name": "artifact_coefficient_mismatch",
+      "passed": true
+    },
+    {
+      "actual_error": "ARTIFACT_CURRENT_BOUNDARY",
+      "expected_error": "ARTIFACT_CURRENT_BOUNDARY",
+      "name": "artifact_forged_current_source_selection",
       "passed": true
     },
     {
@@ -170,6 +176,6 @@
     }
   ],
   "issue": 566,
-  "manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+  "manifest_sha256": "1aa53f62c7137e1f63233723deedaaae14f82090cc2d7fa9875984b85b32816e",
   "schema": "oph.port_current_inner_negative_controls.v5"
 }

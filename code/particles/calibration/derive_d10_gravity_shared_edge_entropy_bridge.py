@@ -6,7 +6,7 @@ release surface so the gravity-side `G` readout and the D10 pixel law use one
 common emitted object.
 
 Mathematics: on the stated local extension surface and on the lifted product
-presentation of the realized quotient branch, the `R`-sector collar
+presentation of the declared maximal faithful matter image, the `R`-sector collar
 edge-center entropy contribution satisfies
 `(L_C)|_R = log d_R = log d_R3 + log d_R2` because the `U(1)` factor is
 one-dimensional. The D10 forward transmutation certificate fixes the same
@@ -55,7 +55,7 @@ def build_artifact(forward_certificate: dict) -> dict:
     return {
         "artifact": "oph_d10_gravity_shared_edge_entropy_bridge",
         "generated_utc": _timestamp(),
-        "status": "closed",
+        "status": "closed_conditional_algebraic_identity",
         "object_id": "D10GravitySharedEdgeEntropyBridge",
         "proof_gate": "branch_preserving_nonabelian_edge_entropy_identity",
         "source_artifact": forward_certificate.get("artifact"),
@@ -63,8 +63,8 @@ def build_artifact(forward_certificate: dict) -> dict:
             "name": "D10GravitySharedEdgeEntropyBridge",
             "statement": (
                 "On the stated local extension surface and the lifted product "
-                "presentation of the realized quotient branch "
-                "G_phys = (SU(3) x SU(2) x U(1)) / Z6, the R-sector contribution "
+                "presentation of the declared maximal faithful matter image "
+                "G_packet = (SU(3) x SU(2) x U(1)) / Z6, the R-sector contribution "
                 "of the collar edge-center entropy operator for "
                 "R = R_3 ⊠ R_2 ⊠ q satisfies "
                 "(L_C)|_R = log d_R = log d_R3 + log d_R2 because every irreducible "
@@ -86,7 +86,8 @@ def build_artifact(forward_certificate: dict) -> dict:
             },
         },
         "branch_data": {
-            "realized_product_group_branch": "(SU(3) x SU(2) x U(1)) / Z6",
+            "declared_matter_image_branch": "(SU(3) x SU(2) x U(1)) / Z6",
+            "physical_global_form_selected": False,
             "t2_run": t2_run,
             "t3_run": t3_run,
             "P": p_value,
@@ -105,9 +106,11 @@ def build_artifact(forward_certificate: dict) -> dict:
             },
             "claim_boundary": (
                 "This exact natural-unit ratio is a branch-conditional "
-                "geometric identity. It does not emit an SI value of G; the "
-                "independent operational clock and physical-scale packet "
-                "remain required."
+                "geometric identity on the declared maximal faithful matter "
+                "image. It does not select the physical global form and does "
+                "not emit an SI value of G; the source character and loop-to-kernel "
+                "map, operational clock, and physical-scale packet remain "
+                "required."
             ),
         },
         "proof": [
@@ -124,7 +127,7 @@ def build_artifact(forward_certificate: dict) -> dict:
         },
         "notes": [
             "This artifact records the shared D10/gravity edge-entropy bridge on the stated local extension surface beneath the local gravity display.",
-            "The bridge is branch-preserving: the D10 nonabelian edge-entropy sum and the gravity-side shared entropy are identified on the same lifted product presentation of the realized quotient branch.",
+            "The bridge is branch-preserving: the D10 nonabelian edge-entropy sum and the gravity-side shared entropy are identified on the same lifted product presentation of the declared maximal faithful matter image.",
             "The strict classical-regime clause and the familiar-unit readout package remain separate local release objects.",
         ],
     }

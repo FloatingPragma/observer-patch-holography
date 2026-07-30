@@ -938,14 +938,24 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
         "12-port conditional current gate no longer passes",
     )
     require(
-        current_gate.get("physical_source_realization_gate_passed") is True,
-        "12-port current receipt lost its source-bound response artifact gate",
+        current_gate.get("physical_source_realization_gate_passed") is False
+        and current_gate.get("met_locally") is False,
+        "12-port current receipt must fail closed at source realization",
     )
     require(
         isinstance(current.get("semantic_response_binding"), dict)
         and current["semantic_response_binding"].get("sector_structure_recomputed")
         is True,
-        "12-port current gate passes without a recomputed semantic binding",
+        "12-port response constraints are not recomputed",
+    )
+    require(
+        current["semantic_response_binding"].get("current_lift_source_selected")
+        is False
+        and current["semantic_response_binding"].get(
+            "overlap_holonomy_internality_certified"
+        )
+        is False,
+        "12-port response artifact crossed the current-source boundary",
     )
     matter_selection = matter.get("selection", {})
     require(matter_selection.get("projector_rank") == 15, "matter projector rank drifted")
@@ -1015,8 +1025,8 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
                 "sm_lie_type_available": True,
                 "sm_lie_type_uniquely_selected": False,
                 "conditional_response_gate_passed": True,
-                "physical_source_binding": True,
-                "status": "AVAILABLE_NOT_UNIQUELY_SELECTED",
+                "physical_source_binding": False,
+                "status": "AXIOM_DOMAIN_FORCED__COUNTERFACTUAL_MENU_UNTESTED",
             }
         )
 
@@ -1042,10 +1052,13 @@ def build_selector_ablation(root: Path) -> dict[str, Any]:
             "sm_lie_type_available_count": len(available),
             "sm_lie_type_uniquely_selected_count": len(unique_selected),
             "verdict": (
-                "u(1)+su(2)+su(3) is available on the source-bound twelve-port "
-                "response branch, not uniquely selected across the carrier "
-                "menu. Seven alternative deltahedra have no compatible "
-                "producer and are unknown; they are not counted as exclusions."
+                "Within A1's declared twelve-port icosahedral boundary and the "
+                "A2 same-response internal-holonomy premise, the abstract Lie "
+                "type u(1)+su(2)+su(3) is forced. This is an axiom-domain "
+                "theorem, not a selection among eight deltahedral carriers. "
+                "The seven counterfactual carriers lie outside A1 and have no "
+                "compatible producer; they are not counted as exclusions. "
+                "Source reconstruction of the matrix current remains open."
             ),
         },
         "twelve_port_completion_nonuniqueness": no_go,
@@ -1981,9 +1994,9 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
     ]
     for row in selector["rows"]:
         if row["sm_lie_type_available"] is True:
-            sm = "available; **not uniquely selected**"
+            sm = "**forced in the A1/A2 domain**; physical matrix current open"
         else:
-            sm = "unknown (fail closed)"
+            sm = "outside A1; no producer"
         lines.append(
             f"| `{row['configuration']}` | {row['port_count']} | "
             f"`{row['status']}` | {sm} |"
@@ -1991,20 +2004,27 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
     no_go = selector["twelve_port_completion_nonuniqueness"]
     lines += [
         "",
-        "For the only executable port-response entry (the 12-port icosahedron),",
-        "the exact coefficient classification leaves three viable compact Lie",
-        "types: `su(3)+su(2)+u(1)`, `su(2)+su(2)+u(1)^6`, and `u(1)^12`.",
-        "The declared finite response construction realizes the first and its",
-        "source-binding gate passes on the twelve-port carrier. Laboratory",
-        "gauge-current identification remains open, and the bare source reduct",
-        "admits both",
+        "For the A1 twelve-port icosahedral carrier, the coefficient-module",
+        "classification by itself leaves three viable compact Lie types:",
+        "`su(3)+su(2)+u(1)`, `su(2)+su(2)+u(1)^6`, and `u(1)^12`.",
+        "The complete faithful A1 response and A2 same-response internal",
+        "holonomy supply the stronger fixed-space theorem that forces the first",
+        "abstract Lie type. The charged-double-triplet matrices are an exact",
+        "declared witness. The response artifact does not reconstruct those",
+        "generators, their bracket, or same-current holonomy, so physical source",
+        "binding and laboratory gauge-current identification remain open.",
+        "",
+        "The small completion no-go uses a bare source reduct that omits the",
+        "complete-response and internal-holonomy premises. That weaker reduct admits",
+        "both",
         f"`{'` and `'.join(no_go['inequivalent_current_completions'])}`.",
+        "Its nonuniqueness does not contradict the A1/A2 abstract theorem.",
         "",
         "Matter completion is likewise non-unique: the same reduct admits",
         f"`{'` and `'.join(no_go['inequivalent_matter_completions'])}`. The",
         "rank-15 projector is verified, but the sterile-singlet completion is not",
-        "excluded. Seven alternative deltahedra lack a compatible producer and are",
-        "left unknown rather than treated as negative results.",
+        "excluded. Seven alternative deltahedra lie outside A1 and lack a compatible",
+        "producer. They are counterfactual ablations, not competing OPH branches.",
         "",
         "## W3c — RSCC zero-`w²` ablation gate",
         "",

@@ -12,6 +12,15 @@ exclude models that satisfy the present A1-A3 basis. Keeping them inside A1
 and A2 would preserve a three-axiom count, but adoption would still require a
 basis-wide dependency and countermodel audit.
 
+The scalar finite branch has a positive exact result. The thirty primitive
+seam constraints, their sixty directed integer completions, the unique
+generator ray, the exact conditional mean, and the complete nonnegative
+total-twelve closure class have executable certificates. The full accessible
+algebra, path-law premise, refinement semigroup, protected-sector choice, and
+physical attachment remain outside that result. Lean proves the signed-sector
+minimum-shell formula and the one-, two-, and three-seam progress arithmetic;
+almost-sure shell hitting still consumes the proposed free path law.
+
 The proposal is designed to derive a unique dimensionless repair generator at
 each certified finite regulator after a common repair algebra, a faithful
 selected state, and a fair schedule have been certified. It does not introduce
@@ -28,9 +37,10 @@ Consequently, several inequivalent repair policies satisfy the basis.
 The proposed clauses close those two gaps. A1 fixes the complete primitive
 move grammar and types the data carried through repair. A2 fixes the
 operational meaning of a completed repair. The A3-selected faithful state
-then determines the state-preserving conditional expectations. A separate A3
-transition optimization selects a schedule only relative to a declared
-presentation-natural schedule reference.
+then determines the state-preserving conditional expectations. On a single
+transitive move orbit, presentation invariance and normalization fix the
+schedule. Several primitive orbits would retain relative weights unless
+source data or additional agreement constraints fixed them.
 
 ## Proposed A1-R clause: complete primitive repair grammar
 
@@ -107,8 +117,10 @@ equalizer, and lift data
    \]
    equals the complete A2 agreement algebra on the declared observer cover.
 8. Every A2-visible repairable mismatch factors through the grammar.
-   Isomorphic copies of one primitive diagram form one move type unless their
-   multiplicity is supplied by actual A1 incidence.
+   A diagram is atomic when its rational constraint row space is not generated
+   by diagrams with strictly smaller visible write support. Isomorphic copies
+   of one primitive diagram form one move type unless their multiplicity is
+   supplied by actual A1 incidence.
 9. Presentation equivalences permute \(\mathsf M_r\), preserve the common
    repair workspace, working-data type, protected algebra, conserved
    functionals, equalizers, and checkpoint instrument, and introduce no
@@ -119,9 +131,15 @@ equalizer, and lift data
     \mathsf M_r\sqcup\{\bot\},
     \]
     where \(\bot\) denotes a fine repair invisible at the coarse regulator.
+11. The primitive event alphabet counts seam-readback and reconciliation
+    attempts, including attempts whose completion is a wait. Unless a
+    quotient-visible record constraint says otherwise, every letter remains
+    enabled after every finite history. Successful or committed repairs are
+    not substituted for this attempt alphabet.
 
 A1-R fixes the move space and its targets. It does not fix a channel,
-schedule, relaxation coefficient, or physical clock.
+relaxation coefficient, or physical clock. A transitive atomic move orbit
+does fix the invariant normalized schedule once A3 is applied.
 
 ## Proposed A2-R clause: canonical completed reconciliation
 
@@ -173,6 +191,12 @@ restored working state remains subject to subsequent repair.
 The lifted primitive maps agree on common restrictions by construction. This
 gluing condition is required before they are summed. It does not assert a
 microscopic global state extension.
+
+A2-R also requires temporal-constraint completeness. Every observer-visible
+constraint on finite repair histories factors through the declared history
+grammar. An IID conclusion is available only when this theorem finds no
+state-dependent event deletion, next-event restriction, or cross-position
+coupling. Absence from a finite test battery is not a completeness theorem.
 
 The word “completed” is load-bearing. Partial maps
 
@@ -228,19 +252,33 @@ L_r=I-R_r
 The selected ontic state \(\omega_r\) and the schedule optimizer \(\mu_r\)
 are distinct A3 objects.
 
-The schedule conclusion is conditional on a separately declared strictly
-positive, presentation-natural uniform reference \(\nu_r\) on the complete
-move simplex. A3 does not derive that reference from bare A1. If the move
-automorphism group is transitive and normalization is the only schedule
-constraint, the declared uniform reference gives
+The schedule reference is constructed from quotient-visible A1 incidence and
+must be invariant under every admissible presentation equivalence. If the
+move automorphism group is transitive and normalization is the only schedule
+constraint, invariance forces
 
 \[
 \mu_r(m)=\frac1{|\mathsf M_r|}.
 \]
 
-The twelve-port seam simplex gives \(1/30\). If the move grammar contains
-several orbits, symmetry gives uniformity within each orbit. Relative orbit
-weights require quotient-visible A1 data or additional A2 constraints.
+No separately adjustable uniform weight remains on a single orbit. The
+twelve-port scalar grammar gives \(1/30\) on the thirty seam constraints.
+For the integer lift, the unresolved odd-total tie has two
+presentation-related nearest completions. A3 assigns \(1/2\) to that tie,
+equivalently \(1/60\) to each directed seam completion. If the move grammar
+contains several atomic orbits, symmetry gives uniformity within each orbit.
+Relative orbit weights still require quotient-visible A1 data or additional
+A2 constraints.
+
+The same conclusion can hold on event strings under the proposed history
+clauses. If A1-R proves that the length-\(k\) attempt space is the full word
+space \(\mathsf M_r^k\) with source counting reference, and A2-R proves that
+the complete temporal grammar imposes no coupling, A3's information
+projection gives weight \(|\mathsf M_r|^{-k}\) to each word. These laws are
+prefix-consistent and define the IID process. Canonical A3 alone does not
+imply Markovity. Uniform one-event marginals are insufficient because a
+repeat-the-first-event schedule has the same marginal and a different
+two-event kernel.
 
 Each primitive expectation is GNS self-adjoint. Therefore
 
@@ -272,6 +310,16 @@ sector requires a separate primitivity or dual-irreducibility theorem.
 
 ## Scalar twelve-port specialization
 
+The scalar A1 mismatch row on a seam \(e=\{i,j\}\) is
+\(C_e x=x_i-x_j\). It has minimal two-port write support. A triangular-face
+agreement row space has rank two and is generated by two of its three seam
+rows. Faces therefore supply coherence checks rather than a second scalar
+primitive orbit. On all 66 unordered port pairs, the proper carrier action
+has three orbits: 30 seams, 30 distance-two pairs, and six antipodal pairs.
+A1 incidence selects the seam orbit. This atomic decomposition removes an
+edge-versus-face rate selector on the scalar branch. It does not prove the
+same completeness statement for a noncommutative repair algebra.
+
 For one seam \(e=\{i,j\}\) and
 \(b_e=e_i-e_j\), a real-linear update that changes only the two endpoints,
 preserves their sum, and lands in the equalizer \(x_i=x_j\) is uniquely
@@ -300,6 +348,16 @@ matrices, all 1,800 rotation-seam covariance squares, the exact spectrum,
 total-functional conservation, convergence, the integer parity lift, and the
 retained countermodels.
 
+The exact reconstruction experiment in
+`oph_fpe/dynamics/self_readback_repair_closure.py` separates structural
+readback from held-out transition evidence. It exhausts every nonnegative
+state with total zero through four, compares the full event kernel rather
+than its spectrum, checks every conditional mean against
+\((I-L_{\rm ico}/60)x\), and distinguishes an IID two-event law from a
+correlated law with the same one-event marginals. Inside its frozen
+adversarial suite, one generator ray survives after presentation and clock
+equivalence.
+
 The scalar integer lift has a sharp boundary. For an even endpoint total, its
 range contains the exactly equal integer pair. For an odd total, the range is
 the nearest-balanced shell
@@ -314,13 +372,42 @@ swap-invariant distribution has the rational pair average only in
 expectation. It therefore does not certify an exact A2 agreement retraction
 on odd-total integer states.
 
-The executable verification is deterministic producer replay, not an
-independent implementation. Its matrices and covariance squares are checked
-exactly after the carrier permutations have been produced. The current
-proper-rotation helper obtains those permutations by floating-point
-coordinate matching and then checks the resulting incidence actions
-discretely. The certificate does not establish a strictly combinatorial,
-independently generated enumeration of the 60 rotations.
+The integer process is an exact microhistory and expectation-level lift of
+the real pair-average channel. It is not an A2-R conditional expectation on
+the full odd-total integer fiber: the pathwise shell is noncentral and the
+transient kernel cannot preserve a faithful state there. The completed
+nearest-balancing macro-event can move several units and is not identified
+with the issue-628 atomic one-unit record move. An instrument-level
+macro-event-to-record-history theorem remains open.
+
+The directed-completion process also repairs a real defect in the earlier
+one-unit settling rule. Difference-one moves are reversible swaps instead of
+absorbing endpoints. On the nonnegative total-twelve fiber, an exact
+constructive audit checks all
+\(\binom{23}{11}=1{,}352{,}078\) states. Every nonminimum state has a path of
+at most three directed events to a lower quadratic level. The all-one state
+is the unique closed class. The one-unit rule has 303 absorbing states on the
+same fiber, of which 302 are false local minima.
+
+`Lean/ObserverPatchHolography/DirectedSeamRepair.lean` proves total-sector
+preservation, the residual parity gap, the exact two-direction rational mean,
+the quadratic-drop identity, and strict local descent. The executable
+directed-seam certificate constructs a coherent surface orientation from
+unoriented incidence without coordinates, splits the 120 automorphisms into
+60 proper and 60 reversing maps, and checks that the proper subgroup acts
+simply transitively on all 60 directed completions.
+
+`Lean/ObserverPatchHolography/DirectedSeamRepairProgress.lean` proves the
+carrier path bound of three, the exact signed fixed-total shell-energy
+identity, nonnegativity and equality characterization of its defect, neutral
+maximum transport, and strict descent along every required path length.
+
+The executable verifiers are deterministic producer replays rather than
+independent implementations. The total-twelve exhaustive campaign concerns
+the nonnegative subspace containing the source full-pile state. The general
+signed-state progress construction is exact, while its almost-sure hitting
+statement remains conditional on the path-law premise. The full-algebra
+grammar remains a separate proof obligation.
 
 ## Refinement gate
 
@@ -396,13 +483,16 @@ The amendment is admissible only if all of the following checks pass.
 2. The move groupoid is generated from A1 data-access diagrams rather than
    from moves that produce preferred physics.
 3. The state \(\omega_r\) is selected from a pre-repair constraint grammar.
-4. The schedule reference is declared from quotient-visible A1 incidence and
-   contains no measured spectrum or target. Uniform scheduling remains
-   conditional on a separately declared presentation-natural uniform
-   reference.
+4. The schedule reference is constructed from quotient-visible A1 incidence
+   and contains no measured spectrum or target. On a single transitive atomic
+   orbit, presentation invariance and normalization force uniformity. Several
+   atomic orbits require a source-derived relative weighting theorem.
 5. Modular invariance is tested for every primitive agreement algebra.
 6. Duplicate presentations are quotiented out before weights are assigned.
-7. Uniform scheduling is claimed only on a proved transitive orbit.
+7. Uniform scheduling is claimed only on a proved transitive orbit. IID
+   scheduling additionally requires the all-word free-composition theorem,
+   temporal-constraint completeness, and prefix consistency. Finite
+   event-string tests alone do not discharge this premise.
 8. The observable fixed algebra is computed using only positive-support
    moves. Equality with the full joint equalizer requires fair full support,
    and no dual stationary-state uniqueness is inferred from it.
@@ -517,17 +607,19 @@ certificate establishes none of them.
 5. modular invariance and conditional-expectation existence;
 6. construction and compatibility of every lifted local expectation before
    intersections or sums are formed;
-7. A3 optimizer-to-transition theorem relative to the declared schedule
-   reference;
-8. move-orbit, full-support fairness, and schedule-weight classification;
+7. A3 optimizer-to-transition theorem from source-defined incidence and
+   event-string constraints;
+8. move-orbit, full-support fairness, temporal-coupling, and schedule-weight
+   classification;
 9. positive-support fixed-algebra computation without a dual uniqueness
    inference;
 10. checkpoint instrument bridge;
-11. refinement commuting squares and scale cocycle;
-12. existence and uniqueness of the coupled state-generator fixed point; and
-13. source-defined construction and uniqueness of the full self-reading
+11. integer macro-event to atomic record-history bridge;
+12. refinement commuting squares and scale cocycle;
+13. existence and uniqueness of the coupled state-generator fixed point; and
+14. source-defined construction and uniqueness of the full self-reading
     closure across the admissible A1 model class; and
-14. preservation of existing theorem scopes under the stronger model class.
+15. preservation of existing theorem scopes under the stronger model class.
 
 Until these obligations close, A1-R and A2-R have the status
 `proposed_basis_amendment`. The scalar seam result is an exact finite theorem.
@@ -539,9 +631,9 @@ physical attachment.
 ## Consequence for the universe-selection claim
 
 If adopted and discharged, the proposed clauses remove arbitrary local
-reconciliation maps and seam schedules from a fixed observer model with the
-declared schedule reference. They do not select the complete physical
-universe by themselves. A1 still describes a class of observer nets, A3
+reconciliation maps and, on a single transitive primitive orbit, arbitrary
+seam schedules from a fixed observer model. They do not select the complete
+physical universe by themselves. A1 still describes a class of observer nets, A3
 selects inside a fixed model, protected records label fixed sectors, the
 refinement limit is unresolved, and physical field and readout maps remain
 separate.
@@ -550,10 +642,12 @@ The strongest supported statement is:
 
 > A1-R fixes a common repair workspace and the complete observer-visible move
 > grammar. A2-R fixes completed reconciliation on that workspace. Given a
-> faithful A3-selected state, a declared presentation-natural schedule
-> reference, and fair full support, the three clauses determine a
-> dimensionless agreement-repair generator at each certified finite
-> regulator. This does not select a unique physical universe.
+> faithful A3-selected state, source-derived move incidence, and fair full
+> support, the three clauses determine a dimensionless agreement-repair
+> generator at each certified finite regulator whenever the primitive moves
+> form one transitive orbit. Several primitive orbits retain relative weights
+> until source data or agreement constraints fix them. This does not select a
+> unique physical universe.
 
 If inequivalent repair laws survive after every proof obligation above is
 closed, their remaining choice is a genuine additional physical premise. That

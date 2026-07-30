@@ -6,6 +6,12 @@ This artifact proves the exact algebraic **PORT-CURRENT-INNER** construction
 conditional on a declared charged-double-triplet response representation. It
 does not close the physical source-binding receipt:
 
+The A1/A2 compact fixed-space theorem independently forces the abstract Lie
+type `u(1) + su(2) + su(3)` for every faithful complete twelve-dimensional
+compact port response with endogenous proper-carrier holonomy. This
+certificate verifies one exact matrix witness of that type. It does not
+instantiate the A1/A2 response clauses from raw source histories.
+
 > **Theorem (conditional port-current algebra).** On a certified twelve-port
 > echosahedral carrier lineage, given the declared charged-double-triplet
 > response construction and four signed nonzero response coefficients, there
@@ -649,18 +655,17 @@ relabeled as a Lean theorem.
 
 ## 9. Claim boundary
 
-This theorem proves the conditional exact algebraic construction for the
-declared charged-double-triplet representation and four signed coefficients.
-It does not close **PORT-CURRENT-INNER** as a physical source-bound receipt;
+This certificate proves the exact charged-double-triplet matrix fixture under
+its declared algebraic premises. The separate A1/A2 fixed-space theorem forces
+the abstract Lie type `u(1) (+) su(3) (+) su(2)`. The fixture does not close
+**PORT-CURRENT-INNER** as an executable source receipt;
 `issue_closure_condition.met_locally` is therefore `false`.
 
-It does not derive or measure the charged response sectors or coefficients
-from physical carrier response, and it does not establish physical refinement
-intertwining. It also does not close block determinant
-balance, `PORT-SPIN-LIFT`, the physical `Z6` deck/line descent
-(`AXIS-CENTER-DESCENT`), exterior package or matter selection, family
-attachment, or any continuum Yang-Mills, coupling, mass, or measured-number
-statement. The Lie type `u(1) (+) su(3) (+) su(2)` is a statement about the
-constructed current algebra on this branch, not an identification with the
-physical Standard Model gauge group; that identification requires the open
-receipts above.
+The source artifact derives the inverse-port response, its relative sector
+signs, the oriented carrier frame, and finite persistence constraints. It does
+not reconstruct the twelve matrix generators, their bracket, or same-current
+closed overlap holonomy. The certificate also does not close block determinant
+balance, `PORT-SPIN-LIFT`, source selection of the matter action, or the
+physical `Z6` global form. `AXIS-CENTER-DESCENT` is exact inside a declared
+axis relation lattice and matter table. Family attachment, continuum
+Yang--Mills, coupling, mass, and laboratory-current claims remain separate.

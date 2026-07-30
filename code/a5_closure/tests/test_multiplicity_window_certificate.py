@@ -76,6 +76,10 @@ class MultiplicityWindowTests(unittest.TestCase):
         self.assertEqual(
             block["pinned_matter_lift_manifest"]["sha256"], cert.sha256_json(matter)
         )
+        self.assertIn(
+            "conditional matter fixture",
+            block["pinned_matter_lift_manifest"]["scope"],
+        )
         declared = sorted(
             sorted([row[0], row[2]])[:1] + [row[1]] + sorted([row[0], row[2]])[1:]
             for row in matter["exterior_matter_contract"]["yukawa_channels"]

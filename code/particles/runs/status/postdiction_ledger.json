@@ -28,7 +28,7 @@
     },
     {
       "id": "forced_gauge_structure",
-      "statement": "Target-blind source readback on the certified twelve-port carrier yields the exact current algebra su(3)+su(2)+u(1). The realized tensors, measured deck/loop class, flux sectors, and line polarization select the Z6 quotient at finite source-model scope. An exhaustive scan inside the declared exterior-response algebra selects the charge-conjugate rank-15 chiral anomaly-free pair and its one-generation hypercharge multiset. Laboratory attachment and continuum quantum field theory remain separate."
+      "statement": "Complete compact port response from A1 and endogenous overlap transport from A2 force the abstract Lie type su(3)+su(2)+u(1) on the twelve-port carrier. Target-blind readback independently derives R=-J. Inside the declared exterior-response algebra, an exhaustive scan selects the charge-conjugate rank-15 chiral anomaly-free pair and its one-generation hypercharge multiset; its common central kernel is Z6. Source reconstruction of the matrix current and matter action, physical global-form selection, laboratory attachment, and continuum quantum field theory remain separate."
     }
   ],
   "row_class": "compare_only_postdiction_ledger",
@@ -396,9 +396,14 @@
     "forced_structure": [
       {
         "artifact_ref": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
-        "hypothesis_boundary": "the direct receipt is restricted to the named certified carrier and its source-bound impulse/readback realization. It does not identify these source currents with laboratory Standard Model currents. The compact-simple classification, the torus/cocharacter step of the rationality lemma, and irreducibility of the five-dimensional summand are declared classical inputs to the independent Lean trichotomy",
+        "hypothesis_boundary": "the abstract theorem uses the A1 faithful complete compact response and A2 endogenous holonomy clauses. The direct receipt verifies a declared charged-double-triplet witness and does not reconstruct it from ordered source histories or identify a laboratory current. Compact reductivity and the compact-simple classification are declared classical inputs",
         "id": "gauge_lie_algebra",
         "lean_declarations": {
+          "A2HolonomyBridge": [
+            "internalImplementation_of_holonomy",
+            "four_factor_fixed_dimension_ne_one",
+            "compact_product_dimensions_of_fixed_space"
+          ],
           "A5CharacterField": [
             "multiplicities_equal_of_galoisStable",
             "centreDim_mem_trichotomy_list"
@@ -417,22 +422,23 @@
           ]
         },
         "lean_receipts": [
+          "Lean/Screen/A2HolonomyBridge.lean",
           "Lean/Screen/A5OPH.lean",
           "Lean/Screen/A5CharacterField.lean",
           "Lean/Screen/A5SixAxes.lean"
         ],
-        "machine_checked_steps": "the source-bound response coefficients, current frame, injectivity, compactness, commutator closure, and the 8+3 derived-block split are recomputed in the executable receipt; Lean checks triviality of A5-actions on at most four objects; unique partitions 11 = 8+3 and 12 = 3+3+3+3 over the compact-simple dimension list {3, 8, 10}; no compact semisimple algebra in dimensions 1, 2, 4, 5, 7; the characteristic-centre step; A5 not a subgroup of SU(2); the noncentrality witness [iS, iT] != 0; Galois stability of the two three-dimensional characters over Q(sqrt 5) with the centre-dimension list {0, 1, 5, 6, 7, 11, 12}; six-axis 2-transitivity and the dimension count of the dimension-six branch",
-        "match": "exact finite source-bound structure",
+        "machine_checked_steps": "the carrier action and fixed-space dimension are exact; Lean checks the A2 holonomy-to-inner-action bridge, the centreless four-factor fixed-space exclusion, triviality of A5-actions on at most four objects, and unique partitions 11 = 8+3 and 12 = 3+3+3+3 over the compact-simple dimension list {3, 8, 10}; no compact semisimple algebra in dimensions 1, 2, 4, 5, 7; the characteristic-centre step; A5 not a subgroup of SU(2); the noncentrality witness [iS, iT] != 0; Galois stability of the two three-dimensional characters over Q(sqrt 5) with the centre-dimension list {0, 1, 5, 6, 7, 11, 12}; six-axis 2-transitivity and the dimension count of the dimension-six branch",
+        "match": "axiom-forced abstract Lie type; conditional matrix witness",
         "observed_counterpart": "Standard Model gauge Lie algebra su(3)+su(2)+u(1)",
         "paper_ref": "Standard Model gauge paper, Compact-Lie trichotomy section",
-        "statement": "Target-blind impulse and readback on the certified twelve-port carrier determine the involution R=-J and an injective rank-twelve compact current algebra u(3)+so(3)=u(1)+su(3)+su(2). The independent compact-Lie trichotomy contains the same product algebra as its noncentral inner-action branch"
+        "statement": "The certified twelve-port carrier has module 1+3+3'+5 and one fixed line. Complete compact port response from A1 and endogenous proper-carrier transport from A2 force the abstract Lie type u(1)+su(2)+su(3). Target-blind impulse and readback separately determine R=-J. The charged-double-triplet matrices are an exact declared witness, while ordered source tomography and same-current holonomy remain open"
       },
       {
         "artifact_refs": [
           "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
           "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
         ],
-        "hypothesis_boundary": "the selection is source-bound at finite carrier, matter, deck/loop, flux-sector, and line-category scope. Laboratory attachment, continuum quantum field theory, four-dimensional instanton normalization, monopole dynamics, and theta periodicity remain outside this result",
+        "hypothesis_boundary": "the result is exact for the declared matter table, central descent congruence, axis coefficient relations, and line lattice. The source current, physical matter action, relation-lattice selection, character completeness, loop-to-kernel identity, laboratory attachment, and continuum quantum field theory remain outside this result",
         "id": "global_form_z6",
         "lean_declarations": {
           "Z6Descent": [
@@ -453,10 +459,10 @@
           "Lean/Screen/Z6Exact.lean",
           "Lean/Screen/Z6Descent.lean"
         ],
-        "match": "exact finite source-model structure",
+        "match": "exact conditional kernel and maximal faithful image",
         "observed_counterpart": "Standard Model global gauge-group form and its charge quantization pattern",
         "paper_ref": "Standard Model gauge paper, Z6 global-form section",
-        "statement": "The common central kernel on every realized tensor is the order-six diagonal subgroup, so the maximal faithful image is (SU(3) x SU(2) x U(1))/Z6. The measured six-axis deck/loop class has order six, carries the complete six-sector source menu, and is intertwined exactly with that tensor kernel. The source flux and line-polarization receipts select the Z6 quotient at finite source-model scope"
+        "statement": "The common central kernel on every declared tensor is the order-six diagonal subgroup, so the maximal faithful image of that representation is (SU(3) x SU(2) x U(1))/Z6. The six-axis class has order six only after diagonal and zero-sum coefficient relations are declared. Source selection of those relations, a complete character category, and a same-source loop-to-kernel theorem remain open"
       },
       {
         "artifact_refs": [
@@ -570,12 +576,12 @@
         },
         "artifact_ref": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "derivation_kind": "direct_executable_algebraic_corollary",
-        "hypothesis_boundary": "the corollary applies to the source-bound selected finite current algebra. General proton stability does not follow; higher-dimensional baryon violation, scalar mediators, and other ultraviolet gauge mechanisms are not excluded",
+        "hypothesis_boundary": "the executable corollary applies to the declared direct-sum matrix-current fixture. Its physical current source gate is false, so the result is not a physical current or proton-stability claim. General proton stability does not follow; higher-dimensional baryon violation, scalar mediators, and other ultraviolet gauge mechanisms are not excluded",
         "id": "simple_gut_xy_channel_absent",
-        "match": "structural channel exclusion",
+        "match": "conditional algebraic channel exclusion",
         "observed_counterpart": "the Standard Model product adjoint contains no connected simple-GUT X/Y generator",
         "paper_ref": "Observers paper, gauge-channel boundary",
-        "statement": "The selected direct-sum current algebra has adjoint branch dimensions 8, 3, and 1. Its adjoint therefore contains no mixed (3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the ordinary minimal simple-GUT X/Y exchange channel is absent"
+        "statement": "The declared charged-double-triplet current fixture has a direct-sum algebra with adjoint branch dimensions 8, 3, and 1. Its adjoint therefore contains no mixed (3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the ordinary minimal simple-GUT X/Y exchange channel is absent"
       }
     ],
     "hadrons": [

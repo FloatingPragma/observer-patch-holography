@@ -34,9 +34,9 @@ Requires Python 3.11+ and SymPy. The suite exits 0.
 | Object | Statement |
 |---|---|
 | **Echosahedral counting and incidence selector (#565, #625, #628)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, an additional integer atom-counting grammar on the total-12 fiber, and the normalized central-readback Hilbert-Schmidt cost give the unique all-one split with exact quadratic gap `2`. The complete #625 diagram classification fixes additive counting up to one positive unit scale, so the half-unit readback is a units rescaling rather than a half-event implementation. The #628 patch machine generates integer event counts, applies register-level conservative repairs, and derives its move-count settling cost from those dynamics. Every move lowers the load-square Lyapunov function by the exact amount `2(d-1)`; the seam quadratic and the A3 Hessian remain separate comparison objects. Oriented edge/face incidence and the refinement lineage independently give the unique graph-distance-three antipode, `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups, six axes, and the exact rank-three Gram frame `G^2=4G`. |
-| **Source-bound port-current algebra (#566, #599)** | Given the certified #565 carrier and the hash-pinned semantic response artifact measured from the carrier dynamics (sector structure `1+3+3'+5` with Galois-paired triplets, oriented port-to-vertex frame, potential and rotation response channels with measured signs, defect-port persistence maps), the certificate recomputes every exact artifact claim in `Q(sqrt5)` and derives the map `K : P12 -> u(C^3 (+) C^3)` with twelve-dimensional skew-adjoint commutator-closed image `u(3) + so(3)`, one-dimensional center, derived dimension 11, positive-definite invariant pullback, A5 covariance, an inner A5 action, and naturality along the declared tower and the physical persistence maps. The equivariant intertwiner space is exactly four-dimensional; the construction-model string is control-lane only and the physical source gate is computed from the binding. Nineteen negative controls fail closed. Theorem and proofs: `code/a5_closure/port_current_algebra_certificate.md`. |
-| **Source-bound super-Tannakian matter lift (#314)** | Given the hash-pinned source-bound #566 packet: the sixty proper implementers lift exactly to SU(2) with a 120-element lift group carrying a **unique involution** (non-split binary icosahedral double cover — PORT-SPIN-LIFT); the current algebra acts faithfully (rank 12) on the matter carrier `V = C (+) W` and on the selected module; the derived equivariant projector `P_even - P_vac` on the 32-state auxiliary CAR/Fock space has exact rank 15 and realizes `Lambda^2 V + Lambda^4 V` with charge spectrum `{1/6:6, -2/3:3, 1:1, 1/3:3, -1/2:2}`; chirality, conjugation through the invariant top line, all listed realized anomaly traces, even Witten parity (4 doublets), and three exact one-dimensional Yukawa invariant lines are machine-checked; the common action kernel is computed on the genuine simply connected cover `R x SU(3) x SU(2)` and **emitted** as data without forming the quotient. The trace-balanced charge pair `(-1/3, 1/2)` is **derived** by BLOCK-DETERMINANT-BALANCE (anomaly freedom of the realized package forces the balance line, primitive `q = 6Y` integrality and the measured artifact orientation fix the pair), the scalar and channel list are **derived** by the selection scan (admissible scalar charges exactly the conjugate pair `+-3` equal to the weak-block charge), the category typing is **forced** on the realized module by the failing Vec/sVec controls, and the artifact persistence maps are intertwined on the carrier and the Fock realization. The measured spin statistics artifact supplies the transport double cover from source: the exact quaternion lifts of the sixty measured deck rotations, the binary-icosahedral order profile, the centre `{+1,-1}`, the eight-way section-sign exhaustion over all five Klein four-subgroups, and the unique spin structure on the oriented support. The exhaustive 1024-subset anomaly scan (machine-checked in `Lean/Screen/ExteriorSelection.lean`) selects the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output, and the implementation enumeration forces the Spin/odd-Weyl typing: the gauge centre is excluded by the Lean fermion-parity no-go and the measured `-1` is the unique remaining central implementation. Candidate-class nonemptiness is witnessed without promoting uniqueness; scalar existence and multiplicity are owned by #609. Twenty typed negative controls fail closed. Theorem and proofs: `code/a5_closure/super_tannakian_matter_lift_certificate.md`. |
-| **Source-bound axis-centre descent (#567)** | Consuming the pinned #314 receipt and the measured global-form artifact, exhaustive enumeration over the 36 central candidates gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})`; the character lattice has basis `(1,0,-2), (0,1,-3), (0,0,6)` with Smith invariants `(1,1,6)` and exact dual basis `(1,0,0)`, `(0,1,0)`, `(1/3,1/2,1/6)`. Local tensors alone descend through quotients by `1`, `Z2`, `Z3`, and `Z6` (character-residue counts `36,18,12,6`) and cannot select — that stays on the record as the negative control. The selection is carried by measured source data: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group of exactly the kernel order, and the measured flux-sector menu `{0..5}` realized by two-puncture seam witnesses on the base and refined supports, with exact single-puncture impossibility. Realized matter transports single-valuedly through every measured sector (42 monodromy checks) while a fractional singlet obstructs every nonzero sector; the unique global form whose sector menu equals the measured menu is the `Z6` quotient. The Dirac-pairing commutant theorem selects the electric (Wilson) polarization as the unique maximal mutually-local lattice containing the realized lines (12 lattices enumerated, 1 admissible). `h^3=(1,-I_2,-1)` acts trivially and is not fermion parity; screen-scope Spin attachment comes from the #314 source-derived typing with no mixed quotient. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
+| **A1/A2 Lie-type theorem and conditional current witness (#566, #599)** | The twelve-port module is `1+3+3'+5`. A faithful compact commutator-closed response tangent with endogenous proper-`A5` holonomy has centre dimension at most one; its one fixed line excludes the centreless `su(2)^4` branch, so compact classification forces `u(1)+su(2)+su(3)`. The source artifact independently derives `R=-J`, its four sector signs, the oriented frame, and carrier persistence. It does not select a matrix current or reconstruct a bracket. The declared charged-double-triplet fixture realizes the forced Lie type exactly as `u(3)+so(3)`. Its physical source gate is false until ordered current tomography and same-current overlap holonomy are produced. Twenty-four negative controls fail closed. Lean bridge: `Lean/Screen/A2HolonomyBridge.lean`; executable theorem and fixture: `port_current_inner_certificate.py`. |
+| **Conditional super-Tannakian matter lift (#314)** | Given the declared charged-double-triplet current fixture, the finite packet checks the non-split binary-icosahedral lift, the faithful action on `V=C (+) W`, the rank-15 exterior projector `Lambda^2 V + Lambda^4 V`, the Standard Model hypercharge multiset, chirality, anomaly traces, Witten parity, three invariant Yukawa lines, and the common central kernel. The exhaustive 1024-subset scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection inside the declared exterior menu. The finite Spin artifact fixes odd-Weyl typing inside this construction. It does not source-select the current representation, the physical matter action, one conjugate representative, a scalar sector, or a continuum Spin attachment. The conditional algebraic gate passes and the physical matter-source gate fails closed. Twenty typed controls pass. |
+| **Conditional axis-centre descent (#567)** | On the declared matter table, exhaustive central enumeration gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})` and the maximal effective image `(SU(3) x SU(2) x U(1))/Z6`. Local tensors also descend through the cover and the `Z2` and `Z3` quotients, so they do not select a global form. The six-axis calculation has Smith residue six only after diagonal and zero-sum coefficient relations are declared. The exact generator intertwiner and line-polarization calculations are conditional on that relation system. A complete source character category, a same-source loop-to-kernel theorem, source-selected matter, and laboratory attachment remain open. The physical global-form gate fails closed. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
 | Vertex module | `chi_P12 = (12,0,0,2,2)`, so `P12 = 1 + 3 + 3' + 5`, multiplicity-free |
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
@@ -71,31 +71,32 @@ simple of order 60).
 The exact chain is a finite `A5` module, a compact coefficient bracket,
 trace-balanced block integration under coefficient `1/2`, and a six-axis
 lattice quotient `Z6`. Central record projectors commute; the full-rank
-compact skew-adjoint construction is verified by
-`port_current_inner_certificate.py` with the response representation, four
-signed coefficients, oriented frame, and physical refinement maps
-determined by the semantic response artifact measured from the carrier
-dynamics (#599 closure) and recomputed exactly before use. The matter lift
-is verified on top of that packet by
-`super_tannakian_matter_lift_certificate.py` with a passing physical
-source gate: the exact non-split SU(2) double cover cross-checked against
-the measured spin statistics artifact, the unordered rank-15 pair selected
-by the exhaustive 1024-subset anomaly scan with the parity grading as an
-output, the typing forced by the measured centre and section obstruction,
-the derived BLOCK-DETERMINANT-BALANCE charge pair, the derived scalar and
-channel compatibility, the emitted action kernel, and the candidate-class nonemptiness
-witness. Scalar existence and economy stay deferred rows owned by #609 and
-never enter the passing gate.
+compact Lie type follows from the complete faithful A1 response and the A2
+same-response internal-holonomy premise. `port_current_inner_certificate.py`
+checks one exact charged-double-triplet matrix witness with four signed
+coefficients and an oriented frame. The semantic response artifact derives
+the response involution, sector signs, frame, and persistence maps. It does
+not reconstruct the matrix generators, their bracket, or same-current
+overlap holonomy, so the physical source gate remains false.
+
+`super_tannakian_matter_lift_certificate.py` verifies the exact non-split
+SU(2) double cover, the unordered rank-15 pair selected by the exhaustive
+1024-subset anomaly scan, its parity grading, the typing fixed by the
+measured centre and section obstruction, the BLOCK-DETERMINANT-BALANCE
+charge pair, scalar and channel compatibility, and the emitted action
+kernel inside declared current, exterior, and scalar fixtures. Source
+selection of the matrix current and physical matter action, scalar
+existence and economy, extra-light-sector completeness, continuum Spin
+attachment, and laboratory matter identification remain open.
 The #567 descent certificate
 (`axis_center_descent_certificate.py`) computes the common kernel on every
-realized tensor and the character/cocharacter arithmetic of its maximal
-effective quotient, and keeps the four-way local non-identifiability on
-the record as the negative control. Its physical gate passes at finite
-source-model scope on the measured global-form artifact: the deck action,
-the six-axis class group, the flux-sector menu with realized-matter
-transport consistency, the unique realized-compatible polarization, and
-screen-scope Spin attachment. Four-dimensional instanton normalization,
-theta periodicity, and laboratory flux measurement stay open named gates.
+declared tensor and the character/cocharacter arithmetic of its maximal
+effective quotient. The six-axis class group, flux-sector menu, line
+polarization, and refinement checks are exact inside a declared diagonal
+and zero-sum relation system. The carrier does not select those relations
+or identify its order-six loop class with the complete current and matter
+kernel. The physical global-form gate therefore remains false, alongside
+the open four-dimensional and laboratory attachments.
 
 `claim_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -157,9 +158,9 @@ arbitrary OPH carriers must have this type.
   A5-equivariant, inner, and natural along the declared algebraic tower maps.
   These representation data are branch premises, not physical measurements.
 
-- The **source-bound super-Tannakian matter lift** (issue #314) is verified
+- The **conditional super-Tannakian matter lift** (issue #314) is verified
   by `super_tannakian_matter_lift_certificate.py`: given the pinned
-  source-bound #566 packet, the exact non-split SU(2) double cover of the
+  conditional #566 packet, the exact non-split SU(2) double cover of the
   sixty proper implementers (PORT-SPIN-LIFT), the faithful current action
   on the matter carrier and the fifteen-state module, the derived
   equivariant projector on the auxiliary CAR/Fock space, realized anomaly
@@ -174,31 +175,30 @@ arbitrary OPH carriers must have this type.
 
 ### Conditional receipts and open physical gates
 
-- **PORT-CURRENT-INNER** is source-bound (#599 closure): the semantic
-  response artifact measured from the carrier dynamics determines the
-  representation, coefficients, frame, and physical refinement maps, and
-  the certificate recomputes every exact artifact claim before use.
-- **PORT-SPIN-LIFT** rides on the source-bound packet: the non-split
-  binary icosahedral cover is forced (unique involution; split lifts are
-  impossible on the realized module).
+- **PORT-CURRENT-INNER** verifies the declared charged-double-triplet
+  fixture. The semantic response artifact determines `R=-J`, its relative
+  signs, the oriented frame, and carrier persistence. Ordered source
+  tomography, the bracket, and same-current overlap holonomy are open.
+- **PORT-SPIN-LIFT** rides on the conditional current packet. The non-split
+  binary icosahedral cover and its unique involution are exact on the finite
+  Spin fixture. Physical matter and continuum Spin attachment are open.
 - **BLOCK-DETERMINANT-BALANCE** is derived inside the matter packet:
   anomaly freedom of the realized package forces the balance line,
   primitive integrality and the measured orientation select
   `(-1/3, 1/2)`.
-- **AXIS-CENTER-DESCENT** computes the common kernel and the
-  character/dual-cocharacter lattices of its maximal effective quotient,
-  and attaches them to measured source data at finite scope: the measured
-  deck action, the six-axis class group, the flux-sector menu with
-  realized transport consistency, and the unique realized-compatible
-  polarization. The four quotient choices stay indistinguishable on local
-  tensors alone; 4d instanton/theta and laboratory receipts stay open.
+- **AXIS-CENTER-DESCENT** computes the common kernel and central descent
+  congruence of the maximal effective image on the declared matter table.
+  The full character lattice also carries the nonabelian highest weights.
+  The six-axis group and polarization use a declared coefficient-relation
+  system. Source completeness and the loop-to-kernel identity are open, as
+  are four-dimensional instanton/theta and laboratory receipts.
 
 ### Open receipts
 
 - *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
   one group-level action shared by ports and gauge reconstruction, plus one
   source-derived repair composition with nonzero projected `W_5` commutator.
-  The source-bound route above is stronger.
+  The A1/A2 inner-action theorem above is stronger.
 - **A5-FAMILY-ATTACHMENT** (family corollary only): prove the chiral family
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
@@ -287,7 +287,7 @@ Fisher matrix, is `12 I`. Neither infinitesimal object supplies the exact
 discrete physical cost. The issue-#628 artifact supplies the finite
 record-repair mechanism and its derived settling cost. The issue-#566
 artifact supplies the exact executable current lift, closure, innerness, and
-moduli proofs on the declared response branch. The issue-#314 artifact
+moduli proofs for the declared charged-double-triplet fixture. The issue-#314 artifact
 supplies the exact executable spin lift, matter transport, CAR/Fock
 selection, chirality, anomaly, kernel-emission, and declared-tower descent
 proofs on top of that packet. A Lean port of those
@@ -299,9 +299,9 @@ with the former paper steps #604/#605 discharged in `A5SixAxes.lean`,
 `A5PortModule.lean`, and `A5CharacterField.lean`, leaving the Lie-theoretic
 classical inputs — compact-simple classification, reductive decomposition,
 exponential surjectivity, torus/cocharacter step — as the declared
-remainder); only the conditional current algebra and the
-conditional matter lift are certified here, while source binding of the
-inherited upstream response premises is tracked in #599.
+remainder); only the conditional current algebra and the conditional matter
+lift are certified here. Source reconstruction of the current and matter
+actions remains open.
 
 ## Novelty boundary
 

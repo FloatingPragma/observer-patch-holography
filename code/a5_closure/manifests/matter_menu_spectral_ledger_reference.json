@@ -524,6 +524,7 @@
   "pinned_matter_lift": {
     "checks": {
       "charge_pair_matches_derived_primitive_pair": true,
+      "conditional_fixture_only": true,
       "field_dimensions": {
         "L": 2,
         "Q": 6,
@@ -533,13 +534,14 @@
       },
       "five_irreducible_blocks_multiplicity_free": true,
       "kernel_residues": 6,
+      "physical_source_gate_closed": true,
       "rank_fifteen_selection": true,
       "two_survivor_scan_with_derived_charges": true
     },
     "manifest_path": "manifests/super_tannakian_matter_reference.json",
-    "manifest_sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2",
+    "manifest_sha256": "16a3746cab2f96f7457ee40c2b5ad00df7c37b09f4ab650b31d642086399c470",
     "receipt_path": "receipts/super_tannakian_matter_reference.receipt.json",
-    "receipt_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+    "receipt_sha256": "ac2be496ee7a1d4434bdff5c7c07f208c3e85b5564b0a179f71e1a54c141e462"
   },
   "scan_agreement": {
     "lean_masks_match_ledger": true,

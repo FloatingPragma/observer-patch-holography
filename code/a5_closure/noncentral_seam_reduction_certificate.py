@@ -3,8 +3,8 @@
 GRAMMAR.
 
 The input is the hash-pinned #613 routed-seam grammar manifest together with
-the chain it binds: the #567 descent manifest, the measured global-form
-artifact, the measured #314 spin-statistics artifact, and the certified
+the chain it binds: the #567 descent manifest, the conditional finite
+global-form artifact, the measured #314 spin-statistics artifact, and the certified
 carrier federation.  No physics pinned by those artifacts is recomputed; this
 certificate consumes their fields and reconstructs the icosahedral
 federation nerve (twelve charts, thirty seams, twenty triple overlaps).  It
@@ -44,9 +44,10 @@ general noncentral-grammar closure:
   certificate does not identify it with a cellular H2 class on the
   spherical nerve;
 * open boundaries, exact: a cyclic coefficient group Z7 gives seven
-  cellular H2 classes by the same Smith calculation, so the measured
-  order-six menu is not generally exhaustive until the admissible coefficient
-  group is source-derived. Exact Z6 and Z7 candidates retain the pinned
+  cellular H2 classes by the same Smith calculation, so the order-six menu
+  of the declared axis coefficient system is not generally exhaustive until
+  the admissible coefficient group is source-derived. Exact Z6 and Z7
+  candidates retain the pinned
   incidence architecture and pass reduced translation and uniform-state
   checks. They do not instantiate the complete A1, A2, or A3 schema. The
   measured binary-icosahedral transport factor remains parallel and is not
@@ -1943,7 +1944,7 @@ def consequence_block(
     require(
         menu == list(range(6)) and lattice["class_group_order"] == 6,
         "EXTRA_FLUX",
-        "the measured order-six menu is not pinned as expected",
+        "the declared-system order-six menu is not pinned as expected",
     )
     two_i_centre = len(groups["binary_icosahedral"].centre)
     require_cyclic_centre_embedding_in_order_six(two_i_centre)
@@ -1958,6 +1959,9 @@ def consequence_block(
     return {
         "axis_class_lattice": lattice,
         "measured_flux_menu": menu,
+        "axis_coefficient_system_source_selected": False,
+        "physical_global_form_selected": False,
+        "same_source_loop_to_tensor_kernel_identified": False,
         "flux_menu_exhausted_by_central_classes": False,
         "general_exhaustiveness_status": "not_established",
         "transport_centre_embedding": {
@@ -1967,9 +1971,11 @@ def consequence_block(
         },
         "menu_statement": (
             "the measured binary-icosahedral centre embeds as {0,3} in the "
-            "measured order-six menu; this compatibility does not classify "
-            "other value groups, prove general flux-menu exhaustiveness, or "
-            "calculate an action on realized matter transport"
+            "order-six menu of the declared axis coefficient system; this "
+            "compatibility does not select that coefficient system, identify "
+            "its class group with the matter-action kernel, classify other "
+            "value groups, prove general flux-menu exhaustiveness, or "
+            "calculate a physical action on matter transport"
         ),
         "matter_transport_effect": "not_calculated",
         "out_of_class_control": out_of_class_control(groups),
@@ -2208,6 +2214,12 @@ def certificate_payload(
             "global_form_artifact_sha256": global_artifact["artifact_sha256"],
             "spin_statistics_artifact_sha256": spin_artifact["artifact_sha256"],
             "carrier_manifest_sha256": nerve["carrier_manifest_sha256"],
+            "physical_scope": {
+                "declared_axis_coefficient_system_exact": True,
+                "axis_relation_lattice_source_selected": False,
+                "physical_global_form_selected": False,
+                "same_source_loop_to_tensor_kernel_identification": False,
+            },
             "extends": (
                 "the #613 routed-seam grammar certificate proves central-column "
                 "completeness and exhibits the measured noncentral transport; "
@@ -2302,7 +2314,7 @@ def certificate_payload(
                 "order_six_exact_in_named_lane_not_exhaustive_over_complete_schema"
             ),
             "measured_order_six_menu": (
-                "retained_measured_menu_with_binary_icosahedral_Z2_compatibility"
+                "declared_system_menu_with_measured_binary_icosahedral_Z2_compatibility"
             ),
             "measured_transport_extension": "nonsplit_Z2_extension_over_V4",
             "measured_extension_equals_spherical_h2_class": False,
@@ -2351,12 +2363,13 @@ def certificate_payload(
                 "the exact cellular result H2(S2,A)=A; exact verification that "
                 "the measured Klein-four lift realizes a nonsplit Z2 extension "
                 "over V4; and compatibility of that measured Z2 centre with the "
-                "{0,3} subgroup of the measured order-six menu; Z6/Z7 added "
+                "{0,3} subgroup of the declared-system order-six menu; Z6/Z7 added "
                 "coefficient registers separate the reduced seam/register "
                 "interface"
             ),
             "does_not_close": [
                 "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
+                "source selection of the axis coefficient system, a physical global form, or a same-source loop-to-matter-kernel identity",
                 "exhaustiveness of the rotation-centralizer register and existing order-six seam-class lanes over all complete A1-A3 coefficient constructions",
                 "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
                 "physical selection of one grammar, matter representation, central character, or 2-representation (issue 627)",

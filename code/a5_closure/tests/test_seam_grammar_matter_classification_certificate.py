@@ -57,6 +57,14 @@ class SeamGrammarMatterClassificationTests(unittest.TestCase):
         self.assertFalse(diagonal["faithful_on_module"])
         self.assertEqual(diagonal["fixed_subspace_dimension"], 15)
         self.assertTrue(all(row["phase_sixths"] == 0 for row in diagonal["fields"]))
+        self.assertIn("does not select a physical global form", diagonal["boundary"])
+
+    def test_conditional_scope_keeps_physical_gates_open(self) -> None:
+        scope = self.payload["conditional_scope"]
+        self.assertTrue(scope["conditional_current_matter_kernel_arithmetic"])
+        self.assertFalse(scope["physical_matter_lift_source_bound"])
+        self.assertFalse(scope["physical_global_form_source_selected"])
+        self.assertFalse(scope["same_source_seam_to_tensor_kernel_identification"])
 
     def test_mechanism_rows_are_classified(self) -> None:
         rows = {r["module"]: r for r in self.payload["mechanism_classification"]["rows"]}

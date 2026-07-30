@@ -15,13 +15,14 @@ mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH reconstruit un noyau structurel fini exact : les règles des
 événements quantiques, la cinématique de Lorentz sur la branche de support
-global déclarée, l’algèbre de jauge du Modèle standard et sa forme globale
-fidèle, ainsi qu’une paire extérieure sélectionnée pour une génération de
-matière. La dynamique d’Einstein et les clôtures numériques de $P$ et $N$
-sont des branches conditionnelles dont les identifications physiques sont
-énoncées séparément. Les trois axiomes fournissent le système d’observateurs ;
-ils ne sélectionnent pas implicitement chaque action, limite continue ou
-attachement au laboratoire.
+global déclarée, le type de Lie du Modèle standard, ainsi qu’une paire
+extérieure conditionnelle pour une génération de matière avec un noyau
+central commun exact. Le courant matriciel correspondant, la forme globale
+physique, la dynamique d’Einstein et les clôtures numériques de $P$ et $N$
+conservent leurs interfaces de source ou d’identification physique. Les trois
+axiomes fournissent le système d’observateurs ; ils ne sélectionnent pas
+implicitement chaque action, représentation, limite continue ou attachement
+au laboratoire.
 
 ## Commencer ici
 
@@ -89,25 +90,27 @@ données et certificats :
    [Observers Are All You Need](paper/observers_are_all_you_need.pdf), l’
    [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
    [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean).
-3. **La structure de jauge du Modèle standard issue de douze ports.** Sous les
-   prémisses énoncées pour l’action finie des courants, le module icosaédrique
-   des ports force
+3. **Le type de Lie du Modèle standard issu de douze ports.** La réponse
+   réversible complète de l’axiome 1 et le transport endogène des recouvrements
+   de l’axiome 2 forcent
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. La descente
-   centrale exacte donne la forme globale fidèle
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. L’identification aux courants
-   de laboratoire est un attachement physique distinct. Comme corollaire
-   algébrique direct, l’algèbre de courants produit sélectionnée ne contient
-   aucun générateur $X/Y$ de GUT simple
+   centrale exacte donne un noyau commun $\mathbb Z_6$ et l’image fidèle
+   maximale $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ pour la table de
+   matière déclarée. La sélection par la source du courant matriciel, de
+   l’action de matière et du quotient global physique est en cours. Comme
+   corollaire algébrique direct, l’algèbre conditionnelle de courants produit
+   ne contient aucun générateur $X/Y$ de GUT simple
    connexe de type
    $(3,2,-5/6)\oplus(\bar 3,2,+5/6)$ ; le canal ordinaire de désintégration
    du proton par échange minimal de $X/Y$ est donc absent. Cela n’établit pas la
    stabilité générale du proton. Voir le
-   [reçu du courant lié à la source](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
+   [reçu conditionnel du courant](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    l’
    [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    le [tableau de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure)
    et les preuves Lean de la
-   [trichotomie de jauge](Lean/Screen/A5OPH.lean) et du
+   [pont d’holonomie de l’axiome 2](Lean/Screen/A2HolonomyBridge.lean),
+   de la [trichotomie de jauge](Lean/Screen/A5OPH.lean) et de la
    [descente finie Z₆](Lean/Screen/Z6Descent.lean).
 4. **Une sélection extérieure exacte d’une génération et un candidat de rang
    trois pour les familles.** Dans l’algèbre extérieure de réponse déclarée à
@@ -409,31 +412,36 @@ jusqu’au diamètre du graphe et résout le filtre commun de la couche la plus
 signes sectoriels relatifs exacts ; son signe commun est une convention de
 conjugaison de charge.
 
-À partir de ce contrat de réponse, un relèvement compact équivariant explicite
-construit
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Le paquet
-extérieur à quinze états est sélectionné par le balayage d’anomalies
-exhaustif des 1024 sous-ensembles : la paire conjuguée non ordonnée de rang
-15 est l’unique sélection chirale non vide sans anomalies, avec la
-graduation de parité fermionique en sortie. L’absence d’anomalies donne
-l’équilibre du déterminant et les charges primitives à conjugaison de
-charge près. Le calcul exhaustif de l’action centrale donne un noyau commun
-$\mathbb Z_6$ sur ces tenseurs, donc leur image fidèle maximale est
+La réponse réversible complète de l’axiome 1 et le transport endogène de
+l’axiome 2 font du tangent des douze ports une algèbre compacte de courants
+avec action intérieure de $A_5$. Son espace fixe de dimension un et la
+classification des algèbres compactes simples forcent le type abstrait
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Les matrices
+déclarées du doublet chargé et des triplets réalisent exactement ce type. La
+tomographie ordonnée issue de la source et l’holonomie du même courant restent
+ouvertes.
+
+Dans l’algèbre extérieure de réponse déclarée, le balayage exhaustif des
+1 024 sous-ensembles laisse une seule paire conjuguée non ordonnée de rang 15
+comme sélection chirale non vide sans anomalies. L’absence d’anomalies donne
+l’équilibre du déterminant et les charges primitives à conjugaison de charge
+près. Le calcul exhaustif de l’action centrale donne un noyau commun
+$\mathbb Z_6$ sur ces tenseurs déclarés, donc leur image fidèle maximale est
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients
-par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux, et les
-données de secteurs de flux mesurées du certificat de descente sélectionnent
-le quotient $\mathbb Z_6$ à portée de source finie. Cette
-implication finie exacte n’utilise que ses prémisses énoncées.
-Au-delà de cette portée de source finie, le typage fermionique du continu,
-la forme globale du continu et
-l’identification aux courants de laboratoire sont ouverts. La construction
-indépendante par secteurs transportables et Tannaka est une seconde route
-vers un groupe compact ; l’identification des deux routes à partir de la
-source est ouverte.
+par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Le
+calcul des six axes n’a l’ordre six qu’après déclaration de ses relations
+diagonales et de somme nulle. Une catégorie complète de caractères issue de
+la source et une identification, sur la même source, entre les boucles et le
+noyau sont nécessaires pour sélectionner le quotient physique. Le typage
+fermionique du continu et l’identification aux courants de laboratoire sont
+ouverts. La construction indépendante par secteurs transportables et Tannaka
+est une seconde route vers un groupe compact ; l’identification des deux
+routes à partir de la source est ouverte.
 
 Les résultats exacts du porteur gardent des frontières physiques explicites.
-Le typage de la matière et la sélection de la forme globale ne sont mesurés
-qu’à portée de source finie ; l’identification aux courants de laboratoire,
+Le typage de la matière, la réalisation matricielle du courant et la sélection
+de la forme globale ne sont pas issus de la source ; l’identification aux
+courants de laboratoire,
 l’attachement physique des familles, l’exclusion des secteurs légers
 supplémentaires, la multiplicité scalaire, la tour source d’Einstein et les
 paquets physiques de clôture
@@ -475,10 +483,11 @@ de jauge, ni d’une table de constantes. Elle renvoie des dimensions exactes,
 des groupes compacts, des quotients globaux, des charges, des annulations
 d’anomalies, des multiplicités de représentations et des équations de point
 fixe. Ces sorties viennent d’une même architecture typée de porteurs, de
-recouvrements et de réparation. La route icosaédrique locale et la route des
-secteurs compacts se rencontrent au niveau du type de Lie du Modèle standard. Leur
-identité physique issue de la source est un test ouvert. Cette dépendance
-commune constitue l’argument principal en faveur d’un seul monde physique.
+recouvrements et de réparation. Le théorème icosaédrique local force le type
+de Lie du Modèle standard. La route distincte des secteurs compacts atteint
+ce type sur son paquet déclaré du Modèle standard, et leur identité physique
+issue d’une même source est un test ouvert. Cette dépendance commune
+constitue l’argument principal en faveur d’un seul monde physique.
 
 Les preuves prennent plusieurs formes : démonstrations sur papier, sous-ensemble
 arithmétique exacte, certificats d’intervalles, reçus
@@ -507,9 +516,10 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
   (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ sur les tenseurs déclarés ;
   cette implication finie n’utilise que ses prémisses énoncées ; les quatre
   formes globales compatibles sont le revêtement et ses quotients par
-  $\mathbb Z_2$, $\mathbb Z_3$ et $\mathbb Z_6$, et la sélection physique de
-  la forme globale est portée par les données de secteurs de flux mesurées
-  du certificat de descente ;
+  $\mathbb Z_2$, $\mathbb Z_3$ et $\mathbb Z_6$ ; le calcul des axes utilise
+  un système de relations déclaré, et la sélection physique de la forme
+  globale exige une catégorie complète de caractères et une identification
+  issue de la même source entre les boucles et le noyau ;
 - le réseau de charges et les trois couleurs sont exacts sur ce paquet ; le
   balayage scalaire fixe seulement la paire de charges compatibles et les
   trois canaux d’interaction, pas la multiplicité scalaire ; les clauses CP
@@ -521,7 +531,14 @@ OPH utilise une seule architecture mathématique dans des domaines habituellemen
   l’exclusion des secteurs légers supplémentaires restent ouverts ;
 - Les certificats arithmétiques exacts, les simulations et les reçus exécutables vérifient le noyau mathématique fini.
 
-La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au même mécanisme : des observateurs finis forment des registres publics en comparant leurs recouvrements et en réparant les désaccords. Les théorèmes finis vont du consensus quotienté à l’algèbre de jauge du Modèle standard et à sa forme globale. La chaîne continue atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques, modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un seul mécanisme constitue le résultat central du programme.
+La mesure, l’espace-temps, la gravité et la structure de jauge sont soumis au
+même mécanisme : des observateurs finis forment des registres publics en
+comparant leurs recouvrements et en réparant les désaccords. Les théorèmes
+finis vont du consensus quotienté au type de Lie du Modèle standard et au
+noyau central exact sur la table de matière déclarée. La chaîne continue
+atteint les branches de Lorentz et d’Einstein sous ses hypothèses géométriques,
+modulaires, énergétiques, entropiques et d’échelle. Cette réutilisation d’un
+seul mécanisme constitue le résultat central du programme.
 
 La parcelle d’observateur est une structure d’accès borné, de registre, de
 relecture et de réparation. Un Échosaèdre est un porteur primitif candidat sur
@@ -555,7 +572,10 @@ $$
 P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5.
 $$
 
-Un rappel équivariant explicite du commutateur par blocs construit alors
+La réponse réversible complète de l’axiome 1 et le transport endogène de
+l’axiome 2 forcent alors le type abstrait
+\(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). Le crochet
+matriciel déclaré fournit le témoin exact
 
 $$
 (P_{12},[\ ,\ ]_\Theta)
@@ -563,12 +583,12 @@ $$
 \mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-C’est une construction exacte du type de Lie local du Modèle standard sous le
-contrat explicite de réponse finie. L’incidence seule ne choisit pas une
-réponse linéaire arbitraire : son commutant équivariant est de dimension
-quatre. La sélection de cette réponse par une loi physique indépendante,
-l’identification avec des courants mesurés en laboratoire et l’identité avec
-le groupe reconstruit par la route de Tannaka restent ouvertes.
+C’est une réalisation conditionnelle exacte du type de Lie local du Modèle
+standard. L’incidence et la réponse inverse seules ne choisissent pas ce
+crochet : leur commutant équivariant est de dimension quatre. La tomographie
+ordonnée du courant, l’holonomie du même courant, l’identification avec des
+courants mesurés en laboratoire et l’identité avec le groupe reconstruit par
+la route de Tannaka restent ouvertes.
 
 La même construction fait apparaître deux fois, indépendamment, le nombre $24$ :
 
@@ -576,7 +596,9 @@ $$
 m_{\mathrm{rep}}=2(8+3+1)=24,
 $$
 
-tandis que les douze ports de l’écran donnent $24$ emplacements orientés. Un compte provient de l’algèbre de jauge reconstruite ; l’autre de la géométrie de l’écran.
+tandis que les douze ports de l’écran donnent $24$ emplacements orientés. Un
+compte provient du type de Lie forcé, sous la construction déclarée du courant
+et du doublement réversible ; l’autre provient de la géométrie de l’écran.
 
 ## Une reconstruction avec tronc commun et branches
 
@@ -591,8 +613,9 @@ formes normales quotientées publiques
         │       composition sur la même tour → Lorentz et branche d’Einstein conditionnelle
         ├─ secteurs transportables → route indépendante de Tannaka
         └─ porteur local à douze ports → théorème exact de réponse inverse
-                → constructions conditionnelles de courant et de matière sélectionnée par balayage
-                → noyau tensoriel Z6 exact ; forme globale mesurée par flux à portée de source
+                → type de Lie forcé par la réponse complète et le transport endogène
+                → courant matriciel et matière conditionnels ; noyau tensoriel Z6 exact
+                → catégorie complète de caractères et quotient global physique ouverts
                 attachements du courant de laboratoire, du scalaire, du spectre et des familles ouverts
         ↓
 tests quantitatifs de clôture et de lecture physique
@@ -609,8 +632,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Théorème fini de courant $A_5$ | La réalisation déclarée avec comptage entier et coût normalisé de Hilbert--Schmidt donne la séparation exacte en douze unités. Indépendamment, l’incidence orientée donne l’appariement inverse, l’action propre de $A_5$, un repère de rang trois et l’unique involution centrale du graphe. La dérivation de la normalisation entière et du coût physique discret à partir du schéma complet des trois axiomes est ouverte. Une impulsion et une relecture aveugles aux cibles dérivent $R=-J$ sur le porteur certifié, avec des signes sectoriels relatifs exacts, et le relèvement compact réalise $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. L’identification aux courants de laboratoire est ouverte ; aucune conclusion automatique sur un support global $S^2$ | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact est $\mathbb Z_6$, donc l’image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux ; la sélection physique de la forme globale est portée par les données de secteurs de flux mesurées du certificat de descente à portée de source finie. Cette implication finie n’utilise que ses prémisses énoncées | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie ordonnée issue de la source et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact sur les tenseurs déclarés est $\mathbb Z_6$, donc leur image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Le menu des six axes correspond à $\mathbb Z_6$ seulement après déclaration de ses relations de coefficients ; la sélection par la source de la forme globale physique reste ouverte | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. Le produit tensoriel de cette bande avec la table déclarée à quinze états donne un candidat conditionnel de rang complexe 45. La table porte la graduation chirale non dégénérée et l’action diagonale exacte de $\mathbb Z_6$. Un reçu distinct sur le domaine local de 8 662 nœuds vérifie l’extension déclarée $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de l’écart spectral positif. Cette action n’est pas sélectionnée par la source. Le paquet de Spin sur douze ports et le domaine local ne disposent d’aucun pont certifié de source, de domaine ou de transport. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |

@@ -75,7 +75,7 @@ def test_issue_591_disjunct_recorded(result):
     assert boundary["disjunct_discharged"] == (
         "prove_non_identifiable_at_2026_07_corpus_level"
     )
-    assert "#569 family attachment" in boundary["gating_parents"]
+    assert "#569 family and laboratory attachment" in boundary["gating_parents"]
     assert boundary["carrier_bullets_remaining_open"]
 
 

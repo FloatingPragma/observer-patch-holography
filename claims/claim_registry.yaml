@@ -85,7 +85,7 @@
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
-      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction, while a separately typed A5 carrier-current lift feeds conditional Standard Model recognition and the QFT-Q1--QFT-Q4 DAG. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the A5 current group with the independently reconstructed Tannaka group.",
+      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction. The complete A1 port response and endogenous A2 carrier transport force the abstract Standard Model Lie-algebra type, while executable source-current reconstruction, matter selection, the global quotient, and the QFT-Q1--QFT-Q4 physical attachments retain separate gates. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the abstract Lie-type output with the independently reconstructed Tannaka group.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "cross_paper_typed_composition_contract",
       "assumptions": [
@@ -100,7 +100,7 @@
         "finite_quotient_confluence",
         "finite_modular_and_representation_theorems",
         "conditional_BW_event_Einstein_chain",
-        "conditional_compact_current_classification",
+        "axiom_forced_compact_lie_type_with_open_source_current_realization",
         "conditional_QFT_tier_DAG"
       ],
       "oph_specific_delta": "One carrier architecture can supply the common bounded self-reading system through explicit carrier-to-observer, phase-to-consensus, carrier-to-support, current, and group-identification bridges. Every downstream promotion is attached to its own producer and receipt type.",
@@ -112,7 +112,7 @@
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
-      "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, carrier, federation, and support screens are silently identified, phase synchronization is promoted to confluence without an accepted-repair bridge, two gauge routes are identified without an independently verified commuting square, or the gravity and current branches cannot descend from one source-bound refinement tower.",
+      "falsifier": "One displayed branch conclusion is obtained after omitting a named typed producer, carrier, federation, and support screens are silently identified, phase synchronization is promoted to confluence without an accepted-repair bridge, the abstract Lie-type theorem is promoted to an executable current or physical gauge group without the source, matter, and global-form receipts, two gauge routes are identified without an independently verified commuting square, or the gravity and current branches cannot descend from one source-bound refinement tower.",
       "scope_if_false": "The unified composition fails at that interface. Branch-local finite theorems retain their own statuses.",
       "status": "typed_composition_defined_physical_common_tower_open",
       "claim_class": "declared_structure",
@@ -1204,11 +1204,13 @@
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
-      "statement": "Given the certified twelve-port echosahedral carrier lineage and strict-descent repairs excluded from currents, a target-blind operational protocol injects a delta at each unlabeled port, records the local adjacency recurrence through graph diameter, and uniquely solves the common shell-isolation filter. It yields J=(A^3-4A^2-5A+10I)/10, with coefficients (1,-1/2,-2/5,1/10), and independently verifies the unique maximal-distance partner, the unique nonidentity central involution, and the relative sector signs of R=-J. The certificate then constructs an injective port-to-generator map with twelve-dimensional skew-adjoint commutator-closed image u(3)+so(3) on C^3+C^3. The common response sign is charge-conjugation convention. This is an exact carrier-dynamics source receipt, not laboratory attachment to gauge currents; that attachment remains #569.",
+      "statement": "The certified twelve-port carrier has real module 1+3+3'+5 and a one-dimensional fixed space. A1 supplies a faithful complete compact twelve-dimensional port response, and A2 implements every proper carrier recharting internally on that same response. Inner automorphisms fix the centre, so its dimension is at most one. The centreless branch would be su(2)^4, whose inner A5 fixed dimension is a multiple of three, contradicting the carrier fixed line. Compact classification therefore forces the abstract Lie type u(1)+su(2)+su(3). A target-blind impulse/readback protocol separately derives J=(A^3-4A^2-5A+10I)/10 and R=-J. The charged-double-triplet matrices are an exact declared witness of the forced type. The released source packet does not reconstruct those generators, their bracket, or same-current overlap holonomy.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "source_bound_exact_finite_carrier_dynamics_theorem",
+      "tier": "axiom_forced_abstract_lie_type_with_conditional_matrix_witness",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
+        "complete_faithful_compact_port_response",
+        "endogenous_same_response_carrier_holonomy",
         "target_blind_maximal_distance_impulse_readback_protocol",
         "strict_descent_repairs_excluded_from_currents"
       ],
@@ -1218,8 +1220,8 @@
         "Rodrigues_rotation_normal_form",
         "Burnside_orbit_counting"
       ],
-      "oph_specific_delta": "The graph theorem and current algebra are exact and independently recomputed in Q(sqrt5). The response is not inserted as J: one common filter is solved from port-local recurrence histories and the unique farthest echo, after which the polynomial, permutation, involution, centrality, and sector signs are checked independently. The Lean incidence module separately proves unique distance-three partnership and the integral polynomial identity.",
-      "novelty_type": "source_bound_finite_current_lift_certificate",
+      "oph_specific_delta": "The abstract Lie type follows without naming a gauge group in the axioms: twelve faithful compact port directions, one fixed line, and endogenous A5 holonomy leave only the 1+3+8 compact split. The graph experiment independently derives R=-J. The executable matrix fixture verifies one exact realization and fails closed at the missing source tomography and holonomy bridge.",
+      "novelty_type": "axiom_forced_finite_lie_type_and_fail_closed_source_bridge",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/a5_closure/port_current_algebra_certificate.md",
@@ -1229,27 +1231,30 @@
         "code/a5_closure/negative_controls/issue_566_negative_controls.json",
         "code/a5_closure/tests/test_port_current_inner_certificate.py",
         "code/a5_closure/manifests/charged_response_semantic_artifact.json",
+        "Lean/Screen/A2HolonomyBridge.lean",
         "Lean/Screen/A5IncidenceResponse.lean"
       ],
-      "falsifier": "The target-blind delta/readback histories do not have one unique common shell-isolation solution, the recovered operator differs from the farthest-port permutation or the exact adjacency polynomial, centrality or the sector signs fail, the port-to-generator map fails injectivity or rank twelve, a basis commutator leaves the span, the pullback form has a nonpositive pivot, the center is not the constant even port line, a response automorphism breaks covariance or the implementer homomorphism, a declared refinement map is not intertwined, an abelian-record or rank-deficient model passes, or any doctored artifact/protocol passes the binding.",
-      "scope_if_false": "The port-current algebra falls back to the coefficient-level trichotomy. The echosahedral selector and coefficient bracket remain separately assessable; laboratory gauge-current attachment is outside this finite carrier receipt.",
-      "status": "proved_on_source_bound_impulse_readback_artifact",
+      "falsifier": "A model satisfying the stated A1 response, A2 internal-holonomy, carrier-module, and compact-classification premises has another compact Lie type; the fixed-space exclusion fails; the target-blind graph histories do not yield R=-J; the declared matrix witness fails rank, closure, compactness, covariance, or innerness; or a semantic label or doctored artifact passes the physical source gate without raw ordered tomography and same-current holonomy.",
+      "scope_if_false": "Failure of the abstract theorem reopens the Standard Model Lie-type result. Failure of the matrix fixture affects only that witness. Failure of source reconstruction leaves the theorem intact and keeps physical current attachment open.",
+      "status": "axiom_forced_abstract_lie_type__conditional_matrix_witness__source_realization_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        566
+      ]
     },
     {
       "claim_id": "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
-      "statement": "On the exact source-bound finite current algebra u(3)+so(3)=u(1)+su(3)+su(2), the adjoint is the direct sum (8,1,0)+(1,3,0)+(1,1,0). It contains no mixed (3,2,-5/6) or conjugate X/Y generator. The ordinary minimal simple-GUT gauge-exchange channel is therefore absent from this selected product adjoint. This finite algebraic corollary does not establish general proton stability or a proton lifetime and does not exclude scalar mediators, higher-dimensional baryon violation, or other ultraviolet gauge mechanisms.",
+      "statement": "For the A1/A2-forced product Lie type u(1)+su(3)+su(2), the adjoint is the direct sum (8,1,0)+(1,3,0)+(1,1,0). It contains no mixed (3,2,-5/6) or conjugate X/Y generator. The ordinary minimal simple-GUT gauge-exchange channel is therefore absent from this product adjoint. This algebraic corollary does not establish general proton stability or a proton lifetime and does not exclude scalar mediators, higher-dimensional baryon violation, or other ultraviolet gauge mechanisms.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "exact_finite_source_bound_product_adjoint_corollary",
+      "tier": "exact_product_lie_type_adjoint_corollary",
       "assumptions": [
-        "hash_pinned_source_bound_port_current_packet"
+        "a1_a2_forced_standard_model_lie_type"
       ],
       "imported_results": [
         "adjoint_of_a_direct_sum_of_Lie_algebras",
         "standard_su3_su2_u1_representation_labels"
       ],
-      "oph_specific_delta": "The exact source-bound current receipt fixes the selected product adjoint. Its executable dimension split excludes the connected simple-GUT X/Y generator without making a general proton-stability claim.",
+      "oph_specific_delta": "The forced abstract product Lie type fixes the adjoint dimension split and excludes the connected simple-GUT X/Y generator without making a general proton-stability claim.",
       "novelty_type": "scoped_product_adjoint_channel_exclusion",
       "evidence": [
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
@@ -1257,7 +1262,7 @@
         "docs/POSTDICTION_LEDGER.md",
         "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex"
       ],
-      "falsifier": "The selected source-bound current algebra contains a mixed (3,2,-5/6) or conjugate generator, or its adjoint does not decompose as (8,1,0)+(1,3,0)+(1,1,0).",
+      "falsifier": "The forced product Lie algebra contains a mixed (3,2,-5/6) or conjugate generator, or its adjoint does not decompose as (8,1,0)+(1,3,0)+(1,1,0).",
       "scope_if_false": "Only the product-adjoint X/Y-channel exclusion and the current classification supporting it are reopened. No general proton-stability or lifetime claim is made.",
       "status": "exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed",
       "claim_class": "conditional_implication",
@@ -1265,13 +1270,13 @@
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-      "statement": "Given the hash-pinned source-bound finite port-current packet, the hash-pinned measured spin statistics artifact, and declared weak-doublet scalar content, the certificate constructs the exact non-split binary-icosahedral lift cross-checked against the measured transport artifact, the faithful current action, and the CAR/Fock realization. The exhaustive 1024-subset anomaly scan over the derived primitive charges selects the unordered charge-conjugate pair of rank-fifteen projectors as the unique nonempty chiral anomaly-free selection, with the fermionic-parity grading as an output; the scan is machine-checked in Lean/Screen/ExteriorSelection.lean. BLOCK-DETERMINANT-BALANCE proves that anomaly freedom forces 3a+2b=0 and primitive integral block characters give +/-(-2,3), hence hypercharges +/-(-1/3,1/2); no source datum selects the sign. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the double cover the unique source implementation of the derived grading, with the gauge-centre branch excluded by the Lean fermion-parity no-go, so the Spin/odd-Weyl super typing is forced at finite source-model scope. Conditional on a color-singlet weak-doublet scalar, exact field-pair enumeration gives q_S=+/-3 and three compatible channels; scalar existence/multiplicity are not source-determined (campaign #616, receipt multiplicity_window_reference) and absence of extra light sectors is independence-limited beyond the declared algebra with the sterile countermodel (campaign #609, receipt matter_menu_spectral_ledger_reference); the one-doublet completion stays declared.",
+      "statement": "Given the declared charged-double-triplet current fixture, the hash-pinned finite spin artifact, and declared weak-doublet scalar content, the certificate constructs the non-split binary-icosahedral lift, its CAR/Fock realization, and the fixture-conditional current action. Inside the declared ten-component exterior menu, the exhaustive 1024-subset anomaly scan selects the unordered charge-conjugate rank-fifteen pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. BLOCK-DETERMINANT-BALANCE fixes the primitive charge pair up to conjugation. The lift centre and section obstruction fix Spin/odd-Weyl typing inside this declared construction. The upstream matrix current, physical matter action, one conjugate representative, scalar existence, extra-light-sector completeness, continuum Spin attachment, and laboratory matter identification are not source-selected.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "source_bound_finite_matter_lift_conditional_on_scalar_content",
+      "tier": "conditional_finite_matter_and_spin_fixture",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
-        "source_bound_target_blind_carrier_response",
-        "hash_pinned_source_bound_port_current_packet",
+        "declared_charged_double_triplet_algebraic_construction",
+        "hash_pinned_conditional_port_current_packet",
         "hash_pinned_measured_spin_statistics_artifact",
         "declared_weak_doublet_scalar_content",
         "kernel_emission_without_global_quotient_choice",
@@ -1284,8 +1289,8 @@
         "canonical_anticommutation_relations_on_exterior_algebra",
         "finite_group_invariant_theory"
       ],
-      "oph_specific_delta": "The exact certificate separates what is measured, what is derived, and what stays declared: the transport double cover, its centre, and its section obstruction are measured by the simulator artifact; the unordered conjugate projector pair and the parity grading are outputs of the exhaustive anomaly scan; the charge pair is derived up to conjugation; the Spin/odd-Weyl typing is forced by the implementation enumeration; scalar charge/channel compatibility stays conditional on the declared scalar content, whose non-determination is receipt-documented (multiplicity_window_reference).",
-      "novelty_type": "source_bound_finite_matter_lift_certificate",
+      "oph_specific_delta": "The exact certificate separates the declared current and exterior fixtures from what follows inside them. The unordered conjugate projector pair, parity grading, charge balance, finite lift, and Spin typing are exact conditional outputs. The physical source gate remains false.",
+      "novelty_type": "conditional_finite_matter_lift_certificate",
       "evidence": [
         "code/a5_closure/super_tannakian_matter_lift_certificate.md",
         "code/a5_closure/super_tannakian_matter_lift_certificate.py",
@@ -1298,10 +1303,12 @@
         "Lean/Screen/ExteriorSelection.lean"
       ],
       "falsifier": "Under the declared source packet, a proper implementer fails to lift inside Q(sqrt5), the lift group order is not 120 or has more than one involution, the measured artifact and the recomputed lift disagree on the order profile or centre, a sign assignment forms a section over a Klein four-subgroup, the exhaustive anomaly scan admits a survivor other than the two parity sectors, the matter transport fails skew-adjointness, bracket preservation, or rank twelve, the projector is not idempotent, self-adjoint, equivariant, and rank fifteen, the realized charge spectrum or anomaly traces deviate, a Yukawa channel count differs from three, a refinement map fails to intertwine on carrier or Fock space, the enumerated action kernel on the cover is not infinite cyclic with the stated generator and unit-deck-translation relation, its residual modulo the pure deck translations is not of order six, or a negative-control packet passes the gate.",
-      "scope_if_false": "The source-bound matter lift falls back to the conditional algebraic theorem with declared typing. The source-bound port-current algebra and echosahedral selector are assessed separately.",
-      "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
+      "scope_if_false": "The conditional finite matter fixture or one of its derived properties fails. The abstract Standard Model Lie-type theorem and echosahedral selector are assessed separately.",
+      "status": "conditional_exact_matter_and_spin_fixture__physical_source_selection_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        314
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
@@ -1337,7 +1344,7 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. The A5 matter packet computes the diagonal Z6 kernel, character/cocharacter lattices, and magnetic cocharacter on the realized tensors, and the axis-center-descent certificate attaches that arithmetic to measured source data at finite source-model scope: the order-120 deck action on the incidence-nerve federation, the measured six-axis class group intertwined with the tensor kernel, the measured flux-sector menu whose unique four-form match is the Z6 quotient with realized matter transported single-valuedly through every sector, the unique realized-compatible line polarization by the Dirac-pairing commutant theorem, and screen-scope Spin attachment through the source-derived #314 typing and the fermion-parity no-go. Four-dimensional instanton normalization, theta periodicity, monopole dynamics, and laboratory flux measurement stay open named gates; family attachment remains #569.",
+      "statement": "On a zero-obstruction transportable-sector branch carrying the compact-gauge refinement and finite tensor-realization receipts, Doplicher-Roberts/Tannaka reconstruction yields a compact group. Separately, the declared A5 matter table has an exact diagonal Z6 common kernel and maximal faithful image. The axis-centre certificate computes the central descent congruence, conditional line polarization, and refinement checks inside a declared axis relation and line-lattice system. The carrier supplies the deck action and six axes, but it does not select the diagonal and zero-sum coefficient relations or identify their order-six loop class with the complete current and matter kernel. The source does not supply a complete character category, a same-source loop-to-kernel theorem, a physical matter action, four-dimensional instanton normalization, theta periodicity, monopole dynamics, or laboratory flux measurement.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "conditional_tannaka_reconstruction_and_declared_completion_chain",
       "assumptions": [
@@ -1354,7 +1361,7 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "OPH composes refinement-limit sector reconstruction with an explicit realized-package stage and keeps the generation count visible as a declared completion inside the conditional window rather than a graph-theoretic theorem.",
+      "oph_specific_delta": "OPH keeps three statements distinct: conditional Tannaka reconstruction, exact central-kernel arithmetic on a declared matter package, and the open physical selection of a global quotient. Matching order-six groups is not counted as a same-source identification.",
       "novelty_type": "conditional_tannaka_reconstruction_and_declared_completion",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
@@ -1366,11 +1373,12 @@
         "Lean/Screen/Z6Descent.lean",
         "Lean/Screen/ExteriorSelection.lean"
       ],
-      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 quotient or anomaly algebra fails on the realized packet, the measured six-axis class group order differs from the tensor kernel order, a realized weight is multivalued around a measured flux sector, the measured sector menu matches more than one global form, a second maximal mutually-local lattice contains the realized electric lines, the conditional generation window is inconsistent with its declared clauses, or a claimed physical family realization lacks the rank-three response, generation-table tensor, source-selected matter action, cross-domain Spin transport, and matter-pole attachment.",
+      "falsifier": "Compact-group reconstruction fails under the complete D7 premises, the D8-D9 kernel or anomaly algebra fails on the declared packet, the central descent congruence or conditional line calculation is wrong, or a claimed physical global form is promoted without source-selected relations, complete characters, and a same-source loop-to-kernel identity.",
       "scope_if_false": "The failing Tannaka, realized-package, or completion layer falls. The independent finite A5 current route, Lorentz branch, and consensus branch are separately assessable.",
-      "status": "conditional_D7_D9_tannaka_chain__z6_descent_source_bound_at_finite_scope__continuum_and_family_gates_open",
+      "status": "conditional_D7_D9_tannaka_chain__declared_table_z6_kernel_exact__physical_global_form_open",
       "claim_class": "conditional_implication",
       "gates": [
+        567,
         569
       ]
     },
@@ -1512,13 +1520,15 @@
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
-      "statement": "On the strengthened oriented twelve-port A5 packet, the coefficient module is 1+3+3'+5 and the compact-Lie trichotomy is exact. The target-blind source-bound impulse/readback packet realizes an injective rank-twelve current u(3)+so(3) with inner A5 action on the named finite carrier, giving Lie algebra su(3)+su(2)+u(1). The source-bound matter packet and axis-centre descent receipt compute the order-six common tensor kernel and select (SU(3)xSU(2)xU(1))/Z6 at finite source-model scope. The exhaustive scan inside the declared 3+2 exterior algebra gives the unique unordered charge-conjugate pair of rank-15 chiral anomaly-free projectors and the exact one-generation hypercharge multiset. Under the additional single-complete-band realization and operational cost premises, the exact order 5-sqrt(5) < 6 < 5+sqrt(5) uniquely selects the rank-three screen band. The declared unitary simulator recovers that band at the lowest positive generator frequency and conserves mode norms. Tensoring the band with the declared generation table gives a conditional complex rank-45 candidate. A separate 8662-node local-domain receipt checks the declared extension D_sigma tensor I_45 and conditional inheritance of the signed seam operator's positive finite-domain gap. The source does not select that matter action. The issue-314 Spin packet remains on its twelve-port support, and no certified source, domain, or transport bridge joins it to the local operator domain. These finite results do not identify the source current with laboratory currents, prove the exterior-module menu complete beyond the declared algebra, select the light matter package, identify matter poles, establish continuum Spin/locality, select the physical seam action, supply the third persistence leg, exclude extra light sectors, or identify this group with the independent categorical reconstruction.",
+      "statement": "On the oriented twelve-port packet, the coefficient module is 1+3+3'+5. Complete compact port response from A1 and endogenous proper-carrier transport from A2 force the abstract Lie type su(3)+su(2)+u(1). Target-blind impulse/readback separately derives R=-J. The charged-double-triplet matrices are an exact declared witness, while their source reconstruction is open. Inside the declared exterior algebra, the exhaustive scan gives the unique unordered charge-conjugate rank-15 chiral anomaly-free pair and its exact one-generation hypercharge multiset. The declared tensors have common Z6 kernel and maximal faithful image, while source selection of the matrix matter action and physical global quotient is open. Under additional single-band and cost-order premises, an exact theorem selects the rank-three screen band. Tensoring that band with the declared generation table gives a conditional rank-45 candidate. No certified source, domain, or transport bridge joins the twelve-port Spin packet to the local operator domain.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "conditional_A5_screen_current_recognition_chain",
+      "tier": "axiom_forced_lie_type_with_conditional_source_matter_global_chain",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
         "strengthened_oriented_A5_current_packet",
-        "hash_pinned_source_bound_port_current_packet",
+        "complete_faithful_compact_port_response",
+        "endogenous_same_response_carrier_holonomy",
+        "declared_charged_double_triplet_algebraic_construction",
         "declared_determinant_balance_cover_and_exterior_packet_for_global_and_matter_conclusions",
         "single_complete_faithful_band_realizes_the_family_carrier",
         "operational_cost_order_selects_between_admissible_complete_bands",
@@ -1533,8 +1543,8 @@
         "covering_group_and_lattice_algebra",
         "exterior_representation_and_anomaly_algebra"
       ],
-      "oph_specific_delta": "Target-blind source readback on the named carrier realizes the compact current algebra, the source-bound matter and axis-centre packets fix its finite-scope Z6 descent and one-generation charge data, and the same finite architecture supplies an exact conditional rank-three screen selector. The laboratory-current, continuum, pole, family-attachment, and cross-domain transport boundaries remain explicit. This provides a second route to Standard Model Lie type without importing the independent categorical reconstruction or promoting the finite candidate to physical particle families.",
-      "novelty_type": "conditional_finite_screen_current_recognition",
+      "oph_specific_delta": "A1/A2 and the twelve-port module force the abstract Standard Model Lie type without inserting its name or factor dimensions. The inverse-port response, conditional matrix witness, declared-menu matter selection, central kernel, and conditional rank-three family carrier retain separate receipts and source boundaries.",
+      "novelty_type": "axiom_forced_lie_type_with_conditional_matter_and_family_chain",
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "paper/screen_microphysics_and_observer_synchronization.tex",
@@ -1544,6 +1554,7 @@
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
         "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+        "Lean/Screen/A2HolonomyBridge.lean",
         "Lean/Screen/Z6Descent.lean",
         "Lean/Screen/ExteriorSelection.lean",
         "code/a5_closure/exterior_sm_completion.py",
@@ -1554,21 +1565,24 @@
         "code/a5_closure/manifests/matter_attachment_receipt.json"
       ],
       "falsifier": "The A5 module, compact-Lie trichotomy, inner-action or noncentrality selection, trace-balanced cover, exterior witness, exact band order, rank-three selection, conditional rank-45 tensor arithmetic, anomaly cancellation, chirality grading, diagonal Z6 action, declared local tensor-extension identity, or conditional inherited gap fails under its stated premises, or a promoted physical conclusion omits its current, source-selection, cross-domain transport, matter-pole, continuum, persistence, or laboratory receipt.",
-      "scope_if_false": "The affected A5 screen-current recognition layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
-      "status": "source_bound_finite_current_z6_and_one_generation_data__rank_three_selection_conditional_rank_45_candidate__laboratory_continuum_and_family_attachment_open",
+      "scope_if_false": "The affected A1/A2 Lie-type theorem or the named conditional source, matter, global-form, and family layer falls. The independent D7-D9 categorical route and unrelated consensus or gravity branches are separately assessable.",
+      "status": "axiom_forced_standard_model_lie_type__conditional_matrix_matter_z6_and_rank45_witnesses__source_and_physical_attachments_open",
       "claim_class": "conditional_implication",
       "gates": [
+        566,
+        314,
+        567,
         569
       ]
     },
     {
       "claim_id": "OPH-SM-ROUTE-IDENTIFICATION",
-      "statement": "The compact group reconstructed from the D7 transportable-sector category and the compact group recognized from the physical A5 screen current are two conditional outputs. Identifying them as one physical gauge group requires a source-bound commuting square: a refinement-natural group isomorphism must intertwine their actions on the same observer-visible current and matter sectors, preserve the global quotient and normalization data, and commute with the common source tower. The physical identification is open.",
+      "statement": "The abstract Lie-algebra type forced by the A1/A2 carrier theorem and the conditional compact group reconstructed from the D7 transportable-sector category are distinct outputs. Identifying them as one physical gauge group first requires an executable A1/A2 source current, selected matter and global-form data, and then a source-bound commuting square. A refinement-natural group isomorphism must intertwine both actions on the same observer-visible current and matter sectors, preserve the quotient and normalization data, and commute with the common source tower. The physical identification is open.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "open_cross_route_physical_identification",
       "assumptions": [
         "inhabited_D7_D9_tannaka_matter_branch",
-        "inhabited_physical_A5_screen_current_branch",
+        "source_realized_A1_A2_screen_current_branch",
         "common_source_bound_refinement_tower",
         "refinement_natural_intertwining_group_isomorphism"
       ],
@@ -1577,7 +1591,7 @@
         "compact_group_isomorphism",
         "natural_intertwiner_and_representation_equivalence"
       ],
-      "oph_specific_delta": "The registry exposes the source-identity problem between two mathematically compatible Standard Model routes instead of counting matching Lie types as a proof that they describe the same physical current.",
+      "oph_specific_delta": "The registry exposes both the executable source-current gate and the source-identity problem between two mathematically compatible Standard Model routes instead of counting a matching abstract Lie type as a proof that they describe the same physical group.",
       "novelty_type": "open_source_bound_commuting_square_contract",
       "evidence": [
         "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
@@ -1585,7 +1599,7 @@
         "paper/screen_microphysics_and_observer_synchronization.tex"
       ],
       "falsifier": "A proposed identification fails to intertwine the two group actions, quotient kernels, current normalizations, matter representations, or refinement maps on the same source tower; conversely, an explicit target-free receipt satisfying all clauses would close the open status.",
-      "scope_if_false": "No unified physical identity follows. Each conditional route keeps its own branch-local theorem status.",
+      "scope_if_false": "No unified physical identity follows. The abstract A1/A2 Lie-type theorem and the conditional D7-D9 reconstruction keep their separate branch-local statuses.",
       "status": "open_no_source_bound_commuting_square",
       "claim_class": "declared_structure",
       "gates": []

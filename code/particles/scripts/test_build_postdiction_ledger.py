@@ -83,7 +83,7 @@ def test_classical_carriers_and_xy_boundary_are_visible(result):
             "code/particles/runs/status/carrier_mode_acceptance.json"
         )
     xy = rows["simple_gut_xy_channel_absent"]
-    assert xy["match"] == "structural channel exclusion"
+    assert xy["match"] == "conditional algebraic channel exclusion"
     assert "(3,2,-5/6) (+) (bar3,2,+5/6)" in xy["statement"]
     assert xy["derivation_kind"] == "direct_executable_algebraic_corollary"
     assert xy["artifact_ref"] == (
@@ -94,6 +94,9 @@ def test_classical_carriers_and_xy_boundary_are_visible(result):
     assert "general proton stability does not follow" in xy[
         "hypothesis_boundary"
     ].lower()
+    assert "physical current source gate is false" in xy[
+        "hypothesis_boundary"
+    ].lower()
     assert xy["observed_counterpart"] == (
         "the Standard Model product adjoint contains no connected "
         "simple-GUT X/Y generator"
@@ -101,27 +104,32 @@ def test_classical_carriers_and_xy_boundary_are_visible(result):
     assert "no observed proton decay" not in xy["observed_counterpart"].lower()
 
 
-def test_source_bound_current_and_z6_descent_are_current(result):
+def test_lie_type_and_conditional_z6_descent_are_current(result):
     rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
     gauge = rows["gauge_lie_algebra"]
     assert gauge["artifact_ref"] == (
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
     )
-    assert gauge["match"] == "exact finite source-bound structure"
-    assert "Target-blind impulse and readback" in gauge["statement"]
-    assert "laboratory Standard Model currents" in gauge["hypothesis_boundary"]
+    assert gauge["match"] == (
+        "axiom-forced abstract Lie type; conditional matrix witness"
+    )
+    assert "Complete compact port response" in gauge["statement"]
+    assert "ordered source histories" in gauge["hypothesis_boundary"]
+    assert "A2HolonomyBridge" in gauge["lean_declarations"]
     assert "issues 567 and 599" not in gauge["hypothesis_boundary"]
 
     global_form = rows["global_form_z6"]
-    assert global_form["match"] == "exact finite source-model structure"
+    assert global_form["match"] == (
+        "exact conditional kernel and maximal faithful image"
+    )
     assert (
         "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
         in global_form["artifact_refs"]
     )
     assert "Z6Descent" in global_form["lean_declarations"]
     assert "sixAxisToKernel_range" in global_form["lean_declarations"]["Z6Descent"]
-    assert "Laboratory attachment" in global_form["hypothesis_boundary"]
-    assert "theta periodicity" in global_form["hypothesis_boundary"]
+    assert "character completeness" in global_form["hypothesis_boundary"]
+    assert "laboratory attachment" in global_form["hypothesis_boundary"]
 
 
 def test_alpha_row_values_match_endpoint(result):

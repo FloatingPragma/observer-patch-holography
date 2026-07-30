@@ -191,6 +191,17 @@ def verify_upstream_chain(
         "CURRENT_CHAIN",
         "the current packet does not resolve to the carrier packet",
     )
+    current_conditional = current_receipt.get("conditional_algebraic_gate", {})
+    current_physical = current_receipt.get("physical_source_gate", {})
+    require(
+        current_conditional.get("passed") is True
+        and current_physical.get("passed") is False
+        and current_physical.get("response_model_source_bound") is False
+        and current_physical.get("same_current_internal_implementers_source_bound")
+        is False,
+        "CURRENT_SCOPE",
+        "the current center must remain conditional on the declared fixture",
+    )
     require(
         matter_receipt.get("issue") == 314
         and matter_receipt.get("schema")
@@ -203,6 +214,17 @@ def verify_upstream_chain(
         "MATTER_CHAIN",
         "the matter packet does not resolve to the current packet",
     )
+    matter_conditional = matter_receipt.get("conditional_algebraic_gate", {})
+    matter_physical = matter_receipt.get("physical_source_gate", {})
+    require(
+        matter_conditional.get("passed") is True
+        and matter_physical.get("passed") is False
+        and matter_physical.get("upstream_current_representation_source_bound")
+        is False
+        and matter_physical.get("matter_lift_source_bound") is False,
+        "MATTER_SCOPE",
+        "the matter packet must remain conditional on the declared current fixture",
+    )
     require(
         global_receipt.get("issue") == 567
         and global_receipt.get("schema") == "oph.axis_center_descent_receipt.v4"
@@ -212,6 +234,19 @@ def verify_upstream_chain(
         and global_receipt["kernel_on_realized_tensors"]["kernel_order"] == 6,
         "GLOBAL_FORM_CHAIN",
         "the global-form packet does not resolve to the matter packet",
+    )
+    global_conditional = global_receipt.get("conditional_algebraic_gate", {})
+    global_physical = global_receipt.get("physical_global_form_gate", {})
+    require(
+        global_conditional.get("passed") is True
+        and global_physical.get("passed") is False
+        and global_physical.get("upstream_response_physically_source_bound") is False
+        and global_physical.get("upstream_matter_physically_source_bound") is False
+        and global_physical.get("axis_relation_lattice_source_selected") is False
+        and global_physical.get("same_source_loop_to_tensor_kernel_identification")
+        is False,
+        "GLOBAL_FORM_SCOPE",
+        "the global-form packet must retain its open physical-source boundary",
     )
 
     scalar_body = {
@@ -257,6 +292,19 @@ def verify_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
         manifest.get("upstream_pins") == pins,
         "UPSTREAM_PINS",
         "the local-carrier manifest does not contain the exact closed upstream pins",
+    )
+    require(
+        manifest.get("conditional_scope")
+        == {
+            "declared_current_fixture": True,
+            "declared_matter_fixture": True,
+            "declared_global_form_coefficient_system": True,
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
+        },
+        "CONDITIONAL_SCOPE",
+        "the current, matter, and global-form scope boundary has drifted",
     )
 
     carrier = e565.validate_carrier(upstream["carrier_manifest"])
@@ -337,6 +385,7 @@ def verify_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
         and electroweak.get("multiplicity_algebra") == "End(C^4)"
         and electroweak.get("central_constraint_rank") == constraint_rank
         and electroweak.get("center_dimension") == center_dimension
+        and electroweak.get("conditional_declared_kernel_compatible") is True
         and electroweak.get("scalar_boundary", {}).get(
             "physical_scalar_selected"
         )
@@ -373,7 +422,10 @@ def verify_manifest(manifest: Mapping[str, Any]) -> dict[str, Any]:
         and firewall.get("measured_particle_targets_consumed") is False
         and firewall.get("target_residual_consumed") is False
         and firewall.get("physical_scalar_assumed") is False
-        and firewall.get("physical_common_carrier_assumed") is False,
+        and firewall.get("physical_common_carrier_assumed") is False
+        and firewall.get("physical_current_source_bound") is False
+        and firewall.get("physical_matter_lift_source_bound") is False
+        and firewall.get("physical_global_form_selected") is False,
         "SOURCE_FIREWALL",
         "the local precursor consumed a forbidden source or promoted an open premise",
     )

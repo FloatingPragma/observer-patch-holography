@@ -188,7 +188,7 @@ def test_canonical_pixel_root_has_interval_banach_certificate() -> None:
     assert row["threshold_results"]["2.5e-6"]["certified_inside"] is True
 
 
-def test_selector_menu_is_available_not_unique_and_fails_closed() -> None:
+def test_selector_menu_separates_axiom_domain_from_counterfactuals() -> None:
     report = nulls.build_selector_ablation(nulls.ROOT)
     summary = report["summary"]
     assert summary["declared_probe_menu_size"] == 8
@@ -199,14 +199,17 @@ def test_selector_menu_is_available_not_unique_and_fails_closed() -> None:
     icosahedron = next(
         row for row in report["rows"] if row["configuration"] == "icosahedron"
     )
-    assert icosahedron["status"] == "AVAILABLE_NOT_UNIQUELY_SELECTED"
-    assert icosahedron["physical_source_binding"] is True
+    assert (
+        icosahedron["status"]
+        == "AXIOM_DOMAIN_FORCED__COUNTERFACTUAL_MENU_UNTESTED"
+    )
+    assert icosahedron["physical_source_binding"] is False
     assert len(icosahedron["compatible_compact_lie_types"]) == 3
     scorecard = (nulls.ROOT / nulls.DEFAULT_SCORECARD).read_text(encoding="utf-8")
-    assert "source-binding gate passes" in scorecard
-    assert "Laboratory" in scorecard
-    assert "gauge-current identification remains open" in scorecard
-    assert "physical source binding remains false" not in scorecard
+    assert "forced in the A1/A2 domain" in scorecard
+    assert "physical source" in scorecard
+    assert "binding and laboratory gauge-current identification remain open" in scorecard
+    assert "does not contradict the A1/A2 abstract theorem" in scorecard
     assert report["matter_nonuniqueness"] == {
         "rank15_projector_verified": True,
         "inequivalent_completions": [

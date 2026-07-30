@@ -99,7 +99,7 @@
     },
     {
       "identification_id": "port_bracket_physical_current",
-      "label": "source-bound twelve-port current / laboratory gauge-current attachment",
+      "label": "abstract twelve-port Lie type / source current / laboratory gauge current",
       "status": "undischarged",
       "claim_ids": [
         "OPH-SCREEN-PORT-CURRENT-INNER"
@@ -109,9 +109,60 @@
       ],
       "blocking_issues": [
         {
+          "number": 566,
+          "disposition": "open_work_item",
+          "role": "ordered source tomography, bracket reconstruction, and same-current A2 holonomy"
+        },
+        {
           "number": 569,
           "disposition": "open_work_item",
-          "role": "physical attachment of the source-bound current to laboratory gauge currents"
+          "role": "physical attachment of the reconstructed current to laboratory gauge currents"
+        }
+      ]
+    },
+    {
+      "identification_id": "conditional_exterior_fixture_physical_matter",
+      "label": "conditional exterior/Spin fixture / physical matter action",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
+      ],
+      "source_anchors": [
+        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
+      ],
+      "blocking_issues": [
+        {
+          "number": 314,
+          "disposition": "open_work_item",
+          "role": "source selection of the current action and physical matter representation"
+        },
+        {
+          "number": 569,
+          "disposition": "open_work_item",
+          "role": "matter-pole, family, and laboratory attachment"
+        }
+      ]
+    },
+    {
+      "identification_id": "declared_z6_kernel_physical_global_form",
+      "label": "declared-table Z6 kernel / physical Standard Model global form",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-GAUGE-D7-D9"
+      ],
+      "source_anchors": [
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+      ],
+      "blocking_issues": [
+        {
+          "number": 567,
+          "disposition": "open_work_item",
+          "role": "source-selected character/relation lattice and same-source loop-to-kernel theorem"
+        },
+        {
+          "number": 569,
+          "disposition": "open_work_item",
+          "role": "laboratory line, flux, and current attachment"
         }
       ]
     },
@@ -220,7 +271,7 @@
     },
     {
       "selector_id": "physical_port_current_realization",
-      "label": "current completion of the source reduct",
+      "label": "A1/A2 compact Lie-type branch selection",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 2,
@@ -296,7 +347,7 @@
     },
     {
       "selector_id": "physical_matter_spin_lift",
-      "label": "source-bound matter selection over the 1024-subset exterior menu",
+      "label": "conditional matter selection inside the 1024-subset exterior menu",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 1024,
@@ -304,7 +355,7 @@
     },
     {
       "selector_id": "z6_global_form_descent",
-      "label": "global-form selection over the four-quotient menu through the measured sector menu",
+      "label": "declared-lattice comparison over the four-quotient menu",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 4,

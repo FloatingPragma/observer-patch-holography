@@ -65,6 +65,16 @@ class CommonEWOrderUnitCarrierTests(unittest.TestCase):
         self.assertEqual(electroweak["multiplicity_algebra_dimension"], 16)
         self.assertEqual(electroweak["central_constraint_rank"], 15)
         self.assertEqual(electroweak["center_dimension"], 1)
+        self.assertTrue(electroweak["conditional_declared_kernel_compatible"])
+
+    def test_upstream_physical_promotions_remain_open(self) -> None:
+        scope = self.payload["conditional_scope"]
+        self.assertTrue(scope["declared_current_fixture"])
+        self.assertTrue(scope["declared_matter_fixture"])
+        self.assertTrue(scope["declared_global_form_coefficient_system"])
+        self.assertFalse(scope["physical_current_source_bound"])
+        self.assertFalse(scope["physical_matter_lift_source_bound"])
+        self.assertFalse(scope["physical_global_form_selected"])
 
     def test_intertwiner_is_exact_but_nonphysical(self) -> None:
         intertwiner = self.payload["local_order_unit_intertwiner"]

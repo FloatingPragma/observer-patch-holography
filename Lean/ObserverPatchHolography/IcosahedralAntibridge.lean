@@ -39,11 +39,12 @@ Contents:
   `A5`-invariant partition of `DefectSpace` into blocks 8+3+1.
 
 Claim discipline: this proves only that the naive pointwise
-defect-to-generator partition cannot be `A5`-equivariant.  The certified
-source-bound current route does not use such a partition.  It derives the
-non-monomial impulse/readback operator `R = -J` on the full port module and
-maps that module into `u(3) (+) so(3)`.  Laboratory gauge-current attachment
-is a separate question.
+defect-to-generator partition cannot be `A5`-equivariant.  The target-blind
+impulse/readback producer instead derives the non-monomial operator `R = -J`
+on the full port module.  The A1/A2 response theorem fixes the abstract
+compact Lie-algebra type when its complete-response and endogenous-holonomy
+premises hold.  Ordered source-current tomography, the concrete matrix
+realization, and laboratory gauge-current attachment remain separate.
 -/
 
 namespace OPH

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Exact finite topological-sector certificate associated with GitHub issue #311.
 
-The defect objects are the six measured flux sectors of the certified
-icosahedral support. The inputs are hash-pinned: the certified carrier
+The defect objects are the six flux sectors of a declared coefficient system
+on the certified icosahedral support. The inputs are hash-pinned: the certified carrier
 manifest supplies the twelve-vertex, thirty-seam, twenty-face oriented
-complex, and the #567 measured global-form artifact supplies the order-six
-class group together with the two-puncture flux-tube witnesses realizing
-every class. On that input this certificate derives a finite topological
+complex, and the #567 conditional global-form artifact supplies an order-six
+class group computed from declared axis relations together with the
+two-puncture flux-tube witnesses realizing every class. The carrier does not
+select those relations or identify this class group with the matter-action
+kernel. On that input this certificate derives a finite topological
 spectral receipt:
 
 * per flux class k in Z6, the twisted seam adjacency operator A_k on the
@@ -324,7 +326,17 @@ def load_global_form_artifact(
     require(
         artifact.get("schema") == GLOBAL_FORM_ARTIFACT_SCHEMA,
         "UPSTREAM_ARTIFACT",
-        "the pinned artifact is not a measured global form artifact",
+        "the pinned artifact is not a conditional global-form artifact",
+    )
+    source_gate = artifact.get("physical_source_gate", {})
+    require(
+        source_gate.get("finite_declared_coefficient_system_gate_passed") is True
+        and source_gate.get("passed") is False
+        and source_gate.get("axis_relation_lattice_source_selected") is False
+        and source_gate.get("complete_character_category_source_derived") is False
+        and source_gate.get("same_source_loop_to_tensor_kernel_identification") is False,
+        "PHYSICAL_SCOPE",
+        "the artifact must retain its declared coefficient-system boundary",
     )
     require(
         artifact.get("carrier_binding", {}).get("carrier_manifest_sha256") == carrier_sha256,
@@ -334,13 +346,13 @@ def load_global_form_artifact(
     require(
         artifact.get("six_axis_class_measurement", {}).get("class_group_order") == FLUX_ORDER,
         "UPSTREAM_ARTIFACT",
-        "the measured class group order is not six",
+        "the declared-system class group order is not six",
     )
     menu = artifact.get("sector_menu", {})
     require(
         menu.get("realized_flux_menu") == list(range(FLUX_ORDER)),
         "UPSTREAM_ARTIFACT",
-        "the measured sector menu does not realize every class of Z6",
+        "the declared-system sector menu does not realize every class of Z6",
     )
     require(
         menu.get("single_puncture_impossibility", {}).get(
@@ -348,7 +360,7 @@ def load_global_form_artifact(
         )
         is True,
         "UPSTREAM_ARTIFACT",
-        "the measured single-puncture impossibility is missing",
+        "the declared-system single-puncture impossibility is missing",
     )
     return artifact
 
@@ -1659,7 +1671,7 @@ def charge_fusion_certificate(
             )
             composition_checks += 1
     return {
-        "charge_group": "Z6, the measured flux class group",
+        "charge_group": "Z6, the class group of the declared axis coefficient system",
         "fusion_rule": "class j fused with class k is class j + k mod 6",
         "fusion_pairs_checked": fusion_checks,
         "second_puncture_pair_faces": [second_start, second_end],
@@ -1872,6 +1884,12 @@ def certificate_payload(
         "manifest_sha256": sha256_json(manifest),
         "carrier_manifest_sha256": support["carrier_manifest_sha256"],
         "global_form_artifact_sha256": artifact["artifact_sha256"],
+        "global_form_scope": {
+            "declared_axis_coefficient_system_exact": True,
+            "axis_relation_lattice_source_selected": False,
+            "physical_global_form_selected": False,
+            "same_source_loop_to_tensor_kernel_identification": False,
+        },
         "arithmetic": {
             "ring": "Z[omega] with omega^2 = omega - 1, omega = exp(2 pi i / 6)",
             "encoding": (
@@ -1888,9 +1906,12 @@ def certificate_payload(
             "objects": (
                 "seam chains on the certified support, up to coboundary "
                 "regauging; the class of a chain is its puncture holonomy in "
-                "the measured order-six class group"
+                "the order-six class group of the declared axis coefficient "
+                "system"
             ),
-            "source_defined": True,
+            "source_defined": False,
+            "conditional_declared_system_defined": True,
+            "physical_global_form_selected": False,
             "puncture_faces": {
                 "start": witness["start_face"],
                 "end": witness["end_face"],
@@ -1935,7 +1956,8 @@ def certificate_payload(
         "one_step_refinement_check": refinement,
         "claim_boundary": {
             "proves": (
-                "on the fixed finite support: the six measured Z6 flux sectors "
+                "on the fixed finite support and inside the declared axis "
+                "coefficient system: the six Z6 flux sectors "
                 "carry exact gauge-invariant twisted characteristic "
                 "polynomials, additive flux fusion, finite two-chain "
                 "composition, and a self-adjoint ell^2 representation; the "
@@ -1954,6 +1976,7 @@ def certificate_payload(
                 "classical_realification_and_separate_local_domain_context"
             ),
             "does_not_close": [
+                "source selection of the axis relation lattice, a physical global form, or a same-source loop-to-matter-kernel identity",
                 "a complete-interface quantum/classical discriminator or "
                 "particle-ontology theorem",
                 "non-identifiability on an extended source domain",
@@ -1965,7 +1988,9 @@ def certificate_payload(
             ],
         },
         "finite_topological_sector_gate": {
-            "defect_objects_source_defined": True,
+            "defect_objects_source_defined": False,
+            "defect_objects_defined_in_declared_coefficient_system": True,
+            "physical_global_form_selected": False,
             "invariants_target_free": True,
             "operators_self_adjoint": True,
             "spectra_gauge_invariant": True,
@@ -1985,7 +2010,8 @@ def certificate_payload(
             "laboratory_identification": False,
             "passed": True,
             "scope": (
-                "passed refers only to the retained finite topological rows; "
+                "passed refers only to the retained finite topological rows "
+                "inside the declared axis coefficient system; "
                 "it is not the GitHub issue's physical-particle acceptance gate"
             ),
         },
@@ -2016,7 +2042,7 @@ def certificate_payload(
             ),
         },
         "acceptance_criteria_status": {
-            "defect_object_and_equivalence_source_defined": True,
+            "defect_object_and_equivalence_source_defined": False,
             "charge_invariant_and_target_independent": True,
             "mass_invariant_and_target_independent": False,
             "mass_and_charge_invariant_and_target_independent": False,
@@ -2028,7 +2054,9 @@ def certificate_payload(
         },
         "acceptance_criteria_detail": {
             "charge_invariant_and_target_independent": (
-                "the Z6 charge is exact and target-independent"
+                "the conditional Z6 charge is exact and target-independent "
+                "inside the declared coefficient system; its physical source "
+                "selection is open"
             ),
             "mass_invariant_and_target_independent": (
                 "open: the packet emits no mass invariant"

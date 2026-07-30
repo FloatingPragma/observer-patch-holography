@@ -1,7 +1,7 @@
 {
   "acceptance_criteria_detail": {
     "all_depth_refinement_stability_proved": "open: only one freshly reconstructed refined witness and its coincidence partition are checked",
-    "charge_invariant_and_target_independent": "the Z6 charge is exact and target-independent",
+    "charge_invariant_and_target_independent": "the conditional Z6 charge is exact and target-independent inside the declared coefficient system; its physical source selection is open",
     "classical_localization_alone_cannot_pass_physical_gate": "open: a vertex mark or coboundary cannot change flux, but a classical vector-spring realization exists on the exact support; this does not settle an extended physical domain",
     "mass_and_charge_invariant_and_target_independent": "false because only the charge half of the conjunction is proved",
     "mass_invariant_and_target_independent": "open: the packet emits no mass invariant",
@@ -13,7 +13,7 @@
     "all_issue_acceptance_criteria_satisfied": false,
     "charge_invariant_and_target_independent": true,
     "classical_localization_alone_cannot_pass_physical_gate": false,
-    "defect_object_and_equivalence_source_defined": true,
+    "defect_object_and_equivalence_source_defined": false,
     "mass_and_charge_invariant_and_target_independent": false,
     "mass_invariant_and_target_independent": false,
     "multi_defect_composition_and_asymptotic_states_controlled": false,
@@ -27,7 +27,7 @@
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charge_and_fusion": {
-    "charge_group": "Z6, the measured flux class group",
+    "charge_group": "Z6, the class group of the declared axis coefficient system",
     "composition_scope": "addition of two finite puncture-pair chains whose selected seam paths are disjoint; no asymptotic state or scattering limit is constructed",
     "conservation": "the total holonomy of every seam chain vanishes on the closed support, so charge is created and absorbed only in puncture pairs",
     "fusion_pairs_checked": 36,
@@ -93,6 +93,7 @@
   },
   "claim_boundary": {
     "does_not_close": [
+      "source selection of the axis relation lattice, a physical global form, or a same-source loop-to-matter-kernel identity",
       "a complete-interface quantum/classical discriminator or particle-ontology theorem",
       "non-identifiability on an extended source domain",
       "a continuum quantum pole or propagator for any defect",
@@ -101,17 +102,19 @@
       "mass calibration against any measured particle target",
       "laboratory identification of any species"
     ],
-    "proves": "on the fixed finite support: the six measured Z6 flux sectors carry exact gauge-invariant twisted characteristic polynomials, additive flux fusion, finite two-chain composition, and a self-adjoint ell^2 representation; the charge-conjugacy coincidence partition persists through one edge-midpoint refinement check. On that same twelve-vertex support, the exact K_k = 5 I - A_k vector-spring realification recovers the complete adjacency spectral family from a classical stiffness family. A separately hash-pinned receipt constructs a vector-spring realization for the different issue-634 local-domain sector and scalar spectra. No identity bridge between the two finite domains is claimed",
+    "proves": "on the fixed finite support and inside the declared axis coefficient system: the six Z6 flux sectors carry exact gauge-invariant twisted characteristic polynomials, additive flux fusion, finite two-chain composition, and a self-adjoint ell^2 representation; the charge-conjugacy coincidence partition persists through one edge-midpoint refinement check. On that same twelve-vertex support, the exact K_k = 5 I - A_k vector-spring realification recovers the complete adjacency spectral family from a classical stiffness family. A separately hash-pinned receipt constructs a vector-spring realization for the different issue-634 local-domain sector and scalar spectra. No identity bridge between the two finite domains is claimed",
     "status": "finite_topological_flux_spectrum_with_exact_support_classical_realification_and_separate_local_domain_context"
   },
   "defect_sector_definition": {
-    "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the measured order-six class group",
+    "conditional_declared_system_defined": true,
+    "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the order-six class group of the declared axis coefficient system",
+    "physical_global_form_selected": false,
     "puncture_faces": {
       "antipodal": true,
       "end": 6,
       "start": 0
     },
-    "source_defined": true,
+    "source_defined": false,
     "witness_dual_path_length": 5,
     "witness_family_is_scaling_of_class_1_chain": true,
     "witness_seam_support": [
@@ -673,7 +676,8 @@
     "class_0_vs_3_and_0_vs_1_distinct": true,
     "classical_same_flux_countermodel_excluded": false,
     "continuum_quantum_pole": false,
-    "defect_objects_source_defined": true,
+    "defect_objects_defined_in_declared_coefficient_system": true,
+    "defect_objects_source_defined": false,
     "exact_support_classical_realification_constructed": true,
     "finite_disjoint_path_chain_composition_checked": true,
     "invariants_target_free": true,
@@ -683,9 +687,10 @@
     "one_step_coincidence_partition_persists": true,
     "operators_self_adjoint": true,
     "passed": true,
+    "physical_global_form_selected": false,
     "physical_particle_discrimination": false,
     "scattering_amplitude_interface": false,
-    "scope": "passed refers only to the retained finite topological rows; it is not the GitHub issue's physical-particle acceptance gate",
+    "scope": "passed refers only to the retained finite topological rows inside the declared axis coefficient system; it is not the GitHub issue's physical-particle acceptance gate",
     "spectra_gauge_invariant": true
   },
   "gauge_invariance": {
@@ -699,7 +704,13 @@
       "affine_ramp"
     ]
   },
-  "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+  "global_form_artifact_sha256": "sha256:0bfdacce8a4714d0d0a518fdf96fbb47b2aea5a0f508d97f51f97dd2e97fb30d",
+  "global_form_scope": {
+    "axis_relation_lattice_source_selected": false,
+    "declared_axis_coefficient_system_exact": true,
+    "physical_global_form_selected": false,
+    "same_source_loop_to_tensor_kernel_identification": false
+  },
   "hilbert_representation": {
     "hermiticity_entry_checks": 360,
     "operator": "twisted seam adjacency A_k with phase omega^(k f(e)) on the oriented seam and the conjugate phase on the reverse",
@@ -785,7 +796,7 @@
     "status": "bounded_local_domain_classical_match",
     "two_component_vector_spring_model_exhibited": true
   },
-  "manifest_sha256": "4eb198759d538df07ee9e232bba5db659530d536aaf5a2eb8a0cf08a59ac0158",
+  "manifest_sha256": "1cff936f956140cc59f50f0c9ecca4b6e543c40cca58cec66c32c159d00298d8",
   "one_step_refinement_check": {
     "all_depth_refinement_stability_proved": false,
     "characteristic_polynomials": {

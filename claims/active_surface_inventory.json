@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 187,
+  "surface_count": 191,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -370,6 +370,11 @@
       "allowlisted": false
     },
     {
+      "path": "docs/A2_HOLONOMY_GAUGE_FORCING.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/AXIOM_REFERENCE.md",
       "glob": "docs/*.md",
       "allowlisted": true
@@ -512,6 +517,11 @@
     {
       "path": "claims/selection_ledger.json",
       "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A2HolonomyBridge.lean",
+      "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
     {
@@ -721,6 +731,16 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/DirectedSeamRepair.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/DirectedSeamRepairProgress.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

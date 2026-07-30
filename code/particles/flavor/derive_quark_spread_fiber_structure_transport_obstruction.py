@@ -370,7 +370,12 @@ def build_artifact(
                 "flavor quotient and orbit selector",
                 "CKM interval emission",
             ],
-            "gating_parents": ["#569 family attachment", "#567 physical Z6 descent", "#599 response source-binding"],
+            "gating_parents": [
+                "#566 executable source current and same-current holonomy",
+                "#314 source-selected matter and Spin action",
+                "#567 source character lattice and loop-to-kernel map",
+                "#569 family and laboratory attachment",
+            ],
         },
         "checks": checks,
         "coefficient_blindness_scans": blindness_scans,
@@ -397,7 +402,7 @@ def build_artifact(
         },
         "minimal_future_cut": {
             "routes": [
-                "laboratory-current attachment (#569), physical matter typing (#314), and physical global-form selection (#567)",
+                "source current and same-current holonomy (#566), physical matter typing (#314), source character and global-form selection (#567), and laboratory-current attachment (#569)",
                 "source-derived attachment of the icosahedral screen action to three physical families (#569)",
                 "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline",
             ],

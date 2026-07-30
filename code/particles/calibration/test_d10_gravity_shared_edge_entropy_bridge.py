@@ -21,9 +21,10 @@ def test_d10_gravity_shared_edge_entropy_bridge_closes_product_branch_identity()
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_d10_gravity_shared_edge_entropy_bridge"
-    assert payload["status"] == "closed"
+    assert payload["status"] == "closed_conditional_algebraic_identity"
     assert payload["object_id"] == "D10GravitySharedEdgeEntropyBridge"
-    assert payload["branch_data"]["realized_product_group_branch"] == "(SU(3) x SU(2) x U(1)) / Z6"
+    assert payload["branch_data"]["declared_matter_image_branch"] == "(SU(3) x SU(2) x U(1)) / Z6"
+    assert payload["branch_data"]["physical_global_form_selected"] is False
     assert abs(payload["branch_data"]["P"] - 1.63094) < 1.0e-12
     assert abs(payload["branch_data"]["ellbar_shared"] - 0.407735) < 1.0e-12
     assert (
@@ -37,3 +38,6 @@ def test_d10_gravity_shared_edge_entropy_bridge_closes_product_branch_identity()
     assert "does not emit an SI value" in payload["pixel_cancellation"][
         "claim_boundary"
     ]
+    assert "does not select the physical global form" in payload[
+        "pixel_cancellation"
+    ]["claim_boundary"]

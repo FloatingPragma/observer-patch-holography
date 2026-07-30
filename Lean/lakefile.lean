@@ -28,7 +28,7 @@ lean_lib «OPHScreen» where
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,
     `TopThreeKernelFix, `UnitSplit12, `Z6Exact, `PhysicalA5ForcingNoGo,
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,
-    `A5CharacterField, `A5SixAxes, `A5PortModule, `A5Commutant,
+    `A2HolonomyBridge, `A5CharacterField, `A5SixAxes, `A5PortModule, `A5Commutant,
     `A5IncidenceResponse, `TraceBalancedKernel, `TrichotomyCases, `Z6Descent,
     `A5AngularMultiplets, `A5AngularBands, `ExteriorSelection, `EqualStateWeights,
     `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit]

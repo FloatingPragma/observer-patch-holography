@@ -161,6 +161,18 @@ def load_pinned_matter_lift(base_dir: Path | None = None) -> dict[str, Any]:
         "PINNED_HASH_LINK",
         "the pinned receipt does not certify the pinned manifest",
     )
+    conditional_gate = receipt.get("conditional_algebraic_gate", {})
+    physical_gate = receipt.get("physical_source_gate", {})
+    require(
+        conditional_gate.get("passed") is True
+        and physical_gate.get("passed") is False
+        and physical_gate.get("matter_lift_source_bound") is False
+        and physical_gate.get("upstream_current_representation_source_bound")
+        is False,
+        "PINNED_SCOPE",
+        "the pinned #314 packet must remain a conditional matter fixture with "
+        "its physical source gate closed",
+    )
 
     charges = manifest["exterior_matter_contract"]["block_trace_charges"]
     y_color = m314.parse_rational(charges.get("color_block"), "PINNED_CHARGES")
@@ -235,6 +247,8 @@ def load_pinned_matter_lift(base_dir: Path | None = None) -> dict[str, Any]:
         "manifest_sha256": manifest_sha256,
         "receipt_path": PINNED_RECEIPT_RELPATH,
         "receipt_sha256": receipt_sha256,
+        "conditional_algebraic_gate_passed": True,
+        "physical_source_gate_passed": False,
         "y_color": y_color,
         "y_weak": y_weak,
         "a": a_int,
@@ -967,6 +981,8 @@ def certificate_payload(base_dir: Path | None = None) -> dict[str, Any]:
             "receipt_path": pinned["receipt_path"],
             "receipt_sha256": pinned["receipt_sha256"],
             "checks": {
+                "conditional_fixture_only": True,
+                "physical_source_gate_closed": True,
                 "charge_pair_matches_derived_primitive_pair": True,
                 "rank_fifteen_selection": True,
                 "two_survivor_scan_with_derived_charges": True,

@@ -251,8 +251,9 @@ and refinement reconstruct a compact group under their stated hypotheses.
 A second route begins with the twelve-port carrier. Incidence determines its
 unique nonidentity central graph involution. Under the explicit condition that
 an admissible finite response is a signed central involutive graph
-automorphism, the response is $\pm J$, and an exact compact lift realizes the
-Standard Model current algebra. On a declared conjugate pair of
+automorphism, the inverse-port response is $\pm J$. The complete compact port
+response and internal overlap transport required by the axioms force the
+Standard Model Lie type. On a declared conjugate pair of
 one-generation exterior modules, anomaly balance fixes the primitive charge
 pair up to conjugation, and exactly six shared center transformations act
 trivially. Quotienting by all six gives the maximal faithful matter image
@@ -261,10 +262,11 @@ $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
 the quotient says those six shared moves are one move. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors. The measured non-split transport double cover selects the odd-Weyl
-Spin typing at finite source-model scope. The measured flux-sector menu
-selects the $\mathbb Z_6$ quotient on the declared finite carrier, where the
-realized matter transports single-valuedly through every measured sector.
+tensors. The finite non-split transport double cover fixes odd-Weyl Spin
+typing inside the declared construction. The six-axis class has order six
+only after its coefficient relations are declared. A complete source
+character category and a same-source loop-to-kernel theorem are needed to
+select the physical $\mathbb Z_6$ quotient.
 
 The family count lies inside a three-to-five window. Under the complete-band
 and operational-cost premises, a separate exact screen theorem selects the

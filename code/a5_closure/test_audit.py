@@ -80,10 +80,21 @@ class AuditTests(unittest.TestCase):
             (ROOT / "receipts" / "port_current_inner_reference.receipt.json").read_text()
         )
         self.assertTrue(receipt["conditional_algebraic_gate"]["passed"])
-        self.assertTrue(receipt["physical_source_gate"]["passed"])
-        self.assertTrue(receipt["issue_closure_condition"]["met_locally"])
+        self.assertFalse(receipt["physical_source_gate"]["passed"])
+        self.assertFalse(receipt["issue_closure_condition"]["met_locally"])
+        self.assertFalse(
+            receipt["physical_source_gate"]["response_model_source_bound"]
+        )
+        self.assertFalse(
+            receipt["physical_source_gate"][
+                "same_current_internal_implementers_source_bound"
+            ]
+        )
         self.assertTrue(
             receipt["semantic_response_binding"]["sector_structure_recomputed"]
+        )
+        self.assertFalse(
+            receipt["semantic_response_binding"]["current_lift_source_selected"]
         )
 
         registry = json.loads((ROOT.parent.parent / "claims" / "claim_registry.yaml").read_text())
@@ -92,21 +103,29 @@ class AuditTests(unittest.TestCase):
             if row["claim_id"] == "OPH-SCREEN-PORT-CURRENT-INNER"
         )
         self.assertEqual(
-            claim["status"],
             receipt["claim_boundary"]["status"],
+            "proved_conditional_on_declared_response_representation",
+        )
+        self.assertIn(
+            "axiom_forced_abstract_lie_type",
+            claim["status"],
+        )
+        self.assertIn(
+            "source_realization_open",
+            claim["status"],
         )
 
         matter_gate = next(x for x in state["physical_gates"] if "matter lift" in x)
-        self.assertIn("source-bound", matter_gate)
-        self.assertIn("BLOCK-DETERMINANT-BALANCE", matter_gate)
+        self.assertIn("declared current and matter fixtures", matter_gate)
+        self.assertIn("source selection", matter_gate)
         self.assertNotIn("meeting the #314 acceptance criteria", matter_gate)
 
         matter_receipt = json.loads(
             (ROOT / "receipts" / "super_tannakian_matter_reference.receipt.json").read_text()
         )
         self.assertTrue(matter_receipt["conditional_algebraic_gate"]["passed"])
-        self.assertTrue(matter_receipt["physical_source_gate"]["passed"])
-        self.assertTrue(matter_receipt["issue_closure_condition"]["met_locally"])
+        self.assertFalse(matter_receipt["physical_source_gate"]["passed"])
+        self.assertFalse(matter_receipt["issue_closure_condition"]["met_locally"])
         # Scalar rows stay deferred to #609 and never enter the passing gate.
         self.assertFalse(
             matter_receipt["physical_source_gate"]["declared_scalar_content_source_bound"]
@@ -114,14 +133,14 @@ class AuditTests(unittest.TestCase):
         self.assertFalse(
             matter_receipt["physical_source_gate"]["scalar_economy_source_bound"]
         )
-        self.assertTrue(
+        self.assertFalse(
             matter_receipt["physical_source_gate"][
-                "upstream_response_representation_source_bound"
+                "upstream_current_representation_source_bound"
             ]
         )
         self.assertTrue(
             matter_receipt["physical_source_gate"][
-                "charge_pair_derived_up_to_charge_conjugation"
+                "charge_pair_derived_within_declared_current_fixture"
             ]
         )
         self.assertTrue(
@@ -135,8 +154,16 @@ class AuditTests(unittest.TestCase):
             if row["claim_id"] == "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
         )
         self.assertEqual(
-            matter_claim["status"],
             matter_receipt["claim_boundary"]["status"],
+            "proved_conditionally_on_declared_current_and_scalar_fixtures",
+        )
+        self.assertIn(
+            "conditional_exact_matter_and_spin_fixture",
+            matter_claim["status"],
+        )
+        self.assertIn(
+            "physical_source_selection_open",
+            matter_claim["status"],
         )
 
     def test_exterior_sm_completion(self):

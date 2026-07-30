@@ -254,6 +254,13 @@ def check_parent_semantics(resolved: dict[str, Any]) -> tuple[int, list[list[str
         "CURRENT_SOURCE",
         "finite current source gate changed",
     )
+    require(
+        current["conditional_algebraic_gate"]["passed"] is True
+        and current["physical_source_gate"]["passed"] is False
+        and current["physical_source_gate"]["response_model_source_bound"] is False,
+        "CURRENT_SCOPE",
+        "finite current conditional scope changed",
+    )
 
     matter = resolved["finite_chiral_matter"]
     require(
@@ -261,6 +268,13 @@ def check_parent_semantics(resolved: dict[str, Any]) -> tuple[int, list[list[str
         and matter.get("schema") == "oph.super_tannakian_matter_receipt.v5",
         "MATTER_PARENT",
         "finite matter parent changed",
+    )
+    require(
+        matter["conditional_algebraic_gate"]["passed"] is True
+        and matter["physical_source_gate"]["passed"] is False
+        and matter["physical_source_gate"]["matter_lift_source_bound"] is False,
+        "MATTER_SCOPE",
+        "finite matter conditional scope changed",
     )
     scalar = matter["scalar_and_channel_selection"]
     require(scalar["admissible_scalar_charges"] == [3, -3], "SCALAR_CHARGE", "scalar charge pair changed")
@@ -283,6 +297,12 @@ def check_parent_semantics(resolved: dict[str, Any]) -> tuple[int, list[list[str
         "GLOBAL_PARENT",
         "global-form parent changed",
     )
+    require(
+        "do not select a physical global form"
+        in global_form["description"].lower(),
+        "GLOBAL_SCOPE",
+        "global-form conditional scope changed",
+    )
 
     family = resolved["conditional_family_attachment"]
     require(family.get("issue") == 569, "FAMILY_ISSUE", "wrong family issue")
@@ -296,6 +316,18 @@ def check_parent_semantics(resolved: dict[str, Any]) -> tuple[int, list[list[str
         family.get("named_interface", {}).get("class") == "conditional_open_interface",
         "FAMILY_PROMOTION",
         "family physical interface changed",
+    )
+    require(
+        family["conditional_structural_scope"]["physical_current_source_bound"]
+        is False
+        and family["conditional_structural_scope"][
+            "physical_matter_lift_source_bound"
+        ]
+        is False
+        and family["conditional_structural_scope"]["physical_global_form_selected"]
+        is False,
+        "FAMILY_SCOPE",
+        "family conditional structural scope changed",
     )
     require(family.get("generation", {}).get("weyl_state_count") == 15, "FAMILY_RANK", "family rank changed")
 

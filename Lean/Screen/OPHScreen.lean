@@ -3,6 +3,7 @@ import S2DesignSignature
 import TopThreeKernelFix
 import UnitSplit12
 import Z6Exact
+import A2HolonomyBridge
 
 /-!
 # OPH screen arithmetic umbrella

@@ -472,10 +472,11 @@ Why do the Yukawa couplings have the values they do? Why is the top quark so muc
 
 ## 14.9 From Overlaps to Gauge Structure
 
-Before the machinery starts, it helps to know what comes out. Given the
-declared twelve-port carrier and its current and matter premises, the
-construction recognizes the Standard Model gauge symmetry type, its sixfold
-global quotient, and the fifteen chiral states of one generation. The
+Before the machinery starts, it helps to know what comes out. The twelve-port
+carrier, complete public response, and endogenous overlap transport force the
+abstract Standard Model gauge Lie type. Inside the separately declared matter
+packet, the construction recognizes a maximal faithful sixfold quotient and
+the fifteen chiral states of one generation. The
 icosahedral faces also supply a natural three-place candidate for the family
 slot under two additional premises. Combining those ranks gives a conditional
 forty-five-direction candidate. Its chirality and sixfold central action come
@@ -618,12 +619,15 @@ removes that duplicate counting across color, weak isospin, and hypercharge.
 From the transportable charge sectors, reconstruction gives a compact gauge
 group. This is one independent route. The twelve-port carrier gives a second:
 incidence and target-blind port readback derive the signed response
-$R=-J$. An exact compact lift then realizes the Standard Model
-current algebra. Given the declared conjugate pair of exterior matter modules,
-the matter and central-descent receipts fix the charge lattice up to
-conjugation, the three-color carrier, and the common center kernel. Classification
-keeps gluing patterns that fit around every loop. No selection principle is
-used in this conditional finite implication.
+$R=-J$. The axioms require the full reversible port response to be compact and
+complete, with every proper carrier recharting implemented by that same
+response. Those requirements force the Standard Model Lie type. The published
+matrices give an exact example of the forced type; recovering the matrices and
+their bracket from source histories is work in progress. Given the declared
+conjugate pair of exterior matter modules, the matter and central-descent
+receipts fix the charge lattice up to conjugation, the three-color carrier, and
+the common center kernel. Classification keeps gluing patterns that fit around
+every loop.
 
 The consistency test underneath that first stage is technical, and its point is
 simple. Some ways of gluing patches around a loop leave a leftover twist, and
@@ -672,8 +676,10 @@ fingerprint. A cubic carrier would leave another one. The hardware geometry
 therefore enters the particle argument at its first finite line, long before a
 quark or a weak boson appears.
 
-The finite carrier recognizes the same Lie type from a second direction
-through a source-derived response. This route starts with the reference
+The finite carrier forces the Standard Model Lie type through its complete
+reversible response. The declared Standard Model packet in the separate
+compact-sector route has the same local type, without proving that both
+routes describe one physical current. The finite route starts with the reference
 microarchitecture from Chapter 3, long before quarks, weak doublets, or
 measured particle data enter the story. On the declared twelve-port carrier,
 the defect readback lives at twelve equivalent ports. The separate integer
@@ -713,7 +719,8 @@ parts of a three-by-three matrix. The odd readings split into two different
 three-dimensional spaces. The outward orientation of the twenty faces supplies
 the handedness needed to orient the second one.
 
-Those pieces fit the Standard Model adjoint in one precise way:
+The declared charged-double-triplet matrix witness fits the Standard Model
+adjoint as
 
 $$
 \underbrace{\mathbf1}_{\mathfrak u(1)}
@@ -725,14 +732,18 @@ $$
 
 The last bracket has dimension eight, the number of color gauge directions.
 The other triplet has dimension three, the number of weak gauge directions.
-The singlet supplies the abelian direction. The $A_5$ triplet in this formula
-is not the three-color matter representation. It is one part of the
-eight-dimensional color **adjoint**, the space of color gauge generators. The
-fundamental color triplet is selected separately with the matter package.
+The singlet supplies the abelian direction. The abstract theorem fixes these
+factor dimensions without assigning the two Galois-conjugate triplets to the
+simple factors. The displayed allocation belongs to the matrix witness. The
+$A_5$ triplet in this formula is not the three-color matter representation.
+It is one part of the eight-dimensional color **adjoint**, the space of color
+gauge generators. The fundamental color triplet appears in the declared
+matter package. Its physical source selection is work in progress.
 
-The geometry also gives an explicit multiplication law. The even and odd port
-modes map to $\mathfrak u(3)\oplus\mathfrak{so}(3)$. Pulling the ordinary
-matrix commutator back to the ports produces
+The matrix witness also supplies an explicit multiplication law. Its even and
+odd port modes map to
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$. Pulling the ordinary matrix
+commutator back to the ports produces
 
 $$
 \mathfrak u(3)\oplus\mathfrak{so}(3)
@@ -749,51 +760,53 @@ the records that observers actually read stay in the commuting part.
 
 The distinction between symmetry and multiplication matters. $A_5$ symmetry
 by itself permits fourteen equivariant antisymmetric products on the twelve
-coefficients. It does not select this Lie bracket. Requiring a compact
-connected current algebra narrows the possibilities to three:
+coefficients. It does not select a Lie bracket. Axiom 1 supplies a faithful
+compact twelve-dimensional current tangent. Axiom 2 makes every proper
+carrier recharting internal on that same current. Inner automorphisms fix the
+center pointwise, so the single fixed line limits the center to one
+dimension. A centerless twelve-dimensional compact algebra would have to be
+$\mathfrak{su}(2)^4$. The internal $A_5$ action preserves each of its four
+simple factors. Since $A_5$ is simple, the fixed space on each factor has
+dimension zero or three. Four such numbers cannot add up to one. The center
+therefore has dimension one, and compact classification leaves simple factors
+of dimensions three and eight:
 
 $$
-\mathfrak u(1)^{12},\qquad
-\mathfrak{su}(2)^2\oplus\mathfrak u(1)^6,\qquad
-\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).
+\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3).
 $$
 
-If the five-dimensional block acts noncentrally, the first two disappear. The
-same conclusion follows when the $A_5$ action on a twelve-dimensional compact
-current algebra is implemented by internal gauge transformations.
+The target-blind response receipt answers a different question. Incidence
+determines the unique nonidentity central graph involution $J$. Its action is
+positive on the $\mathbf1$ and $\mathbf5$ sectors and negative on the two
+triplets. Port impulses and readback derive
+$10J=A^3-4A^2-5A+10I$ and $R=-J$; the common sign is charge conjugation.
+This receipt does not reconstruct the current derivative or its bracket. The
+declared charged-double-triplet matrices verify closure, covariance, inner
+action, and a positive invariant pairing as an exact witness. Ordered source
+tomography, same-current overlap holonomy, and identification with measured
+laboratory gauge currents are open.
 
-Here is the exact response theorem and its boundary. Incidence determines the
-unique nonidentity central graph involution $J$. Its action is positive on the
-$\mathbf1$ and $\mathbf5$ sectors and negative on the two triplets. A
-target-blind impulse/readback protocol derives
-$10J=A^3-4A^2-5A+10I$ and implements $R=-J$; the common sign is charge
-conjugation. From that response, the simulator and
-the independent exact certificate constructs
-$\mathfrak u(3)\oplus\mathfrak{so}(3)$ with closure, covariance, inner action,
-and a positive invariant pairing. The finite port symmetry alone does not
-select a general linear response: its equivariant commutant is
-four-dimensional. Identification with measured laboratory gauge currents is
-open.
-
-The six axes carry two further pieces of structure. Their integral load
-lattice has an exact sixfold residue. On the conjugate pair of
-fifteen-state exterior modules, the unique nonempty chiral anomaly-free
-selection in the exhaustive scan of all 1024 module subsets, anomaly freedom
-forces determinant balance,
-while primitive integrality fixes the color and weak block charges up to
-simultaneous conjugation. Exhaustive enumeration of the central action on
-every declared tensor gives a common $\mathbb Z_6$ kernel, so quotienting by
-the full kernel produces the maximal faithful matter image.
+The six axes carry two further pieces of structure. A declared integral
+coefficient lattice has an exact sixfold residue. An exhaustive scan of all
+1024 subsets of the exterior module selects one conjugate pair of nonempty
+rank-fifteen objects that are both chiral and anomaly free. On that pair,
+anomaly freedom forces determinant balance, while primitive integrality fixes
+the color and weak block charges up to simultaneous conjugation. Exhaustive
+enumeration of the central action on every declared tensor gives a common
+$\mathbb Z_6$ kernel, so quotienting by the full kernel produces the maximal
+faithful matter image.
 
 The same local tensors also descend through the cover and its intermediate
 $\mathbb Z_2$ and $\mathbb Z_3$ quotients, so the local tensor table by itself
-does not select among the four compatible global forms. The source-bound
-deck/loop receipt measures an order-six axis class and the complete six-sector
-flux menu. Its exact intertwiner with the tensor kernel and the selected line
-polarization pick the $\mathbb Z_6$ quotient at finite source-model scope.
-Laboratory flux measurements, continuum quantum field theory,
-four-dimensional instanton normalization, monopole dynamics, and theta
-periodicity are separate.
+does not select among the four compatible global forms. The carrier artifact
+contains an order-six axis class after the diagonal and zero-sum relations of
+its coefficient system are declared. Matching its order to the matter kernel
+does not prove that the source chose those relations, or that the carrier loop
+is the same central action seen by every matter and line sector. A complete
+source character category and that loop-to-kernel identification are required
+to select the physical $\mathbb Z_6$ quotient. Laboratory flux measurements,
+continuum quantum field theory, four-dimensional instanton normalization,
+monopole dynamics, and theta periodicity are separate.
 
 The face structure organizes families. The twenty outward faces form one
 orbit, and the threefold symmetry of each face cycles its corners. The only
@@ -828,10 +841,12 @@ spin and locality, the physical seam choice, persistence under a further
 comparison, and a laboratory identification. It must also show that no extra
 light sectors have slipped in through a side door.
 
-Put together, the carrier and target-blind readback supply an exact
-gauge-adjoint symmetry type. The fermionic typing is measured at finite source
-scope through the center of the transport double cover and its section
-obstruction. The matter and descent receipts then supply a conjugate pair of
+Put together, the carrier action and the complete-response clauses force an
+exact abstract gauge Lie type. Target-blind readback separately supplies the
+inverse-port response. The finite transport packet measures the double-cover
+and section-obstruction data. Inside the declared exterior construction, those
+data fix the odd-Weyl Spin typing without selecting a physical matter action.
+The matter and descent receipts then supply a conjugate pair of
 hypercharge assignments, chirality, the color fundamental, the weak doublet,
 the compatible scalar-charge pair, three invariant interaction channels, and
 the conjugation-insensitive sixfold kernel and maximal faithful image. The
@@ -840,7 +855,7 @@ physical matter attachment open.
 
 This is the architectural part of the particle story. The carrier fixes which
 finite transformations and charge packages fit together without contradiction.
-The response contract turns that finite geometry into current directions. The
+The response axioms supply a complete compact current tangent. The
 matter contract identifies a chiral package that survives the anomaly checks.
 A particle seen in a detector requires the separate route from those finite
 objects to a laboratory current, a physical matter sector, and dynamical poles.
@@ -907,10 +922,11 @@ weak doublets after physical attachment, and pairing each slot with an
 orientation label gives twenty-four oriented weak slots, the same finite
 count as twelve ports with two orientations.
 
-The recognition theorem applies to the source-derived carrier response and the
-declared matter contract. It does not show that every OPH carrier must be
-echosahedral, and it
-imports no measured particle data. Recognizing the same abstract symmetry type
+The recognition theorem applies to the complete carrier response required by
+the axioms and the declared matter contract. Axiom 1 requires the
+icosahedral boundary packet. It does not identify every carrier with the
+richer Echosahedron hardware realization. The theorem imports no measured
+particle data. Recognizing the same abstract symmetry type
 from the ports is also weaker than identifying the physical group, and the
 port action by itself does not even single out a literal $8{+}3{+}1$ split of
 the ports. Laboratory-current attachment, physical selection of the matter
@@ -982,8 +998,10 @@ $$\boxed{Y_Q = \frac{1}{6}, \quad Y_L = -\frac{1}{2}, \quad Y_u = \frac{2}{3}, \
 These are exact rationals, the Standard Model hypercharges, with the ratios
 fixed by anomaly freedom together with Yukawa invariance and the absolute
 values fixed by standard normalization. There is nothing to tune. The
-sixth-integer lattice is exactly the one compatible with the physical quotient
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
+sixth-integer lattice is exactly the one compatible with the declared maximal
+faithful quotient
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Selecting this as the physical
+global quotient requires the source character and loop-to-kernel chain.
 
 The $Y$ symbols are hypercharges. $Q$ labels the left-handed quark doublet,
 $L$ the left-handed lepton doublet, $H$ the Higgs doublet, and $u$, $d$, and
@@ -1252,8 +1270,9 @@ and strong dynamics appropriate to them.
 Stable patterns on the screen matter because they land on the particle entries a
 physicist actually cares about. First comes the structural side. Chapter 15
 supplies Lorentz kinematics, so stable excitations sort themselves by the usual
-labels of mass, spin, and helicity. The realized gauge quotient, hypercharge
-lattice, and generation-color counting supply the particle-side structure. Together
+labels of mass, spin, and helicity. The abstract gauge Lie type and the
+conditional matter-packet quotient, hypercharge lattice, and generation-color
+counting supply the particle-side structure. Together
 they decide which charged excitations can exist and how they transform.
 
 Then comes the local detuning. The screen sits a tiny distance off perfect
@@ -1415,15 +1434,18 @@ interesting. The protons have declined to cooperate. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
 simplest GUTs are dead.
 
-The selected finite source-current quotient is the product branch
+For the declared matrix current and matter table, the maximal faithful image
+is the product branch
 
-$$G_{\mathrm{source}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
+$$G_{\mathrm{packet}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 
 Its adjoint contains no connected $(3,2,\pm5/6)$ X/Y generator, so the standard
 simple-GUT gauge-mediated proton-decay channel is absent. Baryon-number change,
 when present, belongs to the matter and repair dynamics rather than to a hidden
 connected X/Y gauge direction. This result supplies no proton lifetime and
 does not exclude scalar, higher-dimensional, or other ultraviolet mechanisms.
+Source selection of the matrix current, matter action, and physical global
+quotient is work in progress.
 
 ## 14.20 The Big Picture
 
@@ -1453,9 +1475,10 @@ with photon and graviton particles requires positive-energy Hilbert spaces and
 positive-residue pole receipts. The corresponding OPH quantum-particle
 receipts are open.
 
-**The particle structure.** The $A_5$ screen fixes the gauge-adjoint
-coefficient geometry and a canonical rank-three candidate family band. Under
-the finite response and matter contracts, the conditional packet supplies
+**The particle structure.** The twelve-port screen, complete reversible
+response, and endogenous overlap transport fix the abstract Standard Model
+Lie type. The screen also carries a canonical rank-three candidate family
+band. Under the conditional matrix-current and matter contracts, the packet supplies
 hypercharge, color fundamentals, weak doublets, and compatible scalar
 channels. Physical scalar multiplicity, charged leptons, quarks, and neutrinos
 acquire one common interpretation only after the response, matter, scalar,
@@ -1557,10 +1580,12 @@ into one common structure.
 The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio. The screen load is the electroweak transmutation exponent,
 and the clock-and-curvature bridge supplies the absolute energy scale in GeV.
-Target-blind impulse and readback on the certified carrier produce the
-source-bound compact current algebra. Its identification with laboratory
-currents, the cosmic-capacity selector, and the calibrated
-clock-and-curvature map are work in progress.
+Target-blind impulse and readback on the certified carrier produce the exact
+inverse-port response $R=-J$. The complete compact response and endogenous
+transport clauses force the Standard Model Lie type. Reconstructing the
+current generators and bracket from source histories, identifying laboratory
+currents, selecting cosmic capacity, and calibrating the clock-and-curvature
+map are work in progress.
 
 The result is an organized conditional particle packet: a specific gauge
 group, charge pattern, color carrier, declared generation count, carrier

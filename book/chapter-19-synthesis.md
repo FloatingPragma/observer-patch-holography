@@ -188,8 +188,9 @@ sectors on a screen can combine, break apart, and carry their opposites, the way
 those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. One route reconstructs a compact group from that
 persistent charge bookkeeping. Independently, the twelve-port incidence
-theorem plus the source-model response and conditional matter contract give
-the exact Standard Model charge lattice and maximal faithful matter image
+theorem plus the complete compact response and internal transport clauses
+force the Standard Model Lie type. The conditional matter contract gives the
+exact charge lattice and maximal faithful matter image
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
@@ -198,27 +199,28 @@ $$
 The $\mathbb Z_6$ is the six-element set of transformations that acts
 trivially on every tensor in the declared matter package. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors. The measured flux-sector menu selects the $\mathbb Z_6$ quotient on
-the declared finite carrier, and the realized matter transports
-single-valuedly through every measured sector. Laboratory current and flux
-identification and the continuum global form require separate physical
-attachments.
+tensors. The six-axis class has order six after its coefficient relations are
+declared. Selecting the physical quotient requires a complete source
+character category and an identification between carrier loops and the same
+central kernel. Laboratory current and flux identification and the continuum
+global form require separate physical attachments.
 
 On the twelve-port icosahedral carrier boundary, the port readings split as
 $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
-triplet. Pulling a compact block commutator back to those coefficients gives
-the exact Lie algebra
+triplet. Axiom 1 supplies a complete compact port response and Axiom 2 makes
+the proper carrier action internal. The single fixed line then forces the
+exact abstract Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
 Incidence alone leaves a four-dimensional equivariant linear commutant. The
 target-blind impulse/readback protocol solves the maximal-distance shell
-filter and derives \(R=-J\). The simulator and certificate realize the finite
-current. Its identification with measured laboratory gauge currents is work
-in progress.
+filter and derives \(R=-J\). The declared matrix construction realizes the
+finite algebra. Reconstructing it from source histories and identifying it
+with measured laboratory gauge currents are work in progress.
 
-The six antipodal axes also leave a sixfold lattice residue. The computed spin
-and central maps connect it to the $\mathbb Z_6$ action on every realized
-matter tensor. The
+The six antipodal axes also leave a sixfold residue in the declared
+coefficient lattice. The computed central maps connect it conditionally to
+the $\mathbb Z_6$ action on every declared matter tensor. The
 three-corner face symmetry supplies a canonical three-dimensional candidate
 family carrier. Hypercharge
 follows up to simultaneous charge conjugation from anomaly freedom and

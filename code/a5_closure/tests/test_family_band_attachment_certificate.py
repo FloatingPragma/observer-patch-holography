@@ -302,7 +302,10 @@ class FamilyBandAttachmentTests(unittest.TestCase):
     def test_physical_persistence_maps_are_separate_and_hash_bound(self) -> None:
         physical = self.payload["physical_persistence_transport"]
         self.assertTrue(physical["distinct_from_algebraic_r_tower"])
-        self.assertTrue(physical["matter_gamma_intertwined_mapwise"])
+        self.assertTrue(physical["declared_matter_gamma_intertwined_mapwise"])
+        self.assertFalse(
+            physical["physical_refinement_intertwining_source_bound"]
+        )
         self.assertFalse(physical["laboratory_current_identified"])
         self.assertEqual(len(physical["maps"]), 2)
         for row in physical["maps"]:
@@ -337,6 +340,9 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(
             self.payload["open_gates"],
             [
+                "physical_current_source_binding",
+                "physical_matter_lift_source_binding",
+                "physical_global_form_selection",
                 "matter_pole_identification",
                 "continuum_Spin_locality",
                 "physical_seam_action_selection",
@@ -347,6 +353,17 @@ class FamilyBandAttachmentTests(unittest.TestCase):
             self.payload["controls"]["strict_matter_cocycle_promotion"]["code"],
             "STRICT_MATTER_COCYCLE_NOT_DERIVED",
         )
+
+    def test_structural_chain_remains_conditional(self) -> None:
+        scope = self.payload["conditional_structural_scope"]
+        self.assertTrue(scope["current_algebra_exact_in_declared_fixture"])
+        self.assertTrue(scope["matter_lift_exact_in_declared_fixture"])
+        self.assertTrue(scope["global_kernel_exact_in_declared_tables"])
+        self.assertTrue(scope["seam_menu_exact_in_declared_tables"])
+        self.assertFalse(scope["physical_current_source_bound"])
+        self.assertFalse(scope["physical_matter_lift_source_bound"])
+        self.assertFalse(scope["physical_global_form_selected"])
+        self.assertFalse(scope["same_source_seam_to_matter_kernel_identified"])
 
     def test_pole_residue_receipt_realizes_clause_r(self) -> None:
         receipt = self.payload["pole_residue_receipt"]

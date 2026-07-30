@@ -69,20 +69,23 @@ a zoo.
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. On the
 certified twelve-port branch, incidence and target-blind port readback derive
-the signed response and exact current algebra. The exhaustive selection scan
-fixes the matter content with its fermionic grading as an output, the
-measured transport double cover forces the Spin typing, and the anomaly and
-central-descent calculations give the charge pattern, a three-color carrier,
-and the maximal faithful matter image
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
-no selection principle.
+the signed inverse-port response. The complete compact response and internal
+overlap transport required by the axioms force the Standard Model Lie type.
+Inside a declared exterior menu, the exhaustive scan leaves one conjugate
+pair of chiral anomaly-free fifteen-state modules. The separate finite Spin
+packet fixes its typing inside that declared construction. The anomaly and
+central-descent calculations then give the charge pattern, a three-color
+carrier, and the exact common $\mathbb Z_6$ kernel on the declared tensors.
+Reconstructing the physical matter action from source histories is work in
+progress.
 
 The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
-local tensors. The measured flux-sector menu selects the $\mathbb Z_6$
-quotient on the declared finite carrier, and the realized matter transports
-single-valuedly through every measured sector. Laboratory identification of
-the current and flux sectors and the continuum global form require separate
-physical attachments. The generation window is three to five. A separate
+local tensors. The six-axis calculation has order six only after its
+coefficient relations are declared. A complete source character category and
+a same-source identification between carrier loops and the matter kernel are
+required to select the physical $\mathbb Z_6$ quotient. Laboratory
+identification of the current and flux sectors and the continuum global form
+require separate physical attachments. The generation window is three to five. A separate
 exact screen theorem selects a rank-three
 band under its single-band and operational-cost premises, and a declared
 unitary simulator reconstructs its response residue. Attaching that finite

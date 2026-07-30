@@ -1,0 +1,555 @@
+{
+  "combinatorial_orientation": {
+    "coherent_closed_orientation": true,
+    "faces": 20,
+    "global_sign_is_conventional": true,
+    "oriented_faces": [
+      [
+        "p00",
+        "p02",
+        "p08"
+      ],
+      [
+        "p00",
+        "p04",
+        "p06"
+      ],
+      [
+        "p00",
+        "p06",
+        "p10"
+      ],
+      [
+        "p00",
+        "p08",
+        "p04"
+      ],
+      [
+        "p00",
+        "p10",
+        "p02"
+      ],
+      [
+        "p01",
+        "p03",
+        "p11"
+      ],
+      [
+        "p01",
+        "p04",
+        "p09"
+      ],
+      [
+        "p01",
+        "p06",
+        "p04"
+      ],
+      [
+        "p01",
+        "p09",
+        "p03"
+      ],
+      [
+        "p01",
+        "p11",
+        "p06"
+      ],
+      [
+        "p02",
+        "p05",
+        "p08"
+      ],
+      [
+        "p02",
+        "p07",
+        "p05"
+      ],
+      [
+        "p02",
+        "p10",
+        "p07"
+      ],
+      [
+        "p03",
+        "p05",
+        "p07"
+      ],
+      [
+        "p03",
+        "p07",
+        "p11"
+      ],
+      [
+        "p03",
+        "p09",
+        "p05"
+      ],
+      [
+        "p04",
+        "p08",
+        "p09"
+      ],
+      [
+        "p05",
+        "p09",
+        "p08"
+      ],
+      [
+        "p06",
+        "p11",
+        "p10"
+      ],
+      [
+        "p07",
+        "p10",
+        "p11"
+      ]
+    ],
+    "propagation_rule": "shared seams receive opposite boundary directions",
+    "seams": 30,
+    "seed_rule": "lexicographically first triangular face with increasing vertex labels",
+    "source": "unoriented adjacency and triangular incidence"
+  },
+  "directed_seam_primitive_orbit": {
+    "directed_seams": 60,
+    "full_incidence_automorphisms": 120,
+    "orientation_preserving_automorphisms": 60,
+    "orientation_reversing_automorphisms": 60,
+    "representative": [
+      "p00",
+      "p02"
+    ],
+    "representative_orbit_size": 60,
+    "representative_stabilizer_order": 1,
+    "simply_transitive": true,
+    "unique_invariant_probability_on_the_orbit": "1/60",
+    "unique_transporter_checks": 3600
+  },
+  "integer_macro_bridge": {
+    "audit_integer_range": [
+      -12,
+      12
+    ],
+    "audited_628_microsteps": 2444,
+    "audited_input_pairs": 625,
+    "directed_placement": "(floor((a+b)/2),ceil((a+b)/2))",
+    "equal_direction_expectation": "((a+b)/2,(a+b)/2)",
+    "even_total_cases": 313,
+    "expectation_equals_pair_average": true,
+    "micro_history_length": "floor(abs(a-b)/2)",
+    "micro_rule": "transfer one unit from the higher endpoint when the difference is at least two",
+    "odd_total_cases": 312,
+    "odd_total_statement": "the two directed placements label the nearest-balanced shell; a fixed #628 descent history reaches the member selected by its initial load ordering",
+    "opposite_placement": "(ceil((a+b)/2),floor((a+b)/2))",
+    "pathwise_exact_agreement": "even endpoint totals only",
+    "terminal_shell": "{(floor((a+b)/2),ceil((a+b)/2)), (ceil((a+b)/2),floor((a+b)/2))}"
+  },
+  "manifest_sha256": "sha256:9a93c0380fc48ff8b18b9e84ca5ad4ba030f516fc4ccfeb9a6b35ce8c2b0d680",
+  "schema": "oph.directed_seam_repair_certificate.v1",
+  "scope": {
+    "arithmetic": "integers and exact rational Fractions only",
+    "claim_boundary": "The certificate proves a one-step expected scalar channel and a local integer macro bridge. It does not prove an IID path law, exact odd-total agreement, a record instrument, refinement, a physical clock, or universe selection.",
+    "coordinate_geometry_used": false,
+    "independent_implementation": false,
+    "object": "finite expected scalar working-readback repair on one twelve-port carrier",
+    "producer_replay": true,
+    "source_issues": [
+      614,
+      628
+    ]
+  },
+  "uniform_s1_channel": {
+    "adjacent_entry": "1/60",
+    "channel_identity": "R = I - Delta_ico/60",
+    "column_stochastic": true,
+    "diagonal_entry": "11/12",
+    "directed_probability": "1/60",
+    "exact_laplacian": [
+      [
+        "5",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "5",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "-1"
+      ],
+      [
+        "-1",
+        "0",
+        "5",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "5",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1"
+      ],
+      [
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "5",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "5",
+        "0",
+        "-1",
+        "-1",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "5",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "-1"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "5",
+        "0",
+        "0",
+        "-1",
+        "-1"
+      ],
+      [
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "5",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "5",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "5",
+        "-1"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "5"
+      ]
+    ],
+    "exact_matrix": [
+      [
+        "11/12",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0"
+      ],
+      [
+        "0",
+        "11/12",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "0",
+        "1/60",
+        "0",
+        "1/60"
+      ],
+      [
+        "1/60",
+        "0",
+        "11/12",
+        "0",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "1/60",
+        "0"
+      ],
+      [
+        "0",
+        "1/60",
+        "0",
+        "11/12",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60"
+      ],
+      [
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "11/12",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "11/12",
+        "0",
+        "1/60",
+        "1/60",
+        "1/60",
+        "0",
+        "0"
+      ],
+      [
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "1/60",
+        "0",
+        "11/12",
+        "0",
+        "0",
+        "0",
+        "1/60",
+        "1/60"
+      ],
+      [
+        "0",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "11/12",
+        "0",
+        "0",
+        "1/60",
+        "1/60"
+      ],
+      [
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "11/12",
+        "1/60",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "1/60",
+        "11/12",
+        "0",
+        "0"
+      ],
+      [
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "0",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "11/12",
+        "1/60"
+      ],
+      [
+        "0",
+        "1/60",
+        "0",
+        "1/60",
+        "0",
+        "0",
+        "1/60",
+        "1/60",
+        "0",
+        "0",
+        "1/60",
+        "11/12"
+      ]
+    ],
+    "nonadjacent_entry": "0",
+    "opposite_direction_expectation": "pairAverage",
+    "opposite_direction_pair_average_checks": 60,
+    "positive_generator_identity": "I - R = Delta_ico/60",
+    "primitive_basis_checks": 720,
+    "projected_undirected_probability": "1/30",
+    "sector": "S=1 total integer working load"
+  },
+  "upstream_pins": {
+    "carrier": {
+      "canonical_json_sha256": "sha256:cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
+      "path": "manifests/echosahedral_federation_reference.json",
+      "schema": "oph.echosahedral_selector_manifest.v1"
+    },
+    "integer_record_counting_mechanism": {
+      "canonical_json_sha256": "sha256:efad022da8fdb52b58e6e8356ef945227832467c162cb512d0261812f286a655",
+      "path": "manifests/record_counting_mechanism_reference.json",
+      "schema": "oph.record_counting_mechanism_certificate.v2"
+    },
+    "lean_pair_average": {
+      "path": "Lean/ObserverPatchHolography/ScalarSeamRepair.lean",
+      "role": "formal counterpart; this certificate recomputes its scalar identities independently in exact rational arithmetic",
+      "theorems": [
+        "eq_pairAverage_of_supported_agreeing_sum_preserving",
+        "pairAverage_eq_id_sub_half_edgeLaplacian",
+        "uniform_thirty_seam_repair"
+      ]
+    },
+    "undirected_scheduler": {
+      "canonical_json_sha256": "sha256:4afffa0760ff59649d1f2548d8f755f1efe4c5be14594bbde80f22d7ed3d536a",
+      "path": "manifests/a3_scheduler_kernel_reference.json",
+      "schema": "oph.a3_scheduler_kernel_certificate.v1"
+    }
+  },
+  "verdict": {
+    "combinatorial_directed_orbit": "exact",
+    "directed_orbit_schedule_as_physical_selection": "open",
+    "full_self_readback_and_universe_selection": "open",
+    "integer_micro_to_balanced_shell": "exact",
+    "noncommutative_common_repair_workspace": "open",
+    "opposite_direction_expectation_to_pair_average": "exact",
+    "opposite_shell_placement_as_628_descent": "not generally attained",
+    "pathwise_odd_total_agreement": "not attained",
+    "physical_clock_and_laboratory_attachment": "open",
+    "protected_record_and_checkpoint_instrument": "open",
+    "refinement_semigroup_naturality": "open",
+    "uniform_s1_channel": "exact_named_realization"
+  }
+}

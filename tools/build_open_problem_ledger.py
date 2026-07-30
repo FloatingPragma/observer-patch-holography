@@ -1013,6 +1013,64 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "a complete-domain clock no-go."
         ),
     },
+    314: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "conditional finite matter fixture exact; physical source selection open",
+        "blocker": (
+            "The exterior, anomaly, and finite Spin calculations consume a "
+            "declared matrix-current fixture. No same-source producer selects "
+            "the physical current action or matter representation."
+        ),
+        "closure": (
+            "A source-passed current from #566 acts on a source-selected matter "
+            "carrier and the same finite Spin implementers, with refinement "
+            "commuting squares and adversarial controls."
+        ),
+        "falsification": (
+            "The declared exterior/Spin theorem fails internally, or every "
+            "target-free source matter producer selects an incompatible action."
+        ),
+        "chrome_policy": "Use only to audit a concrete same-source current/matter packet.",
+    },
+    566: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "abstract A1/A2 Lie type forced; executable source current open",
+        "blocker": (
+            "The source artifact derives R=-J and response signs but contains no "
+            "ordered current tomography, exact bracket reconstruction, or "
+            "same-current closed overlap holonomy."
+        ),
+        "closure": (
+            "One target-free source packet reconstructs twelve generators, their "
+            "closed bracket, all proper-carrier projective implementers, "
+            "response-component membership, and refinement intertwiners."
+        ),
+        "falsification": (
+            "A model satisfying the explicit A1/A2 response premises has another "
+            "compact Lie type, or the source producer cannot realize the forced "
+            "type without importing a named current model."
+        ),
+        "chrome_policy": "Use only to audit raw ordered histories and an executable verifier.",
+    },
+    567: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "declared-table Z6 kernel exact; physical global form open",
+        "blocker": (
+            "The order-six axis class uses declared diagonal and zero-sum "
+            "relations. Character completeness and a same-source "
+            "loop-to-kernel identity are absent."
+        ),
+        "closure": (
+            "A source-derived complete character/relation lattice and genuine "
+            "line category identify the carrier loop with the common physical "
+            "current and matter kernel, with alternative global forms rejected."
+        ),
+        "falsification": (
+            "Another source-admissible relation or transparent central action "
+            "survives, or the loop map fails on an admitted character."
+        ),
+        "chrome_policy": "Use only to audit a concrete source character and loop packet.",
+    },
     634: {
         "phase": "lorentzian-spin-local-source",
         "claim_level": (

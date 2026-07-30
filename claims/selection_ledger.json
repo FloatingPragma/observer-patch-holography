@@ -129,13 +129,13 @@
     {
       "row": 4,
       "selector_id": "echosahedral_carrier_lineage",
-      "label": "Echosahedral carrier lineage (icosahedral geometry for the screen carrier)",
+      "label": "A1 icosahedral boundary packet and declared Echosahedral lineage",
       "class": "exposed_premise",
       "conditional_on": [],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Declared quotient-visible carrier lineage of the #565 selector; the packet does not derive that every OPH carrier is echosahedral. Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyChargeReconstruction`) proves the bare total-charge reduct cannot force the choice, so a declared premise is the exact boundary.",
+      "where": "A1 declares that each finite local carrier has twelve primitive ports with the unlabeled 12-vertex, 30-edge, 20-face, degree-five, coherently oriented boundary complex of the icosahedron. This local boundary architecture is axiom content. The richer Echosahedral lineage, including its counting realization, response law, and physical carrier identification, is separately declared or source-gated and does not follow from the boundary combinatorics alone. Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyChargeReconstruction`) proves that the bare total-charge reduct cannot reconstruct even the boundary choice.",
       "menu": {
         "size": 3,
         "alternatives": "tetrahedral, octahedral, icosahedral antipodal port families",
@@ -342,7 +342,7 @@
     {
       "row": 12,
       "selector_id": "physical_port_current_realization",
-      "label": "Physical port-current realization",
+      "label": "A1/A2 compact port-current Lie type",
       "class": "forced",
       "conditional_on": [
         "echosahedral_carrier_lineage"
@@ -352,11 +352,11 @@
         "OPH-SCREEN-A5-SM-RECOGNITION"
       ],
       "owner_issues": [],
-      "where": "The semantic response artifact measured from the carrier dynamics determines the charged response representation, its four signed coefficients, the oriented frame, and the physical refinement maps; the port-current certificate recomputes every exact artifact claim in Q(sqrt5) and its physical source gate passes (issue #599 closure packet). Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyCurrentReconstruction`) records why the artifact is necessary: the bare source reduct admits two inequivalent completions. Conditional on row 4.",
+      "where": "A1 supplies a faithful complete compact twelve-dimensional port response and A2 makes every proper carrier recharting internal to that response. The carrier has one fixed line. Compact classification and the centreless four-factor fixed-space exclusion leave only u(1)+su(2)+su(3). Target-blind readback separately derives R=-J. The charged-double-triplet matrices are an exact declared witness; ordered source tomography and same-current holonomy are open. Conditional on row 4.",
       "menu": {
         "size": 2,
-        "alternatives": "two inequivalent current completions of the same source reduct; a bound semantic response artifact determines one",
-        "enumeration_source": "code/a5_closure/claim_boundary_certificates.py, source_completion_nonuniqueness_certificate"
+        "alternatives": "the centreless su(2)^4 branch or the one-centre u(1)+su(2)+su(3) branch after the A1/A2 centre bound",
+        "enumeration_source": "Lean/Screen/A2HolonomyBridge.lean and oph-physics-sim a2_holonomy_selector"
       },
       "compression_input": true,
       "receipts": [
@@ -365,13 +365,18 @@
       ],
       "lean": [
         {
+          "module": "Lean/Screen/A2HolonomyBridge.lean",
+          "declaration": "compact_product_dimensions_of_fixed_space"
+        },
+        {
           "module": "Lean/Screen/PhysicalA5ForcingNoGo.lean",
           "declaration": "noSourceOnlyCurrentReconstruction"
         }
       ],
       "negative_controls": [
-        "abelian-record and symmetric-record control models fail the production verifier",
-        "the register-relabeling no-go separates response data from register relabeling"
+        "an abelian diagonal response has the same port covariance but fails A2 endogeneity",
+        "the scalar seam equalizers close to so(11), not the twelve-dimensional current",
+        "a semantic current-model label cannot satisfy the source gate"
       ],
       "paper_anchors": [
         {
@@ -383,18 +388,18 @@
     {
       "row": 13,
       "selector_id": "z6_global_form_descent",
-      "label": "Source-bound global-form selection through the measured sector menu",
-      "class": "forced",
+      "label": "Declared-lattice Z6 descent and open physical global form",
+      "class": "exposed_premise",
       "conditional_on": [
         "physical_matter_spin_lift"
       ],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "The descent certificate computes the common Z6 kernel on every realized matter tensor by exhaustive enumeration over 36 candidates and derives the character and dual cocharacter lattices with Smith invariants (1, 1, 6). Local tensors alone descend through the cover and the Z2, Z3, and Z6 quotients and cannot select; the selection is carried by the measured global-form artifact: the order-120 deck action, the measured six-axis class group of exactly the kernel order, and the measured flux-sector menu {0..5} through which every realized tensor transports single-valuedly, whose unique four-form match is the Z6 quotient. The Dirac-pairing commutant theorem selects the electric polarization uniquely. Four-dimensional instanton normalization, theta periodicity, and laboratory flux measurement stay open named gates. Conditional on rows 4, 12, and 14.",
+      "where": "The descent certificate computes the common Z6 kernel on every declared matter tensor by exhaustive enumeration over 36 candidates and derives the central descent congruence with Smith invariants (1, 1, 6). Local tensors descend through the cover and the Z2, Z3, and Z6 quotients and cannot select a physical form. The six-axis class has order six only after its diagonal and zero-sum coefficient relations are declared. The exact intertwiner and electric-polarization result hold inside that declared system. Source selection of the relation lattice, complete source characters, the same-source loop-to-kernel identity, and laboratory attachment are open. Conditional on rows 4, 12, and 14.",
       "menu": {
         "size": 4,
-        "alternatives": "the four admissible global forms (cover, Z2, Z3, Z6 quotients) with sector menus {0}, {0,3}, {0,2,4}, {0..5}; the measured source-admissible menu equals exactly the Z6-quotient menu",
+        "alternatives": "the four locally admissible forms: cover, Z2, Z3, and Z6 quotients; the declared order-six coefficient system matches the Z6 menu without selecting it physically",
         "enumeration_source": "code/a5_closure/axis_center_descent_certificate.py sector_transport_consistency; code/a5_closure/manifests/global_form_semantic_artifact.json"
       },
       "compression_input": true,
@@ -429,7 +434,8 @@
         "adjoint-only tensors leave all four global forms admissible (kernel order 36)",
         "a fractionally charged extra tensor shrinks the kernel to the identity and obstructs every nonzero measured sector",
         "no central candidate acts as fermion parity on all five matter multiplets",
-        "a single-puncture nonzero flux is exactly impossible on the closed support"
+        "a single-puncture nonzero flux is exactly impossible on the closed support",
+        "matching two order-six groups does not source-select the declared axis relations"
       ],
       "paper_anchors": [
         {
@@ -441,15 +447,15 @@
     {
       "row": 14,
       "selector_id": "physical_matter_spin_lift",
-      "label": "Source-bound fermionic matter selection and Spin/odd-Weyl typing",
-      "class": "forced",
+      "label": "Conditional exterior matter and finite Spin fixture",
+      "class": "exposed_premise",
       "conditional_on": [
         "physical_port_current_realization"
       ],
       "canonical_claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "The matter-lift certificate consumes the hash-pinned measured spin statistics artifact and selects the matter object by the exhaustive 1024-subset anomaly scan over the derived primitive charges: the unordered conjugate rank-15 pair is the unique nonempty chiral anomaly-free selection and the fermionic-parity grading is an output of the scan. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the non-split double cover the unique source implementation of that grading; the gauge-centre branch is excluded by the Lean fermion-parity no-go. Scalar existence and multiplicity are not source-determined and extra-light-sector completeness holds only inside the declared algebra, each receipt-documented (multiplicity_window_reference, matter_menu_spectral_ledger_reference); the one-doublet completion stays declared. Conditional on rows 4 and 12.",
+      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12.",
       "menu": {
         "size": 1024,
         "alternatives": "all 1024 subsets of the ten nontrivial isotypic components; exactly two survive chirality and the four anomaly constraints, and they form one unordered conjugate pair equal to the two fermionic-parity sectors",

@@ -28,20 +28,14 @@ certificate consumes that data and derives, rather than assumes:
 * countermodels: an adjoint-only tensor set leaves all four global forms
   admissible, and a fractionally charged extra tensor shrinks the kernel.
 
-The physical gate additionally consumes the hash-pinned measured global-form
-artifact produced target-blind by the simulator: the order-120 deck action on
-the incidence-nerve federation, the six-axis class group with Smith
-invariants (1,1,1,1,1,6), the vacuum sector class of the realized reference
-federation, and the two-puncture flux-tube witnesses realizing every class of
-the measured order-six group with exact single-puncture impossibility.  On
-that input this certificate derives the exhaustive transport consistency of
-realized matter through every measured sector, the four-form sector-menu
-discrimination whose unique match is the Z6 quotient, the unique
-realized-compatible line polarization by the Dirac-pairing commutant theorem,
-and screen-scope Spin attachment through the #314 source-derived typing and
-the fermion-parity no-go.  Four-dimensional instanton normalization, theta
-periodicity, monopole dynamics, laboratory flux measurement, and continuum
-QFT stay open as named gates.
+The hash-pinned global-form artifact measures the carrier deck action and six
+antipodal axes. It then computes an order-six class group from a declared
+axis relation lattice. The flux witnesses, subgroup menu, transport checks,
+and line-polarization enumeration are exact inside that coefficient system.
+The carrier does not select its diagonal and zero-sum relations. A physical
+global-form theorem therefore requires a source-derived complete character
+category and an identification of the carrier loop class with the common
+current and matter kernel. The receipt fails closed at those obligations.
 
 Every arithmetic decision is exact integer or rational arithmetic; no
 floating point appears in a proof step.
@@ -330,10 +324,9 @@ def load_matter_receipt(manifest: Mapping[str, Any], base_dir: Path) -> dict[str
         "the pinned matter receipt must record a passing conditional algebraic gate",
     )
     require(
-        receipt.get("physical_source_gate", {}).get("passed") is True,
+        isinstance(receipt.get("physical_source_gate"), Mapping),
         "UPSTREAM_RECEIPT",
-        "the pinned matter receipt must record a passing physical source gate; "
-        "this packet no longer scores its upstream as physically unbound",
+        "the pinned matter receipt must expose its physical source boundary",
     )
     kernel_emission = receipt.get("kernel_emission")
     require(
@@ -348,18 +341,13 @@ def load_matter_receipt(manifest: Mapping[str, Any], base_dir: Path) -> dict[str
 def load_global_form_artifact(
     manifest: Mapping[str, Any], base_dir: Path, matter_receipt: Mapping[str, Any]
 ) -> dict[str, Any]:
-    """Load and verify the hash-pinned measured global-form artifact.
+    """Load and verify the hash-pinned global-form arithmetic artifact.
 
-    The artifact is produced target-blind by the simulator from the certified
-    carrier: it measures the order-120 deck action on the incidence-nerve
-    federation, the six-axis class group with its Smith invariants, the
-    vacuum sector class of the realized reference federation bound to the
-    federation verifier, the two-puncture flux-tube witnesses realizing every
-    class of the measured order-six group on the base and refined complexes,
-    the exact impossibility of a single-puncture nonzero flux, and the
-    subgroup obstruction menu. This loader verifies the pin, the self-hash,
-    the schema, and that the artifact binds the same certified carrier as the
-    pinned matter chain.
+    The carrier supplies the order-120 deck action and six antipodal axes.
+    The order-six group and sector menu use the artifact's declared diagonal
+    and zero-sum axis relations. This loader verifies the pin, self-hash,
+    schema, arithmetic, and common carrier binding. It also verifies that the
+    artifact refuses a physical-source promotion.
     """
 
     path_raw = manifest.get("global_form_artifact_path")
@@ -401,6 +389,12 @@ def load_global_form_artifact(
         and axis.get("antipode_reverses_every_oriented_axis") is True,
         "GLOBAL_FORM_ARTIFACT",
         "the measured six-axis class group is not the order-six axis quotient",
+    )
+    require(
+        axis.get("coefficient_system_status") == "declared_axis_relation_lattice"
+        and axis.get("relations_source_selected") is False,
+        "GLOBAL_FORM_ARTIFACT",
+        "the artifact must expose the declared status of its axis relations",
     )
     deck = artifact.get("federation_deck_action", {})
     require(
@@ -460,9 +454,13 @@ def load_global_form_artifact(
     )
     gate = artifact.get("physical_source_gate", {})
     require(
-        gate.get("passed") is True,
+        gate.get("finite_declared_coefficient_system_gate_passed") is True
+        and gate.get("axis_relation_lattice_source_selected") is False
+        and gate.get("complete_character_category_source_derived") is False
+        and gate.get("same_source_loop_to_tensor_kernel_identification") is False
+        and gate.get("passed") is False,
         "GLOBAL_FORM_ARTIFACT",
-        "the global form artifact's own measured source gate does not pass",
+        "the global form artifact does not expose the required source boundary",
     )
     return {
         "artifact_sha256": artifact["artifact_sha256"],
@@ -474,6 +472,9 @@ def load_global_form_artifact(
             name: row.get("liftable_fluxes") for name, row in obstruction_menu.items()
         },
         "refined_menu_natural": True,
+        "coefficient_system_status": axis["coefficient_system_status"],
+        "relations_source_selected": False,
+        "physical_source_gate_passed": False,
         "laboratory_line_measurement": gate.get("laboratory_line_measurement"),
     }
 
@@ -483,16 +484,15 @@ def sector_transport_consistency(
     generator: tuple[int, int, int],
     artifact: Mapping[str, Any],
 ) -> dict[str, Any]:
-    """Exhaustive transport consistency of realized matter through every
-    measured flux sector, and the four-way menu discrimination.
+    """Transport consistency inside the declared order-six coefficient system.
 
     Transporting a tensor with weight w around a flux-c tube multiplies it by
-    the central monodromy h^c evaluated on w. Every realized weight is
-    kernel-trivial, so all six measured sectors carry the realized matter
+    the central monodromy h^c evaluated on w. Every declared weight is
+    kernel-trivial, so all six declared sectors carry the matter table
     single-valuedly; a fractionally charged tensor obstructs every nonzero
     sector. The four admissible global forms are then separated by their
-    sector menus, and exactly one form's menu equals the measured
-    source-admissible menu.
+    sector menus, and exactly one form's menu equals the declared order-six
+    menu. This is an algebraic consistency result, not a source selection.
     """
 
     consistency_checks = 0
@@ -502,7 +502,7 @@ def sector_transport_consistency(
             require(
                 central_phase_sixths(element, weight) == 0,
                 "SECTOR_TRANSPORT",
-                "a realized weight is multivalued around a measured flux sector",
+                "a declared weight is multivalued around a declared flux sector",
             )
             consistency_checks += 1
     fractional = (1, 0, 0)
@@ -522,12 +522,12 @@ def sector_transport_consistency(
         "z3_quotient": [0, 2, 4],
         "z6_quotient": [0, 1, 2, 3, 4, 5],
     }
-    measured_menu = list(artifact["sector_menu"])
-    matching_forms = [name for name, menu in form_menus.items() if menu == measured_menu]
+    declared_menu = list(artifact["sector_menu"])
+    matching_forms = [name for name, menu in form_menus.items() if menu == declared_menu]
     require(
         matching_forms == ["z6_quotient"],
         "SECTOR_TRANSPORT",
-        "the measured sector menu does not single out exactly one global form",
+        "the declared sector menu does not match exactly one global form",
     )
     require(
         {
@@ -538,30 +538,28 @@ def sector_transport_consistency(
         }
         == dict(artifact["obstruction_menu"]),
         "SECTOR_TRANSPORT",
-        "the measured obstruction menu does not match the four-form menu table",
+        "the declared obstruction menu does not match the four-form menu table",
     )
     return {
         "monodromy_checks": consistency_checks,
-        "all_measured_sectors_carry_realized_matter": True,
+        "all_declared_sectors_carry_declared_matter": True,
         "fractional_singlet_obstructed_sectors": obstructed,
         "four_form_sector_menus": form_menus,
-        "measured_source_admissible_menu": measured_menu,
-        "unique_menu_matching_form": "z6_quotient",
+        "declared_coefficient_system_menu": declared_menu,
+        "unique_menu_matching_form_within_declared_system": "z6_quotient",
         "selection_principle": (
-            "the physical global form at finite source-model scope is the unique "
-            "admissible form whose sector menu equals the measured source-"
-            "admissible menu carried single-valuedly by the realized tensors"
+            "conditional algebraic identification: the declared order-six "
+            "coefficient-system menu equals the Z6 quotient menu"
         ),
         "boundary": (
-            "no laboratory flux is claimed (#569 lane); the witnesses are exact "
-            "seam data on the twice-punctured support, and the reference "
-            "federation itself lies in the measured vacuum sector"
+            "the carrier does not select the coefficient relations or identify "
+            "their loop class with the complete current and matter kernel"
         ),
     }
 
 
 def line_polarization_certificate() -> dict[str, Any]:
-    """Exhaustive polarization uniqueness on the derived line lattice.
+    """Exhaustive polarization uniqueness on the declared line lattice.
 
     Line classes form Z6 x Z6 (electric, magnetic) with the Dirac pairing
     <(e,m),(e',m')> = e m' - m e' mod 6. Every subgroup is enumerated; the
@@ -623,11 +621,11 @@ def line_polarization_certificate() -> dict[str, Any]:
         "selected_polarization": "the electric (Wilson) lattice of the Z6 quotient",
         "commutant_theorem": (
             "any class mutually local with every electric class is electric, so "
-            "the selection is forced, not chosen"
+            "the electric polarization is unique inside the declared line lattice"
         ),
         "boundary": (
-            "the magnetic classes enter as measured flux sectors, not as "
-            "dynamical 't Hooft lines; no line dynamics or monopole is claimed"
+            "the line lattice is declared; source derivation, continuum line "
+            "dynamics, and monopole dynamics are open"
         ),
     }
 
@@ -894,7 +892,7 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
         "the fractionally charged countermodel does not shrink the kernel to the identity",
     )
 
-    # --- Measured deck/loop, sector transport, and polarization --------------
+    # --- Declared coefficient-system transport and polarization --------------
     sector_consistency = sector_transport_consistency(
         weights, generator, global_form_artifact
     )
@@ -902,26 +900,28 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
     require(
         global_form_artifact["six_axis"]["class_group_order"] == len(kernel),
         "DECK_KERNEL",
-        "the measured six-axis class group order does not equal the tensor kernel order",
+        "the declared six-axis class group order does not equal the tensor kernel order",
     )
 
-    # Screen-scope Spin attachment: the pinned matter receipt must carry the
-    # source-derived Spin/odd-Weyl typing bound to a measured unique spin
-    # structure, and the fermion-parity no-go above must exclude any mixed
-    # gauge/spin quotient. Only then is the product form recorded.
+    # Screen-scope Spin typing is recorded without promoting the conditional
+    # matter construction to a source-selected physical representation.
     matter_gate = receipt.get("physical_source_gate", {})
     statistics_binding = receipt.get("source_statistics_binding", {})
     spin_attachment = bool(
-        matter_gate.get("spin_odd_weyl_category_source_derived") is True
-        and matter_gate.get("fermionic_statistics_source_derived") is True
+        matter_gate.get(
+            "spin_odd_weyl_category_derived_within_declared_current_fixture"
+        )
+        is True
+        and matter_gate.get(
+            "fermionic_statistics_derived_within_declared_current_fixture"
+        )
+        is True
         and statistics_binding.get("measured_spin_structure_count") == 1
     )
-    require(
-        spin_attachment,
-        "SPIN_ATTACHMENT",
-        "the pinned matter receipt does not carry the source-derived Spin typing "
-        "with a measured unique spin structure",
+    upstream_response_source_bound = bool(
+        matter_gate.get("upstream_current_representation_source_bound") is True
     )
+    upstream_matter_source_bound = bool(matter_gate.get("passed") is True)
 
     return {
         "schema": RECEIPT_SCHEMA,
@@ -958,8 +958,22 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "character_lattice_smith_invariants": invariants,
             "character_residue_classes": [list(row) for row in allowed_classes],
             "character_residue_class_count": 6,
+            "coordinate_scope": (
+                "the stored triples are central triality, weak duality, and "
+                "integer U(1) charge residues; they are not the full "
+                "maximal-torus character lattice"
+            ),
+            "full_character_lattice": (
+                "{(lambda_3,lambda_2,q) in "
+                "P_SU(3) (+) P_SU(2) (+) Z : "
+                "2 triality(lambda_3) + 3 duality(lambda_2) + q = 0 mod 6}"
+            ),
         },
         "dual_cocharacter_lattice": {
+            "coordinate_scope": (
+                "central color, weak, and U(1) quotient coordinates; "
+                "noncentral coroot directions are not represented in this table"
+            ),
             "basis_coordinates_color_weak_u1": [
                 [str(value) for value in row] for row in dual_basis
             ],
@@ -971,19 +985,18 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "primitive_pure_u1_cocharacter": "one electron-Dirac quantum",
             "interpretation_boundary": (
                 "the dual lattice and its finite central-flux residues are exact; "
-                "the line category and mutually-local UV polarization are selected "
-                "at finite source scope by the exhaustive polarization theorem "
-                "below, with the magnetic classes entering as measured flux "
-                "sectors rather than dynamical lines"
+                "the line category is a declared Z6 x Z6 lattice, and the "
+                "polarization theorem selects the electric subgroup only inside "
+                "that lattice"
             ),
             "theta_periodicity_status": (
-                "not derived: the screen flux-sector lattice is measured, but the "
+                "not derived: the screen coefficient lattice is declared, and the "
                 "four-dimensional instanton-charge lattice and topological action "
-                "normalization remain open in the continuum lane"
+                "normalization are open"
             ),
             "monopole_dynamics_not_inferred": True,
         },
-        "source_deck_loop_measurement": {
+        "carrier_deck_and_declared_loop_system": {
             "artifact_sha256": global_form_artifact["artifact_sha256"],
             "deck_group_order": global_form_artifact["deck"]["deck_group_order"],
             "orientation_preserving_deck_elements": 60,
@@ -991,13 +1004,13 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "six_axis_class_group_order": global_form_artifact["six_axis"]["class_group_order"],
             "six_axis_smith_invariants": global_form_artifact["six_axis"]["smith_invariants"],
             "reference_federation_sector_class": global_form_artifact["sector_class"],
-            "measured_source_admissible_menu": global_form_artifact["sector_menu"],
-            "refinement_natural_sector_menu": global_form_artifact["refined_menu_natural"],
+            "declared_coefficient_system_menu": global_form_artifact["sector_menu"],
+            "refinement_natural_declared_sector_menu": global_form_artifact["refined_menu_natural"],
+            "axis_relation_lattice_source_selected": False,
             "conclusion": (
-                "the deck/loop class data are measured from the certified carrier "
-                "and its federation, not declared: the measured six-axis class "
-                "group has exactly the tensor-kernel order and the measured "
-                "flux-sector menu is the full order-six group"
+                "the deck action and six axes are carrier measurements; the "
+                "order-six loop class and its sector menu follow from the "
+                "declared axis relation lattice"
             ),
         },
         "sector_transport_consistency": sector_consistency,
@@ -1020,10 +1033,10 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "conclusion": (
                 "the central weight table and common-kernel computation are "
                 "invariant under the declared state permutations, and the "
-                "measured flux-sector menu persists to the refined support "
+                "declared flux-sector menu persists to the refined support "
                 "through the pinned artifact"
             ),
-            "physical_loop_or_bundle_refinement_naturality_derived": True,
+            "declared_loop_system_refinement_naturality_derived": True,
         },
         "global_form_nonidentifiability": {
             "subgroup_menu": menu,
@@ -1042,14 +1055,13 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "invisible and therefore do not select the diagonal chain"
             ),
             "maximal_effective_quotient": "Z6",
-            "physical_global_form_selected": True,
-            "selection_scope": "finite source-model scope",
+            "physical_global_form_selected": False,
+            "conditional_declared_system_match": True,
             "selection_boundary": (
                 "local tensors alone descend through all four forms and cannot "
-                "select; the selection here is by the measured source data: the "
-                "maximal faithful image, the measured deck/loop class, and the "
-                "measured flux-sector menu carried single-valuedly by the "
-                "realized tensors, which equals exactly the Z6-quotient menu"
+                "select; the declared axis relation lattice produces the full "
+                "order-six menu, so matching that menu to Z6 cannot serve as an "
+                "independent physical selection"
             ),
             "fractional_singlet_countermodel_kernel_order": 1,
             "conclusion_countermodels": (
@@ -1071,34 +1083,32 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
                 "Lean/Screen/Z6Descent.lean: an exact group isomorphism matching "
                 "chosen generators and inversion"
             ),
-            "physical_loop_intertwiner_derived": True,
+            "physical_loop_intertwiner_derived": False,
+            "conditional_algebraic_intertwiner_verified": True,
             "boundary": (
-                "the intertwiner's source side is now measured, not declared: the "
-                "pinned artifact measures the six antipodal axes, the transitive "
-                "faithful rotation action, the Smith invariants (1,1,1,1,1,6) of "
-                "the axis class lattice, and the antipodal orientation reversal; "
-                "the measured class group has exactly the tensor-kernel order and "
-                "the Lean intertwiner carries its generator to h"
+                "the carrier supplies the six antipodal axes and their action; "
+                "the Smith invariants use declared relations, so equality with "
+                "the tensor-kernel order does not establish a same-source identity"
             ),
         },
         "claim_boundary": {
             "proves": (
                 "the common central kernel on the realized tensors, the maximal "
-                "effective quotient and its character/cocharacter lattices, the "
-                "measured deck/loop class intertwined with the tensor kernel, the "
-                "exhaustive transport consistency of realized matter through the "
-                "measured flux-sector menu with its four-form discrimination, the "
-                "unique realized-compatible line polarization, screen-scope Spin "
-                "attachment with the no-mixed-quotient theorem, refinement-natural "
-                "sector transport, and exact four-way local non-identifiability as "
-                "the negative control the selection principle answers"
+                "effective quotient and its central descent congruence for the "
+                "declared tensor table, transport consistency inside the "
+                "declared order-six coefficient system, unique electric "
+                "polarization inside the declared line lattice, refinement "
+                "naturality inside that system, and four-way local "
+                "non-identifiability"
             ),
-            "status": "source_bound_at_finite_scope_with_continuum_and_laboratory_gates_open",
+            "status": "conditional_exact_arithmetic_with_physical_global_form_open",
             "does_not_close": [
+                "source selection of the axis relation lattice",
+                "completeness of the current, matter, and line character category",
+                "same-source identification of the loop class with the common tensor kernel",
                 "four-dimensional instanton sectors, topological action normalization, and theta periodicity",
                 "monopole or dyon dynamics (only lattice arithmetic and flux sectors are derived)",
-                "family attachment and any three-family claim (#569)",
-                "laboratory measurement of any line or flux (#569)",
+                "laboratory measurement of any line or flux",
                 "continuum quantum field theory",
             ],
         },
@@ -1111,80 +1121,75 @@ def certificate_payload(manifest: Mapping[str, Any], base_dir: Path | None = Non
             "passed": True,
         },
         "physical_global_form_gate": {
-            "upstream_response_physically_source_bound": True,
-            "upstream_matter_physically_source_bound": True,
-            "source_derived_deck_loop_class": True,
-            "screen_spin_attachment_at_source_scope": spin_attachment,
-            "genuine_line_category_selected": True,
-            "uv_mutual_locality_polarization_selected": True,
-            "refinement_natural_loop_bundle_transport": True,
-            "screen_flux_sector_lattice_and_witnesses_measured": True,
+            "upstream_response_physically_source_bound": upstream_response_source_bound,
+            "upstream_matter_physically_source_bound": upstream_matter_source_bound,
+            "axis_relation_lattice_source_selected": False,
+            "complete_character_category_source_derived": False,
+            "same_source_loop_to_tensor_kernel_identification": False,
+            "screen_spin_typing_available": spin_attachment,
+            "genuine_line_category_source_selected": False,
+            "conditional_line_polarization_unique": True,
+            "refinement_natural_declared_loop_system": True,
+            "declared_screen_flux_witnesses_exact": True,
             "four_dimensional_instanton_action_normalization": False,
             "theta_periodicity_derived": False,
             "laboratory_global_form_attachment": False,
-            "passed": True,
+            "passed": False,
             "composition": {
-                "passed_over": [
+                "blocking": [
                     "upstream_response_physically_source_bound",
                     "upstream_matter_physically_source_bound",
-                    "source_derived_deck_loop_class",
-                    "screen_spin_attachment_at_source_scope",
-                    "genuine_line_category_selected",
-                    "uv_mutual_locality_polarization_selected",
-                    "refinement_natural_loop_bundle_transport",
-                    "screen_flux_sector_lattice_and_witnesses_measured",
+                    "axis_relation_lattice_source_selected",
+                    "complete_character_category_source_derived",
+                    "same_source_loop_to_tensor_kernel_identification",
+                    "genuine_line_category_source_selected",
                 ],
-                "deferred": {
-                    "four_dimensional_instanton_action_normalization": "continuum lane (#592/#595)",
-                    "theta_periodicity_derived": "continuum lane; withdrawn at 4d",
-                    "laboratory_global_form_attachment": "issue 569",
-                },
                 "scope_notes": {
-                    "screen_spin_attachment_at_source_scope": (
-                        "the measured unique spin structure, the #314 source-derived "
-                        "Spin/odd-Weyl typing, and the Lean fermion-parity no-go give "
-                        "the product gauge-times-spin form with no mixed quotient; a "
-                        "continuum spacetime Spin bundle is not claimed"
+                    "screen_spin_typing_available": (
+                        "finite Spin typing does not select the current, matter "
+                        "representation, global quotient, or continuum Spin bundle"
                     ),
-                    "genuine_line_category_selected": (
-                        "the Wilson lattice of the Z6 quotient with the magnetic "
-                        "classes as measured flux sectors; line dynamics is not claimed"
+                    "conditional_line_polarization_unique": (
+                        "the electric lattice is unique after the Z6 x Z6 line "
+                        "lattice has been declared"
                     ),
                 },
             },
         },
         "acceptance_criteria_status": {
             "abstract_z6_intertwiner": True,
-            "source_derived_loop_deck_intertwiner": True,
+            "source_derived_loop_deck_intertwiner": False,
             "kernel_on_every_declared_tensor": True,
             "maximal_effective_image_character_lattice": True,
             "dual_cocharacter_lattice": True,
-            "physical_global_quotient_selected": True,
-            "genuine_wilson_tHooft_dyonic_line_category_selected": True,
+            "physical_global_quotient_selected": False,
+            "genuine_wilson_tHooft_dyonic_line_category_selected": False,
             "theta_periodicity_from_instantiated_topological_sectors": False,
             "primitive_correlated_cocharacter_in_electron_dirac_and_color_weak_units": True,
             "monopole_dynamics_not_inferred": True,
             "algebraic_weak_center_u1_relation": True,
-            "spacetime_spin_fermion_attachment": True,
+            "spacetime_spin_fermion_attachment": False,
             "weight_level_refinement_invariance": True,
-            "loop_bundle_line_refinement_naturality": True,
+            "loop_bundle_line_refinement_naturality": False,
             "larger_cover_and_smaller_quotient_countermodels": True,
             "four_compatible_cover_level_global_forms": True,
-            "issue_567_closeable": True,
+            "issue_567_closeable": False,
             "scope_note": (
-                "the theta acceptance row stays false by design: the screen "
-                "flux-sector lattice is measured, but four-dimensional instanton "
-                "sectors and the topological action normalization are a continuum "
-                "gate, so no theta-periodicity theorem is claimed"
+                "the conditional arithmetic is exact; source selection of the "
+                "coefficient and line systems is required for physical closure"
             ),
         },
         "issue_closure_condition": {
             "conditional_algebraic_gate_passed": True,
-            "physical_global_form_gate_passed": True,
-            "met_locally": True,
+            "physical_global_form_gate_passed": False,
+            "met_locally": False,
             "remaining_open_lanes": {
-                "four_dimensional_instanton_and_theta": "continuum lane (#592/#595)",
-                "laboratory_line_or_flux_measurement": "issue 569",
+                "axis_relation_lattice_selection": "source producer required",
+                "character_category_completeness": "source theorem required",
+                "loop_kernel_identity": "same-source theorem required",
+                "line_category_selection": "source producer required",
+                "four_dimensional_instanton_and_theta": "continuum lane",
+                "laboratory_line_or_flux_measurement": "physical attachment",
                 "monopole_or_dyon_dynamics": "not claimed by any receipt",
                 "continuum_quantum_field_theory": "outside all finite packets",
             },

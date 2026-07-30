@@ -256,6 +256,9 @@ class FluxDefectCriterionTests(unittest.TestCase):
     def test_gate_rows_and_open_interfaces(self) -> None:
         gate = self.expected["finite_topological_sector_gate"]
         self.assertTrue(gate["passed"])
+        self.assertFalse(gate["defect_objects_source_defined"])
+        self.assertTrue(gate["defect_objects_defined_in_declared_coefficient_system"])
+        self.assertFalse(gate["physical_global_form_selected"])
         self.assertTrue(gate["local_coboundary_regauge_cannot_change_flux_class"])
         self.assertFalse(gate["physical_particle_discrimination"])
         self.assertFalse(gate["classical_same_flux_countermodel_excluded"])
@@ -297,7 +300,7 @@ class FluxDefectCriterionTests(unittest.TestCase):
         self.assertFalse(local_boundary["lexical_scan_completeness_theorem"])
 
         acceptance = self.expected["acceptance_criteria_status"]
-        self.assertTrue(acceptance["defect_object_and_equivalence_source_defined"])
+        self.assertFalse(acceptance["defect_object_and_equivalence_source_defined"])
         self.assertTrue(acceptance["charge_invariant_and_target_independent"])
         self.assertFalse(acceptance["mass_invariant_and_target_independent"])
         self.assertFalse(
@@ -316,6 +319,12 @@ class FluxDefectCriterionTests(unittest.TestCase):
         )
         self.assertFalse(acceptance["all_depth_refinement_stability_proved"])
         self.assertFalse(acceptance["all_issue_acceptance_criteria_satisfied"])
+
+        scope = self.expected["global_form_scope"]
+        self.assertTrue(scope["declared_axis_coefficient_system_exact"])
+        self.assertFalse(scope["axis_relation_lattice_source_selected"])
+        self.assertFalse(scope["physical_global_form_selected"])
+        self.assertFalse(scope["same_source_loop_to_tensor_kernel_identification"])
 
     def test_negative_controls_all_fail_closed(self) -> None:
         payload = cert.negative_control_payload(self.manifest)

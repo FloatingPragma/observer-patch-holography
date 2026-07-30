@@ -29,8 +29,8 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-07-30T12:21:54Z",
-  "open_issue_count": 32,
+  "generated_utc": "2026-07-30T18:00:09Z",
+  "open_issue_count": 35,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
@@ -72,6 +72,27 @@
       "title": "[Higgs/top] Compose source-native pole verdicts",
       "updated_at": "2026-07-29T09:02:54Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/34"
+    },
+    {
+      "blocker": "The exterior, anomaly, and finite Spin calculations consume a declared matrix-current fixture. No same-source producer selects the physical current action or matter representation.",
+      "chrome_policy": "Use only to audit a concrete same-source current/matter packet.",
+      "claim_level": "conditional finite matter fixture exact; physical source selection open",
+      "closure": "A source-passed current from #566 acts on a source-selected matter carrier and the same finite Spin implementers, with refinement commuting squares and adversarial controls.",
+      "falsification": "The declared exterior/Spin theorem fails internally, or every target-free source matter producer selects an incompatible action.",
+      "labels": [
+        "documentation",
+        "surface: particles",
+        "priority: quantitative-core",
+        "program:core",
+        "resource:laptop",
+        "exit:theorem-or-no-go",
+        "closeout:p1"
+      ],
+      "number": 314,
+      "phase": "standard-model-source-realization",
+      "title": "Proof packet: source-select the physical matter and Spin action",
+      "updated_at": "2026-07-30T17:47:30Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/314"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -270,6 +291,52 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/552"
     },
     {
+      "blocker": "The source artifact derives R=-J and response signs but contains no ordered current tomography, exact bracket reconstruction, or same-current closed overlap holonomy.",
+      "chrome_policy": "Use only to audit raw ordered histories and an executable verifier.",
+      "claim_level": "abstract A1/A2 Lie type forced; executable source current open",
+      "closure": "One target-free source packet reconstructs twelve generators, their closed bracket, all proper-carrier projective implementers, response-component membership, and refinement intertwiners.",
+      "falsification": "A model satisfying the explicit A1/A2 response premises has another compact Lie type, or the source producer cannot realize the forced type without importing a named current model.",
+      "labels": [
+        "enhancement",
+        "surface: compact",
+        "dag:ready-now",
+        "physics-problems",
+        "priority: quantitative-core",
+        "closure",
+        "program:core",
+        "resource:laptop",
+        "exit:theorem-or-no-go",
+        "closeout:p0"
+      ],
+      "number": 566,
+      "phase": "standard-model-source-realization",
+      "title": "[12-port currents] Reconstruct the A1/A2 current from source tomography",
+      "updated_at": "2026-07-30T17:47:29Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/566"
+    },
+    {
+      "blocker": "The order-six axis class uses declared diagonal and zero-sum relations. Character completeness and a same-source loop-to-kernel identity are absent.",
+      "chrome_policy": "Use only to audit a concrete source character and loop packet.",
+      "claim_level": "declared-table Z6 kernel exact; physical global form open",
+      "closure": "A source-derived complete character/relation lattice and genuine line category identify the carrier loop with the common physical current and matter kernel, with alternative global forms rejected.",
+      "falsification": "Another source-admissible relation or transparent central action survives, or the loop map fails on an admitted character.",
+      "labels": [
+        "enhancement",
+        "surface: compact",
+        "physics-problems",
+        "priority: quantitative-core",
+        "program:core",
+        "resource:laptop",
+        "exit:theorem-or-no-go",
+        "closeout:p1"
+      ],
+      "number": 567,
+      "phase": "standard-model-source-realization",
+      "title": "[12-port global form] Derive the source character lattice and loop-to-kernel map",
+      "updated_at": "2026-07-30T17:47:31Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/567"
+    },
+    {
       "blocker": "The family_band_attachment certificate proves the exact selection: among single complete faithful in-window multiplicity objects inside the screen coefficient space, the #625 operational cost order has the rank-three band as unique strict minimizer, selecting a finite rank-three candidate (Lean Screen/A5FamilyBand.lean, kernel-decided). The #599 simulator response artifact realizes the comparison clause, and the simulator pole-residue artifact realizes the realization clause for the response resolvent: the propagated dynamics has four pole clusters at the band costs, the rank-three frame residue sits at the lowest positive generator frequency (faithful, equivariant, Galois partner at the maximal pole), and the unitary channel conserves mode norms. The finite screen assembly has complex rank forty-five with the exact rank-15 generation factor imported. A conditional finite tensor construction recomputes the fifteen states and anomaly cancellation, fixes the diagonal Z6 action, and gives a nondegenerate chirality grading on the separate issue-314 twelve-port packet. The issue-634 local signed operator tensors with the rank-45 identity by a declared algebraic extension, which conditionally copies its exact positive dimensionless gap. This tensor extension is not source-selected. No source, domain, or transport bridge attaches the issue-314 spin packet to that local operator domain. This is not a physical matter-spectrum measurement. The #617 copy-count invisibility for external completions is unchanged. The bounded #627 classification also leaves the physical seam mechanism, character or 2-representation, and its line/flux action unselected.",
       "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
       "claim_level": "exact finite rank-45 tensor candidate with separate spin and local-operator packets; physical attachment open",
@@ -277,7 +344,6 @@
       "falsification": "A physical pole-residue object realized in the screen with a faithful in-window multiplicity object that is not the rank-three band, or a physical comparison order that violates the #625 operational cone, or a selected seam action conflicts with the canonical diagonal kernel or measured line/flux transport.",
       "labels": [
         "enhancement",
-        "dag:ready-now",
         "physics-problems",
         "surface: axiom-revision",
         "program:core",
@@ -289,7 +355,7 @@
       "number": 569,
       "phase": "physical-family-attachment",
       "title": "[Family attachment] Decide the physical pre-Yukawa family carrier and multiplicity",
-      "updated_at": "2026-07-29T18:34:03Z",
+      "updated_at": "2026-07-30T17:50:13Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/569"
     },
     {
@@ -378,7 +444,7 @@
       "number": 594,
       "phase": "physical-wz-source-to-pole",
       "title": "[Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet",
-      "updated_at": "2026-07-29T18:42:23Z",
+      "updated_at": "2026-07-30T17:49:49Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/594"
     },
     {
@@ -468,7 +534,7 @@
       "number": 631,
       "phase": "local-electroweak-carrier",
       "title": "[EW carrier] Decide the physical screen-to-electroweak load attachment",
-      "updated_at": "2026-07-29T15:28:16Z",
+      "updated_at": "2026-07-30T17:49:48Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/631"
     },
     {
@@ -620,7 +686,7 @@
       "number": 641,
       "phase": "baryon-violation-boundary",
       "title": "[Baryon boundary] Classify gauge-invariant baryon-violating operators through dimension six",
-      "updated_at": "2026-07-29T18:28:24Z",
+      "updated_at": "2026-07-30T17:57:47Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/641"
     },
     {
@@ -645,7 +711,7 @@
       "number": 642,
       "phase": "global-form-discriminator",
       "title": "[Global-form test] Reconcile primitive Z6 provenance and line conventions; retain the exact conditional packet",
-      "updated_at": "2026-07-30T11:59:50Z",
+      "updated_at": "2026-07-30T17:57:46Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/642"
     },
     {
@@ -670,7 +736,7 @@
       "number": 643,
       "phase": "a5-angular-discriminator",
       "title": "[A5 angular test] Promote the exact S2 support invariant into one observable statistic or prove transfer nonidentifiability",
-      "updated_at": "2026-07-30T11:59:52Z",
+      "updated_at": "2026-07-30T13:10:29Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/643"
     },
     {
@@ -695,7 +761,7 @@
       "number": 644,
       "phase": "structural-specificity-audit",
       "title": "[Compression audit] Exhaustively calibrate the twelve-port carrier fingerprint",
-      "updated_at": "2026-07-30T11:59:53Z",
+      "updated_at": "2026-07-30T17:49:47Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/644"
     },
     {
@@ -719,7 +785,7 @@
       "number": 646,
       "phase": "electroweak-invariant-search",
       "title": "[EW invariant] Decide scale-free W/Z pole and residue combinations",
-      "updated_at": "2026-07-30T12:04:39Z",
+      "updated_at": "2026-07-30T13:10:30Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/646"
     },
     {

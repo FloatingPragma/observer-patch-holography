@@ -122,6 +122,14 @@ def pinned_scalar_block() -> dict[str, Any]:
     """Rerun the scalar compatibility block on the pinned #314 manifest values."""
 
     matter_manifest = load_json(MATTER_MANIFEST_PATH)
+    require(
+        "conditional super-Tannakian matter lift"
+        in str(matter_manifest.get("description", ""))
+        and matter_manifest.get("current_manifest_path")
+        == "manifests/port_current_response_reference.json",
+        "PINNED_SCOPE",
+        "the pinned matter manifest must expose its conditional current-fixture scope",
+    )
     exterior = matter_manifest.get("exterior_matter_contract")
     require(isinstance(exterior, Mapping), "PINNED_MANIFEST", "exterior_matter_contract is missing")
     charges = exterior.get("block_trace_charges", {})
@@ -168,6 +176,7 @@ def pinned_scalar_block() -> dict[str, Any]:
         "pinned_matter_lift_manifest": {
             "path": "manifests/super_tannakian_matter_reference.json",
             "sha256": sha256_json(matter_manifest),
+            "scope": "declared conditional matter fixture; no physical matter-source promotion",
         },
         "block_trace_charges": {"color_block": frac(y_color), "weak_block": frac(y_weak)},
         "charge_normalization": "q = 6Y integer normalization",

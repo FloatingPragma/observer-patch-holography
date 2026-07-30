@@ -13,11 +13,12 @@ their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
 reconstructs an exact finite structural core: quantum event rules, Lorentz
 kinematics on the stated global-support branch, the Standard Model gauge
-algebra and faithful global form, and a selected one-generation exterior
-matter pair. Einstein dynamics and the numerical closures for $P$ and $N$
-are conditional branches with their physical identifications stated
-separately. The three axioms supply the observer system; they do not silently
-select every action, continuum limit, or laboratory attachment.
+Lie type, and a conditional one-generation exterior matter pair with an exact
+common central kernel. The corresponding matrix current, physical global
+form, Einstein dynamics, and numerical closures for $P$ and $N$ retain their
+stated source or physical interfaces. The three axioms supply the observer
+system; they do not silently select every action, representation, continuum
+limit, or laboratory attachment.
 
 ## Start Here
 
@@ -81,21 +82,24 @@ certificates:
    [Observers Are All You Need](paper/observers_are_all_you_need.pdf), the
    [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
    [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean).
-3. **The Standard Model gauge structure from twelve ports.** Under the stated
-   finite current-action premises, the icosahedral port module forces
+3. **The Standard Model Lie type from twelve ports.** Complete reversible
+   port response in A1 and endogenous overlap transport in A2 force
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. Exact
-   central descent gives the faithful global form
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Laboratory-current
-   identification is a separate physical attachment. As a direct algebraic
-   corollary, the selected product current algebra has no connected
+   central descent gives a common $\mathbb Z_6$ kernel and the maximal
+   faithful image
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ for the declared matter
+   table. Source selection of the matrix current, matter action, and physical
+   global quotient is work in progress. As a direct algebraic corollary, the
+   conditional product current algebra has no connected
    $(3,2,-5/6)\oplus(\bar 3,2,+5/6)$ simple-GUT $X/Y$ generator, so the
    ordinary minimal $X/Y$ proton-decay channel is absent.
    This does not establish general proton stability. See the
-   [source-bound current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
+   [conditional current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
    and the Lean proofs of the
-   [gauge trichotomy](Lean/Screen/A5OPH.lean) and
+   [A2 holonomy bridge](Lean/Screen/A2HolonomyBridge.lean),
+   [gauge trichotomy](Lean/Screen/A5OPH.lean), and
    [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
 4. **An exact one-generation exterior selection and a rank-three family
    candidate.** Inside the declared ten-component exterior-response algebra,
@@ -315,9 +319,11 @@ public quotient normal forms
         │       same-tower composition → Lorentz and conditional Einstein branches
         ├─ transportable sectors → independent Tannaka compact-group route
         └─ local 12-port carrier → exact inverse-port response theorem
-                → conditional compact current and scan-selected matter constructions
-                → exact Z6 tensor kernel; flux-measured global form at source scope
-                laboratory current, scalar, spectrum, and family attachments open
+                → A1/A2 theorem forcing the abstract compact Lie type
+                → conditional matrix current and rank-15 matter construction
+                → exact Z6 kernel on declared tensors
+                source current, matter action, global form, scalar, spectrum,
+                  and family attachments open
         ↓
 quantitative closure and physical-readout tests
 ```
@@ -375,26 +381,31 @@ diameter, and solves the common farthest-shell filter. It derives
 $10J=A^3-4A^2-5A+10I$. The response $R=-J$ has exact relative sector signs;
 its common sign is charge conjugation.
 
-From that derived response, an explicit equivariant compact lift constructs
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. The
-fifteen-state exterior packet is selected by the exhaustive 1024-subset
-anomaly scan: the unordered conjugate rank-15 pair is the unique nonempty
-chiral anomaly-free selection, with the fermionic-parity grading as an
-output. Anomaly freedom gives determinant balance and
-primitive charges up to charge conjugation. Exhaustive central-action
-calculation gives a common $\mathbb Z_6$ kernel on those tensors, so their
-maximal faithful image is
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors, and
-the measured flux-sector data of the descent certificate select the
-$\mathbb Z_6$ quotient at finite source scope. This
-exact finite implication uses its stated premises alone.
-Beyond that finite source scope, continuum fermion typing, the continuum
-global form, and identification with laboratory currents are open. The transportable-sector/Tannaka construction
-is a separate compact-group route, and the source-bound identification of the
-two routes is open.
+The complete reversible response clause in A1 and endogenous proper-carrier
+transport in A2 turn the twelve-dimensional port tangent into a compact
+current algebra with inner $A_5$ action. Its one-dimensional fixed space and
+compact-simple classification force the abstract type
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. The released
+charged-double-triplet matrices realize that type exactly, while ordered
+source tomography and same-current holonomy are work in progress.
 
-The exact finite centerpiece of the gauge branch is
+Inside the declared exterior-response algebra, the exhaustive 1024-subset
+scan leaves one unordered conjugate rank-15 pair as the unique nonempty chiral
+anomaly-free selection. Anomaly freedom gives determinant balance and
+primitive charges up to charge conjugation. Exhaustive central-action
+calculation gives a common $\mathbb Z_6$ kernel on those declared tensors, so
+their maximal faithful image is
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
+$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The
+six-axis calculation has order six only after its diagonal and zero-sum
+coefficient relations are declared. A complete source character category and
+a same-source loop-to-kernel identification are required to select the
+physical quotient. Continuum fermion typing and laboratory-current
+identification are open. The transportable-sector/Tannaka construction is a
+separate compact-group route, and the source identification of the two routes
+is open.
+
+The carrier theorem and its declared matrix witness can be written as
 
 $$
 P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
@@ -403,15 +414,17 @@ P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
 \cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-This coefficient algebra is an exact construction from the finite carrier,
-target-blind impulse, and port readback rather than a consequence of the
-module decomposition alone. The matter and descent certificates prove the
-corresponding conditional representation and kernel arithmetic. Laboratory
-identification is a separate test.
+This abstract Lie type follows from the A1 response and A2 endogenous
+transport clauses together with the finite carrier theorem. It does not
+follow from the module decomposition or target-blind inverse-port readback
+alone. The released matrices are a conditional witness. The matter and
+descent certificates prove the corresponding conditional representation and
+kernel arithmetic. Source realization, physical global-form selection, and
+laboratory identification are separate tests.
 
-The exact carrier results retain explicit physical boundaries. Matter typing
-and global-form selection are measured at finite source scope only;
-laboratory current identification,
+The exact carrier results retain explicit physical boundaries. The matrix
+current, matter action, and global-form selection are not reconstructed from
+source histories. Laboratory current identification,
 physical family attachment, exclusion of extra light sectors, scalar
 multiplicity,
 the Einstein source tower, and the physical closure packets are not derived.
@@ -492,8 +505,8 @@ conditional closure candidate and downstream test.
 | Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Echosahedral selector and finite $A_5$ current theorem | The declared integer-counting and normalized Hilbert--Schmidt-cost realization gives the exact twelve-unit split. Independently, oriented incidence gives inverse pairing, proper $A_5$ action, a rank-three frame, and the unique central graph involution. Derivation of the integer normalization and physical discrete cost from the full three-axiom schema is open. A target-blind impulse and port readback derive $R=-J$, with exact relative sector signs, and an explicit compact lift realizes $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Laboratory-current identification is open; there is no automatic global $S^2$ conclusion | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the realized tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors; the physical global-form selection is carried by the measured flux-sector data of the descent certificate at finite source scope. This finite implication uses its stated premises alone | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The released matrix current is an exact conditional realization; ordered source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the declared tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The six-axis menu matches $\mathbb Z_6$ only after its coefficient relations are declared. The source does not select the physical global form | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Tensoring that band with the declared fifteen-state table gives a conditional complex rank-45 candidate. The table carries the nondegenerate chirality grading and exact diagonal $\mathbb Z_6$ action. A separate 8,662-node local-domain receipt checks the declared extension $D_\sigma\otimes I_{45}$ and its conditional inheritance of the positive finite-domain gap. This action is not source-selected. The twelve-port Spin packet and local operator domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
@@ -508,13 +521,14 @@ conditional closure candidate and downstream test.
 A successful theory of everything should explain why facts that appear
 unrelated arrive as one package. OPH starts from a bounded self-reading patch
 instead of a spacetime manifold, field content, gauge group, or table of
-constants. It returns exact dimensions, compact groups, global quotients,
-charge assignments, anomaly cancellations, representation multiplicities, and
-fixed-point equations. These outputs come from one typed carrier, overlap, and
-repair architecture. The local icosahedral and compact-sector routes meet at
-the Standard Model Lie type, while their physical source identity is an open
-test. Their shared dependence is the main case that OPH describes one
-physical world rather than a collection of coincidences.
+constants. It returns exact dimensions, compact Lie types, conditional global
+quotients, charge assignments, anomaly cancellations, representation
+multiplicities, and fixed-point equations. These outputs come from one typed
+carrier, overlap, and repair architecture. The local icosahedral theorem
+forces the Standard Model Lie type. The separate compact-sector route reaches
+that type only on its declared Standard Model packet, and a common physical
+source identity is an open test. Their shared dependence is the main case that
+OPH describes one physical world rather than a collection of coincidences.
 
 The evidence also comes in different forms: paper proofs, exact arithmetic,
 interval certificates, finite receipts, simulations,
