@@ -677,8 +677,9 @@ therefore enters the particle argument at its first finite line, long before a
 quark or a weak boson appears.
 
 The finite carrier forces the Standard Model Lie type through its complete
-reversible response. The declared Standard Model packet in the separate
-compact-sector route has the same local type, without proving that both
+reversible response and internal overlap transport. The declared Standard
+Model packet in the separate compact-sector route has the same local type,
+without proving that both
 routes describe one physical current. The finite route starts with the reference
 microarchitecture from Chapter 3, long before quarks, weak doublets, or
 measured particle data enter the story. On the declared twelve-port carrier,
@@ -1587,9 +1588,10 @@ current generators and bracket from source histories, identifying laboratory
 currents, selecting cosmic capacity, and calibrating the clock-and-curvature
 map are work in progress.
 
-The result is an organized conditional particle packet: a specific gauge
-group, charge pattern, color carrier, declared generation count, carrier
-inventory, and quantitative comparison surfaces, with candidate stable
+The result is an organized conditional particle packet: a specific local gauge
+algebra, maximal faithful matter image, charge pattern, color carrier, declared
+generation count, carrier inventory, and quantitative comparison surfaces,
+with candidate stable
 patterns organized by the screen's emergent symmetries. Underneath the whole
 inventory runs the quietest thread in the chapter. The screen that carries
 these particles sits close to perfect golden-ratio balance without sitting on

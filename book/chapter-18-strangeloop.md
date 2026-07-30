@@ -98,13 +98,13 @@ Nothing in this chapter changes the equations of the earlier ones. Modular flow
 gives a restricted state an intrinsic ordering, and a calibrated instrument
 turns that ordering into a clock on the geometric branch. Horizon
 thermodynamics gives the Einstein relation when the common geometry, stress,
-vacuum, and scale premises hold. Charge transport reconstructs a compact group;
-the icosahedral certificates recognize the Standard Model Lie type and global
-form as an exact finite implication under explicit response and matter
-contracts. Incidence proves the central involution, but independent physical
-response selection, matter selection, and laboratory identification remain
-separate tests. These loops share one architecture and keep their source gates
-visible.
+vacuum, and scale premises hold. Complete reversible response and internal
+transport force the Standard Model Lie type. Under the separate matrix and
+matter contracts, the icosahedral certificates give the common central kernel
+and maximal faithful matter image. Incidence proves the central involution.
+Physical current selection, matter selection, global-form selection, and
+laboratory identification remain separate tests. These loops share one
+architecture and keep their source gates visible.
 
 ## 18.4 Self-Reference as Subtraction
 

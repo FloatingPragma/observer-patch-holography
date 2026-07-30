@@ -12,7 +12,7 @@
 \input{../paper/release_info}
 
 \hypersetup{
-  pdftitle={Finite Observer Consensus as a Reconstruction Principle: Normal Forms, Gauge Structure, and a Route to the Einstein Field Equation},
+  pdftitle={Finite Observer Consensus as a Reconstruction Principle: Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation},
   pdfauthor={Bernhard Mueller; Alexander Osika; Mario Poneder; Kai Xue; Ben Cassie; Peter Nguyen; Maarten Antonie Visser; Kale Arnav Anirudha; David Matscheko; Jonathan Hill; William T. Glynn},
   pdfsubject={Finite observer-patch reconstruction in foundations of physics},
   pdfkeywords={foundations of physics, Observer Patch Holography, finite reconstruction, quantum records, Einstein field equation, gauge structure},
@@ -31,7 +31,7 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \title{Finite Observer Consensus as a Reconstruction Principle:\\
-Normal Forms, Gauge Structure, and a Route to the Einstein Field Equation}
+Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation}
 
 \author{Bernhard Mueller\textsuperscript{1,*}\quad
 Alexander Osika\textsuperscript{1}\quad
@@ -71,31 +71,26 @@ William T. Glynn\textsuperscript{10}}
 
 \begin{abstract}
 We ask whether consensus among finite self-reading observer patches can
-function as a reconstruction principle without identifying finite consistency
-with physical realization. Each patch has local state, a boundary, durable
-records, overlap readback, and authorized repair moves. We prove an
-observer-indexed normal-form theorem, stability bounds under refinement, and
-complexity classifications for succinct boundary-extension problems. For an
-assumed oriented twelve-port icosahedral carrier, quadratic descent plus an
-explicit local-diamond condition yields a schedule-independent public record.
-A separate classification shows that any compact Lie bracket on the associated
-twelve-dimensional module with inner action of the alternating group $A_5$
-has Lie algebra
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; an explicitly
-chosen four-band response map realizes such a bracket. Adding an explicitly
-chosen trace-balanced $3\oplus2$ module recovers the familiar anomaly-free
-fifteen-state exterior content and $\mathbb Z_6$ kernel within a declared scan
-class. These gauge results are finite and depend on the carrier, response, and
-matter inputs. The conformal two-sphere supplies a Lorentz-group action as
-mathematics, while its interpretation as physical observer kinematics
-requires a realization map. If a common refinement tower realizes a
+function as a reconstruction principle while keeping finite consistency
+distinct from physical realization. Each patch has local state, a boundary,
+durable records, overlap readback, and repair moves. We prove observer-indexed
+normal forms, refinement stability, and complexity bounds for
+boundary-extension problems. On an
+oriented twelve-port carrier, quadratic descent and a local-diamond condition
+yield a schedule-independent public record. Complete reversible port response
+and endogenous overlap transport force the compact local Lie-algebra type
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ with no ambient
+gauge-group premise. Exact source calculations derive the
+carrier module and inverse-port response; source reconstruction of the current
+derivative and same-current holonomy is work in progress. A conditional matrix
+realization and a separate trace-balanced matter module give an anomaly-free
+fifteen-state exterior witness and its $\mathbb Z_6$ kernel within a declared
+scan. The conformal two-sphere supplies a Lorentz-group action whose physical
+interpretation requires a realization map. Given one refinement tower with a
 Lorentzian event manifold, conserved stress tensor, null balance,
 entropy--area relation, continuum control, and coupling scale, null tomography
 and the Bianchi identity yield the Einstein field equation up to a
-cosmological constant. The common physical tower and continuum limit are not
-constructed here. The paper separates finite theorems, certified
-computations, reconstruction implications, and open physical realization
-maps.
+cosmological constant. The physical tower and continuum limit are open.
 \end{abstract}
 
 \vspace{0.5em}
@@ -112,13 +107,14 @@ structure enter standard theories through distinct mathematical inputs.
 Observer Patch Holography (OPH) asks which structures follow from a specified
 finite patch system whose components retain records, compare overlap
 readbacks, and repair disagreement. The source object is narrower than generic
-observer consistency: it includes a declared twelve-port carrier, explicit
-repair hypotheses, a finite algebra-state representation, and the
-interpretation maps stated with each physical conclusion.
+observer consistency: it includes a declared twelve-port carrier, complete
+reversible response, endogenous overlap transport, explicit repair hypotheses,
+a finite algebra-state representation, and the interpretation maps stated
+with each physical conclusion.
 
 The mathematical answer has two layers. Exact results concern observable
 normal forms, finite record identities, refinement stability, computational
-obstructions, and the twelve-port response construction. Physical conclusions
+obstructions, and the twelve-port gauge-forcing theorem. Physical conclusions
 require further maps from those finite objects to events, currents, clocks,
 stress, and scales. The Lorentz statement is a group-theoretic
 consequence of the assumed spherical support. The Einstein statement has a
@@ -186,17 +182,18 @@ independence, stability, and computational cost. It gives a canonical partial
 normalizer, a sharp two-output stability bound, an accumulated refinement
 bound, and complexity barriers for succinct boundary problems.
 
-The second principal contribution is the finite twelve-port response
-construction. An inner-action classification first shows that any compact
-Lie bracket on the twelve-port $A_5$ module for which the $A_5$ action is
-inner has the Standard Model gauge Lie type. The four-band response map then
-supplies an explicit bracket with that type. Under the displayed
-trace-balanced matter contract, it also gives a
-faithful matter image with $\mathbb Z_6$ cover kernel and an anomaly-free
-fifteen-state exterior module. The source inputs, response representation,
-four coefficients, and
-exhaustive finite scan are part of the theorem statements;
-laboratory-current attachment is not.
+The second principal contribution is the A1--A2 gauge-forcing theorem.
+Complete reversible response gives a faithful compact twelve-dimensional
+unitary current algebra. Endogenous overlap transport makes every proper
+carrier action inner on that same algebra. Its one-dimensional fixed space and
+compact-simple classification force
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ without an
+ambient gauge-group premise. A declared four-band matrix map is an exact
+conditional witness for this type. Under a separate trace-balanced matter
+contract, the exterior module gives a faithful image with $\mathbb Z_6$ cover
+kernel and an anomaly-free fifteen-state representation. Source selection of
+the matrix current, physical matter action, global quotient, and laboratory
+current is work in progress.
 
 The finite record-algebra development packages projection events, state
 updates, partition expectations, and the Clauser--Horne--Shimony--Holt bound
@@ -221,10 +218,11 @@ rules, Tsirelson's inequality, conformal--Lorentz isomorphisms, Tannaka
 reconstruction, and the familiar one-generation exterior representation are
 used as established ingredients. The originality asserted here is limited to
 the observer-fiber normalizer with sharp refinement control, the semantic
-transaction contract yielding the local diamond, the inner-action
-classification and explicit four-band twelve-port response map, the
-exhaustive selection result within its declared exterior menu, and their
-placement beside a typed geometry-to-dynamics implication.
+transaction contract yielding the local diamond, the complete-response and
+endogenous-transport forcing theorem with its compact fixed-space exclusion,
+the conditional four-band witness, the exhaustive selection result within its
+declared exterior menu, and their placement beside a typed
+geometry-to-dynamics implication.
 
 \subsection{The three axioms}
 
@@ -245,14 +243,39 @@ $K_{r,i}=(P_{r,i},E_{r,i},F_{r,i},o_{r,i})$ has
 $|P|=12$, $|E|=30$, $|F|=20$, and the oriented icosahedral incidence
 relations. The bridge $b_r:N_r\to S_r$ carries a designated oriented
 two-cycle to the fundamental class of the spherical support, and the typed
-maps commute with refinement. A1 constrains the finite carrier, federation,
-operational interfaces, and spherical-support tower. It does not imply
-semantic agreement, repair termination, confluence, a response law, a gauge
-algebra, or any laboratory identification \cite{ophaxioms}.
+maps commute with refinement. For each complete carrier, put
+$V_{r,i}=\mathbb R^{P_{r,i}}$. A1 supplies a finite-dimensional unitary space
+$H_{r,i}$ and an injective real-linear response derivative
+\[
+D_{r,i}:V_{r,i}\longrightarrow\mathfrak u(H_{r,i})
+\]
+whose image $\mathfrak g_{r,i}=D_{r,i}(V_{r,i})$ is closed under
+commutators. The primitive port probes span $V_{r,i}$, their ordered
+compositions generate every accepted infinitesimal reversible response, and
+no public response direction is omitted. The pairing
+\[
+\langle v,w\rangle_D
+=-\operatorname{Tr}\!\left(D_{r,i}(v)D_{r,i}(w)\right)
+\]
+is positive definite. The response data and their completeness commute with
+refinement, and
+\[
+G^0_{D,r,i}
+=\left\langle\exp\!\left(tD_{r,i}(v)\right):
+t\in\mathbb R,\ v\in V_{r,i}\right\rangle^0
+\]
+is the connected response group. A1 constrains the finite carrier,
+federation, operational interfaces, spherical-support tower, and complete
+public reversible-response tangent. It does not imply semantic agreement,
+repair termination, confluence, a particular matrix response, an inverse-port
+law, a compact Lie type, a global group, or a laboratory identification
+\cite{ophaxioms}.
 
 \item[A2 (observer agreement).]
 In plain language, observers assign the same operational meaning to accepted
-data on their shared boundary. Formally, the interpretation functor
+data on their shared boundary. Every proper recharting of a complete carrier
+is implemented by their own reversible overlap response. Formally, the
+interpretation functor
 \[
 \mathcal J_r:\mathsf{Data}_r\longrightarrow\mathsf{Meaning}_r
 \]
@@ -263,9 +286,32 @@ higher-overlap map, federation map, and refinement map. On an overlap $O$,
 =
 \mathcal J_O(\tau_{Q\to P}\operatorname{res}_{Q\to O}d_Q).
 \]
-A2 constrains operational meaning on accepted shared data. It does not imply
-global state extension, termination, confluence, unique normal forms, or
-durable records \cite{ophaxioms}.
+The accepted reversible overlap transports form a groupoid
+$\mathcal O_r$. For a complete carrier chart $o$, let
+$\operatorname{Hol}_r(o)$ be its closed overlap paths. A2 requires the port
+projection
+\[
+\Pi_{r,i}:\operatorname{Hol}_r(o)
+\longrightarrow\operatorname{Aut}^{+}(K_{r,i})
+\]
+to be surjective. For every proper carrier automorphism
+$a\in\operatorname{Aut}^{+}(K_{r,i})$, A2 supplies a closed path $\gamma_a$
+and a projective unitary implementer $[U_a]$ satisfying
+\[
+\Pi_{r,i}(\gamma_a)=a,\qquad
+\operatorname{Ad}_{[U_a]}D_{r,i}(v)=D_{r,i}(a\!\cdot\!v).
+\]
+The implementer is endogenous to the same response:
+\[
+[U_a]=[g_ac_a],\qquad
+g_a\in G^0_{D,r,i},\qquad
+c_a\in C_{U(H_{r,i})}(\mathfrak g_{r,i}).
+\]
+The centralizer factor acts trivially on $\mathfrak g_{r,i}$. A2 constrains
+operational meaning on accepted shared data and makes proper carrier
+rechartings inner on the complete port-response algebra. It does not imply
+global state extension, termination, confluence, unique normal forms, durable
+records, a global compact group, or a laboratory current \cite{ophaxioms}.
 
 \item[A3 (maximum randomness under agreement constraints).]
 In plain language, the selected state is least informative relative to the
@@ -302,9 +348,12 @@ The results form branches with different premises:
 \text{finite carrier and repair}
 &\longrightarrow&
 \text{normal form and record identities},\\[1.5mm]
-\text{twelve-port response and displayed matter block}
+\text{A1 response and A2 transport}
 &\longrightarrow&
-\text{gauge algebra and }\mathbb Z_6\text{ matter image},\\[1.5mm]
+\text{Standard Model local Lie type},\\[1.5mm]
+\text{displayed matter representation}
+&\longrightarrow&
+\text{conditional }\mathbb Z_6\text{ matter image},\\[1.5mm]
 \text{oriented spherical support}
 &\longrightarrow&
 \text{Lorentz observer-velocity kinematics},\\[1.5mm]
@@ -313,8 +362,9 @@ The results form branches with different premises:
 G_{ab}+\Lambda g_{ab}=8\pi G_NT_{ab}.
 \end{array}
 \]
-The first two rows are finite constructions. The third consumes the declared
-spherical support. The fourth is a reconstruction implication. A common
+The first three rows are finite results with the displayed premises. The
+fourth consumes the declared spherical support. The fifth is a reconstruction
+implication. A common
 modular--stress--entropy tower is the proposed route to its null-balance
 antecedent and remains an open physical realization.
 Sections \ref{sec:architecture} through \ref{sec:gauge} develop these branches.
@@ -1272,14 +1322,18 @@ decomposition
 P_{12}\cong_{A_5}\mathbf1\oplus\mathbf5\oplus\mathbf3\oplus\mathbf3'.
 \]
 
-\begin{theorem}[Inner-action closure on the twelve-port module]
+\begin{theorem}[A1--A2 gauge Lie-type forcing]
 \label{thm:inner-action-closure}
-Let $\mathfrak g$ be a twelve-dimensional compact real Lie algebra and let
+Let $D:P_{12}\to\mathfrak u(H)$ be the complete reversible response derivative
+supplied by A1, and put $\mathfrak g=D(P_{12})$. Suppose the endogenous
+transport clause of A2 covers every proper carrier action
+$a\in A_5$ and gives projective implementers satisfying
 \[
-\rho:A_5\longrightarrow\operatorname{Int}(\mathfrak g)
+\operatorname{Ad}_{[U_a]}D(v)=D(a\!\cdot\!v),
+\qquad
+[U_a]=[g_ac_a],
 \]
-make its underlying real $A_5$-module
-$\mathbf1\oplus\mathbf5\oplus\mathbf3\oplus\mathbf3'$. Then
+where $g_a\in G_D^0$ and $c_a$ centralizes $\mathfrak g$ pointwise. Then
 \[
 \mathfrak g\cong
 \mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
@@ -1291,10 +1345,24 @@ carries $\mathbf3'\oplus\mathbf5$.
 \end{theorem}
 
 \begin{proof}
+Injectivity of $D$ gives $\dim\mathfrak g=12$. Its commutator-closed image is a
+finite-dimensional Lie subalgebra of $\mathfrak u(H)$, and the positive trace
+pairing makes it compact. For every $a\in A_5$, the centralizer factor $c_a$
+acts trivially on $\mathfrak g$, so
+$\operatorname{Ad}_{[U_a]}|_{\mathfrak g}
+=\operatorname{Ad}_{g_a}|_{\mathfrak g}$ is inner. The chosen projective
+lifts need not form a homomorphic section. Covariance through the injective
+map $D$ nevertheless gives the homomorphism
+\[
+a\longmapsto\bigl(D(v)\mapsto D(a\!\cdot\!v)\bigr)
+\quad\text{from }A_5\text{ to }\operatorname{Int}(\mathfrak g).
+\]
+The transitive proper-carrier action fixes only the uniform port line, hence
+$\dim\mathfrak g^{A_5}=1$.
+
 Compactness gives the reductive decomposition
 $\mathfrak g=\mathfrak z\oplus[\mathfrak g,\mathfrak g]$. Inner
-automorphisms fix the center pointwise. The displayed $A_5$-module has a
-one-dimensional fixed space, so $\dim\mathfrak z\leq1$.
+automorphisms fix the center pointwise, so $\dim\mathfrak z\leq1$.
 
 If $\mathfrak z=0$, the low-dimensional classification of compact simple Lie
 algebras forces a twelve-dimensional compact semisimple algebra to be
@@ -1319,10 +1387,14 @@ triplet together with $\mathbf5$.
 \end{proof}
 
 \begin{boundary}
-Theorem~\ref{thm:inner-action-closure} is a classification theorem. It does
-not prove that a compact bracket or an inner $A_5$ action exists on the port
-module. The four-band map below supplies one such bracket under its displayed
-response premises.
+No ambient compact group or candidate Lie algebra occurs among the premises of
+Theorem~\ref{thm:inner-action-closure}. A1 supplies the faithful compact
+commutator-closed response algebra, and A2 supplies its inner proper-carrier
+action. The theorem fixes the abstract local Lie-algebra type. The source
+receipts derive the carrier module, the inverse-port response, and its relative
+band signs. Source reconstruction of $D$ from ordered reversible histories and
+same-current holonomy is work in progress. The physical matrix current,
+couplings, matter action, global quotient, and laboratory attachment are open.
 \end{boundary}
 
 Let
@@ -1331,7 +1403,7 @@ Let
 \qquad
 \widehat{x}\,y=x\times y .
 \]
-The response construction supplies the space
+The conditional matrix witness uses the space
 \[
 H=\mathbb C^3_E\oplus\mathbb C^3_W
 \]
@@ -1348,7 +1420,7 @@ $R_gv_p=v_{g(p)}$ on the oriented port frame, and define
 \]
 The target $A_5$ action on $\mathfrak u(H)$ is conjugation by $\Pi(g)$.
 
-\begin{theorem}[Four-band finite port-response algebra]
+\begin{theorem}[Conditional four-band finite port-response algebra]
 \label{thm:finite-response}
 On the declared twelve-port carrier and supplied response representation,
 define
@@ -1428,15 +1500,16 @@ there as separate commuting-square computations.
 
 \begin{boundary}
 The $A_5$-module decomposition alone does not determine a Lie bracket: the
-same module also carries the zero bracket. The independent inputs to
+same module also carries the zero bracket, whose trivial response-generated
+group fails the A2 endogeneity clause. The independent inputs to
 Theorem~\ref{thm:finite-response} are the carrier incidence and orientation,
 the supplied response representation, and four nonzero band coefficients.
-No candidate Lie algebra, gauge group, particle list, or measured coupling
-enters the definition of $K$; the Lie-algebra identification is computed
-after the map is fixed. The theorem constructs the pulled-back bracket for
-this response map. It does not prove that the response representation or its
-coefficients are forced by A1--A3, and it contains no uniqueness claim over
-all $A_5$-equivariant brackets or all finite carriers.
+The block architecture and coefficients are declared. No measured particle,
+mass, or coupling value enters the exact verification. The theorem constructs
+the pulled-back bracket for this response map; it does not select $K$ from
+source histories or prove a uniqueness claim over all $A_5$-equivariant
+brackets or finite carriers. The abstract Lie type is forced independently by
+Theorem~\ref{thm:inner-action-closure}.
 \end{boundary}
 
 \subsection{Global form and anomaly-free exterior module}
@@ -1448,7 +1521,7 @@ Let
 V=\mathbb C^3_{-1/3}\oplus\mathbb C^2_{1/2}
 \]
 be an additional, explicitly supplied trace-balanced matter representation
-of the Lie algebra identified in Theorem~\ref{thm:finite-response}. This
+of the Lie algebra forced in Theorem~\ref{thm:inner-action-closure}. This
 $3\oplus2$ matter space is distinct from the supplied response space
 $H=\mathbb C^3_E\oplus\mathbb C^3_W$ and is not derived from it. Let
 \[
@@ -1569,12 +1642,12 @@ them. Parity is recorded after selection and is not a selection predicate.
 
 \begin{boundary}
 The finite response group $G_{\mathrm{packet}}$ and the sector-reconstructed
-group $G_{\mathrm{Tan}}$ arise from different data. Their equality requires a
-commuting-square identification that has not been constructed. Laboratory
-current attachment, physical matter identification, exclusion of extra light
-sectors, scalar attachment, family multiplicity, Yukawa couplings, mixing,
-masses, and a continuum quantum-field realization remain open realization
-maps. The theorem classifies a finite source-model representation and its
+group $G_{\mathrm{Tan}}$ arise from different data. Their equality is an open
+commuting-square identification. Laboratory current attachment, physical
+matter identification, exclusion of extra light sectors, scalar attachment,
+family multiplicity, Yukawa couplings, mixing, masses, and a continuum
+quantum-field realization are open realization maps. The theorem classifies a
+finite source-model representation and its
 maximal faithful image. The exclusion of $\Lambda^0V$, $\Lambda^5V$, direct
 sums, vectorlike additions, and neutral singlets is not derived by this scan.
 \end{boundary}
@@ -1625,13 +1698,12 @@ clock, stress, area, vacuum, and scale maps remain open.\\
 How do the gravitational and gauge branches share a source? & One carrier can
 feed the event/modular branch and the twelve-port response branch, yielding
 both conclusions from a common source. & Joint physical realization and
-equality of $G_{\mathrm{packet}}$ with $G_{\mathrm{Tan}}$ have not been
-established.\\
+equality of $G_{\mathrm{packet}}$ with $G_{\mathrm{Tan}}$ are open
+identification theorems.\\
 Why this gauge type and matter image? &
-On the supplied inner-action response and displayed matter representation,
-Theorems~\ref{thm:inner-action-closure}--\ref{thm:matter-image} give the
-compact Lie type, $\mathbb Z_6$ quotient, and anomaly-free rank-fifteen finite
-module.
+The complete A1 response and endogenous A2 transport force the compact local
+Lie type. The separately supplied matter representation gives the conditional
+$\mathbb Z_6$ quotient and anomaly-free rank-fifteen finite module.
 & Laboratory currents, quantum fields, physical matter poles, family
 multiplicity, and masses require further maps.\\
 Why could a string description be effective? &
@@ -1679,9 +1751,10 @@ accounts to remain compatible.
 In this framework, the candidate fundamental theory that combines the
 gravitational and gauge sectors is one observer-consensus tower with two
 readout branches. The overlap, record, and repair structure feeds the event
-and modular branch. The twelve-port incidence, response map, and
-trace-balanced blocks feed the gauge branch. A single self-reading carrier
-could therefore supply both sets of antecedents.
+and modular branch. The twelve-port incidence, complete reversible response,
+and endogenous overlap transport feed the local gauge-type branch.
+Trace-balanced blocks supply a separate conditional matter branch. A single
+self-reading carrier could supply both sets of antecedents.
 
 This common source neither identifies gravity with a gauge boson nor fixes all
 couplings. It also leaves two gauge constructions distinct:
@@ -1736,23 +1809,25 @@ events fit together.
 \subsection{Gauge type and the finite matter image}
 
 The twelve-port coefficients split under the alternating-group action into
-bands of dimensions $1$, $3$, $3$, and $5$. If a compact Lie bracket carries
-that action by inner automorphisms, Theorem~\ref{thm:inner-action-closure}
-forces one central direction together with simple ideals of dimensions three
-and eight. The response map $K$ realizes this algebra explicitly. The matter
-space $V$ is a separate supplied representation; its exterior algebra gives
-the familiar fifteen-state branching, and the exhaustive scan proves the
-two-mask selection only inside its declared ten-summand menu. Physical gauge
-fields, matter poles, families, and masses require current and continuum
+bands of dimensions $1$, $3$, $3$, and $5$. A1 supplies their complete compact
+response algebra, while A2 implements every proper carrier action internally
+on that same response. Theorem~\ref{thm:inner-action-closure} forces one
+central direction together with simple ideals of dimensions three and eight.
+The response map $K$ is an exact conditional matrix witness for this algebra.
+The matter space $V$ is a separate supplied representation; its exterior
+algebra gives the familiar fifteen-state branching, and the exhaustive scan
+proves the two-mask selection inside its declared ten-summand menu. Physical
+gauge fields, matter poles, families, and masses require current and continuum
 realization maps.
 
 \noindent\emph{Intuition.}
 The carrier exposes twelve response channels. Icosahedral symmetry groups
-them into four inequivalent bands, while inner compact rotations determine
-how those bands can close under commutators. The finite response map turns
-that organization into the Standard Model gauge Lie type. A separate matter
-module then tests which charges can coexist without anomalies; it does not
-turn the finite channels into observed particles.
+them into four inequivalent bands. Complete reversible response closes their
+public tangent under commutators, and observer agreement requires carrier
+rechartings to act inside that same response. Compactness and the single fixed
+line then leave the Standard Model gauge Lie type. A separate matter module
+tests which charges coexist without anomalies; it does not turn the finite
+channels into observed particles.
 
 \subsection{Why a string description could be effective}
 
@@ -1859,16 +1934,17 @@ Central defects and edge-center entropy
    for scalar entropy bookkeeping after the split;
    \path{Lean/ObserverPatchHolography/CollarStates.lean}
    for the identity-channel model and its no-go boundary\\
-Port action, commutant, coefficient algebra
+Port action, A1--A2 Lie type, and conditional matrix algebra
  & files under \texttt{Lean/Screen/}: \texttt{A5PortAction.lean},
    \texttt{A5Commutant.lean}, \texttt{A5IncidenceResponse.lean},
-   and \texttt{Compact12.lean} for the abstract matrix algebra; the exact
-   port map and $A_5$ covariance are checked by
+   \texttt{A2HolonomyBridge.lean} for the fixed-space and endogenous-transport
+   interfaces, and \texttt{Compact12.lean} for the abstract matrix algebra;
+   the conditional port map and $A_5$ covariance are checked by
    \path{code/a5_closure/port_current_inner_certificate.py},
    \path{code/a5_closure/manifests/port_current_response_reference.json},
    and
    \path{code/a5_closure/receipts/port_current_inner_reference.receipt.json};
-   compact-simple classification remains the analytic input used in
+   compact-simple classification is the analytic input used in
    Theorem~\ref{thm:inner-action-closure}\\
 Global form, $\mathbb Z_{6}$ kernel, and exterior selection
  & \texttt{Lean/Screen/Z6Exact.lean} for the abstract lattice quotient,
@@ -1911,9 +1987,9 @@ The program's empirical case rests on three decisive gates:
 \item \textbf{Physical realization of the common refinement tower.} The
 Einstein composition of Theorem~\ref{thm:einstein} needs one source-derived
 tower satisfying its premises jointly; the signature instrument and its
-controls measure progress toward exactly this object.
+controls test selected antecedents of exactly this object.
 \item \textbf{A source-only current and continuum realization.} The gauge and
-matter results of Section~\ref{sec:gauge} await laboratory current
+matter results of Section~\ref{sec:gauge} require laboratory current
 attachment and a continuum operator limit; identifiability audits
 delimit which attachments the registered source interface cannot supply. This
 gate requires source-visible observables beyond that interface.
@@ -1957,13 +2033,15 @@ composition contract: event, modular, stress, entropy, asymptotic, vacuum, and
 scale premises appear in one statement, while the finite null ambiguity
 identifies exactly where a metric-proportional term enters.
 
-The gauge section also contains two logically separate routes.
+The gauge section contains two reconstruction routes and one conditional
+global-form witness.
 Doplicher--Roberts/Tannaka reconstruction supplies the structural sector
-group \cite{dr89,dr90}. The finite packet group comes from the explicit
-twelve-port response map and exterior-module scan. The equality of these
-groups is an open commuting-square problem. This separation prevents the
-standard categorical theorem from being counted as a derivation of the
-specific packet group.
+group \cite{dr89,dr90}. Independently, complete A1 response and endogenous A2
+transport force the local Standard Model gauge Lie algebra. The explicit matrix map and
+exterior-module scan give the conditional packet group. Equality of the
+sector group and packet group is an open commuting-square theorem. This
+separation prevents the categorical reconstruction, local Lie-type theorem,
+and physical global group from being conflated.
 
 For a foundations readership, the methodological claim is also concrete.
 Finite theorems, certified computations, reconstruction implications, and
@@ -1985,15 +2063,18 @@ a schedule-independent public record. The completed finite algebra-state
 surface then carries the standard probability, conditioning, expectation, and
 correlation identities.
 
-The principal finite gauge construction is the twelve-port response map.
-The inner-action closure theorem first classifies the only possible compact
-inner-action Lie type on its $A_5$ module. For the declared response
-representation and four nonzero band coefficients, the pulled-back bracket
-yields
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Trace balance
-and the exterior module give the global $\mathbb Z_6$ quotient and an
-anomaly-free rank-fifteen representation, while the exhaustive scan isolates
-its charge-conjugate pair within the stated class.
+The principal finite gauge result is the A1--A2 forcing theorem. Complete
+reversible response supplies a compact commutator-closed twelve-dimensional
+current, and endogenous overlap transport makes the proper carrier action
+inner on that same current. The one-dimensional fixed space excludes the
+centerless $\mathfrak{su}(2)^4$ alternative, leaving
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
+The declared four-band map is a conditional matrix witness for this type.
+Trace balance and the exterior module give a conditional maximal faithful
+matter image with common $\mathbb Z_6$ kernel and an anomaly-free
+rank-fifteen representation; the exhaustive scan isolates its
+charge-conjugate pair within the stated class. The physical global quotient
+is not selected by this result.
 
 The geometry and dynamics results have a different status. A Lorentz-group
 action and its hyperbolic homogeneous space follow from the oriented spherical
