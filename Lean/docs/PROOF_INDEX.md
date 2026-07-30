@@ -34,6 +34,15 @@ Mapping between Lean 4 theorems in this project and statements in
   (algebraic layer of the coupling theorem only; no physical-derivation
   content, the physical identities I1/I2 are outside the formalised set;
   does **not** bear on the Prop 4.2 / Def 4.1 counts)
+- Scalar completed seam repair
+  (`ObserverPatchHolography/ScalarSeamRepair.lean`): sorry-free finite
+  linear algebra. A seam-supported map whose output endpoints agree and whose
+  endpoint sum is preserved is uniquely pair averaging. The module proves
+  idempotence, endpoint-swap equivariance, the single-edge Laplacian identity,
+  and $R=I-L/(2|E|)$ for uniform repair over a finite seam family, including
+  $R=I-L/60$ for thirty seams. The theorem does not assert that A1--A3
+  select this grammar, that the refinement semigroup commutes, or that the
+  finite generator is a physical repair law.
 - Down-type register-Clebsch ratio boundary
   (`ObserverPatchHolography/ClebschRatio.lean`): 6 / 6 declarations,
   sorry-free. The module proves the exact boundary identity

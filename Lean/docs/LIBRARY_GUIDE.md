@@ -31,6 +31,12 @@ surface for the OPH consensus layer. Contents:
   `localRepair`, `Repair`, and `repair_respects_gauge`, with descent,
   termination, reachability, and normal-form receipts. Confluence and
   completeness remain explicit carrier properties and are not universal.
+- A sorry-free scalar completed-repair theorem in
+  `ObserverPatchHolography/ScalarSeamRepair.lean`. Seam support, endpoint
+  agreement, and endpoint-sum preservation force pair averaging. Uniform
+  averaging over a finite seam family is $I-L/(2|E|)$, hence $I-L/60$ for
+  thirty seams. This proves the finite linear branch and does not identify it
+  with the universal or physical repair law.
 - A sorry-free **#304 boundary-fiber carrier witness** in
   `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper

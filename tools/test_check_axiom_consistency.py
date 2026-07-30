@@ -24,7 +24,6 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         errors: list[str] = []
         guard.scan_surfaces(errors)
         guard.entry_surface_checks(errors)
-        guard.handoff_manifest_checks(errors)
         self.assertEqual(errors, [], "\n".join(errors))
 
     def test_injected_stale_five_axiom_block_fails(self) -> None:

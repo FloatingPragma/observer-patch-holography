@@ -367,6 +367,27 @@ all relevant three-axiom models; a named-realization witness proves
 existence and exactness inside that realization, not that the axioms select
 it.
 
+## Canonical repair-law proposal
+
+The [canonical repair-law RFC](CANONICAL_REPAIR_LAW_RFC.md) specifies a
+possible strengthening of A1 and A2. A1-R would make the primitive repair
+grammar complete, while A2-R would define a completed reconciliation as the
+reference-preserving conditional expectation onto the corresponding agreement
+algebra. On a fixed move simplex, A3 would select the schedule relative to
+the source-defined reference and constraints. Uniformity follows only for a
+declared presentation-natural uniform reference, a transitive move action,
+normalization as the only schedule constraint, and a full-support optimizer.
+
+The scalar twelve-port specialization is machine checked and gives the
+icosahedral graph-Laplacian repair ray up to one clock scale. The
+common compatible-section repair algebra, noncommutative grammar, checkpoint
+bridge, dual fixed-state theorem, source-defined full self-readback closure,
+and refinement law remain proof obligations. The finite scalar result
+concerns repairable working readings and preserves their sum; it does not
+certify a protected-record or checkpoint instrument. A1-R and A2-R are
+substantive basis-amendment proposals and are not part of the canonical
+three-axiom basis stated above.
+
 ## Glossary
 
 - **Patch**: a finite system with local state, boundary, records, readback,
