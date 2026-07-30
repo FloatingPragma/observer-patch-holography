@@ -4,9 +4,9 @@
   "candidate_generator_enabled": true,
   "control_documents": [
     {
-      "bytes": 3592,
+      "bytes": 4177,
       "path": "code/invariant_mining/README.md",
-      "sha256": "sha256:541034aad8265b96c4aab72583ba876f26b4d99176c64cb0ac7365d782d54c0a"
+      "sha256": "sha256:c25210576586b67bc240d28c8e115b74e6b5bf357621699356a9498b49fd4a88"
     },
     {
       "bytes": 3676,
@@ -39,9 +39,9 @@
       "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
     },
     {
-      "bytes": 4217,
+      "bytes": 4275,
       "path": "code/invariant_mining/policy/pregeneration_policy.json",
-      "sha256": "sha256:b5e69c06db87ac1210a936d04d7194cc8d69429bae3a647866ea7f953335d287"
+      "sha256": "sha256:52f96e9de762355066b999418cea4a3cb04670c43a5bb8b8d5e272309a71661c"
     },
     {
       "bytes": 10037,
@@ -49,14 +49,14 @@
       "sha256": "sha256:962b46a3e27a73c16504de607d501ec38fd68db2f23bd9b491dc2571c90cba80"
     },
     {
-      "bytes": 870,
+      "bytes": 2088,
       "path": "code/invariant_mining/schemas/pregeneration_outputs.schema.json",
-      "sha256": "sha256:a6e2c7a5021b8e200623a2a18903ff8c178b28b620c7d13b6d41dd6b64728fc5"
+      "sha256": "sha256:b00c8b44cf966697683577f0e0a118e21d091f86b0b8025b387747039c145c5b"
     },
     {
-      "bytes": 13705,
+      "bytes": 15906,
       "path": "code/invariant_mining/tests/test_pregeneration_lock.py",
-      "sha256": "sha256:bd977edfff69bda8593aa868abbf38ef5ad555953ee91b9e3fd554d9bfaec5b7"
+      "sha256": "sha256:0a7481c01a31f62481725e0f588f99029d7189308083d5d69e7de3225e0cc45b"
     },
     {
       "bytes": 6801,
@@ -69,9 +69,14 @@
       "sha256": "sha256:a8768dc597330304d3fe947e0ed1b5fd24fb7943cd4a1bd1aac6a209300cedc5"
     },
     {
-      "bytes": 25254,
+      "bytes": 21750,
+      "path": "code/invariant_mining/tools/generate_candidates.py",
+      "sha256": "sha256:8ee5d2edff917a1e3a66137b2c6d5436bfc8e919f557fc06516c816bcc670e86"
+    },
+    {
+      "bytes": 31467,
       "path": "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
-      "sha256": "sha256:4ea056870bd8ba9bb6123e8f36e151dd24b7e044bde9c6feca1cd3c5199c95ab"
+      "sha256": "sha256:598992ff9171cefbd2c56d51750227887a4bcb3bef9b79e23379cc5c4cee4638"
     },
     {
       "bytes": 14545,

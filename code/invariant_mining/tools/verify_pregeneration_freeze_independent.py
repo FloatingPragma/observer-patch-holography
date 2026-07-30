@@ -670,6 +670,159 @@ def verify(
         "UNREGISTERED_OUTPUT",
         str(sorted(observed_output_names)),
     )
+    candidate_registry_path = output_dir / "candidate_registry.json"
+    if candidate_registry_path.is_file():
+        registry = load(candidate_registry_path)
+        require(
+            registry.get("schema")
+            == "oph.invariant_mining.candidate_registry.v1",
+            "CANDIDATE_REGISTRY_SCHEMA_DRIFT",
+            str(registry.get("schema")),
+        )
+        require(
+            registry.get("status") == "GENERATED_PARTIAL__SCORING_SEALED",
+            "CANDIDATE_REGISTRY_STATUS_DRIFT",
+            str(registry.get("status")),
+        )
+        boundary = registry.get("scoring_boundary", {})
+        require(
+            boundary.get("physical_scoring_permitted") is False
+            and boundary.get("comparison_access_permitted") is False,
+            "CANDIDATE_SCORING_UNSEALED",
+            str(boundary),
+        )
+        cleanliness = registry.get("target_cleanliness", {})
+        require(
+            all(value is False for value in cleanliness.values())
+            and len(cleanliness) == 3,
+            "CANDIDATE_TARGET_CLEANLINESS_DRIFT",
+            str(cleanliness),
+        )
+        expected_table = []
+        for triality in range(3):
+            for duality in range(2):
+                for six_y in range(6):
+                    phase = (2 * triality + 3 * duality + six_y) % 6
+                    expected_table.append(
+                        {
+                            "triality": triality,
+                            "duality": duality,
+                            "six_y_mod_6": six_y,
+                            "kernel_phase_class": phase,
+                            "descends": phase == 0,
+                        }
+                    )
+        require(
+            registry.get("descent_congruence_table") == expected_table,
+            "DESCENT_TABLE_DRIFT",
+            "committed table differs from independent arithmetic",
+        )
+        grammar_budget = grammar["complexity_budget"]
+        weights = ranking["weights"]
+        forbidden_terminals = set(grammar["forbidden_terminals"])
+        slot_ids = set(rows_by_id(producers.get("slots"), "slot_id", "slots"))
+        candidates = registry.get("candidates")
+        require(
+            isinstance(candidates, list)
+            and 0
+            < len(candidates)
+            <= grammar_budget["maximum_generated_candidates"],
+            "CANDIDATE_COUNT_INVALID",
+            str(registry.get("candidate_count")),
+        )
+        require(
+            registry.get("candidate_count") == len(candidates),
+            "CANDIDATE_COUNT_MISMATCH",
+            str(registry.get("candidate_count")),
+        )
+        recomputed = []
+        for candidate in candidates:
+            require(
+                candidate.get("slot_id") in slot_ids,
+                "CANDIDATE_SLOT_UNKNOWN",
+                str(candidate.get("candidate_id")),
+            )
+            require(
+                candidate.get("grammar_class")
+                in set(grammar.get("class_ids", [])),
+                "CANDIDATE_CLASS_UNKNOWN",
+                str(candidate.get("candidate_id")),
+            )
+            expression = candidate.get("expression", {})
+            require(
+                expression.get("ast_depth", 99)
+                <= grammar_budget["maximum_ast_depth"]
+                and expression.get("ast_nodes", 99)
+                <= grammar_budget["maximum_ast_nodes"],
+                "CANDIDATE_BUDGET_EXCEEDED",
+                str(candidate.get("candidate_id")),
+            )
+            require(
+                not (
+                    set(expression.get("registered_terminals", []))
+                    & forbidden_terminals
+                ),
+                "CANDIDATE_FORBIDDEN_TERMINAL",
+                str(candidate.get("candidate_id")),
+            )
+            claims = candidate.get("weight_claims", {})
+            score = 0
+            for claim_key, weight_key in (
+                ("exact_global_certificate", "exact_global_certificate"),
+                ("independent_recomputation", "independent_recomputation"),
+                ("physicalization_complete", "physicalization_complete"),
+                (
+                    "baseline_freedom_counterexample",
+                    "baseline_freedom_counterexample",
+                ),
+                (
+                    "all_registered_completions_covered",
+                    "all_registered_completions_covered",
+                ),
+                (
+                    "all_continuous_parameters_covered",
+                    "all_continuous_parameters_covered",
+                ),
+                ("conditional_branch", "conditional_branch_penalty"),
+                ("open_physical_map", "open_physical_map_penalty"),
+            ):
+                if claims.get(claim_key):
+                    score += weights[weight_key]
+            score += (
+                weights["expression_complexity_unit_penalty"]
+                * expression.get("complexity_units", 0)
+            )
+            require(
+                candidate.get("score") == score,
+                "CANDIDATE_SCORE_DRIFT",
+                f"{candidate.get('candidate_id')}: {candidate.get('score')} vs {score}",
+            )
+            recomputed.append(candidate)
+        expected_order = sorted(
+            recomputed,
+            key=lambda candidate: (
+                -candidate["score"],
+                candidate["expression"]["complexity_units"],
+                candidate["expression"]["form"],
+                candidate["candidate_id"],
+            ),
+        )
+        require(
+            [candidate["candidate_id"] for candidate in expected_order]
+            == [candidate["candidate_id"] for candidate in candidates]
+            and all(
+                candidate.get("rank") == position
+                for position, candidate in enumerate(candidates, start=1)
+            ),
+            "CANDIDATE_ORDER_DRIFT",
+            "committed order differs from frozen ranking recomputation",
+        )
+        registry_keys = all_keys(registry)
+        leaked = sorted(
+            registry_keys & set(policy.get("forbidden_document_keys", []))
+        )
+        require(not leaked, "CANDIDATE_TARGET_KEY", str(leaked))
+
     forbidden_output_names = set(policy.get("forbidden_output_names", []))
     package_files = {
         path.relative_to(package_root).as_posix()

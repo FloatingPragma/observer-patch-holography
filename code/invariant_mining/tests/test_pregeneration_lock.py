@@ -345,6 +345,58 @@ def test_candidate_and_scoring_outputs_are_rejected(
     assert_failed(run(repo, VERIFY), "UNREGISTERED_OUTPUT")
 
 
+def test_candidate_registry_is_deterministic(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    generator = repo / "code" / "invariant_mining" / "tools" / "generate_candidates.py"
+    committed = (
+        repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    ).read_bytes()
+    result = run(repo, generator)
+    assert result.returncode == 0, result.stdout + result.stderr
+    regenerated = (
+        repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    ).read_bytes()
+    assert regenerated == committed
+
+
+def test_candidate_score_tamper_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["candidates"][0]["score"] += 10
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_SCORE_DRIFT")
+
+
+def test_candidate_scoring_unseal_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["scoring_boundary"]["physical_scoring_permitted"] = True
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_SCORING_UNSEALED")
+
+
+def test_candidate_forbidden_terminal_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["candidates"][0]["expression"]["registered_terminals"].append(
+        "measured_value"
+    )
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_FORBIDDEN_TERMINAL")
+
+
+def test_descent_table_tamper_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["descent_congruence_table"][7]["descends"] = True
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "DESCENT_TABLE_DRIFT")
+
+
 def test_freeze_identifier_mutation_is_rejected(tmp_path: Path) -> None:
     repo = make_repo(tmp_path)
     path = repo / "code" / "invariant_mining" / "outputs" / "pregeneration_freeze.json"

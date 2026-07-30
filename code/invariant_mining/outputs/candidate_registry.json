@@ -1,0 +1,673 @@
+{
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "PERMITS_AS_FREE_DISCRETE_CHOICE",
+        "counterexample": "a color-singlet weak-singlet representation with 6Y = 3 is a consistent representation of the unquotiented global form and violates the descent congruence, so the baseline image is not contained in the relation",
+        "field_content": "established three-generation matter, no extra light states assumed",
+        "global_form_policy": "the gauge group global form is a free discrete choice among SU(3)xSU(2)xU(1) and its Z2, Z3, and Z6 quotients; every Standard Model matter field satisfies the descent congruence, so the choice is unconstrained by the established matter content"
+      },
+      "candidate_id": "z6-flux-class-count",
+      "exposure_surfaces": [
+        "pdg_particle_listings",
+        "precision_qed_ratios"
+      ],
+      "expression": {
+        "ast_depth": 3,
+        "ast_nodes": 3,
+        "complexity_units": 3,
+        "form": "index of the pinned quotient kernel",
+        "registered_terminals": [
+          "registered_index"
+        ]
+      },
+      "grammar_class": "trace_determinant_character_index",
+      "kill_rule": "a physical flux classification with a different finite order falsifies the selected global form branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "z6-global-form-source-selection",
+          "note": "the diagonal Z6 selection is source-derived on the declared carrier; its physical attachment is open, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the pinned diagonal kernel",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 1,
+      "relation_certificate": {
+        "kernel_order": 6,
+        "kind": "pinned_kernel_order",
+        "source": "exact diagonal Z6 quotient"
+      },
+      "score": 136,
+      "slot_id": "z6_charge_line_congruences",
+      "source_ancestry": {
+        "feature_ids": [
+          "diagonal_z6_descent",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the quotient fundamental group is cyclic of order six, so magnetic flux classes take exactly six values",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "PERMITS_AS_FREE_DISCRETE_CHOICE",
+        "counterexample": "a color-singlet weak-singlet representation with 6Y = 3 is a consistent representation of the unquotiented global form and violates the descent congruence, so the baseline image is not contained in the relation",
+        "field_content": "established three-generation matter, no extra light states assumed",
+        "global_form_policy": "the gauge group global form is a free discrete choice among SU(3)xSU(2)xU(1) and its Z2, Z3, and Z6 quotients; every Standard Model matter field satisfies the descent congruence, so the choice is unconstrained by the established matter content"
+      },
+      "candidate_id": "z6-descent-congruence",
+      "exposure_surfaces": [
+        "pdg_particle_listings",
+        "precision_qed_ratios"
+      ],
+      "expression": {
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "declared_modulus_class[6] of inner_product(integer coefficients, character vector)",
+        "registered_terminals": [
+          "registered_integer",
+          "registered_character"
+        ]
+      },
+      "grammar_class": "discrete_congruence_parity_ordering_multiplicity",
+      "kill_rule": "one confirmed physical state violating the congruence falsifies the selected global form branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "z6-global-form-source-selection",
+          "note": "the diagonal Z6 selection is source-derived on the declared carrier; its physical attachment is open, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the pinned diagonal kernel",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 2,
+      "relation_certificate": {
+        "descending_rows": 6,
+        "kind": "finite_exhaustion_over_kernel_residue_classes",
+        "recomputable_from": "descent_congruence_table",
+        "rows": 36
+      },
+      "score": 118,
+      "slot_id": "z6_charge_line_congruences",
+      "source_ancestry": {
+        "feature_ids": [
+          "diagonal_z6_descent",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "every physical representation satisfies the descent congruence 2t + 3d + 6Y = 0 mod 6 through the pinned diagonal kernel",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "PERMITS_AS_FREE_DISCRETE_CHOICE",
+        "counterexample": "a color-singlet weak-singlet representation with 6Y = 3 is a consistent representation of the unquotiented global form and violates the descent congruence, so the baseline image is not contained in the relation",
+        "field_content": "established three-generation matter, no extra light states assumed",
+        "global_form_policy": "the gauge group global form is a free discrete choice among SU(3)xSU(2)xU(1) and its Z2, Z3, and Z6 quotients; every Standard Model matter field satisfies the descent congruence, so the choice is unconstrained by the established matter content"
+      },
+      "candidate_id": "z6-color-triplet-charge-classes",
+      "exposure_surfaces": [
+        "pdg_particle_listings",
+        "precision_qed_ratios"
+      ],
+      "expression": {
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "declared_modulus_class[6] restricted to unit triality",
+        "registered_terminals": [
+          "registered_character",
+          "registered_integer"
+        ]
+      },
+      "grammar_class": "discrete_congruence_parity_ordering_multiplicity",
+      "kill_rule": "one confirmed color-triplet state outside the descending classes falsifies the selected global form branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "z6-global-form-source-selection",
+          "note": "the diagonal Z6 selection is source-derived on the declared carrier; its physical attachment is open, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the pinned diagonal kernel",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 3,
+      "relation_certificate": {
+        "descending_duality_six_y": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "kind": "finite_exhaustion_over_kernel_residue_classes",
+        "recomputable_from": "descent_congruence_table",
+        "restriction": "triality 1"
+      },
+      "score": 118,
+      "slot_id": "z6_charge_line_congruences",
+      "source_ancestry": {
+        "feature_ids": [
+          "diagonal_z6_descent",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "color-triplet states carry electric charge in the one-third classes fixed by the congruence: weak singlets sit at 6Y = 4 mod 6 and weak doublets at 6Y = 1 mod 6",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "PERMITS_AS_FREE_DISCRETE_CHOICE",
+        "counterexample": "a color-singlet weak-singlet representation with 6Y = 3 is a consistent representation of the unquotiented global form and violates the descent congruence, so the baseline image is not contained in the relation",
+        "field_content": "established three-generation matter, no extra light states assumed",
+        "global_form_policy": "the gauge group global form is a free discrete choice among SU(3)xSU(2)xU(1) and its Z2, Z3, and Z6 quotients; every Standard Model matter field satisfies the descent congruence, so the choice is unconstrained by the established matter content"
+      },
+      "candidate_id": "z6-color-singlet-integer-charge",
+      "exposure_surfaces": [
+        "pdg_particle_listings",
+        "precision_qed_ratios"
+      ],
+      "expression": {
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "exact_zero of declared_modulus_class[6] restricted to trivial triality and duality",
+        "registered_terminals": [
+          "registered_character",
+          "registered_integer"
+        ]
+      },
+      "grammar_class": "exact_zero_forbidden_transition",
+      "kill_rule": "one confirmed free color-singlet particle with fractional electric charge falsifies the selected global form branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "z6-global-form-source-selection",
+          "note": "the diagonal Z6 selection is source-derived on the declared carrier; its physical attachment is open, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the pinned diagonal kernel",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 4,
+      "relation_certificate": {
+        "descending_six_y_classes": [
+          0
+        ],
+        "kind": "finite_exhaustion_over_kernel_residue_classes",
+        "recomputable_from": "descent_congruence_table",
+        "restriction": "triality 0, duality 0"
+      },
+      "score": 118,
+      "slot_id": "z6_charge_line_congruences",
+      "source_ancestry": {
+        "feature_ids": [
+          "diagonal_z6_descent",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "color-singlet weak-singlet states carry integer electric charge; fractionally charged color singlets are forbidden",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "PERMITS_AS_FREE_DISCRETE_CHOICE",
+        "counterexample": "a color-singlet weak-singlet representation with 6Y = 3 is a consistent representation of the unquotiented global form and violates the descent congruence, so the baseline image is not contained in the relation",
+        "field_content": "established three-generation matter, no extra light states assumed",
+        "global_form_policy": "the gauge group global form is a free discrete choice among SU(3)xSU(2)xU(1) and its Z2, Z3, and Z6 quotients; every Standard Model matter field satisfies the descent congruence, so the choice is unconstrained by the established matter content"
+      },
+      "candidate_id": "z6-line-lattice-exclusion",
+      "exposure_surfaces": [
+        "pdg_particle_listings",
+        "precision_qed_ratios"
+      ],
+      "expression": {
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "exact_zero of non-descending character classes",
+        "registered_terminals": [
+          "registered_character",
+          "registered_index"
+        ]
+      },
+      "grammar_class": "exact_zero_forbidden_transition",
+      "kill_rule": "one confirmed electric line class outside the descended lattice falsifies the selected global form branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "z6-global-form-source-selection",
+          "note": "the diagonal Z6 selection is source-derived on the declared carrier; its physical attachment is open, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the pinned diagonal kernel",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 5,
+      "relation_certificate": {
+        "forbidden_rows": 30,
+        "kind": "finite_exhaustion_over_kernel_residue_classes",
+        "recomputable_from": "descent_congruence_table"
+      },
+      "score": 118,
+      "slot_id": "z6_charge_line_congruences",
+      "source_ancestry": {
+        "feature_ids": [
+          "diagonal_z6_descent",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "electric line classes outside the descended representation lattice are forbidden in the quotient branch",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    }
+  ],
+  "descent_congruence_table": [
+    {
+      "descends": true,
+      "duality": 0,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 0,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 1,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 2,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 3,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 4,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 5,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 0,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 1,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 2,
+      "triality": 0
+    },
+    {
+      "descends": true,
+      "duality": 1,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 3,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 4,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 5,
+      "triality": 0
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 0,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 1,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 2,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 3,
+      "triality": 1
+    },
+    {
+      "descends": true,
+      "duality": 0,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 4,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 5,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 0,
+      "triality": 1
+    },
+    {
+      "descends": true,
+      "duality": 1,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 1,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 2,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 3,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 4,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 5,
+      "triality": 1
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 0,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 1,
+      "triality": 2
+    },
+    {
+      "descends": true,
+      "duality": 0,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 2,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 3,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 4,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 0,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 5,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 1,
+      "six_y_mod_6": 0,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 2,
+      "six_y_mod_6": 1,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 3,
+      "six_y_mod_6": 2,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 4,
+      "six_y_mod_6": 3,
+      "triality": 2
+    },
+    {
+      "descends": false,
+      "duality": 1,
+      "kernel_phase_class": 5,
+      "six_y_mod_6": 4,
+      "triality": 2
+    },
+    {
+      "descends": true,
+      "duality": 1,
+      "kernel_phase_class": 0,
+      "six_y_mod_6": 5,
+      "triality": 2
+    }
+  ],
+  "generation_inputs": {
+    "exposed_data_registry_sha256": "sha256:0ac2ada666da2477c6f158be541bbcf4cd21c8d3d38a6ccb2d3a5d450ff56a6c",
+    "nuisance_registry_sha256": "sha256:d215bc74110c7f6f22ef1beeeeca8555a1f26a35912c24a355bc1081031ca426",
+    "observable_grammar_sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383",
+    "policy_sha256": "sha256:52f96e9de762355066b999418cea4a3cb04670c43a5bb8b8d5e272309a71661c",
+    "producer_slots_sha256": "sha256:d1f73fffed11da5cb11b1077486188b1c2d82dfbd98da4e07031ded57163a498",
+    "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
+  },
+  "issue": 647,
+  "registry_sha256": "sha256:7fdab907632196638dce647f017e794e0e12f18aa69829816ff1041ebb8d1fb7",
+  "schema": "oph.invariant_mining.candidate_registry.v1",
+  "scoring_boundary": {
+    "comparison_access_permitted": false,
+    "physical_scoring_permitted": false,
+    "reason": "scoring waits for the complete registry: every slot must reach GENERATED or a typed negative state, and issue 639 owns the single sealed comparison"
+  },
+  "slot_generation_states": {
+    "a5_angular_rules": "REGISTERED_AWAITING_GENERATION",
+    "cross_channel_source_identities": "REGISTERED_AWAITING_GENERATION",
+    "direct_n_capacity_closure": "EXCLUDED_EXTERNALLY_ORDERED_DIRECT_N",
+    "family_trace_mixing_invariants": "REGISTERED_AWAITING_GENERATION",
+    "observer_overlap_cross_spectra": "REGISTERED_AWAITING_GENERATION",
+    "wz_scale_free_response": "REGISTERED_AWAITING_GENERATION",
+    "z6_charge_line_congruences": "GENERATED"
+  },
+  "status": "GENERATED_PARTIAL__SCORING_SEALED",
+  "target_cleanliness": {
+    "comparison_payload_read": false,
+    "public_measurement_read": false,
+    "target_value_read": false
+  }
+}
