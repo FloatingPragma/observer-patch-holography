@@ -56,7 +56,7 @@ Release: `r2003`. 64 claims, 15 distinct live gates across 14 gated claims.
 | `OPH-GR-D4D-ENTROPY-BRIDGE` | `conditional_implication` | `proved_finite_plus_receipt_branch` | none |
 | `OPH-GR-D5A-ABSOLUTE-EINSTEIN` | `conditional_implication` | `proved_on_receipt_branch` | none |
 | `OPH-GR-E2E-BRANCH-ENTRY` | `branch_entry` | `conditional_composed_theorem_nonemptiness_open` | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) |
-| `OPH-GR-D6-CAPACITY` | `conditional_implication` | `finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_a1_a3_lift_open` | [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) |
+| `OPH-GR-D6-CAPACITY` | `conditional_implication` | `finite_theorems_closed__complete_source_class_nonidentifiable__locked` | [#505](https://github.com/FloatingPragma/observer-patch-holography/issues/505) |
 | `OPH-GR-D6-READBACK-NOGO` | `conditional_implication` | `proved_no_go` | none |
 | `OPH-GR-D6-A5-FINITE-CONTROL` | `conditional_implication` | `finite_control_closed_physical_N_closure_false_for_this_packet` | none |
 | `OPH-GR-D6-HORIZON-RECORD` | `conditional_implication` | `conditional_theorem_horizon_record_saturation_open` | [#589](https://github.com/FloatingPragma/observer-patch-holography/issues/589) |
