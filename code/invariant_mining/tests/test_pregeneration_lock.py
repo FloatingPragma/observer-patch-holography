@@ -397,6 +397,57 @@ def test_descent_table_tamper_is_rejected(tmp_path: Path) -> None:
     assert_failed(run(repo, VERIFY), "DESCENT_TABLE_DRIFT")
 
 
+def test_candidate_registry_hash_tamper_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["registry_sha256"] = "sha256:" + "0" * 64
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_REGISTRY_HASH_DRIFT")
+
+
+def test_candidate_ratio_tamper_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    for row in payload["candidates"]:
+        if row["candidate_id"] == "wz-galois-cost-ratio-phi-squared":
+            row["relation_certificate"]["ratio"] = "2+1*sqrt5"
+    digest_payload = {
+        key: value for key, value in payload.items() if key != "registry_sha256"
+    }
+    import hashlib
+
+    payload["registry_sha256"] = "sha256:" + hashlib.sha256(
+        (
+            json.dumps(digest_payload, sort_keys=True, indent=2, ensure_ascii=False)
+            + "\n"
+        ).encode("utf-8")
+    ).hexdigest()
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_RATIO_DRIFT")
+
+
+def test_skip_record_tamper_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    payload["skip_records"]["family_trace_mixing_invariants"][
+        "skip_condition"
+    ] = "unfrozen_condition"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "SKIP_RECORD_INVALID")
+
+
+def test_missing_slot_state_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "outputs" / "candidate_registry.json"
+    payload = load(path)
+    del payload["slot_generation_states"]["a5_angular_rules"]
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    assert_failed(run(repo, VERIFY), "CANDIDATE_REGISTRY_INCOMPLETE")
+
+
 def test_freeze_identifier_mutation_is_rejected(tmp_path: Path) -> None:
     repo = make_repo(tmp_path)
     path = repo / "code" / "invariant_mining" / "outputs" / "pregeneration_freeze.json"

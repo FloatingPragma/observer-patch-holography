@@ -88,6 +88,25 @@ def load_json(path: Path) -> dict[str, Any]:
     return value
 
 
+def load_pinned_receipt(relative: str) -> dict[str, Any]:
+    """Load a source receipt only if its bytes match the committed projection."""
+
+    projection = load_json(PACKAGE_ROOT / "outputs" / "source_projection.json")
+    pins = {
+        row["path"]: row["sha256"]
+        for row in projection.get("source_artifacts", [])
+    }
+    require(relative in pins, f"receipt is not a pinned source artifact: {relative}")
+    payload = (REPO_ROOT / relative).read_bytes()
+    require(
+        sha256_bytes(payload) == pins[relative],
+        f"receipt bytes drift from the committed projection: {relative}",
+    )
+    value = json.loads(payload.decode("utf-8"))
+    require(isinstance(value, dict), f"receipt must be an object: {relative}")
+    return value
+
+
 # ---------------------------------------------------------------------------
 # Z6 descent arithmetic: exact finite exhaustion
 # ---------------------------------------------------------------------------
@@ -237,8 +256,10 @@ def adjacency_band_certificate() -> dict[str, Any]:
 
     The certificate verifies the annihilating polynomial
     ``(A - 5I)(A^2 - 5I)(A + I) = 0`` by exact integer matrix arithmetic and
-    derives the band multiplicities (1, 3, 3, 5) for eigenvalues
-    ``5, sqrt5, -sqrt5, -1`` from the exact traces of ``A`` and ``A^2``.
+    certifies the band multiplicities (1, 3, 3, 5) for eigenvalues
+    ``5, sqrt5, -sqrt5, -1`` by exhausting every nonnegative multiplicity
+    vector against the exact traces of ``A``, ``A^2``, and ``A^3``; the
+    three traces pin the vector uniquely among the annihilator's roots.
     """
 
     ports, edges = icosahedron_ports_and_edges()
@@ -267,6 +288,7 @@ def adjacency_band_certificate() -> dict[str, Any]:
         ]
 
     a_squared = matmul(adjacency, adjacency)
+    a_cubed = matmul(a_squared, adjacency)
     factor_one = scale_shift(adjacency, -5)
     factor_two = scale_shift(a_squared, -5)
     factor_three = scale_shift(adjacency, 1)
@@ -275,17 +297,36 @@ def adjacency_band_certificate() -> dict[str, Any]:
 
     trace_a = sum(adjacency[i][i] for i in range(size))
     trace_a2 = sum(a_squared[i][i] for i in range(size))
+    trace_a3 = sum(a_cubed[i][i] for i in range(size))
+    solutions = []
+    for m_five in range(size + 1):
+        for m_plus in range(size + 1):
+            for m_minus in range(size + 1 - m_five - m_plus):
+                m_one = size - m_five - m_plus - m_minus
+                if m_one < 0:
+                    continue
+                rational_a = 5 * m_five - m_one
+                irrational_a = m_plus - m_minus
+                rational_a3 = 125 * m_five - m_one
+                irrational_a3 = 5 * (m_plus - m_minus)
+                value_a2 = 25 * m_five + 5 * (m_plus + m_minus) + m_one
+                if (
+                    rational_a == trace_a
+                    and irrational_a == 0
+                    and value_a2 == trace_a2
+                    and rational_a3 == trace_a3
+                    and irrational_a3 == 0
+                ):
+                    solutions.append((m_five, m_plus, m_minus, m_one))
     multiplicities = {"5": 1, "sqrt5": 3, "-sqrt5": 3, "-1": 5}
-    trace_check = (
-        trace_a == 5 * 1 + 0 * 6 + (-1) * 5
-        and trace_a2 == 25 * 1 + 5 * (3 + 3) + 1 * 5
-        and sum(multiplicities.values()) == size
-    )
+    trace_check = solutions == [(1, 3, 3, 5)]
     return {
         "annihilating_polynomial": "(A-5I)(A^2-5I)(A+I)=0",
         "annihilated": annihilated,
         "trace_a": trace_a,
         "trace_a_squared": trace_a2,
+        "trace_a_cubed": trace_a3,
+        "multiplicity_solutions": [list(row) for row in solutions],
         "band_multiplicities": multiplicities,
         "multiplicity_trace_check": trace_check,
     }
@@ -675,9 +716,8 @@ def produce_a5_angular_candidates(
         pairing["cross_pairing_forbidden"] and pairing["self_pairings_allowed"],
         "pairing certificate drift",
     )
-    port_receipt = load_json(
-        REPO_ROOT / "code" / "a5_closure" / "receipts"
-        / "port_current_inner_reference.receipt.json"
+    port_receipt = load_pinned_receipt(
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
     )
     schur = port_receipt["icosahedral_intertwiner"]["kernel_band_schur_rigidity"]
     require(
@@ -833,8 +873,10 @@ def produce_a5_angular_candidates(
             "grammar_class": "angular_selection_cross_level_correlation",
             "statement": (
                 "the two three-dimensional bands are Galois conjugates, so "
-                "every rational-coefficient angular statistic takes equal "
-                "values on them and their cross-level asymmetry vanishes"
+                "every rational-coefficient angular statistic takes "
+                "Galois-conjugate values on them; every rational-valued "
+                "angular statistic takes equal values on the two bands and "
+                "its cross-level asymmetry vanishes"
             ),
             "expression": _expression(
                 grammar,
@@ -857,8 +899,9 @@ def produce_a5_angular_candidates(
                 ),
             },
             "kill_rule": (
-                "a measured rational angular statistic separating the "
-                "conjugate band pair falsifies the declared carrier branch"
+                "a measured rational-valued angular statistic separating "
+                "the conjugate band pair falsifies the declared carrier "
+                "branch"
             ),
             "weight_claims": {
                 "exact_global_certificate": True,
@@ -936,9 +979,8 @@ def produce_wz_scale_free_candidates(
     slot = _slot_row(slots, "wz_scale_free_response")
     ratio = galois_ratio_certificate()
     require(ratio["ratio_equals_phi_squared"], "Galois ratio certificate drift")
-    family_receipt = load_json(
-        REPO_ROOT / "code" / "a5_closure" / "manifests"
-        / "family_band_attachment_reference.json"
+    family_receipt = load_pinned_receipt(
+        "code/a5_closure/manifests/family_band_attachment_reference.json"
     )
     costs = family_receipt["measured_receipt"]["measured_band_costs"]
     require(
@@ -981,6 +1023,12 @@ def produce_wz_scale_free_candidates(
         },
         "physical_sector_choice": {
             "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY",
+            "content_reason": (
+                "both relations consume only selection-independent spectral "
+                "data: the cost pair and channel eigenvalues exist "
+                "regardless of the open rank-three selection, which is not "
+                "an input to either relation"
+            ),
         },
     }
     baseline_contract = {
@@ -1105,9 +1153,8 @@ def produce_overlap_candidates(
     slots: dict[str, Any], grammar: dict[str, Any], exposure: dict[str, Any]
 ) -> list[dict[str, Any]]:
     slot = _slot_row(slots, "observer_overlap_cross_spectra")
-    receipt = load_json(
-        REPO_ROOT / "code" / "a5_closure" / "manifests"
-        / "classical_realization_receipt.json"
+    receipt = load_pinned_receipt(
+        "code/a5_closure/manifests/classical_realization_receipt.json"
     )
     readings = receipt["classical_completion"]["sector_readings"]
     kernel_counts = [row["classical_kernel_count"] for row in sorted(readings, key=lambda r: r["sector"])]
@@ -1176,9 +1223,10 @@ def produce_overlap_candidates(
             "slot_id": slot["slot_id"],
             "grammar_class": "shared_response_identity",
             "statement": (
-                "exactly one twist sector carries the flat overlap mode: "
-                "the unit-transport sector, with kernel pattern zero "
-                "elsewhere"
+                "exactly one twist sector carries the flat overlap mode, "
+                "the sector of trivial total seam transport under the "
+                "declared orientation convention (sector index three in "
+                "the pinned receipt), with kernel pattern zero elsewhere"
             ),
             "expression": _expression(
                 grammar,
@@ -1202,7 +1250,7 @@ def produce_overlap_candidates(
                 "different sector count falsifies the declared seam branch"
             ),
             "weight_claims": {
-                "exact_global_certificate": True,
+                "exact_global_certificate": False,
                 "independent_recomputation": False,
                 "physicalization_complete": False,
                 "baseline_freedom_counterexample": True,
@@ -1235,6 +1283,13 @@ def produce_overlap_candidates(
                     "the sector operator for twist class k is the complex "
                     "conjugate of the operator for class six minus k, so "
                     "their spectra coincide exactly"
+                ),
+                "operator_identity_source": (
+                    "the sector Laplacian construction recorded in the "
+                    "pinned classical realization receipt: the stiffness "
+                    "matrix is the exact realification of the sector "
+                    "operator, and conjugate twist classes have conjugate "
+                    "operators"
                 ),
                 "pinned_confirmation": (
                     "sector readings one and five, and two and four, agree "
@@ -1275,10 +1330,12 @@ def produce_overlap_candidates(
             ),
             "relation_certificate": {
                 "kind": "pinned_receipt_value",
-                "ladder_points": len(ladder),
+                "ladder_rungs": 2,
+                "sector_rows_per_rung": len(ladder),
                 "source": (
                     "ladder_point_readings in the pinned classical "
-                    "realization receipt"
+                    "realization receipt: the six sectors at a second "
+                    "domain size against the frozen main domain"
                 ),
             },
             "kill_rule": (

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from fractions import Fraction
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -843,8 +844,6 @@ def verify(
             "CANDIDATE_ORDER_DRIFT",
             "committed order differs from frozen ranking recomputation",
         )
-        from fractions import Fraction
-
         def q5_mul(x, y):
             return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
 
@@ -937,6 +936,96 @@ def verify(
         by_id = {
             candidate["candidate_id"]: candidate for candidate in candidates
         }
+
+        def parse_q5_pair(text: str) -> tuple[Fraction, Fraction]:
+            cleaned = text.replace(" ", "").replace("sqrt(5)", "sqrt5")
+            head, _, _ = cleaned.partition("*sqrt5")
+            if "*sqrt5" not in cleaned:
+                return (Fraction(cleaned), Fraction(0))
+            a_part, _, b_part = head.rpartition("+")
+            if a_part == "":
+                a_part, _, b_part = head.rpartition("-")
+                if a_part != "":
+                    b_part = "-" + b_part
+                else:
+                    a_part, b_part = "0", head
+            return (Fraction(a_part), Fraction(b_part))
+
+        port_receipt = json.loads(
+            file_bytes(
+                repo_root,
+                "code/a5_closure/receipts/"
+                "port_current_inner_reference.receipt.json",
+            ).decode("utf-8")
+        )
+        hs = port_receipt["compactness"][
+            "hilbert_schmidt_pullback_band_coefficients"
+        ]
+        frame_pair = parse_q5_pair(hs["frame_band"])
+        kernel_pair = parse_q5_pair(hs["kernel_band"])
+        require(
+            frame_pair == (kernel_pair[0], -kernel_pair[1])
+            and frame_pair == (Fraction(5), Fraction(1)),
+            "PORT_RECEIPT_CONJUGACY_DRIFT",
+            f"{hs['frame_band']} vs {hs['kernel_band']}",
+        )
+        correlation_row = by_id.get("a5-galois-conjugate-correlation")
+        require(
+            correlation_row is not None
+            and [
+                parse_q5_pair(text)
+                for text in correlation_row["relation_certificate"][
+                    "conjugate_pair"
+                ]
+            ]
+            == [frame_pair, kernel_pair],
+            "CANDIDATE_CONJUGATE_PAIR_DRIFT",
+            str(correlation_row and correlation_row["relation_certificate"]),
+        )
+
+        family_receipt = json.loads(
+            file_bytes(
+                repo_root,
+                "code/a5_closure/manifests/"
+                "family_band_attachment_reference.json",
+            ).decode("utf-8")
+        )
+        channels = family_receipt["measured_receipt"]["measured_channels"]
+        channel_pairs = [
+            parse_q5_pair(channels["frame_band"]),
+            parse_q5_pair(channels["kernel_band"]),
+            parse_q5_pair(channels["quintet_band"]),
+        ]
+        require(
+            channel_pairs
+            == [
+                (Fraction(0), Fraction(1)),
+                (Fraction(0), Fraction(-1)),
+                (Fraction(-1), Fraction(0)),
+            ],
+            "FAMILY_CHANNEL_DRIFT",
+            str(channels),
+        )
+        shared_row = by_id.get("wz-band-channel-shared-identity")
+        require(
+            shared_row is not None
+            and [
+                parse_q5_pair(text)
+                for text in shared_row["relation_certificate"][
+                    "family_receipt_channels"
+                ]
+            ]
+            == channel_pairs
+            and [
+                parse_q5_pair(text)
+                for text in shared_row["relation_certificate"][
+                    "recomputed_band_eigenvalues"
+                ]
+            ]
+            == channel_pairs,
+            "CANDIDATE_CHANNEL_IDENTITY_DRIFT",
+            str(shared_row and shared_row["relation_certificate"]),
+        )
         ratio_row = by_id.get("wz-galois-cost-ratio-phi-squared")
         require(
             ratio_row is not None
@@ -958,6 +1047,17 @@ def verify(
             registry_keys & set(policy.get("forbidden_document_keys", []))
         )
         require(not leaked, "CANDIDATE_TARGET_KEY", str(leaked))
+        digest_payload = {
+            key: value
+            for key, value in registry.items()
+            if key != "registry_sha256"
+        }
+        require(
+            registry.get("registry_sha256")
+            == digest(canonical_bytes(digest_payload)),
+            "CANDIDATE_REGISTRY_HASH_DRIFT",
+            "self-hash does not recompute",
+        )
 
     forbidden_output_names = set(policy.get("forbidden_output_names", []))
     package_files = {

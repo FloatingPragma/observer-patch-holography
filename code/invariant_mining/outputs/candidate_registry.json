@@ -40,6 +40,7 @@
           "status": "DEFERRED_UNTIL_PHYSICALIZATION"
         },
         "physical_sector_choice": {
+          "content_reason": "both relations consume only selection-independent spectral data: the cost pair and channel eigenvalues exist regardless of the open rank-three selection, which is not an input to either relation",
           "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
         },
         "source_admissible_completion": {
@@ -122,6 +123,7 @@
           "status": "DEFERRED_UNTIL_PHYSICALIZATION"
         },
         "physical_sector_choice": {
+          "content_reason": "both relations consume only selection-independent spectral data: the cost pair and channel eigenvalues exist regardless of the open rank-three selection, which is not an input to either relation",
           "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
         },
         "source_admissible_completion": {
@@ -260,7 +262,7 @@
         ]
       },
       "grammar_class": "angular_selection_cross_level_correlation",
-      "kill_rule": "a measured rational angular statistic separating the conjugate band pair falsifies the declared carrier branch",
+      "kill_rule": "a measured rational-valued angular statistic separating the conjugate band pair falsifies the declared carrier branch",
       "nuisance_matrix": {
         "basis_and_coordinate_choice": {
           "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
@@ -301,7 +303,7 @@
         ],
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
-      "statement": "the two three-dimensional bands are Galois conjugates, so every rational-coefficient angular statistic takes equal values on them and their cross-level asymmetry vanishes",
+      "statement": "the two three-dimensional bands are Galois conjugates, so every rational-coefficient angular statistic takes Galois-conjugate values on them; every rational-valued angular statistic takes equal values on the two bands and its cross-level asymmetry vanishes",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -866,95 +868,6 @@
         "field_content": "established matter",
         "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
       },
-      "candidate_id": "overlap-unique-flat-sector",
-      "exposure_surfaces": [
-        "gravitational_wave_catalogs"
-      ],
-      "expression": {
-        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
-        "ast_depth": 2,
-        "ast_nodes": 2,
-        "complexity_units": 3,
-        "form": "kernel-count vector of the six twist sectors",
-        "registered_terminals": [
-          "registered_multiplicity"
-        ]
-      },
-      "grammar_class": "shared_response_identity",
-      "kill_rule": "an observed overlap cross-spectrum with flat modes in a different sector count falsifies the declared seam branch",
-      "nuisance_matrix": {
-        "basis_and_coordinate_choice": {
-          "certificate": "kernel counts and sector conjugation structure are spectral data of the declared sector operators",
-          "status": "QUOTIENTED"
-        },
-        "common_dimensionful_scale": {
-          "certificate": "the relations use kernel counts and sector labels only; no dimensionful gap value enters",
-          "status": "QUOTIENTED_BY_CONSTRUCTION"
-        },
-        "detector_transfer_calibration": {
-          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
-        },
-        "physical_sector_choice": {
-          "branch": "declared-orientation-reversing-seam-convention",
-          "note": "the twist sectors are defined along the declared seam orientation convention; every candidate carries the named branch label",
-          "status": "NAMED_CONDITIONAL_BRANCH"
-        },
-        "source_admissible_completion": {
-          "premise": "completions preserving the declared seam complex",
-          "status": "NAMED_COMPLETION_PREMISE"
-        }
-      },
-      "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
-      "rank": 12,
-      "relation_certificate": {
-        "classical_doubled_pattern": [
-          0,
-          0,
-          0,
-          2,
-          0,
-          0
-        ],
-        "kernel_pattern": [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0
-        ],
-        "kind": "pinned_receipt_value",
-        "source": "sector_readings in the pinned classical realization receipt"
-      },
-      "score": 46,
-      "slot_id": "observer_overlap_cross_spectra",
-      "source_ancestry": {
-        "feature_ids": [
-          "observer_agreement_and_readback",
-          "finite_local_domain_boundary"
-        ],
-        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
-      },
-      "statement": "exactly one twist sector carries the flat overlap mode: the unit-transport sector, with kernel pattern zero elsewhere",
-      "weight_claims": {
-        "all_continuous_parameters_covered": false,
-        "all_registered_completions_covered": false,
-        "baseline_freedom_counterexample": true,
-        "conditional_branch": true,
-        "exact_global_certificate": true,
-        "independent_recomputation": false,
-        "open_physical_map": true,
-        "physicalization_complete": false
-      }
-    },
-    {
-      "baseline_contract": {
-        "baseline_class": "minimal Standard Model plus general relativity",
-        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
-        "counterexample": "an overlap cross-spectrum with flat modes in two sectors, or with a conjugate-sector asymmetry, is baseline-consistent and violates the relations",
-        "field_content": "established matter",
-        "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
-      },
       "candidate_id": "overlap-conjugate-sector-symmetry",
       "exposure_surfaces": [
         "gravitational_wave_catalogs"
@@ -994,9 +907,10 @@
         }
       },
       "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
-      "rank": 13,
+      "rank": 12,
       "relation_certificate": {
         "kind": "operator_conjugation_symmetry",
+        "operator_identity_source": "the sector Laplacian construction recorded in the pinned classical realization receipt: the stiffness matrix is the exact realification of the sector operator, and conjugate twist classes have conjugate operators",
         "pinned_confirmation": "sector readings one and five, and two and four, agree in the pinned receipt",
         "statement": "the sector operator for twist class k is the complex conjugate of the operator for class six minus k, so their spectra coincide exactly"
       },
@@ -1016,6 +930,95 @@
         "baseline_freedom_counterexample": true,
         "conditional_branch": true,
         "exact_global_certificate": true,
+        "independent_recomputation": false,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "an overlap cross-spectrum with flat modes in two sectors, or with a conjugate-sector asymmetry, is baseline-consistent and violates the relations",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "overlap-unique-flat-sector",
+      "exposure_surfaces": [
+        "gravitational_wave_catalogs"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 2,
+        "ast_nodes": 2,
+        "complexity_units": 3,
+        "form": "kernel-count vector of the six twist sectors",
+        "registered_terminals": [
+          "registered_multiplicity"
+        ]
+      },
+      "grammar_class": "shared_response_identity",
+      "kill_rule": "an observed overlap cross-spectrum with flat modes in a different sector count falsifies the declared seam branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "kernel counts and sector conjugation structure are spectral data of the declared sector operators",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations use kernel counts and sector labels only; no dimensionful gap value enters",
+          "status": "QUOTIENTED_BY_CONSTRUCTION"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-orientation-reversing-seam-convention",
+          "note": "the twist sectors are defined along the declared seam orientation convention; every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the declared seam complex",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
+      "rank": 13,
+      "relation_certificate": {
+        "classical_doubled_pattern": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "kernel_pattern": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "kind": "pinned_receipt_value",
+        "source": "sector_readings in the pinned classical realization receipt"
+      },
+      "score": -74,
+      "slot_id": "observer_overlap_cross_spectra",
+      "source_ancestry": {
+        "feature_ids": [
+          "observer_agreement_and_readback",
+          "finite_local_domain_boundary"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "exactly one twist sector carries the flat overlap mode, the sector of trivial total seam transport under the declared orientation convention (sector index three in the pinned receipt), with kernel pattern zero elsewhere",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": false,
         "independent_recomputation": false,
         "open_physical_map": true,
         "physicalization_complete": false
@@ -1072,8 +1075,9 @@
       "rank": 14,
       "relation_certificate": {
         "kind": "pinned_receipt_value",
-        "ladder_points": 6,
-        "source": "ladder_point_readings in the pinned classical realization receipt"
+        "ladder_rungs": 2,
+        "sector_rows_per_rung": 6,
+        "source": "ladder_point_readings in the pinned classical realization receipt: the six sectors at a second domain size against the frozen main domain"
       },
       "score": -80,
       "slot_id": "observer_overlap_cross_spectra",
@@ -1360,7 +1364,7 @@
     "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
   },
   "issue": 647,
-  "registry_sha256": "sha256:3eaa4048924f358f7df166a31b2b2aa76a4dc74012c98e9f36078d13a938dcb8",
+  "registry_sha256": "sha256:7e03e00c807a19755cb2b08681bed790ddb37596c51d4f4cc497059c9c5cc886",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,

@@ -48,9 +48,10 @@ surface, and the source-admissible completion nuisance covers every slot.
 - `outputs/pregeneration_freeze.json` binds the policy and projection into one
   content-addressed freeze.
 - `tools/generate_candidates.py` is the deterministic generator; it reads
-  only the frozen registries, certifies every relation by finite exhaustion
-  or a pinned index, scores with the frozen weights, and rebuilds
-  byte-exactly.
+  the frozen registries and the byte-pinned source receipts, refuses any
+  receipt whose bytes drift from the committed projection, certifies every
+  relation by finite exhaustion or a pinned value, scores with the frozen
+  weights, and rebuilds byte-exactly.
 - `outputs/candidate_registry.json` holds the generated candidates, the
   per-slot generation states, and the sealed scoring boundary.
 
