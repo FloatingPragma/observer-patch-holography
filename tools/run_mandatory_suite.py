@@ -128,6 +128,14 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the horizon-record attachment verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/horizon_record_attachment_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
         "Execute the direct N verdict mutation gates",
         [
             sys.executable,
