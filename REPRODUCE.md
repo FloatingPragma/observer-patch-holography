@@ -196,7 +196,7 @@ A clean clone must also retain no tracked publication drift after the first
 rebuild:
 
 ```bash
-git diff --exit-code -- paper extra book/reverse-engineering-reality-book.pdf
+git diff --exit-code -- paper flagship extra book/reverse-engineering-reality-book.pdf
 ```
 
 The `Paper Preview Build` workflow enforces this check. A committed PDF and

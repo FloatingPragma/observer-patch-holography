@@ -12,13 +12,21 @@ without rerunning the simulation. `manifest.json` binds every file by sha256.
 ## Provenance
 
 - Simulator: [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim),
-  commits `07e2faca` (three-rung ladder) and `4f0169c` (density-corrected top rung).
+  commit `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`. The three smaller
+  configurations first occur at `07e2faca7a31e456dcf8133ba4c2b0fde92708fa`;
+  every archived file in this directory matches the tree at `4f0169c`.
 - Producer: `scripts/einstein_convergence_ladder.py` (deterministic; seed
   20260751; canonical capture path with `observer_cross_reads`,
   `snapshot_coverage=spanning`, `geometry_transport=held_out_flow`).
 - Full per-rung configuration is embedded in each `rung_*.json` summary.
-- Reproduction: `.venv/bin/python scripts/einstein_convergence_ladder.py`
-  in the simulator repository regenerates every artifact bit for bit.
+- Reproduction: use a detached clean checkout of
+  `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`, install the dependencies
+  declared by that commit's `pyproject.toml`, and run
+  `.venv/bin/python scripts/einstein_convergence_ladder.py`. Compare the
+  reported scientific fields against the archived summaries and the generated
+  arrays against the hash-bound archive. The producer records elapsed runtime,
+  and that commit supplies bounded dependency versions instead of a lock file,
+  so byte identity of a fresh cross-environment replay is not claimed.
 
 ## Measured ladder
 
