@@ -20,6 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
+FLAGSHIP_DIR = REPO_ROOT / "flagship"
 COSMOLOGY_DIR = REPO_ROOT / "cosmology"
 DEFAULT_OUT = WORKSPACE_ROOT / "markdown"
 NON_PAPER_TEX = {
@@ -29,11 +30,15 @@ NON_PAPER_TEX = {
 DEFAULT_CORE_PAPERS = sorted(
     path for path in PAPER_DIR.glob("*.tex") if path.name not in NON_PAPER_TEX
 )
+DEFAULT_FLAGSHIP_PAPERS = [
+    FLAGSHIP_DIR / "from_observer_consensus_to_standard_physics.tex",
+]
 DEFAULT_SUPPLEMENTAL_PAPERS = [
 ]
-DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
+DEFAULT_EXTRA_PAPERS = [EXTRA_DIR / "compact_proof_of_oph.tex"]
 DEFAULT_COSMOLOGY_PAPERS = sorted(COSMOLOGY_DIR.glob("*.tex"))
 DEFAULT_SOURCES = [
+    *DEFAULT_FLAGSHIP_PAPERS,
     *DEFAULT_CORE_PAPERS,
     *DEFAULT_SUPPLEMENTAL_PAPERS,
     *DEFAULT_EXTRA_PAPERS,

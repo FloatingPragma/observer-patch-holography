@@ -657,19 +657,18 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 
 | If you want... | Start here |
 | --- | --- |
+| The flagship introduction to OPH | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
 | The shortest persuasive overview | [A Compact Case for OPH](extra/compact_proof_of_oph.pdf) |
 | The spacetime and Einstein derivation | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Both Standard Model gauge routes | [Deriving Standard Model Gauge Structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | The full observer-first synthesis | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| The exact positive-chamber Koide identity and finite tracial balance | [The Positive-Chamber Koide Identity for Icosahedral Face Circulants](extra/koide_identity_from_positive_c3_face_circulants.pdf) |
-| The exact finite de Sitter capacity law and conditional shock-sign attachment | [The de Sitter Time-Advance Sign from a Finite Screen with Fixed Capacity](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | The twelve-port screen architecture and finite modular-gearing theorem | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Supporting evidence | [`code/`](code) and the [reproduction guide](REPRODUCE.md) |
 | Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
-The [paper index](paper/) and [supplement index](extra/) give the complete curated publication map.
+The [paper index](paper/) gives the curated publication map. Focused research PDFs remain in [`extra/`](extra/) for repository readers and are not part of the publication release.
 
 ## Dependency Map
 
@@ -683,8 +682,9 @@ The [paper index](paper/) and [supplement index](extra/) give the complete curat
 
 ## Repository Guide
 
+- [`flagship/`](flagship): the primary standalone OPH paper, its TeX source, and release PDF.
 - [`paper/`](paper): core papers, TeX sources, PDFs, and release metadata.
-- [`extra/`](extra): compact proof and focused mathematical supplements.
+- [`extra/`](extra): the published compact proof plus repository-only focused research PDFs.
 - [`code/`](code): certificates, simulations, particle calculations, and experiments.
 - [`book/`](book): the book source and downloadable PDF.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.

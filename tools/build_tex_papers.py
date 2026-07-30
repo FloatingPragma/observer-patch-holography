@@ -12,17 +12,17 @@ from reproducible_build_env import build_environment
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
+FLAGSHIP_DIR = REPO_ROOT / "flagship"
 
 # Release-surface PDFs whose source is not a sibling TeX root. The manifest
 # generator and validator share this registry so a source/output pair cannot
 # disappear from one gate while remaining accepted by the other.
-NON_TEX_SOURCE_PDFS = {
-    Path("extra/hacking-the-simulation-anti-gravity-exploit.pdf"): Path(
-        "extra/hacking-the-simulation-anti-gravity-exploit/build_book_pdf.sh"
-    ),
-}
+NON_TEX_SOURCE_PDFS = {}
 
 PAPERS = {
+    "from_observer_consensus_to_standard_physics": (
+        FLAGSHIP_DIR / "from_observer_consensus_to_standard_physics.tex"
+    ),
     "deriving_the_particle_zoo_from_observer_consistency": (
         PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex"
     ),
@@ -38,12 +38,13 @@ PAPERS = {
     "screen_microphysics_and_observer_synchronization": PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
 }
 EXTRA_PAPERS = {
-    tex_path.stem: tex_path for tex_path in sorted(EXTRA_DIR.glob("*.tex"))
+    "compact_proof_of_oph": EXTRA_DIR / "compact_proof_of_oph.tex",
 }
 RELEASED_ADJUNCT_PAPERS = dict(EXTRA_PAPERS)
 ALL_PAPERS = {**PAPERS, **RELEASED_ADJUNCT_PAPERS}
 
 RELEASE_TRACKED = (
+    "from_observer_consensus_to_standard_physics",
     "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency",
     "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
     "observers_are_all_you_need",
@@ -57,7 +58,7 @@ RELEASE_TRACKED_SET = set(RELEASE_TRACKED)
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build the hand-authored TeX papers in paper/ with tectonic.",
+        description="Build the published OPH TeX papers with tectonic.",
     )
     parser.add_argument(
         "papers",
@@ -115,7 +116,10 @@ def resolve_targets(args: argparse.Namespace) -> list[str]:
         return sorted(set(PAPERS) - RELEASE_TRACKED_SET)
     if args.extra_only:
         return sorted(RELEASED_ADJUNCT_PAPERS)
-    return sorted(ALL_PAPERS)
+    return [
+        *RELEASE_TRACKED,
+        *sorted(set(ALL_PAPERS) - RELEASE_TRACKED_SET),
+    ]
 
 
 def build_one(paper_id: str) -> None:

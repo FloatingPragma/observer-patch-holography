@@ -361,11 +361,11 @@ def test_rejects_size_mismatch(tmp_path: Path) -> None:
     assert any("size_bytes mismatch" in p and paper_id in p for p in problems)
 
 
-def test_generator_rejects_pdf_not_implied_by_source(
+def test_generator_allows_repository_only_extra_pdf(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    """Exercise the actual release-surface stray-artifact boundary."""
+    """Focused extra PDFs remain in the repository outside the release set."""
     paper_dir = tmp_path / "paper"
     extra_dir = tmp_path / "extra"
     paper_dir.mkdir()
@@ -388,8 +388,7 @@ def test_generator_rejects_pdf_not_implied_by_source(
     generator.verify_no_stray_pdfs(tmp_path, manifest)
     (extra_dir / "not_implied_by_any_source.pdf").write_bytes(b"%PDF stray")
 
-    with pytest.raises(SystemExit, match="stray PDFs.*not_implied_by_any_source"):
-        generator.verify_no_stray_pdfs(tmp_path, manifest)
+    generator.verify_no_stray_pdfs(tmp_path, manifest)
 
 
 def test_generator_rejects_missing_registered_non_tex_source(
