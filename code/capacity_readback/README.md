@@ -97,9 +97,19 @@ second physical packet or a cosmic selector.
 
 The `D=24` artifact is a source-derived fixed-cutoff packet in the declared
 simulator category. The all-rung counterfamily proves nonidentifiability for
-the base-agreement, positivity, and carrier-bound completion class. The
-complete A1--A3 packet has not been lifted across the regulator family. The
-screen value 24 is not a cosmic result.
+the base-agreement, positivity, and carrier-bound completion class, and the
+complete A1--A3 packet lift transports the full structure across the
+generation-register family with a locked negative verdict: the completed
+declared class entails no unique slack zero under either continuation
+reading. The lift receipts live in
+[`complete_packet_capacity_lift.py`](complete_packet_capacity_lift.py) with
+the no-producer-import replay in
+[`verify_complete_packet_lift_independent.py`](verify_complete_packet_lift_independent.py),
+the consuming issue #505 verdict is
+`LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS`, and the issue
+#589 horizon exit `NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT` is recorded by
+[`horizon_record_attachment_verdict.py`](horizon_record_attachment_verdict.py).
+The screen value 24 is not a cosmic result.
 
 ## Generate the issue #548 receipts
 
@@ -131,7 +141,8 @@ invalidates the comparison.
 
 ## Downstream bridges
 
-After robust direct closure:
+These bridges consume a unique-zero direct closure that the completed class
+does not supply; they stand as contracts for any future named source law:
 
 - identifying the correctable record carrier with the de Sitter horizon may
   identify `log D_star` with

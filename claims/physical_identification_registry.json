@@ -59,9 +59,9 @@
       ],
       "blocking_issues": [
         {
-          "number": 589,
+          "number": 503,
           "disposition": "open_work_item",
-          "role": "physical horizon-record identification"
+          "role": "inhabited de Sitter carrier required by the recorded issue-589 reopen condition; the identification closed not evaluable because the completed capacity class entails no unique carrier"
         }
       ]
     },
@@ -84,16 +84,6 @@
           "number": 334,
           "disposition": "open_work_item",
           "role": "Newton-constant composition of the source clock and gravity-scale readout"
-        },
-        {
-          "number": 505,
-          "disposition": "open_work_item",
-          "role": "source-only correctable public-record capacity"
-        },
-        {
-          "number": 589,
-          "disposition": "open_work_item",
-          "role": "fixed total screen-capacity and horizon-area identification"
         },
         {
           "number": 595,
@@ -248,13 +238,12 @@
     },
     {
       "selector_id": "capacity_closure_selector",
-      "label": "capacity-closure selector for the slack law",
+      "label": "capacity-closure selector for the slack law; the completed class entails none, so any selector is an additional named source law",
       "source": "claims/selection_ledger.json",
       "status": "undeclared",
       "menu_size": null,
       "blocking_issues": [
-        505,
-        551
+        503
       ]
     },
     {
@@ -326,8 +315,7 @@
     "status": "not_computable",
     "reason": "menu_sizes_undeclared",
     "blocking_issues": [
-      505,
-      551,
+      503,
       569
     ],
     "p_acc_upper_bound": null

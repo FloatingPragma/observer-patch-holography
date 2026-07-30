@@ -700,9 +700,7 @@
       "scope_if_false": "The corresponding finite direct-capacity implication reopens. Independent consensus, gravity, exterior matter, and geometric-estimator statements survive unless they import that step.",
       "status": "finite_theorems_closed__complete_source_class_nonidentifiable__locked",
       "claim_class": "conditional_implication",
-      "gates": [
-        505
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-D6-READBACK-NOGO",
@@ -773,7 +771,7 @@
     },
     {
       "claim_id": "OPH-GR-D6-HORIZON-RECORD",
-      "statement": "Conditional on stable whole-fiber direct public-record closure F_set,r,0(D_star)={D_star}, N_star=log D_star, and HORIZON-RECORD-SATURATION on the same refinement family, the de Sitter branch implies Lambda times ell_star squared equals 3 pi divided by N_star. The fixed-cutoff packet and bounded counterfamily do not attain the direct-closure antecedent.",
+      "statement": "Conditional on stable whole-fiber direct public-record closure F_set,r,0(D_star)={D_star}, N_star=log D_star, and HORIZON-RECORD-SATURATION on the same refinement family, the de Sitter branch implies Lambda times ell_star squared equals 3 pi divided by N_star. The completed capacity source class carries a locked non-identifiability verdict, so no unique D_star exists and the recorded issue-589 exit is NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT with an explicit reopen condition.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_horizon_record_identification",
       "assumptions": [
@@ -785,7 +783,7 @@
         "Gibbons_Hawking_de_Sitter_entropy",
         "standard_static_patch_relations"
       ],
-      "oph_specific_delta": "On a positive direct branch, the cosmological bridge equates an independently computed correctable public-record capacity with the gravitational area law through an explicit refinement receipt. It does not define the record map from geometric resolution. No such capacity value is emitted by the incomplete source packet.",
+      "oph_specific_delta": "On a positive direct branch, the cosmological bridge equates an independently computed correctable public-record capacity with the gravitational area law through an explicit refinement receipt. It does not define the record map from geometric resolution. The completed source class emits no capacity value, and a capacity selector is an additional named source law.",
       "novelty_type": "conditional_physical_commuting_square",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -794,11 +792,9 @@
       ],
       "falsifier": "A branch satisfying direct record closure and the stated horizon-record saturation receipt violates the displayed de Sitter capacity relation, or the record and area limits fail to commute on the declared refinement family.",
       "scope_if_false": "The D6 cosmological identification falls; the direct finite public-record map and local Einstein branch remain separate.",
-      "status": "conditional_theorem_horizon_record_saturation_open",
+      "status": "conditional_theorem__horizon_record_attachment_not_evaluable_locked",
       "claim_class": "conditional_implication",
-      "gates": [
-        589
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-GR-DS-MU2-IDENTITY",
@@ -885,8 +881,6 @@
       "claim_class": "conditional_implication",
       "gates": [
         334,
-        505,
-        589,
         595,
         608
       ]
@@ -1625,7 +1619,7 @@
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the selector-free set-valued form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). Exact code and an independent finite replay check a bounded counterfamily, while Lean proves all-rung nonuniqueness for the typed base-agreement, positivity, and carrier-bound structure. The complete A1-A3 packet lift across the regulator family is absent. Greatest-fixed-point order theory does not supply singleton uniqueness.",
+      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the selector-free set-valued form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). Exact code and an independent finite replay check the bounded counterfamily, Lean proves all-rung nonuniqueness for the typed structure, and the complete A1-A3 packet lift across the generation-register family proves that the completed declared class does not entail a unique slack zero under either continuation reading. The direct N verdict is locked non-identifiability, so a capacity selector is an additional named source law. Greatest-fixed-point order theory does not supply singleton uniqueness.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_quantitative_closure_program",
       "assumptions": [
@@ -1641,7 +1635,7 @@
         "finite_fixed_point_order_theory",
         "standard_display_units"
       ],
-      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints must come from the physical Thomson map and a complete direct correctable public-record law. The bounded counterfamily excludes one weak uniqueness argument without deciding the full A1-A3 source class. Electroweak/Higgs, geometric-resolution, and count-density expressions remain downstream comparison or audit surfaces and cannot construct the missing lift.",
+      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints must come from the physical Thomson map and a complete direct correctable public-record law. The bounded counterfamily and the completed packet lift together decide the declared source class negatively with a locked verdict. Electroweak/Higgs, geometric-resolution, and count-density expressions remain downstream comparison or audit surfaces and cannot select the missing capacity law.",
       "novelty_type": "quantitative_prediction_protocol",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -1649,15 +1643,14 @@
         "code/capacity_readback/runtime/direct_n_closure_verdict.json",
         "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
         "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "code/capacity_readback/runtime/complete_packet_capacity_lift_receipt.json",
         "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean"
       ],
       "falsifier": "A completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
-      "status": "local_P_physical_map_open__direct_N_complete_a1_a3_packet_lift_open",
+      "status": "local_P_physical_map_open__direct_N_locked_nonidentifiable",
       "claim_class": "declared_structure",
-      "gates": [
-        551
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-HIER-EW",

@@ -676,9 +676,11 @@ $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
 $N_{\mathrm{CRC}}=\log D_\star$ and finite-size slack
 $s_r(D)=\log D-\log M_{0,r}(D)$. The fixed $D=24$ public checkpoint packet is
 exact. The bounded base-agreement, positivity, and carrier-bound completion
-class has continuations with incompatible slack-zero sets. A full
-capacity-indexed A1--A3 packet lift, a universe carrier attachment, a unique
-physical zero, and horizon-record saturation are open.
+class has continuations with incompatible slack-zero sets, and the complete
+capacity-indexed A1--A3 packet lift decides the completed class negatively:
+no unique slack zero is entailed, so a capacity selector is an additional
+named source law. The universe carrier attachment and horizon-record
+saturation are not evaluable on that ground.
 
 The section records a proposed repair-charge condensate action. Its current
 balance, dilute dust-like branch, and spherical deep-galaxy scaling are
@@ -993,8 +995,9 @@ domain is a certified result for the declared incomplete map. The missing
 hadronic transport prevents promotion to a physical Thomson prediction. The
 fixed $D=24$ capacity packet is exact. Its executable bounded counterfamily
 rules out uniqueness under base agreement, positivity, and the carrier bound.
-The full capacity-indexed A1--A3 packet lift and the universe carrier
-attachment are open, so no direct cosmic $N$ follows. The first hadronic bracket exercise is exploratory rather than
+The complete capacity-indexed A1--A3 packet lift carries a locked negative
+verdict and the universe carrier attachment is not evaluable, so no direct
+cosmic $N$ follows without an additional named source law. The first hadronic bracket exercise is exploratory rather than
 blind because its target numerics were exposed, its registered and verdict
 coordinates differ, and its comparison pixel moved. The no-landscape corollary
 therefore remains conditional on completing both maps and proving unique

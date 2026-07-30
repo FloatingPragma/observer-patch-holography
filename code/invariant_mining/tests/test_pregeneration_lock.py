@@ -146,7 +146,7 @@ def test_comparison_budget_mutation_is_rejected(tmp_path: Path) -> None:
     payload = load(path)
     payload["campaign_comparison_budget"]["comparisons_consumed"] = 1
     write(path, payload)
-    assert_failed(run(repo, BUILD_PROJECTION), "campaign comparison already consumed")
+    assert_failed(run(repo, BUILD_PROJECTION), "campaign comparison budget consumed")
 
 
 def test_exposure_quarantine_preclaim_is_rejected(tmp_path: Path) -> None:

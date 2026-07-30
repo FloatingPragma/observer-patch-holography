@@ -118,7 +118,7 @@ def validate_documents(
     budget = policy.get("campaign_comparison_budget")
     require(isinstance(budget, dict), "campaign comparison budget missing")
     require(budget.get("maximum_physical_comparisons") == 1, "campaign comparison maximum drift")
-    require(budget.get("comparisons_consumed") == 0, "campaign comparison already consumed")
+    require(budget.get("comparisons_consumed") == 0, "campaign comparison budget consumed")
     require(budget.get("terminate_after_first_physical_comparison") is True, "campaign termination rule drift")
     require(policy.get("candidate_generator_enabled") is True, "candidate generator enablement flag drift")
     require(policy.get("candidate_evaluator_enabled") is True, "candidate evaluator enablement flag drift")
