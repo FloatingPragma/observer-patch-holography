@@ -19,8 +19,17 @@ def test_direct_n_verdict_consumes_the_exact_negative_source_result():
     verdict = verdict_module.build_verdict()
 
     assert verdict["status"] == (
-        "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT"
+        "LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS"
     )
+    lift_result = verdict["complete_lift_result"]
+    assert lift_result["wide_survivors"] == [
+        "reversible_identity",
+        "copy_collapse_erasure",
+        "capped_two_class",
+    ]
+    assert lift_result["source_closed_slack_identically_zero"] is True
+    assert lift_result["unique_source_zero_entailed"] is False
+    assert verdict["comparison_boundary"]["direct_numeric_N_emitted"] is False
     assert verdict["issues"] == [505, 551]
     assert verdict["fixed_cutoff_result"] == {
         "D": 24,
@@ -75,8 +84,16 @@ def test_every_required_control_and_fiber_status_is_explicit():
         not in {
             "constructor_reads_desired_capacity",
             "all_rung_lean_theorem",
+            "complete_lift_lean_theorems",
+            "complete_lift_independent_verifier",
         }
     )
+    assert controls["complete_lift_lean_theorems"] == [
+        "OPH.CapacityNonidentifiability."
+        "sourceClosed_no_unique_positive_fixed_rung",
+        "OPH.CapacityNonidentifiability.oscillation_fixed_iff_odd",
+        "OPH.CapacityNonidentifiability.completeClass_doesNotEntailUniqueZero",
+    ]
     assert verdict["comparison_boundary"]["direct_numeric_N_emitted"] is False
     assert verdict["comparison_boundary"][
         "cosmological_comparison_permitted"

@@ -190,6 +190,73 @@ theorem boundedCompletionClass_doesNotForceUniqueZero :
   intro h
   exact identity_has_no_unique_positive_fixed_rung (h identityCompletion)
 
+/-! ## Complete-lift layer
+
+The executable complete-lift receipt transports terminal fibers, atom maps,
+public sections, histories, joint kernels, meaning maps, feasible sets, and
+extension and refinement controls across the generation-register family. The
+statements below are its arithmetic skeleton. The oscillatory direction is
+exhibited and excluded by the executable A2 extension-square control; the
+saturation theorem covers the source-closed reading, and the class theorem
+covers any admissibility reading that retains the reversible identity
+completion. -/
+
+/-- Parity-oscillation continuation: copy collapse at even rungs only. -/
+def oscillationM (k : ℕ) : ℕ := if k % 2 = 1 then 24 * k else 24
+
+theorem oscillation_fixed_iff_odd {k : ℕ} (hk : 0 < k) :
+    oscillationM k = publicDimension k ↔ k % 2 = 1 := by
+  unfold oscillationM publicDimension
+  split <;> omega
+
+/-- The oscillatory direction satisfies the same declared antecedent. -/
+def oscillationCompletion : DeclaredCapacityCompletion where
+  M0 := oscillationM
+  baseAgreement := rfl
+  positive := by
+    intro k hk
+    unfold oscillationM
+    split <;> omega
+  carrierBound := by
+    intro k hk
+    unfold oscillationM publicDimension
+    split <;> omega
+
+/-- Oscillation and identity share the antecedent and disagree at rung two. -/
+theorem oscillation_identity_differentFixedSets :
+    FixedAt identityCompletion 2 ∧ ¬ FixedAt oscillationCompletion 2 := by
+  constructor
+  · rfl
+  · norm_num [FixedAt, oscillationCompletion, oscillationM, publicDimension]
+
+/-- Source-closed reading: a completion that saturates every rung has a
+    degenerate slack zero set, so no unique positive fixed rung exists. -/
+theorem sourceClosed_no_unique_positive_fixed_rung
+    (completion : DeclaredCapacityCompletion)
+    (hsat : ∀ k, 0 < k → completion.M0 k = publicDimension k) :
+    ¬ HasUniquePositiveFixedRung completion := by
+  rintro ⟨k, hk, _hfixed, hunique⟩
+  have h1 : (1 : ℕ) = k := hunique 1 (by omega) (hsat 1 (by omega))
+  have h2 : (2 : ℕ) = k := hunique 2 (by omega) (hsat 2 (by omega))
+  omega
+
+/-- The reversible identity completion saturates every rung. -/
+theorem identity_saturates (k : ℕ) (_hk : 0 < k) :
+    identityCompletion.M0 k = publicDimension k := rfl
+
+/-- Complete-class theorem: any admissibility reading of the complete lift
+    that retains the reversible identity completion does not entail a unique
+    slack zero. The source-closed and widened executable readings both retain
+    it, so neither selects a capacity; a rung selector is an additional
+    source law. -/
+theorem completeClass_doesNotEntailUniqueZero
+    (Admissible : DeclaredCapacityCompletion → Prop)
+    (hid : Admissible identityCompletion) :
+    ¬ ∀ completion, Admissible completion →
+        HasUniquePositiveFixedRung completion := by
+  intro h
+  exact identity_has_no_unique_positive_fixed_rung (h identityCompletion hid)
+
 -- Axiom audit.
 #print axioms coordinates_eq_of_readings_eq
 #print axioms strangeLoop_readings_eq
@@ -199,5 +266,9 @@ theorem boundedCompletionClass_doesNotForceUniqueZero :
 #print axioms sameAntecedent_differentFixedSets
 #print axioms capped_two_zeros_and_third_not
 #print axioms boundedCompletionClass_doesNotForceUniqueZero
+#print axioms oscillation_fixed_iff_odd
+#print axioms oscillation_identity_differentFixedSets
+#print axioms sourceClosed_no_unique_positive_fixed_rung
+#print axioms completeClass_doesNotEntailUniqueZero
 
 end OPH.CapacityNonidentifiability

@@ -125,7 +125,7 @@ M_epsilon(q) <= D.
 ```
 
 When `M_0(q)=D`, the code projections are rank one and sum to the identity.
-This is public-record saturation, not yet a cosmological identification.
+This is public-record saturation rather than a cosmological identification.
 
 ## 6. Set-valued readback
 
@@ -195,15 +195,18 @@ s(D)>0 for every other admissible D.
 Unit asymptotic capacity density is insufficient because subleading terms can
 change the exact zero set.
 
-A target-clean all-rung generator proves a narrower non-entailment result.
+A target-clean all-rung generator proves the bounded non-entailment result.
 Reversible identity, copy-collapse, two-class, and hidden-spectator
 completions share base agreement, positivity, the carrier bound, finite
 incidence and action controls, and an oriented-record fiber product. Their
-exact zero sets differ. The complete A1--A3 capacity source antecedent has not
-been lifted across the regulator family: terminal fibers, joint kernels,
-meaning maps, and A3 feasible-set data remain to be transported. The
-counterfamily therefore does not select a cosmic value and does not establish
-nonidentifiability for that stronger source class.
+exact zero sets differ. The complete A1--A3 capacity source antecedent is
+lifted across the generation-register family by the complete-lift receipt:
+terminal fibers, atom maps, public sections, histories, joint kernels,
+meaning maps, A3 feasible-set data, and extension and refinement controls
+are transported per rung. Under the source-closed continuation reading the
+slack vanishes at every rung; under the widened reading the surviving
+completions carry inequivalent zero sets. In both readings the completed
+declared class does not entail a unique slack zero.
 
 ## 9. Independent downstream bridges
 
@@ -307,11 +310,13 @@ Issue #548 supplies the first source-only fixed-`D` packet at `D=24` over
 its complete declared one-fault terminal fiber, together with separate
 no-new-confusability capacity-extension and fixed-`D` refinement receipts.
 
-Open source work: lift the complete fixed packet across the
-capacity-indexed regulator family, including terminal-fiber completeness,
-observer/interface maps, global joint kernels, A2 meaning maps, A3
-feasible-set projections, and exact continuation and refinement controls.
-Only then can the full source class receive a unique-zero or
-nonidentifiability verdict. Horizon and common-EW identifications remain
-downstream of a positive result. No cosmic prediction is promoted before
-those receipts exist.
+The complete-lift receipt transports the fixed packet across the
+capacity-indexed generation-register family, including terminal-fiber
+completeness, observer/interface maps, global joint kernels, A2 meaning
+maps, A3 feasible-set projections, and exact continuation and refinement
+controls. The resulting verdict is non-identifiability of a unique slack
+zero on the completed declared class, under both the source-closed and the
+widened continuation readings. A unique-zero selection would require an
+additional named source law. Horizon and common-EW identifications remain
+downstream of a positive selection that does not exist on this class. No
+cosmic prediction is promoted.

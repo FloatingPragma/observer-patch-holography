@@ -8,7 +8,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 from capacity_indexed_source_family import (
     CERTIFICATE_PATH,
@@ -29,9 +29,21 @@ INDEPENDENT_RECEIPT_PATH = (
 INDEPENDENT_CUSTODY_PATH = (
     RUNTIME / "capacity_indexed_source_family_independent_custody.json"
 )
+COMPLETE_LIFT_RECEIPT_PATH = (
+    RUNTIME / "complete_packet_capacity_lift_receipt.json"
+)
+COMPLETE_LIFT_CERTIFICATE_PATH = (
+    RUNTIME / "complete_packet_capacity_lift_certificate.json"
+)
 OUTPUT_PATH = RUNTIME / "direct_n_closure_verdict.json"
-SCHEMA = "oph.direct_n_closure_verdict.v1"
-STATUS = "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT"
+SCHEMA = "oph.direct_n_closure_verdict.v2"
+STATUS = "LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS"
+BOUNDED_STATUS = "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT"
+COMPLETE_LIFT_SCHEMA = "oph.complete_packet_capacity_lift.v1"
+COMPLETE_LIFT_CERTIFICATE_SCHEMA = (
+    "oph.complete_packet_capacity_lift_certificate.v1"
+)
+COMPLETE_LIFT_VERDICT = "COMPLETE_SOURCE_CLASS_NO_UNIQUE_SLACK_ZERO"
 FAMILY_SCHEMA = "oph.capacity_indexed_source_family_certificate.v1"
 PROJECTION_SCHEMA = "oph.capacity_indexed_source_family_projection.v1"
 INDEPENDENT_SCHEMA = (
@@ -127,7 +139,7 @@ def _validate_family(
     for key, expected in required_flags.items():
         if family.get(key) is not expected:
             raise ValueError(f"capacity-indexed family {key} drift")
-    if family.get("direct_n_status") != STATUS:
+    if family.get("direct_n_status") != BOUNDED_STATUS:
         raise ValueError("capacity-indexed direct-N status drift")
     if family.get("projection_sha256") != tagged_sha256(
         canonical_json_bytes(projection)
@@ -308,17 +320,54 @@ def _classify_fiber_branch(
     }
 
 
+def _validate_complete_lift(
+    lift: Mapping[str, Any], lift_certificate: Mapping[str, Any]
+) -> None:
+    if lift.get("schema") != COMPLETE_LIFT_SCHEMA or lift.get("issue") != 551:
+        raise ValueError("complete-lift receipt schema drift")
+    if lift.get("scientific_verdict") != COMPLETE_LIFT_VERDICT:
+        raise ValueError("complete-lift verdict drift")
+    wide = lift.get("wide_reading", {})
+    if wide.get("survivors") != [
+        "reversible_identity",
+        "copy_collapse_erasure",
+        "capped_two_class",
+    ]:
+        raise ValueError("complete-lift survivor drift")
+    if wide.get("zero_sets_inequivalent") is not True:
+        raise ValueError("complete-lift wide reading lost inequivalence")
+    closed = lift.get("source_closed_reading", {})
+    if closed.get("slack_identically_zero") is not True:
+        raise ValueError("complete-lift source-closed saturation drift")
+    if closed.get("unique_zero_exists") is not False:
+        raise ValueError("complete-lift source-closed uniqueness drift")
+    if lift.get("mutation_controls", {}).get("all_mutations_detected") is not True:
+        raise ValueError("complete-lift mutation controls incomplete")
+    if lift.get("bounded_family_cross_check", {}).get("consistent") is not True:
+        raise ValueError("complete-lift bounded cross-check failed")
+    cleanliness = lift.get("target_cleanliness", {})
+    if any(bool(value) for value in cleanliness.values()):
+        raise ValueError("complete-lift target cleanliness drift")
+    if lift_certificate.get("schema") != COMPLETE_LIFT_CERTIFICATE_SCHEMA:
+        raise ValueError("complete-lift certificate schema drift")
+    if lift_certificate.get("receipt_sha256") != lift.get("receipt_sha256"):
+        raise ValueError("complete-lift certificate does not pin the receipt")
+
+
 def build_verdict() -> dict[str, Any]:
     fixed = _load(FIXED_CERTIFICATE_PATH)
     projection = _load(PROJECTION_PATH)
     family = _load(CERTIFICATE_PATH)
     independent = _load(INDEPENDENT_RECEIPT_PATH)
     custody = _load(INDEPENDENT_CUSTODY_PATH)
+    lift = _load(COMPLETE_LIFT_RECEIPT_PATH)
+    lift_certificate = _load(COMPLETE_LIFT_CERTIFICATE_PATH)
 
     if fixed.get("status") != "PASS" or fixed.get("issue") != 548:
         raise ValueError("fixed-cutoff parent is not attained")
     _validate_family(projection, family)
     _validate_independent_replay(projection, independent, custody)
+    _validate_complete_lift(lift, lift_certificate)
 
     fiber_controls = fixed["controls"]["terminal_fibers"]
     required_fibers = {"empty", "incomplete", "ambiguous", "singleton"}
@@ -347,6 +396,8 @@ def build_verdict() -> dict[str, Any]:
         _pin(CERTIFICATE_PATH),
         _pin(INDEPENDENT_RECEIPT_PATH),
         _pin(INDEPENDENT_CUSTODY_PATH),
+        _pin(COMPLETE_LIFT_RECEIPT_PATH),
+        _pin(COMPLETE_LIFT_CERTIFICATE_PATH),
     ]
     verdict = {
         "schema": SCHEMA,
@@ -373,6 +424,30 @@ def build_verdict() -> dict[str, Any]:
                 branch["branch_id"] for branch in projection["branches"]
             ],
             "zero_sets_differ": family["zero_sets_differ"],
+            "unique_source_zero_entailed": False,
+            "strange_loop_identity_rejected": False,
+        },
+        "complete_lift_result": {
+            "lifted_structures": lift["lifted_structures"],
+            "wide_survivors": lift["wide_reading"]["survivors"],
+            "wide_survivor_zero_sets": [
+                {
+                    "branch_id": row["branch_id"],
+                    "sampled_zero_rungs": row["sampled_zero_rungs"],
+                    "all_rung_formula": row["all_rung_formula"],
+                }
+                for row in lift["wide_reading"]["survivor_zero_sets"]
+            ],
+            "excluded_directions": lift["wide_reading"][
+                "excluded_with_named_control"
+            ],
+            "source_closed_slack_identically_zero": lift[
+                "source_closed_reading"
+            ]["slack_identically_zero"],
+            "nonidentifiability_mechanisms": lift[
+                "nonidentifiability_mechanisms"
+            ],
+            "family_scope": lift["family_scope"],
             "unique_source_zero_entailed": False,
             "strange_loop_identity_rejected": False,
         },
@@ -430,6 +505,11 @@ def build_verdict() -> dict[str, Any]:
                 "OPH.CapacityNonidentifiability."
                 "boundedCompletionClass_doesNotForceUniqueZero"
             ),
+            "complete_lift_lean_theorems": lift["lean_bindings"],
+            "complete_lift_independent_verifier": (
+                "code/capacity_readback/"
+                "verify_complete_packet_lift_independent.py"
+            ),
         },
         "comparison_boundary": {
             "direct_numeric_N_emitted": False,
@@ -437,17 +517,30 @@ def build_verdict() -> dict[str, Any]:
             "horizon_record_attachment_evaluable": False,
             "electroweak_bridge_may_repair_result": False,
             "next_forecast_action": (
-                "keep direct N outside scoring while the complete A1-A3 "
-                "packet lift remains absent"
+                "record the locked non-identifiability in the forecast "
+                "registry; direct N stays excluded from fallback re-entry"
             ),
         },
-        "remaining_positive_route": family["remaining_positive_route"],
+        "remaining_positive_route": {
+            "bounded_route": family["remaining_positive_route"],
+            "status_after_complete_lift": (
+                "the missing-antecedent items are discharged by the complete "
+                "lift; a unique slack zero on the declared class would require "
+                "an additional named source law, which is a new physical "
+                "premise rather than an open calculation"
+            ),
+        },
         "parent_pins": pins,
         "claim_boundary": (
-            "The declared base-agreement, positivity, and carrier-bound "
-            "completion class does not select a unique direct N. The complete "
-            "A1-A3 capacity source antecedent has not been lifted across the "
-            "regulator family, so issues 551 and 505 remain open."
+            "The complete declared fixed-packet structure lifts across the "
+            "capacity-indexed generation-register family. Under the "
+            "source-closed continuation reading the slack vanishes at every "
+            "rung, and under the widened reading the surviving completions "
+            "carry inequivalent zero sets, so the completed declared source "
+            "class does not entail a unique direct N. No numeric N is "
+            "emitted, no cosmological comparison is permitted, and the "
+            "strange-loop identity is not rejected; selecting a capacity "
+            "requires an additional named source law."
         ),
     }
     verdict["verdict_sha256"] = tagged_sha256(canonical_json_bytes(verdict))

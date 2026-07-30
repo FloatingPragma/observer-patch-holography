@@ -497,7 +497,7 @@ conditional closure candidate and downstream test.
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero. The complete A1--A3 packet lift and its final source verdict are open, so no cosmic value is emitted | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the completed declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
 | Conditional common-load $N$ candidate | The named screen/electroweak self-read law has the unique root $N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward branch. It uses no measured $\Lambda$. Its theorem-level coupling to the electroweak bridge excludes it from the blind direct-$N$ forecast class. The complete direct-capacity source lift, physical same-load identity, and horizon attachment are open; the bridge root is $6.63$ percent above the $\Lambda$-located comparison coordinate | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
@@ -613,11 +613,15 @@ and refinement maps. Injective checkpoint generators reduce its capacity
 theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
 The target-clean all-rung counterfamily has an exact bounded verdict: base
 agreement, positivity, and the carrier bound admit completions with different
-slack-zero sets. The complete A1--A3 packet lift is work in progress, so the result
-neither supplies a cosmic selection nor proves the full source class
-nonidentifiable. A physical \(N\) theorem requires a positive full-source
-verdict, proof that both sides read the same universe-level quantity, and the
-physical carrier attachment. The independent finite $A_5$ control has $M_0=60$ and
+slack-zero sets. The complete A1--A3 packet lift transports terminal fibers,
+atom maps, sections, histories, joint kernels, meaning maps, feasible sets,
+and extension controls across the generation-register family, and the
+completed declared class does not entail a unique slack zero: source-closed
+continuations saturate every rung, and the widened survivors carry
+inequivalent zero sets. Selecting one capacity would require an additional
+named source law, so no cosmic value is emitted. A physical \(N\) theorem
+would require that additional selector, proof that both sides read the same
+universe-level quantity, and the physical carrier attachment. The independent finite $A_5$ control has $M_0=60$ and
 $D_{\rm raw}=60k$; its publicly inert multiplicity proves that raw equality at
 $k=1$ is not physical $N$-closure.
 

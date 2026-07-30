@@ -1,63 +1,66 @@
-# Issue 551: Bounded Capacity-Indexed Counterfamily
+# Issue 551: Complete-Class Capacity Non-Identifiability
 
 ## Result
 
-The selected fixed-packet projection together with base agreement,
-positivity, and the carrier bound does not determine a unique
-capacity-indexed return map.
+The complete declared fixed-packet structure lifts across the
+capacity-indexed generation-register family from one target-clean source
+rule, and the completed class does not entail a unique slack zero.
 
-One target-clean generator extends the same twelve-port record register over
-positive integer rungs. Four continuation completions preserve base
-agreement, positivity, the carrier bound, and the executable finite controls:
+The lift transports every structural component of the issue #548 packet per
+rung: terminal-fiber completeness with the structural one-fault gate and
+rung faults, observer and interface atom maps, exact equalizer public
+sections, endogenous reachability histories, the frozen publicness family,
+continuation-manifest closure, joint kernels with local-marginal
+consistency, A2 meaning-map naturality including the extension square, A3
+feasible-set state determinacy, capacity-extension embeddings with no new
+confusability, fixed-rung refinement stability, and exact fiber-product
+sewing.
 
-| Completion | Exact capacity | Slack-zero set |
-|---|---:|---|
-| reversible identity | \(24k\) | every positive \(k\) |
-| copy-collapse erasure | \(24\) | \(k=1\) |
-| two-class cap | \(24\min(k,2)\) | \(k=1,2\) |
-| hidden spectator multiplicity \(s\) | \(24k\) on raw rank \(24ks\) | every \(k\) for \(s=1\), none for \(s>1\) |
+Two admissibility readings of the continuation manifest carry the verdict:
 
-The continuations share the port incidence, reversible slot action,
-publicness rule, and fixed-packet semantic projection. Their collapse maps
-are idempotent, commute with the forty reversible actions, obey exact
-composition, and preserve the old confusability graph under rung extension.
-The record diagram obeys the exact fiber-product sewing count.
+| Reading | Admissible completions | Slack zero set | Consequence |
+|---|---|---|---|
+| source-closed | compositions of the forty declared reversible generators | every positive rung, for every admissible completion | slack vanishes identically; no unique zero exists |
+| widened | completion kernels beyond the generator vocabulary, when every transported control passes | identity: all rungs; erasure: rung 1; two-class cap: rungs 1 and 2 | surviving zero sets are inequivalent; no unique zero is entailed |
 
-Two common-antecedent models with different fixed sets are sufficient to show
-that this declared completion class does not entail a unique zero. The four
-completions also expose the identity, erasure, multiple-zero, and hidden
-spectator directions required by the issue contract. This is logical
-completeness for the non-entailment result. It is not a claim that the four
-rows enumerate every imaginable physical source law.
+Two candidate directions fail named transported controls, with exact
+witnesses in the receipt: hidden spectator multiplicity above one fails A3
+state determinacy (4,096 raw families per public class at multiplicity two),
+and parity oscillation fails the A2 extension square and the
+no-new-confusability control at the odd-to-even rung step.
+
+Under both readings the completed declared source class does not select a
+unique capacity. A rung selector is an additional named source law, which is
+a new physical premise rather than an open calculation.
 
 ## Evidence
 
-- `capacity_indexed_source_family.py` emits packets at every positive rung and
-  derives their exact zero-error capacities.
-- `runtime/capacity_indexed_source_family_projection.json` is the bounded
-  cross-repository projection.
-- `runtime/capacity_indexed_source_family_certificate.json` records the
-  all-rung formulas, sewing, composition, extension, and claim boundary.
-- `test_capacity_indexed_source_family.py` checks unadvertised rungs and
-  adversarial mutations.
+- `complete_packet_capacity_lift.py` builds the per-rung structures, checks
+  every transported control, and emits the receipt and certificate under
+  `runtime/`.
+- `verify_complete_packet_lift_independent.py` recomputes the capacities,
+  zero sets, survivor logic, and verdict implication without importing the
+  producer.
+- `capacity_indexed_source_family.py` remains the bounded-layer producer;
+  the complete lift cross-checks every shared capacity value against it.
+- `direct_n_closure_verdict.py` consumes both layers and emits the issue
+  #505 verdict `LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS`.
 - `Lean/ObserverPatchHolography/CapacityNonidentifiability.lean` proves the
-  typed closure implication and the all-rung fixed-set disagreements.
-- The independent simulator implementation reconstructs the finite channel
-  graphs without importing this producer.
+  arithmetic skeleton: `sourceClosed_no_unique_positive_fixed_rung`,
+  `oscillation_fixed_iff_odd`, `oscillation_identity_differentFixedSets`,
+  and `completeClass_doesNotEntailUniqueZero`, in addition to the bounded
+  all-rung theorems.
+- `test_complete_packet_capacity_lift.py` and
+  `test_direct_n_closure_verdict.py` exercise the controls, the adversarial
+  mutations, byte stability, and the independent verifier.
 
 ## Scientific boundary
 
-The bounded verdict is
-`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`.
-
-It does not reject the strange-loop self-identity. Once two typed readings
-are proved to be readings of the same invariant quantity, their equality is
-the closure condition. The complete A1--A3 lift remains absent: terminal
-fibers, observer/interface atom maps, joint kernels, A2 meaning maps, A3
-feasible-set projections, and regulator controls must be carried across the
-family. A positive or complete negative source-class verdict requires that
-lift.
-
-The common \(k=1\) screen packet is not a cosmic selection. Promoting its
-twenty-four-record register to the universe-level correctable-record carrier
-requires a positive full-source verdict and a separate physical attachment.
+No numeric \(N\) is emitted, no cosmological comparison is permitted, and
+the strange-loop identity is not rejected. The frozen family is the
+generation-register extension of the issue #548 packet; non-entailment
+within one admissible declared family implies non-entailment for every
+wider same-antecedent class. The common \(k=1\) screen packet is not a
+cosmic selection, and promoting any capacity to a universe-level carrier
+requires a separately named source law together with the physical
+attachments owned by the gravitational chain.
