@@ -95,7 +95,32 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the incomplete direct N source verdict",
+        "Validate the complete-packet capacity lift receipts",
+        [
+            sys.executable,
+            "code/capacity_readback/complete_packet_capacity_lift.py",
+            "--check",
+        ],
+    ),
+    (
+        "Replay the complete-packet lift with the independent verifier",
+        [
+            sys.executable,
+            "code/capacity_readback/verify_complete_packet_lift_independent.py",
+        ],
+    ),
+    (
+        "Execute the complete-packet lift mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_complete_packet_capacity_lift.py",
+        ],
+    ),
+    (
+        "Validate the locked direct N source verdict",
         [
             sys.executable,
             "code/capacity_readback/direct_n_closure_verdict.py",
