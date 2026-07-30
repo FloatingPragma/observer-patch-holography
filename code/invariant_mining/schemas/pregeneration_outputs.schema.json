@@ -47,7 +47,8 @@
         "scoring_boundary",
         "target_cleanliness",
         "registry_sha256",
-        "skip_records"
+        "skip_records",
+        "typing_correction"
       ],
       "properties": {
         "schema": {
@@ -57,7 +58,7 @@
           "const": 647
         },
         "status": {
-          "const": "GENERATION_COMPLETE__SCORING_SEALED"
+          "const": "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED"
         },
         "candidates": {
           "type": "array",

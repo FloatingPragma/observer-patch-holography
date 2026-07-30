@@ -146,6 +146,24 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the angular template receipt",
+        [
+            sys.executable,
+            "code/angular_sprint/angular_interpolant_certificate.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the angular template tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/angular_sprint/test_angular_interpolant_certificate.py",
+        ],
+    ),
+    (
         "Validate the carrier specificity receipt",
         [
             sys.executable,

@@ -57,11 +57,17 @@ WZ_MANIFEST_PATH = (
 
 VERDICTS = {
     642: "CONDITIONAL_KILL_PACKET__PHYSICAL_LINE_ATTACHMENT_OPEN",
-    643: "NOT_EVALUABLE_NO_SCREEN_TO_SKY_MAP__SOURCE_TEMPLATE_REGISTERED",
-    645: "NOT_EVALUABLE_NO_SOURCE_TO_READOUT_MAP__SOURCE_SPECTRUM_REGISTERED",
+    643: (
+        "SUPERSEDED_BY_ANGULAR_SPRINT__"
+        "SEE_ANGULAR_TEMPLATE_RECEIPT"
+    ),
+    645: (
+        "NOT_EVALUABLE_NO_REGISTERED_SOURCE_TO_READOUT_MAP__"
+        "FINITE_TWIST_SECTOR_SPECTRUM_ONLY"
+    ),
     646: (
-        "BOUNDED_NO_GO_ALL_TESTED_VECTORS_NONIDENTIFIABLE__"
-        "ADJACENT_RESPONSE_IDENTITIES_REGISTERED"
+        "WITHDRAWN_NO_GO_LABEL__"
+        "COMBINATION_TABLE_RETAINED_PENDING_C3F_KINETIC_LANE"
     ),
 }
 CLOCK_UNIT_VERDICT_PATH = (
@@ -119,7 +125,8 @@ def _load_registry() -> dict[str, Any]:
         "candidate registry schema drift",
     )
     require(
-        registry.get("status") == "GENERATION_COMPLETE__SCORING_SEALED",
+        registry.get("status")
+        == "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED",
         "candidate registry status drift",
     )
     boundary = registry.get("scoring_boundary", {})

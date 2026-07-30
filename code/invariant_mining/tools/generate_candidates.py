@@ -33,7 +33,7 @@ REPO_ROOT = PACKAGE_ROOT.parent.parent
 OUTPUT_PATH = PACKAGE_ROOT / "outputs" / "candidate_registry.json"
 
 SCHEMA = "oph.invariant_mining.candidate_registry.v1"
-STATUS = "GENERATION_COMPLETE__SCORING_SEALED"
+STATUS = "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED"
 IMPLEMENTED_SLOTS = (
     "z6_charge_line_congruences",
     "a5_angular_rules",
@@ -1495,6 +1495,21 @@ def build_registry() -> dict[str, Any]:
         "REGISTERED_AWAITING_GENERATION" not in slot_states.values(),
         "registry incomplete: a slot has no generation outcome",
     )
+    typing_correction = {
+        "classification": (
+            "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED"
+        ),
+        "retained": "the generated arithmetic identities and their receipts",
+        "withdrawn": (
+            "registry completeness, physical eligibility, and the "
+            "prior no-go labels of the specificity and kinetic lanes"
+        ),
+        "pending": (
+            "the C3-F fast-falsification candidates, the hard "
+            "physicalization eligibility gate, the whole-stack antecedent "
+            "search, and the regenerated target-free order"
+        ),
+    }
 
     registry = {
         "schema": SCHEMA,
@@ -1522,6 +1537,7 @@ def build_registry() -> dict[str, Any]:
         },
         "slot_generation_states": slot_states,
         "skip_records": skip_records,
+        "typing_correction": typing_correction,
         "descent_congruence_table": descent_congruence_table(),
         "candidates": candidates,
         "candidate_count": len(candidates),
@@ -1529,10 +1545,12 @@ def build_registry() -> dict[str, Any]:
             "physical_scoring_permitted": False,
             "comparison_access_permitted": False,
             "reason": (
-                "every slot carries a generation outcome, so the registry "
-                "is complete; scoring stays sealed behind a separately "
-                "reviewed unsealing change and the single issue-639 "
-                "comparison with custody and exposure typing"
+                "the inventory is provisional: the generated arithmetic "
+                "identities are retained while registry completeness and "
+                "physical eligibility are withdrawn pending the C3-F "
+                "candidates, the hard physicalization gate, and the "
+                "regenerated target-free order; scoring stays sealed behind "
+                "the single issue-639 comparison"
             ),
         },
         "target_cleanliness": {

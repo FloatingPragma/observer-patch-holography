@@ -41,7 +41,7 @@ RUNTIME = HERE / "runtime"
 OUTPUT_PATH = RUNTIME / "carrier_specificity_receipt.json"
 
 SCHEMA = "oph.carrier_specificity_receipt.v1"
-STATUS = "BOUNDED_SPECIFICITY_SCORE"
+STATUS = "NAMED_MENU_FINGERPRINT__EXHAUSTIVE_CALIBRATION_OPEN"
 
 
 class SpecificityError(ValueError):

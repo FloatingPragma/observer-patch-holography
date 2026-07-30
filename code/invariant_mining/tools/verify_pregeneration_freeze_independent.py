@@ -681,7 +681,8 @@ def verify(
             str(registry.get("schema")),
         )
         require(
-            registry.get("status") == "GENERATION_COMPLETE__SCORING_SEALED",
+            registry.get("status")
+            == "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED",
             "CANDIDATE_REGISTRY_STATUS_DRIFT",
             str(registry.get("status")),
         )

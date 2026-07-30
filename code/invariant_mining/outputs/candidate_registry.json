@@ -1364,12 +1364,12 @@
     "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
   },
   "issue": 647,
-  "registry_sha256": "sha256:7e03e00c807a19755cb2b08681bed790ddb37596c51d4f4cc497059c9c5cc886",
+  "registry_sha256": "sha256:e340d21092c84c2af872caff76d6fa1dd93b2173f82af7e1280be1b88e20661e",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,
     "physical_scoring_permitted": false,
-    "reason": "every slot carries a generation outcome, so the registry is complete; scoring stays sealed behind a separately reviewed unsealing change and the single issue-639 comparison with custody and exposure typing"
+    "reason": "the inventory is provisional: the generated arithmetic identities are retained while registry completeness and physical eligibility are withdrawn pending the C3-F candidates, the hard physicalization gate, and the regenerated target-free order; scoring stays sealed behind the single issue-639 comparison"
   },
   "skip_records": {
     "cross_channel_source_identities": {
@@ -1392,10 +1392,16 @@
     "wz_scale_free_response": "GENERATED",
     "z6_charge_line_congruences": "GENERATED"
   },
-  "status": "GENERATION_COMPLETE__SCORING_SEALED",
+  "status": "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED",
   "target_cleanliness": {
     "comparison_payload_read": false,
     "public_measurement_read": false,
     "target_value_read": false
+  },
+  "typing_correction": {
+    "classification": "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED",
+    "pending": "the C3-F fast-falsification candidates, the hard physicalization eligibility gate, the whole-stack antecedent search, and the regenerated target-free order",
+    "retained": "the generated arithmetic identities and their receipts",
+    "withdrawn": "registry completeness, physical eligibility, and the prior no-go labels of the specificity and kinetic lanes"
   }
 }
