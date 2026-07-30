@@ -146,6 +146,24 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the carrier specificity receipt",
+        [
+            sys.executable,
+            "code/discriminator_strata/carrier_specificity.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the carrier specificity tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/discriminator_strata/test_carrier_specificity.py",
+        ],
+    ),
+    (
         "Validate the horizon-record attachment verdict",
         [
             sys.executable,
