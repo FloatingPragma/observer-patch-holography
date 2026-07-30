@@ -1,136 +1,136 @@
 {
-  "schema": "oph.invariant_mining.producer_slots.v1",
+  "execution_state": "ALL_PRODUCERS_DISABLED_PENDING_ENABLEMENT_REVIEW",
   "issue": 647,
   "registry_id": "oph-invariant-producer-slots-v1",
-  "execution_state": "ALL_PRODUCERS_DISABLED_PENDING_REGISTRY_FINALIZATION",
+  "schema": "oph.invariant_mining.producer_slots.v1",
   "slots": [
     {
-      "slot_id": "direct_n_capacity_closure",
-      "owner_issues": [
-        551,
-        505
-      ],
-      "search_family": "direct source-derived capacity and dimensionless cosmological closure",
-      "required_feature_ids": [
-        "observer_agreement_and_readback",
-        "direct_n_bounded_counterfamily_nonidentifiability"
-      ],
       "allowed_grammar_class_ids": [
         "discrete_congruence_parity_ordering_multiplicity",
         "refinement_scaling_exponent"
       ],
+      "exclusion_reason": "The completed capacity source class carries a locked non-identifiability verdict: no unique slack zero is entailed under either continuation reading. The externally ordered direct N lane cannot re-enter fallback invariant ranking.",
       "execution_status": "REGISTERED_DISABLED",
       "fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
-      "exclusion_reason": "The bounded counterfamily is nonidentifiable while the complete A1-A3 lift remains open. The externally ordered direct N lane cannot re-enter fallback invariant ranking."
+      "owner_issues": [
+        551,
+        505
+      ],
+      "required_feature_ids": [
+        "observer_agreement_and_readback",
+        "direct_n_bounded_counterfamily_nonidentifiability"
+      ],
+      "search_family": "direct source-derived capacity and dimensionless cosmological closure",
+      "slot_id": "direct_n_capacity_closure"
     },
     {
-      "slot_id": "z6_charge_line_congruences",
-      "owner_issues": [
-        642
-      ],
-      "search_family": "diagonal Z6 charge and line-operator congruences",
-      "required_feature_ids": [
-        "diagonal_z6_descent",
-        "finite_port_action"
-      ],
       "allowed_grammar_class_ids": [
         "exact_zero_forbidden_transition",
         "discrete_congruence_parity_ordering_multiplicity",
         "trace_determinant_character_index"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "PENDING_PHYSICALIZATION"
+      "fallback_eligibility": "PENDING_PHYSICALIZATION",
+      "owner_issues": [
+        642
+      ],
+      "required_feature_ids": [
+        "diagonal_z6_descent",
+        "finite_port_action"
+      ],
+      "search_family": "diagonal Z6 charge and line-operator congruences",
+      "slot_id": "z6_charge_line_congruences"
     },
     {
-      "slot_id": "wz_scale_free_response",
-      "owner_issues": [
-        646
-      ],
-      "search_family": "scale-free electroweak pole, width, residue, and asymmetry vectors",
-      "required_feature_ids": [
-        "finite_port_action",
-        "family_band_response"
-      ],
       "allowed_grammar_class_ids": [
         "homogeneous_scale_free_combination",
         "normalized_residue_asymmetry_cross_spectrum",
         "shared_response_identity"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "PENDING_PHYSICALIZATION"
+      "fallback_eligibility": "PENDING_PHYSICALIZATION",
+      "owner_issues": [
+        646
+      ],
+      "required_feature_ids": [
+        "finite_port_action",
+        "family_band_response"
+      ],
+      "search_family": "scale-free electroweak pole, width, residue, and asymmetry vectors",
+      "slot_id": "wz_scale_free_response"
     },
     {
-      "slot_id": "a5_angular_rules",
-      "owner_issues": [
-        643
-      ],
-      "search_family": "nonzero angular selection rules and cross-level correlations",
-      "required_feature_ids": [
-        "oriented_twelve_port_carrier",
-        "finite_port_action"
-      ],
       "allowed_grammar_class_ids": [
         "exact_zero_forbidden_transition",
         "angular_selection_cross_level_correlation",
         "trace_determinant_character_index"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "PENDING_PHYSICALIZATION"
+      "fallback_eligibility": "PENDING_PHYSICALIZATION",
+      "owner_issues": [
+        643
+      ],
+      "required_feature_ids": [
+        "oriented_twelve_port_carrier",
+        "finite_port_action"
+      ],
+      "search_family": "nonzero angular selection rules and cross-level correlations",
+      "slot_id": "a5_angular_rules"
     },
     {
-      "slot_id": "observer_overlap_cross_spectra",
-      "owner_issues": [
-        645
-      ],
-      "search_family": "observer-overlap normalized cross-spectra",
-      "required_feature_ids": [
-        "observer_agreement_and_readback",
-        "finite_local_domain_boundary"
-      ],
       "allowed_grammar_class_ids": [
         "normalized_residue_asymmetry_cross_spectrum",
         "shared_response_identity",
         "refinement_scaling_exponent"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "PENDING_PHYSICALIZATION"
+      "fallback_eligibility": "PENDING_PHYSICALIZATION",
+      "owner_issues": [
+        645
+      ],
+      "required_feature_ids": [
+        "observer_agreement_and_readback",
+        "finite_local_domain_boundary"
+      ],
+      "search_family": "observer-overlap normalized cross-spectra",
+      "slot_id": "observer_overlap_cross_spectra"
     },
     {
-      "slot_id": "family_trace_mixing_invariants",
-      "owner_issues": [
-        569
-      ],
-      "search_family": "family trace, determinant, CP, and mixing invariants",
-      "required_feature_ids": [
-        "family_band_response",
-        "diagonal_z6_descent"
-      ],
       "allowed_grammar_class_ids": [
         "homogeneous_scale_free_combination",
         "trace_determinant_character_index",
         "rg_invariant_combination"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "BLOCKED_ON_POSITIVE_FAMILY_ATTACHMENT"
+      "fallback_eligibility": "BLOCKED_ON_POSITIVE_FAMILY_ATTACHMENT",
+      "owner_issues": [
+        569
+      ],
+      "required_feature_ids": [
+        "family_band_response",
+        "diagonal_z6_descent"
+      ],
+      "search_family": "family trace, determinant, CP, and mixing invariants",
+      "slot_id": "family_trace_mixing_invariants"
     },
     {
-      "slot_id": "cross_channel_source_identities",
-      "owner_issues": [
-        647
-      ],
-      "search_family": "cross-channel source identities whose registered nuisance directions cancel",
-      "required_feature_ids": [
-        "finite_port_action",
-        "conditional_maximum_randomness",
-        "finite_local_domain_boundary"
-      ],
       "allowed_grammar_class_ids": [
         "homogeneous_scale_free_combination",
         "normalized_residue_asymmetry_cross_spectrum",
         "shared_response_identity"
       ],
       "execution_status": "REGISTERED_DISABLED",
-      "fallback_eligibility": "PENDING_GLOBAL_NUISANCE_CERTIFICATE"
+      "fallback_eligibility": "PENDING_GLOBAL_NUISANCE_CERTIFICATE",
+      "owner_issues": [
+        647
+      ],
+      "required_feature_ids": [
+        "finite_port_action",
+        "conditional_maximum_randomness",
+        "finite_local_domain_boundary"
+      ],
+      "search_family": "cross-channel source identities whose registered nuisance directions cancel",
+      "slot_id": "cross_channel_source_identities"
     }
   ]
 }

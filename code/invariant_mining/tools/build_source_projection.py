@@ -10,8 +10,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 STATUS = (
-    "PREGENERATION_POLICY_LOCKED__"
-    "GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION"
+    "REGISTRY_FINALIZED__"
+    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
 )
 SCHEMA = "oph.invariant_mining.source_projection.v1"
 
@@ -110,10 +110,16 @@ def validate_documents(
     grammar: dict[str, Any],
     nuisances: dict[str, Any],
     ranking: dict[str, Any],
+    exposure: dict[str, Any],
 ) -> set[str]:
-    require(policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v1", "policy schema drift")
+    require(policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v2", "policy schema drift")
     require(policy.get("status") == STATUS, "policy status drift")
-    require(policy.get("registry_finalization_complete") is False, "registry may not be finalized in this lock")
+    require(policy.get("registry_finalization_complete") is True, "registry finalization flag drift")
+    budget = policy.get("campaign_comparison_budget")
+    require(isinstance(budget, dict), "campaign comparison budget missing")
+    require(budget.get("maximum_physical_comparisons") == 1, "campaign comparison maximum drift")
+    require(budget.get("comparisons_consumed") == 0, "campaign comparison already consumed")
+    require(budget.get("terminate_after_first_physical_comparison") is True, "campaign termination rule drift")
     require(policy.get("candidate_generator_enabled") is False, "candidate generator must remain disabled")
     require(policy.get("candidate_evaluator_enabled") is False, "candidate evaluator must remain disabled")
     require(policy.get("public_data_access_enabled") is False, "public-data access must remain disabled")
@@ -127,8 +133,8 @@ def validate_documents(
     )
     require(
         source_registry.get("completeness", {}).get("status")
-        == "BOUNDED_SEED_REGISTRY__NOT_FINAL",
-        "source-feature registry must remain explicitly non-final",
+        == "FINAL_FOR_FROZEN_CAMPAIGN_SCOPE",
+        "source-feature registry completeness status drift",
     )
     feature_rows = source_registry.get("features")
     feature_ids = exact_ids(feature_rows, "feature_id", label="source features")
@@ -141,7 +147,7 @@ def validate_documents(
     )
     require(
         producer_registry.get("execution_state")
-        == "ALL_PRODUCERS_DISABLED_PENDING_REGISTRY_FINALIZATION",
+        == "ALL_PRODUCERS_DISABLED_PENDING_ENABLEMENT_REVIEW",
         "producer execution-state drift",
     )
     slot_rows = producer_registry.get("slots")
@@ -282,6 +288,56 @@ def validate_documents(
         "direct-N producer must remain disabled",
     )
 
+    require(
+        exposure.get("schema") == "oph.invariant_mining.exposed_data_registry.v1",
+        "exposed-data registry schema drift",
+    )
+    require(
+        exposure.get("freeze_status") == "FROZEN_BEFORE_CANDIDATE_GENERATION",
+        "exposed-data registry is not frozen",
+    )
+    exposure_rows = exposure.get("surfaces")
+    exposure_ids = exact_ids(exposure_rows, "exposure_id", label="exposed-data surfaces")
+    require(
+        exposure_ids == sorted(policy["required_exposure_ids"]),
+        "required exposed-data surface set drift",
+    )
+    slot_id_set = {row["slot_id"] for row in slot_rows}
+    allowed_exposure_classes = {
+        "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+        "TARGET_ISOLATED_BLIND_POSTDICTION",
+        "EXPOSED_RETROSPECTIVE_COMPARISON",
+        "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY",
+    }
+    require(
+        set(exposure.get("exposure_classes", [])) == allowed_exposure_classes,
+        "exposure class vocabulary drift",
+    )
+    covered_slots: set[str] = set()
+    for row in exposure_rows:
+        require(
+            row.get("default_exposure_class") in allowed_exposure_classes,
+            f"unknown exposure class: {row['exposure_id']}",
+        )
+        require(
+            row.get("quarantine_evidence") is None,
+            f"quarantine evidence may not be pre-claimed: {row['exposure_id']}",
+        )
+        applies = row.get("applies_to_slot_ids")
+        require(
+            isinstance(applies, list)
+            and applies
+            and set(applies) <= slot_id_set,
+            f"exposure surface names unknown slots: {row['exposure_id']}",
+        )
+        covered_slots.update(applies)
+    direct_slot = policy["direct_n_contract"]["slot_id"]
+    uncovered = slot_id_set - covered_slots - {direct_slot}
+    require(
+        not uncovered,
+        f"producer slots without an exposure surface: {sorted(uncovered)}",
+    )
+
     forbidden_keys = set(policy.get("forbidden_document_keys", []))
     for name, document in (
         ("source-feature registry", source_registry),
@@ -289,6 +345,7 @@ def validate_documents(
         ("observable grammar", grammar),
         ("nuisance registry", nuisances),
         ("ranking policy", ranking),
+        ("exposed-data registry", exposure),
     ):
         found = sorted(recursive_keys(document) & forbidden_keys)
         require(not found, f"{name} contains forbidden target keys: {found}")
@@ -317,6 +374,7 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
     grammar_path = package_root / "data" / "observable_grammar.json"
     nuisance_path = package_root / "data" / "nuisance_registry.json"
     ranking_path = package_root / "data" / "ranking_policy.json"
+    exposure_path = package_root / "data" / "exposed_data_registry.json"
 
     policy = load_json(policy_path)
     source_registry = load_json(source_path)
@@ -324,6 +382,7 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
     grammar = load_json(grammar_path)
     nuisances = load_json(nuisance_path)
     ranking = load_json(ranking_path)
+    exposure = load_json(exposure_path)
     source_paths = validate_documents(
         policy=policy,
         source_registry=source_registry,
@@ -331,6 +390,7 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
         grammar=grammar,
         nuisances=nuisances,
         ranking=ranking,
+        exposure=exposure,
     )
 
     control_paths = policy.get("control_artifacts")
@@ -346,6 +406,7 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
         "code/invariant_mining/data/observable_grammar.json",
         "code/invariant_mining/data/nuisance_registry.json",
         "code/invariant_mining/data/ranking_policy.json",
+        "code/invariant_mining/data/exposed_data_registry.json",
         "code/invariant_mining/policy/pregeneration_policy.json",
         "code/invariant_mining/tools/build_source_projection.py",
         "code/invariant_mining/tools/build_pregeneration_freeze.py",
@@ -361,7 +422,7 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
         "issue": 647,
         "status": STATUS,
         "projection_id": "oph-invariant-source-projection-v1",
-        "registry_finalization_complete": False,
+        "registry_finalization_complete": True,
         "candidate_generator_enabled": False,
         "candidate_evaluator_enabled": False,
         "candidate_count": 0,

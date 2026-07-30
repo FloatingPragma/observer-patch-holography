@@ -184,17 +184,19 @@
         "forbidden_document_keys",
         "forbidden_repository_prefixes",
         "forbidden_output_names",
-        "promotion_rule"
+        "promotion_rule",
+        "required_exposure_ids",
+        "campaign_comparison_budget"
       ],
       "properties": {
         "schema": {
-          "const": "oph.invariant_mining.pregeneration_policy.v1"
+          "const": "oph.invariant_mining.pregeneration_policy.v2"
         },
         "issue": {
           "const": 647
         },
         "registry_finalization_complete": {
-          "const": false
+          "const": true
         },
         "candidate_generator_enabled": {
           "const": false
@@ -210,6 +212,131 @@
         },
         "candidate_count": {
           "const": 0
+        },
+        "status": {
+          "const": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+        },
+        "required_exposure_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "campaign_comparison_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "maximum_physical_comparisons",
+            "comparisons_consumed",
+            "terminate_after_first_physical_comparison"
+          ],
+          "properties": {
+            "maximum_physical_comparisons": {
+              "const": 1
+            },
+            "comparisons_consumed": {
+              "const": 0
+            },
+            "terminate_after_first_physical_comparison": {
+              "const": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "issue",
+        "registry_id",
+        "freeze_status",
+        "presumption_rule",
+        "exposure_classes",
+        "scoring_rule",
+        "surfaces"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.exposed_data_registry.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "registry_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "freeze_status": {
+          "const": "FROZEN_BEFORE_CANDIDATE_GENERATION"
+        },
+        "presumption_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exposure_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 4,
+          "uniqueItems": true
+        },
+        "scoring_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "exposure_id",
+              "description",
+              "applies_to_slot_ids",
+              "default_exposure_class",
+              "quarantine_evidence",
+              "future_release_holdout_possible"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "exposure_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "applies_to_slot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "default_exposure_class": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quarantine_evidence": {
+                "type": "null"
+              },
+              "future_release_holdout_possible": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "historical_search_note": {
+          "type": "string"
         }
       }
     }

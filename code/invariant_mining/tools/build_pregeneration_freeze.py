@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 STATUS = (
-    "PREGENERATION_POLICY_LOCKED__"
-    "GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION"
+    "REGISTRY_FINALIZED__"
+    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
 )
 SCHEMA = "oph.invariant_mining.pregeneration_freeze.v1"
 
@@ -71,8 +71,11 @@ def build_freeze(package_root: Path, repo_root: Path) -> dict[str, Any]:
     require(policy.get("status") == STATUS, "policy status drift")
     require(projection.get("schema") == "oph.invariant_mining.source_projection.v1", "source-projection schema drift")
     require(projection.get("status") == STATUS, "source-projection status drift")
+    require(
+        projection.get("registry_finalization_complete") is True,
+        "source projection lost the registry finalization flag",
+    )
     for key in (
-        "registry_finalization_complete",
         "candidate_generator_enabled",
         "candidate_evaluator_enabled",
     ):
@@ -91,6 +94,7 @@ def build_freeze(package_root: Path, repo_root: Path) -> dict[str, Any]:
     require(projected_controls == control_paths, "source projection does not exactly bind control-artifact policy")
 
     document_relatives = [
+        "code/invariant_mining/data/exposed_data_registry.json",
         "code/invariant_mining/data/nuisance_registry.json",
         "code/invariant_mining/data/observable_grammar.json",
         "code/invariant_mining/data/producer_slots.json",
@@ -119,7 +123,7 @@ def build_freeze(package_root: Path, repo_root: Path) -> dict[str, Any]:
             ],
         },
         "execution_boundary": {
-            "registry_finalization_complete": False,
+            "registry_finalization_complete": True,
             "candidate_generator_enabled": False,
             "candidate_evaluator_enabled": False,
             "public_data_access_enabled": False,

@@ -77,7 +77,7 @@ def test_committed_projection_and_freeze_are_byte_exact() -> None:
     assert independent.returncode == 0, independent.stdout + independent.stderr
     assert "SOURCE_PROJECTION_VALID" in projection.stdout
     assert "PREGENERATION_FREEZE_VALID" in freeze.stdout
-    assert "PREGENERATION_POLICY_LOCK_VALID" in independent.stdout
+    assert "REGISTRY_FINALIZATION_LOCK_VALID" in independent.stdout
 
 
 def test_all_control_documents_match_their_typed_schemas() -> None:
@@ -129,6 +129,44 @@ def test_omitted_nuisance_direction_is_rejected(tmp_path: Path) -> None:
     payload["unresolved_directions"] = payload["unresolved_directions"][:-1]
     write(path, payload)
     assert_failed(run(repo, BUILD_PROJECTION), "required unresolved-nuisance set drift")
+
+
+def test_completeness_regression_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "source_feature_registry.json"
+    payload = load(path)
+    payload["completeness"]["status"] = "BOUNDED_SEED_REGISTRY__NOT_FINAL"
+    write(path, payload)
+    assert_failed(run(repo, BUILD_PROJECTION), "completeness status drift")
+
+
+def test_comparison_budget_mutation_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "policy" / "pregeneration_policy.json"
+    payload = load(path)
+    payload["campaign_comparison_budget"]["comparisons_consumed"] = 1
+    write(path, payload)
+    assert_failed(run(repo, BUILD_PROJECTION), "campaign comparison already consumed")
+
+
+def test_exposure_quarantine_preclaim_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "exposed_data_registry.json"
+    payload = load(path)
+    payload["surfaces"][0]["quarantine_evidence"] = "claimed-without-custody"
+    write(path, payload)
+    assert_failed(run(repo, BUILD_PROJECTION), "quarantine evidence may not be pre-claimed")
+
+
+def test_uncovered_slot_exposure_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "exposed_data_registry.json"
+    payload = load(path)
+    for row in payload["surfaces"]:
+        if row["applies_to_slot_ids"] == ["a5_angular_rules"]:
+            row["applies_to_slot_ids"] = ["observer_overlap_cross_spectra"]
+    write(path, payload)
+    assert_failed(run(repo, BUILD_PROJECTION), "producer slots without an exposure surface")
 
 
 def test_direct_n_fallback_reentry_is_rejected(tmp_path: Path) -> None:

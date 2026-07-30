@@ -13,8 +13,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 STATUS = (
-    "PREGENERATION_POLICY_LOCKED__"
-    "GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION"
+    "REGISTRY_FINALIZED__"
+    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
 )
 EXPECTED_FEATURE_IDS = {
     "conditional_maximum_randomness",
@@ -59,6 +59,14 @@ EXPECTED_NUISANCE_IDS = {
     "detector_transfer_calibration",
     "physical_sector_choice",
     "source_admissible_completion",
+}
+EXPECTED_EXPOSURE_IDS = {
+    "cmb_angular_products",
+    "codata_fundamental_constants",
+    "gravitational_wave_catalogs",
+    "neutrino_oscillation_global_fits",
+    "pdg_particle_listings",
+    "precision_qed_ratios",
 }
 EXPECTED_OUTPUT_NAMES = {
     "pregeneration_freeze.json",
@@ -166,6 +174,7 @@ def verify(
     grammar = load(package_root / "data" / "observable_grammar.json")
     nuisances = load(package_root / "data" / "nuisance_registry.json")
     ranking = load(package_root / "data" / "ranking_policy.json")
+    exposure = load(package_root / "data" / "exposed_data_registry.json")
     projection = load(package_root / "outputs" / "source_projection.json")
     freeze = load(package_root / "outputs" / "pregeneration_freeze.json")
     document_schema = load(
@@ -189,13 +198,17 @@ def verify(
     )
 
     require(
-        policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v1",
+        policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v2",
         "POLICY_SCHEMA_DRIFT",
         str(policy.get("schema")),
     )
     require(policy.get("status") == STATUS, "POLICY_STATUS_DRIFT", str(policy.get("status")))
+    require(
+        policy.get("registry_finalization_complete") is True,
+        "REGISTRY_FINALIZATION_FLAG_DRIFT",
+        str(policy.get("registry_finalization_complete")),
+    )
     for key in (
-        "registry_finalization_complete",
         "candidate_generator_enabled",
         "candidate_evaluator_enabled",
         "public_data_access_enabled",
@@ -203,6 +216,45 @@ def verify(
     ):
         require(policy.get(key) is False, "EXECUTION_BOUNDARY_OPEN", key)
     require(policy.get("candidate_count") == 0, "CANDIDATE_COUNT_NONZERO", str(policy.get("candidate_count")))
+    budget = policy.get("campaign_comparison_budget")
+    require(isinstance(budget, dict), "COMPARISON_BUDGET_MISSING", str(budget))
+    require(
+        budget.get("maximum_physical_comparisons") == 1
+        and budget.get("comparisons_consumed") == 0
+        and budget.get("terminate_after_first_physical_comparison") is True,
+        "COMPARISON_BUDGET_DRIFT",
+        str(budget),
+    )
+    require(
+        set(policy.get("required_exposure_ids", [])) == EXPECTED_EXPOSURE_IDS,
+        "POLICY_EXPOSURE_SET_DRIFT",
+        "required_exposure_ids",
+    )
+    require(
+        exposure.get("schema")
+        == "oph.invariant_mining.exposed_data_registry.v1",
+        "EXPOSURE_SCHEMA_DRIFT",
+        str(exposure.get("schema")),
+    )
+    require(
+        exposure.get("freeze_status") == "FROZEN_BEFORE_CANDIDATE_GENERATION",
+        "EXPOSURE_NOT_FROZEN",
+        str(exposure.get("freeze_status")),
+    )
+    exposure_rows = rows_by_id(
+        exposure.get("surfaces"), "exposure_id", "exposed-data surfaces"
+    )
+    require(
+        set(exposure_rows) == EXPECTED_EXPOSURE_IDS,
+        "EXPOSURE_SURFACE_OMISSION",
+        str(sorted(exposure_rows)),
+    )
+    for exposure_id, row in exposure_rows.items():
+        require(
+            row.get("quarantine_evidence") is None,
+            "EXPOSURE_QUARANTINE_PRECLAIMED",
+            exposure_id,
+        )
 
     require(
         set(policy.get("required_feature_ids", [])) == EXPECTED_FEATURE_IDS,
@@ -239,7 +291,7 @@ def verify(
     )
     require(
         source.get("completeness", {}).get("status")
-        == "BOUNDED_SEED_REGISTRY__NOT_FINAL",
+        == "FINAL_FOR_FROZEN_CAMPAIGN_SCOPE",
         "SOURCE_REGISTRY_FALSE_COMPLETENESS",
         str(source.get("completeness")),
     )
@@ -253,7 +305,7 @@ def verify(
     )
     require(
         producers.get("execution_state")
-        == "ALL_PRODUCERS_DISABLED_PENDING_REGISTRY_FINALIZATION",
+        == "ALL_PRODUCERS_DISABLED_PENDING_ENABLEMENT_REVIEW",
         "PRODUCER_EXECUTION_STATE_OPEN",
         str(producers.get("execution_state")),
     )
@@ -450,6 +502,7 @@ def verify(
         ("grammar", grammar),
         ("nuisances", nuisances),
         ("ranking", ranking),
+        ("exposure", exposure),
     ):
         leaked = sorted(all_keys(document) & forbidden_keys)
         require(not leaked, "FORBIDDEN_TARGET_KEY", f"{label}: {leaked}")
@@ -463,6 +516,7 @@ def verify(
         str(control_paths),
     )
     required_control_paths = {
+        "code/invariant_mining/data/exposed_data_registry.json",
         "code/invariant_mining/data/nuisance_registry.json",
         "code/invariant_mining/data/observable_grammar.json",
         "code/invariant_mining/data/producer_slots.json",
@@ -484,7 +538,7 @@ def verify(
         "issue": 647,
         "status": STATUS,
         "projection_id": "oph-invariant-source-projection-v1",
-        "registry_finalization_complete": False,
+        "registry_finalization_complete": True,
         "candidate_generator_enabled": False,
         "candidate_evaluator_enabled": False,
         "candidate_count": 0,
@@ -501,6 +555,7 @@ def verify(
     )
 
     document_relatives = [
+        "code/invariant_mining/data/exposed_data_registry.json",
         "code/invariant_mining/data/nuisance_registry.json",
         "code/invariant_mining/data/observable_grammar.json",
         "code/invariant_mining/data/producer_slots.json",
@@ -526,7 +581,7 @@ def verify(
             "execution_status": "REGISTERED_DISABLED",
         },
         "execution_boundary": {
-            "registry_finalization_complete": False,
+            "registry_finalization_complete": True,
             "candidate_generator_enabled": False,
             "candidate_evaluator_enabled": False,
             "public_data_access_enabled": False,
@@ -587,7 +642,7 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=default_repo)
     args = parser.parse_args()
     verify(args.package_root.resolve(), args.repo_root.resolve())
-    print("PREGENERATION_POLICY_LOCK_VALID")
+    print("REGISTRY_FINALIZATION_LOCK_VALID")
 
 
 if __name__ == "__main__":

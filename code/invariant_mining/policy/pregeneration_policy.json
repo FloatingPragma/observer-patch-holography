@@ -1,65 +1,15 @@
 {
-  "schema": "oph.invariant_mining.pregeneration_policy.v1",
-  "issue": 647,
-  "policy_id": "oph-invariant-pregeneration-lock-v1",
-  "status": "PREGENERATION_POLICY_LOCKED__GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION",
-  "registry_finalization_complete": false,
-  "candidate_generator_enabled": false,
-  "candidate_evaluator_enabled": false,
-  "public_data_access_enabled": false,
-  "target_payloads_registered": false,
-  "candidate_count": 0,
-  "required_feature_ids": [
-    "conditional_maximum_randomness",
-    "diagonal_z6_descent",
-    "direct_n_bounded_counterfamily_nonidentifiability",
-    "family_band_response",
-    "finite_local_domain_boundary",
-    "finite_port_action",
-    "observer_agreement_and_readback",
-    "oriented_twelve_port_carrier"
-  ],
-  "required_producer_slot_ids": [
-    "a5_angular_rules",
-    "cross_channel_source_identities",
-    "direct_n_capacity_closure",
-    "family_trace_mixing_invariants",
-    "observer_overlap_cross_spectra",
-    "wz_scale_free_response",
-    "z6_charge_line_congruences"
-  ],
-  "required_grammar_class_ids": [
-    "angular_selection_cross_level_correlation",
-    "discrete_congruence_parity_ordering_multiplicity",
-    "exact_zero_forbidden_transition",
-    "homogeneous_scale_free_combination",
-    "normalized_residue_asymmetry_cross_spectrum",
-    "refinement_scaling_exponent",
-    "rg_invariant_combination",
-    "shared_response_identity",
-    "trace_determinant_character_index"
-  ],
-  "required_nuisance_type_ids": [
-    "alternative_source_admissible_completion",
-    "continuous_physical_parameter",
-    "coordinate_equivalence_nuisance",
-    "discrete_branch_selector",
-    "measurement_calibration_nuisance"
-  ],
-  "required_nuisance_ids": [
-    "basis_and_coordinate_choice",
-    "common_dimensionful_scale",
-    "detector_transfer_calibration",
-    "physical_sector_choice",
-    "source_admissible_completion"
-  ],
-  "direct_n_contract": {
-    "slot_id": "direct_n_capacity_closure",
-    "required_fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
-    "required_execution_status": "REGISTERED_DISABLED"
+  "campaign_comparison_budget": {
+    "comparisons_consumed": 0,
+    "maximum_physical_comparisons": 1,
+    "terminate_after_first_physical_comparison": true
   },
+  "candidate_count": 0,
+  "candidate_evaluator_enabled": false,
+  "candidate_generator_enabled": false,
   "control_artifacts": [
     "code/invariant_mining/README.md",
+    "code/invariant_mining/data/exposed_data_registry.json",
     "code/invariant_mining/data/nuisance_registry.json",
     "code/invariant_mining/data/observable_grammar.json",
     "code/invariant_mining/data/producer_slots.json",
@@ -74,6 +24,11 @@
     "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
     "tools/run_mandatory_suite.py"
   ],
+  "direct_n_contract": {
+    "required_execution_status": "REGISTERED_DISABLED",
+    "required_fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
+    "slot_id": "direct_n_capacity_closure"
+  },
   "forbidden_document_keys": [
     "comparison_payload",
     "measured_value",
@@ -82,11 +37,6 @@
     "target_value",
     "unsealed_value"
   ],
-  "forbidden_repository_prefixes": [
-    "public_data/",
-    "code/particles/forecast_contract/sealed/",
-    "falsification/frozen_targets/"
-  ],
   "forbidden_output_names": [
     "candidate_inventory.json",
     "candidates.json",
@@ -94,5 +44,69 @@
     "scores.json",
     "verdict.json"
   ],
-  "promotion_rule": "Registry finalization and generator enablement require a separately reviewed successor policy and a pre-generation commit boundary."
+  "forbidden_repository_prefixes": [
+    "public_data/",
+    "code/particles/forecast_contract/sealed/",
+    "falsification/frozen_targets/"
+  ],
+  "issue": 647,
+  "policy_id": "oph-invariant-registry-finalization-v2",
+  "promotion_rule": "Generator and evaluator enablement require a separately reviewed successor policy that changes no registry, grammar, ranking, nuisance, exposure, or direct-N content, and the campaign terminates after its first physical comparison.",
+  "public_data_access_enabled": false,
+  "registry_finalization_complete": true,
+  "required_exposure_ids": [
+    "cmb_angular_products",
+    "codata_fundamental_constants",
+    "gravitational_wave_catalogs",
+    "neutrino_oscillation_global_fits",
+    "pdg_particle_listings",
+    "precision_qed_ratios"
+  ],
+  "required_feature_ids": [
+    "conditional_maximum_randomness",
+    "diagonal_z6_descent",
+    "direct_n_bounded_counterfamily_nonidentifiability",
+    "family_band_response",
+    "finite_local_domain_boundary",
+    "finite_port_action",
+    "observer_agreement_and_readback",
+    "oriented_twelve_port_carrier"
+  ],
+  "required_grammar_class_ids": [
+    "angular_selection_cross_level_correlation",
+    "discrete_congruence_parity_ordering_multiplicity",
+    "exact_zero_forbidden_transition",
+    "homogeneous_scale_free_combination",
+    "normalized_residue_asymmetry_cross_spectrum",
+    "refinement_scaling_exponent",
+    "rg_invariant_combination",
+    "shared_response_identity",
+    "trace_determinant_character_index"
+  ],
+  "required_nuisance_ids": [
+    "basis_and_coordinate_choice",
+    "common_dimensionful_scale",
+    "detector_transfer_calibration",
+    "physical_sector_choice",
+    "source_admissible_completion"
+  ],
+  "required_nuisance_type_ids": [
+    "alternative_source_admissible_completion",
+    "continuous_physical_parameter",
+    "coordinate_equivalence_nuisance",
+    "discrete_branch_selector",
+    "measurement_calibration_nuisance"
+  ],
+  "required_producer_slot_ids": [
+    "a5_angular_rules",
+    "cross_channel_source_identities",
+    "direct_n_capacity_closure",
+    "family_trace_mixing_invariants",
+    "observer_overlap_cross_spectra",
+    "wz_scale_free_response",
+    "z6_charge_line_congruences"
+  ],
+  "schema": "oph.invariant_mining.pregeneration_policy.v2",
+  "status": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW",
+  "target_payloads_registered": false
 }

@@ -6,6 +6,11 @@
   },
   "document_bindings": [
     {
+      "bytes": 3676,
+      "path": "code/invariant_mining/data/exposed_data_registry.json",
+      "sha256": "sha256:5e22a0c447265dc79f0284895b3a0d65b618b31f13dbf0edabb3e8bc1452ff5c"
+    },
+    {
       "bytes": 3292,
       "path": "code/invariant_mining/data/nuisance_registry.json",
       "sha256": "sha256:d215bc74110c7f6f22ef1beeeeca8555a1f26a35912c24a355bc1081031ca426"
@@ -16,9 +21,9 @@
       "sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383"
     },
     {
-      "bytes": 4599,
+      "bytes": 4656,
       "path": "code/invariant_mining/data/producer_slots.json",
-      "sha256": "sha256:d998b6c0994531cd139c25d5506c761044e2d6a05e7d697b0c04809427f3cbd0"
+      "sha256": "sha256:d1f73fffed11da5cb11b1077486188b1c2d82dfbd98da4e07031ded57163a498"
     },
     {
       "bytes": 1696,
@@ -26,19 +31,19 @@
       "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
     },
     {
-      "bytes": 8598,
+      "bytes": 9531,
       "path": "code/invariant_mining/data/source_feature_registry.json",
-      "sha256": "sha256:65ae0ebd6a71f5a53b21c5a6fc9f01fee8352f69d46446f525ca7df8ccc5939e"
+      "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
     },
     {
-      "bytes": 3582,
+      "bytes": 4124,
       "path": "code/invariant_mining/policy/pregeneration_policy.json",
-      "sha256": "sha256:0787a7539c578bd382cdd7bc7f16538a48883191fa18b8a49f83ceece3157cad"
+      "sha256": "sha256:0ccd58914fc2b62611ad1175bd6ed3b5f46b7b468f0c9e70ccdfe4ad44876f37"
     },
     {
-      "bytes": 6255,
+      "bytes": 9643,
       "path": "code/invariant_mining/schemas/pregeneration_documents.schema.json",
-      "sha256": "sha256:8589a078577c4129bed4bd8bd5d759210c1eb17b24707991cd60048a1f929c8f"
+      "sha256": "sha256:15bb3c13b7051ac36a79ec9289f6885d8a980a4adebc8a65f3acad050bfe5192"
     },
     {
       "bytes": 870,
@@ -52,17 +57,17 @@
     "candidate_generator_enabled": false,
     "comparison_scoring_enabled": false,
     "public_data_access_enabled": false,
-    "registry_finalization_complete": false,
+    "registry_finalization_complete": true,
     "target_payloads_registered": false
   },
-  "freeze_id": "sha256:661d8c1dd72af1d0d64e3c644a3b71344729b3e69e1b055d34f0f4b12b596471",
+  "freeze_id": "sha256:888be21ded004021fd39a18b12cf326df06a5d9474494a56344d6822f9b6b6dd",
   "issue": 647,
-  "promotion_rule": "Registry finalization and generator enablement require a separately reviewed successor policy and a pre-generation commit boundary.",
+  "promotion_rule": "Generator and evaluator enablement require a separately reviewed successor policy that changes no registry, grammar, ranking, nuisance, exposure, or direct-N content, and the campaign terminates after its first physical comparison.",
   "schema": "oph.invariant_mining.pregeneration_freeze.v1",
   "source_projection": {
-    "bytes": 6941,
+    "bytes": 7338,
     "path": "code/invariant_mining/outputs/source_projection.json",
-    "sha256": "sha256:8e72666d212f5bc0cbdae0a929ce7b3fcc1262f0e13dd80977c13efe34eee12e"
+    "sha256": "sha256:19cfcc0cf390de700d8102753dc8ac9a0542be0fb5711b2f3dd0ba05b68ad3d3"
   },
-  "status": "PREGENERATION_POLICY_LOCKED__GENERATOR_DISABLED_PENDING_REGISTRY_FINALIZATION"
+  "status": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
 }
