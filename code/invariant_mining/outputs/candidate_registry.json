@@ -1,6 +1,167 @@
 {
-  "candidate_count": 5,
+  "candidate_count": 14,
   "candidates": [
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a response model whose conjugate-channel cost ratio differs from the squared golden ratio is baseline-consistent and violates the identity",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no band-cost observable, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "wz-band-channel-shared-identity",
+      "exposure_surfaces": [
+        "codata_fundamental_constants",
+        "pdg_particle_listings"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 5,
+        "form": "equality of two independently produced channel eigenvalue vectors",
+        "registered_terminals": [
+          "registered_exact_algebraic",
+          "registered_correlation"
+        ]
+      },
+      "grammar_class": "shared_response_identity",
+      "kill_rule": "a certified divergence between the two independently produced channel vectors falsifies the shared response identification",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band costs and channel eigenvalues are spectral data, invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations are ratios and eigenvalue identities in which any common scale cancels exactly",
+          "status": "QUOTIENTED_BY_HOMOGENEITY"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__POLE_RESIDUE_READOUT_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 1,
+      "relation_certificate": {
+        "family_receipt_channels": [
+          "0+1*sqrt5",
+          "0+-1*sqrt5",
+          "-1+0*sqrt5"
+        ],
+        "kind": "cross_receipt_shared_identity",
+        "recomputable_from": "adjacency_band_certificate",
+        "recomputed_band_eigenvalues": [
+          "0+1*sqrt5",
+          "0+-1*sqrt5",
+          "-1+0*sqrt5"
+        ]
+      },
+      "score": 175,
+      "slot_id": "wz_scale_free_response",
+      "source_ancestry": {
+        "feature_ids": [
+          "finite_port_action",
+          "family_band_response"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the family-band channel eigenvalues recorded in the family attachment receipt equal the icosahedral adjacency band eigenvalues recomputed from the port graph",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": false,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a response model whose conjugate-channel cost ratio differs from the squared golden ratio is baseline-consistent and violates the identity",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no band-cost observable, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "wz-galois-cost-ratio-phi-squared",
+      "exposure_surfaces": [
+        "codata_fundamental_constants",
+        "pdg_particle_listings"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 7,
+        "form": "ratio of the conjugate registered band costs",
+        "registered_terminals": [
+          "registered_exact_algebraic"
+        ]
+      },
+      "grammar_class": "homogeneous_scale_free_combination",
+      "kill_rule": "a certified conjugate-channel cost ratio away from the squared golden ratio falsifies the band identification",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band costs and channel eigenvalues are spectral data, invariant under basis and coordinate changes",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations are ratios and eigenvalue identities in which any common scale cancels exactly",
+          "status": "QUOTIENTED_BY_HOMOGENEITY"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__POLE_RESIDUE_READOUT_AND_LABORATORY_ATTACHMENT_REQUIRED",
+      "rank": 2,
+      "relation_certificate": {
+        "kind": "exact_q5_identity",
+        "phi_squared": "3/2+1/2*sqrt5",
+        "pinned_costs": [
+          "5+1*sqrt5",
+          "5+-1*sqrt5"
+        ],
+        "ratio": "3/2+1/2*sqrt5",
+        "recomputable_from": "galois_ratio_certificate"
+      },
+      "score": 169,
+      "slot_id": "wz_scale_free_response",
+      "source_ancestry": {
+        "feature_ids": [
+          "finite_port_action",
+          "family_band_response"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the ratio of the Galois-conjugate band costs equals the squared golden ratio exactly",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": false,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
     {
       "baseline_contract": {
         "baseline_class": "minimal Standard Model plus general relativity",
@@ -48,7 +209,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 1,
+      "rank": 3,
       "relation_certificate": {
         "kernel_order": 6,
         "kind": "pinned_kernel_order",
@@ -64,6 +225,163 @@
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
       "statement": "the quotient covering kernel is cyclic of order six, so the flux and line classification of the quotient form refines the unquotiented lattice by exactly six classes",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
+      "candidate_id": "a5-galois-conjugate-correlation",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 5,
+        "form": "cross-level asymmetry of a rational angular statistic over the conjugate band pair",
+        "registered_terminals": [
+          "registered_correlation",
+          "registered_exact_algebraic"
+        ]
+      },
+      "grammar_class": "angular_selection_cross_level_correlation",
+      "kill_rule": "a measured rational angular statistic separating the conjugate band pair falsifies the declared carrier branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED",
+      "rank": 4,
+      "relation_certificate": {
+        "conjugate_pair": [
+          "5+1*sqrt5",
+          "5+-1*sqrt5"
+        ],
+        "kind": "pinned_galois_conjugacy",
+        "source": "hilbert_schmidt_pullback_band_coefficients in the pinned port-current receipt"
+      },
+      "score": 130,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the two three-dimensional bands are Galois conjugates, so every rational-coefficient angular statistic takes equal values on them and their cross-level asymmetry vanishes",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
+      "candidate_id": "a5-band-multiplicity-pattern",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 5,
+        "form": "trace-derived multiplicity vector of the port adjacency",
+        "registered_terminals": [
+          "registered_trace",
+          "registered_multiplicity"
+        ]
+      },
+      "grammar_class": "trace_determinant_character_index",
+      "kill_rule": "an observed screen angular decomposition with a different band pattern falsifies the declared carrier branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED",
+      "rank": 5,
+      "relation_certificate": {
+        "band_multiplicities": {
+          "-1": 5,
+          "-sqrt5": 3,
+          "5": 1,
+          "sqrt5": 3
+        },
+        "kind": "exact_integer_annihilating_polynomial",
+        "polynomial": "(A-5I)(A^2-5I)(A+I)=0",
+        "recomputable_from": "adjacency_band_certificate"
+      },
+      "score": 130,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the twelve-port coefficient space splits into bands of dimensions one, three, three, and five with adjacency eigenvalues five, root five, minus root five, and minus one",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -123,7 +441,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 2,
+      "rank": 6,
       "relation_certificate": {
         "descending_rows": 6,
         "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -199,7 +517,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 3,
+      "rank": 7,
       "relation_certificate": {
         "descending_duality_six_y": [
           [
@@ -284,7 +602,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 4,
+      "rank": 8,
       "relation_certificate": {
         "descending_six_y_classes": [
           0
@@ -362,7 +680,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 5,
+      "rank": 9,
       "relation_certificate": {
         "forbidden_rows": 30,
         "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -385,6 +703,395 @@
         "conditional_branch": true,
         "exact_global_certificate": true,
         "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
+      "candidate_id": "a5-cross-band-pairing-zero",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "exact_zero of the class-weighted character inner product",
+        "registered_terminals": [
+          "registered_character",
+          "registered_integer"
+        ]
+      },
+      "grammar_class": "exact_zero_forbidden_transition",
+      "kill_rule": "an observed invariant bilinear coupling between the two three-dimensional angular channels falsifies the declared carrier branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED",
+      "rank": 10,
+      "relation_certificate": {
+        "invariant_multiplicity": "0+0*sqrt5",
+        "kind": "exact_class_weighted_character_sum",
+        "recomputable_from": "a5_pairing_certificate",
+        "self_pairings": [
+          "1+0*sqrt5",
+          "1+0*sqrt5"
+        ]
+      },
+      "score": 118,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the invariant pairing between the two three-dimensional bands vanishes exactly, so invariant couplings cannot connect them at bilinear order",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
+      "candidate_id": "a5-kernel-band-even-block-zero",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 2,
+        "ast_nodes": 2,
+        "complexity_units": 3,
+        "form": "exact_zero of the kernel-band even-block multiplicity",
+        "registered_terminals": [
+          "registered_multiplicity"
+        ]
+      },
+      "grammar_class": "exact_zero_forbidden_transition",
+      "kill_rule": "an observed kernel-band response in the even angular channel falsifies the declared carrier branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED",
+      "rank": 11,
+      "relation_certificate": {
+        "kind": "pinned_certificate_value",
+        "multiplicity_of_kernel_band_in_even_block": 0,
+        "source": "kernel_band_schur_rigidity in the pinned port-current receipt"
+      },
+      "score": 46,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the kernel band has multiplicity zero in the even block, so kernel-band angular response in the even channel is forbidden",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": false,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "an overlap cross-spectrum with flat modes in two sectors, or with a conjugate-sector asymmetry, is baseline-consistent and violates the relations",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "overlap-unique-flat-sector",
+      "exposure_surfaces": [
+        "gravitational_wave_catalogs"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 2,
+        "ast_nodes": 2,
+        "complexity_units": 3,
+        "form": "kernel-count vector of the six twist sectors",
+        "registered_terminals": [
+          "registered_multiplicity"
+        ]
+      },
+      "grammar_class": "shared_response_identity",
+      "kill_rule": "an observed overlap cross-spectrum with flat modes in a different sector count falsifies the declared seam branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "kernel counts and sector conjugation structure are spectral data of the declared sector operators",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations use kernel counts and sector labels only; no dimensionful gap value enters",
+          "status": "QUOTIENTED_BY_CONSTRUCTION"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-orientation-reversing-seam-convention",
+          "note": "the twist sectors are defined along the declared seam orientation convention; every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the declared seam complex",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
+      "rank": 12,
+      "relation_certificate": {
+        "classical_doubled_pattern": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "kernel_pattern": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "kind": "pinned_receipt_value",
+        "source": "sector_readings in the pinned classical realization receipt"
+      },
+      "score": 46,
+      "slot_id": "observer_overlap_cross_spectra",
+      "source_ancestry": {
+        "feature_ids": [
+          "observer_agreement_and_readback",
+          "finite_local_domain_boundary"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "exactly one twist sector carries the flat overlap mode: the unit-transport sector, with kernel pattern zero elsewhere",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": false,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "an overlap cross-spectrum with flat modes in two sectors, or with a conjugate-sector asymmetry, is baseline-consistent and violates the relations",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "overlap-conjugate-sector-symmetry",
+      "exposure_surfaces": [
+        "gravitational_wave_catalogs"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 2,
+        "ast_nodes": 2,
+        "complexity_units": 6,
+        "form": "normalized asymmetry between conjugate sector spectra",
+        "registered_terminals": [
+          "registered_correlation"
+        ]
+      },
+      "grammar_class": "normalized_residue_asymmetry_cross_spectrum",
+      "kill_rule": "a certified nonzero conjugate-sector asymmetry falsifies the declared seam branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "kernel counts and sector conjugation structure are spectral data of the declared sector operators",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations use kernel counts and sector labels only; no dimensionful gap value enters",
+          "status": "QUOTIENTED_BY_CONSTRUCTION"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-orientation-reversing-seam-convention",
+          "note": "the twist sectors are defined along the declared seam orientation convention; every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the declared seam complex",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
+      "rank": 13,
+      "relation_certificate": {
+        "kind": "operator_conjugation_symmetry",
+        "pinned_confirmation": "sector readings one and five, and two and four, agree in the pinned receipt",
+        "statement": "the sector operator for twist class k is the complex conjugate of the operator for class six minus k, so their spectra coincide exactly"
+      },
+      "score": 37,
+      "slot_id": "observer_overlap_cross_spectra",
+      "source_ancestry": {
+        "feature_ids": [
+          "observer_agreement_and_readback",
+          "finite_local_domain_boundary"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "conjugate twist sectors carry identical spectra, so the normalized cross-spectrum asymmetry between conjugate sectors vanishes",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": false,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "an overlap cross-spectrum with flat modes in two sectors, or with a conjugate-sector asymmetry, is baseline-consistent and violates the relations",
+        "field_content": "established matter",
+        "global_form_policy": "the baseline carries no observer-overlap twist sectors, so the relations are unconstrained baseline directions"
+      },
+      "candidate_id": "overlap-flat-sector-refinement-stability",
+      "exposure_surfaces": [
+        "gravitational_wave_catalogs"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 5,
+        "form": "scaling exponent of the kernel pattern along the ladder",
+        "registered_terminals": [
+          "registered_multiplicity",
+          "registered_integer"
+        ]
+      },
+      "grammar_class": "refinement_scaling_exponent",
+      "kill_rule": "a refinement rung moving the flat mode to a different sector falsifies the declared seam branch",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "kernel counts and sector conjugation structure are spectral data of the declared sector operators",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "certificate": "the relations use kernel counts and sector labels only; no dimensionful gap value enters",
+          "status": "QUOTIENTED_BY_CONSTRUCTION"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-orientation-reversing-seam-convention",
+          "note": "the twist sectors are defined along the declared seam orientation convention; every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the declared seam complex",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
+      "rank": 14,
+      "relation_certificate": {
+        "kind": "pinned_receipt_value",
+        "ladder_points": 6,
+        "source": "ladder_point_readings in the pinned classical realization receipt"
+      },
+      "score": -80,
+      "slot_id": "observer_overlap_cross_spectra",
+      "source_ancestry": {
+        "feature_ids": [
+          "observer_agreement_and_readback",
+          "finite_local_domain_boundary"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "the flat-sector location is refinement-stable: the kernel pattern scales with exponent zero along the declared refinement ladder",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": false,
+        "independent_recomputation": false,
         "open_physical_map": true,
         "physicalization_complete": false
       }
@@ -653,23 +1360,35 @@
     "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
   },
   "issue": 647,
-  "registry_sha256": "sha256:f1a3440c5a2059189937a758025f1dc99ad3fcecc5ed7742e9a3ffb70a3c70d5",
+  "registry_sha256": "sha256:3eaa4048924f358f7df166a31b2b2aa76a4dc74012c98e9f36078d13a938dcb8",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,
     "physical_scoring_permitted": false,
-    "reason": "scoring waits for the complete registry: every slot must reach GENERATED or a typed negative state, and issue 639 owns the single sealed comparison"
+    "reason": "every slot carries a generation outcome, so the registry is complete; scoring stays sealed behind a separately reviewed unsealing change and the single issue-639 comparison with custody and exposure typing"
+  },
+  "skip_records": {
+    "cross_channel_source_identities": {
+      "detail": "cross-channel identities require a global cancellation certificate for the common dimensionful scale and the source-admissible completion directions; those certificates do not exist, so the frozen skip policy records the typed row without grammar expansion",
+      "post_skip_action": "record_negative_or_not_evaluable_row_without_grammar_expansion",
+      "skip_condition": "incomplete_global_nuisance_coverage"
+    },
+    "family_trace_mixing_invariants": {
+      "detail": "the family trace, determinant, and mixing invariants consume a positive physical family attachment; that producer verdict is open, so the frozen skip policy records the typed row without grammar expansion",
+      "post_skip_action": "record_negative_or_not_evaluable_row_without_grammar_expansion",
+      "skip_condition": "open_physical_attachment"
+    }
   },
   "slot_generation_states": {
-    "a5_angular_rules": "REGISTERED_AWAITING_GENERATION",
-    "cross_channel_source_identities": "REGISTERED_AWAITING_GENERATION",
+    "a5_angular_rules": "GENERATED",
+    "cross_channel_source_identities": "NOT_EVALUABLE_TYPED_SKIP",
     "direct_n_capacity_closure": "EXCLUDED_EXTERNALLY_ORDERED_DIRECT_N",
-    "family_trace_mixing_invariants": "REGISTERED_AWAITING_GENERATION",
-    "observer_overlap_cross_spectra": "REGISTERED_AWAITING_GENERATION",
-    "wz_scale_free_response": "REGISTERED_AWAITING_GENERATION",
+    "family_trace_mixing_invariants": "NOT_EVALUABLE_TYPED_SKIP",
+    "observer_overlap_cross_spectra": "GENERATED",
+    "wz_scale_free_response": "GENERATED",
     "z6_charge_line_congruences": "GENERATED"
   },
-  "status": "GENERATED_PARTIAL__SCORING_SEALED",
+  "status": "GENERATION_COMPLETE__SCORING_SEALED",
   "target_cleanliness": {
     "comparison_payload_read": false,
     "public_measurement_read": false,

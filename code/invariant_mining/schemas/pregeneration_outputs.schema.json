@@ -46,7 +46,8 @@
         "candidate_count",
         "scoring_boundary",
         "target_cleanliness",
-        "registry_sha256"
+        "registry_sha256",
+        "skip_records"
       ],
       "properties": {
         "schema": {
@@ -56,7 +57,7 @@
           "const": 647
         },
         "status": {
-          "const": "GENERATED_PARTIAL__SCORING_SEALED"
+          "const": "GENERATION_COMPLETE__SCORING_SEALED"
         },
         "candidates": {
           "type": "array",
