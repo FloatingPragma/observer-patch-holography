@@ -1,7 +1,7 @@
 {
   "candidate_count": 0,
-  "candidate_evaluator_enabled": false,
-  "candidate_generator_enabled": false,
+  "candidate_evaluator_enabled": true,
+  "candidate_generator_enabled": true,
   "control_documents": [
     {
       "bytes": 3592,
@@ -39,14 +39,14 @@
       "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
     },
     {
-      "bytes": 4124,
+      "bytes": 4217,
       "path": "code/invariant_mining/policy/pregeneration_policy.json",
-      "sha256": "sha256:0ccd58914fc2b62611ad1175bd6ed3b5f46b7b468f0c9e70ccdfe4ad44876f37"
+      "sha256": "sha256:b5e69c06db87ac1210a936d04d7194cc8d69429bae3a647866ea7f953335d287"
     },
     {
-      "bytes": 9904,
+      "bytes": 10037,
       "path": "code/invariant_mining/schemas/pregeneration_documents.schema.json",
-      "sha256": "sha256:cd48a773d377bcd62c81411706912d0fb343bea8503906f1c4157ea19d891b99"
+      "sha256": "sha256:962b46a3e27a73c16504de607d501ec38fd68db2f23bd9b491dc2571c90cba80"
     },
     {
       "bytes": 870,
@@ -54,24 +54,24 @@
       "sha256": "sha256:a6e2c7a5021b8e200623a2a18903ff8c178b28b620c7d13b6d41dd6b64728fc5"
     },
     {
-      "bytes": 13716,
+      "bytes": 13705,
       "path": "code/invariant_mining/tests/test_pregeneration_lock.py",
-      "sha256": "sha256:0a489016c6c86a321bbc0a30565df078d8f7f256f6e4cdc628b3bd393dc0eff3"
+      "sha256": "sha256:bd977edfff69bda8593aa868abbf38ef5ad555953ee91b9e3fd554d9bfaec5b7"
     },
     {
-      "bytes": 6833,
+      "bytes": 6801,
       "path": "code/invariant_mining/tools/build_pregeneration_freeze.py",
-      "sha256": "sha256:da649aa7024cabe75e221c46c865547473be8bbc8bfb9bba1ebe9d2d693426de"
+      "sha256": "sha256:32863224b66173aea6371300971d4b9a11f343ed6b8348808225ef41fe4f6c43"
     },
     {
-      "bytes": 18685,
+      "bytes": 18834,
       "path": "code/invariant_mining/tools/build_source_projection.py",
-      "sha256": "sha256:1438777e858de6e6d8c07994d69a5b7162170a6ea0569e52bc78df117be76efd"
+      "sha256": "sha256:a8768dc597330304d3fe947e0ed1b5fd24fb7943cd4a1bd1aac6a209300cedc5"
     },
     {
-      "bytes": 24865,
+      "bytes": 25254,
       "path": "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
-      "sha256": "sha256:d62d3e75c3bc08ea587c8fde19bc814192099e2675da51aa006348c4cb50e362"
+      "sha256": "sha256:4ea056870bd8ba9bb6123e8f36e151dd24b7e044bde9c6feca1cd3c5199c95ab"
     },
     {
       "bytes": 14545,
@@ -186,5 +186,5 @@
       "sha256": "sha256:bd1be2b33032aaec75b3faf9d4045da69f8e281f551400938e6eb8990ef964ad"
     }
   ],
-  "status": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+  "status": "GENERATION_ENABLED__COMPARISON_SEALED"
 }

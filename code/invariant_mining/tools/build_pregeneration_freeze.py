@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 STATUS = (
-    "REGISTRY_FINALIZED__"
-    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+    "GENERATION_ENABLED__"
+    "COMPARISON_SEALED"
 )
 SCHEMA = "oph.invariant_mining.pregeneration_freeze.v1"
 
@@ -79,7 +79,7 @@ def build_freeze(package_root: Path, repo_root: Path) -> dict[str, Any]:
         "candidate_generator_enabled",
         "candidate_evaluator_enabled",
     ):
-        require(projection.get(key) is False, f"source projection changed execution boundary: {key}")
+        require(projection.get(key) is True, f"source projection lost the enablement flag: {key}")
     require(projection.get("candidate_count") == 0, "source projection contains candidates")
 
     all_pins = projection.get("control_documents", []) + projection.get("source_artifacts", [])
@@ -124,8 +124,8 @@ def build_freeze(package_root: Path, repo_root: Path) -> dict[str, Any]:
         },
         "execution_boundary": {
             "registry_finalization_complete": True,
-            "candidate_generator_enabled": False,
-            "candidate_evaluator_enabled": False,
+            "candidate_generator_enabled": True,
+            "candidate_evaluator_enabled": True,
             "public_data_access_enabled": False,
             "target_payloads_registered": False,
             "candidate_count": 0,

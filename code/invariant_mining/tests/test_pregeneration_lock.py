@@ -77,7 +77,7 @@ def test_committed_projection_and_freeze_are_byte_exact() -> None:
     assert independent.returncode == 0, independent.stdout + independent.stderr
     assert "SOURCE_PROJECTION_VALID" in projection.stdout
     assert "PREGENERATION_FREEZE_VALID" in freeze.stdout
-    assert "REGISTRY_FINALIZATION_LOCK_VALID" in independent.stdout
+    assert "GENERATION_LOCK_VALID" in independent.stdout
 
 
 def test_all_control_documents_match_their_typed_schemas() -> None:

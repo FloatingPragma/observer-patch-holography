@@ -10,8 +10,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 STATUS = (
-    "REGISTRY_FINALIZED__"
-    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+    "GENERATION_ENABLED__"
+    "COMPARISON_SEALED"
 )
 SCHEMA = "oph.invariant_mining.source_projection.v1"
 
@@ -112,7 +112,7 @@ def validate_documents(
     ranking: dict[str, Any],
     exposure: dict[str, Any],
 ) -> set[str]:
-    require(policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v2", "policy schema drift")
+    require(policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v3", "policy schema drift")
     require(policy.get("status") == STATUS, "policy status drift")
     require(policy.get("registry_finalization_complete") is True, "registry finalization flag drift")
     budget = policy.get("campaign_comparison_budget")
@@ -120,8 +120,13 @@ def validate_documents(
     require(budget.get("maximum_physical_comparisons") == 1, "campaign comparison maximum drift")
     require(budget.get("comparisons_consumed") == 0, "campaign comparison already consumed")
     require(budget.get("terminate_after_first_physical_comparison") is True, "campaign termination rule drift")
-    require(policy.get("candidate_generator_enabled") is False, "candidate generator must remain disabled")
-    require(policy.get("candidate_evaluator_enabled") is False, "candidate evaluator must remain disabled")
+    require(policy.get("candidate_generator_enabled") is True, "candidate generator enablement flag drift")
+    require(policy.get("candidate_evaluator_enabled") is True, "candidate evaluator enablement flag drift")
+    require(
+        policy.get("declared_candidate_output")
+        == "code/invariant_mining/outputs/candidate_registry.json",
+        "declared candidate output drift",
+    )
     require(policy.get("public_data_access_enabled") is False, "public-data access must remain disabled")
     require(policy.get("target_payloads_registered") is False, "target payloads may not be registered")
     require(policy.get("candidate_count") == 0, "pre-generation candidate count must be zero")
@@ -437,8 +442,8 @@ def build_projection(package_root: Path, repo_root: Path) -> dict[str, Any]:
         "status": STATUS,
         "projection_id": "oph-invariant-source-projection-v1",
         "registry_finalization_complete": True,
-        "candidate_generator_enabled": False,
-        "candidate_evaluator_enabled": False,
+        "candidate_generator_enabled": True,
+        "candidate_evaluator_enabled": True,
         "candidate_count": 0,
         "control_documents": control_pins,
         "source_artifacts": source_pins,

@@ -13,8 +13,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 STATUS = (
-    "REGISTRY_FINALIZED__"
-    "GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+    "GENERATION_ENABLED__"
+    "COMPARISON_SEALED"
 )
 EXPECTED_FEATURE_IDS = {
     "conditional_maximum_randomness",
@@ -77,6 +77,9 @@ EXPECTED_EXPOSURE_IDS = {
 EXPECTED_OUTPUT_NAMES = {
     "pregeneration_freeze.json",
     "source_projection.json",
+}
+OPTIONAL_OUTPUT_NAMES = {
+    "candidate_registry.json",
 }
 
 
@@ -204,7 +207,7 @@ def verify(
     )
 
     require(
-        policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v2",
+        policy.get("schema") == "oph.invariant_mining.pregeneration_policy.v3",
         "POLICY_SCHEMA_DRIFT",
         str(policy.get("schema")),
     )
@@ -214,13 +217,16 @@ def verify(
         "REGISTRY_FINALIZATION_FLAG_DRIFT",
         str(policy.get("registry_finalization_complete")),
     )
-    for key in (
-        "candidate_generator_enabled",
-        "candidate_evaluator_enabled",
-        "public_data_access_enabled",
-        "target_payloads_registered",
-    ):
+    for key in ("candidate_generator_enabled", "candidate_evaluator_enabled"):
+        require(policy.get(key) is True, "ENABLEMENT_FLAG_DRIFT", key)
+    for key in ("public_data_access_enabled", "target_payloads_registered"):
         require(policy.get(key) is False, "EXECUTION_BOUNDARY_OPEN", key)
+    require(
+        policy.get("declared_candidate_output")
+        == "code/invariant_mining/outputs/candidate_registry.json",
+        "DECLARED_CANDIDATE_OUTPUT_DRIFT",
+        str(policy.get("declared_candidate_output")),
+    )
     require(policy.get("candidate_count") == 0, "CANDIDATE_COUNT_NONZERO", str(policy.get("candidate_count")))
     budget = policy.get("campaign_comparison_budget")
     require(isinstance(budget, dict), "COMPARISON_BUDGET_MISSING", str(budget))
@@ -592,8 +598,8 @@ def verify(
         "status": STATUS,
         "projection_id": "oph-invariant-source-projection-v1",
         "registry_finalization_complete": True,
-        "candidate_generator_enabled": False,
-        "candidate_evaluator_enabled": False,
+        "candidate_generator_enabled": True,
+        "candidate_evaluator_enabled": True,
         "candidate_count": 0,
         "control_documents": [pin(repo_root, path) for path in control_paths],
         "source_artifacts": [pin(repo_root, path) for path in sorted(source_paths)],
@@ -635,8 +641,8 @@ def verify(
         },
         "execution_boundary": {
             "registry_finalization_complete": True,
-            "candidate_generator_enabled": False,
-            "candidate_evaluator_enabled": False,
+            "candidate_generator_enabled": True,
+            "candidate_evaluator_enabled": True,
             "public_data_access_enabled": False,
             "target_payloads_registered": False,
             "candidate_count": 0,
@@ -658,7 +664,9 @@ def verify(
         path.name for path in output_dir.iterdir() if path.is_file()
     }
     require(
-        observed_output_names == EXPECTED_OUTPUT_NAMES,
+        EXPECTED_OUTPUT_NAMES <= observed_output_names
+        and observed_output_names
+        <= EXPECTED_OUTPUT_NAMES | OPTIONAL_OUTPUT_NAMES,
         "UNREGISTERED_OUTPUT",
         str(sorted(observed_output_names)),
     )
@@ -695,7 +703,7 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=default_repo)
     args = parser.parse_args()
     verify(args.package_root.resolve(), args.repo_root.resolve())
-    print("REGISTRY_FINALIZATION_LOCK_VALID")
+    print("GENERATION_LOCK_VALID")
 
 
 if __name__ == "__main__":

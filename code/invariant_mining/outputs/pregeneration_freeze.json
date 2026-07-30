@@ -36,14 +36,14 @@
       "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
     },
     {
-      "bytes": 4124,
+      "bytes": 4217,
       "path": "code/invariant_mining/policy/pregeneration_policy.json",
-      "sha256": "sha256:0ccd58914fc2b62611ad1175bd6ed3b5f46b7b468f0c9e70ccdfe4ad44876f37"
+      "sha256": "sha256:b5e69c06db87ac1210a936d04d7194cc8d69429bae3a647866ea7f953335d287"
     },
     {
-      "bytes": 9904,
+      "bytes": 10037,
       "path": "code/invariant_mining/schemas/pregeneration_documents.schema.json",
-      "sha256": "sha256:cd48a773d377bcd62c81411706912d0fb343bea8503906f1c4157ea19d891b99"
+      "sha256": "sha256:962b46a3e27a73c16504de607d501ec38fd68db2f23bd9b491dc2571c90cba80"
     },
     {
       "bytes": 870,
@@ -53,21 +53,21 @@
   ],
   "execution_boundary": {
     "candidate_count": 0,
-    "candidate_evaluator_enabled": false,
-    "candidate_generator_enabled": false,
+    "candidate_evaluator_enabled": true,
+    "candidate_generator_enabled": true,
     "comparison_scoring_enabled": false,
     "public_data_access_enabled": false,
     "registry_finalization_complete": true,
     "target_payloads_registered": false
   },
-  "freeze_id": "sha256:9f329d36e1567e67c6f16bb834aa65e0078e46f21530b9a9d729728d503a65ab",
+  "freeze_id": "sha256:3191372d8059fe0915a75462f19a55be325e882e772f2f85b54934b0de7f365c",
   "issue": 647,
-  "promotion_rule": "Generator and evaluator enablement require a separately reviewed successor policy that changes no registry, grammar, ranking, nuisance, exposure, or direct-N content, and the campaign terminates after its first physical comparison.",
+  "promotion_rule": "Public-data access, target registration, and scoring stay sealed; issue 639 owns the single physical comparison and the campaign terminates after it. Grammar, ranking, nuisance, exposure, completeness, and direct-N content cannot change while generation is enabled.",
   "schema": "oph.invariant_mining.pregeneration_freeze.v1",
   "source_projection": {
-    "bytes": 7339,
+    "bytes": 7311,
     "path": "code/invariant_mining/outputs/source_projection.json",
-    "sha256": "sha256:2030a662ef9cb5579f871534e7b107234b900c25d9da0d44474671632595aa2f"
+    "sha256": "sha256:2046a786d634f96787716dd8d60eefb75c69ba619af7580d31eb792eefd9bccb"
   },
-  "status": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+  "status": "GENERATION_ENABLED__COMPARISON_SEALED"
 }

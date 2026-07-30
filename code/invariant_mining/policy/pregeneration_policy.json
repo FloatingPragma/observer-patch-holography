@@ -5,8 +5,8 @@
     "terminate_after_first_physical_comparison": true
   },
   "candidate_count": 0,
-  "candidate_evaluator_enabled": false,
-  "candidate_generator_enabled": false,
+  "candidate_evaluator_enabled": true,
+  "candidate_generator_enabled": true,
   "control_artifacts": [
     "code/invariant_mining/README.md",
     "code/invariant_mining/data/exposed_data_registry.json",
@@ -24,6 +24,7 @@
     "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
     "tools/run_mandatory_suite.py"
   ],
+  "declared_candidate_output": "code/invariant_mining/outputs/candidate_registry.json",
   "direct_n_contract": {
     "required_execution_status": "REGISTERED_DISABLED",
     "required_fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
@@ -50,8 +51,8 @@
     "falsification/frozen_targets/"
   ],
   "issue": 647,
-  "policy_id": "oph-invariant-registry-finalization-v2",
-  "promotion_rule": "Generator and evaluator enablement require a separately reviewed successor policy that changes no registry, grammar, ranking, nuisance, exposure, or direct-N content, and the campaign terminates after its first physical comparison.",
+  "policy_id": "oph-invariant-generation-enablement-v3",
+  "promotion_rule": "Public-data access, target registration, and scoring stay sealed; issue 639 owns the single physical comparison and the campaign terminates after it. Grammar, ranking, nuisance, exposure, completeness, and direct-N content cannot change while generation is enabled.",
   "public_data_access_enabled": false,
   "registry_finalization_complete": true,
   "required_exposure_ids": [
@@ -106,7 +107,7 @@
     "wz_scale_free_response",
     "z6_charge_line_congruences"
   ],
-  "schema": "oph.invariant_mining.pregeneration_policy.v2",
-  "status": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW",
+  "schema": "oph.invariant_mining.pregeneration_policy.v3",
+  "status": "GENERATION_ENABLED__COMPARISON_SEALED",
   "target_payloads_registered": false
 }

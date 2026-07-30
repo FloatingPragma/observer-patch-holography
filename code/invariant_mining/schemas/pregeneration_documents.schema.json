@@ -186,11 +186,12 @@
         "forbidden_output_names",
         "promotion_rule",
         "required_exposure_ids",
-        "campaign_comparison_budget"
+        "campaign_comparison_budget",
+        "declared_candidate_output"
       ],
       "properties": {
         "schema": {
-          "const": "oph.invariant_mining.pregeneration_policy.v2"
+          "const": "oph.invariant_mining.pregeneration_policy.v3"
         },
         "issue": {
           "const": 647
@@ -199,10 +200,10 @@
           "const": true
         },
         "candidate_generator_enabled": {
-          "const": false
+          "const": true
         },
         "candidate_evaluator_enabled": {
-          "const": false
+          "const": true
         },
         "public_data_access_enabled": {
           "const": false
@@ -214,7 +215,7 @@
           "const": 0
         },
         "status": {
-          "const": "REGISTRY_FINALIZED__GENERATOR_DISABLED_PENDING_ENABLEMENT_REVIEW"
+          "const": "GENERATION_ENABLED__COMPARISON_SEALED"
         },
         "required_exposure_ids": {
           "type": "array",
@@ -244,6 +245,9 @@
               "const": true
             }
           }
+        },
+        "declared_candidate_output": {
+          "const": "code/invariant_mining/outputs/candidate_registry.json"
         }
       }
     },
