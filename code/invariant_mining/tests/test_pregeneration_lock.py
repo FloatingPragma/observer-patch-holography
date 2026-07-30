@@ -169,6 +169,115 @@ def test_uncovered_slot_exposure_is_rejected(tmp_path: Path) -> None:
     assert_failed(run(repo, BUILD_PROJECTION), "producer slots without an exposure surface")
 
 
+def rebuild_outputs_bypassing_builder(repo: Path) -> None:
+    """Recompute output pins mechanically so only the verifier can object."""
+
+    import hashlib
+
+    package = repo / "code" / "invariant_mining"
+
+    def canonical(value: dict) -> bytes:
+        return (
+            json.dumps(value, sort_keys=True, indent=2, ensure_ascii=False)
+            + "\n"
+        ).encode("utf-8")
+
+    def pin(relative: str) -> dict:
+        payload = (repo / relative).read_bytes()
+        return {
+            "path": relative,
+            "bytes": len(payload),
+            "sha256": "sha256:" + hashlib.sha256(payload).hexdigest(),
+        }
+
+    projection_path = package / "outputs" / "source_projection.json"
+    projection = load(projection_path)
+    projection["control_documents"] = [
+        pin(row["path"]) for row in projection["control_documents"]
+    ]
+    projection["source_artifacts"] = [
+        pin(row["path"]) for row in projection["source_artifacts"]
+    ]
+    write(projection_path, projection)
+
+    freeze_path = package / "outputs" / "pregeneration_freeze.json"
+    freeze = load(freeze_path)
+    freeze["source_projection"] = pin(
+        "code/invariant_mining/outputs/source_projection.json"
+    )
+    freeze["document_bindings"] = [
+        pin(row["path"]) for row in freeze["document_bindings"]
+    ]
+    digest_payload = {
+        key: value for key, value in freeze.items() if key != "freeze_id"
+    }
+    freeze["freeze_id"] = (
+        "sha256:" + hashlib.sha256(canonical(digest_payload)).hexdigest()
+    )
+    write(freeze_path, freeze)
+
+
+def test_completion_nuisance_coverage_is_rejected(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "nuisance_registry.json"
+    payload = load(path)
+    for row in payload["unresolved_directions"]:
+        if row["nuisance_id"] == "source_admissible_completion":
+            row["applies_to_slot_ids"] = row["applies_to_slot_ids"][:-1]
+    write(path, payload)
+    assert_failed(
+        run(repo, BUILD_PROJECTION),
+        "source-admissible completion nuisance must cover every producer slot",
+    )
+
+
+def test_verifier_rejects_exposure_coverage_gap(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "exposed_data_registry.json"
+    payload = load(path)
+    for row in payload["surfaces"]:
+        if row["applies_to_slot_ids"] == ["a5_angular_rules"]:
+            row["applies_to_slot_ids"] = ["observer_overlap_cross_spectra"]
+    write(path, payload)
+    rebuild_outputs_bypassing_builder(repo)
+    assert_failed(run(repo, VERIFY), "EXPOSURE_COVERAGE_GAP")
+
+
+def test_verifier_rejects_budget_drift(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "policy" / "pregeneration_policy.json"
+    payload = load(path)
+    payload["campaign_comparison_budget"]["comparisons_consumed"] = 1
+    write(path, payload)
+    rebuild_outputs_bypassing_builder(repo)
+    assert_failed(run(repo, VERIFY), "COMPARISON_BUDGET_DRIFT")
+
+
+def test_verifier_rejects_completion_nuisance_gap(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "nuisance_registry.json"
+    payload = load(path)
+    for row in payload["unresolved_directions"]:
+        if row["nuisance_id"] == "source_admissible_completion":
+            row["applies_to_slot_ids"] = row["applies_to_slot_ids"][:-1]
+    write(path, payload)
+    rebuild_outputs_bypassing_builder(repo)
+    assert_failed(run(repo, VERIFY), "COMPLETION_NUISANCE_COVERAGE_GAP")
+
+
+def test_verifier_rejects_exposure_class_vocabulary_drift(tmp_path: Path) -> None:
+    repo = make_repo(tmp_path)
+    path = repo / "code" / "invariant_mining" / "data" / "exposed_data_registry.json"
+    payload = load(path)
+    payload["exposure_classes"][2] = "TOTALLY_BLIND_PROSPECTIVE"
+    for row in payload["surfaces"]:
+        if row["default_exposure_class"] == "EXPOSED_RETROSPECTIVE_COMPARISON":
+            row["default_exposure_class"] = "TOTALLY_BLIND_PROSPECTIVE"
+    write(path, payload)
+    rebuild_outputs_bypassing_builder(repo)
+    assert_failed(run(repo, VERIFY), "EXPOSURE_CLASS_VOCABULARY_DRIFT")
+
+
 def test_direct_n_fallback_reentry_is_rejected(tmp_path: Path) -> None:
     repo = make_repo(tmp_path)
     path = repo / "code" / "invariant_mining" / "data" / "producer_slots.json"

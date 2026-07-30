@@ -338,6 +338,20 @@ def validate_documents(
         f"producer slots without an exposure surface: {sorted(uncovered)}",
     )
 
+    completion_rows = [
+        row
+        for row in nuisances.get("unresolved_directions", [])
+        if row.get("nuisance_id") == "source_admissible_completion"
+    ]
+    require(
+        len(completion_rows) == 1,
+        "source-admissible completion nuisance row missing",
+    )
+    require(
+        set(completion_rows[0].get("applies_to_slot_ids", [])) == slot_id_set,
+        "source-admissible completion nuisance must cover every producer slot",
+    )
+
     forbidden_keys = set(policy.get("forbidden_document_keys", []))
     for name, document in (
         ("source-feature registry", source_registry),

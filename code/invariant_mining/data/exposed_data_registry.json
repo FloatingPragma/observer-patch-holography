@@ -1,81 +1,81 @@
 {
-  "schema": "oph.invariant_mining.exposed_data_registry.v1",
-  "issue": 647,
-  "registry_id": "oph-invariant-exposed-data-v1",
-  "freeze_status": "FROZEN_BEFORE_CANDIDATE_GENERATION",
-  "presumption_rule": "Known public values are presumed exposed to the research environment unless a verifiable quarantine predates the derivation. Hashing an exposed payload establishes pre-unsealing custody rather than pre-exposure blindness.",
   "exposure_classes": [
     "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
     "TARGET_ISOLATED_BLIND_POSTDICTION",
     "EXPOSED_RETROSPECTIVE_COMPARISON",
     "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY"
   ],
+  "freeze_status": "FROZEN_BEFORE_CANDIDATE_GENERATION",
+  "historical_search_note": "Historical OPH searches against the same public targets remain in the multiplicity ledger and count toward trials corrections at scoring time.",
+  "issue": 647,
+  "presumption_rule": "Known public values are presumed exposed to the research environment unless a verifiable quarantine predates the derivation. Hashing an exposed payload establishes pre-unsealing custody rather than pre-exposure blindness.",
+  "registry_id": "oph-invariant-exposed-data-v1",
+  "schema": "oph.invariant_mining.exposed_data_registry.v1",
   "scoring_rule": "Issue 639 performs at most one physical comparison for the whole campaign and records its exposure class. Exploratory rows are catalog-only and ineligible for scoring. An exposed retrospective agreement remains retrospective compatibility and cannot become a surviving differentiator.",
   "surfaces": [
     {
-      "exposure_id": "pdg_particle_listings",
-      "description": "Particle Data Group particle listings: pole masses, widths, branching fractions, and mixing parameters.",
       "applies_to_slot_ids": [
         "wz_scale_free_response",
         "family_trace_mixing_invariants",
         "z6_charge_line_congruences"
       ],
       "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "description": "Particle Data Group particle listings: pole masses, widths, branching fractions, and mixing parameters.",
+      "exposure_id": "pdg_particle_listings",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     },
     {
-      "exposure_id": "codata_fundamental_constants",
-      "description": "CODATA recommended values of the fundamental physical constants.",
       "applies_to_slot_ids": [
         "wz_scale_free_response",
         "cross_channel_source_identities"
       ],
       "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "description": "CODATA recommended values of the fundamental physical constants.",
+      "exposure_id": "codata_fundamental_constants",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     },
     {
-      "exposure_id": "cmb_angular_products",
-      "description": "Published cosmic microwave background angular power spectra, maps, and derived likelihood products.",
       "applies_to_slot_ids": [
         "a5_angular_rules"
       ],
       "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "description": "Published cosmic microwave background angular power spectra, maps, and derived likelihood products.",
+      "exposure_id": "cmb_angular_products",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     },
     {
-      "exposure_id": "gravitational_wave_catalogs",
-      "description": "Gravitational-wave transient catalogs and ringdown parameter estimates.",
       "applies_to_slot_ids": [
         "observer_overlap_cross_spectra"
       ],
-      "default_exposure_class": "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
+      "description": "Gravitational-wave transient catalogs and ringdown parameter estimates.",
+      "exposure_id": "gravitational_wave_catalogs",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     },
     {
-      "exposure_id": "neutrino_oscillation_global_fits",
-      "description": "Global three-flavor neutrino oscillation fit parameters and ordering statistics.",
       "applies_to_slot_ids": [
         "family_trace_mixing_invariants"
       ],
       "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "description": "Global three-flavor neutrino oscillation fit parameters and ordering statistics.",
+      "exposure_id": "neutrino_oscillation_global_fits",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     },
     {
-      "exposure_id": "precision_qed_ratios",
-      "description": "Precision quantum-electrodynamic dimensionless ratios, including magnetic-moment anomalies.",
       "applies_to_slot_ids": [
         "cross_channel_source_identities",
         "z6_charge_line_congruences"
       ],
       "default_exposure_class": "EXPOSED_RETROSPECTIVE_COMPARISON",
-      "quarantine_evidence": null,
-      "future_release_holdout_possible": true
+      "description": "Precision quantum-electrodynamic dimensionless ratios, including magnetic-moment anomalies.",
+      "exposure_id": "precision_qed_ratios",
+      "future_release_holdout_possible": true,
+      "quarantine_evidence": null
     }
-  ],
-  "historical_search_note": "Historical OPH searches against the same public targets remain in the multiplicity ledger and count toward trials corrections at scoring time."
+  ]
 }

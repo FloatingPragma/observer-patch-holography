@@ -278,13 +278,12 @@
           "minLength": 1
         },
         "exposure_classes": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "minItems": 4,
-          "uniqueItems": true
+          "const": [
+            "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+            "TARGET_ISOLATED_BLIND_POSTDICTION",
+            "EXPOSED_RETROSPECTIVE_COMPARISON",
+            "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY"
+          ]
         },
         "scoring_rule": {
           "type": "string",
@@ -323,8 +322,12 @@
                 "uniqueItems": true
               },
               "default_exposure_class": {
-                "type": "string",
-                "minLength": 1
+                "enum": [
+                  "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+                  "TARGET_ISOLATED_BLIND_POSTDICTION",
+                  "EXPOSED_RETROSPECTIVE_COMPARISON",
+                  "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY"
+                ]
               },
               "quarantine_evidence": {
                 "type": "null"

@@ -60,6 +60,12 @@ EXPECTED_NUISANCE_IDS = {
     "physical_sector_choice",
     "source_admissible_completion",
 }
+EXPECTED_EXPOSURE_CLASSES = [
+    "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+    "TARGET_ISOLATED_BLIND_POSTDICTION",
+    "EXPOSED_RETROSPECTIVE_COMPARISON",
+    "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY",
+]
 EXPECTED_EXPOSURE_IDS = {
     "cmb_angular_products",
     "codata_fundamental_constants",
@@ -249,12 +255,59 @@ def verify(
         "EXPOSURE_SURFACE_OMISSION",
         str(sorted(exposure_rows)),
     )
+    require(
+        exposure.get("exposure_classes") == EXPECTED_EXPOSURE_CLASSES,
+        "EXPOSURE_CLASS_VOCABULARY_DRIFT",
+        str(exposure.get("exposure_classes")),
+    )
+    producer_slot_ids = set(
+        rows_by_id(producers.get("slots"), "slot_id", "producer slots")
+    )
+    covered_by_exposure: set[str] = set()
     for exposure_id, row in exposure_rows.items():
         require(
             row.get("quarantine_evidence") is None,
             "EXPOSURE_QUARANTINE_PRECLAIMED",
             exposure_id,
         )
+        require(
+            row.get("default_exposure_class") in EXPECTED_EXPOSURE_CLASSES,
+            "EXPOSURE_CLASS_UNKNOWN",
+            exposure_id,
+        )
+        applies = row.get("applies_to_slot_ids")
+        require(
+            isinstance(applies, list)
+            and applies
+            and set(applies) <= producer_slot_ids,
+            "EXPOSURE_SLOT_UNKNOWN",
+            exposure_id,
+        )
+        covered_by_exposure.update(applies)
+    direct_slot_id = "direct_n_capacity_closure"
+    exposure_gap = producer_slot_ids - covered_by_exposure - {direct_slot_id}
+    require(
+        not exposure_gap,
+        "EXPOSURE_COVERAGE_GAP",
+        str(sorted(exposure_gap)),
+    )
+    completion_rows = [
+        row
+        for row in (nuisances.get("unresolved_directions") or [])
+        if isinstance(row, dict)
+        and row.get("nuisance_id") == "source_admissible_completion"
+    ]
+    require(
+        len(completion_rows) == 1,
+        "COMPLETION_NUISANCE_MISSING",
+        str(len(completion_rows)),
+    )
+    require(
+        set(completion_rows[0].get("applies_to_slot_ids", []))
+        == producer_slot_ids,
+        "COMPLETION_NUISANCE_COVERAGE_GAP",
+        str(sorted(producer_slot_ids - set(completion_rows[0].get("applies_to_slot_ids", [])))),
+    )
 
     require(
         set(policy.get("required_feature_ids", [])) == EXPECTED_FEATURE_IDS,
