@@ -216,8 +216,6 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
     }
     assert de_sitter_blockers == {
         334: "open_work_item",
-        505: "open_work_item",
-        589: "open_work_item",
         595: "open_work_item",
         608: "open_work_item",
     }
