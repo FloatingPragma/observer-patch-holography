@@ -128,6 +128,24 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the discriminator stratum verdicts",
+        [
+            sys.executable,
+            "code/discriminator_strata/stratum_verdicts.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the discriminator stratum verdict tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/discriminator_strata/test_stratum_verdicts.py",
+        ],
+    ),
+    (
         "Validate the horizon-record attachment verdict",
         [
             sys.executable,
