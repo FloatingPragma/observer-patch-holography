@@ -1140,4 +1140,319 @@ theorem fractionalSandbox_quotientKernel :
 #print axioms fractionalSandbox_isMarkov
 #print axioms fractionalSandbox_quotientKernel
 
+/-! ## Machine-readable certificate export
+
+The receipt builder
+`code/particles/fractional/build_fractional_quotient_receipts.py` cannot call
+Lean at receipt-build time, so this section renders the four checker verdicts
+on the exact sandbox instance into a JSON payload, and `#guard_msgs` pins the
+rendered text: if the instance data, a checker, or a verdict drifts, this
+module fails to build.  The checked-in file
+`code/particles/fractional/fractional_quotient_certificate.json` carries the
+same payload, and the Python side verifies that file against the pin in this
+source before reading any verdict from it.  The `true` verdicts are not
+established by evaluation: they are the kernel-checked `_accepted` theorems
+above, restated here as `_true` lemmas on the exported bits.  The pin is
+drift detection, not the proof.
+
+A second payload exports the negative controls, so the consuming side can
+demonstrate a receipt going `false` on data whose rejection is itself
+certified. -/
+
+/-- JSON string literal (no escaping needed: all rendered names are plain). -/
+def jstr (s : String) : String := "\"" ++ s ++ "\""
+
+/-- JSON boolean. -/
+def jsonBool (b : Bool) : String := if b then "true" else "false"
+
+/-- Exact rational rendered as `"num/den"`, never floating point. -/
+def ratJson (x : ℚ) : String := jstr s!"{x.num}/{x.den}"
+
+/-- JSON object from ordered key/value pairs. -/
+def jsonObj (fields : List (String × String)) : String :=
+  "{" ++ String.intercalate "," (fields.map fun p => jstr p.1 ++ ":" ++ p.2) ++ "}"
+
+/-- JSON array. -/
+def jsonArr (xs : List String) : String :=
+  "[" ++ String.intercalate "," xs ++ "]"
+
+/-- Simulator state labels, in source order. -/
+def stateName : FractionalSandboxState → String
+  | .a0 => "a0"
+  | .a1 => "a1"
+  | .vac => "vac"
+
+/-- Simulator sector labels. -/
+def sectorName : FractionalSandboxSector → String
+  | .anyonEOver3 => "anyon_e_over_3"
+  | .vacuum => "vacuum"
+
+/-- `QUOTIENT_LUMPABILITY` bit exported to the certificate. -/
+def quotientLumpabilityVerdict : Bool :=
+  checkLumpable fractionalSandboxKernel fractionalSandboxQuotient
+    fractionalSandboxStates fractionalSandboxSectors
+
+/-- The exported lumpability bit is the kernel-proved acceptance. -/
+theorem quotientLumpabilityVerdict_true :
+    quotientLumpabilityVerdict = true :=
+  fractionalSandbox_accepted
+
+/-- `CANONICALIZER_IDEMPOTENCE` bit exported to the certificate. -/
+def canonicalizerIdempotenceVerdict : Bool :=
+  checkCanonicalizerIdempotent fractionalSandboxNormalForm
+    fractionalSandboxStates
+
+/-- The exported idempotence bit is the kernel-proved acceptance. -/
+theorem canonicalizerIdempotenceVerdict_true :
+    canonicalizerIdempotenceVerdict = true :=
+  fractionalSandboxCanonicalizer_accepted
+
+/-- `REPRESENTATIVE_INVARIANCE` bit exported to the certificate. -/
+def representativeInvarianceVerdict : Bool :=
+  checkRepresentativeInvariant fractionalSandboxQuotient
+    fractionalSandboxQuotient fractionalSandboxStates
+
+/-- The exported invariance bit is the kernel-proved acceptance. -/
+theorem representativeInvarianceVerdict_true :
+    representativeInvarianceVerdict = true :=
+  fractionalSandboxRepresentativeInvariant_accepted
+
+/-- `NO_ORBIT_SIZE_BIAS` bit exported to the certificate. -/
+def noOrbitSizeBiasVerdict : Bool :=
+  checkNoOrbitSizeBias fractionalSandboxOrbitSize
+    fractionalSandboxSectorWeight fractionalSandboxSectors
+
+/-- The exported no-bias bit is the kernel-proved acceptance. -/
+theorem noOrbitSizeBiasVerdict_true :
+    noOrbitSizeBiasVerdict = true :=
+  fractionalSandboxNoOrbitSizeBias_accepted
+
+/-! ### A rejected sandbox kernel for the negative-control certificate
+
+`Wbad` above lives on `Fin 4`; the negative-control certificate should reject
+on the sandbox's own state type.  Integer rate weights keep both directions
+kernel-`decide`-able, following the `Wgood`/`Wbad` precedent. -/
+
+/-- Rate-weight negative control on the sandbox states: `a0` and `a1` share
+the anyon fibre but place total weights `1` and `3` into the vacuum fibre. -/
+@[reducible] def fractionalSandboxBadKernel :
+    FractionalSandboxState → FractionalSandboxState → ℤ
+  | .a0, .a1 => 1
+  | .a0, .vac => 1
+  | .a1, .a0 => 1
+  | .a1, .vac => 3
+  | .vac, .vac => 2
+  | _, _ => 0
+
+/-- Negative control: the checker names the pair `(a0, a1)` at the vacuum
+fibre. -/
+theorem fractionalSandboxBadKernel_rejected :
+    lumpabilityWitness fractionalSandboxBadKernel fractionalSandboxQuotient
+      fractionalSandboxStates fractionalSandboxSectors =
+        some (.a0, .a1, .vacuum) := by
+  decide
+
+/-- The returned pair is valid, through checker soundness. -/
+theorem fractionalSandboxBadKernel_witness_valid :
+    fractionalSandboxQuotient .a0 = fractionalSandboxQuotient .a1 ∧
+      fiberWeight fractionalSandboxBadKernel fractionalSandboxQuotient
+          .a0 .vacuum ≠
+        fiberWeight fractionalSandboxBadKernel fractionalSandboxQuotient
+          .a1 .vacuum :=
+  lumpabilityWitness_sound fractionalSandboxBadKernel_rejected
+
+/-- The constructed kernel really is not strongly lumpable. -/
+theorem fractionalSandboxBadKernel_not_lumpable :
+    ¬ StronglyLumpable fractionalSandboxBadKernel fractionalSandboxQuotient :=
+  fun h => fractionalSandboxBadKernel_witness_valid.2
+    (h .a0 .a1 fractionalSandboxBadKernel_witness_valid.1 .vacuum)
+
+/-- The Boolean checker rejects the constructed kernel. -/
+theorem fractionalSandboxBadKernel_check_false :
+    checkLumpable fractionalSandboxBadKernel fractionalSandboxQuotient
+      fractionalSandboxStates fractionalSandboxSectors = false := by
+  decide
+
+/-- Negative `QUOTIENT_LUMPABILITY` bit. -/
+def quotientLumpabilityNegativeVerdict : Bool :=
+  checkLumpable fractionalSandboxBadKernel fractionalSandboxQuotient
+    fractionalSandboxStates fractionalSandboxSectors
+
+/-- The exported negative lumpability bit is the kernel-proved rejection. -/
+theorem quotientLumpabilityNegativeVerdict_false :
+    quotientLumpabilityNegativeVerdict = false :=
+  fractionalSandboxBadKernel_check_false
+
+/-- Negative `CANONICALIZER_IDEMPOTENCE` bit. -/
+def canonicalizerIdempotenceNegativeVerdict : Bool :=
+  checkCanonicalizerIdempotent fractionalSandboxBadCanonicalizer
+    fractionalSandboxStates
+
+/-- The exported negative idempotence bit is the kernel-proved rejection. -/
+theorem canonicalizerIdempotenceNegativeVerdict_false :
+    canonicalizerIdempotenceNegativeVerdict = false :=
+  fractionalSandboxBadCanonicalizer_check_false
+
+/-- Negative `REPRESENTATIVE_INVARIANCE` bit. -/
+def representativeInvarianceNegativeVerdict : Bool :=
+  checkRepresentativeInvariant fractionalSandboxQuotient
+    fractionalSandboxBadObservable fractionalSandboxStates
+
+/-- The exported negative invariance bit is the kernel-proved rejection. -/
+theorem representativeInvarianceNegativeVerdict_false :
+    representativeInvarianceNegativeVerdict = false :=
+  fractionalSandboxBadObservable_check_false
+
+/-- Negative `NO_ORBIT_SIZE_BIAS` bit. -/
+def noOrbitSizeBiasNegativeVerdict : Bool :=
+  checkNoOrbitSizeBias fractionalSandboxBiasedOrbitSize
+    fractionalSandboxBiasedSectorWeight fractionalSandboxSectors
+
+/-- The exported negative no-bias bit is the proved rejection. -/
+theorem noOrbitSizeBiasNegativeVerdict_false :
+    noOrbitSizeBiasNegativeVerdict = false :=
+  fractionalSandboxBiasedOrbit_check_false
+
+/-! ### The rendered payloads -/
+
+/-- Kernel rows rendered from the actual `fractionalSandboxKernel` values. -/
+def fractionalSandboxKernelJson : String :=
+  jsonObj (fractionalSandboxStates.map fun x =>
+    (stateName x, jsonObj (fractionalSandboxStates.map fun y =>
+      (stateName y, ratJson (fractionalSandboxKernel x y)))))
+
+/-- Quotient map rendered from the actual `fractionalSandboxQuotient`. -/
+def fractionalSandboxQuotientJson : String :=
+  jsonObj (fractionalSandboxStates.map fun x =>
+    (stateName x, jstr (sectorName (fractionalSandboxQuotient x))))
+
+/-- Orbit sizes rendered from the actual `fractionalSandboxOrbitSize`. -/
+def fractionalSandboxOrbitSizeJson : String :=
+  jsonObj (fractionalSandboxSectors.map fun c =>
+    (sectorName c, jstr (toString (fractionalSandboxOrbitSize c))))
+
+/-- Sector weights rendered from the actual `fractionalSandboxSectorWeight`. -/
+def fractionalSandboxSectorWeightJson : String :=
+  jsonObj (fractionalSandboxSectors.map fun c =>
+    (sectorName c, ratJson (fractionalSandboxSectorWeight c)))
+
+/-- The positive certificate consumed by the Python receipt builder. -/
+def fractionalSandboxCertificateJson : String :=
+  jsonObj [
+    ("artifact", jstr "fractional_quotient_lean_certificate"),
+    ("lean_module", jstr "ObserverPatchHolography.QuotientLumpability"),
+    ("instance", jstr
+      "fractionalSandbox: oph-physics-sim@87767593 oph_fractional/compare.py:47-61"),
+    ("states", jsonArr (fractionalSandboxStates.map fun x =>
+      jstr (stateName x))),
+    ("sectors", jsonArr (fractionalSandboxSectors.map fun c =>
+      jstr (sectorName c))),
+    ("quotient_map", fractionalSandboxQuotientJson),
+    ("kernel", fractionalSandboxKernelJson),
+    ("orbit_sizes", fractionalSandboxOrbitSizeJson),
+    ("sector_weights", fractionalSandboxSectorWeightJson),
+    ("verdicts", jsonObj [
+      ("QUOTIENT_LUMPABILITY", jsonBool quotientLumpabilityVerdict),
+      ("CANONICALIZER_IDEMPOTENCE", jsonBool canonicalizerIdempotenceVerdict),
+      ("REPRESENTATIVE_INVARIANCE", jsonBool representativeInvarianceVerdict),
+      ("NO_ORBIT_SIZE_BIAS", jsonBool noOrbitSizeBiasVerdict)]),
+    ("theorems", jsonObj [
+      ("QUOTIENT_LUMPABILITY", jsonArr [
+        jstr "fractionalSandbox_accepted",
+        jstr "fractionalSandbox_lumpable",
+        jstr "checkLumpable_iff"]),
+      ("CANONICALIZER_IDEMPOTENCE", jsonArr [
+        jstr "fractionalSandboxCanonicalizer_accepted",
+        jstr "fractionalSandboxCanonicalizer_idempotent",
+        jstr "checkCanonicalizerIdempotent_iff"]),
+      ("REPRESENTATIVE_INVARIANCE", jsonArr [
+        jstr "fractionalSandboxRepresentativeInvariant_accepted",
+        jstr "fractionalSandboxRepresentativeInvariant",
+        jstr "checkRepresentativeInvariant_iff"]),
+      ("NO_ORBIT_SIZE_BIAS", jsonArr [
+        jstr "fractionalSandboxNoOrbitSizeBias_accepted",
+        jstr "fractionalSandboxNoOrbitSizeBias",
+        jstr "checkNoOrbitSizeBias_iff"])])]
+
+/-- The negative-control certificate: same schema surface, rejecting data,
+with the checker witnesses rendered from the actual witness computations. -/
+def fractionalSandboxNegativeCertificateJson : String :=
+  jsonObj [
+    ("artifact", jstr "fractional_quotient_lean_negative_control_certificate"),
+    ("lean_module", jstr "ObserverPatchHolography.QuotientLumpability"),
+    ("instance", jstr
+      "fractionalSandbox negative controls: fractionalSandboxBadKernel (integer rate weights), fractionalSandboxBadCanonicalizer, fractionalSandboxBadObservable, fractionalSandboxBiasedOrbitSize"),
+    ("verdicts", jsonObj [
+      ("QUOTIENT_LUMPABILITY", jsonBool quotientLumpabilityNegativeVerdict),
+      ("CANONICALIZER_IDEMPOTENCE",
+        jsonBool canonicalizerIdempotenceNegativeVerdict),
+      ("REPRESENTATIVE_INVARIANCE",
+        jsonBool representativeInvarianceNegativeVerdict),
+      ("NO_ORBIT_SIZE_BIAS", jsonBool noOrbitSizeBiasNegativeVerdict)]),
+    ("witnesses", jsonObj [
+      ("QUOTIENT_LUMPABILITY",
+        match lumpabilityWitness fractionalSandboxBadKernel
+          fractionalSandboxQuotient fractionalSandboxStates
+          fractionalSandboxSectors with
+        | none => "null"
+        | some (x, x', c) => jsonObj [
+            ("pair", jsonArr [jstr (stateName x), jstr (stateName x')]),
+            ("fibre", jstr (sectorName c))]),
+      ("CANONICALIZER_IDEMPOTENCE",
+        match canonicalizerWitness fractionalSandboxBadCanonicalizer
+          fractionalSandboxStates with
+        | none => "null"
+        | some x => jstr (stateName x)),
+      ("REPRESENTATIVE_INVARIANCE",
+        match representativeWitness fractionalSandboxQuotient
+          fractionalSandboxBadObservable fractionalSandboxStates with
+        | none => "null"
+        | some (x, x') => jsonArr [jstr (stateName x), jstr (stateName x')]),
+      ("NO_ORBIT_SIZE_BIAS",
+        match orbitSizeBiasWitness fractionalSandboxBiasedOrbitSize
+          fractionalSandboxBiasedSectorWeight fractionalSandboxSectors with
+        | none => "null"
+        | some (.nonpositive c) => jsonObj [
+            ("kind", jstr "nonpositive"),
+            ("sector", jstr (sectorName c))]
+        | some (.tracksHiddenCount a b p p') => jsonObj [
+            ("kind", jstr "tracks_hidden_count"),
+            ("size_pair", jsonArr [jstr (sectorName a), jstr (sectorName b)]),
+            ("positive_pair",
+              jsonArr [jstr (sectorName p), jstr (sectorName p')])])]),
+    ("theorems", jsonObj [
+      ("QUOTIENT_LUMPABILITY", jsonArr [
+        jstr "fractionalSandboxBadKernel_rejected",
+        jstr "fractionalSandboxBadKernel_not_lumpable"]),
+      ("CANONICALIZER_IDEMPOTENCE", jsonArr [
+        jstr "fractionalSandboxBadCanonicalizer_rejected",
+        jstr "fractionalSandboxBadCanonicalizer_not_idempotent"]),
+      ("REPRESENTATIVE_INVARIANCE", jsonArr [
+        jstr "fractionalSandboxBadObservable_rejected",
+        jstr "fractionalSandboxBadObservable_not_invariant"]),
+      ("NO_ORBIT_SIZE_BIAS", jsonArr [
+        jstr "fractionalSandboxBiasedOrbit_rejected",
+        jstr "fractionalSandboxBiasedOrbit_not_free"])])]
+
+/-- info: {"artifact":"fractional_quotient_lean_certificate","lean_module":"ObserverPatchHolography.QuotientLumpability","instance":"fractionalSandbox: oph-physics-sim@87767593 oph_fractional/compare.py:47-61","states":["a0","a1","vac"],"sectors":["anyon_e_over_3","vacuum"],"quotient_map":{"a0":"anyon_e_over_3","a1":"anyon_e_over_3","vac":"vacuum"},"kernel":{"a0":{"a0":"0/1","a1":"1/2","vac":"1/2"},"a1":{"a0":"1/2","a1":"0/1","vac":"1/2"},"vac":{"a0":"0/1","a1":"0/1","vac":"1/1"}},"orbit_sizes":{"anyon_e_over_3":"1","vacuum":"1"},"sector_weights":{"anyon_e_over_3":"1/1","vacuum":"1/1"},"verdicts":{"QUOTIENT_LUMPABILITY":true,"CANONICALIZER_IDEMPOTENCE":true,"REPRESENTATIVE_INVARIANCE":true,"NO_ORBIT_SIZE_BIAS":true},"theorems":{"QUOTIENT_LUMPABILITY":["fractionalSandbox_accepted","fractionalSandbox_lumpable","checkLumpable_iff"],"CANONICALIZER_IDEMPOTENCE":["fractionalSandboxCanonicalizer_accepted","fractionalSandboxCanonicalizer_idempotent","checkCanonicalizerIdempotent_iff"],"REPRESENTATIVE_INVARIANCE":["fractionalSandboxRepresentativeInvariant_accepted","fractionalSandboxRepresentativeInvariant","checkRepresentativeInvariant_iff"],"NO_ORBIT_SIZE_BIAS":["fractionalSandboxNoOrbitSizeBias_accepted","fractionalSandboxNoOrbitSizeBias","checkNoOrbitSizeBias_iff"]}} -/
+#guard_msgs in
+#eval IO.println fractionalSandboxCertificateJson
+
+/-- info: {"artifact":"fractional_quotient_lean_negative_control_certificate","lean_module":"ObserverPatchHolography.QuotientLumpability","instance":"fractionalSandbox negative controls: fractionalSandboxBadKernel (integer rate weights), fractionalSandboxBadCanonicalizer, fractionalSandboxBadObservable, fractionalSandboxBiasedOrbitSize","verdicts":{"QUOTIENT_LUMPABILITY":false,"CANONICALIZER_IDEMPOTENCE":false,"REPRESENTATIVE_INVARIANCE":false,"NO_ORBIT_SIZE_BIAS":false},"witnesses":{"QUOTIENT_LUMPABILITY":{"pair":["a0","a1"],"fibre":"vacuum"},"CANONICALIZER_IDEMPOTENCE":"a0","REPRESENTATIVE_INVARIANCE":["a0","a1"],"NO_ORBIT_SIZE_BIAS":{"kind":"tracks_hidden_count","size_pair":["anyon_e_over_3","vacuum"],"positive_pair":["anyon_e_over_3","vacuum"]}},"theorems":{"QUOTIENT_LUMPABILITY":["fractionalSandboxBadKernel_rejected","fractionalSandboxBadKernel_not_lumpable"],"CANONICALIZER_IDEMPOTENCE":["fractionalSandboxBadCanonicalizer_rejected","fractionalSandboxBadCanonicalizer_not_idempotent"],"REPRESENTATIVE_INVARIANCE":["fractionalSandboxBadObservable_rejected","fractionalSandboxBadObservable_not_invariant"],"NO_ORBIT_SIZE_BIAS":["fractionalSandboxBiasedOrbit_rejected","fractionalSandboxBiasedOrbit_not_free"]}} -/
+#guard_msgs in
+#eval IO.println fractionalSandboxNegativeCertificateJson
+
+#print axioms quotientLumpabilityVerdict_true
+#print axioms canonicalizerIdempotenceVerdict_true
+#print axioms representativeInvarianceVerdict_true
+#print axioms noOrbitSizeBiasVerdict_true
+#print axioms fractionalSandboxBadKernel_rejected
+#print axioms fractionalSandboxBadKernel_witness_valid
+#print axioms fractionalSandboxBadKernel_not_lumpable
+#print axioms fractionalSandboxBadKernel_check_false
+#print axioms quotientLumpabilityNegativeVerdict_false
+#print axioms canonicalizerIdempotenceNegativeVerdict_false
+#print axioms representativeInvarianceNegativeVerdict_false
+#print axioms noOrbitSizeBiasNegativeVerdict_false
+
 end OPH.QuotientLumpability

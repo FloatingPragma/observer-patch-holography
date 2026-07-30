@@ -38,6 +38,21 @@ def test_build_fractional_quotient_receipts(tmp_path: pathlib.Path) -> None:
     assert gates["OPTICAL_MODULE_CERTIFICATE"] is True
     assert gates["MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT"] is False
 
+    provenance = receipts["receipt_provenance"]
+    for name in (
+        "QUOTIENT_LUMPABILITY",
+        "CANONICALIZER_IDEMPOTENCE",
+        "REPRESENTATIVE_INVARIANCE",
+        "NO_ORBIT_SIZE_BIAS",
+    ):
+        assert gates[name] is True
+        assert provenance[name] == "COMPUTED_FROM_LEAN_CERTIFICATE"
+    assert provenance["SOURCE_HAMILTONIAN_FROZEN"] == "DECLARED_SANDBOX_SCAFFOLD"
+
+    binding = json.loads((out_dir / "lean_certificate.json").read_text(encoding="utf-8"))
+    assert binding["certificate_status"] == "CERTIFICATE_PINNED"
+    assert binding["certificate_verdicts"]["QUOTIENT_LUMPABILITY"] is True
+
     dag = json.loads((out_dir / "no_target_leak_dag.json").read_text(encoding="utf-8"))
     assert dag["status"] == "PASS_EMPTY_COMPARISON_DAG"
 
@@ -66,3 +81,83 @@ def test_rejects_optical_target_as_source_input(tmp_path: pathlib.Path) -> None:
     assert "optical_peak_measurement" in dag["target_leak_hits"]
     assert receipts["readiness_gates"]["NO_TARGET_LEAK_DAG"] is False
     assert receipts["readiness_gates"]["SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT"] is False
+
+
+def test_negative_control_certificate_fails_receipts(tmp_path: pathlib.Path) -> None:
+    negative = (
+        ROOT
+        / "particles"
+        / "fractional"
+        / "fractional_quotient_negative_control_certificate.json"
+    )
+    out_dir = tmp_path / "negative"
+
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--output",
+            str(out_dir),
+            "--certificate",
+            str(negative),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+
+    receipts = json.loads((out_dir / "receipts.json").read_text(encoding="utf-8"))
+    gates = receipts["readiness_gates"]
+    for name in (
+        "QUOTIENT_LUMPABILITY",
+        "CANONICALIZER_IDEMPOTENCE",
+        "REPRESENTATIVE_INVARIANCE",
+        "NO_ORBIT_SIZE_BIAS",
+        "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT",
+    ):
+        assert gates[name] is False, name
+
+    binding = json.loads((out_dir / "lean_certificate.json").read_text(encoding="utf-8"))
+    assert binding["certificate_status"] == "CERTIFICATE_PINNED"
+    assert binding["certificate_witnesses"]["QUOTIENT_LUMPABILITY"] == {
+        "pair": ["a0", "a1"],
+        "fibre": "vacuum",
+    }
+
+    ladder = json.loads((out_dir / "claim_ladder.json").read_text(encoding="utf-8"))
+    assert ladder["claim"] == "DIAGNOSTIC_ONLY"
+    assert ladder["first_blocked_gate"] == "CANONICALIZER_IDEMPOTENCE"
+
+
+def test_certificate_not_matching_lean_pin_fails_closed(tmp_path: pathlib.Path) -> None:
+    pinned = ROOT / "particles" / "fractional" / "fractional_quotient_certificate.json"
+    tampered = json.loads(pinned.read_text(encoding="utf-8"))
+    tampered["kernel"]["a0"]["vac"] = "9/10"
+    cert_path = tmp_path / "tampered.json"
+    cert_path.write_text(json.dumps(tampered), encoding="utf-8")
+    out_dir = tmp_path / "tampered"
+
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--output",
+            str(out_dir),
+            "--certificate",
+            str(cert_path),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+
+    receipts = json.loads((out_dir / "receipts.json").read_text(encoding="utf-8"))
+    gates = receipts["readiness_gates"]
+    for name in (
+        "QUOTIENT_LUMPABILITY",
+        "CANONICALIZER_IDEMPOTENCE",
+        "REPRESENTATIVE_INVARIANCE",
+        "NO_ORBIT_SIZE_BIAS",
+    ):
+        assert gates[name] is False, name
+
+    binding = json.loads((out_dir / "lean_certificate.json").read_text(encoding="utf-8"))
+    assert binding["certificate_status"] == "CERTIFICATE_NOT_PINNED"
