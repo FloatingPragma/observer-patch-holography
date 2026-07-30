@@ -306,8 +306,9 @@ def produce_z6_candidates(
             "slot_id": slot["slot_id"],
             "grammar_class": "trace_determinant_character_index",
             "statement": (
-                "the quotient fundamental group is cyclic of order six, so "
-                "magnetic flux classes take exactly six values"
+                "the quotient covering kernel is cyclic of order six, so the "
+                "flux and line classification of the quotient form refines "
+                "the unquotiented lattice by exactly six classes"
             ),
             "expression": expression(
                 "index of the pinned quotient kernel",
@@ -320,8 +321,8 @@ def produce_z6_candidates(
                 "source": "exact diagonal Z6 quotient",
             },
             "kill_rule": (
-                "a physical flux classification with a different finite "
-                "order falsifies the selected global form branch"
+                "a physical flux and line refinement with a different "
+                "finite index falsifies the selected global form branch"
             ),
         },
         {

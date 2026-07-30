@@ -24,7 +24,7 @@
         ]
       },
       "grammar_class": "trace_determinant_character_index",
-      "kill_rule": "a physical flux classification with a different finite order falsifies the selected global form branch",
+      "kill_rule": "a physical flux and line refinement with a different finite index falsifies the selected global form branch",
       "nuisance_matrix": {
         "basis_and_coordinate_choice": {
           "certificate": "the relation is stated on character data (triality, duality, hypercharge class), which is invariant under basis and coordinate changes",
@@ -62,7 +62,7 @@
         ],
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
-      "statement": "the quotient fundamental group is cyclic of order six, so magnetic flux classes take exactly six values",
+      "statement": "the quotient covering kernel is cyclic of order six, so the flux and line classification of the quotient form refines the unquotiented lattice by exactly six classes",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -648,7 +648,7 @@
     "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
   },
   "issue": 647,
-  "registry_sha256": "sha256:7fdab907632196638dce647f017e794e0e12f18aa69829816ff1041ebb8d1fb7",
+  "registry_sha256": "sha256:3e2d1abc3c40e1e455cac7bfa23ad0745ba1d41d6cda66b5f4c06ab0a1a4861a",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,
