@@ -23,6 +23,8 @@ cmds=[
  [sys.executable,str(ROOT/'producers'/'counterterm_pole_solution.py')],
  [sys.executable,str(ROOT/'producers'/'wz_pole_receipts.py'),'--check-byte-exact'],
  [sys.executable,str(ROOT/'checkers'/'check_wz_pole_diagnostic.py')],
+ [sys.executable,str(ROOT/'checkers'/'check_certified_wz_contours.py')],
+ [sys.executable,str(ROOT/'checkers'/'check_certified_second_sheet_poles.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]
 lines=[]

@@ -6,7 +6,8 @@
   "promotion_allowed": false,
   "baseline_specification_schema_documents": 9,
   "diagnostic_schema_documents": 1,
-  "total_schema_documents": 10,
+  "certified_contour_schema_documents": 2,
+  "total_schema_documents": 12,
   "baseline_specification_receipt_instances": 10,
   "wz_boundary_diagnostic_receipts": 6,
   "baseline_exact_symbolic_checks": 8,
@@ -14,8 +15,8 @@
   "baseline_specification_tests": 38,
   "package_test_count_policy": "the current executable count is reported by pytest collection; 38 is the preserved baseline specification-suite count",
   "runtime_log_excluded": "outputs/latest_validation.log",
-  "file_count_excluding_manifest_and_runtime_log": 89,
-  "total_bytes_excluding_manifest_and_runtime_log": 1331673,
+  "file_count_excluding_manifest_and_runtime_log": 99,
+  "total_bytes_excluding_manifest_and_runtime_log": 1563062,
   "files": [
     {
       "path": ".ruff_cache/.gitignore",
@@ -71,6 +72,16 @@
       "path": "candidate_axioms/OPH_PLUS_SM_EFT_FJ_V1.md",
       "bytes": 2792,
       "sha256": "371d5bcb4076b81608c7c1298956a62ab4919a933bdb90d54f7c6f171137f49c"
+    },
+    {
+      "path": "checkers/check_certified_second_sheet_poles.py",
+      "bytes": 9850,
+      "sha256": "4075366ea61537f6e8cee9712e3c0e3874c7d650e61c28d84edd1de9f9790077"
+    },
+    {
+      "path": "checkers/check_certified_wz_contours.py",
+      "bytes": 7453,
+      "sha256": "837ce1e3637642657d2c9bcb6e601e990957159f18ea8e7c1d34911ea1b0b12c"
     },
     {
       "path": "checkers/check_completion_bundle.py",
@@ -134,13 +145,23 @@
     },
     {
       "path": "generate_integration_manifest.py",
-      "bytes": 2690,
-      "sha256": "4e6029d3dad6d55340543deb7458d380cbf6fa6ee57d2efc5258a49d0ed1a54e"
+      "bytes": 2739,
+      "sha256": "6b95f5873d0e43618a75cc673372fe33eae2279b93dc6220bbb0758449ba665d"
     },
     {
       "path": "outputs/aggregate_status.json",
       "bytes": 1917,
       "sha256": "4be3e4c53cd270693ee69b534f62d9c9829f99c9812feb464edbe5a3895feab5"
+    },
+    {
+      "path": "outputs/certified_second_sheet_poles.json",
+      "bytes": 73482,
+      "sha256": "30afb23d646bef4d0d338eef35282f1c30ea1b0d1a8409cdd119c0b0b9072b9f"
+    },
+    {
+      "path": "outputs/certified_wz_contours.json",
+      "bytes": 36681,
+      "sha256": "4102c125af444eca56d7708c88f33852995e71f6410119b584828b5a50bd4fcb"
     },
     {
       "path": "outputs/counterterm_pole_solution.json",
@@ -228,6 +249,21 @@
       "sha256": "aa34a9ed89664d1801679d8abbad4d6a13d8e724794e542962b095de3494c68d"
     },
     {
+      "path": "producers/certified_second_sheet_poles.py",
+      "bytes": 31918,
+      "sha256": "78274b4f60fb341002ee2ac8dc7be8e33dca7c25b970dd9cd0ea446d7ac4aa05"
+    },
+    {
+      "path": "producers/certified_wz_contours.py",
+      "bytes": 39414,
+      "sha256": "564220ef7273b2d38ffdcac23700ec4d10addf25ee3c717fecbfa231fe6317e5"
+    },
+    {
+      "path": "producers/complex_interval.py",
+      "bytes": 5958,
+      "sha256": "c4224a0c9317ebd32c663880dc7a1c2a15fe9a3ac1075a32efbf818705659d00"
+    },
+    {
       "path": "producers/counterterm_pole_solution.py",
       "bytes": 19601,
       "sha256": "07d62696fe7e08aea0ab9f3b424ba890cdc07ac638f26d6a591a26a6d0ee13bb"
@@ -304,8 +340,18 @@
     },
     {
       "path": "run_all.py",
-      "bytes": 1963,
-      "sha256": "6c08394ebedb0fa459d61a5b93cd6844ee268f46a6cd6ec06e4148e5c4420303"
+      "bytes": 2116,
+      "sha256": "03ce2c6b6d120122597c801f616c60647e8eb34129db94148caca503a3dc751d"
+    },
+    {
+      "path": "schemas/certified_second_sheet_poles_v1.schema.json",
+      "bytes": 9306,
+      "sha256": "d06d12f265704d9eaf6dca33d3bee54e61c8bc6023132b50e0b20e0995fcce95"
+    },
+    {
+      "path": "schemas/certified_wz_contours_v2.schema.json",
+      "bytes": 7134,
+      "sha256": "a453dae278a98e16d5b3422e32b4eb5bd1e8844b58e1741405634c0cd11419b1"
     },
     {
       "path": "schemas/eft_matching_packet_v1.schema.json",
@@ -413,9 +459,14 @@
       "sha256": "f2373a58047e2c676c7c25c5e6bd824fe60f57e3c5b65fb82f996dc571ec21fb"
     },
     {
+      "path": "tests/test_certified_wz_contours.py",
+      "bytes": 9928,
+      "sha256": "ed4225506f873d0ff72a832da0909e59fcc892457c259baed56aefa0ee477aad"
+    },
+    {
       "path": "tests/test_completion.py",
-      "bytes": 13130,
-      "sha256": "ce9a448917d80f9688ec00ac7d11412eb25dfa17359e34cc5a7ad596a6da448d"
+      "bytes": 13193,
+      "sha256": "bb282f5df991aa573b26f74136a90d860ec5e57f989554aec44ae8a62f62d224"
     },
     {
       "path": "tests/test_counterterms.py",

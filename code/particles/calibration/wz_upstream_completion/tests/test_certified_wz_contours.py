@@ -100,6 +100,9 @@ class SyntheticWindingTests(unittest.TestCase):
         def inverse_propagator(self, s, s_key, tree_mass):
             return s - self.root
 
+        def inverse_propagator_derivative(self, s, s_key, tree_mass):
+            return CInterval.from_fraction(1)
+
     def setUp(self) -> None:
         iv.prec = 128
         self.gate = (iv.mpf(157) / iv.mpf(100)).a
@@ -166,17 +169,85 @@ class FrozenReceiptTests(unittest.TestCase):
                     "enclosures_nested_with_precision"
                 ]
             )
+            per_quantity = receipt["precision_nesting"][name][
+                "per_quantity_probe_nesting"
+            ]
+            self.assertIn("inverse_propagator", per_quantity)
+            self.assertIn("inverse_propagator_derivative", per_quantity)
+            self.assertTrue(all(per_quantity.values()))
+            self.assertIn(
+                name, receipt["dimensional_prefactor_finite_correction"]
+            )
+            self.assertNotEqual(
+                receipt["dimensional_prefactor_finite_correction"][name], "0"
+            )
         gates = receipt["serialized_gates"]
         for key in (
             "precisions_bits",
             "initial_segments_per_edge",
             "max_subdivision_depth",
-            "holomorphy_grid",
+            "holomorphy_method",
+            "boundary_method",
             "arg_width_gate",
-            "holomorphy_arg_gate",
             "winding_tolerance",
         ):
             self.assertIn(key, gates)
+
+
+class SecondSheetFrozenReceiptTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.receipt = json.loads(
+            (
+                PACKAGE_ROOT / "outputs" / "certified_second_sheet_poles.json"
+            ).read_text(encoding="utf-8")
+        )
+
+    def test_status_and_windings(self) -> None:
+        self.assertEqual(
+            self.receipt["status"],
+            "SECOND_SHEET_POLE_CERTIFIED_ON_DECLARED_CONTINUATION",
+        )
+        for name in ("W", "Z"):
+            for row in self.receipt["results"][name].values():
+                self.assertTrue(row["pole_certified"])
+                self.assertTrue(row["simple_root_certified"])
+                self.assertEqual(row["boundary_winding"]["winding"], 1)
+                null_vectors = row["interval_newton"]["null_vectors"]
+                self.assertTrue(null_vectors["left_residual_contains_zero"])
+                self.assertTrue(null_vectors["right_residual_contains_zero"])
+                self.assertTrue(
+                    null_vectors["laurent_denominator_excludes_zero"]
+                )
+
+    def test_claim_boundary_flags_stay_false(self) -> None:
+        promotion = self.receipt["promotion"]
+        self.assertFalse(promotion["matrix_rank_laurent_certified"])
+        self.assertFalse(promotion["bmhv_restoration_certified"])
+        self.assertFalse(promotion["physical_current_claim"])
+        self.assertFalse(promotion["oph_native"])
+        self.assertFalse(promotion["unit_claim"])
+
+    def test_continuation_probes_and_nesting(self) -> None:
+        for name in ("W", "Z"):
+            continuation = self.receipt["declared_continuation"][name]
+            self.assertTrue(continuation["consistency_probes"]["all_passed"])
+            nesting = self.receipt["precision_nesting"][name]
+            self.assertTrue(nesting["enclosures_nested_with_precision"])
+            self.assertTrue(
+                nesting["per_segment_enclosure_nesting"]["all_nested"]
+            )
+            self.assertTrue(all(nesting["newton_ball_nesting"].values()))
+
+    def test_zero_exclusion_receipt_is_pinned(self) -> None:
+        import hashlib
+
+        stored = self.receipt["pins"]["zero_exclusion_receipt_sha256"]
+        actual = "sha256:" + hashlib.sha256(
+            (
+                PACKAGE_ROOT / "outputs" / "certified_wz_contours.json"
+            ).read_bytes()
+        ).hexdigest()
+        self.assertEqual(stored, actual)
 
 
 if __name__ == "__main__":

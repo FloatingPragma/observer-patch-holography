@@ -349,7 +349,8 @@ def test_post_audit_integration_manifest_is_complete_and_current():
     assert set(records) == expected_paths
     assert manifest["baseline_specification_schema_documents"] == 9
     assert manifest["diagnostic_schema_documents"] == 1
-    assert manifest["total_schema_documents"] == 10
+    assert manifest["certified_contour_schema_documents"] == 2
+    assert manifest["total_schema_documents"] == 12
     assert manifest["total_schema_documents"] == len(
         list((ROOT / "schemas").glob("*.schema.json"))
     )

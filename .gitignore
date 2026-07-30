@@ -18,3 +18,7 @@ temp
 
 # Local IBM Quantum Cloud credential
 /code/ibm_quantum_cloud/.api-key
+
+# In-flight producer checkpoints, deleted on completed runs
+/code/particles/calibration/wz_upstream_completion/outputs/certified_wz_contours_checkpoint.json
+/code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles_checkpoint.json
