@@ -13,6 +13,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
 FLAGSHIP_DIR = REPO_ROOT / "flagship"
+COSMOLOGY_DIR = REPO_ROOT / "cosmology"
 
 # Release-surface PDFs whose source is not a sibling TeX root. The manifest
 # generator and validator share this registry so a source/output pair cannot
@@ -38,10 +39,19 @@ PAPERS = {
     "screen_microphysics_and_observer_synchronization": PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
 }
 EXTRA_PAPERS = {
-    "compact_proof_of_oph": EXTRA_DIR / "compact_proof_of_oph.tex",
+    path.stem: path
+    for path in sorted(EXTRA_DIR.glob("*.tex"))
 }
-RELEASED_ADJUNCT_PAPERS = dict(EXTRA_PAPERS)
-ALL_PAPERS = {**PAPERS, **RELEASED_ADJUNCT_PAPERS}
+COSMOLOGY_PAPERS = {
+    path.stem: path
+    for path in sorted(COSMOLOGY_DIR.glob("*.tex"))
+}
+# The compact proof remains manifest-bound for the challenge backend. No
+# extra/ or cosmology/ PDF is attached to the public GitHub Release.
+RELEASED_ADJUNCT_PAPERS = {
+    "compact_proof_of_oph": EXTRA_PAPERS["compact_proof_of_oph"],
+}
+ALL_PAPERS = {**PAPERS, **EXTRA_PAPERS, **COSMOLOGY_PAPERS}
 
 RELEASE_TRACKED = (
     "from_observer_consensus_to_standard_physics",
@@ -81,6 +91,11 @@ def parse_args() -> argparse.Namespace:
         help="Build only root-level extra/ papers.",
     )
     parser.add_argument(
+        "--cosmology-only",
+        action="store_true",
+        help="Build only root-level cosmology/ papers.",
+    )
+    parser.add_argument(
         "--list",
         action="store_true",
         help="Print the known paper ids and exit.",
@@ -89,9 +104,17 @@ def parse_args() -> argparse.Namespace:
 
 
 def resolve_targets(args: argparse.Namespace) -> list[str]:
-    selected_modes = [args.release_only, args.supplemental_only, args.extra_only]
+    selected_modes = [
+        args.release_only,
+        args.supplemental_only,
+        args.extra_only,
+        args.cosmology_only,
+    ]
     if sum(bool(mode) for mode in selected_modes) > 1:
-        raise SystemExit("choose at most one of --release-only, --supplemental-only, or --extra-only")
+        raise SystemExit(
+            "choose at most one of --release-only, --supplemental-only, "
+            "--extra-only, or --cosmology-only"
+        )
 
     if args.list:
         for paper_id in sorted(ALL_PAPERS):
@@ -99,6 +122,8 @@ def resolve_targets(args: argparse.Namespace) -> list[str]:
                 marker = "release"
             elif paper_id in EXTRA_PAPERS:
                 marker = "extra"
+            elif paper_id in COSMOLOGY_PAPERS:
+                marker = "cosmology"
             else:
                 marker = "supplemental"
             print(f"{paper_id}\t{marker}")
@@ -115,7 +140,9 @@ def resolve_targets(args: argparse.Namespace) -> list[str]:
     if args.supplemental_only:
         return sorted(set(PAPERS) - RELEASE_TRACKED_SET)
     if args.extra_only:
-        return sorted(RELEASED_ADJUNCT_PAPERS)
+        return sorted(EXTRA_PAPERS)
+    if args.cosmology_only:
+        return sorted(COSMOLOGY_PAPERS)
     return [
         *RELEASE_TRACKED,
         *sorted(set(ALL_PAPERS) - RELEASE_TRACKED_SET),

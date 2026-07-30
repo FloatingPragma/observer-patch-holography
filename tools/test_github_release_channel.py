@@ -18,8 +18,10 @@ def _write(path: Path, payload: bytes) -> None:
 
 def _fixture(tmp_path: Path) -> tuple[Path, dict, dict]:
     paper = tmp_path / "paper" / "paper.pdf"
+    extra = tmp_path / "extra" / "adjunct.pdf"
     book = tmp_path / checker.BOOK_RELATIVE
     _write(paper, b"%PDF-paper\n")
+    _write(extra, b"%PDF-adjunct\n")
     _write(book, b"%PDF-book\n")
     manifest_path = tmp_path / checker.DEFAULT_MANIFEST_RELATIVE
     manifest = {
@@ -38,7 +40,13 @@ def _fixture(tmp_path: Path) -> tuple[Path, dict, dict]:
             }
         },
         "supplemental_papers": {},
-        "extra_papers": {},
+        "extra_papers": {
+            "adjunct": {
+                "pdf_path": "extra/adjunct.pdf",
+                "sha256": hashlib.sha256(extra.read_bytes()).hexdigest(),
+                "size_bytes": extra.stat().st_size,
+            }
+        },
     }
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(
@@ -73,6 +81,7 @@ def test_matching_release_is_accepted(tmp_path: Path) -> None:
         repo_root=tmp_path,
         manifest_path=manifest_path,
     )
+    assert "adjunct.pdf" not in contract
     assert checker.validate_release_payloads(
         release_payload=release,
         latest_payload=latest,
@@ -200,7 +209,7 @@ def test_duplicate_portable_asset_basename_is_rejected(tmp_path: Path) -> None:
     duplicate = tmp_path / "extra" / "paper.pdf"
     _write(duplicate, b"%PDF-other\n")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["supplemental_papers"]["other"] = {
+    manifest["papers"]["other"] = {
         "pdf_path": "extra/paper.pdf",
         "sha256": hashlib.sha256(duplicate.read_bytes()).hexdigest(),
         "size_bytes": duplicate.stat().st_size,

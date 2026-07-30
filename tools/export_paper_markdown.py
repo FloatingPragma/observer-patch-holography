@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Export OPH TeX papers to local Markdown copies.
 
-The release-tracked paper and extra sets share the public release banner. Cosmology
-sources are exported for local research use only and remain outside every public
-release, PDF, and website publication set.
+The release-tracked flagship, paper, and extra sets share the public release
+banner. Cosmology sources are exported for local research use only and remain
+outside every public release, PDF, and website publication set.
 """
 
 from __future__ import annotations
@@ -35,7 +35,7 @@ DEFAULT_FLAGSHIP_PAPERS = [
 ]
 DEFAULT_SUPPLEMENTAL_PAPERS = [
 ]
-DEFAULT_EXTRA_PAPERS = [EXTRA_DIR / "compact_proof_of_oph.tex"]
+DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
 DEFAULT_COSMOLOGY_PAPERS = sorted(COSMOLOGY_DIR.glob("*.tex"))
 DEFAULT_SOURCES = [
     *DEFAULT_FLAGSHIP_PAPERS,
@@ -269,9 +269,9 @@ def write_build_info(
     payload = {
         "release_tag": release_tag,
         "source_snapshot": (
-            "release-tracked papers from reverse-engineering-reality/paper and "
-            "reverse-engineering-reality/extra; unpublished research sources from "
-            "reverse-engineering-reality/cosmology"
+            "release-tracked papers from reverse-engineering-reality/flagship, "
+            "reverse-engineering-reality/paper, and reverse-engineering-reality/extra; "
+            "unpublished research sources from reverse-engineering-reality/cosmology"
         ),
         "generated_files": generated,
         "unpublished_cosmology_exports": cosmology_exports,
@@ -288,7 +288,7 @@ def resolve_source(name_or_path: str) -> Path:
             return candidate
 
     basename = candidate.stem if candidate.suffix else name_or_path
-    for directory in (PAPER_DIR, EXTRA_DIR, COSMOLOGY_DIR):
+    for directory in (FLAGSHIP_DIR, PAPER_DIR, EXTRA_DIR, COSMOLOGY_DIR):
         source = directory / f"{basename}.tex"
         if source.is_file():
             return source

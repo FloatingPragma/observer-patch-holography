@@ -39,7 +39,9 @@ def test_committed_manifest_matches_source_set(tmp_path: Path) -> None:
 def test_expected_sets_are_derived_not_fixed() -> None:
     sections = validator.expected_sections()
     assert set(sections["papers"]) == set(validator.source.RELEASE_TRACKED)
-    assert set(sections["extra_papers"]) == set(validator.source.EXTRA_PAPERS)
+    assert set(sections["extra_papers"]) == set(
+        validator.source.RELEASED_ADJUNCT_PAPERS
+    )
     assert set(sections["supplemental_papers"]) == set(validator.source.PAPERS) - set(validator.source.RELEASE_TRACKED)
 
 

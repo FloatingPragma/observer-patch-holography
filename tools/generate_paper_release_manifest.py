@@ -104,7 +104,7 @@ def verify_lean_theorem_count(repo_root: Path) -> None:
 
 def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
     discovered: dict[str, Path] = {}
-    for tex_path in paper_sources.EXTRA_PAPERS.values():
+    for tex_path in paper_sources.RELEASED_ADJUNCT_PAPERS.values():
         pdf_path = tex_path.with_suffix(".pdf")
         if not pdf_path.is_file():
             raise SystemExit(
@@ -119,9 +119,9 @@ def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
     """Reject release-surface PDFs that no source implies.
 
     Membership is derived from the sources: the curated release set for
-    ``paper/`` and the ``extra/*.tex`` glob for ``extra/``. Any other PDF in
-    those directories would ship unhashed and unaudited, so its presence
-    fails the manifest build (issue #514).
+    ``paper/`` and the explicitly registered challenge adjuncts in ``extra/``.
+    Other ``extra/`` and ``cosmology/`` PDFs are repository-maintained build
+    products and are intentionally outside the public release manifest.
     """
     expected = {
         str(Path(payload["pdf_path"]))
@@ -145,7 +145,7 @@ def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
     }
     actual.update(
         str(pdf.relative_to(repo_root))
-        for tex_path in paper_sources.EXTRA_PAPERS.values()
+        for tex_path in paper_sources.RELEASED_ADJUNCT_PAPERS.values()
         if (pdf := repo_root / "extra" / tex_path.with_suffix(".pdf").name).is_file()
     )
     strays = sorted(actual - expected)

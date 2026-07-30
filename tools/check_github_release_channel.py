@@ -30,7 +30,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPO = "FloatingPragma/observer-patch-holography"
 DEFAULT_MANIFEST_RELATIVE = Path("paper/paper_release_manifest.json")
 BOOK_RELATIVE = Path("book/reverse-engineering-reality-book.pdf")
-MANIFEST_SECTIONS = ("papers", "supplemental_papers", "extra_papers")
+# Public GitHub Releases intentionally expose only the flagship plus the
+# top-level paper/ stack. Adjunct manifest sections support other surfaces.
+MANIFEST_SECTIONS = ("papers",)
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 GIT_OBJECT_RE = re.compile(r"[0-9a-fA-F]{40,64}")
 REPO_SLUG_RE = re.compile(
