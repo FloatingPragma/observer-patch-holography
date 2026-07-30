@@ -54,6 +54,11 @@ surface, and the source-admissible completion nuisance covers every slot.
 - `outputs/candidate_registry.json` holds the generated candidates, the
   per-slot generation states, and the sealed scoring boundary.
 
+The row-level fields `execution_status: REGISTERED_DISABLED` and
+`candidate_generation_eligible: false` inside the frozen registries are
+pre-enablement vocabulary preserved by the byte-freeze; the live execution
+state is carried by the policy flags alone.
+
 The direct-\(N\) lane is registered only to prove non-reentry. It is owned by
 the dedicated capacity and cosmology chain, carries the locked
 non-identifiability verdict of that chain, and is ineligible for fallback

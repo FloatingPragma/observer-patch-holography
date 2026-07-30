@@ -2,7 +2,7 @@
 """Issue #589 horizon-record attachment verdict.
 
 The bridge identity ``N_star = log D_star = A_dS/(4 ell_star^2)`` consumes a
-robust direct capacity closure from issue #505: a unique source-selected
+unique-zero direct capacity closure from issue #505: a unique source-selected
 ``D_star``. The completed capacity source class carries the locked
 non-identifiability verdict, so no unique ``D_star`` exists on the declared
 class and the horizon-record identification has no capacity-side carrier to
@@ -94,7 +94,7 @@ def build_verdict() -> dict[str, Any]:
         },
         "missing_antecedent": (
             "the bridge identity requires a unique source-selected D_star "
-            "from robust direct closure; the completed declared capacity "
+            "from a unique-zero direct closure; the completed declared capacity "
             "source class does not entail a unique slack zero, so no "
             "capacity-side carrier exists for the horizon identification"
         ),

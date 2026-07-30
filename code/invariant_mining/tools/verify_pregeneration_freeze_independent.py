@@ -693,8 +693,13 @@ def verify(
         )
         cleanliness = registry.get("target_cleanliness", {})
         require(
-            all(value is False for value in cleanliness.values())
-            and len(cleanliness) == 3,
+            set(cleanliness)
+            == {
+                "public_measurement_read",
+                "comparison_payload_read",
+                "target_value_read",
+            }
+            and all(value is False for value in cleanliness.values()),
             "CANDIDATE_TARGET_CLEANLINESS_DRIFT",
             str(cleanliness),
         )

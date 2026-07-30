@@ -206,10 +206,14 @@ def produce_z6_candidates(
         if "z6_charge_line_congruences" in row["applies_to_slot_ids"]
     )
 
-    def expression(kind: str, terminals: list[str], operator_units: int) -> dict[str, Any]:
+    def expression(
+        kind: str,
+        terminals: list[str],
+        operator_units: int,
+        depth: int,
+        nodes: int,
+    ) -> dict[str, Any]:
         budget = grammar["complexity_budget"]
-        depth = 3
-        nodes = 1 + 1 + len(terminals)
         require(depth <= budget["maximum_ast_depth"], "depth budget exceeded")
         require(nodes <= budget["maximum_ast_nodes"], "node budget exceeded")
         require(
@@ -222,6 +226,11 @@ def produce_z6_candidates(
             "ast_depth": depth,
             "ast_nodes": nodes,
             "complexity_units": operator_units,
+            "accounting": (
+                "generator-declared against the frozen operator costs; the "
+                "independent verifier recomputes every score from the "
+                "declared units"
+            ),
         }
 
     candidates = [
@@ -239,6 +248,8 @@ def produce_z6_candidates(
                 "coefficients, character vector)",
                 ["registered_integer", "registered_character"],
                 1 * 2 + 3 + 4,
+                depth=3,
+                nodes=4,
             ),
             "relation_certificate": {
                 "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -264,6 +275,8 @@ def produce_z6_candidates(
                 "trivial triality and duality",
                 ["registered_character", "registered_integer"],
                 1 * 2 + 3 + 4,
+                depth=3,
+                nodes=4,
             ),
             "relation_certificate": {
                 "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -289,6 +302,8 @@ def produce_z6_candidates(
                 "declared_modulus_class[6] restricted to unit triality",
                 ["registered_character", "registered_integer"],
                 1 * 2 + 3 + 4,
+                depth=3,
+                nodes=4,
             ),
             "relation_certificate": {
                 "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -314,6 +329,8 @@ def produce_z6_candidates(
                 "index of the pinned quotient kernel",
                 ["registered_index"],
                 1 + 2,
+                depth=2,
+                nodes=2,
             ),
             "relation_certificate": {
                 "kind": "pinned_kernel_order",
@@ -338,6 +355,8 @@ def produce_z6_candidates(
                 "exact_zero of non-descending character classes",
                 ["registered_character", "registered_index"],
                 1 * 2 + 3 + 4,
+                depth=3,
+                nodes=4,
             ),
             "relation_certificate": {
                 "kind": "finite_exhaustion_over_kernel_residue_classes",
