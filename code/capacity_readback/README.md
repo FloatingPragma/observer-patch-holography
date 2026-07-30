@@ -14,9 +14,10 @@ lines are its typed finite implementation.
 
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
-define the direct map. The bounded counterfamily is represented by
-`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`, so it emits no
-universe-level physical `N` and does not close the complete source class.
+define the direct map. The bounded counterfamily carried the interim verdict
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`, and the complete
+packet lift decides the completed class: the locked verdict emits no
+universe-level physical `N` and closes the class negatively.
 
 The independent finite (A_5) control is summarized in
 [`A5_FINITE_CONTROL_STATUS_2026-07-20.md`](A5_FINITE_CONTROL_STATUS_2026-07-20.md).
@@ -142,7 +143,7 @@ invalidates the comparison.
 ## Downstream bridges
 
 These bridges consume a unique-zero direct closure that the completed class
-does not supply; they stand as contracts for any future named source law:
+does not supply; they stand as contracts for an additional named source law:
 
 - identifying the correctable record carrier with the de Sitter horizon may
   identify `log D_star` with
@@ -162,12 +163,11 @@ count, affine, and Banach candidates. They have diagnostic value only. The
 `CP*` and `G2_GAP_1` notes likewise do not supply the exact finite-size
 selector.
 
-## Positive route beyond the bounded verdict
+## Positive route beyond the locked verdict
 
-- lift the complete A1--A3 packet across capacity and decide its admissible
-  completion class;
-- if the lifted class remains nonunique, state and justify a stronger source
-  law that selects one continuation completion;
+- state and justify an additional named source law that selects one
+  continuation completion, the step the locked non-identifiability verdict
+  proves necessary;
 - prove an exact finite-size slack law with one regulator-stable physical zero
   for that stronger law;
 - independently certify the horizon-record, EW/Higgs load-carrier, and

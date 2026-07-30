@@ -405,9 +405,8 @@ def multiplicity_pattern(
     has_pair = structure["irrational_residual_degree"] == 2
     if has_pair:
         pair = structure["quadratic_pair"]
-        require(pair is not None, "missing quadratic pair")
-        linear = Fraction(pair["linear"])
-        require(linear == 0, "quadratic pair with linear term unsupported")
+        if pair is None or Fraction(pair["linear"]) != 0:
+            return None
         radicand = -Fraction(pair["constant"])
     traces = matrix_power_traces(matrix, 4)
     solutions = []
@@ -532,6 +531,23 @@ def probe_member(name: str) -> dict[str, Any]:
         "twenty_triangles": traces[2] // 6 == 20,
         "response_involution": response_involution(matrix),
     }
+    cells = {}
+    for probe, value in probes.items():
+        if probe == "response_involution" and size != 12:
+            cells[probe] = "failed_precondition_non_twelve_port"
+        elif probe == "multiplicities_1_3_3_5" and multiplicities is None:
+            cells[probe] = "non_identifiable_at_declared_trace_depth"
+        else:
+            cells[probe] = "hit" if value else "miss"
+    gauge_stratum = (
+        "reached"
+        if all(probes.values())
+        else (
+            "failed_precondition_response_involution"
+            if size == 12
+            else "failed_precondition_non_twelve_port"
+        )
+    )
     return {
         "member": name,
         "vertices": size,
@@ -540,6 +556,8 @@ def probe_member(name: str) -> dict[str, Any]:
         "rational_bands": structure["rational_bands"],
         "band_multiplicities": multiplicities,
         "probes": probes,
+        "cell_typing": cells,
+        "gauge_stratum": gauge_stratum,
         "full_hit": all(probes.values()),
     }
 
@@ -651,6 +669,14 @@ def response_law_family() -> dict[str, Any]:
 
 def build_receipt() -> dict[str, Any]:
     table = [probe_member(name) for name in sorted(ENSEMBLE)]
+    invariants = {
+        (row["vertices"], row["edges"], tuple(sorted(row["rational_bands"])))
+        for row in table
+    }
+    require(
+        len(invariants) == len(table),
+        "ensemble members are not pairwise distinguished by invariants",
+    )
     full_hits = [row["member"] for row in table if row["full_hit"]]
     probe_names = list(table[0]["probes"])
     per_probe = {
@@ -670,11 +696,22 @@ def build_receipt() -> dict[str, Any]:
         "full_hit_members": full_hits,
         "unique_full_hit": full_hits == ["icosahedron"],
         "response_law_family": laws,
+        "gauge_stratum_note": (
+            "the current-algebra, center-quotient, charge-lattice, and "
+            "matter-menu producers consume the twelve-port response "
+            "involution; every member except the icosahedron fails that "
+            "precondition, so the gauge stratum is typed failed_precondition "
+            "rather than run, and only the icosahedron reaches it on the "
+            "declared pipeline"
+        ),
         "claim_boundary": (
             "the ensemble is a declared bounded menu of twelve carriers and "
-            "sixteen response laws; the score calibrates structural "
-            "specificity of the registered hits and is not a physical "
-            "forecast; carriers outside the menu are not classified"
+            "sixteen response laws; the score calibrates the "
+            "orientation-blind spectral and response-law stratum of the "
+            "registered hits and is not a physical forecast; the oriented "
+            "structure, the gauge-side producers beyond their typed "
+            "precondition rows, and carriers outside the menu are not "
+            "classified"
         ),
         "comparison_boundary": {
             "public_measurement_read": False,

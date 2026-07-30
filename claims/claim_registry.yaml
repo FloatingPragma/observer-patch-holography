@@ -788,7 +788,9 @@
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-        "code/capacity_readback/F_READBACK_SPEC.md"
+        "code/capacity_readback/F_READBACK_SPEC.md",
+        "code/capacity_readback/horizon_record_attachment_verdict.py",
+        "code/capacity_readback/runtime/horizon_record_attachment_verdict.json"
       ],
       "falsifier": "A branch satisfying direct record closure and the stated horizon-record saturation receipt violates the displayed de Sitter capacity relation, or the record and area limits fail to commute on the declared refinement family.",
       "scope_if_false": "The D6 cosmological identification falls; the direct finite public-record map and local Einstein branch remain separate.",
@@ -867,7 +869,7 @@
         "Gibbons_Hawking_de_Sitter_entropy",
         "standard_horizon_shock_sign_convention"
       ],
-      "oph_specific_delta": "OPH maps a source-independent finite capacity-transfer sign to the de Sitter shock diagnostic through explicit capacity, horizon, observer-mass, Einstein, coefficient, and scale dictionaries. Each physical dictionary is a named gate and is not a consequence of the finite logarithmic identity.",
+      "oph_specific_delta": "OPH maps a source-independent finite capacity-transfer sign to the de Sitter shock diagnostic through explicit capacity, horizon, observer-mass, Einstein, coefficient, and scale dictionaries. The Einstein, coefficient, and scale dictionaries are named gates; the capacity and horizon dictionaries are foreclosed pending an additional named source law after the locked capacity verdict and the not-evaluable horizon exit. None is a consequence of the finite logarithmic identity.",
       "novelty_type": "conditional_fixed_capacity_shock_sign_bridge",
       "evidence": [
         "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",

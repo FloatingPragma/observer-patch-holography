@@ -328,8 +328,8 @@ branche issue de la source, elle possède l’unique racine conditionnelle
 $N=\pi\exp(6\pi/(P\alpha_U(P)))=3{,}5321\times10^{122}$, sans utiliser la
 constante cosmologique mesurée. Son couplage au pont électrofaible l’exclut du
 protocole d’aveuglement de la voie directe de $N$.
-L’identification physique à une même charge issue de la source et
-l’attachement à l’horizon sont ouverts. Cette valeur est supérieure de
+L’identification physique à une même charge issue de la source reste
+ouverte et l’attachement à l’horizon est clos non évaluable. Cette valeur est supérieure de
 $6{,}63$ pour cent à la coordonnée de comparaison localisée par $\Lambda$.
 L’application directe des registres corrigibles reste le producteur canonique
 de la chaîne de preuve ; la charge commune est un candidat conditionnel de
@@ -616,8 +616,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition. Deux moteurs bruts de boucles véritablement indépendants, un troisième vérificateur de production, des contours complexes et données de Laurent certifiés, la covariance, les amplitudes de courant physique, l’appariement à la source et l’horloge sont absents. Aucun pôle natif d’OPH n’est donc promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve que l’accord à la base, la positivité et la borne du porteur ne sélectionnent pas un zéro unique. Le relèvement complet du paquet A1--A3 et son verdict de source restent ouverts ; aucune valeur cosmique n’est émise | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Candidat conditionnel de clôture de $N$ par charge commune | La loi d’auto-lecture écran/électrofaible possède l’unique racine $N=\pi\exp(6\pi/(P\alpha_U(P)))=3{,}5321\times10^{122}$ sur la branche issue de la source. Elle n’utilise pas la valeur mesurée de $\Lambda$. Son couplage au pont électrofaible l’exclut de la classe des prévisions aveugles directes de $N$. Le relèvement complet de la source de capacité directe, l’identité physique de la charge commune et l’attachement à l’horizon sont ouverts ; la racine du pont est supérieure de $6{,}63$ pour cent à la coordonnée de comparaison localisée par $\Lambda$ | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve que l’accord à la base, la positivité et la borne du porteur ne sélectionnent pas un zéro unique. Le relèvement complet du paquet A1--A3 prouve la même non-implication pour la classe déclarée complétée, avec un verdict négatif verrouillé ; aucune valeur cosmique n’est émise et un sélecteur de capacité serait une loi de source nommée supplémentaire | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Candidat conditionnel de clôture de $N$ par charge commune | La loi d’auto-lecture écran/électrofaible possède l’unique racine $N=\pi\exp(6\pi/(P\alpha_U(P)))=3{,}5321\times10^{122}$ sur la branche issue de la source. Elle n’utilise pas la valeur mesurée de $\Lambda$. Son couplage au pont électrofaible l’exclut de la classe des prévisions aveugles directes de $N$. La classe de source de capacité directe complétée est verrouillée non identifiable, l’attachement à l’horizon est clos non évaluable, et l’identité physique de la charge commune reste ouverte ; la racine du pont est supérieure de $6{,}63$ pour cent à la coordonnée de comparaison localisée par $\Lambda$ | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 
 ## Choisir un parcours de lecture
@@ -705,9 +705,12 @@ physique est ouvert. Les théorèmes de point fixe certifient les racines des
 applications déclarées ; ils ne transforment pas un bassin observé ou une
 coordonnée définie par la cible en dérivation physique. Le paquet corrigible à
 coupure fixe est exact ; le relèvement complet A1--A3 indexé par la capacité
-nécessaire à la clôture directe de $N$ est en cours. La clôture déclarée
-de charge commune possède une racine conditionnelle unique ; ses
-identifications physiques à une même charge et à l’horizon sont ouvertes. La
+porte un verdict négatif verrouillé : la classe déclarée complétée n’implique
+aucun zéro unique de l’écart, et une clôture directe de $N$ exigerait une loi
+de source nommée supplémentaire. La clôture déclarée
+de charge commune possède une racine conditionnelle unique ; son
+identification physique à une même charge reste ouverte et l’attachement à
+l’horizon est clos non évaluable. La
 lecture de $N$ dans l’univers laisse intactes les conséquences des trois
 axiomes.
 

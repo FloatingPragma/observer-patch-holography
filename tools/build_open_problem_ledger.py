@@ -764,13 +764,14 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "exposure typing, custody, and scoring open"
         ),
         "blocker": (
-            "The first-ranked direct N candidate still depends on #551, #505, "
-            "#503, and #589. No physically typed row from the complete frozen "
-            "#647 registry has passed exposure classification, durable custody, "
-            "minimum-power review, and single-use unsealing. The executable v2 "
-            "packet is a legacy C1 static draft and does not implement the C3 "
-            "registry pin, pre-generation ranking, exposure taxonomy, direct-N "
-            "non-reentry, or campaign-wide one-comparison stop."
+            "The first-ranked direct N candidate is ineligible: #551 and #505 "
+            "closed with the locked non-identifiability and #589 closed not "
+            "evaluable, so the pointer advances on the complete frozen #647 "
+            "registry. No physically typed registry row has passed exposure "
+            "classification, durable custody, minimum-power review, and "
+            "single-use unsealing, and the scoring surface awaits its "
+            "separately reviewed unsealing change with custody and exposure "
+            "typing."
         ),
         "closure": (
             "Score at most one eligible attached dimensionless candidate under "

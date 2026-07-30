@@ -10,8 +10,10 @@ any comparison surface. This producer emits the four verdicts:
 * issue #642: the diagonal Z6 packet converts to an exact conditional kill
   packet. The registry carries the descent congruence, the charge
   corollaries, the flux refinement, and the electric line-class exclusion;
-  this verdict adds the exact dyonic line-lattice arithmetic on the Z6
-  charge torus and types the physical line-operator attachment open.
+  this verdict adds the exact line-lattice arithmetic for all four untilted
+  global forms on the Z6 charge torus, the magnetic-sector statement, and
+  the per-form distinguishing observations, and types the physical
+  line-operator attachment open.
 * issue #643: the angular selection rules are registered as the source
   template, and the internal-versus-rotation-remnant question is not
   decidable on the declared source interface because no screen-to-sky map
@@ -20,10 +22,11 @@ any comparison surface. This producer emits the four verdicts:
   source structure, and no map from the declared source interface to an
   interferometer readout exists, so the comparison contract is correctly
   not frozen.
-* issue #646: the physical pole, width, residue, and asymmetry vector is
-  not source-evaluable on the declared interface (no unit attachment and no
-  pole promotion), and the surviving scale-free combinations are exactly
-  the registered candidates.
+* issue #646: every tested pole, width, residue, and asymmetry
+  combination is blocked by a pinned receipt (the no-pole-promotion
+  boundary, plus the serialized unit verdict for physical-unit rows), and
+  the adjacent registered response identities are recorded as distinct
+  survivors.
 
 Every verdict pins its inputs by exact bytes, fails closed on drift, reads
 no public measurement, and permits no comparison.
@@ -54,10 +57,24 @@ WZ_MANIFEST_PATH = (
 
 VERDICTS = {
     642: "CONDITIONAL_KILL_PACKET__PHYSICAL_LINE_ATTACHMENT_OPEN",
-    643: "NO_SCREEN_TO_SKY_MAP__SOURCE_TEMPLATE_REGISTERED",
-    645: "NO_SOURCE_TO_READOUT_MAP__SOURCE_SPECTRUM_REGISTERED",
-    646: "TESTED_VECTOR_NOT_SOURCE_EVALUABLE__SCALE_FREE_SURVIVORS_REGISTERED",
+    643: "NOT_EVALUABLE_NO_SCREEN_TO_SKY_MAP__SOURCE_TEMPLATE_REGISTERED",
+    645: "NOT_EVALUABLE_NO_SOURCE_TO_READOUT_MAP__SOURCE_SPECTRUM_REGISTERED",
+    646: (
+        "BOUNDED_NO_GO_ALL_TESTED_VECTORS_NONIDENTIFIABLE__"
+        "ADJACENT_RESPONSE_IDENTITIES_REGISTERED"
+    ),
 }
+CLOCK_UNIT_VERDICT_PATH = (
+    REPO_ROOT / "code" / "a5_closure" / "manifests" / "clock_unit_verdict.json"
+)
+CLASSICAL_RECEIPT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "a5_closure"
+    / "manifests"
+    / "classical_realization_receipt.json"
+)
+FZ_REGISTER_PATH = REPO_ROOT / "claims" / "frozen_prediction_register.json"
 
 
 class VerdictError(ValueError):
@@ -142,45 +159,141 @@ def _candidate_digest(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 # ---------------------------------------------------------------------------
 
 
+def _dirac_pairing(e1: int, m1: int, e2: int, m2: int) -> int:
+    return (e1 * m2 - e2 * m1) % 6
+
+
+def _all_subgroups_z6_squared() -> list[frozenset[tuple[int, int]]]:
+    """Every subgroup of Z6 x Z6 by closure of two-element generation."""
+
+    elements = [(e, m) for e in range(6) for m in range(6)]
+    subgroups: set[frozenset[tuple[int, int]]] = set()
+    for first in elements:
+        for second in elements:
+            group = {(0, 0)}
+            frontier = [first, second]
+            while frontier:
+                candidate = frontier.pop()
+                if candidate in group:
+                    continue
+                group.add(candidate)
+                for member in list(group):
+                    total = (
+                        (candidate[0] + member[0]) % 6,
+                        (candidate[1] + member[1]) % 6,
+                    )
+                    if total not in group:
+                        frontier.append(total)
+            subgroups.add(frozenset(group))
+    return sorted(subgroups, key=lambda group: (len(group), sorted(group)))
+
+
 def dyonic_line_lattice_certificate() -> dict[str, Any]:
-    """Exact line-class arithmetic for the quotient global form.
+    """Exact line-class arithmetic across all four untilted global forms.
 
     Line classes live on the Z6 x Z6 charge torus with the Dirac pairing
-    ``<(e1, m1), (e2, m2)> = e1*m2 - e2*m1 mod 6``. The quotient form's
-    electric classes are the descended (zero) classes, so its line lattice
-    is ``{(0, m)}``. The certificate checks by exhaustion that this lattice
-    is isotropic, that it is maximal (every outside class fails mutual
-    locality with some lattice element), and that exactly six of the
-    thirty-six classes are allowed.
+    ``<(e1, m1), (e2, m2)> = e1*m2 - e2*m1 mod 6``. For the quotient by a
+    central subgroup of order ``g``, the untilted line lattice is the
+    product of the electric classes trivial on the subgroup with the
+    magnetic classes it supplies. The certificate enumerates every maximal
+    isotropic subgroup of the torus by exhaustion, verifies there are
+    exactly twelve, locates the four untilted global-form lattices among
+    them, and records the distinguishing observation for each form.
     """
 
-    def pairing(e1: int, m1: int, e2: int, m2: int) -> int:
-        return (e1 * m2 - e2 * m1) % 6
+    maximal_isotropic = []
+    for group in _all_subgroups_z6_squared():
+        if len(group) != 6:
+            continue
+        if any(
+            _dirac_pairing(*left, *right) != 0
+            for left in group
+            for right in group
+        ):
+            continue
+        outside_all_fail = all(
+            any(_dirac_pairing(e, m, *member) != 0 for member in group)
+            for e in range(6)
+            for m in range(6)
+            if (e, m) not in group
+        )
+        if outside_all_fail:
+            maximal_isotropic.append(sorted(group))
 
-    lattice = [(0, m) for m in range(6)]
-    isotropic = all(
-        pairing(*left, *right) == 0 for left in lattice for right in lattice
-    )
-    outside_all_fail = all(
-        any(pairing(e, m, *element) != 0 for element in lattice)
-        for e in range(6)
-        for m in range(6)
-        if (e, m) not in lattice
-    )
-    allowed = [[e, m] for e in range(6) for m in range(6) if (e, m) in lattice]
-    forbidden_count = 36 - len(allowed)
+    untilted_forms = {
+        "unquotiented": {
+            "quotient_order": 1,
+            "lattice": sorted((e, 0) for e in range(6)),
+            "distinguishing_observation": (
+                "every electric line class occurs and only the trivial "
+                "flux class exists"
+            ),
+        },
+        "z2_quotient": {
+            "quotient_order": 2,
+            "lattice": sorted((e, m) for e in (0, 2, 4) for m in (0, 3)),
+            "distinguishing_observation": (
+                "electric line classes of even center charge with two flux "
+                "classes"
+            ),
+        },
+        "z3_quotient": {
+            "quotient_order": 3,
+            "lattice": sorted((e, m) for e in (0, 3) for m in (0, 2, 4)),
+            "distinguishing_observation": (
+                "electric line classes of center charge zero or three with "
+                "three flux classes"
+            ),
+        },
+        "z6_quotient": {
+            "quotient_order": 6,
+            "lattice": sorted((0, m) for m in range(6)),
+            "distinguishing_observation": (
+                "only descended electric line classes with all six flux "
+                "classes; the declared branch"
+            ),
+        },
+    }
+    lattices_found = {
+        name: sorted(tuple(pair) for pair in row["lattice"]) in [
+            [tuple(pair) for pair in group] for group in maximal_isotropic
+        ]
+        for name, row in untilted_forms.items()
+    }
+    quotient_lattice = [(0, m) for m in range(6)]
+    magnetic_statement = {
+        "z6_quotient_pure_magnetic_classes_allowed": sorted(
+            m for (e, m) in quotient_lattice
+        ),
+        "statement": (
+            "in the declared quotient branch every pure magnetic flux class "
+            "is allowed and every electric line class outside the descended "
+            "lattice is forbidden"
+        ),
+    }
     return {
         "charge_torus": "Z6 x Z6",
         "dirac_pairing": "e1*m2 - e2*m1 mod 6",
-        "lattice": allowed,
-        "lattice_isotropic": isotropic,
-        "lattice_maximal_by_exhaustion": outside_all_fail,
-        "allowed_classes": len(allowed),
-        "forbidden_classes": forbidden_count,
+        "maximal_isotropic_count": len(maximal_isotropic),
+        "untilted_global_forms": {
+            name: {
+                "quotient_order": row["quotient_order"],
+                "lattice": [list(pair) for pair in row["lattice"]],
+                "present_among_maximal_isotropic": lattices_found[name],
+                "distinguishing_observation": row["distinguishing_observation"],
+            }
+            for name, row in untilted_forms.items()
+        },
+        "magnetic_sector": magnetic_statement,
+        "declared_branch_lattice": [list(pair) for pair in quotient_lattice],
+        "allowed_classes": len(quotient_lattice),
+        "forbidden_classes": 36 - len(quotient_lattice),
         "theta_dependence": (
-            "the dyonic tilt of the lattice under a vacuum angle is a named "
-            "open direction owned by the strong-CP issue; this certificate "
-            "fixes the untilted normalization"
+            "the remaining eight maximal isotropic subgroups are the "
+            "theta-tilted variants of the quotient lattices; the tilt under "
+            "a vacuum angle is a named open direction owned by the "
+            "strong-CP issue, and this certificate fixes the untilted "
+            "normalization"
         ),
     }
 
@@ -189,8 +302,11 @@ def build_642(registry: dict[str, Any]) -> dict[str, Any]:
     rows = _slot_candidates(registry, "z6_charge_line_congruences")
     lattice = dyonic_line_lattice_certificate()
     require(
-        lattice["lattice_isotropic"]
-        and lattice["lattice_maximal_by_exhaustion"]
+        lattice["maximal_isotropic_count"] == 12
+        and all(
+            row["present_among_maximal_isotropic"]
+            for row in lattice["untilted_global_forms"].values()
+        )
         and lattice["allowed_classes"] == 6,
         "dyonic lattice certificate drift",
     )
@@ -227,11 +343,30 @@ def build_642(registry: dict[str, Any]) -> dict[str, Any]:
 
 def build_643(registry: dict[str, Any]) -> dict[str, Any]:
     rows = _slot_candidates(registry, "a5_angular_rules")
+    register = json.loads(FZ_REGISTER_PATH.read_text(encoding="utf-8"))
+    fz02 = next(
+        row
+        for row in register.get("candidates", register.get("rows", []))
+        if row.get("id") == "FZ-02"
+    )
+    require(
+        "Status correction 2026-07-30" in fz02.get("content", ""),
+        "FZ-02 frame-lock status correction is absent",
+    )
     return {
         "schema": "oph.discriminator_stratum_verdict.v1",
         "issue": 643,
         "status": VERDICTS[643],
         "registered_source_template": _candidate_digest(rows),
+        "frame_lock_disposition": {
+            "clause": "FZ02-R03b",
+            "disposition": (
+                "retired from the scientific target through the append-only "
+                "FZ-02 status correction; the clause reopens only with a "
+                "source-derived screen-to-sky template map"
+            ),
+            "custody": "claims/frozen_prediction_register.json",
+        },
         "decision_boundary": (
             "the declared source interface carries the A5 action on the "
             "port coefficient module as internal algebra; deciding a "
@@ -262,6 +397,9 @@ def build_645(registry: dict[str, Any]) -> dict[str, Any]:
         "issue": 645,
         "status": VERDICTS[645],
         "registered_source_spectrum": _candidate_digest(rows),
+        "pinned_spectrum_receipt": (
+            "code/a5_closure/manifests/classical_realization_receipt.json"
+        ),
         "feasibility_result": (
             "the normalized cross-spectrum exists as registered source "
             "structure: the unique flat twist sector, the conjugate-sector "
@@ -292,30 +430,94 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
         manifest.get("promotion_allowed") is False,
         "wz integration manifest promotion drift",
     )
+    clock_unit = json.loads(CLOCK_UNIT_VERDICT_PATH.read_text(encoding="utf-8"))
+    units_status = clock_unit.get("status", clock_unit.get("verdict"))
+    require(
+        isinstance(units_status, str)
+        and "PHYSICAL_UNITS_NOT_EVALUABLE" in units_status,
+        "clock-unit verdict drift",
+    )
+    tested_combinations = [
+        {
+            "combination": "M_W / M_Z",
+            "dimensionless": True,
+            "blocked_by": "no_pole_promotion",
+            "receipt": (
+                "the upstream stack forbids promoting any pole value, so "
+                "neither mass enters a source-evaluable ratio"
+            ),
+        },
+        {
+            "combination": "Gamma_W / M_W",
+            "dimensionless": True,
+            "blocked_by": "no_pole_promotion",
+            "receipt": "no source-evaluable width or pole value exists",
+        },
+        {
+            "combination": "Gamma_Z / M_Z",
+            "dimensionless": True,
+            "blocked_by": "no_pole_promotion",
+            "receipt": "no source-evaluable width or pole value exists",
+        },
+        {
+            "combination": "pole-residue ratios",
+            "dimensionless": True,
+            "blocked_by": "no_pole_promotion",
+            "receipt": (
+                "the boundary diagnostic keeps every residue promotion flag "
+                "false"
+            ),
+        },
+        {
+            "combination": "asymmetry combinations",
+            "dimensionless": True,
+            "blocked_by": "no_pole_promotion",
+            "receipt": (
+                "no source-evaluable coupling asymmetry exists without the "
+                "pole and current attachments"
+            ),
+        },
+        {
+            "combination": "any physical-unit member of the vector",
+            "dimensionless": False,
+            "blocked_by": "physical_units_not_evaluable",
+            "receipt": units_status,
+        },
+    ]
     return {
         "schema": "oph.discriminator_stratum_verdict.v1",
         "issue": 646,
         "status": VERDICTS[646],
-        "tested_vector": [
-            "pole",
-            "width",
-            "residue",
-            "asymmetry",
-        ],
+        "tested_combinations": tested_combinations,
         "non_evaluability": (
-            "the physical vector is not source-evaluable on the declared "
-            "interface: physical units are not evaluable on the serialized "
-            "local domain, the upstream W/Z stack forbids pole promotion, "
-            "and the clock, vacuum-scale, normalization, threshold, and "
-            "scheme directions are unresolved nuisance directions in the "
-            "frozen registry"
+            "every tested combination is blocked by a pinned receipt: the "
+            "dimensionless rows by the upstream no-pole-promotion boundary, "
+            "and the physical-unit rows additionally by the serialized "
+            "local-domain unit verdict; the dimensionless rows stay "
+            "evaluable in principle and reopen with a pole producer"
         ),
-        "scale_free_survivors": _candidate_digest(rows),
-        "survivor_boundary": (
-            "the surviving scale-free combinations are exactly the "
-            "registered candidates; the full source-to-pole campaign stays "
-            "gated behind its activation conditions"
+        "nuisance_mapping": (
+            "the frozen mining registry carries basis_and_coordinate_choice, "
+            "common_dimensionful_scale, physical_sector_choice, "
+            "source_admissible_completion, and "
+            "detector_transfer_calibration; the clock, scheme, and "
+            "threshold directions live in the upstream W/Z stack vocabulary "
+            "and stay outside the source cone until a pole producer exists"
         ),
+        "adjacent_registered_response_identities": _candidate_digest(rows),
+        "adjacency_note": (
+            "the registered rows are band-cost and channel identities of "
+            "the response spectrum, adjacent to and distinct from the "
+            "tested pole vector"
+        ),
+        "surviving_direction_owners": {
+            "physical common-load attachment": 631,
+            "field and operator census": 632,
+            "matching and schemes": 32,
+            "finite-source EFT bridge": 635,
+            "family attachment": 569,
+            "integrated action": 630,
+        },
         "wz_manifest_status": manifest.get("scientific_status"),
         "comparison_boundary": {
             "public_measurement_read": False,
@@ -324,7 +526,7 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
         "reopen_condition": (
             "a positive unit and pole producer chain, at which point the "
             "minimal surviving source inputs are the registered scale-free "
-            "combinations"
+            "response identities"
         ),
     }
 
@@ -332,13 +534,20 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
 BUILDERS = {642: build_642, 643: build_643, 645: build_645, 646: build_646}
 
 
+PIN_PATHS = {
+    642: (REGISTRY_PATH,),
+    643: (REGISTRY_PATH, FZ_REGISTER_PATH),
+    645: (REGISTRY_PATH, CLASSICAL_RECEIPT_PATH),
+    646: (REGISTRY_PATH, WZ_MANIFEST_PATH, CLOCK_UNIT_VERDICT_PATH),
+}
+
+
 def build_all() -> dict[int, dict[str, Any]]:
     registry = _load_registry()
-    pins = [_pin(REGISTRY_PATH), _pin(WZ_MANIFEST_PATH)]
     verdicts = {}
     for issue, builder in sorted(BUILDERS.items()):
         verdict = builder(registry)
-        verdict["parent_pins"] = pins
+        verdict["parent_pins"] = [_pin(path) for path in PIN_PATHS[issue]]
         verdict["verdict_sha256"] = tagged_sha256(canonical_json_bytes(verdict))
         verdicts[issue] = verdict
     return verdicts

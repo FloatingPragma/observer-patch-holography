@@ -89,9 +89,12 @@ def test_fz02_frame_lock_is_ineligible_pending_issue_643():
     fz02 = next(row for row in register["rows"] if row["id"] == "FZ-02")
     assert "frame-lock clause is not established" in fz02["content"]
     assert "ineligible pending issue #643" in fz02["content"]
+    assert "Status correction 2026-07-30" in fz02["content"]
+    assert "retired from the scientific target" in fz02["content"]
     assert "no frame-lock verdict may be issued" in fz02["comparison_protocol"]
     assert "FZ02-R03a" in fz02["kill_band"]
     assert "FZ02-R03b (INELIGIBLE; #643)" in fz02["kill_band"]
+    assert "FZ02-R03b correction 2026-07-30" in fz02["kill_band"]
     fz_tool.validate(register)
 
     register = live_register()

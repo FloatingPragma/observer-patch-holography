@@ -500,7 +500,7 @@ conditional closure candidate and downstream test.
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the completed declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Conditional common-load $N$ candidate | The named screen/electroweak self-read law has the unique root $N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward branch. It uses no measured $\Lambda$. Its theorem-level coupling to the electroweak bridge excludes it from the blind direct-$N$ forecast class. The complete direct-capacity source lift, physical same-load identity, and horizon attachment are open; the bridge root is $6.63$ percent above the $\Lambda$-located comparison coordinate | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Conditional common-load $N$ candidate | The named screen/electroweak self-read law has the unique root $N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward branch. It uses no measured $\Lambda$. Its theorem-level coupling to the electroweak bridge excludes it from the blind direct-$N$ forecast class. The completed direct-capacity source class is locked nonidentifiable, the horizon attachment closed not evaluable, and the physical same-load identity stays open; the bridge root is $6.63$ percent above the $\Lambda$-located comparison coordinate | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?
@@ -592,7 +592,8 @@ attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
 physical derivation. The source-derived fixed-cutoff correctable-record
 realization is exact. The complete capacity-indexed A1--A3 packet lift
-required for a direct $N$ is work in progress. The named common-load closure has a unique
+carries a locked negative verdict: the completed declared class entails no
+unique slack zero, so a direct $N$ requires an additional named source law. The named common-load closure has a unique
 conditional root, with its physical same-load and horizon identifications
 open.
 Reading $N$ from the universe leaves every consequence of the three axioms
@@ -629,7 +630,7 @@ $k=1$ is not physical $N$-closure.
 
 The other named obligations are:
 
-- prove horizon-record saturation on the same refinement tower;
+- supply an additional named capacity source law, without which the horizon-record saturation obligation closed not evaluable;
 - construct the common screen/EW load carrier without feeding the Higgs target
   into N;
 - discharge the physical current, determinant, spin-lift, deck-descent,
