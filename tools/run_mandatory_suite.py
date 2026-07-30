@@ -164,6 +164,24 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the kinetic ray receipt",
+        [
+            sys.executable,
+            "code/angular_sprint/kinetic_ray_certificate.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the kinetic ray tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/angular_sprint/test_kinetic_ray_certificate.py",
+        ],
+    ),
+    (
         "Validate the carrier specificity receipt",
         [
             sys.executable,
